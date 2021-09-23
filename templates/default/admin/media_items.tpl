@@ -123,7 +123,7 @@
 
                         <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{if $file.nice_size_avif < $file.nice_size_webp}{$link_avif|default:$link}{else}{$link_webp|default:$link}{/if}" data-fallback="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}{if $file.nice_size_avif < $file.nice_size_webp}{if !empty($img_src_avif)} (AVIF){/if}{else}{if !empty($img_src_webp)} (WepP){/if}{/if}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
                             <picture>
-                                <source type="image/avif" srcset="{if (int) $file.nice_size_avif > 0 AND (int) $file.nice_size_avif < (int) $file.nice_size_webp}{$img_src_avif|default:''}{/if}" class="ml_preview_img" alt="{$img_alt} (avif)">
+                                {if isset($file.thumbSizeAVIF) AND $file.thumbSizeAVIF > 1000 AND $file.thumbSizeAVIF < $file.thumbSizeWebp}<source type="image/avif" srcset="{$img_src_avif|default:''}" class="ml_preview_img" alt="{$img_alt} (avif)">{/if}
                                 <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt} (webp)">
                                 <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/manage -->
                             </picture>
@@ -147,7 +147,7 @@
                     {if $file.is_image}
 
                         <picture>
-                            <source type="image/avif" srcset="{if (int) $file.nice_size_avif > 0 AND (int) $file.nice_size_avif < (int) $file.nice_size_webp}{$img_src_avif|default:''}{/if}" class="ml_preview_img" alt="{$img_alt} (webp)">
+                            {if isset($file.thumbSizeAVIF) AND $file.thumbSizeAVIF > 1000 AND $file.thumbSizeAVIF < $file.thumbSizeWebp}<source type="image/avif" srcset="{$img_src_avif|default:''}" class="ml_preview_img" alt="{$img_alt} (avif)">{/if}
                             <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt} (webp)">
                             <img src="{$img_src}" title="{if NOT $media.enclose}{$CONST.THUMBNAIL_SHORT}: {/if}{$img_title}" alt="{$img_alt}"><!-- media/properties -->
                         </picture>
