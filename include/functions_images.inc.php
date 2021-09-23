@@ -1286,6 +1286,10 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                 if (false !== strpos($outfile, '.' . $serendipity['thumbSuffix'] . '.webp')) {
                     $fdim['mime'] = 'image/webp';
                 }
+                // check a special case for the fullpath AVIF file to thumbnail resizing
+                if (false !== strpos($outfile, '.' . $serendipity['thumbSuffix'] . '.avif')) {
+                    $fdim['mime'] = 'image/avif';
+                }
 
                 // avoid the file resizing loop in special case; which is example.serendipityThumb.ext (png,jpg,webp,avif..)
                 if (!file_exists($outfile)) {
