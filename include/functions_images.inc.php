@@ -1100,7 +1100,7 @@ function serendipity_passToCMD($type=null, $source='', $target='', $args=array()
  * @param   string      Name of the thumbnail
  * @param   bool        Store thumbnail in temporary place?
  * @param   bool        Force enlarging of small images?
- * @param   bool        Suppress serendipity_convertToWebPFormat() message, if it is a bulk (synchronization) traversal request
+ * @param   bool        Suppress serendipity_convertToWebPFormat() & serendipity_convertToAvifFormat() message, if it is a bulk (synchronization) traversal request
  * @return  array       The result size of the thumbnail
  */
 function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumbname = false, $is_temporary = false, $force_resize = false, $mute = false) {
