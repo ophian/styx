@@ -10,6 +10,7 @@
                 {/if}
             {/if}
 
+            {$img_src_avif="{$file.full_thumb_avif|default:''}"}
             {$img_src_webp="{$file.full_thumb_webp|default:''}"}
             {$img_src="{$file.full_thumb}"}
             {$img_title="{$file.path}{$file.name}"}
@@ -24,8 +25,8 @@
                 {/if}
             {/if}
 
-            {* $link_webp="{$file.full_file_webp|default:''}" NOT actually a NEED here, isn't it .. *}
-            {* $img_src_webp="{$file.full_thumb_webp|default:''}" NOT actually a NEED here, isn't it .. *}
+            {* $link_webp="{$file.full_file_webp|default:''}" NOT actually a NEED here, isn't it .. DITTO for avif *}
+            {* $img_src_webp="{$file.full_thumb_webp|default:''}" NOT actually a NEED here, isn't it .. DITTO for avif *}
             {$img_src="{$file.path}"}
             {$img_title="{$file.path}"}
             {$img_alt="{$file.realname}"}
@@ -45,22 +46,28 @@
     {else}
         {if $file.is_image AND !empty($file.full_path_thumb)}
             {$link="{if $file.hotlink}{$file.path}{else}{$file.full_file}{/if}"}
+            {$link_avif="{$file.full_file_avif|default:''}"}
             {$link_webp="{$file.full_file_webp|default:''}"}
             {$img_src="{$file.show_thumb}"}
+            {$img_src_avif="{$file.full_thumb_avif|default:''}"}
             {$img_src_webp="{$file.full_thumb_webp|default:''}"}
             {$img_title="{$file.path}{$file.name}"}
             {$img_alt="{$file.realname}"}
         {elseif $file.is_image AND $file.hotlink}
             {$link="{if $file.hotlink}{$file.path}{else}{$file.full_file}{/if}"}
+            {$link_avif="{$file.full_file_avif|default:''}"}
             {$link_webp="{$file.full_file_webp|default:''}"}
             {$img_src="{$file.path}"}
+            {$img_src_avif=""}{* YES, empty! Else it uses the predefined item *}
             {$img_src_webp=""}{* YES, empty! Else it uses the predefined item *}
             {$img_title="{$file.path}"}
             {$img_alt="{$file.realname}"}
         {else}
             {$link="{if $file.hotlink}{$file.path}{else}{$file.full_file}{/if}"}
+            {$link_avif="{$file.full_file_avif|default:''}"}
             {$link_webp="{$file.full_file_webp|default:''}"}
             {$img_src="{$file.mimeicon}"}
+            {$img_src_avif="{$file.full_thumb_avif|default:''}"}
             {$img_src_webp="{$file.full_thumb_webp|default:''}"}
             {$img_title="{$file.path}{$file.name}({$file.mime})"}
             {$img_alt="{$file.mime}"}
@@ -71,10 +78,18 @@
         {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;serendipity[fid]={$file.id}&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[htmltarget]={$media.htmltarget}"}
     {/if}
     {* check empty cases like pdf thumbs to not fillup with last generated img_src_webp string *}
+    {* AVIF *}
+    {if empty($file.full_thumb_avif)}
+        {$img_src_avif=""}
+    {/if}
+    {if NOT isset($link_avif)}{$link_avif=null}{/if}
+    {if NOT isset($file.nice_size_avif)}{$file.nice_size_avif=null}{/if}
+    {* WebP *}
     {if empty($file.full_thumb_webp)}
         {$img_src_webp=""}
     {/if}
     {if NOT isset($link_webp)}{$link_webp=null}{/if}
+    {if NOT isset($file.nice_size_webp)}{$file.nice_size_webp=null}{/if}
 
             <article id="media_{$file.id}" class="media_file mlDefCol{if NOT empty($smarty.get.serendipity.adminAction) AND $smarty.get.serendipity.adminAction == 'properties'} mfile_prop{/if} {if $media.manage AND $media.multiperm}manage {/if}{cycle values="odd,even"}">
                 <header class="clearfix">
@@ -106,9 +121,10 @@
                         {else}</div>{/if}
                     {else}
 
-                        <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{$link_webp|default:$link}" data-fallback="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}{if !empty($img_src_webp)} (WepP){/if}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
+                        <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{if $file.nice_size_avif < $file.nice_size_webp}{$link_avif|default:$link}{else}{$link_webp|default:$link}{/if}" data-fallback="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}{if $file.nice_size_avif < $file.nice_size_webp}{if !empty($img_src_avif)} (AVIF){/if}{else}{if !empty($img_src_webp)} (WepP){/if}{/if}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
                             <picture>
-                                <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt}">
+                                <source type="image/avif" srcset="{if (int) $file.nice_size_avif > 0 AND (int) $file.nice_size_avif < (int) $file.nice_size_webp}{$img_src_avif|default:''}{/if}" class="ml_preview_img" alt="{$img_alt} (avif)">
+                                <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt} (webp)">
                                 <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/manage -->
                             </picture>
                         </a>
@@ -131,7 +147,8 @@
                     {if $file.is_image}
 
                         <picture>
-                            <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt}">
+                            <source type="image/avif" srcset="{if (int) $file.nice_size_avif > 0 AND (int) $file.nice_size_avif < (int) $file.nice_size_webp}{$img_src_avif|default:''}{/if}" class="ml_preview_img" alt="{$img_alt} (webp)">
+                            <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt} (webp)">
                             <img src="{$img_src}" title="{if NOT $media.enclose}{$CONST.THUMBNAIL_SHORT}: {/if}{$img_title}" alt="{$img_alt}"><!-- media/properties -->
                         </picture>
                         {if $file.mime|truncate:6:'' == 'image/' AND ($file.extension|count_characters > $CONST.PATHINFO_EXTENSION)}
@@ -188,6 +205,16 @@
 
                                 <li><b>{$CONST.THUMBFILE_SIZE}:</b> {$file.nice_thumbsize} KB</li>
                                 {/if}
+                                {* AVIF *}
+                                {if NOT empty($file.nice_size_avif) AND NOT $file.hotlink}
+
+                                <li><b>AVIF-{$CONST.FILE_SIZE}:</b> {$file.nice_size_avif} KB</li>
+                                {/if}
+                                {if $file.is_image AND NOT empty($file.nice_thumbsize_avif)}
+
+                                <li><b>AVIF-{$CONST.THUMBFILE_SIZE}:</b> {$file.nice_thumbsize_avif} KB</li>
+                                {/if}
+                                {* WebP *}
                                 {if NOT empty($file.nice_size_webp) AND NOT $file.hotlink}
 
                                 <li><b>WebP-{$CONST.FILE_SIZE}:</b> {$file.nice_size_webp} KB</li>
@@ -237,9 +264,11 @@
                     {/if}
                     {if NOT empty($imagesNoSync)}
                     {foreach $imagesNoSync AS $special}
-                    {if $file.name == $special.pfilename}
+                    {if $file.name == $special.pfilename}{* Check out erroneous build AVIF files by filesize and switch special case variation link on AVIF true *}
+                    {if $special.extension == 'avif'}{if $special.filesize == null OR $special.filesize == 0 OR $special.filesize < 1000}{continue}{else}{assign var="isavif" value=true}{/if}{/if}
+                    {if $special.extension == 'webp' AND $isavif === true}{assign var="isavif" value=false}{continue}{/if}
 
-                    <li class="special"><a class="media_fullsize media_prop button_link" href="{$special.url}" title="{if $special.extension == 'webp'}{$CONST.VARIATION}{else}{$CONST.PUBLISHED}{/if}: {$special.basename}, {$special.width}x{$special.height}px" data-pwidth="{$special.width}" data-pheight="{$special.height}"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span><span class="visuallyhidden"> Image Of</span></a></li>
+                    <li class="special"><a class="media_fullsize media_prop button_link" href="{$special.url}" title="{if $special.extension == 'webp' OR $special.extension == 'avif'}{$CONST.VARIATION}{else}{$CONST.PUBLISHED}{/if}: {$special.basename}, {$special.width}x{$special.height}px" data-pwidth="{$special.width}" data-pheight="{$special.height}"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span><span class="visuallyhidden"> Image Of</span></a></li>
                     {/if}
                     {/foreach}
                     {/if}
@@ -277,6 +306,16 @@
 
                             <li><b>{$CONST.THUMBFILE_SIZE}:</b> {$file.nice_thumbsize} KB</li>
                         {/if}
+                        {* AVIF *}
+                        {if NOT empty($file.nice_size_avif) AND NOT $file.hotlink}
+
+                            <li><b>AVIF-{$CONST.FILE_SIZE}:</b> {$file.nice_size_avif} KB</li>
+                        {/if}
+                        {if $file.is_image AND NOT empty($file.nice_thumbsize_avif)}
+
+                            <li><b>AVIF-{$CONST.THUMBFILE_SIZE|truncate:15}:</b> {$file.nice_thumbsize_avif} KB</li>
+                        {/if}
+                        {* WebP *}
                         {if NOT empty($file.nice_size_webp) AND NOT $file.hotlink}
 
                             <li><b>WebP-{$CONST.FILE_SIZE}:</b> {$file.nice_size_webp} KB</li>
@@ -295,6 +334,7 @@
                 <section class="media_file_props">
                     <h4>{$CONST.MEDIA_PROP} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#dc3545" class="bi bi-pin-angle-fill" viewBox="0 0 16 16"><title id="title">Pinned</title><path d="M9.828.722a.5.5 0 0 1 .354.146l4.95 4.95a.5.5 0 0 1 0 .707c-.48.48-1.072.588-1.503.588-.177 0-.335-.018-.46-.039l-3.134 3.134a5.927 5.927 0 0 1 .16 1.013c.046.702-.032 1.687-.72 2.375a.5.5 0 0 1-.707 0l-2.829-2.828-3.182 3.182c-.195.195-1.219.902-1.414.707-.195-.195.512-1.22.707-1.414l3.182-3.182-2.828-2.829a.5.5 0 0 1 0-.707c.688-.688 1.673-.767 2.375-.72a5.92 5.92 0 0 1 1.013.16l3.134-3.133a2.772 2.772 0 0 1-.04-.461c0-.43.108-1.022.589-1.503a.5.5 0 0 1 .353-.146z"/></svg></h4>
                     {if $file.property_saved === false}<span class="msg_notice"><span class="icon-info-circled"></span> {$CONST.MEDIA_PROP_STATUS}</span>{/if}
+
                 {foreach $file.base_property AS $prop_content}
 
                     <div class="form_{if $prop_content.type == 'textarea'}area{else}field{/if}">
