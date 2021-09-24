@@ -5748,38 +5748,38 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $file, $pick=
         //  to check the oldDirFile string backwards with a flexible substr offset ending with a "dot extension"
         if ($type == 'file') {
             $_oldDirFile = ('.'.substr($oldDirFile, -$lex) != '.'.$_file['extension']) ? $oldDirFile : $_file['path'] . $_file['name'];
-            $_oldDirFileWebP = $_file['path'] . '.v/' . $_file['name'];
+            $_oldDirFileVariation = $_file['path'] . '.v/' . $_file['name']; // refactor old and new naming for generic variation (webp|avif) ++ - done!
             // DISTINGUISH if it is a single type 'file' case rename OR a type 'file' case re-move (which is more like a 'filedir' type case, isn't it?!)
             if (empty($serendipity['ml_type_file_is_bulkmove_event']) && !isset($file['newformat'])) {
-                $_newDirFileWebP = $_file['path'] . '.v/' . $newDir; // YES, newDir is the new file name for the type 'file' case for rename! IS NOT in case bulkmove!!
+                $_newDirFileVariation = $_file['path'] . '.v/' . $newDir; // YES, newDir is the new file name for the type 'file' case for rename! IS NOT in case bulkmove!!
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag RENAME case (1) RENAME VS BULKMOVE: newDir=$newDir is the new variation filename"); }
             } else if (!empty($serendipity['ml_type_file_is_bulkmove_event'])) {
-                $_newDirFileWebP = $newDir . '.v/' . $_file['name']; // YES, this is a type 'file' case for re-move and so is newDir the new relative location directory path, while filename is not changed.
+                $_newDirFileVariation = $newDir . '.v/' . $_file['name']; // YES, this is a type 'file' case for re-move and so is newDir the new relative location directory path, while filename is not changed.
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag RE-MOVE case (2) BULKMOVE VS RENAME: newDir=$newDir is the new variation directory location == ${newDir}.v/${_file['name']}"); }
                 unset($serendipity['ml_type_file_is_bulkmove_event']);
             } else if (empty($serendipity['ml_type_file_is_bulkmove_event']) && isset($file['newformat'])) {
-                $_newDirFileWebP = $_file['path'] . '.v/' . $_file['name']; // Actually there is no need to set this variable, since not used when a format change applies! (Just done to clear things up!)
-                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Format case (3): _newDirFileWebP=${_file['path']}.v/${_file['name']} w/o real file application!"); }
+                $_newDirFileVariation = $_file['path'] . '.v/' . $_file['name']; // Actually there is no need to set this variable, since not used when a format change applies! (Just done to clear things up!)
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Format case (3): _newDirFileVariation=${_file['path']}.v/${_file['name']} w/o real file application!"); }
             } else {
                 // unknown fallback cse
-                echo '<span class="msg_error"><span class="icon-info-attention" aria-hidden="true"></span> Building _newDirFileWebP variable for Bulkmove vs Rename mismatch failed.</span>'."\n";
+                echo '<span class="msg_error"><span class="icon-info-attention" aria-hidden="true"></span> Building _newDirFileVariation variable for Bulkmove vs Rename mismatch failed.</span>'."\n";
                 if (isset($serendipity['ml_type_file_is_bulkmove_event'])) unset($serendipity['ml_type_file_is_bulkmove_event']);
                 return false;
             }
         } else { // cases 'filedir' and 'dir'
             $_oldDirFile = (FALSE !== strrpos($oldDirFile, '.'.$_file['extension'], -($lex+1))) ? str_replace('.'.$_file['extension'], '', $oldDirFile) : $oldDirFile;
             if ($type == 'dir') {
-                $_oldDirFileWebP = $_oldDirFile . '.v/' . $_file['name'];
+                $_oldDirFileVariation = $_oldDirFile . '.v/' . $_file['name'];
             } else {
                 $list_oldDirFile = pathinfo($_oldDirFile); // since old $file array may be empty
-                $_oldDirFileWebP = ($list_oldDirFile['dirname'] != '.' ? $list_oldDirFile['dirname'] . '/.v/' : '.v/') . $list_oldDirFile['basename']; // checks relative path parts
+                $_oldDirFileVariation = ($list_oldDirFile['dirname'] != '.' ? $list_oldDirFile['dirname'] . '/.v/' : '.v/') . $list_oldDirFile['basename']; // checks relative path parts
             }
-            $_newDirFileWebP = $newDir . '.v/' . $_file['name'];
+            $_newDirFileVariation = $newDir . '.v/' . $_file['name'];
         }
         if (!isset($file['newformat'])) {
             // Prepare variations for replace w/o thumb and extension to match all possible occurrences
-            $oldDirFileWebP = $_oldDirFileWebP;
-            $newDirFileWebP = $_newDirFileWebP;
+            $oldDirFileWebP = $_oldDirFileVariation;
+            $newDirFileWebP = $_newDirFileVariation;
         }
 
         if ($debug) {
