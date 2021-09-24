@@ -5019,9 +5019,9 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         // We don't need to care about $parts['extension'], since you can't change the EXT by the JS file rename event
         $file_new = $file['path'] . $newName;
         $file_old = $file['path'] . $file['name'];
-        // WebP case
-        $file_new_webp = $file['path'] . '.v/' . $newName;
-        $file_old_webp = $file['path'] . '.v/' . $file['name'];
+        // AVIF/WebP case
+        $file_new_variation = $file['path'] . '.v/' . $newName;
+        $file_old_variation = $file['path'] . '.v/' . $file['name'];
 
         // build full thumb file names
         $_file_newthumb = $file['path'] . $newName . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . (empty($file['extension']) ? '' : '.' . $file['extension']);
@@ -5029,12 +5029,18 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         // WebP case
         $_file_newthumbWebp = $file['path'] . '.v/' . $newName . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . '.webp';
         $_file_oldthumbWebp = $file['path'] . '.v/' . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . '.webp';
+        // AVIF case
+        $_file_newthumbAVIF = $file['path'] . '.v/' . $newName . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . '.avif';
+        $_file_oldthumbAVIF = $file['path'] . '.v/' . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . '.avif';
         // file case
         $newThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file_newthumb;
         $oldThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file_oldthumb;
         // WebP case
         $newThumbWebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file_newthumbWebp;
         $oldThumbWebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file_oldthumbWebp;
+        // AVIF case
+        $newThumbAVIF = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file_newthumbAVIF;
+        $oldThumbAVIF = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file_oldthumbAVIF;
 
     } else {
         #if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag RTRIM             newDir=$newDir"); }
@@ -5047,36 +5053,42 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         // We don't need to care about $parts['extension'], since you can't change the EXT via the bulkmove event
         $file_new = $_newDir . $file['name'];
         $file_old = $file['path'] . $file['name'];
-        // WebP case
-        $file_new_webp = $_newDir . '.v/' . $file['name'];
-        $file_old_webp = $file['path'] . '.v/' . $file['name'];
+        // AVIF/WebP case
+        $file_new_variation = $_newDir . '.v/' . $file['name'];
+        $file_old_variation = $file['path'] . '.v/' . $file['name'];
     }
 
     // build full origin and new file path names for both events
     $newfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file_new . (empty($file['extension']) ? '' : '.' . $file['extension']);
     $oldfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file_old . (empty($file['extension']) ? '' : '.' . $file['extension']);
-    // WebP case and the valid(!) paranoid case to remove and re-add the extension
-    $file_new_webp = pathinfo($file_new_webp, PATHINFO_FILENAME);
-    #$file_old_webp = pathinfo($file_old_webp, PATHINFO_FILENAME); // disabled, for the case an "example.png.jpg" file was uploaded and now renamed to "example.jpg"
-    $file_rel_path = ($newDir == $file_new_webp) ? $file['path'] : $newDir; // distinguish between rename and re-move actions. covering newDir variable changes
+    // AVIF/WebP case and the valid(!) paranoid case to remove and re-add the extension
+    $file_new_variation = pathinfo($file_new_variation, PATHINFO_FILENAME);
+    #$file_old_variation = pathinfo($file_old_variation, PATHINFO_FILENAME); // disabled, for the case an "example.png.jpg" file was uploaded and now renamed to "example.jpg"
+    $file_rel_path = ($newDir == $file_new_variation) ? $file['path'] : $newDir; // distinguish between rename and re-move actions. covering newDir variable changes
 
     // check if the hidden dir path part is not already applied
-    if (!preg_match('@.v/@', $file_new_webp)) {
-        $file_new_webp = $file_rel_path . '.v/' . $file_new_webp;
+    if (!preg_match('@.v/@', $file_new_variation)) {
+        $file_new_variation = $file_rel_path . '.v/' . $file_new_variation;
     }
-    if (!preg_match('@.v/@', $file_old_webp)) {
-        $file_old_webp = $file_rel_path . '.v/' . $file_old_webp;
+    if (!preg_match('@.v/@', $file_old_variation)) {
+        $file_old_variation = $file_rel_path . '.v/' . $file_old_variation;
     }
-    $relnewfilewebp = $file_new_webp;
-    $reloldfilewebp = $file_old_webp;
-    $newfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $relnewfilewebp . '.webp';
-    $oldfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $reloldfilewebp . '.webp';
+    $relnewfilevariation = $file_new_variation;
+    $reloldfilevariation = $file_old_variation;
+    // WebP case
+    $newfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $relnewfilevariation . '.webp';
+    $oldfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $reloldfilevariation . '.webp';
+    // AVIF case
+    $newfileavif = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $relnewfilevariation . '.avif';
+    $oldfileavif = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $reloldfilevariation . '.avif';
 
     if ($debug) {
         $serendipity['logger']->debug("L_".__LINE__.":: $logtag PREPARED oldfile=    $oldfile");
         $serendipity['logger']->debug("L_".__LINE__.":: $logtag PREPARED newfile=    $newfile");
         $serendipity['logger']->debug("L_".__LINE__.":: $logtag PREPARED oldfilewebp=$oldfilewebp");
         $serendipity['logger']->debug("L_".__LINE__.":: $logtag PREPARED newfilewebp=$newfilewebp");
+        $serendipity['logger']->debug("L_".__LINE__.":: $logtag PREPARED oldfileavif=$oldfileavif");
+        $serendipity['logger']->debug("L_".__LINE__.":: $logtag PREPARED newfileavif=$newfileavif");
     }
 
     // check files existence for both events
@@ -5103,6 +5115,10 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
             if (file_exists($oldfilewebp)) {
                 @rename($oldfilewebp, $newfilewebp);
             }
+            // Rename/Move the .v/ stored AVIF file - avoid to rename on object files, eg zip, pdf, etc., w/o real image with variations
+            if (file_exists($oldfileavif)) {
+                @rename($oldfileavif, $newfileavif);
+            }
             // do not re-name again, if an item has no thumb name (eg. *.zip object file case) and old thumb eventually exists (possible missing PDF preview image on WinOS with IM)
             if (($newThumb != $newfile) && file_exists($oldThumb)) {
                 // the thumb file
@@ -5111,16 +5127,20 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
                 if (($newThumbWebp != $newfilewebp) && file_exists($oldThumbWebp)) {
                     @rename($oldThumbWebp, $newThumbWebp);
                 }
+                // AVIF thumb case
+                if (($newThumbAVIF != $newfileavif) && file_exists($oldThumbAVIF)) {
+                    @rename($oldThumbAVIF, $newThumbAVIF);
+                }
             }
 
             // Hook into staticpage for the renaming regex replacements
             // YES. We simply just assume the origins paths are the relative variations paths w/o the hidden dir!
             $renameValues  = array(array(
-                'haswebp'  => file_exists($newfilewebp),
-                'fromwebp' => $reloldfilewebp,
-                'towebp'   => $relnewfilewebp,
-                'from'     => str_replace('.v/', '', $reloldfilewebp),
-                'to'       => str_replace('.v/', '', $relnewfilewebp),
+                'haswebp'  => (file_exists($newfilewebp) || file_exists($newfileavif)),/* staticpage ported synonym for both expressions - change later */
+                'fromvar'  => $reloldfilevariation,
+                'tovar'    => $relnewfilevariation,
+                'from'     => str_replace('.v/', '', $reloldfilevariation),
+                'to'       => str_replace('.v/', '', $relnewfilevariation),
                 'thumb'    => $fileThumbSuffix,
                 'fthumb'   => $file['thumbnail_name'],
                 'oldDir'   => $oldDir,
@@ -5129,7 +5149,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
                 'item_id'  => $item_id,
                 'file'     => $file,
                 'debug'    => $debug,
-                'dbginfo'  => 'CASE IS RENAME of $oldfilewebp _renameRealFileName:: ~4743+'
+                'dbginfo'  => 'CASE IS RENAME of [$oldfilewebp | $oldfileavif] _renameRealFileName:: ~5117 ++ ditto for avif'
             ));
             serendipity_plugin_api::hook_event('backend_media_rename', $renameValues); // rename real file name type 'file'
 
@@ -5160,20 +5180,20 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
             // Hook into staticpage for the renaming regex replacements and include some more since also use below for rename action
             // YES. We simply just assume the origins paths are the relative variations paths w/o the hidden dir!
             $renameValues = array(array(
-                'fromwebp' => $reloldfilewebp,
-                'towebp'   => $relnewfilewebp,
-                'from'     => str_replace('.v/', '', $reloldfilewebp),
-                'to'       => str_replace('.v/', '', $relnewfilewebp),
+                'fromvar'  => $reloldfilevariation,
+                'tovar'    => $relnewfilevariation,
+                'from'     => str_replace('.v/', '', $reloldfilevariation),
+                'to'       => str_replace('.v/', '', $relnewfilevariation),
                 'oldDir'   => $oldDir,
                 'newDir'   => $newDir,
                 'thumb'    => $fileThumbSuffix,
                 'fthumb'   => $file['thumbnail_name'],
                 'type'     => $type,
                 'item_id'  => $item_id,
-                'haswebp'  => file_exists($oldfilewebp),
+                'haswebp'  => (file_exists($oldfilewebp) || file_exists($oldfileavif)),/* ported synonym for both expressions */
                 'file'     => $file,
                 'debug'    => $debug,
-                'dbginfo'  => "CASE IS BULKMOVE of $oldfilewebp _renameRealFileName:: ~4811++"
+                'dbginfo'  => "CASE IS BULKMOVE of [$oldfilewebp | $oldfileavif] _renameRealFileName:: ~5117 ++ ditto for avif"
             ));
             serendipity_plugin_api::hook_event('backend_media_rename', $renameValues); // eg. for staticpage entries path regex replacements
 
@@ -5204,22 +5224,33 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
                     if ($is_bulkmove && file_exists($newfile)) {
                         // build variations path
                         // WebP origin variation case
-                        $varFromWebPOrigin = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['fromwebp'] . '.webp';
-                        $varToWebPOrigin   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['towebp'] . '.webp';
+                        $varFromWebPOrigin = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['fromvar'] . '.webp';
+                        $varToWebPOrigin   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['tovar'] . '.webp';
+                        // AVIF origin variation case
+                        $varFromAvifOrigin = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['fromvar'] . '.avif';
+                        $varToAvifOrigin   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['tovar'] . '.avif';
+
 
                         // Move a variation dir to a new location mkdir directory
                         serendipity_makeDirRename($varFromWebPOrigin, $varToWebPOrigin);
+                        serendipity_makeDirRename($varFromAvifOrigin, $varToAvifOrigin);
 
                         if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag BULKMOVE VARIATION ORIGIN $varFromWebPOrigin => $varToWebPOrigin"); }
                         // WebP thumb variation case
-                        $varFromWebPThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['fromwebp'] . (!empty($file['thumbnail_name']) ? '.' . $renameData['thumb'] : '.' . $serendipity['thumbSuffix']) . '.webp';
-                        $varToWebPThumb   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['towebp'] . (!empty($file['thumbnail_name']) ? '.' . $renameData['thumb'] : '.' . $serendipity['thumbSuffix']) . '.webp';
+                        $varFromWebPThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['fromvar'] . (!empty($file['thumbnail_name']) ? '.' . $renameData['thumb'] : '.' . $serendipity['thumbSuffix']) . '.webp';
+                        $varToWebPThumb   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['tovar'] . (!empty($file['thumbnail_name']) ? '.' . $renameData['thumb'] : '.' . $serendipity['thumbSuffix']) . '.webp';
+                        // AVIF thumb variation case
+                        $varFromAvifThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['fromvar'] . (!empty($file['thumbnail_name']) ? '.' . $renameData['thumb'] : '.' . $serendipity['thumbSuffix']) . '.avif';
+                        $varToAvifThumb   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['tovar'] . (!empty($file['thumbnail_name']) ? '.' . $renameData['thumb'] : '.' . $serendipity['thumbSuffix']) . '.avif';
 
                         // Move a variation dir to a new location mkdir directory - WebP thumbs
                         serendipity_makeDirRename($varFromWebPThumb, $varToWebPThumb);
+                        // Move a variation dir to a new location mkdir directory - AVIF thumbs
+                        serendipity_makeDirRename($varFromAvifThumb, $varToAvifThumb);
 
                         if ($debug) {
                             $serendipity['logger']->debug("L_".__LINE__.":: $logtag BULKMOVE VARIATION THUMB  $varFromWebPThumb => $varToWebPThumb");
+                            $serendipity['logger']->debug("L_".__LINE__.":: $logtag BULKMOVE VARIATION THUMB  $varFromAvifThumb => $varToAvifThumb");
                             $serendipity['logger']->debug(" - - - "); // spacer
                         }
                     }
