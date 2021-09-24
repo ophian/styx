@@ -2814,8 +2814,8 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                             'filesize'  => @filesize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sFile['relpath']),
                             'url'       => $serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $sFile['relpath'],
                             'fdim'      => $fdim,
-                            'width'     => $fdim[0],
-                            'height'    => $fdim[1],
+                            'width'     => $fdim[0] ?? 0,/*regression fix for temporary serendipity_getImageSize() getimagesize avif hotfix*/
+                            'height'    => $fdim[1] ?? 0,/*regression fix for temporary serendipity_getImageSize() getimagesize avif hotfix*/
                             'mime'      => $fdim['mime'],
                         ); // store this in a cache file to use later (we use $serendipity['aFilesNoSync'] for this currently)
                     }
@@ -3398,7 +3398,17 @@ function serendipity_getImageSize($file, $ft_mime = '', $suf = '') {
     if ($ft_mime == 'application/pdf') {
         $fdim = array(1000,1000,24, '', 'bits'=> 24, 'channels' => '3', 'mime' => 'application/pdf');
     } else {
-        $fdim = @getimagesize($file);
+        if ($suf == 'avif') {// temp HOTFIX, see L~2807 aFilesNoSync - PHP 8.1 getimagesize() has no build-in AVIF size measures yet, but people at Google are currently working on implementation
+            $_file = str_replace('.avif', '.webp', $file);
+            $fdim = @getimagesize($_file);
+            $fdim['mime'] = str_replace('image/webp', 'image/avif', $fdim['mime']);
+            unset($fdim['bits']);
+        } else {
+            $fdim = @getimagesize($file);
+            if ($fdim['mime'] == 'image/avif' && file_exists(str_replace('.avif', '.webp', $file))) { // check possible other non-suffix calls of AVIF files for the HOTFIX - probably serendipity_checkMediaSize() won't work, so upload sizes cannot be checked yet
+                $fdim = serendipity_getImageSize($file, $ft_mime, 'avif');
+            }
+        }
     }
 
     if (is_array($fdim)) {
