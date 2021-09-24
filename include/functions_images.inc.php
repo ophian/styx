@@ -5523,7 +5523,7 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
                 'to'        => $newDir,
                 'fromThumb' => str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $infileThumb),
                 'toThumb'   => str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $outfileThumb),
-                'haswebp'   => false,
+                'haswebp'   => false,/* ported synonym for both expressions */
                 'chgformat' => true,
                 'oldDir'    => $oldDir,
                 'newDir'    => $newDir,
@@ -5532,7 +5532,7 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
                 'item_id'   => $item_id,
                 'file'      => $file,
                 'debug'     => $debug,
-                'dbginfo'   => $trace[0]['function'] . ': Port format values to staticpage changes ~5132++.'
+                'dbginfo'   => $trace[0]['function'] . ': Port format values to staticpage changes ~5521++.'
             ));/* Does not matter if filedir or file type case is used! */
             serendipity_plugin_api::hook_event('backend_media_rename', $renameValues);
 
