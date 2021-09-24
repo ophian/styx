@@ -5318,6 +5318,9 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
     // WebP case
     $oldfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . '.v/' . $_file['name'] . '.webp';
     $newfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDir . '.v/' . $_file['name'] . '.webp';
+    // AVIF case
+    $oldfileavif = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . '.v/' . $_file['name'] . '.avif';
+    $newfileavif = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDir . '.v/' . $_file['name'] . '.avif';
 
     // we need to KEEP the old files thumbnail_name (for the staticpage hook only in this case), for the case the global serendipity thumbSuffix has changed! A general conversion need to be done somewhere else.
     $fileThumbSuffix = !empty($_file['thumbnail_name']) ? $_file['thumbnail_name'] : $serendipity['thumbSuffix'];
@@ -5328,7 +5331,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
         'to'      => $newfile,
         'thumb'   => $fileThumbSuffix,
         'fthumb'  => $_file['thumbnail_name'],
-        'haswebp' => file_exists($oldfilewebp),
+        'haswebp' => (file_exists($oldfilewebp) || file_exists($oldfileavif)),/* ported synonym for both expressions */
         'oldDir'  => $oldDir,
         'newDir'  => $newDir,
         'type'    => $type,
@@ -5336,7 +5339,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
         'file'    => $_file,
         'name'    => $_file['name'],
         'debug'   => $debug,
-        'dbginfo' => 'CASE RENAME DIR:: ~4934++'
+        'dbginfo' => 'CASE RENAME DIR:: '.__LINE__
     ));
     serendipity_plugin_api::hook_event('backend_media_rename', $renameValues); // this is via media properties moving image (path)
 
@@ -5348,9 +5351,10 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (5)</span>\n";
         $reserr = true;
     }
-    // WebP case
+    // AVIF/WebP case
     if (!$reserr) {
         serendipity_makeDirRename($oldfilewebp, $newfilewebp);
+        serendipity_makeDirRename($oldfileavif, $newfileavif);
     }
 
     foreach($renameValues AS $renameData) {
@@ -5360,6 +5364,9 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
         // WebP thumb case
         $thisOldThumbWebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . '.v/' . $_file['name'] . (!empty($renameData['fthumb']) ? '.' . $renameData['fthumb'] : '') . '.webp';;
         $thisNewThumbWebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDir . '.v/' . $_file['name'] . (!empty($_file['thumbnail_name']) ? '.' . $_file['thumbnail_name'] : '') . '.webp';;
+        // AVIF thumb case
+        $thisOldThumbAVIF = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . '.v/' . $_file['name'] . (!empty($renameData['fthumb']) ? '.' . $renameData['fthumb'] : '') . '.avif';;
+        $thisNewThumbAVIF = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDir . '.v/' . $_file['name'] . (!empty($_file['thumbnail_name']) ? '.' . $_file['thumbnail_name'] : '') . '.avif';;
 
         // Check for existent old thumb files first, to not need to disable rename by @rename(), then move the thumb file and catch any wrong renaming
         if (($thisNewThumb != $newfile) && file_exists($thisOldThumb)) {
@@ -5374,6 +5381,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
             }
             if (!$reset) {
                 serendipity_makeDirRename($thisOldThumbWebp, $thisNewThumbWebp);
+                serendipity_makeDirRename($thisOldThumbAVIF, $thisNewThumbAVIF);
             }
         }
     }
