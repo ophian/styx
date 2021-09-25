@@ -88,8 +88,8 @@
 @define('NEWSIZE', 'Neue Größe ');
 @define('RESIZE_BLAHBLAH', 'Größe von %s ändern');
 @define('ORIGINAL_SIZE', 'Originalgröße: <i>%sx%s</i> Pixel');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Hier können Sie die Bildgröße ändern. Um die Proportionen beizubehalten, einfach einen der beiden Werte eingeben, anschließend die TAB-Taste oder die Maus drücken, und Sie erhalten die Voreinstellung mit den korrekten Proportionen.<br><b>ACHTUNG:</b> Dies ist kein "high end" Skaldierungs Werkzeug, abgestimmt auf die spezifischen Bedürfnisse eines jeden Bildes.<br>Verglichen mit dem Ausgangsbild, bringt jede Skaldierung zwangsläufig einen kleineren oder größeren Qualitätsverlust mit sich. Und dies potenziert sich mit jeder weiteren Skaldierung!<br><b>VARIATION:</b> Da wir annehmen, dass Sie das Proportionsverhältnis <b>beibehalten</b>, wird eine veränderte WebP-Format Variation nur vom Originalbild erstellt und <b>KEINE</b> Änderung der WebP-Variation des Vorschaubildes vorgenommen, da diese sich bei bestimmten Bildeigenschaften in der Dateigröße nur unnötig aufblähen würde. Wenn Sie wirklich eine Skaldierung mit einer <b>anderen</b> Proportion <b>und</b> einer zusätzlichen Änderung der WebP-Format Vorschau benötigen, aktivieren Sie die "<em>...Vorschau Variation</em>" Checkbox.');
-@define('SCALE_THUMB_VARIATION', 'Ändere WebP-Format Vorschau Variation');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Hier können Sie die Bildgröße ändern. Um die Proportionen beizubehalten, einfach einen der beiden Werte eingeben, anschließend die TAB-Taste oder die Maus drücken, und Sie erhalten die Voreinstellung mit den korrekten Proportionen.<br><b>ACHTUNG:</b> Dies ist kein "high end" Skaldierungs Werkzeug, abgestimmt auf die spezifischen Bedürfnisse eines jeden Bildes.<br>Verglichen mit dem Ausgangsbild, bringt jede Skaldierung zwangsläufig einen kleineren oder größeren Qualitätsverlust mit sich. Und dies potenziert sich mit jeder weiteren Skaldierung!<br><b>VARIATION:</b> Da wir annehmen, dass Sie das Proportionsverhältnis <b>beibehalten</b>, wird eine veränderte "Format" Variation ["image.avif" und/oder "image.webp"] nur vom Originalbild erstellt und <b>KEINE</b> Änderung der Variation des Vorschaubildes vorgenommen, da diese sich bei bestimmten Bildeigenschaften in der Dateigröße nur unnötig aufblähen würde. Wenn Sie wirklich eine Skaldierung mit einer <b>anderen</b> Proportion <b>und</b> einer zusätzlichen Änderung der Format Vorschau benötigen, aktivieren Sie die "<em>...Vorschau Variation</em>" Checkbox.');
+@define('SCALE_THUMB_VARIATION', 'Ändere Vorschaubild Variationen');
 @define('QUICKJUMP_CALENDAR', 'QuickJump Kalender');
 @define('QUICKSEARCH', 'Suche');
 @define('SEARCH_FOR_ENTRY', 'Nach Einträgen suchen');
@@ -1203,11 +1203,11 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um d
 @define('MEDIA_EXTENSION_FAILURE', 'Die hochgeladene Datei "<b>%s</b>" wurde als eine Mime-Ursprungsdatei "<b>%s</b>" identifiziert und in der Datenbank der Mediathek als "<b>%s</b>" Extension gespeichert. Dieser Extensions-Name hat eine Länge von "%s", und ist damit <b>größer</b> als die zulässige maximale Extensionslänge von "%s" für Bild-Dateien. Vielleicht ist es nicht das richtige Format für <b>Internet</b>-Bilddateien ("bmp", "gif", "jpg", "jpeg", "png", "tiff", "webp")?');
 @define('MEDIA_EXTENSION_FAILURE_REPAIR', 'Bitte ändern Sie die Datei manuell in Ihrem "uploads/" Dateisystem und führen anschließend eine Synchronisation zur Erneuerung der Vorschaubilder im Backend-Bereich "Wartung" durch, um sie als gültiges Bild zur Verfügung zu stellen. Das Löschen der Datei über die Mediathek und das erneute Hochladen einer korrigierten Datei reicht ebenfalls, zerschießt aber in zunehmendem Maße den inkrementellen ID-Zähler der Datenbank und wird daher nicht unbedingt empfohlen.');
 
-@define('SYNC_OPTION_BUILDVARIATIONS', 'Erstelle alle Bild-WebP-Format-Variationen');
-@define('SYNC_OPTION_PURGEVARIATIONS', 'Lösche alle Bild-WebP-Format-Variationen');
-@define('SYNC_BUILD_VARIATIONS', 'WebP-Variations-Dateien erstellt');
-@define('SYNC_PURGED_VARIATIONS', 'WebP-Variations-Dateien gelöscht');
-@define('SYNC_WEBP_ITERATION_LIST_TITLE', 'Liste der Medien für den WebP-Variations Lösch-Request:');
+@define('SYNC_OPTION_BUILDVARIATIONS', 'Erstelle alle zusätzlichen Picture-Format Variationen');
+@define('SYNC_OPTION_PURGEVARIATIONS', 'Lösche alle zusätzlichen Picture-Format Variationen');
+@define('SYNC_BUILD_VARIATIONS', 'Picture-Format Variations-Dateien erstellt');
+@define('SYNC_PURGED_VARIATIONS', 'Picture-Format Variations-Dateien gelöscht');
+@define('SYNC_VARIATION_ITERATION_LIST_TITLE', 'Liste der Medien für die Variationsformat Lösch-Anfrage:');
 @define('SYNC_IMAGE_LIST_ITERATION_RANGE_PART', 'Durchlauf der Medienliste; Abschnitt: <b>%s</b> von <b>"%s"</b> Medien insgesamt');
 @define('SYNC_IMAGE_LIST_ITERATION_RANGE_DONE', 'Durchlauf <b>%s</b> %s. <b>%s</b> Medien wurden erfolgreich erstellt.');
 
@@ -1216,7 +1216,7 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um d
 @define('FORMATS', 'Bild Format');
 @define('VARIATION', 'Bild Variation');
 @define('MEDIA_PROPERTIES_SELECT_INFO_DESC', 'Wenn eine Dateiveränderung erforderlich ist, verwenden Sie entweder die Änderung des Verzeichnisses oder die Änderung der Bildformatauswahl per Übertragung. Sie können beide nicht gleichzeitig verändern! Dies funktioniert ebenfalls nicht, wenn bereits ein Dateiname mit diesem neuen Format existiert. Achten Sie darauf, dass Sie dies vorher überprüft haben!');
-@define('MEDIA_PROPERTIES_FORMAT_WEBP', '<b>BESONDERER HINWEIS FÜR DEN WEBP-FALL:</b><br>WebP-Formatvariationen von Originaldateien existieren wahrscheinlich bereits und sind von dieser Änderung nicht betroffen. Diese Aktion hier verwandelt Ihre Originaldatei und Ihr Vorschaubild in das WebP-Format, benutzt aber bei Verwendung der "GD Lib" eine Einstellung von 100%, um Qualitätsverluste zu vermeiden. (<em>Auf der anderen Seite ist die ImageMagick Library für WebP Formate generell auf "auto" gesetzt.</em>) Aus diesem Grund sollten Sie das WebP Format nicht für <b>GD</b>-Fälle verwenden, in denen Ihr bestehendes Dateiformat bereits für das Web optimiert wurde. In diesem Fall würde die WebP-Formatierung wahrscheinlich nur die Dateigröße der Datei erhöhen.');
+@define('MEDIA_PROPERTIES_FORMAT_WEBP', '<b>BESONDERER HINWEIS FÜR WEBP / AVIF FORMAT-FÄLLE:</b><br>Formatvariationen von Originaldateien existieren wahrscheinlich bereits und sind von dieser Änderung nicht betroffen. Diese Aktion hier verwandelt Ihre Originaldatei und Ihr Vorschaubild in das Variations-Format, benutzt aber bei Verwendung der "GD Lib" eine Einstellung von 100%, um Qualitätsverluste zu vermeiden. (<em>Auf der anderen Seite ist die ImageMagick Library für diese Variations-Formate generell auf "auto" gesetzt.</em>) Aus diesem Grund sollten Sie die WebP/AVIF Formate nicht für <b>GD</b>-Fälle verwenden, in denen Ihr bestehendes Dateiformat bereits von vornherein für das Web optimiert wurde. In diesem Fall würde die Neuformatierung als Variation wahrscheinlich nur die Dateigröße der Datei erhöhen.');
 
 @define('ENTRY_QUICKPIN', 'Setze als temporären Quick-Pin an den Anfang der Eintragsliste');
 

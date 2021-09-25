@@ -92,8 +92,8 @@
 @define('NEWSIZE', '새로운 크기: ');
 @define('RESIZE_BLAHBLAH', '크기 조절: %s');
 @define('ORIGINAL_SIZE', '원래 크기: <i>%sx%s</i> 픽셀');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '여기서 그림 크기를 조절할 수 있습니다. 비율을 유지하면서 크기를 조절하려면 입력상자 한 쪽에 값을 넣고 Tab 키를 누르면 됩니다. 비율이 유지되는 값이 자동으로 계산됩니다.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file. And this increases with each further scaling!<br><b>VARIATION:</b> Since we assume you <b>keep</b> the files proportion, a scaled image WebP format variation change will be applied to the Origin files variation only and <b>NOT</b> to the WebP variation thumbnail, which - by certain image property conditions - would probably blow up its filesize. If you really need an image scale with an <b>other</b> proportion <b>and</b> an additional changed WebP thumb dimension size, activate the "<em>..thumb variation</em>" checkbox.');
-@define('SCALE_THUMB_VARIATION', 'Force scaled WebP thumb variation change');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '여기서 그림 크기를 조절할 수 있습니다. 비율을 유지하면서 크기를 조절하려면 입력상자 한 쪽에 값을 넣고 Tab 키를 누르면 됩니다. 비율이 유지되는 값이 자동으로 계산됩니다.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the origin input file. And this increases with each further scaling!<br><b>VARIATION:</b> Since we assume you <b>keep</b> the files proportion, a scaled image "format" variation ["image.avif" and/or "image.webp"] change will be applied to the Origin files variation only and <b>NOT</b> to the variation thumbnail, which - by certain image property conditions - would probably blow up its filesize. If you really need an image scale with an <b>other</b> proportion <b>and</b> an additional changed variation thumb dimension size, activate the "<em>..thumb variation</em>" checkbox.');
+@define('SCALE_THUMB_VARIATION', 'Force scaled thumb variation changes');
 @define('QUICKJUMP_CALENDAR', '빨리 찾아보는 달력');
 @define('QUICKSEARCH', '빠른 검색');
 @define('SEARCH_FOR_ENTRY', '원하는 글 찾기');
@@ -1205,11 +1205,11 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('MEDIA_EXTENSION_FAILURE', 'The uploaded file "<b>%s</b>" was identified as a mime originating "<b>%s</b>" file, with a media library database stored extension name of "<b>%s</b>". This extension name has a length format of "%s", being <b>greater</b> than the allowed max extension length of "%s" for image files. Maybe it is not in the right format for <b>web based</b> image files ("bmp", "gif", "jpg", "jpeg", "png", "tiff", "webp")?');
 @define('MEDIA_EXTENSION_FAILURE_REPAIR', 'Please change the file manually in your "uploads/" file system and run a sync for thumbnail creation in the backends "Maintenance" section afterwards, to make it available as a valid image. Deleting the file via the MediaLibrary and additionally uploading a corrected file version will do too, but it shatters the incremental ID counter of the database and is therefore not necessarily recommended.');
 
-@define('SYNC_OPTION_BUILDVARIATIONS', 'Build Image WebP-Format variations');
-@define('SYNC_OPTION_PURGEVARIATIONS', 'Purge all Image WebP-Format variations');
-@define('SYNC_BUILD_VARIATIONS', 'Build WebP-Variations');
-@define('SYNC_PURGED_VARIATIONS', 'Purged WebP-Variation files');
-@define('SYNC_WEBP_ITERATION_LIST_TITLE', 'WebP-Variations Image list iteration for purge request:');
+@define('SYNC_OPTION_BUILDVARIATIONS', 'Build Image Picture-Element Format-Variations');
+@define('SYNC_OPTION_PURGEVARIATIONS', 'Purge all Image Picture-Element Format-Variations');
+@define('SYNC_BUILD_VARIATIONS', 'Build Picture-Element Format-Variations');
+@define('SYNC_PURGED_VARIATIONS', 'Purged Picture-Element Format-Variations files');
+@define('SYNC_VARIATION_ITERATION_LIST_TITLE', 'Variations Image list iteration for purge request:');
 @define('SYNC_IMAGE_LIST_ITERATION_RANGE_PART', 'Image list iteration part: <b>%s</b> of <b>"%s"</b> items in total');
 @define('SYNC_IMAGE_LIST_ITERATION_RANGE_DONE', 'Iteration <b>%s</b> %s. <b>%s</b> items have been successfully created.');
 
