@@ -373,7 +373,7 @@
                         <label for="newFormat{$file@key}">{$CONST.FORMATS}</label>
                         <input type="hidden" name="serendipity[mediaFormat][{$file@key}][oldMime]" value="{$file.mime}">
                         <select id="newFormat{$file@key}" name="serendipity[mediaFormat][{$file@key}][newMime]">
-                        {foreach $media.formats AS $format}{if $format.mime == 'image/webp'}{assign "specialwebp" true}{/if}
+                        {foreach $media.formats AS $format}{if $format.mime == 'image/webp' OR $format.mime == 'image/avif'}{assign "isvariation" true}{/if}
 
                             <option{if ($file.mime == $format.mime)} selected="selected"{/if} value="{$format.mime}">{$format.extension}</option>
                         {/foreach}
@@ -382,7 +382,7 @@
                       </div>
                     {/if}
 
-                      <div id="media_select_props" class="media_select_props additional_info"><span class="msg_hint"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.MEDIA_PROPERTIES_SELECT_INFO_DESC}{if NOT empty($specialwebp)}<br>{$CONST.MEDIA_PROPERTIES_FORMAT_VARIATIONS}{/if}</span></div>
+                      <div id="media_select_props" class="media_select_props additional_info"><span class="msg_hint"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.MEDIA_PROPERTIES_SELECT_INFO_DESC}{if NOT empty($isvariation)}<br>{$CONST.MEDIA_PROPERTIES_FORMAT_VARIATIONS}{/if}</span></div>
                     </fieldset>
                 {/if}
 
