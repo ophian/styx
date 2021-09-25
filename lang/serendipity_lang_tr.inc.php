@@ -1210,7 +1210,7 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('SYNC_OPTION_BUILDVARIATIONS', 'Build Image Picture-Element Format-Variations');
 @define('SYNC_OPTION_PURGEVARIATIONS', 'Purge all Image Picture-Element Format-Variations');
 @define('SYNC_BUILD_VARIATIONS', 'Build Picture-Element Format-Variations');
-@define('SYNC_PURGED_VARIATIONS', 'Purged Picture-Element Format-Variations files');
+@define('SYNC_PURGED_VARIATIONS', 'Purged Picture-Element Format-Variation files');
 @define('SYNC_VARIATION_ITERATION_LIST_TITLE', 'Variations Image list iteration for purge request:');
 @define('SYNC_IMAGE_LIST_ITERATION_RANGE_PART', 'Image list iteration part: <b>%s</b> of <b>"%s"</b> items in total');
 @define('SYNC_IMAGE_LIST_ITERATION_RANGE_DONE', 'Iteration <b>%s</b> %s. <b>%s</b> items have been successfully created.');
