@@ -1730,7 +1730,7 @@ function serendipity_purgeVariations($path = null, $doPurge = false) {
                         new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::SKIP_DOTS),
                                 RecursiveIteratorIterator::CHILD_FIRST);
     echo "<section id=\"fileListing\">\n";
-    echo "<h3>" . SYNC_WEBP_ITERATION_LIST_TITLE . "</h3>\n";
+    echo "<h3>" . SYNC_VARIATION_ITERATION_LIST_TITLE . "</h3>\n";
     if (iterator_count($iterator) < 2) {
         echo '<em>' . NO_IMAGES_FOUND . '</em>';
     }
