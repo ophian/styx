@@ -936,7 +936,7 @@ function serendipity_convertToAvifFormat($infile, $outpath, $outfile, $mime, $mu
  *
  * @return array
  */
-function serendipity_getSupportedFormats($extend=false) {
+function serendipity_getSupportedFormats($extend = false) {
     if ($extend) {
         return ['BMP', 'PNG', 'JPG', 'JPEG', 'GIF', 'WEBP', 'AVIF'];
     }
@@ -992,7 +992,7 @@ function serendipity_generate_webpPathURI($image) {
  *                              normalized or 0 to 1 color value.
  * @return mixed            boolean on fail, else array with result and $cmd string (for debug)
  */
-function serendipity_passToCMD($type=null, $source='', $target='', $args=array()) {
+function serendipity_passToCMD($type = null, $source = '', $target = '', $args = array()) {
 
     if ($type === null
     || (!in_array($type, ['pdfthumb', 'mkthumb', 'format-jpg', 'format-jpeg', 'format-png', 'format-gif', 'format-webp', 'format-avif']) && !in_array(strtoupper(explode('/', $type)[1]), serendipity_getSupportedFormats(true)))
@@ -2448,7 +2448,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
  *
  * @access public
  * @param  string       Filename to operate on
- * @param  int          Possible WebP format Quality change
+ * @param  int          Possible AVIF/WebP format Quality change
  * @return string       Name of GD function to execute
  */
 function serendipity_functionsGD($infilename, $q = null) {
@@ -2524,7 +2524,7 @@ function serendipity_functionsGD($infilename, $q = null) {
  */
 function serendipity_formatImageGD($infilename, $outfilename, $format) {
 
-    $ifunc = serendipity_functionsGD($infilename, 100);  // Currently this effects WebP formats only, and makes the format to WebP conversion inadvisable, where the infile has already been optimized for the Web.
+    $ifunc = serendipity_functionsGD($infilename, 100);  // Currently this effects AVIF/WebP formats only, and makes the format to AVIF/WebP conversion inadvisable, where the infile has already been optimized for the Web.
     $ofunc = serendipity_functionsGD($outfilename, 100); // Ditto
     if (!is_array($ifunc) || !is_array($ofunc) || empty($format)) {
         return false;
@@ -2794,7 +2794,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
 
     if ($manage && $limit_path === NULL) {
         ## SYNC START ##
-        $aExclude = array('CVS' => true, '.svn' => true, '.git' => true); // removed ", '.v' => true", which allows to place an existing .v/ dir stored Webp image variation in the aFilesNoSync array! See media_items.tpl special.pfilename button.
+        $aExclude = array('CVS' => true, '.svn' => true, '.git' => true); // removed ", '.v' => true", which allows to place an existing .v/ dir stored AVIF/Webp image variation in the aFilesNoSync array! See media_items.tpl special.pfilename button.
         serendipity_plugin_api::hook_event('backend_media_path_exclude_directories', $aExclude);
         $paths        = array();
         $aFilesOnDisk = array();
@@ -3286,7 +3286,7 @@ function serendipity_traversePath($basedir, $dir='', $onlyDirs = true, $pattern 
 
     if ($aExcludeDirs === null) {
         // add possible historic CKEditors .thumb dir to exclude, since no hook
-        // do not use as auto excludes for media directory restrictions .v/ case, since that disables ML WebP case
+        // do not use as auto excludes for media directory restrictions .v/ case, since that disables ML AVIF/WebP cases
         $aExcludeDirs = array('CVS' => true, '.svn' => true, '.thumbs' => true, '.git' => true);
     }
 
@@ -5770,7 +5770,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $file, $pick=
         //  to check the oldDirFile string backwards with a flexible substr offset ending with a "dot extension"
         if ($type == 'file') {
             $_oldDirFile = ('.'.substr($oldDirFile, -$lex) != '.'.$_file['extension']) ? $oldDirFile : $_file['path'] . $_file['name'];
-            $_oldDirFileVariation = $_file['path'] . '.v/' . $_file['name']; // refactor old and new naming for generic variation (webp|avif) ++ - done!
+            $_oldDirFileVariation = $_file['path'] . '.v/' . $_file['name'];
             // DISTINGUISH if it is a single type 'file' case rename OR a type 'file' case re-move (which is more like a 'filedir' type case, isn't it?!)
             if (empty($serendipity['ml_type_file_is_bulkmove_event']) && !isset($file['newformat'])) {
                 $_newDirFileVariation = $_file['path'] . '.v/' . $newDir; // YES, newDir is the new file name for the type 'file' case for rename! IS NOT in case bulkmove!!
