@@ -1051,7 +1051,6 @@ function serendipity_passToCMD($type=null, $source='', $target='', $args=array()
     } else if (in_array($type, ['format-jpg', 'format-jpeg', 'format-png', 'format-gif'])) {
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
                 "\"$target\"";
-
     }
 
     // main file scaling (scale, resize, rotate, ...)
@@ -1763,10 +1762,10 @@ function serendipity_purgeVariations($path = null, $doPurge = false) {
 
     if (!empty($wpurges) && !$doPurge) {
         $token = serendipity_setFormToken('url');
-        echo '<form id="purge_webp_images" method="get">
+        echo '<form id="purge_variation_images" method="get">
                 <div class="form_buttons">
                   <a class="button_link icon_link" href="serendipity_admin.php?serendipity[adminModule]=maintenance">'.BACK.'</a>
-                  <a class="button_link state_submit icon_link" href="serendipity_admin.php?'.$token.'&amp;serendipity[adminModule]=media&amp;serendipity[adminAction]=doSyncPurgeWebP">'.DUMP_IT.'</a>
+                  <a class="button_link state_submit icon_link" href="serendipity_admin.php?'.$token.'&amp;serendipity[adminModule]=media&amp;serendipity[adminAction]=doSyncPurgeVariations">'.DUMP_IT.'</a>
                 </div>
               </form>
 ';
