@@ -120,7 +120,7 @@ switch ($serendipity['GET']['adminAction']) {
         flush();
         break;
 
-    case 'doSyncPurgeWebP':
+    case 'doSyncPurgeVariations':
         if (!serendipity_checkFormToken() || !serendipity_checkPermission('adminImagesDelete')) {
             break;
         }
@@ -129,7 +129,7 @@ switch ($serendipity['GET']['adminAction']) {
             $serendipity['upgrade_variation_done'] = false;
             serendipity_set_config_var('upgrade_variation_done', 'false', 0);
         }
-        $data['print_VARIATIONPURGE_DONE'] = sprintf(SYNC_DONE, $i . ' WebP');
+        $data['print_VARIATIONPURGE_DONE'] = sprintf(SYNC_DONE, $i . ' (WebP / AVIF)');
         $data['purgedVariations'] = true;
         break;
 
