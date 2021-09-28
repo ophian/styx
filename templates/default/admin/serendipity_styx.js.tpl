@@ -430,18 +430,26 @@
             img       = f['imgName'].value;
         var imgWidth  = f['imgWidth'].value;
         var imgHeight = f['imgHeight'].value;
+        var imgAVIFth = f['avifThumbName'].value;
         var imgWebPth = f['webPthumbName'].value;
+        var imgAVIFfu = f['avifFileName'].value;
         var imgWebPfu = f['webPfileName'].value;
+        var imgAVFrmt = f['srcAvifBestFormatSize'].value;
+        var imgAVIF   = '';
         var imgWebP   = '';
         if (f['serendipity[linkThumbnail]']) {
              if (f['serendipity[linkThumbnail]'][0].checked === true) {
                 img       = f['thumbName'].value;
                 imgWidth  = f['imgThumbWidth'].value;
                 imgHeight = f['imgThumbHeight'].value;
+                imgAVIF   = (imgAVIFth != '') ? imgAVIFth : '';
                 imgWebP   = (imgWebPth != '') ? imgWebPth : '';
             } else {
+                imgAVIF   = (imgAVIFfu != '') ? imgAVIFfu : '';
                 imgWebP   = (imgWebPfu != '') ? imgWebPfu : '';
             }
+            // slightly different since the full image is needed for the ilink
+            imgVariFullHref = (imgAVIFfu != '' && imgAVFrmt) ? imgAVIFfu : (imgWebPfu != '' ? imgWebPfu : '');
         }
         if (parent.self.opener == undefined) {
             // in iframes, there is no opener, and the magnific popup is wrapped
@@ -489,6 +497,7 @@
         }
         if (pictureSubmit) {
             img = '<!-- s9ymdb:'+ imgID +' --><picture>'
+            + '<source type="image/avif" srcset="' + imgAVIF + '">'
             + '<source type="image/webp" srcset="' + imgWebP + '">'
             + '<img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ ((title != '' && noLink) ? 'title="'+ title +'"' : '') +' loading="lazy" alt="'+ altxt +'">'
             + '</picture>';
@@ -499,11 +508,11 @@
         if (isLink) {
             // wrap the img in a link to the image. TODO: The label in the media_chooser.tpl explains it wrong
             var targetval = $('#select_image_target').val();
-            var fallback  = (pictureSubmit && imgWebPfu != '') ? ' data-fallback="'+ f['serendipity[url]'].value +'"' : '';
+            var fallback  = (pictureSubmit && imgVariFullHref != '') ? ' data-fallback="'+ f['serendipity[url]'].value +'"' : '';
 
             var prepend   = '';
             // including check as-link usage targeting elsewhere
-            var ilink     = (pictureSubmit && imgWebPfu != '' && f['imgName'].value == f['serendipity[url]'].value) ? imgWebPfu : f['serendipity[url]'].value;
+            var ilink     = (pictureSubmit && imgVariFullHref != '' && f['imgName'].value == f['serendipity[url]'].value) ? imgVariFullHref : f['serendipity[url]'].value;
             var itarget = '';
 
             switch (targetval) {
@@ -511,8 +520,8 @@
                     var itarget = ' onclick="F1 = window.open(\'' + f['serendipity[url]'].value + '\',\'Zoom\',\''
                             + 'height=' + (parseInt(f['imgHeight'].value) + 15) + ','
                             + 'width='  + (parseInt(f['imgWidth'].value)  + 15) + ','
-                            + 'top='    + (screen.height - f['imgHeight'].value) /2 + ','
-                            + 'left='   + (screen.width  - f['imgWidth'].value)  /2 + ','
+                            + 'top='    + (screen.height - f['imgHeight'].value) / 2 + ','
+                            + 'left='   + (screen.width  - f['imgWidth'].value)  / 2 + ','
                             + 'toolbar=no,menubar=no,location=no,resize=1,resizable=1,scrollbars=yes\'); return false;"';
                     break;
                 case '_blank':
