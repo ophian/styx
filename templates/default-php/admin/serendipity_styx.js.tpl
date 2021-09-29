@@ -364,17 +364,19 @@
             gallery += start;
 
             $.each(g['files'], function(k, v) {
-                pic_el  = (v['full_thumb_webp'] || v['full_file_webp']) ? true : false;
+                pic_el  = (v['full_thumb_avif'] || v['full_file_avif'] || v['full_thumb_webp'] || v['full_file_webp']) ? true : false;
+                iAVFrmt = (v['sizeAVIF'] > 1000 && (v['sizeAVIF'] <= v['sizeWebp']));
+                thbAVFt = (v['thumbSizeAVIF'] > 1000 && (v['thumbSizeAVIF'] <= v['thumbSizeWebp']));
                 imgID   = v['id'];
                 imgWdth = v['thumbWidth'];
                 imgHght = v['thumbHeight'];
                 imgName = v['full_thumb'];
-                ilink   = pic_el ? v['full_file_webp'] : v['full_file'];
-                ilinkfb = v['full_file']; // fallback case
+                ilink   = pic_el ? ((v['full_file_avif'] && iAVFrmt) ? v['full_file_avif'] : v['full_file_webp']) : v['full_file'];
+                ilinkfb = v['full_file']; /* fallback case */
                 title   = v['prop_title'] != '' ? v['prop_title'] : v['realname'];
                 imgalt  = v['prop_alt'] ? v['prop_alt'] : v['realname']; /* yes check properties set alt first, then fallback */
+                iftavif = v['full_thumb_avif'];
                 iftwebp = v['full_thumb_webp'];
-                iffwebp = v['full_file_webp'];
                 hotlink = v['hotlink'];
                 if (hotlink) {
                     imgName = v['realfile'];
@@ -382,6 +384,7 @@
 
                 if (pictureSubmit && pic_el) {
                     img = '<!-- s9ymdb:'+ imgID +' --><picture>'
+                    + (thbAVFt ? '<source type="image/avif" srcset="' + iftavif + '">' : '')
                     + '<source type="image/webp" srcset="' + iftwebp + '">'
                     + '<img class="serendipity_image_'+ float +'" width="'+ imgWdth +'" height="'+ imgHght +'" src="'+ imgName +'" '+ ((title != '' && g['isLink'] == 'no') ? 'title="'+ title +'"' : '') +' loading="lazy" alt="'+ imgalt +'">'
                     + '</picture>';
@@ -430,20 +433,27 @@
             img       = f['imgName'].value;
         var imgWidth  = f['imgWidth'].value;
         var imgHeight = f['imgHeight'].value;
+        var imgAVIFth = f['avifThumbName'].value;
         var imgWebPth = f['webPthumbName'].value;
+        var imgAVIFfu = f['avifFileName'].value;
         var imgWebPfu = f['webPfileName'].value;
+        var imgAVFrmt = f['srcAvifBestFormatSize'].value;
+        var imgAVIF   = '';
         var imgWebP   = '';
         if (f['serendipity[linkThumbnail]']) {
              if (f['serendipity[linkThumbnail]'][0].checked === true) {
                 img       = f['thumbName'].value;
                 imgWidth  = f['imgThumbWidth'].value;
                 imgHeight = f['imgThumbHeight'].value;
+                imgAVIF   = (imgAVIFth != '') ? imgAVIFth : '';
                 imgWebP   = (imgWebPth != '') ? imgWebPth : '';
             } else {
+                imgAVIF   = (imgAVIFfu != '') ? imgAVIFfu : '';
                 imgWebP   = (imgWebPfu != '') ? imgWebPfu : '';
             }
+            // slightly different since the full image is needed for the ilink
+            imgVariFullHref = (imgAVIFfu != '' && imgAVFrmt) ? imgAVIFfu : (imgWebPfu != '' ? imgWebPfu : '');
         }
-
         if (parent.self.opener == undefined) {
             // in iframes, there is no opener, and the magnific popup is wrapped
             parent.self = window.parent.parent.$.magnificPopup;
@@ -471,7 +481,7 @@
                     parent.self.opener.serendipity.serendipity_imageSelector_addToElement(f['imgName'].value, starget);
                     parent.self.close();
                     return true;
-                }
+            }
         }
 
         altxt = f['serendipity[alt]'].value.replace(/"/g, "&quot;");
@@ -490,6 +500,7 @@
         }
         if (pictureSubmit) {
             img = '<!-- s9ymdb:'+ imgID +' --><picture>'
+            + '<source type="image/avif" srcset="' + imgAVIF + '">'
             + '<source type="image/webp" srcset="' + imgWebP + '">'
             + '<img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ ((title != '' && noLink) ? 'title="'+ title +'"' : '') +' loading="lazy" alt="'+ altxt +'">'
             + '</picture>';
@@ -500,11 +511,11 @@
         if (isLink) {
             // wrap the img in a link to the image. TODO: The label in the media_chooser.tpl explains it wrong
             var targetval = $('#select_image_target').val();
-            var fallback  = (pictureSubmit && imgWebPfu != '') ? ' data-fallback="'+ f['serendipity[url]'].value +'"' : '';
+            var fallback  = (pictureSubmit && imgVariFullHref != '') ? ' data-fallback="'+ f['serendipity[url]'].value +'"' : '';
 
             var prepend   = '';
             // including check as-link usage targeting elsewhere
-            var ilink     = (pictureSubmit && imgWebPfu != '' && f['imgName'].value == f['serendipity[url]'].value) ? imgWebPfu : f['serendipity[url]'].value;
+            var ilink     = (pictureSubmit && imgVariFullHref != '' && f['imgName'].value == f['serendipity[url]'].value) ? imgVariFullHref : f['serendipity[url]'].value;
             var itarget = '';
 
             switch (targetval) {
