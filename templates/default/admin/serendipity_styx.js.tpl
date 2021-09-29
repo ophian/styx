@@ -364,15 +364,18 @@
             gallery += start;
 
             $.each(g['files'], function(k, v) {
-                pic_el  = (v['full_thumb_webp'] || v['full_file_webp']) ? true : false;
+                pic_el  = (v['full_thumb_avif'] || v['full_file_avif'] || v['full_thumb_webp'] || v['full_file_webp']) ? true : false;
+                iAVFrmt = (v['sizeAVIF'] > 1000 && (v['sizeAVIF'] <= v['sizeWebp']));
+                thbAVFt = (v['thumbSizeAVIF'] > 1000 && (v['thumbSizeAVIF'] <= v['thumbSizeWebp']));
                 imgID   = v['id'];
                 imgWdth = v['thumbWidth'];
                 imgHght = v['thumbHeight'];
                 imgName = v['full_thumb'];
-                ilink   = pic_el ? v['full_file_webp'] : v['full_file'];
-                ilinkfb = v['full_file']; // fallback case
+                ilink   = pic_el ? ((v['full_file_avif'] && iAVFrmt) ? v['full_file_avif'] : v['full_file_webp']) : v['full_file'];
+                ilinkfb = v['full_file']; /* fallback case */
                 title   = v['prop_title'] != '' ? v['prop_title'] : v['realname'];
                 imgalt  = v['prop_alt'] ? v['prop_alt'] : v['realname']; /* yes check properties set alt first, then fallback */
+                iftavif = v['full_thumb_avif'];
                 iftwebp = v['full_thumb_webp'];
                 iffwebp = v['full_file_webp'];
                 hotlink = v['hotlink'];
@@ -382,6 +385,7 @@
 
                 if (pictureSubmit && pic_el) {
                     img = '<!-- s9ymdb:'+ imgID +' --><picture>'
+                    + (thbAVFt ? '<source type="image/avif" srcset="' + iftavif + '">' : '')
                     + '<source type="image/webp" srcset="' + iftwebp + '">'
                     + '<img class="serendipity_image_'+ float +'" width="'+ imgWdth +'" height="'+ imgHght +'" src="'+ imgName +'" '+ ((title != '' && g['isLink'] == 'no') ? 'title="'+ title +'"' : '') +' loading="lazy" alt="'+ imgalt +'">'
                     + '</picture>';
