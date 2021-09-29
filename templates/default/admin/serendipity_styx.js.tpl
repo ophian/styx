@@ -377,7 +377,6 @@
                 imgalt  = v['prop_alt'] ? v['prop_alt'] : v['realname']; /* yes check properties set alt first, then fallback */
                 iftavif = v['full_thumb_avif'];
                 iftwebp = v['full_thumb_webp'];
-                iffwebp = v['full_file_webp'];
                 hotlink = v['hotlink'];
                 if (hotlink) {
                     imgName = v['realfile'];
