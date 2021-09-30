@@ -2,7 +2,7 @@
 
 <form id="uploadform" action="?{$media.extraParems}" method="POST" enctype="multipart/form-data">
 {if $media.max_file_size}
-    <input name="MAX_FILE_SIZE" type="hidden" value="{$max_file_size}">
+    <input name="MAX_FILE_SIZE" type="hidden" value="{$media.max_file_size}">
 {/if}
     {$media.token}
     <input name="serendipity[action]" type="hidden" value="admin">
