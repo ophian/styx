@@ -1,6 +1,9 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Fix another Methusalem bug in MediaLibrary with media_uploads max_file_size
+    configuration variable for $media array.
+
   * Fix token secured backend entries list filter: "By ID #"
 
   * Improve MediaLibrary media item delete file popup
