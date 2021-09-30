@@ -1083,7 +1083,16 @@ function serendipity_passToCMD($type = null, $source = '', $target = '', $args =
         return false;
     } else {
         $cmd = str_replace(array('  '), array(' '), $cmd);
-        @ini_set('max_execution_time', 120);
+        if ($type == 'format-avif' || image_type_to_mime_type(IMAGETYPE_AVIF) == $type) {
+            // yeah AVIF takes it all - yammi, gimme more! ;-) 2 Gigs plus the filesize at least
+            $mlimit = round((filesize($source) + 2048000) / 1000); // Image upload example 5120650 B filesize + 2GB (2048MB) encoding memory = 7168.660 = 7168M
+            if ($mlimit > 3596) {
+                @ini_set('max_execution_time', 240); // 4 min MAX
+            }
+            @ini_set('memory_limit', $mlimit.'M');
+        } else {
+            @ini_set('max_execution_time', 120);
+        }
         @exec($cmd, $out, $res);
     }
 
