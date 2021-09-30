@@ -792,6 +792,7 @@ function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
 /**
  * Convert JPG, PNG, GIF, BMP formatted images to the AVIF image format with PHP build-in GD image library
  * Copy of serendipity_imageGDWebPConversion()
+ * AVIF encoding takes around 1GB of memory (!)
  *
  * @param string $infile    The fullpath file format from string
  * @param string $outfile   The fullpath file format to string
@@ -803,7 +804,11 @@ function serendipity_imageGDAvifConversion($infile, $outfile, $quality = -1) {
     if (!$im) {
         return false;
     }
-    @ini_set('memory_limit', '1024M');
+    $mlimit = round((filesize($infile) + 1024000) / 1000); // Image example 14210367 filesize + 1GB (1024MB) encoding memory = 15234.367 = 15234M
+    if ($mlimit > 3596) {
+        @ini_set('max_execution_time', 240); // 4 min MAX
+    }
+    @ini_set('memory_limit', $mlimit.'M');
     try {
         imageavif($im, $outfile, $quality);
     } catch (Throwable $t) {
