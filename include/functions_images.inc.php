@@ -1050,7 +1050,8 @@ function serendipity_passToCMD($type = null, $source = '', $target = '', $args =
                 "-strip \"$target\"";
 
     } else if ($type == 'format-avif') {
-        $cmd =  "\"{$args[0]}\" \"$source\" {$do} \"$target\""; // no strip for image above ~1.5MB ?!
+        $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
+                "-strip \"$target\"";
 
     } else if (in_array($type, ['format-jpg', 'format-jpeg', 'format-png', 'format-gif'])) {
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
