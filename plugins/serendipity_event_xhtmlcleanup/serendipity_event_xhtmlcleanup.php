@@ -19,7 +19,7 @@ class serendipity_event_xhtmlcleanup extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_XHTMLCLEANUP_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.12');
+        $propbag->add('version',       '1.13');
         $propbag->add('requirements',  array(
             'serendipity' => '3.1',
             'smarty'      => '3.1.6',
@@ -107,6 +107,9 @@ class serendipity_event_xhtmlcleanup extends serendipity_event
 
     function fixUTFEntity(&$string)
     {
+        if ($string == null) {
+            return;
+        }
         $string = preg_replace('/&amp;#(x[a-f0-9]{1,4}|[0-9]{1,5});/', '&#$1;', $string);
         return true;
     }
