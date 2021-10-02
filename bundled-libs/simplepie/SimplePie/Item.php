@@ -879,7 +879,7 @@ class SimplePie_Item
 		}
 		elseif (($date = $this->get_date('U')) !== null && $date !== false)
 		{
-			return strftime($date_format, $date);
+			return @strftime($date_format, $date); // replace strftime() before PHP 9
 		}
 
 		return null;
