@@ -1745,6 +1745,7 @@ $(function() {
         var $el = $(this);
         if ($el.data('href') && $el.data('href').indexOf(',') > -1) {
             var cArray = $el.data('href').split(',');
+                cArray.pop(); // remove the last doubled element item
         } else {
             if ($el.attr('href')) {
                 var $toggled = $($el.attr('href'));
