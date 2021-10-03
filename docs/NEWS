@@ -1,6 +1,8 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Fixup db include files for PHP 8.1 null parameter check
+
   * Fix comments list toggle all javascript for last list element
 
   * Fix comments filter comments amount ALL for division by zero and page result
