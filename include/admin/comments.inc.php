@@ -332,7 +332,17 @@ $sql = serendipity_db_query("SELECT COUNT(*) AS total FROM {$serendipity['dbPref
                               WHERE 1 = 1 $ctype $perm $and", true);
 
 $totalComments = $sql['total'];
-$pages = ($commentsPerPage == COMMENTS_FILTER_ALL ? 1 : ceil($totalComments/(int)$commentsPerPage));
+try {
+   $pages = ($commentsPerPage == COMMENTS_FILTER_ALL ? 1 : ceil($totalComments/(int)$commentsPerPage));
+} catch(DivisionByZeroError $e){
+    $pages = 1;
+    $commentsPerPage = COMMENTS_FILTER_ALL;
+} catch(ErrorException $e) {
+    echo '<span class="msg_error">' . ERROR . ": An unknown error \"$e\" occurred preparing this page counted comments.</span>";
+    $commentsPerPage = 10;
+    $pages = ceil($totalComments/$commentsPerPage);
+}
+
 $page = (int)$serendipity['GET']['page'];
 if ($page == 0 || $page > $pages) {
     $page = 1;
