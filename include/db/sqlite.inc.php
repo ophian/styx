@@ -31,8 +31,7 @@ function serendipity_db_end_transaction($commit) {
  * @access  public
  * @return  resource   connection handle
  */
-function serendipity_db_connect()
-{
+function serendipity_db_connect() {
     global $serendipity;
 
     if (isset($serendipity['dbConn'])) {
@@ -44,7 +43,6 @@ function serendipity_db_connect()
     } else {
         $function = 'sqlite_open';
     }
-
 
     if (defined('S9Y_DATA_PATH')) {
         $serendipity['dbConn'] = $function(S9Y_DATA_PATH . $serendipity['dbName'] . '.db');
@@ -65,8 +63,7 @@ function serendipity_db_reconnect() {
  * @param   string   input string
  * @return  string   output string
  */
-function serendipity_db_escape_string($string)
-{
+function serendipity_db_escape_string($string) {
     static $search  = array("\x00", '%',   "'",   '\"');
     static $replace = array('%00',  '%25', "''", '\\\"');
 
@@ -79,8 +76,7 @@ function serendipity_db_escape_string($string)
  * @access public
  * @return int      Number of affected rows
  */
-function serendipity_db_affected_rows()
-{
+function serendipity_db_affected_rows() {
     global $serendipity;
 
     return sqlite_changes($serendipity['dbConn']);
@@ -92,8 +88,7 @@ function serendipity_db_affected_rows()
  * @access public
  * @return int  Number of updated rows
  */
-function serendipity_db_updated_rows()
-{
+function serendipity_db_updated_rows() {
     global $serendipity;
     // It is unknown whether sqlite returns rows MATCHED or rows UPDATED
     return sqlite_changes($serendipity['dbConn']);
@@ -105,8 +100,7 @@ function serendipity_db_updated_rows()
  * @access public
  * @return int  Number of matched rows
  */
-function serendipity_db_matched_rows()
-{
+function serendipity_db_matched_rows() {
     global $serendipity;
     // It is unknown whether sqlite returns rows MATCHED or rows UPDATED
     return sqlite_changes($serendipity['dbConn']);
@@ -118,8 +112,7 @@ function serendipity_db_matched_rows()
  * @access public
  * @return int      Value of the auto-increment column
  */
-function serendipity_db_insert_id()
-{
+function serendipity_db_insert_id() {
     global $serendipity;
 
     return sqlite_last_insert_rowid($serendipity['dbConn']);
@@ -137,8 +130,7 @@ function serendipity_db_insert_id()
  * @param  int          Bitmask to tell whether to fetch numerical/associative arrays
  * @return array        Proper array containing the resource results
  */
-function serendipity_db_sqlite_fetch_array($res, $type = SQLITE_BOTH)
-{
+function serendipity_db_sqlite_fetch_array($res, $type = SQLITE_BOTH) {
     static $search  = array('%00',  '%25');
     static $replace = array("\x00", '%');
 
@@ -204,8 +196,7 @@ function serendipity_db_in_sql($col, &$search_ids, $type = ' OR ') {
  * @param   boolean     If true, the executed SQL error is known to fail, and should be disregarded (errors can be ignored on DUPLICATE INDEX queries and the likes)
  * @return  mixed       Returns the result of the SQL query, depending on the input parameters
  */
-function &serendipity_db_query($sql, $single = false, $result_type = "both", $reportErr = true, $assocKey = false, $assocVal = false, $expectError = false)
-{
+function &serendipity_db_query($sql, $single = false, $result_type = "both", $reportErr = true, $assocKey = false, $assocVal = false, $expectError = false) {
     global $serendipity;
     $type_map = array(
                         'assoc' => SQLITE_ASSOC,
@@ -293,8 +284,7 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
  * @param  array     referenced array which holds the errors that might be encountered
  * @return boolean   return true on success, false on error
  */
-function serendipity_db_probe($hash, &$errs)
-{
+function serendipity_db_probe($hash, &$errs) {
     global $serendipity;
 
     $dbName = $hash['sqlitedbName'] ?? $hash['dbName'];
@@ -328,8 +318,7 @@ function serendipity_db_probe($hash, &$errs)
  * @param  string   SQL query with template variables to convert
  * @return resource SQL resource handle of the executed query
  */
-function serendipity_db_schema_import($query)
-{
+function serendipity_db_schema_import($query) {
     static $search  = array('{AUTOINCREMENT}', '{PRIMARY}', '{UNSIGNED}', '{FULLTEXT}', '{BOOLEAN}', '{UTF_8}', '{TEXT}');
     static $replace = array('INTEGER', 'PRIMARY KEY', '', '', 'BOOLEAN NOT NULL', '', 'LONGTEXT');
 
