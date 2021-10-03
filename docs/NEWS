@@ -1,6 +1,8 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Fix comments list toggle all javascript for last list element
+
   * Fix comments filter comments amount ALL for division by zero and page result
 
   * Fix another Methusalem bug in MediaLibrary with media_uploads max_file_size
