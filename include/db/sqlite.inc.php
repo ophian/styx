@@ -67,6 +67,9 @@ function serendipity_db_escape_string($string) {
     static $search  = array("\x00", '%',   "'",   '\"');
     static $replace = array('%00',  '%25', "''", '\\\"');
 
+    if ($string == null) {
+        return;
+    }
     return str_replace($search, $replace, $string);
 }
 

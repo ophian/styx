@@ -85,6 +85,10 @@ function serendipity_db_reconnect() {
  */
 function serendipity_db_escape_string($string) {
     global $serendipity;
+
+    if ($string == null) {
+        return;
+    }
     return substr($serendipity['dbConn']->quote($string), 1, -1);
 }
 

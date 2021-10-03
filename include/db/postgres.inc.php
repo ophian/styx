@@ -64,7 +64,6 @@ function serendipity_db_connect() {
         }
     }
 
-
     $serendipity['dbConn'] = $function(
                                sprintf(
                                  '%sdbname=%s user=%s password=%s',
@@ -89,6 +88,9 @@ function serendipity_db_reconnect() {
  * @return  string   output string
  */
 function serendipity_db_escape_string($string) {
+    if ($string == null) {
+        return;
+    }
     return pg_escape_string($string);
 }
 
