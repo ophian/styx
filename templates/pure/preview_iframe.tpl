@@ -14,6 +14,8 @@
 
 {if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
     <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
+{else}
+    <style>.serendipity_entrypaging, .serendipity_entrypaging.mobile { display: none; visibility: hidden; }</style>
 {/if}
 
     <script type="text/javascript">
