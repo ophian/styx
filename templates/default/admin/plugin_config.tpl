@@ -21,7 +21,7 @@
     </fieldset>
 {/if}
 {if is_array($config_groups)}
-    {if !empty($config_groups) AND $button_postKey != 'template'}
+    {if NOT empty($config_groups) AND $button_postKey != 'template'}
 
     <fieldset id="{$plugin_basename}_togglegroup" class="plugin_togglegroup">
         <span class="plugin_file_actions actions">
