@@ -193,7 +193,7 @@
 
                 <ul class="plainList clearfix edit_actions">
                     <li>
-                        <span class="media_directory_entries imgctlabel" title="{$CONST.IN} {$CONST.BASE_DIRECTORY}"><em>{if isset($pathitems[''])}{$pathitems['']}{else}<span class="emptydim">0</span>{/if} {$CONST.PLUGIN_GROUP_IMAGES}</em></span>
+                        <span class="media_directory_entries imgctlabel" title="{$CONST.IN} {$CONST.BASE_DIRECTORY}"><em>{if isset($pathitems[''])}{$pathitems['']}{else}<span class="emptydim imgctlabel">0</span>{/if} {$CONST.PLUGIN_GROUP_IMAGES}</em></span>
                     </li>
                 </ul>
             </div>
