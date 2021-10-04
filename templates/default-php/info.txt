@@ -1,6 +1,6 @@
 Name: PHP Engine (Dev)
 Author: Garvin Hicking, Ian Styx
-Date: 2021-08-28
+Date: 2021-09-04
 Require Serendipity: 2.1
 Responsive: Yes
 Mobile: Yes
