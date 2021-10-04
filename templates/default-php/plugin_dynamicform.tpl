@@ -63,10 +63,10 @@
                            <?php elseif ($field['type'] == "password"): ?>
                                <input class="frm" type="password" id="serendipity_contactform_<?= $field['id'] ?>" name="serendipity[<?= $field['id'] ?>]" value="<?= $field['default'] ?>" size="30">
                            <?php elseif ($field['type'] == "textarea"): ?>
-                               <textarea class="frm" rows="10" cols="40" id="<?php if ($field['name'] == PLUGIN_CONTACTFORM_MESSAGE): ?>serendipity_commentform_comment<?php else: ?>serendipity_contactform_<?= $field['id'] ?>" name="serendipity[<?= $field['id'] ?>]"><?= $field['default'] ?></textarea>
+                               <textarea class="frm" rows="10" cols="40" id="<?php if ($field['name'] == PLUGIN_CONTACTFORM_MESSAGE): ?>serendipity_commentform_comment<?php else: ?>serendipity_contactform_<?= $field['id'] ?><?php endif; ?>" name="serendipity[<?= $field['id'] ?>]"><?= $field['default'] ?></textarea>
                                <?php /* If you do NOT need AND run the emoticonchooser plugin, you can as well just use serendipity_contactform_{$field.id} here! */ ?>
                            <?php else: ?>
-                               <input class="frm" type="text" id="serendipity_contactform_<?= $field['id'] ?><?php endif; ?>" name="serendipity[<?= $field['id'] ?>]" value="<?= $field['default'] ?>" size="30">
+                               <input class="frm" type="text" id="serendipity_contactform_<?= $field['id'] ?>" name="serendipity[<?= $field['id'] ?>]" value="<?= $field['default'] ?>" size="30">
                            <?php endif; ?>
                        </dd>
                    <?php endif; ?>
