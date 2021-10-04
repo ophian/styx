@@ -1,6 +1,8 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Fix [ clean-blog, default, timeline ] themes wrongly used escape parameter
+
   * Merge some bundled-libs/Smarty modifier escape additions to 3.1.39-dev-8
 
   * Fix plugin_config template select option wrong escape parameter usage
