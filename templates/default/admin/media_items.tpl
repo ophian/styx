@@ -240,7 +240,7 @@
                 {if $file.is_editable}
                     {if NOT $file.hotlink AND $media.resetperm}
 
-                    <li><button class="media_rename button_link" type="button" title="{$CONST.MEDIA_RENAME}" data-fileid="{$file.id}" data-filename="{$file.name|escape:javascript}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_RENAME}</span></button></li>
+                    <li><button class="media_rename button_link" type="button" title="{$CONST.MEDIA_RENAME}" data-fileid="{$file.id}" data-filename="{$file.name|escape:'javascript'}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_RENAME}</span></button></li>
                     {/if}
                     {if $file.is_image AND NOT $file.hotlink AND $media.multiperm}
 
@@ -260,7 +260,7 @@
                     {/if}
                     {if $media.multiperm OR 'adminImagesDelete'|checkPermission}
 
-                    <li><a class="media_delete button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=delete&amp;serendipity[fid]={$file.id}" title="{$CONST.MEDIA_DELETE}" data-fileid="{$file.id}" data-filename="{$file.name|escape:javascript}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_DELETE}</span></a></li>
+                    <li><a class="media_delete button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=delete&amp;serendipity[fid]={$file.id}" title="{$CONST.MEDIA_DELETE}" data-fileid="{$file.id}" data-filename="{$file.name|escape:'javascript'}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_DELETE}</span></a></li>
                     {/if}
                     {if NOT empty($imagesNoSync)}
                     {foreach $imagesNoSync AS $special}
