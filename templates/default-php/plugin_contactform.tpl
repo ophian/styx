@@ -9,16 +9,16 @@
         <div class="clearfix">
           <div class="entry-info">
             <h1 class="page-title" class="entry-title"><?= $GLOBALS['tpl']['plugin_contactform_pagetitle'] ?></h1>
-            <?php if (!$GLOBALS['tpl']['is_contactform_sent']): ?>
+            <?php if (!isset($GLOBALS['tpl']['is_contactform_sent'])): ?>
             <div id="preface" class="preface"><?= $GLOBALS['tpl']['plugin_contactform_preface'] ?></div>
             <?php endif; ?>
           </div>
 
           <div class="entry-body">
-            <?php if ($GLOBALS['tpl']['is_contactform_sent']): ?>
+            <?php if (isset($GLOBALS['tpl']['is_contactform_sent'])): ?>
             <a name="feedback"></a><p class="serendipity_center serendipity_msg_success"><?= $GLOBALS['tpl']['plugin_contactform_sent'] ?></p>
             <?php else: ?>
-            <?php if ($GLOBALS['tpl']['is_contactform_error']): ?>
+            <?php if (isset($GLOBALS['tpl']['is_contactform_error'])): ?>
             <p class="serendipity_center serendipity_msg_important"><?= $GLOBALS['tpl']['plugin_contactform_error'] ?></p>
 
             <!-- Needed for Captchas -->
