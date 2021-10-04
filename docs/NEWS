@@ -1,6 +1,8 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Fix [ default-php ] theme templates for wrong conditionals
+
   * Fixup db include files for PHP 8.1 null parameter check
 
   * Fix comments list toggle all javascript for last list element
