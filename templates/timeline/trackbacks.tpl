@@ -11,7 +11,7 @@
                 </h5>
                 <div class="comment-content">
                         <a href="{$trackback.url|strip_tags}" {'blank'|xhtml_target}>{$trackback.title}</a><br />
-                        {$trackback.body|strip_tags|escape:all} [&hellip;]
+                        {$trackback.body|strip_tags|escape:'htmlall'} [&hellip;]
                 </div>
                 <div class="comment-meta">
                     {if NOT empty($entry.is_entry_owner)}
