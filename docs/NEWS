@@ -1,6 +1,8 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Fix plugin_config template select option wrong escape parameter usage
+
   * Fix [ default-php ] theme templates for wrong conditionals
 
   * Fixup db include files for PHP 8.1 null parameter check
