@@ -13,7 +13,7 @@
 
         <select id="serendipity_{$config_item}" class="direction_{$lang_direction}" name="serendipity[{$postKey}][{$config_item}]{($is_multi_select) ? '[]' : ''}"{($is_multi_select) ? ' multiple' : ''}{($is_multi_select AND ($select_size > 0)) ? " size='{$select_size}'" : ''}>
         {foreach $select AS $select_value => $select_desc}
-            <option value="{$select_value}"{(in_array($select_value, $selected_options) OR in_array($select_value, $pre_selected)) ? ' selected' : ''}>{$select_desc|escape:$CONST.LANG_CHARSET:false}</option>
+            <option value="{$select_value}"{(in_array($select_value, $selected_options) OR in_array($select_value, $pre_selected)) ? ' selected' : ''}>{$select_desc|escape:'html':$CONST.LANG_CHARSET:false}</option>
         {/foreach}
         </select>
     </div>
