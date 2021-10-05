@@ -1,6 +1,9 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Remove images API s*_displayImageList() obsolete $lineBreak parameter to
+    fix an issue with the MediaLibrary sort filter [perpage] set to 9.
+
   * Fix [ clean-blog, default, timeline ] themes wrongly used escape parameter
 
   * Merge some bundled-libs/Smarty modifier escape additions to 3.1.39-dev-8
