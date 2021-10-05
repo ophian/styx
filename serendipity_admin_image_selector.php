@@ -288,14 +288,8 @@ switch ($serendipity['GET']['step']) {
             $add_url .= '&amp;serendipity[filename_only]=' . serendipity_specialchars($serendipity['GET']['filename_only']);
         }
 
-        if (!isset($serendipity['thumbPerPage2'])) {
-            $serendipity['thumbPerPage2'] = 3;
-        }
-
-
         $media['external'] = serendipity_displayImageList(
             $serendipity['GET']['page'] ?? 1,
-            $serendipity['thumbPerPage2'],
             ($serendipity['showMediaToolbar'] ? true : false),
             '?serendipity[step]=1' . $add_url . '&amp;serendipity[textarea]='. (isset($serendipity['GET']['textarea']) ? serendipity_specialchars($serendipity['GET']['textarea']) : ''),
             true,
