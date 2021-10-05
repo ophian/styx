@@ -202,13 +202,13 @@ switch ($serendipity['GET']['step']) {
 
         $hit = serendipity_db_query("SELECT id
                                        FROM {$serendipity['dbPrefix']}references
-                                      WHERE link = '" . serendipity_db_escape_string($_SERVER['HTTP_REFERER']) . "'
+                                      WHERE link = '" . serendipity_db_escape_string(($_SERVER['HTTP_REFERER'] ?? '')) . "'
                                         AND entry_id = " . (int)$serendipity['GET']['image'] . "
                                         AND type = 'media'", true, 'assoc');
         if (!is_array($hit) || !isset($hit['id'])) {
             serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}references
                                               (entry_id, link, name, type)
-                                       VALUES (" . (int)$serendipity['GET']['image'] . ", '" . serendipity_db_escape_string($_SERVER['HTTP_REFERER']) . "', 1, 'media')");
+                                       VALUES (" . (int)$serendipity['GET']['image'] . ", '" . serendipity_db_escape_string(($_SERVER['HTTP_REFERER'] ?? '')) . "', 1, 'media')");
         } else {
             serendipity_db_query("UPDATE {$serendipity['dbPrefix']}references
                                      SET name = name + 1
