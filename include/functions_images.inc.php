@@ -2765,7 +2765,6 @@ function serendipity_calculateAspectSize($width, $height, $size, $constraint = n
  *
  * @access public
  * @param   int     The current page number
- * @param   string  The HTML linebreak to use after a row of images
  * @param   boolean Is this the ML-Version for managing everything (true), or is it about selecting one image for the editor? (false)
  * @param   string  The URL to use for pagination
  * @param   boolean Show the "upload media item" feature?
@@ -2773,7 +2772,7 @@ function serendipity_calculateAspectSize($width, $height, $size, $constraint = n
  * @param   array   Map of Smarty vars transported into all following templates
  * @return  string  Generated HTML
  */
-function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = false, $url = NULL, $show_upload = false, $limit_path = NULL, $smarty_vars = array()) {
+function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $show_upload = false, $limit_path = NULL, $smarty_vars = array()) {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
@@ -2801,9 +2800,6 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
     }
 
     $perPage = (!empty($serendipity['GET']['sortorder']['perpage']) ? (int)$serendipity['GET']['sortorder']['perpage'] : 8);
-    while ($perPage % $lineBreak !== 0) {
-        $perPage++;
-    }
     $start = ($page-1) * $perPage;
 
     if ($manage && $limit_path === NULL) {
@@ -3034,9 +3030,6 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
     // Keep the inner to be build first. Now add first and last. Has to do with adding $param to $extraParems.
     $linkFirst     = '?' . $extraParems . '&amp;serendipity[page]=' . 1;
     $linkLast      = '?' . $extraParems . '&amp;serendipity[page]=' . $pages;
-    if (is_null($lineBreak)) {
-        $lineBreak = floor(750 / ($serendipity['thumbSize'] + 20));
-    }
 
     $dprops = $keywords = array();
     if (isset($serendipity['parseMediaOverview']) && $serendipity['parseMediaOverview']) { // $serendipity['parseMediaOverview'] is either an undocumented user feature, or a development leftover since prior to 2006, or an unknown and unofficial plugin feature
@@ -3093,7 +3086,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         $paths,
         $url,
         $manage,
-        $lineBreak,
+        floor(750 / ($serendipity['thumbSize'] + 20)),/* normally 1 */
         true,
         $smarty_vars
     );
@@ -6097,9 +6090,6 @@ function showMediaLibrary($addvar_check = false, $smarty_vars = array()) {
         return true;
     }
 
-    if (!isset($serendipity['thumbPerPage'])) {
-        $serendipity['thumbPerPage'] = 2;
-    }
     $smarty_vars = array(
         'textarea'      => $serendipity['GET']['textarea'] ?? false,
         'htmltarget'    => $serendipity['GET']['htmltarget'] ?? '',
@@ -6108,7 +6098,6 @@ function showMediaLibrary($addvar_check = false, $smarty_vars = array()) {
 
     $output .= serendipity_displayImageList(
         $serendipity['GET']['page'] ?? 1,
-        $serendipity['thumbPerPage'],
         serendipity_db_bool(($serendipity['GET']['showMediaToolbar'] ?? true)),
         NULL,
         $serendipity['GET']['showUpload'] ?? false,
