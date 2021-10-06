@@ -37,7 +37,7 @@ Version 3.6-dev ()
 
   * Fixes for upcoming PHP 8.1 deprecations, return types and other warnings.
     DEV-NOTE: Replace currently silenced locale dependent strftime() usage
-              before PHP 9. 
+              before PHP 9. As well in some Smarty plugins.
 
   * Improve image upload messaging. Only throw "Trying to store a WebP image
     format..." notice message, when variation builds return false.
