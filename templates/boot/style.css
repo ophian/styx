@@ -433,6 +433,10 @@ main.col-xs-12.col-lg-12 .save_updertH hr {
     display: flex;
     padding: 1rem 0;
     width: 100%; }
+  #entrypasswordform {
+    padding: 1rem 0; }
+  .serendipity_entrypaging + #entrypasswordform {
+    padding-top: 0; }
   .serendipity_entrypaging_left, .serendipity_entrypaging_right {
     width: 50%;
     white-space: nowrap; }
