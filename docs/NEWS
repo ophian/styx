@@ -36,7 +36,8 @@ Version 3.6-dev ()
   * Improve dark theme for template config toggle fields
 
   * Fixes for upcoming PHP 8.1 deprecations, return types and other warnings.
-    Replace currently silenced locale dependent strftime() usage before PHP 9.
+    DEV-NOTE: Replace currently silenced locale dependent strftime() usage
+              before PHP 9. 
 
   * Improve image upload messaging. Only throw "Trying to store a WebP image
     format..." notice message, when variation builds return false.
