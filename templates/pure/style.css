@@ -957,6 +957,15 @@ li.post_category {
     font-weight: normal;
 }
 
+/* entryproperties */
+#content > #entrypasswordform {
+    padding: 1rem 0;
+}
+
+#content > .serendipity_entrypaging + #entrypasswordform {
+    padding-top: 0;
+}
+
 ul.staticpage_result li {
     list-style: disclosure-open;
     font-style: oblique;
