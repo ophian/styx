@@ -1,3 +1,7 @@
+1.74:
+-----
+    * Fix some inits requesting password locked entries with PHP 8
+
 1.73:
 -----
     * Add some get_config() config item defaults for DEV researchers asking themselves

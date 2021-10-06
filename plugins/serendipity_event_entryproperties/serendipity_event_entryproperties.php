@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.73');
+        $propbag->add('version',       '1.74');
         $propbag->add('requirements',  array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -970,7 +970,7 @@ class serendipity_event_entryproperties extends serendipity_event
 
                     if (isset($serendipity['GET']['id']) && isset($eventData[0]['properties']['ep_entrypassword'])) {
 
-                        if ($_SESSION['entrypassword_unlocked'][$serendipity['GET']['id']] == md5($eventData[0]['properties']['ep_entrypassword']) || $eventData[0]['properties']['ep_entrypassword'] == $serendipity['POST']['entrypassword']) {
+                        if (isset($_SESSION['entrypassword_unlocked']) && $_SESSION['entrypassword_unlocked'][$serendipity['GET']['id']] == md5($eventData[0]['properties']['ep_entrypassword']) || isset($serendipity['POST']['entrypassword']) && $eventData[0]['properties']['ep_entrypassword'] == $serendipity['POST']['entrypassword']) {
                             // Do not show login form again, once we have first enabled it.
                             $_SESSION['entrypassword_unlocked'][$serendipity['GET']['id']] = md5($eventData[0]['properties']['ep_entrypassword']);
                         } else {
