@@ -3086,7 +3086,6 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
         $paths,
         $url,
         $manage,
-        floor(750 / ($serendipity['thumbSize'] + 20)),/* normally 1 */
         true,
         $smarty_vars
     );
@@ -3806,7 +3805,6 @@ function serendipity_showPropertyForm(&$new_media, $keywordsPerBlock = 3, $is_ed
         $mirror,
         '',
         false,
-        1,
         false,
         $smarty_vars);
 }
@@ -4402,12 +4400,11 @@ function serendipity_prepareMedia(&$file, $url = '') {
  * @param  array    Array of additional image metadata like mediaKeywords or paths
  * @param  string   URL for maintenance tasks
  * @param  boolean  Whether to show maintenance task items
- * @param  int      how many media items to display per row
  * @param  boolean  Enclose within a table cell?
  * @param  array    Additional Smarty variables
  * @return string   Generated HTML
  */
-function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lineBreak = 3, $enclose = true, $smarty_vars = array()) {
+function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $enclose = true, $smarty_vars = array()) {
     global $serendipity;
 
     $form_hidden = '';
@@ -4436,8 +4433,6 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
         'multiperm'         => serendipity_checkPermission('adminImagesDirectories'),
         'resetperm'         => (serendipity_checkPermission('adminImagesDelete') && serendipity_checkPermission('adminImagesMaintainOthers')),
         'viewperm'          => (serendipity_checkPermission('adminImagesView') && $serendipity['GET']['adminAction'] != 'choose'),
-        'lineBreak'         => $lineBreak,
-        'lineBreakP'        => round(1/$lineBreak*100),
         'url'               => $url,
         'enclose'           => $enclose,
         'token'             => serendipity_setFormToken(),
