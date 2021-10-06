@@ -533,6 +533,10 @@ main.col-xs-12.col-lg-12 .save_updertH hr {
 
 .container {
   padding-top: 1rem; }
+.container > #entrypasswordform {
+    padding: 1rem 0 .5rem 0; }
+.container > .serendipity_entrypaging + #entrypasswordform {
+    padding-top: 0; }
 
 @media only screen and (max-width: 500px) {
   .featured-art h1 {
