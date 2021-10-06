@@ -1,6 +1,8 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Fix author token random_bytes fallbacks returning null
+
   * Remove images API s*_displayImageList() obsolete $lineBreak parameter
     and a dependency in the MediaLibrary popup and image resizing script,
     serendipity_admin_image_selector.php file, for external/embedded use cases
