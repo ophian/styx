@@ -8,6 +8,9 @@ Version 3.6-dev ()
     serendipity_admin_image_selector.php file, for external/embedded use cases
     outside the main road, to fix an issue with the MediaLibrary [perpage]
     sort filter set to 9.
+    - Additionally remove remaining list split logic and $lineBreak parameter
+    with some Smarty assigns in follow for and in serendipity_prepareMedia(),
+    since "external" per row breakage image lists could not be found nowadays.
 
   * Improve dark theme for some missing mfp_content layer popups
 
