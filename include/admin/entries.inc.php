@@ -458,6 +458,7 @@ switch($serendipity['GET']['adminAction']) {
                     'last_modified' => (int)$ey['last_modified'],
                     'isdraft'       => serendipity_db_bool($ey['isdraft']),
                     'ep_is_sticky'  => (isset($ey['properties']['ep_is_sticky']) && serendipity_db_bool($ey['properties']['ep_is_sticky']) ? true : false),
+                    'ep_is_locked'  => !empty($ey['properties']['ep_entrypassword']) ? true : false,
                     'pubdate'       => date('c', (int)$ey['timestamp']),
                     'author'        => serendipity_specialchars($ey['author']),
                     'cats'          => $entry_cats,
