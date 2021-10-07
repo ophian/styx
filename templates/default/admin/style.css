@@ -2989,6 +2989,9 @@ input.pinpoint {
 #entries_list .entry_info .entry_status.status_pin {
     margin-right: .4em;
 }
+#entries_list .entry_info .entry_status.status_locked {
+    margin-right: .5rem;
+}
 
 .status_timestamp {
     min-width: 11em;
