@@ -4032,13 +4032,25 @@ img.mfp-img {
       #template_options .theme_options.option_list .plugin_togglegroup,
       form.theme_options.option_list > #show_config_all {
         margin-top: -7.15em; }
-      /* special cases plugin i.e. fieldset#(sidebarlogo|gdpr|bee|spamblock)_togglegroup alike plugins */
+      /* special cases plugin i.e. fieldset#(sidebarlogo|gdpr|bee|spamblock|spartacus)_togglegroup alike plugins */
       #plugin_options form.configure_plugin.option_list > .plugin_togglegroup {
          position: absolute;
          top: 7.3625rem;
          right: 2%; }
         .msg_success + #plugin_options form.configure_plugin.option_list > .plugin_togglegroup {
           top: 11.5rem; }
+        /* 4 Spartacus cases */
+        .msg_notice + .msg_success + #plugin_options form.configure_plugin.option_list > .plugin_togglegroup {
+          top: 16rem; }
+        /* Deleting file package_event_en.xml..., package_sidebar_en.xml... + done msg */
+        .msg_notice + .msg_notice + .msg_success + #plugin_options form.configure_plugin.option_list > .plugin_togglegroup {
+          top: 20rem; }
+        /* Deleting file package_event_en.xml..., package_sidebar_en.xml..., package_template.xml... + done msg */
+        .msg_notice + .msg_notice + .msg_notice + .msg_success + #plugin_options form.configure_plugin.option_list > .plugin_togglegroup {
+          top: 24rem; }
+        /* Deleting file package_event_de.xml..., package_event_en.xml..., package_sidebar_de.xml..., package_template.xml... + done msg */
+        .msg_notice + .msg_notice + .msg_notice + .msg_notice + .msg_success + #plugin_options form.configure_plugin.option_list > .plugin_togglegroup {
+          top: 28rem; }
 
       /* special cases theme configuration messages */
       #template_options .msg_success + form.theme_options.option_list > #show_config_all {
@@ -5149,6 +5161,7 @@ img.mfp-img {
         width: 74.5%;
     }
 
+    /* special cases plugin i.e. fieldset#(sidebarlogo|gdpr|bee|spamblock|spartacus)_togglegroup alike plugins */
     #plugin_options form.configure_plugin.option_list > .plugin_togglegroup {
       top: 7.95rem; }
       .msg_success + #plugin_options form.configure_plugin.option_list > .plugin_togglegroup {
