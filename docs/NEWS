@@ -1,6 +1,9 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Improve [ b46, b5blog, boot, pure ] theme styles for requesting password
+    locked entries w/o entrypaging.
+
   * Fix author token random_bytes fallbacks returning null
 
   * Remove images API s*_displayImageList() obsolete $lineBreak parameter
