@@ -164,12 +164,12 @@
                 {if ($entry@index >= $perPage)}{continue}{/if}
 
                 <li id="entry_{$entry.id}" class="clearfix {cycle values="odd,even"}">
-                    {if NOT $simpleFilters}
+                {if NOT $simpleFilters}
 
-                        <div class="form_check">
-                            <input id="multidelete_entry{$entry.id}" class="multicheck" name="serendipity[multiDelete][]" type="checkbox" value="{$entry.id}" data-multixid="entry_{$entry.id}"><label for="multidelete_entry{$entry.id}" class="visuallyhidden">{$CONST.TOGGLE_SELECT} (#{$entry_id})</label>
-                        </div>
-                    {/if}
+                    <div class="form_check">
+                        <input id="multidelete_entry{$entry.id}" class="multicheck" name="serendipity[multiDelete][]" type="checkbox" value="{$entry.id}" data-multixid="entry_{$entry.id}"><label for="multidelete_entry{$entry.id}" class="visuallyhidden">{$CONST.TOGGLE_SELECT} (#{$entry_id})</label>
+                    </div>
+                {/if}
 
                     <h3><a href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry.id}&amp;{$urltoken}" title="#{$entry.id}: {$entry.title|escape:'html':$CONST.LANG_CHARSET:false}">{if NOT empty($entry.title)}{$entry.title|escape:'html':$CONST.LANG_CHARSET:false}{else} &#8212;no title set&#8212; {/if}</a></h3>
 
@@ -203,6 +203,10 @@
                             <a href="{$cat.link}">{$cat.category_name|escape}</a>{if NOT empty($cat.grouped)}{foreach $cat.groupname AS $gshortname} <span class="icon-users {$gshortname}" aria-hidden="true" title="read and view restriction to group {$gshortname}"></span>{/foreach}{/if}{if (count($entry.cats) > 1) AND !$cat@last}, {/if}
                           {/foreach}
                         {/if}</span>
+                    {if NOT empty($entry.ep_is_locked)}
+
+                        <span class="entry_status status_locked"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-lock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><title id="title">lock protected</title><path d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z"></path><path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"></path></svg></span>
+                    {/if}
                     {if !$showFutureEntries AND ($entry.timestamp >= $serverOffsetHour)}
 
                         <span class="entry_status status_future">{$CONST.SCHEDULED}</span>
