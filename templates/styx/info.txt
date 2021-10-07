@@ -1,4 +1,4 @@
-Name: Styx
+Name: Styx [ Standard ]
 Author: Ian Styx
 Date: 2021-10-07
 Require Serendipity: 2.0
