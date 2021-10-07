@@ -1,6 +1,8 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Add backend entries list lock symbol for password protected entries
+
   * Improve entryproperties "Article Overview" option by tooltip and add
     autocomplete="off" to password fields.
 
