@@ -2833,7 +2833,7 @@ h3 .media_file_actions {
     margin: 0 0 .2em 0;
 }
 
-.entry_status,
+.entry_status:not(.status_locked),
 .comment_status,
 .field_info {
     background: #888;
