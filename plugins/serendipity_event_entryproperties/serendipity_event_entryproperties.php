@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.74');
+        $propbag->add('version',       '1.75');
         $propbag->add('requirements',  array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -302,17 +302,17 @@ class serendipity_event_entryproperties extends serendipity_event
     function showPasswordform()
     {
         global $serendipity;
-        $url = serendipity_currentURL(true);
 
+        $url = serendipity_currentURL(true);
         $out = '
         <form action="'.$url.'" method="post" id="entrypasswordform">
             <div>
-                <span><label for="entrypassword">' . PASSWORD . ':</label> <input class="input_textbox" id="entrypassword" type="password" name="serendipity[entrypassword]" value="" /></span>
+                <span><label for="entrypassword">' . PASSWORD . ':</label> <input class="input_textbox" id="entrypassword" type="password" name="serendipity[entrypassword]" autocomplete="off" value="" /></span>
                 <span><input class="serendipityPrettyButton input_button" type="submit" name="login" value="'.LOGIN.'" /></span>
             </div>
         </form>';
-        return $out;
 
+        return $out;
     }
 
     function showBackend($element, $eventData, $is_sticky, $no_frontpage, $hiderss, $access_values, $access, $password, $use_groups, $access_groups, $use_users, $access_users, $more = array())
@@ -342,7 +342,7 @@ class serendipity_event_entryproperties extends serendipity_event
 ?>
             <div id="ep_frontpage" class="entryproperties_frontpage adv_opts_box form_check">
                 <input id="properties_no_frontpage" name="serendipity[properties][no_frontpage]" type="checkbox" value="true" <?php echo $no_frontpage; ?>>
-                <label for="properties_no_frontpage"><?php echo PLUGIN_EVENT_ENTRYPROPERTIES_NO_FRONTPAGE; ?></label>
+                <label for="properties_no_frontpage"><?php echo PLUGIN_EVENT_ENTRYPROPERTIES_NO_FRONTPAGE; ?> <i class="icon-info-circled" aria-hidden="true" title="<?php echo serendipity_specialchars(PLUGIN_EVENT_ENTRYPROPERTIES_RECOMMENDED_SET); ?>"></i></label>
             </div>
 <?php
                 break;
@@ -366,7 +366,7 @@ class serendipity_event_entryproperties extends serendipity_event
                 foreach($access_values AS $radio_title => $radio_value) {
 ?>
                     <div class="form_radio">
-                        <input id="properties_access_<?php echo $radio_value; ?>" name="serendipity[properties][access]" type="radio" value="<?php echo $radio_value; ?>" <?php echo $radio_value == $access ? 'checked="checked"' : ''; ?>>
+                        <input id="properties_access_<?php echo $radio_value; ?>" name="serendipity[properties][access]" type="radio" value="<?php echo $radio_value; ?>"<?php echo $radio_value == $access ? ' checked="checked"' : ''; ?>>
                         <label for="properties_access_<?php echo $radio_value; ?>"><?php echo $radio_title; ?></label>
                     </div>
 <?php

@@ -1,3 +1,9 @@
+1.75:
+-----
+    * Add autocomplete="off" attribute to password fields
+    * Enter new tooltip help to the "no frontpage" entry form option field,
+      exemplarily for recommendations using password restricted entries.
+
 1.74:
 -----
     * Fix some inits requesting password locked entries with PHP 8

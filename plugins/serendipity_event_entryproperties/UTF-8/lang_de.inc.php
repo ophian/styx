@@ -56,3 +56,5 @@
 
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_MULTI_AUTHORS', 'Mehrere Autoren');
 
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_RECOMMENDED_SET', 'Artikelübersichten zeigen alle "einfachen" [body] Eintragsfelder, zB. auch dann, wenn die Einzel-Eintragsansicht durch ein hier gesetztes Passwort geschützt ist. Ansonsten können Sie in diesem Fall den schützenswerten Inhalt aber auch in das erweiterte Feld einfügen.');
+

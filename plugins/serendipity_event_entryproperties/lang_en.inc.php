@@ -55,3 +55,5 @@
 
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_MULTI_AUTHORS', 'Multiple authors');
 
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_RECOMMENDED_SET', 'Article overviews show all "simple" [body] entry fields, e.g. even when the single entry view is protected by a password set here. Otherwise, you can also paste the protected content into the extended body field.');
+
