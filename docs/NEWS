@@ -1,6 +1,9 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Improve entryproperties "Article Overview" option by tooltip and add
+    autocomplete="off" to password fields.
+
   * Improve [ b46, b5blog, boot, pure ] theme styles for requesting password
     locked entries w/o entrypaging.
 
