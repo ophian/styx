@@ -69,8 +69,10 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
     );
 
     if ($expectError) {
+        mysqli_report(MYSQLI_REPORT_OFF); // Configure PHP < 8.1 behavior in all PHP versions
         $c = @mysqli_query($serendipity['dbConn'], $sql);
     } else {
+        mysqli_report(MYSQLI_REPORT_ERROR|MYSQLI_REPORT_STRICT); // Configure upcoming PHP 8.1 behavior in all PHP versions
         $c = mysqli_query($serendipity['dbConn'], $sql);
     }
 
