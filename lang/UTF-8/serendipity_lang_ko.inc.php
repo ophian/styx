@@ -1107,7 +1107,7 @@
 @define('INSTALL_PASSWORD2_DESC', '검증을 위해 관리자 로그인을 위한 암호를 다시 입력합니다.');
 @define('INSTALL_PASSWORD_INVALID', '입력한 관리자 암호가 일치하지 않습니다.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend embed/popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If popups are generally disabled (see above), the use of "popups" can be bypassed in special places. This applies to real window popups ("<em>images</em>" via entry form and "<em>comments</em>" via comment Reply), and <u>vice versa</u> in behavior, for modal "popups" (<em>categories, tags, links</em>) as (embedded default) settings, in that they are written here for the first two and exactly <b>not</b> listed for the latter three, on account of the default settings. The complete (comma separated) list is: ');
 @define('START_UPDATE', '업데이트 시작...');
 @define('UPDATE_ALL', '모두 업데이트');
 @define('JS_FAILURE', '세렌디피티의 자바스크립트 라이브러리를 불러들일 수 없습니다. 이는 PHP나 플러그인 오류 때문에 발생할 수도 있고 브라우저 캐시가 비정상적일 경우에도 경험할 수 있습니다. 정확한 상황을 파악하고자 한다면 <a href="%1$s">%1$s</a> 주소를 브라우저에서 수동으로 열고 오류 내용을 확인하기 바랍니다.');

@@ -1106,7 +1106,7 @@
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend embed/popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If popups are generally disabled (see above), the use of "popups" can be bypassed in special places. This applies to real window popups ("<em>images</em>" via entry form and "<em>comments</em>" via comment Reply), and <u>vice versa</u> in behavior, for modal "popups" (<em>categories, tags, links</em>) as (embedded default) settings, in that they are written here for the first two and exactly <b>not</b> listed for the latter three, on account of the default settings. The complete (comma separated) list is: ');
 @define('START_UPDATE', 'Starting Update ...');
 @define('UPDATE_ALL', 'Update All');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');
