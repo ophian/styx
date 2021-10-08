@@ -1102,13 +1102,13 @@
 @define('EDITOR_TAGS', 'Tags');
 @define('EDITOR_NO_TAGS', 'No tags');
 @define('DASHBOARD_ENTRIES', 'In Progress');
-@define('START_UPDATE', 'Starting Update ...');
-@define('UPDATE_ALL', 'Update All');
 @define('INSTALL_PASSWORD2', 'Admin password (verify)');
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend embed/popup behavior');
 @define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If popups are generally disabled (see above), the use of "popups" can be bypassed in special places. This applies to real window popups ("<em>images</em>" via entry form and "<em>comments</em>" via comment Reply), and <u>vice versa</u> in behavior, for modal "popups" (<em>categories, tags, links</em>) as (embedded default) settings, in that they are written here for the first two and exactly <b>not</b> listed for the latter three, on account of the default settings. The complete (comma separated) list is: ');
+@define('START_UPDATE', 'Starting Update ...');
+@define('UPDATE_ALL', 'Update All');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');
 @define('THEMES_PREVIEW_BLOG', 'See demo on blog.s9y.org');
 @define('SYNDICATION_PLUGIN_XML_DESC', 'Set to "none" if you only want to show a text link.');
