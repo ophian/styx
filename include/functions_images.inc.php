@@ -3140,7 +3140,7 @@ function serendipity_generateImageSelectorParems($format = 'url') {
     }
 
     foreach($parems AS $param => $value) {
-        if (empty(trim($value))) continue;
+        if (is_null($value) || empty(trim($value))) continue;
         if ($format == 'form') {
             $extraParems .= '<input type="hidden" name="'. $param .'" value="'. serendipity_specialchars($value) .'">'."\n";
         } else {
