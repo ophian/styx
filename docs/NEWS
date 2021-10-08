@@ -1,6 +1,12 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * In PHP 8.1, the default error handling behavior of the MySQLi extension has
+    changed from silencing errors to throw an Exception on errors.
+    Therefore the Serendipity Styx MySQLi connector API was changed to make this
+    the default behavior in all PHP versions, in combination with our systems
+    custom errorhandler.
+
   * Massively improved the personal preferences popup granular "force" option
     description, so it can be made clear what is going to happen by writing or
     removing certain list items. This also fixes the behaviour of not showing
