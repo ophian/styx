@@ -436,9 +436,10 @@ function serendipity_guessInput($type, $name, $value = '', $default = '') {
 
     switch ($type) {
         case 'string':
-            if ($name == 'enableBackendPopupGranular' && !empty($default)) {
+            if ((defined('IN_installer') && IS_installed === false) && $name == 'enableBackendPopupGranular' && !empty($default)) {
                 $value = $default;
             }
+            /* no need for nothing outside installer here yet */
             break;
 
         case 'bool':
