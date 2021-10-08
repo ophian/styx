@@ -4,7 +4,7 @@
 <head>
     <meta charset="{$CONST.LANG_CHARSET}">
 {if !$admin_vars.backendBlogtitleFirst}
-    <title>{if $admin_vars.title}{$admin_vars.title} | {/if}{$CONST.SERENDIPITY_ADMIN_SUITE} | {$blogTitle}</title>
+    <title>{if $admin_vars.title}{$admin_vars.title} | {/if}{if $admin_vars.is_logged_in}{$CONST.SERENDIPITY_ADMIN_SUITE} | {/if}{$blogTitle}</title>
 {else}
     <title>{$blogTitle} | {if $admin_vars.title}{$admin_vars.title} | {/if}{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
 {/if}
@@ -71,6 +71,7 @@
             {if isset($admin_vars.out.footer)}{$admin_vars.out.footer|default:''}{/if}
     {else}
         {if NOT $admin_vars.no_sidebar}
+
         <nav id="main_menu">
             <h2 class="visuallyhidden">{$CONST.MAIN_MENU}</h2>
 
