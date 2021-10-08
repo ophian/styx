@@ -1,6 +1,12 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Massively improved the personal preferences popup granular "force" option
+    description, so it can be made clear what is going to happen by writing or
+    removing certain list items. This also fixes the behaviour of not showing
+    the current set value state in the input field.
+    CHECK you settings, please. The default is "categories,tags,links".
+
   * Add backend entries list lock symbol for password protected entries
 
   * Improve entryproperties "Article Overview" option by tooltip and add
