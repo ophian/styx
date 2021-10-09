@@ -1,6 +1,8 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Fix [ default-php ] theme for certain issues
+
   * Improve personal preferences popup granular force 'comments' option, not
     reacting on independency from 'images' as a "single cased" window popup.
 
