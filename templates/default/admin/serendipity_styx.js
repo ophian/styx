@@ -916,6 +916,7 @@
     }
 
     serendipity.openPopup = function(url) {
+        console.log('NOTE: This is the backend styx fallback javascript; Unable to rely on Smarty variables. Fix your issues!');
         $.magnificPopup.open({
               items: {
                 src: url

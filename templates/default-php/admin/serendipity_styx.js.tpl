@@ -917,7 +917,7 @@
     }
 
     serendipity.openPopup = function(url) {
-        <?php if ($GLOBALS['tpl']['use_backendpopups'] || isset($GLOBALS['tpl']['force_backendpopups']['images'])): ?>
+        <?php if ($GLOBALS['tpl']['use_backendpopups'] || isset($GLOBALS['tpl']['force_backendpopups']['images']) || isset($GLOBALS['tpl']['force_backendpopups']['comments'])): ?>
             window.open(url,
                         'ImageSel',
                         'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');
