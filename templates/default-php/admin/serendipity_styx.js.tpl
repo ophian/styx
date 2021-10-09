@@ -848,7 +848,7 @@
 
     // ..?
     serendipity.checkSave = function() {
-        <?php serendipity_plugin_api::hook_event('backend_entry_checkSave', $GLOBALS['template']); ?>
+        <?php serendipity_plugin_api::hook_event('backend_entry_checkSave', $GLOBALS['tpl']); ?>
         return true;
     }
 
@@ -1669,7 +1669,7 @@ $(function() {
     });
 
     // Show further links - we already made sure this is not mpf layered per default (w/o having self preferences ever saved)
-    <?php if ((isset($GLOBALS['serendipity']['use_backendpopups']) && $GLOBALS['serendipity']['use_backendpopups']) || isset($GLOBALS['serendipity']['force_backendpopups']['links'])): ?>
+    <?php if ((isset($GLOBALS['tpl']['use_backendpopups']) && $GLOBALS['tpl']['use_backendpopups']) || isset($GLOBALS['tpl']['force_backendpopups']['links'])): ?>
         if ($('#dashboard').length > 0) {
             $('.toggle_links').click(function(e) {
                 $('#s9y_links').toggleClass('mfp-hide');
