@@ -386,6 +386,7 @@ if ((int)$serendipity['GET']['step'] == 0) {
         serendipity_addDefaultGroup('USERLEVEL_ADMIN_DESC',  USERLEVEL_ADMIN);
         $data['add_authors'] = true;
 
+        serendipity_set_config_var('enableBackendPopupGranular', 'categories,tags,links', $authorid);
         serendipity_set_config_var('template', $serendipity['defaultTemplate']);
         $data['set_template_vars'] = true;
 
