@@ -32,5 +32,5 @@
 <?php if ($GLOBALS['tpl']['footer_next_page']): ?>
     <a href="<?=$GLOBALS['tpl']['footer_next_page']?>">&raquo; <?=NEXT_PAGE?></a>
 <?php endif; ?>
-<?php serendipity_plugin_api::hook_event('comments_by_author_footer', $GLOBALS['template']) ?>
+<?php serendipity_plugin_api::hook_event('comments_by_author_footer', $GLOBALS['tpl']) ?>
 </div>

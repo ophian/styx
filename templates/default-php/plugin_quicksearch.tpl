@@ -5,4 +5,4 @@
     <label for="serendipityQuickSearchTermField"><span class="icon-search" aria-hidden="true"></span><span class="fallback-text"><?= QUICKSEARCH ?></span></label>
     <input id="searchsend" name="serendipity[searchButton]" type="submit" value="<?= GO ?>">
 </form>
-<?php serendipity_smarty_hookPlugin(array('hook' => 'quicksearch_plugin', 'hookAll' => 'true'), $GLOBALS['template']); ?>
+<?php serendipity_smarty_hookPlugin(array('hook' => 'quicksearch_plugin', 'hookAll' => 'true'), $GLOBALS['tpl']); ?>

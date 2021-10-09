@@ -1,5 +1,5 @@
 <!-- ENTRIES START -->
-    <?php serendipity_plugin_api::hook_event('entries_header', $GLOBALS['serendipity'], @$GLOBALS['tpl']['entry_id']); ?>
+    <?php serendipity_plugin_api::hook_event('entries_header', $GLOBALS['tpl'], @$GLOBALS['tpl']['entry_id']); ?>
 <?php /* NOTE: in case of staticpages it either needs to check is_array() or cast foreach($GLOBALS as (array) */ ?>
     <?php if (isset($GLOBALS['tpl']['entries']) && is_array($GLOBALS['tpl']['entries'])):
     foreach($GLOBALS['tpl']['entries'] AS $dategroup):?>
@@ -208,6 +208,6 @@
     </div>
 <?php endif; ?>
 
-    <?php serendipity_plugin_api::hook_event('entries_footer', $GLOBALS['template']); ?>
+    <?php serendipity_plugin_api::hook_event('entries_footer', $GLOBALS['tpl']); ?>
 
 <!-- ENTRIES END -->

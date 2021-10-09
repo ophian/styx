@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="Powered-By" content="Serendipity Styx Edition v.<?= $GLOBALS['tpl']['serendipityVersion'] ?>">
     <link rel="stylesheet" type="text/css" href="<?= $GLOBALS['tpl']['serendipityHTTPPath'] ?>serendipity.css.php">
-<?php serendipity_plugin_api::hook_event('frontend_header', $GLOBALS['template']); ?>
+<?php serendipity_plugin_api::hook_event('frontend_header', $GLOBALS['tpl']); ?>
 </head>
 
 <body id="serendipity_comment_page" class="s9y_wrap">
@@ -57,6 +57,6 @@
 
 <?php endif; ?>
 
-<?php serendipity_plugin_api::hook_event('frontend_footer', $GLOBALS['template']); ?>
+<?php serendipity_plugin_api::hook_event('frontend_footer', $GLOBALS['tpl']); ?>
 </body>
 </html>

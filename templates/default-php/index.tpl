@@ -25,12 +25,12 @@
     <link rel="pingback" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?>comment.php?type=pingback&amp;entry_id=<?= $GLOBALS['tpl']['entry_id']; ?>">
 <?php endif; ?>
 
-<?php serendipity_plugin_api::hook_event('frontend_header', $GLOBALS['template']); ?>
+<?php serendipity_plugin_api::hook_event('frontend_header', $GLOBALS['tpl']); ?>
 </head>
 
 <body>
 <?php else: ?>
-<?php serendipity_plugin_api::hook_event('frontend_header', $GLOBALS['template']); ?>
+<?php serendipity_plugin_api::hook_event('frontend_header', $GLOBALS['tpl']); ?>
 <?php endif; ?>
 
 <?php if ($GLOBALS['tpl']['is_raw_mode'] != true): ?>
@@ -57,7 +57,7 @@
 <?php endif; ?>
 
 <?= $GLOBALS['tpl']['raw_data']; ?>
-<?php serendipity_plugin_api::hook_event('frontend_footer', $GLOBALS['template']); ?>
+<?php serendipity_plugin_api::hook_event('frontend_footer', $GLOBALS['tpl']); ?>
 
 <?php if ($GLOBALS['tpl']['is_embedded'] != true && !isset($GLOBALS['tpl']['mode'])): ?>
 <script src="<?= serendipity_getTemplateFile('default.js') ?>"></script>
