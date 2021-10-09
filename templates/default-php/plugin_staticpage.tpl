@@ -53,7 +53,7 @@
     </div>
     <?php endif; ?>
 <?php endif; ?>
-<?php if ($GLOBALS['tpl']['staticpage_author || $staticpage_lastchange || $staticpage_adminlink']): ?>
+<?php if ($GLOBALS['tpl']['staticpage_author'] || $GLOBALS['tpl']['staticpage_lastchange'] || $GLOBALS['tpl']['staticpage_adminlink']): ?>
     <footer class="staticpage_metainfo">
         <p>
         <?php if ($GLOBALS['tpl']['staticpage_author']): ?>
