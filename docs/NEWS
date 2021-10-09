@@ -1,6 +1,9 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Improve personal preferences popup granular force 'comments' option, not
+    reacting on independency from 'images' as a "single cased" window popup.
+
   * In PHP 8.1, the default error handling behavior of the MySQLi extension has
     changed from silencing errors to throw an Exception on errors.
     Therefore the Serendipity Styx MySQLi connector API was changed to make this
