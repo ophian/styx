@@ -229,7 +229,7 @@
                     {/if}
                     {if $admin_vars.no_create !== true}
 
-                        {serendipity_hookPlugin hook="backend_sidebar_admin_useralert" hookAll="true"}
+                        {serendipity_hookPlugin hook="backend_sidebar_useralert" hookAll="true"}
 
                     {/if}
                 {/if}
