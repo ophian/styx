@@ -279,6 +279,7 @@ if ($ajax) {
     // If set to true (in serendipity_config_local.inc.php), the pages (tab) title will be
     // "blog title | section | SERENDIPITY_ADMIN_SUITE" instead
     $admin_vars['backendBlogtitleFirst'] = empty($serendipity['backendBlogtitleFirst']) ? false : true;
+    $admin_vars['right_publish'] = $serendipity['right_publish'];
 
     if ($serendipity['expose_s9y']) {
         $admin_vars['version_info'] = sprintf(ADMIN_FOOTER_POWERED_BY, $serendipity['versionInstalled'], PHP_VERSION);
