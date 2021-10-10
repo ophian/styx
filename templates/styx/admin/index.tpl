@@ -163,7 +163,7 @@
 
                     </ul>
                 </li>
-                {if 'adminUsersGroups'|checkPermission OR 'adminImport'|checkPermission OR 'siteConfiguration'|checkPermission OR 'blogConfiguration'|checkPermission OR 'adminUsers'|checkPermission OR 'adminTemplates'|checkPermission OR 'adminPlugins'|checkPermission}
+                {if 'adminImport'|checkPermission OR 'siteConfiguration'|checkPermission OR 'blogConfiguration'|checkPermission OR 'adminTemplates'|checkPermission OR 'adminPlugins'|checkPermission}
 
                 <li><h3>{$CONST.MENU_SETTINGS}</h3>
                     <ul>
@@ -179,6 +179,19 @@
 
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=plugins">{$CONST.MENU_PLUGINS}</a></li>
                     {/if}
+                    {if $admin_vars.no_create !== true}
+
+                        {serendipity_hookPlugin hook="backend_sidebar_admin" hookAll="true"}
+                    {/if}
+
+                    </ul>
+                </li>
+                {/if}
+
+                <li><h3>{$CONST.MANAGE_USERS}</h3>
+                    <ul>
+                {if 'adminUsersGroups'|checkPermission OR 'adminUsers'|checkPermission}
+
                     {if 'adminUsers'|checkPermission}
 
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=users">{$CONST.MENU_USERS}</a></li>
@@ -189,12 +202,13 @@
                     {/if}
                     {if $admin_vars.no_create !== true}
 
-                        {serendipity_hookPlugin hook="backend_sidebar_admin" hookAll="true"}
+                        {serendipity_hookPlugin hook="backend_sidebar_users" hookAll="true"}
+
                     {/if}
+                {/if}
 
                     </ul>
                 </li>
-                {/if}
 
             </ul>
         </nav>
