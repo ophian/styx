@@ -255,6 +255,7 @@ class Serendipity_Import_Generic extends Serendipity_Import
                     $s9y_users[$wp_user]['authorid'] = time();
                 } else {
                     $s9y_users[$wp_user]['authorid'] = serendipity_addAuthor($wp_user, md5(time()), $wp_user, '', USERLEVEL_EDITOR);
+                    serendipity_set_config_var('enableBackendPopupGranular', 'categories,tags,links', $s9y_users[$wp_user]['authorid']);
                 }
                 echo '<span class="block_level">';
                 printf(CREATE_AUTHOR, serendipity_specialchars($wp_user));
