@@ -16,7 +16,7 @@ Version 3.6-dev ()
     description, so it can be made clear what is going to happen by writing or
     removing certain list items. This also fixes the behaviour of not showing
     the current set value state in the input field. Now all new users will
-    have this configuration set set by default.
+    have this configuration set by default.
     NOTE: Re-Check your personal settings, please. The default value for
           this configuration item is "categories,tags,links", if you don't
           have other individual requests.
