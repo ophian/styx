@@ -29,5 +29,5 @@
 {elseif $type == 'textarea'}
     <textarea id="{$name}" rows="5" name="{$name}">{$value|escape}</textarea>
 {else}
-    <input id="{$name}" type="text" name="{$name}" value="{$value|escape}">
+    <input id="{$name}" type="text" name="{$name}" value="{$value|escape|default:''}">
 {/if}
