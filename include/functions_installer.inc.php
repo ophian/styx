@@ -436,7 +436,12 @@ function serendipity_guessInput($type, $name, $value = '', $default = '') {
 
     switch ($type) {
         case 'string':
-            /* no need for nothing here yet */
+            if ($name == 'enableBackendPopupGranular' && !empty($default)) {
+                if ($_GET['serendipity']['adminModule'] == 'users' && $_GET['serendipity']['adminAction'] == 'new') {
+                    $value = $default;
+                }
+            }
+            /* no need for nothing else here yet, while this is a special case pre-filled-configuration-set only - just for the USERS administration NEW form */
             break;
 
         case 'bool':
