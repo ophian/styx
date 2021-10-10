@@ -670,6 +670,9 @@
 @define('USERCONF_USERLEVEL', 'Erişim seviyesi');
 @define('USERCONF_USERLEVEL_DESC', 'Bu bölüm siteniz kullanıcılarının erişim ve yetki seviyelerini belirler. User privileges are handled by group memberships!');
 @define('USER_SELF_INFO', ' %s (%s) olarak bağlandınız');
+@define('USER_ALERT', 'Userinfo');
+@define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'You have not yet been granted the right to publish your entries directly. Until sufficient trust is built, inform your assigned editor-in-chief that your entry is ready for publication and approval.');
+@define('USER_PERMISSION_NOTIFIER_RESET', 'In case of temporary revocation of rights, please clarify the reasons in a friendly personal conversation.');
 @define('ADMIN_ENTRIES', 'Yazılar');
 @define('RECHECK_INSTALLATION', 'Kurulumu yeniden kontrol et');
 @define('IMAGICK_EXEC_ERROR', 'Çalıştırılamıyor: "%s", hata: %s, değişkene dön : %d');

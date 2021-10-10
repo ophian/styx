@@ -671,6 +671,9 @@
 #@define('USERCONF_USERLEVEL_DESC', 'Â‰«  Ê÷ÌÕ ·„” ÊÏ Ê’·«ÕÌ«  œŒÊ· «·„” Œœ„ ≈·Ï «·„Ã·…');
 @define('USERCONF_USERLEVEL_DESC', 'This level is used to determine what kind of access this user has to the Blog. User privileges are handled by group memberships!');
 @define('USER_SELF_INFO', ' „ «· ”ÃÌ· »‹ %s (%s)');
+@define('USER_ALERT', 'Userinfo');
+@define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'You have not yet been granted the right to publish your entries directly. Until sufficient trust is built, inform your assigned editor-in-chief that your entry is ready for publication and approval.');
+@define('USER_PERMISSION_NOTIFIER_RESET', 'In case of temporary revocation of rights, please clarify the reasons in a friendly personal conversation.');
 @define('ADMIN_ENTRIES', '«·„Ê«÷Ì⁄');
 @define('RECHECK_INSTALLATION', '≈⁄«œ…  ›Õ’  À»Ì  «·„Ã·…');
 @define('IMAGICK_EXEC_ERROR', '€Ì— ﬁ«œ— ⁄·Ï  ‰›Ì– "%s", Œÿ√: %s, „—Ã⁄ «·Œÿ√: %d');

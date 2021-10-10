@@ -670,6 +670,9 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('USERCONF_USERLEVEL', 'Poziom dostępu');
 @define('USERCONF_USERLEVEL_DESC', 'To ustawienie określa jaki poziom dostępu ma użytkownik do bloga. Uprawnienia użytkowników są obsługiwane przez przynależność do grup!');
 @define('USER_SELF_INFO', 'Zalogowany(a) jako %s (%s)');
+@define('USER_ALERT', 'Userinfo');
+@define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'You have not yet been granted the right to publish your entries directly. Until sufficient trust is built, inform your assigned editor-in-chief that your entry is ready for publication and approval.');
+@define('USER_PERMISSION_NOTIFIER_RESET', 'In case of temporary revocation of rights, please clarify the reasons in a friendly personal conversation.');
 @define('ADMIN_ENTRIES', 'Wpisy');
 @define('RECHECK_INSTALLATION', ' Sprawdź ponownie instalację');
 @define('IMAGICK_EXEC_ERROR', 'Nie można wykonać: %s, błąd: %s, zwrócona wartość: %d');

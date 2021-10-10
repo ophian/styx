@@ -671,6 +671,9 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('USERCONF_USERLEVEL', 'Уровень доступа');
 @define('USERCONF_USERLEVEL_DESC', 'Этот уровень используется чтобы определить какой тип доступа у пользователя к блогу. Привилегии пользователей обрабатываются членством в группах!');
 @define('USER_SELF_INFO', 'Вы вошли как пользователь %s (%s)');
+@define('USER_ALERT', 'Userinfo');
+@define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'You have not yet been granted the right to publish your entries directly. Until sufficient trust is built, inform your assigned editor-in-chief that your entry is ready for publication and approval.');
+@define('USER_PERMISSION_NOTIFIER_RESET', 'In case of temporary revocation of rights, please clarify the reasons in a friendly personal conversation.');
 @define('ADMIN_ENTRIES', 'Записи');
 @define('RECHECK_INSTALLATION', 'Снова проверить установку');
 @define('IMAGICK_EXEC_ERROR', 'Невозможно выполнить: "%s", ошибка: %s, возвращенная переменная: %d');

@@ -668,6 +668,9 @@
 @define('USERCONF_USERLEVEL', 'Hozzáférési szint');
 @define('USERCONF_USERLEVEL_DESC', 'Ez a szint határozza meg, hogy a szerkesztőnek milyen jogosultságai vannak a blog-hoz. A felhasználói jogosultságokat a csoporttagságok kezelik!');
 @define('USER_SELF_INFO', 'Bejelentkezve mint %s (%s)');
+@define('USER_ALERT', 'Userinfo');
+@define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'You have not yet been granted the right to publish your entries directly. Until sufficient trust is built, inform your assigned editor-in-chief that your entry is ready for publication and approval.');
+@define('USER_PERMISSION_NOTIFIER_RESET', 'In case of temporary revocation of rights, please clarify the reasons in a friendly personal conversation.');
 @define('ADMIN_ENTRIES', 'Bejegyzések');
 @define('RECHECK_INSTALLATION', 'Telepítés újraellenőrzése');
 @define('IMAGICK_EXEC_ERROR', 'Nem sikerült futtatni a következőt: "%s", hiba: %s, visszatérési érték: %d');

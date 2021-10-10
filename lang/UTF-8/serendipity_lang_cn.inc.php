@@ -672,6 +672,9 @@
 @define('USERCONF_USERLEVEL', '权限');
 @define('USERCONF_USERLEVEL_DESC', '这个选项可以设定此作者在这个日志内的权限. 用户的权限是由组的成员资格处理的!');
 @define('USER_SELF_INFO', '登入用户是 %s (%s)');
+@define('USER_ALERT', 'Userinfo');
+@define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'You have not yet been granted the right to publish your entries directly. Until sufficient trust is built, inform your assigned editor-in-chief that your entry is ready for publication and approval.');
+@define('USER_PERMISSION_NOTIFIER_RESET', 'In case of temporary revocation of rights, please clarify the reasons in a friendly personal conversation.');
 @define('ADMIN_ENTRIES', '文章管理');// 这是后台菜单的文章管理
 @define('RECHECK_INSTALLATION', '重新检查安装程序');
 @define('IMAGICK_EXEC_ERROR', '无法执行: "%s", 错误: %s, 系数: %d');

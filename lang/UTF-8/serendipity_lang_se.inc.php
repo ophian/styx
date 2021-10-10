@@ -668,6 +668,9 @@
 @define('USERCONF_USERLEVEL', 'Accessnivå');
 @define('USERCONF_USERLEVEL_DESC', 'Denna nivå används för att bestämma vilken slags tillgång denna användare ska ha till bloggen. Användarrättigheter hanteras av gruppmedlemskap!');
 @define('USER_SELF_INFO', 'Inloggad som %s (%s)');
+@define('USER_ALERT', 'Userinfo');
+@define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'You have not yet been granted the right to publish your entries directly. Until sufficient trust is built, inform your assigned editor-in-chief that your entry is ready for publication and approval.');
+@define('USER_PERMISSION_NOTIFIER_RESET', 'In case of temporary revocation of rights, please clarify the reasons in a friendly personal conversation.');
 @define('ADMIN_ENTRIES', 'Artiklar');
 @define('RECHECK_INSTALLATION', 'Kolla installationen igen');
 @define('IMAGICK_EXEC_ERROR', 'Kunde inte utföra: "%s", fel: %s, retur var: %d');

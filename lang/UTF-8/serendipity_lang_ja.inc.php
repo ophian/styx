@@ -668,6 +668,9 @@
 @define('USERCONF_USERLEVEL', 'アクセスレベル');
 @define('USERCONF_USERLEVEL_DESC', 'このレベルはこのユーザーがウェブログに対してどういう種類のアクセスを持つか決定するため使用されます。 ユーザーの権限は、グループのメンバーシップによって処理されます。');
 @define('USER_SELF_INFO', '%s としてログイン中 (%s)');
+@define('USER_ALERT', 'Userinfo');
+@define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'You have not yet been granted the right to publish your entries directly. Until sufficient trust is built, inform your assigned editor-in-chief that your entry is ready for publication and approval.');
+@define('USER_PERMISSION_NOTIFIER_RESET', 'In case of temporary revocation of rights, please clarify the reasons in a friendly personal conversation.');
 @define('ADMIN_ENTRIES', 'エントリー');
 @define('RECHECK_INSTALLATION', 'インストールの再検査');
 @define('IMAGICK_EXEC_ERROR', '実行できませんでした: "%s", エラー: %s, 返り値: %d');

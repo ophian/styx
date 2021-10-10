@@ -670,6 +670,9 @@
 @define('USERCONF_USERLEVEL', '권한 레벨');
 @define('USERCONF_USERLEVEL_DESC', '이 레벨은 블로그에 대해 사용자가 어떤 권한을 가지는지 결정하는데 사용됩니다. User privileges are handled by group memberships!');
 @define('USER_SELF_INFO', '%s (%s) 로그인 됨');
+@define('USER_ALERT', 'Userinfo');
+@define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'You have not yet been granted the right to publish your entries directly. Until sufficient trust is built, inform your assigned editor-in-chief that your entry is ready for publication and approval.');
+@define('USER_PERMISSION_NOTIFIER_RESET', 'In case of temporary revocation of rights, please clarify the reasons in a friendly personal conversation.');
 @define('ADMIN_ENTRIES', '글 관리');
 @define('RECHECK_INSTALLATION', '설치 상태 재확인 필요');
 @define('IMAGICK_EXEC_ERROR', '실행할 수 없음: "%s", 오류: %s, 리턴 변수: %d');

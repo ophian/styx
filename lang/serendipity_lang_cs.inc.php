@@ -680,6 +680,9 @@ $i18n_filename_to = array (
 @define('USERCONF_USERLEVEL', 'Úroveò');
 @define('USERCONF_USERLEVEL_DESC', 'Tato úroveò urèuje práva uživatele weblogu. Oprávnení uživatelu se rídí clenstvím ve skupinách!');
 @define('USER_SELF_INFO', 'Pøihlášen jako %s (%s)');
+@define('USER_ALERT', 'Userinfo');
+@define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'You have not yet been granted the right to publish your entries directly. Until sufficient trust is built, inform your assigned editor-in-chief that your entry is ready for publication and approval.');
+@define('USER_PERMISSION_NOTIFIER_RESET', 'In case of temporary revocation of rights, please clarify the reasons in a friendly personal conversation.');
 @define('ADMIN_ENTRIES', 'Záznamy');
 @define('RECHECK_INSTALLATION', 'Pøekontrolovat instalaci');
 @define('IMAGICK_EXEC_ERROR', 'Nelze spustit: "%s", chyba: %s, vrací promìnnou: %d');

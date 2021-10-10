@@ -670,6 +670,9 @@
 @define('USERCONF_USERLEVEL', 'Toegangsniveau');
 @define('USERCONF_USERLEVEL_DESC', 'Dit niveau wordt gebruikt om te bepalen wat voor soort rechten de gebruiker heeft tot het weblog. Gebruikersrechten worden geregeld door groepslidmaatschappen!');
 @define('USER_SELF_INFO', 'Aangemeld als %s (%s)');
+@define('USER_ALERT', 'Userinfo');
+@define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'You have not yet been granted the right to publish your entries directly. Until sufficient trust is built, inform your assigned editor-in-chief that your entry is ready for publication and approval.');
+@define('USER_PERMISSION_NOTIFIER_RESET', 'In case of temporary revocation of rights, please clarify the reasons in a friendly personal conversation.');
 @define('ADMIN_ENTRIES', 'Artikelen');
 @define('RECHECK_INSTALLATION', 'Installatie opnieuw controleren');
 @define('IMAGICK_EXEC_ERROR', 'Niet uit te voeren: "%s", fout: %s, foutcode : %d');

@@ -668,6 +668,9 @@
 @define('USERCONF_USERLEVEL', 'Access level');
 @define('USERCONF_USERLEVEL_DESC', 'This level is used to determine what kind of access this user has to the Blog. User privileges are handled by group memberships!');
 @define('USER_SELF_INFO', 'Logged in as %s (%s)');
+@define('USER_ALERT', 'Userinfo');
+@define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'You have not yet been granted the right to publish your entries directly. Until sufficient trust is built, inform your assigned editor-in-chief that your entry is ready for publication and approval.');
+@define('USER_PERMISSION_NOTIFIER_RESET', 'In case of temporary revocation of rights, please clarify the reasons in a friendly personal conversation.');
 @define('ADMIN_ENTRIES', 'Entries');
 @define('RECHECK_INSTALLATION', 'Recheck installation');
 @define('IMAGICK_EXEC_ERROR', 'Unable to execute: "%s", error: %s, return var: %d');

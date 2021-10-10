@@ -669,6 +669,9 @@
 @define('USERCONF_USERLEVEL', 'Nivel acces');
 @define('USERCONF_USERLEVEL_DESC', 'Acest nivel este folosit pentru a determina ce fel de acces are un utilizator la acest blog. Privilegiile utilizatorilor sunt gestionate prin apartenența la grupuri!');
 @define('USER_SELF_INFO', 'Autentificat ca %s (%s)');
+@define('USER_ALERT', 'Userinfo');
+@define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'You have not yet been granted the right to publish your entries directly. Until sufficient trust is built, inform your assigned editor-in-chief that your entry is ready for publication and approval.');
+@define('USER_PERMISSION_NOTIFIER_RESET', 'In case of temporary revocation of rights, please clarify the reasons in a friendly personal conversation.');
 @define('ADMIN_ENTRIES', 'Însemnări');
 @define('RECHECK_INSTALLATION', 'Verifică instalarea din nou');
 @define('IMAGICK_EXEC_ERROR', 'Nu pot executa: "%s", eroare: %s, return var: %d');
