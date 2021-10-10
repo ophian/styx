@@ -1,7 +1,7 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
-  * Move "User Management" out of backend sidebar "Settings" section.
+  * Move "User/Group Management" out of backend sidebar "Settings" section.
     While being more precise as a bundled section, this additionally allows to
     throw some current or temporary revocations of user-right related notices.
     Additional Plugins as follows.
