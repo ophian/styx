@@ -137,6 +137,7 @@ img, video {
 
 /** New Styx defaults **/
 
+fieldset { border: 1px solid #ccc; }
 pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; overflow: auto; }
 /* a new unsaved comment preview only */
 #serendipity_comment_0 {
