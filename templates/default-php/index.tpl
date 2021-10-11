@@ -39,20 +39,24 @@
         <h2><a class="homelink2" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?>"><?php if ($GLOBALS['tpl']['view'] == 'plugin'): ?><?= $GLOBALS['tpl']['blogDescription']; ?><?php else: ?><?= $GLOBALS['template']->getdefault('head_subtitle', 'blogDescription'); ?><?php endif; ?></a></h2>
     </header>
 
-<div id="mainpane">
+<div id="mainpane" class="<?php if ($GLOBALS['tpl']['leftSidebarElements'] == 0 || $GLOBALS['tpl']['rightSidebarElements'] == 0): ?>full<?php else: ?>side-<?php endif; ?><?php if ($GLOBALS['tpl']['leftSidebarElements'] > 0 && $GLOBALS['tpl']['rightSidebarElements'] == 0): ?>left<?php elseif ($GLOBALS['tpl']['rightSidebarElements'] > 0 && $GLOBALS['tpl']['leftSidebarElements'] == 0): ?>right<?php else: ?>both<?php endif; ?>">
+
     <main id="content" valign="top">
         <?= $GLOBALS['tpl']['CONTENT']; ?>
     </main>
+
 <?php if ($GLOBALS['tpl']['leftSidebarElements'] > 0): ?>
     <aside id="serendipityLeftSideBar" valign="top">
         <?php echo serendipity_plugin_api::generate_plugins('left'); ?>
     </aside>
 <?php endif; ?>
+
 <?php if ($GLOBALS['tpl']['rightSidebarElements'] > 0): ?>
     <aside id="serendipityRightSideBar" valign="top">
         <?php echo serendipity_plugin_api::generate_plugins('right'); ?>
     </aside>
 <?php endif; ?>
+
 </div>
 <?php endif; ?>
 
