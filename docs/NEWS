@@ -1,6 +1,8 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Update /b5/ template assets to bootstrap 5.1.3 release
+
   * Move "User/Group Management" out of backend sidebar "Settings" section with
     called by hook name 'backend_sidebar_users'. Additional Plugins as follows.
     While being more precise as a bundled section, this additionally allows to
