@@ -8,10 +8,12 @@
 
 <?php if (isset($GLOBALS['tpl']['is_contactform_error'])): ?>
    <div class="serendipity_center serendipity_msg_important"><?= $GLOBALS['tpl']['plugin_contactform_error'] ?></div>
+   <?php if (isset($GLOBALS['tpl']['comments_messagestack'])): ?>
    <!-- Needed for Captchas -->
    <?php foreach ($GLOBALS['tpl']['comments_messagestack'] AS $messages):?>
    <div class="serendipity_center serendipity_msg_important"<?= $messages ?></div>
    <?php endforeach; ?>
+   <?php endif; ?>
 <?php endif; ?>
 
 <?php if (empty($GLOBALS['tpl']['is_contactform_sent'])): ?>
