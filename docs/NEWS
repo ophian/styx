@@ -10,7 +10,7 @@ Version 3.6-dev ()
     Plugins may use a new hook name called 'backend_sidebar_useralert' just for
     thrown appendices.
 
-  * Fix [ default-php ] theme for certain issues
+  * Fix [ default-php ] theme for certain issues and again
 
   * Improve personal preferences popup granular force 'comments' option, not
     reacting on independency from 'images' as a "single cased" window popup.
