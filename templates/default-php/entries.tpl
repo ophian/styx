@@ -1,8 +1,8 @@
 <!-- ENTRIES START -->
     <?php serendipity_plugin_api::hook_event('entries_header', $GLOBALS['tpl'], @$GLOBALS['tpl']['entry_id']); ?>
 <?php /* NOTE: in case of staticpages it either needs to check is_array() or cast foreach($GLOBALS as (array) */ ?>
-    <?php if (isset($GLOBALS['tpl']['entries']) && is_array($GLOBALS['tpl']['entries'])):
-    foreach($GLOBALS['tpl']['entries'] AS $dategroup):?>
+<?php if (! empty($GLOBALS['tpl']['entries'])):
+    foreach($GLOBALS['tpl']['entries'] AS $dategroup): ?>
     <div class="serendipity_Entry_Date">
         <?php if ($dategroup['is_sticky']): ?>
         <h3 class="serendipity_date"><?= STICKY_POSTINGS ?></h3>
@@ -10,9 +10,9 @@
         <h3 class="serendipity_date"><?= serendipity_formatTime(DATE_FORMAT_ENTRY, $dategroup['date']); ?></h3>
         <?php endif; ?>
 
-        <?php foreach($dategroup['entries'] AS $entry):?>
+        <?php foreach($dategroup['entries'] AS $entry): ?>
         <?php $GLOBALS['tpl']['entry'] = $entry; ?>
-        <h4 class="serendipity_title"><a href="<?= $entry['link'] ?>"><?= $entry['title'] ?></a></h4>
+        <h2 class="serendipity_title"><a href="<?= $entry['link'] ?>"><?= $entry['title'] ?></a></h2>
 
         <div class="serendipity_entry serendipity_entry_author_<?= serendipity_makeFilename($entry['author']); ?> <?php if (!empty($entry['is_entry_owner'])): ?>serendipity_entry_author_self<?php endif; ?>">
             <?php if (!empty($entry['categories'])): ?>
@@ -55,21 +55,21 @@
 
                 <?php if ($entry['has_comments'] && empty($GLOBALS['tpl']['is_single_entry'])): ?>
                     <?php if ($GLOBALS['tpl']['use_popups']): ?>
-                        | <a href="<?= $entry['link_popup_comments'] ?>" onclick="window.open(this.href, 'comments', 'width=480,height=480,scrollbars=yes'); return false;"><?= $entry['label_comments'] ?> (<?= $entry['comments'] ?>)</a>
+                        | <a href="<?= $entry['link_popup_comments'] ?>" onclick="window.open(this.href, 'comments', 'width=480,height=480,scrollbars=yes'); return false;"><?= ($entry['label_comments'] ?? '') ?> (<?= $entry['comments'] ?>)</a>
                     <?php else: ?>
                         | <a href="<?= $entry['link'] ?>#comments"><?= $entry['label_comments'] ?> (<?= $entry['comments'] ?>)</a>
                     <?php endif; ?>
-                <?php elseif (null !== $entry['label_comments']): ?>
+                <?php elseif (null !== ($entry['label_comments'] ?? null)): ?>
                         | <a href="<?= $entry['link'] ?>#comments"><?= $entry['label_comments'] ?> (<?= $entry['comments'] ?>)</a>
                 <?php endif; ?>
 
                 <?php if ($entry['has_trackbacks'] && empty($GLOBALS['tpl']['is_single_entry'])): ?>
                     <?php if ($GLOBALS['tpl']['use_popups']): ?>
-                        | <a href="<?= $entry['link_popup_trackbacks'] ?>" onclick="window.open(this.href, 'comments', 'width=480,height=480,scrollbars=yes'); return false;"><?= $entry['label_trackbacks'] ?> (<?= $entry['trackbacks'] ?>)</a>
+                        | <a href="<?= $entry['link_popup_trackbacks'] ?>" onclick="window.open(this.href, 'comments', 'width=480,height=480,scrollbars=yes'); return false;"><?= ($entry['label_trackbacks'] ?? '') ?> (<?= $entry['trackbacks'] ?>)</a>
                     <?php else: ?>
                         | <a href="<?= $entry['link'] ?>#trackbacks"><?= $entry['label_trackbacks'] ?> (<?= $entry['trackbacks'] ?>)</a>
                     <?php endif; ?>
-                <?php elseif (null !== $entry['label_trackbacks']): ?>
+                <?php elseif (null !== ($entry['label_trackbacks'] ?? null)): ?>
                         | <a href="<?= $entry['link'] ?>#trackbacks"><?= $entry['label_trackbacks'] ?> (<?= $entry['trackbacks'] ?>)</a>
                 <?php endif; ?>
 
@@ -81,7 +81,7 @@
             </div>
             <?php endif; ?>
         </div>
-        <?php if (!$GLOBALS['tpl']['is_preview']): ?>
+
         <!--
         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
@@ -93,10 +93,10 @@
                  dc:identifier="<?= $entry['rdf_ident'] ?>">
         </rdf:RDF>
         -->
-        <?= $entry['plugin_display_dat'] ?>
-        <?php endif; ?>
 
-        <?php if (!empty($GLOBALS['tpl']['is_single_entry']) && empty($GLOBALS['tpl']['is_preview'])): ?>
+        <?= $entry['plugin_display_dat'] ?>
+
+        <?php if ($GLOBALS['tpl']['is_single_entry'] && !$GLOBALS['tpl']['is_preview']): ?>
             <?php if (defined(DATA_UNSUBSCRIBED)): ?>
                 <div class="serendipity_center serendipity_msg_success"><?= sprintf(DATA_UNSUBSCRIBED, UNSUBSCRIBE_OK) ?></div>
             <?php endif; ?>
@@ -152,18 +152,18 @@
                 <a id="feedback"></a>
 
                 <?php if ( !empty($GLOBALS['tpl']['comments_messagestack'])): ?>
-                <?php foreach($GLOBALS['tpl']['comments_messagestack'] AS $message):?>
+                <?php foreach($GLOBALS['tpl']['comments_messagestack'] AS $message): ?>
                 <div class="serendipity_center serendipity_msg_important"><?= $message ?></div>
                 <?php endforeach; ?>
                 <?php endif; ?>
 
-                <?php if ($GLOBALS['tpl']['is_comment_added']): ?>
-
-                <div class="serendipity_center serendipity_msg_success"><?= COMMENT_ADDED; ?></div>
-
-                <?php elseif ($GLOBALS['tpl']['is_comment_moderate']): ?>
+                <?php if ($GLOBALS['tpl']['is_comment_moderate']): ?>
 
                 <div class="serendipity_center serendipity_msg_success"><?= COMMENT_ADDED; ?><br><?= THIS_COMMENT_NEEDS_REVIEW ?></div>
+
+                <?php elseif ($GLOBALS['tpl']['is_comment_added']): ?>
+
+                <div class="serendipity_center serendipity_msg_success"><?= COMMENT_ADDED; ?></div>
 
                 <?php elseif (!$entry['allow_comments']): ?>
 
@@ -184,15 +184,16 @@
         <?php endforeach; ?>
     </div>
     <?php endforeach; ?>
-    <?php endif; ?>
+<?php else: ?>
 
-    <?php if ((isset($GLOBALS['tpl']['entries']) && is_array($GLOBALS['tpl']['entries']) && count($GLOBALS['tpl']['entries']) < 1) && !$GLOBALS['tpl']['plugin_clean_page'] && $GLOBALS['tpl']['view'] != '404'): ?>
+    <?php if (!$GLOBALS['tpl']['plugin_clean_page'] && $GLOBALS['tpl']['view'] != '404'): ?>
     <div class="serendipity_overview_noentries">
         <?= NO_ENTRIES_TO_PRINT ?>
     </div>
     <?php endif; ?>
+<?php endif; ?>
 
-<?php if ((isset($GLOBALS['tpl']['$is_single_entry']) && !$GLOBALS['tpl']['$is_single_entry']) && !$GLOBALS['tpl']['is_preview'] && !$GLOBALS['tpl']['plugin_clean_page'] && (!empty($GLOBALS['tpl']['footer_prev_page']) OR !empty($GLOBALS['tpl']['footer_next_page']))): ?>
+<?php if (!isset($GLOBALS['tpl']['$is_single_entry']) && !$GLOBALS['tpl']['is_preview'] && !$GLOBALS['tpl']['plugin_clean_page'] && (!empty($GLOBALS['tpl']['footer_prev_page']) OR !empty($GLOBALS['tpl']['footer_next_page']))): ?>
     <div class="serendipity_entries_footer">
     <?php if ($GLOBALS['tpl']['footer_prev_page']): ?>
         <a href="<?= $GLOBALS['tpl']['footer_prev_page'] ?>">&laquo; <?= PREVIOUS_PAGE; ?></a>&#160;&#160;
