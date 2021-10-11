@@ -11,7 +11,7 @@
 {elseif $type == 'fullprotected'}
     <input id="{$name}" type="password" name="{$name}" value="{$value|default:''|escape}" autocomplete="off">
 {elseif $type == 'protected'}
-    <input id="{$name}" type="password" name="{$name}" value="{$value|escape}">
+    <input id="{$name}" type="password" name="{$name}" value="{$value|default:''|escape}">
 {elseif $type == 'multilist'}
     <select id="{$name}" name="{$name}[]" multiple="multiple" size="5">';
     {foreach $default AS $k => $v}
@@ -29,5 +29,5 @@
 {elseif $type == 'textarea'}
     <textarea id="{$name}" rows="5" name="{$name}">{$value|escape}</textarea>
 {else}
-    <input id="{$name}" type="text" name="{$name}" value="{$value|escape|default:''}">
+    <input id="{$name}" type="text" name="{$name}" value="{$value|default:''|escape}">
 {/if}
