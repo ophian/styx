@@ -1,7 +1,7 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
-  * Fix spamblock CAPTCHA image for administrator (debug mode) by @silencencing
+  * Fix spamblock CAPTCHA image for administrator (debug mode) by @silencing
     nasty "Implicit conversion from float 1.2 to int loses precision" inbound
     errors with PHP 8.1, destroying the image.
 
