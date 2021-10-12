@@ -51,7 +51,7 @@
                     {if $field.type != "hidden"}
 
                         <dt class="serendipity_commentsLabel">
-                           {if $field.required}<sup>&#8727;</sup>{/if}<label for="serendipity_contactform_{$field.id}">{$field.name}</label>
+                           <label for="serendipity_contactform_{$field.id}">{$field.name}{if $field.required} <sup>&#8727;</sup>{/if}</label>
                         </dt>
                         <dd class="serendipity_commentsValue">
                             {if $field.type == "checkbox"}
