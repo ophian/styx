@@ -47,7 +47,7 @@
                <?php foreach ($GLOBALS['tpl']['commentform_dynamicfields'] AS $field):?>
                    <?php if ($field['type'] != "hidden"): ?>
                        <dt class="serendipity_commentsLabel">
-                           <?php if ($field['required']): ?><sup>&#8727;</sup><?php endif; ?><label for="serendipity_contactform_<?= $field['id'] ?>"><?= $field['name'] ?></label>
+                           <label for="serendipity_contactform_<?= $field['id'] ?>"><?= $field['name'] ?><?php if ($field['required']): ?><sup> &#8727;</sup><?php endif; ?></label>
                        </dt>
                        <dd class="serendipity_commentsValue">
                            <?php if ($field['type'] == "checkbox"): ?>
