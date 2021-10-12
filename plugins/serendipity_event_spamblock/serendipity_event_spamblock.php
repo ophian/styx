@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.0.0'
         ));
-        $propbag->add('version',       '2.50');
+        $propbag->add('version',       '2.51');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1866,8 +1866,8 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
 
         list($musec, $msec) = explode(' ', microtime());
         $srand = (float) $msec + ((float) $musec * 100000);
-        srand($srand);
-        mt_srand($srand);
+        @srand($srand); // silence nasty "Implicit conversion from float 1634150650.2 to int loses precision" error, destroying the image
+        @mt_srand($srand); // silence nasty "Implicit conversion from float 1634150650.2 to int loses precision" error, destroying the image
         $width = 120;
         $height = 40;
 
@@ -1898,7 +1898,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                 $color = imagecolorallocate($image, mt_rand(50, 235), mt_rand(50, 235), mt_rand(50,235));
                 $size  = mt_rand(15, 21);
                 $angle = mt_rand(-20, 20);
-                $pos_y = ceil($height - (mt_rand($size/3, $size/2)));
+                $pos_y = ceil($height - (@mt_rand($size/3, $size/2))); // silence nasty "Implicit conversion from float 1.2 to int loses precision" errors, destroying the image
 
                 imagettftext(
                   $image,
