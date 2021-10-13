@@ -1549,6 +1549,13 @@ function serendipity_rotateImg($id, $degrees) {
 
     $turn = (preg_match('@-@', $degrees)) ? '<-' : '->';
 
+    // check for avif image file errors before to prevent rotating AT ALL
+    // - this is a workaround to prevent serendipity_rotateImageGD() errors on broken images and should also work when getimagesize will be "google" fixed for avif in future
+    list($width, $height, $type, $attr) = @getimagesize($infile_avif);
+    if ($width == 0 && $height == 0 && $type = 19) {
+        return true; // else we will need {if !isset($rotate_img_done) OR $rotate_img_done} in templates\default\admin\images.inc.tpl
+    }
+
     if ($serendipity['magick'] !== true) {
         if (serendipity_rotateImageGD($infile, $outfile, $degrees)) {
             if ($debug) { $serendipity['logger']->debug("GD Library Rotate main file command: Rotate $turn ${degrees} degrees, file: ${outfile}"); }
