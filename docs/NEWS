@@ -1,8 +1,9 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
-  * Temporary prevent images API serendipity_rotateImg() for the origin image
-    and all its variation types, if the avif image file variation is broken.
+  * Temporary prevent images API functions serendipity_rotateImg() and
+    serendipity_scaleImg() for the origin image and all variation types,
+    if the AVIF image file variation is broken.
 
   * Fix spamblock CAPTCHA image for administrator (debug mode) by @silencing
     nasty "Implicit conversion from float 1.2 to int loses precision" inbound
