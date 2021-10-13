@@ -4520,7 +4520,7 @@ function serendipity_metaFieldConvert(&$item, $type) {
 
         case 'date2':
             $parts = preg_split('&[ :]&', $item);
-            return mktime($parts[3], $parts[4], $parts[5], $parts[1], $parts[2], $parts[0]);
+            return mktime((int)$parts[3], (int)$parts[4], (int)$parts[5], $parts[1], $parts[2], $parts[0]);
             break;
 
         case 'IPTCdate':
