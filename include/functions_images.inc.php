@@ -1414,10 +1414,10 @@ function serendipity_scaleImg($id, $width, $height, $scaleThumbVariation=false) 
     $oavif   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.avif';
     $oavifTH = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.' . $file['thumbnail_name'] . '.avif';
 
-    // check for AVIF image file errors before to prevent rotating AT ALL
+    // check for AVIF image file errors before to prevent image scaling AT ALL
     // - this is a workaround to prevent serendipity_resizeImageGD() or serendipity_passToCMD IM -scale errors on broken images and should also work when getimagesize will be "google" fixed for avif in future
-    list($width, $height, $type, $attr) = @getimagesize($oavif);
-    if ($width == 0 && $height == 0 && $type = 19) {
+    list($width, $height, $type, $attr) = @getimagesize($oavif); // to grasp the nettle this currently is the default for avif in the moment, so we need another check of filesize over ~36 KB - my biggest broken DEV file was 33,36 KB
+    if ($width == 0 && $height == 0 && $type = 19 && filesize($oavif) < 36000) {
         return 'Sorry! This function is temporary disabled because the AVIF Variation file is erroneous!';
     }
 
@@ -1558,8 +1558,8 @@ function serendipity_rotateImg($id, $degrees) {
 
     // check for AVIF image file errors before to prevent rotating AT ALL
     // - this is a workaround to prevent serendipity_rotateImageGD() or serendipity_passToCMD IM -rotate errors on broken images and should also work when getimagesize will be "google" fixed for avif in future
-    list($width, $height, $type, $attr) = @getimagesize($infile_avif);
-    if ($width == 0 && $height == 0 && $type = 19) {
+    list($width, $height, $type, $attr) = @getimagesize($infile_avif); // to grasp the nettle this currently is the default for avif in the moment, so we need another check of filesize over ~36 KB - my biggest broken DEV file was 33,36 KB
+    if ($width == 0 && $height == 0 && $type = 19 && filesize($oavif) < 36000) {
         return true; // else we will need {if !isset($rotate_img_done) OR $rotate_img_done} in templates\default\admin\images.inc.tpl
     }
 
