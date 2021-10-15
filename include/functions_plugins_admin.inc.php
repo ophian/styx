@@ -472,6 +472,10 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 $data['value_webp'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
                                         ? $rpath
                                         : null; // file exist needs full path to check
+                $data['value_avif'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
+                                        ? $rpath
+                                        : null; // file exist needs full path to check
+                // TODO: add filesize comparison for WebP / AVIF picture sourcesets
 
                 $assign_plugin_config($data);
                 break;
