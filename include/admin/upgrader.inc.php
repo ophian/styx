@@ -504,6 +504,12 @@ $tasks = array(
                     'title'     => '<b>TEMPLATE_NOTICE:</b> As a follow-up, required fields setup was re-worked, moving it from theme config.inc.php files.',
                     'desc'      => 'Please follow the details in the CHANGELOG NEWS file above the Beta-2 note.'),
 
+            array(  'version'   => '3.6.2',
+                    'function'  => 'serendipity_checkAVIFSupport',
+                    'arguments' => array(true),
+                    'title'     => 'Check Image Libraries for AV1 Image File (AVIF) file support',
+                    'desc'      => 'Sets a global variable if the PHP build-in GD-library or the used ImageMagick version were build with AVIF file support. If so, and you already had it set by hand, please remove your temporary set $serendipity[\'useAvifFormat\'] variable in your serendipity_config_local.inc.php file or for DEVS change to default false in serendipity_config.inc.php.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
