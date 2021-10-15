@@ -248,6 +248,9 @@ if (!isset($data['this_cat']['category_description'])) {
 if (!isset($data['this_cat']['category_icon'])) {
     $data['this_cat']['category_icon'] = null;
 }
+if (!isset($data['this_cat']['category_icon_avif'])) {
+    $data['this_cat']['category_icon_avif'] = null;
+}
 if (!isset($data['this_cat']['category_icon_webp'])) {
     $data['this_cat']['category_icon_webp'] = null;
 }
