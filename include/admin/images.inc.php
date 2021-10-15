@@ -556,7 +556,7 @@ switch ($serendipity['GET']['adminAction']) {
                         @chmod($target, 0664);
 
                         // Create a target copy variation in WebP image format
-                        if (file_exists($target) && $serendipity['useWebPFormat'] && !in_array(strtolower($info['extension']), ['webp', 'avif'])) {
+                        if (file_exists($target) && $serendipity['useWebPFormat'] && strtolower($info['extension']) != 'webp') {
                             $variat = serendipity_makeImageVariationPath($target, 'webp');
                             $result = serendipity_convertToWebPFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target));
                             if (is_array($result)) {
@@ -578,7 +578,7 @@ switch ($serendipity['GET']['adminAction']) {
                             }
                         }
                         // Create a target copy variation in AVIF image format
-                        if (file_exists($target) && $serendipity['useAvifFormat'] && !in_array(strtolower($info['extension']), ['webp', 'avif'])) {
+                        if (file_exists($target) && $serendipity['useAvifFormat'] && strtolower($info['extension']) != 'avif') {
                             $variat = serendipity_makeImageVariationPath($target, 'avif');
                             $result = serendipity_convertToAvifFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target), false);
                             if (is_array($result)) {
