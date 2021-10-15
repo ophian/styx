@@ -26,7 +26,7 @@
 <IfModule mod_headers.c>
   Header set X-UA-Compatible "IE=Edge,chrome=1"
   # mod_headers can't match by content-type, but we don't want to send this header on *everything*...
-  <FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff|ico|webp|appcache|manifest|htc|crx|oex|xpi|safariextz|vcf)$" >
+  <FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff|ico|webp|avif|appcache|manifest|htc|crx|oex|xpi|safariextz|vcf)$" >
     Header unset X-UA-Compatible
   </FilesMatch>
 </IfModule>
@@ -58,7 +58,7 @@
 <IfModule mod_setenvif.c>
   <IfModule mod_headers.c>
     # mod_headers, y u no match by Content-Type?!
-    <FilesMatch "\.(gif|png|jpe?g|svg|svgz|ico|webp)$">
+    <FilesMatch "\.(gif|png|jpe?g|svg|svgz|ico|webp|avif)$">
       SetEnvIf Origin ":" IS_CORS
       Header set Access-Control-Allow-Origin "*" env=IS_CORS
     </FilesMatch>
