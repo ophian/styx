@@ -971,11 +971,11 @@ function serendipity_makeImageVariationPath($orgfile, $ext) {
  * @param string $image  origin image file relative path
  * @return array
  */
-function serendipity_generate_webpPathURI($image) {
+function serendipity_generate_webpPathURI($image, $ext = 'webp') {
     $bname  = basename($image); // to get base file name w/ ext
     $vpath  = str_replace($bname, '', $image); // get file path
     $fname  = pathinfo($image, PATHINFO_FILENAME); // get file name w/o extension
-    $rpath  = $vpath . '.v/' . $fname . '.webp'; // the relative document root image filepath
+    $rpath  = $vpath . '.v/' . $fname . '.' . $ext; // the relative document root image filepath
 
     return $rpath;
 }
