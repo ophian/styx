@@ -518,7 +518,7 @@ switch ($serendipity['GET']['adminAction']) {
                     $tmpfileinfo = @serendipity_getImageSize($uploadtmp);
                     if (empty(strtolower(pathinfo($tfile, PATHINFO_EXTENSION)))
                     && $tmpfileinfo[0] > 0 && $tmpfileinfo[1] > 0 /* check width and height */
-                    && in_array($tmpfileinfo[2], [IMAGETYPE_BMP, IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_TIFF_II, IMAGETYPE_TIFF_MM, IMAGETYPE_WEBP])) {
+                    && in_array($tmpfileinfo[2], [IMAGETYPE_BMP, IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_TIFF_II, IMAGETYPE_TIFF_MM, IMAGETYPE_WEBP, IMAGETYPE_AVIF])) {
                         $ext = explode('/', $tmpfileinfo['mime']);
                         $tfile = $tfile . '.' . $ext[1];
                     }
