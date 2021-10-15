@@ -78,6 +78,12 @@ function unlink_orphaned_images($id, $path, $name, $thumb, $ext) {
     if (file_exists($path . '.v/' . $name . '.' . $thumb . '.webp')) {
         unlink($path . '.v/' . $name . '.' . $thumb . '.webp');
     }
+    if (file_exists($path . '.v/' . $name . '.avif')) {
+        unlink($path . '.v/' . $name . '.avif');
+    }
+    if (file_exists($path . '.v/' . $name . '.' . $thumb . '.avif')) {
+        unlink($path . '.v/' . $name . '.' . $thumb . '.avif');
+    }
     return $id.', ';
 }
 
