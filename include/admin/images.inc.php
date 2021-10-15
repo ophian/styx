@@ -96,7 +96,7 @@ switch ($serendipity['GET']['adminAction']) {
         // guard clause - ditto
         if ($deleteThumbs === 'variation') {
             $i = serendipity_generateVariations();
-            $data['print_VARIATIONBUILDS_DONE'] = sprintf(SYNC_DONE, $i . ' WebP');
+            $data['print_VARIATIONBUILDS_DONE'] = sprintf(SYNC_DONE, $i . ' (WebP / AVIF)');
             $data['buildVariation'] = true;
             flush();
             break; // stop here
