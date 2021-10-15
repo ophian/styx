@@ -3091,7 +3091,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
         'linkLast'      => $linkLast,
         'extraParems'   => $extraParems,
         'totalImages'   => $totalImages,
-        'supportsWebP'  => $serendipity['useWebPFormat'],
+        'supportsWebP'  => $serendipity['useWebPFormat'] ?? false,
         'supportsAVIF'  => $serendipity['useAvifFormat'] ?? false
     ));
 
