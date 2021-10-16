@@ -1203,7 +1203,7 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um die
 @define('THUMBFILE_SIZE', 'Vorschau-Dateigröße');
 @define('PATH', 'Pfad');
 
-@define('MEDIA_EXTENSION_FAILURE', 'Die hochgeladene Datei "<b>%s</b>" wurde als eine Mime-Ursprungsdatei "<b>%s</b>" identifiziert und in der Datenbank der Mediathek als "<b>%s</b>" Extension gespeichert. Dieser Extensions-Name hat eine Länge von "%s", und ist damit <b>größer</b> als die zulässige maximale Extensionslänge von "%s" für Bild-Dateien. Vielleicht ist es nicht das richtige Format für <b>Internet</b>-Bilddateien ("bmp", "gif", "jpg", "jpeg", "png", "tiff", "webp")?');
+@define('MEDIA_EXTENSION_FAILURE', 'Die hochgeladene Datei "<b>%s</b>" wurde als eine Mime-Ursprungsdatei "<b>%s</b>" identifiziert und in der Datenbank der Mediathek als "<b>%s</b>" Extension gespeichert. Dieser Extensions-Name hat eine Länge von "%s", und ist damit <b>größer</b> als die zulässige maximale Extensionslänge von "%s" für Bild-Dateien. Vielleicht ist es nicht das richtige Format für <b>Internet</b>-Bilddateien ("bmp", "gif", "jpg", "jpeg", "png", "tiff", "webp", "avif")?');
 @define('MEDIA_EXTENSION_FAILURE_REPAIR', 'Bitte ändern Sie die Datei manuell in Ihrem "uploads/" Dateisystem und führen anschließend eine Synchronisation zur Erneuerung der Vorschaubilder im Backend-Bereich "Wartung" durch, um sie als gültiges Bild zur Verfügung zu stellen. Das Löschen der Datei über die Mediathek und das erneute Hochladen einer korrigierten Datei reicht ebenfalls, zerschießt aber in zunehmendem Maße den inkrementellen ID-Zähler der Datenbank und wird daher nicht unbedingt empfohlen.');
 
 @define('SYNC_OPTION_BUILDVARIATIONS', 'Erstelle alle zusätzlichen Picture-Format Variationen');
