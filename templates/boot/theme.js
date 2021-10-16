@@ -31,9 +31,10 @@ checkAVIF(function(support) {
         $('a.serendipity_image_link').each(function() {
             var $currentA = $(this);
             var       url = $currentA.attr('href');
-            var      type = checkURL(url);
+            var      type = checkURL(url); // type is true when not a variation itself
             var  dataHref = $currentA.attr('data-fallback');
-            if (type == null && url.pathname.split(".")[1] == 'avif') {
+            var extension = url.split('.').pop();
+            if (!type && extension == 'avif') {
                 $currentA.attr('href', dataHref);
                 $currentA.attr('data-fallback', '');// set empty for following webP check
             }
@@ -47,9 +48,10 @@ checkWebP(function(support) {
         $('a.serendipity_image_link').each(function() {
             var $currentA = $(this);
             var       url = $currentA.attr('href');
-            var      type = checkURL(url);
+            var      type = checkURL(url); // type is true when not a variation itself
             var  dataHref = $currentA.attr('data-fallback');
-            if (type == null && url.pathname.split(".")[1] == 'webp') {
+            var extension = url.split('.').pop();
+            if (!type && extension == 'webp') {
                 $currentA.attr('href', dataHref);
             }
         });
