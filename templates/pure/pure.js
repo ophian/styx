@@ -1,3 +1,7 @@
+function checkURL(url) {
+    return(url.match(/\.(webp|avif)$/) != null);
+};
+
 function checkWebP(callback) {
     var webP = new Image();
     webP.onload = webP.onerror = function () {
@@ -6,12 +10,41 @@ function checkWebP(callback) {
     webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
 };
 
+function checkAVIF(callback) {
+    var AVIF = new Image();
+    AVIF.onload = AVIF.onerror = function () {
+        callback(AVIF.height, "avif");
+    };
+    AVIF.src = "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=";
+};
+
+// first run for possible AVIF files
+checkAVIF(function(support) {
+    if (!support) {
+        $('a.serendipity_image_link').each(function() {
+            var $currentA = $(this);
+            var       url = $currentA.attr('href');
+            var      type = checkURL(url);
+            var  dataHref = $currentA.attr('data-fallback');
+            if (type == null && url.pathname.split(".")[1] == 'avif') {
+                $currentA.attr('href', dataHref);
+                $currentA.attr('data-fallback', '');// set empty for following webP check
+            }
+        });
+    }
+});
+
+// then do it again for WebP
 checkWebP(function(support) {
     if (!support) {
         $('a.serendipity_image_link').each(function() {
             var $currentA = $(this);
+            var       url = $currentA.attr('href');
+            var      type = checkURL(url);
             var  dataHref = $currentA.attr('data-fallback');
-            $currentA.attr('href', dataHref);
+            if (type == null && url.pathname.split(".")[1] == 'webp') {
+                $currentA.attr('href', dataHref);
+            }
         });
     }
 });
