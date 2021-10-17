@@ -65,14 +65,16 @@
                 {if NOT empty($cur_tpl.fullsize_preview)}
 
                     <a class="media_fullsize" href="{$cur_tpl.fullsize_preview_webp|default:$cur_tpl.fullsize_preview}" data-fallback="{$cur_tpl.fullsize_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$cur_tpl.info.name}">
-                        <picture>
-                          <source type="image/webp" srcset="{$cur_tpl.preview_webp|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
-                          <img src="{$cur_tpl.preview|default:$cur_tpl.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
-                        </picture>
+                      <picture>
+                        <source type="image/avif" srcset="{$cur_tpl.preview_avif|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                        <source type="image/webp" srcset="{$cur_tpl.preview_webp|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                        <img src="{$cur_tpl.preview|default:$cur_tpl.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                      </picture>
                     </a>
                 {else}
 
                     <picture>
+                      <source type="image/avif" srcset="{$cur_tpl.preview_avif|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
                       <source type="image/webp" srcset="{$cur_tpl.preview_webp|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
                       <img src="{$cur_tpl.preview|default:$cur_tpl.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
                     </picture>
@@ -130,14 +132,16 @@
                 {if $cur_tpl_backend.fullsize_backend_preview}
 
                     <a class="media_fullsize" href="{$cur_tpl_backend.fullsize_backend_preview_webp|default:$cur_tpl_backend.fullsize_backend_preview}" data-fallback="{$cur_tpl_backend.fullsize_backend_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$cur_tpl_backend.info.name}">
-                        <picture>
-                          <source type="image/webp" srcset="{$cur_tpl_backend.preview_webp|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
-                          <img src="{$cur_tpl_backend.preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
-                        </picture>
+                      <picture>
+                        <source type="image/avif" srcset="{$cur_tpl_backend.preview_avif|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                        <source type="image/webp" srcset="{$cur_tpl_backend.preview_webp|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                        <img src="{$cur_tpl_backend.preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                      </picture>
                     </a>
                 {else}
 
                     <picture>
+                      <source type="image/avif" srcset="{$cur_tpl_backend.preview_avif|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
                       <source type="image/webp" srcset="{$cur_tpl_backend.preview_webp|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
                       <img src="{$cur_tpl_backend.preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
                     </picture>
@@ -171,14 +175,16 @@
                         {if NOT empty($template.fullsize_preview)}
 
                             <a class="media_fullsize" href="{$template.fullsize_preview_webp|default:$template.fullsize_preview}" data-fallback="{$template.fullsize_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$template.info.name}">
-                                <picture>
-                                  <source type="image/webp" srcset="{$template.preview_webp|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
-                                  <img src="{$template.preview|default:$template.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
-                                </picture>
+                              <picture>
+                                <source type="image/avif" srcset="{$template.preview_avif|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                                <source type="image/webp" srcset="{$template.preview_webp|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                                <img src="{$template.preview|default:$template.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                              </picture>
                             </a>
                         {else}
 
                             <picture>
+                              <source type="image/avif" srcset="{$template.preview_avif|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
                               <source type="image/webp" srcset="{$template.preview_webp|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
                               <img src="{$template.preview|default:$template.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
                             </picture>
