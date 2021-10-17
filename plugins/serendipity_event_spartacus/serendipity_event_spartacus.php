@@ -24,7 +24,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.15');
+        $propbag->add('version',       '3.16');
         $propbag->add('requirements',  array(
             'serendipity' => '3.1',
             'php'         => '7.3'
@@ -972,11 +972,14 @@ class serendipity_event_spartacus extends serendipity_event
                 $pluginstack[$i]['previewURL'] = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview.png');
 
                 $preview_previewURL  = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview.png');
+                $prvavif_previewURL  = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview.avif');
                 $prvwebp_previewURL  = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview.webp');
                 $preview_fullsizeURL = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview_fullsize.jpg');
+                $prvavif_fullsizeURL = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview_fullsize.avif');
                 $prvwebp_fullsizeURL = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview_fullsize.webp');
 
                 if (file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'.jpg')
+                ||  file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'.avif'
                 ||  file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'.webp')
                 ) {
                     $pluginstack[$i]['preview_fullsizeURL'] = $preview_fullsizeURL;
@@ -987,6 +990,11 @@ class serendipity_event_spartacus extends serendipity_event
                             file_put_contents($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'.jpg', $file);
                             $pluginstack[$i]['preview_fullsizeURL'] = $preview_fullsizeURL;
 
+                            $avif = @fopen($prvavif_fullsizeURL, 'r');
+                            if ($avif) {
+                                file_put_contents($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'.avif', $webp);
+                            }
+
                             $webp = @fopen($prvwebp_fullsizeURL, 'r');
                             if ($webp) {
                                 file_put_contents($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'.webp', $webp);
@@ -995,6 +1003,11 @@ class serendipity_event_spartacus extends serendipity_event
                             $ppf = @fopen($preview_previewURL, 'r');
                             if ($ppf) {
                                 file_put_contents($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'_preview.png', $ppf);
+                            }
+
+                            $apf = @fopen($prvavif_previewURL, 'r');
+                            if ($apf) {
+                                file_put_contents($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'_preview.avif', $apf);
                             }
 
                             $wpf = @fopen($prvwebp_previewURL, 'r');
