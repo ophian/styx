@@ -205,6 +205,18 @@ foreach($stack AS $theme => $info) {
                 if (false === (@filesize($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview.png') <= @filesize($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview_fullsize.jpg'))) {
                     $png = false;
                 }
+                // AVIF
+                if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview.avif')) {
+                    $data['templates'][$theme]['preview_avif'] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . '/preview.avif';
+                }
+                if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview_fullsize.avif')) {
+                    $data['templates'][$theme]['fullsize_preview_avif'] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . '/preview_fullsize.avif';
+                }
+                // check the normal backend theme for a special backend image fullsize avif file, else the fullsize jpg is used (i.e. current backend is Styx, but default backend needs this set - or vice versa) 
+                if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview_backend_fullsize.avif')) {
+                    $data['templates'][$theme]["fullsize_backend_preview_avif"] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . '/preview_backend_fullsize.avif';
+                }
+                // WebP
                 if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview.webp')) {
                     $data['templates'][$theme]['preview_webp'] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . '/preview.webp';
                 }
@@ -215,6 +227,7 @@ foreach($stack AS $theme => $info) {
                 if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview_backend_fullsize.webp')) {
                     $data['templates'][$theme]["fullsize_backend_preview_webp"] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . '/preview_backend_fullsize.webp';
                 }
+                // ORIGIN
                 $data['templates'][$theme]['preview'] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . ($png ? '/preview.png' : '/preview_fullsize.jpg');
                 $data['templates'][$theme]['fullsize_preview'] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . '/preview_fullsize.jpg';
             } else {
@@ -222,6 +235,7 @@ foreach($stack AS $theme => $info) {
                 $data['templates'][$theme]["fullsize${backendId}_preview"] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . "/preview${backendId}_fullsize.jpg";
             }
             // Avoid old themes debug sets with uninitialized variation variables in PHP 8
+            $data['templates'][$theme]['preview_avif']          = $data['templates'][$theme]['preview_avif']          ?? null;
             $data['templates'][$theme]['preview_webp']          = $data['templates'][$theme]['preview_webp']          ?? null;
             $data['templates'][$theme]['fullsize_preview_webp'] = $data['templates'][$theme]['fullsize_preview_webp'] ?? null;
         }
@@ -229,7 +243,18 @@ foreach($stack AS $theme => $info) {
         // Cache store them first via Spartacus inside templates_c/template_cache, then get them here
         // NOTE: preview{$backendId}_fullsizeURL is not actually set in Spartacus yet, so you need to enable the additional_themes fetch in there
         elseif (!empty($info["preview{$backendId}_fullsizeURL"])) {
-            if (file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}.webp")) {
+            if (file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}.avif")) {
+                $data['templates'][$theme]["fullsize${backendId}_preview_webp"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme . "${backendId}.avif";
+                if (file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}.jpg")) {
+                    $data['templates'][$theme]["fullsize${backendId}_preview"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme . "${backendId}.jpg";
+                }
+                if (file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}_preview.png")) {
+                    $data['templates'][$theme]["preview${backendId}"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme . "${backendId}_preview.png";
+                    if (file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}_preview.avif")) {
+                        $data['templates'][$theme]["preview_webp"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme . "${backendId}_preview.avif";
+                    }
+               }
+            } elseif (file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}.webp")) {
                 $data['templates'][$theme]["fullsize${backendId}_preview_webp"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme . "${backendId}.webp";
                 if (file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}.jpg")) {
                     $data['templates'][$theme]["fullsize${backendId}_preview"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme . "${backendId}.jpg";
