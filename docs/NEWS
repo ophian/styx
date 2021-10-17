@@ -1,6 +1,8 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Prepare [ psg ] theme for additional AVIF srcset support
+
   * Temporary prevent images API functions serendipity_rotateImg() and
     serendipity_scaleImg() for the origin image and all variation types,
     if the AVIF image file variation is considered broken.
