@@ -45,9 +45,10 @@
       <li>Jede Karte sollte einen kurzen Titel aus \'reinem Text\', beispielsweise: \'Über mich\' beinhalten.</li>
       <li>Jede Karte sollte ein kurzes(!) Intro oder Willkommens-Text, eingeschlossen von (P)-aragraphen, zB \'&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. [...]&lt;/p&gt;\' ohne jeden Link oder Bild o.Ä. enthalten. Sie können Mehrfachabsätze, br-Zeilenumbrüche und andere einfache Stilelemente hinzufügen.</li>
     </ul>
-    <p>Unter Ausnutzung des Vorteils der Unterstützung unserer neuen webP-generierten Bilder-Thumbnails sollte der image -webp- Wert wie folgt aussehen::<br>
+    <p>Unter Ausnutzung des Vorteils der Unterstützung unserer neuen Variations-generierten Bilder-Thumbnails sollte der image [avif | webp] Wert wie folgt aussehen::<br>
+          <code>\'avif\' => $serendipity[\'baseURL\'] . $serendipity[\'uploadPath\'] . \'relative/path/to/image/.v/imagename.styxThumb.avif\',</code><br>
           <code>\'webp\' => $serendipity[\'baseURL\'] . $serendipity[\'uploadPath\'] . \'relative/path/to/image/.v/imagename.styxThumb.webp\'</code>. Beachten Sie den <b>/.v</b> Bild Variations Ordner!</p>
-    <p>Es kann vorkommen, dass einige normale Vorschaubilder kleiner (KB) sind als die generierte WebP-Variationsdatei, siehe die Bild-Metadaten ihrer Mediathek. In diesem Fall lassen Sie den webp-Wert durch ein Paar einfache Anführungszeichen \'\' einfach leer.</p>
+    <p>Es kann vorkommen, dass einige normale Vorschaubilder kleiner (KB) sind als die generierten Variationsdateien, siehe die Bild-Metadaten ihrer Mediathek. In diesem Fall lassen Sie den [avif | webp] Wert durch ein Paar einfache Anführungszeichen \'\' einfach leer.</p>
     <p>Wenn <b>aktiviert</b>, d.h. <em>unkommentiert gesetzt und mit eigenen Inhalten befüllt</em>, führt das Array eine Smarty-Funktion im Kopf der Datei index.tpl aus, um jede durch das Array definierte Gitterkarte zu platzieren.</p>
   </div>
 </details>
@@ -58,6 +59,7 @@
     <span class="hljs-number">0</span> =&gt; <span class="hljs-keyword">array</span>(
         <span class="hljs-string">\'image\'</span> =&gt; <span class="hljs-keyword">array</span>(
             <span class="hljs-string">\'src\'</span>  =&gt; $serendipity[<span class="hljs-string">\'baseURL\'</span>] . $serendipity[<span class="hljs-string">\'uploadPath\'</span>] . <span class="hljs-string">\'path/to/thomas.styxThumb.jpg\'</span>,
+            <span class="hljs-string">\'avif\'</span> =&gt; $serendipity[<span class="hljs-string">\'baseURL\'</span>] . $serendipity[<span class="hljs-string">\'uploadPath\'</span>] . <span class="hljs-string">\'path/to/.v/thomas.styxThumb.avif\',</span>
             <span class="hljs-string">\'webp\'</span> =&gt; $serendipity[<span class="hljs-string">\'baseURL\'</span>] . $serendipity[<span class="hljs-string">\'uploadPath\'</span>] . <span class="hljs-string">\'path/to/.v/thomas.styxThumb.webp\'</span>
             ),
         <span class="hljs-string">\'link\'</span>  =&gt; $serendipity[<span class="hljs-string">\'baseURL\'</span>] . <span class="hljs-string">\'archive\'</span>, 
@@ -67,6 +69,7 @@
     <span class="hljs-number">1</span> =&gt; <span class="hljs-keyword">array</span>(
         <span class="hljs-string">\'image\'</span> =&gt; <span class="hljs-keyword">array</span>(
             <span class="hljs-string">\'src\'</span>  =&gt; $serendipity[<span class="hljs-string">\'baseURL\'</span>] . $serendipity[<span class="hljs-string">\'uploadPath\'</span>] . <span class="hljs-string">\'2020/10/triangel.styxThumb.jpg\'</span>,
+            <span class="hljs-string">\'avif\'</span> =&gt; $serendipity[<span class="hljs-string">\'baseURL\'</span>] . $serendipity[<span class="hljs-string">\'uploadPath\'</span>] . <span class="hljs-string">\'2020/.v/triangel.styxThumb.avif\',</span>
             <span class="hljs-string">\'webp\'</span> =&gt; $serendipity[<span class="hljs-string">\'baseURL\'</span>] . $serendipity[<span class="hljs-string">\'uploadPath\'</span>] . <span class="hljs-string">\'2020/10/.v/triangel.styxThumb.webp\'</span>
             ),
         <span class="hljs-string">\'link\'</span>  =&gt; $serendipity[<span class="hljs-string">\'baseURL\'</span>] . <span class="hljs-string">\'pages/contact/\'</span>,
@@ -76,6 +79,7 @@
     <span class="hljs-number">2</span> =&gt; <span class="hljs-keyword">array</span>(
         <span class="hljs-string">\'image\'</span> =&gt; <span class="hljs-keyword">array</span>(
             <span class="hljs-string">\'src\'</span>  =&gt; $serendipity[<span class="hljs-string">\'baseURL\'</span>] . $serendipity[<span class="hljs-string">\'uploadPath\'</span>] . <span class="hljs-string">\'we/are/so/chatty.styxThumb.jpg\'</span>,
+            <span class="hljs-string">\'avif\'</span> =&gt; <span class="hljs-string">\'\',</span>
             <span class="hljs-string">\'webp\'</span> =&gt; <span class="hljs-string">\'\'</span>
             ),
         <span class="hljs-string">\'link\'</span>  =&gt; $serendipity[<span class="hljs-string">\'baseURL\'</span>] . <span class="hljs-string">\'comments/\'</span>,

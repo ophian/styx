@@ -4,6 +4,7 @@
                             <a href="{$card.link|default:'#'}" class="card">
                               <div class="card__image">
                                 <picture>
+                                  <source srcset="{$card.image.avif|default:''}" type="image/avif">
                                   <source srcset="{$card.image.webp|default:''}" type="image/webp">
                                   <img src="{$card.image.src|default:"http://lorempixel.com/600/400/{$design.0}/?{($key+$design.1)}"}" alt="">
                                 </picture>
@@ -114,6 +115,7 @@
                             <div class="card">
                               <div class="card__image">
                                 <picture>
+                                  <source srcset="{* link to static MediaLibrary avif variation file *}" type="image/avif">
                                   <source srcset="{* link to static MediaLibrary webp variation file *}" type="image/webp">
                                   <img src="{* link to static MediaLibrary image file *}http://lorempixel.com/600/400/{$design.0}/?1" alt="">
                                 </picture>
@@ -138,6 +140,7 @@
                             <a href="{$serendipityBaseURL}?frontpage" class="card" title="{$template_option.home_blog_link}">
                               <div class="card__image">
                                 <picture>
+                                  <source srcset="{* link to static MediaLibrary avif variation file *}" type="image/avif">
                                   <source srcset="{* link to static MediaLibrary webp variation file *}" type="image/webp">
                                   <img src="{* link to static MediaLibrary image file *}http://lorempixel.com/600/400/{$design.0}/?2" alt="">
                                 </picture>

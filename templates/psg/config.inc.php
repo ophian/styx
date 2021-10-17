@@ -13,7 +13,9 @@ $serendipity['smarty']->assign(array('currpage'  => "http://".$_SERVER['HTTP_HOS
 //          $serendipity['baseURL'] . 'pages/aboutme.html'
 // Each card should hold a short title of just 'plain text', eg. 'About me'. "none" for disabling the head markup.
 // Each card should hold a short(!) intro or welcome text inside a paragraph, eg 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. [...]</p>' without any link or image or so. You can add multi-paragraphs.
-// Taking the advantage to support our new webP generated image thumbs, the image webp value should look like this:
+// Taking the advantage to support our new Variations generated image thumbs, the image [avif|webp] value should look like this:
+//      'avif' => $serendipity['baseURL'] . $serendipity['uploadPath'] . 'relative/path/to/image/.v/imagename.styxThumb.avif',
+// and/or
 //      'webp' => $serendipity['baseURL'] . $serendipity['uploadPath'] . 'relative/path/to/image/.v/imagename.styxThumb.webp'
 // It can happen, that some normal image thumbs are smaller in size (KB) than the generated web variation file, see your MediaLibrary images meta info data. In this case just leave the webp value empty ''.
 /*
@@ -21,6 +23,7 @@ $serendipity['smarty']->assign('addcards', array(
     0 => array(
         'image' => array(
             'src'  => $serendipity['baseURL'] . $serendipity['uploadPath'] . 'path/to/sir/thomas.styxThumb.jpg',
+            'avif' => $serendipity['baseURL'] . $serendipity['uploadPath'] . 'path/to/sir/.v/thomas.styxThumb.avif',
             'webp' => $serendipity['baseURL'] . $serendipity['uploadPath'] . 'path/to/sir/.v/thomas.styxThumb.webp'
             ),
         'link'  => $serendipity['baseURL'] . 'archive',
@@ -30,6 +33,7 @@ $serendipity['smarty']->assign('addcards', array(
     1 => array(
         'image' => array(
             'src'  => $serendipity['baseURL'] . $serendipity['uploadPath'] . 'where/is/my/triangel.styxThumb.jpg',
+            'avif' => $serendipity['baseURL'] . $serendipity['uploadPath'] . 'where/is/my/.v/triangel.styxThumb.avif',
             'webp' => $serendipity['baseURL'] . $serendipity['uploadPath'] . 'where/is/my/.v/triangel.styxThumb.webp'
             ),
         'link'  => $serendipity['baseURL'] . 'pages/contact/',
@@ -39,6 +43,7 @@ $serendipity['smarty']->assign('addcards', array(
     2 => array(
         'image' => array(
             'src'  => $serendipity['baseURL'] . $serendipity['uploadPath'] . 'we/are/so/damn/chatty.styxThumb.jpg',
+            'avif' => '',
             'webp' => ''
             ),
         'link'  => $serendipity['baseURL'] . 'comments/',
