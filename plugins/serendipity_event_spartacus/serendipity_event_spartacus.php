@@ -979,7 +979,7 @@ class serendipity_event_spartacus extends serendipity_event
                 $prvwebp_fullsizeURL = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview_fullsize.webp');
 
                 if (file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'.jpg')
-                ||  file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'.avif'
+                ||  file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'.avif')
                 ||  file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'.webp')
                 ) {
                     $pluginstack[$i]['preview_fullsizeURL'] = $preview_fullsizeURL;
