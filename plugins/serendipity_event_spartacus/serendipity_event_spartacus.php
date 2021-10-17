@@ -992,7 +992,7 @@ class serendipity_event_spartacus extends serendipity_event
 
                             $avif = @fopen($prvavif_fullsizeURL, 'r');
                             if ($avif) {
-                                file_put_contents($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'.avif', $webp);
+                                file_put_contents($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'.avif', $avif);
                             }
 
                             $webp = @fopen($prvwebp_fullsizeURL, 'r');
