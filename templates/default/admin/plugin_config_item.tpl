@@ -85,6 +85,7 @@
         <figure id="{$config_item}_preview">
             <figcaption>{$CONST.PREVIEW}</figcaption>
             <picture>
+                <source type="image/avif" srcset="{$value_avif|default:''}" class="ml_preview_img" alt="{$value_name}">
                 <source type="image/webp" srcset="{$value_webp|default:''}" class="ml_preview_img" alt="{$value_name}">
                 <img src="{$value}" title="{$value_name}" alt="{$value_name}">
             </picture>
