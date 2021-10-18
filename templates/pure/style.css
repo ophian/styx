@@ -1443,6 +1443,11 @@ article.post.byauthor {
 .archive {
     width: 100%;
 }
+.archive_index dl {
+    line-height: 1.4; }
+    .archive_index dd {
+      margin-bottom: .5rem; }
+
 .archive_overview {
     width: 100%;
     display: block;
