@@ -1657,6 +1657,7 @@ div.serendipityPlug a {
 }
 /* imagesidebar */
 .mediasidebaritem img {
+    width: 100%;
     max-width: 230px;
     border-radius: 5px;
     box-shadow: 1px 1px 4px #555;
