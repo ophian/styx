@@ -136,9 +136,8 @@ if (isset($data['cur_template_info']['custom_config_engine']) && file_exists($se
 // template config is added by global, and, if filled, already a preset build by serendipity_admin.php serendipity_plugin_api::hook_event('backend_configure', $serendipity); at line 17;
 // Thus we need to strictly check editConfiguration and - NOT to forget - independently the POSTed configure array
 if (is_array($template_config)
-&& (
-       (isset($serendipity['POST']['adminAction']) && $serendipity['POST']['adminAction'] == 'configure')
-    || (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'editConfiguration')
+&& (  (isset($serendipity['POST']['adminAction']) && $serendipity['POST']['adminAction'] == 'configure')
+   || (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'editConfiguration')
 )) {
     serendipity_plugin_api::hook_event('backend_templates_configuration_top', $template_config);
     $data['has_config'] = true;
