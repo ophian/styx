@@ -247,13 +247,19 @@ if (isset($_SESSION['serendipityUseTemplate'])) {
 
 if (false !== serendipity_db_bool($template_loaded_config['use_webp'])) {
     if (!empty($template_loaded_config['header_img'])) {
-        $rpath = serendipity_generate_webpPathURI($template_loaded_config['header_img']);
+        $rpath = serendipity_generate_webpPathURI($template_loaded_config['header_img'], 'avif');
+        if (!file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)) {
+            $rpath = serendipity_generate_webpPathURI($template_loaded_config['header_img']);
+        }
         $template_loaded_config['header_img'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
                                                     ? $rpath
                                                     : $template_loaded_config['header_img']; // file exist needs full path to check
     }
     if (!empty($template_loaded_config['subheader_img'])) {
-        $rpath = serendipity_generate_webpPathURI($template_loaded_config['subheader_img']);
+        $rpath = serendipity_generate_webpPathURI($template_loaded_config['subheader_img'], 'avif'); // check first, then overwrite
+        if (!file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)) {
+            $rpath = serendipity_generate_webpPathURI($template_loaded_config['subheader_img']);
+        }
         $template_loaded_config['subheader_img'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
                                                     ? $rpath
                                                     : $template_loaded_config['subheader_img']; // file exist needs full path to check
@@ -386,9 +392,19 @@ if (!function_exists('entry_option_store')) {
         $property_val_webp = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
                                 ? $rpath
                                 : $property_val; // file exist needs full path to check
+        // prep key/val params for avif image and path
+        $property_key_avif = $property_key .'_avif';
+        $rpath = serendipity_generate_webpPathURI($property_val, 'avif');
+        $property_val_avif = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
+                                ? $rpath
+                                : $property_val; // file exist needs full path to check
 
         if ($property_val_webp !== null) {
             $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($property_key_webp) . "'";
+            serendipity_db_query($q);
+        }
+        if ($property_val_avif !== null) {
+            $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($property_key_avif) . "'";
             serendipity_db_query($q);
         }
         $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($property_key) . "'";
@@ -397,6 +413,10 @@ if (!function_exists('entry_option_store')) {
         if (!empty($property_val)) {
             if ($property_val_webp !== null) {
                 $q = "INSERT INTO {$serendipity['dbPrefix']}entryproperties (entryid, property, value) VALUES (" . (int)$eventData['id'] . ", '" . serendipity_db_escape_string($property_key_webp) . "', '" . serendipity_db_escape_string($property_val_webp) . "')";
+                serendipity_db_query($q);
+            }
+            if ($property_val_avif !== null) {
+                $q = "INSERT INTO {$serendipity['dbPrefix']}entryproperties (entryid, property, value) VALUES (" . (int)$eventData['id'] . ", '" . serendipity_db_escape_string($property_key_avif) . "', '" . serendipity_db_escape_string($property_val_avif) . "')";
                 serendipity_db_query($q);
             }
             $q = "INSERT INTO {$serendipity['dbPrefix']}entryproperties (entryid, property, value) VALUES (" . (int)$eventData['id'] . ", '" . serendipity_db_escape_string($property_key) . "', '" . serendipity_db_escape_string($property_val) . "')";
@@ -423,12 +443,18 @@ if (!function_exists('serendipity_plugin_api_pre_event_hook')) {
                 // Check what our special key is set to (checks both POST data as well as the actual data)
                 $is_timeline_image = entry_option_get_value($timeline_image_key, $eventData);
 
-                // prep webp image and path
+                // prep [ webp | avif ]image and path
                 if (false !== $is_timeline_image) {
-                    $rpath = serendipity_generate_webpPathURI($is_timeline_image);
-                    $is_timeline_image_webp = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
+                    $rpath = serendipity_generate_webpPathURI($is_timeline_image, 'avif');
+                    $is_timeline_image_avif = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
                                                 ? $rpath
                                                 : $is_timeline_image; // file exist needs full path to check
+                    if ($rpath != $is_timeline_image_avif) {
+                        $rpath = serendipity_generate_webpPathURI($is_timeline_image);
+                        $is_timeline_image_webp = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
+                                                    ? $rpath
+                                                    : $is_timeline_image; // file exist needs full path to check
+                    }
                 }
 
                 // This is the actual HTML output on the Backend screen.
@@ -447,6 +473,7 @@ if (!function_exists('serendipity_plugin_api_pre_event_hook')) {
                                       <figure id="' . $timeline_image_key . '_preview">
                                           <figcaption>' . PREVIEW . '</figcaption>
                                           <picture>
+                                              <source type="image/avif" srcset="' . ($is_timeline_image_avif ?? null) . '" class="ml_preview_img" alt="">
                                               <source type="image/webp" srcset="' . ($is_timeline_image_webp ?? null) . '" class="ml_preview_img" alt="">
                                               <img alt="" src="' . $is_timeline_image . '">
                                           </picture>
