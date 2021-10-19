@@ -38,7 +38,7 @@
 @define('HEADER_IMG_DESC', 'Header logo image recommended size: 150 x 40px. Only is available when "' . USE_CORENAV . '" is set to "'. YES .'".');
 @define('SUBHEADER_IMG', 'Optional Subheader background Image');
 @define('SUBHEADER_IMG_DESC', 'This full width background image appears below the header logo and site navigation.');
-@define('HEADERS_USE_WEBP', 'If available, use WebP for configurable images');
+@define('HEADERS_USE_VARIATION', 'If available, use Variations for configurable images');
 @define('ENTRY_DATE_FORMAT', 'Entry Date Format');
 @define('COMMENT_TIME_FORMAT', 'Comment and trackback time format');
 @define('WORDS', 'Words');
