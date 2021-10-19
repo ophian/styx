@@ -155,8 +155,8 @@ $template_config = array(
         'default'       => serendipity_getTemplateFile('subheader.jpg', 'serendipityHTTPPath', true)
     ),
     array(
-        'var'           => 'use_webp',
-        'name'          => HEADERS_USE_WEBP,
+        'var'           => 'use_variation',
+        'name'          => HEADERS_USE_VARIATION,
         'description'   => '',
         'type'          => 'radio',
         'radio'         => array('value' => array('true', 'false'),
@@ -245,7 +245,7 @@ if (isset($_SESSION['serendipityUseTemplate'])) {
     $template_loaded_config['use_corenav'] = false;
 }
 
-if (false !== serendipity_db_bool($template_loaded_config['use_webp'])) {
+if (false !== serendipity_db_bool($template_loaded_config['use_variation'])) {
     if (!empty($template_loaded_config['header_img'])) {
         $rpath = serendipity_generate_webpPathURI($template_loaded_config['header_img'], 'avif');
         if (!file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)) {
@@ -356,7 +356,7 @@ for ($i = 0; $i < $template_loaded_config['social_icons_amount']; $i++) {
 
 $template_config_groups = array(
     THEME_README        => array('theme_instructions'),
-    THEME_IDENTITY      => array('sidebars', 'header_img', 'subheader_img', 'use_webp', 'colorset', 'skinset', 'copyright'),
+    THEME_IDENTITY      => array('sidebars', 'header_img', 'subheader_img', 'use_variation', 'colorset', 'skinset', 'copyright'),
     THEME_PAGE_OPTIONS  => array('use_googlefonts', 'date_format', 'comment_time_format', 'display_as_timeline', 'months_on_timeline', 'months_on_timeline_format', 'categories_on_archive', 'category_rss_archive', 'tags_on_archive'),
     THEME_NAVIGATION    => $navlinks_collapse,
     THEME_SOCIAL_LINKS  => $sociallinks_collapse
