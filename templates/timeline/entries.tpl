@@ -30,8 +30,9 @@
                                 {$entry.properties.timeline_image}
                             {else}
                                 <a href="{$entry.link}" title="{$entry.title}">
-                                {if $template_option.use_webp AND NOT empty($entry.properties.timeline_image_webp)}
+                                {if $template_option.use_webp AND (NOT empty($entry.properties.timeline_image_webp) OR NOT empty($entry.properties.timeline_image_avif))}
                                     <picture>
+                                        <source type="image/avif" srcset="{$entry.properties.timeline_image_avif}" class="ml_preview_img" alt="">
                                         <source type="image/webp" srcset="{$entry.properties.timeline_image_webp}" class="sourceset_img" alt="">
                                         <img class="img-fluid img-thumbnail" alt="" src="{$entry.properties.timeline_image}'">
                                     </picture>
@@ -63,8 +64,9 @@
                                 <div>{$entry.properties.timeline_image}</div>
                             {else}
                                 <a href="{$entry.link}" title="{$entry.title}">
-                                {if $template_option.use_webp AND NOT empty($entry.properties.timeline_image_webp)}
+                                {if $template_option.use_webp AND (NOT empty($entry.properties.timeline_image_webp) OR NOT empty($entry.properties.timeline_image_avif))}
                                     <picture>
+                                        <source type="image/avif" srcset="{$entry.properties.timeline_image_avif}" class="ml_preview_img" alt="">
                                         <source type="image/webp" srcset="{$entry.properties.timeline_image_webp}" class="sourceset_img" alt="">
                                         <img class="img-fluid img-thumbnail" alt="" src="{$entry.properties.timeline_image}'">
                                     </picture>
@@ -106,8 +108,9 @@
                     {if $entry.properties.timeline_image|is_in_string:'<iframe,<embed,<object'}{* we assume this is a video, just emit the contents of the var *}
                         {$entry.properties.timeline_image}
                     {else}
-                        {if $template_option.use_webp AND NOT empty($entry.properties.timeline_image_webp)}
+                        {if $template_option.use_webp AND (NOT empty($entry.properties.timeline_image_webp) OR NOT empty($entry.properties.timeline_image_avif))}
                             <picture>
+                                <source type="image/avif" srcset="{$entry.properties.timeline_image_avif}" class="ml_preview_img" alt="">
                                 <source type="image/webp" srcset="{$entry.properties.timeline_image_webp}" class="sourceset_img" alt="">
                                 <img class="img-fluid" alt="" src="{$entry.properties.timeline_image}'">
                             </picture>
