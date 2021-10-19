@@ -468,14 +468,17 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 $data['preview_height'] = $preview_height;
                 $data['value'] = $value;
                 $data['value_name'] = str_replace('.' . $serendipity['thumbSuffix'], '', pathinfo($value, PATHINFO_FILENAME)); // get pure name w/o Serendipity Thumb suffix for alt and title attributes
+                // WebP
                 $rpath = serendipity_generate_webpPathURI($value); // the relative document root value filepath
                 $data['value_webp'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
                                         ? $rpath
                                         : null; // file exist needs full path to check
+                // AVIF
+                $rpath = serendipity_generate_webpPathURI($value, 'avif'); // the relative document root value filepath
                 $data['value_avif'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
                                         ? $rpath
                                         : null; // file exist needs full path to check
-                // TODO: add filesize comparison for WebP / AVIF picture sourcesets
+                // TODO: add filesize comparison for WebP / AVIF picture srcsets
 
                 $assign_plugin_config($data);
                 break;
