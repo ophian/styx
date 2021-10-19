@@ -109,8 +109,8 @@ $template_config = array(
         'default'       => serendipity_getTemplateFile('img/archive-bg.jpg', 'serendipityHTTPPath', true)
     ),
     array(
-        'var'           => 'use_webp',
-        'name'          => HEADERS_USE_WEBP,
+        'var'           => 'use_variation',
+        'name'          => HEADERS_USE_VARIATION,
         'description'   => '',
         'type'          => 'radio',
         'radio'         => array('value' => array('true', 'false'),
@@ -236,34 +236,50 @@ if (isset($_SESSION['serendipityUseTemplate'])) {
     $template_loaded_config['use_corenav'] = false;
 }
 
-if (false !== serendipity_db_bool($template_loaded_config['use_webp'])) {
+// the second check is the asiest for compats
+if (false !== serendipity_db_bool($template_loaded_config['use_variation']) || false !== serendipity_db_bool($template_loaded_config['use_webp'])) {
      // no debugging echo with gzip enabled, since that displays prior page encoding
     if (!empty($template_loaded_config['default_header_image'])) {
-        $rpath = serendipity_generate_webpPathURI($template_loaded_config['default_header_image']);
+        $rpath = serendipity_generate_webpPathURI($template_loaded_config['default_header_image'], 'avif');
+        if (!file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)) {
+            $rpath = serendipity_generate_webpPathURI($template_loaded_config['default_header_image']);
+        }
         $template_loaded_config['default_header_image'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
                                                     ? $rpath
                                                     : $template_loaded_config['default_header_image']; // file exist needs full path to check
     }
     if (!empty($template_loaded_config['entry_default_header_image'])) {
-        $rpath = serendipity_generate_webpPathURI($template_loaded_config['entry_default_header_image']);
+        $rpath = serendipity_generate_webpPathURI($template_loaded_config['entry_default_header_image'], 'avif');
+        if (!file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)) {
+            $rpath = serendipity_generate_webpPathURI($template_loaded_config['entry_default_header_image']);
+        }
         $template_loaded_config['entry_default_header_image'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
                                                     ? $rpath
                                                     : $template_loaded_config['entry_default_header_image']; // file exist needs full path to check
     }
     if (!empty($template_loaded_config['staticpage_header_image'])) {
-        $rpath = serendipity_generate_webpPathURI($template_loaded_config['staticpage_header_image']);
+        $rpath = serendipity_generate_webpPathURI($template_loaded_config['staticpage_header_image'], 'avif');
+        if (!file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)) {
+            $rpath = serendipity_generate_webpPathURI($template_loaded_config['staticpage_header_image']);
+        }
         $template_loaded_config['staticpage_header_image'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
                                                     ? $rpath
                                                     : $template_loaded_config['staticpage_header_image']; // file exist needs full path to check
     }
     if (!empty($template_loaded_config['contactform_header_image'])) {
-        $rpath = serendipity_generate_webpPathURI($template_loaded_config['contactform_header_image']);
+        $rpath = serendipity_generate_webpPathURI($template_loaded_config['contactform_header_image'], 'avif');
+        if (!file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)) {
+            $rpath = serendipity_generate_webpPathURI($template_loaded_config['contactform_header_image']);
+        }
         $template_loaded_config['contactform_header_image'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
                                                     ? $rpath
                                                     : $template_loaded_config['contactform_header_image']; // file exist needs full path to check
     }
     if (!empty($template_loaded_config['archive_header_image'])) {
-        $rpath = serendipity_generate_webpPathURI($template_loaded_config['archive_header_image']);
+        $rpath = serendipity_generate_webpPathURI($template_loaded_config['archive_header_image'], 'avif');
+        if (!file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)) {
+            $rpath = serendipity_generate_webpPathURI($template_loaded_config['archive_header_image']);
+        }
         $template_loaded_config['archive_header_image'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
                                                     ? $rpath
                                                     : $template_loaded_config['archive_header_image']; // file exist needs full path to check
@@ -277,7 +293,7 @@ for ($i = 0; $i < $template_loaded_config['amount']; $i++) {
 
 $template_config_groups = array(
     THEME_README        => array('theme_instructions'),
-    THEME_HEADERS       => array('default_header_image', 'entry_default_header_image', 'staticpage_header_image', 'contactform_header_image', 'archive_header_image', 'use_webp'),
+    THEME_HEADERS       => array('default_header_image', 'entry_default_header_image', 'staticpage_header_image', 'contactform_header_image', 'archive_header_image', 'use_variation'),
     THEME_PAGE_OPTIONS  => array('use_googlefonts', 'home_link_text', 'date_format', 'comment_time_format','subtitle_use_entrybody', 'entrybody_detailed_only', 'show_comment_link', 'categories_on_archive', 'tags_on_archive', 'copyright'),
     THEME_SOCIAL_LINKS  => array('twitter_url', 'facebook_url', 'rss_url', 'github_url', 'instagram_url', 'pinterest_url'),
     THEME_NAVIGATION    => $navlinks_collapse
@@ -336,11 +352,19 @@ if (!function_exists('serendipity_plugin_api_pre_event_hook')) {
                 $is_entry_subtitle = serendipity_specialchars(entry_option_get_value($entry_subtitle_key, $eventData));
                 $entry_header_image = entry_option_get_value($entry_header_image_key, $eventData);
 
-                // prep webp image and path
-                $rpath = serendipity_generate_webpPathURI($entry_header_image);
-                $entry_header_image_webp = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
-                                                        ? $rpath
-                                                        : $entry_header_image; // file exist needs full path to check
+                // prep [ webp | avif ]image and path
+                if (false !== $entry_header_image) {
+                    $rpath = serendipity_generate_webpPathURI($entry_header_image, 'avif');
+                    $entry_header_image_avif = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
+                                                ? $rpath
+                                                : $entry_header_image; // file exist needs full path to check
+                    if ($rpath != $entry_header_image_avif) {
+                        $rpath = serendipity_generate_webpPathURI($entry_header_image);
+                        $entry_header_image_webp = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
+                                                    ? $rpath
+                                                    : $entry_header_image; // file exist needs full path to check
+                    }
+                }
 
                 // This is the actual HTML output on the entry form backend screen.
                 //DEBUG:     <pre>' . print_r($eventData, true) . '</pre>';
@@ -365,6 +389,7 @@ if (!function_exists('serendipity_plugin_api_pre_event_hook')) {
                                       <figure id="' . $entry_header_image_key . '_preview">
                                           <figcaption>' . PREVIEW . '</figcaption>
                                           <picture>
+                                              <source type="image/avif" srcset="' . ($entry_header_image_avif ?? null) . '" class="ml_preview_img" alt="">
                                               <source type="image/webp" srcset="' . ($entry_header_image_webp ?? null) . '" class="ml_preview_img" alt="">
                                               <img alt="" src="' . $entry_header_image . '">
                                           </picture>
