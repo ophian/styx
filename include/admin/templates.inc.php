@@ -234,6 +234,26 @@ foreach($stack AS $theme => $info) {
                 // ORIGIN
                 $data['templates'][$theme]['preview'] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . ($png ? '/preview.png' : '/preview_fullsize.jpg');
                 $data['templates'][$theme]['fullsize_preview'] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . '/preview_fullsize.jpg';
+
+                // CORE THEMES VARIATION SIZING checks
+                // compare preview preview Variation filesizes for srcsets fillup
+                if (!empty($data['templates'][$theme]['preview_avif']) && !empty($data['templates'][$theme]['preview_webp'])) {
+                    $data['templates'][$theme]['preview_avif'] = (filesize($data['templates'][$theme]['preview_avif']) > filesize($data['templates'][$theme]['preview_webp']))
+                                            ? null
+                                            : $data['templates'][$theme]['preview_avif'];
+                }
+                // compare fullsize preview Variation filesizes for srcsets fillup
+                if (!empty($data['templates'][$theme]['fullsize_preview_avif']) && !empty($data['templates'][$theme]['fullsize_preview_webp'])) {
+                    $data['templates'][$theme]['fullsize_preview_avif'] = (filesize($data['templates'][$theme]['fullsize_preview_avif']) > filesize($data['templates'][$theme]['fullsize_preview_webp']))
+                                            ? null
+                                            : $data['templates'][$theme]['fullsize_preview_avif'];
+                }
+                // compare fullsize backend preview Variation filesizes for srcsets fillup
+                if (!empty($data['templates'][$theme]['fullsize_backend_preview_avif']) && !empty($data['templates'][$theme]['fullsize_backend_preview_webp'])) {
+                    $data['templates'][$theme]['fullsize_backend_preview_avif'] = (filesize($data['templates'][$theme]['fullsize_backend_preview_avif']) > filesize($data['templates'][$theme]['fullsize_backend_preview_webp']))
+                                            ? null
+                                            : $data['templates'][$theme]['fullsize_backend_preview_avif'];
+                }
             } else {
                 // check the backend theme for the jpg fallback case URL
                 $data['templates'][$theme]["fullsize${backendId}_preview"] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . "/preview${backendId}_fullsize.jpg";
