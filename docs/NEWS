@@ -3,7 +3,7 @@ Version 3.6-dev ()
 
   * Fixed a regression of a Styx 3.5 commit for theme configuration submit sets
 
-  * Prepare [ psg ] theme for additional AVIF srcset support
+  * Prepare [ clean-blog, psg, timeline] themes for additional AVIF support
 
   * Temporary prevent images API functions serendipity_rotateImg() and
     serendipity_scaleImg() for the origin image and all variation types,
