@@ -482,7 +482,7 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 if ($data['value_avif'] != null && $data['value_webp'] != null) {
                     $data['value_avif'] = (filesize(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $data['value_avif']) > filesize(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $data['value_webp']))
                                             ? null
-                                            : $data['value_avif']
+                                            : $data['value_avif'];
                 }
 
                 $assign_plugin_config($data);
