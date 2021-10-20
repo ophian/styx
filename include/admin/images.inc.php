@@ -976,11 +976,17 @@ switch ($serendipity['GET']['adminAction']) {
         $data['formtoken']       = serendipity_setFormToken();
         $data['file']            = $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] .($file['extension'] ? '.'. $file['extension'] : '');
         $data['file_webp']       = file_exists($serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.webp')
-            ? $serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.webp'
-            : '';
+                                    ? $serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.webp'
+                                    : '';
         $data['file_avif']       = file_exists($serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.avif')
-            ? $serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.avif'
-            : '';
+                                    ? $serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.avif'
+                                    : '';
+        // compare Variation filesizes for srcsets
+        if (!empty($data['file_avif']) && !empty($data['file_webp'])) {
+            $data['file_avif'] = (filesize($data['file_avif']) > filesize($data['file_webp']))
+                                    ? ''
+                                    : $data['file_avif'];
+        }
         break;
 
     case 'choose':
