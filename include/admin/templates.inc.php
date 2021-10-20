@@ -268,7 +268,7 @@ foreach($stack AS $theme => $info) {
         // NOTE: preview{$backendId}_fullsizeURL is not actually set in Spartacus yet, so you need to enable the additional_themes fetch in there
         elseif (!empty($info["preview{$backendId}_fullsizeURL"])) {
             if (file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}.avif")) {
-                $data['templates'][$theme]["fullsize${backendId}_preview_webp"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme . "${backendId}.avif";
+                $data['templates'][$theme]["fullsize${backendId}_preview_avif"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme . "${backendId}.avif";
                 if (file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}.jpg")) {
                     $data['templates'][$theme]["fullsize${backendId}_preview"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme . "${backendId}.jpg";
                 }
