@@ -275,7 +275,7 @@ foreach($stack AS $theme => $info) {
                 if (file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}_preview.png")) {
                     $data['templates'][$theme]["preview${backendId}"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme . "${backendId}_preview.png";
                     if (file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}_preview.avif")) {
-                        $data['templates'][$theme]["preview_webp"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme . "${backendId}_preview.avif";
+                        $data['templates'][$theme]["preview_avif"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme . "${backendId}_preview.avif";
                     }
                }
             } elseif (file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}.webp")) {
