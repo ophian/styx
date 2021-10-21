@@ -2870,6 +2870,22 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
             unset($aResultSet[$sKey]);
         }
 
+        // Run a looped filesize comparison for AVIF vs WebP sizes to check this referenced variable for the special Variation URL link in media_items.tpl
+        if (isset($aFilesNoSync) && is_array($aFilesNoSync)) {
+            foreach ($aFilesNoSync AS $k => &$v) {
+                if ($v['extension'] == 'avif') {
+                    $v['linknext'] = false;
+                    $checkAVIFSibling = str_replace('.avif', '.webp', $k);
+                    // check the array again for the sibling
+                    if (array_key_exists($checkAVIFSibling, $aFilesNoSync)) {
+                        if ($v['filesize'] > $aFilesNoSync[$checkAVIFSibling]['filesize']) {
+                            $v['linknext'] = true; // push to parent
+                        }
+                    }
+                }
+            }
+        }
+
         usort($paths, 'serendipity_sortPath');
 
         if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Got real disc files: " . print_r($aFilesOnDisk, 1)); }
