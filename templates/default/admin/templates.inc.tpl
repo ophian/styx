@@ -174,7 +174,7 @@
                     {if NOT empty($template.fullsize_preview) OR NOT empty($template.preview)}
                         {if NOT empty($template.fullsize_preview)}
 
-                            <a class="media_fullsize" href="{$template.fullsize_preview_webp|default:$template.fullsize_preview}" data-fallback="{$template.fullsize_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$template.info.name}">
+                            <a class="media_fullsize" href="{if NOT empty($template.fullsize_preview_avif)}{else}{$template.fullsize_preview_webp|default:$template.fullsize_preview}{/if}" data-fallback="{$template.fullsize_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$template.info.name}">
                               <picture>
                                 <source type="image/avif" srcset="{$template.preview_avif|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
                                 <source type="image/webp" srcset="{$template.preview_webp|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
