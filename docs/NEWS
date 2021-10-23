@@ -2,8 +2,9 @@ Version 3.6-dev ()
  ------------------------------------------------------------------------
 
   * Add "imgsupport" javascript to templates assets for personal theme usage.
-    Insert script before any <link> tag to css files in your index.tpl:
+    Insert script before any <link> tag to css files in your themes index.tpl:
         <script src="templates/_assets/imgsupport.js"></script>
+    so you can deliver image formats by CSS and your visitors browser support.
     READ ABOUT on https://github.com/leechy/imgsupport
 
   * Fixed a regression of a Styx 3.5 commit for theme configuration submit sets
