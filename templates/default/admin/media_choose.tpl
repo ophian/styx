@@ -150,9 +150,10 @@
                 <input id="picSubmit" class="input_button state_submit" type="submit" value="{$CONST.ADD_MEDIA_PICTELEMENT}" data-submit="enhanced" onclick="serendipity.rememberMediaOptions(); serendipity.mediaPictureSubmit(); {$media.file.origfinishJSFunction}">
             {/if}
                 {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_submit' data=$media.file}
+                <a class="toggle_info button_link" href="#media_serve_info" title="{$CONST.MEDIA_SERVE_INFO}"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_SERVE_INFO}</span></a>
             </div>
 
-            <div class="msg_hint msg-0 msg-sm">
+            <div id="media_serve_info" class="msg_hint msg-0 msg-sm media_serve_info additional_info">
                 <span class="icon-info-circled"></span> <em>{$CONST.PICTURE_FORMAT_BUTTON_DESC}</em>
             </div>
         {/if}{* else fast_select end *}
