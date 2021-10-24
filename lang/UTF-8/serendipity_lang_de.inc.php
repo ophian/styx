@@ -1230,5 +1230,6 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um d
 @define('ERROR_DONT_SHOOT_YOURSELF', 'Sie sollten sich niemals selbst löschen: %s: %s, %s.');
 @define('ERROR_DONT_CUT_YOUR_WHINEYARD', 'Sie sollten niemals die ranghöchste GRUPPENSTUFE löschen, in der Sie sich befinden: %s: %s.');
 
+@define('MEDIA_SERVE_INFO', 'Media-Buttons Beschreibungs Info');
 @define('PICTURE_FORMAT_BUTTON_DESC', 'Einfaches img-Element - <b>vs</b> - Die moderne & empfohlene & containerisierte Form der Auslieferung von Bildern inklusive Variationen! Normalerweise "responsive images"-Container genannt, aber hier für responsive Variationsformate verwendet!');
 
