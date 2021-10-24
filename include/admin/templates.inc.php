@@ -303,13 +303,13 @@ foreach($stack AS $theme => $info) {
             // compare FULLSIZE preview Variation filesizes for srcsets fillup.
             // NOTE for the CACHED files: The origin "preview_fullsize.jpg" theme file is simply stored as "themeName.jpg" and the "preview.png" files as "themeName_preview.png".
             if (!empty($data['templates'][$theme]["fullsize${backendId}_preview_avif"]) && !empty($data['templates'][$theme]["fullsize${backendId}_preview_webp"])) {
-                $data['templates'][$theme]["fullsize${backendId}_preview_avif"] = (filesize($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}.avif") > filesize($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}.webp"]))
+                $data['templates'][$theme]["fullsize${backendId}_preview_avif"] = (filesize($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}.avif") > filesize($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}.webp"))
                                         ? null
                                         : $data['templates'][$theme]["fullsize${backendId}_preview_avif"];
             }
             // compare PREVIEW preview Variation filesizes for srcsets fillup
             if (!empty($data['templates'][$theme]["preview_avif"]) && !empty($data['templates'][$theme]["preview_webp"])) {
-                $data['templates'][$theme]["preview_avif"] = (filesize($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}_preview.avif") > filesize($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}_preview.webp"]))
+                $data['templates'][$theme]["preview_avif"] = (filesize($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}_preview.avif") > filesize($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $theme . "${backendId}_preview.webp"))
                                         ? null
                                         : $data['templates'][$theme]["preview_avif"];
             }
