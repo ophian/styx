@@ -151,6 +151,10 @@
             {/if}
                 {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_submit' data=$media.file}
             </div>
+
+            <div class="msg_hint msg-0 msg-sm">
+                <span class="icon-info-circled"></span> <em>{$CONST.PICTURE_FORMAT_BUTTON_DESC}</em>
+            </div>
         {/if}{* else fast_select end *}
         </form>
     {else}{* if $media.file.is_image end *}
