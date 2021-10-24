@@ -1563,6 +1563,10 @@ summary {
     margin: 0;
 }
 
+.msg-sm {
+    font-size: .9125rem;
+}
+
 .installer .msg_error,
 .installer .msg_success,
 .installer .msg_notice,
