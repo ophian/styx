@@ -561,8 +561,8 @@ switch ($serendipity['GET']['adminAction']) {
                             $result = serendipity_convertToWebPFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target));
                             if (is_array($result)) {
                                 $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> WebP image format variation(s) created!</span>'."\n";
-                                if (is_array($result)) {
-                                    if ($result[0] == 0) {
+                                if (is_array($result) && $result[0] == 0) {
+                                    if (is_string($result[1])) {
                                         if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: Image WebP format creation success ${result[2]} from $target " . DONE); }
                                     } else {
                                         if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image WebP format creation success ${result[2]} from $target " . DONE); }
@@ -583,8 +583,8 @@ switch ($serendipity['GET']['adminAction']) {
                             $result = serendipity_convertToAvifFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target), false);
                             if (is_array($result)) {
                                 $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> AVIF image format variation(s) created!</span>'."\n";
-                                if (is_array($result)) {
-                                    if ($result[0] == 0) {
+                                if (is_array($result) && $result[0] == 0) {
+                                    if (is_string($result[1])) {
                                         if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: Image AVIF format creation success ${result[2]} from $target " . DONE); }
                                     } else {
                                         if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image AVIF format creation success ${result[2]} from $target " . DONE); }
