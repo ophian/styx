@@ -1038,7 +1038,7 @@ function serendipity_passToCMD($type = null, $source = '', $target = '', $args =
         // For example, using a value of gamma=2 is the same as taking the square root of the image.
     }
 
-    // variations
+    // variations - with type being a command parameter
     if ($type == 'pdfthumb') {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth 16 ${gamma['linear']} {$do} ${gamma['standard']} " .
                 "-depth 8 -strip \"$target\"";
@@ -1060,7 +1060,7 @@ function serendipity_passToCMD($type = null, $source = '', $target = '', $args =
                 "\"$target\"";
     }
 
-    // main file scaling (scale, resize, rotate, ...)
+    // main file scaling (scale, resize, rotate, ...) - with type being a mime string parameter, while we have it already
     if (image_type_to_mime_type(IMAGETYPE_JPEG) == $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth 16 ${gamma['linear']} -filter Lanczos {$do} ${gamma['standard']} " .
                 "-depth 8 -quality {$args[4]} -sampling-factor 1x1 -strip \"$target\"";
