@@ -970,6 +970,7 @@ function serendipity_makeImageVariationPath($orgfile, $ext) {
  * Originally build for WebP variations. Now also used for additional AVIF extension or other futures.
  *
  * @param string $image  origin image file relative path
+ * @param string $ext    by extension
  * @return array
  */
 function serendipity_generate_webpPathURI($image, $ext = 'webp') {
