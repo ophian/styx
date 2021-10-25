@@ -1,6 +1,8 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Fix ML_CREATEVARIATION debug log distinction of GD vs ImageMagick
+
   * Add "imgsupport" javascript to templates assets for personal theme usage.
     Insert script before any <link> tag to css files in your themes index.tpl:
         <script src="templates/_assets/imgsupport.js"></script>
