@@ -555,6 +555,8 @@ switch ($serendipity['GET']['adminAction']) {
                         @umask(0000);
                         @chmod($target, 0664);
 
+                        if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML case UPLOAD file(s) CREATE VARIATIONS SEPARATOR" . str_repeat(" <<< ", 10) . "\n"); }
+
                         // Create a target copy variation in WebP image format
                         if (file_exists($target) && $serendipity['useWebPFormat'] && strtolower($info['extension']) != 'webp') {
                             $variat = serendipity_makeImageVariationPath($target, 'webp');
