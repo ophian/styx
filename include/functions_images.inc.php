@@ -967,6 +967,7 @@ function serendipity_makeImageVariationPath($orgfile, $ext) {
 
 /**
  * Build image variation storage path for src targets in themes/plugins.
+ * Originally build for WebP variations. Now also used for additional AVIF extension or other futures.
  *
  * @param string $image  origin image file relative path
  * @return array
