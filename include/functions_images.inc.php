@@ -1258,7 +1258,6 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                     }
                 }
             }
-            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: -------------------------------------------------------------------- "); }
         }
         // IM
         else {
@@ -1376,7 +1375,6 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                 touch($outfile); // since we may have touched existing files. GD does it in serendipity_resizeImageGD().
             }
             unset($result);
-            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: -------------------------------------------------------------------- "); }
         }
     }
     return $r;
