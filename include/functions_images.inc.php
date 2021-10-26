@@ -4129,7 +4129,7 @@ function serendipity_insertMediaProperty($property_group, $property_subgroup, $i
 
             foreach($use_val AS $insert_key => $insert_val) {
                 if ($use_cast) {
-                    $insert_val = serendipity_mediaTypeCast($insert_key, $insert_val);
+                    $insert_val = serendipity_mediaTypeCast($insert_key, ($insert_val ?? ''));
                 }
                 $q = sprintf("INSERT INTO {$serendipity['dbPrefix']}mediaproperties
                                           (mediaid, property_group, property_subgroup, property, value)
