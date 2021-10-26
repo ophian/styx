@@ -1328,7 +1328,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                     // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
                     // split it up like done here: 1. $outfile->convert to WebP and then 2. $webpthb->resize to thumb, which overwrites the first.
                     $webpthb = $newfile['filepath'] . '/.v/' . $newfile['filename'];
-                    $reswebp = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), $mute);
+                    $reswebp = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), $mute, 100); // WebP thumbnail uses full quality
                     if (is_array($reswebp) && $reswebp[0] == 0) {
                         if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image WebP format creation success ${reswebp[2]} " . DONE); }
                         unset($reswebp);
