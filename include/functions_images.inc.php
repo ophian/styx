@@ -1014,7 +1014,7 @@ function serendipity_passToCMD($type = null, $source = '', $target = '', $args =
     $args[1] = $args[1] ?? array();
     $args[2] = $args[2] ?? array();
     $args[3] = $args[3] ?? array();
-    $args[4] = $args[4] ?? 100;
+    $args[4] = $args[4] ?? -1;
     $args[5] = $args[5] ?? -1;
     if (count($args[2]) > 0) {
         $do = implode(' ', $args[1]) . ' ' . implode(' ', $args[2]) . ' | "' .
@@ -1024,6 +1024,8 @@ function serendipity_passToCMD($type = null, $source = '', $target = '', $args =
     }
 
     $do = str_replace(array('  '), array(' '), $do);
+
+    $quality = ($args[4] != -1) ? "-quality {$args[4]}" : '';
 
     // Do resizing images right:
     // @see https://www.imagemagick.org/Usage/resize/#resize_gamma, for 16bit (Q16 binary) workspace and optional gamma correction.
@@ -1045,11 +1047,11 @@ function serendipity_passToCMD($type = null, $source = '', $target = '', $args =
 
     } else if ($type == 'mkthumb') {
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
-                "-depth 8 -quality {$args[4]} -strip \"$target\"";
+                "-depth 8 $quality -strip \"$target\"";
 
     } else if ($type == 'format-webp') {
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
-                "-strip \"$target\"";
+                "$quality -strip \"$target\"";
 
     } else if ($type == 'format-avif') {
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
@@ -1063,7 +1065,7 @@ function serendipity_passToCMD($type = null, $source = '', $target = '', $args =
     // main file scaling (scale, resize, rotate, ...) - with type being a mime string parameter, while we have it already
     if (image_type_to_mime_type(IMAGETYPE_JPEG) == $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth 16 ${gamma['linear']} -filter Lanczos {$do} ${gamma['standard']} " .
-                "-depth 8 -quality {$args[4]} -sampling-factor 1x1 -strip \"$target\"";
+                "-depth 8 $quality -sampling-factor 1x1 -strip \"$target\"";
 
     } else if (image_type_to_mime_type(IMAGETYPE_PNG) == $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth 16 ${gamma['linear']} {$do} ${gamma['standard']} " .
