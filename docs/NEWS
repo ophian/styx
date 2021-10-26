@@ -1,6 +1,10 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Improve full file variation convertToWebPFormat by decreasing the quality
+    by dimension. Fixes (rare) WebP Expressions on certain (big) sizes getting
+    bigger than the origin.
+
   * Fix ML_CREATEVARIATION debug log distinction of GD vs ImageMagick
 
   * Add "imgsupport" javascript to templates assets for personal theme usage.
