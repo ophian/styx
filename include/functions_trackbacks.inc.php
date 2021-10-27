@@ -662,7 +662,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
                 $saved_references[$old_reference['link'] . $old_reference['name']] = $current_references[$old_reference['link'] . $old_reference['name']] = $old_reference;
                 $saved_urls[$old_reference['link']] = true;
             }
-            if ($debug) $serendipity['logger']->debug("$runtype - Got references: " . print_r($current_references, true));
+            if ($debug) $serendipity['logger']->debug("$runtype - Got references: " . print_r($current_references, true)); // don't mind the double [link . name] in key. Probably to ensure we have a proper key in case one is empty!
         }
     } else {
         $runtype = 'FINAL';
@@ -684,7 +684,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
                     if ($debug) $serendipity['logger']->debug("$runtype - $cr"); // error case
                 }
             }
-            if ($debug) $serendipity['logger']->debug("$runtype - Got references:" . print_r($current_references, true));
+            if ($debug) $serendipity['logger']->debug("$runtype - Got references: " . print_r($current_references, true)); // don't mind the double [link . name] in key. Probably to ensure we have a proper key in case one is empty!
         }
     }
 
