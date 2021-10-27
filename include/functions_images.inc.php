@@ -1708,7 +1708,8 @@ function serendipity_generateVariations() {
                 if (in_array(strtoupper(explode('/', mime_content_type($outfile))[1]), serendipity_getSupportedFormats())) {
                     $odim = filesize($infile);
                     $webpIMQ = -1;
-                    $dimensions = [0 => -1, 6000000 => 90, 9000000 => 80, 12000000 => 75];
+                    #   1024 B x               6 MB           9 MB           12 MB
+                    $dimensions = [0 => -1, 6144000 => 90, 9216000 => 80, 12288000 => 75];
                     foreach ($dimensions AS $dk => $dv) {
                         if ($odim > $dk) {
                             $webpIMQ = $dv;
