@@ -560,13 +560,13 @@ switch ($serendipity['GET']['adminAction']) {
                         // Create a target copy variation in WebP image format
                         if (file_exists($target) && $serendipity['useWebPFormat'] && strtolower($info['extension']) != 'webp') {
                             $odim = filesize($target);
-                            $webpq = -1;
                             $variat = serendipity_makeImageVariationPath($target, 'webp');
+                            $webpIMQ = -1;
                             $dimensions = [1 => -1, 600000 => 90, 900000 => 80, 1200000 => 75];
                             foreach ($dimensions AS $dk => $dv) {
-                                $webpq = $odim > $dk ? $dv : -1; // Origins WebP variation copy QUALITY only, in case it is big, else we might get bigger webp lossless expression than the origin file
+                                $webpIMQ = $odim > $dk ? $dv : -1; // Origins WebP ImageMagick variation copy QUALITY only, in case it is big, else we might get bigger WebP lossless expression than the origin file
                             }
-                            $result = serendipity_convertToWebPFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target), false, $webpq);
+                            $result = serendipity_convertToWebPFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target), false, $webpIMQ);
                             if (is_array($result)) {
                                 $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> WebP image format variation(s) created!</span>'."\n";
                                 if (is_array($result) && $result[0] == 0) {
