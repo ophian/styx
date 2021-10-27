@@ -562,9 +562,11 @@ switch ($serendipity['GET']['adminAction']) {
                             $odim = filesize($target);
                             $variat = serendipity_makeImageVariationPath($target, 'webp');
                             $webpIMQ = -1;
-                            $dimensions = [1 => -1, 600000 => 90, 900000 => 80, 1200000 => 75];
+                            $dimensions = [0 => -1, 6000000 => 90, 9000000 => 80, 12000000 => 75];
                             foreach ($dimensions AS $dk => $dv) {
-                                $webpIMQ = $odim > $dk ? $dv : -1; // Origins WebP ImageMagick variation copy QUALITY only, in case it is big, else we might get bigger WebP lossless expression than the origin file
+                                if ($odim > $dk) {
+                                    $webpIMQ = $dv; // Origins WebP ImageMagick variation copy QUALITY only, in case it is big, else we might get bigger WebP lossless expression than the origin file
+                                }
                             }
                             $result = serendipity_convertToWebPFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target), false, $webpIMQ);
                             if (is_array($result)) {
