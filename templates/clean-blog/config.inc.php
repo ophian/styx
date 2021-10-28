@@ -389,9 +389,9 @@ if (!function_exists('serendipity_plugin_api_pre_event_hook')) {
                                       <figure id="' . $entry_header_image_key . '_preview">
                                           <figcaption>' . PREVIEW . '</figcaption>
                                           <picture>
-                                              <source type="image/avif" srcset="' . ($entry_header_image_avif ?? null) . '" class="ml_preview_img" alt="">
-                                              <source type="image/webp" srcset="' . ($entry_header_image_webp ?? null) . '" class="ml_preview_img" alt="">
-                                              <img alt="" src="' . $entry_header_image . '">
+                                              <source type="image/avif" srcset="' . ($entry_header_image_avif ?? null) . '">
+                                              <source type="image/webp" srcset="' . ($entry_header_image_webp ?? null) . '">
+                                              <img src="' . $entry_header_image . '" class="ml_preview_img" alt="">
                                           </picture>
                                       </figure>
                                   </div>
