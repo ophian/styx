@@ -32,9 +32,9 @@
                                 <a href="{$entry.link}" title="{$entry.title}">
                                 {if $template_option.use_variation AND (NOT empty($entry.properties.timeline_image_webp) OR NOT empty($entry.properties.timeline_image_avif))}
                                     <picture>
-                                        <source type="image/avif" srcset="{$entry.properties.timeline_image_avif}" class="ml_preview_img" alt="">
-                                        <source type="image/webp" srcset="{$entry.properties.timeline_image_webp}" class="sourceset_img" alt="">
-                                        <img class="img-fluid img-thumbnail" alt="" src="{$entry.properties.timeline_image}'">
+                                        <source type="image/avif" srcset="{$entry.properties.timeline_image_avif}">
+                                        <source type="image/webp" srcset="{$entry.properties.timeline_image_webp}">
+                                        <img src="{$entry.properties.timeline_image}'" class="img-fluid img-thumbnail" alt="">
                                     </picture>
                                 {else}
                                 <img class="img-fluid img-thumbnail" {if NOT empty($entry.properties.timeline_image)}src="{$entry.properties.timeline_image}"{else}{if $template_option.use_variation}src="{serendipity_getFile file='img/image_unavailable.webp'}"{else}src="{serendipity_getFile file='img/image_unavailable.jpg'}"{/if}{/if} alt=""/>
@@ -66,8 +66,8 @@
                                 <a href="{$entry.link}" title="{$entry.title}">
                                 {if $template_option.use_variation AND (NOT empty($entry.properties.timeline_image_webp) OR NOT empty($entry.properties.timeline_image_avif))}
                                     <picture>
-                                        <source type="image/avif" srcset="{$entry.properties.timeline_image_avif}" class="ml_preview_img" alt="">
-                                        <source type="image/webp" srcset="{$entry.properties.timeline_image_webp}" class="sourceset_img" alt="">
+                                        <source type="image/avif" srcset="{$entry.properties.timeline_image_avif}">
+                                        <source type="image/webp" srcset="{$entry.properties.timeline_image_webp}">
                                         <img class="img-fluid img-thumbnail" alt="" src="{$entry.properties.timeline_image}'">
                                     </picture>
                                 {else}
@@ -110,8 +110,8 @@
                     {else}
                         {if $template_option.use_variation AND (NOT empty($entry.properties.timeline_image_webp) OR NOT empty($entry.properties.timeline_image_avif))}
                             <picture>
-                                <source type="image/avif" srcset="{$entry.properties.timeline_image_avif}" class="ml_preview_img" alt="">
-                                <source type="image/webp" srcset="{$entry.properties.timeline_image_webp}" class="sourceset_img" alt="">
+                                <source type="image/avif" srcset="{$entry.properties.timeline_image_avif}">
+                                <source type="image/webp" srcset="{$entry.properties.timeline_image_webp}">
                                 <img class="img-fluid" alt="" src="{$entry.properties.timeline_image}'">
                             </picture>
                         {else}
