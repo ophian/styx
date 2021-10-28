@@ -140,9 +140,9 @@
                 <figure id="category_icon_preview">
                     <figcaption>{$CONST.PREVIEW}</figcaption>
                     <picture>
-                      <source type="image/avif" srcset="{$this_cat.category_icon_avif|default:""|escape}" alt="">
-                      <source type="image/webp" srcset="{$this_cat.category_icon_webp|default:""|escape}" alt="">
-                      <img src="{$this_cat.category_icon|default:""|escape}" alt="">
+                      <source type="image/avif" srcset="{$this_cat.category_icon_avif|default:""|escape}">
+                      <source type="image/webp" srcset="{$this_cat.category_icon_webp|default:""|escape}">
+                      <img src="{$this_cat.category_icon|default:""|escape}" class="ml_preview_img" alt="">
                     </picture>
                 </figure>
             </div>

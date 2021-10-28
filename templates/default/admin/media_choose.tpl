@@ -12,9 +12,9 @@
         <h1 id="media_selection_title">{$CONST.YOU_CHOSE|sprintf:$media.file.realname}</h1>
 
         <picture>
-            {if isset($media.file.thumbSizeAVIF) AND $media.file.thumbSizeAVIF > 1000 AND $media.file.thumbSizeAVIF <= $media.file.thumbSizeWebp}<source type="image/avif" srcset="{$media.file.full_thumb_avif|default:''}" class="ml_preview_img" alt="{$media.file.name}">{/if}
-            <source type="image/webp" srcset="{$media.file.full_thumb_webp|default:''}" class="ml_preview_img" alt="{$media.file.name}">
-            <img src="{$media.file.imgsrc}" alt="{$media.file.name}">
+            {if isset($media.file.thumbSizeAVIF) AND $media.file.thumbSizeAVIF > 1000 AND $media.file.thumbSizeAVIF <= $media.file.thumbSizeWebp}<source type="image/avif" srcset="{$media.file.full_thumb_avif|default:''}">{/if}
+            <source type="image/webp" srcset="{$media.file.full_thumb_webp|default:''}">
+            <img src="{$media.file.imgsrc}" class="ml_preview_img" alt="{$media.file.name}">
         </picture>
 
         <form id="imageForm" name="serendipity[selForm]" action="#" method="GET">

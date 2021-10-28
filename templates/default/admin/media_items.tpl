@@ -124,11 +124,11 @@
                         <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{if isset($file.sizeAVIF) AND isset($file.sizeWebp) AND $file.sizeAVIF < $file.sizeWebp}{$link_avif|default:$link}{else}{$link_webp|default:$link}{/if}" data-fallback="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}{if isset($file.sizeAVIF) AND isset($file.sizeWebp) AND $file.sizeAVIF < $file.sizeWebp}{if !empty($img_src_avif)} (AVIF){/if}{else}{if !empty($img_src_webp)} (WepP){/if}{/if}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
                             <picture>{if isset($file.thumbSizeAVIF) AND $file.thumbSizeAVIF > 1000 AND $file.thumbSizeAVIF < $file.thumbSizeWebp}
 
-                                <source type="image/avif" srcset="{$img_src_avif|default:''}" class="ml_preview_img" alt="{$img_alt} (avif)">
+                                <source type="image/avif" srcset="{$img_src_avif|default:''}">
                             {/if}
 
-                                <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt} (webp)">
-                                <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/manage -->
+                                <source type="image/webp" srcset="{$img_src_webp|default:''}">
+                                <img src="{$img_src}" class="ml_preview_img" title="{$img_title}" alt="{$img_alt}"><!-- media/manage -->
                             </picture>
                         </a>
                     {/if}
@@ -151,10 +151,10 @@
 
                         <picture>{if isset($file.thumbSizeAVIF) AND $file.thumbSizeAVIF > 1000 AND $file.thumbSizeAVIF < $file.thumbSizeWebp}
 
-                            <source type="image/avif" srcset="{$img_src_avif|default:''}" class="ml_preview_img" alt="{$img_alt} (avif)">{/if}
+                            <source type="image/avif" srcset="{$img_src_avif|default:''}">{/if}
 
-                            <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt} (webp)">
-                            <img src="{$img_src}" title="{if NOT $media.enclose}{$CONST.THUMBNAIL_SHORT}: {/if}{$img_title}" alt="{$img_alt}"><!-- media/properties -->
+                            <source type="image/webp" srcset="{$img_src_webp|default:''}">
+                            <img src="{$img_src}" class="ml_preview_img" title="{if NOT $media.enclose}{$CONST.THUMBNAIL_SHORT}: {/if}{$img_title}" alt="{$img_alt}"><!-- media/properties -->
                         </picture>
                         {if $file.mime|truncate:6:'' == 'image/' AND ($file.extension|count_characters > $CONST.PATHINFO_EXTENSION)}
 
