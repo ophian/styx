@@ -1142,6 +1142,11 @@ textarea[disabled] {
 #image_directory_edit_form .form_field input#diredit_new:active {
     width: auto;
 }
+#image_as_link .form_field input#media_file_path,
+#image_as_link .form_field input#media_file_path:focus,
+#image_as_link .form_field input#media_file_path:active {
+    width: 100%;
+}
 
 /* Separate rule for FF + IE. Cannot stack with WebKit. */
 ::-webkit-input-placeholder {
