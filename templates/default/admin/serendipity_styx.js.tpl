@@ -365,8 +365,8 @@
 
             $.each(g['files'], function(k, v) {
                 pic_el  = (v['full_thumb_avif'] || v['full_file_avif'] || v['full_thumb_webp'] || v['full_file_webp']) ? true : false;
-                iAVFrmt = (v['sizeAVIF'] > 1000 && (v['sizeAVIF'] <= v['sizeWebp']));
-                thbAVFt = (v['thumbSizeAVIF'] > 1000 && (v['thumbSizeAVIF'] <= v['thumbSizeWebp']));
+                iAVFrmt = (v['sizeAVIF'] > 252 && (v['sizeAVIF'] <= v['sizeWebp']));
+                thbAVFt = (v['thumbSizeAVIF'] > 252 && (v['thumbSizeAVIF'] <= v['thumbSizeWebp']));
                 imgID   = v['id'];
                 imgWdth = v['thumbWidth'];
                 imgHght = v['thumbHeight'];
