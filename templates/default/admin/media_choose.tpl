@@ -12,7 +12,7 @@
         <h1 id="media_selection_title">{$CONST.YOU_CHOSE|sprintf:$media.file.realname}</h1>
 
         <picture>
-            {if isset($media.file.thumbSizeAVIF) AND $media.file.thumbSizeAVIF > 1000 AND $media.file.thumbSizeAVIF <= $media.file.thumbSizeWebp}<source type="image/avif" srcset="{$media.file.full_thumb_avif|default:''}">{/if}
+            {if isset($media.file.thumbSizeAVIF) AND $media.file.thumbSizeAVIF > 252 AND $media.file.thumbSizeAVIF <= $media.file.thumbSizeWebp}<source type="image/avif" srcset="{$media.file.full_thumb_avif|default:''}">{/if}
             <source type="image/webp" srcset="{$media.file.full_thumb_webp|default:''}">
             <img src="{$media.file.imgsrc}" class="ml_preview_img" alt="{$media.file.name}">
         </picture>
@@ -32,7 +32,7 @@
             <input name="webPthumbName" type="hidden" value="{$media.file.full_thumb_webp|default:''}">
             <input name="avifFileName" type="hidden" value="{$media.file.full_file_avif|default:''}">
             <input name="webPfileName" type="hidden" value="{$media.file.full_file_webp|default:''}">
-            <input name="srcAvifBestFormatSize" type="hidden" value="{if isset($media.file.sizeAVIF) AND $media.file.sizeAVIF > 1000 AND $media.file.sizeAVIF <= $media.file.sizeWebp}true{else}false{/if}">
+            <input name="srcAvifBestFormatSize" type="hidden" value="{if isset($media.file.sizeAVIF) AND $media.file.sizeAVIF > 252 AND $media.file.sizeAVIF <= $media.file.sizeWebp}true{else}false{/if}">
             <input name="hotlink" type="hidden" value="{$media.file.hotlink}">
         {if $media.htmltarget}
             <input name="serendipity[htmltarget]" type="hidden" value="{$media.htmltarget|escape}">
