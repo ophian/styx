@@ -1,6 +1,8 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Add new media choose img_align_top image to show it is top centered
+
   * Improve full file variation WebP format copy using ImageMagick by decreasing
     the quality by a range of given dimensions. Fixes (rare) WebP Expressions on
     certain (big) sizes getting bigger than the origin.
