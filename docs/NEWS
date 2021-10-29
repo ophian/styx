@@ -1,6 +1,10 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Changed the img_align radio form arrangement in the media choose action to
+    left inbound, top centered, right inbound order.
+    Be ATTENTIVE until you realize that this is the more catchy arrangement! ;-)
+
   * Move media_choose link to input field to better expand on length
 
   * Add new media choose img_align_top image to show it is top centered
