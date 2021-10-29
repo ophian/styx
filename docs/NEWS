@@ -1,6 +1,8 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Move media_choose link to input field to better expand on length
+
   * Add new media choose img_align_top image to show it is top centered
 
   * Improve full file variation WebP format copy using ImageMagick by decreasing
