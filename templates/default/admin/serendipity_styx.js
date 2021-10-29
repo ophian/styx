@@ -513,7 +513,7 @@
         }
 
         if (isLink) {
-            // wrap the img in a link to the image. TODO: The label in the media_chooser.tpl explains it wrong
+            // wrap the img in a link to the image
             var targetval = $('#select_image_target').val();
             var fallback  = (pictureSubmit && imgVariFullHref != '') ? ' data-fallback="'+ f['serendipity[url]'].value +'"' : '';
 
