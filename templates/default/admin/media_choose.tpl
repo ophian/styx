@@ -97,17 +97,17 @@
                     <div class="form_radio">
                         <input id="radio_islink_yes" name="serendipity[isLink]" type="radio" value="yes" {'isLink'|ifRemember:'yes'}>
                         <label for="radio_islink_yes">{$CONST.I_WANT_IT_TO_LINK}</label>
+                    </div>
 
-                        <div class="form_field">
-                        {* Could use input[type=url], but does that handle local URLs as well? Hm. *}
-                            <label for="media_file_path" class="visuallyhidden">{$CONST.FILTER_DIRECTORY}</label>
-                        {if $media.file.hotlink}
-                            <input id="media_file_path" name="serendipity[url]" type="text" value="{$media.file.path}">
-                        {else}
-                            {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_link_url' data=$media.file.links}
-                            <input id="media_file_path" name="serendipity[url]" type="text" value="{$media.file.links.imagelinkurl}">
-                        {/if}
-                        </div>
+                    <div class="form_field">
+                    {* Could use input[type=url], but does that handle local URLs as well? Hm. *}
+                        <label for="media_file_path" class="visuallyhidden">{$CONST.FILTER_DIRECTORY}</label>
+                    {if $media.file.hotlink}
+                        <input id="media_file_path" name="serendipity[url]" type="text" value="{$media.file.path}">
+                    {else}
+                        {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_link_url' data=$media.file.links}
+                        <input id="media_file_path" name="serendipity[url]" type="text" value="{$media.file.links.imagelinkurl}">
+                    {/if}
                     </div>
                 </div>
 
