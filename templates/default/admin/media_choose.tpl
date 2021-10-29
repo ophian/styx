@@ -68,13 +68,13 @@
 
                 <div class="clearfix">
                     <div class="form_radio">
-                        <input id="image_align_top" name="serendipity[align]" {'align'|ifRemember:''} type="radio" value="">
-                        <label for="image_align_top"><img src="{serendipity_getFile file='img/img_align_top.png'}" alt="{$CONST.ALIGN_TOP}"></label>
+                        <input id="image_align_left" name="serendipity[align]" {'align'|ifRemember:'left':true} type="radio" value="left">
+                        <label for="image_align_left"><img src="{serendipity_getFile file='img/img_align_left.png'}" alt="{$CONST.ALIGN_LEFT}"></label>
                     </div>
 
                     <div class="form_radio">
-                        <input id="image_align_left" name="serendipity[align]" {'align'|ifRemember:'left':true} type="radio" value="left">
-                        <label for="image_align_left"><img src="{serendipity_getFile file='img/img_align_left.png'}" alt="{$CONST.ALIGN_LEFT}"></label>
+                        <input id="image_align_top" name="serendipity[align]" {'align'|ifRemember:''} type="radio" value="">
+                        <label for="image_align_top"><img src="{serendipity_getFile file='img/img_align_top.png'}" alt="{$CONST.ALIGN_TOP}"></label>
                     </div>
 
                     <div class="form_radio">
