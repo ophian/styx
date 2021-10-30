@@ -1576,9 +1576,9 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                         $eventData['action_email'] .= ' <a class="button_link" title="' . ($email_is_filtered ? PLUGIN_EVENT_SPAMBLOCK_REMOVE_EMAIL : PLUGIN_EVENT_SPAMBLOCK_ADD_EMAIL) . '" href="serendipity_admin.php?serendipity[adminModule]=comments&amp;serendipity[spamBlockEmail]=' . $eventData['id'] . $addData . $randomString . '#' . $clink . '"><span class="icon-' . ($email_is_filtered ? 'ok-circled' : 'block') .'" aria-hidden="true"></span><span class="visuallyhidden"> ' . ($email_is_filtered ? PLUGIN_EVENT_SPAMBLOCK_REMOVE_EMAIL : PLUGIN_EVENT_SPAMBLOCK_ADD_EMAIL) . '</span></a>';
                     }
                     // init assign
-                    if (!isset($eventData['action_email'])) $eventData['action_email'] = null;
-                    if (!isset($eventData['action_ip'])) $eventData['action_ip'] = null;
-                    if (!isset($eventData['action_referer'])) $eventData['action_referer'] = null;
+                    $eventData['action_email'] = $eventData['action_email'] ?? null;
+                    $eventData['action_ip'] = $eventData['action_ip'] ?? null;
+                    $eventData['action_referer'] = $eventData['action_referer'] ?? null;
                     break;
 
                 case 'backend_sidebar_admin': // this is section: settings - append
