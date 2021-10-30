@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.0.0'
         ));
-        $propbag->add('version',       '2.51');
+        $propbag->add('version',       '2.52');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -35,8 +35,8 @@ class serendipity_event_spamblock extends serendipity_event
             'backend_maintenance'  => true,
             'backend_comments_top' => true,
             'backend_view_comment' => true,
-            'frontend_display:html:per_entry'  => true,
-            'backend_sidebar_admin' => true,
+            'frontend_display:html:per_entry'  => true/*,
+            'backend_sidebar_admin' => true,*/
         ));
         $propbag->add('configuration', array(
             'config_mainconfiggrouper',
@@ -1580,11 +1580,11 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                     $eventData['action_ip'] = $eventData['action_ip'] ?? null;
                     $eventData['action_referer'] = $eventData['action_referer'] ?? null;
                     break;
-
+/*
                 case 'backend_sidebar_admin': // this is section: settings - append
                     echo '<li><a href="serendipity_admin.php?serendipity[adminModule]=plugins&amp;serendipity[plugin_to_conf]=' . $this->instance . '">' . PLUGIN_EVENT_SPAMBLOCK_TITLE . "</a></li>\n";
                     break;
-
+*/
                 default:
                     return false;
             }
