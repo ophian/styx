@@ -8,7 +8,7 @@
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TITLE', 'Protecção anti Spam');
-@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'Oferece uma imensidade de possibilidades para proteger o seu blogue contra Spam nos comentários.');
+@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'Oferece uma imensidade de possibilidades para proteger o seu blogue contra Spam nos comentários. Esta é a espinha dorsal das medidas Anti-Spam. Não remover!');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY', 'Protecção contra o Spam: mensagem não válida.');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_IP', 'Protecção contra o Spam: não pode juntar um comentário suplementar num intervalo tão curto.');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_RBL', 'Protecção contra o Spam: o endereço IP do computador que usa para escrever o comentário está listado como um relé aberto.');

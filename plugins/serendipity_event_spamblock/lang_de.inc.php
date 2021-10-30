@@ -7,7 +7,7 @@
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TITLE', 'Spamschutz');
-@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'Mehrere Möglichkeiten, um Kommentarspam einzudämmen');
+@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'Mehrere Möglichkeiten, um Kommentarspam einzudämmen. Dies ist das Kernstück aller Anti-Spam-Maßnahmen. Nicht entfernen!');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY', 'Spamschutz: Ungültiger Kommentar!');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_IP', 'Spamschutz: Ein weiterer Kommentar kann innerhalb so kurzer Zeit nicht übermittelt werden.');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_KILLSWITCH', 'Dieses Blog ist im "Notfall Kommentar"-Modus. Bitte kommen Sie später wieder.');

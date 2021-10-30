@@ -8,7 +8,7 @@
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TITLE', 'Spammvörn');
-@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'Fjöldamargar leiðir til að hindra spamm í athugasemdir');
+@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'Fjöldamargar leiðir til að hindra spamm í athugasemdir. This is the cores backbone of Anti-Spam measures. Do not remove!');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY', 'Spammhindrun: Óleyfileg skilaboð.');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_IP', 'Spammhindrun: Þú getur ekki sent inn athugasemd svona skömmu eftir fyrri athugasemd.');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_RBL', 'Spammhindrun: IP tala tölvunnar sem þú ert að senda frá er skráð sem opinn póstþjónn.');

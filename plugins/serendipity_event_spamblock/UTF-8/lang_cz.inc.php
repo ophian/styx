@@ -13,7 +13,7 @@
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TITLE', 'Spam Protector');
-@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'Množství metod na ochranu proti spamu.');
+@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'Množství metod na ochranu proti spamu. Toto je základom opatrení proti spamu. Neodstraňujte!');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY', 'Ochrana proti spamu: Neplatná zpráva.');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_IP', 'Ochrana proti spamu: Nemůžeš poslat komentář tak brzy po odeslání jiného komentáře.');
 

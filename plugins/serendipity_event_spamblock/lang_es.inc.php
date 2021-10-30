@@ -7,7 +7,7 @@
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TITLE', 'Protección anti-Spam');
-@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'Una variedad de métodos para prevenir el spam en los comentarios');
+@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'Una variedad de métodos para prevenir el spam en los comentarios. Esta es la columna vertebral de las medidas anti-spam. No lo elimine.');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY', 'Protección anti-Spam: Mensaje inválido.');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_IP', 'Protección anti-Spam: No puedes colocar un nuevo comentario tan pronto luego de haber ya hecho uno.');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_KILLSWITCH', 'Este blog está en "Modo de Emergencia de Bloqueo de comentarios", por favor regresa más tarde');

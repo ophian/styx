@@ -7,7 +7,7 @@
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TITLE', 'スパムプロテクター');
-@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'コメントスパムを防御するさまざまな方法です。');
+@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'コメントスパムを防御するさまざまな方法です。これがスパム対策の核となるバックボーンです。削除しないでください。');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY', 'スパム防御: 無効なメッセージです。');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_IP', 'スパム防御: コメントした直後にコメントすることはできません。');
 

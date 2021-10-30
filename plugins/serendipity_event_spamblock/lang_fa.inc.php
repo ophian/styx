@@ -7,7 +7,7 @@
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TITLE', 'ضد اسپم');
-@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'روش های متعدد برای جلوگیری از ارسال اسپم در بخش نظرات');
+@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'روش های متعدد برای جلوگیری از ارسال اسپم در بخش نظرات. This is the cores backbone of Anti-Spam measures. Do not remove!');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY', 'ضد اسپم: اشکال در پیام.');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_IP', 'ضد اسپم: شما نمی توانید نظراتی را پشت سر هم ارسال کنید.');
 

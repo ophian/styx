@@ -8,7 +8,7 @@
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TITLE', '垃圾(spam)预防');
-@define('PLUGIN_EVENT_SPAMBLOCK_DESC', '几种预防垃圾回复、垃圾引用等的方法');
+@define('PLUGIN_EVENT_SPAMBLOCK_DESC', '几种预防垃圾回复、垃圾引用等的方法。这是反垃圾邮件措施的核心骨干。请勿删除!');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY', '预防垃圾回复：无效信息。');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_IP', '预防垃圾回复：您不能在已经发表一个回复后马上又发表另外一个回复。');
 

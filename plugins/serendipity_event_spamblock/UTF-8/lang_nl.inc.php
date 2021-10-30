@@ -6,7 +6,7 @@
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TITLE', 'Spam Protector');
-@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'Verschillende manieren om spam tegen te gaan');
+@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'Verschillende manieren om spam tegen te gaan. Dit is de kern van Anti-Spam maatregelen. Niet verwijderen!');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY', 'Spam Preventie: Niet toegelaten boodschap.');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_IP', 'Spam Preventie: Je kan niet zo snel 2 commentaren na elkaar posten.');
 

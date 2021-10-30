@@ -8,7 +8,7 @@
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TITLE', '阻擋保護');
-@define('PLUGIN_EVENT_SPAMBLOCK_DESC', '阻擋垃圾迴響的保護方法');
+@define('PLUGIN_EVENT_SPAMBLOCK_DESC', '阻擋垃圾迴響的保護方法。这是反垃圾邮件措施的核心骨干。请勿删除!');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY', '阻擋保護：錯誤訊息。');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_IP', '阻擋保護：您不能連續發佈迴響。');
 

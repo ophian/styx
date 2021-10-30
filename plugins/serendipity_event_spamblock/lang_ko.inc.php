@@ -8,7 +8,7 @@
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TITLE', '스팸 방지기');
-@define('PLUGIN_EVENT_SPAMBLOCK_DESC', '덧글 스팸을 방지하기 위한 다양한 방법 제공');
+@define('PLUGIN_EVENT_SPAMBLOCK_DESC', '덧글 스팸을 방지하기 위한 다양한 방법 제공. This is the cores backbone of Anti-Spam measures. Do not remove!');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY', '스팸 방지: 내용이 유효하지 않습니다.');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_IP', '스팸 방지: 덧글을 단 후 곧바로 추가 덧글을 달 수 없습니다.');
 

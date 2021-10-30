@@ -8,7 +8,7 @@
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TITLE', 'Spamblock');
-@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'Et udvalg af værktøjer til at undgå kommentar spam');
+@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'Et udvalg af værktøjer til at undgå kommentar spam. Dette er kernen i antispam-foranstaltningerne. Må ikke fjernes!');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY', 'Spam beskyttelse: Invalid besked.');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_IP', 'Spam beskyttelse: Du kan ikke gemme 2 kommentarer så hurtigt efter hinanden.');
 

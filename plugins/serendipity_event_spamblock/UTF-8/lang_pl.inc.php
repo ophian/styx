@@ -7,7 +7,7 @@
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TITLE', 'Obrona przed spamem');
-@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'Różne metody na zwalczanie spamu w komentarzach');
+@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'Różne metody na zwalczanie spamu w komentarzach. Jest to główny trzon działań antyspamowych. Nie usuwaj!');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY', 'Obrona przed spamem: Nieprawidłowy komentarz.');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_IP', 'Obrona przed spamem: Nie możesz wprowadzić kolejnego komentarza tak prędko. Proszę, poczekaj chwilę (obrona przed floodem).');
 

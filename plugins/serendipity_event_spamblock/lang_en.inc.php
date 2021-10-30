@@ -7,7 +7,7 @@
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TITLE', 'Spam Protector');
-@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'A variety of methods to prevent comment Spam');
+@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'A variety of methods to prevent comment Spam. This is the cores backbone of Anti-Spam measures. Do not remove!');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY', 'Spam Prevention: Invalid message.');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_IP', 'Spam Prevention: You cannot post a comment so soon after submitting another one.');
 
