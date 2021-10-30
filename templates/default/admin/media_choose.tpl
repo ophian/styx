@@ -113,7 +113,7 @@
 
                 <div class="form_select">
                     <select id="select_image_target" name="serendipity[target]">
-                        <option value="none"   {'target'|ifRemember:'none':false:'selected'}>{$CONST.NONE}</option>
+                        <option value="none"   {'target'|ifRemember:'none':false:'selected'}>{$CONST.USE_DEFAULT}</option>
                         <option value="js"     {'target'|ifRemember:'js':false:'selected'}>{$CONST.MEDIA_TARGET_JS}</option>
                         <option value="plugin" {'target'|ifRemember:'plugin':false:'selected'}>{$CONST.MEDIA_ENTRY}</option>
                         <option value="_blank" {'target'|ifRemember:'_blank':false:'selected'}>{$CONST.MEDIA_TARGET_BLANK}</option>
