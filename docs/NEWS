@@ -1,6 +1,9 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Removed Spamblock configuration link from sidebar as already buttonized in
+    comments and available per Plugin config. The Times They Are A-Changin..!
+
   * Changed the img_align radio form arrangement in the media choose action to
     left inbound, top centered, right inbound order.
     Be ATTENTIVE until you realize that this is the more catchy arrangement! ;-)
