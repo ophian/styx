@@ -1,6 +1,8 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Note failed backend entry search by ID
+
   * Update /b4/ template assets to bootstrap 4.6.1 release.
     Changelog: https://github.com/twbs/bootstrap/releases/tag/v4.6.1
 
