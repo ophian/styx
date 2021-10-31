@@ -1,6 +1,9 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Update /b4/ template assets to bootstrap 4.6.1 release.
+    Changelog: https://github.com/twbs/bootstrap/releases/tag/v4.6.1
+
   * Removed Spamblock configuration link from sidebar as already buttonized in
     comments and available per Plugin config. The Times They Are A-Changin..!
 
