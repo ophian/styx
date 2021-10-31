@@ -504,7 +504,7 @@ $tasks = array(
                     'title'     => '<b>TEMPLATE_NOTICE:</b> As a follow-up, required fields setup was re-worked, moving it from theme config.inc.php files.',
                     'desc'      => 'Please follow the details in the CHANGELOG NEWS file above the Beta-2 note.'),
 
-            array(  'version'   => '3.6.2',
+            array(  'version'   => '3.7.2',
                     'function'  => 'serendipity_checkAvifSupport',
                     'arguments' => array(true),
                     'title'     => 'Check Image Libraries for AV1 Image File (AVIF) file support',
