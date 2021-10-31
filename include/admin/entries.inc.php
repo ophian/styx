@@ -527,6 +527,10 @@ switch($serendipity['GET']['adminAction']) {
         }
         $entry = serendipity_fetchEntry('id', $serendipity['GET']['id'], 1, 1);
         // no break [PSR-2] - extends default
+        if ($entry === false) {
+            echo '<span class="msg_notice"><span class="icon-info-circled"></span> ' . sprintf(NO_ENTRIES_BLAHBLAH, 'ID '.$serendipity['GET']['id'])  . ' - ' .PERMISSIONS."?</span>\n";
+            break; // don't allow entryform fallback if given entry is false or set false by failing permission
+        }
 
     default:
         include_once S9Y_INCLUDE_PATH . 'include/functions_entries_admin.inc.php';
