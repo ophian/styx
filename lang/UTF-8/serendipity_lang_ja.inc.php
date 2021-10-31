@@ -74,7 +74,7 @@
 @define('EXTENDED_BODY', '拡張本文');
 @define('CATEGORY', 'カテゴリ');
 @define('EDIT', '編集');
-@define('NO_ENTRIES_BLAHBLAH', 'キーワード「%s」はどのエントリーでも見つけられませんでした。');
+@define('NO_ENTRIES_BLAHBLAH', 'キーワード「%s」はどのエントリーでも見つけられませんでした');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', '「%s」の検索結果は %s 個あります:');
 @define('IMAGE', '画像');
 @define('ERROR_FILE_NOT_EXISTS', 'エラー: 古いファイル名が存在しません!');

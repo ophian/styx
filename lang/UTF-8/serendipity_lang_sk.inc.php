@@ -86,7 +86,7 @@ $i18n_filename_to = array (
 @define('EXTENDED_BODY', 'Rozšírená textová časť');
 @define('CATEGORY', 'Kategória');
 @define('EDIT', 'Upraviť');
-@define('NO_ENTRIES_BLAHBLAH', 'Nebol nájdený žianen článok obsahujúci výraz "%s".');
+@define('NO_ENTRIES_BLAHBLAH', 'Nebol nájdený žianen článok obsahujúci výraz "%s"');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Pri hľadaní výrazu "%s" bolo nájdených %s výsledkov:');
 @define('SEARCH_TOO_SHORT', 'Hľadaný výraz musí být dlhší ako 3 znaky. Pri hľadaní kratších výrazov skúste k výrazu pridať znak "*", ako napríklad výraz: "s9y*".');
 @define('IMAGE', 'Obrázok');

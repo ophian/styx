@@ -75,7 +75,7 @@
 @define('EXTENDED_BODY', '추가 내용');
 @define('CATEGORY', '범주');
 @define('EDIT', '편집');
-@define('NO_ENTRIES_BLAHBLAH', '검색어 %s(으)로 검색된 글이 없습니다.');
+@define('NO_ENTRIES_BLAHBLAH', '검색어 %s(으)로 검색된 글이 없습니다');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', '검색어 %s(으)로 %s개의 글이 검색되었습니다:');
 @define('SEARCH_TOO_SHORT', '검색어는 3자 이상이어야 합니다. 짧은 단어에는 s9y* 식으로 끝에 *을 붙여서 편법으로 검색을 시도해볼 수 있습니다.');
 @define('IMAGE', '그림');

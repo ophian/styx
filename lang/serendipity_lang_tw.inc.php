@@ -76,7 +76,7 @@ $i18n_unknown = 'tw';
 @define('EXTENDED_BODY', '文章副內容');
 @define('CATEGORY', '類別');
 @define('EDIT', '編輯');
-@define('NO_ENTRIES_BLAHBLAH', '找不到此查詢 %s 的文章.');
+@define('NO_ENTRIES_BLAHBLAH', '找不到此查詢 %s 的文章');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', '您搜尋的 %s 顯示了 %s 結果:');
 @define('IMAGE', '圖片');
 @define('ERROR_FILE_NOT_EXISTS', '錯誤: 檔案不存在!');

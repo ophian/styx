@@ -74,7 +74,7 @@
 @define('EXTENDED_BODY', 'Merkinnän jatko-osa');
 @define('CATEGORY', 'Kategoria');
 @define('EDIT', 'Muokkaa');
-@define('NO_ENTRIES_BLAHBLAH', 'Kysely %s ei palauttanut yhtään merkintää.');
+@define('NO_ENTRIES_BLAHBLAH', 'Kysely %s ei palauttanut yhtään merkintää');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Hakusi %s palautti %s osumaa:');
 @define('IMAGE', 'Kuva');
 @define('ERROR_FILE_NOT_EXISTS', 'Virhe: Tiedostoa ei ole!');

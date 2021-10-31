@@ -76,7 +76,7 @@
 @define('EXTENDED_BODY', '文章副内容');
 @define('CATEGORY', '全部类别'); // 首页
 @define('EDIT', '编辑');
-@define('NO_ENTRIES_BLAHBLAH', '找不到查询 %s 的文章。');
+@define('NO_ENTRIES_BLAHBLAH', '找不到查询 %s 的文章');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', '你搜寻的 %s 显示了 %s 结果:');
 @define('IMAGE', '图片');
 @define('ERROR_FILE_NOT_EXISTS', '错误: 文件不存在！');

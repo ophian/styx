@@ -74,7 +74,7 @@
 @define('EXTENDED_BODY', 'Részletesebb törzs');
 @define('CATEGORY', 'Kategória');
 @define('EDIT', 'Szerkesztés');
-@define('NO_ENTRIES_BLAHBLAH', 'Nem találtam semmit (%s).');
+@define('NO_ENTRIES_BLAHBLAH', 'Nem találtam semmit (%s)');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'A keresésre (%s) %s találat érkezett:');
 @define('IMAGE', 'Kép');
 @define('ERROR_FILE_NOT_EXISTS', 'Hiba: a régi fájlnév nem létezik!');
