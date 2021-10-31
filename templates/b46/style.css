@@ -559,6 +559,9 @@ aside {
   aside a, .bi.bi-rss-fill {
     color: #e5e5e5; }
 
+.serendipity_plugin_calendar .sidebar_content table.calendar th {
+  padding: .5rem; }
+
 @media only screen and (min-width: 992px) {
   .container {
     padding-top: initial; }
