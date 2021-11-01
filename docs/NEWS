@@ -1,6 +1,96 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Serendipity Styx AV1 Image File format groundwork
+
+    As already stated when developing the Styx 3.0 Series for WebP there is
+    another image format on the road.
+
+    This is the AV1 Image File or AVIF format, which offers extreme compression
+    by visually no image quality change compared to the traditional formats like
+    JPEG, PNG, and GIF, and even the relatively new WebP format.
+
+    A royalty-free, cross-platform format for media delivery, given support from
+    all big players (Alliance for Open Media), so it is likely to get adopted
+    much faster than the WebP format, which took almost ten years from launch
+    before being supported in Firefox.
+
+  * AV1 Image File support in browsers and apps
+
+    Chrome 85+ and Firefox up from 93+ already support the AVIF format by default.
+    The latest status for browsers supporting AVIF can be found here:
+        https://caniuse.com/avif
+    Sadly the Safari browser and Apple OS environments are behind, while Android
+    should already work.
+
+  * AVIF image format delivery
+
+    As you know already by working with Styx WebP Variations, uploaded files in
+    standard image formats are additionally stored as new format Variations.
+    So AVIF is yet another Variation stored in the MediaLibrary .v/ directories.
+
+    The Styx OUTPUT instrumentarium checks the image AVIF Variation compared
+    with the WebP Variation and always delivers the smaller in filesize.
+    If it is enclosed by the picture element container, the sourceset (srcset)
+    order will always be AVIF first, then WebP and for last as the < img >
+    element the origin file expression.
+    In case the WebP srcset image expression is smaller in filesize than the
+    AVIF one, the AVIF srcset is suppressed. This ensures that always the
+    smallest size is delivered.
+    Sending this HTML markup, the users browser and environment decides which
+    image it is able to load and to display.
+
+  * CURRENT IMPORTANT DRAWBACKS of using AVIF format
+
+    While most of the things about AVIF are very promising and it is likely to
+    become the standard for media delivery in the future, there are some short-
+    comings that we should be aware of before migrating to AVIF.
+
+    The ABSOLUTE MAJOR BOTTLENECK is the encoding performance of AVIF images,
+    which is VERY SLOW compared to JPEG or WebP images. While the majority of
+    user devices should have no problem decoding AVIF images for display, it
+    can at times take over a minute to encode an image to AVIF.
+
+    As the format evolves, the encoding performance is likely to improve in
+    future.
+
+  * ENVIRONMENTAL ENCODING SUPPORT
+
+    Encoding support starts with PHP 8.1 by GD library with release at the end
+    of November 2021 and with ImageMagick up from 7.0.25+ versions.
+
+    Uploading files already in WebP or AVIF format was even possible before, but
+    resizes, read out and other actions do need support at least from some PHP
+    build-in methods. There still is work to do, like for getimagesize(), which
+    does not work for AVIF image sizes yet in PHP 8.1-RC5 out of the box.
+
+    We have to strongly remind you - when testing - to not load more than one
+    image at time (!) to not crash your given server resources.
+    The time of encoding is depending on the origins file size. Sizes under
+    1 MB won't matter as much as when using images with several Megabytes.
+
+    PHP GD and ImageMagick encoding compression are slightly different and their
+    results often surprising comparing all formats.
+
+  * TEST INFORMATIONS
+
+    If you want to get known to AVIF without touching your current blog system,
+    there are third-party service providers like ImageKit with extensive image
+    processing networks to provide decent AVIF encoding performance in real-time
+    for your images. Or using the fascinating tool and conversion privacy of
+    << https://avif.io/ >> which uses Rav1e, Rust and WASM to convert your
+    images clientside.
+
+    Styx 3.6 has not yet enabled AVIF support by default. It just states to be
+    groundwork ready for extreme testers and other Developers. See setting
+    $serendipity['useAvifFormat'] = true note in serendipity_config.inc.php
+    file at ~ Line 520. So by default enabled AVIF support is going to come
+    with next Styx 3.7 - and this probably already this year. ;-)
+
+    Also see some interesting external comparison pages for the new format:
+    << https://www.gumlet.com/learn/avif-for-image-coding-everything-you-need-to-know/ >>
+    << https://jakearchibald.com/2020/avif-has-landed/ >>
+
   * Note failed backend entry search by ID
 
   * Update /b4/ template assets to bootstrap 4.6.1 release.
