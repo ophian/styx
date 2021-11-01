@@ -64,7 +64,7 @@ Version 3.6-dev ()
     build-in methods. There still is work to do, like for getimagesize(), which
     does not work for AVIF image sizes yet in PHP 8.1-RC5 out of the box.
 
-    We have to strongly remind you - when testing - to not load more than one
+    We have to strongly remind you - when testing - to not upload more than one
     image at time (!) to not crash your given server resources.
     The time of encoding is depending on the origins file size. Sizes under
     1 MB won't matter as much as when using images with several Megabytes.
