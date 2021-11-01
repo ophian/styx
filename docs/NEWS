@@ -37,8 +37,8 @@ Version 3.6-dev ()
     In case the WebP srcset image expression is smaller in filesize than the
     AVIF one, the AVIF srcset is suppressed. This ensures that always the
     smallest size is delivered.
-    Sending this HTML markup, the users browser and environment decides which
-    image it is able to load and to display.
+    Sending this prepared HTML markup, the users browser and environment
+    decides which image it is able to load and to display.
 
   * CURRENT IMPORTANT DRAWBACKS of using AVIF format
 
