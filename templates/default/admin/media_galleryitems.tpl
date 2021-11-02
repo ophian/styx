@@ -22,15 +22,15 @@
                     {elseif empty($file.full_thumb)}
 
                         <picture>
-                            {if isset($file.sizeAVIF) && $file.sizeAVIF > 252 && $file.sizeAVIF <= $file.sizeWebp}<source type="image/avif" srcset="{$file.full_file_avif|default:''}">{/if}
-                            <source type="image/webp" srcset="{if $file.sizeWebp <= $file.size}{$file.full_file_webp|default:''}{/if}">
+                            {if isset($file.sizeAVIF) AND $file.sizeAVIF > 252 AND ($file.sizeWebp == 0 OR $file.sizeAVIF <= $file.sizeWebp)}<source type="image/avif" srcset="{$file.full_file_avif|default:''}">{/if}
+                            <source type="image/webp" srcset="{if $file.sizeWebp > 0 AND $file.sizeWebp <= $file.size}{$file.full_file_webp|default:''}{/if}">
                             <img src="{$file.full_file}" class="ml_preview_img" title="{$file.name}" alt="{$file.diskname}">
                         </picture>
                     {else}
 
                         <picture>
-                            {if isset($file.thumbSizeAVIF) && $file.thumbSizeAVIF > 252 && $file.thumbSizeAVIF <= $file.thumbSizeWebp}<source type="image/avif" srcset="{$file.full_thumb_avif|default:''}">{/if}
-                            <source type="image/webp" srcset="{$file.full_thumb_webp|default:''}">
+                            {if isset($file.thumbSizeAVIF) AND $file.thumbSizeAVIF > 252 AND ($file.thumbSizeWebp == 0 OR $file.thumbSizeAVIF <= $file.thumbSizeWebp)}<source type="image/avif" srcset="{$file.full_thumb_avif|default:''}">{/if}
+                            <source type="image/webp" srcset="{if $file.thumbSizeWebp > 0}{$file.full_thumb_webp|default:''}{/if}">
                             <img src="{$file.full_thumb}" class="ml_preview_img" title="{$file.name}" alt="{$file.diskname}">
                         </picture>
                     {/if}
