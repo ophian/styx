@@ -270,7 +270,7 @@
                     {if NOT empty($imagesNoSync)}
                     {foreach $imagesNoSync AS $special}
                     {if $file.name == $special.pfilename}{* Check out erroneous build AVIF files by filesize and switch special case variation link on AVIF true *}
-                    {if $special.extension == 'avif'}{if $special.filesize == null OR $special.filesize == 0 OR $special.filesize < 1000 OR $special.linknext}{continue}{else}{assign var="isavif" value=true}{/if}{/if}
+                    {if $special.extension == 'avif'}{if $special.filesize == null OR $special.filesize <= 252 OR $special.linknext}{continue}{else}{assign var="isavif" value=true}{/if}{/if}
                     {if $special.extension == 'webp' AND isset($isavif) AND $isavif === true}{assign var="isavif" value=false}{continue}{/if}
 
                     <li class="special"><a class="media_fullsize media_prop button_link" href="{$special.url}" title="{if $special.extension == 'webp' OR $special.extension == 'avif'}{$CONST.VARIATION}{else}{$CONST.PUBLISHED}{/if}: {$special.basename}, {$special.width}x{$special.height}px" data-pwidth="{$special.width}" data-pheight="{$special.height}"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span><span class="visuallyhidden"> Image Of</span></a></li>
