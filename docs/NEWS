@@ -91,6 +91,19 @@ Version 3.6-dev ()
     << https://www.gumlet.com/learn/avif-for-image-coding-everything-you-need-to-know/ >>
     << https://jakearchibald.com/2020/avif-has-landed/ >>
 
+  * POSSIBLE FAILURES
+
+    This base implementation is known to fail with certain Variation builds, in
+    special with ImageMagick conversions while developing. So any WebP images
+    with 0 bytes, or AVIF images with 252 bytes (25 KB) or 34165 (34 KB) are
+    considered broken and conditionally excluded from usage. Time will tell if
+    this needs a review for different file systems or were rare issues while
+    experimental development only.
+    FOR ANY TESTERS:
+    If you see outlined files with webp or avif extension not being displayed by
+    link or by picture container, please file an issue with extended information.
+
+
   * Note failed backend entry search by ID
 
   * Update /b4/ template assets to bootstrap 4.6.1 release.
