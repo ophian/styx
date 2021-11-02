@@ -2894,7 +2894,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
                     $checkAVIFSibling = str_replace('.avif', '.webp', $k);
                     // check the array again for the sibling
                     if (array_key_exists($checkAVIFSibling, $aFilesNoSync)) {
-                        if ($v['filesize'] > $aFilesNoSync[$checkAVIFSibling]['filesize']) {
+                        if ($v['filesize'] > $aFilesNoSync[$checkAVIFSibling]['filesize'] && $aFilesNoSync[$checkAVIFSibling]['filesize'] > 0) {
                             $v['linknext'] = true; // push to parent
                         }
                     }
