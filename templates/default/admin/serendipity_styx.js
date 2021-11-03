@@ -370,7 +370,7 @@
             $.each(g['files'], function(k, v) {
                 pic_el  = (v['full_thumb_avif'] || v['full_file_avif'] || v['full_thumb_webp'] || v['full_file_webp']) ? true : false;
                 iAVFrmt = (v['sizeAVIF'] > 252 && v['sizeAVIF'] != 34165 && v['sizeAVIF'] != 3389 && ( v['sizeWebp'] == 0 || (v['sizeAVIF'] <= v['sizeWebp']) ));
-                thbAVFt = (v['thumbSizeAVIF'] > 252 && v['thumbSizeAVIF'] != 34165 && v['thumbSizeAVIF'] != 3389 && ( v['thumbSizeWebp'] == 0 || (v['thumbSizeAVIF'] <= v['thumbSizeWebp']) ));
+                thbAVFt = (v['thumbSizeAVIF'] > 252 && v['thumbSizeAVIF'] != 3389 && v['thumbSizeAVIF'] != 34165 && ( v['thumbSizeWebp'] == 0 || (v['thumbSizeAVIF'] <= v['thumbSizeWebp']) ));
                 imgID   = v['id'];
                 imgWdth = v['thumbWidth'];
                 imgHght = v['thumbHeight'];
