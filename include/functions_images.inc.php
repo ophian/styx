@@ -1079,7 +1079,7 @@ function serendipity_passToCMD($type = null, $source = '', $target = '', $args =
         $cmd =  "\"{$args[0]}\" \"$source\" -depth 16 ${gamma['linear']} {$do} ${gamma['standard']} " .
                 "-depth 8 -strip \"$target\"";
 
-    } else if (image_type_to_mime_type(IMAGETYPE_AVIF) == $type) {
+    } else if (defined('IMAGETYPE_AVIF') && image_type_to_mime_type(IMAGETYPE_AVIF) == $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth 16 ${gamma['linear']} {$do} ${gamma['standard']} " .
                 "-depth 8 -strip \"$target\"";
     }
@@ -1088,7 +1088,7 @@ function serendipity_passToCMD($type = null, $source = '', $target = '', $args =
         return false;
     } else {
         $cmd = str_replace(array('  '), array(' '), $cmd);
-        if ($type == 'format-avif' || image_type_to_mime_type(IMAGETYPE_AVIF) == $type) {
+        if ($type == 'format-avif' || (defined('IMAGETYPE_AVIF') && image_type_to_mime_type(IMAGETYPE_AVIF) == $type)) {
             // yeah AVIF takes it all - yammi, gimme more! ;-) 2 Gigs plus the filesize at least
             $mlimit = round((filesize($source) + 2048000) / 1000); // Image upload example 5120650 B filesize + 2GB (2048MB) encoding memory = 7168.660 = 7168M
             if ($mlimit > 3596) {
