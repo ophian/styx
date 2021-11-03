@@ -1,9 +1,13 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
-  [ 3.6-beta-2 ]
+  [ 3.6-beta-3 ]
   * Fix some image variation PHP 8.0 vs 8.1 compat regressions
 
+  [ 3.6-beta-2 ]
+  * Improve Styx OUTPUT ops for some possible image variation failures
+
+  [ 3.6-beta-1 ]
   * Serendipity Styx AV1 Image File format groundwork
 
     As already stated when developing the Styx 3.0 Series for WebP there is
