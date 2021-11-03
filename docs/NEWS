@@ -107,7 +107,7 @@ Version 3.6-dev ()
   * Note failed backend entry search by ID
 
   * Update /b4/ template assets to bootstrap 4.6.1 release.
-    Changelog: https://github.com/twbs/bootstrap/releases/tag/v4.6.1
+    Changelog: << https://github.com/twbs/bootstrap/releases/tag/v4.6.1 >>
 
   * Removed Spamblock configuration link from sidebar as already buttonized in
     comments and available per Plugin config. The Times They Are A-Changin..!
@@ -130,7 +130,7 @@ Version 3.6-dev ()
     Insert script before any <link> tag to css files in your themes index.tpl:
         <script src="templates/_assets/imgsupport.js"></script>
     so you can deliver image formats by CSS and your visitors browser support.
-    READ ABOUT on https://github.com/leechy/imgsupport
+    READ ABOUT on << https://github.com/leechy/imgsupport >>
 
   * Fixed a regression of a Styx 3.5 commit for theme configuration submit sets
 
@@ -145,8 +145,8 @@ Version 3.6-dev ()
     errors with PHP 8.1, destroying the image.
 
   * Update /b5/ template assets to bootstrap 5.1.3 release.
-    Changelog: https://github.com/twbs/bootstrap/releases/tag/v5.1.3
-               https://github.com/twbs/bootstrap/releases/tag/v5.1.2
+    Changelog: << https://github.com/twbs/bootstrap/releases/tag/v5.1.3 >>
+               << https://github.com/twbs/bootstrap/releases/tag/v5.1.2 >>
 
   * Move "User/Group Management" out of backend sidebar "Settings" section with
     called by hook name 'backend_sidebar_users'. Additional Plugins as follows.
