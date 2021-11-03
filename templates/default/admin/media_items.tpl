@@ -127,7 +127,7 @@
                                 <source type="image/avif" srcset="{$img_src_avif|default:''}">
                             {/if}
 
-                                <source type="image/webp" srcset="{if $file.thumbSizeWebp > 0}{$img_src_webp|default:''}{/if}">
+                                <source type="image/webp" srcset="{if NOT isset($file.thumbSizeWebp) OR $file.thumbSizeWebp > 0}{$img_src_webp|default:''}{/if}">
                                 <img src="{$img_src}" class="ml_preview_img" title="{$img_title}" alt="{$img_alt}"><!-- media/manage -->
                             </picture>
                         </a>
@@ -153,7 +153,7 @@
 
                             <source type="image/avif" srcset="{$img_src_avif|default:''}">{/if}
 
-                            <source type="image/webp" srcset="{if $file.thumbSizeWebp > 0}{$img_src_webp|default:''}{/if}">
+                            <source type="image/webp" srcset="{if NOT isset($file.thumbSizeWebp) OR $file.thumbSizeWebp > 0}{$img_src_webp|default:''}{/if}">
                             <img src="{$img_src}" class="ml_preview_img" title="{if NOT $media.enclose}{$CONST.THUMBNAIL_SHORT}: {/if}{$img_title}" alt="{$img_alt}"><!-- media/properties -->
                         </picture>
                         {if $file.mime|truncate:6:'' == 'image/' AND ($file.extension|count_characters > $CONST.PATHINFO_EXTENSION)}
