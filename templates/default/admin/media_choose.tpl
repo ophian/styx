@@ -28,10 +28,10 @@
             <input name="indexFile" type="hidden" value="{$serendipityIndexFile}">
             <input name="imgName" type="hidden" value="{$media.file.full_file}">
             <input name="thumbName" type="hidden" value="{$media.file.show_thumb}">
-            <input name="avifThumbName" type="hidden" value="{if $media.file.thumbSizeAVIF > 252 AND $media.file.thumbSizeAVIF != 34165 AND $media.file.thumbSizeAVIF != 3389}{$media.file.full_thumb_avif|default:''}{/if}">
+            <input name="avifThumbName" type="hidden" value="{if isset($media.file.thumbSizeAVIF) AND $media.file.thumbSizeAVIF > 252 AND $media.file.thumbSizeAVIF != 34165 AND $media.file.thumbSizeAVIF != 3389}{$media.file.full_thumb_avif|default:''}{/if}">
             <input name="webPthumbName" type="hidden" value="{if NOT isset($media.file.thumbSizeWebp) OR $media.file.thumbSizeWebp > 0}{$media.file.full_thumb_webp|default:''}{/if}">
-            <input name="avifFileName" type="hidden" value="{if $media.file.sizeAVIF > 252 AND $media.file.sizeAVIF != 34165 AND $media.file.sizeAVIF != 3389}{$media.file.full_file_avif|default:''}{/if}">
-            <input name="webPfileName" type="hidden" value="{if $media.file.sizeWebp > 0}{$media.file.full_file_webp|default:''}{/if}">
+            <input name="avifFileName" type="hidden" value="{if isset($media.file.sizeAVIF) AND $media.file.sizeAVIF > 252 AND $media.file.sizeAVIF != 34165 AND $media.file.sizeAVIF != 3389}{$media.file.full_file_avif|default:''}{/if}">
+            <input name="webPfileName" type="hidden" value="{if isset($media.file.sizeWebp) AND $media.file.sizeWebp > 0}{$media.file.full_file_webp|default:''}{/if}">
             <input name="srcAvifBestFormatSize" type="hidden" value="{if isset($media.file.sizeAVIF) AND $media.file.sizeAVIF > 252 AND $media.file.sizeAVIF != 34165 AND ($media.file.sizeWebp == 0 OR $media.file.sizeAVIF <= $media.file.sizeWebp)}true{else}false{/if}">
             <input name="hotlink" type="hidden" value="{$media.file.hotlink}">
         {if $media.htmltarget}
