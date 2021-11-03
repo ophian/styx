@@ -30,7 +30,7 @@
 
                         <picture>
                             {if isset($file.thumbSizeAVIF) AND $file.thumbSizeAVIF > 252 AND $file.thumbSizeAVIF != 34165 AND $file.thumbSizeAVIF != 3389 AND ( $file.thumbSizeWebp == 0 OR $file.thumbSizeAVIF <= $file.thumbSizeWebp )}<source type="image/avif" srcset="{$file.full_thumb_avif|default:''}">{/if}
-                            <source type="image/webp" srcset="{if $file.thumbSizeWebp > 0}{$file.full_thumb_webp|default:''}{/if}">
+                            <source type="image/webp" srcset="{if NOT isset($file.thumbSizeWebp) OR $file.thumbSizeWebp > 0}{$file.full_thumb_webp|default:''}{/if}">
                             <img src="{$file.full_thumb}" class="ml_preview_img" title="{$file.name}" alt="{$file.diskname}">
                         </picture>
                     {/if}
