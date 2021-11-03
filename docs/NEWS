@@ -1,6 +1,14 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Fix media_choose POST Variation checkup values when choosing an ORIGIN AVIF
+    file as image. PLEASE NOTE, that all current PHP versions are not able to
+    thumbsize an image which is uploaded in the new AVIF format. The PHP 8.1
+    standard image format conversions in current state are only able to do so
+    in STYX, since they take the same values as the WebP expression as a value
+    copy. This is a current Styx PHP workaround and upload limitation as long
+    this isn't implemented to PHP without having to use additional libraries.
+
   [ 3.6-beta-3 ]
   * Fix some image variation PHP 8.0 vs 8.1 compat regressions
 
