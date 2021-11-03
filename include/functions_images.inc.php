@@ -617,7 +617,7 @@ function serendipity_insertImageInDatabase($filename, $directory, $authorid = 0,
     $thumbnail = (file_exists($thumbpath) ? $serendipity['thumbSuffix'] : '');
 
     $fdim   = @serendipity_getImageSize($filepath, '', $extension);
-    $width  = $fdim[0] ?? 0; // this check is temporary getimgsize() hotfix related since uploaded avif images have no sizes yet by default
+    $width  = $fdim[0] ?? 0; // this check is temporary getimagesize() hotfix related since uploaded avif images have no sizes yet by default
     $height = $fdim[1] ?? 0; // ditto
     $mime   = $fdim['mime'];
 
@@ -1166,6 +1166,8 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
     if (isset($fdim['noimage'])) {
         $r = array(0, 0);
     } else {
+        $fdim[0] = $fdim[0] ?? 0; // this check is temporary getimagesize() hotfix related since uploaded avif images have no sizes yet by default
+        $fdim[1] = $fdim[1] ?? 0; // ditto
         // GD
         if ($serendipity['magick'] !== true) {
             if (is_array($size)) {
@@ -1215,7 +1217,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                 }
             } else {
                 // The caller wants a thumbnail constrained in the dimension set by config
-                $calc = serendipity_calculateAspectSize(($fdim[0] ?? 0), ($fdim[1] ?? 0), $size, $serendipity['thumbConstraint']); // fdim 1/2 ?? check is temporary getimgsize() hotfix related since uploaded avif images have no sizes yet by default
+                $calc = serendipity_calculateAspectSize($fdim[0], $fdim[1], $size, $serendipity['thumbConstraint']);
                 $r    = serendipity_resizeImageGD($infile, $outfile, $calc[0], $calc[1]);
                 // Create a copy in WebP image format
                 if (file_exists($outfile) && $serendipity['useWebPFormat']) {
