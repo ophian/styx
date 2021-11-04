@@ -123,8 +123,8 @@ Version 3.6-dev ()
     and upload limitation as long this isn't implemented to PHP without having
     to use additional libraries.
     This also implies to image scaling actions. So if an AVIF image file or image
-    AVIF Variation file exists - and is not known broken by filesize - scaling is
-    prohibited as long this PHP implementation loss is a matter.
+    AVIF Variation file exists - and is known broken by filesize - scaling is
+    prohibited for all formats as long this PHP implementation loss is a matter.
 
 
   * Note failed backend entry search by ID
