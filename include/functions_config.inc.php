@@ -103,7 +103,7 @@ function serendipity_remove_config_var($name, $authorid = 0) {
  * @param   string      The value of the configuration item
  * @param   int         The ID of the owner of the config value (0: global)
  */
-function serendipity_set_config_var($name, $val, $authorid = 0) {
+function serendipity_set_config_var($name, $val, $authorid = '0') {
     global $serendipity;
 
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config where name='" . serendipity_db_escape_string($name) . "' AND authorid = " . (int)$authorid);
@@ -112,7 +112,7 @@ function serendipity_set_config_var($name, $val, $authorid = 0) {
         return;
     }
 
-    $r = serendipity_db_insert('config', array('name' => $name, 'value' => $val, 'authorid' => $authorid));
+    $r = serendipity_db_insert('config', array('name' => $name, 'value' => $val, 'authorid' => "$authorid"));
 
     if ($authorid === 0 || (isset($serendipity['authorid']) && $authorid === $serendipity['authorid'])) {
         if ($val === 'false') {
