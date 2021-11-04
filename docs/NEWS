@@ -1,6 +1,9 @@
 Version 3.6.0 (November 4th 2021)
  ------------------------------------------------------------------------
 
+  * Bugfix backported MYSQLI_SQL_EXCEPTION regression in PHP 7: "Incorrect integer
+    value for authorid" thrown in themes set_config_vars.
+
   * Fix media_choose POST Variation checkup values when choosing an ORIGIN AVIF
     file as image. See LIMITATIONS.
 
