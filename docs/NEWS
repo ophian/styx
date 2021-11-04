@@ -1,13 +1,19 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Bugfix backported MYSQLI_SQL_EXCEPTION regression in PHP 7: "Incorrect integer
+    value for last_modified" in the plugin API.
 
 
-Version 3.6.0 (November 4th 2021)
+Version 3.6.1 (November 4th 2021)
  ------------------------------------------------------------------------
 
   * Bugfix backported MYSQLI_SQL_EXCEPTION regression in PHP 7: "Incorrect integer
     value for authorid" thrown in themes set_config_vars.
+
+
+Version 3.6.0 (November 4th 2021)
+ ------------------------------------------------------------------------
 
   * Fix media_choose POST Variation checkup values when choosing an ORIGIN AVIF
     file as image. See LIMITATIONS.
