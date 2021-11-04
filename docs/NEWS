@@ -1,6 +1,9 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+Version 3.6.2 (November 4th 2021)
+ ------------------------------------------------------------------------
+
   * Bugfix backported MYSQLI_SQL_EXCEPTION regression in PHP 7: "Incorrect integer
     value: '' for column exflag in entries API.
 
@@ -10,6 +13,11 @@ Version 3.x-DEV ()
 
   * Bugfix backported MYSQLI_SQL_EXCEPTION regression in PHP 7: "Incorrect integer
     value for last_modified" in the plugin API.
+
+  * PLEASE NOTE:
+    If you get "white pages of death" when saving entries/settings which have a SQL
+    relating dependency saving, please look inside the servers error log.
+    It probably is one of these exceptions we have to iron out!
 
 
 Version 3.6.1 (November 4th 2021)
