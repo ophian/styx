@@ -1421,10 +1421,12 @@ function serendipity_scaleImg($id, $width, $height, $scaleThumbVariation=false) 
     $oavifTH = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.' . $file['thumbnail_name'] . '.avif';
 
     // check for AVIF image file errors before to prevent image scaling AT ALL
-    // - this is a workaround to prevent serendipity_resizeImageGD() or serendipity_passToCMD IM -scale errors on broken images and should also work when getimagesize will be "google" fixed for avif in future
-    list($width, $height, $type, $attr) = @getimagesize($oavif); // to grasp the nettle this currently is the default for avif in the moment, so we need another check of filesize over ~36 KB - my biggest broken DEV file was 33,36 KB
-    if ($width == 0 && $height == 0 && $type = 19 && filesize($oavif) < 36000) {
-        return 'Sorry! This function is temporary disabled because the AVIF Variation file is erroneous!';
+    // - this is a workaround to prevent serendipity_resizeImageGD() or serendipity_passToCMD IM -scale errors on broken images and should also work when getimagesize() will be "GOOGLE" fixed for AVIF in future
+    if (file_exists($oavif)) {
+        list($width, $height, $type, $attr) = @getimagesize($oavif); // to grasp the nettle this currently is the default for AVIF in the moment, excluding known broken filesizes
+        if ($width == 0 && $height == 0 && $type = 19 && in_array(filesize($oavif), [3389, 34165])) {
+            return 'Sorry! This function is temporary disabled because the AVIF Variation file is erroneous!';
+        }
     }
 
     if ($serendipity['magick'] !== true) {
