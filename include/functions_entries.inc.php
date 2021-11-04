@@ -1518,7 +1518,7 @@ function serendipity_updertEntry($entry) {
         $exflag = 1;
     }
 
-    $entry['exflag'] = $exflag;
+    $entry['exflag'] = (string)$exflag;
 
     if (!isset($entry['id']) || !is_numeric($entry['id'])) {
         /* we need to insert */
