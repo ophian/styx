@@ -122,9 +122,10 @@ Version 3.6-dev ()
     expression as a stolen value copy. This is a current Styx PHP workaround
     and upload limitation as long this isn't implemented to PHP without having
     to use additional libraries.
-    This also implies to image scaling actions. So if an AVIF image file or image
-    AVIF Variation file exists - and/or is known broken by filesize - scaling is
-    prohibited for all formats as long this PHP implementation loss is a matter.
+    This also implies to image scaling and rotate actions. So if an AVIF image
+    file or image AVIF Variation file exists - and/or is known broken by file-
+    size - scaling / rotating is prohibited for all formats as long this PHP
+    implementation loss is a matter. Rotate won't throw a message in this case.
 
 
   * Note failed backend entry search by ID
