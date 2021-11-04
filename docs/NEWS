@@ -2,7 +2,7 @@ Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
   * Bugfix backported MYSQLI_SQL_EXCEPTION regression in PHP 7: "Incorrect integer
-    value: '' for column parent_id" in comments SQL with not explict set ternary
+    value: '' for column parent_id" in comments SQL with not explicit set ternary
     bracketing compile block in another set of braces.
 
   * Bugfix backported MYSQLI_SQL_EXCEPTION regression in PHP 7: "Incorrect integer
