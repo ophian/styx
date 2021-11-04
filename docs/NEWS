@@ -2,7 +2,7 @@ Version 3.6-dev ()
  ------------------------------------------------------------------------
 
   * Fix media_choose POST Variation checkup values when choosing an ORIGIN AVIF
-    file as image.
+    file as image. See LIMITATIONS.
 
   [ 3.6-beta-3 ]
   * Fix some image variation PHP 8.0 vs 8.1 compat regressions
