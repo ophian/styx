@@ -796,7 +796,7 @@ class serendipity_plugin_api
         }
 
         if (!isset($data['last_modified'])) {
-            $data['last_modified'] = $lastModified;
+            $data['last_modified'] = (string)$lastModified;
         }
 
         // Only insert data keys that exist in the DB.
