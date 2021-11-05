@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix error in javascript snippet for codehiglight info tooltip
+
   * Add new info CATEGORY_READ_WRITE_ACL_DESC to categories form for possible perm
     access restrictions.
 
