@@ -58,7 +58,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
                         author = '" . serendipity_db_escape_string($serendipity['POST']['name'])    . "',
                         email  = '" . serendipity_db_escape_string($serendipity['POST']['email'])   . "',
                         url    = '" . serendipity_db_escape_string($serendipity['POST']['url'])     . "',
-                        " . ($_replyTo != ($_id ? "parent_id = '" . serendipity_db_escape_string($_replyTo) . "'," : '')) . "
+                        " . ($_replyTo != $_id ? "parent_id = '" . (int)$_replyTo . "'," : '') . "
                         body   = '" . serendipity_db_escape_string($serendipity['POST']['comment']) . "'
                  WHERE id      = " . $_id . "
                    AND entry_id= " . (int)$serendipity['POST']['entry_id'];
