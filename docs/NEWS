@@ -1,7 +1,10 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
-  * Bugfix 3.6.1 fix
+  * Bugfix backported MYSQLI_SQL_EXCEPTION regressions in PHP 7: "Incorrect integer
+    value: '' for column artifact_id and groupid in ACLGrant config API.
+
+  * Bugfix the 3.6.1 fix
 
 
 Version 3.6.2 (November 4th 2021)
