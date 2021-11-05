@@ -1995,7 +1995,7 @@ function serendipity_ACLGrant($artifact_id, $artifact_type, $artifact_mode, $gro
                                   AND artifact_index = '" . serendipity_db_escape_string($artifact_index) . "'");
 
     $data = array(
-        'artifact_id'    => (int)$artifact_id,
+        'artifact_id'    => (string)$artifact_id,
         'artifact_type'  => $artifact_type,
         'artifact_mode'  => $artifact_mode,
         'artifact_index' => $artifact_index
@@ -2006,7 +2006,7 @@ function serendipity_ACLGrant($artifact_id, $artifact_type, $artifact_mode, $gro
     }
 
     foreach($groups AS $group) {
-        $data['groupid'] = $group;
+        $data['groupid'] = (string)$group;
         serendipity_db_insert('access', $data);
     }
 
