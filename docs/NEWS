@@ -1,6 +1,9 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Add new info CATEGORY_READ_WRITE_ACL_DESC to categories form for possible perm
+    access restrictions.
+
   * Bugfix backported MYSQLI_SQL_EXCEPTION regressions in PHP 7: "Incorrect integer
     value: '' for column artifact_id and groupid in ACLGrant config API.
 
