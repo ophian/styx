@@ -927,6 +927,7 @@
 @define('USERCONF_CREATE_DESC', 'Ha ezt választod, a felhasználó nem hozhat létre bejegyzéseket és nem szerkeszthet semmit. Bejelentkezése után, csak kijelentkezni tud, illetve megtekintheti személyes beállításait.');
 @define('CATEGORY_HIDE_SUB', 'Az alkategóriákhoz küldött üzenetek elrejtése?');
 @define('CATEGORY_HIDE_SUB_DESC', 'Alapértelmezésben amikor egy kategóriát böngészel, az alkategóriákhoz beküldött hozzászólások is látszódnak. Ha ezt engedélyezed, csak az éppen kijelölt kategóriához érkezett hozzászólások lesznek láthatóak.');
+@define('CATEGORY_READ_WRITE_ACL_DESC', 'By default, the read/write permissions are set to "0", i.e. "All authors". However, if you set them as an administrator, for example to Standard editor, equal to "1", you can no longer change back afterwards, since you have withdrawn the right yourself. So make sure to always include higher-ranking user groups if you want them to continue to have access to it.');
 @define('PINGBACK_SENDING', 'URL létezésének ellenőrzése: %s...');
 @define('PINGBACK_SENT', 'Az URL létezés ellenőrzése sikeres');
 @define('PINGBACK_FAILED', 'Az URL létezés ellenőrzése sikertelen: %s');

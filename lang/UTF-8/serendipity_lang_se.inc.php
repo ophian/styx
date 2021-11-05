@@ -927,6 +927,7 @@
 @define('USERCONF_CREATE_DESC', 'Om vald har användaren inte några möjligheter att redigera eller skapa på bloggen längre. Vid inloggning i användargränssnittet kan användaren enbart se sina personliga inställningar samt logga ut.');
 @define('CATEGORY_HIDE_SUB', 'Dölj inlägg gjorda i underkategorier?');
 @define('CATEGORY_HIDE_SUB_DESC', 'Normalt sett när du bläddrar i en kategori kommer även artiklar från underkategorier att visas. Om denna inställning aktiveras kommer enbart artiklar i den valda kategorin att visas.');
+@define('CATEGORY_READ_WRITE_ACL_DESC', 'By default, the read/write permissions are set to "0", i.e. "All authors". However, if you set them as an administrator, for example to Standard editor, equal to "1", you can no longer change back afterwards, since you have withdrawn the right yourself. So make sure to always include higher-ranking user groups if you want them to continue to have access to it.');
 @define('PINGBACK_SENDING', 'Skickar pingback till URI %s...');
 @define('PINGBACK_SENT', 'Pingback lyckades');
 @define('PINGBACK_FAILED', 'Pingback misslyckades: %s');

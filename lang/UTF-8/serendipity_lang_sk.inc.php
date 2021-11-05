@@ -939,6 +939,7 @@ $i18n_filename_to = array (
 @define('USERCONF_CREATE_DESC', 'Ak je táto voľba vybraná, používateľ nebude mať žiadne práva k vytváraniu alebo meneniu weblogu. Ak sa prihlási do administrátorskej oblasti, môže si iba prehliadať osobné nastavenia alebo sa odhlásiť.');
 @define('CATEGORY_HIDE_SUB', 'Skryť články z podkategórií?');
 @define('CATEGORY_HIDE_SUB_DESC', 'Ak je zobrazená kategória, bežne sa zobrazujú aj všetky články z jej podkategórií. Ak je táto voľba zapnutá, budú sa zobrazovať iba príspevky z vybranej kategórie.');
+@define('CATEGORY_READ_WRITE_ACL_DESC', 'By default, the read/write permissions are set to "0", i.e. "All authors". However, if you set them as an administrator, for example to Standard editor, equal to "1", you can no longer change back afterwards, since you have withdrawn the right yourself. So make sure to always include higher-ranking user groups if you want them to continue to have access to it.');
 @define('PINGBACK_SENDING', 'Posielanie oznámenia (pingback) na URI %s...');
 @define('PINGBACK_SENT', 'Oznámenie úspešné');
 @define('PINGBACK_FAILED', 'Oznámenie zlyhalo: %s');

@@ -930,6 +930,7 @@ $i18n_unknown = 'tw';
 @define('USERCONF_CREATE_DESC', '如果勾選，此會員將被禁止任何編輯或新增網誌的動作。如果登入後端，他被允許的動作只有登入／登出和瀏覽自己的設定。');
 @define('CATEGORY_HIDE_SUB', '隱藏子類別的文章？');
 @define('CATEGORY_HIDE_SUB_DESC', '預設的狀態是當您瀏覽目錄時，子目錄的文章也會顯示。如果勾選此設定，只會顯示瀏覽的目錄內的文章。');
+@define('CATEGORY_READ_WRITE_ACL_DESC', 'By default, the read/write permissions are set to "0", i.e. "All authors". However, if you set them as an administrator, for example to Standard editor, equal to "1", you can no longer change back afterwards, since you have withdrawn the right yourself. So make sure to always include higher-ranking user groups if you want them to continue to have access to it.');
 @define('PINGBACK_SENDING', '傳送回測到網頁 %s...');
 @define('PINGBACK_SENT', '回測完成');
 @define('PINGBACK_FAILED', '回測失敗： %s');
