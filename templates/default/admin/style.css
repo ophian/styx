@@ -1253,6 +1253,10 @@ input[type=checkbox],
     margin-bottom: .75em;
 }
 
+#category_permissions legend {
+    margin-bottom: .5rem;
+}
+
 h3.additional_properties,
 #adv_opts > fieldset > span > legend {
     background-image: radial-gradient(black 15%, transparent 16%), radial-gradient(black 15%, transparent 16%), radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%), radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%);

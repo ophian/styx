@@ -1266,6 +1266,10 @@ input[type=checkbox],
     margin-bottom: .75em;
 }
 
+#category_permissions legend {
+    margin-bottom: .5rem;
+}
+
 h3.additional_properties::before,
 #adv_opts > fieldset > span > legend::before {
     display: inline;
