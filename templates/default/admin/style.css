@@ -1256,6 +1256,9 @@ input[type=checkbox],
 #category_permissions legend {
     margin-bottom: .5rem;
 }
+#directory_permissions legend {
+    margin-top: .5rem;
+}
 
 h3.additional_properties,
 #adv_opts > fieldset > span > legend {
@@ -4589,6 +4592,9 @@ img.mfp-img {
         float: left;
         margin-right: 2%;
         width: 48%;
+    }
+    #rw_acl_info.field_info {
+        width: initial;
     }
 
     #hide_subcats_info {
