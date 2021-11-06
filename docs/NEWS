@@ -1,6 +1,9 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Additionally use CATEGORY_READ_WRITE_ACL_DESC info in media directories form
+    for ACL permission access restrictions.
+
   * Fixed js error on backends commentform previews
 
   * Add missing dark theme colors for PLAIN editor comment info fields
