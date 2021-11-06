@@ -1456,7 +1456,7 @@ $(function() {
     }
 
     // Entry preview
-    $('.entry_preview').click(function() {
+    $('.entry_preview:not(.comment_preview)').click(function() {
         document.forms['serendipityEntry'].elements['serendipity[preview]'].value='true';
     });
 
