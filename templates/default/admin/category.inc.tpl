@@ -80,7 +80,7 @@
                 </div>
 
                 <fieldset class="clearfix inputs">
-                    <span class="wrap_legend"><legend>{$CONST.CATEGORY_HIDE_SUB} <a class="toggle_info button_link" href="#hide_subcats_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> More</span></a></legend></span>
+                    <span class="wrap_legend"><legend>{$CONST.CATEGORY_HIDE_SUB} <a class="toggle_info button_link" href="#hide_subcats_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></a></legend></span>
 
                     <span id="hide_subcats_info" class="field_info additional_info">{$CONST.CATEGORY_HIDE_SUB_DESC}</span>
 
@@ -103,7 +103,7 @@
             </h3>
 
             <div id="category_permissions" class="clearfix additional_info">
-                <span class="wrap_legend"><legend>{$CONST.PERMISSIONS} <a class="toggle_info button_link" href="#rw_acl_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> More</span></a></legend></span>
+                <span class="wrap_legend"><legend>{$CONST.PERMISSIONS} <a class="toggle_info button_link" href="#rw_acl_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></a></legend></span>
 
                 <span id="rw_acl_info" class="field_info additional_info">{$CONST.CATEGORY_READ_WRITE_ACL_DESC}</span>
 
