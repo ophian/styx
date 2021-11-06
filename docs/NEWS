@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Fixed js error on backends commentform previews
+
   * Add missing dark theme colors for PLAIN editor comment info fields
 
 
