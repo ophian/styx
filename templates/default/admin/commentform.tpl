@@ -61,7 +61,7 @@ if (!window.CKEDITOR) {
         <div class="clearfix empty">&nbsp;</div>
 
         <div class="form_button">
-            <input id="serendipity_preview" class="entry_preview" name="serendipity[preview]" type="submit" value="{$CONST.PREVIEW}">
+            <input id="serendipity_preview" class="entry_preview comment_preview" name="serendipity[preview]" type="submit" value="{$CONST.PREVIEW}">
             <input id="serendipity_submit" name="serendipity[submit]" type="submit" value="{$CONST.SUBMIT_COMMENT}">
         </div>
     </form>
