@@ -1524,7 +1524,7 @@ function serendipity_updertEntry($entry) {
         /* we need to insert */
 
         unset($entry['id']);
-        $entry['comments'] = 0;
+        $entry['comments'] = (string)0;
 
         if (!isset($entry['last_modified']) || !is_numeric($entry['last_modified'])) {
             $entry['last_modified'] = $entry['timestamp'];
