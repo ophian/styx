@@ -918,6 +918,8 @@
 @define('PERMISSION_FORBIDDEN_HOOKS', 'Letiltott események');
 @define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', 'Modulokra érvényes ACL (bõvebb jogosultságkezelés) engedélyezése felhasználócsoportonként?');
 @define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', 'Ha ezt engedélyezed, beállíthatod hogy mely felhasználói csoportok kezelhetnek modulokat/eseményeket.');
+@define('PERMISSION_READ_WRITE_ACL_DESC', 'By default, the read/write permissions are set to "0", i.e. "All authors". However, if you set them as an administrator, for example to Standard editor, equal to "1", you can no longer change back afterwards, since you have withdrawn the right yourself. So make sure to always include higher-ranking user groups if you want them to continue to have access to it.');
+
 @define('DELETE_SELECTED_ENTRIES', 'Kijelölt bejegyzések törlése');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Csak a a legalább X bejegyzéssel rendelkezõ szerzõk mutatása');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Könyvjelzõ hivatkozás');
@@ -927,7 +929,6 @@
 @define('USERCONF_CREATE_DESC', 'Ha ezt választod, a felhasználó nem hozhat létre bejegyzéseket és nem szerkeszthet semmit. Bejelentkezése után, csak kijelentkezni tud, illetve megtekintheti személyes beállításait.');
 @define('CATEGORY_HIDE_SUB', 'Az alkategóriákhoz küldött üzenetek elrejtése?');
 @define('CATEGORY_HIDE_SUB_DESC', 'Alapértelmezésben amikor egy kategóriát böngészel, az alkategóriákhoz beküldött hozzászólások is látszódnak. Ha ezt engedélyezed, csak az éppen kijelölt kategóriához érkezett hozzászólások lesznek láthatóak.');
-@define('CATEGORY_READ_WRITE_ACL_DESC', 'By default, the read/write permissions are set to "0", i.e. "All authors". However, if you set them as an administrator, for example to Standard editor, equal to "1", you can no longer change back afterwards, since you have withdrawn the right yourself. So make sure to always include higher-ranking user groups if you want them to continue to have access to it.');
 @define('PINGBACK_SENDING', 'URL létezésének ellenõrzése: %s...');
 @define('PINGBACK_SENT', 'Az URL létezés ellenõrzése sikeres');
 @define('PINGBACK_FAILED', 'Az URL létezés ellenõrzése sikertelen: %s');

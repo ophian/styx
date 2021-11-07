@@ -941,6 +941,8 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('PERMISSION_FORBIDDEN_HOOKS', 'Eventos prohibidos');
 @define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', '¿Activar la extensión ACL para grupos de usuarios?');
 @define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', 'Si la opción "Extensión ACL para grupos de usuarios" es activada en la configuración, puedes especificar que grupos de usuarios son capaces de ejecutar ciertas extensiones/eventos.');
+@define('PERMISSION_READ_WRITE_ACL_DESC', 'By default, the read/write permissions are set to "0", i.e. "All authors". However, if you set them as an administrator, for example to Standard editor, equal to "1", you can no longer change back afterwards, since you have withdrawn the right yourself. So make sure to always include higher-ranking user groups if you want them to continue to have access to it.');
+
 @define('DELETE_SELECTED_ENTRIES', 'Eliminar las entradas seleccionadas');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Sólo mostrar aquellos autores con al menos X artículos');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');
@@ -950,7 +952,6 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('USERCONF_CREATE_DESC', 'Si activas esta opción el usuario ya no podrá crear o editar entradas en el blog. Cuando él vuelva a ingresar al sistema no podrá hacer nada más que desconectarse y ver su configuración personal.');
 @define('CATEGORY_HIDE_SUB', '¿Ocultar las entradas realizadas en sub-categorías?');
 @define('CATEGORY_HIDE_SUB_DESC', 'Por defecto, cuando se navega una categoría también se muestran las entradas hechas en cualquiera de sus sub-categorías. Si activas esta opción, se mostraran únicamente aquellas entradas que pertenezcan a la categoría seleccionada.');
-@define('CATEGORY_READ_WRITE_ACL_DESC', 'By default, the read/write permissions are set to "0", i.e. "All authors". However, if you set them as an administrator, for example to Standard editor, equal to "1", you can no longer change back afterwards, since you have withdrawn the right yourself. So make sure to always include higher-ranking user groups if you want them to continue to have access to it.');
 @define('PINGBACK_SENDING', 'Enviando pingback a URI %s...');
 @define('PINGBACK_SENT', 'Pingback enviado exitosamente');
 @define('PINGBACK_FAILED', 'Falló envío de Pingback: %s');

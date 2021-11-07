@@ -923,6 +923,8 @@
 @define('PERMISSION_FORBIDDEN_HOOKS', 'Forbidden events');
 @define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', 'Enable Plugin ACL for usergroups?');
 @define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', 'If the option "Plugin ACL for usergroups" is enabled in the configuration, you can specify which usergroups are allowed to execute certain plugins/events.');
+@define('PERMISSION_READ_WRITE_ACL_DESC', 'By default, the read/write permissions are set to "0", i.e. "All authors". However, if you set them as an administrator, for example to Standard editor, equal to "1", you can no longer change back afterwards, since you have withdrawn the right yourself. So make sure to always include higher-ranking user groups if you want them to continue to have access to it.');
+
 @define('DELETE_SELECTED_ENTRIES', 'Delete selected entries');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Show only authors with at least X articles');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');
@@ -932,7 +934,6 @@
 @define('USERCONF_CREATE_DESC', 'If selected, the user will not have any editing or creation possibilities on the blog anymore. When logging in to the backend, he cannot do anything else apart from logging out and viewing his personal configuration.');
 @define('CATEGORY_HIDE_SUB', 'Hide postings made to sub-categories?');
 @define('CATEGORY_HIDE_SUB_DESC', 'By default, when you browse a category also entries of any subcategory are displayed. If this option is turned on, only postings of the currently selected category are displayed.');
-@define('CATEGORY_READ_WRITE_ACL_DESC', 'By default, the read/write permissions are set to "0", i.e. "All authors". However, if you set them as an administrator, for example to Standard editor, equal to "1", you can no longer change back afterwards, since you have withdrawn the right yourself. So make sure to always include higher-ranking user groups if you want them to continue to have access to it.');
 @define('PINGBACK_SENDING', 'Sending pingback to URI %s...');
 @define('PINGBACK_SENT', 'Pingback successful');
 @define('PINGBACK_FAILED', 'Pingback failed: %s');

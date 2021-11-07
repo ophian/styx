@@ -919,6 +919,8 @@
 @define('PERMISSION_FORBIDDEN_HOOKS', '사용 금지된 이벤트');
 @define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', '사용자 그룹에 대한 플러그인 사용 권한 설정을 사용하기');
 @define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', '"사용자 그룹에 대한 플러그인 사용 권한 설정"을 사용할 경우 어떤 사용자 그룹이 어떤 플러그인이나 이벤트를 사용할 수 있을지 지정할 수 있게 됩니다.');
+@define('PERMISSION_READ_WRITE_ACL_DESC', 'By default, the read/write permissions are set to "0", i.e. "All authors". However, if you set them as an administrator, for example to Standard editor, equal to "1", you can no longer change back afterwards, since you have withdrawn the right yourself. So make sure to always include higher-ranking user groups if you want them to continue to have access to it.');
+
 @define('DELETE_SELECTED_ENTRIES', '선택한 글 삭제하기');
 @define('PLUGIN_AUTHORS_MINCOUNT', '최소 X개의 글을 쓴 작성자만 보여주기');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', '즐겨찾기');
@@ -928,7 +930,6 @@
 @define('USERCONF_CREATE_DESC', '사용할 경우 해당 사용자가 블로그에서 더 이상 글을 편집하거나 새로 쓸 수 없게 됩니다. 관리자 화면에 들어오더라도 개인 설정을 확인하거나 다시 빠져나가는 것 밖에 할 수 없습니다.');
 @define('CATEGORY_HIDE_SUB', '하위 범주에서 작성한 글 숨기기');
 @define('CATEGORY_HIDE_SUB_DESC', '기본적으로는 특정 범주의 글을 열람할 때 하위 범주에 속한 글도 같이 나타납니다. 이 설정을 사용할 경우 현재 선택된 범주의 글만 나타납니다.');
-@define('CATEGORY_READ_WRITE_ACL_DESC', 'By default, the read/write permissions are set to "0", i.e. "All authors". However, if you set them as an administrator, for example to Standard editor, equal to "1", you can no longer change back afterwards, since you have withdrawn the right yourself. So make sure to always include higher-ranking user groups if you want them to continue to have access to it.');
 @define('PINGBACK_SENDING', '핑백을 URI %s(으)로 보내는 중...');
 @define('PINGBACK_SENT', '핑백 성공');
 @define('PINGBACK_FAILED', '핑백 실패: %s');

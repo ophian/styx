@@ -921,6 +921,8 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('PERMISSION_FORBIDDEN_HOOKS', 'Забранени събития');
 @define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', 'Разрешаване на Plugin ACL за потребителски групи ?');
 @define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', 'Ако опцията "Plugin ACL за потребителски групи" е позволена, ще можете да указвате кои потребителски групи имат позволението да изпълняват дадени събитийни и странични приставки.');
+@define('PERMISSION_READ_WRITE_ACL_DESC', 'By default, the read/write permissions are set to "0", i.e. "All authors". However, if you set them as an administrator, for example to Standard editor, equal to "1", you can no longer change back afterwards, since you have withdrawn the right yourself. So make sure to always include higher-ranking user groups if you want them to continue to have access to it.');
+
 @define('DELETE_SELECTED_ENTRIES', 'Изтриване на избраните статии');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Показване само на автори с най-малко X статии');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');
@@ -930,7 +932,6 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('USERCONF_CREATE_DESC', 'Ако е позволено, потребителят няма да има никакви възможности за редактиране или създаване на каквото и да било в блога. Когато влезе в административната страница, потребителят няма да може да прави нищо друго, освен да излезе или да види своята персонална конфигурация.');
 @define('CATEGORY_HIDE_SUB', 'Скриване на постингите, направени в подкатегории?');
 @define('CATEGORY_HIDE_SUB_DESC', 'По подразбиране когато разглеждате катогерия, статиите от подкатегориите също се показват. Ако тази опция е включена, само статиите от текущо избраната категория ще бъдат показвани.');
-@define('CATEGORY_READ_WRITE_ACL_DESC', 'By default, the read/write permissions are set to "0", i.e. "All authors". However, if you set them as an administrator, for example to Standard editor, equal to "1", you can no longer change back afterwards, since you have withdrawn the right yourself. So make sure to always include higher-ranking user groups if you want them to continue to have access to it.');
 @define('PINGBACK_SENDING', 'Изпращане на pingback към URI %s...');
 @define('PINGBACK_SENT', 'Успешен pingback');
 @define('PINGBACK_FAILED', 'Неуспешен pingback: %s');

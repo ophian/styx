@@ -914,6 +914,8 @@
 @define('PERMISSION_FORBIDDEN_HOOKS', 'Verbotene Ereignisse');
 @define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', 'Plugin-Rechte für Benutzergruppen aktivieren?');
 @define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', 'Falls Sie die globale Konfigurations-Option "Plugin-Rechte für Benutzergruppen" aktivieren, können Sie bei jeder Benutzergruppe definieren, welche Plugins/Ereignisse diese Gruppe ausführen darf.');
+@define('PERMISSION_READ_WRITE_ACL_DESC', 'Standardmäßig stehen die Lese- / Schreibrechte auf "0", das heißt "Alle Autoren". Setzen Sie sie aber als Administrator beispielsweise auf Redakteur, gleich "1", können Sie anschließend nicht mehr zurück wechseln, da Sie sich selbst das Recht entzogen haben. Achten Sie also darauf, höherrangige Usergruppen immer mit zu inkludieren, wenn sie weiterhin darauf Zugriff haben sollen.');
+
 @define('DELETE_SELECTED_ENTRIES', 'Markierte Einträge löschen');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Nur Autoren mit mindestens X Beiträgen anzeigen');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');
@@ -923,7 +925,6 @@
 @define('USERCONF_CREATE_DESC', 'Wenn diese Option aktiviert ist, wird dieser Benutzer keine Möglichkeit mehr haben Einträge anzulegen oder sonstige Aktionen auszuführen. Wenn er in die Administrations-Oberfläche kommt, wird er nichts anderes tun können als seine Persönlichen Einstellungen zu ändern und sich auszuloggen.');
 @define('CATEGORY_HIDE_SUB', 'Artikel von Unterkategorien verstecken?');
 @define('CATEGORY_HIDE_SUB_DESC', 'Standardmäßig werden bei der Ansicht einer Kategorie im Frontend alle Artikel der gewählten Kategorie und aller Unterkategorien angezeigt. Wenn diese Option aktiviert wird, werden Artikel von Unterkategorien nicht angezeigt.');
-@define('CATEGORY_READ_WRITE_ACL_DESC', 'Standardmäßig stehen die Lese- / Schreibrechte auf "0", das heißt "Alle Autoren". Setzen Sie sie aber als Administrator beispielsweise auf Redakteur, gleich "1", können Sie anschließend nicht mehr zurück wechseln, da Sie sich selbst das Recht entzogen haben. Achten Sie also darauf, höherrangige Usergruppen immer mit zu inkludieren, wenn sie weiterhin darauf Zugriff haben sollen.');
 @define('PINGBACK_SENDING', 'Sende pingback an URI %s...');
 @define('PINGBACK_SENT', 'Pingback erfolgreich');
 @define('PINGBACK_FAILED', 'Pingback fehlgeschlagen: %s');

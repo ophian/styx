@@ -929,6 +929,7 @@ $i18n_filename_to = array (
 @define('PERMISSION_FORBIDDEN_HOOKS', 'Zakázané události');
 @define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', 'Povolit Plugin ACL pro uživatelské skupiny?');
 @define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', 'Jestliže je volba "Plugin ACL pro uživatelské skupiny" v konfiguraci povolena, mùžete urèit, které skupiny uživatelù mohou provádìt urèité pluginy/události.');
+@define('PERMISSION_READ_WRITE_ACL_DESC', 'By default, the read/write permissions are set to "0", i.e. "All authors". However, if you set them as an administrator, for example to Standard editor, equal to "1", you can no longer change back afterwards, since you have withdrawn the right yourself. So make sure to always include higher-ranking user groups if you want them to continue to have access to it.');
 
 @define('DELETE_SELECTED_ENTRIES', 'Vymazat vybrané pøíspìvky');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Zobrazit pouze autory s více než X pøíspìvky');
@@ -939,7 +940,6 @@ $i18n_filename_to = array (
 @define('USERCONF_CREATE_DESC', 'Pokud je volba vybrána, uživatel nebude mít žádná práva k vytváøení nebo mìnìní blogu. Když se pøihlásí do administrativní sekce, mùže si pouze prohlédnout osobní nastavení nebo se odhlásit.');
 @define('CATEGORY_HIDE_SUB', 'Schovat pøíspìvky z podkategorií?');
 @define('CATEGORY_HIDE_SUB_DESC', 'Pokud je zobrazená kategorie, standardnì se zobrazují i všechny pøíspìvky z jejích podkategorií. Pokud je volba zapnuta, budou se zobrazovat jen a pouze pøíspìvky z vybrané kategorie.');
-@define('CATEGORY_READ_WRITE_ACL_DESC', 'By default, the read/write permissions are set to "0", i.e. "All authors". However, if you set them as an administrator, for example to Standard editor, equal to "1", you can no longer change back afterwards, since you have withdrawn the right yourself. So make sure to always include higher-ranking user groups if you want them to continue to have access to it.');
 @define('PINGBACK_SENDING', 'Posílání oznámení (pingback) na URI %s...');
 @define('PINGBACK_SENT', 'Oznámení úspìšné');
 @define('PINGBACK_FAILED', 'Oznámení selhalo: %s');
