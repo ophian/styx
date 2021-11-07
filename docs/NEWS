@@ -1,6 +1,9 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Bugfix backported MYSQLI_SQL_EXCEPTION regressions in PHP 7: "Incorrect integer
+    value: '' for column comments in entries API.
+
   * Changed CATEGORY_READ_WRITE_ACL_DESC to PERMISSION_READ_WRITE_ACL_DESC
 
   * Additionally use CATEGORY_READ_WRITE_ACL_DESC info in media directories form
