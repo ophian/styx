@@ -2006,7 +2006,7 @@ function serendipity_ACLGrant($artifact_id, $artifact_type, $artifact_mode, $gro
     }
 
     foreach($groups AS $group) {
-        $data['groupid'] = (string)$group; // yeah looks strange, but this is the index key only and needs to be casted to string for PHP 7 with backbported PHP 8.1 mysqli_sql_exception
+        $data['groupid'] = (string)$group; // yeah looks strange, but this is the index key only and needs to be casted to string for PHP 7 with backported PHP 8.1 mysqli_sql_exception
         serendipity_db_insert('access', $data);
     }
 
