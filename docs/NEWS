@@ -2,7 +2,7 @@ Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
   * Bugfix backported MYSQLI_SQL_EXCEPTION regressions in PHP 7: "Incorrect integer
-    value: '' for column comments in entries API.
+    value: '' for column comments" in entries API.
 
   * Changed CATEGORY_READ_WRITE_ACL_DESC to PERMISSION_READ_WRITE_ACL_DESC
 
@@ -23,7 +23,7 @@ Version 3.6.3 (November 5th 2021)
     access restrictions.
 
   * Bugfix backported MYSQLI_SQL_EXCEPTION regressions in PHP 7: "Incorrect integer
-    value: '' for column artifact_id and groupid in ACLGrant config API.
+    value: '' for column artifact_id and groupid" in ACLGrant config API.
 
   * Bugfix the 3.6.1 fix
 
@@ -32,14 +32,14 @@ Version 3.6.2 (November 4th 2021)
  ------------------------------------------------------------------------
 
   * Bugfix backported MYSQLI_SQL_EXCEPTION regression in PHP 7: "Incorrect integer
-    value: '' for column exflag in entries API.
+    value: '' for column exflag" in entries API.
 
   * Bugfix backported MYSQLI_SQL_EXCEPTION regression in PHP 7: "Incorrect integer
     value: '' for column parent_id" in comments SQL with not explicit set ternary
     bracketing compile block in another set of braces.
 
   * Bugfix backported MYSQLI_SQL_EXCEPTION regression in PHP 7: "Incorrect integer
-    value for last_modified" in the plugin API.
+    value: '' for column last_modified" in the plugin API.
 
   * PLEASE NOTE:
     If you get "white pages of death" when saving entries/settings which have a SQL
