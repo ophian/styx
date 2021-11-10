@@ -1,4 +1,4 @@
-Version 3.x-DEV ()
+Version 3.6.4 (November 10th 2021)
  ------------------------------------------------------------------------
 
   * Bugfix backported MYSQLI_SQL_EXCEPTION regressions in PHP 7: "Incorrect integer
