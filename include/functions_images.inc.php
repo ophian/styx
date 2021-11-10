@@ -810,7 +810,7 @@ function serendipity_imageGDAvifConversion($infile, $outfile, $quality = -1) {
     }
     @ini_set('memory_limit', $mlimit.'M');
     try {
-        imageavif($im, $outfile, $quality);
+        @imageavif($im, $outfile, $quality);
     } catch (Throwable $t) {
         echo 'Could not create AVIF image with GD: ',  $t->getMessage(), "\n";
         imagedestroy($im);
