@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve images API maintenance image tasker - to rebuild image variations
+    only when system is found ready for it.
 
 
 Version 3.6.4 (November 10th 2021)
