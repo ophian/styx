@@ -1707,41 +1707,46 @@ function serendipity_generateVariations() {
                 $infileTH  = $outfileTH = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['thumbnail_name']) ? '' : '.' . $file['thumbnail_name']) . (empty($file['extension']) ? '' : '.' . $file['extension']);
 
                 // WebP case
-                $newfile   = serendipity_makeImageVariationPath($outfile, 'webp');
-                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE WEBP: ".print_r($newfile,1)); }
-                $newfileTH = serendipity_makeImageVariationPath($outfileTH, 'webp');
-                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB WEBP: ".print_r($newfileTH,1)); }
-                if (in_array(strtoupper(explode('/', mime_content_type($outfile))[1]), serendipity_getSupportedFormats())) {
-                    $odim = filesize($infile);
-                    $webpIMQ = -1;
-                    #   1024 B x               6 MB           9 MB           12 MB
-                    $dimensions = [0 => -1, 6144000 => 90, 9216000 => 80, 12288000 => 75];
-                    foreach ($dimensions AS $dk => $dv) {
-                        if ($odim > $dk) {
-                            $webpIMQ = $dv;
+                if ($serendipity['useWebPFormat']) {
+                    $newfile   = serendipity_makeImageVariationPath($outfile, 'webp');
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE WEBP: ".print_r($newfile,1)); }
+                    $newfileTH = serendipity_makeImageVariationPath($outfileTH, 'webp');
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB WEBP: ".print_r($newfileTH,1)); }
+                    if (in_array(strtoupper(explode('/', mime_content_type($outfile))[1]), serendipity_getSupportedFormats())) {
+                        $odim = filesize($infile);
+                        $webpIMQ = -1;
+                        #   1024 B x               6 MB           9 MB           12 MB
+                        $dimensions = [0 => -1, 6144000 => 90, 9216000 => 80, 12288000 => 75];
+                        foreach ($dimensions AS $dk => $dv) {
+                            if ($odim > $dk) {
+                                $webpIMQ = $dv;
+                            }
                         }
+                    } else {
+                        $webpIMQ = -1;
                     }
-                } else {
-                    $webpIMQ = -1;
-                }
-                $result    = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true, $webpIMQ); // Origins WebP copy variation only in case it is big, else we might get bigger webp lossless expression than the origin
-                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO WEBP: ".print_r($result,1)); }
-                if ($result !== false && is_array($result) && $result[0] == 0) {
-                    serendipity_convertToWebPFormat($infileTH, $newfileTH['filepath'], $newfileTH['filename'], mime_content_type($outfileTH), true); // WebP thumbnail uses full quality by auto default
-                    $resWebP = true;
+                    $result    = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true, $webpIMQ); // Origins WebP copy variation only in case it is big, else we might get bigger webp lossless expression than the origin
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO WEBP: ".print_r($result,1)); }
+                    if ($result !== false && is_array($result) && $result[0] == 0) {
+                        serendipity_convertToWebPFormat($infileTH, $newfileTH['filepath'], $newfileTH['filename'], mime_content_type($outfileTH), true); // WebP thumbnail uses full quality by auto default
+                        $resWebP = true;
+                    }
                 }
                 // AVIF case
-                $newfile   = serendipity_makeImageVariationPath($outfile, 'avif');
-                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE AVIF: ".print_r($newfile,1)); }
-                $newfileTH = serendipity_makeImageVariationPath($outfileTH, 'avif');
-                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB AVIF: ".print_r($newfileTH,1)); }
+                if ($serendipity['useAvifFormat']) {
+                    $newfile   = serendipity_makeImageVariationPath($outfile, 'avif');
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE AVIF: ".print_r($newfile,1)); }
+                    $newfileTH = serendipity_makeImageVariationPath($outfileTH, 'avif');
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB AVIF: ".print_r($newfileTH,1)); }
 
-                $result    = serendipity_convertToAvifFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true);
-                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO AVIF: ".print_r($result,1)); }
-                if ($result !== false && is_array($result) && $result[0] == 0) {
-                    serendipity_convertToAvifFormat($infileTH, $newfileTH['filepath'], $newfileTH['filename'], mime_content_type($outfileTH), true);
-                    $resAVIF = true;
+                    $result    = serendipity_convertToAvifFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true);
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO AVIF: ".print_r($result,1)); }
+                    if ($result !== false && is_array($result) && $result[0] == 0) {
+                        serendipity_convertToAvifFormat($infileTH, $newfileTH['filepath'], $newfileTH['filename'], mime_content_type($outfileTH), true);
+                        $resAVIF = true;
+                    }
                 }
+
                 if ($resWebP || $resAVIF) {
                     ++$i; // iterate
                 }
