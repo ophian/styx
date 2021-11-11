@@ -1701,7 +1701,9 @@ function serendipity_generateVariations() {
         if (is_array($files) && !empty($files)) {
             foreach($files AS $f => $file) {
                 $resWebP = $resAVIF = false; // init
-                if (!in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png']) || $file['hotlink'] == 1) continue;
+                if (!in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png']) || $file['hotlink'] == 1) {
+                    continue; // next
+                }
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag EACH FILE AFTER: ".print_r($file,1)); }
                 $infile    = $outfile   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
                 $infileTH  = $outfileTH = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['thumbnail_name']) ? '' : '.' . $file['thumbnail_name']) . (empty($file['extension']) ? '' : '.' . $file['extension']);
