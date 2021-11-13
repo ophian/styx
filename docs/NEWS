@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve reducing quality dimension range filesizes for WebP with ImageMagick
+
   * Improve images API maintenance image tasker - to rebuild image variations
     only when system is found ready for it.
 
