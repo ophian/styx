@@ -562,8 +562,8 @@ switch ($serendipity['GET']['adminAction']) {
                             $odim = filesize($target);
                             $variat = serendipity_makeImageVariationPath($target, 'webp');
                             $webpIMQ = -1;
-                            #   1024 B x               6 MB           9 MB           12 MB
-                            $dimensions = [0 => -1, 6144000 => 90, 9216000 => 80, 12288000 => 75];
+                            #   1024 B x            3.6 MB         6 MB           9 MB           12 MB
+                            $dimensions = [0 => -1, 3686400 => 90, 6144000 => 85, 9216000 => 80, 12288000 => 75];
                             foreach ($dimensions AS $dk => $dv) {
                                 if ($odim > $dk) {
                                     $webpIMQ = $dv; // Origins WebP ImageMagick variation copy QUALITY only, in case it is big, else we might get bigger WebP lossless expression than the origin file
