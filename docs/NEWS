@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Set upload origin AVIF Variation curtailment at 12 MB for encoding time
+
   * Improve reducing quality dimension range filesizes for WebP with ImageMagick
 
   * Improve images API maintenance image tasker - to rebuild image variations
