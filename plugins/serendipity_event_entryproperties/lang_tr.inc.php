@@ -14,7 +14,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_MEMBERS', 'Yazarlar');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', 'Herkes');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', 'Yazýlar önbelleklensin mi?');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Eðer bu seçenek etkinse, yazýyý her kaydettiðinizde önbelleklenmiþ bir sürüm kendiliðinden oluþturulacaktýr. Önbellekleme yazýlarýn yayýn esnasýnda daha çabuk eriþilmesine imkan verir, siteye eriþim hýzýný arttýrýr, Ama diðer eklentilerle beraber çalýþýrken ölçeklenebilir olma imkanýný da azaltýr..');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Eðer bu seçenek etkinse, yazýyý her kaydettiðinizde önbelleklenmiþ bir sürüm kendiliðinden oluþturulacaktýr. Önbellekleme yazýlarýn yayýn esnasýnda daha çabuk eriþilmesine imkan verir, siteye eriþim hýzýný arttýrýr, Ama diðer eklentilerle beraber çalýþýrken ölçeklenebilir olma imkanýný da azaltýr. If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
 @define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'Yazýlarý önbellekleme iþlemini gerçekleþtir');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'Yazýlarýn kaydý gelecek iþlem için çekiliyor...');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', 'Yazýlarýn çekilme iþlemi %d dan %d');

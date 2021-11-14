@@ -14,7 +14,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_MEMBERS', '共同執筆者');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', 'すべて');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', 'エントリのキャッシュを許可しますか?');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'もし有効にすると、保存時にキャッシュされたバージョンを常に保存します。キャッシングはパフォーマンスを向上させるでしょうが、恐らく、他のプラグインのの柔軟性を減らすでしょう');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'もし有効にすると、保存時にキャッシュされたバージョンを常に保存します。キャッシングはパフォーマンスを向上させるでしょうが、恐らく、他のプラグインのの柔軟性を減らすでしょう。 If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
 @define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'キャッシュ済エントリの構築');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'エントリの次のバッチ取得中...');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', '%d から %d のエントリを取得中');

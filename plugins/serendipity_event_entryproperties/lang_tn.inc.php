@@ -20,7 +20,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_MEMBER', '副作者');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', '訪客');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', '允許快取文章？');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', '如果開啟，每次儲存文章時都會建立快取資料。快取資料可以增加速度，但可能有些外掛無法相容。');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', '如果開啟，每次儲存文章時都會建立快取資料。快取資料可以增加速度，但可能有些外掛無法相容。 If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
 @define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', '建立快取資料');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', '擷取其他文章...');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', '擷取文章 %d 到 %d');

@@ -18,7 +18,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_MEMBERS', 'Spoluautory');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', 'Kýmkoliv');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', 'Povolit cachování příspěvků?');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Pokud je povoleno, při každém uložení příspěvku bude vytvořena cachovaná verze. To znamená, že při každém načtení stránky nebude příspěvek sestavován od začátku znovu, ale vezme se předgenerovaná (cachovaná) verze. Cachování zvýší výkon blogu, ale může omezit funkci ostatních pluginů.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Pokud je povoleno, při každém uložení příspěvku bude vytvořena cachovaná verze. To znamená, že při každém načtení stránky nebude příspěvek sestavován od začátku znovu, ale vezme se předgenerovaná (cachovaná) verze. Cachování zvýší výkon blogu, ale může omezit funkci ostatních pluginů. If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
 @define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'Cachovat příspěvky');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'Načítání další dávky příspěvků...');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', 'Načítání příspěvků %d až %d');

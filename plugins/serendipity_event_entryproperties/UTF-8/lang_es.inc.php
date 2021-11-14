@@ -14,7 +14,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_MEMBERS', 'Co-autores');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', 'Todos');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', '¿Hacer caché de las entradas?');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Si la activas, una versión caché será generada cada vez que grabes. El caché mejorará el desempeño, pero puede disminuir la flexibilidad para otras extensiones.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Si la activas, una versión caché será generada cada vez que grabes. El caché mejorará el desempeño, pero puede disminuir la flexibilidad para otras extensiones. If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
 @define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'Construir entradas caché');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'Descargando el siguiente lote de entradas...');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', 'Descargando %d entradas de %d');

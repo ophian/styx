@@ -14,7 +14,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_MEMBERS', 'Spoluautormi');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', 'Kýmkoµvek');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', 'Zapnú» cachovanie èlánkov?');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Ak je zapnuté, pri ka¾dom ulo¾ení èlánku bude vytvorená cachovaná verzia. To znamená, ¾e pri ka¾dom naèítaní stránky nebude príspevok generovaný odznova, ale pou¾ije sa predgenerovaná (cachovaná) verzia. Cachovanie zvý¹i výkon weblogu, ale mô¾e obmedzi» funkènos» ostatných doplnkov.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Ak je zapnuté, pri ka¾dom ulo¾ení èlánku bude vytvorená cachovaná verzia. To znamená, ¾e pri ka¾dom naèítaní stránky nebude príspevok generovaný odznova, ale pou¾ije sa predgenerovaná (cachovaná) verzia. Cachovanie zvý¹i výkon weblogu, ale mô¾e obmedzi» funkènos» ostatných doplnkov. If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
 @define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'Cachova» príspevky');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'Naèítanie ïal¹ej dávky príspevkov...');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', 'Naèítanie príspevkov %d a¾ %d');

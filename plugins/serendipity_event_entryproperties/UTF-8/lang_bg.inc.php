@@ -13,7 +13,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_MEMBERS', 'Съ-авторите');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', 'Всички');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', 'Кеширане на постингите ?');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Ако е позволено, кеширана версия на постинга ще бъде генерирана при неговия запис. Кеширането ще увеличи производителността, но ще намали гъвкавостта на другите плъгини.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Ако е позволено, кеширана версия на постинга ще бъде генерирана при неговия запис. Кеширането ще увеличи производителността, но ще намали гъвкавостта на другите плъгини. If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
 @define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'Кеширане на всички постинги');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'Кеширане на следващата серия постинги ...');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', 'Кеширане на постинги от %d до %d');

@@ -21,7 +21,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_MEMBER', 'Co-auteurs');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', 'Tout le monde');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', 'Activer le cache des billets?');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Si activé, une version cachée sera crée à chaque enregistrement du billet. Le cache augmente la performance, mais peut aussi diminuer la flexibilité pour les autres plugins actifs.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Si activé, une version cachée sera crée à chaque enregistrement du billet. Le cache augmente la performance, mais peut aussi diminuer la flexibilité pour les autres plugins actifs. If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
 @define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'Créer le cache pour les billets');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'Chargement du prochain jeu de billets...');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', 'Chargement des billets %d à %d');

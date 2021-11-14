@@ -14,7 +14,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_MEMBERS', '共同執筆者');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', 'すべて');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', 'エントリのキャッシュを許可しますか?');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'もし有効にすると、保存時にキャッシュされたバージョンを常に保存します。キャッシングはパフォーマンスを向上させるでしょうが、恐らく、他のプラグインのの柔軟性を減らすでしょう');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'もし有効にすると、保存時にキャッシュされたバージョンを常に保存します。キャッシングはパフォーマンスを向上させるでしょうが、恐らく、他のプラグインのの柔軟性を減らすでしょう。 If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
 @define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'キャッシュ済エントリの構築');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'エントリの次のバッチ取得中...');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', '%d から %d のエントリを取得中');
@@ -34,8 +34,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS', 'カスタムフィールド');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1', 'Additional custom fields can be used in your template at places where you want them to show up. For that, edit your entries.tpl template file and place Smarty tags like {$entry.properties.ep_MyCustomField} in the HTML where you like. 各項目の接頭語 ep_ に注意してください。');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC2', 'ここで、各エントリへの入力に使用できる、コンマで分割された項目名の一覧を入力することができます - 特殊文字またはスペースをそれらのフィールド名に使用しません。 例: "Customfield1, Customfield2". ' . PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1);
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', '
-利用できるカスタム項目の一覧は、<a href="%s" target="_blank" rel="noopener" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">プラグイン設定</a> で変更することができます。');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', '利用できるカスタム項目の一覧は、<a href="%s" target="_blank" rel="noopener" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">プラグイン設定</a> で変更することができます。');
 
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_DISABLE_MARKUP', 'このエントリのマークアッププラグインを無効にする:');
 

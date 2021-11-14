@@ -14,7 +14,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_MEMBERS', 'Yazarlar');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', 'Herkes');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', 'Yazılar önbelleklensin mi?');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Eğer bu seçenek etkinse, yazıyı her kaydettiğinizde önbelleklenmiş bir sürüm kendiliğinden oluşturulacaktır. Önbellekleme yazıların yayın esnasında daha çabuk erişilmesine imkan verir, siteye erişim hızını arttırır, Ama diğer eklentilerle beraber çalışırken ölçeklenebilir olma imkanını da azaltır..');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Eğer bu seçenek etkinse, yazıyı her kaydettiğinizde önbelleklenmiş bir sürüm kendiliğinden oluşturulacaktır. Önbellekleme yazıların yayın esnasında daha çabuk erişilmesine imkan verir, siteye erişim hızını arttırır, Ama diğer eklentilerle beraber çalışırken ölçeklenebilir olma imkanını da azaltır. If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
 @define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'Yazıları önbellekleme işlemini gerçekleştir');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'Yazıların kaydı gelecek işlem için çekiliyor...');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', 'Yazıların çekilme işlemi %d dan %d');

@@ -8,7 +8,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_MEMBERS', '合著者');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', '任何人');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', '允许将文章缓存');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', '如果启用该设置的话，在每次保存文章的时候都会生成一份该文章的缓存。缓存可以提高网站性能，但是可能影响到对其他一些插件的灵活使用。');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', '如果启用该设置的话，在每次保存文章的时候都会生成一份该文章的缓存。缓存可以提高网站性能，但是可能影响到对其他一些插件的灵活使用。 If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
 @define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', '创建文章的缓存');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', '正在读取下一批文章……');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', '正在读取编号为 %d 到 %d 的文章');

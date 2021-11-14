@@ -14,7 +14,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_MEMBERS', 'Wspó³autorów');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', 'Wszystkich');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', 'Zezwalaæ na buforowanie (cache) wpisów?');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Po w³±czeniu tej opcji przy ka¿dym zapisie wpisu bêdzie tworzona jego wersja umieszczana w cache (podrêcznym buforze strony). To spowoduje wzrost wydajno¶ci ale mo¿e spowodowaæ problemy przy wspó³dzia³aniu z innymi wtyczkami.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Po w³±czeniu tej opcji przy ka¿dym zapisie wpisu bêdzie tworzona jego wersja umieszczana w cache (podrêcznym buforze strony). To spowoduje wzrost wydajno¶ci ale mo¿e spowodowaæ problemy przy wspó³dzia³aniu z innymi wtyczkami. If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
 @define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'Buforuj (cache) wpisy');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'Pobieranie nastêpnej porcji wpisow...');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', 'Pobieranie wpisów %d do %d');

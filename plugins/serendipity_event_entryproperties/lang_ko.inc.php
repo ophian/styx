@@ -10,7 +10,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_MEMBERS', '다른 작성자까지');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', '모두에게 공개');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', '글을 캐시함');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', '사용할 경우 글을 저장할 때마다 캐시된 버전을 생성합니다. 캐시를 사용하면 성능을 향상시킬 수 있으나 다른 플러그인의 작동 유연성을 떨어뜨릴 수 있습니다.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', '사용할 경우 글을 저장할 때마다 캐시된 버전을 생성합니다. 캐시를 사용하면 성능을 향상시킬 수 있으나 다른 플러그인의 작동 유연성을 떨어뜨릴 수 있습니다. If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
 @define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', '글에 대한 캐시 생성');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', '다음 글 묶음을 불러오는 중...');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', '%d번과 %d번 사이의 글을 불러오는 중');
