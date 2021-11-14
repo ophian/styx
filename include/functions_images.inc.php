@@ -1086,11 +1086,12 @@ function serendipity_passToCMD($type = null, $source = '', $target = '', $args =
         $cmd = str_replace(array('  '), array(' '), $cmd);
         if ($type == 'format-avif' || (defined('IMAGETYPE_AVIF') && image_type_to_mime_type(IMAGETYPE_AVIF) == $type)) {
             // yeah AVIF takes it all - yammi, gimme more! ;-) 2 Gigs plus the filesize at least
-            $mlimit = round((filesize($source) + 2048000) / 1000); // Image upload example 5120650 B filesize + 2GB (2048MB) encoding memory = 7168.660 = 7168M
+            $mlimit = round(filesize($source)/1024, 0);
             if ($mlimit > 3596) {
+                $max = round(($mlimit/1000) + 2048); // 3.6M + 2048M
                 @ini_set('max_execution_time', 240); // 4 min MAX
+                @ini_set('memory_limit', $max.'M');
             }
-            @ini_set('memory_limit', $mlimit.'M');
         } else {
             @ini_set('max_execution_time', 120);
         }
