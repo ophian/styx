@@ -1,6 +1,9 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve AVIF quality setting for bigger images to not error on color planes
+    failures.
+
   * Set upload origin AVIF Variation curtailment at 14 MB for encoding times
 
   * Improve reducing quality dimension range filesizes for WebP with ImageMagick
