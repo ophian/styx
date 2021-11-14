@@ -2546,7 +2546,7 @@ function serendipity_functionsGD($infilename, $q = null) {
         case 'avif':
             $func['load'] = 'imagecreatefromavif';
             $func['save'] = 'imageavif';
-            $func['qual'] = $qual; // variations shall still use the default 75 quality level, since formats of ORIGINs is better with a Q 100, to not have a (increasing) loss.
+            $func['qual'] = 100; // keep a full quality of 100, else you get imageavif(): avif error - Could not finish encoding: Encoding of color planes failed
             break;
 
         default:
