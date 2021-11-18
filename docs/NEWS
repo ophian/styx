@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix media_showitem.tpl template for PHP 8 in [ default, 2k11 ] themes
+
   * Improve [pure] theme media gallery img comment containers for certain cases
 
   * Add all themes default overflow-wrap to image comment txt containers by
