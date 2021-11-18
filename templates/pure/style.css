@@ -1727,6 +1727,16 @@ div.serendipityPlug a {
         display: block; /* must be "block" on very big content width again .. to center */
     }
 }
+/* Default to media gallery image comment blocks - else see following auto scales */
+.grid-col .post .serendipity_image_block.col .serendipity_imageComment_left, .grid-col .post serendipity_image_block.col .serendipity_imageComment_right {
+    width: auto !important;
+    max-width: fit-content;
+}
+/* Strange Chromium fix - else image may be empty */
+.serendipity_image_block.col .serendipity_imageComment_img img {
+    width: -webkit-fill-available;
+}
+
 /* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! */
 .page .serendipity_imageComment_left,
 .page .serendipity_imageComment_right,
