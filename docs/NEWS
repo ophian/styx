@@ -1,6 +1,9 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Add all themes default overflow-wrap to image comment txt containers by
+    style_fallback.css
+
   * Improve AVIF quality setting for bigger images to not error on color planes
     failures.
 
