@@ -6,7 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="{$lang}"> <!--<![endif]-->
 <head>
     <meta charset="{$head_charset}">
-    <title>{$media.file.props.base_property.ALL.TITLE|default:$media.file.realname}</title>
+    <title>{if isset($media.file.props.base_property.ALL.TITLE)}{$media.file.props.base_property.ALL.TITLE|default:$media.file.realname}{else}{$media.file.realname}{/if}</title>
     <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 {if $template_option.webfonts == 'droid'}
@@ -45,7 +45,7 @@
     <div class="clearfix col2r">
         <main id="content"{if $template_option.imgstyle != 'none'} class="{$template_option.imgstyle}"{/if}>
             <article class="clearfix serendipity_entry">
-                <h2>{$media.file.props.base_property.ALL.TITLE|default:''}</h2>
+                <h2>{if isset($media.file.props.base_property.ALL.TITLE)}{$media.file.props.base_property.ALL.TITLE|default:''}{/if}</h2>
             {if NOT empty($perm_denied)}
                 <p class="msg_important">{$CONST.PERM_DENIED}</p>
             {else}
@@ -133,7 +133,7 @@
 </div>
 <script src="{serendipity_getFile file="js/2k11.min.js"}"></script>
 {/if}
-{$raw_data|default:''}
+{if isset($raw_data)}{$raw_data|default:''}{/if}
 {* serendipity_hookPlugin hook="frontend_footer" *}{* ENABLE TO USE any plugin hooked assets which often need an active jQuery lib *}
 {if $is_embedded != true}
 </body>
