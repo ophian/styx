@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve [pure] theme media gallery img comment containers for certain cases
+
   * Add all themes default overflow-wrap to image comment txt containers by
     style_fallback.css
 
