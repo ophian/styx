@@ -137,6 +137,7 @@ ul#serendipity_categories_list {
     text-align: center; }
 
 .serendipity_imageComment_txt {
+    overflow-wrap: break-word;
     border-top: 1px solid #ddd;
     margin: 0;
     padding: 3px;
