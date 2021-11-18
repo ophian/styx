@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="{$lang}">
 <head>
-    <title>{$media.file.props.base_property.ALL.TITLE|default:$media.file.realname}</title>
+    <title>{if isset($media.file.props.base_property.ALL.TITLE)}{$media.file.props.base_property.ALL.TITLE|default:$media.file.realname}{else}{$media.file.realname}{/if}</title>
     <meta http-equiv="Content-Type" content="text/html; charset={$head_charset}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}">
@@ -33,7 +33,7 @@
     <div id="content">
         <div class="serendipity_Entry_Date">
             <h3 class="serendipity_date">{$media.file.realname}</h3>
-            <h4 class="serendipity_title"><a href="#">{$media.file.props.base_property.ALL.TITLE|default:''}</a></h4>
+            <h4 class="serendipity_title"><a href="#">{if isset($media.file.props.base_property.ALL.TITLE)}{$media.file.props.base_property.ALL.TITLE|default:''}{/if}</a></h4>
 
             <div class="serendipity_entry">
                 <div class="serendipity_entry_body">
@@ -127,7 +127,7 @@
     </div>
 </div>
 {/if}
-{$raw_data|default:''}
+{if isset($raw_data)}{$raw_data|default:''}{/if}
 {* serendipity_hookPlugin hook="frontend_footer" *}{* ENABLE TO USE any plugin hooked assets which often need an active jQuery lib *}
 {if $is_embedded != true}
 </body>
