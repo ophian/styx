@@ -1,6 +1,15 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Add ckebasic asset HTML Quote Element to config.extraAllowedContent for ACF,
+    e.g. <div class=""unique">
+        ... <q lang="de-ch">Sie sagte <q>es geht mir gut</q></q> ...
+        </div>
+    with CSS
+        .unique :lang(de-CH) {
+            quotes: "\00AB" "\00BB" "\2039" "\203A";
+        }
+
   * Fix media_showitem.tpl template for PHP 8 in [ default, 2k11 ] themes
 
   * Improve [pure] theme media gallery img comment containers for certain cases
