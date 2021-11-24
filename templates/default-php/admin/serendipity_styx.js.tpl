@@ -241,7 +241,7 @@
     serendipity.serendipity_imageSelector_addToBody = function(str, textarea) {
         var oEditor;
         if (typeof(FCKeditorAPI) != 'undefined') {
-            oEditor = FCKeditorAPI.GetInstance('serendipity[' + textarea + ']') ;
+            oEditor = FCKeditorAPI.GetInstance('serendipity[' + textarea + ']');
 
             if (oEditor.EditMode == FCK_EDITMODE_WYSIWYG) {
                 oEditor.InsertHtml(str);
