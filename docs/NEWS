@@ -1,6 +1,9 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Trying to fix a rare case media_grid/theme_grid behaviour in the backend
+    doing nothing w/o reload.
+
   * [Security] Upgrade custom CKEBasic asset to 4.17.1 to f6dd30807a revision
     https://ckeditor.com/cke4/release-notes
 
