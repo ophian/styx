@@ -1,6 +1,9 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * [Security] Upgrade custom CKEBasic asset to 4.17.1 to f6dd30807a revision
+    https://ckeditor.com/cke4/release-notes
+
   * Remove outdated Series 1 Rich-Text-Editor checkups in serendipity_styx.js,
     which were set deprecated with Serendipity 2.0 until Styx 3.0.
     The only possible supported Rich-Text Editor other than the recommended
