@@ -244,36 +244,7 @@
     // named serendipity[body]/serendipity[extended]
     serendipity.serendipity_imageSelector_addToBody = function(str, textarea) {
         var oEditor;
-        if (typeof(FCKeditorAPI) != 'undefined') {
-            oEditor = FCKeditorAPI.GetInstance('serendipity[' + textarea + ']');
-
-            if (oEditor.EditMode == FCK_EDITMODE_WYSIWYG) {
-                oEditor.InsertHtml(str);
-                return;
-            }
-        } else if (typeof(xinha_editors) != 'undefined') {
-            if (typeof(xinha_editors['serendipity[' + textarea + ']']) != 'undefined') {
-                oEditor = xinha_editors['serendipity['+ textarea +']'];
-            }
-
-            if (oEditor) {
-                oEditor.insertHTML(str);
-                return;
-            }
-        } else if (typeof(HTMLArea) != 'undefined') {
-            if (textarea == 'body' && typeof(editorbody) != 'undefined') {
-                oEditor = editorbody;
-            } else if (textarea == 'extended' && typeof(editorextended) != 'undefined') {
-                oEditor = editorextended;
-            } else if (typeof(htmlarea_editors) != 'undefined' && typeof(htmlarea_editors[textarea]) != 'undefined') {
-                oEditor =  htmlarea_editors[textarea];
-            }
-
-            if (oEditor._editMode != 'textmode') {
-                oEditor.insertHTML(str);
-                return;
-            }
-        } else if (typeof(TinyMCE) != 'undefined') {
+        if (typeof(TinyMCE) != 'undefined') {
             // for the TinyMCE editor we do not have a text mode insert
             tinyMCE.execInstanceCommand('serendipity[' + textarea + ']', 'mceInsertContent', false, str);
             return;
