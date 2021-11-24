@@ -1,6 +1,11 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Remove outdated Series 1 Rich-Text-Editor checkups in serendipity_styx.js,
+    which were set deprecated with Serendipity 2.0 until Styx 3.0.
+    The only possible supported Rich-Text Editor other than the recommended
+    CK-Editor default(s) is a custom TinyMCE by plugin with some manual work.
+
   * Add ckebasic asset HTML Quote Element to config.extraAllowedContent for ACF,
     e.g. <div class=""unique">
         ... <q lang="de-ch">Sie sagte <q>es geht mir gut</q></q> ...
