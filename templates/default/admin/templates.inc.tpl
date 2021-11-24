@@ -33,7 +33,7 @@
     </section>
 {else}
 
-    <script>$(document).ready(function() { var stcol = Cookies.get('serendipity[theme_grid]'); if (stcol != 'undefined') { serendipity.changeThemeGrid(stcol) } });</script>
+    <script>$(document).ready(function() { var stcol = Cookies.get('serendipity[theme_grid]'); if (typeof stcol === 'undefined' || stcol === null || stcol == 'undefined') { serendipity.changeThemeGrid('tmDefCol') } else { serendipity.changeThemeGrid(stcol) } });</script>
     <section id="template_select" class="clearfix">
         <h2>{$CONST.CURRENT_TEMPLATE}{* since the #template_select container is already flexed, there is no other way than having the grid-selector float in the h2 format. Current frontend and backend templates are 2 items only so they don't need to switch the grid. *}
 
