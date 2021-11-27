@@ -1,6 +1,14 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Add new "enable AVIF" image configuration option to wisely "secure" AVIF
+    Variation usage on demand up from PHP 8.1. While being recommended to test
+    and to use this new feature, this may as well overwhelm some Servers given
+    resources for encoding. YOU play; YOU decide!
+    WebP Variations up from Styx 3.0 did not ask you, since that is a mainstream
+    feature today. AVIF - for the time being - will be the same. In the meantime
+    this is enabled per option.
+
   * Trying to fix a rare case media_grid/theme_grid behaviour in the backend
     doing nothing w/o reload.
 
