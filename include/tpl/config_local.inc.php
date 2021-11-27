@@ -725,6 +725,13 @@
                                           'permission'  => 'siteConfiguration',
                                           'default'     => false),
 
+                                    array('var'         => 'enableAVIF',
+                                          'title'       => ENABLEAVIF,
+                                          'description' => ENABLEAVIF_DESC,
+                                          'type'        => 'bool',
+                                          'permission'  => 'siteConfiguration',
+                                          'default'     => false),
+
                                     array('var'         => 'onTheFlySynch',
                                           'title'       => ONTHEFLYSYNCH,
                                           'description' => ONTHEFLYSYNCH_DESC,
