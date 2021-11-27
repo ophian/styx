@@ -7,7 +7,9 @@ Version 3.x-DEV ()
     resources for encoding. YOU play; YOU decide!
     WebP Variations up from Styx 3.0 did not ask you, since that is a mainstream
     feature today. AVIF - for the time being - will be the same. In the meantime
-    this is enabled per option.
+    this is to be enabled per option. Read the options info description and the
+    related blog entry at
+    https://ophian.github.io/2021/11/26/Serendipity-Styx-AV1-Image-File-support/
 
   * Trying to fix a rare case media_grid/theme_grid behaviour in the backend
     doing nothing w/o reload.
