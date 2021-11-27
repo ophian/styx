@@ -516,8 +516,22 @@ if (!isset($serendipity['http_accept_avif']) && isset($_SERVER['HTTP_ACCEPT'])) 
     $serendipity['http_accept_avif'] = (strpos($_SERVER['HTTP_ACCEPT'], 'image/avif') >= 0) ? true : false;
 }
 
+if (isset($serendipity['enableAVIF']) && $serendipity['enableAVIF']) {
+    // check and set image Libraries AV1 image file Support w/o notice
+    if (serendipity_checkAvifSupport()) {
+        serendipity_set_config_var('hasAvifSupport', 'true', 0);
+        $serendipity['useAvifFormat'] = true;
+    }
+}
+
 if (!isset($serendipity['useAvifFormat'])) {
     $serendipity['useAvifFormat'] = serendipity_get_config_var('hasAvifSupport', false); // DEV overwrite with true until upgrade task set
+}
+
+if ($serendipity['useAvifFormat'] && $serendipity['enableAVIF'] === false) {
+    // reset AV1 image Variation file usage w/o notice
+    serendipity_set_config_var('hasAvifSupport', 'false', 0);
+    $serendipity['useAvifFormat'] = false;
 }
 
 // You can set parameters which ImageMagick should use to generate the thumbnails
