@@ -509,6 +509,11 @@ $tasks = array(
                     'title'     => '<b>ADMINISTRATION_NOTICE:</b> Please read the ChangeLog via your Maintenance section.',
                     'desc'      => 'It holds additional notes to Re-Check your personal settings and of course a bigger text about the main features for upcoming PHP 8.1 and the new AV1 Image File format (AVIF).'),
 
+            array(  'version'   => '3.7-beta1',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => '<b>ADMINISTRATION_NOTICE:</b> Added (<em>experimental</em> and <em>extended</em>) AVIF support by option with PHP 8.1.',
+                    'desc'      => 'Please Read the options info description in « Configuration » - « Image Conversion Settings » - « Enable use of AVIF Variations? » and the related blog entry at <a href="https://ophian.github.io/2021/11/26/Serendipity-Styx-AV1-Image-File-support/" target="_blank" rel="noopener">Serendipity Styx AV1 Image File support</a>. Please help improving this new Variation format. Make and share some experiences!'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
