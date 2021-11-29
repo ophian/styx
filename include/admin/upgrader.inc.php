@@ -509,12 +509,6 @@ $tasks = array(
                     'title'     => '<b>ADMINISTRATION_NOTICE:</b> Please read the ChangeLog via your Maintenance section.',
                     'desc'      => 'It holds additional notes to Re-Check your personal settings and of course a bigger text about the main features for upcoming PHP 8.1 and the new AV1 Image File format (AVIF).'),
 
-            /* fake forward version */array(  'version'   => '3.7.2',
-                    'function'  => 'serendipity_checkAvifSupport',
-                    'arguments' => array(true),
-                    'title'     => 'Check Image Libraries for AV1 Image File (AVIF) file support',
-                    'desc'      => 'Sets a global variable if the PHP build-in GD-library or the used ImageMagick version were build with AVIF file support. If so, and you already had it set by hand, please remove your temporary set $serendipity[\'useAvifFormat\'] variable in your serendipity_config_local.inc.php file or for DEVS change to default false in serendipity_config.inc.php.'),
-
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
