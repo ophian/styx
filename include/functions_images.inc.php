@@ -804,7 +804,7 @@ function serendipity_imageGDAvifConversion($infile, $outfile, $quality = -1) {
     if (!$im) {
         return false;
     }
-    $mlimit = round((filesize($infile) + 1024000) / 1000); // Image example 14210367 filesize + 1GB (1024MB) encoding memory = 15234.367 = 15234M
+    $mlimit = round((filesize($infile) + 1073741824) / 1000); // Image example 14210367 filesize + 1GB (1024MB) encoding memory = 15234.367 = 15234M
     if ($mlimit > 3596) {
         @ini_set('max_execution_time', 240); // 4 min MAX
     }
@@ -1077,7 +1077,7 @@ function serendipity_passToCMD($type = null, $source = '', $target = '', $args =
 
     } else if (defined('IMAGETYPE_AVIF') && image_type_to_mime_type(IMAGETYPE_AVIF) == $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth 16 ${gamma['linear']} {$do} ${gamma['standard']} " .
-                "-depth 8 -strip \"$target\"";
+                "-depth 8 -strip \"$target\""; // ToDO: or depth 8, 10, 12, etc for other args
     }
 
     if (is_null($cmd)) {
@@ -1086,7 +1086,7 @@ function serendipity_passToCMD($type = null, $source = '', $target = '', $args =
         $cmd = str_replace(array('  '), array(' '), $cmd);
         if ($type == 'format-avif' || (defined('IMAGETYPE_AVIF') && image_type_to_mime_type(IMAGETYPE_AVIF) == $type)) {
             // yeah AVIF takes it all - yammi, gimme more! ;-) 2 Gigs plus the filesize at least
-            $mlimit = round(filesize($source)/1024, 0);
+            $mlimit = round(filesize($source)/1024, 0); // in KB
             if ($mlimit > 3596) {
                 $max = round(($mlimit/1000) + 2048); // 3.6M + 2048M
                 @ini_set('max_execution_time', 240); // 4 min MAX
