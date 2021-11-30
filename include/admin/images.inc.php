@@ -590,10 +590,10 @@ switch ($serendipity['GET']['adminAction']) {
                         }
                         // Create a target copy variation in AVIF image format
                         if (file_exists($target) && $serendipity['useAvifFormat'] && !in_array(strtolower($info['extension']), ['webp', 'avif'])) {
-                            $restrictedBytes = 14336000; // 14MB
+                            $restrictedBytes = 14680064; // 14MB
                             if (filesize($target) > $restrictedBytes && $serendipity['magick'] === true) {
                                 //void
-                                $messages[] = '<span class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> No AVIF image format variation(s) with ImageMagick created, since Origin is too big '.filesize($target).'! Sorry! Limit is currently set at 12MB</span>'."\n";
+                                $messages[] = '<span class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> No AVIF image format variation(s) with ImageMagick created, since Origin is too big '.filesize($target)."! Sorry! Limit is currently set at 14MB.</span>\n";
                                 if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: No AVIF image format created ${result[2]} from $target - Limit is currently at 14MB"); }
                             } else {
                                 $variat = serendipity_makeImageVariationPath($target, 'avif');
