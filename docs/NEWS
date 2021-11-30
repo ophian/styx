@@ -211,7 +211,7 @@ Version 3.6.0 (November 4th 2021)
   * POSSIBLE FAILURES
 
     This base implementation is known to fail with certain Variation builds, in
-    special with ImageMagick conversions while developing. So any WebP images
+    special with ImageMagick conversions while developing. So any Variation file
     with 0 bytes, or AVIF images with 252 bytes (0.25 KB) or 3389 bytes (3.4 KB)
     or 34165 bytes (34 KB) are considered broken and conditionally excluded from
     usage. Time will tell if this needs a review for different file systems or
