@@ -528,7 +528,7 @@ if (!isset($serendipity['useAvifFormat'])) {
     $serendipity['useAvifFormat'] = serendipity_get_config_var('hasAvifSupport', false); // DEV overwrite with true until upgrade task set
 }
 
-if ($serendipity['useAvifFormat'] && $serendipity['enableAVIF'] === false) {
+if ($serendipity['useAvifFormat'] && !$serendipity['enableAVIF']) {
     // reset AV1 image Variation file usage w/o notice
     serendipity_set_config_var('hasAvifSupport', 'false', 0);
     $serendipity['useAvifFormat'] = false;
