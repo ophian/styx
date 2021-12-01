@@ -796,7 +796,7 @@ function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
  *
  * @param string $infile    The fullpath file format from string
  * @param string $outfile   The fullpath file format to string
- * @param int    $quality   The quality of sizing/formatting
+ * @param int    $quality   The quality of sizing/formatting. A quality -1 is not 100%. It is better! It is the optimized default!
  * @return mixed            bool false or string converted outfile
  */
 function serendipity_imageGDAvifConversion($infile, $outfile, $quality = -1) {
@@ -804,11 +804,12 @@ function serendipity_imageGDAvifConversion($infile, $outfile, $quality = -1) {
     if (!$im) {
         return false;
     }
-    $mlimit = round((filesize($infile) + 1073741824) / 1000); // Image example 14210367 filesize + 1GB (1024MB) encoding memory = 15234.367 = 15234M
+    $mlimit = round(filesize($infile)/1024, 0); // Image example 14210367 b filesize = 13877 KB
     if ($mlimit > 3596) {
         @ini_set('max_execution_time', 240); // 4 min MAX
+        $maxMem = round(($mlimit/1024)+1024).'M'; // + 1GB (1024MB) encoding memory
+        @ini_set('memory_limit', $maxMem);
     }
-    @ini_set('memory_limit', $mlimit.'M');
 
     @imageavif($im, $outfile, $quality);
 
