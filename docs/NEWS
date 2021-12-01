@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix and improve AVIF for bigger images with GD library
+
   * Add new "enable AVIF" image configuration option to wisely "secure" AVIF
     Variation usage on demand up from PHP 8.1. While being recommended to test
     and to use this new feature, this may as well overwhelm some Servers given
