@@ -2511,7 +2511,7 @@ function serendipity_functionsGD($infilename, $q = null) {
         return false;
     }
 
-    $qual = is_null($q) ? 75 : 100;
+    $qual = is_null($q) ? 75 : $q; // currently WebP only
     $func = array();
     $inf  = pathinfo(strtolower($infilename));
     switch ($inf['extension']) {
@@ -2544,7 +2544,7 @@ function serendipity_functionsGD($infilename, $q = null) {
         case 'avif':
             $func['load'] = 'imagecreatefromavif';
             $func['save'] = 'imageavif';
-            $func['qual'] = 100; // keep a full quality of 100, else you get imageavif(): avif error - Could not finish encoding: Encoding of color planes failed
+            $func['qual'] = -1; // keep a full optimized default quality of -1
             break;
 
         default:
