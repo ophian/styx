@@ -1567,7 +1567,7 @@ function serendipity_rotateImg($id, $degrees) {
     if (file_exists($infile_avif)) {
         list($width, $height, $type, $attr) = @getimagesize($infile_avif); // to grasp the nettle this currently is the default for AVIF in the moment, excluding known broken filesizes
         if (($width == 0 && $height == 0 && $type = 19) || in_array(filesize($infile_avif), [3389, 34165])) {
-            return true; // silently return else we will need {if !isset($rotate_img_done) OR $rotate_img_done} in templates\default\admin\images.inc.tpl
+            return true; // silently return, else we will need {if !isset($rotate_img_done) OR $rotate_img_done} in templates\default\admin\images.inc.tpl. Also see possible thrown errors in the XHR request by serendipity_rotateImageGD() with unsilenced imagecreatefromavif and imagerotate for example
         }
     }
 
