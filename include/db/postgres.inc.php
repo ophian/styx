@@ -215,11 +215,6 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
                         'false' => false
     );
 
-    if (!isset($serendipity['dbPgsqlOIDS'])) {
-        $serendipity['dbPgsqlOIDS'] = true;
-        @serendipity_db_query('SET default_with_oids = true', true, 'both', false, false, false, true);
-    }
-
     if (!$expectError && ($reportErr || !$serendipity['production'])) {
         $serendipity['dbLastResult'] = pg_query($serendipity['dbConn'], $sql);
     } else {
