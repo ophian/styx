@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Remove old postgres db_query WITH OIDS support without update
+
   * Fix and improve AVIF for bigger images with GD library for the upraised PHP
     memory_limits and for default quality settings with GD.
 
