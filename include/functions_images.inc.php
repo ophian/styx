@@ -898,7 +898,7 @@ function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $mu
  * @param string $outfile   Target file name
  * @param string $mime      Output of mime_content_type($target)
  * @param bool   $mute      To message OR not. Is default false for a single request, true for bulk like synchronization traversals
- * @param int    $quality   Held for future purposes, ranges from 0 to 100
+ * @param int    $quality   Held for future purposes, ranges from 0 to 100. -1 is the internal optimized default, which is better than 100% !
  * @return mixed
  */
 function serendipity_convertToAvifFormat($infile, $outpath, $outfile, $mime, $mute = false, $quality = -1) {
@@ -2579,7 +2579,7 @@ function serendipity_functionsGD($infilename, $q = null) {
  */
 function serendipity_formatImageGD($infilename, $outfilename, $format) {
 
-    $ifunc = serendipity_functionsGD($infilename, 100);  // Currently this effects AVIF/WebP formats only, and makes the format to AVIF/WebP conversion inadvisable, where the infile has already been optimized for the Web.
+    $ifunc = serendipity_functionsGD($infilename, 100);  // Currently this effects WebP formats only, and makes the format to WebP conversion inadvisable, where the infile has already been optimized for the Web.
     $ofunc = serendipity_functionsGD($outfilename, 100); // Ditto
     if (!is_array($ifunc) || !is_array($ofunc) || empty($format)) {
         return false;
