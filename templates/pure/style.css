@@ -237,6 +237,7 @@ img#daynight {
   .dark-theme .card {
     border-color: #444c56; }
   .dark-theme hr {
+    border-color: #5b636e;
     color: #444c56; }
   .dark-theme .float {
     box-shadow: 0 0 0 0 transparent;
