@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Add a public dark-theme mode to the [ pure 2020 ] Standard theme
+
   * Remove old postgres SQL db_query SET WITH OIDS support without update. So
     use a more current version up from 10.
 
