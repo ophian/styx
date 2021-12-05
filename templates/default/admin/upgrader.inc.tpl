@@ -1,9 +1,14 @@
-<html class="no-js" lang="{$lang}">
+<!DOCTYPE html>
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="{$lang}"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="{$lang}"> <!--<![endif]-->
 <head>
     <meta charset="{$CONST.LANG_CHARSET}">
     <title>{if isset($admin_vars.title)}{$admin_vars.title} | {/if}{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{$head_link_stylesheet}">
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="{serendipity_getFile file='admin/oldie.css'}">
+<![endif]-->
     <script src="{serendipity_getFile file='admin/js/modernizr.min.js'}"></script>
 {if isset($admin_vars.admin_installed)}{serendipity_hookPlugin hook="backend_header" hookAll="true"}{/if}
     <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
@@ -12,7 +17,6 @@
 </head>
 <body id="serendipity_admin_page">
 {if empty($admin_vars.no_banner)}
-
     <header id="top">
         <div class="clearfix">
             <div id="banner{if empty($admin_vars.is_logged_in)}_install{/if}">
@@ -43,9 +47,9 @@
     <main class="clearfix serendipityAdminContent installer">
         <div id="content" class="clearfix">
     {* include of previous plain upgrader here *}
-    {if $get.action == 'ignore'}
+    {if ($get.action == 'ignore')}
         {* TODO: do not know what to put here? *}
-    {elseif $get.action == 'upgrade'}
+    {elseif ($get.action == 'upgrade')}
         {foreach $call_tasks AS $ctask}
             {if $is_callable_task}
                 <span class="msg_hint upgrade_task"><span class="icon-ok-circled" aria-hidden="true"></span> {$ctask|default:''}</span>
@@ -114,13 +118,13 @@
         {if $showWritableNote}
             <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.PROBLEM_PERMISSIONS_HOWTO|sprintf:'chmod 1777'}</span>
         {/if}
-        {if $errorCount > 0}
+        {if ($errorCount > 0)}
             <span class="msg_error"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.PROBLEM_DIAGNOSTIC}</span>
 
             <a class="icon_link block_level" href="serendipity_admin.php"><span class="icon-help-circled" aria-hidden="true"></span> {$CONST.RECHECK_INSTALLATION}</a>
         {/if}
         </div>
-        {if $errorCount < 1}
+        {if ($errorCount < 1)}
             {if isset($sqlfiles) AND (sizeof($sqlfiles) > 0)}
                 <h3>{$database_update_types}:</h3>
 
@@ -162,12 +166,10 @@
     </main>
 {if empty($admin_vars.no_footer)}
     {if NOT empty($admin_vars.version_info)}
-
     <footer id="meta">
         <p>{$admin_vars.version_info}</p>
     </footer>
     {/if}
 {/if}
-
 </body>
 </html>
