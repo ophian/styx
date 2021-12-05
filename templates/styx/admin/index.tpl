@@ -84,8 +84,15 @@
                     </div>
                 </fieldset>
                 {if isset($admin_vars.out.table)}{$admin_vars.out.table|default:''}{/if}
+
             </form>
             {if isset($admin_vars.out.footer)}{$admin_vars.out.footer|default:''}{/if}
+
+            <script>
+                if ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) || localStorage.getItem('data-login-color-mode') === 'dark') {
+                    document.documentElement.setAttribute('data-login-color-mode', 'dark');
+                }
+            </script>
     {else}
         {if NOT $admin_vars.no_sidebar}
 
@@ -258,5 +265,11 @@
 {/if}
 {if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_footer" hookAll="true"}{/if}
 
+    <script>
+        let dark_mode = localStorage.getItem('dark_mode');
+        if (typeof STYX_DARKMODE !== 'undefined' && dark_mode == null && STYX_DARKMODE === true) {
+            localStorage.setItem('data-login-color-mode', 'dark');
+        }
+    </script>
 </body>
 </html>
