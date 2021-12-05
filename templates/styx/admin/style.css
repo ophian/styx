@@ -1922,6 +1922,91 @@ ul.edit_actions li > .user_level {
 }
 
 
+/* Login mode dark */
+:root[data-login-color-mode="dark"] {
+    --color-bg-primary: #22272e;
+    --color-bg-overlay: #323941;
+    --color-text-primary: #adbac7;
+    --color-text-secondary: #768390;
+    --color-text-white: #cdd9e5;
+    --color-border-primary: #444c56;
+    --color-border-secondary: #373e47;
+    --color-border-tertiary: #636e7b;
+    --color-scale-gray-5: #545d68;
+    --color-scale-green-2: #6bc46d;
+    --color-scale-green-4: #46954a;
+    --color-scale-green-6: #2b6a30;
+    --color-alert-success-text: #6bc46d;
+    --color-fade-black-85: rgba(28,33,40,.85);
+    --color-fade-white-10: rgba(205,217,229,.1);
+    --color-fade-white-30: rgba(205,217,229,.3);
+    --color-shadow-medium: 0 3px 6px rgba(149,157,165,0.15);
+}
+
+html[data-login-color-mode="dark"], [data-login-color-mode="dark"] button, [data-login-color-mode="dark"] input {
+    color: var(--color-text-secondary);
+    background: var(--color-bg-primary);
+}
+[data-login-color-mode="dark"] input {
+    border-color: var(--color-border-tertiary);
+}
+[data-login-color-mode="dark"] #top {
+    background-color: var(--color-bg-tertiary);
+    background-image: none;
+    box-shadow: 0 1px 4px rgba(0,0,0,.5);
+    color: var(--color-text-white);
+    text-shadow: 1px 1px 1px rgba(0,0,0,.8);
+    border: 0 none;
+}
+[data-login-color-mode="dark"] #login {
+    border-color: var(--color-border-primary);
+    box-shadow: 1px 2px 3px #222;
+}
+[data-login-color-mode="dark"] #login fieldset>span, [data-login-color-mode="dark"] .button_link {
+    background: var(--color-bg-overlay);
+    background-image: -webkit-linear-gradient(var(--color-scale-gray-5),var(--color-bg-overlay));
+    background-image: linear-gradient(var(--color-scale-gray-5),var(--color-bg-overlay));
+}
+[data-login-color-mode="dark"] #login fieldset>span {
+    color: var(--color-text-primary);
+    border-bottom-color: var(--color-border-tertiary);
+}
+[data-login-color-mode="dark"] input[type="submit"] {
+    background: var(--color-bg-overlay);
+    background-image: none!important;
+    border-color: var(--color-scale-green-2) var(--color-scale-green-4) var(--color-scale-green-6);
+    color: var(--color-alert-success-text);
+}
+[data-login-color-mode="dark"] .button_link {
+    border-color: var(--color-border-secondary);
+    color: var(--color-text-white);
+    text-shadow: none;
+}
+[data-login-color-mode="dark"] .active, [data-login-color-mode="dark"] input:checked + .media_selector, [data-login-color-mode="dark"] .button_link:active, [data-login-color-mode="dark"] button[type="submit"].publish_now:active, [data-login-color-mode="dark"] .tabs > ul a:active, [data-login-color-mode="dark"] button:active, [data-login-color-mode="dark"] input[type="button"]:active, [data-login-color-mode="dark"] input[type="color"]:active {
+    box-shadow: inset rgba(225, 225, 225, .75) 0 1px 2px 0;
+}
+[data-login-color-mode="dark"] .active, [data-login-color-mode="dark"] input:checked + .media_selector, [data-login-color-mode="dark"] .button_link:active, [data-login-color-mode="dark"] button[type="submit"].publish_now:active, [data-login-color-mode="dark"] button:active, [data-login-color-mode="dark"] input[type="button"]:active, [data-login-color-mode="dark"] input[type="color"]:active {
+    background-color: var(--color-fade-black-85);
+    border: 1px solid var(--color-border-secondary);
+    box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
+    background-image: linear-gradient(var(--color-fade-black-10), var(--color-fade-fg-10) 1px, var(--color-fade-fg-30));
+}
+[data-login-color-mode="dark"] .button_link:hover {
+    background: var(--color-bg-overlay) !important;
+    background-image: -webkit-linear-gradient(var(--color-scale-gray-5), var(--color-bg-overlay)) !important;
+    background-image: linear-gradient(var(--color-scale-gray-5), var(--color-bg-overlay)) !important;
+    border-color: var(--color-border-secondary) !important;
+    color: var(--color-text-white) !important;
+    text-shadow: none !important;
+}
+[data-login-color-mode="dark"] .button_link:hover, [data-login-color-mode="dark"] button:hover, [data-login-color-mode="dark"] input[type="button"]:hover, [data-login-color-mode="dark"] input[type="color"]:hover {
+    background: transparent !important;
+    background-image: none !important;
+}
+[data-login-color-mode="dark"] .button_link:focus [data-login-color-mode="dark"] input:focus, [data-login-color-mode="dark"] select:focus, [data-login-color-mode="dark"] textarea:focus {
+    box-shadow: var(--color-shadow-medium);
+}
+
 /* NAVIGATION */
 .js #main_menu {
     position: absolute;
