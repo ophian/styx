@@ -1,4 +1,5 @@
 <!DOCTYPE html>{* data-color-mode="light" enables an in-build Chromium style, eg. for checkboxes turning them black - See "s" we don't want that behavior *}
+
 <html{if $admin_vars.darkmode} data-color-mode="dark"{else} data-color-mode="slight"{/if} data-light-theme="light" data-dark-theme="dark" class="no-js" dir="ltr" lang="{$lang}">
 <head>
     <meta charset="{$CONST.LANG_CHARSET}">
@@ -33,6 +34,7 @@
 </head>
 <body id="serendipity_admin_page">
 {if NOT $admin_vars.no_banner}
+
     <header id="top">
         <div id="banner{if NOT $admin_vars.is_logged_in}_install{/if}" class="clearfix">
         {if $admin_vars.is_logged_in}
