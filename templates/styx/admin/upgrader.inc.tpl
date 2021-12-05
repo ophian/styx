@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html class="no-js" lang="{$lang}">
 <head>
     <meta charset="{$CONST.LANG_CHARSET}">
@@ -142,7 +143,7 @@
                 {/foreach}
                 </dl>
             {/if}
-            {if ($taskCount == 0)}
+            {if $taskCount == 0}
                 <p>{$CONST.SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC}</p>
             {/if}
             {if $taskCount > 0 OR (isset($sqlfiles) AND (sizeof($sqlfiles) > 0))}
