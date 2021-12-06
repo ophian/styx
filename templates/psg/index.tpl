@@ -214,7 +214,8 @@
 {/if}
 
     <script src="{serendipity_getFile file="pure.js"}"></script>
-{if $view == 'entry' AND $wysiwyg_comment AND NOT (isset($smarty.get.serendipity.csuccess) AND $smarty.get.serendipity.csuccess == 'true') && (isset($entry) AND NOT $entry.allow_comments === false)}
+{if ($view == 'entry' AND $wysiwyg_comment AND NOT (isset($smarty.get.serendipity.csuccess) AND $smarty.get.serendipity.csuccess == 'true') && (isset($entry) AND NOT $entry.allow_comments === false)) OR ($view == 'plugin' AND $head_title == 'contactform')}
+
     <script src="{$serendipityHTTPPath}{$templatePath}_assets/ckebasic/ckeditor.js"></script>
     <script src="{$serendipityHTTPPath}{$templatePath}_assets/ckebasic/config.js"></script>
     <script>
