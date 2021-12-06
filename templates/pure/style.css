@@ -215,7 +215,6 @@ img#daynight {
     background-color: #2d333b; }
   .dark-theme #serendipity_banner,
   .dark-theme #footer {
-    background-color: #252a2f;
     background-color: #232b33; }
   .dark-theme .navbar a,
   .dark-theme pre,
@@ -297,11 +296,12 @@ img#daynight {
   .dark-theme .comment.odd {
     background-color: #2d333b; }
   .dark-theme .comment.odd > .comment_content {
-    background-color: #21252b;
     background-color: #272c33; }
   .dark-theme .comment_content {
     border-color: #444c56;
     background-color: #2d333b; }
+  .dark-theme #c0 {
+    border-color: #5b636e; }
   .dark-theme .hljs {
     color: #c8c8c8;
     background: #2d333b; }
@@ -328,8 +328,29 @@ img#daynight {
     background-color: #444c56; }
   .dark-theme #staticpage_nav {
     border-color: #444c56; }
+  .dark-theme .cke_inner,
+  .dark-theme .cke_wysiwyg_frame, .dark-theme .cke_wysiwyg_div {
+    background-color: #1b1f23; }
   .dark-theme .cke_top {
+    background: #2d333b;
     border-bottom-color: #444c56; }
+  .dark-theme select.cke_dialog_ui_input_select {
+    background-color: #22272e;
+    border-color: #373e47; }
+  .dark-theme .cke_dialog_title, .dark-theme .cke_dialog_footer {
+    border-color: #444c56 !important;
+    box-shadow: none !important;
+    outline: none !important; }
+  .dark-theme input.cke_dialog_ui_input_text, .dark-theme input.cke_dialog_ui_input_password, .dark-theme textarea.cke_dialog_ui_input_textarea {
+    border-color: #444c56 #444c56 !important;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15) inset !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,.15) inset !important; }
+  .dark-theme a.cke_dialog_ui_button {
+    color: #cdd9e5 !important;
+    background: #323941 !important;
+    background-image: -webkit-linear-gradient(#444c56,#2s333b) !important;
+    background-image: linear-gradient(#444c56,#2d333b) !important;
+    border-color: #636e7b !important; }
 
 
 /* defaults */
