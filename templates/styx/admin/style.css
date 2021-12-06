@@ -1926,6 +1926,7 @@ ul.edit_actions li > .user_level {
 :root[data-login-color-mode="dark"] {
     --color-bg-primary: #22272e;
     --color-bg-overlay: #323941;
+    --color-bg-tertiary: #2d333b;
     --color-text-primary: #adbac7;
     --color-text-secondary: #768390;
     --color-text-white: #cdd9e5;
@@ -1937,7 +1938,10 @@ ul.edit_actions li > .user_level {
     --color-scale-green-4: #46954a;
     --color-scale-green-6: #2b6a30;
     --color-alert-success-text: #6bc46d;
+    --color-fade-black-10: rgba(28,33,40,0.1);
     --color-fade-black-85: rgba(28,33,40,.85);
+    --color-fade-fg-10: rgba(205,217,229,0.1);
+    --color-fade-fg-30: rgba(205,217,229,0.3);
     --color-fade-white-10: rgba(205,217,229,.1);
     --color-fade-white-30: rgba(205,217,229,.3);
     --color-shadow-medium: 0 3px 6px rgba(149,157,165,0.15);
