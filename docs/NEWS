@@ -1,9 +1,9 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
-  * Fix [ b46, b5blog, boot, dude, psg, pure ] for Rich Text Editor contactform
-    textareas. NOTE: Rename plugins "URL shorthand name" option to "contactform"
-    to make this work.
+  * Fix [ b46, b5blog, boot, dude, psg, pure ] themes for Rich Text Editor
+    contactform textareas. PLEASE NOTE: Rename plugins "URL shorthand name"
+    option to "contactform" to make this work.
 
   * Allow frontend Rich Text Editor dark mode for [ pure ] theme dark mode
 
