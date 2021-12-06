@@ -31,6 +31,7 @@ Dieses Standard Backend verfügt über eine eigene styles Auszeichnung, analog zur
 * 2021-04-28 - Mozilla: Fix des rechts fehlenden blau-schimmer Schattens bei bestimmten Klapp-bar-Buttons
 * 2021-05-05 - Verbesserte Eingabe-/Radiofelder für die (blaue) Standard-Mozilla(89+)/Chromium-Darstellung
 * 2021-06-19 - Styx Dark Mode
+* 2021-12-06 - Erweiterung für Styx login Page Dark Mode
 </pre>
 
 DAS FOLGENDE IST DIE BESCHREIBUNG DES FALLBACK BACKENDS&colon;<br>
