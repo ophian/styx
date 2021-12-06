@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Allow frontend Rich Text Editor dark mode for [ pure ] theme dark mode
+
   * Add [ styx ] theme login page dark mode based on backend Personal Preferences
 
   * Add a public dark-theme mode to the [ pure 2020 ] Standard theme
