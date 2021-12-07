@@ -1,6 +1,7 @@
 Version 3.7-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix minor encoding issue with 3.7-beta1 upgrade task notifier
 
 
 Version 3.7-beta1 (December 6th 2021)
