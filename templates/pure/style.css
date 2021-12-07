@@ -262,6 +262,8 @@ img#daynight {
   .dark-theme .post table, .dark-theme .post_content table,
   .dark-theme table td {
     border-color: #444c56; }
+  .dark-theme .serendipity_date {
+    color: #a3aaba; }
   .dark-theme fieldset.form-group {
     border-color: #555d6b; }
   .dark-theme .serendipity_imageComment_txt {
