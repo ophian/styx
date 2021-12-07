@@ -314,6 +314,8 @@ img#daynight {
     background: #2d333b; }
     .dark-theme .hljs-keyword, .dark-theme .hljs-selector-tag, .dark-theme .hljs-subst {
       color: currentColor; }
+    .dark-theme .hljs-tag, .dark-theme .hljs-name, .dark-theme .hljs-attribute {
+      color: #bebeff; }
   .dark-theme .serendipity_commentDirection {
     background: transparent;
     box-shadow: none; }
