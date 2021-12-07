@@ -1,6 +1,8 @@
 Version 3.7-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix a pdo-sqlite PHP 8.1 Notice issue
+
   * Fix minor encoding issue with 3.7-beta1 upgrade task notifier
 
 
