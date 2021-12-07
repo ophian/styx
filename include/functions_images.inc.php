@@ -4305,6 +4305,8 @@ function serendipity_prepareMedia(&$file, $url = '') {
         $full_perm = serendipity_checkPermission('adminImagesMaintainOthers');
     }
 
+    $file['hotlink'] = $file['hotlink'] ?? null;
+
     $sThumbSource      = serendipity_getThumbNailPath($file['path'], $file['name'], $file['extension'], $file['thumbnail_name']);
     $sThumbSource_webp = serendipity_getThumbNailPath($file['path'].'.v/', $file['name'], 'webp', $file['thumbnail_name']);
     $sThumbSource_avif = serendipity_getThumbNailPath($file['path'].'.v/', $file['name'], 'avif', $file['thumbnail_name']);
