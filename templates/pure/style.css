@@ -300,6 +300,13 @@ img#daynight {
   .dark-theme .comment_content {
     border-color: #444c56;
     background-color: #2d333b; }
+  .dark-theme article.post.byauthor {
+    background: #292f37;
+    border-color: #444c56; }
+  .dark-theme .comment_oddbox, .dark-theme .serendipity_comment.odd {
+    background-color: #363b42;
+    border-top-color: #535b66;
+    border-bottom-color: #535b66; }
   .dark-theme #c0 {
     border-color: #5b636e; }
   .dark-theme .hljs {
