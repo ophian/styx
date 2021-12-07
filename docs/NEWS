@@ -1,6 +1,8 @@
 Version 3.7-DEV ()
  ------------------------------------------------------------------------
 
+  * Better check the not set new AVIF option variable on upgrade
+
   * Fix non-initialized file hotlink array key in images API *_prepareMedia()
 
   * Fix a pdo-sqlite PHP 8.1 Notice issue
