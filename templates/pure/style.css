@@ -358,6 +358,12 @@ img#daynight {
     background-image: -webkit-linear-gradient(#444c56,#2s333b) !important;
     background-image: linear-gradient(#444c56,#2d333b) !important;
     border-color: #636e7b !important; }
+  .dark-theme .shariff .theme-white .shariff-button {
+    border-color: #444c56;  }
+  .dark-theme .shariff .theme-white .shariff-button a {
+    background-color: #22272e; }
+  .dark-theme .shariff .theme-white .shariff-button a:hover {
+    background-color: #554f4f; }
 
 
 /* defaults */
