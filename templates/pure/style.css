@@ -310,7 +310,8 @@ img#daynight {
   .dark-theme .serendipity_comment_author_self h4 .pc-owner {
     border-color: #535b66; }
   .dark-theme #c0 {
-    border-color: #5b636e; }
+    border-color: #5b636e;
+    background-image: repeating-linear-gradient(-45deg, #22272e00 0 20px, #22272e 20px 40px); }
   .dark-theme pre {
       border-color: #3b434c; }
   .dark-theme .hljs {
