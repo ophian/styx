@@ -339,6 +339,8 @@ img#daynight {
     color: #cdd9e5; }
   .dark-theme form button[disabled], .dark-theme select[disabled], .dark-theme select[disabled] option, .dark-theme select[disabled] optgroup, .dark-theme textarea[disabled], .dark-theme input[disabled] {
     color: #3c3c3c; }
+  .dark-theme .has-error .form-control {
+    border-color: #535; }
   .dark-theme .staticpage_results, .dark-theme .serendipity_search, .dark-theme .serendipity_content_message, .dark-theme .content_msg .serendipity_msg_success, .dark-theme .msg_success, .dark-theme .serendipity_msg_notice, .dark-theme .msg_notice, .dark-theme .serendipity_msg_important, .dark-theme .msg_important, .dark-theme .msg_question, .dark-theme .serendipity_commentDirection {
       box-shadow: none; }
   .dark-theme #navbar ul {
