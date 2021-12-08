@@ -297,10 +297,10 @@ img#daynight {
   .dark-theme .comment.odd {
     background-color: #373e47; }
   .dark-theme .comment.odd > .comment_content {
-    background-color: #272c33; }
+    background-color: #2e333b; }
   .dark-theme .comment_content {
     border-color: #444c56;
-    background-color: #2d333b; }
+    background-color: #303740; }
   .dark-theme article.post.byauthor {
     background: #292f37;
     border-color: #444c56; }
