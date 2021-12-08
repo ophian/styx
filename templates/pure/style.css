@@ -258,7 +258,6 @@ img#daynight {
   .dark-theme .content_msg, .dark-theme .serendipity_content_message, .dark-theme .serendipity_commentDirection,
   .dark-theme .archive_year,
   .dark-theme .serendipity_imageComment_center, .dark-theme .serendipity_imageComment_left, .dark-theme .serendipity_imageComment_right,
-  .dark-theme pre,
   .dark-theme .post table, .dark-theme .post_content table,
   .dark-theme table td {
     border-color: #444c56; }
@@ -313,6 +312,8 @@ img#daynight {
     border-color: #535b66; }
   .dark-theme #c0 {
     border-color: #5b636e; }
+  .dark-theme pre {
+      border-color: #3b434c; }
   .dark-theme .hljs {
     color: #c8c8c8;
     background: #2d333b; }
