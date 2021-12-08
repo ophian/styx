@@ -2,8 +2,8 @@ Version 3.7-DEV ()
  ------------------------------------------------------------------------
 
   * Improve [ pure ] dark-theme styles for serendipity_date selector, comments
-    summary pages, the social plugin shariff buttons and some more code hljs
-    highlight styles.
+    and comments summary pages, the social plugin shariff buttons and some more
+    code hljs selector highlight styles.
 
   * Better check the not set new AVIF option variable on upgrade
 
