@@ -123,48 +123,8 @@
     </footer>
 {/if}
 
+    <script> const themePath = '{$serendipityHTTPPath}{$templatePath}{$template}'; </script>
     <script src="{serendipity_getFile file="pure.js"}"></script>
-    <script>
-    let dark_mode = sessionStorage.getItem('dark_mode');
-
-    if (dark_mode == null) {
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches || dark_mode == "dark") {
-            document.body.classList.add("dark-theme");
-            sessionStorage.setItem("dark_mode", "dark");
-            icon = document.getElementById("dark-mode-icon").className = "bi bi-sun";
-            document.getElementById('daynight').src = "{$serendipityHTTPPath}{$templatePath}{$template}/icons/sun-fill.svg";
-        } else {
-            icon = document.getElementById("dark-mode-icon").className = "bi bi-moon";
-        }
-    } else if (dark_mode == 'dark') {
-        document.body.classList.add("dark-theme");
-        sessionStorage.setItem("dark_mode", "dark");
-        icon = document.getElementById("dark-mode-icon").className = "bi bi-sun";
-        document.getElementById('daynight').src = "{$serendipityHTTPPath}{$templatePath}{$template}/icons/sun-fill.svg";
-        document.getElementById('blink').title = "Theme: Light (Browser preferences|Session override)";
-    } else {
-        document.body.classList.remove("dark-theme");
-        sessionStorage.setItem("dark_mode", "light");
-        icon = document.getElementById("dark-mode-icon").className = "bi bi-moon";
-        document.getElementById('daynight').src = "{$serendipityHTTPPath}{$templatePath}{$template}/icons/moon-fill.svg";
-        document.getElementById('blink').title = "Theme: Dark (Browser preferences|Session override)";
-    }
-
-    const dark = () => {
-        let dark_mode = sessionStorage.getItem("dark_mode");
-        if (dark_mode == "dark") {
-            sessionStorage.setItem("dark_mode", "light");
-            icon = document.getElementById("dark-mode-icon").className = "bi bi-moon";
-            document.body.classList.remove("dark-theme");
-            document.getElementById('daynight').src = "{$serendipityHTTPPath}{$templatePath}{$template}/icons/moon-fill.svg";
-        } else {
-            sessionStorage.setItem("dark_mode", "dark");
-            icon = document.getElementById("dark-mode-icon").className = "bi bi-sun";
-            document.body.classList.add("dark-theme");
-            document.getElementById('daynight').src = "{$serendipityHTTPPath}{$templatePath}{$template}/icons/sun-fill.svg";
-        }
-    }
-    </script>
 {if ($view == 'entry' AND $wysiwyg_comment AND NOT (isset($smarty.get.serendipity.csuccess) AND $smarty.get.serendipity.csuccess == 'true') && (isset($entry) AND NOT $entry.allow_comments === false)) OR ($view == 'plugin' AND $head_title == 'contactform')}
 
     <script src="{$serendipityHTTPPath}{$templatePath}_assets/ckebasic/ckeditor.js"></script>
