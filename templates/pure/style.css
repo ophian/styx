@@ -212,13 +212,8 @@ img#daynight {
   .dark-theme .container,
   .dark-theme .card,
   .dark-theme .navbar,
-  .dark-theme .navbar .container-fluid {
-    background-color: #2d333b; }
-  .dark-theme #serendipity_banner,
-  .dark-theme #footer {
-    background-color: #232b33; }
+  .dark-theme .navbar .container-fluid,
   .dark-theme .navbar a,
-  .dark-theme pre,
   .dark-theme footer {
     background-color: #2d333b; }
   .dark-theme a, .dark-theme a:visited,
