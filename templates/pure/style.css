@@ -311,7 +311,8 @@ img#daynight {
     border-color: #5b636e;
     background-image: repeating-linear-gradient(-45deg, #22272e00 0 20px, #22272e 20px 40px); }
   .dark-theme pre {
-      border-color: #3b434c; }
+    border-color: #3b434c;
+    background-color: #22272e; }
   .dark-theme .hljs {
     color: #c8c8c8;
     background: #22272f; }
