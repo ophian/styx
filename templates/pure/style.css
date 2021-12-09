@@ -282,6 +282,8 @@ img#daynight {
     border-bottom-color: #40454a;
     background-color: #2d333b;
     color: #fdfcfa; }
+  .dark-theme .plugin_comment_body {
+    color: #cbcbcb; }
   .dark-theme .comment.odd, .dark-theme .comment.even, .dark-theme .trackback.tb-odd, .dark-theme .trackback.tb-even {
     border-color: #444c56; }
   .dark-theme .trackback.tb-odd {
