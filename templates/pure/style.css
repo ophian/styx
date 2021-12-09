@@ -205,7 +205,8 @@ img#daynight {
   .dark-theme #content,
   .dark-theme #serendipityLeftSideBar,
   .dark-theme #serendipityRightSideBar,
-  .dark-theme #footer,
+  .dark-theme #footer {
+    background: #2d333b; }
   .dark-theme .serendipity_commentForm,
   .dark-theme .archive_year,
   .dark-theme .container,
