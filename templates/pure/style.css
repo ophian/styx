@@ -386,6 +386,8 @@ img#daynight {
       background-color: #22272e; }
     .dark-theme #content li.shariff-button a:hover {
       background-color: #554f4f; }
+  .dark-theme .mediasidebaritem img {
+    background-color: #fff; /* a transparent img case */}
 
 
 /* defaults */
