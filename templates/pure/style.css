@@ -380,12 +380,12 @@ img#daynight {
     background-image: -webkit-linear-gradient(#444c56,#2s333b) !important;
     background-image: linear-gradient(#444c56,#2d333b) !important;
     border-color: #636e7b !important; }
-  .dark-theme #content li.shariff-button {
-    border-color: #444c56;  }
-    .dark-theme #content li.shariff-button a {
-      background-color: #22272e; }
-    .dark-theme #content li.shariff-button a:hover {
-      background-color: #554f4f; }
+  .dark-theme #content .shariff-button {
+    border-color: #444c56 !important;  }
+    .dark-theme #content .shariff-button a {
+      background-color: #22272e !important; }
+    .dark-theme #content .shariff-button a:hover {
+      background-color: #554f4f !important; }
   .dark-theme .mediasidebaritem img {
     background-color: #fff; /* a transparent img case */}
 
