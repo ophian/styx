@@ -296,9 +296,10 @@ img#daynight {
     background-color: #373e47; }
   .dark-theme .comment.odd > .comment_content {
     background-color: #2e333b; }
+  .dark-theme pre,
   .dark-theme .comment_content {
-    border-color: #444c56;
-    background-color: #22272e; }
+    border-color: #3b434c;
+    background-color: #1c2128; }
   .dark-theme article.post.byauthor {
     background: #292f37;
     border-color: #444c56; }
@@ -310,9 +311,6 @@ img#daynight {
   .dark-theme #c0 {
     border-color: #5b636e;
     background-image: repeating-linear-gradient(-45deg, #22272e00 0 20px, #22272e 20px 40px); }
-  .dark-theme pre {
-    border-color: #3b434c;
-    background-color: #22272e; }
   .dark-theme .hljs {
     color: #c8c8c8;
     background: #22272f; }
