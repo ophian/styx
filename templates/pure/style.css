@@ -198,9 +198,6 @@ img#daynight {
 .dark-theme {
   background-color: #1c2128;
   color: #cbcbcb; }
-  .dark-theme .container-fluid,
-  .dark-theme .main-container {
-    background-color: #22272e; }
   .dark-theme #serendipity_banner,
   .dark-theme #content,
   .dark-theme #serendipityLeftSideBar,
@@ -212,7 +209,6 @@ img#daynight {
   .dark-theme .container,
   .dark-theme .card,
   .dark-theme .navbar,
-  .dark-theme .navbar .container-fluid,
   .dark-theme .navbar a,
   .dark-theme footer {
     background-color: #2d333b; }
@@ -225,8 +221,6 @@ img#daynight {
   .dark-theme #navbar a:hover, .dark-theme #navbar a:focus {
       background-color: #ccdee7 !important;
       color: #222 !important; }
-  .dark-theme footer .container-fluid {
-    background-color: #2d333b; }
   .dark-theme .navbar-nav .active {
     color: #fff; }
   .dark-theme .card {
