@@ -301,6 +301,8 @@ img#daynight {
   .dark-theme article.post.byauthor {
     background: #292f37;
     border-color: #444c56; }
+    .dark-theme article.post.byauthor h3 a, .dark-theme article.post.byauthor h3 a:visited {
+      color: #9ca1af !important; }
   .dark-theme .comment_oddbox, .dark-theme .serendipity_comment.odd {
     background-color: #373e47;
     border-color: #444c56; }
