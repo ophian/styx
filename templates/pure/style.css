@@ -201,9 +201,11 @@ img#daynight {
   .dark-theme #serendipity_banner,
   .dark-theme #content,
   .dark-theme #serendipityLeftSideBar,
-  .dark-theme #serendipityRightSideBar,
-  .dark-theme #footer {
+  .dark-theme #serendipityRightSideBar {
     background: #2d333b; }
+  .dark-theme #footer {
+    box-shadow: 0 2px 3px rgba(0,0,0,.5), 0 -2px 3px rgba(0,0,0,.5);
+    background: #1c2128; }
   .dark-theme .serendipity_commentForm,
   .dark-theme .archive_year,
   .dark-theme .container,
