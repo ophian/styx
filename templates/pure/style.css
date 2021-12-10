@@ -296,7 +296,8 @@ img#daynight {
   .dark-theme pre,
   .dark-theme .comment_content {
     border-color: #3b434c;
-    background-color: #1c2128; }
+    background-color: #20272e;
+    color: #95989a; }
   .dark-theme article.post.byauthor {
     background: #292f37;
     border-color: #444c56; }
