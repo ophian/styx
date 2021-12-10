@@ -242,14 +242,16 @@ img#daynight {
   .dark-theme #content,
   .dark-theme #serendipityLeftSideBar,
   .dark-theme #serendipityRightSideBar,
-  .dark-theme .post_info, .dark-theme .serendipity_entryFooter,
   .dark-theme .serendipity_commentForm,
   .dark-theme .content_msg, .dark-theme .serendipity_content_message, .dark-theme .serendipity_commentDirection,
   .dark-theme .archive_year,
-  .dark-theme .serendipity_imageComment_center, .dark-theme .serendipity_imageComment_left, .dark-theme .serendipity_imageComment_right,
-  .dark-theme .post table, .dark-theme .post_content table,
   .dark-theme table td {
     border-color: #444c56; }
+  .dark-theme .post table, .dark-theme .post_content table,
+  .dark-theme .post_info, .dark-theme .serendipity_entryFooter,
+  .dark-theme .serendipity_imageComment_center, .dark-theme .serendipity_imageComment_left, .dark-theme .serendipity_imageComment_right {
+    box-shadow: none;
+    border-color: #3b434c; }
   .dark-theme .serendipity_date {
     color: #a3aaba; }
   .dark-theme fieldset.form-group {
