@@ -237,10 +237,6 @@ img#daynight {
     .dark-theme table thead th {
       border-color: #444c56;
       border-width: 1px; }
-  .dark-theme table tbody tr:nth-child(2n+1) {
-    background-color: #2d333b; }
-  .dark-theme table tbody tr:nth-child(2n) {
-    background-color: #272d33; }
   .dark-theme #content,
   .dark-theme #serendipityLeftSideBar,
   .dark-theme #serendipityRightSideBar,
@@ -256,6 +252,10 @@ img#daynight {
     border-color: #3b434c; }
   .dark-theme .serendipity_date {
     color: #a3aaba; }
+  .dark-theme table tbody tr:nth-child(2n) {
+    background-color: #2c3136; }
+  .dark-theme table tbody tr:nth-child(2n+1) {
+    background-color: #2e343e; }
   .dark-theme fieldset.form-group {
     border-color: #555d6b; }
   .dark-theme .serendipity_imageComment_txt {
