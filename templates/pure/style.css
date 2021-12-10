@@ -174,7 +174,7 @@ img#daynight {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   border-radius: 50%;
   position: fixed;
-  top: 12px;
+  top: auto;
   bottom: 10px;
   right: 10px;
   cursor: pointer;
@@ -186,6 +186,16 @@ img#daynight {
   z-index: 1000;
   background-color: #294564;
   display: flex; }
+  .dark-theme .float {
+    box-shadow: 0 1px 0px #3d4c5a;
+    background-color: #1c2128; }
+  @media screen and (min-width:640px) {
+    .float {
+      top: 12px; }
+      .dark-theme .float {
+        box-shadow: 0 2px 3px #1c2128;
+        background-color: #373e47; }
+  }
 .navbar-shader {
   padding-top: .3125rem;
   padding-bottom: .3125rem;
@@ -203,7 +213,8 @@ img#daynight {
   .dark-theme #serendipityLeftSideBar,
   .dark-theme #serendipityRightSideBar {
     background: #2d333b; }
-  .dark-theme #footer {
+  .dark-theme #footer,
+  .dark-theme #menubar_mobile {
     box-shadow: 0 2px 3px rgba(0,0,0,.5), 0 -2px 3px rgba(0,0,0,.5);
     background: #1c2128; }
   .dark-theme .serendipity_commentForm,
