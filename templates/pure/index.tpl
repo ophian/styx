@@ -35,11 +35,12 @@
 {/if}
 {if $is_raw_mode != true}
 
+    <button id="blink" class="navbar-shader btn float" onclick="dark()" title="Theme: Dark (Browser preferences|Session override)">
+        <i id="dark-mode-icon" class="bi bi-moon-fill"></i>
+        <img id="daynight" src="{$serendipityHTTPPath}{$templatePath}{$template}/icons/sun-fill.svg" width="30" height="30" alt="">
+    </button>
+
     <header id="serendipity_banner"><a id="topofpage"></a>
-        <button id="blink" class="navbar-shader btn float" onclick="dark()" title="Theme: Dark (Browser preferences|Session override)">
-            <i id="dark-mode-icon" class="bi bi-moon-fill"></i>
-            <img id="daynight" src="{$serendipityHTTPPath}{$templatePath}{$template}/icons/sun-fill.svg" width="30" height="30" alt="">
-        </button>
         <h1><a class="homelink1" href="{$serendipityBaseURL}">{$head_title|default:$blogTitle|truncate:80:" ..."}</a></h1>
         <h2><a class="homelink2" href="{$serendipityBaseURL}">{$head_subtitle|default:$blogDescription}</a></h2>
 {if $template_option.use_corenav === true}
