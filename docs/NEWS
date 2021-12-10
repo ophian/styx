@@ -1,6 +1,8 @@
 Version 3.7-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve [ pure ] dark-theme styles for buttons and some plugin colors
+
   * Move [ pure ] theme dark mode scriptlet to pure.js
 
   * Improve [ pure ] dark-theme styles for serendipity_date selector, comments
