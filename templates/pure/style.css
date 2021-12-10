@@ -288,9 +288,9 @@ img#daynight {
   .dark-theme #trackbacks li.pingback {
     border-color: #444c56; }
   .dark-theme .comment.odd, .dark-theme .comment.even, .dark-theme .trackback.tb-odd, .dark-theme .trackback.tb-even {
-    border-color: #444c56; }
+    border-color: #3b434c; }
   .dark-theme .comment.odd {
-    background-color: #373e47; }
+    background-color: #2b333b; }
   .dark-theme .comment.odd > .comment_content {
     background-color: #2e333b; }
   .dark-theme pre,
@@ -304,8 +304,8 @@ img#daynight {
     .dark-theme article.post.byauthor h3 a, .dark-theme article.post.byauthor h3 a:visited {
       color: #9ca1af !important; }
   .dark-theme .comment_oddbox, .dark-theme .serendipity_comment.odd {
-    background-color: #373e47;
-    border-color: #444c56; }
+    background-color: #2d353e;
+    border-color: #3b434c; }
   .dark-theme .comment_content blockquote,
   .dark-theme .serendipity_comment_author_self h4 .pc-owner {
     border-color: #535b66; }
