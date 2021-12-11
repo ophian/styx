@@ -359,7 +359,8 @@ img#daynight {
   .dark-theme #navbar ul {
     background-color: #22272e; }
   .dark-theme .freetag_cloud .serendipity_freetag_taglist {
-    background-color: initial; }
+    background-color: #cdd9e5;
+    color: #22272e; }
   .dark-theme #staticpage_nav .staticpage_navigation_breadcrumb {
     background-color: #444c56; }
   .dark-theme #staticpage_nav {
