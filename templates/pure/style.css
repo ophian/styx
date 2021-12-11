@@ -229,6 +229,12 @@ img#daynight {
   .dark-theme .navbar a,
   .dark-theme footer {
     color: #c0c4d1 !important; }
+  .dark-theme #navbar ul {
+    background-image: -webkit-linear-gradient(top, #2d333b, #22272e);
+    background-image: -moz-linear-gradient(top, #2d333b, #22272e);
+    background-image: linear-gradient(to bottom, #2d333b, #22272e); }
+  .dark-theme #navbar ul {
+    background-color: #22272e; }
   .dark-theme #navbar a:visited {
     color: #ccdeef !important; }
   .dark-theme #navbar a:hover, .dark-theme #navbar a:focus {
@@ -352,12 +358,6 @@ img#daynight {
     box-shadow: none; }
   .dark-theme .staticpage_results, .dark-theme .serendipity_search, .dark-theme .serendipity_content_message, .dark-theme .content_msg .serendipity_msg_success, .dark-theme .msg_success, .dark-theme .serendipity_msg_notice, .dark-theme .msg_notice, .dark-theme .serendipity_msg_important, .dark-theme .msg_important, .dark-theme .msg_question, .dark-theme .serendipity_commentDirection {
     box-shadow: none; }
-  .dark-theme #navbar ul {
-    background-image: -webkit-linear-gradient(top, #2d333b, #22272e);
-    background-image: -moz-linear-gradient(top, #2d333b, #22272e);
-    background-image: linear-gradient(to bottom, #2d333b, #22272e); }
-  .dark-theme #navbar ul {
-    background-color: #22272e; }
   .dark-theme .freetag_cloud .serendipity_freetag_taglist {
     background-color: #cdd9e5;
     color: #22272e; }
