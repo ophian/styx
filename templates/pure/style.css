@@ -239,7 +239,10 @@ img#daynight {
   .dark-theme .card {
     border-color: #444c56; }
   .dark-theme hr {
-    color: #444c56; }
+    color: #444c56;
+    border-color: inherit;
+    border: 0;
+    border-top: 1px solid #444c56; }
   .dark-theme .float {
     box-shadow: 0 0 0 0 transparent;
     background-color: #3c3c3c; }
