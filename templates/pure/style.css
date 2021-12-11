@@ -236,6 +236,23 @@ img#daynight {
     color: #222 !important; }
   .dark-theme .navbar-nav .active {
     color: #fff; }
+  .dark-theme input[type="date"], .dark-theme input[type="datetime"], .dark-theme input[type="datetime-local"], .dark-theme input[type="month"], .dark-theme input[type="number"], .dark-theme input[type="password"], .dark-theme input[type="time"], .dark-theme input[type="week"], .dark-theme input[type="email"], .dark-theme input[type="search"], .dark-theme input[type="tel"], .dark-theme input[type="url"], .dark-theme select, .dark-theme textarea, .dark-theme textarea:invalid, .dark-theme input[type="text"], .dark-theme input:invalid {
+    background-color: #22272e;
+    border-color: #444c56 #444c56 #555d6b;
+    color: #adbac7; }
+  .dark-theme form button, .dark-theme input[type="button"], .dark-theme input[type="reset"], .dark-theme input[type="submit"] {
+    background-color: #444c56 !important;
+    background-image: -webkit-linear-gradient(top, #444c56, #535) !important;
+    background-image: linear-gradient(to bottom, #444c56, #535) !important;
+    text-shadow: none;
+    border-color: #444c56;
+    color: #a3aaba; }
+  .dark-theme form button:active, .dark-theme form button:visited, .dark-theme form button:hover, .dark-theme form button:focus, .dark-theme input[type="button"]:active, .dark-theme input[type="button"]:visited, .dark-theme input[type="button"]:hover, .dark-theme input[type="button"]:focus, .dark-theme input[type="reset"]:active, .dark-theme input[type="reset"]:visited, .dark-theme input[type="reset"]:hover, .dark-theme input[type="reset"]:focus, .dark-theme input[type="submit"]:active, .dark-theme input[type="submit"]:visited, .dark-theme input[type="submit"]:hover, i.dark-theme nput[type="submit"]:focus {
+    color: #cdd9e5; }
+  .dark-theme form button[disabled], .dark-theme select[disabled], .dark-theme select[disabled] option, .dark-theme select[disabled] optgroup, .dark-theme textarea[disabled], .dark-theme input[disabled] {
+    color: #3c3c3c; }
+  .dark-theme .has-error .form-control {
+    border-color: #535; }
   .dark-theme .card {
     border-color: #444c56; }
   .dark-theme hr {
@@ -333,23 +350,6 @@ img#daynight {
   .dark-theme .serendipity_commentDirection {
     background: transparent;
     box-shadow: none; }
-  .dark-theme input[type="date"], .dark-theme input[type="datetime"], .dark-theme input[type="datetime-local"], .dark-theme input[type="month"], .dark-theme input[type="number"], .dark-theme input[type="password"], .dark-theme input[type="time"], .dark-theme input[type="week"], .dark-theme input[type="email"], .dark-theme input[type="search"], .dark-theme input[type="tel"], .dark-theme input[type="url"], .dark-theme select, .dark-theme textarea, .dark-theme textarea:invalid, .dark-theme input[type="text"], .dark-theme input:invalid {
-    background-color: #22272e;
-    border-color: #444c56 #444c56 #555d6b;
-    color: #adbac7; }
-  .dark-theme form button, .dark-theme input[type="button"], .dark-theme input[type="reset"], .dark-theme input[type="submit"] {
-    background-color: #444c56 !important;
-    background-image: -webkit-linear-gradient(top, #444c56, #535) !important;
-    background-image: linear-gradient(to bottom, #444c56, #535) !important;
-    text-shadow: none;
-    border-color: #444c56;
-    color: #a3aaba; }
-  .dark-theme form button:active, .dark-theme form button:visited, .dark-theme form button:hover, .dark-theme form button:focus, .dark-theme input[type="button"]:active, .dark-theme input[type="button"]:visited, .dark-theme input[type="button"]:hover, .dark-theme input[type="button"]:focus, .dark-theme input[type="reset"]:active, .dark-theme input[type="reset"]:visited, .dark-theme input[type="reset"]:hover, .dark-theme input[type="reset"]:focus, .dark-theme input[type="submit"]:active, .dark-theme input[type="submit"]:visited, .dark-theme input[type="submit"]:hover, i.dark-theme nput[type="submit"]:focus {
-    color: #cdd9e5; }
-  .dark-theme form button[disabled], .dark-theme select[disabled], .dark-theme select[disabled] option, .dark-theme select[disabled] optgroup, .dark-theme textarea[disabled], .dark-theme input[disabled] {
-    color: #3c3c3c; }
-  .dark-theme .has-error .form-control {
-    border-color: #535; }
   .dark-theme .staticpage_results, .dark-theme .serendipity_search, .dark-theme .serendipity_content_message, .dark-theme .content_msg .serendipity_msg_success, .dark-theme .msg_success, .dark-theme .serendipity_msg_notice, .dark-theme .msg_notice, .dark-theme .serendipity_msg_important, .dark-theme .msg_important, .dark-theme .msg_question, .dark-theme .serendipity_commentDirection {
     box-shadow: none; }
   .dark-theme #navbar ul {
