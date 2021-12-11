@@ -361,10 +361,12 @@ img#daynight {
   .dark-theme .freetag_cloud .serendipity_freetag_taglist {
     background-color: #cdd9e5;
     color: #22272e; }
-  .dark-theme #staticpage_nav .staticpage_navigation_breadcrumb {
-    background-color: #444c56; }
   .dark-theme #staticpage_nav {
     border-color: #444c56; }
+    .dark-theme #staticpage_nav .staticpage_navigation_dummy {
+      color: #545d68; }
+    .dark-theme #staticpage_nav .staticpage_navigation_breadcrumb {
+      background-color: #444c56; }
   .dark-theme .cke_inner,
   .dark-theme .cke_wysiwyg_frame, .dark-theme .cke_wysiwyg_div {
     background-color: #1b1f23; }
