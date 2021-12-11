@@ -253,6 +253,9 @@ img#daynight {
     color: #a3aaba; }
   .dark-theme form button:active, .dark-theme form button:visited, .dark-theme form button:hover, .dark-theme form button:focus, .dark-theme input[type="button"]:active, .dark-theme input[type="button"]:visited, .dark-theme input[type="button"]:hover, .dark-theme input[type="button"]:focus, .dark-theme input[type="reset"]:active, .dark-theme input[type="reset"]:visited, .dark-theme input[type="reset"]:hover, .dark-theme input[type="reset"]:focus, .dark-theme input[type="submit"]:active, .dark-theme input[type="submit"]:visited, .dark-theme input[type="submit"]:hover, i.dark-theme nput[type="submit"]:focus {
     color: #cdd9e5; }
+  .dark-theme form button:focus, .dark-theme input[type="button"]:focus, .dark-theme input[type="reset"]:focus, .dark-theme input[type="submit"]:focus {
+    box-shadow: #cdd9e5 0 0 5px 0;
+    border: none; }
   .dark-theme form button[disabled], .dark-theme select[disabled], .dark-theme select[disabled] option, .dark-theme select[disabled] optgroup, .dark-theme textarea[disabled], .dark-theme input[disabled] {
     color: #3c3c3c; }
   .dark-theme .has-error .form-control {
