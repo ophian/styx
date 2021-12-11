@@ -239,8 +239,6 @@ img#daynight {
     .dark-theme #navbar a:hover, .dark-theme #navbar a:focus {
       background-color: #ccdee7 !important;
       color: #222 !important; }
-    .dark-theme .navbar-nav .active {
-      color: #fff; }
   .dark-theme input[type="date"], .dark-theme input[type="datetime"], .dark-theme input[type="datetime-local"], .dark-theme input[type="month"], .dark-theme input[type="number"], .dark-theme input[type="password"], .dark-theme input[type="time"], .dark-theme input[type="week"], .dark-theme input[type="email"], .dark-theme input[type="search"], .dark-theme input[type="tel"], .dark-theme input[type="url"], .dark-theme select, .dark-theme textarea, .dark-theme textarea:invalid, .dark-theme input[type="text"], .dark-theme input:invalid {
     background-color: #22272e;
     border-color: #444c56 #444c56 #555d6b;
