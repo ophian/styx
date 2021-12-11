@@ -209,11 +209,12 @@ img#daynight {
 .dark-theme {
   background-color: #1c2128;
   color: #cbcbcb; }
-  .dark-theme #serendipity_banner,
   .dark-theme #content,
   .dark-theme #serendipityLeftSideBar,
   .dark-theme #serendipityRightSideBar {
     background: #2d333b; }
+  .dark-theme #serendipity_banner {
+    background-color: #232b33; }
   .dark-theme #footer,
   .dark-theme #menubar_mobile {
     box-shadow: 0 2px 3px rgba(0,0,0,.5), 0 -2px 3px rgba(0,0,0,.5);
