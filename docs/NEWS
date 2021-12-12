@@ -1,6 +1,8 @@
 Version 3.7-DEV ()
  ------------------------------------------------------------------------
 
+  * Add [ pure ] dark-theme via data-attribute for scrollbar colors
+
   * Improve [ pure ] dark-theme button for devices
 
   * Improve [ pure ] dark-theme styles for better contrast and depending colors
