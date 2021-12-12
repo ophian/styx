@@ -210,11 +210,11 @@ img#daynight {
   background-color: #1c2128;
   color: #cbcbcb; }
   /* Works on Chrome, Edge, and Safari */
-  html[data-dark-mode="dark"] *::-webkit-scrollbar {
+  html[data-dark-theme="dark"] *::-webkit-scrollbar {
     width: 12px; }
-  html[data-dark-mode="dark"] *::-webkit-scrollbar-track {
+  html[data-dark-theme="dark"] *::-webkit-scrollbar-track {
     background: #1c2128; }
-  html[data-dark-mode="dark"] *::-webkit-scrollbar-thumb {
+  html[data-dark-theme="dark"] *::-webkit-scrollbar-thumb {
     background-color: #76787b;
     border-radius: 20px;
     border: 3px solid #1c2128; }
