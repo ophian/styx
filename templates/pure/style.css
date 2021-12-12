@@ -209,6 +209,19 @@ img#daynight {
 .dark-theme {
   background-color: #1c2128;
   color: #cbcbcb; }
+  /* Works on Chrome, Edge, and Safari */
+  html[data-dark-mode="dark"] *::-webkit-scrollbar {
+    width: 12px; }
+  html[data-dark-mode="dark"] *::-webkit-scrollbar-track {
+    background: #1c2128; }
+  html[data-dark-mode="dark"] *::-webkit-scrollbar-thumb {
+    background-color: #76787b;
+    border-radius: 20px;
+    border: 3px solid #1c2128; }
+  /* Others Browsers */
+  html[data-dark-theme="dark"], body.dark-theme, .dark-theme ol, .dark-theme ul, .dark-theme select, .dark-theme textarea {
+    scrollbar-width: thin;
+    scrollbar-color: #8899b1 #1c2128; }
   .dark-theme #content,
   .dark-theme #serendipityLeftSideBar,
   .dark-theme #serendipityRightSideBar {
