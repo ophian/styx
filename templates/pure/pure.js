@@ -51,6 +51,17 @@ checkWebP(function(support) {
     }
 });
 
+/* dark mode callback with CKEBasic */
+function switchCKEditorMode(mode) {
+    if (typeof baseUrl !== 'undefined' && baseUrl !== null) {
+        if (mode == 'dark') {
+            $("#cke_1_contents iframe").contents().find('html').attr('data-dark-mode', 'dark'); // only jquery seems able to do that to the iframe
+        } else {
+            $("#cke_1_contents iframe").contents().find('html').attr('data-dark-mode', 'light');
+        }
+    }
+};
+
 let dark_mode = sessionStorage.getItem('dark_mode');
 
 if (dark_mode == null) {
@@ -83,11 +94,14 @@ const dark = () => {
         icon = document.getElementById("dark-mode-icon").className = 'bi bi-moon';
         document.documentElement.removeAttribute('data-dark-theme');
         document.getElementById('daynight').src = themePath + '/icons/moon-fill.svg';
+        switchCKEditorMode('light');
     } else {
         sessionStorage.setItem("dark_mode", "dark");
         icon = document.getElementById("dark-mode-icon").className = 'bi bi-sun';
         document.documentElement.setAttribute('data-dark-theme', 'dark');
-        document.getElementById('daynight').src = themePath + '/icons/sun-fill.svg';        }
+        document.getElementById('daynight').src = themePath + '/icons/sun-fill.svg';
+        switchCKEditorMode('dark');
+    }
 }
 
 (function($) {
