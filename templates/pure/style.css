@@ -415,6 +415,24 @@ img#daynight {
     background-image: linear-gradient(#444c56,#2d333b) !important;
     border-color: #636e7b !important; }
 
+/* toolbar and cke content CKEditor switch mode workaround styles */
+/* for to-light-mode switch w/o page reload */
+:not([data-dark-theme="dark"]) .cke_top {
+  border-style: inset;
+  border-color: #1c212817;
+  border-width: 1px; }
+  :not([data-dark-theme="dark"]) .cke_contents.cke_reset {
+    overflow-y: hidden; }
+/* for to-dark-mode switch w/o page reload */
+[data-dark-theme="dark"] .cke_chrome {
+  border: 1px solid transparent; }
+  [data-dark-theme="dark"] .cke_top {
+    background: #2d333b;
+    border: 0 none;
+    border-bottom: 1px solid #444c56;
+    -webkit-box-shadow: 0 1px 0 rgb(255 255 255 / 15%) inset;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 15%) inset; }
+
 
 /* defaults */
 
