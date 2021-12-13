@@ -1,6 +1,9 @@
 Version 3.7-DEV ()
  ------------------------------------------------------------------------
 
+  * Workaround [ pure ] sticky mode coloring switching the light/dark mode on
+    CKEeditor textarea fields without a page reload.
+
   * Change [ pure ] .dark-theme class selector prefix to the new data-attribute
     for stringent simplification.
 
