@@ -1,3 +1,5 @@
+html[data-dark-mode="dark"],[data-dark-mode="dark"] body{background:#1c2128;color:#adbac7}html[data-dark-mode="light"],[data-dark-mode="light"] body{background-color:#fff;color:#333}
+
 /*
 Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
