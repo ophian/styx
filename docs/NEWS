@@ -1,6 +1,9 @@
 Version 3.7-DEV ()
  ------------------------------------------------------------------------
 
+  * Change [ pure ] .dark-theme class selector prefix to the new data-attribute
+    for stringent simplification.
+
   * Add [ pure ] dark-theme via data-attribute for scrollbar colors
 
   * Improve [ pure ] dark-theme button for devices
