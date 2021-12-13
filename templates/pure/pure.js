@@ -56,7 +56,6 @@ let dark_mode = sessionStorage.getItem('dark_mode');
 if (dark_mode == null) {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches || dark_mode == "dark") {
         document.documentElement.setAttribute('data-dark-theme', 'dark');
-        document.body.classList.add("dark-theme");
         sessionStorage.setItem("dark_mode", "dark");
         icon = document.getElementById("dark-mode-icon").className = 'bi bi-sun';
         document.getElementById('daynight').src = themePath + '/icons/sun-fill.svg';
@@ -65,14 +64,12 @@ if (dark_mode == null) {
     }
 } else if (dark_mode == 'dark') {
     document.documentElement.setAttribute('data-dark-theme', 'dark');
-    document.body.classList.add("dark-theme");
     sessionStorage.setItem("dark_mode", "dark");
     icon = document.getElementById("dark-mode-icon").className = 'bi bi-sun';
     document.getElementById('daynight').src = themePath + '/icons/sun-fill.svg';
     document.getElementById('blink').title = "Theme: Light (Browser preferences|Session override)";
 } else {
     document.documentElement.removeAttribute('data-dark-theme');
-    document.body.classList.remove("dark-theme");
     sessionStorage.setItem("dark_mode", "light");
     icon = document.getElementById("dark-mode-icon").className = 'bi bi-moon';
     document.getElementById('daynight').src = themePath + '/icons/moon-fill.svg';
@@ -85,13 +82,11 @@ const dark = () => {
         sessionStorage.setItem("dark_mode", "light");
         icon = document.getElementById("dark-mode-icon").className = 'bi bi-moon';
         document.documentElement.removeAttribute('data-dark-theme');
-        document.body.classList.remove("dark-theme");
         document.getElementById('daynight').src = themePath + '/icons/moon-fill.svg';
     } else {
         sessionStorage.setItem("dark_mode", "dark");
         icon = document.getElementById("dark-mode-icon").className = 'bi bi-sun';
         document.documentElement.setAttribute('data-dark-theme', 'dark');
-        document.body.classList.add("dark-theme");
         document.getElementById('daynight').src = themePath + '/icons/sun-fill.svg';        }
 }
 
