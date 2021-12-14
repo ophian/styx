@@ -292,9 +292,9 @@ img#daynight {
   [data-dark-theme="dark"] #serendipityRightSideBar,
   [data-dark-theme="dark"] .serendipity_commentForm,
   [data-dark-theme="dark"] .content_msg, [data-dark-theme="dark"] .serendipity_content_message, [data-dark-theme="dark"] .serendipity_commentDirection,
-  [data-dark-theme="dark"] .archive_year,
   [data-dark-theme="dark"] table td {
     border-color: #444c56; }
+  [data-dark-theme="dark"] .archive_year,
   [data-dark-theme="dark"] .post table, [data-dark-theme="dark"] .post_content table,
   [data-dark-theme="dark"] .post_info, [data-dark-theme="dark"] .serendipity_entryFooter,
   [data-dark-theme="dark"] .serendipity_imageComment_center, [data-dark-theme="dark"] .serendipity_imageComment_left, [data-dark-theme="dark"] .serendipity_imageComment_right {
