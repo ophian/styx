@@ -340,14 +340,17 @@ img#daynight {
   [data-dark-theme="dark"] .comment.odd, [data-dark-theme="dark"] .comment.even, [data-dark-theme="dark"] .trackback.tb-odd, [data-dark-theme="dark"] .trackback.tb-even {
     border-color: #3b434c; }
   [data-dark-theme="dark"] .comment.odd {
-    background-color: #2b333b; }
+    background-color: #313740; }
   [data-dark-theme="dark"] .comment.odd > .comment_content {
-    background-color: #2e333b; }
+    background-color: #2c323b; }
   [data-dark-theme="dark"] pre,
   [data-dark-theme="dark"] .comment_content {
     border-color: #3b434c;
-    background-color: #20272e;
     color: #95989a; }
+  [data-dark-theme="dark"] .comment_content {
+    background-color: #2c323b; }
+  [data-dark-theme="dark"] pre {
+    background-color: #20272e; }
   [data-dark-theme="dark"] article.post.byauthor {
     background: #292f37;
     border-color: #444c56; }
