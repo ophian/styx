@@ -1698,8 +1698,9 @@ ol.plainList > .comment.commentlevel-16 {
 .comment_oddbox,
 .serendipity_comment.odd {
     background-color: #f8f8f8;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ddd #efefef;
 }
 .serendipity_section_commentform {
     font-size: 15px;
