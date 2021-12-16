@@ -29,12 +29,11 @@ CKEDITOR.editorConfig = function( config ) {
     // Allow dark mode
     if (typeof STYX_DARKMODE === 'undefined' || STYX_DARKMODE === null) STYX_DARKMODE = false;
     let sdrkmode = sessionStorage.getItem('dark_mode');
-    let ptrdrkmd = !(typeof baseUrl === 'undefined' || baseUrl === null); //pure theme dark mode
     config.skin = (STYX_DARKMODE === true ? 'moono-dark' : 'moono-lisa');
-    if (ptrdrkmd === true && STYX_DARKMODE !== true && document.getElementById('serendipity_commentform_comment') !== null
+    if (STYX_DARKMODE !== true && document.getElementById('serendipity_commentform_comment') !== null
     && ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && typeof sdrkmode === 'undefined' || sdrkmode === null) || sdrkmode === 'dark')) {
         config.skin = 'moono-dark';
-        config.contentsCss = [ baseUrl + 'templates/_assets/ckebasic/dark-contents.css' ]; // /archives/ID-entry comments only - the workaround with baseUrl is for people that removed the archives path
+        config.contentsCss = [ CKEDITOR.basePath + 'dark-contents.css' ];
     }
 
     // The default plugins included in the basic setup define some buttons that
