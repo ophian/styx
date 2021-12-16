@@ -24,9 +24,6 @@
     <link rel="trackback" type="application/x-www-form-urlencoded" href="{$serendipityBaseURL}comment.php?type=trackback&amp;entry_id={$entry_id}">
     <link rel="pingback" href="{$serendipityBaseURL}comment.php?type=pingback&amp;entry_id={$entry_id}">
 {/if}
-{if $entry_id OR $view == 'plugin'}
-    <script> const baseUrl = '{$serendipityBaseURL}'; </script>
-{/if}
 {serendipity_hookPlugin hook="frontend_header"}
 </head>
 <body class="grid-{if $leftSidebarElements > 0 AND $rightSidebarElements > 0}col{elseif $leftSidebarElements > 0 OR $rightSidebarElements > 0}flex{else}block{/if}">
