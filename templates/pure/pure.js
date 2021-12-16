@@ -71,6 +71,7 @@ if (dark_mode == null) {
         document.getElementById("dark-mode-icon").className = 'bi bi-sun';
         document.getElementById('daynight').src = themePath + '/icons/sun-fill.svg';
     } else {
+        sessionStorage.setItem("dark_mode", "light");
         document.getElementById("dark-mode-icon").className = "bi bi-moon";
     }
 } else if (dark_mode == 'dark') {
