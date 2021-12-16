@@ -53,9 +53,9 @@ checkWebP(function(support) {
 
 /* dark mode callback with CKEBasic */
 function switchCKEditorMode(mode) {
-    if (typeof baseUrl !== 'undefined' && baseUrl !== null) {
+    if (typeof CKEDITOR.basePath !== 'undefined' && CKEDITOR.basePath !== null) {
         if (mode == 'dark') {
-            $("#cke_1_contents iframe").contents().find('html').attr('data-dark-mode', 'dark'); // only jquery seems able to do that to the iframe
+            $("#cke_1_contents iframe").contents().find('html').attr('data-dark-mode', 'dark'); // only jQuery seems able to do that to the iframe
         } else {
             $("#cke_1_contents iframe").contents().find('html').attr('data-dark-mode', 'light');
         }
