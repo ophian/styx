@@ -1,6 +1,10 @@
 Version 3.7-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve [ pure & ckebasic ] switching the light/dark mode on CKEbasic forms
+    related to browsers prefers-color-scheme: dark startup default settings and
+    the session stored chosen current mode.
+
   * Remove [ pure ] theme defining js baseURL for CKEDITOR [dark-theme] related
     internal path configurations.
 
