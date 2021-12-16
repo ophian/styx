@@ -26,12 +26,11 @@ CKEDITOR.editorConfig = function( config ) {
         { name: 'about' }
     ];
 
-    // Allow dark mode
     if (typeof STYX_DARKMODE === 'undefined' || STYX_DARKMODE === null) STYX_DARKMODE = false;
-    let sdrkmode = sessionStorage.getItem('dark_mode');
+    let sisdark = sessionStorage.getItem('dark_mode');
     config.skin = (STYX_DARKMODE === true ? 'moono-dark' : 'moono-lisa');
     if (STYX_DARKMODE !== true && document.getElementById('serendipity_commentform_comment') !== null
-    && ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && typeof sdrkmode === 'undefined' || sdrkmode === null) || sdrkmode === 'dark')) {
+    && ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && (typeof sisdark !== 'undefined' && sisdark !== null && sisdark !== 'light')) || sisdark === 'dark')) {
         config.skin = 'moono-dark';
         config.contentsCss = [ CKEDITOR.basePath + 'dark-contents.css' ];
     }
