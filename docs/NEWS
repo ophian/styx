@@ -1,6 +1,9 @@
 Version 3.7-DEV ()
  ------------------------------------------------------------------------
 
+  * Remove [ pure ] theme defining js baseURL for CKEDITOR [dark-theme] related
+    internal path configurations.
+
   * Workaround [ pure ] sticky mode coloring switching the light/dark mode on
     CKEeditor textarea fields without a page reload.
 
