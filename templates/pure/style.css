@@ -439,8 +439,8 @@ img#daynight {
     background: #2d333b;
     border: 0 none;
     border-bottom: 1px solid #444c56;
-    -webkit-box-shadow: 0 1px 0 rgb(255 255 255 / 15%) inset;
-    box-shadow: 0 1px 0 rgb(255 255 255 / 15%) inset; }
+    -webkit-box-shadow: 0 1px 0 #353b44 inset;
+    box-shadow: 0 1px 0 #353b44 inset; }
 
 
 /* defaults */
