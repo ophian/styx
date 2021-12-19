@@ -427,11 +427,11 @@ img#daynight {
 /* toolbar and cke content CKEditor switch mode workaround styles */
 /* for to-light-mode switch w/o page reload */
 :not([data-dark-theme="dark"]) .cke_top {
+  background: #f8f8f8;
   border-style: inset;
   border-color: #1c212817;
-  border-width: 1px; }
-  :not([data-dark-theme="dark"]) .cke_contents.cke_reset {
-    overflow-y: hidden; }
+  border-width: 1px;
+  border-bottom: 1px solid #d1d1d1;}
 /* for to-dark-mode switch w/o page reload */
 [data-dark-theme="dark"] .cke_chrome {
   border: 1px solid transparent; }
