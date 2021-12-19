@@ -257,7 +257,7 @@ img#daynight {
       color: #222 !important; }
   [data-dark-theme="dark"] input[type="date"], [data-dark-theme="dark"] input[type="datetime"], [data-dark-theme="dark"] input[type="datetime-local"], [data-dark-theme="dark"] input[type="month"], [data-dark-theme="dark"] input[type="number"], [data-dark-theme="dark"] input[type="password"], [data-dark-theme="dark"] input[type="time"], [data-dark-theme="dark"] input[type="week"], [data-dark-theme="dark"] input[type="email"], [data-dark-theme="dark"] input[type="search"], [data-dark-theme="dark"] input[type="tel"], [data-dark-theme="dark"] input[type="url"], [data-dark-theme="dark"] select, [data-dark-theme="dark"] textarea, [data-dark-theme="dark"] textarea:invalid, [data-dark-theme="dark"] input[type="text"], [data-dark-theme="dark"] input:invalid {
     background-color: #22272e;
-    border-color: #444c56 #444c56 #555d6b;
+    border-color: #373e47 #373e47 #444c45;
     color: #adbac7; }
   [data-dark-theme="dark"] form button, [data-dark-theme="dark"] input[type="button"], [data-dark-theme="dark"] input[type="reset"], [data-dark-theme="dark"] input[type="submit"] {
     background-color: #444c56 !important;
