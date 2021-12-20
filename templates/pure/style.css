@@ -208,7 +208,7 @@ img#daynight {
 /* more or less sectioned dark-theme styles */
 [data-dark-theme="dark"] body {
   background-color: #1c2128;
-  color: #cbcbcb; }
+  color: #adbac7; }
   /* Works on Chrome, Edge, and Safari */
   html[data-dark-theme="dark"] *::-webkit-scrollbar {
     width: 12px; }
