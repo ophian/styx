@@ -147,6 +147,22 @@ embed, object, audio, video, img {
 img, video {
   height: auto; }
 
+/* scrollbar */
+
+/* Works on Chrome, Edge, and Safari */
+html *::-webkit-scrollbar {
+  width: 12px; }
+html *::-webkit-scrollbar-track {
+  background: #f5f5f5; }
+html *::-webkit-scrollbar-thumb {
+  background-color: #1c2128;
+  border-radius: 20px;
+  border: 3px solid #f5f5f5; }
+/* Others Browsers */
+html, body, ol, ul, select, textarea {
+  scrollbar-width: thin;
+  scrollbar-color: #1c2128 #f5f5f5; }
+
 /* dark-theme */
 
 /* the button */
@@ -210,17 +226,13 @@ img#daynight {
   background-color: #1c2128;
   color: #adbac7; }
   /* Works on Chrome, Edge, and Safari */
-  html[data-dark-theme="dark"] *::-webkit-scrollbar {
-    width: 12px; }
   html[data-dark-theme="dark"] *::-webkit-scrollbar-track {
     background: #1c2128; }
   html[data-dark-theme="dark"] *::-webkit-scrollbar-thumb {
     background-color: #76787b;
-    border-radius: 20px;
-    border: 3px solid #1c2128; }
+    border-color: #1c2128; }
   /* Others Browsers */
   html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="dark"] ol, [data-dark-theme="dark"] ul, [data-dark-theme="dark"] select, [data-dark-theme="dark"] textarea {
-    scrollbar-width: thin;
     scrollbar-color: #8899b1 #1c2128; }
   [data-dark-theme="dark"] #content,
   [data-dark-theme="dark"] #serendipityLeftSideBar,
