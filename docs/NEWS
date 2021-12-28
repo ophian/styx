@@ -1,6 +1,8 @@
 Version 3.7-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve [ pure ] theme scrollbar style for webkit/moz switching the dark mode
+
   * Bugfix backported MYSQLI_SQL_EXCEPTION regressions in PHP 7: "Incorrect integer
     value: '' for column entry_id" in spamblock Plugin logging, preventing success
     with contactform alike sent form calls.
