@@ -1,6 +1,8 @@
 Version 3.7-DEV ()
  ------------------------------------------------------------------------
 
+  * Add missing freetags/backlink entries footer assets to the [ pure ] theme
+
   * Improve [ pure ] theme scrollbar style for webkit/moz switching the dark mode
 
   * Bugfix backported MYSQLI_SQL_EXCEPTION regressions in PHP 7: "Incorrect integer
