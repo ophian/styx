@@ -221,21 +221,22 @@ img#daynight {
   text-decoration: none;
   white-space: nowrap; }
 
+/* Works on Chrome, Edge, and Safari */
+html[data-dark-theme="dark"] *::-webkit-scrollbar-track {
+  background: #1c2128; }
+html[data-dark-theme="dark"] *::-webkit-scrollbar-thumb {
+  background-color: #76787b;
+  border-color: #1c2128; }
+[data-dark-theme="dark"] ::-webkit-scrollbar-corner {
+   background-color: #22272f; }
+/* Others Browsers */
+html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="dark"] ol, [data-dark-theme="dark"] ul, [data-dark-theme="dark"] select, [data-dark-theme="dark"] textarea {
+  scrollbar-color: #8899b1 #1c2128; }
+
 /* more or less sectioned dark-theme styles */
 [data-dark-theme="dark"] body {
   background-color: #1c2128;
   color: #adbac7; }
-  /* Works on Chrome, Edge, and Safari */
-  html[data-dark-theme="dark"] *::-webkit-scrollbar-track {
-    background: #1c2128; }
-  html[data-dark-theme="dark"] *::-webkit-scrollbar-thumb {
-    background-color: #76787b;
-    border-color: #1c2128; }
-  [data-dark-theme="dark"] ::-webkit-scrollbar-corner {
-     background-color: #22272f; }
-  /* Others Browsers */
-  html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="dark"] ol, [data-dark-theme="dark"] ul, [data-dark-theme="dark"] select, [data-dark-theme="dark"] textarea {
-    scrollbar-color: #8899b1 #1c2128; }
   [data-dark-theme="dark"] #content,
   [data-dark-theme="dark"] #serendipityLeftSideBar,
   [data-dark-theme="dark"] #serendipityRightSideBar {
