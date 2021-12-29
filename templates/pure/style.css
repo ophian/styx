@@ -227,7 +227,7 @@ html[data-dark-theme="dark"] *::-webkit-scrollbar-track {
 html[data-dark-theme="dark"] *::-webkit-scrollbar-thumb {
   background-color: #76787b;
   border-color: #1c2128; }
-[data-dark-theme="dark"] ::-webkit-scrollbar-corner {
+[data-dark-theme="dark"] *::-webkit-scrollbar-corner {
    background-color: #22272f; }
 /* Others Browsers */
 html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="dark"] ol, [data-dark-theme="dark"] ul, [data-dark-theme="dark"] select, [data-dark-theme="dark"] textarea {
@@ -1252,10 +1252,10 @@ img.serendipity_entryIcon {
 
 /** Event Plugins **/
 
-li.post_category {
+li.post_category, li.post_comments, li.post_tags {
     margin-bottom: .5em;
 }
-.post_category span {
+.post_category span, .post_comments span, .post_tags span, .post_admin span {
     font-weight: bold;
 }
 
