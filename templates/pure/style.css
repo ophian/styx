@@ -401,7 +401,7 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
   [data-dark-theme="dark"] .freetag_cloud .serendipity_freetag_taglist {
     background-color: transparent;
     color: #cdd9e5; }
-    [data-dark-theme="dark"] .freetag_cloud .serendipity_freetag_taglist .freetag_wordcloud {
+    [data-dark-theme="dark"] .freetag_cloud .serendipity_freetag_taglist .freetag_wordcloud, [data-dark-theme="dark"] .freetag_cloud .serendipity_freetag_taglist .rotaCanvas {
       background-color: #cdd9e5;
       color: #22272e; }
   [data-dark-theme="dark"] #staticpage_nav {
