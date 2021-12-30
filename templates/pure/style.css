@@ -1252,10 +1252,17 @@ img.serendipity_entryIcon {
 
 /** Event Plugins **/
 
-li.post_category, li.post_comments, li.post_tags {
+li.post_category, li.post_comments, li.post_tags, li.post_reltags {
     margin-bottom: .5em;
 }
-.post_category span, .post_comments span, .post_tags span, .post_admin span {
+li.post_reltags {
+  margin-top: .5em;
+}
+li.post_reltags ul li {
+  margin-left: 1em;
+  padding-top: .25em;
+}
+.post_category span, .post_comments span, .post_tags span, .post_admin span, .post_reltags span {
     font-weight: bold;
 }
 
