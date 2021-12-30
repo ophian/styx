@@ -399,8 +399,11 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
   [data-dark-theme="dark"] .staticpage_results, [data-dark-theme="dark"] .serendipity_search, [data-dark-theme="dark"] .serendipity_content_message, [data-dark-theme="dark"] .content_msg .serendipity_msg_success, [data-dark-theme="dark"] .msg_success, [data-dark-theme="dark"] .serendipity_msg_notice, [data-dark-theme="dark"] .msg_notice, [data-dark-theme="dark"] .serendipity_msg_important, [data-dark-theme="dark"] .msg_important, [data-dark-theme="dark"] .msg_question, [data-dark-theme="dark"] .serendipity_commentDirection {
     box-shadow: none; }
   [data-dark-theme="dark"] .freetag_cloud .serendipity_freetag_taglist {
-    background-color: #cdd9e5;
-    color: #22272e; }
+    background-color: transparent;
+    color: #cdd9e5; }
+    [data-dark-theme="dark"] .freetag_cloud .serendipity_freetag_taglist .freetag_wordcloud {
+      background-color: #cdd9e5;
+      color: #22272e; }
   [data-dark-theme="dark"] #staticpage_nav {
     border-color: #444c56; }
     [data-dark-theme="dark"] #staticpage_nav .staticpage_navigation_dummy {
