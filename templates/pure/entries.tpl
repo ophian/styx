@@ -28,7 +28,7 @@
         </div>
         {/if}
 {if NOT $is_preview}
-    {if NOT empty($entry.categories) OR $entry.has_comments OR $entry.has_trackbacks}
+    {if NOT empty($entry.categories) OR $entry.has_comments OR $entry.has_trackbacks OR NOT empty($entry.freetag.extended) OR NOT empty($entry.is_entry_owner)}
 
         <footer class="serendipity_entryFooter post_info{if isset($view) AND $view != 'entry'} listed_view{/if}">
             <ul class="plainList">
