@@ -1,7 +1,8 @@
 Version 3.7-DEV ()
  ------------------------------------------------------------------------
 
-  * Add missing freetags/backlink entries footer assets to the [ pure ] theme
+  * Add missing freetags/backlink footer assets for freetag Smarty extend case
+    to the [ pure ] themes entries.tpl file.
 
   * Improve [ pure ] theme scrollbar style for webkit/moz switching the dark mode
 
