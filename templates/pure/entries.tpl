@@ -36,7 +36,7 @@
 
                 <li class="post_category"><span>{$CONST.CATEGORIES}: </span>{foreach $entry.categories AS $entry_category}<a class="post_category" href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}</li>
             {/if}
-{if $entry.has_comments OR $entry.has_trackbacks OR NOT empty($entry.has_disqus)}
+        {if $entry.has_comments OR $entry.has_trackbacks OR NOT empty($entry.has_disqus)}
 
                 <li class="post_comments">
             {if isset($entry.has_disqus) AND $entry.has_disqus}
@@ -52,8 +52,8 @@
             {/if}
 
                 </li>
-{/if}
-{if NOT empty($entry.freetag.tags.tags) AND $entry.freetag.extended === true}
+        {/if}
+        {if NOT empty($entry.freetag.tags.tags) AND $entry.freetag.extended === true}
 
                 <li class="post_tags">
                 {if $view != 'entry'}
@@ -64,11 +64,11 @@
                     </svg>
                 {else}<span>{$CONST.PLUGIN_EVENT_FREETAG_TITLE}: </span>
                 {/if}
-                    {if NOT $is_preview}{foreach $entry.freetag.tags.tags AS $tag}{$tag}{if NOT $tag@last}, {/if}{/foreach}{/if}
+                    {foreach $entry.freetag.tags.tags AS $tag}{$tag}{if NOT $tag@last}, {/if}{/foreach}
 
                 </li>
-{/if}
-{if NOT empty($entry.is_entry_owner) AND NOT $is_preview}
+        {/if}
+        {if NOT empty($entry.is_entry_owner)}
 
                 <li class="post_admin editentrylink">
                     {if $view == 'entry'}<span>{$CONST.ADMIN}: </span>{/if}
@@ -76,8 +76,8 @@
                       {if $view == 'entry'}{$CONST.EDIT_ENTRY}{else}{$CONST.EDIT}{/if}
                     </a>
                 </li>
-{/if}
-{if $view == 'entry' AND NOT $is_preview AND NOT empty($entry.freetag.related.entries) AND $entry.freetag.extended === true}
+        {/if}
+        {if $view == 'entry' AND NOT empty($entry.freetag.related.entries) AND $entry.freetag.extended === true}
 
                 <li class="post_reltags">
                     <span>{$entry.freetag.related.description}</span>
@@ -85,7 +85,7 @@
                         {foreach $entry.freetag.related.entries AS $reltag}<li>{$reltag}</li>{/foreach}
                     </ul>
                 </li>
-{/if}
+        {/if}
 
             </ul>
             {if isset($view) AND $view == 'entry'}{$entry.add_footer|default:''}{/if}
