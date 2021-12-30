@@ -30,7 +30,7 @@
 {if NOT $is_preview}
     {if NOT empty($entry.categories) OR $entry.has_comments OR $entry.has_trackbacks OR NOT empty($entry.freetag.extended) OR NOT empty($entry.is_entry_owner)}
 
-        <footer class="serendipity_entryFooter post_info{if isset($view) AND $view != 'entry'} listed_view{/if}">
+        <footer class="serendipity_entryFooter post_info{if NOT isset($view) OR $view != 'entry'} listed_view{/if}">
             <ul class="plainList">
             {if NOT empty($entry.categories)}
 
@@ -56,7 +56,7 @@
         {if NOT empty($entry.freetag.tags.tags) AND $entry.freetag.extended === true}
 
                 <li class="post_tags">
-                {if $view != 'entry'}
+                {if NOT isset($view) OR $view != 'entry'}
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-tags-fill" role="img" fill="#20c997" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title">
                       <title id="bittag">FreeTags</title>
                       <path fill-rule="evenodd" d="M3 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 7.586 1H3zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
@@ -71,13 +71,13 @@
         {if NOT empty($entry.is_entry_owner)}
 
                 <li class="post_admin editentrylink">
-                    {if $view == 'entry'}<span>{$CONST.ADMIN}: </span>{/if}
+                    {if isset($view) AND $view == 'entry'}<span>{$CONST.ADMIN}: </span>{/if}
                     <a href="{$entry.link_edit}">
-                      {if $view == 'entry'}{$CONST.EDIT_ENTRY}{else}{$CONST.EDIT}{/if}
+                      {if isset($view) AND $view == 'entry'}{$CONST.EDIT_ENTRY}{else}{$CONST.EDIT}{/if}
                     </a>
                 </li>
         {/if}
-        {if $view == 'entry' AND NOT empty($entry.freetag.related.entries) AND $entry.freetag.extended === true}
+        {if isset($view) AND $view == 'entry' AND NOT empty($entry.freetag.related.entries) AND $entry.freetag.extended === true}
 
                 <li class="post_reltags">
                     <span>{$entry.freetag.related.description}</span>
