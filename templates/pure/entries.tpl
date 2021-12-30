@@ -53,7 +53,7 @@
 
                 </li>
 {/if}
-{if NOT empty($entry.freetag.tags.tags)}
+{if NOT empty($entry.freetag.tags.tags) AND $entry.freetag.extended === true}
 
                 <li class="post_tags">
                 {if $view != 'entry'}
@@ -75,6 +75,15 @@
                     <a href="{$entry.link_edit}">
                       {if $view == 'entry'}{$CONST.EDIT_ENTRY}{else}{$CONST.EDIT}{/if}
                     </a>
+                </li>
+{/if}
+{if $view == 'entry' AND NOT $is_preview AND NOT empty($entry.freetag.related.entries) AND $entry.freetag.extended === true}
+
+                <li class="post_reltags">
+                    <span>{$entry.freetag.related.description}</span>
+                    <ul class="plainList">
+                        {foreach $entry.freetag.related.entries AS $reltag}<li>{$reltag}</li>{/foreach}
+                    </ul>
                 </li>
 {/if}
 
