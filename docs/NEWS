@@ -1,4 +1,4 @@
-Version 3.7-DEV ()
+Version 3.7.1 (December, 31th 2021)
  ------------------------------------------------------------------------
 
   * Add missing freetags/backlink footer assets for freetag Smarty extend case
@@ -9,7 +9,6 @@ Version 3.7-DEV ()
   * Bugfix backported MYSQLI_SQL_EXCEPTION regressions in PHP 7: "Incorrect integer
     value: '' for column entry_id" in spamblock Plugin logging, preventing success
     with contactform alike sent form calls.
-
 
 
 Version 3.7.0 (December, 21th 2021)
