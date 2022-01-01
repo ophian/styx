@@ -33,8 +33,7 @@
 {if $is_raw_mode != true}
 
     <button id="blink" class="navbar-shader btn float" onclick="dark()" title="Theme: Dark (Browser preferences|Session override)">
-        <i id="dark-mode-icon" class="bi bi-moon-fill"></i>
-        <img id="daynight" src="{$serendipityHTTPPath}{$templatePath}{$template}/icons/sun-fill.svg" width="30" height="30" alt="">
+        <img id="daynight" src="{$serendipityHTTPPath}{$templatePath}{$template}/icons/moon-fill.svg" width="30" height="30" alt="">
     </button>
 
     <header id="serendipity_banner"><a id="topofpage"></a>
