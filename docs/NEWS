@@ -1,6 +1,7 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Simplify [ pure ] theme [dark-theme] conditionals and fix button preset
 
 
 Version 3.7.1 (December, 31st 2021)
