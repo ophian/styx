@@ -57,22 +57,18 @@ if (dark_mode == null) {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches || dark_mode == "dark") {
         document.documentElement.setAttribute('data-dark-theme', 'dark');
         sessionStorage.setItem("dark_mode", "dark");
-        document.getElementById("dark-mode-icon").className = 'bi bi-sun';
         document.getElementById('daynight').src = themePath + '/icons/sun-fill.svg';
     } else {
         sessionStorage.setItem("dark_mode", "light");
-        document.getElementById("dark-mode-icon").className = "bi bi-moon";
     }
 } else if (dark_mode == 'dark') {
     document.documentElement.setAttribute('data-dark-theme', 'dark');
     sessionStorage.setItem("dark_mode", "dark");
-    document.getElementById("dark-mode-icon").className = 'bi bi-sun';
     document.getElementById('daynight').src = themePath + '/icons/sun-fill.svg';
     document.getElementById('blink').title = "Theme: Light (Browser preferences|Session override)";
 } else {
     document.documentElement.removeAttribute('data-dark-theme');
     sessionStorage.setItem("dark_mode", "light");
-    document.getElementById("dark-mode-icon").className = 'bi bi-moon';
     document.getElementById('daynight').src = themePath + '/icons/moon-fill.svg';
     document.getElementById('blink').title = "Theme: Dark (Browser preferences|Session override)";
 }
@@ -81,13 +77,11 @@ const dark = () => {
     let dark_mode = sessionStorage.getItem("dark_mode");
     if (dark_mode == "dark") {
         sessionStorage.setItem("dark_mode", "light");
-        document.getElementById("dark-mode-icon").className = 'bi bi-moon';
         document.documentElement.removeAttribute('data-dark-theme');
         document.getElementById('daynight').src = themePath + '/icons/moon-fill.svg';
         $("#cke_1_contents iframe").contents().find('html').attr('data-dark-mode', 'light'); // only jQuery seems able to do that to the iframe
     } else {
         sessionStorage.setItem("dark_mode", "dark");
-        document.getElementById("dark-mode-icon").className = 'bi bi-sun';
         document.documentElement.setAttribute('data-dark-theme', 'dark');
         document.getElementById('daynight').src = themePath + '/icons/sun-fill.svg';
         $("#cke_1_contents iframe").contents().find('html').attr('data-dark-mode', 'dark'); // only jQuery seems able to do that to the iframe
