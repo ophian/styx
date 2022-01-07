@@ -712,6 +712,7 @@
 @define('INSTALL_PERMALINK_CATEGORY_DESC', 'Aqui você pode definir as estruturas URL relativas, iniciando pela sua URL base, de onde outras categorias se tornarão disponíveis. Você pode usar as variáveis %id%, %name%, %parentname%, %description%, ou quaisquer outros.');
 @define('INSTALL_PERMALINK_FEEDCATEGORY', 'Categoria das estruturas URL de Permalink e RSS-Feed');
 @define('INSTALL_PERMALINK_FEEDCATEGORY_DESC', 'Aqui você pode definir as estruturas URL relativas, iniciando pela sua URL base até onde o RSS-feed se torna disponível. Você pode usar as variáveis %id%, %name%, %description%, ou quaisquer outros.');
+@define('INSTALL_PERMALINK_ID_WARNING', 'If you remove the essential %id% variable, Serendipity cannot create an exact relationship. This has effects on various accesses and subsequent processes and is not recommended without your own responsibility!');
 @define('INSTALL_PERMALINK_ARCHIVESPATH', 'Caminho para arquivos');
 @define('INSTALL_PERMALINK_ARCHIVEPATH', 'Caminho para arquivo');
 @define('INSTALL_PERMALINK_CATEGORIESPATH', 'Caminho para as categorias');

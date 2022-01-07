@@ -708,6 +708,7 @@
 @define('INSTALL_PERMALINK_CATEGORY_DESC', 'Lauseke kategorioiden merkintöjä varten alkaen blogin osoitteesta. Voit käyttää muuttujia %id%, %name%, %parentname%, %description% sekä muita merkkejä.');
 @define('INSTALL_PERMALINK_FEEDCATEGORY', 'RSS-kanavien (kategoriat) merkintöjen permalink-lauseke');
 @define('INSTALL_PERMALINK_FEEDCATEGORY_DESC', 'Lauseke RSS-kanavien merkintöjä varten (kategoriat) alkaen blogin osoitteesta. Voit käyttää muuttujia %id%, %name%, %description% sekä muita merkkejä.');
+@define('INSTALL_PERMALINK_ID_WARNING', 'If you remove the essential %id% variable, Serendipity cannot create an exact relationship. This has effects on various accesses and subsequent processes and is not recommended without your own responsibility!');
 @define('INSTALL_PERMALINK_ARCHIVESPATH', 'Arkistojenpolku');
 @define('INSTALL_PERMALINK_ARCHIVEPATH', 'Arkistopolku');
 @define('INSTALL_PERMALINK_CATEGORIESPATH', 'Kategoriapolku');

@@ -723,6 +723,7 @@ $i18n_filename_to = array (
 @define('INSTALL_PERMALINK_FEEDCATEGORY_DESC', 'Tu mô¾ete definova» relatívnu ¹truktúru URL, kde zaèiatok je Va¹e základné URL, z ktorého mô¾u by» dostupné RSS kanály z urèitých kategórií. Mô¾ete pou¾í» premenné %id%, %name%, %description% a akékoµvek iné znaky.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR', '©truktúra URL adresy pre RSS kanál autorov');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Tu mô¾ete definova» relatívnu ¹truktúru URL, kde zaèiatok je Va¹e základné URL, z ktorého mô¾u by» dostupné RSS kanály od urèitých pou¾ivateµov. Mô¾ete pou¾ít premenné %id%, %realname%, %username%, %email% a ákékoµvek iné znaky.');
+@define('INSTALL_PERMALINK_ID_WARNING', 'If you remove the essential %id% variable, Serendipity cannot create an exact relationship. This has effects on various accesses and subsequent processes and is not recommended without your own responsibility!');
 @define('INSTALL_PERMALINK_ARCHIVESPATH', 'Cesta k archívom');
 @define('INSTALL_PERMALINK_ARCHIVEPATH', 'Cesta k archívu');
 @define('INSTALL_PERMALINK_CATEGORIESPATH', 'Cesta ku kategóriám');

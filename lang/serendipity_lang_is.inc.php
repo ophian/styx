@@ -710,6 +710,7 @@
 @define('INSTALL_PERMALINK_CATEGORY_DESC', 'Hér geturðu skilgreint slóðauppbygginguna, allt frá upphafsslóð til þess hvar færslur úr ákveðnum flokkum kynnu að vera til staðar. Þú getur notað breyturnar %id%, %name%, %parentname%, %description% og alla aðra stafi.');
 @define('INSTALL_PERMALINK_FEEDCATEGORY', 'URL uppbygging varanlegra RSS-strauma flokka');
 @define('INSTALL_PERMALINK_FEEDCATEGORY_DESC', 'Hér geturðu skilgreint slóðauppbygginguna, allt frá upphafsslóð til þess hvar RSS-straumar úr ákveðnum flokkum kynnu að vera til staðar. Þú getur notað breyturnar %id%, %name%, %description% og alla aðra stafi.');
+@define('INSTALL_PERMALINK_ID_WARNING', 'If you remove the essential %id% variable, Serendipity cannot create an exact relationship. This has effects on various accesses and subsequent processes and is not recommended without your own responsibility!');
 @define('INSTALL_PERMALINK_ARCHIVESPATH', 'Slóð til skjalasafna');
 @define('INSTALL_PERMALINK_ARCHIVEPATH', 'Slóð til skjalasafns');
 @define('INSTALL_PERMALINK_CATEGORIESPATH', 'Slóð til flokka');

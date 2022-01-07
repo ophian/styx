@@ -713,6 +713,7 @@
 @define('INSTALL_PERMALINK_FEEDCATEGORY_DESC', 'Burada göreli URL adresi yapısı tanımlayabilirsiniz temel URL adresinizden başlayarak yazıların RSS Beslemelerinin kalıcı bağlantıları konu başlıklarına göre  nasıl yönlenip sıralanacak,belirleyebilirsiniz. Şu değişkenleri kullanabilirsiniz  %id%, %name%, %description% ve başka çeşitli karakterleri.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR', ' RSS-Beslemelerin Yazarlarına göre  Kalıcı Bağlantı URL adres yapısı');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Burada göreli URL adresi yapısı tanımlayabilirsiniz temel URL adresinizden başlayarak yazıların RSS Beslemelerinin kalıcı bağlantıları yazarlarına göre  nasıl yönlenip sıralanacak,belirleyebilirsiniz. Şu değişkenleri kullanabilirsiniz %id%, %realname%, %username%, %email% ve başka çeşitli karakterleri.');
+@define('INSTALL_PERMALINK_ID_WARNING', 'If you remove the essential %id% variable, Serendipity cannot create an exact relationship. This has effects on various accesses and subsequent processes and is not recommended without your own responsibility!');
 @define('INSTALL_PERMALINK_ARCHIVESPATH', 'Arşivlerin konumu');
 @define('INSTALL_PERMALINK_ARCHIVEPATH', 'Arşiv Konumu');
 @define('INSTALL_PERMALINK_CATEGORIESPATH', 'Konu Başlıklarının Konumu');

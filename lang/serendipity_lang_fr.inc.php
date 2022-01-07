@@ -713,6 +713,7 @@
 @define('INSTALL_PERMALINK_CATEGORY_DESC', 'Ici vous pouvez définir le chemin relatif à l\'adresse de votre blog par lequel on pourra accéder aux billets classés par catégorie. Vous pouvez utiliser les variables %id% (identifiant), %name% (nom), %parentname%, %description% et n\'importe quels autres caractères.');
 @define('INSTALL_PERMALINK_FEEDCATEGORY', 'Structure des fils RSS par catégorie');
 @define('INSTALL_PERMALINK_FEEDCATEGORY_DESC', 'Ici vous pouvez définir le chemin relatif à l\'adresse de votre blog par lequel on pourra accéder aux fils RSS des catégories. Vous pouvez utiliser les variables %id% (identifiant), %name% (nom), %description% et n\'importe quels autres caractères.');
+@define('INSTALL_PERMALINK_ID_WARNING', 'If you remove the essential %id% variable, Serendipity cannot create an exact relationship. This has effects on various accesses and subsequent processes and is not recommended without your own responsibility!');
 @define('INSTALL_PERMALINK_ARCHIVESPATH', 'Chemin d\'accès aux archives');
 @define('INSTALL_PERMALINK_ARCHIVEPATH', 'Chemin d\'accès à l\'archive');
 @define('INSTALL_PERMALINK_CATEGORIESPATH', 'Chemin d\'accès aux catégories');

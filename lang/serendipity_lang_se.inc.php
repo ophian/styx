@@ -709,6 +709,7 @@
 @define('INSTALL_PERMALINK_CATEGORY_DESC', 'Här kan du definiera URL-strukturen relativt till din bas-URL för att nå artiklar i vissa kategorier. Du kan använda variablerna %id%, %name%, %parentname%, %description% samt alla andra tecken.');
 @define('INSTALL_PERMALINK_FEEDCATEGORY', 'Kategoriers RSS-matningars permalink-URL-struktur');
 @define('INSTALL_PERMALINK_FEEDCATEGORY_DESC', 'Här kan du definiera URL-strukturen relativt till din bas-URL för att nå RSS-matningar från vissa kategorier. Du kan använda variablerna %id%, %name%, %description% samt alla andra tecken.');
+@define('INSTALL_PERMALINK_ID_WARNING', 'If you remove the essential %id% variable, Serendipity cannot create an exact relationship. This has effects on various accesses and subsequent processes and is not recommended without your own responsibility!');
 @define('INSTALL_PERMALINK_ARCHIVESPATH', 'Sökväg till arkiv');
 @define('INSTALL_PERMALINK_ARCHIVEPATH', 'Sökväg till arkiv');
 @define('INSTALL_PERMALINK_CATEGORIESPATH', 'Sökväg till kategorier');

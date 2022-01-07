@@ -712,6 +712,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_PERMALINK_CATEGORY_DESC', 'Здесь вы можете определить структуру относительных адресов, начинающихся с вашего основного адреса, по которому будут доступны записи из отдельных категорий. Вы можете использовать переменные %id%, %name%, %parentname%, %description% и любые другие символы.');
 @define('INSTALL_PERMALINK_FEEDCATEGORY', 'Структура постоянных ссылок для RSS-Feed');
 @define('INSTALL_PERMALINK_FEEDCATEGORY_DESC', 'Здесь вы можете определить структуру относительных адресов, начинающихся с вашего основного адреса, по которому будут доступны RSS-feeds из отдельных категорий. Вы можете использовать переменные %id%, %name%, %description% и любые другие символы.');
+@define('INSTALL_PERMALINK_ID_WARNING', 'If you remove the essential %id% variable, Serendipity cannot create an exact relationship. This has effects on various accesses and subsequent processes and is not recommended without your own responsibility!');
 @define('INSTALL_PERMALINK_ARCHIVESPATH', 'Путь к архивам');
 @define('INSTALL_PERMALINK_ARCHIVEPATH', 'Путь к архиву');
 @define('INSTALL_PERMALINK_CATEGORIESPATH', 'Путь к категориям');

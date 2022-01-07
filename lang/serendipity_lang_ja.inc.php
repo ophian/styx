@@ -709,6 +709,7 @@
 @define('INSTALL_PERMALINK_CATEGORY_DESC', 'ここで、ベース URL からあるカテゴリのエントリーが入手可能になる、適当な場所への相対的な URL 構造の先頭を定義することができます。変数は、%id%、%name%、%parentname、%description%、そして他の文字を使用することができます。');
 @define('INSTALL_PERMALINK_FEEDCATEGORY', 'カテゴリ RSS フィードの固定リンク URL 構造');
 @define('INSTALL_PERMALINK_FEEDCATEGORY_DESC', 'ここで、ベース URL からあるカテゴリーの RSS フィード が入手可能になる、適当な場所への相対的な URL 構造の先頭を定義することができます。変数は、%id%、%name%、%description%、そして他の文字を使用することができます。');
+@define('INSTALL_PERMALINK_ID_WARNING', 'If you remove the essential %id% variable, Serendipity cannot create an exact relationship. This has effects on various accesses and subsequent processes and is not recommended without your own responsibility!');
 @define('INSTALL_PERMALINK_ARCHIVESPATH', '書庫一覧へのパス');
 @define('INSTALL_PERMALINK_ARCHIVEPATH', '書庫へのパス');
 @define('INSTALL_PERMALINK_CATEGORIESPATH', 'カテゴリ一覧へのパス');
