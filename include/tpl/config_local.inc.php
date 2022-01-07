@@ -147,7 +147,7 @@
                    'items' => array(
                                     array('var'         => 'permalinkStructure',
                                           'title'       => INSTALL_PERMALINK,
-                                          'description' => INSTALL_PERMALINK_DESC,
+                                          'description' => INSTALL_PERMALINK_DESC . ' ' . INSTALL_PERMALINK_ID_WARNING,
                                           'type'        => 'string',
                                           'default'     => 'archives/%id%-%title%.html',
                                           'permission'  => 'siteConfiguration',
@@ -155,7 +155,7 @@
 
                                     array('var'         => 'permalinkAuthorStructure',
                                           'title'       => INSTALL_PERMALINK_AUTHOR,
-                                          'description' => INSTALL_PERMALINK_AUTHOR_DESC,
+                                          'description' => INSTALL_PERMALINK_AUTHOR_DESC . ' ' . INSTALL_PERMALINK_ID_WARNING,
                                           'type'        => 'string',
                                           'default'     => 'authors/%id%-%realname%',
                                           'permission'  => 'siteConfiguration',
@@ -163,7 +163,7 @@
 
                                     array('var'         => 'permalinkCategoryStructure',
                                           'title'       => INSTALL_PERMALINK_CATEGORY,
-                                          'description' => INSTALL_PERMALINK_CATEGORY_DESC,
+                                          'description' => INSTALL_PERMALINK_CATEGORY_DESC . ' ' . INSTALL_PERMALINK_ID_WARNING,
                                           'type'        => 'string',
                                           'default'     => 'categories/%id%-%name%',
                                           'permission'  => 'siteConfiguration',
@@ -171,7 +171,7 @@
 
                                     array('var'         => 'permalinkFeedCategoryStructure',
                                           'title'       => INSTALL_PERMALINK_FEEDCATEGORY,
-                                          'description' => INSTALL_PERMALINK_FEEDCATEGORY_DESC,
+                                          'description' => INSTALL_PERMALINK_FEEDCATEGORY_DESC . ' ' . INSTALL_PERMALINK_ID_WARNING,
                                           'type'        => 'string',
                                           'default'     => 'feeds/categories/%id%-%name%.rss',
                                           'permission'  => 'siteConfiguration',
@@ -179,7 +179,7 @@
 
                                     array('var'         => 'permalinkFeedAuthorStructure',
                                           'title'       => INSTALL_PERMALINK_FEEDAUTHOR,
-                                          'description' => INSTALL_PERMALINK_FEEDAUTHOR_DESC,
+                                          'description' => INSTALL_PERMALINK_FEEDAUTHOR_DESC . ' ' . INSTALL_PERMALINK_ID_WARNING,
                                           'type'        => 'string',
                                           'default'     => 'feeds/authors/%id%-%realname%.rss',
                                           'permission'  => 'siteConfiguration',
