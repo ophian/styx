@@ -167,7 +167,7 @@
     {if NOT empty($entriesnocat)}
 
         <li>
-            <div class="clearfix odd">
+            <div class="clearfix x-odd">
                 <div class="category_data">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
                       <title>{$CONST.NO_CATEGORY}</title>
