@@ -2791,6 +2791,7 @@ h3 .media_file_actions {
     padding: 0 1rem;
 }
 /* Categories + MediaLibrary directories - zebra to gradient replacement */
+#categories.slist .x-odd,
 #categories:not(.slist) li {
     margin-bottom: .5em;
 }
