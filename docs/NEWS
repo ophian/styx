@@ -1,6 +1,8 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve serendipity_die() page styles
+
   * Add a warning removing the permalink %id% variable
 
   * Simplify [ pure ] theme [dark-theme] conditionals and fix button preset
