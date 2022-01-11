@@ -431,6 +431,7 @@ function serendipity_die($html, $error = true) {
     $charset = !defined('LANG_CHARSET') ? 'UTF-8' : LANG_CHARSET;
     $title   = $error ? 'Fatal Error' : '503 Service unavailable';
     $name    = $error ? 'Error' : 'Maintenance';
+    $color   = $error ? 'crimson' : 'midnightblue';
     $type    = $error ? 'an error' : 'maintenance';
     $what    = $error ? 'suspended' : 'unavailable';
     $help    = $error ? '<p>Please inform the Administrator of this site!</p>' : '';
@@ -442,8 +443,8 @@ function serendipity_die($html, $error = true) {
 
     <title>' . $title . '</title>
     <style>
-        html { font-family: \'Terminal Dosis\', calibri, tahoma, sans-serif; }
-        body { color: #5C4E48; background: linear-gradient(#DAEEF5, transparent) no-repeat 0 5rem; }
+        html { height: 100%; font-family: \'Terminal Dosis\', calibri, tahoma, sans-serif; }
+        body { color: ' . $color . '; background: -webkit-gradient(linear, left top, right bottom, from(#fff), to(#e1d9d9)) fixed; background: linear-gradient(135deg, #fff 0%, #e1d9d9) fixed; }
         .container { width: 60rem; margin: 10rem auto; }
         h1 { font-weight: bold; line-height: 1.125; margin-bottom: 0.1rem; }
         h2 { margin:0 }
