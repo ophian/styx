@@ -1277,6 +1277,15 @@ li.post_reltags ul li {
     font-weight: normal;
 }
 
+/* dsgvo */
+.dsgvo_gdpr_footer {
+    grid-area: ft;
+    width: 100%;
+    z-index: 100;
+    padding: 2.5rem 0 0.5rem;
+    text-align: center;
+}
+
 /* entryproperties */
 #content > #entrypasswordform {
     padding: 1rem 0;
