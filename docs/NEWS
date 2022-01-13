@@ -1,6 +1,8 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix [ pure ] theme default styles for DSGVO when not in 3-column mode
+
   * Improve serendipity_die() page styles
 
   * Add a warning removing the permalink %id% variable
