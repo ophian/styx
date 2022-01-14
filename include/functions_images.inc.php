@@ -2195,6 +2195,10 @@ function serendipity_convertThumbs() {
         foreach($serendipity['uniqueThumbSuffixes'] AS $othumb) {
             $newThumbnail = str_replace($othumb, $serendipity['thumbSuffix'], $oldthumbnail);
             $nfiles[] = $newThumbnail;
+            // avoid fatal errors - since being looped - this is rename(same, same) after done which fails
+            if ($newThumbnail == $oldthumbnail) {
+                continue;
+            }
             // RENAME in file system
             rename($basedir.$oldthumbnail, $basedir.$newThumbnail);
             if ($debug) { $serendipity['logger']->debug("\n\n$logtag FILE RENAMES FROM::TO:\n".$basedir.$oldthumbnail.",\n".$basedir.$newThumbnail . DONE); }
