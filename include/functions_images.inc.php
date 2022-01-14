@@ -452,6 +452,7 @@ function serendipity_fetchImages($reverse = false, $images = '', $odir = '') {
         if ($reverse) {
             $serendipity['uniqueThumbSuffixes'] = array_diff($serendipity['uniqueThumbSuffixes'], array($serendipity['thumbSuffix'], '.quickblog'));
         }
+        $serendipity['uniqueThumbSuffixes'] = array_values($serendipity['uniqueThumbSuffixes']);
     }
 
     if ($dir = @opendir($basedir . $odir)) {
