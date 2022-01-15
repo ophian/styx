@@ -1,6 +1,9 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve MediaLibrary back button link in image scaling page to not acciden-
+    tally upload image(s) again by using javascript history.
+
   * Improve [ styx ] backend theme [dark-theme] staticpage navigation color styles
 
   * Fix images API of _convertThumbs() to rename $oldthumbnail to $newThumbnail
