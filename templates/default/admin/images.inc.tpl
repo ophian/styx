@@ -335,7 +335,7 @@
             </div>
 
             <div class="form_buttons">
-                <a class="button_link" href="javascript: window.history.go(-1);">{$CONST.BACK}</a>
+                <a class="button_link" href="?serendipity[adminModule]=media{if isset($smarty.get.serendipity.page)}&amp;serendipity[page]={$smarty.get.serendipity.page}{/if}">{$CONST.BACK}</a>
                 <input class="image_scale state_submit" name="scale" type="submit" value="{$CONST.IMAGE_RESIZE}">
             </div>
         </form>
