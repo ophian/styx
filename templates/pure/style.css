@@ -386,6 +386,8 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
   [data-dark-theme="dark"] #c0 {
     border-color: #5b636e;
     background-image: repeating-linear-gradient(-45deg, #22272e00 0 20px, #22272e 20px 40px); }
+  [data-dark-theme="dark"] .mediaItemFooter {
+    background-color: #323941; }
   [data-dark-theme="dark"] .hljs {
     color: #c8c8c8;
     background: #22272f; }
@@ -1250,6 +1252,35 @@ nav.pager ul {
 img.serendipity_entryIcon {
     float: right;
     border: 0 none;
+}
+
+
+/* serendipity_admin_image_selector */
+
+#footer.mediaItemBlend {
+    visibility: hidden;
+    display: none;
+}
+@media screen and (min-width: 640px) {
+    #footer.mediaItemBlend {
+        visibility: visible;
+        display: initial;
+    }
+}
+#content.mediaItemMain {
+    margin-bottom: 1rem !important;
+}
+.mediaItemFooter {
+    padding: .5em;
+    text-align: center;
+    margin: 0;
+}
+.mediaItemProperties {
+    margin: auto auto 1.5em;
+}
+.mediaItem {
+    margin: 0 1em;
+    width: auto;
 }
 
 
