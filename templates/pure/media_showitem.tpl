@@ -79,7 +79,7 @@
                     <div>
                         <!-- s9ymdb:{$media.file.id} -->
                         <picture>
-                            {if isset($media.file.full_file_avif)}<source srcset="{$media.file.full_file_avif}" type="image/avif" />{/if}
+{if isset($media.file.full_file_avif)}                            <source srcset="{$media.file.full_file_avif}" type="image/avif" />{/if}
                             <source srcset="{$media.file.full_file_webp|default:''}" type="image/webp" />
                             <img alt="" class="serendipity_image_center" loading="lazy" src="{$media.file.full_file}" width="{$media.file.dimensions_width}" />
                         </picture>
