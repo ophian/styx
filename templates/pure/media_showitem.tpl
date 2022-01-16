@@ -77,17 +77,17 @@
                     {if $media.file.is_image}
 
                     <div>
-                        <!-- s9ymdb:305 -->
+                        <!-- s9ymdb:{$media.file.id} -->
                         <picture>
                             {if isset($media.file.full_file_avif)}<source srcset="{$media.file.full_file_avif}" type="image/avif" />{/if}
-                            <source srcset="{$media.file.full_file_webp}" type="image/webp" />
+                            <source srcset="{$media.file.full_file_webp|default:''}" type="image/webp" />
                             <img alt="" class="serendipity_image_center" loading="lazy" src="{$media.file.full_file}" width="{$media.file.dimensions_width}" />
                         </picture>
                     </div>
                     {else}
 
                     <div class="serendipity_center">
-                            <a href="{$media.file.full_file}">{$media.file.realname} ({$media.file.displaymime})</a>
+                        <a href="{$media.file.full_file}">{$media.file.realname} ({$media.file.displaymime})</a>
                     </div>
                     {/if}
 
@@ -107,11 +107,13 @@
                 <div class="mediaItemContent">
                     <dl>
                     {foreach $media.file.base_property AS $prop_fieldname => $prop_content}
-                    {if $prop_content.val}
+                    {if isset($prop_content.val)}
+
                         <dt>{$prop_content.label}</dt>
                         <dd>{$prop_content.val|escape}</dd>
                     {/if}
                     {/foreach}
+
                     </dl>
                 </div>
             </div>
@@ -122,9 +124,12 @@
                 <h3 class="mediaItemTitle">{$CONST.MEDIA_KEYWORDS}</h3>
 
                 <div class="mediaItemContent">
+
                 {foreach $media.file.props.base_keyword AS $prop_fieldname => $prop_content}
+
                     {$prop_fieldname|escape}&nbsp;
                 {/foreach}
+
                 </div>
             </div>
         {/if}
@@ -136,22 +141,29 @@
                 <div class="mediaItemContent">
                     <dl>
                     {foreach $media.file.props.base_metadata AS $meta_type => $meta_data}
+
                         <dt><strong>{$meta_type}</strong></dt>
                         <dd>
                         {if is_array($meta_data)}
+
                         <table>
                         {foreach $meta_data AS $meta_name => $meta_value}
+
                             <tr>
                                 <td><em>{$meta_name}!</em></th>
                                 <td>{if is_array($meta_value)}<pre>{$meta_value|print_r}</pre>{else}{$meta_value|formatTime:DATE_FORMAT_SHORT:false:$meta_name}{/if}</td>
                             </tr>
                         {/foreach}
+
                         </table>
                         {else}
+
                         {$meta_data|formatTime:DATE_FORMAT_SHORT:false:$meta_type}
                         {/if}
+
                         </dd>
                     {/foreach}
+
                     </dl>
                 </div>
             </div>
@@ -164,8 +176,10 @@
                 <div class="mediaItemContent">
                     <ul class="plainList">
                     {foreach $media.file.references AS $ref}
-                    <li>({$ref.name|escape}) <a rel="nofollow" href="{$ref.link|escape}">{$ref.link|default:$CONST.NONE|escape}</a></li>
+
+                        <li>({$ref.name|escape}) <a rel="nofollow" href="{$ref.link|escape}">{$ref.link|default:$CONST.NONE|escape}</a></li>
                     {/foreach}
+
                     </ul>
                 </div>
             </div>
