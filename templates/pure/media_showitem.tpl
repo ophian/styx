@@ -99,8 +99,10 @@
                 </div>
             </div>
         </div>
+
         <div class="mediaItemProperties">
         {if $media.file.base_property}
+
             <div class="mediaItem mediaItemProp">
                 <h3 class="mediaItemTitle">{$CONST.MEDIA_PROP}</h3>
 
@@ -118,8 +120,8 @@
                 </div>
             </div>
         {/if}
-
         {if NOT empty($media.file.props.base_keyword)}
+
             <div class="mediaItem mediaItemKeyword">
                 <h3 class="mediaItemTitle">{$CONST.MEDIA_KEYWORDS}</h3>
 
@@ -133,8 +135,8 @@
                 </div>
             </div>
         {/if}
-
         {if $media.file.props.base_metadata}
+
             <div class="mediaItem mediaItemMeta">
                 <h3 class="mediaItemTitle">EXIF/IPTC/XMP</h3>
 
@@ -168,8 +170,8 @@
                 </div>
             </div>
         {/if}
-
         {if $media.file.references}
+
             <div class="mediaItem mediaItemRef">
                 <h3 class="mediaItemTitle">{$CONST.REFERER}</h3>
 
@@ -184,6 +186,7 @@
                 </div>
             </div>
         {/if}
+
         </div>
     </main>
 
