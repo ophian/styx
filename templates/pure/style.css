@@ -1208,7 +1208,7 @@ nav.pager ul {
 }
 .post table,
 .post_content table {/* yes, since within #extended id knot */
-    display: inline-grid;
+    display: grid;
     max-width: 100%;
     width: auto;
     overflow: auto;
