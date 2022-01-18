@@ -1,6 +1,8 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Sync Smarty PHP 8 fix to Styx 3.1.39-dev-9
+
   * Complete the [ pure ] theme, adding the special cased media_showitem template
     file. Additionally added to [ b46 ] and the [ boot ] B5 pool theme too.
 
