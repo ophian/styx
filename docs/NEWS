@@ -2,7 +2,7 @@ Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
   * Complete the [ pure ] theme, adding the special cased media_showitem template
-    file. Additionally added to [ boot ] B5 pool theme too.
+    file. Additionally added to [ b46 ] and the [ boot ] B5 pool theme too.
 
   * Improve MediaLibrary back button link in image scaling page to not acciden-
     tally upload image(s) again by using javascript history.
