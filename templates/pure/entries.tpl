@@ -39,16 +39,17 @@
         {if $entry.has_comments OR $entry.has_trackbacks OR NOT empty($entry.has_disqus)}
 
                 <li class="post_comments">
+                    {if isset($view) AND $view == 'entry' AND NOT $use_popups}<span>{$CONST.COMMENTS}: </span>{/if}
             {if isset($entry.has_disqus) AND $entry.has_disqus}
                     {$entry.comments}{if $entry.has_trackbacks}, <a href="{$entry.link}#trackbacks">{$entry.trackbacks} {$entry.label_trackbacks}</a>{/if}
             {else if empty($is_single_entry)}
                 {if $use_popups}
                     <a href="{$entry.link_popup_comments}" onclick="window.open(this.href, 'comments', 'width=480,height=480,scrollbars=yes'); return false;" title="{$entry.comments} {$entry.label_comments}">{$entry.comments} {$entry.label_comments}</a>, <a href="{$entry.link_popup_trackbacks}" onclick="window.open(this.href, 'comments', 'width=480,height=480,scrollbars=yes'); return false;" title="{$entry.trackbacks} {$entry.label_trackbacks}">{$entry.trackbacks} {$entry.label_trackbacks}</a>
                 {else}
-                    <a href="{$entry.link}{if $entry.has_trackbacks AND $entry.trackbacks > 0}#trackbacks{else}#comments{/if}" title="{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments} {$entry.label_comments}</a>
+                    <a href="{$entry.link}{if $entry.has_trackbacks AND $entry.trackbacks > 0}#trackbacks{else}#comments{/if}" title="{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments} {$entry.label_comments|replace: $CONST.COMMENTS:''}</a>
                 {/if}
             {else if isset($entry.label_comments) OR isset($entry.label_trackbacks)}
-                    <a href="{$entry.link}{if $entry.has_trackbacks AND $entry.trackbacks > 0}#trackbacks{else}#comments{/if}" title="{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments} {$entry.label_comments}</a>
+                    <a href="{$entry.link}{if $entry.has_trackbacks AND $entry.trackbacks > 0}#trackbacks{else}#comments{/if}" title="{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments} {if $use_popups}{$entry.label_comments}{else}{$entry.label_comments|replace: $CONST.COMMENTS:''}{/if}</a>
             {/if}
 
                 </li>
