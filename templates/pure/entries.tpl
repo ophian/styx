@@ -15,9 +15,9 @@
         </div>
     </article>
 {else}
-
 {if NOT empty($entries)}{* catch a staticpage startpage which has no $entries array set *}
 {foreach $entries AS $dategroup}
+
 <section id="entries_dategroup" class="serendipity_Entry_Date">
     <header>
         {if NOT $is_single_entry}<p class="serendipity_date">{if $dategroup.is_sticky}{$CONST.STICKY_POSTINGS}{else}{$dategroup.date|formatTime:DATE_FORMAT_ENTRY}{/if}</p>{/if}
@@ -154,6 +154,7 @@
         </div>
     </section>
     {else}
+
     <a id="trackback_url" rel="nofollow" href="{$entry.link_trackback}" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a>
     <p class="msg_notice trackback-hint">{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;<u>{$entry.rdf_ident|escape}</u>&laquo;</p>
     {/if}
@@ -196,6 +197,7 @@
     {/if}
 {/if}
     {$entry.backend_preview}
+
     </article>
     {/foreach}
 
@@ -203,6 +205,7 @@
 {/foreach}
 {else}
     {if NOT $plugin_clean_page AND $view != '404'}
+
     <p class="msg_notice"><span class="ico icon-info" aria-hidden="true"></span> {$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
 {/if}
