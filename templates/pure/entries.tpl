@@ -1,4 +1,21 @@
 {serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
+{if NOT empty($taglist)}
+    <article id="taglistentries" class="clearfix serendipity_entry">
+        <div class="clearfix content serendipity_entry_body">
+            <h2>{$head_subtitle}</h2>
+    {foreach $entries AS $dategroup}
+        {foreach $dategroup.entries AS $entry}
+
+            <div class="static-entries-list">
+                ({$dategroup.date|date_format:"%d.%m.%Y"}) <a href="{$entry.link}">{$entry.title|default:$entry.id}</a>
+            </div>
+        {/foreach}
+    {/foreach}
+
+        </div>
+    </article>
+{else}
+
 {if NOT empty($entries)}{* catch a staticpage startpage which has no $entries array set *}
 {foreach $entries AS $dategroup}
 <section id="entries_dategroup" class="serendipity_Entry_Date">
@@ -189,7 +206,14 @@
     <p class="msg_notice"><span class="ico icon-info" aria-hidden="true"></span> {$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
 {/if}
+
+ {/if}{* NOT taglist end *}
+
 {if NOT $is_single_entry AND NOT $is_preview AND NOT $plugin_clean_page AND (NOT empty($footer_prev_page) OR NOT empty($footer_next_page))}
+{if NOT empty($taglist)}
+    {if $footer_prev_page}{assign var="footer_prev_page" value=$footer_prev_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
+    {if $footer_next_page}{assign var="footer_next_page" value=$footer_next_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
+{/if}
 
     <nav class="pager">
         {if NOT empty($footer_info)}<p>{$footer_info}</p>{/if}
