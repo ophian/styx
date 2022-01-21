@@ -1,6 +1,8 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix another Methusalem bug in routing a search request
+
   * Add [ pure ] theme search search result styles
 
   * Add on page/of page info to [ pure ] theme search result header message
