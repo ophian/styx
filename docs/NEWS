@@ -1,6 +1,8 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Add new PAGE language constant
+
   * Improve [ pure ] theme _entryFooter for label item : value consistency and
     for freetag taglist and its possible paging.
 
