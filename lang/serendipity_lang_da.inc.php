@@ -246,6 +246,7 @@
 @define('CATEGORIES_TO_FETCH', 'Kategorier som skal hentes');
 @define('CATEGORIES_TO_FETCH_DESC', 'Hent kategorier fra en bestemt forfatter?');
 @define('PAGE_BROWSE_ENTRIES', 'Side %s af %s, i alt %s artikler');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'forrige side');
 @define('NEXT_PAGE', 'næste side');
 @define('ALL_CATEGORIES', 'Alle kategorier');

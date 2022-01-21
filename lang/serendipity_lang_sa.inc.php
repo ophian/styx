@@ -262,6 +262,7 @@
 @define('CATEGORIES_TO_FETCH', 'Ã·» ··√ﬁ”«„');
 @define('CATEGORIES_TO_FETCH_DESC', 'ﬁ„ »Ã·» √ﬁ”«„ „‰ √Ì «·ﬂ «»ø');
 @define('PAGE_BROWSE_ENTRIES', '«·’›Õ… —ﬁ„ %s „‰ %s, „Ã„Ê⁄ %s „Ê«÷Ì⁄');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', '«·’›Õ… «·”«»ﬁ…');
 @define('NEXT_PAGE', '«·’›Õ… «· «·Ì…');
 @define('ALL_CATEGORIES', 'Ã„Ì⁄ «· ’«‰Ì›');

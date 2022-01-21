@@ -244,6 +244,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('ALL_AUTHORS', 'Всички автори');
 @define('CATEGORIES_TO_FETCH', 'Категории за извличане');
 @define('CATEGORIES_TO_FETCH_DESC', 'Извличане категориите от кой автор?');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'предишна страница');
 @define('NEXT_PAGE', 'следваща страница');
 @define('ALL_CATEGORIES', 'Всички категории');

@@ -262,6 +262,7 @@ $i18n_unknown = 'tw';
 @define('CATEGORIES_TO_FETCH', '顯示類別');
 @define('CATEGORIES_TO_FETCH_DESC', '顯示哪位作者的類別?');
 @define('PAGE_BROWSE_ENTRIES', '頁數 %s 共 %s, 總共 %s 篇文章');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', '上一頁');
 @define('NEXT_PAGE', '下一頁');
 @define('ALL_CATEGORIES', '全部類別');

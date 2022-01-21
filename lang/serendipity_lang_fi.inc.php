@@ -260,6 +260,7 @@
 @define('CATEGORIES_TO_FETCH', 'Haettavat kategoriat');
 @define('CATEGORIES_TO_FETCH_DESC', 'Kenen kategoriat haetaan?');
 @define('PAGE_BROWSE_ENTRIES', 'Sivu %s(%s), kaiken kaikkiaan %s merkintää');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'edellinen sivu');
 @define('NEXT_PAGE', 'seuraava sivu');
 @define('ALL_CATEGORIES', 'Kaikki kategoriat');

@@ -260,6 +260,7 @@
 @define('CATEGORIES_TO_FETCH', 'Kategorier att hämta');
 @define('CATEGORIES_TO_FETCH_DESC', 'Hämta kategorier från vilken författare?');
 @define('PAGE_BROWSE_ENTRIES', 'Sida %s av %s, sammanlagt %s artiklar');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'föregående sida');
 @define('NEXT_PAGE', 'nästa sida');
 @define('ALL_CATEGORIES', 'Alla kategorier');

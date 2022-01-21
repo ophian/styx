@@ -263,6 +263,7 @@
 @define('CATEGORIES_TO_FETCH', 'Op te halen categorieën');
 @define('CATEGORIES_TO_FETCH_DESC', 'Categorieën op van welke auteur ophalen?');
 @define('PAGE_BROWSE_ENTRIES', 'Pagina %s van %s, totaal %s artikelen');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'vorige pagina');
 @define('NEXT_PAGE', 'volgende pagina');
 @define('ALL_CATEGORIES', 'Alle categorieën');

@@ -260,6 +260,7 @@
 @define('CATEGORIES_TO_FETCH', 'Flokkar til að sækja');
 @define('CATEGORIES_TO_FETCH_DESC', 'Sækja flokka frá hvaða höfundi?');
 @define('PAGE_BROWSE_ENTRIES', 'Blaðsíða %s af %s, með samtals %s færslur');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'fyrri síða');
 @define('NEXT_PAGE', 'næsta síða');
 @define('ALL_CATEGORIES', 'Allir flokkar');

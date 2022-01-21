@@ -260,6 +260,7 @@
 @define('CATEGORIES_TO_FETCH', 'வேண்டிய பிரிவுகள்');
 @define('CATEGORIES_TO_FETCH_DESC', 'Fetch categories from which author?');
 @define('PAGE_BROWSE_ENTRIES', 'பக்கம் %s. மொத்த பக்கங்கள் %s. மொத்த குறிப்புகள் %s');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'முன்பக்கம்');
 @define('NEXT_PAGE', 'அடுத்தபக்கம்');
 @define('ALL_CATEGORIES', 'அனைத்து பிரிவுகள்');

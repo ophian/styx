@@ -260,6 +260,7 @@
 @define('CATEGORIES_TO_FETCH', 'Letöltendő kategóriák');
 @define('CATEGORIES_TO_FETCH_DESC', 'Melyik szerzőtől töltsük le a kategóriákat?');
 @define('PAGE_BROWSE_ENTRIES', '%s oldal ennyiből: %s, összes bejegyzés: %s');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'előző oldal');
 @define('NEXT_PAGE', 'következő oldal');
 @define('ALL_CATEGORIES', 'Minden kategória');

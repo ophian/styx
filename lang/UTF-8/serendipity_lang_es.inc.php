@@ -245,6 +245,7 @@
 @define('CATEGORIES_TO_FETCH', 'Categorías enlazadas');
 @define('CATEGORIES_TO_FETCH_DESC', '¿De que autor quiere enlazar las categorías?');
 @define('PAGE_BROWSE_ENTRIES', 'Página %s de %s, en total %s entradas');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'página anterior');
 @define('NEXT_PAGE', 'página siguiente');
 @define('ALL_CATEGORIES', 'Todas las categorías');

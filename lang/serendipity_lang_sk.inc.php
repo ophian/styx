@@ -275,6 +275,7 @@ $i18n_filename_to = array (
 @define('CATEGORIES_TO_FETCH', 'Zdroj kategórií');
 @define('CATEGORIES_TO_FETCH_DESC', 'Kategórie ktorých autorov sa majú zahrnú»?');
 @define('PAGE_BROWSE_ENTRIES', 'Stránka %s z %s, spolu %s èlánkov');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'predo¹lá stránka');
 @define('NEXT_PAGE', 'ïal¹ia stránka');
 @define('ALL_CATEGORIES', 'V¹etky kategórie');

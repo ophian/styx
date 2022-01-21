@@ -261,6 +261,7 @@
 @define('CATEGORIES_TO_FETCH', 'Categorii de preluat');
 @define('CATEGORIES_TO_FETCH_DESC', 'De la ce autor să preiau categorii?');
 @define('PAGE_BROWSE_ENTRIES', 'Pagina %s din %s, în total %s însemnări');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'pagina precedentă');
 @define('NEXT_PAGE', 'pagina următoare');
 @define('ALL_CATEGORIES', 'Toate categoriile');

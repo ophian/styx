@@ -262,6 +262,7 @@
 @define('CATEGORIES_TO_FETCH', '显示类别');
 @define('CATEGORIES_TO_FETCH_DESC', '显示哪位作者的类别？');
 @define('PAGE_BROWSE_ENTRIES', '页数 %s 共 %s, 总共 %s 篇文章');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', '上一页');
 @define('NEXT_PAGE', '下一页');
 @define('ALL_CATEGORIES', '全部类别');

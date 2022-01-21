@@ -262,6 +262,7 @@
 @define('CATEGORIES_TO_FETCH', 'جلب للأقسام');
 @define('CATEGORIES_TO_FETCH_DESC', 'قم بجلب أقسام من أي الكتاب؟');
 @define('PAGE_BROWSE_ENTRIES', 'الصفحة رقم %s من %s, مجموع %s مواضيع');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'الصفحة السابقة');
 @define('NEXT_PAGE', 'الصفحة التالية');
 @define('ALL_CATEGORIES', 'جميع التصانيف');

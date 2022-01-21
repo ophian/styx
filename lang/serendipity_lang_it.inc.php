@@ -248,6 +248,7 @@
 @define('CATEGORIES_TO_FETCH', 'Categorie da scaricare');
 @define('CATEGORIES_TO_FETCH_DESC', 'Scarica le categorie di quale autore?');
 @define('PAGE_BROWSE_ENTRIES', 'Pagina %s di %s, in totale %s notizie');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'pagina precedente');
 @define('NEXT_PAGE', 'pagina seguente');
 @define('ALL_CATEGORIES', 'Tutte le categorie');

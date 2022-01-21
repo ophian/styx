@@ -248,6 +248,7 @@
 @define('ALL_AUTHORS', 'Tous les auteurs');
 @define('CATEGORIES_TO_FETCH', 'Catégories à afficher');
 @define('CATEGORIES_TO_FETCH_DESC', 'Afficher les catégories par auteur(s) spécifique(s)');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'Page précédente');
 @define('NEXT_PAGE', 'Page suivante');
 @define('ALL_CATEGORIES', 'Toutes les catégories');

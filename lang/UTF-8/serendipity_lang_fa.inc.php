@@ -261,6 +261,7 @@
 @define('CATEGORIES_TO_FETCH', 'موضوعات دریافتی');
 @define('CATEGORIES_TO_FETCH_DESC', 'موضوعات کدام نویسنده دریافت شود؟');
 @define('PAGE_BROWSE_ENTRIES', 'صفحه %s از %s، %s ارسال');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'صفحه قبل');
 @define('NEXT_PAGE', 'صفحه بعد');
 @define('ALL_CATEGORIES', 'تمامی موضوعات');

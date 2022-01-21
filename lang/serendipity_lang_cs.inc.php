@@ -277,6 +277,7 @@ $i18n_filename_to = array (
 @define('CATEGORIES_TO_FETCH', 'Vyhledat kategorie');
 @define('CATEGORIES_TO_FETCH_DESC', 'Vyhledat kategorie podle autorù?');
 @define('PAGE_BROWSE_ENTRIES', 'Stránka %s z %s, celkem %s záznamù');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'pøedchozí stránka');
 @define('NEXT_PAGE', 'další stránka');
 @define('ALL_CATEGORIES', 'Všechny kategorie');

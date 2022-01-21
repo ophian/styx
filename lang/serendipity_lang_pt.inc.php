@@ -246,6 +246,7 @@
 @define('CATEGORIES_TO_FETCH', 'Categorias para trazer');
 @define('CATEGORIES_TO_FETCH_DESC', 'Trazer categorias de qual autor?');
 @define('PAGE_BROWSE_ENTRIES', 'Página %s de %s, totalizando %s artigos');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'página anterior');
 @define('NEXT_PAGE', 'próxima página');
 @define('ALL_CATEGORIES', 'Todas as categorias');

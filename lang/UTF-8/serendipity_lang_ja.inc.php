@@ -260,6 +260,7 @@
 @define('CATEGORIES_TO_FETCH', 'カテゴリを取得する');
 @define('CATEGORIES_TO_FETCH_DESC', 'どの執筆者のカテゴリを取得しますか?');
 @define('PAGE_BROWSE_ENTRIES', 'ページ %s/%s, 合計 %s エントリー');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', '前のページ');
 @define('NEXT_PAGE', '次のページ');
 @define('ALL_CATEGORIES', 'すべてのカテゴリ');

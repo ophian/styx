@@ -260,6 +260,7 @@
 @define('CATEGORIES_TO_FETCH', 'Categories to fetch');
 @define('CATEGORIES_TO_FETCH_DESC', 'Fetch categories from which author?');
 @define('PAGE_BROWSE_ENTRIES', 'Page %s of %s, totaling %s entries');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'previous page');
 @define('NEXT_PAGE', 'next page');
 @define('ALL_CATEGORIES', 'All categories');

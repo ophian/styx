@@ -262,6 +262,7 @@
 @define('CATEGORIES_TO_FETCH', '불러올 범주');
 @define('CATEGORIES_TO_FETCH_DESC', '어느 작성자에서 범주를 불러오겠습니까?');
 @define('PAGE_BROWSE_ENTRIES', '%s번째 페이지 | 총 %s 페이지 | 총 %s개의 글');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', '이전 페이지');
 @define('NEXT_PAGE', '다음 페이지');
 @define('ALL_CATEGORIES', '모든 범주');

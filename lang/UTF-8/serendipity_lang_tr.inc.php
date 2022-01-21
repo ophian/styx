@@ -262,6 +262,7 @@
 @define('CATEGORIES_TO_FETCH', 'Alınan konu başlıkları');
 @define('CATEGORIES_TO_FETCH_DESC', 'Hangi yazardan hangi konu başlıkları alınsın?');
 @define('PAGE_BROWSE_ENTRIES', 'Sayfa %s içinde %s, toplamda %s yazı');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'önceki sayfa');
 @define('NEXT_PAGE', 'sonraki sayfa');
 @define('ALL_CATEGORIES', 'Tüm konu başlıkları');

@@ -262,6 +262,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('CATEGORIES_TO_FETCH', 'Kategorie do pokazania');
 @define('CATEGORIES_TO_FETCH_DESC', 'Poka¿ kategorie zdefiniowane przez którego autora?');
 @define('PAGE_BROWSE_ENTRIES', 'Strona %s z %s, ³±cznie %s wpisów');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'poprzednia strona');
 @define('NEXT_PAGE', 'nastêpna strona');
 @define('ALL_CATEGORIES', 'Wszystkie kategorie');

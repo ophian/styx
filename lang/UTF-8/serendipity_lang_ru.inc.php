@@ -262,6 +262,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('CATEGORIES_TO_FETCH', 'Категории для получения');
 @define('CATEGORIES_TO_FETCH_DESC', 'Получить категории какого автора?');
 @define('PAGE_BROWSE_ENTRIES', 'Страница %s из %s, всего записей: %s');
+@define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'предыдущая страница');
 @define('NEXT_PAGE', 'следующая страница');
 @define('ALL_CATEGORIES', 'Все категории');
