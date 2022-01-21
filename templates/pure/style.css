@@ -323,6 +323,10 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     border-color: #3b434c; }
   [data-dark-theme="dark"] .serendipity_date {
     color: #a3aaba; }
+  [data-dark-theme="dark"] .serendipity_searchQuery {
+    background-color: #c93c37; }
+  [data-dark-theme="dark"] .search_msg .searchresults, [data-dark-theme="dark"] .search_msg .searchterm {
+    color: #c93c37; }
   [data-dark-theme="dark"] table tbody tr:nth-child(2n) {
     background-color: #2c3136; }
   [data-dark-theme="dark"] table tbody tr:nth-child(2n+1) {
@@ -1099,15 +1103,16 @@ nav.pager ul {
     text-align: center;
     font-size: .8125rem;
 }
-.search_msg .searchterm {
-    font-weight: bold;
-    color: red;
-}
+.search_msg .searchterm,
 .search_msg .searchresults {
-    color: red;
+    font-weight: bold;
+    color: #3a87ad;
 }
 .search_msg .searchpage {
     float: right;
+}
+.serendipity_searchQuery {
+  background-color: #37c9c2;
 }
 
 
