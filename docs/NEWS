@@ -1,6 +1,8 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Add [ pure ] theme search search result styles
+
   * Add on page/of page info to [ pure ] theme search result header message
 
   * Add new PAGE language constant
