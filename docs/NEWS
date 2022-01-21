@@ -1,6 +1,8 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Add on page/of page info to [ pure ] theme search result header message
+
   * Add new PAGE language constant
 
   * Improve [ pure ] theme _entryFooter for label item : value consistency and
