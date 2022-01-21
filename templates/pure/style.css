@@ -1099,8 +1099,16 @@ nav.pager ul {
     text-align: center;
     font-size: .8125rem;
 }
-.serendipity_search_results .searchterm {}
-.serendipity_search_results .searchresults {}
+.search_msg .searchterm {
+    font-weight: bold;
+    color: red;
+}
+.search_msg .searchresults {
+    color: red;
+}
+.search_msg .searchpage {
+    float: right;
+}
 
 
 /** Messaging **/
