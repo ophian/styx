@@ -273,7 +273,7 @@ switch($serendipity['GET']['adminAction']) {
                     $serendipity['COOKIE']['entrylist_filter_' . $f_import] = serendipity_specialchars(strip_tags($serendipity['COOKIE']['entrylist_filter_' . $f_import]));
                     $serendipity['GET']['filter'][$f_import] =& $serendipity['COOKIE']['entrylist_filter_' . $f_import];
                 }
-                $serendipity['GET']['filter'][$f_import] = $serendipity['GET']['filter'][$f_import] ?? null;
+                $serendipity['GET']['filter'][$f_import] = $serendipity['GET']['filter'][$f_import] ?? '';
                 $data["get_filter_$f_import"] = serendipity_specialchars(strip_tags($serendipity['GET']['filter'][$f_import]));
             }
         }
