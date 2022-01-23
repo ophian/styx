@@ -10,7 +10,7 @@
         {if NOT empty($category_image)}
             <a class="serendipity_xml_icon" href="{$plugin_category.feedCategoryURL}"><img src="{$category_image}" alt="XML"></a>
         {/if}
-            <a href="{$plugin_category.categoryURL}" title="{$plugin_category.category_description|escape}">{$plugin_category.category_name|escape}</a>
+            <a class="cdp{$plugin_category.catdepth}" href="{$plugin_category.categoryURL}" title="{$plugin_category.category_description|escape}">{$plugin_category.category_name|escape}</a>
         </li>
     {/foreach}
     </ul>
