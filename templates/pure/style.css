@@ -1942,7 +1942,25 @@ td.serendipity_calendarHeader a:hover {
 .calendar-nav span {
     display: none;
 }
-
+/* Own category template */
+.category_depth1 .cdp1 {
+    padding-left: 6px;
+}
+.category_depth2 .cdp2 {
+    padding-left: 12px;
+}
+.category_depth3 .cdp3 {
+    padding-left: 18px;
+}
+.category_depth4 .cdp4 {
+    padding-left: 24px;
+}
+.category_depth5 .cdp5 {
+    padding-left: 30px;
+}
+.category_depth6 .cdp6 {
+    padding-left: 36px;
+}
 /* Powered by */
 div.serendipityPlug > a {
     padding-left: 1em;
