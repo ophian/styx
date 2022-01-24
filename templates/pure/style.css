@@ -1963,9 +1963,14 @@ td.serendipity_calendarHeader a:hover {
     padding-left: 36px;
 }
 
+/* Plugin authors */
+.serendipity_plugin_authors form div:last-of-type {
+    margin-top: .5rem;
+}
+
 /* Plugin multilingual */
 #language_chooser select {
-  font-size: .8125rem !important;
+    font-size: .8125rem !important;
 }
 
 /* Powered by */
