@@ -1973,6 +1973,11 @@ td.serendipity_calendarHeader a:hover {
     font-size: .8125rem !important;
 }
 
+/* Plugin dsgvo_gdpr  */
+.dsgvo_gdpr_comment label {
+    font-weight: normal;
+}
+
 /* Powered by */
 div.serendipityPlug > a {
     padding-left: 1em;
