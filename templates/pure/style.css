@@ -1864,6 +1864,7 @@ article.post.byauthor {
 /* Container for each item on the sidebar */
 .serendipitySideBarItem {}
 section.sidebar_widget {
+    padding-bottom: .5rem;
     margin-bottom: 1em;
     font-size: 13px;
     font-size: .8125rem;
@@ -1961,6 +1962,7 @@ td.serendipity_calendarHeader a:hover {
 .category_depth6 .cdp6 {
     padding-left: 36px;
 }
+
 /* Powered by */
 div.serendipityPlug > a {
     padding-left: 1em;
