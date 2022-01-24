@@ -4164,7 +4164,8 @@ img.mfp-img {
           top: 24rem; }
         /* Deleting file package_event_de.xml..., package_event_en.xml..., package_sidebar_de.xml..., package_template.xml... + done msg */
         .msg_notice + .msg_notice + .msg_notice + .msg_notice + .msg_success + #plugin_options form.configure_plugin.option_list > .plugin_togglegroup {
-          top: 28rem; }
+          top: 28.6rem;
+          right: 4%; }
 
       /* special cases theme configuration messages */
       #template_options .msg_success + form.theme_options.option_list > #show_config_all {
