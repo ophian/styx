@@ -1323,11 +1323,20 @@ li.post_reltags ul li {
 
 /* dsgvo */
 .dsgvo_gdpr_footer {
+    text-align: center;
+}
+body.grid-flex .dsgvo_gdpr_footer {
     grid-area: ft;
     width: 100%;
     z-index: 100;
     padding: 2.5rem 0 0.5rem;
-    text-align: center;
+}
+body.grid-col .dsgvo_gdpr_footer,
+body.grid-block .dsgvo_gdpr_footer {
+    margin: 1rem auto;
+}
+.dsgvo_gdpr_comment label {
+    font-weight: normal;
 }
 
 /* entryproperties */
@@ -1971,11 +1980,6 @@ td.serendipity_calendarHeader a:hover {
 /* Plugin multilingual */
 #language_chooser select {
     font-size: .8125rem !important;
-}
-
-/* Plugin dsgvo_gdpr  */
-.dsgvo_gdpr_comment label {
-    font-weight: normal;
 }
 
 /* Powered by */
