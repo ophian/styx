@@ -1,6 +1,8 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve [ pure ] theme styles for various plugin actions
+
   * Add [ pure ] theme sub-category depth selector to category template
 
   * Fix another Methusalem bug in routing a search request
