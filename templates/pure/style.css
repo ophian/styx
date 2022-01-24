@@ -1338,6 +1338,9 @@ body.grid-block .dsgvo_gdpr_footer {
 .dsgvo_gdpr_comment label {
     font-weight: normal;
 }
+#checkbox_dsgvo_gdpr {
+    margin-right: .5rem;
+}
 
 /* entryproperties */
 #content > #entrypasswordform {
