@@ -327,6 +327,8 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     background-color: #c93c37; }
   [data-dark-theme="dark"] .search_msg .searchresults, [data-dark-theme="dark"] .search_msg .searchterm {
     color: #c93c37; }
+  [data-dark-theme="dark"] .static-entries-list.odd {
+    background-color: #2f353e; }
   [data-dark-theme="dark"] table tbody tr:nth-child(2n) {
     background-color: #2c3136; }
   [data-dark-theme="dark"] table tbody tr:nth-child(2n+1) {
@@ -1312,6 +1314,15 @@ li.post_reltags ul li {
 .post_category span, .post_comments span, .post_tags span, .post_admin span, .post_reltags span {
     font-weight: bold;
 }
+
+.static-entries-list {
+    line-height: 1.5; }
+    .static-entries-list.odd {
+      background: #fafafa; }
+    .tag-list-entry-date {
+      padding: 0 .25rem;
+      font-style: italic;
+      opacity: .6; }
 
 .serendipity_multilingualInfo {
     margin-bottom: 1em;
