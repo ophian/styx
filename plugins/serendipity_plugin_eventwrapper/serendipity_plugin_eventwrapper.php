@@ -17,8 +17,8 @@ class serendipity_plugin_eventwrapper extends serendipity_plugin
         $propbag->add('name',          PLUGIN_EVENT_WRAPPER_NAME);
         $propbag->add('description',   PLUGIN_EVENT_WRAPPER_DESC);
         $propbag->add('stackable',     true);
-        $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.1');
+        $propbag->add('author',        'Garvin Hicking, Ian Styx');
+        $propbag->add('version',       '1.2');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',

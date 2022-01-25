@@ -7,7 +7,7 @@
  */
 
 @define('PLUGIN_EVENT_WRAPPER_NAME',        'Zachytávaè výstupu událostí');
-@define('PLUGIN_EVENT_WRAPPER_DESC',        'Zobrazuje data shromáždìná libovolným pluginem událostí');
+@define('PLUGIN_EVENT_WRAPPER_DESC',        'Zobrazuje data shromáždìná libovolným pluginem událostí, když neco vytiskne pomocí metody generate_content(&$title).');
 @define('PLUGIN_EVENT_WRAPPER_PLUGIN',      'Zdrojový plugin událostí');
 @define('PLUGIN_EVENT_WRAPPER_PLUGINDESC',  'Vyberte plugin událostí, jehož výstup má být zobrazen');
 @define('PLUGIN_EVENT_WRAPPER_TITLEDESC',   'Vložte nadpis tohoto postranního panelu (pokud je ponecháno prázdné, bude jako nadpis použit název zobrazovaného pluginu)');

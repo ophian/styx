@@ -13,7 +13,7 @@
 ##########################################################################
 
 @define('PLUGIN_EVENT_WRAPPER_NAME', 'Agregador de dados dos plugins');
-@define('PLUGIN_EVENT_WRAPPER_DESC', 'Mostra dados reunidos por um certo plugin de eventos.');
+@define('PLUGIN_EVENT_WRAPPER_DESC', 'Mostra dados reunidos por um certo plugin de eventos, quando imprime algo através do método generate_content(&$title).');
 @define('PLUGIN_EVENT_WRAPPER_PLUGIN', 'Plugin de acontecimento fonte');
 @define('PLUGIN_EVENT_WRAPPER_PLUGINDESC', 'Seleccione o plugin cujos dados devem ser mostrados');
 @define('PLUGIN_EVENT_WRAPPER_TITLEDESC', 'Introduza o título deste elemento de barra lateral (deixar vazio para herdar o título do plugin de acontecimento)');
