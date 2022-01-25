@@ -6,8 +6,8 @@
     {foreach $entries AS $dategroup}
         {foreach $dategroup.entries AS $entry}
 
-            <div class="static-entries-list">
-                ({$dategroup.date|date_format:"%d.%m.%Y"}) <a href="{$entry.link}">{$entry.title|default:$entry.id}</a>
+            <div class="static-entries-list {cycle values="odd,even"}">
+                [<span class="tag-list-entry-date">{$dategroup.date|date_format:"%d.%m.%Y"}</span>] <a href="{$entry.link}">{$entry.title|default:$entry.id}</a>
             </div>
         {/foreach}
     {/foreach}
