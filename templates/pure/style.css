@@ -327,8 +327,6 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     background-color: #c93c37; }
   [data-dark-theme="dark"] .search_msg .searchresults, [data-dark-theme="dark"] .search_msg .searchterm {
     color: #c93c37; }
-  [data-dark-theme="dark"] .static-entries-list.odd {
-    background-color: #2f353e; }
   [data-dark-theme="dark"] table tbody tr:nth-child(2n) {
     background-color: #2c3136; }
   [data-dark-theme="dark"] table tbody tr:nth-child(2n+1) {
@@ -407,11 +405,15 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
   [data-dark-theme="dark"] .staticpage_results, [data-dark-theme="dark"] .serendipity_search, [data-dark-theme="dark"] .serendipity_content_message, [data-dark-theme="dark"] .content_msg .serendipity_msg_success, [data-dark-theme="dark"] .msg_success, [data-dark-theme="dark"] .serendipity_msg_notice, [data-dark-theme="dark"] .msg_notice, [data-dark-theme="dark"] .serendipity_msg_important, [data-dark-theme="dark"] .msg_important, [data-dark-theme="dark"] .msg_question, [data-dark-theme="dark"] .serendipity_commentDirection {
     box-shadow: none; }
   [data-dark-theme="dark"] .freetag_cloud .serendipity_freetag_taglist {
-    background-color: transparent;
+    margin-top: .25rem;
+    background-color: #222a31;
+    border: 1px solid #1c2128;
     color: #cdd9e5; }
     [data-dark-theme="dark"] .freetag_cloud .serendipity_freetag_taglist .freetag_wordcloud, [data-dark-theme="dark"] .freetag_cloud .serendipity_freetag_taglist .rotaCanvas {
       background-color: #cdd9e5;
       color: #22272e; }
+  [data-dark-theme="dark"] .static-entries-list.odd {
+    background-color: #2f353e; }
   [data-dark-theme="dark"] #staticpage_nav {
     border-color: #444c56; }
     [data-dark-theme="dark"] #staticpage_nav .staticpage_navigation_dummy {
@@ -1315,7 +1317,9 @@ li.post_reltags ul li {
     font-weight: bold;
 }
 
-.static-entries-list {
+#taglistentries {
+  margin-bottom: 1.5rem; }
+  .static-entries-list {
     line-height: 1.5; }
     .static-entries-list.odd {
       background: #fafafa; }
