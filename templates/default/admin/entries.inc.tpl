@@ -176,10 +176,10 @@
                     <ul class="plainList clearfix actions">
                     {if $entry.preview OR (!$showFutureEntries AND ($entry.timestamp >= $serverOffsetHour))}
 
-                        <li><a class="button_link" href="{$entry.preview_link}" title="{$CONST.PREVIEW} #{$entry.id}"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.PREVIEW}</span></a></li>
+                        <li><a class="button_link linkout" href="{$entry.preview_link}" title="{$CONST.PREVIEW} #{$entry.id}"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.PREVIEW}</span></a></li>
                     {else}
 
-                        <li><a class="button_link" href="{$entry.archive_link}" title="{$CONST.VIEW} #{$entry.id}"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.VIEW}</span></a></li>
+                        <li><a class="button_link linkout" href="{$entry.archive_link}" title="{$CONST.VIEW} #{$entry.id}"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.VIEW}</span></a></li>
                     {/if}
 
                         <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry.id}&amp;{$urltoken}" title="{$CONST.EDIT} #{$entry.id}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
@@ -200,7 +200,7 @@
                         {if count($entry.cats)} {$CONST.IN}
                           {foreach $entry.cats AS $cat}
 
-                            <a href="{$cat.link}">{$cat.category_name|escape}</a>{if NOT empty($cat.grouped)}{foreach $cat.groupname AS $gshortname} <span class="icon-users {$gshortname}" aria-hidden="true" title="read and view restriction to group {$gshortname}"></span>{/foreach}{/if}{if (count($entry.cats) > 1) AND !$cat@last}, {/if}
+                            <a class="linkout" href="{$cat.link}">{$cat.category_name|escape}</a>{if NOT empty($cat.grouped)}{foreach $cat.groupname AS $gshortname} <span class="icon-users {$gshortname}" aria-hidden="true" title="read and view restriction to group {$gshortname}"></span>{/foreach}{/if}{if (count($entry.cats) > 1) AND !$cat@last}, {/if}
                           {/foreach}
                         {/if}</span>
                     {if NOT empty($entry.ep_is_locked)}
