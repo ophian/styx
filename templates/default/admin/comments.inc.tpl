@@ -130,8 +130,11 @@
                                 <span class="text-normal">{$CONST.ON} {$comment.timestamp|formatTime:$CONST.DATE_FORMAT_SHORT|truncate:10:''}</span> <span class="icon-clock" title="{$comment.timestamp|formatTime:$CONST.DATE_FORMAT_SHORT}" aria-hidden="true"></span>
                                 <button class="toggle_info button_link" type="button" data-href="#comment_data_{$comment.id}"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
                             </h4>
-                        {if ($comment.status == 'pending') OR ($comment.status == 'confirm')}
+                        {if $comment.status == 'pending'}
                             <span class="comment_status">{$CONST.COMMENTS_FILTER_NEED_APPROVAL}</span>
+                        {/if}
+                        {if $comment.status == 'confirm'}
+                            <span class="comment_status">{$CONST.COMMENTS_FILTER_NEED_CONFIRM}</span>
                         {/if}
                         {if $comment.status == 'hidden'}
                             <span class="comment_status">{$CONST.COMMENTS_FILTER_NEED_APPROVAL} <span class="icon-right-open" aria-hidden="true"></span> {$CONST.HIDDEN}</span>
