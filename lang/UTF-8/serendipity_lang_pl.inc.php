@@ -545,8 +545,10 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('COMMENTS_FILTER_SHOW', 'Pokaż');
 @define('COMMENTS_FILTER_ALL', 'Wszystkie');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Tylko zaaprobowane');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Oczekujące na aprobatę');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
 @define('RSS_IMPORT_BODYONLY', 'Zachowaj cały importowany tekst w sekdji "Treść wpisu" i nie dziel na "Rozszerzona treść wpisu".');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'Pokazywać także Rozszerzoną treść wpisu w feedzie RSS?');
 @define('WEEK', 'Tydzień');

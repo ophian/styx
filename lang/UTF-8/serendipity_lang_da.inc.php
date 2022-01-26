@@ -531,8 +531,10 @@
 @define('COMMENTS_FILTER_SHOW', 'Vis');
 @define('COMMENTS_FILTER_ALL', 'Alle');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Kun godkendte');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Afventer godkendelse');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
 @define('RSS_IMPORT_BODYONLY', 'Placer al den importeret tekst ind i "artikel" delen, og ikke opdelt ind i "udvidet artikel" sektionen.');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'Vis hele artiklen, med udvidet del, inde i RSS feed');
 @define('MT_DATA_FILE', 'MovableType data fil');

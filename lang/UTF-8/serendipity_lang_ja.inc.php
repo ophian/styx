@@ -543,6 +543,8 @@
 @define('COMMENTS_FILTER_SHOW', '表示');
 @define('COMMENTS_FILTER_ALL', 'すべて');
 @define('COMMENTS_FILTER_APPROVED_ONLY', '承認済みのみ');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', '承認待ち');
 @define('COMMENTS_FILTER_NEED_CONFIRM', 'ユーザーの確認を保留しています');
 @define('RSS_IMPORT_BODYONLY', 'すべてのエントリーは「本文」セクションに置き、拡張エントリーセクションに分割しない');

@@ -545,8 +545,10 @@
 @define('COMMENTS_FILTER_SHOW', 'عرض');
 @define('COMMENTS_FILTER_ALL', 'الكل');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'فقط ما تمت الموافقة عليه');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'الموافقه على المنع أو الحجب');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
 @define('RSS_IMPORT_BODYONLY', 'Put all imported text in the "body" section and do not split up into "extended entry" section.');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'أعرض المقالة كاملة متممدة داخل معطيات RSS');
 @define('WEEK', 'اسبوع');

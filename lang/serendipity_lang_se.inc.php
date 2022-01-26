@@ -543,8 +543,10 @@
 @define('COMMENTS_FILTER_SHOW', 'Visa');
 @define('COMMENTS_FILTER_ALL', 'Alla');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Bara godkända');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Väntar på godkännande');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
 @define('RSS_IMPORT_BODYONLY', 'Lägg all importerad text i "innehåll"-sektionen och splittra inte upp den i "utvidgad artikel"-sektionen.');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'Visa fullständiga artiklar med utvidgat innehåll i RSS-matningen');
 @define('WEEK', 'Vecka');

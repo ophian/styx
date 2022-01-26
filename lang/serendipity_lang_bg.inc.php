@@ -533,6 +533,8 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('COMMENTS_FILTER_SHOW', 'Показване');
 @define('COMMENTS_FILTER_ALL', 'Всички');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Само одобрени');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Чакащи одобрение');
 @define('COMMENTS_FILTER_NEED_CONFIRM', 'Коментарът очаква одобрение от потребителя');
 @define('RSS_IMPORT_BODYONLY', 'Слагане на целия внесен текст в основната секция и без разделяне с разширената секция.');

@@ -546,8 +546,10 @@
 @define('COMMENTS_FILTER_SHOW', 'Tonen');
 @define('COMMENTS_FILTER_ALL', 'Alles');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Alleen goedgekeurden');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Wachtend op goedkeuring');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
 @define('RSS_IMPORT_BODYONLY', 'Voeg alle geïmporteerde teksten in de "Artikeltekst"-sectie en splits deze niet op naar de "Uitgebreide tekst"-sectie.');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'Geef volledige artikelen weer in de verzamelpublicatie');
 @define('WEEK', 'Week');

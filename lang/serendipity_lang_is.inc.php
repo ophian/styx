@@ -543,8 +543,10 @@
 @define('COMMENTS_FILTER_SHOW', 'Sýna');
 @define('COMMENTS_FILTER_ALL', 'Allt');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Einungis samþykktar');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Bíða eftir samþykki');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
 @define('RSS_IMPORT_BODYONLY', 'Setja allan innfluttan texta í "body" hlutann og ekki skipta í "aukainnihald" hlutann.');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'Show full articles with extended body inside RSS feed');
 @define('WEEK', 'Vika');

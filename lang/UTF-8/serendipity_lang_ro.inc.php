@@ -544,8 +544,10 @@
 @define('COMMENTS_FILTER_SHOW', 'Arată');
 @define('COMMENTS_FILTER_ALL', 'Toate');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Doar cele aprobate');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Cele care necesită aprobare');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
 @define('RSS_IMPORT_BODYONLY', 'Pune tot textul importat în secţiunea "body" şi nu împărţi în "însemnare avansată".');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'Arată toate articolele cu corp extins din linia de informare RSS');
 @define('WEEK', 'Săptămână');

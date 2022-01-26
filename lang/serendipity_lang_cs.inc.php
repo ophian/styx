@@ -557,6 +557,8 @@ $i18n_filename_to = array (
 @define('COMMENTS_FILTER_SHOW', 'Zobrazit');
 @define('COMMENTS_FILTER_ALL', 'Vše');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Pouze povolené');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Èekající na povolení');
 @define('COMMENTS_FILTER_NEED_CONFIRM', 'Èeká na potvrzení uživatelem');
 @define('RSS_IMPORT_BODYONLY', 'Uložit celý importovaný text do "hlavní" èásti, nerozdìlovat do "rozšíøené" èásti.');

@@ -545,8 +545,10 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('COMMENTS_FILTER_SHOW', 'Показывать');
 @define('COMMENTS_FILTER_ALL', 'Все');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Только подтверждённые');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Ожидающие подтверждения');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
 @define('RSS_IMPORT_BODYONLY', 'Поместить весь импортированный текст в раздел "текст записи" и не создавать раздел "дополнительный текст записи".');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'Показывать полные записи с дополнительным текстом записи в RSS-лентах');
 @define('WEEK', 'Неделя');

@@ -542,8 +542,10 @@
 @define('COMMENTS_FILTER_SHOW', 'Näytä');
 @define('COMMENTS_FILTER_ALL', 'Kaikki');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Vain hyväksytyt');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Hyväksymättömät');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
 @define('RSS_IMPORT_BODYONLY', 'Tuo kaikki teksti merkintään ja jätä jatko-osio tyhjäksi..');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'Näytä merkinnät runko-osana RSS kanavilla');
 @define('WEEK', 'Viikko');

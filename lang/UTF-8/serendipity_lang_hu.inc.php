@@ -543,8 +543,10 @@
 @define('COMMENTS_FILTER_SHOW', 'Mutat');
 @define('COMMENTS_FILTER_ALL', 'Összes');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Elfogadott');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Még el nem fogadott');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
 @define('RSS_IMPORT_BODYONLY', 'Az összes szöveg kerüljön a törzsbe, ne legyen külső bejegyzésekre szedve.');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'Az egész bejegyzés RSS hírcsatornában mutatása a külső szövegekkel együtt.');
 @define('WEEK', 'Hét');

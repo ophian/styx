@@ -547,8 +547,10 @@
 @define('COMMENTS_FILTER_SHOW', 'Mostrar');
 @define('COMMENTS_FILTER_ALL', 'Todo');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Sólo lo aprobado');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Pendiente de aprobación');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
 @define('RSS_IMPORT_BODYONLY', 'Coloca todo el texto importado en el "cuerpo" y no lo separes en la sección "entrada extendida".');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'Mostrar los artículos completos con la entrada extendida dentro del feed RSS');
 @define('MT_DATA_FILE', 'fichero de datos de Movable Type');

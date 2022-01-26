@@ -545,6 +545,8 @@
 @define('COMMENTS_FILTER_SHOW', '보이기');
 @define('COMMENTS_FILTER_ALL', '전체');
 @define('COMMENTS_FILTER_APPROVED_ONLY', '승인된 것만');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', '승인 검토중');
 @define('COMMENTS_FILTER_NEED_CONFIRM', '사용자 승인 대기 중');
 @define('RSS_IMPORT_BODYONLY', '불러들인 텍스트를 모두 "본문" 부분에 넣고 "추가 내용" 부분에 분리해서 넣지 않습니다.');

@@ -544,8 +544,10 @@
 @define('COMMENTS_FILTER_SHOW', '显示');
 @define('COMMENTS_FILTER_ALL', '全部');
 @define('COMMENTS_FILTER_APPROVED_ONLY', '显示审核回复');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', '显示等待审核');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
 @define('RSS_IMPORT_BODYONLY', '将输入的文字放到主内容, 将不拆开过长的文章到副内容');
 @define('SYNDICATION_PLUGIN_FULLFEED', '在 RSS feed 里显示全部的文章');
 @define('WEEK', '周');

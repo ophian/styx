@@ -543,8 +543,10 @@
 @define('COMMENTS_FILTER_SHOW', 'காண்க');
 @define('COMMENTS_FILTER_ALL', 'எல்லாம்');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'அங்கீகரித்தவை');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'மேற்பார்வையில் உள்ளவை');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
 @define('RSS_IMPORT_BODYONLY', 'Put all imported text in the "body" section and do not split up into "extended entry" section.');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'Show full articles with extended body inside RSS feed');
 @define('WEEK', 'Week');

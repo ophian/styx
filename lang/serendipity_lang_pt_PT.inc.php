@@ -534,8 +534,10 @@
 @define('COMMENTS_FILTER_SHOW', 'Mostrar');
 @define('COMMENTS_FILTER_ALL', 'Todos');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Só aprovados'); // Verify
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Aprovação pendente');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
 @define('RSS_IMPORT_BODYONLY', 'Pôr todo o texto importado na secção de "body" ("corpo") e não dividir para a secção "extended entry" ("entrada estendida").'); // Verify
 @define('SYNDICATION_PLUGIN_FULLFEED', 'Mostrar artigos completos com corpo estendido dentro do RSS feed');
 @define('MT_DATA_FILE', 'Ficheiro de dados Movable Type');
