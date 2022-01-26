@@ -545,6 +545,7 @@
 @define('COMMENTS_FILTER_ALL', '全部');
 @define('COMMENTS_FILTER_APPROVED_ONLY', '显示审核回复');
 @define('COMMENTS_FILTER_NEED_APPROVAL', '显示等待审核');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
 @define('RSS_IMPORT_BODYONLY', '将输入的文字放到主内容, 将不拆开过长的文章到副内容');
 @define('SYNDICATION_PLUGIN_FULLFEED', '在 RSS feed 里显示全部的文章');
 @define('WEEK', '周');
@@ -973,7 +974,6 @@
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD', '(If you enter an absolute URL with http://... here, this URL will be used as the redirection target in case you have enabled the "Force" option for FeedBurner. Note that this can also be a URL independent to FeedBurner. For new Google FeedBurner feeds, you need to enter http://feeds2.feedburner.com/yourfeedname here)');
 
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD2', 'If you set this option to "Force" you can forward the RSS feed to any webservice, not only FeedBurner. Look at the option "Feedburner ID" below to enter an absolute URL)');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
 @define('NOT_WRITABLE_SPARTACUS', ' Recommended! (Required, when you plan to use Spartacus plugin for remote plugin download.)');
 @define('MEDIA_ALT', 'ALT-Attribute (depiction or short description)');
 @define('MEDIA_PROPERTY_ALT', 'Depiction (summary for ALT-Attribute)');

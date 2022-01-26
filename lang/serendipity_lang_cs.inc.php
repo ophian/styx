@@ -558,6 +558,7 @@ $i18n_filename_to = array (
 @define('COMMENTS_FILTER_ALL', 'Vše');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Pouze povolené');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Èekající na povolení');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Èeká na potvrzení uživatelem');
 @define('RSS_IMPORT_BODYONLY', 'Uložit celý importovaný text do "hlavní" èásti, nerozdìlovat do "rozšíøené" èásti.');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'Zobrazit celé èlánky vèetnì rozšíøené èásti v RSS kanálu');
 @define('WEEK', 'Týden');
@@ -980,7 +981,6 @@ $i18n_filename_to = array (
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD', '(Pokud zadáte absolutní URL adresu s http://..., bude tato adresa použita jako cíl pøesmìrování v pøípadì, že jste zatrhli volbu "Vynutit" pro FeedBurner. Mìjte na pamìti, že to mùže být URL adresa nezávislá na FeedBurneru. Pro nové kanály FeedBurneru Googlu budete muset zadat http://feeds2.feedburner.com/jmenoVasehoKanalu)');
 
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD2', 'Pokud nastavíte tuto volbu na "Vynutit", mùžete pøesmìrovat RSS kanál na jakoukoliv webovou službu, nejen na FeedBurner. Podívejte se níže na volbu "Feedburner ID" pro zadání absolutní adresy.');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Èeká na potvrzení uživatelem');
 @define('NOT_WRITABLE_SPARTACUS', ' (Vyžadováno pouze pokud chcete v budoucnu využívat plugin Spartacus pro stahování nových pøídavných modulù.)');
 @define('MEDIA_ALT', 'Atribut ALT (popis nebo krátký popis)');
 @define('MEDIA_PROPERTY_ALT', 'Popis (shrnutí pro atribut ALT)');

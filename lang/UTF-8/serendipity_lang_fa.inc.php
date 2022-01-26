@@ -545,6 +545,7 @@
 @define('COMMENTS_FILTER_ALL', 'تمام');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'فقط تایید شده ها');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'در انتظار تایید');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
 @define('RSS_IMPORT_BODYONLY', 'تمام مقادیر وارد شده را در بخش "بدنه ارسال" قرار بده و در بخش "مطالب بیشتر" قرار نده.');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'تمام ارسال ها با تمام متن بدنه را در RSS قرار بده');
 @define('WEEK', 'هفته');
@@ -971,7 +972,6 @@
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD', '(If you enter an absolute URL with http://... here, this URL will be used as the redirection target in case you have enabled the "Force" option for FeedBurner. Note that this can also be a URL independent to FeedBurner. For new Google FeedBurner feeds, you need to enter http://feeds2.feedburner.com/yourfeedname here)');
 
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD2', 'If you set this option to "Force" you can forward the RSS feed to any webservice, not only FeedBurner. Look at the option "Feedburner ID" below to enter an absolute URL)');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
 @define('NOT_WRITABLE_SPARTACUS', ' Recommended! (Required, when you plan to use Spartacus plugin for remote plugin download.)');
 @define('MEDIA_ALT', 'ALT-Attribute (depiction or short description)');
 @define('MEDIA_PROPERTY_ALT', 'Depiction (summary for ALT-Attribute)');

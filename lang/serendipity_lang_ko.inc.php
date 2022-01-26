@@ -546,6 +546,7 @@
 @define('COMMENTS_FILTER_ALL', '전체');
 @define('COMMENTS_FILTER_APPROVED_ONLY', '승인된 것만');
 @define('COMMENTS_FILTER_NEED_APPROVAL', '승인 검토중');
+@define('COMMENTS_FILTER_NEED_CONFIRM', '사용자 승인 대기 중');
 @define('RSS_IMPORT_BODYONLY', '불러들인 텍스트를 모두 "본문" 부분에 넣고 "추가 내용" 부분에 분리해서 넣지 않습니다.');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'RSS 피드 안에 추가 내용을 포함한 글 전체를 보임');
 @define('WEEK', '주');
@@ -970,7 +971,6 @@
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD', '(만약 여기에 http://...로 시작하는 절대 경로를 입력했다면 피드버너 설정에서 "강제로"를 선택했을 때 이 주소를 리다이렉트 대상으로 사용하게 됩니다. 그리고 이 주소는 피드버너와 독립적일 수 있다는 점도 참고하십시오. 신규 구글 피드버너의 경우 http://feeds2.feedburner.com/yourfeedname 식으로 입력해야 합니다.)');
 
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD2', '이 설정을 "강제로"로 선택했을 경우 피드버너 뿐만 아니라 다른 웹 서비스로도 RSS 피드를 전달할 수 있습니다. 아래의 "피드버너 ID" 설정을 보고 절대 경로를 입력하십시오.');
-@define('COMMENTS_FILTER_NEED_CONFIRM', '사용자 승인 대기 중');
 @define('NOT_WRITABLE_SPARTACUS', ' (스파르타쿠스 플러그인을 통해 원격 플러그인을 내려받을 경우에만 필요함)');
 @define('MEDIA_ALT', 'ALT 속성 (묘사 또는 짧은 설명)');
 @define('MEDIA_PROPERTY_ALT', '묘사 (ALT 속성에 대한 요약)');

@@ -548,6 +548,7 @@
 @define('COMMENTS_FILTER_ALL', 'Todo');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Sólo lo aprobado');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Pendiente de aprobación');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
 @define('RSS_IMPORT_BODYONLY', 'Coloca todo el texto importado en el "cuerpo" y no lo separes en la sección "entrada extendida".');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'Mostrar los artículos completos con la entrada extendida dentro del feed RSS');
 @define('MT_DATA_FILE', 'fichero de datos de Movable Type');
@@ -992,7 +993,6 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD', '(If you enter an absolute URL with http://... here, this URL will be used as the redirection target in case you have enabled the "Force" option for FeedBurner. Note that this can also be a URL independent to FeedBurner. For new Google FeedBurner feeds, you need to enter http://feeds2.feedburner.com/yourfeedname here)');
 
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD2', 'If you set this option to "Force" you can forward the RSS feed to any webservice, not only FeedBurner. Look at the option "Feedburner ID" below to enter an absolute URL)');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
 @define('NOT_WRITABLE_SPARTACUS', ' Recommended! (Required, when you plan to use Spartacus plugin for remote plugin download.)');
 @define('MEDIA_ALT', 'ALT-Attribute (depiction or short description)');
 @define('MEDIA_PROPERTY_ALT', 'Depiction (summary for ALT-Attribute)');
