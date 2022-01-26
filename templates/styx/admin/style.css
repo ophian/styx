@@ -1484,6 +1484,12 @@ a:focus {
     color: #d06604;
 }
 
+/* Frontend pointers */
+a:hover.linkout ,
+a:focus.linkout {
+    color: #6495ed;
+}
+
 a.button_link,
 a.button_link:hover,
 a.button_link:focus,
