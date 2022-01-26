@@ -543,8 +543,10 @@
 @define('COMMENTS_FILTER_SHOW', 'Show');
 @define('COMMENTS_FILTER_ALL', 'All');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Only approved');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Pending approval');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending user confirmation');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
 @define('RSS_IMPORT_BODYONLY', 'Put all imported text in the "body" section and do not split up into "extended entry" section.');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'Show full articles with extended body inside RSS feed');
 @define('WEEK', 'Week');

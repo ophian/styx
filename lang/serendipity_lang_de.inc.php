@@ -531,7 +531,10 @@
 @define('COMMENTS_FILTER_SHOW', 'Zeige');
 @define('COMMENTS_FILTER_ALL', 'Alle');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Nur bewilligte');
-@define('COMMENTS_FILTER_NEED_APPROVAL', 'Zu bewilligen');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Nur zu bewilligende');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Nur zu bestätigende');
+@define('COMMENTS_FILTER_NEED_APPROVAL', 'zu bewilligen');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'zu bestätigen');
 @define('RSS_IMPORT_BODYONLY', 'Füge den gesamten importierten Text in das einzelne "Text"-Feld ein. Verhindert die Aufteilung in den "Erweiterten Eintrag"-Bereich.');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'Einträge mit erweitertem Text im RSS-Feed einbinden');
 @define('MT_DATA_FILE', 'Movable-Type-Datensätze');
@@ -966,7 +969,6 @@
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD', '(ist eine absolute URL mit http://... eingetragen, wird diese URL wird als Umleitungsziel verwendet, wenn die "Erzwingen" Option für FeedBurner eingeschaltet ist. Hinweis: Das kann auch eine URL sein, die auf andere Ziele als FeedBurner verweist. Für die neuen Google FeedBurner Feeds muss http://feeds2.feedburner.com/yourfeedname eingetragen werden.)');
 
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD2', '(Wenn diese Option auf "Erzwingen" gesetzt ist, wird der RSS Feed an einen anderen Webservice weitergeleitet, wie z.B. (aber nicht nur) FeedBurner. Siehe die untenstehende Option "Feedburner ID" um die absolute URL einzutragen)');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Zu bestätigende');
 
 @define('INSTALL_OFFSET_ON_SERVER_TIME', 'Basiert die Zeitdifferenz auf der Server-Zeitzone?');
 @define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Eintragszeiten nach Server-Zeitzone eintragen oder nicht. YES wählt die Server-Zeitzone als Basis, NO wählt GMT.');

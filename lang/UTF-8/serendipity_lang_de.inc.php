@@ -531,8 +531,10 @@
 @define('COMMENTS_FILTER_SHOW', 'Zeige');
 @define('COMMENTS_FILTER_ALL', 'Alle');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Nur bewilligte');
-@define('COMMENTS_FILTER_NEED_APPROVAL', 'Zu bewilligen');
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Zu bestätigende');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Nur zu bewilligende');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Nur zu bestätigende');
+@define('COMMENTS_FILTER_NEED_APPROVAL', 'zu bewilligen');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'zu bestätigen');
 @define('RSS_IMPORT_BODYONLY', 'Füge den gesamten importierten Text in das einzelne "Text"-Feld ein. Verhindert die Aufteilung in den "Erweiterten Eintrag"-Bereich.');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'Einträge mit erweitertem Text im RSS-Feed einbinden');
 @define('MT_DATA_FILE', 'Movable-Type-Datensätze');
