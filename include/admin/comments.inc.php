@@ -119,7 +119,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
               FROM {$serendipity['dbPrefix']}comments c
          LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
          LEFT JOIN {$serendipity['dbPrefix']}authors a ON (e.authorid = a.authorid)
-             WHERE c.id = " . $_id  ." AND (status = 'pending' OR status LIKE 'confirm%')";
+             WHERE c.id = " . $_id  ." AND (status = 'pending' OR status LIKE 'confirm%')"; // fuzzy, regard confirm1 with spamblock moderate_comments and the hash in serendipity_confirmMail($cid, $hash)
     $rs = serendipity_db_query($sql, true);
 
     if ($rs === false) {
@@ -299,7 +299,7 @@ if ($serendipity['GET']['filter']['show'] == 'approved') {
     $and          .= "AND status = 'pending'";
     $searchString .= '&amp;serendipity[filter][show]=pending';
 } elseif ($serendipity['GET']['filter']['show'] == 'confirm') {
-    $and          .= "AND status LIKE 'confirm%'";
+    $and          .= "AND status LIKE 'confirm%'"; // fuzzy, regard confirm1 with spamblock moderate_comments and the hash in serendipity_confirmMail($cid, $hash)
     $searchString .= '&amp;serendipity[filter][show]=confirm';
 } elseif ($serendipity['GET']['filter']['show'] == 'hidden') {
     $and          .= "AND status = 'hidden'";
