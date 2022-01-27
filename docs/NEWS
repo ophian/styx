@@ -2,7 +2,7 @@ Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
   * Improve comment filters for strict 'approve', 'confirm' and 'hidden' set
-    search selects and for the list markers.
+    search selects and for the list markers, including new lang constants.
 
   * Improve [ styx ] backend theme [dark-theme] for link-out-to-frontent styles
 
