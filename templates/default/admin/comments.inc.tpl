@@ -161,7 +161,9 @@
 
                             <div id="c{$comment.id}_summary" class="comment_summary{if $comment.stype == 'P'} ping{/if}">{$comment.summary}{if empty($comment.summary) AND $comment.type == 'PINGBACK'}<u>PING by:</u>: {$comment.url}{/if}</div>
 
-                            <div id="c{$comment.id}_full" class="clearfix comment_full additional_info">{$comment.fullBody}</div>
+                            <div id="c{$comment.id}_full" class="clearfix comment_full additional_info">
+                                {$comment.fullBody}
+                            </div>
 
                             <ul class="plainList clearfix {$comment.type|lower} actions">
                                 <li><a class="button_link" href="{$comment.entrylink}" title="{$CONST.VIEW}"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.VIEW}</span></a></li>
@@ -192,9 +194,11 @@
 
                         </li>
                     {/foreach}
+
                     </ul>
                 {/if}
                 {if ($page != 1 AND $page <= $pages) OR $page != $pages}
+
                     <nav class="pagination">
                         <h3>{$CONST.PAGE_BROWSE_COMMENTS|sprintf:$page:$pages:$totalComments}</h3>
 
@@ -206,6 +210,7 @@
                         </ul>
                     </nav>
                 {/if}
+
                 </div>
 
                 <div class="form_buttons">
