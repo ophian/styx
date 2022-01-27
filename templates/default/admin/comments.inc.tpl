@@ -141,7 +141,7 @@
                         {/if}
                         {if $comment.status == 'hidden'}
 
-                            <span class="comment_status">{$CONST.COMMENTS_FILTER_NEED_APPROVAL} <span class="icon-right-open" aria-hidden="true"></span> {$CONST.HIDDEN}</span>
+                            <span class="comment_status comment_status_{$comment.status}">{$CONST.COMMENTS_FILTER_NEED_APPROVAL} <span class="icon-right-open" aria-hidden="true"></span> {$CONST.HIDDEN}</span>
                         {/if}
 
                             <div id="comment_data_{$comment.id}" class="clearfix additional_info">
