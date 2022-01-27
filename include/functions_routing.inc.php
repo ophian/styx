@@ -129,6 +129,7 @@ function serveComments() {
         } elseif (in_array($v, ['trackbacks', 'pingbacks', 'comments_and_trackbacks', 'comments'])) {
             $serendipity['GET']['commentMode'] = $v;
         } elseif (!empty($v)) {
+            $serendipity['GET']['viewCommentAuthor'] = $serendipity['GET']['viewCommentAuthor'] ?? '';
             $serendipity['GET']['viewCommentAuthor'] .= urldecode($v);
         }
     }
