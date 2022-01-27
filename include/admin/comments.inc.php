@@ -296,11 +296,14 @@ if ($serendipity['GET']['filter']['show'] == 'approved') {
     $and          .= "AND status = 'approved'";
     $searchString .= '&amp;serendipity[filter][show]=approved';
 } elseif ($serendipity['GET']['filter']['show'] == 'pending') {
-    $and          .= "AND status = 'hidden' OR status = 'pending'";
+    $and          .= "AND status = 'pending'";
     $searchString .= '&amp;serendipity[filter][show]=pending';
 } elseif ($serendipity['GET']['filter']['show'] == 'confirm') {
-    $and          .= "AND status = 'hidden' OR status LIKE 'confirm%'";
+    $and          .= "AND status LIKE 'confirm%'";
     $searchString .= '&amp;serendipity[filter][show]=confirm';
+} elseif ($serendipity['GET']['filter']['show'] == 'hidden') {
+    $and          .= "AND status = 'hidden'";
+    $searchString .= '&amp;serendipity[filter][show]=hidden';
 } else {
     $serendipity['GET']['filter']['show'] = 'all';
 }
