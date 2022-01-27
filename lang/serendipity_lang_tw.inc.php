@@ -544,6 +544,7 @@ $i18n_unknown = 'tw';
 @define('COMMENTS_FILTER_SHOW', '顯示');
 @define('COMMENTS_FILTER_ALL', '全部');
 @define('COMMENTS_FILTER_APPROVED_ONLY', '顯示審核迴響');
+@define('COMMENTS_FILTER_HIDDEN_ONLY', 'Only hidden');
 @define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
 @define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', '顯示等待審核');

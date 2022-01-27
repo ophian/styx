@@ -532,6 +532,7 @@
 @define('COMMENTS_FILTER_SHOW', 'Vis');
 @define('COMMENTS_FILTER_ALL', 'Alle');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Only approved'); // Translate
+@define('COMMENTS_FILTER_HIDDEN_ONLY', 'Only hidden'); // Translate
 @define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending'); // Translate
 @define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable'); // Translate
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Pending approval'); // Translate

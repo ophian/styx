@@ -532,6 +532,7 @@
 @define('COMMENTS_FILTER_SHOW', 'Mostrat');
 @define('COMMENTS_FILTER_ALL', 'Todos');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Apenas os aprovados');
+@define('COMMENTS_FILTER_HIDDEN_ONLY', 'Only hidden');
 @define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
 @define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Aprovações pendentes');

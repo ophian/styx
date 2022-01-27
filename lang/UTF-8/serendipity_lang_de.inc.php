@@ -531,6 +531,7 @@
 @define('COMMENTS_FILTER_SHOW', 'Zeige');
 @define('COMMENTS_FILTER_ALL', 'Alle');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Nur bewilligte');
+@define('COMMENTS_FILTER_HIDDEN_ONLY', 'Nur versteckte');
 @define('COMMENTS_FILTER_APPROVAL_ONLY', 'Nur zu bewilligende');
 @define('COMMENTS_FILTER_CONFIRM_ONLY', 'Nur zu bestätigende');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'zu bewilligen');

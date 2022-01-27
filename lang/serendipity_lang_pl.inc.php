@@ -545,6 +545,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('COMMENTS_FILTER_SHOW', 'Poka¿');
 @define('COMMENTS_FILTER_ALL', 'Wszystkie');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Tylko zaaprobowane');
+@define('COMMENTS_FILTER_HIDDEN_ONLY', 'Only hidden');
 @define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
 @define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Oczekuj±ce na aprobatê');

@@ -543,6 +543,7 @@
 @define('COMMENTS_FILTER_SHOW', 'Sýna');
 @define('COMMENTS_FILTER_ALL', 'Allt');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Einungis samþykktar');
+@define('COMMENTS_FILTER_HIDDEN_ONLY', 'Only hidden');
 @define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
 @define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Bíða eftir samþykki');

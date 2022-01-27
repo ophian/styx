@@ -545,6 +545,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('COMMENTS_FILTER_SHOW', 'Показывать');
 @define('COMMENTS_FILTER_ALL', 'Все');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Только подтверждённые');
+@define('COMMENTS_FILTER_HIDDEN_ONLY', 'Only hidden');
 @define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
 @define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Ожидающие подтверждения');

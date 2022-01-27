@@ -543,6 +543,7 @@
 @define('COMMENTS_FILTER_SHOW', '表示');
 @define('COMMENTS_FILTER_ALL', 'すべて');
 @define('COMMENTS_FILTER_APPROVED_ONLY', '承認済みのみ');
+@define('COMMENTS_FILTER_HIDDEN_ONLY', 'Only hidden');
 @define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
 @define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', '承認待ち');

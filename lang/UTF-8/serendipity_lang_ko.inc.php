@@ -545,6 +545,7 @@
 @define('COMMENTS_FILTER_SHOW', '보이기');
 @define('COMMENTS_FILTER_ALL', '전체');
 @define('COMMENTS_FILTER_APPROVED_ONLY', '승인된 것만');
+@define('COMMENTS_FILTER_HIDDEN_ONLY', 'Only hidden');
 @define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
 @define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', '승인 검토중');

@@ -543,6 +543,7 @@
 @define('COMMENTS_FILTER_SHOW', 'Mutat');
 @define('COMMENTS_FILTER_ALL', 'Összes');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Elfogadott');
+@define('COMMENTS_FILTER_HIDDEN_ONLY', 'Only hidden');
 @define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
 @define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Még el nem fogadott');
