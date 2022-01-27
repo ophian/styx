@@ -1,6 +1,9 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix wrong description of /last_X/ URI argument for /comments/ summary pages,
+    which is last X days, NOT last X comments.
+
   * Improve comment filters for strict 'approve', 'confirm' and 'hidden' set
     search selects and for the list markers, including new lang constants.
 
