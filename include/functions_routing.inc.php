@@ -56,8 +56,6 @@ function locateHiddenVariables($_args) {
             $page = substr($v, 1);
             // check for someone is willingly trying to break Serendipity by adding page orders > P2500.., which could result in breaking db limits - so we set a hard page limit
             if ($page > $serendipity['max_page_limit']) {
-                unset($_args[$k]);
-                unset($serendipity['uriArguments'][$k]);
                 return $_args;
             }
             if (is_numeric($page)) {
