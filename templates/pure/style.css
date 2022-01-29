@@ -1868,10 +1868,13 @@ article.post.byauthor {
 .archive dl {
     display: block;
 }
-.archive dt, .archive dd {
+.archive_overview dt, .archive_overview dd {
     width: 48%;
     display: inline-block;
     margin-bottom: .5em;
+}
+.archive_summary dt, .archive_summary dd {
+    line-height: 1.4;
 }
 .archive dd {
     text-align: right;
