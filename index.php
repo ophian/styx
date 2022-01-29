@@ -69,9 +69,8 @@ $is_multicat  = (isset($serendipity['POST']['isMultiCat'])  && isset($serendipit
 $is_multiauth = (isset($serendipity['POST']['isMultiAuth']) && isset($serendipity['POST']['multiAuth']) && is_array($serendipity['POST']['multiAuth'])) ? true : false;
 
 if (preg_match(PAT_ARCHIVES, $uri, $matches)
-    || isset($serendipity['GET']['range'])
-    && is_numeric($serendipity['GET']['range'])
-    ) {
+    || (isset($serendipity['GET']['range']) && is_numeric($serendipity['GET']['range']))
+) {
     serveArchives();
 } else if (preg_match(PAT_PERMALINK, $uri, $matches)
         || preg_match(PAT_COMMENTSUB, $uri, $matches)
