@@ -14,8 +14,8 @@ class serendipity_plugin_calendar extends serendipity_plugin
         $propbag->add('description', QUICKJUMP_CALENDAR);
         $propbag->add('configuration', array('beginningOfWeek', 'enableExtEvents', 'category'));
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.5');
+        $propbag->add('author',        'Serendipity Team, Ian Styx');
+        $propbag->add('version',       '1.6');
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
 
@@ -83,10 +83,13 @@ class serendipity_plugin_calendar extends serendipity_plugin
             if (!isset($serendipity['range'])) {
                 $serendipity['GET']['calendarZoom'] = serendipity_serverOffsetHour(time());
             } else {
+                // catch UNIX time start range case
+                if ($serendipity['range'][0] === 1) {
+                    $serendipity['range'][0] = time(); // reset to current timestamp, since an /archives/summary.html URI does not want to run upwards
+                }
                 $serendipity['GET']['calendarZoom'] = serendipity_serverOffsetHour($serendipity['range'][0]);
             }
         }
-
 
         $month = date('m', serendipity_serverOffsetHour($serendipity['GET']['calendarZoom'], true));
         $year  = date('Y', serendipity_serverOffsetHour($serendipity['GET']['calendarZoom'], true));
@@ -152,6 +155,7 @@ class serendipity_plugin_calendar extends serendipity_plugin
                 // Calculate end timestamp of the month
                 list($end_year, $end_month, $end_day) = p2g($year, $month+1, 1);
                 $endts = mktime(0, 0, 0, $end_month, $end_day, $end_year);
+
                 break;
         } // end switch
 
