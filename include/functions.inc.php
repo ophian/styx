@@ -903,6 +903,7 @@ function serendipity_fetchReferences($id) {
  * @return  string  The output string
  */
 function serendipity_utf8_encode($string) {
+    if (is_null($string)) return;
     if (strtolower(LANG_CHARSET) != 'utf-8') {
         if (function_exists('iconv')) {
             $new = iconv(LANG_CHARSET, 'UTF-8', $string);
