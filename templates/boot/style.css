@@ -602,7 +602,7 @@ pre {
   word-wrap: break-word; }
 
 .archive.archive_summary {
-    margin: auto 1rem;
+    margin: auto;
     width: 100%; }
 .archive.archive_overview,
 .archive.archive_summary {
