@@ -242,9 +242,9 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
 
     $cond = array();
     $cond['orderby'] = $orderby;
-    if (isset($serendipity['short_archives']) && $serendipity['short_archives']) {
-        // In the short listing of all titles for a month, we don't want to have a limit applied. And we don't need/want the
-        // full article body (consumes memory) - but, see the $body note below!
+    if (isset($serendipity['short_archives']) && $serendipity['short_archives'] && $limit === $serendipity['fetchLimit']) {
+        // In the short listing of all titles for a month, we don't want to have a limit applied. Otherwise we need to NOT match a global summary page with core set paging limits other than $serendipity['fetchLimit'].
+        // And we don't need/want the full article body (consumes memory) - but, see the $body note below!
         // But we need a somehow matching condition to use {serendipity_fetchPrintEntries category=1 short_archives=true full=false noSticky=true limit="0,5"} or alike calls.
         $limit   = $serendipity['view'] != 'archives' ? $limit : '';
         $full    = false;
