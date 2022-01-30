@@ -6,7 +6,7 @@
     {/foreach}
 {/foreach}
 <article class="archive-summary">
-    <h3>{if $category}{$category_info.category_name} - {/if}{$entry_count|default:''} {$CONST.TOPICS_OF} {$dateRange.0|formatTime:"%B, %Y"}</h3>
+    <h3>{if $category}{$category_info.category_name} - {$entry_count|default:''} {/if}{if $dateRange.0 === 1 OR isset($footer_currentPage)}{$head_subtitle}{if $footer_prev_page OR $footer_next_page}: {$CONST.PAGE} {$footer_currentPage}{/if}{else}{$CONST.TOPICS_OF} {$dateRange.0|formatTime:"%B %Y"}{/if}</h3>
     <div class="archives_summary">
     {foreach $entries AS $sentries}
         {foreach $sentries.entries AS $entry}
@@ -35,4 +35,49 @@
     {/foreach}
     </div>
 </article>
+{if NOT $is_single_entry AND NOT $is_preview AND NOT $plugin_clean_page AND (NOT empty($footer_prev_page) OR NOT empty($footer_next_page))}
+
+    <div class="serendipity_pageSummary mx-auto">
+        {if NOT empty($footer_info)}
+            <p class="summary serendipity_center">{$footer_info}</p>
+        {/if}
+
+        {if $footer_totalPages > 1}
+            <nav class="{if $template_option.display_as_timeline}center-{/if}pagination">
+                {assign var="paginationStartPage" value="`$footer_currentPage-3`"}
+                {if ($footer_currentPage+3) > $footer_totalPages}
+                    {assign var="paginationStartPage" value="`$footer_totalPages-4`"}
+                {/if}
+                {if $paginationStartPage <= 0}
+                    {assign var="paginationStartPage" value="1"}
+                {/if}
+                {if $footer_prev_page}
+                    <a class="btn btn-secondary btn-md btn-theme" title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><i class="fas fa-arrow-left" aria-hidden="true"></i><span class="sr-only">{$CONST.PREVIOUS_PAGE}</span></a>
+                {/if}
+                {if $paginationStartPage > 1}
+                    <a class="btn btn-secondary btn-md btn-theme" href="{'1'|string_format:$footer_pageLink}">1</a>
+                {/if}
+                {if $paginationStartPage > 2}
+                    &hellip;
+                {/if}
+                {section name=i start=$paginationStartPage loop=($footer_totalPages+1) max=5}
+                    {if $smarty.section.i.index != $footer_currentPage}
+                        <a class="btn btn-secondary btn-md btn-theme" href="{$smarty.section.i.index|string_format:$footer_pageLink}">{$smarty.section.i.index}</a>
+                    {else}
+                        <span class="thispage btn btn-secondary btn-md btn-theme disabled">{$smarty.section.i.index}</span>
+                    {/if}
+                {/section}
+                {if $smarty.section.i.index < $footer_totalPages}
+                    &hellip;
+                {/if}
+                {if $smarty.section.i.index <= $footer_totalPages}
+                    <a class="btn btn-secondary btn-md btn-theme" href="{$footer_totalPages|string_format:$footer_pageLink}">{$footer_totalPages}</a>
+                {/if}
+                {if $footer_next_page}
+                    <a class="btn btn-secondary btn-md btn-theme" title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><i class="fas fa-arrow-right" aria-hidden="true"></i><span class="sr-only">{$CONST.NEXT_PAGE}</span></a>
+                {/if}
+            </nav>
+        {/if}
+    </div>
+{/if}
 {serendipity_hookPlugin hook="entries_footer"}
