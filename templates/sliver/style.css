@@ -1322,13 +1322,13 @@ ul#serendipity_categories_list input {
 }
 .entries-list {
     display: inline;
-    float: left;
 }
 .entries-list dt {
     clear: both;
     display: inline;
     float: left;
-    width: 20em;
+    min-width: 60%;
+    padding-right: .5rem;
 }
 .entries-list dd {
     display: inline;
