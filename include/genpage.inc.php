@@ -65,7 +65,8 @@ switch (@$serendipity['GET']['action']) {
             serendipity_printEntries($entry, 1);
         } else {
             $range = $serendipity['range'] ?? null;
-            serendipity_printEntries(serendipity_fetchEntries($range, true, $serendipity['fetchLimit']));
+            $fetchLimit = $serendipity['summaryFetchLimit'] ?? $serendipity['fetchLimit'];
+            serendipity_printEntries(serendipity_fetchEntries($range, true, $fetchLimit));
         }
         break;
 
