@@ -498,7 +498,13 @@ function serveArchives() {
     $serendipity['GET']['action']     = 'read';
     $serendipity['GET']['hidefooter'] = true;
 
-    if (!isset($year)) {
+    $_utime = false; // no UNIX start range - build real blog timestamp ranges
+    if (is_null($year) && is_null($month) && is_null($day)) {
+        $_utime = true;
+    }
+
+    // sets a default case
+    if (!isset($year) && !$_utime) {
         $year = date('Y');
         $month = date('m');
         $day = date('j');
@@ -510,7 +516,7 @@ function serveArchives() {
         $year = date('Y');
     }
 
-    if ((isset($month) && !is_numeric($month)) || !isset($month)) {
+    if (isset($month) && !is_numeric($month)) {
         $month = date('m');
     }
 
@@ -529,17 +535,33 @@ function serveArchives() {
                 $te = mktime(23, 59, 59, date('m', $tm), date('j', $tm)+7, $year);
                 $date = serendipity_formatTime(WEEK .' '. $week .', %Y', $ts, false);
             } else {
-                if ($day) {
-                    $ts = mktime(0, 0, 0, $month, $day, $year);
-                    $te = mktime(23, 59, 59, $month, $day, $year);
-                    $date = serendipity_formatTime(DATE_FORMAT_ENTRY, $ts, false);
+                // all entry summary order
+                if ($_utime === true) {
+                    $ts = mktime(1, 0, 1, 1, 1, 1970); // like DateTimeInterface constants: 1970-01-01T01:00:00+01:00 will give us a start $dateRange key 0 = 1
+                    $te = time();
+                    $date = 'alltime';
+                    $serendipity['summaryFetchLimit'] = $serendipity['fetchLimit'] != 25 ? 25 : 24; // check case to make it independently unique
                 } else {
-                    $ts = mktime(0, 0, 0, $month, $gday, $year);
-                    if (!isset($gday2)) {
-                        $gday2 = date('t', $ts);
+                    // we have a full date order
+                    if ($day) {
+                        $ts = mktime(1, 0, 1, $month, $day, $year);
+                        $te = mktime(23, 59, 59, $month, $day, $year);
+                        $date = serendipity_formatTime(DATE_FORMAT_ENTRY, $ts, false);
+                    // we have a year order only
+                    } elseif ($year && !isset($month)) {
+                        $ts = mktime(1, 0, 1, 1, 1, $year);
+                        $te = mktime(23, 59, 59, 12, 31, $year);
+                        $date = $year;
+                        $serendipity['summaryFetchLimit'] = $serendipity['fetchLimit'] != 25 ? 25 : 24; // check case to make it independently unique
+                    // we have a month & year only order
+                    } else {
+                        $ts = mktime(0, 0, 0, $month, $gday, $year);
+                        if (!isset($gday2)) {
+                            $gday2 = date('t', $ts);
+                        }
+                        $te = mktime(23, 59, 59, $month, $gday2, $year);
+                        $date = serendipity_formatTime('%B %Y', $ts, false);
                     }
-                    $te = mktime(23, 59, 59, $month, $gday2, $year);
-                    $date = serendipity_formatTime('%B %Y', $ts, false);
                 }
             }
             break;
