@@ -1,7 +1,7 @@
 {serendipity_hookPlugin hook="entries_header"}
 {counter start=0 assign='entry_count'}
 {foreach $entries AS $countme}
-    {foreach countme.entries AS $entry}
+    {foreach $countme.entries AS $entry}
         {counter assign='entry_count'}
     {/foreach}
 {/foreach}
