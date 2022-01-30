@@ -1,5 +1,5 @@
 {serendipity_hookPlugin hook="entries_header"}
-<h3 class="serendipity_date serendipity_date_summary">{$CONST.TOPICS_OF} {$dateRange.0|formatTime:"%B, %Y"}</h3>
+<h3 class="serendipity_date serendipity_date_summary">{if $dateRange.0 === 1 OR isset($footer_currentPage)}{$head_subtitle}{if $footer_prev_page OR $footer_next_page}: {$CONST.PAGE} {$footer_currentPage}{/if}{else}{$CONST.TOPICS_OF} {$dateRange.0|formatTime:"%B %Y"}{/if}</h3>
 
 <div class="serendipity_entry serendipity_entry_summary">
     <ul class="entries_summary">
@@ -11,6 +11,23 @@
     {/foreach}
     </ul>
 </div>
+{if (NOT empty($footer_prev_page) OR NOT empty($footer_next_page))}
+
+    <div class="serendipity_entries_footer">
+    {if $footer_prev_page}
+        <a href="{$footer_prev_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
+    {/if}
+
+    {if NOT empty($footer_info)}
+        ({$footer_info})
+    {/if}
+
+    {if $footer_next_page}
+        <a href="{$footer_next_page}">&raquo; {$CONST.NEXT_PAGE}</a>
+    {/if}
+
+    </div>
+{/if}
 
 <div class="serendipity_entryFooter">
     {serendipity_hookPlugin hook="entries_footer"}
