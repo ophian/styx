@@ -1,5 +1,5 @@
 <?php serendipity_plugin_api::hook_event('entries_header', $GLOBALS['tpl']['entry_id']); ?>
-<div class="serendipity_date"><?= TOPICS_OF ?> <?= serendipity_formatTime("%B, %Y", $dateRange[0]); ?></div>
+<div class="serendipity_date"><?= TOPICS_OF ?> <?= serendipity_formatTime("%B, %Y", $GLOBALS['tpl']['dateRange'][0]); ?></div>
 
 <div class="serendipity_entry">
     <ul>
