@@ -1,6 +1,8 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve [ pure ] theme styles for post content iframes on mobiles
+
   * Fix and improve /summary/ permalink by arguments - fixes and enables
         /archives/summary.html
         /archives/summary/P2.html [...]
