@@ -566,9 +566,9 @@ function serveArchives() {
             }
             break;
 
-        case 'persian-utf8':
             require_once S9Y_INCLUDE_PATH . 'include/functions_calendars.inc.php';
             $gday = 1;
+
             if (isset($week)) {
                 --$week;
                 $week *= 7;
@@ -577,6 +577,7 @@ function serveArchives() {
 
                 // convert day number of year to day number of month AND month number of year
                 $j_days_in_month = array(0, 31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29);
+                $g_y = date('Y', time());
                 if (($g_y % 4) == 3) $j_days_in_month[12]++;
 
                 for($i=1; isset($j_days_in_month[$i]); ++$i) {
