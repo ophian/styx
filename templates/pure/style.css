@@ -1870,6 +1870,9 @@ article.post.byauthor {
 .archive dl {
     display: block;
 }
+.archive_summary dl {
+    margin-bottom: 2rem;
+}
 .archive_overview dt, .archive_overview dd {
     width: 48%;
     display: inline-block;
