@@ -566,6 +566,7 @@ function serveArchives() {
             }
             break;
 
+        case 'persian-utf8':
             require_once S9Y_INCLUDE_PATH . 'include/functions_calendars.inc.php';
             $gday = 1;
 
