@@ -1,6 +1,6 @@
 {serendipity_hookPlugin hook="entries_header"}
 <article class="archive archive_summary">
-    <h2>{$CONST.TOPICS_OF} {$dateRange.0|formatTime:"%B %Y"}</h2>
+    <h2>{if $dateRange.0 === 1 OR isset($footer_currentPage)}{$head_subtitle}{if $footer_prev_page OR $footer_next_page}: {$CONST.PAGE} {$footer_currentPage}{/if}{else}{$CONST.TOPICS_OF} {$dateRange.0|formatTime:"%B %Y"}{/if}</h2>
 
     <dl class="row">
     {foreach $entries AS $sentries}
@@ -20,6 +20,40 @@
     {/foreach}
 
     </dl>
+{if empty($footer_prev_page) AND empty($footer_next_page)}
     <a class="btn btn-outline-secondary btn-sm comment_source_trace" href="#" onclick="window.history.back();return false;" title="{$CONST.BACK}">{$CONST.BACK}</a>
+{/if}
 </article>
+{if (NOT empty($footer_prev_page) OR NOT empty($footer_next_page))}
+
+    <nav class="col-sm-12" aria-label="{$footer_info|default:''}" title="{$footer_info|default:''}">
+        <ul class="entries_pagination pagination justify-content-between">
+            <li class="page-item prev{if empty($footer_prev_page)} disabled{/if}">
+            {if $footer_prev_page}
+                <a class="page-link" href="{$footer_prev_page}">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-double-left" role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <title id="title">{$CONST.PREVIOUS_PAGE}</title>
+                      <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                      <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                    </svg>
+                    <span class="sr-only">{$CONST.PREVIOUS_PAGE}</span>
+                </a>
+            {/if}
+            </li>
+            <li class="page-item info{if empty($footer_info)} disabled{/if}">{$footer_info}</li>
+            <li class="page-item next{if empty($footer_next_page)} disabled{/if}">
+            {if $footer_next_page}
+                <a class="page-link" href="{$footer_next_page}">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-double-right" role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <title id="title">{$CONST.NEXT_PAGE}</title>
+                      <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                      <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                    <span class="sr-only">{$CONST.NEXT_PAGE}</span>
+                </a>
+            {/if}
+            </li>
+        </ul>
+    </nav>
+{/if}
 {serendipity_hookPlugin hook="entries_footer"}
