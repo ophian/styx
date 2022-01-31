@@ -1180,8 +1180,10 @@ nav.pager ul {
     line-height: 1.6;
     width: 100%; }
     .post_content blockquote {
-        border-left: 5px solid #ccc;
-        padding-left: 1em; }
+      border-left: 5px solid #ccc;
+      padding-left: 1em; }
+    .post_content iframe {
+      width: 100%; }
 .serendipity_title {
     font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
     font-size: .938rem;
