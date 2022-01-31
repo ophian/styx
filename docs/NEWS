@@ -17,8 +17,8 @@ Version 3.8-DEV ()
 
     All core themes [ 2k11, b46, b5blog, boot, bootstrap4, clean-blog, default,
     default-php, next, pure, skeleton, sliver, timeline ] have been touched to
-    support this in their own archives_summary.tpl template file, while theme
-    { default ]also works for child/fallback cascades.
+    support this in their own "archives_summary.tpl" template file, while theme
+    { default ] also works for themes running the fallback cascade.
 
     [*] Same hardcoded core approach as the 99 item pagination break in freetag
     (enabled) taglist summary entries up from v.3.67, which is different, since
