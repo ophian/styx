@@ -15,7 +15,7 @@ class serendipity_plugin_calendar extends serendipity_plugin
         $propbag->add('configuration', array('beginningOfWeek', 'enableExtEvents', 'category'));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team, Ian Styx');
-        $propbag->add('version',       '1.6');
+        $propbag->add('version',       '1.7');
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
 
@@ -123,11 +123,16 @@ class serendipity_plugin_calendar extends serendipity_plugin
 
                 require_once S9Y_INCLUDE_PATH . 'include/functions_calendars.inc.php';
 
-                list(, $jy, $jm, $jd) = $serendipity['uriArguments']; // keep empty param, is archives
+                $_args = $serendipity['uriArguments'];
+                if (!isset($_args[1])) $_args[1] = null; // PHP 8 fix for key 1 for year
+                if (!isset($_args[2])) $_args[2] = null; // PHP 8 fix for key 2 for month
+                if (!isset($_args[3])) $_args[3] = null; // PHP 8 fix for key 3 for day
 
-                if (isset($jd) && $jd ) {
+                list(, $jy, $jm, $jd) = $_args; // keep empty param, is archives
+
+                if (isset($jd) && is_numeric($jd) ) {
                     list($gy, $gm, $gd) = p2g($jy, $jm, $jd);
-                } elseif (isset($jm) && $jm ) {
+                } elseif (isset($jm) && is_numeric($jm) ) {
                     list($gy, $gm, $gd) = p2g($jy, $jm, 1);
                 } else {
                     $gy = $year;
