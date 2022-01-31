@@ -491,9 +491,6 @@ function serveArchives() {
 
     /* We must always *assume* that Year, Month and Day are the first 3 arguments */
     list(,$year, $month, $day) = $_args; // keep empty param, is 'archives'
-    if ($year == 'archives') {
-        unset($year);
-    }
 
     $serendipity['GET']['action']     = 'read';
     $serendipity['GET']['hidefooter'] = true;
