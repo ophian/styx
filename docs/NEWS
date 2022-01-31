@@ -1,6 +1,30 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix and improve /summary/ permalink by arguments - fixes and enables
+        /archives/summary.html
+        /archives/summary/P2.html [...]
+        /archives/2020/summary.html
+        /archives/2020/summary/P2.html [...]
+        /archives/2020/10/summary.html
+    alike entries summary pages.
+    The internal summary fetch limit is hard set to 25 items per page by now;
+    Uses 24, if the real entries fetchLimit already is configured to 25, to be
+    independently unique. (°)
+
+    This currently belongs to 'gregorian' only, while 'persian' calendar dates
+    aren't supported yet.
+
+    All core themes [ 2k11, b46, b5blog, boot, bootstrap4, clean-blog, default,
+    default-php, next, pure, skeleton, sliver, timeline ] have been touched to
+    support this in their own archives_summary.tpl template file, while theme
+    { default ]also works for child/fallback cascades.
+
+    [°] Same hardcoded core approach as the 99 item pagination break in freetag
+    (enabled) taglist summary entries up from v.3.67, which is different, since
+    it wants to show all entries in once, but needed a page break definition for
+    cases. Remember, the "pure" theme has it build-in, when enabled in freetag.
+
   * Fix wrong description of /last_X/ URI argument for /comments/ summary pages,
     which is last X days, NOT last X comments.
 
