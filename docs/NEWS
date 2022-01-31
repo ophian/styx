@@ -1,6 +1,8 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Fixed some variable defines and init checks in persian calendar for PHP 8
+
   * Improve [ pure ] theme styles for post content iframes on mobiles
 
   * Fix and improve /summary/ permalink by arguments - fixes and enables
