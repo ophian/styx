@@ -2025,6 +2025,17 @@ div.serendipityPlug a {
     white-space: nowrap;
     padding-bottom: 1em;
 }
+/* freetag no-scale cloud && !useRotCanvas && !useWordCloud for sidebars-to-bottom
+   removes br-linebreaks when configured in plugin in footer sidebar mobile view */
+.sidebar_widget.serendipity_plugin_freetag .plainList br {
+  display: contents;
+}
+/* freetag popping into real sidebar mode - do what was configured */
+@media screen and (min-width: 1024px) {
+    .sidebar_widget.serendipity_plugin_freetag .plainList br {
+		display: initial;
+	}
+}
 /* authors */
 .container_serendipity_plugin_authors .serendipitySideBarContent div {
     margin: .5em 0;
