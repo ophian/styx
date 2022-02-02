@@ -950,6 +950,10 @@ article.post section .pc-owner {
   min-width: 8rem;
   display: inline-block; }
 
+.archive_summary_pageof {
+  display: inherit;
+  font-size: small;
+  opacity: .7; }
 .summary li {
   margin: 0 0 8px;
   margin: 0 0 0.5rem; }
