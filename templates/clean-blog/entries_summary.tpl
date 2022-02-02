@@ -7,7 +7,7 @@
 {/foreach}
 
 <article class="archive-summary">
-    <h2>{if $category}{$category_info.category_name} - {$entry_count} {/if}{if $dateRange.0 === 1 OR isset($footer_currentPage)}{$head_subtitle}{if $footer_prev_page OR $footer_next_page}: {$CONST.PAGE} {$footer_currentPage}{/if}{else}{$CONST.TOPICS_OF} {$dateRange.0|formatTime:"%B %Y"}{/if}</h2>
+    <h2>{if $category}{$category_info.category_name} - {$entry_count} {/if}{if $dateRange.0 === 1 OR isset($footer_currentPage)}{$head_subtitle}{if $footer_prev_page OR $footer_next_page} <span class="archive_summary_pageof">{$CONST.PAGE}/{$footer_currentPage}</span>{/if}{else}{$CONST.TOPICS_OF} {$dateRange.0|formatTime:"%B %Y"}{/if}</h2>
     <ul class="archives_summary plainList">
     {foreach $entries AS $sentries}
         {foreach $sentries.entries AS $entry}
