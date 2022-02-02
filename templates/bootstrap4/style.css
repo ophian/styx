@@ -140,6 +140,10 @@ img.serendipity_entryIcon {
 hr {
     width: 100%;
     display: inline-block; }
+.archive_summary_pageof {
+  display: inherit;
+  font-size: small;
+  opacity: .7; }
 
 /* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! */
 @media (min-width:280px){
