@@ -616,7 +616,11 @@ function serveArchives() {
             $cInfo = serendipity_fetchCategoryInfo($serendipity['GET']['category']); // category already secured to be an integer only
             $serendipity['head_title'] = $cInfo['category_name'];
         }
-        $serendipity['head_subtitle'] .= sprintf(ENTRIES_FOR, $date);
+        if ($date == 'alltime') {
+            $serendipity['head_subtitle'] .= ALL_ENTRIES;
+        } else {
+            $serendipity['head_subtitle'] .= sprintf(ENTRIES_FOR, $date);
+        }
     }
 
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
