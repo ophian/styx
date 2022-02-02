@@ -332,6 +332,10 @@ fieldset,
 #identity a,
 #primary-nav li,
 .archives_date { display: inline-block; }
+.archive_summary_pageof {
+  display: inherit;
+  font-size: small;
+  opacity: .7; }
 
 .lt-ie8 #identity a,
 .lt-ie8 #primary-nav li,
