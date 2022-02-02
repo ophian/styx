@@ -533,6 +533,10 @@ hr {
 img.serendipity_entryIcon {
     float: right;
 }
+.archive_summary_pageof {
+  display: inherit;
+  font-size: small;
+  opacity: .7; }
 
 /* Uncomment this single block to unset background related image comments styles */
 /*
