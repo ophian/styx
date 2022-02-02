@@ -139,6 +139,7 @@ img, video {
 /** Theme start **/
 
 body {
+    display: table;
     width: 100%;
     overflow-x: hidden;
     background: #010817;
