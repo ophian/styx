@@ -1,5 +1,5 @@
 <?php serendipity_plugin_api::hook_event('entries_header', $GLOBALS['tpl']['entry_id']); ?>
-<div class="serendipity_date"><?php if ($GLOBALS['tpl']['dateRange'][0] === 1 || isset($GLOBALS['tpl']['footer_currentPage'])): ?><?= $GLOBALS['tpl']['head_subtitle'] ?><?php if ($GLOBALS['tpl']['footer_prev_page'] || $GLOBALS['tpl']['footer_next_page']): ?> <span class="archive_summary_pageof"><?= PAGE ?> <?= $GLOBALS['tpl']['footer_currentPage'] ?></span><?php endif; ?><?php else: ?><?= TOPICS_OF ?> <?= serendipity_formatTime("%B, %Y", $GLOBALS['tpl']['dateRange'][0]); ?><?php endif; ?></div>
+<div class="serendipity_date"><?php if ($GLOBALS['tpl']['dateRange'][0] === 1 || isset($GLOBALS['tpl']['footer_currentPage'])): ?><?= $GLOBALS['tpl']['head_subtitle'] ?><?php if ($GLOBALS['tpl']['footer_prev_page'] || $GLOBALS['tpl']['footer_next_page']): ?> <span class="archive_summary_pageof"><?= PAGE ?>/<?= $GLOBALS['tpl']['footer_currentPage'] ?></span><?php endif; ?><?php else: ?><?= TOPICS_OF ?> <?= serendipity_formatTime("%B, %Y", $GLOBALS['tpl']['dateRange'][0]); ?><?php endif; ?></div>
 
 <div class="serendipity_entry">
     <ul>
