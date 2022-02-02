@@ -1856,8 +1856,12 @@ article.post.byauthor {
     display: block;
 }
 .archive h2 {
-    margin: .5em auto;
-}
+  margin: .5em auto; }
+  .archive_summary_pageof {
+    display: inherit;
+    font-size: small;
+    opacity: .7; }
+
 .archive_year {
     width: 100%;
     display: inline-block;
