@@ -15,6 +15,9 @@ Version 3.8-DEV ()
     The internal summary fetch limit for entries paging is hard set to 25 items
     per page; Uses 24, if the configured entries fetchLimit already is set to
     25, to be independently unique. [*]
+    This is different to the $serendipity['CBAfetchLimit'] global - introduced
+    in Styx 2.6 - which handles comments_by_author archive pages and can be set
+    to your preference.
 
     This currently belongs to 'gregorian' calendar dates only, while 'persian'
     aren't supported yet.
