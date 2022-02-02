@@ -232,7 +232,7 @@ a:hover {
     border-bottom: 1px solid #222;
     margin: auto;
     width: 100%;
-    height: 100%;
+    height: auto;
     line-height: 1.6;
     border-top: 0;
     background-color: #FDFDFD;
