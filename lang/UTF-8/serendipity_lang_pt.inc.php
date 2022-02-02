@@ -238,6 +238,7 @@
 @define('DRAFT', 'Rascunho');
 @define('PUBLISH', 'Publicar');
 @define('PREVIEW', 'Pré-visualização');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', 'Data');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', 'Atenção: A data que você especificou é inválida. Ela deve ser fornecida no formato inglês AAAA-MM-DD HH:MM.');

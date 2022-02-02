@@ -252,6 +252,7 @@
 @define('DRAFT', 'V·zlat');
 @define('PUBLISH', 'Publik·l');
 @define('PREVIEW', 'ElınÈzet');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', 'D·tum');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', 'Vigy·zat: Az ·ltalad megadott idıpont helytelen. Haszn·ld az al·bbi form·tumot: …………-HH-NN ””:PP.');

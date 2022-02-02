@@ -253,6 +253,7 @@
 @define('DRAFT', 'پیش نویس');
 @define('PUBLISH', 'انتشار');
 @define('PREVIEW', 'پیش نمایش');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', 'تاریخ');
 @define('DATE_FORMAT_2', 'Y-m-d H:i');
 @define('DATE_INVALID', 'خطر: تاریخ وارد شده اشتباه می باشد. ساختار تاریخ باید شبیه YYYY-MM-DD HH:MM باشد.');

@@ -252,6 +252,7 @@
 @define('DRAFT', 'Drög');
 @define('PUBLISH', 'Birta');
 @define('PREVIEW', 'Skoða');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', 'Dagsetning');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', 'Varúð: Dagsetningin sem þú skilgreindir var ólögleg. Hún verður að vera gefin í ÁÁÁÁ-MM-DD KK:MM sniði.');

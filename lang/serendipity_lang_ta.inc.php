@@ -252,6 +252,7 @@
 @define('DRAFT', 'நகல்');
 @define('PUBLISH', 'வெளியிடுக');
 @define('PREVIEW', 'முன்காட்சி');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', 'தேதி');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', 'அறிவிப்பு: நீங்கள் குறிப்பிட்ட தேதி தவறு. இம்முறையில் குறிப்பிடுங்கள் YYYY-MM-DD HH:MM');

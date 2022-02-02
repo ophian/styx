@@ -254,6 +254,7 @@
 @define('DRAFT', 'Taslak');
 @define('PUBLISH', 'Yayınlama');
 @define('PREVIEW', 'Önizleme');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', 'Tarih');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', 'Dikkat: Girdiğiniz tarih hatalı. Tarih YYYY-MM-DD HH:MM formatında olmalı.');

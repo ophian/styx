@@ -267,6 +267,7 @@ $i18n_filename_to = array (
 @define('DRAFT', 'Koncept');
 @define('PUBLISH', 'Publikovat');
 @define('PREVIEW', 'Ukázat');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', 'Datum');
 @define('DATE_FORMAT_2', 'Y-m-d H:i');
 // Needs to be ISO 8601 compliant for date conversion!

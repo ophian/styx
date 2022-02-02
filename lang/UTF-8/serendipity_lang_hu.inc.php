@@ -252,6 +252,7 @@
 @define('DRAFT', 'Vázlat');
 @define('PUBLISH', 'Publikál');
 @define('PREVIEW', 'Előnézet');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', 'Dátum');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', 'Vigyázat: Az általad megadott időpont helytelen. Használd az alábbi formátumot: ÉÉÉÉ-HH-NN ÓÓ:PP.');

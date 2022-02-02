@@ -232,6 +232,7 @@
 @define('DRAFT', 'Entwurf');
 @define('PUBLISH', 'Veröffentlichung');
 @define('PREVIEW', 'Vorschau');
+@define('ALL_ENTRIES', 'Alle Einträge');
 @define('DATE', 'Datum');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', 'Warnung: Das Datum, welches Sie für den Artikel angegeben haben, ist ungültig. Es muss dem englischen Format JJJJ-MM-TT SS:MM entsprechen.');

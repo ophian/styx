@@ -254,6 +254,7 @@
 @define('DRAFT', 'مسودة');
 @define('PUBLISH', 'نشر');
 @define('PREVIEW', 'مشاهدة المشاركة');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', 'التاريخ');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', 'تحذير: صيغة الوقت التي أخترتها غير صحيحة ! ! يجب أن تكون الصيغة مماثل  YYYY-MM-DD HH:MM');

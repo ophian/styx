@@ -252,6 +252,7 @@
 @define('DRAFT', '草稿');
 @define('PUBLISH', '公開');
 @define('PREVIEW', 'プレビュー');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', '日付');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', '警告: 指定した日付は無効です。「YYYY-MM-DD HH:MM」の書式を与えなければなりません。');

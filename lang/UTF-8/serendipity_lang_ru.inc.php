@@ -254,6 +254,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('DRAFT', 'Черновик');
 @define('PUBLISH', 'Опубликовать');
 @define('PREVIEW', 'Предварительный просмотр');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', 'Дата');
 @define('DATE_FORMAT_2', 'Y-m-d H:i');
 @define('DATE_INVALID', 'Внимание: Дата, указанная вами, неверна. Она должна быть указана в формате YYYY-MM-DD HH:MM.');

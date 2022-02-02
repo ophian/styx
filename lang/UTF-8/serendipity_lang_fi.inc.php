@@ -252,6 +252,7 @@
 @define('DRAFT', 'Luonnos');
 @define('PUBLISH', 'Julkaise');
 @define('PREVIEW', 'Esikatselu');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', 'Päiväys');
 @define('DATE_FORMAT_2', 'Y-m-d H:i');
 @define('DATE_INVALID', 'Päiväyksen muoto on virheellinen. Oikea muoto on VVVV-KK-PP TT:MM.');

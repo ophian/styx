@@ -237,6 +237,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('DRAFT', 'Чернова');
 @define('PUBLISH', 'Публикуване');
 @define('PREVIEW', 'Преглед');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', 'Дата');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', 'Внимание: Посочената дата не е валидна. Трябва да е в следния формат: YYYY-MM-DD HH:MM ');

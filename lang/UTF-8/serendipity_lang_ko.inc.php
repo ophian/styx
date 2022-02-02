@@ -254,6 +254,7 @@
 @define('DRAFT', '초안');
 @define('PUBLISH', '게시');
 @define('PREVIEW', '미리보기');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', '날짜');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', '경고: 날짜 형태가 유효하지 않습니다. YYYY-MM-DD HH:MM 형태여야 합니다.');

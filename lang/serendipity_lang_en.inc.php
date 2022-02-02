@@ -252,6 +252,7 @@
 @define('DRAFT', 'Draft');
 @define('PUBLISH', 'Publish');
 @define('PREVIEW', 'Preview');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', 'Date');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', 'Warning: The date you specified was invalid. It has to be given in YYYY-MM-DD HH:MM format.');

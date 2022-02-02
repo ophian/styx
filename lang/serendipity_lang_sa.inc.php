@@ -254,6 +254,7 @@
 @define('DRAFT', '„”Êœ…');
 @define('PUBLISH', '‰‘—');
 @define('PREVIEW', '„‘«Âœ… «·„‘«—ﬂ…');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', '«· «—ÌŒ');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', ' Õ–Ì—: ’Ì€… «·Êﬁ  «· Ì √Œ — Â« €Ì— ’ÕÌÕ… ! ! ÌÃ» √‰  ﬂÊ‰ «·’Ì€… „„«À·  YYYY-MM-DD HH:MM');

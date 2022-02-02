@@ -253,6 +253,7 @@
 @define('DRAFT', 'Ciornă');
 @define('PUBLISH', 'Publică');
 @define('PREVIEW', 'Previzualizare');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', 'Data');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', 'Avertisment: Data specificată de tine este invalidă. Trebuie să fie în format YYYY-MM-DD HH:MM.');

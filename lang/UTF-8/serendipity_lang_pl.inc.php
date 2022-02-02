@@ -254,6 +254,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('DRAFT', 'Szkic');
 @define('PUBLISH', 'Publikacja');
 @define('PREVIEW', 'Podgląd');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', 'Data');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', 'Uwaga: data, którą podano, nie jest prawidłowa. Data musi być podana w formacie YYYY-MM-DD HH:MM (RRRR-MM-DD GG:MM).');

@@ -255,6 +255,7 @@
 @define('DRAFT', 'Concept');
 @define('PUBLISH', 'Publiceren');
 @define('PREVIEW', 'Voorvertoning');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', 'Datum');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', 'Opgelet: De door u ingevoerde datum is niet correct. Het moet opgegeven worden in het volgende formaat JJJJ-MM-DD hh:mm. Bijvoorbeeld 1970-12-31 14:39');

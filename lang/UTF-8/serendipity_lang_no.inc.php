@@ -236,6 +236,7 @@
 @define('DRAFT', 'Utkast');
 @define('PUBLISH', 'Publiser');
 @define('PREVIEW', 'Vis');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', 'Dato');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', 'Advarsel: Den datoen du tastet inn var ugyldig. Den skal tastes inn i følgende format: ÅÅÅÅ-MM-DD TT:MM.');

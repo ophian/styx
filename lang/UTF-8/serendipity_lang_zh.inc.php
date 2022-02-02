@@ -254,6 +254,7 @@
 @define('DRAFT', '草稿');
 @define('PUBLISH', '公开');
 @define('PREVIEW', '预览');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', '日期');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', '警告: 提供的日期不正确. 它必须是 YYYY-MM-DD HH:MM 的格式');

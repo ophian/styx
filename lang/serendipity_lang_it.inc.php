@@ -240,6 +240,7 @@
 @define('DRAFT', 'Bozza');
 @define('PUBLISH', 'Pubblica');
 @define('PREVIEW', 'Anteprima');
+@define('ALL_ENTRIES', 'All entries');
 @define('DATE', 'Data');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', 'Attenzione: La data specificata non è valida. Deve essere nel formato AAAA-MM-GG OO:MM .');
