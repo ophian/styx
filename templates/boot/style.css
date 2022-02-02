@@ -601,6 +601,10 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word; }
 
+.archive_summary_pageof {
+  display: inherit;
+  font-size: small;
+  opacity: .7; }
 .archive.archive_summary {
     margin: auto;
     width: 100%; }
