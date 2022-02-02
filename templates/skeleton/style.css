@@ -408,6 +408,11 @@ aside .serendipity_calendar th {
 }
 
 /* Archives */
+.archive_summary_pageof {
+  display: inherit;
+  font-size: small;
+  opacity: .7; }
+
 .archive_date {
     display: inline-block;
     min-width: 10rem;
