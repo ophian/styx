@@ -934,6 +934,10 @@ ul.archives_row li {
 .archive_summary_postdetails {
     margin: 0;
 }
+.archive_summary_pageof {
+  display: inherit;
+  font-size: small;
+  opacity: .7; }
 .archive_summary {
     margin-bottom: .8em;
 }
