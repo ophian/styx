@@ -319,6 +319,8 @@ a, a:focus, a:hover, a:active, button, button:hover {
 
 .archives_summary h4 {line-height: 1.2em; margin: 0 0 4px 0; overflow: hidden;}
 
+.archive_summary_pageof { display: inherit; font-size: small; opacity: .7; }
+
 .archives_summary hr {margin: 10px 0}
 
 .each-archive-entry {margin-bottom: 10px;}
