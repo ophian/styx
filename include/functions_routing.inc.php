@@ -544,7 +544,7 @@ function serveArchives() {
                         $ts = mktime(1, 0, 1, $month, $day, $year);
                         $te = mktime(23, 59, 59, $month, $day, $year);
                         $date = serendipity_formatTime(DATE_FORMAT_ENTRY, $ts, false);
-                    // we have a year order only
+                    // we have a year order only AND this can be either /archives/2018/summary.html OR /archives/2018.html
                     } elseif ($year && !isset($month)) {
                         $ts = mktime(1, 0, 1, 1, 1, $year);
                         $te = mktime(23, 59, 59, 12, 31, $year);
@@ -609,7 +609,7 @@ function serveArchives() {
             break;
     }
 
-    $serendipity['range'] = (isset($serendipity['short_archives']) || isset($week) || isset($gday2)) ? array($ts, $te) : null;
+    $serendipity['range'] = (isset($serendipity['short_archives']) || isset($week) || isset($gday2) || $date == $year) ? array($ts, $te) : null;
 
     if ($serendipity['GET']['action'] == 'read') {
         if (isset($serendipity['GET']['category'])) {
