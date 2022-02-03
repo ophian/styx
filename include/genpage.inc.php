@@ -65,7 +65,7 @@ switch (@$serendipity['GET']['action']) {
             serendipity_printEntries($entry, 1);
         } else {
             $range = $serendipity['range'] ?? null;
-            // reset summaryFetchLimit on 'C' (category), 'A' (author), 'W' (week) and /archives/2018/summary.html or /archives/2018/07.html cases
+            // reset summaryFetchLimit on 'C' (category), 'A' (author), 'W' (week) AND year summary, ie. '/archives/2018/summary.html' OR year month ie. '/archives/2018/07.html' cases
             if (isset($serendipity['uriArguments'][1]) && $serendipity['uriArguments'][1] != 'summary' && (!isset($serendipity['uriArguments'][2]) || is_numeric($serendipity['uriArguments'][2]))) {
                 $serendipity['summaryFetchLimit'] = null;
             }
