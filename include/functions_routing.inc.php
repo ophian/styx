@@ -558,6 +558,7 @@ function serveArchives() {
                         }
                         $te = mktime(23, 59, 59, $month, $gday2, $year);
                         $date = serendipity_formatTime('%B %Y', $ts, false);
+                        $serendipity['summaryFetchLimit'] = $serendipity['fetchLimit'] != 25 ? 25 : 24; // check case to make it independently unique
                     }
                 }
             }
