@@ -495,8 +495,8 @@ function serveArchives() {
     $serendipity['GET']['action']     = 'read';
     $serendipity['GET']['hidefooter'] = true;
 
-    $_utime = false; // no UNIX start range - build real blog timestamp ranges
-    if (is_null($year) && is_null($month) && is_null($day)) {
+    $_utime = false; // no UNIX start range - build real timestamp ranges
+    if (is_null($year) && is_null($month) && is_null($day) && isset($serendipity['uriArguments'][1]) && $serendipity['uriArguments'][1] === 'summary') {
         $_utime = true;
     }
 
@@ -532,14 +532,14 @@ function serveArchives() {
                 $te = mktime(23, 59, 59, date('m', $tm), date('j', $tm)+7, $year);
                 $date = serendipity_formatTime(WEEK .' '. $week .', %Y', $ts, false);
             } else {
-                // all entry summary order
+                // all entry summary order only
                 if ($_utime === true) {
                     $ts = mktime(1, 0, 1, 1, 1, 1970); // like DateTimeInterface constants: 1970-01-01T01:00:00+01:00 will give us a start $dateRange key 0 = 1
                     $te = time();
                     $date = 'alltime';
                     $serendipity['summaryFetchLimit'] = $serendipity['fetchLimit'] != 25 ? 25 : 24; // check case to make it independently unique
                 } else {
-                    // we have a full date order
+                    // we have a full date day order OR either the default case for current date archives ie. /archives/P2.html OR 'C' (category), 'A' (author) alike archives pages
                     if ($day) {
                         $ts = mktime(0, 0, 1, $month, $day, $year);
                         $te = mktime(23, 59, 59, $month, $day, $year);
@@ -549,7 +549,7 @@ function serveArchives() {
                         $ts = mktime(0, 0, 1, 1, 1, $year);
                         $te = mktime(23, 59, 59, 12, 31, $year);
                         $date = $year;
-                        $serendipity['summaryFetchLimit'] = $serendipity['fetchLimit'] != 25 ? 25 : 24; // check case to make it independently unique
+                        $serendipity['summaryFetchLimit'] = $serendipity['fetchLimit'] != 25 ? 25 : 24; // check case to make it independently unique - reset by case in genpage
                     // we have a month & year only order
                     } else {
                         $ts = mktime(0, 0, 1, $month, $gday, $year);
