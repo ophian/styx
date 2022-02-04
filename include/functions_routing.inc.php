@@ -610,7 +610,7 @@ function serveArchives() {
             break;
     }
 
-    $serendipity['range'] = (isset($serendipity['short_archives']) || isset($week) || isset($gday2) || $date == $year) ? array($ts, $te) : null;
+    $serendipity['range'] = array($ts, $te);
 
     if ($serendipity['GET']['action'] == 'read') {
         if (isset($serendipity['GET']['category'])) {
