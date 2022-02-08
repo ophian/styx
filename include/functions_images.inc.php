@@ -1334,6 +1334,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                         if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image WebP format creation success ${reswebp[2]} " . DONE); }
                         unset($reswebp);
                         // The resizing to same name(!)
+                        $pass = $pass ?? [ $serendipity['convert'], ["-antialias -resize $_imtp"], [], ['"'.$newSize.'"'], 75, -1 ]; // no upload (FTP like case)
                         $reswebp = serendipity_passToCMD('image/webp', $webpthb, $webpthb, $pass);
                         if (is_array($reswebp) && $reswebp[0] == 0) {
                             if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image WebP format resize success ${reswebp[2]} " . DONE); }
@@ -1355,6 +1356,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                         if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image AVIF format creation success ${resavif[2]} " . DONE); }
                         unset($resavif);
                         // The resizing to same name(!)
+                        $pass = $pass ?? []; // pass args 1,2,4,5 are currently unused with AVIF
                         $resavif = serendipity_passToCMD('image/avif', $avifthb, $avifthb, $pass);
                         if (is_array($resavif) && $resavif[0] == 0) {
                             if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image AVIF format resize success ${resavif[2]} " . DONE); }
