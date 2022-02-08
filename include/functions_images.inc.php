@@ -3105,6 +3105,17 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
                     }
                     if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Inserting image $sFileName from $sDirectory" . print_r($aImageData, 1) . "\ninto database"); }
 
+                    // added block for accessing serendipity_createFullFileVariations()
+                    $info = pathinfo($sFileName);
+                    @umask(0000);
+                    @chmod($sFileName, 0664);
+                    $infile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sDirectory . $sFileName;
+
+                    if ($debug) { $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML case MANUALLY ADDED file(s) CREATE VARIATIONS SEPARATOR" . str_repeat(" <<< ", 10) . "\n"); }
+
+                    // Create ORIGIN TARGET full file VARIATIONS in case these were uploaded by hand!
+                    $messages = serendipity_createFullFileVariations($infile, $info, [], $debug);
+
                     serendipity_makeThumbnail($sFileName, $sDirectory);
                     serendipity_insertImageInDatabase($sFileName, $sDirectory);
                     ++$nCount;
