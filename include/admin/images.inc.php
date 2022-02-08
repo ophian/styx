@@ -558,7 +558,7 @@ switch ($serendipity['GET']['adminAction']) {
                         if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML case UPLOAD file(s) CREATE VARIATIONS SEPARATOR" . str_repeat(" <<< ", 10) . "\n"); }
 
                         // Create ORIGIN TARGET full file Variations
-                        $messages = serendipity_createFullFileVariations($target, $info, $messages, $debug);
+                        $messages = serendipity_createFullFileVariations($target, $info, $messages);
 
                         $thumbs = array(array(
                             'thumbSize' => $serendipity['thumbSize'],
