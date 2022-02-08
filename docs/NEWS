@@ -1,6 +1,9 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix and add MediaLibrary auto synchronization for manually added images,
+    not able to create the image Variation file types.
+
   * Fix [ dude ] theme main blocks render expanding height in responsive views
 
   * Fixed some variable defines and init checks in persian calendar for PHP 8
