@@ -2329,12 +2329,14 @@ function serendipity_convertThumbs() {
  * @param   string      Source Filename to work on
  * @param   array       File pathinfo properties (ext)
  * @param   array       Port already indexed messages
- * @param   boolean     adHoc debug set setting
  *
  * @return  array       $messages
  */
-function serendipity_createFullFileVariations($target, $info, $messages, $debug) {
+function serendipity_createFullFileVariations($target, $info, $messages) {
     global $serendipity;
+    static $debug = false; // ad hoc, case-by-case debugging
+
+    $debug = (is_object($serendipity['logger']) && $debug); // ad hoc debug + enabled logger
 
     // Create a target copy variation in WebP image format
     if (file_exists($target) && $serendipity['useWebPFormat'] && !in_array(strtolower($info['extension']), ['webp', 'avif'])) {
@@ -2353,24 +2355,17 @@ function serendipity_createFullFileVariations($target, $info, $messages, $debug)
             $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> WebP image format variation(s) created!</span>'."\n";
             if (is_array($result) && $result[0] == 0) {
                 if (is_string($result[1])) {
-                    if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: Image WebP format creation success ${result[2]} from $target " . DONE); }
+                    if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: Image WebP format creation success ${result[2]} from $target " . DONE); }
                 } else {
-                    if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image WebP format creation success ${result[2]} from $target " . DONE); }
-                    $matches = explode(' ', $result[2]);
-                    $mp = $matches[5] ?? $matches[3]; // case with quality or -1 (default)!
-                    $webpstr = str_replace(['  ','"'], [' ',''], $mp);
-                    if (false !== strpos($webpstr, '.webp')) {
-                        $webp_info = wp_get_webp_info($webp_str);
-                        if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image WebP format ".print_r($webp_info,1)." from $webpstr " . DONE); }
-                    }
+                    if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image WebP format creation success ${result[2]} from $target " . DONE); }
                 }
             }
         } else {
             $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> WebP image format copy creation failed!</span>'."\n";
             if ($serendipity['magick'] !== true) {
-                if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: GD Image WebP format creation failed"); }
+                if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: GD Image WebP format creation failed"); }
             } else {
-                if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image WebP format creation failed"); }
+                if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image WebP format creation failed"); }
             }
         }
     }
@@ -2380,7 +2375,7 @@ function serendipity_createFullFileVariations($target, $info, $messages, $debug)
         if (filesize($target) > $restrictedBytes && $serendipity['magick'] === true) {
             //void
             $messages[] = '<span class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> No AVIF image format variation(s) with ImageMagick created, since Origin is too big '.filesize($target)."! Sorry! Limit is currently set at 14MB.</span>\n";
-            if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: No AVIF image format created ${result[2]} from $target - Limit is currently at 14MB"); }
+            if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: No AVIF image format created ${result[2]} from $target - Limit is currently at 14MB"); }
         } else {
             $variat = serendipity_makeImageVariationPath($target, 'avif');
             $result = serendipity_convertToAvifFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target), false);
@@ -2388,17 +2383,17 @@ function serendipity_createFullFileVariations($target, $info, $messages, $debug)
                 $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> AVIF image format variation(s) created!</span>'."\n";
                 if (is_array($result) && $result[0] == 0) {
                     if (is_string($result[1])) {
-                        if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: Image AVIF format creation success ${result[2]} from $target " . DONE); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: Image AVIF format creation success ${result[2]} from $target " . DONE); }
                     } else {
-                        if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image AVIF format creation success ${result[2]} from $target " . DONE); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image AVIF format creation success ${result[2]} from $target " . DONE); }
                     }
                 }
             } else {
                 $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> AVIF image format copy creation failed!</span>'."\n";
                 if ($serendipity['magick'] !== true) {
-                    if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: GD Image AVIF format creation failed"); }
+                    if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: GD Image AVIF format creation failed"); }
                 } else {
-                    if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image AVIF format creation failed"); }
+                    if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image AVIF format creation failed"); }
                 }
             }
         }
@@ -3114,7 +3109,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
                     if ($debug) { $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML case MANUALLY ADDED file(s) CREATE VARIATIONS SEPARATOR" . str_repeat(" <<< ", 10) . "\n"); }
 
                     // Create ORIGIN TARGET full file VARIATIONS in case these were uploaded by hand!
-                    $messages = serendipity_createFullFileVariations($infile, $info, [], $debug);
+                    $messages = serendipity_createFullFileVariations($infile, $info, []);
 
                     serendipity_makeThumbnail($sFileName, $sDirectory);
                     serendipity_insertImageInDatabase($sFileName, $sDirectory);
