@@ -404,6 +404,21 @@ switch ($serendipity['GET']['adminAction']) {
                 return;
             }
 
+            // Split the realfilename for an upcounted unique target name - simply following serendipity_imageAppend() approach
+            list($filebase, $ext) = serendipity_parseFileName($tfile);
+
+            // Check ML DB realfiles for naming doubles
+            $cnum = serendipity_fetchImagesByName($filebase.'%', true);
+
+            // Simplified serendipity_imageAppend() approach to avoid having duplicate filenames regardless where located in the physical ML
+            if ($cnum[0] > 20) {
+                $target = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $serendipity['POST']['target_directory'][$tindex] . $filebase . md5(time() . $filebase) . (empty($ext) ? '' : '.' . $ext);
+                $tfile = $filebase . md5(time() . $filebase) . (empty($ext) ? '' : '.' . $ext); // build new tfile and realname reference
+            } else if ($cnum[0] > 0) {
+                $target = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $serendipity['POST']['target_directory'][$tindex] . $filebase . $cnum[0] . (empty($ext) ? '' : '.' . $ext);
+                $tfile = $filebase . $cnum[0] . (empty($ext) ? '' : '.' . $ext); // build new tfile and realname reference
+            }
+
             $realname = $tfile;
             if (file_exists($target)) {
                 $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . $target . ' - ' . ERROR_FILE_EXISTS_ALREADY . "</span>\n";
@@ -541,6 +556,21 @@ switch ($serendipity['GET']['adminAction']) {
                     $tfile  = $info['filename'] . '.' . strtolower($info['extension']);
 
                     $target = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $serendipity['POST']['target_directory'][$idx] . $tfile;
+
+                    // Split the realfilename for an upcounted unique target name - simply following serendipity_imageAppend() approach
+                    list($filebase, $ext) = serendipity_parseFileName($tfile); // may get refactored/combined with $info later
+
+                    // Check ML DB realfiles for naming doubles
+                    $cnum = serendipity_fetchImagesByName($filebase.'%', true);
+
+                    // Simplified serendipity_imageAppend() approach to avoid having duplicate filenames regardless where located in the physical ML
+                    if ($cnum[0] > 20) {
+                        $target = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $serendipity['POST']['target_directory'][$idx] . $filebase . md5(time() . $filebase) . (empty($ext) ? '' : '.' . $ext);
+                        $tfile = $filebase . md5(time() . $filebase) . (empty($ext) ? '' : '.' . $ext); // build new tfile and realname reference
+                    } else if ($cnum[0] > 0) {
+                        $target = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $serendipity['POST']['target_directory'][$idx] . $filebase . $cnum[0] . (empty($ext) ? '' : '.' . $ext);
+                        $tfile = $filebase . $cnum[0] . (empty($ext) ? '' : '.' . $ext); // build new tfile and realname reference
+                    }
 
                     $realname = $tfile;
                     if (file_exists($target)) {
