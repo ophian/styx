@@ -8,7 +8,8 @@ Version 3.8-DEV ()
     directories, which could have destroyed certain image operations, synchron-
     ization or moving/renaming tasks. Please, better check your images by the
     MediaLibrary filter for possible duplicates and rename them uniquely via
-    the rename task tool.
+    the rename task tool. This also fixes and alerts into the media 'rename'
+    action to avoid possible duplicates.
 
   * Fix and add MediaLibrary auto synchronization for manually added images,
     not able to create the image Variation file types.
