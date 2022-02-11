@@ -1,6 +1,9 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Upgrade custom CKEBasic asset to 4.17.2 to cb93181c83 revision
+    https://ckeditor.com/cke4/release-notes
+
   * Use upload filenames uniquely named only, by the new s*y_fetchImagesByName()
     function, when there already are "upcounted sibling" filenames, regardless
     their MediaLibrary directory position. This fixes another Methusalem "bug"
