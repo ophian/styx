@@ -3,11 +3,12 @@ Version 3.8-DEV ()
 
   * Use upload filenames uniquely named only, by the new s*y_fetchImagesByName()
     function, when there already are "upcounted sibling" filenames, regardless
-    their MediaLibrary directory position. This fixes another Methusalem bug
-    having identical named MediaLibrary items by filename, which could have
-    destroyed certain image synchronization or moving/renaming tasks. Please,
-    better check yourn images by Methe diaLibrary filter for possible duplicates
-    and rename them uniquely via the MediaLibrary rename task tool.
+    their MediaLibrary directory position. This fixes another Methusalem "bug"
+    allowing to have identical named media items by filename in different
+    directories, which could have destroyed certain image operations, synchron-
+    ization or moving/renaming tasks. Please, better check your images by the
+    MediaLibrary filter for possible duplicates and rename them uniquely via
+    the rename task tool.
 
   * Fix and add MediaLibrary auto synchronization for manually added images,
     not able to create the image Variation file types.
