@@ -311,6 +311,16 @@ switch ($serendipity['GET']['adminAction']) {
         $serendipity['GET']['newname'] = str_replace(' ', '_', $serendipity['GET']['newname']); // keep serendipity_uploadSecure(URL) whitespace convert behaviour, when using serendipity_makeFilename()
         $serendipity['GET']['newname'] = serendipity_uploadSecure(serendipity_makeFilename($serendipity['GET']['newname']), true);
 
+        // Split the realfilename for an upcounted unique target name - simply following serendipity_imageAppend() approach
+        list($filebase, $ext) = serendipity_parseFileName($serendipity['GET']['newname']);
+
+        // Check ML DB realfiles for naming doubles
+        $fx = serendipity_fetchImagesByName($filebase);
+        // check for same name rename and force a stop
+        if ($fx['name'] === $serendipity['GET']['newname']) {
+            $file = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_FILE_EXISTS . "</span>\n";
+            echo $file;
+        }
         if (!is_array($file) || !serendipity_checkFormToken() || !serendipity_checkPermission('adminImagesDelete')
         || (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid'])) {
             // yeah, it sucks..., but there is no easy way to put out a permission failed message into the js stream, which is processed either or.
