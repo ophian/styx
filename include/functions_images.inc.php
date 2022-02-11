@@ -506,6 +506,25 @@ function serendipity_fetchImages($reverse = false, $images = '', $odir = '') {
 }
 
 /**
+ * Checks the image database by image name
+ * OR count by wildcard for possible "upcounted" naming doubles e.g. "name3.png" to avoid having non-singularities
+ *
+ * @param  string   The files name - in 2cd case push 'name%' wildcard
+ * @param  boolean  Use sum counter
+ * @return mixed    Result-set of images or Sum
+ */
+function serendipity_fetchImagesByName($file, $sum = false) {
+    global $serendipity;
+
+    $field = $sum ? 'count(*)' : '*';
+    $rtype = $sum ? 'num' : 'assoc';
+    $query = "SELECT $field FROM {$serendipity['dbPrefix']}images WHERE name LIKE '" . serendipity_db_escape_String($file) . "' ORDER BY name ASC";
+    $res = serendipity_db_query($query, true, $rtype);
+
+    return $res;
+}
+
+/**
  * Inserts a hotlinked media file
  *
  * hotlinks are files that are only linked in your database, and not really stored on your server
