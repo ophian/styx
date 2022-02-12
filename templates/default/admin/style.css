@@ -3131,6 +3131,7 @@ label .perm_name,
     background: #eee;
     border: 1px solid #ddd;
     border-radius: 2px;
+    overflow-wrap: anywhere;
 }
 
 .pluginmanager_place,
