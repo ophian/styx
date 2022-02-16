@@ -519,6 +519,11 @@ $tasks = array(
                     'title'     => '<b>TEMPLATE_NOTICE:</b> Improved the current Standard Theme "pure" to revision 2022.',
                     'desc'      => 'Please read about related changes and improvements in the maintenance section ChangeLog, which changes are in need to follow for possible user theme copies.'),
 
+            array(  'version'   => '3.8.0',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => '<b>ADMINISTRATION_NOTICE:</b> MediaLibrary upload filenames were improved to get strictly named uniquely only.',
+                    'desc'      => 'Please check your MediaLibrary by the name filter tool for old media items with duplicate names, living in other directories and rename them by the ML rename tool yourself to avoid further conflicts.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
