@@ -592,17 +592,34 @@ function serveArchives() {
                 $te = persian_mktime(23, 59, 59, persian_date_utf('m', $tm), persian_date_utf('j', $tm)+7, $year);
                 $date = serendipity_formatTime(WEEK .' '. $week .'، %Y', $ts, false);
             } else {
-                if ($day) {
-                    $ts = persian_mktime(0, 0, 1, $month, $day, $year);
-                    $te = persian_mktime(23, 59, 59, $month, $day, $year);
-                    $date = serendipity_formatTime(DATE_FORMAT_ENTRY, $ts, false);
+                // all entry summary order only
+                if ($_utime === true) {
+                    $ts = persian_mktime(1, 0, 1, 1, 1, 1970); // like DateTimeInterface constants: 1970-01-01T01:00:00+01:00 will give us a start $dateRange key 0 = 1 - unknown for me with persian though
+                    $te = time();
+                    $date = 'alltime';
+                    $serendipity['summaryFetchLimit'] = $serendipity['fetchLimit'] != 25 ? 25 : 24; // check case to make it independently unique
                 } else {
-                    $ts = persian_mktime(0, 0, 1, $month, $gday, $year);
-                    if (!isset($gday2)) {
-                        $gday2 = persian_date_utf('t', $ts);
+                    // we have a full date day order OR either the default case for current date archives ie. /archives/P2.html OR 'C' (category), 'A' (author) alike archives pages
+                    if ($day) {
+                        $ts = persian_mktime(0, 0, 1, $month, $day, $year);
+                        $te = persian_mktime(23, 59, 59, $month, $day, $year);
+                        $date = serendipity_formatTime(DATE_FORMAT_ENTRY, $ts, false);
+                    // we have a year order only AND this can be either /archives/2018/summary.html OR /archives/2018.html
+                    } elseif ($year && !isset($month)) {
+                        $ts = persian_mktime(0, 0, 1, 1, 1, $year);
+                        $te = persian_mktime(23, 59, 59, 12, 31, $year);
+                        $date = $year;
+                        $serendipity['summaryFetchLimit'] = $serendipity['fetchLimit'] != 25 ? 25 : 24; // check case to make it independently unique - reset by case in genpage
+                    // we have a month & year only order
+                    } else {
+                        $ts = persian_mktime(0, 0, 1, $month, $gday, $year);
+                        if (!isset($gday2)) {
+                            $gday2 = persian_date_utf('t', $ts);
+                        }
+                        $te = persian_mktime(23, 59, 59, $month, $gday2, $year);
+                        $date = serendipity_formatTime('%B %Y', $ts, false);
+                        $serendipity['summaryFetchLimit'] = $serendipity['fetchLimit'] != 25 ? 25 : 24; // check case to make it independently unique
                     }
-                    $te = persian_mktime(23, 59, 59, $month, $gday2, $year);
-                    $date = serendipity_formatTime('%B %Y', $ts, false);
                 }
             }
 
