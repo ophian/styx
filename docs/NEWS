@@ -37,8 +37,8 @@ Version 3.8-DEV ()
     in Styx 2.6 - which handles comments_by_author archive pages and can be set
     to your preference.
 
-    This currently belongs to 'gregorian' calendar dates only, while 'persian'
-    aren't supported yet.
+    This currently belongs to 'gregorian' calendar dates (checked) only, while
+    'persian' needs a "real life" check first.
 
     All core themes [ 2k11, b46, b5blog, boot, bootstrap4, clean-blog, default,
     default-php, next, pure, skeleton, sliver, timeline ] have been touched to
