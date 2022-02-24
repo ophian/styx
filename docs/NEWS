@@ -1,6 +1,8 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix configuration set automatic 'onTheFlySynch' MediaLibrary synchronization
+
   * Upgrade custom CKEBasic asset to 4.17.2 to cb93181c83 revision
     https://ckeditor.com/cke4/release-notes
 
