@@ -1,6 +1,10 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix MediaLibrary synchronization by user action via Maintenance Image Sync
+    first and second option for generating fullFileVariation images when having
+    added new images to the uploads/ directory by hand (FTP).
+
   * Fix configuration set automatic 'onTheFlySynch' MediaLibrary synchronization
 
   * Upgrade custom CKEBasic asset to 4.17.2 to cb93181c83 revision
