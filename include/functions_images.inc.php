@@ -1854,6 +1854,7 @@ function serendipity_purgeVariations($path = null, $doPurge = false) {
 
 /**
  * Creates thumbnails for all images in the upload dir
+ *    includes generating _createFullFileVariations (FTP like added case in manually pushed ImageListSync)
  *
  * @access public
  * @return  int Number of created thumbnails
@@ -1864,6 +1865,7 @@ function serendipity_generateThumbs() {
     $i = 0;
     $serendipity['imageList'] = serendipity_fetchImagesFromDatabase(0, 0, $total, array('path, name'), 'ASC');
     $_list = '';
+    $m = []; // message array for full file sync
 
     echo '<section class="media_rebuild_thumbs">' . "\n";
     printf('    <header><h2>' . sprintf(RESIZE_BLAHBLAH, THUMBNAIL_SHORT) . "</h2></header>\n");
@@ -1875,6 +1877,7 @@ function serendipity_generateThumbs() {
             $update   = false;
             $filename = $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
             $ffull    = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $filename;
+            $ffuva    = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.webp'; // this is mandatory
 
             if (!file_exists($ffull)) {
                 serendipity_deleteImage($file['id']); // no message output?
@@ -1889,6 +1892,14 @@ function serendipity_generateThumbs() {
             $newThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . '.' . $serendipity['thumbSuffix'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
             $sThumb   = $file['path'] . $file['name'] . '.' . $serendipity['thumbSuffix'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
             $fdim     = @getimagesize($ffull);
+
+            // FTP like added images - Create ORIGIN Full File Variations - check by missing mandatory WebP Variation image
+            if (!file_exists($ffuva)) {
+                $mfile = serendipity_createFullFileVariations($ffull, pathinfo($ffull), $m);
+                if (isset($mfile[0])) $_list .= '<li>' . $mfile[0] . "</li>\n";
+                if (isset($mfile[1])) $_list .= '<li>' . $mfile[1] . "</li>\n";
+                $m = []; // restart
+            }
 
             // create a sized thumbnail
             if (!file_exists($oldThumb) && !file_exists($newThumb) && is_array($fdim) && ($fdim[0] > $serendipity['thumbSize'] || $fdim[1] > $serendipity['thumbSize'])) {
