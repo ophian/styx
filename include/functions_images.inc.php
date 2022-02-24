@@ -3022,6 +3022,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
 
         if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Got real disc files: " . print_r($aFilesOnDisk, 1)); }
         $serendipity['current_image_hash'] = md5(serialize($aFilesOnDisk));
+        $serendipity['last_image_hash'] = $serendipity['last_image_hash'] ?? ''; // avoid a non-isset by a relatively new image database which had never run setting the $serendipity['last_image_hash'] before
 
         // ML Cleanup START - is part of SYNC
         // MTG 21/01/06: request all images from the database, delete any which don't exist
@@ -3031,10 +3032,10 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
         $nTimeStart = microtime_float();
         $nCount = 0;
 
-        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Image-Sync has perm: " . serendipity_checkPermission('adminImagesSync') . ", Onthefly Sync: {$serendipity['onTheFlySynch']}, Hash: " . ($serendipity['current_image_hash'] != ($serendipity['last_image_hash'] ? "uneven, cleanup" : "even, skip cleanup"))); }
+        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Image-Sync has perm: " . serendipity_checkPermission('adminImagesSync') . ", Onthefly Sync: {$serendipity['onTheFlySynch']}, Hash: " . ($serendipity['current_image_hash'] != $serendipity['last_image_hash'] ? "uneven, cleanup" : "even, skip cleanup")); }
 
         if ($serendipity['onTheFlySynch'] && serendipity_checkPermission('adminImagesSync')
-        && isset($serendipity['last_image_hash']) && $serendipity['current_image_hash'] != $serendipity['last_image_hash']) {
+        && $serendipity['current_image_hash'] != $serendipity['last_image_hash']) {
             $aResultSet = serendipity_db_query("SELECT id, name, extension, thumbnail_name, path, hotlink
                                                   FROM {$serendipity['dbPrefix']}images WHERE path != '.v/'", false, 'assoc'); // exclude possible variations (.v/ path should only be if that was development or somethings has went wrong)
 
