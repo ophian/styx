@@ -1,6 +1,8 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve backend entries form to remove filters if no categories were defined
+
   * Fix MediaLibrary synchronization by user action via Maintenance Image Sync
     first and second option for generating fullFileVariation images when having
     added new images to the uploads/ directory by hand (FTP).
