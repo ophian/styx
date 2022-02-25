@@ -35,6 +35,6 @@
                 </li>
                 <li>
                     <b>VII. Styx Guide:</b><br>
-                    <span><em>Read the important Styx Upgrade Documentation and the hitchhikers guide to the Styx Backend in the Serendipity Styx Website <a href="https://ophian.github.io/hc/en/installation.html#user-content-the-important-upgraders-howto---step-by-step-guide" target="_blank" rel="noopener">Help Center</a></em>.</span>
+                    <span><em>For migrations, read the important Styx Upgrade Documentation and the hitchhikers guide to the Styx Backend in the Serendipity Styx Website <a href="https://ophian.github.io/hc/en/installation.html#user-content-the-important-upgraders-howto---step-by-step-guide" target="_blank" rel="noopener">Help Center</a></em>.</span>
                 </li>
             </ol>
