@@ -134,6 +134,7 @@
             <div id="edit_entry_category" class="clearfix">
                 <fieldset>
                     <span class="wrap_legend"><legend>{$CONST.CATEGORY}</legend></span>
+            {if NOT empty($entry_vars.category_options)}
 
                     <div id="category_filter" class="form_field{if isset($entry_vars.category_compact) AND $entry_vars.category_compact} compact{/if}">
                         {if !isset($entry_vars.category_compact)}
@@ -155,7 +156,6 @@
                         {/if}
                     </div>
 
-            {if NOT empty($entry_vars.category_options)}
                 {foreach $entry_vars.category_options AS $entry_cat}
                     <div class="form_check{if isset($entry_vars.category_compact) AND $entry_vars.category_compact} compact{/if}">
                         <input type="hidden" name="serendipity[had_categories]" value="1">
