@@ -104,13 +104,13 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
     {
         global $serendipity;
 
-        echo "<span class=\"block_level\">Starting with table <strong>{$table}</strong>...</span>";
+        echo "<span class=\"block_level\">Starting with table <strong>{$table}</strong>...</span><br>\n";
 
         if ($dupe_check) {
             $dupes = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}" . $table . " " . $where, false, 'both', false, $dupe_check);
 
             if (!$this->execute) {
-                echo 'Dupe-Check: <pre>' . print_r($dupes, true) . '</pre>';
+                echo 'Dupe-Check: <pre>' . print_r($dupes, true) . "</pre>\n";
             }
         }
 
@@ -154,11 +154,11 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
                                 echo '<pre>';
                                 print_r($row);
                                 print_r($fix_relation);
-                                echo '</pre>';
+                                echo "</pre>\n";
                             }
                         }
 
-                        $new_val = $this->storage[$fix_relation_table][$fix_relation_primary_key][$assoc_val];
+                        $new_val = isset($this->storage[$fix_relation_table][$fix_relation_primary_key][$assoc_val]) ? $this->storage[$fix_relation_table][$fix_relation_primary_key][$assoc_val] : '';
 
                         if ($skip_dupes && $assoc_val == $new_val) {
                             $insert = false;
@@ -169,7 +169,8 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
                         }
 
                         if (!$this->execute && $this->debug) {
-                            echo "<span>Fix relation from $fix_relation_table.$fix_relation_primary_key={$primary_vals[$fix_relation_primary_key]} to {$row[$primary_key]} (assoc_val: $assoc_val)</span>";
+                            $primary_vals[$fix_relation_primary_key] = $primary_vals[$fix_relation_primary_key] ?? null;
+                            echo "<span>Fix relation from $fix_relation_table.$fix_relation_primary_key={$primary_vals[$fix_relation_primary_key]} to {$row[$primary_key]} (assoc_val: $assoc_val)</span><br>\n";
                         }
                     }
                 }
@@ -178,7 +179,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
             if ($insert) {
                 if ($dupe_check && isset($dupes[$row[$dupe_check]])) {
                     if ($this->debug) {
-                        echo "Skipping duplicate: <pre>" . print_r($dupes[$row[$dupe_check]], true) . "</pre>";
+                        echo "Skipping duplicate: <pre>" . print_r($dupes[$row[$dupe_check]], true) . "</pre>\n";
                     }
                     foreach($primary_vals AS $primary_key => $primary_val) {
                         $this->storage[$table][$primary_key][$primary_val] = $dupes[$row[$dupe_check]][$primary_key];
@@ -193,7 +194,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
                     echo "<span class=\"block_level\">Migrated entry #{$dbid} into {$table}.</span>";
                 } else {
                     if ($this->debug) {
-                        echo 'DB Insert: <pre>' . print_r($row, true) . '</pre>';
+                        echo 'DB Insert: <pre>' . print_r($row, true) . "</pre>\n";
                     }
                     foreach($primary_vals AS $primary_key => $primary_val) {
                         $this->storage[$table][$primary_key][$primary_val] = $this->counter;
@@ -209,15 +210,15 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
                 }
             } else {
                 if ($this->debug && !$this->execute) {
-                    echo "<span class=\"block_level\">Ignoring Duplicate.</span>";
+                    echo "<span class=\"block_level\">Ignoring Duplicate.</span><br>\n";
                 }
             }
         }
 
-        if (!$this->execute) {
-            echo 'Storage on '. $table . ':<pre>' . print_r($this->storage[$table], true) . '</pre>';
+        if (!$this->execute && isset($this->storage[$table])) {
+            echo 'Storage on '. $table . ':<pre>' . print_r($this->storage[$table], true) . "</pre>\n";
         } else {
-            echo "<span class=\"block_level\">Finished table <strong>{$table}</strong></span>";
+            echo "<span class=\"block_level\">Finished table <strong>{$table}</strong></span><br>\n";
         }
     }
 
