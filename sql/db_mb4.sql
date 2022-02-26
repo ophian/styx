@@ -46,6 +46,7 @@ create table {PREFIX}authorgroups (
 
 CREATE INDEX authorgroup_idxA ON {PREFIX}authorgroups (groupid);
 CREATE INDEX authorgroup_idxB ON {PREFIX}authorgroups (authorid);
+CREATE UNIQUE INDEX authorgroup_idx ON {PREFIX}authorgroups (groupid, authorid);
 
 create table {PREFIX}access (
   groupid int(10) {UNSIGNED} NOT NULL default '0',
