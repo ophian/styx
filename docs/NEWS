@@ -1,6 +1,9 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Add UNIQUE INDEX over both authorgroups table fields to avoid duplicates.
+    Also added to upgrade tasks.
+
   * Improve backend entries form to remove filters if no categories were defined
 
   * Fix MediaLibrary synchronization by user action via Maintenance Image Sync
