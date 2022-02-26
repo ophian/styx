@@ -186,7 +186,11 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
                         $this->storage['dupes'][$table][$primary_key][$primary_val] = $dupes[$row[$dupe_check]][$primary_key];
                     }
                 } elseif ($this->execute) {
-                    serendipity_db_insert($table, $this->strtrRecursive($row));
+                    try {
+                        serendipity_db_insert($table, $this->strtrRecursive($row)); // don't stop at Uncaught mysqli_sql_exception: Duplicate entry 'foobar-1' for key 'PRIMARY' in
+                    } catch(\Exception $e) {
+                        echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . $e->getMessage() . "</span>\n";
+                    }
                     foreach($primary_vals AS $primary_key => $primary_val) {
                         $dbid = serendipity_db_insert_id($table, $primary_key);
                         $this->storage[$table][$primary_key][$primary_val] = $dbid;
