@@ -514,6 +514,11 @@ $tasks = array(
                     'title'     => '<b>ADMINISTRATION_NOTICE:</b> Added (<em>experimental</em> and <em>extended</em>) AVIF support by option with PHP 8.1.',
                     'desc'      => 'Please Read the options info description in &laquo; Configuration &raquo; - &laquo; Image Conversion Settings &raquo; - &laquo; Enable use of AVIF Variations? &raquo; and the related blog entry at <a href="https://ophian.github.io/2021/11/26/Serendipity-Styx-AV1-Image-File-support/" target="_blank" rel="noopener">Serendipity Styx AV1 Image File support</a>. Please help improving this new Variation format. Make and share some experiences!'),
 
+            array(  'version'   => '3.8-beta2',
+                    'function'  => 'update_table_authorgroups',
+                    'title'     => 'Styx now adds a UNIQUE INDEX to the authorgroups database table',
+                    'desc'      => 'to avoid adding duplicate rows under certain circumstances. <b>IN RARE CASES:</b> If you encounter any error running this task, you probably already have some duplicate entries where the groupid and the authorid row has cloned siblings. Only one row each with identical values is allowed. Run phpMyAdmin or your preferred tool, select the styx_authorgroups table and fully export it to a file. Then nuke the styx_authorgroups table, edit your backup file INSERT INTO VALUES part to pick out any duplicate rows and to only allow unique rows and import that file again. Now all is good and a reload to this upgrade page should resume fine.'),
+
             array(  'version'   => '3.8.0',
                     'type'      => 'TEMPLATE_NOTICE',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> Improved the current Standard Theme "pure" to revision 2022.',
