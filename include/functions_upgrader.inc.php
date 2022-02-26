@@ -602,6 +602,15 @@ function serendipity_fixPlugins($case) {
 }
 
 /**
+ * Create an UNIQUE INDEX to avoid duplicates
+ */
+function update_table_authorgroups() {
+    global $serendipity;
+
+    return serendipity_db_query("CREATE UNIQUE INDEX authorgroup_idx ON {$serendipity['dbPrefix']}authorgroups (groupid, authorid)");
+}
+
+/**
  * DELETEs a plugin name value in the database by name [2.0 betas]
  *
  * @param   string  $name
