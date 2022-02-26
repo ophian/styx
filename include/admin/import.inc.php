@@ -119,7 +119,9 @@ class Serendipity_Import
      */
     function strtr($data)
     {
-        return strtr($this->decode($data), $this->trans_table);
+        if (!is_null($data)) {
+            return strtr($this->decode($data), $this->trans_table);
+        }
     }
 
     /**
