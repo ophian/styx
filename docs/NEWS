@@ -1,6 +1,9 @@
 Version 3.8-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix trackback link URL regex matching for possible variation fallbacks,
+    since that IS the REAL (origin image) URL and should get referenced.
+
   * Add UNIQUE INDEX over both authorgroups table fields to avoid duplicates.
     Also added to upgrade tasks.
 
