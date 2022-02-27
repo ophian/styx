@@ -284,7 +284,7 @@ switch($serendipity['GET']['adminAction']) {
                     $serendipity['COOKIE']['entrylist_sort_' . $s_import] = serendipity_specialchars(strip_tags($serendipity['COOKIE']['entrylist_sort_' . $s_import]));
                     $serendipity['GET']['sort'][$s_import] =& $serendipity['COOKIE']['entrylist_sort_' . $s_import];
                 }
-                $serendipity['GET']['sort'][$s_import] = $serendipity['GET']['sort'][$s_import] ?? null;
+                $serendipity['GET']['sort'][$s_import] = $serendipity['GET']['sort'][$s_import] ?? '';
                 $data["get_sort_$s_import"] = serendipity_specialchars(strip_tags($serendipity['GET']['sort'][$s_import]));
             }
         }
@@ -406,6 +406,7 @@ switch($serendipity['GET']['adminAction']) {
 
             $qString = '?serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect';
             foreach((array)$serendipity['GET']['sort'] AS $k => $v) {
+                if (is_null($v)) continue;
                 $qString .= '&amp;serendipity[sort]['. serendipity_specialchars(strip_tags($k)) .']='. serendipity_specialchars(strip_tags($v));
             }
             if (isset($serendipity['GET']['filter'])) {
