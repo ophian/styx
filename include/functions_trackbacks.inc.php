@@ -688,11 +688,14 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
         }
     }
 
-    if (!preg_match_all('@<a[^>]+?href\s*=\s*["\']?([^\'" >]+?)[ \'"][^>]*>(.+?)</a>@i', $text, $matches)) {
+    if (!preg_match_all('@<a[^>]+?(data-fallback|href)\s*=\s*["\']?([^\'" >]+?)[ \'"][^>]*>(.+?)</a>@i', $text, $matches)) {
         $matches = array(0 => array(), 1 => array());
     } else {
         // remove full matches
         array_shift($matches);
+        // remove the ugly data-fallback|href attribute matches, which came in to avoid rel tags for lightboxes for example,.. since I hate regex(!) and this was the only way I got matching fallback or href links
+        array_shift($matches);
+        // matches now contains the URL values of data-fallback OR href
     }
 
     // Make trackback URL
