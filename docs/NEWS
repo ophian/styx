@@ -1,4 +1,4 @@
-Version 3.8-DEV ()
+Version 3.8.0 (February, 28th 2022)
  ------------------------------------------------------------------------
 
   * Fix trackback link URL regex matching for possible variation fallbacks,
