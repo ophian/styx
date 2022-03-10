@@ -327,6 +327,8 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     background-color: #c93c37; }
   [data-dark-theme="dark"] .search_msg .searchresults, [data-dark-theme="dark"] .search_msg .searchterm {
     color: #c93c37; }
+  [data-dark-theme="dark"] #content > .serendipity_entrypaging:first-child {
+    border-bottom-color: #1c2128; }
   [data-dark-theme="dark"] table tbody tr:nth-child(2n) {
     background-color: #2c3136; }
   [data-dark-theme="dark"] table tbody tr:nth-child(2n+1) {
@@ -1366,6 +1368,9 @@ body.grid-block .dsgvo_gdpr_footer {
 
 #content > .serendipity_entrypaging + #entrypasswordform {
     padding-top: 0;
+}
+#content > .serendipity_entrypaging:first-child {
+    border-bottom: 1px solid #ddd;
 }
 
 ul.staticpage_result li {
