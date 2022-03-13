@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix mysqli installation DB storage engine for ORACLE MySQL, ref issue #20
+
 
 Version 3.8.0 (February, 28th 2022)
  ------------------------------------------------------------------------
