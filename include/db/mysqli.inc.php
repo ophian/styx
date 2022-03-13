@@ -552,7 +552,12 @@ function serendipity_db_schema_import($query) {
     if (stristr(strtolower($serendipity['db_server_info']), 'mariadb')) {
         serendipity_db_query("SET storage_engine=ARIA");
     } else {
-        serendipity_db_query("SET storage_engine=MYISAM");
+        // Oracle up from MySQL 5.7.x uses InnoDB by default, and 5.7.5 has removed the storage_engine system variable
+        if (version_compare($serendipity['db_server_info'], '5.7.5', '<')) {
+            serendipity_db_query("SET storage_engine=MYISAM");
+        } else {
+            serendipity_db_query("SET default_storage_engine=InnoDB");
+        }
     }
 
     $query = trim(str_replace($search, $replace, $query));
