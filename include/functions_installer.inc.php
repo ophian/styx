@@ -149,7 +149,7 @@ function serendipity_installDatabase($type = '') {
     // Not exactly! Its 767 bytes with InnoDB. Dunno on ORACLE MySQL MyISAM...
     //              A 1000 bytes with MyISAM/ARIA. And even 2000 bytes with ARIA as of MariaDB 10.5.
     //              Thus having 191, 250, 255 (normal) varchar field max key length with different engines and some other variations with Indexes on multi-fields.
-    if ($type == 'mysqli' || $type == 'mysql') {
+    if ($type == 'mysqli') {
         // Print the MySQL version
         $serendipity['db_server_info'] = mysqli_get_server_info($serendipity['dbConn']); // eg.  == 5.5.5-10.4.11-MariaDB
         if (stristr(strtolower($serendipity['db_server_info']), 'mariadb')) {
@@ -166,7 +166,7 @@ function serendipity_installDatabase($type = '') {
             if (version_compare($serendipity['db_server_info'], '5.7.7', '>=')) {
                 $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db.sql'); // 255 varchar key length - InnoDB (Since MySQL 5.7 innodb_large_prefix is enabled by default allowing up to 3072 bytes)
             } else {
-                $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db_mb4.sql'); // 191 varchar key length - old Oracles MySQL MyISAM (191 characters × 4 bytes = 764 bytes which is less than the maximum length of 767 bytes allowed when innoDB_large_prefix is disabled)
+                $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db_mb4.sql'); // 191 varchar key length - old Oracles MySQL MyISAM (191 characters * 4 bytes = 764 bytes which is less than the maximum length of 767 bytes allowed when innoDB_large_prefix is disabled)
             }
         }
     } else {
