@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve s*_approveComment() for PHP 8.1 deprecation and PHP 9
+
   * Fix PHP 8 warning on SQL reverse check for moderation set of 1st comment
 
   * Fix DB SQL installation for ORACLE MySQL >= v.5.7.7 regarding InnoDB key
