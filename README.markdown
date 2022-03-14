@@ -16,11 +16,11 @@ After many years of heavy core, in special for the 1.7, 2.0 and 2.1 Series, and 
 
 It was built in my origin intent primarily for myself to keep track on my vision of what Serendipity used to be, wide and open, and with multi levels of extended properties. I wanted it to not cut off this extendibility without real need. It is a contributed document of my deep affinity with Serendipity.
 
-As long as I find the time and the commitment to make this even better, Styx will develop and will include all good parts of the origin Serendipity development. You may replace your origin Serendipity installation without any fear with this extended Edition and you will find everything work as intended. Go and read the **Styx** [release notes][2] or better read about [installation/upgrade here][5], to see how this can be easily done without too much effort. Even more you may want to read the [commit history][3] and/or the **Styx** [ChangeLog][4].
+Serendipity Styx has strongly developed and has seen various releases since then. Previously one could say to just drop Styx over an old S9y Origin to run the internal upgrades without fear. But that was years ago and up with Serendipity Styx 3.0 in May 2020, easy migrations started to become a little bit more difficult. Go and read the <strong>Get Styx</strong> [‘install’ or ‘upgrade’](https://ophian.github.io/hc/en/installation.html#user-content-the-important-upgraders-howto---step-by-step-guide) guide to see how this can be easily done without too much effort. Even more you may want to read the [commit history](https://github.com/ophian/styx/commits/master) and/or the <strong>Styx</strong> [ChangeLog](https://github.com/ophian/styx/blob/master/docs/NEWS).
 
 Since **plugins** are an essential part of Serendipity, this repository holds a strongly maintained additional_plugins repository. The Styx Spartacus Edition is able to work with it - Serendipity s9y origin is not. Please visit my [Blog](https://ophian.github.io/blog/) here to get all the information you need. The official Styx information and Blog site is presented here: [Styx home site](https://ophian.github.io/).
 
-This new site for **Serendipity Styx** includes the [Serendipity Buch](https://ophian.github.io/book/), in a brand new 2018 revision!
+This new site for **Serendipity Styx** includes the [Serendipity Buch](https://ophian.github.io/book/), in a brand new 2022 revision!
 
 Regards Ian,
 
