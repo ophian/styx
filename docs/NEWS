@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix PHP 8 warning on SQL reverse check for moderation set of 1st comment
+
   * Fix DB SQL installation for ORACLE MySQL >= v.5.7.7 regarding InnoDB key
     length to install the non-cut (keys) origin sql file (#20).
 
