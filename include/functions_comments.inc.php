@@ -843,8 +843,12 @@ function serendipity_approveComment($cid, $entry_id, $force = false, $moderate =
                     ". (($force === true) ? "" : "AND status = 'pending'");
     $rs  = serendipity_db_query($sql, true);
 
+    if (is_bool($rs)) {
+        return false;
+    }
+
     // Check for adminEntriesMaintainOthers
-    if (!$force && !$goodtoken && (is_bool($rs) || $rs['entry_authorid'] != $serendipity['authorid']) && !serendipity_checkPermission('adminEntriesMaintainOthers')) {
+    if (!$force && !$goodtoken && $rs['entry_authorid'] != $serendipity['authorid'] && !serendipity_checkPermission('adminEntriesMaintainOthers')) {
         return false; // wrong user having no adminEntriesMaintainOthers right
     }
 
