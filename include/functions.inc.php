@@ -27,6 +27,20 @@ include_once(S9Y_INCLUDE_PATH . 'include/functions_permalinks.inc.php');
 include_once(S9Y_INCLUDE_PATH . 'include/functions_smarty.inc.php');
 
 /**
+ * Backport a new PHP 8 method
+ *
+ * @param   $haystack   string
+ * @param   $needle     string
+ *
+ * @return  boolean
+ */
+if (!function_exists('str_starts_with')) {
+    function str_starts_with($haystack, $needle) {
+        return strpos($haystack, $needle) === 0;
+    }
+}
+
+/**
  * Retrieve the raw request entity (body)
  *
  * @since 2.1
