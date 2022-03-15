@@ -6,8 +6,6 @@ Version 3.x-DEV ()
     Also adds some extra conditioning for other table index key installs, ie.
     for the spamblock plugin table.
 
-  * Add temporary PHP 8 str_starts_with() method polyfill for PHP 7
-
   * Improve s*_approveComment() for PHP 8.1 deprecation and PHP 9
 
   * Fix PHP 8 warning on SQL back check for moderation set of 1st comment
