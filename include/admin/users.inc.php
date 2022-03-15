@@ -107,7 +107,9 @@ if (isset($_POST['SAVE_NEW']) && serendipity_checkFormToken()) {
                     }
                 }
             }
-            serendipity_set_config_var('enableBackendPopupGranular', 'categories,tags,links', $serendipity['POST']['authorid']);
+            if (isset($serendipity['POST']['authorid'])) {
+                serendipity_set_config_var('enableBackendPopupGranular', 'categories,tags,links', $serendipity['POST']['authorid']);
+            }
 
             serendipity_plugin_api::hook_event('backend_users_add', $serendipity['POST']['user']);
             $data['user'] = $serendipity['POST']['user'];
