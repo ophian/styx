@@ -1,6 +1,9 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix $serendipity['db_server_info'] for MariaDB prefix with PHP 8.0.16+,
+    to get the correct SQL template for install.
+
   * Add temporary PHP 8 str_starts_with() method polyfill for PHP 7
 
   * Improve s*_approveComment() for PHP 8.1 deprecation and PHP 9
@@ -8,7 +11,7 @@ Version 3.x-DEV ()
   * Fix PHP 8 warning on SQL back check for moderation set of 1st comment
 
   * Fix DB SQL installation for ORACLE MySQL >= v.5.7.7 regarding InnoDB key
-    length to install the non-cut (keys) origin sql file (#20).
+    length to install the non-cut (keys) origin SQL file (#20).
 
   * Fix MYSQLi DB installation storage_engine for ORACLE MySQL >= v.5.7.5 (#20)
 
