@@ -3,6 +3,8 @@ Version 3.x-DEV ()
 
   * Fix $serendipity['db_server_info'] for MariaDB prefix with PHP 8.0.16+,
     to get the correct SQL template for install.
+    Also adds some extra conditioning for other table index key installs, ie.
+    for the spamblock plugin table.
 
   * Add temporary PHP 8 str_starts_with() method polyfill for PHP 7
 
