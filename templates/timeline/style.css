@@ -498,6 +498,10 @@ a, a:focus, a:hover, a:active, button, button:hover {
     margin: 5px 6px 0px 6px;
 }
 
+.dropdown-menu.show {
+    padding: .5rem 1rem;
+}
+
 .timeline .timeline-body {
     padding: 12px;
 }
