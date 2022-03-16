@@ -17,8 +17,7 @@
 {if in_array($view, ['start', 'entries'])}
     <link rel="canonical" href="{$serendipityBaseURL}">
 {/if}
-{* BOOTSTRAP CORE CSS
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> *}
+{* BOOTSTRAP CORE CSS *}
     <link rel="stylesheet" href="{serendipity_getFile file="b4/css/bootstrap.min.css"}">
 {* S9Y CSS *}
     <link rel="stylesheet" href="{$head_link_stylesheet}">
@@ -253,7 +252,6 @@
     </div>
 </div>{* wrapper *}
 
-{* <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>*}
 <script src="{serendipity_getFile file="js/popper.min.js"}"></script>
 <script src="{serendipity_getFile file="b4/js/bootstrap.min.js"}"></script>
 <script src="{serendipity_getFile file="js/timeline.js"}"></script>
