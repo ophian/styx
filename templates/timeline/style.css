@@ -663,6 +663,11 @@ a, a:focus, a:hover, a:active, button, button:hover {
     color: #eee;
 }
 
+@media screen and (min-width: 768px) {
+    .FooterSideBar {
+        display: flex;
+    }
+}
 .FooterSideBar h3,
 .RightSideBar h3 {
     line-height: 24px;
