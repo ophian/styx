@@ -13,7 +13,8 @@ Version 3.x-DEV ()
   * Fix DB SQL installation for ORACLE MySQL >= v.5.7.7 regarding InnoDB key
     length to install the non-cut (keys) origin SQL file (#20).
 
-  * Fix MYSQLi DB installation storage_engine for ORACLE MySQL >= v.5.7.5 (#20)
+  * Fix MYSQLi DB installation changed 'storage_engine' variable for ORACLE
+    MySQL versions >= 5.7.5 and set InnoDB as used default engine (#20).
 
 
 Version 3.8.0 (February, 28th 2022)
