@@ -239,7 +239,7 @@
                         <p class="copyright-text">{$template_option.copyright}</p>
                     </div>
                     <div class="col-md-6">
-                        <ul class="footer-socials list-inline">
+                        <ul class="footer-socials list-inline d-flex">
                             {foreach $socialicons AS $socialicon}{if $socialicon.url == '#'}{continue}{/if}
 
                                 <li><a href="{$socialicon.url}" title="{$socialicon.service}"><i class="{service_icon from_service=$socialicon.service} fa-lg"></i></a></li>
