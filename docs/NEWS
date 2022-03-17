@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Sync Smarty security fixes to Styx 3.1.39-dev-10
+
   * Fix $serendipity['db_server_info'] for MariaDB prefix with PHP 8.0.16+,
     to get the correct SQL template for install.
     Also adds some extra conditioning for other table index key installs, ie.
