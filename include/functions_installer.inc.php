@@ -160,18 +160,18 @@ function serendipity_installDatabase($type = '') {
         $db_version_match = explode('-', $serendipity['db_server_info']);
         if (stristr(strtolower($serendipity['db_server_info']), 'mariadb')) {
             if (version_compare($db_version_match[0], '10.5.0', '>=')) {
-                $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db.sql'); // 255 - MariaDB 10.5 versions with max key 2000 bytes
+                $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db.sql'); // 255 - MariaDB 10.5 ARIA versions with max key 2000 bytes
             } elseif (version_compare($db_version_match[0], '10.3.0', '>=')) {
-                $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db_mb4-k1.sql'); // 250 - MariaDB 10.3 and 10.4 versions with max key 1000 bytes
+                $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db_mb4-k1.sql'); // 250 - MariaDB 10.3 and 10.4 ARIA versions with max key 1000 bytes
             } else {
-                $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db_mb4.sql'); // 191 - old MyISAMs
+                $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db_mb4.sql'); // 191 - for old InnoDB
             }
         } else {
             // Oracle MySQL - https://dev.mysql.com/doc/refman/5.7/en/innodb-limits.html
             if (version_compare($db_version_match[0], '5.7.7', '>=')) {
                 $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db.sql'); // 255 varchar key length - InnoDB (Since MySQL 5.7 innodb_large_prefix is enabled by default allowing up to 3072 bytes)
             } else {
-                $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db_mb4.sql'); // 191 varchar key length - old Oracles MySQL MyISAM (191 characters * 4 bytes = 764 bytes which is less than the maximum length of 767 bytes allowed when innoDB_large_prefix is disabled)
+                $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db_mb4.sql'); // 191 varchar key length - old Oracles MySQL InnoDB (191 characters * 4 bytes = 764 bytes which is less than the maximum length of 767 bytes allowed when innoDB_large_prefix is disabled)
             }
         }
     } else {
