@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - modifier escape now triggers a E_USER_NOTICE when an unsupported escape type is used https://github.com/smarty-php/smarty/pull/649
 
+### Fixed
+- Math equation max(x, y) didn't work anymore #721
+
 ### Security
 - Prevent evasion of the `static_classes` security policy. This addresses CVE-2021-21408
 - Prevent arbitrary PHP code execution through maliciously crafted expression for the math function. This addresses CVE-2021-29454
