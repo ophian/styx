@@ -6,7 +6,7 @@
 Its project name originally originates from *"River Styx"* in Greek classical mythology. Make your mind why this was chosen.
 If this is too dark for you, you may read this as **S**erendipi**ty** Ne**x**t. :) or just **Sty x**.
 
-By the time the real Maintainer began to silently retreat, *Serendipity 2.1-Alpha ++* more and more became a broken playground, simplifying things without need and commits without care and appreciation about its deepest nuances. Which I regret deeply.
+By the time the real Maintainer began to silently retreat, *Serendipity s9y 2.1-Alpha ++* more and more became a broken playground, simplifying things without need and commits without care and appreciation about its deepest nuances. Which I regret deeply.
 
 **Styx** is what **Serendipity** should be!
 
