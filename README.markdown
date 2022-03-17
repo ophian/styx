@@ -26,7 +26,7 @@ Regards Ian,
 
 _September 23, 2016_
 
-[1]: http://docs.s9y.org/Book/
+[1]: https://docs.s9y.org/Book/
 [2]: https://github.com/ophian/styx/releases
 [3]: https://github.com/ophian/styx/commits/master
 [4]: https://github.com/ophian/styx/blob/master/docs/NEWS
