@@ -10,7 +10,7 @@ By the time the real Maintainer began to silently retreat, *Serendipity 2.1-Alph
 
 **Styx** is what **Serendipity** should be!
 
-After many years of heavy core, in special for the 1.7, 2.0 and 2.1 Series, and plugin development and long years of continuously help in the community, I came to the conclusion to stop my contributes for a while - "finish" the draft of the [2.1 HTML book][1] - present it as a birthday and farewell present to the *Serendipians* - in Spring 2016 - saw where the next S9y-Camp headed to - and realized that my expertise and insight wasn't really wanted any more. Some long month later I decided to go. Now - *21st of September* - it is done. **Alea iacta est!**
+After many years of heavy core, in special for the 1.7, 2.0 and 2.1 Series, and plugin development and long years of continuously help in the community, I came to the conclusion to stop my contributes for a while - "finish" the draft of the [2.1 HTML book](https://docs.s9y.org/Book/) - present it as a birthday and farewell present to the *Serendipians* - in Spring 2016 - saw where the next S9y-Camp headed to - and realized that my expertise and insight wasn't really wanted any more. Some long month later I decided to go. Now - *21st of September* - it is done. **Alea iacta est!**
 
 ### The Serendipity Styx Edition
 
@@ -20,14 +20,8 @@ Serendipity Styx has strongly developed and has seen various releases since then
 
 Since **plugins** are an essential part of Serendipity, this repository holds a strongly maintained additional_plugins repository. The Styx Spartacus Edition is able to work with it - Serendipity s9y origin is not. Please visit my [Blog](https://ophian.github.io/blog/) here to get all the information you need. The official Styx information and Blog site is presented here: [Styx home site](https://ophian.github.io/).
 
-This new site for **Serendipity Styx** includes the german [Serendipity Buch](https://ophian.github.io/book/), in a brand new 2022 revision!
+This new site for **Serendipity Styx** includes the german [Serendipity Buch](https://ophian.github.io/book/), in a brand new year 2022 revision!
 
 Regards Ian,
 
 _September 23, 2016_
-
-[1]: https://docs.s9y.org/Book/
-[2]: https://github.com/ophian/styx/releases
-[3]: https://github.com/ophian/styx/commits/master
-[4]: https://github.com/ophian/styx/blob/master/docs/NEWS
-[5]: https://ophian.github.io/hc/en/installation.html
