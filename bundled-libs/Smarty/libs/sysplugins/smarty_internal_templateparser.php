@@ -2834,6 +2834,20 @@ class Smarty_Internal_Templateparser
             $this->yystack[ $this->yyidx + 0 ]->minor;
     }
 
+    // line 749 "../smarty/lexer/smarty_internal_templateparser.y"
+    public function yy_r94(){
+	    if ($this->security && $this->security->static_classes !== array()) {
+		    $this->compiler->trigger_template_error('dynamic static class not allowed by security setting');
+	    }
+        $prefixVar = $this->compiler->getNewPrefixVariable();
+        if ($this->yystack[$this->yyidx + -2]->minor['var'] === '\'smarty\'') {
+            $this->compiler->appendPrefixCode("<?php {$prefixVar} = ". $this->compiler->compileTag('private_special_variable',array(),$this->yystack[$this->yyidx + -2]->minor['smarty_internal_index']).';?>');
+         } else {
+            $this->compiler->appendPrefixCode("<?php  {$prefixVar} = ". $this->compiler->compileVariable($this->yystack[$this->yyidx + -2]->minor['var']).$this->yystack[$this->yyidx + -2]->minor['smarty_internal_index'].';?>');
+        }
+        $this->_retvalue = $prefixVar .'::'.$this->yystack[$this->yyidx + 0]->minor[0].$this->yystack[$this->yyidx + 0]->minor[1];
+    }
+
     // line 765 "../smarty/lexer/smarty_internal_templateparser.y"
     public function yy_r95()
     {
