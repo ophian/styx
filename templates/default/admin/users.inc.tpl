@@ -49,6 +49,7 @@
     <ul id="serendipity_users" class="plainList zebra_list">
     {foreach $users AS $user}
         {if isset($user.isEditable) AND $user.isEditable}
+
         <li class="clearfix {cycle values="odd,even"}">
             <span class="user_name"><span class="icon-user {if $user.userlevel == '255'}admin{elseif $user.userlevel == '1'}chief{else}editor{/if}" aria-hidden="true"></span> {$user.realname|escape} <span class="user_level">({$user.userlevel_name|escape})</span></span>
 
@@ -61,12 +62,15 @@
         </li>
         {/if}
     {/foreach}
+
     </ul>
     {if isset($new) AND $new}
+
         <a class="button_link" href="?serendipity[adminModule]=users&serendipity[adminAction]=new">{$CONST.CREATE_NEW_USER}</a>
     {/if}
 {/if}
 {if isset($show_form) AND $show_form}
+
     <form{if $adminAction == 'edit'} id="editform"{/if} action="?serendipity[adminModule]=users#editform" method="post">
         {$formToken}
         {if $adminAction == 'edit'}{if isset($create_permission) AND $create_permission}<input name="serendipity[user]" type="hidden" value="{$from.authorid}">{/if}{/if}
@@ -82,6 +86,7 @@
     </form>
 {else}
     {if isset($delete) AND $delete}
+
     <form action="?serendipity[adminModule]=users" method="post">
         {$formToken}
         <input name="serendipity[user]" type="hidden" value="{$userid}">
