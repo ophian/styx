@@ -861,7 +861,7 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
 
     $limit = serendipity_db_limit_sql($limit);
 
-    $term = serendipity_db_escape_string($term);
+    $term = (string)serendipity_db_escape_string($term); // since empty string seems to return null up from PHP 8 and then errors using string functions like str_replace()
     $cond = array();
     $relevance_enabled = false;
     if ($serendipity['dbType'] == 'postgres' ||
