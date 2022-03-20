@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix timeline theme for various issues
+
   * Fix empty search term type change regression error for PHP 8
 
   * Sync Smarty security fixes to Styx 3.1.39-dev-10
