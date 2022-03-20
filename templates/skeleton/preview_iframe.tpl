@@ -20,7 +20,7 @@
         parent.document.getElementById('serendipity_iframe').style.overflow = 'hidden';
     {rdelim}
     </script>
-    <style> .save_preview_content, .preview_preview_content { margin: .5em; } </style>
+    <style> body { background-color: #fff; } .save_preview_content, .preview_preview_content { margin: .5em; } </style>
 </head>
 <body class="{$mode}_preview_body">
     <main class="{$mode}_preview_content" role="main">
