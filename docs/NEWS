@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix preview_iframe template for [ bootstrap4, clean-blog, skeleton] themes
+
   * Fix timeline theme for various issues
 
   * Fix empty search term type change regression error for PHP 8
