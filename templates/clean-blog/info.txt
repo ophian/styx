@@ -1,6 +1,6 @@
 Name: Clean Blog
 Author: Don Chambers, Ian Styx
-Date: 2022-02-02
+Date: 2022-02-20
 Require Serendipity: 3.4
 Backend: No
 Responsive: Yes
