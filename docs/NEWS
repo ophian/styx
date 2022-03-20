@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix empty search term type change regression error for PHP 8
+
   * Sync Smarty security fixes to Styx 3.1.39-dev-10
 
   * Fix $serendipity['db_server_info'] for MariaDB prefix with PHP 8.0.16+,
