@@ -1,4 +1,4 @@
-Version 3.x-DEV ()
+Version 3.8.1 (March, 20th 2022)
  ------------------------------------------------------------------------
 
   * Fix preview_iframe template for [ bootstrap4, clean-blog, skeleton ] themes
