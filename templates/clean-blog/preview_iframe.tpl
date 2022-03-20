@@ -4,11 +4,10 @@
     <meta charset="{$head_charset}">
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-{* BOOTSTRAP CORE CSS
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> *}
+{* BOOTSTRAP CORE CSS *}
     <link rel="stylesheet" href="{serendipity_getFile file="b4/css/bootstrap.min.css"}">
 {* S9Y CSS *}
-{if $head_link_stylesheet_frontend}{* >= s9y 2.0.2 *}
+{if $head_link_stylesheet_frontend}
     <link rel="stylesheet" href="{$head_link_stylesheet_frontend}">
 {else}
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css">
@@ -25,21 +24,19 @@
 {else}
     <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
 {/if}
-    <script>
-        window.onload = function() {ldelim}
-            parent.document.getElementById('serendipity_iframe').style.height = document.getElementById('maincontent').offsetHeight
-                                                                              + parseInt(document.getElementById('maincontent').style.marginTop)
-                                                                              + parseInt(document.getElementById('maincontent').style.marginBottom)
-                                                                              + 'px';
+    <script type="text/javascript">
+        window.onload = function() {
+            var frameheight = document.querySelector('html').offsetHeight;
+            parent.document.getElementById('serendipity_iframe').style.height = frameheight + 'px';
             parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
             parent.document.getElementById('serendipity_iframe').style.border = 0;
             parent.document.getElementById('serendipity_iframe').style.overflow = 'hidden';
-        {rdelim}
+        }
     </script>
 </head>
 <body>
 
-    <main id="maincontent" class="container" role="main" style="margin: 0 auto;{if $mode == 'preview'} width: 100%; padding: .5em;{/if}">
+    <main id="maincontent" class="container" role="main" style="margin: 0 auto;{if $mode == 'preview'} width: 100%; max-width: fit-content; padding: .5em;{/if}">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 {if $mode == 'preview'}
@@ -68,7 +65,6 @@
     <!-- Filed by theme "{$template}" -->
 
 {if $mode == 'preview'}
-{*    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>*}
     <script src="{serendipity_getFile file="b4/js/bootstrap.min.js"}"></script>
     <script src="{serendipity_getFile file="js/clean-blog.min.js"}"></script>
 {/if}
