@@ -500,6 +500,7 @@ a, a:focus, a:hover, a:active, button, button:hover {
 
 .dropdown-menu.show {
     padding: .5rem 1rem;
+    min-width: max-content;
 }
 
 .timeline .timeline-body {
