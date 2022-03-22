@@ -673,6 +673,19 @@ a, a:focus, a:hover, a:active, button, button:hover {
         display: flex;
     }
 }
+@media screen and (min-width: 1024px) {
+    .FooterSideBar .col-md-3 {
+        min-width: fit-content;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .FooterSideBar .col-md-3 .serendipity_plugin_superuser h3 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 82%;
+    }
+}
 .FooterSideBar h3,
 .RightSideBar h3 {
     line-height: 24px;
