@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Remove unused bootstrap sourceMappingURL in templates/_assets to avoid
+    browser notices.
 
 
 Version 3.8.1 (March, 20th 2022)
