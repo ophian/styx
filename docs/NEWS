@@ -1,6 +1,9 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Define a new permalink PATH_AUTHORS constant from permalinkAuthorsPath
+    serendipity global and/to fix multi-authors GET routing requests.
+
   * Remove unused bootstrap sourceMappingURL in templates/_assets to avoid
     browser notices.
 
