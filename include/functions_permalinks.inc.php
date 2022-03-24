@@ -239,6 +239,7 @@ function serendipity_initPermalinks() {
      */
     @define('PATH_ARCHIVES',    $serendipity['permalinkArchivesPath']);
     @define('PATH_ARCHIVE',     $serendipity['permalinkArchivePath']);
+    @define('PATH_AUTHORS',     $serendipity['permalinkAuthorsPath']);
     @define('PATH_CATEGORIES',  $serendipity['permalinkCategoriesPath']);
     @define('PATH_UNSUBSCRIBE', $serendipity['permalinkUnsubscribePath']);
     @define('PATH_DELETE',      $serendipity['permalinkDeletePath']);
