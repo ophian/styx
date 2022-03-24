@@ -1,3 +1,8 @@
+1.77:
+-----
+    * Bugfix: Entryproperites plugin no longer insert empty records
+      for multiple authors (garvinhicking)
+
 1.76:
 -----
     * Precise Cache description info
