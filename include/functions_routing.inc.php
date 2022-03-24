@@ -247,7 +247,7 @@ function serveAuthorPage($matches, $is_multiauth=false) {
         $serendipity['GET']['viewAuthor'] = serendipity_specialchars(implode(';', $serendipity['POST']['multiAuth']));
         $serendipity['uriArguments'][]    = PATH_AUTHORS;
         $serendipity['uriArguments'][]    = serendipity_db_escape_string($serendipity['GET']['viewAuthor']) . '-multi';
-    } elseif (empty($matches[1]) && preg_match('@/([0-9;]+)@', $uri, $multimatch)) {
+    } elseif (empty($matches[1]) && preg_match('@'.PATH_AUTHORS.'/([0-9;]+)@', $uri, $multimatch)) {
         $is_multiauth = true;
         $serendipity['GET']['viewAuthor'] = $multimatch[1];
     } else {

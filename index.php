@@ -94,7 +94,7 @@ if (preg_match(PAT_ARCHIVES, $uri, $matches)
     serveArchive();
 } else if ($is_multicat || preg_match(PAT_PERMALINK_CATEGORIES, $uri, $matches)) {
     serveCategory($matches, $is_multicat);
-} else if ($is_multiauth || preg_match(PAT_PERMALINK_AUTHORS, $uri, $matches)) {
+} else if ($is_multiauth || preg_match(PAT_PERMALINK_AUTHORS, $uri, $matches) || preg_match('@'.PATH_AUTHORS.'/([0-9;]+)@', $uri, $matches)) {
     serveAuthorPage($matches, $is_multiauth);
 } else if (preg_match(PAT_SEARCH, $uri, $matches)) {
     serveSearch();
