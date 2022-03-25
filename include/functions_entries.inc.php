@@ -1573,7 +1573,7 @@ function serendipity_updertEntry($entry) {
 
         // Get settings from entry if already in DB, which should not be alterable with POST methods
         $_entry            = serendipity_fetchEntry('id', $entry['id'], 1, 1);
-        $entry['authorid'] = $_entry['authorid'];
+        $entry['authorid'] = $_entry['authorid'] ?? null;
 
         if (isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModule'] == 'entries' && $entry['authorid'] != $serendipity['authorid'] && !serendipity_checkPermission('adminEntriesMaintainOthers')) {
             // Only CHIEFS and ADMINS can change other's entry. Else update fails.
@@ -1639,7 +1639,7 @@ function serendipity_updertEntry($entry) {
     // Send publish tags if either a new article has been inserted from scratch, or if the entry was previously
     // stored as draft and is now published
     $entry['categories'] =& $categories;
-    if (!serendipity_db_bool($entry['isdraft']) && ($newEntry || serendipity_db_bool($_entry['isdraft']))) {
+    if (!serendipity_db_bool($entry['isdraft']) && ($newEntry || (isset($_entry['isdraft']) && serendipity_db_bool($_entry['isdraft'])))) {
         serendipity_plugin_api::hook_event('backend_publish', $entry, $newEntry);
     } else {
         serendipity_plugin_api::hook_event('backend_save', $entry, $newEntry);
