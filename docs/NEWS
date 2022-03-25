@@ -1,6 +1,9 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Bugfix entryproperties groups and users entry access re-sets, not properly
+    resetting the access values for changed frontend access.
+
   * [Sync S9y] - Bugfix entryproperties empty value issue with multi-authors
 
   * Define a new permalink PATH_AUTHORS constant from permalinkAuthorsPath
