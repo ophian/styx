@@ -276,24 +276,25 @@ class serendipity_event_entryproperties extends serendipity_event
             // Do not delete a property if it is not submitted to this function, because serendipity_updertEntry
             // possibly only wants to update entry metadata and left out any specific properties, which need to be kept.
             // An empty string like "" will properly remove an entryproperty, and POST values will always set an array index to an empty string.
-            // $serendipity['POST']['propertyform'] will be set whenever the entryeditor was properly displayed and unticked checkboxes shall remain.
+            // A (theme config set) $serendipity['POST']['propertyform'] will be set whenever the entryeditor was properly displayed and unticked checkboxes shall remain.
             // (Not for checkboxes, but checkboxes are not used for entryproperties) - (Edit: Well, actually we do have some, see reset special case checkboxed properties above!)
             if (!isset($properties[$prop_key]) && !isset($serendipity['POST']['propertyform'])) {
                 continue;
             }
 
-            $prop_val = (isset($properties[$prop_key]) ? $properties[$prop_key] : null);
+            $prop_val = $properties[$prop_key] ?? null;
             $prop_key = 'ep_' . $prop_key;
 
             if (is_array($prop_val)) {
-                if ($prop_key !== 'multi_authors') {
-                    $prop_val = implode(';', $prop_val);
-                } else {
+                //  we should not change this ;; behaviour since we already have other array keys like 'access_groups', 'access_users' or other plugins with the same approach. The real fix to avoid errors is on output at line ~970!
+                #if ($prop_key !== 'multi_authors') {
+                #    $prop_val = implode(';', $prop_val);
+                #} else {
                     // Note: Not sure if this prefix and suffix with ";" is a really good idea.
                     // At least with multi_authors it's a problem, because it creates empty records.
                     // Maybe other keys also need specific fixing.
                     $prop_val = ";" . implode(';', $prop_val) . ";";
-                }
+                #}
             }
 
             $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($prop_key) . "'";
