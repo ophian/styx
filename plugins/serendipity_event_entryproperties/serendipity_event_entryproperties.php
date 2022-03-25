@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.77');
+        $propbag->add('version',       '1.78');
         $propbag->add('requirements',  array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -253,6 +253,14 @@ class serendipity_event_entryproperties extends serendipity_event
 
         // Special case for input type checkbox entryproperties
         $reset_properties = array('is_sticky', 'no_frontpage', 'hiderss');
+        // Special case for multi_authors, access_groups and access_users array cases
+        array_push($reset_properties, 'multi_authors', 'access_groups', 'access_users'); // merge with array type entryproperties
+
+        // reset a 'member' or 'private' access state to default 'public' on removal of either empty 'access_groups' or 'access_users' array keys
+        if (!isset($serendipity['POST']['propertyform']) && is_array($serendipity['POST']['properties']) && $serendipity['POST']['properties']['access'] != 'public' && !isset($serendipity['POST']['properties']['access_groups'][0]) && !isset($serendipity['POST']['properties']['access_users'][0])) {
+            $properties['access'] = 'public';
+        }
+
         foreach($reset_properties AS $property) {
             if (!isset($serendipity['POST']['propertyform']) && is_array($serendipity['POST']['properties']) && !in_array($property, $serendipity['POST']['properties'])) {
                 $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property = 'ep_{$property}'";

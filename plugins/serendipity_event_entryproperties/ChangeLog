@@ -1,6 +1,12 @@
+1.78:
+-----
+    * Disable a side aspect addition in previous fix since that could collide with existing data
+    * Fix 'multi_authors', 'access_groups', 'access_users' entry resets not reseting back the entryproperties table values,
+      including the related and important access variable for frontend access.
+
 1.77:
 -----
-    * Bugfix: Entryproperites plugin no longer insert empty records
+    * Bugfix: Entryproperties plugin no longer inserts empty records
       for multiple authors (garvinhicking)
 
 1.76:
