@@ -294,7 +294,8 @@ class serendipity_event_entryproperties extends serendipity_event
             $prop_key = 'ep_' . $prop_key;
 
             if (is_array($prop_val)) {
-                //  we should not change this ;; behaviour since we already have other array keys like 'access_groups', 'access_users' or other plugins with the same approach. The real fix to avoid errors is on output at line ~970!
+                // We should not change this ;; behaviour since we already have other array keys like 'access_groups', 'access_users'
+                // or other plugins with the same approach. The real fix to avoid empty array errors is on output at line ~975!
                 #if ($prop_key !== 'multi_authors') {
                 #    $prop_val = implode(';', $prop_val);
                 #} else {
