@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.78');
+        $propbag->add('version',       '1.79');
         $propbag->add('requirements',  array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -408,7 +408,7 @@ class serendipity_event_entryproperties extends serendipity_event
                     $my_groups = serendipity_getGroups($serendipity['authorid']);
 ?>
             <div id="ep_access_groups" class="entryproperties_access_groups adv_opts_box form_multiselect">
-                <label for="properties_access_groups"><?php echo PERM_READ . ': ' . GROUP; ?></label>
+                <label for="properties_access_groups"><?php echo PERM_READ . ': ' . GROUP; ?> <i class="icon-info-circled" aria-hidden="true" title="<?php echo serendipity_specialchars(PERMISSION_READ_WRITE_ACL_DESC); ?>"></i></label>
 
                 <select id="properties_access_groups" name="serendipity[properties][access_groups][]" multiple="multiple" size="4" onchange="document.getElementById('properties_access_member').checked = true;">
 <?php
@@ -420,8 +420,10 @@ class serendipity_event_entryproperties extends serendipity_event
                     <option value="<?php echo $group['id']; ?>" <?php echo (in_array($group['id'], $access_groups) ? 'selected="selected"' : ''); ?>><?php echo serendipity_specialchars($group['name']); ?></option>
 <?php
                     }
-                    echo '</select>';
-                    echo '</div>';
+?>
+                </select>
+            </div>
+<?php
                 }
                 break;
 
@@ -429,7 +431,7 @@ class serendipity_event_entryproperties extends serendipity_event
                 if ($use_users) {
 ?>
             <div id="ep_access_users" class="entryproperties_access_users adv_opts_box form_multiselect">
-                <label for="properties_access_users"><?php echo PERM_READ . ': '. AUTHOR; ?></label>
+                <label for="properties_access_users"><?php echo PERM_READ . ': '. AUTHOR; ?> <i class="icon-info-circled" aria-hidden="true" title="<?php echo serendipity_specialchars(PERMISSION_READ_WRITE_ACL_DESC); ?>"></i></label>
 
                 <select id="properties_access_users" name="serendipity[properties][access_users][]" multiple="multiple" size="4" onchange="document.getElementById('properties_access_member').checked = true;">
 <?php
@@ -440,8 +442,10 @@ class serendipity_event_entryproperties extends serendipity_event
                     <option value="<?php echo $user['authorid']; ?>" <?php echo (in_array($user['authorid'], $access_users) ? 'selected="selected"' : ''); ?>><?php echo $_realname; ?></option>
 <?php
                     }
-                    echo "</select>\n";
-                    echo "</div>\n";
+?>
+                </select>
+            </div>
+<?php
                 }
                 break;
 
@@ -501,7 +505,7 @@ class serendipity_event_entryproperties extends serendipity_event
                         echo '<option value="' . $user['authorid'] . '" ' . ($selected_user == $user['authorid'] ? ' selected="selected"' : '') . '>' . $_realname . '</option>' . "\n";
                     }
                 }
-                ?>
+?>
                 </select>
             </div>
 <?php

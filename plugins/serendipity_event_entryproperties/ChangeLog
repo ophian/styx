@@ -1,3 +1,10 @@
+1.79:
+-----
+    * Add PERMISSION_READ_WRITE_ACL_DESC warning info (tooltip) to "access_groups" and "access_users" selections,
+      to AVOID removing at least oneself from ACL permissions, eg. as "Administrator" and its "username".
+      Else you couldn't repair this by the entry property form again, since not in list of available entries,
+      and you would have to change database settings manually.
+
 1.78:
 -----
     * Disable a side aspect addition in previous fix since that could collide with existing data
