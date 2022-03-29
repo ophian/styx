@@ -14,7 +14,7 @@ class serendipity_plugin_archives extends serendipity_plugin
         $propbag->add('description',   BROWSE_ARCHIVES);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team, Ian Styx');
-        $propbag->add('version',       '1.5');
+        $propbag->add('version',       '1.6');
         $propbag->add('configuration', array('title', 'frequency', 'count', 'show_count', 'hide_zero_count'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -82,6 +82,7 @@ class serendipity_plugin_archives extends serendipity_plugin
         if ($category_set) {
             $base_query = 'C' . (int)$serendipity['GET']['category'];
             $add_query = '/' . $base_query;
+            $title .= ' ' . $base_query . '';
         }
 
         $max_x = $this->get_config('count', 3);
