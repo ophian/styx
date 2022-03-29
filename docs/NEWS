@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Add "in category" C{x}-shortform to plugin_archives sidebar title, if in
+
   * Improve entryproperties groups and users selection by ACL warning info
 
   * Bugfix entryproperties groups and users entry access re-sets, not properly
