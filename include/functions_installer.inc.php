@@ -1200,7 +1200,7 @@ function serendipity_check_rewrite($default) {
             fclose($sock);
         }
 
-        if (preg_match('@^HTTP/\d\.\d 200@', $response)) {
+        if (preg_match('@^HTTP/\d\.\d 200@', $response) || preg_match('@^HTTP/\d\.\d 302@', $response)) {
             $default = 'errordocs';
         } else {
             $default = 'none';
