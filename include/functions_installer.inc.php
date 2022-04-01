@@ -1165,9 +1165,24 @@ function serendipity_getRealDir($file) {
 function serendipity_check_rewrite($default) {
     global $serendipity;
 
-    if (IS_installed == true) {
+    if (IS_installed === true) {
         return $default;
     }
+
+    if (function_exists('apache_get_modules') ) {
+        if (in_array('mod_rewrite', apache_get_modules())) {
+            $default = 'rewrite';
+            return $default;
+        }
+    } elseif (function_exists('phpinfo' ) && false === strpos(ini_get('disable_functions'), 'phpinfo')) {
+			ob_start();
+			phpinfo(INFO_MODULES);
+			$phpinfo = ob_get_clean();
+		if (false !== strpos($phpinfo, 'mod_rewrite')) {
+            $default = 'rewrite';
+            return $default;
+		}
+	}
 
     $serendipity_root = dirname($_SERVER['PHP_SELF']) . '/';
     $serendipity_core = serendipity_httpCoreDir();
@@ -1184,12 +1199,12 @@ function serendipity_check_rewrite($default) {
         fwrite($fp, 'ErrorDocument 404 ' . addslashes($serendipity_root) . 'index.php');
         fclose($fp);
 
-        // Do a request on a nonexistant file to see, if our htaccess allows ErrorDocument
+        // Do a request on a nonexistent file to see, if our htaccess allows ErrorDocument
         $sock = @fsockopen($serendipity_host, $_SERVER['SERVER_PORT'], $errorno, $errorstring, 10);
         $response = '';
 
         if ($sock) {
-            fputs($sock, "GET {$_SERVER['PHP_SELF']}nonexistant HTTP/1.0\r\n");
+            fputs($sock, "GET {$_SERVER['PHP_SELF']}nonexistent HTTP/1.0\r\n");
             fputs($sock, "Host: $serendipity_host\r\n");
             fputs($sock, "User-Agent: Serendipity/{$serendipity['version']}\r\n");
             fputs($sock, "Connection: close\r\n\r\n");
