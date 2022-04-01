@@ -7,7 +7,7 @@
         {/foreach}
     {else}
         {if isset($htaccessRewrite) AND $htaccessRewrite}
-            <p>{$CONST.ATTEMPT_WRITE_FILE|sprintf:"{$serendipityPath}htaccess"}</p>
+            <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.ATTEMPT_WRITE_FILE|sprintf:"{$serendipityPath}.htaccess"}</span>
             {if is_array($res)}
                 {foreach $res AS $r}
                 <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$r}</span>
