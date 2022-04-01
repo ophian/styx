@@ -1,7 +1,7 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
-  * Add "in category" C{x}-shortform to plugin_archives sidebar title, if in
+  * Add "in category" C{n}-shortform to plugin_archives sidebar title, if in
 
   * Improve entryproperties groups and users selection by ACL warning info
 
