@@ -1,6 +1,9 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix installers serendipity_check_rewrite() function to select mod_rewrite
+    when available as announced. It never did.
+
   * Add "in category" C{n}-shortform to plugin_archives sidebar title, if in
 
   * Improve entryproperties groups and users selection by ACL warning info
