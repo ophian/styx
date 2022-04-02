@@ -122,7 +122,11 @@ class serendipity_plugin_entrylinks extends serendipity_plugin
         }
 
         if (serendipity_db_bool($this->get_config('show_exits', 'true'))) {
-            $exits      = serendipity_db_query("SELECT SUM(count) as fullcount, scheme, host, port, path, query, " . serendipity_db_concat("scheme, '://', host, ':', port, path, '?', query") . " AS fulllink FROM {$serendipity['dbPrefix']}exits WHERE entry_id = " . $id . " GROUP BY scheme,host,port,path,query");
+            $exits = serendipity_db_query("SELECT SUM(count) as fullcount, scheme, host, port, path, query,
+                                            " . serendipity_db_concat("scheme, '://', host, ':', port, path, '?', query") . " AS fulllink
+                                            FROM {$serendipity['dbPrefix']}exits
+                                            WHERE entry_id = " . $id . "
+                                            GROUP BY scheme,host,port,path,query");
             if (is_array($exits)) {
                 foreach($exits AS $key => $row) {
                     $url = sprintf('%s://%s%s%s%s',
@@ -138,7 +142,11 @@ class serendipity_plugin_entrylinks extends serendipity_plugin
             }
         }
 
-        $references = serendipity_db_query("SELECT link, max(name) as name FROM {$serendipity['dbPrefix']}references WHERE entry_id = " . $id . " AND type = '' GROUP BY link ORDER BY id");
+        $references = serendipity_db_query("SELECT link, max(name) as name
+                                            FROM {$serendipity['dbPrefix']}references
+                                            WHERE entry_id = " . $id . " AND type = ''
+                                            GROUP BY link
+                                            ORDER BY id");
         if (is_array($references)) {
             $links = '<ul class="plainList">';
             foreach($references AS $key => $row) {
@@ -164,7 +172,13 @@ class serendipity_plugin_entrylinks extends serendipity_plugin
         }
 
         if (serendipity_db_bool($this->get_config('show_referers', 'true'))) {
-            $ref = serendipity_db_query("SELECT SUM(count) as fullcount, scheme, host, port, path, query, " . serendipity_db_concat("scheme, '://', host, ':', port, path, '?', query") . " AS fulllink FROM {$serendipity['dbPrefix']}referrers WHERE entry_id = " . $id . " GROUP BY scheme,host,port,path,query ORDER BY $orderby DESC LIMIT $maxref");
+            $ref = serendipity_db_query("SELECT SUM(count) as fullcount, scheme, host, port, path, query,
+                                            " . serendipity_db_concat("scheme, '://', host, ':', port, path, '?', query") . " AS fulllink
+                                            FROM {$serendipity['dbPrefix']}referrers
+                                            WHERE entry_id = " . $id . "
+                                            GROUP BY scheme,host,port,path,query
+                                            ORDER BY $orderby
+                                            DESC LIMIT $maxref");
             if (is_array($ref)) {
                 echo PLUGIN_ENTRYLINKS_REFERERS . '<ul class="plainList">'."\n";
                 foreach($ref AS $key => $row) {
