@@ -405,7 +405,7 @@ function serendipity_detectLang($use_include = false) {
         }
     }
 
-    return $serendipity['lang'];
+    return $serendipity['lang'] ?? null; // default fallback to avoid unset lang key warnings
 }
 
 /**
