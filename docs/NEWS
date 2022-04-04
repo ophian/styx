@@ -1,6 +1,9 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Upgrade custom CKEBasic asset to 4.18.0 (5fe059002f3 revision)
+    https://ckeditor.com/cke4/release-notes
+
   * Add RELOAD_THIS_PAGE notice to configuration submits
 
   * Fix installers serendipity_check_rewrite() function to select mod_rewrite
