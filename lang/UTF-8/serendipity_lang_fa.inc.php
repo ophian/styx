@@ -195,6 +195,7 @@
 @define('COPY_CODE_BELOW', '<br>* کد زیر را کپی کرده و در %s در %s شاخه زیر بریزید:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'www را به کاربری که از آپاچی استفاده می کند تغییر دهید (مثلا nobody(.');
 @define('BROWSER_RELOAD', 'پس از تکمیل، صفحه مرورگر را refresh کنید.');
+@define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
 @define('DIAGNOSTIC_ERROR', 'تعدادی خطا در اطلاعات ورودی شما یافت شد:');
 @define('SERENDIPITY_NOT_INSTALLED', 'سرندیپیتی هنوز نصب نشده است. لطفا هم اکنون آن را <a href="%s">نصب کنید</a>.');
 @define('INCLUDE_ERROR', 'خطای سرندیپیتی: توانایی وارد کردن فایل %s وجود ندارد - برنامه متوقف شد.');

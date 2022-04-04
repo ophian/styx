@@ -194,6 +194,7 @@
 @define('COPY_CODE_BELOW', '<br>* Vistaðu bara kóðann fyrir neðan og settu hann í %s í %s möppunni:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Breyttu www í notandann sem að apache keyrir sem (t.d. nobody).');
 @define('BROWSER_RELOAD', 'Þegar þú ert búinn að því, uppfærðu þá síðunna með "reload/refresh" takkanum.');
+@define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
 @define('DIAGNOSTIC_ERROR', 'Við urðum vör við einhverjar villur þegar við keyrðum greiningar á upplýsingunum sem þú gafst:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity er ekki uppsett. Vinsamlegast <a href="%s">settu það upp</a> núna.');
 @define('INCLUDE_ERROR', 'Serendipity villa: gat ekki innlimað %s - hætti.');

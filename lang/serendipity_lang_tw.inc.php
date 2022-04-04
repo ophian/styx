@@ -196,6 +196,7 @@ $i18n_unknown = 'tw';
 @define('COPY_CODE_BELOW', '<br>* 請複製下面的代碼然後放入 %s 到您的 %s 檔案夾:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', '請改變 www 到使用者的 Apache (i.e. nobody).');
 @define('BROWSER_RELOAD', '完成之後, 重新刷新您的瀏覽器.');
+@define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
 @define('DIAGNOSTIC_ERROR', '系統偵測到一些錯誤:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity 還沒安裝完成. 請按 <a href="%s">安裝</a>.');
 @define('INCLUDE_ERROR', 'Serendipity 錯誤: 無法包括 %s - 退出.');

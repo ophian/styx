@@ -196,6 +196,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('COPY_CODE_BELOW', '<br>* Po prostu skopiuj poniższy kod i umieść go w %s w Twoim katalogu %s:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Zmień właściciela katalogu ze stroną na użytkownika, z uprawnieniami którego działa apache (np. nobody).');
 @define('BROWSER_RELOAD', 'Kiedy wykonasz te czynności wciśnij przycisk "reload" (odśwież) w swojej przeglądarce.');
+@define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
 @define('DIAGNOSTIC_ERROR', 'Stwierdzono istnienie pewnych problemów podczas przeprowadzania procedur diagnostycznych. Upewnij się, że podałeś prawidłowe dane:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity nie zostało jeszcze zainstalowane. Proszę, <a href="%s">zainstaluj</a> je teraz.');
 @define('INCLUDE_ERROR', 'Błąd Serendipity: nie można było załączyć %s - wyjście.');

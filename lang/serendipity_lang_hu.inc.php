@@ -194,6 +194,7 @@
 @define('COPY_CODE_BELOW', '<br>* Másold a lenti kódot a %s fájlba (könyvtár: %s):<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'A www-t cseréld ki arra a felhasználóra, aki az apache-ot futtatja (pl. nobody).');
 @define('BROWSER_RELOAD', 'Ha kész vagy, kattints a böngészõ "Frissítés" gombjára.');
+@define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
 @define('DIAGNOSTIC_ERROR', 'Találtam valami hibát az általad megadott adatokban:');
 @define('SERENDIPITY_NOT_INSTALLED', 'A Serendipity még nincs telepítve. Kattints <a href="%s">ide</a> a telepítéshez.');
 @define('INCLUDE_ERROR', 'Serendipity hiba: nem megy az "include %s" - kilépek.');

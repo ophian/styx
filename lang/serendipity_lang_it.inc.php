@@ -182,6 +182,7 @@
 @define('COPY_CODE_BELOW', '<br>* Copiare il codice qui sotto e metterlo in %s nella vostra cartella %s :<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Cambiare www con l\'utente con cui gira apache (es. nobody).');
 @define('BROWSER_RELOAD', 'Una volta eseguito, premete il bottone "Ricarica" del vostro browser.');
+@define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
 @define('DIAGNOSTIC_ERROR', 'Sono stati rilevati degli errori durante il controllo dei dati inseriti:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity non è ancora installato. per favore <a href="%s">installatelo</a> ora.');
 @define('INCLUDE_ERROR', 'Errore di Serendipity: impossibile includere %s - terminato.');

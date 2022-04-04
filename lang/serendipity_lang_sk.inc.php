@@ -207,6 +207,7 @@ $i18n_filename_to = array (
 @define('COPY_CODE_BELOW', '<br>* Skopírujte kód uvedený ní¾¹ie a umiestnite ho do súboru "%s" vo va¹om prieèinku "%s":<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Zmeòte "www" na pou¾ívateµa, pod ktorým be¾í webserver (napr. nobody).');
 @define('BROWSER_RELOAD', 'Po dokonèení stlaète tlaèidlo obnovenia stránky vo va¹om prehliadaèi.');
+@define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
 @define('DIAGNOSTIC_ERROR', 'Diagnostika na¹la chyby vo vkladaných údajoch:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity e¹te nie je nain¹talované. Prosím <a href="%s">nain¹talujte</a> ho teraz.');
 @define('INCLUDE_ERROR', 'Chyba Serendipity: súbor "%s" sa nepodarilo vlo¾i» - ukonèené.');

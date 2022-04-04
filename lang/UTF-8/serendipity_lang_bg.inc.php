@@ -179,6 +179,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('COPY_CODE_BELOW', '<br>* Само копирайте кода от по-долу и го сложете в %s в папка %s <b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Променете www на системния потребителя, като който се изпълнява Apache.');
 @define('BROWSER_RELOAD', 'Като направите това, натиснете бутона за презареждане на браузъра.');
+@define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
 @define('DIAGNOSTIC_ERROR', 'Бяха открити няколко грешки при въведената информация от Вас:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity още не е инсталиран. Моля, <a href="%s">инсталирайте</a> го сега.');
 @define('INCLUDE_ERROR', 'Грешка на Serendipity: Не може да бъде включен файла %s - излизане.');

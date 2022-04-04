@@ -194,6 +194,7 @@
 @define('COPY_CODE_BELOW', '<br>* Kopiera koden nedan och lägg den i %s i din %s mapp:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Ändra www till den användare apache kör som (t.ex. nobody eller www).');
 @define('BROWSER_RELOAD', 'När du har gjort detta, välj "Uppdatera" eller motsvarande i din webbläsare.');
+@define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
 @define('DIAGNOSTIC_ERROR', 'Vi hittade några fel när vi körde diagnostik på din inmatade information:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity är inte installerad än. Var god <a href="%s">installera</a> nu.');
 @define('INCLUDE_ERROR', 'Serendipity fel: kunde inte inkludera %s - avslutar.');

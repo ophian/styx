@@ -194,6 +194,7 @@
 @define('COPY_CODE_BELOW', '<br>* Kopioi alla oleva ja laita se tiedostoon %s kansiossa %s :<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Vaihda "www" apachen-käyttäjätunnukseen (esim. nobody).');
 @define('BROWSER_RELOAD', 'Tehtyäsi tämän, lataa sivu uudestaan.');
+@define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
 @define('DIAGNOSTIC_ERROR', 'Tarkistuksessa havaittiin virheet:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipityä ei ole asennettu. Ole kiltti ja <a href="%s">asenna</a> se nyt.');
 @define('INCLUDE_ERROR', 'Serendipity virhe: tiedostoa %s ei kyetty lukemaan - poistutaan.');

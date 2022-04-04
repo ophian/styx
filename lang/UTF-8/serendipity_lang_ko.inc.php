@@ -196,6 +196,7 @@
 @define('COPY_CODE_BELOW', '<br>* 아래의 코드를 복사하여 %s에 넣고 %s 폴더에 두십시오:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'www를 아파치가 사용하는 사용자 이름(nobody 등)으로 변경하십시오.');
 @define('BROWSER_RELOAD', '작업이 끝난 후 브라우저의 "새로고침" 버튼을 누르십시오.');
+@define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
 @define('DIAGNOSTIC_ERROR', '입력한 정보에 검사를 수행하는 도중 에러를 발견했습니다:');
 @define('SERENDIPITY_NOT_INSTALLED', '세렌디피티가 아직 설치되지 않았습니다. 지금 <a href="%s">설치</a>하십시오.');
 @define('INCLUDE_ERROR', '세렌디피티 오류: %s(을)를 포함시킬 수 없었습니다 - 종료합니다.');

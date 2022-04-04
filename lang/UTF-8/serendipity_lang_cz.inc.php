@@ -209,6 +209,7 @@ $i18n_filename_to = array (
 @define('COPY_CODE_BELOW', '<br>* Zkopírujte kód uvedený níže a umístěte jej do %s ve vašem %s adresáři:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Změňte www na uživatele, který je určen v Apache (na př. nobody).');
 @define('BROWSER_RELOAD', 'Po dokončení stiskněte tlačítko obnovení stránky ve vašem prohlížeči.');
+@define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
 @define('DIAGNOSTIC_ERROR', 'Diagnostika detekovala nějaké chyby ve vkládaných informacích:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity ještě není nainstalován. <a href="%s">Instalujte</a> jej nyní.');
 @define('INCLUDE_ERROR', 'Chyba Serendipity: nelze vložit %s - ukončeno.');

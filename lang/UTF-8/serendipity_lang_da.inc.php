@@ -179,6 +179,7 @@
 @define('COPY_CODE_BELOW', '<br>* Kopier blot koden nedenunder og placer den i %s i din %s mappe:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Ændr www til den bruger som apache kører som (fx. nobody).');
 @define('BROWSER_RELOAD', 'Når du har gjort dette, så tryk på browserens "opdater" knap');
+@define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
 @define('DIAGNOSTIC_ERROR', 'Vi har opdaget nogle fejl mens vi kørte nogle diagnostiker på dine indtastede informationer:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity er endnu ikke installeret. Klik <a href="%s">her for at installere</a> nu.');
 @define('INCLUDE_ERROR', 'Serendipity fejl: Kunne ikke inkludere %s - Afbryder.');
