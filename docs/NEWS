@@ -1,6 +1,8 @@
 Version 3.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Add RELOAD_THIS_PAGE notice to configuration submits
+
   * Fix installers serendipity_check_rewrite() function to select mod_rewrite
     when available as announced. It never did.
 
