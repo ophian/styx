@@ -4142,6 +4142,7 @@ img.mfp-img {
       float: right;
       margin: -3.125em 0 0; }
       .msg_error:not(.ppconf_msg) + form > .button_link.toggle_config,
+      .msg_notice:not(.ppconf_msg) + form > .button_link.toggle_config,
       .msg_success:not(.ppconf_msg) + form > .button_link.toggle_config {
         position: absolute;
         top: 7.5rem;
