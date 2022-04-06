@@ -1175,9 +1175,10 @@ function serendipity_check_rewrite($default) {
             return $default;
         }
     } elseif (function_exists('phpinfo' ) && false === strpos(ini_get('disable_functions'), 'phpinfo')) {
-            ob_start();
-            phpinfo(INFO_MODULES);
-            $phpinfo = ob_get_clean();
+        ob_start();
+        phpinfo(INFO_MODULES);
+        $phpinfo = ob_get_clean();
+
         if (false !== strpos($phpinfo, 'mod_rewrite')) {
             $default = 'rewrite';
             return $default;
