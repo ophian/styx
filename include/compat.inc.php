@@ -383,7 +383,7 @@ function serendipity_getCharset() {
  *
  * @access public
  * @param   boolean     Toggle whether to include the language that has been autodetected.
- * @return  string      Return the detected language name
+ * @return  string      Return the first detected language name
  */
 function serendipity_detectLang($use_include = false) {
     global $serendipity;
