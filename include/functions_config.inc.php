@@ -1169,11 +1169,8 @@ function serendipity_probeInstallation($item) {
             $res['errordocs'] = 'Use Apache errorhandling';
             if (!function_exists('apache_get_modules') || in_array('mod_rewrite', apache_get_modules())) {
                 $res['rewrite'] = 'Use Apache mod_rewrite';
-            }
-            if (!function_exists('apache_get_modules') || in_array('mod_rewrite', apache_get_modules())) {
                 $res['rewrite2'] = 'Use Apache mod_rewrite (for 1&amp;1 and problematic servers)';
             }
-
             break;
     }
 
