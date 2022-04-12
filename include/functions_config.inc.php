@@ -1129,8 +1129,7 @@ function serendipity_probeInstallation($item) {
                 $res['mysql'] = 'MySQL';
             }
 
-            if (extension_loaded('PDO') &&
-                in_array('pgsql', PDO::getAvailableDrivers())) {
+            if (extension_loaded('PDO') && in_array('pgsql', PDO::getAvailableDrivers())) {
                 $res['pdo-postgres'] = 'PDO::PostgreSQL';
             }
             if (extension_loaded('pgsql')) {
@@ -1143,8 +1142,7 @@ function serendipity_probeInstallation($item) {
             if (extension_loaded('SQLITE3') && function_exists('sqlite3_open')) {
                 $res['sqlite3'] = 'SQLite3';
             }
-            if (extension_loaded('PDO') &&
-                in_array('sqlite', PDO::getAvailableDrivers())) {
+            if (extension_loaded('PDO') && in_array('sqlite', PDO::getAvailableDrivers())) {
                 $res['pdo-sqlite'] = 'PDO::SQLite';
                 $has_pdo = true;
             } else {
