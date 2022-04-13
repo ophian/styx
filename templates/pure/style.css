@@ -2034,6 +2034,18 @@ div.serendipityPlug a {
     white-space: nowrap;
     padding-bottom: 1em;
 }
+.serendipity_plugin_staticpage .depth_10 {
+    padding-left: 1em;
+}
+.serendipity_plugin_staticpage .depth_20 {
+    padding-left: 2em;
+}
+.serendipity_plugin_staticpage .depth_30 {
+    padding-left: 3em;
+}
+.serendipity_plugin_staticpage .depth_40 {
+    padding-left: 4rem;
+}
 /* freetag no-scale cloud && !useRotCanvas && !useWordCloud for sidebars-to-bottom
    removes br-linebreaks when configured in plugin in footer sidebar mobile view */
 .sidebar_widget.serendipity_plugin_freetag .plainList br {
