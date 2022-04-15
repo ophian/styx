@@ -2,6 +2,11 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improved backend pinned entries to follow filtered entries.
+    REMEMBER: Such actions react lazy!
+              Pinned entries are cookie stored values and always need a (page)
+              request to get written and at least a second to get read out.
+
   * Add CSS depth indents for staticpage plaintext trees to the [ pure ] theme
     for additionally added plugin_staticpage_sidebar.tpl template file.
 
