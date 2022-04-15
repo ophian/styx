@@ -397,7 +397,7 @@ switch($serendipity['GET']['adminAction']) {
         $data['simpleFilters'] = $serendipity['simpleFilters'] ?? true;
 
         if (!empty($pinned_entries)) {
-            $entries = array_merge($pinned_entries, $entries);
+            $entries = array_merge($pinned_entries, (array)$entries); // cast boolean type to array in case of empty search
         }
 
         if (is_array($entries)) {
