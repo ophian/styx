@@ -252,12 +252,14 @@ switch($serendipity['GET']['adminAction']) {
 
         // check entries list link for pinned entries
         $pinned_entries = [];
-        if (!empty($serendipity['GET']['pinned_entries']) && isset($serendipity['matched_entry_pin']) && isset($serendipity['COOKIE']["entrylist_pin_entry_${serendipity['matched_entry_pin']}"])) {
-            $pinned = explode(',', $serendipity['GET']['pinned_entries']);
+        if ((!empty($serendipity['GET']['pinned_entries']) || !empty($serendipity['POST']['pinned_entries']))
+        && isset($serendipity['matched_entry_pin']) && isset($serendipity['COOKIE']["entrylist_pin_entry_${serendipity['matched_entry_pin']}"])) {
+            $pinned = isset($serendipity['POST']['pinned_entries']) ? explode(',', $serendipity['POST']['pinned_entries']) : explode(',', $serendipity['GET']['pinned_entries']);
             foreach ($pinned AS $kpin => $vpin) {
+                if (empty($vpin)) continue;
                 $fe = serendipity_fetchEntry('id', (int)$vpin, 1, 1);
                 $fe['is_pinned'] = true;
-                if (!empty($vpin)) $pinned_entries[] = $fe;
+                $pinned_entries[] = $fe;
             }
         }
 
