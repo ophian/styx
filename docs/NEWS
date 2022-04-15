@@ -2,7 +2,8 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Improved backend pinned entries to follow filtered entries.
+  * Improved backend pinned entries to follow filtered entries and fixed pinned
+    assignment for multi pinned entries.
     REMEMBER: Such actions react lazy!
               Pinned entries are cookie stored values and always need a (page)
               request to get written and at least a second to get read out.
