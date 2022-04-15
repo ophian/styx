@@ -399,7 +399,9 @@ switch($serendipity['GET']['adminAction']) {
         $data['simpleFilters'] = $serendipity['simpleFilters'] ?? true;
 
         if (!empty($pinned_entries)) {
-            $entries = array_merge($pinned_entries, (array)$entries); // cast boolean type to array in case of empty search
+            // both are regular arrays with num keys in the 1st dimension
+            $entries = array_merge($pinned_entries, (array)$entries); // cast boolean type to array in case of non-result search
+            $entries = array_column($entries, null, 'id'); // remove the possible 2cd duplicate in database fetched entries by inner ID as we need the pinned on top
         }
 
         if (is_array($entries)) {
