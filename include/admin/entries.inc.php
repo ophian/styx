@@ -258,7 +258,9 @@ switch($serendipity['GET']['adminAction']) {
             foreach ($pinned AS $kpin => $vpin) {
                 if (empty($vpin)) continue;
                 $fe = serendipity_fetchEntry('id', (int)$vpin, 1, 1);
-                $pinned_entries[] = $fe;
+                if (is_array($fe)) {
+                    $pinned_entries[] = $fe;
+                }
             }
         }
 
