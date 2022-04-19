@@ -162,17 +162,6 @@ blockquote:lang(de)  p:first-child:before { content: '„'; content: open-quote;
 :lang(de) blockquote p:last-child:after,
 blockquote:lang(de)  p:last-child:after  { content: '“'; content: close-quote; }
 
-.lt-ie9 q:before,
-.lt-ie9 q q:before,
-.lt-ie9 :lang(de) q:before,
-.lt-ie9 :lang(de) q q:before,
-.lt-ie9 blockquote p:before,
-.lt-ie9 blockquote p:first-child:before,
-.lt-ie9 :lang(de) blockquote p:before,
-.lt-ie9 blockquote:lang(de)  p:before,
-.lt-ie9 :lang(de) blockquote p:first-child:before,
-.lt-ie9 blockquote:lang(de)  p:first-child:before { content: ''; content: no-open-quote; }
-
 a, a:active, a:visited { color: #3e5f81; }
 a:hover { color: #d52; }
 
@@ -336,13 +325,6 @@ fieldset,
   display: inherit;
   font-size: small;
   opacity: .7; }
-
-.lt-ie8 #identity a,
-.lt-ie8 #primary-nav li,
-.lt-ie8 .archives_date {
-    display: inline;
-    zoom: 1;
-}
 
 .read_more,
 .trackback_url { margin-bottom: 1em; }
@@ -557,9 +539,6 @@ pre .geshi {
 
 .serendipity_pagination .prev,
 .serendipity_pagination .next { width: 50%; }
-
-.lt-ie8 .serendipity_pagination .prev,
-.lt-ie8 .serendipity_pagination .next { width: 49.9%; }
 
 .archives_date { min-width: 10em; }
 
@@ -961,13 +940,6 @@ pre .geshi {
     margin: 0 4px 0 0;
 }
 
-.lt-ie8 .serendipity_findmore li,
-.lt-ie8 .serendipity_findmore_like li,
-.lt-ie8 .lazyload_switcher {
-    display: inline;
-    zoom: 1;
-}
-
 .findmore_like_button { min-width: 120px; }
 
 .facebook_like iframe {
@@ -1060,8 +1032,6 @@ pre .geshi {
         width: 47.5%;
     }
 
-    .lt-ie8 .sidebar_plugin { width: 47.4%; }
-
     #sidebar_left .odd,
     #sidebar_right .odd {
         clear: both;
@@ -1102,11 +1072,6 @@ pre .geshi {
 
     .serendipity_pagination .next { width: 25%; }
 
-    .lt-ie8 .serendipity_pagination .info { width: 49.9%; }
-
-    .lt-ie8 .serendipity_pagination .prev,
-    .lt-ie8 .serendipity_pagination .next { width: 24.9%; }
-
     .archives_year {
         float: left;
         width: 48%;
@@ -1138,9 +1103,6 @@ pre .geshi {
     .serendipity_entrypaging_right {
         text-overflow: "… →"; /* not for chrome */
     }
-
-    .lt-ie8 .serendipity_entrypaging_left,
-    .lt-ie8 .serendipity_entrypaging_right { width: 49.9%; }
 
 }
 
@@ -1188,15 +1150,6 @@ pre .geshi {
     #sidebar_right { width: 38%; }
     .col2l #sidebar_left { left: -62%; }
     .col2l #content { left: 38%; }
-
-    .lt-ie8 #identity,
-    .lt-ie8 #content { width: 61.9%; }
-    .lt-ie8 #searchform,
-    .lt-ie8 #sidebar_left,
-    .lt-ie8 #sidebar_right { width: 37.9%; }
-    .lt-ie8 .col2l #sidebar_left { left: -61.9%; }
-    .lt-ie8 .col2l #content { left: 37.9%; }
-
     .col2l #searchform { text-align: right; }
 
     #sidebar_left,
@@ -1208,19 +1161,15 @@ pre .geshi {
         margin-right: 1em;
     }
 
-    .sidebar_plugin,
-    .lt-ie8 .sidebar_plugin {
+    .sidebar_plugin {
         float: none;
         width: auto;
     }
 
     #sidebar_left .sidebar_plugin,
-    .lt-ie8 #sidebar_left .sidebar_plugin,
-    #sidebar_right .sidebar_plugin,
-    .lt-ie8 #sidebar_right .sidebar_plugin { margin: 0 1em 2em 2em; }
+    #sidebar_right .sidebar_plugin { margin: 0 1em 2em 2em; }
 
-    #searchform>div,
-    .lt-ie8 #searchform>div { padding: 0 1em 0 2em; }
+    #searchform>div { padding: 0 1em 0 2em; }
 
     .content blockquote {
         border-left: 4px solid #aaa;
@@ -1266,16 +1215,7 @@ pre .geshi {
     .col3 #content { left: 25%; }
     .col3 #sidebar_left { left: -50%; }
 
-    .lt-ie8 .col3 #content { width: 49.9%; }
-    .lt-ie8 .col3 #searchform,
-    .lt-ie8 .col3 #sidebar_left,
-    .lt-ie8 .col3 #sidebar_right { width: 24.9%; }
-    .lt-ie8 .col3 #identity { width: 74.9%; }
-    .lt-ie8 .col3 #content { left: 24.9%; }
-    .lt-ie8 .col3 #sidebar_left { left: -49.9%; }
-
-    #sidebar_left .sidebar_plugin,
-    .lt-ie8 #sidebar_left .sidebar_plugin { margin: 0 2em 2em 1em; }
+    #sidebar_left .sidebar_plugin { margin: 0 2em 2em 1em; }
 
     .serendipity_search,
     .staticpage_results,
@@ -1292,9 +1232,7 @@ pre .geshi {
     .content_msg,
     .serendipity_staticpage,
     #sidebar_left .sidebar_plugin,
-    .lt-ie8 #sidebar_left .sidebar_plugin,
-    #sidebar_right .sidebar_plugin,
-    .lt-ie8 #sidebar_right .sidebar_plugin { margin: 0 2em 2em; }
+    #sidebar_right .sidebar_plugin { margin: 0 2em 2em; }
 
     .serendipity_pagination { margin: 0 2.4615em 1.2308em; }
 
