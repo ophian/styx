@@ -27,11 +27,6 @@ if ($serendipity['GET']['adminAction'] == 'cleartemp' || $serendipity['GET']['ad
 
 $usedSuffixes = @serendipity_db_query("SELECT DISTINCT(thumbnail_name) AS thumbSuffix FROM {$serendipity['dbPrefix']}images WHERE thumbnail_name != ''", false, 'num');
 
-// MYSQL - Conversion to proper use of mysqli
-if ($serendipity['dbType'] == 'mysql') {
-    serendipity_db_query("UPDATE {$serendipity['dbPrefix']}config SET value = 'mysqli' WHERE name = 'dbType' AND value = 'mysql'");
-    $serendipity['dbType'] = 'mysqli';
-}
 // UTF8MB4 - check for a possible previous bad install via simple install mode
 if ($serendipity['dbType'] == 'mysqli' && $serendipity['dbUtf8mb4'] === false && $serendipity['dbUtf8mb4_converted'] === null) {
     if ($serendipity['dbCharset'] == 'utf8mb4' && mysqli_character_set_name($serendipity['dbConn']) == 'utf8mb4') {
@@ -51,7 +46,7 @@ if ($data['dbUtf8mb4_converted'] === true && $data['dbUtf8mb4_ready'] === false)
 $data['urltoken']            = serendipity_setFormToken('url');
 $data['formtoken']           = serendipity_setFormToken();
 $data['thumbsuffix']         = $serendipity['thumbSuffix'];
-$data['dbnotmysql']          = ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') ? false : true; // keep for db utf8mb4 migration part
+$data['dbnotmysql']          = $serendipity['dbType'] == 'mysqli' ? false : true; // keep for db utf8mb4 migration part
 if ($data['dbUtf8mb4_ready'] !== true) {
     $data['dbUtf8mb4_ready'] = in_array($serendipity['dbType'], ['sqlite3', 'sqlite3oo', 'pdo-sqlite', 'postgres', 'pdo-postgres']); // we assume that postgres is at least >= version 9.4, with UTF8 full Unicode, 8-bit, 1-4 Bytes/Char support
 }

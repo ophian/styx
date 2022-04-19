@@ -2,11 +2,6 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
-// PHP 5.5 compat, no longer use deprecated mysql
-if ($serendipity['dbType'] == 'mysql') {
-    $serendipity['dbType'] = 'mysqli';
-}
-
 if (!empty($serendipity['dbType']) && include(S9Y_INCLUDE_PATH . "include/db/{$serendipity['dbType']}.inc.php")) {
     define('S9Y_DB_INCLUDED', true);
 }
