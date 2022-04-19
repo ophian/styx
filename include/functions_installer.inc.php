@@ -231,9 +231,6 @@ function serendipity_query_default($optname, $default, $usertemplate = false, $t
             if (extension_loaded('pgsql')) {
                 $type = 'postgres';
             }
-            if (extension_loaded('mysql')) {
-                $type = 'mysql';
-            }
             if (extension_loaded('mysqli')) {
                 $type = 'mysqli';
             }
