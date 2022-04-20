@@ -2,7 +2,7 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Remove outdated Internet Explorer IE suffixes in [ 2k11 ] theme
+  * Remove outdated Internet Explorer IE class suffixes in [ 2k11 ] theme
 
   * Improved backend pinned entries to follow filtered entries and fixed pinned
     assignment for multi pinned entries.
