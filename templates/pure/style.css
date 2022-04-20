@@ -288,11 +288,15 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     border: none; }
   [data-dark-theme="dark"] form button[disabled], [data-dark-theme="dark"] select[disabled], [data-dark-theme="dark"] select[disabled] option, [data-dark-theme="dark"] select[disabled] optgroup, [data-dark-theme="dark"] textarea[disabled], [data-dark-theme="dark"] input[disabled] {
     color: #3c3c3c; }
+  [data-dark-theme="dark"] .msg_notice, [data-dark-theme="dark"] .serendipity_msg_notice, [data-dark-theme="dark"] .msg_important, [data-dark-theme="dark"] .serendipity_msg_important {
+    background-color: #1c2128; }
   [data-dark-theme="dark"] .msg_notice, [data-dark-theme="dark"] .serendipity_msg_notice {
-    background-color: #1c2128;
-    border-color: #444c56;
-    color: #d9edf7; }
-    [data-dark-theme="dark"] .icon-info {
+    border-color: #517393;
+    color: #6495ed; }
+  [data-dark-theme="dark"] .msg_important, [data-dark-theme="dark"] .serendipity_msg_important {
+    border-color: #7c1c2e;
+    color: #ff5072; }
+  [data-dark-theme="dark"] .icon-info {
     background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' role='img' fill='%23d9edf7' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z'/></svg>"); }
   [data-dark-theme="dark"] .has-error .form-control {
     border-color: #535; }
