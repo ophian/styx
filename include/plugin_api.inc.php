@@ -212,7 +212,8 @@ class serendipity_plugin_api
 
         $serendipity['debug']['pluginload'][] = 'Installing plugin: ' . print_r(func_get_args(), true);
 
-        $iq = "INSERT INTO {$serendipity['dbPrefix']}plugins (name, sort_order, placement, authorid, path) VALUES ('" . serendipity_specialchars($key) . "', $nextidx, '$default_placement', '$authorid', '" . serendipity_specialchars($pluginPath) . "')";
+        $iq = "INSERT INTO {$serendipity['dbPrefix']}plugins (name, sort_order, placement, authorid, path)
+                    VALUES ('" . serendipity_specialchars($key) . "', $nextidx, '$default_placement', '$authorid', '" . serendipity_specialchars($pluginPath) . "')";
         $serendipity['debug']['pluginload'][] = $iq;
         serendipity_db_query($iq);
         serendipity_plugin_api::hook_event('backend_plugins_new_instance', $key, array('default_placement' => $default_placement));
@@ -279,10 +280,7 @@ class serendipity_plugin_api
             $where_sql[] = "(name LIKE '{$plugin_instance_id}/{$key}_%' AND value = '')";
         }
 
-        $query = "DELETE FROM  {$serendipity['dbPrefix']}config
-                                    WHERE  " . implode(' OR ', $where_sql);
-
-        serendipity_db_query($query);
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE  " . implode(' OR ', $where_sql));
     }
 
     /**
