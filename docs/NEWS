@@ -2,6 +2,8 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve UPGRADER version redirector for modemaintain and coloring
+
   * Remove outdated Internet Explorer IE class suffixes in [ 2k11 ] theme
 
   * Improved backend pinned entries to follow filtered entries and fixed pinned
