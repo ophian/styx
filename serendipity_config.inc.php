@@ -455,7 +455,8 @@ if (IS_up2date === false && !defined('IN_upgrader')) {
         return 1;
     }
     if (serendipity_checkPermission('adminUsers')) {
-        serendipity_die(sprintf(SERENDIPITY_NEEDS_UPGRADE, $serendipity['versionInstalled'], $serendipity['version'], $serendipity['serendipityHTTPPath'] . 'serendipity_admin.php'));
+        // manually redirect to the BACKEND to finish the UPGRADE
+        serendipity_die(sprintf(SERENDIPITY_NEEDS_UPGRADE, $serendipity['versionInstalled'], $serendipity['version'], $serendipity['serendipityHTTPPath'] . 'serendipity_admin.php'), null);
     }
 }
 
