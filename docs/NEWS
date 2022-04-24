@@ -2,6 +2,8 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add PHP ready plugin_userprofile.tpl template file to [ default-php ] theme
+
   * Improve UPGRADER version redirector for modemaintain and coloring
 
   * Remove outdated Internet Explorer IE class suffixes in [ 2k11 ] theme
