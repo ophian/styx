@@ -455,7 +455,7 @@ if (IS_up2date === false && !defined('IN_upgrader')) {
         return 1;
     }
     if (serendipity_checkPermission('adminUsers')) {
-        // manually redirect to the BACKEND to finish the UPGRADE
+        // manually redirect to the BACKEND to finish the autoupdate UPGRADE. It happens ONCE only per version, so multiple (DEV) forced upgrades match IS_up2date and end up in the FRONTEND.
         serendipity_die(sprintf(SERENDIPITY_NEEDS_UPGRADE, $serendipity['versionInstalled'], $serendipity['version'], $serendipity['serendipityHTTPPath'] . 'serendipity_admin.php'), null);
     }
 }
