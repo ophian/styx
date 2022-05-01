@@ -131,7 +131,7 @@ $data['install_token_pass'] = (!empty($install_token) && !empty($_SESSION['insta
 $data['install_token_fail'] = false;
 $data['install_token_file'] = basename($install_token_file);
 $data['install_lifetime'] = ceil($lifetime/60);
-$data['styxversion'] = ' Styx ' . $serendipity['version']; // footer only
+$data['styxversion'] = 'Styx ' . $serendipity['version']; // footer only
 
 if ((int)$serendipity['GET']['step'] !== 0 && !$data['install_token_pass']) {
     // Do not allow user to proceed to any action step unless token matches
