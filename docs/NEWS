@@ -2,6 +2,8 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix shared installations for tokenized deployment installs
+
   * Add PHP ready plugin_userprofile.tpl template file to [ default-php ] theme
 
   * Improve UPGRADER version redirector for modemaintain and coloring
