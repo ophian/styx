@@ -456,12 +456,12 @@ if (IS_up2date === false && !defined('IN_upgrader')) {
     }
     if (serendipity_checkPermission('adminUsers')) {
         // manually redirect to the BACKEND to finish the autoupdate UPGRADE. It happens ONCE only per version, so multiple (DEV) forced upgrades match IS_up2date and end up in the FRONTEND.
-         if (isset($serendipity['maintenance']) && serendipity_db_bool($serendipity['maintenance'])) {
-             serendipity_die(sprintf(SERENDIPITY_NEEDS_UPGRADE, $serendipity['versionInstalled'], $serendipity['version'], $serendipity['serendipityHTTPPath'] . 'serendipity_admin.php'), null);
-         } else {
-             header('Location: ' . $serendipity['serendipityHTTPPath'] . 'serendipity_admin.php');
-             exit;
-         }
+        if (isset($serendipity['maintenance']) && serendipity_db_bool($serendipity['maintenance'])) {
+            serendipity_die(sprintf(SERENDIPITY_NEEDS_UPGRADE, $serendipity['versionInstalled'], $serendipity['version'], $serendipity['serendipityHTTPPath'] . 'serendipity_admin.php'), null);
+        } else {
+            header('Location: ' . $serendipity['serendipityHTTPPath'] . 'serendipity_admin.php');
+            exit;
+        }
     }
 }
 
