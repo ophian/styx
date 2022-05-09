@@ -645,7 +645,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             foreach($_POST['serendipity']['plugin_to_remove'] AS $key) {
                 $plugin =& serendipity_plugin_api::load_plugin($key);
 
-                if ($plugin->serendipity_owner == '0' || $plugin->serendipity_owner == $serendipity['authorid'] || serendipity_checkPermission('adminPluginsMaintainOthers')) {
+                if ((is_object($plugin) && $plugin->serendipity_owner == '0') || (is_object($plugin) && $plugin->serendipity_owner == $serendipity['authorid']) || serendipity_checkPermission('adminPluginsMaintainOthers')) {
                     serendipity_plugin_api::remove_plugin_instance($key);
                     $msg .= '<li>' . $key . ' - ' . DONE . "</li>\n";
                 }
