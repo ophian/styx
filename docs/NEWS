@@ -2,6 +2,8 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix PHP 8 warning for erroneous plugin resources returning a bool type
+
   * Fix shared installations for tokenized deployment installs
 
   * Add PHP ready plugin_userprofile.tpl template file to [ default-php ] theme
