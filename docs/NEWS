@@ -2,6 +2,9 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fixup some last remaining and PHP 8.2 deprecated set ${} style string
+    interpolations for PHP 9 in core files.
+
   * Fix PHP 8 warning for erroneous plugin resources returning a bool type
 
   * Fix shared installations for tokenized deployment installs
