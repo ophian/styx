@@ -2,8 +2,8 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Fixup some last remaining and PHP 8.2 deprecated set ${} style string
-    interpolations for PHP 9 in core files.
+  * Fixup some last remaining and deprecated in PHP 8.2 set ${} style string
+    interpolations, scheduled for removal in PHP 9.0 in core files.
 
   * Fix PHP 8 warning for erroneous plugin resources returning a bool type
 
