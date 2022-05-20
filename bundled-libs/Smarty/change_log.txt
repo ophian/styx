@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Prevent evasion of the `static_classes` security policy. This addresses CVE-2021-21408
 - Prevent arbitrary PHP code execution through maliciously crafted expression for the math function. This addresses CVE-2021-29454
 - More advanced javascript escaping to handle https://html.spec.whatwg.org/multipage/scripting.html#restrictions-for-contents-of-script-elements thanks to m-haritonov
+- Prevent PHP injection through malicious block name or include file name. This addresses CVE-2022-29221
 
 ## [3.1.39] - 2021-02-17
 
