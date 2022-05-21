@@ -317,7 +317,7 @@ switch ($serendipity['GET']['adminAction']) {
         // Check ML DB realfiles for naming doubles
         $fx = serendipity_fetchImagesByName($filebase);
         // check for same name rename and force a stop
-        if ($fx['name'] === $serendipity['GET']['newname']) {
+        if (isset($fx['name']) && $fx['name'] === $serendipity['GET']['newname']) {
             $file = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_FILE_EXISTS . "</span>\n";
             echo $file;
         }
