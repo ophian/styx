@@ -1651,6 +1651,7 @@ summary {
     float: left;
 }
 .mediabase_file_action,
+.maintenance_toogle_info,
 .pagination .next,
 .pagination .last {
     float: right;
@@ -2150,6 +2151,9 @@ fieldset p,
 
 .mediabase_file_action {
     margin-top: -3.125rem;
+}
+.maintenance_toogle_info {
+    margin-top: -3.125rem !important;
 }
 
 .category_data,
