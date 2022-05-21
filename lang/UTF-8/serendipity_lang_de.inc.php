@@ -1166,7 +1166,7 @@
 
 @define('IMAGE_LINK_TO_BIG', 'Verweise auf das große Bild');
 
-@define('MAINTENANCE_COLUMN_SORTNOTE', 'This page uses a variable block column sorting; It may change the column block order dynamically by expanding block content.');
+@define('MAINTENANCE_COLUMN_SORTNOTE', 'Diese Seite verwendet eine variable Blockspaltensortierung; sie kann die Reihenfolge der Spaltenblöcke dynamisch verändern, wenn Sie den Blockinhalt erweitern.');
 
 @define('UTF8MB4_MIGRATION_TITLE', 'Datenbank: UTF-8-MB4 Migration');
 @define('UTF8MB4_MIGRATION_ERROR', 'Bei der UTF-8-Migration ist ein Fehler aufgetreten::<br>&nbsp;&nbsp;&nbsp;&nbsp;<em>%s</em><br>Fahren Sie <b>nicht</b> fort, ohne den Fehler behoben zu haben!');
