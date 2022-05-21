@@ -1170,6 +1170,8 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 
 @define('IMAGE_LINK_TO_BIG', 'Link to the larger image');
 
+@define('MAINTENANCE_COLUMN_SORTNOTE', 'This page uses a variable block column sorting; It may change the column block order dynamically by expanding block content.');
+
 @define('UTF8MB4_MIGRATION_TITLE', 'Database: UTF-8-MB4 migration');
 @define('UTF8MB4_MIGRATION_ERROR', 'An error occurred with the UTF-8 migration:<br>&nbsp;&nbsp;&nbsp;&nbsp;<em>%s</em><br>Do <b>not</b> continue without having solved the error!');
 @define('UTF8MB4_MIGRATION_TASK_RETURN', 'The migration task returned:');
