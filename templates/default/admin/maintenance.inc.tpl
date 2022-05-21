@@ -1,4 +1,12 @@
 <h2>{$CONST.MENU_MAINTENANCE}</h2>
+<a class="maintenance_toogle_info toggle_info button_link" type="button" href="#maintenance_info">
+    <span class="icon-info-circled" aria-hidden="true"></span>
+    <span class="visuallyhidden"> {$CONST.MORE}</span>
+</a>
+
+<div id="maintenance_info" class="maintenance_order_status additional_info">
+    <p><em>{$CONST.MAINTENANCE_COLUMN_SORTNOTE}</em></p>
+</div>
 
 {if isset($action) AND $action == "integrity" AND isset($badsums)}
     <h3 class="visuallyhidden">{$CONST.INTEGRITY}</h3>
