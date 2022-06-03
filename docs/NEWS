@@ -2,6 +2,8 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve changelog plugin debug log purges
+
   * Add maintenance page toggle info for column block sorting behaviour
 
   * Fixup some last remaining and in PHP 8.2 deprecated set "${}" style string
