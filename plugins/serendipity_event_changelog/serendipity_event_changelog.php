@@ -20,7 +20,7 @@ class serendipity_event_changelog extends serendipity_event
         $propbag->add('description',    PLUGIN_CHANGELOG_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.37');
+        $propbag->add('version',       '1.38');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.2',
             'php'         => '5.3.0'
@@ -131,7 +131,9 @@ class serendipity_event_changelog extends serendipity_event
                         // do it again, Sam :)
                         $files = glob($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/logs/*.txt');
                         $files = array_combine($files, array_map("filemtime", $files));
-                        array_pop($files);
+                        if (null !== array_key_last($files) && false !== strpos(array_key_last($files), 'log_'.date("Y-m-d").'.txt')) {
+                            array_pop($files);
+                        }
                         #if (!empty($files)) print_r(array_keys($files));
                         $delOld = !empty($files) ? '<a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=deletelogs" title="' . PLUGIN_CHANGELOG_DELETEOLDLOGS .'"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden">' . PLUGIN_CHANGELOG_DELETEOLDLOGS .'</span></a>' : '';
                         if (!empty($files) && $serendipity['GET']['adminModule'] == 'maintenance' && $serendipity['GET']['adminAction'] == 'deletelogs' && serendipity_checkPermission('adminImagesDelete')) {
