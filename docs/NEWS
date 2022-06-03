@@ -2,7 +2,7 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Improve changelog plugin debug log purges
+  * Improve changelog plugin debug log file purges
 
   * Add maintenance page toggle info for column block sorting behaviour
 
