@@ -231,6 +231,7 @@ function serendipity_reference_autodiscover($loc, $url, $author, $title, $text) 
 
     $timeout = 30;
     $u = parse_url($loc);
+    $u['scheme'] = $u['scheme'] ?? '';
 
     if ($u['scheme'] != 'http' && $u['scheme'] != 'https') {
         return;
@@ -240,9 +241,14 @@ function serendipity_reference_autodiscover($loc, $url, $author, $title, $text) 
 
     if (empty($u['port'])) {
         $u['port'] = 80;
-        $port      = '';
+        $port = '';
     } else {
-        $port      = ':' . $u['port'];
+        $port = ':' . $u['port'];
+    }
+
+    if (empty($u['path'])) {
+        echo '<div>&#8226; ' . TRACKBACK_NO_DATA . '</div>';
+        return;
     }
 
     if (!empty($u['query'])) {
