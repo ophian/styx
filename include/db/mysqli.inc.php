@@ -337,7 +337,7 @@ function serendipity_db_migrate_index($check = true, $prefix = null) {
         $return['indexes'][] = $index;
         $length = $index['SUB_PART'];
         if (empty($length)) {
-            // Deduce index byte length from colum type
+            // Deduce index byte length from column type
             if (!empty($index['CHARACTER_MAXIMUM_LENGTH'])) {
                 $length = $index['CHARACTER_MAXIMUM_LENGTH']; // Actual character limit according to UTF-8
             } else if ($index['DATA_TYPE'] == 'date') {
