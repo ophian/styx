@@ -732,7 +732,9 @@ function serendipity_authenticate_author($username = '', $password = '', $is_has
         $rows =& serendipity_db_query($query, false, 'assoc');
         if (is_array($rows)) {
             foreach($rows AS $row) {
-                if (isset($is_valid_user) && $is_valid_user) continue;
+                if (isset($is_valid_user) && $is_valid_user === true) {
+                    continue;
+                }
                 $is_valid_user = false;
 
                 if (empty($row['hashtype']) || $row['hashtype'] == 0) {
@@ -1489,6 +1491,7 @@ function serendipity_checkPermission($permName, $authorid = null, $returnMyGroup
     if ($return && isset($permissions[$permName]) && isset($serendipity['serendipityUserlevel']) && in_array($serendipity['serendipityUserlevel'], $permissions[$permName])) {
         return true;
     }
+
     return false;
 }
 
