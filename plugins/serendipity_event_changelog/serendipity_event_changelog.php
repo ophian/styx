@@ -122,7 +122,7 @@ class serendipity_event_changelog extends serendipity_event
                     if (is_object($serendipity['logger'])) {
                         $files = glob($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/logs/*.txt');
                         // cleanup empty files automatically
-                        foreach($files as $filename) {
+                        foreach($files AS $filename) {
                             if (filesize($filename) < 1) {
                                 @unlink($filename);
                             }
