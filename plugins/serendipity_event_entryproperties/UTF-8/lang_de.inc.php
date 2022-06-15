@@ -11,7 +11,7 @@
  */
 
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_TITLE', 'Erweiterte Eigenschaften von Artikeln');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_DESC', '(Cache, nicht-öffentliche Artikel, dauerhafte Artikel)');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_DESC', 'Eine Vielzahl von Methoden zur Erweiterung des Eintragsformulars, wie z.B. Cache, nicht-öffentliche Artikel, Dauerhafte Artikel, Rechtemanagement, benutzerdefinierte Felder, etc.');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_STICKYPOSTS', 'Dauerhafte Artikel');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS', 'Artikel können gelesen werden von');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PRIVATE', 'mir selbst');

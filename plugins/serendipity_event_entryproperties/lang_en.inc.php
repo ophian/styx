@@ -11,7 +11,8 @@
  */
 
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_TITLE', 'Extended properties for entries');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_DESC', '(cache, non-public articles, sticky posts)');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_DESC', 'A variety of methods to extend the entries form, which are cache, non-public articles, sticky posts, permissions, custom fields, etc.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_DESC_PLUS', 'ADDITIONAL NOTE: If other plugin or theme configurations come into play, which interfere with the "Extended properties of articles" plugin, especially with regard to the custom fields in the article form, there may be immediate delays in the display or their provision (depending on the case). Re-opening the corresponding page can be helpful when searching for set changes, just as it can occur analogously with Serendipity cookies.');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_STICKYPOSTS', 'Mark this entry as a Sticky Post');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS', 'Entries can be read by');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PRIVATE', 'Myself');

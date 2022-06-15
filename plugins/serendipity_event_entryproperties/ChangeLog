@@ -1,3 +1,7 @@
+1.80:
+-----
+    * Add extended usage delay note as an added constant to the "plugin_to_conf" description toggle info
+
 1.79:
 -----
     * Add PERMISSION_READ_WRITE_ACL_DESC warning info (tooltip) to "access_groups" and "access_users" selections,

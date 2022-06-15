@@ -16,10 +16,10 @@ class serendipity_event_entryproperties extends serendipity_event
         global $serendipity;
 
         $propbag->add('name',          PLUGIN_EVENT_ENTRYPROPERTIES_TITLE);
-        $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
+        $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC . (isset($serendipity['GET']['plugin_to_conf']) ? ' ' . PLUGIN_EVENT_ENTRYPROPERTIES_DESC_PLUS : ''));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.79');
+        $propbag->add('version',       '1.80');
         $propbag->add('requirements',  array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
