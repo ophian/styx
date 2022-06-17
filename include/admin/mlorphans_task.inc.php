@@ -9,6 +9,18 @@ if (!serendipity_checkPermission('siteConfiguration')) {
 }
 
 /**
+ * Check and return s9ymdb:$id tagged img path
+ */
+function img_path($id, $fields) {
+    $matches = array();
+    $pattern = "@(<!-- s9ymdb:$id -->).*?<img[^>]* src=[\"']([^\"']+)[\"']@"; // either '<img[^>]+ ' or '<img[^>]* ' works
+    foreach ($fields AS $field) {
+        preg_match($pattern, $field, $matches);
+    }
+    return $matches;
+}
+
+/**
  * Strip out unwanted properties from match
  * DEVS: For later alerts testing purposes, do change an exiting entry s9ymdb tag only to an other existing db image ID number, so not a wild guess beyond scope!
  */
@@ -35,10 +47,9 @@ function check_by_image_db($id) {
  */
 function image_inuse($iid, $eid, $im, $entry, $field, $path, $name) {
     static $_loop = null;
-    $matches = array();
-    $pattern = "@(<!-- s9ymdb:$iid -->).*?<img[^>]* src=[\"']([^\"']+)[\"']@"; // either '<img[^>]+ ' or '<img[^>]* ' works
+
     //---------------------------------.*? matches all, inclusive \s in-between
-    preg_match($pattern, $entry[$field], $matches);
+    $matches = img_path($iid, [$entry[$field]]);
 #DEBUG    if (!empty($matches)) print_r($matches);
 
     // Only care about the full s9ymdb ID plus the image src string and check if the path matches to the blog (to avoid possible others from same machine)
@@ -177,15 +188,24 @@ if (empty($serendipity['POST']['multiCheck']) && empty($serendipity['POST']['orp
 $exclude = '';
 $pckeys  = array();
 $alerts  = array();
+$c = 0; // count external path items
 // A paranoid re-check against entries and staticpages
 foreach($_images AS $go) {
     // exclude certain entry images which don't match
     if (!empty($go['id'])) {
-        $e = serendipity_db_query("SELECT id, title FROM `{$serendipity['dbPrefix']}entries` WHERE body LIKE '%<!-- s9ymdb:{$go['id']} -->%' OR extended LIKE '%<!-- s9ymdb:{$go['id']} -->%'", false, 'assoc');
+        $e = serendipity_db_query("SELECT id, title, body, extended FROM `{$serendipity['dbPrefix']}entries` WHERE body LIKE '%<!-- s9ymdb:{$go['id']} -->%' OR extended LIKE '%<!-- s9ymdb:{$go['id']} -->%'", false, 'assoc');
         if (!empty($e[0])) {
-            $alerts[] = '<b>'.$go['name'] .'</b> '.MLORPHAN_MTASK_RESPECTIVELY.' ( <b>s9ymdb: '.$go['id'].'</b> ) in Entry ID: ' . $e[0]['id'].' - '. $e[0]['title'];
-            $pckeys[] = $go['id'];
-            $exclude .= $go['id'].', ';
+            $expath = img_path($go['id'], [$e[0]['body'], $e[0]['extended']]);
+            if (!empty($expath[2]) && false === strpos($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'], $expath[2])) {
+                $alerts[] = '<b>'.$go['name'] .'</b> '.MLORPHAN_MTASK_RESPECTIVELY.' ( <b>s9ymdb: '.$go['id'].'</b> ) in Entry ID: ' . $e[0]['id'].' - "<em>'. $e[0]['title'] . '</em>". ' . sprintf(MLORPHANS_MTASK_EXPATH, $expath[2]);
+                $pckeys[] = $go['id'];
+                $exclude .= $go['id'].', ';
+                $c++;
+            } else {
+                $alerts[] = '<b>'.$go['name'] .'</b> '.MLORPHAN_MTASK_RESPECTIVELY.' ( <b>s9ymdb: '.$go['id'].'</b> ) in Entry ID: ' . $e[0]['id'].' - "<em>'. $e[0]['title'] . '</em>"';
+                $pckeys[] = $go['id'];
+                $exclude .= $go['id'].', ';
+            }
         }
         // watch out for imageselectorplus plugin added quickblog entries, eg. '<!--quickblog:[none|plugin|js|_blank]|/var/www/example/htdocs/serendipity/uploads/image.jpeg-->'
         $f = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $go['path'] . $go['name'] . '.' . $go['extension'];
@@ -195,11 +215,19 @@ foreach($_images AS $go) {
             $pckeys[] = $go['id'];
             $exclude .= $go['id'].', ';
         }
-        $s = serendipity_db_query("SELECT id, pagetitle FROM `{$serendipity['dbPrefix']}staticpages` WHERE content LIKE '%<!-- s9ymdb:{$go['id']} -->%' OR pre_content LIKE '%<!-- s9ymdb:{$go['id']} -->%'", false, 'assoc');
+        $s = serendipity_db_query("SELECT id, pagetitle, content, pre_content FROM `{$serendipity['dbPrefix']}staticpages` WHERE content LIKE '%<!-- s9ymdb:{$go['id']} -->%' OR pre_content LIKE '%<!-- s9ymdb:{$go['id']} -->%'", false, 'assoc');
         if (!empty($s[0])) {
-            $alerts[] = '<span style="color:blue"><b>'.$go['name'] .'</b> ( s9ymdb: '.$go['id'].' ) in Staticpage ID: ' . $s[0]['id'].' - '. $s[0]['pagetitle'].'</span>';
-            $pckeys[] = $go['id'];
-            $exclude .= $go['id'].', ';
+            $expath = img_path($go['id'], [$s[0]['content'], $s[0]['pre_content']]);
+            if (!empty($expath[2]) && false === strpos($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'], $expath[2])) {
+                $alerts[] = '<span style="color:blue"><b>'.$go['name'] .'</b> ( s9ymdb: '.$go['id'].' ) in Staticpage ID: ' . $s[0]['id'].' - "<em>'. $s[0]['pagetitle'] . '</em>". ' . sprintf(MLORPHANS_MTASK_EXPATH, $expath[2]).'</span>';
+                $pckeys[] = $go['id'];
+                $exclude .= $go['id'].', ';
+                $c++;
+            } else {
+                $alerts[] = '<span style="color:blue"><b>'.$go['name'] .'</b> ( s9ymdb: '.$go['id'].' ) in Staticpage ID: ' . $s[0]['id'].' - "<em>'. $s[0]['pagetitle'].'</em>"</span>';
+                $pckeys[] = $go['id'];
+                $exclude .= $go['id'].', ';
+            }
         }
     }
 }
@@ -211,7 +239,10 @@ if (empty($serendipity['POST']['multiCheck']) && empty($serendipity['POST']['orp
         echo '<div class="msg_notice orphan">'."\n";
         echo '<h3>' . MLORPHAN_MTASK_PNCASE_TITLE . "</h3>\n";
         echo '<span>' . MLORPHAN_MTASK_PNCASE_NOTE . "</span>\n";
-        echo '<ul class="plainList">'."\n";
+        if ($c > 0) {
+            echo '<p>' . sprintf(MLORPHANS_MTASK_REASONS, $c, count($alerts)-$c) . "</p>\n";
+        }
+        echo '<ul class="xplainList">'."\n";
         foreach ($alerts AS $alert) {
             echo '<li>' . $alert."</li>\n";
         }
