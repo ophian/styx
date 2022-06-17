@@ -2,6 +2,8 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve cores MediaLibrary mlorphans event plugin for the maintenance tasker
+
   * Add another multi select value to the spamblock maintenance cleanspam reasons
 
   * Improve changelog plugin debug log file purges
