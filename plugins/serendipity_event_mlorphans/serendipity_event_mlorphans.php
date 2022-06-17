@@ -18,7 +18,7 @@ class serendipity_event_mlorphans extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_MLORPHANS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.03');
+        $propbag->add('version',       '1.04');
         $propbag->add('requirements',  array(
             'serendipity' => '3.0',
             'smarty'      => '3.1.0',
