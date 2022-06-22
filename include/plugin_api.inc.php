@@ -1290,16 +1290,19 @@ class serendipity_property_bag
  */
 class serendipity_plugin
 {
-    var $instance          = null;
-    var $protected         = false;
-    var $wrap_class        = 'serendipitySideBarItem';
-    var $title_class       = 'serendipitySideBarTitle';
-    var $content_class     = 'serendipitySideBarContent';
-    var $title             = null;
-    var $pluginPath        = null;
-    var $act_pluginPath    = null;
-    var $pluginFile        = null;
-    var $serendipity_owner = null;
+    public $instance          = null;
+    public $protected         = false;
+    public $wrap_class        = 'serendipitySideBarItem';
+    public $title_class       = 'serendipitySideBarTitle';
+    public $content_class     = 'serendipitySideBarContent';
+    public $title             = null;
+    public $pluginPath        = null;
+    public $act_pluginPath    = null;
+    public $pluginFile        = null;
+    public $serendipity_owner = null;
+    public $dependencies            = [];
+    public $markup_elements         = [];
+    public $supported_properties    = [];
 
     /**
      * The constructor of a plugin
