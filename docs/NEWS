@@ -2,6 +2,8 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve plugin API for some PHP 8.2 deprecations of plugin properties
+
   * Improve cores MediaLibrary mlorphans event plugin for the maintenance tasker
 
   * Add another multi select value to the spamblock maintenance cleanspam reasons
