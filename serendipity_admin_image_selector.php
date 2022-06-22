@@ -162,7 +162,17 @@ switch ($serendipity['GET']['step']) {
             break;
         }
         $media['case'] = 'showitem';
-        $file          = serendipity_fetchImageFromDatabase((int)$serendipity['GET']['image']);
+        $file          = serendipity_fetchImageFromDatabase((int)$serendipity['GET']['image']); // Add 2cd ", 'discard'" param to avoid ACL
+        // Currently images in the upload base directory can be directly accessed without ACL !
+        // But NOT the ones in directories, if restricted to a group or so. This is NOT by login; IT is by 'access' table readout perms only!
+        if (!is_array($file)) {
+            $media['perm_denied'] = true;
+            // file restricted by access permissions - don't blank
+            header('Status: 404 Not Found');
+            header('Location: ' . $serendipity['baseURL']);
+            exit;
+            break;
+        }
         $media['file'] = &$file;
         $keywords = $dprops = '';
 
