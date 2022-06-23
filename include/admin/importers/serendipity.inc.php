@@ -8,13 +8,14 @@
 
 class Serendipity_Import_Serendipity extends Serendipity_Import
 {
-    var $info        = array('software' => 'Serendipity');
-    var $data        = array();
-    var $inputFields = array();
-    var $categories  = array();
-    var $execute     = true;
-    var $debug       = true;
-    var $counter     = 0;
+    public $info        = array('software' => 'Serendipity');
+    public $data        = [];
+    public $inputFields = [];
+    public $categories  = [];
+    public $storage     = [];
+    public $execute     = true;
+    public $debug       = true;
+    public $counter     = 0;
 
     function getImportNotes()
     {
@@ -479,7 +480,6 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
             return "No targets selected";
         }
 
-        $this->storage = array();
         foreach($this->data['targets'] AS $target) {
             $this->{'import_' . $target}($s9ydb);
         }
