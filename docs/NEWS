@@ -2,6 +2,8 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improved backend comment(s) list body toggle(s)
+
   * Fix blank page issue with serendipity_admin_image_selector when missing
     directory access permissions.
 
