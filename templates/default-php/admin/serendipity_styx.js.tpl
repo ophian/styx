@@ -1058,6 +1058,12 @@
         var $toggleIcon = $(toggler).find(stateIcon);
         var toggleState = $toggleIcon.attr('class');
 
+        var $cfull = $(toggler).data('href'); // eg. (string) #c197_full - currently in comments list only !! That is why we can use it without getting into trouble
+        if ($cfull !== undefined) {
+            var summary = $cfull.replace('_full','_summary'); // to catch object of eg. (string) #c197_summary
+            $(summary).toggleClass(stateClass);
+        }
+
         // if toggler does not have an id, do not store state
         var togglerId = $(toggler).attr('id');
         if (togglerId !== undefined) {
