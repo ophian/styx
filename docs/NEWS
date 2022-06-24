@@ -7,7 +7,7 @@ Version 3.9-DEV ()
   * Fix blank page issue with serendipity_admin_image_selector when missing
     directory access permissions.
 
-  * Improve the plugin API and other classes for PHP 8.2 deprecations of
+  * Improve the plugin API and other core classes for PHP 8.2 deprecations of
     dynamic plugin properties.
 
   * Improve cores MediaLibrary mlorphans event plugin for the maintenance tasker
