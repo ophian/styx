@@ -1714,7 +1714,7 @@ $(function() {
     // Show extended comment
     $('.toggle_comment_full').click(function(e) {
         var $el = $(this);
-        if ($el.data('href') && $el.data('href').indexOf(',') > -1) {
+        if ($el.data('href') && $el.data('href').indexOf('#') > -1) {
             var cArray = $el.data('href').split(',');
         } else {
             if ($el.attr('href')) {
