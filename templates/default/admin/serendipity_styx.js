@@ -1658,7 +1658,7 @@ $(function() {
                 $n = item.substring(1);
                 var $f = $('#c'+$n+'_full');
                 var $s = $('#c'+$n+'_summary');
-                serendipity.toggle_collapsible($el, $($el.data('href')));
+                serendipity.toggle_collapsible($el, $($el.data('href').replace(/,$/,'')));
 
                 if ($f.toggleClass('additional_info')) {
                     $s.toggleClass('additional_info');
