@@ -182,7 +182,7 @@
         </li>
     {/if}
     {foreach $viewCategories AS $category}
-        {if NOT $category@first}
+        {if NOT isset($category@first)}
             {if $category.depth > $priorDepth}<ul>{/if}
 
             {if $category.depth < $priorDepth}
