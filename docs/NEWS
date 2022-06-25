@@ -2,6 +2,9 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add some default dark-theme styles for the FAQ event plugin Q/A frontend
+    to the [ pure ] standard theme.
+
   * Improved backend comment(s) list comment body toggle(s)
 
   * Fix blank page issue with serendipity_admin_image_selector when missing
