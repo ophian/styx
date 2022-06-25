@@ -1051,9 +1051,11 @@
         var $toggleIcon = $(toggler).find(stateIcon);
         var toggleState = $toggleIcon.attr('class');
 
-        var $cfull = $(toggler).data('href'); // eg. (string) #c197_full - currently in comments list only !! That is why we can use it without getting into trouble
-        if ($cfull !== undefined) {
-            var summary = $cfull.replace('_full','_summary'); // to catch object of eg. (string) #c197_summary
+        var tgdata = $(toggler).data('href'); // (string) data-href content
+        var comment = new RegExp('#c([0-9]+_full)').test(tgdata); // check using in comments list single comment toggle
+
+        if (comment && tgdata !== undefined) {
+            var summary = tgdata.replace('_full','_summary'); // to catch object of eg. (string) #c197_summary
             $(summary).toggleClass(stateClass);
         }
 
