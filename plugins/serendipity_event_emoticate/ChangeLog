@@ -1,3 +1,19 @@
+1.19:
+----
+ * Add missing property declaration for PHP 8.2/9.0
+
+1.18:
+----
+ * Consistency PHP 8 fix for markup_element check
+
+1.17:
+----
+ * Improve $this->markup_elements check for entry body 'extended'
+
+1.16:
+----
+ * Fixup $this->markup_elements entryproperties check for PHP 8
+
 1.15:
 ----
  * Fixup an old S9y Series 1 variable conditioning leftover

@@ -8,7 +8,9 @@ if (IN_serendipity !== true) {
 
 class serendipity_event_emoticate extends serendipity_event
 {
-    var $title = PLUGIN_EVENT_EMOTICATE_NAME;
+    public $title = PLUGIN_EVENT_EMOTICATE_NAME;
+
+    private $smilies = [];
 
     function introspect(&$propbag)
     {
@@ -18,7 +20,7 @@ class serendipity_event_emoticate extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_EMOTICATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team, Ian Styx');
-        $propbag->add('version',       '1.18');
+        $propbag->add('version',       '1.19');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1.0',
