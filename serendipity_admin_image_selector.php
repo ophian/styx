@@ -109,7 +109,7 @@ switch ($serendipity['GET']['step']) {
             }
         }
 
-        $file          = serendipity_fetchImageFromDatabase($serendipity['GET']['image']);
+        $file          = serendipity_fetchImageFromDatabase((int)$serendipity['GET']['image']);
         $media['file'] = &$file;
         $media['case'] = 'choose';
         if (!is_array($file)) {
@@ -175,11 +175,6 @@ switch ($serendipity['GET']['step']) {
         }
         $media['file'] = &$file;
         $keywords = $dprops = '';
-
-        if (!is_array($file)) {
-            $media['perm_denied'] = true;
-            break;
-        }
 
         serendipity_prepareMedia($file);
 
