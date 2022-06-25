@@ -432,6 +432,12 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
       background-color: #22272e; }
     [data-dark-theme="dark"] #content .shariff-button a:hover {
       background-color: #554f4f; }
+  [data-dark-theme="dark"] .faq_a {
+    background: #22272e;
+    border-color: #444c56; }
+  [data-dark-theme="dark"] .faq_q {
+    background: #3f4e60;
+    border-color: #2d333b; }
   [data-dark-theme="dark"] .mediasidebaritem img {
     background-color: #fff; /* a transparent img case */}
   [data-dark-theme="dark"] .cke_inner,
