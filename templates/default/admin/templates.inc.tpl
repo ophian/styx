@@ -79,10 +79,10 @@
                       <img src="{$cur_tpl.preview|default:$cur_tpl.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
                     </picture>
                 {/if}
-             {else}
+            {else}
 
                     <svg class="svg-placeholder-img svg-placeholder-img-lg" width="431" height="266" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder {$cur_tpl.info.name}</title><rect x="0px" y="0px" width="100%" height="100%" fill="#1c2128"/><text x="50%" y="42%" fill="#eceeef" dy=".3em">No preview</text><text x="50%" y="58%" fill="#e5534b" dy=".3em">{$cur_tpl.info.name}</text></svg>
-             {/if}
+            {/if}
 
                     <footer id="template_info_cur" class="template_info additional_info">
                         <dl class="clearfix">
