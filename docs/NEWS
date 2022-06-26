@@ -5,7 +5,7 @@ Version 3.9-DEV ()
   * Upgrade custom CKEBasic asset to 4.19.0 (c08cfedb60 revision)
     https://ckeditor.com/cke4/release-notes
 
-  * Add some default dark-theme styles for the FAQ event plugin Q/A frontend
+  * Add some default [dark-theme] styles for the FAQ event plugin Q/A frontend
     to the [ pure ] standard theme.
 
   * Improved backend comment(s) list comment body toggle(s)
