@@ -107,10 +107,12 @@
 
             <div class="form_check">
                 <input id="setchild" name="serendipity[update_children]" type="checkbox" value="true"{if !empty($smarty.post.update_children) == 'on'} checked="checked"{/if}><label for="setchild">{$CONST.PERM_SET_CHILD}</label>
+            </div>
+
+            <div class="form_field">
                 <span class="wrap_legend"><legend>{$CONST.PERMISSIONS} <a class="toggle_info button_link" href="#acl_rw_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></a></legend></span>
 
                 <span id="acl_rw_info" class="field_info additional_info">{$CONST.PERMISSION_READ_WRITE_ACL_DESC}</span>
-
             </div>
         </div>
 
