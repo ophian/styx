@@ -11,6 +11,7 @@
  */
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_TITLE', 'Erweiterte Eigenschaften von Artikeln');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_DESC', 'Eine Vielzahl von Methoden zur Erweiterung des Eintragsformulars, wie z.B. Cache, nicht-öffentliche Artikel, dauerhafte Artikel, Rechtemanagement, benutzerdefinierte Felder, etc.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_DESC_PLUS', 'BESONDERER HINWEIS: Sollten noch weitere Plugin oder Theme Konfigurationen ins Spiel kommen, die sich in das "Erweiterte Eigenschaften von Artikeln" Plugin besonders bezüglich der Freien Felder im Artikelformular einklinken, kann es (je nachdem) zu unmittelbaren Verzögerungen in der Darstellung bzw deren Bereitstellung kommen. Ein erneutes Öffnen der entsprechenden Seite kann bei der Suche nach gesetzten Veränderungen hilfreich sein, so wie es analog auch bei Serendipity Cookies auftreten kann.');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_STICKYPOSTS', 'Dauerhafte Artikel');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS', 'Artikel können gelesen werden von');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PRIVATE', 'mir selbst');

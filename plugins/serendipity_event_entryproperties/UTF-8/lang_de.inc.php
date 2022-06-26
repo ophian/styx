@@ -12,6 +12,7 @@
 
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_TITLE', 'Erweiterte Eigenschaften von Artikeln');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_DESC', 'Eine Vielzahl von Methoden zur Erweiterung des Eintragsformulars, wie z.B. Cache, nicht-öffentliche Artikel, dauerhafte Artikel, Rechtemanagement, benutzerdefinierte Felder, etc.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_DESC_PLUS', 'BESONDERER HINWEIS: Sollten noch weitere Plugin oder Theme Konfigurationen ins Spiel kommen, die sich in das "Erweiterte Eigenschaften von Artikeln" Plugin besonders bezüglich der Freien Felder im Artikelformular einklinken, kann es (je nachdem) zu unmittelbaren Verzögerungen in der Darstellung bzw deren Bereitstellung kommen. Ein erneutes Öffnen der entsprechenden Seite kann bei der Suche nach gesetzten Veränderungen hilfreich sein, so wie es analog auch bei Serendipity Cookies auftreten kann.');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_STICKYPOSTS', 'Dauerhafte Artikel');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS', 'Artikel können gelesen werden von');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PRIVATE', 'mir selbst');
@@ -30,9 +31,9 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_NL2BR', 'Automatischen Zeilenumbruch deaktivieren');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_NO_FRONTPAGE', 'Nicht in Artikelübersicht zeigen');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS', 'Leserechte auf Gruppen beschränken');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS_DESC', 'Wenn aktiviert, können Leserechte abhängig von Gruppen vergeben werden. Dies wirkt sich auf die Performance der Artikelübersicht stark aus. Aktivieren Sie die Option daher nur, wenn Sie sie wirklich benötigen.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS_DESC', 'Wenn aktiviert, können Leserechte abhängig von Gruppen vergeben werden. Dies wirkt sich stark auf die Performance der Artikelübersicht aus. Aktivieren Sie die Option daher nur, wenn Sie sie wirklich benötigen.');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS', 'Leserechte auf Benutzer beschränken');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS_DESC', 'Wenn aktiviert, können Leserechte abhängig von einzelnen Benutzern vergeben werden. Dies wirkt sich auf die Performance der Artikelübersicht stark aus. Aktivieren Sie die Option daher nur, wenn Sie sie wirklich benötigen.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS_DESC', 'Wenn aktiviert, können Leserechte abhängig von einzelnen Benutzern vergeben werden. Dies wirkt sich stark auf die Performance der Artikelübersicht aus. Aktivieren Sie die Option daher nur, wenn Sie sie wirklich benötigen.');
 
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_HIDERSS', 'Eintragsinhalt im RSS-Feed verstecken');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_HIDERSS_DESC', 'Falls aktiviert, wird dieser Artikel im RSS-Feed ohne Inhalt dargestellt und sofort per URL aufgerufen.');
