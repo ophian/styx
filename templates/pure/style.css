@@ -368,6 +368,8 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     color: #a3aaba; }
   [data-dark-theme="dark"] #trackbacks li.pingback {
     border-color: #444c56; }
+  [data-dark-theme="dark"] #trackbacks details > div {
+    color: #b7c3ea; }
   [data-dark-theme="dark"] .comment.odd, [data-dark-theme="dark"] .comment.even, [data-dark-theme="dark"] .trackback.tb-odd, [data-dark-theme="dark"] .trackback.tb-even {
     border-color: #3b434c; }
   [data-dark-theme="dark"] .comment.odd {
