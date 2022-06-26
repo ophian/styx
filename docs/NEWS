@@ -2,6 +2,9 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve [dark-theme] for trackback details and comment_content text coloring
+    in the [ pure ] standard theme.
+
   * Upgrade custom CKEBasic asset to 4.19.0 (c08cfedb60 revision)
     https://ckeditor.com/cke4/release-notes
 
