@@ -3601,7 +3601,7 @@ label .perm_name,
 .no-js .show_config_option .icon-right-dir,
 .no-js #keyword_list,
 .no-js #category_filter,
-.js .additional_info,
+.js :not(.ping).additional_info,
 .js .installer .icon-info-circled,
 .hidden {
     display: none !important;
