@@ -838,7 +838,7 @@
 @define('CATEGORY_PLUGIN_TEMPLATE', 'Smarty-Templating aktivieren?');
 @define('CATEGORY_PLUGIN_TEMPLATE_DESC', 'Falls diese Option aktiviert ist, wird das Kategorie-Plugin die Liste mittels Smarty-Templates ausgeben. Durch die Aktivierung der Option kann dann das Layout mittels der Template-Datei "plugin_categories.tpl" angepasst werden. Die Aktivierung dieser Option bringt Performance-Einbußen mit sich, daher sollten Sie die Option nur dann aktivieren, wenn Ihnen die Anpassungen wichtig sind.');
 @define('CATEGORY_PLUGIN_SHOWCOUNT', 'Anzahl der Einträge pro Kategorie anzeigen?');
-@define('AUTHORS_SHOW_ARTICLE_COUNT', 'Anzahl der Artikel neben dem Autor-Namen anzeigen? ');
+@define('AUTHORS_SHOW_ARTICLE_COUNT', 'Artikelanzahl neben dem Autor-Namen anzeigen?');
 @define('AUTHORS_SHOW_ARTICLE_COUNT_DESC', 'Wenn diese Option aktiviert ist, wird die Anzahl der von diesem Autor verfassten Artikel in Klammern neben seinem Namen angezeigt.');
 @define('CUSTOM_ADMIN_INTERFACE', 'Eigene Admin-Oberfläche');
 @define('INSTALL_TRACKREF', 'Referrer-Tracking aktivieren?');
