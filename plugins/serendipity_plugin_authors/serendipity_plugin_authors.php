@@ -16,7 +16,7 @@ class serendipity_plugin_authors extends serendipity_plugin
         $propbag->add('description', AUTHOR_PLUGIN_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.4.1');
+        $propbag->add('version',       '2.4.2');
         $propbag->add('configuration', array('image', 'allow_select', 'title', 'showartcount', 'mincount'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -30,7 +30,6 @@ class serendipity_plugin_authors extends serendipity_plugin
             case 'title':
                 $propbag->add('type',          'string');
                 $propbag->add('name',          TITLE);
-                $propbag->add('description',   TITLE);
                 $propbag->add('default',       AUTHORS);
                 break;
 
