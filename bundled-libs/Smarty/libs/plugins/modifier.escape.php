@@ -17,7 +17,7 @@
  * @param string  $string        input string
  * @param string  $esc_type      escape type
  * @param string  $char_set      character set, used for htmlspecialchars() or htmlentities()
- * @param boolean $double_encode encode already encoded entitites again, used for htmlspecialchars() or htmlentities()
+ * @param boolean $double_encode encode already encoded entities again, used for htmlspecialchars() or htmlentities()
  *
  * @return string escaped input string
  */
