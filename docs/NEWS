@@ -2,6 +2,9 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add missing LANG_CHARSET UTF-8 case to the decode method of the remoterss
+    sidebar plugin.
+
   * Improve [dark-theme] for trackback details and comment_content text coloring
     in the [ pure ] standard theme.
 
