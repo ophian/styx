@@ -407,7 +407,11 @@ function serendipity_strftime($format, $timestamp = null, $useOffset = true, $us
     }
 
     if ($is_win_utf && (empty($serendipity['calendar']) || $serendipity['calendar'] == 'gregorian')) {
-        $out = utf8_encode($out);
+        if (!function_exists('mb_convert_encoding')) {
+            $out = @utf8_encode($out); // Deprecation in PHP 8.2, removal in PHP 9.0
+        } else {
+            $out = mb_convert_encoding($out, 'UTF-8', 'ISO-8859-1'); // string, to, from
+        }
     }
 
     return $out;
@@ -910,12 +914,16 @@ function serendipity_utf8_encode($string) {
             if ($new !== false) {
                 return $new;
             } else {
-                return utf8_encode($string);
+                if (!function_exists('mb_convert_encoding')) {
+                    return @utf8_encode($string); // Deprecation in PHP 8.2, removal in PHP 9.0
+                } else {
+                    return mb_convert_encoding($string, 'UTF-8', LANG_CHARSET); // string, to, from
+                }
             }
         } else if (function_exists('mb_convert_encoding')) {
-            return mb_convert_encoding($string, 'UTF-8', LANG_CHARSET);
+            return mb_convert_encoding($string, 'UTF-8', LANG_CHARSET); // string, to, from
         } else {
-            return utf8_encode($string);
+            return @utf8_encode($string); // Deprecation in PHP 8.2, removal in PHP 9.0
         }
     } else {
         return $string;
