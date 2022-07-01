@@ -117,14 +117,22 @@ function serendipity_makeFilename($str, $stripDots = false) {
             if (LANG_CHARSET == 'UTF-8') {
                 // URLs need to be 7bit - since this function takes care of the most common ISO-8859-1
                 // characters, try to UTF8-decode the string first.
-                $str = utf8_decode($str);
+                if (!function_exists('mb_convert_encoding')) {
+                    $str = @utf8_decode($str); // Deprecation in PHP 8.2, removal in PHP 9.0
+                } else {
+                    $str = mb_convert_encoding($str, 'ISO-8859-1', 'UTF-8'); // string, to, from
+                }
             }
         } else {
             // Replace international chars not detected by every locale
             if (LANG_CHARSET == 'UTF-8') {
                 // URLs need to be 7bit - since this function takes care of the most common ISO-8859-1
                 // characters, try to UTF8-decode the string first.
-                $str = utf8_decode($str);
+                if (!function_exists('mb_convert_encoding')) {
+                    $str = @utf8_decode($str); // Deprecation in PHP 8.2, removal in PHP 9.0
+                } else {
+                    $str = mb_convert_encoding($str, 'ISO-8859-1', 'UTF-8'); // string, to, from
+                }
             }
 
             $str = str_replace($from, $to, $str);
