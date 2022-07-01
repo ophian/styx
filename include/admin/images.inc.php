@@ -305,8 +305,12 @@ switch ($serendipity['GET']['adminAction']) {
         $file = serendipity_fetchImageFromDatabase($serendipity['GET']['fid']);
 
         if (LANG_CHARSET == 'UTF-8') {
-             // yeah, turn on content to be a real utf-8 string, which it isn't at this point! Else serendipity_makeFilename() can not work!
-             $serendipity['GET']['newname'] = utf8_encode($serendipity['GET']['newname']);
+            // yeah, turn on content to be a real utf-8 string, which it isn't at this point! Else serendipity_makeFilename() can not work!
+            if (!function_exists('mb_convert_encoding')) {
+                $serendipity['GET']['newname'] = @utf8_encode($serendipity['GET']['newname']); // Deprecation in PHP 8.2, removal in PHP 9.0
+            } else {
+                $serendipity['GET']['newname'] = mb_convert_encoding($serendipity['GET']['newname'], 'UTF-8', 'ISO-8859-1'); // string, to, from
+            }
         }
         $serendipity['GET']['newname'] = str_replace(' ', '_', $serendipity['GET']['newname']); // keep serendipity_uploadSecure(URL) whitespace convert behaviour, when using serendipity_makeFilename()
         $serendipity['GET']['newname'] = serendipity_uploadSecure(serendipity_makeFilename($serendipity['GET']['newname']), true);
