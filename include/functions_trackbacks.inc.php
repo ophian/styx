@@ -335,13 +335,21 @@ function add_trackback($id, $title, $url, $name, $excerpt) {
             // Trackback is in UTF-8. Check if our blog also is UTF-8.
             if (!$is_utf8) {
                 log_trackback('[' . date('d.m.Y H:i') . '] Transcoding ' . $idx . ' from UTF-8 to ISO');
-                $comment[$idx] = utf8_decode($field);
+                if (!function_exists('mb_convert_encoding')) {
+                    $comment[$idx] = @utf8_decode($field); // Deprecation in PHP 8.2, removal in PHP 9.0
+                } else {
+                    $comment[$idx] = mb_convert_encoding($field, 'ISO-8859-1', 'UTF-8'); // string, to, from
+                }
             }
         } else {
             // Trackback is in some native format. We assume ISO-8859-1. Check if our blog is also ISO.
             if ($is_utf8) {
                 log_trackback('[' . date('d.m.Y H:i') . '] Transcoding ' . $idx . ' from ISO to UTF-8');
-                $comment[$idx] = utf8_encode($field);
+                if (!function_exists('mb_convert_encoding')) {
+                    $comment[$idx] = @utf8_encode($field); // Deprecation in PHP 8.2, removal in PHP 9.0
+                } else {
+                    $comment[$idx] = mb_convert_encoding($field, 'UTF-8', 'ISO-8859-1'); // string, to, from
+                }
             }
         }
     }
