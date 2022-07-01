@@ -112,16 +112,28 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
     }
 
     if (!empty($serendipity['GET']['title'])) {
-        $entry['title'] = utf8_decode(urldecode($serendipity['GET']['title']));
+        if (!function_exists('mb_convert_encoding')) {
+            $entry['title'] = @utf8_decode(urldecode($serendipity['GET']['title'])); // Deprecation in PHP 8.2, removal in PHP 9.0
+        } else {
+            $entry['title'] = mb_convert_encoding(urldecode($serendipity['GET']['title']), 'ISO-8859-1', 'UTF-8'); // string, to, from
+        }
     }
 
     if (!empty($serendipity['GET']['body'])) {
-        $entry['body'] = utf8_decode(urldecode($serendipity['GET']['body']));
+        if (!function_exists('mb_convert_encoding')) {
+            $entry['body'] = @utf8_decode(urldecode($serendipity['GET']['body'])); // Deprecation in PHP 8.2, removal in PHP 9.0
+        } else {
+            $entry['body'] = mb_convert_encoding(urldecode($serendipity['GET']['body']), 'ISO-8859-1', 'UTF-8'); // string, to, from
+        }
     }
 
     if (!empty($serendipity['GET']['url'])) {
         if (!isset($entry['body'])) $entry['body'] = '';
-        $entry['body'] .= "\n" . '<a class="block_level" href="' . serendipity_specialchars(utf8_decode(urldecode($serendipity['GET']['url']))) . '">' . $entry['title'] . '</a>';
+        if (!function_exists('mb_convert_encoding')) {
+            $entry['body'] .= "\n" . '<a class="block_level" href="' . serendipity_specialchars(@utf8_decode(urldecode($serendipity['GET']['url']))) . '">' . $entry['title'] . '</a>'; // Deprecation in PHP 8.2, removal in PHP 9.0
+        } else {
+            $entry['body'] .= "\n" . '<a class="block_level" href="' . serendipity_specialchars(mb_convert_encoding(urldecode($serendipity['GET']['url']), 'ISO-8859-1', 'UTF-8')) . '">' . $entry['title'] . '</a>'; // string, to, from
+        }
     }
 
     $template_vars['formToken'] = serendipity_setFormToken();
