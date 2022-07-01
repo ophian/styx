@@ -97,7 +97,11 @@ class Serendipity_Import
                 } elseif (function_exists('recode')) {
                     $out = recode('iso-8859-1..' . LANG_CHARSET, $string);
                 } elseif (LANG_CHARSET == 'UTF-8') {
-                    return utf8_encode($string);
+                    if (!function_exists('mb_convert_encoding')) {
+                        return @utf8_encode($string); // Deprecation in PHP 8.2, removal in PHP 9.0
+                    } else {
+                        return mb_convert_encoding($string, 'UTF-8', 'ISO-8859-1'); // string, to, from
+                    }
                 } else {
                     return $string;
                 }
@@ -105,7 +109,11 @@ class Serendipity_Import
 
             case 'UTF-8':
             default:
-                $out = utf8_decode($string);
+                if (!function_exists('mb_convert_encoding')) {
+                    $out = @utf8_decode($string); // Deprecation in PHP 8.2, removal in PHP 9.0
+                } else {
+                    $out = mb_convert_encoding($string, 'ISO-8859-1', 'UTF-8'); // string, to, from
+                }
                 return $out;
         }
     }
