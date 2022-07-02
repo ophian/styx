@@ -2,6 +2,9 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Prepare bundled-libs/Smarty for PHP 8.2 deprecations of dynamic properties
+    and the HTML-ENTITIES flag.
+
   * Convert utf8_encode/utf8_decode to mb_convert_encoding() for PHP 8.2 / 9.0
 
   * Add missing LANG_CHARSET UTF-8 case to the decode method of the remoterss
