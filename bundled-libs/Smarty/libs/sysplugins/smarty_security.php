@@ -22,6 +22,11 @@
 class Smarty_Security
 {
     /**
+     * Declare $smarty property for PHP 8.2 deprecation of dynamic properties
+     */
+    public $smarty = null;
+
+    /**
      * This determines how Smarty handles "<?php ... ?>" tags in templates.
      * possible values:
      * <ul>

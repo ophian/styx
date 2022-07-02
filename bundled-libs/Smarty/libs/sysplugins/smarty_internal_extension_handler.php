@@ -36,9 +36,36 @@
  * @property   Smarty_Internal_Method_RegisterPlugin     $registerPlugin
  * @property   mixed|\Smarty_Template_Cached             configLoad
  */
+#[\AllowDynamicProperties]
 class Smarty_Internal_Extension_Handler
 {
     public $objType = null;
+
+    /**
+     * Declare some internal Smarty_Internal_Extension_Handler 'Method extensions' properties for PHP 8.2 deprecation of dynamic properties
+     */
+    private $assignByRef = null;
+    private $getTemplateVars = null;
+    private $loadPlugin = null;
+    private $registerFilter = null;
+    private $registerPlugin = null;
+
+    /**
+     * Declare some internal Smarty_Internal_Extension_Handler 'Runtime extensions' properties for PHP 8.2 deprecation of dynamic properties
+     * Others like $_capture are better(!) caught by the AllowDynamicProperties PHP flag while having regressions
+     */
+    private $_codeFrame = null;
+    private $_filterHandler = null;
+    private $_foreach = null;
+    private $_tplFunction = null;
+    private $_writeFile = null;
+
+    /**
+     * Declare some internal Smarty_Internal_Extension_Handler 'magic __set()' properties for PHP 8.2 deprecation of dynamic properties
+     */
+    private $getLiterals = null;
+    private $addLiterals = null;
+    private $setLiterals = null;
 
     /**
      * Cache for property information from generic getter/setter
