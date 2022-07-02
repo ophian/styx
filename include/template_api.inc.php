@@ -62,7 +62,7 @@ class Smarty
     /**
      * smarty version
      */
-    const SMARTY_VERSION = '3.1.34~'; // while some Plugins check if Smarty::SMARTY_VERSION is defined to switch API methods
+    const SMARTY_VERSION = '3.1.39~'; // while some Plugins check if Smarty::SMARTY_VERSION is defined to switch API methods
 }
 
 /* PHP template Smarty emulator */
