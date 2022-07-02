@@ -1199,7 +1199,7 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um d
 @define('GALLERY_ORIENTATION', 'Galerie Ausrichtung');
 @define('GALLERY_ORIENTATION_PERCOL', 'Reihenfolge per <b>Spalte</b>, vertikal angeordnet (empfohlen). Keine Größenbeschränkung!');
 @define('GALLERY_ORIENTATION_PERROW', 'Reihenfolge per <b>Zeile</b>, links nach rechts. Max-width: 260px Beschränkung.');
-@define('GALLERY_ORIENTATION_STRICTCOL', 'Erzwinge <b>Spalten</b> für die abhängige container Breite:');
+@define('GALLERY_ORIENTATION_STRICTCOL', 'Erzwinge <b>Spalten</b> für die abhängige Container Breite:');
 
 @define('ADDITIONAL_PROPERTIES_BY_PLUGIN', 'Zusätzliche Einstellungen durch Plugin: %s');
 
