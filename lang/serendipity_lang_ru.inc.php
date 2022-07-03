@@ -847,7 +847,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('AUTHORS_SHOW_ARTICLE_COUNT_DESC', 'Если эта опция включена, то в скобках возле имени автора приводится общее число сделанных им записей.');
 @define('CUSTOM_ADMIN_INTERFACE', 'Custom admin interface');
 
-@define('COMMENT_NOT_ADDED', 'Ваш комментарий не смог быть добавлен, потому что эту запись запрещено комментировать. '); // Retranslate: 'Your comment could not be added, because comments for this entry have either been disabled, you entered invalid data, or your comment was caught by anti-spam measurements.'
+@define('COMMENT_NOT_ADDED', 'Ваш комментарий не может быть добавлен, потому что комментарии к этой записи либо отключены, либо вы ввели неверные данные, либо ваш комментарий был пойман антиспамом.');
 @define('INSTALL_TRACKREF', 'Enable referrer tracking?');
 @define('INSTALL_TRACKREF_DESC', 'Enabling the referrer tracking will show you which sites refer to your articles. Today this is often abused for spamming, so you can disable it if you want.');
 @define('CATEGORIES_HIDE_PARENT', 'Hide the selected parent category?');

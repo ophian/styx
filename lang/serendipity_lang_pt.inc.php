@@ -847,7 +847,7 @@
 @define('AUTHORS_SHOW_ARTICLE_COUNT_DESC', 'If this option is enabled, the number of articles by this author is shown next to the authors name in parentheses.');
 @define('CUSTOM_ADMIN_INTERFACE', 'Custom admin interface');
 
-@define('COMMENT_NOT_ADDED', 'Seus comentários não foram adicionados, porque comentários para este artigo foram desabilitadas. '); // Retranslate: 'Your comment could not be added, because comments for this entry have either been disabled, you entered invalid data, or your comment was caught by anti-spam measurements.'
+@define('COMMENT_NOT_ADDED', 'Seu comentário não pôde ser adicionado, porque os comentários para esta entrada ou foram desativados, você inseriu dados inválidos, ou seu comentário foi pego por medidas anti-spam.');
 @define('INSTALL_TRACKREF', 'Enable referrer tracking?');
 @define('INSTALL_TRACKREF_DESC', 'Enabling the referrer tracking will show you which sites refer to your articles. Today this is often abused for spamming, so you can disable it if you want.');
 @define('CATEGORIES_HIDE_PARENT', 'Hide the selected parent category?');

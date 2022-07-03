@@ -845,7 +845,7 @@
 @define('AUTHORS_SHOW_ARTICLE_COUNT_DESC', 'If this option is enabled, the number of articles by this author is shown next to the authors name in parentheses.');
 @define('CUSTOM_ADMIN_INTERFACE', 'カスタム管理インターフェースが利用可能です');
 
-@define('COMMENT_NOT_ADDED', 'このエントリーへのコメントが無効になったのでコメントは追加できませんでした。'); // Retranslate: 'Your comment could not be added, because comments for this entry have either been disabled, you entered invalid data, or your comment was caught by anti-spam measurements.'
+@define('COMMENT_NOT_ADDED', 'このエントリーのコメントは無効になっているか、無効なデータを入力したか、またはスパム対策に引っかかったため、コメントを追加することができませんでした。');
 @define('INSTALL_TRACKREF', 'リファラー追跡を有効にしますか?');
 @define('INSTALL_TRACKREF_DESC', 'Enabling the referrer tracking will show you which sites refer to your articles. Today this is often abused for spamming, so you can disable it if you want.');
 @define('CATEGORIES_HIDE_PARENT', '選択された親カテゴリを隠しますか?');
