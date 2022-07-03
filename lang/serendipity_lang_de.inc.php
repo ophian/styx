@@ -832,7 +832,7 @@
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Legt die relative URL-Struktur fest (beginnend mit der Stamm-URL), mit der gewählte RSS-Feeds von Autoren dargestellt werden. Die Variablen %id%, %realname%, %username%, %email% und jede anderen normalen Zeichen sind möglich.');
 @define('INSTALL_PERMALINK_AUTHORSPATH', 'Pfad zu den Autoren');
 @define('AUTHORS', 'Autoren');
-@define('AUTHORS_ALLOW_SELECT', 'Ermöglicht Besuchern, Einträge mehrerer Autoren gleichzeitig darzustellen');
+@define('AUTHORS_ALLOW_SELECT', 'Mehrfachauswahl von Autoren erlauben?');
 @define('AUTHORS_ALLOW_SELECT_DESC', 'Falls diese Option aktiviert ist, wird eine Auswahlbox neben jedem Autor angezeigt, damit Besucher mehrere Autoren gleichzeitig auswählen können.');
 @define('AUTHOR_PLUGIN_DESC', 'Zeigt die Liste aller Autoren');
 @define('CATEGORY_PLUGIN_TEMPLATE', 'Smarty-Templating aktivieren?');

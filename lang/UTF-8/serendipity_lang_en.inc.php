@@ -833,7 +833,7 @@
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'You did not specify the right old password, and are not authorized to change the new password. Your settings were not saved.');
 @define('ERROR_XSRF', 'Your browser did not sent a valid HTTP-Referrer string. This may have either been caused by a misconfigured browser/proxy or by a Cross Site Request Forgery (XSRF) aimed at you. The action you requested could not be completed.');
 @define('AUTHORS', 'Authors');
-@define('AUTHORS_ALLOW_SELECT', 'Allow visitors to display multiple authors at once?');
+@define('AUTHORS_ALLOW_SELECT', 'Allow to display multiple author views?');
 @define('AUTHORS_ALLOW_SELECT_DESC', 'If this option is enabled, a checkbox will be put next to each author in this sidebar plugin.  Users can check those boxes and see entries matching their selection.');
 @define('AUTHOR_PLUGIN_DESC', 'Shows a list of authors');
 @define('CATEGORY_PLUGIN_TEMPLATE', 'Enable Smarty-Templates?');

@@ -835,7 +835,7 @@
 @define('INSTALL_PERMALINK_FEEDAUTHOR', 'Permalink RSS-Feed Author URL structure');
 @define('INSTALL_PERMALINK_AUTHORSPATH', 'Path to authors');
 @define('AUTHORS', 'Authors');
-@define('AUTHORS_ALLOW_SELECT', 'Allow visitors to display multiple authors at once?');
+@define('AUTHORS_ALLOW_SELECT', 'Allow to display multiple author views?');
 @define('AUTHORS_ALLOW_SELECT_DESC', 'If this option is enabled, a checkbox will be put next to each author in this sidebar plugin.  Users can check those boxes and see entries matching their selection.');
 @define('AUTHOR_PLUGIN_DESC', 'Shows a list of authors');
 @define('CATEGORY_PLUGIN_TEMPLATE', 'Enable Smarty-Templates?');
