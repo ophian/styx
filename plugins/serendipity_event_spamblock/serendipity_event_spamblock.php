@@ -8,7 +8,9 @@ if (IN_serendipity !== true) {
 
 class serendipity_event_spamblock extends serendipity_event
 {
-    var $filter_defaults;
+    private $filter_defaults;
+
+    private $chars = [];
 
     function introspect(&$propbag)
     {
@@ -23,9 +25,9 @@ class serendipity_event_spamblock extends serendipity_event
         $propbag->add('requirements',  array(
             'serendipity' => '2.3.1',
             'smarty'      => '3.1.0',
-            'php'         => '7.0.0'
+            'php'         => '7.1.0'
         ));
-        $propbag->add('version',       '2.55');
+        $propbag->add('version',       '2.56');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1876,9 +1878,8 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
         }
 
         list($musec, $msec) = explode(' ', microtime());
-        $srand = (float) $msec + ((float) $musec * 100000);
-        @srand($srand); // silence nasty "Implicit conversion from float 1634150650.2 to int loses precision" error, destroying the image
-        @mt_srand($srand); // silence nasty "Implicit conversion from float 1634150650.2 to int loses precision" error, destroying the image
+        $srand = intval((float) $msec + ((float) $musec * 100000));
+        mt_srand($srand); // By intval() silencea nasty "Implicit conversion from float 1634150650.2 to int loses precision" error, destroying the image
         $width = 120;
         $height = 40;
 
@@ -1907,9 +1908,9 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
             $pos_x  = 5;
             foreach($strings AS $idx => $charidx) {
                 $color = imagecolorallocate($image, mt_rand(50, 235), mt_rand(50, 235), mt_rand(50,235));
-                $size  = mt_rand(15, 21);
-                $angle = mt_rand(-20, 20);
-                $pos_y = ceil($height - (@mt_rand($size/3, $size/2))); // silence nasty "Implicit conversion from float 1.2 to int loses precision" errors, destroying the image
+                $size  = intval(mt_rand(15, 21));
+                $angle = mt_rand(-20, 20); // by intval() silences nasty "Implicit conversion from float 1.2 to int loses precision" errors, destroying the image
+                $pos_y = ceil($height - (@mt_rand($size/3, $size/2))); // leave the @ silencer for PHP 8.2 with production 'debug' mode
 
                 imagettftext(
                   $image,
