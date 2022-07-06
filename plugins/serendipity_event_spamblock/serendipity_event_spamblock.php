@@ -27,7 +27,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.1.0'
         ));
-        $propbag->add('version',       '2.56');
+        $propbag->add('version',       '2.57');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1901,7 +1901,11 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
             }
 
             header('Content-Type: image/jpeg');
-            $image  = imagecreate($width, $height); // recommended use of imagecreatetruecolor() returns a black backgroundcolor
+            if ($serendipity['dark_mode']) {
+                $image  = imagecreatetruecolor($width, $height); // recommended use of imagecreatetruecolor() returns a black background-color (Backend only)
+            } else {
+                $image  = imagecreate($width, $height); // returns a white background-color
+            }
             $bgcol  = imagecolorallocate($image, trim($bgcolors[0]), trim($bgcolors[1]), trim($bgcolors[2]));
             // imagettftext($image, 10, 1, 1, 15, imagecolorallocate($image, 255, 255, 255), $font, 'String: ' . $string);
 
