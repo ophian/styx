@@ -2,6 +2,8 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix and improve spamblock plugin backend preview Captcha on PHP 8.2
+
   * Prepare bundled-libs/Smarty for PHP 8.2 deprecations of dynamic properties
     and the HTML-ENTITIES flag.
 
