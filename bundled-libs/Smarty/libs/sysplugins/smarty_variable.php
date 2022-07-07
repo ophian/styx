@@ -7,6 +7,7 @@
  * @package    Smarty
  * @subpackage Template
  */
+#[\AllowDynamicProperties]
 class Smarty_Variable
 {
     /**
@@ -22,18 +23,6 @@ class Smarty_Variable
      * @var boolean
      */
     public $nocache = false;
-
-    /**
-     * Declare internal assigned properties used in loops for PHP 8.2 deprecation of dynamic properties
-     */
-    public $index = null;
-    public $iteration = null;
-    public $key = null;
-    public $total = null;
-    public $first = null;
-    public $last = null;
-    public $do_else = null;
-    public $step = null;
 
     /**
      * create Smarty variable object

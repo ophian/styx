@@ -24,15 +24,9 @@
  *
  * @method bool mustCompile()
  */
+#[\AllowDynamicProperties]
 class Smarty_Internal_Template extends Smarty_Internal_TemplateBase
 {
-    /**
-     * Declare some internal Smarty_Internal_Template properties for PHP 8.2 deprecation of dynamic properties - added for line 719
-     */
-    public $cached = null;
-    public $compiled = null;
-    public $compiler = null;
-
     /**
      * Template object cache
      *
