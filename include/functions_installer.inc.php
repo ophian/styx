@@ -1401,7 +1401,7 @@ function serendipity_getCurrentVersion() {
     // then run the normal check.
     if (isset($serendipity['last_update_check_' . $serendipity['updateCheck']]) && $serendipity['last_update_check_' . $serendipity['updateCheck']] >= (time()-86400)) {
         // Last update was performed less than a day ago. Return last result.
-        return $serendipity['last_update_version_' . $serendipity['updateCheck']];
+        return $serendipity['last_update_version_' . $serendipity['updateCheck']] ?? null; // for cases ...
     }
 
     serendipity_set_config_var('last_update_check_' . $serendipity['updateCheck'], time());
