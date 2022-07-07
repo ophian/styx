@@ -3965,7 +3965,7 @@ function serendipity_showPropertyForm(&$new_media, $keywordsPerBlock = 3, $is_ed
 
         $show[$idx] =& $media['internal'];
         $show[$idx]['image_id'] = $media['image_id'];
-        $show[$idx]['property_saved'] = !(!isset($props['base_property']) || (empty($props['base_property']['ALL']['ALT']) && empty($props['base_property']['ALL']['COMMENT1']) && empty($props['base_property']['ALL']['COMMENT2']) && $props['base_property']['ALL']['TITLE'] === $props['base_property']['internal']['realname'])) ? true: false; // three possible cases: no subarray, equal or diff set
+        $show[$idx]['property_saved'] = !(!isset($props['base_property']) || (isset($props['base_property']['ALL']) && empty($props['base_property']['ALL']['ALT']) && empty($props['base_property']['ALL']['COMMENT1']) && empty($props['base_property']['ALL']['COMMENT2']) && $props['base_property']['ALL']['TITLE'] === $props['base_property']['internal']['realname'])) ? true: false; // three possible cases: no subarray, equal or diff set
 
         serendipity_prepareMedia($show[$idx]);
         if (!isset($props['base_metadata']) || !is_array($props['base_metadata'])) {
