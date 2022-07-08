@@ -2,6 +2,8 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve users panel list by added entry count link for maintaining activity
+
   * Improve Maintenance ML Sync case for Variation message returns
 
   * Improve spamblock plugin backend preview Captcha for 'dark_mode' setting
