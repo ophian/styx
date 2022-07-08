@@ -2949,6 +2949,7 @@ h3 .media_file_actions {
     font-style: italic;
 }
 #serendipity_users .edit_actions .user_level,
+#serendipity_users .edit_actions .entryctlabel,
 #serendipity_image_folders .imgctlabel,
 .category_base_entries .catctlabel,
 #categories .edit_actions .catctlabel {
