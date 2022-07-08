@@ -1933,6 +1933,10 @@ function serendipity_generateThumbs() {
         }
     }
 
+    if ($i == 0 && $serendipity['GET']['adminAction'] == 'doSync' && preg_match('/image format copy creation failed!/', $_list)) {
+        unset($_list); // We do not want Variation image failed messages in doSync via Maintenance mode if they mean there is nothing to do
+    }
+
     // Close the list, if it was created
     if (!empty($_list)) {
          echo '<ul class="plainList">' . "\n";
