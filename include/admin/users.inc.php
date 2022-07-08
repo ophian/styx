@@ -197,9 +197,9 @@ if (isset($_POST['SAVE_EDIT']) && serendipity_checkFormToken()) {
 if ($serendipity['GET']['adminAction'] != 'delete') {
     $data['delete'] = false;
     if (serendipity_checkPermission('adminUsersMaintainOthers')) {
-        $users = serendipity_chainByLevel(serendipity_fetchUsers(''));
+        $users = serendipity_chainByLevel(serendipity_fetchUsers('', null, true)); // add users posted article count
     } elseif (serendipity_checkPermission('adminUsersMaintainSame')) {
-        $users = serendipity_chainByLevel(serendipity_fetchUsers('', serendipity_getGroups($serendipity['authorid'], true)));
+        $users = serendipity_chainByLevel(serendipity_fetchUsers('', serendipity_getGroups($serendipity['authorid'], true), true)); // Chiefs ditto
     } else {
         $users = serendipity_fetchUsers($serendipity['authorid']);
     }
