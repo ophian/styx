@@ -3049,8 +3049,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
 
         if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Image-Sync has perm: " . serendipity_checkPermission('adminImagesSync') . ", Onthefly Sync: {$serendipity['onTheFlySynch']}, Hash: " . ($serendipity['current_image_hash'] != $serendipity['last_image_hash'] ? "uneven, cleanup" : "even, skip cleanup")); }
 
-        if ($serendipity['onTheFlySynch'] && serendipity_checkPermission('adminImagesSync')
-        && $serendipity['current_image_hash'] != $serendipity['last_image_hash']) {
+        if ($serendipity['current_image_hash'] != $serendipity['last_image_hash']) {
             $aResultSet = serendipity_db_query("SELECT id, name, extension, thumbnail_name, path, hotlink
                                                   FROM {$serendipity['dbPrefix']}images WHERE path != '.v/'", false, 'assoc'); // exclude possible variations (.v/ path should only be if that was development or somethings has went wrong)
 
