@@ -3611,17 +3611,21 @@ function serendipity_getImageSize($file, $ft_mime = '', $suf = '') {
     if ($ft_mime == 'application/pdf') {
         $fdim = array(1000,1000,24, '', 'bits'=> 24, 'channels' => '3', 'mime' => 'application/pdf');
     } else {
-        if ($suf == 'avif') {// temp HOTFIX, see L~2807 aFilesNoSync - PHP 8.1 getimagesize() has no build-in AVIF size measures yet, but people at Google are currently working on implementation
-            $_file = str_replace('.avif', '.webp', $file);
-            $fdim = @getimagesize($_file);
-            $fdim[2] = str_replace(18, 19, $fdim[2]);
-            $fdim['mime'] = str_replace('image/webp', 'image/avif', $fdim['mime']);
-            unset($fdim['bits']);
+        if (PHP_VERSION_ID >= 80100 && PHP_VERSION_ID < 80200) {
+            if ($suf == 'avif') {// temp HOTFIX, see L~2996 aFilesNoSync - PHP 8.1 getimagesize() has no build-in AVIF size measures yet, but people at Google are currently working on implementation
+                $_file = str_replace('.avif', '.webp', $file);
+                $fdim = @getimagesize($_file);
+                $fdim[2] = str_replace(18, 19, $fdim[2]);
+                $fdim['mime'] = str_replace('image/webp', 'image/avif', $fdim['mime']);
+                unset($fdim['bits']);
+            } else {
+                $fdim = @getimagesize($file);
+                if (is_array($fdim) && $fdim['mime'] == 'image/avif' && file_exists(str_replace('.avif', '.webp', $file))) { // check possible other non-suffix calls of AVIF files for the HOTFIX - probably serendipity_checkMediaSize() won't work, so upload sizes cannot be checked yet
+                    $fdim = serendipity_getImageSize($file, $ft_mime, 'avif');
+                }
+            }
         } else {
             $fdim = @getimagesize($file);
-            if ($fdim['mime'] == 'image/avif' && file_exists(str_replace('.avif', '.webp', $file))) { // check possible other non-suffix calls of AVIF files for the HOTFIX - probably serendipity_checkMediaSize() won't work, so upload sizes cannot be checked yet
-                $fdim = serendipity_getImageSize($file, $ft_mime, 'avif');
-            }
         }
     }
 
