@@ -274,8 +274,8 @@
 @define('ADVANCED_OPTIONS', 'மேலான தேர்வுகள்');
 @define('EDIT_ENTRY', 'குறிப்பை மாற்றுக');
 @define('HTACCESS_ERROR', 'To check your local webserver installation, Serendipity needs to be able to write the file ".htaccess". This was not possible because of permission errors. Please adjust the permissions like this: <br>&nbsp;&nbsp;%s<br>and reload this page.');
-@define('SIDEBAR_PLUGINS', 'வலைபக்க செயல்பொருள்கள் (வலைப்பக்கத்தில் தெரிபவை)');
-@define('EVENT_PLUGINS', 'உள்ளார்ந்த செயல்பொருள்கள் (வலைப்பக்க தோற்றத்தை மாற்றுபவை. பக்கத்தில் தெரியாது.)');
+@define('SIDEBAR_PLUGINS', 'பக்கப்பட்டி செருகுநிரல்கள்');
+@define('EVENT_PLUGINS', 'நிகழ்வு செருகுநிரல்கள்.)');
 @define('SORT_ORDER', 'வகைப்பாடு');
 @define('SORT_ORDER_NAME', 'வலைபொருள் பெயர்');
 @define('SORT_ORDER_EXTENSION', 'வலைபொருள் வகை');
