@@ -2,6 +2,12 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Drastically improve performance for generating the MediaLibrary image
+    displayList, when NOT having enabled the onTheFlySynch (image) configuration
+    option.
+    PLEASE: Read the enhanced description info of this option to get known why
+            and when.
+
   * Improve users panel list by added entry count link for maintaining activity
 
   * Improve Maintenance ML Sync case for Variation message returns
