@@ -276,6 +276,12 @@
                     <li class="special"><a class="media_fullsize media_prop button_link" href="{$special.url}" title="{if $special.extension == 'webp' OR $special.extension == 'avif'}{$CONST.VARIATION}{else}{$CONST.PUBLISHED}{/if}: {$special.basename}, {$special.width}x{$special.height}px" data-pwidth="{$special.width}" data-pheight="{$special.height}"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span><span class="visuallyhidden"> Image Of</span></a></li>
                     {/if}
                     {/foreach}
+                    {else if NOT empty($file.sizeAVIF) && NOT empty($file.sizeWebp)}
+
+                    <li class="special"><a class="media_fullsize media_prop button_link" href="{if $file.sizeAVIF < $file.sizeWebp}{$file.full_file_avif}{else}{$file.full_file_webp}{/if}" title="{$CONST.VARIATION}: {$file.full_file_avif|regex_replace:"~{$serendipityHTTPPath}uploads/{$file.path}.v/~":''}, {$file.dim_orig.0}x{$file.dim_orig.1}px" data-pwidth="{$file.dim_orig.0}" data-pheight="{$file.dim_orig.1}"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span><span class="visuallyhidden"> Image Of</span></a></li>
+                    {else if NOT empty($file.sizeWebp) && $file.sizeWebp < $file.size}
+
+                    <li class="special"><a class="media_fullsize media_prop button_link" href="{$file.full_file_webp}" title="{$CONST.VARIATION}: {$file.full_file_webp|regex_replace:"~{$serendipityHTTPPath}uploads/{$file.path}.v/~":''}, {$file.dim_orig.0}x{$file.dim_orig.1}px" data-pwidth="{$file.dim_orig.0}" data-pheight="{$file.dim_orig.1}"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span><span class="visuallyhidden"> Image Of</span></a></li>
                     {/if}
                 {/if}
 
