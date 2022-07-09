@@ -2963,7 +2963,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
     $perPage = (!empty($serendipity['GET']['sortorder']['perpage']) ? (int)$serendipity['GET']['sortorder']['perpage'] : 8);
     $start = ($page-1) * $perPage;
 
-    if ($manage && $limit_path === NULL) {
+    if ($serendipity['onTheFlySynch'] && serendipity_checkPermission('adminImagesSync') && $manage && $limit_path === NULL) {
         ## SYNC START ##
         $aExclude = array('CVS' => true, '.svn' => true, '.git' => true); // removed ", '.v' => true", which allows to place an existing .v/ dir stored AVIF/Webp image variation in the aFilesNoSync array! See media_items.tpl special.pfilename button.
         serendipity_plugin_api::hook_event('backend_media_path_exclude_directories', $aExclude);
