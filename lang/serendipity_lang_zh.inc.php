@@ -859,7 +859,7 @@
 @define('INSTALL_DB_UTF8', '开启数据库编码转换');
 @define('INSTALL_DB_UTF8_DESC', '使用 MySQL 的 "SET NAMES" 查询来设定编码。如果文章出现乱码可以将这设定打开或关闭。');
 @define('ONTHEFLYSYNCH', '开启媒体同步');
-@define('ONTHEFLYSYNCH_DESC', '如果开启，Serendipity Blog会比较数据库和媒体目录的文件，然后进行数据同步。');
+@define('ONTHEFLYSYNCH_DESC', '如果开启，Serendipity Blog会比较数据库和媒体目录的文件，然后进行数据同步。 This is - especially due to the additional variation formats - a rather time-consuming monitoring instrument and can increasingly slow down a growing media library, since each call of the same must permanently run through all(!) files, check and re-evaluate, including the resulting necessary changes. But since the latter happens correspondingly often, this step becomes accordingly shorter. Otherwise use the first two "Media library: Rebuild Thumbs" actions in the maintenance section from time to time, which also include a final synchronization! So a "Yes" is recommended here if you either often work around directly in the file system of the media library yourself, use this option only temporarily or do not notice any particular slowdown, or are a developer/tester with correspondingly many false/positive results.');
 @define('USERCONF_CHECK_USERNAME_ERROR', '帐号不能空白');
 @define('FURTHER_LINKS', '更多连接');
 @define('FURTHER_LINKS_S9Y', '官方首页');

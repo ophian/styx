@@ -856,7 +856,7 @@
 @define('INSTALL_DB_UTF8', '데이터베이스-문자열 변환 사용하기');
 @define('INSTALL_DB_UTF8_DESC', '데이터베이스에 필요한 문자열 종류를 지정하기 위해 MySQL "SET NAMES" 질의를 실행합니다. 블로그에 이상한 글자가 보일 경우 이를 켜거나 꺼보십시오.');
 @define('ONTHEFLYSYNCH', '즉각적인 미디어 동기화 사용하기');
-@define('ONTHEFLYSYNCH_DESC', '사용할 경우 세렌디피티가 미디어 데이터베이스와 서버 저장 파일들을 비교하여 데이터베이스 및 디렉토리 내용을 동기화합니다.');
+@define('ONTHEFLYSYNCH_DESC', '사용할 경우 세렌디피티가 미디어 데이터베이스와 서버 저장 파일들을 비교하여 데이터베이스 및 디렉토리 내용을 동기화합니다. This is - especially due to the additional variation formats - a rather time-consuming monitoring instrument and can increasingly slow down a growing media library, since each call of the same must permanently run through all(!) files, check and re-evaluate, including the resulting necessary changes. But since the latter happens correspondingly often, this step becomes accordingly shorter. Otherwise use the first two "Media library: Rebuild Thumbs" actions in the maintenance section from time to time, which also include a final synchronization! So a "Yes" is recommended here if you either often work around directly in the file system of the media library yourself, use this option only temporarily or do not notice any particular slowdown, or are a developer/tester with correspondingly many false/positive results.');
 @define('USERCONF_CHECK_USERNAME_ERROR', '사용자 이름은 비워둘 수 없습니다.');
 @define('FURTHER_LINKS', '추가 링크');
 @define('FURTHER_LINKS_S9Y', '세렌디피티 홈페이지');

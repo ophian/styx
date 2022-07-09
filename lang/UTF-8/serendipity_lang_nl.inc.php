@@ -857,7 +857,7 @@
 @define('INSTALL_DB_UTF8', 'DB-tekensetconversie aanzetten');
 @define('INSTALL_DB_UTF8_DESC', 'Stuurt een MySQL-"SET NAMES"-query met de gewenste tekenset naar de databank. Wijzig deze optie als u rare tekens ziet in uw weblog.');
 @define('ONTHEFLYSYNCH', 'Automatische mediasynchronisatie aan zetten');
-@define('ONTHEFLYSYNCH_DESC', 'Als deze optie aan staat, zal Serendipity zelf de mediaverzameling met de bestanden op de server vergelijken en beide synchroniseren.');
+@define('ONTHEFLYSYNCH_DESC', 'Als deze optie aan staat, zal Serendipity zelf de mediaverzameling met de bestanden op de server vergelijken en beide synchroniseren. This is - especially due to the additional variation formats - a rather time-consuming monitoring instrument and can increasingly slow down a growing media library, since each call of the same must permanently run through all(!) files, check and re-evaluate, including the resulting necessary changes. But since the latter happens correspondingly often, this step becomes accordingly shorter. Otherwise use the first two "Media library: Rebuild Thumbs" actions in the maintenance section from time to time, which also include a final synchronization! So a "Yes" is recommended here if you either often work around directly in the file system of the media library yourself, use this option only temporarily or do not notice any particular slowdown, or are a developer/tester with correspondingly many false/positive results.');
 @define('USERCONF_CHECK_USERNAME_ERROR', 'De gebruikersnaam mag niet leeg gelaten worden.');
 @define('FURTHER_LINKS', 'Bijkomende Informatie');
 @define('FURTHER_LINKS_S9Y', 'Serendipity-homepage');

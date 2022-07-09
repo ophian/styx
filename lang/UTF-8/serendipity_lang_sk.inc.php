@@ -866,7 +866,7 @@ $i18n_filename_to = array (
 @define('INSTALL_DB_UTF8', 'Zapnúť konverziu databázovej znakovej sady');
 @define('INSTALL_DB_UTF8_DESC', 'Spustí dotaz MySQL "SET NAMES", aby sa zistila požadovaná znaková sada pre databázu. Zapnite alebo vypnite, ak sa Vám na blogu objevujú divné znaky.');
 @define('ONTHEFLYSYNCH', 'Zapnúť synchronizáciu médií za behu (on the fly)');
-@define('ONTHEFLYSYNCH_DESC', 'Ak je zapnuté, Serendipity bude porovnávať databázu médií so súbormi uloženými na serveri a bude synchronizovať obsah databázy a priečinkov.');
+@define('ONTHEFLYSYNCH_DESC', 'Ak je zapnuté, Serendipity bude porovnávať databázu médií so súbormi uloženými na serveri a bude synchronizovať obsah databázy a priečinkov. This is - especially due to the additional variation formats - a rather time-consuming monitoring instrument and can increasingly slow down a growing media library, since each call of the same must permanently run through all(!) files, check and re-evaluate, including the resulting necessary changes. But since the latter happens correspondingly often, this step becomes accordingly shorter. Otherwise use the first two "Media library: Rebuild Thumbs" actions in the maintenance section from time to time, which also include a final synchronization! So a "Yes" is recommended here if you either often work around directly in the file system of the media library yourself, use this option only temporarily or do not notice any particular slowdown, or are a developer/tester with correspondingly many false/positive results.');
 @define('USERCONF_CHECK_USERNAME_ERROR', 'Meno používateľa nemôže byť prázdne.');
 @define('FURTHER_LINKS', 'Ďalšie odkazy');
 @define('FURTHER_LINKS_S9Y', 'Domovská stránka Serendipity');
