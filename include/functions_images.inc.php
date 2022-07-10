@@ -1443,8 +1443,8 @@ function serendipity_scaleImg($id, $width, $height, $scaleThumbVariation=false) 
     // check for AVIF image file errors before to prevent image scaling AT ALL
     // - this is a workaround to prevent serendipity_resizeImageGD() or serendipity_passToCMD IM -scale errors on broken images AND does also work when getimagesize() is fixed for AVIF up from PHP 8.2
     if (file_exists($oavif)) {
-        list($width, $height, $type, $attr) = @getimagesize($oavif); // to grasp the nettle this currently is the default for AVIF in the moment, excluding known broken filesizes
-        if (($width == 0 && $height == 0 && $type = 19) || in_array(filesize($oavif), [3389, 34165])) {
+        list($_width, $_height, $_type, $_attr) = @getimagesize($oavif); // to grasp the nettle this currently is the default for AVIF in the moment, excluding known broken filesizes
+        if (($_width == 0 && $_height == 0 && $_type = 19) || in_array(filesize($oavif), [3389, 34165])) {
             return 'Sorry! This function is temporary disabled because the AVIF Variation file is erroneous!';
         }
     }
