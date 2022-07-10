@@ -1587,8 +1587,8 @@ function serendipity_rotateImg($id, $degrees) {
     // check for AVIF image file errors before to prevent image rotating AT ALL
     // - this is a workaround to prevent serendipity_rotateImageGD() or serendipity_passToCMD IM -rotate errors on broken images AND does also work when getimagesize() is fixed for AVIF up from PHP 8.2
     if (file_exists($infile_avif)) {
-        list($width, $height, $type, $attr) = @getimagesize($infile_avif); // to grasp the nettle this currently is the default for AVIF in the moment, excluding known broken filesizes
-        if (($width == 0 && $height == 0 && $type = 19) || in_array(filesize($infile_avif), [3389, 34165])) {
+        list($_width, $_height, $_type, $_attr) = @getimagesize($infile_avif); // to grasp the nettle this currently is the default for AVIF in the moment, excluding known broken filesizes
+        if (($_width == 0 && $_height == 0 && $_type = 19) || in_array(filesize($infile_avif), [3389, 34165])) {
             return true; // silently return, else we will need {if !isset($rotate_img_done) OR $rotate_img_done} in templates\default\admin\images.inc.tpl. Also see possible thrown errors in the XHR request by serendipity_rotateImageGD() with unsilenced imagecreatefromavif and imagerotate for example
         }
     }
