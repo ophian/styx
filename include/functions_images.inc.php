@@ -1441,7 +1441,7 @@ function serendipity_scaleImg($id, $width, $height, $scaleThumbVariation=false) 
     $oavifTH = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.' . $file['thumbnail_name'] . '.avif';
 
     // check for AVIF image file errors before to prevent image scaling AT ALL
-    // - this is a workaround to prevent serendipity_resizeImageGD() or serendipity_passToCMD IM -scale errors on broken images and should also work when getimagesize() will be "GOOGLE" fixed for AVIF in future
+    // - this is a workaround to prevent serendipity_resizeImageGD() or serendipity_passToCMD IM -scale errors on broken images AND does also work when getimagesize() is fixed for AVIF up from PHP 8.2
     if (file_exists($oavif)) {
         list($width, $height, $type, $attr) = @getimagesize($oavif); // to grasp the nettle this currently is the default for AVIF in the moment, excluding known broken filesizes
         if (($width == 0 && $height == 0 && $type = 19) || in_array(filesize($oavif), [3389, 34165])) {
@@ -1585,7 +1585,7 @@ function serendipity_rotateImg($id, $degrees) {
     $turn = (preg_match('@-@', $degrees)) ? '<-' : '->';
 
     // check for AVIF image file errors before to prevent image rotating AT ALL
-    // - this is a workaround to prevent serendipity_rotateImageGD() or serendipity_passToCMD IM -rotate errors on broken images and should also work when getimagesize() will be "GOOGLE" fixed for AVIF in future
+    // - this is a workaround to prevent serendipity_rotateImageGD() or serendipity_passToCMD IM -rotate errors on broken images AND does also work when getimagesize() is fixed for AVIF up from PHP 8.2
     if (file_exists($infile_avif)) {
         list($width, $height, $type, $attr) = @getimagesize($infile_avif); // to grasp the nettle this currently is the default for AVIF in the moment, excluding known broken filesizes
         if (($width == 0 && $height == 0 && $type = 19) || in_array(filesize($infile_avif), [3389, 34165])) {
