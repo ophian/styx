@@ -2,6 +2,9 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix serendipity_scaleImg() where the (AVIF) workaround check accidentally
+    overwrote the new scaleTo dimensions since Styx 3.6.0.
+
   * Drastically improve performance for generating the MediaLibrary image
     displayList, when NOT having enabled the onTheFlySynch (image) configuration
     option.
