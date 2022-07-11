@@ -121,6 +121,7 @@
                         {else}</div>{/if}
                     {else}
 
+                        <div class="ml_rotaticon" style="display: none"><div></div><div></div></div>
                         <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{if isset($file.sizeAVIF) AND $file.sizeAVIF > 252 AND $file.sizeAVIF != 34165 AND $file.sizeAVIF != 3389 AND isset($file.sizeWebp) AND $file.sizeAVIF < $file.sizeWebp}{$link_avif|default:$link}{else if isset($file.sizeWebp) AND $file.sizeWebp > 0}{$link_webp|default:$link}{else}{$link}{/if}" data-fallback="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}{if isset($file.sizeAVIF) AND $file.sizeAVIF > 252 AND isset($file.sizeWebp) AND $file.sizeAVIF < $file.sizeWebp}{if !empty($img_src_avif)} (AVIF){/if}{else}{if !empty($img_src_webp) AND isset($file.sizeWebp) AND $file.sizeWebp > 0} (WepP){/if}{/if}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
                             <picture>{if isset($file.thumbSizeAVIF) AND $file.thumbSizeAVIF > 252 AND $file.thumbSizeAVIF != 34165 AND $file.thumbSizeAVIF != 3389 AND ( $file.thumbSizeWebp == 0 OR $file.thumbSizeAVIF < $file.thumbSizeWebp )}
 
