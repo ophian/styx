@@ -904,7 +904,14 @@
     };
 
     serendipity.reloadImage = function(img) {
-        $(img).attr('src', $(img).attr('src')+'?'+Math.random());
+        var chash = Math.random();
+        $(img).attr('src', $(img).attr('src')+'?'+chash);
+        $(img).siblings().each(function() {
+            var varimg = $(this).attr('srcset');
+            if (varimg.length > 0) {
+                $(this).attr('srcset', varimg+'?'+chash);
+            }
+        });
     }
 
     serendipity.catsList = function() {
