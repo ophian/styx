@@ -1757,6 +1757,16 @@ $(function() {
     // ajaxify image rotate, solving cache issue
     $('.media_rotate_right,.media_rotate_left').click(function(e) {
         e.preventDefault();
+        $spinner = $(this).parent().parent().siblings().find('.ml_rotaticon');
+        $.ajaxSetup({
+          beforeSend: function() {
+             $spinner.toggle();
+          },
+          complete: function(){
+             $spinner.toggle();
+          },
+          success: function() {}
+        });
         var $rotateButton = $(this)
         $.get($rotateButton.attr('href'), function() {
             serendipity.reloadImage($rotateButton.closest('.media_file').find('img'));
