@@ -3,7 +3,7 @@ Version 3.9-DEV ()
 
 
   * Improve MediaLibrary image rotation (background action related) wait time
-    by a spinning rotat(e)-Icon.
+    by a "spinning" puls(e)-Icon.
 
   * Restore and fix the reloadImage javascript function of the MediaLibrary
     rotate image actions for the picture containers supported Variations usage.
