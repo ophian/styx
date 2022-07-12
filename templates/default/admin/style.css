@@ -3387,6 +3387,18 @@ label .perm_name,
 }
 /*gallery pane end*/
 
+.js #waitingspin.pulsator {
+    display: flex;
+    position: relative;
+    top: 3.5em;
+    left: 16.5em;
+}
+.js #waitingspin.pulsator div {
+    border: 4px solid #000;
+}
+[data-color-mode="dark"] #waitingspin.pulsator div {
+    border: 4px solid #fff;
+}
 .js .pulsator div {
     position: absolute;
     border: 4px solid #fff;
