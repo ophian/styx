@@ -1,5 +1,7 @@
 <h2>{$CONST.ADD_MEDIA}</h2>
 
+<div id="waitingspin" class="pulsator" style="display: none"><div></div><div></div></div>
+
 <form id="uploadform" action="?{$media.extraParems}" method="POST" enctype="multipart/form-data">
 {if $media.max_file_size}
     <input name="MAX_FILE_SIZE" type="hidden" value="{$media.max_file_size}">
