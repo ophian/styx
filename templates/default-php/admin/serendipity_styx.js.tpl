@@ -826,6 +826,7 @@
     // save in which directory the first uploaded files is stored (also the default when only inserting one file)
     serendipity.rememberUploadOptions = function() {
         serendipity.SetCookie('addmedia_directory', $('#target_directory_1').val());
+        $('#waitingspin').toggle();
     }
 
     // Clones the upload form template
