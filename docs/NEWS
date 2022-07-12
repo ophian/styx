@@ -2,6 +2,9 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve MediaLibrary image upload form by adding a "spinning" puls(e)-Icon,
+    in special for bulk uploads and slight longer AVIF compression wait time.
+
   * Improve MediaLibrary image rotation (background action related) wait time
     by a "spinning" puls(e)-Icon.
 
