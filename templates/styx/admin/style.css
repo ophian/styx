@@ -3558,6 +3558,9 @@ label .perm_name,
     top: 3.5em;
     left: 16.5em;
 }
+.js #waitingspin.pulsator.scale_image {
+    margin-top: -1.5em;
+}
 .js #waitingspin.pulsator div {
     border: 4px solid #000;
 }
