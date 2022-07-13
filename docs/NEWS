@@ -2,6 +2,8 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve MediaLibrary scale image form by new "busy"-Icon too
+
   * Improve MediaLibrary image upload form by adding the new "busy"-Icon too,
     in special for bulk uploads and slight longer AVIF compression wait time.
 
