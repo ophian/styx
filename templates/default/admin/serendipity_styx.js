@@ -906,8 +906,8 @@
                 $(this).attr('srcset', varimg+'?'+chash);
             }
         });
-        var speciallink = $(img).closest('article').find('ul.media_file_actions .media_fullsize');
-        $(speciallink).attr('href', $(speciallink).attr('href')+'?'+chash);
+        var slink = $(img).closest('article').find('> ul.media_file_actions .media_fullsize');
+        $(slink).attr('href', $(slink).attr('href')+'?'+chash);
     }
 
     serendipity.catsList = function() {
