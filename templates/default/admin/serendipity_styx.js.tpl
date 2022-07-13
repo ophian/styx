@@ -1719,7 +1719,10 @@ $(function() {
 
     // Confirm media scale
     $('.image_scale').click(function() {
-        if (confirm('{$CONST.REALLY_SCALE_IMAGE}')) document.serendipityScaleForm.submit();
+        if (confirm('{$CONST.REALLY_SCALE_IMAGE}')) {
+            document.serendipityScaleForm.submit();
+            $('#waitingspin').toggle();
+        }
     });
 
     // Media scale change events

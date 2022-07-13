@@ -1643,7 +1643,10 @@ $(function() {
 
     // Confirm media scale
     $('.image_scale').click(function() {
-        if (confirm('Really scale the image? This operation cannot be undone!')) document.serendipityScaleForm.submit();
+        if (confirm('Really scale the image? This operation cannot be undone!')) {
+            document.serendipityScaleForm.submit();
+            $('#waitingspin').toggle();
+        }
     });
 
     // Media scale change events

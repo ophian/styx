@@ -1717,7 +1717,10 @@ $(function() {
 
     // Confirm media scale
     $('.image_scale').click(function() {
-        if (confirm('<?= REALLY_SCALE_IMAGE ?>')) document.serendipityScaleForm.submit();
+        if (confirm('<?= REALLY_SCALE_IMAGE ?>')) {
+            document.serendipityScaleForm.submit();
+            $('#waitingspin').toggle();
+        }
     });
 
     // Media scale change events
