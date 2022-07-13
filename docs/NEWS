@@ -2,11 +2,11 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Improve MediaLibrary image upload form by adding a "spinning" puls(e)-Icon,
+  * Improve MediaLibrary image upload form by adding the new "busy"-Icon too,
     in special for bulk uploads and slight longer AVIF compression wait time.
 
   * Improve MediaLibrary image rotation (background action related) wait time
-    by a "spinning" puls(e)-Icon.
+    by a pulsating "being busy"-Icon.
 
   * Restore and fix the reloadImage javascript function of the MediaLibrary
     rotate image actions for the picture containers supported Variations usage.
