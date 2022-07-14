@@ -290,7 +290,7 @@
             {/if}
 
             </article>
-
+{* singular media property page only *}
         {if NOT $media.enclose}
 
             <article class="media_file{if NOT empty($smarty.get.serendipity.adminAction) AND $smarty.get.serendipity.adminAction == 'properties'} mfile_prop{/if} media_enclose_no">
@@ -341,7 +341,7 @@
                     </div>
                 </header>
 
-                <input type="hidden" name="serendipity[mediaProperties][{$file@key}][image_id]" value="{$file.image_id}">
+                <input type="hidden" name="serendipity[mediaProperties][0][image_id]" value="{$file.image_id}">
 
                 <section class="media_file_props">
                     <h4>{$CONST.MEDIA_PROP} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#dc3545" class="bi bi-pin-angle-fill" viewBox="0 0 16 16"><title id="title">Pinned</title><path d="M9.828.722a.5.5 0 0 1 .354.146l4.95 4.95a.5.5 0 0 1 0 .707c-.48.48-1.072.588-1.503.588-.177 0-.335-.018-.46-.039l-3.134 3.134a5.927 5.927 0 0 1 .16 1.013c.046.702-.032 1.687-.72 2.375a.5.5 0 0 1-.707 0l-2.829-2.828-3.182 3.182c-.195.195-1.219.902-1.414.707-.195-.195.512-1.22.707-1.414l3.182-3.182-2.828-2.829a.5.5 0 0 1 0-.707c.688-.688 1.673-.767 2.375-.72a5.92 5.92 0 0 1 1.013.16l3.134-3.133a2.772 2.772 0 0 1-.04-.461c0-.43.108-1.022.589-1.503a.5.5 0 0 1 .353-.146z"/></svg></h4>
@@ -353,12 +353,12 @@
                         <label for="mediaProperty{$prop_content@key}">{$prop_content.label}</label>
                     {if $prop_content.type == 'textarea'}
 
-                        <textarea id="mediaProperty{$prop_content@key}" name="serendipity[mediaProperties][{$file@key}][{$prop_content.title}]" rows="5">{$prop_content.val|escape}</textarea>
+                        <textarea id="mediaProperty{$prop_content@key}" name="serendipity[mediaProperties][0][{$prop_content.title}]" rows="5">{$prop_content.val|escape}</textarea>
                     {elseif $prop_content.type == 'readonly'}
                         {$prop_content.val|escape}
                     {elseif $prop_content.type == 'input'}
 
-                        <input id="mediaProperty{$prop_content@key}" name="serendipity[mediaProperties][{$file@key}][{$prop_content.title}]" type="text" value="{$prop_content.val|escape}">
+                        <input id="mediaProperty{$prop_content@key}" name="serendipity[mediaProperties][0][{$prop_content.title}]" type="text" value="{$prop_content.val|escape}">
                     {/if}
 
                     </div>
@@ -368,9 +368,9 @@
                     <fieldset class="media_properties_selects">
                       <legend> {$CONST.XOR} &nbsp;<span class="media_file_properties actions"><a class="media_show_info button_link" href="#media_select_props" title="Media properties select actions"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> Media properties selections info</span></a></span> </legend>
                       <div class="form_select">
-                        <label for="newDir{$file@key}">{$CONST.FILTER_DIRECTORY}</label>
-                        <input type="hidden" name="serendipity[mediaDirectory][{$file@key}][oldDir]" value="{$file.path|escape}">
-                        <select id="newDir{$file@key}" name="serendipity[mediaDirectory][{$file@key}][newDir]">
+                        <label for="newDir">{$CONST.FILTER_DIRECTORY}</label>
+                        <input type="hidden" name="serendipity[mediaDirectory][0][oldDir]" value="{$file.path|escape}">
+                        <select id="newDir" name="serendipity[mediaDirectory][0][newDir]">
                             <option{if empty($file.path)} selected="selected"{/if} value="">{$CONST.BASE_DIRECTORY}</option>
                         {foreach $media.paths AS $folder}
 
@@ -382,9 +382,9 @@
                     {if $file.is_image AND $media.resetperm}
 
                       <div class="form_select">
-                        <label for="newFormat{$file@key}">{$CONST.FORMATS}</label>
-                        <input type="hidden" name="serendipity[mediaFormat][{$file@key}][oldMime]" value="{$file.mime}">
-                        <select id="newFormat{$file@key}" name="serendipity[mediaFormat][{$file@key}][newMime]">
+                        <label for="newFormat">{$CONST.FORMATS}</label>
+                        <input type="hidden" name="serendipity[mediaFormat][0][oldMime]" value="{$file.mime}">
+                        <select id="newFormat" name="serendipity[mediaFormat][0][newMime]">
                         {foreach $media.formats AS $format}{if $format.mime == 'image/webp' OR $format.mime == 'image/avif'}{assign "isvariation" true}{/if}
 
                             <option{if ($file.mime == $format.mime)} selected="selected"{/if} value="{$format.mime}">{$format.extension}</option>
@@ -409,8 +409,8 @@
                         {if NOT empty($keyword.name)}
 
                         <li>
-                            <input id="mediaKeyword{$keyword.name}{$file@key}" name="serendipity[mediaKeywords][{$file@key}][{$keyword.name}]" type="checkbox" value="true"{if $keyword.selected} checked="checked"{/if}>
-                            <label for="mediaKeyword{$keyword.name}{$file@key}">{$keyword.name|truncate:20:"&hellip;"}</label>
+                            <input id="mediaKeyword{$keyword.name}" name="serendipity[mediaKeywords][0][{$keyword.name}]" type="checkbox" value="true"{if $keyword.selected} checked="checked"{/if}>
+                            <label for="mediaKeyword{$keyword.name}">{$keyword.name|truncate:20:"&hellip;"}</label>
                         </li>
                         {/if}
                         {/foreach}
