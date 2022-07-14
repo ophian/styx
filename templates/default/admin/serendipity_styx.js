@@ -1778,17 +1778,17 @@ $(function() {
         $image.addClass('media_file_rotate');
         $.ajaxSetup({
           beforeSend: function() {
-             $spinner.toggle();
+            $spinner.toggle();
           },
           complete: function(){
-             $spinner.toggle();
+            $spinner.toggle();
+            $image.toggleClass('media_file_rotate');
+            $preview.toggleClass('dimdark');
           },
           success: function() {}
         });
         $.get($rotateButton.attr('href'), function() {
-            serendipity.reloadImage($rotateButton.closest('.media_file').find('img'));
-            $image.toggleClass('media_file_rotate');
-            $preview.toggleClass('dimdark');
+            serendipity.reloadImage($image);
         });
     })
 
