@@ -3564,6 +3564,11 @@ label .perm_name,
 .js #waitingspin.pulsator div {
     border: 4px solid #000;
 }
+.js .pulsator {
+    position: absolute;
+    opacity: 1;
+    z-index: 2;
+}
 .js .pulsator div {
     position: absolute;
     border: 4px solid #fff;
@@ -3579,6 +3584,10 @@ label .perm_name,
     5% { top: 36px; left: 36px; width: 0; height: 0; opacity: 0; }
     10% { top: 36px; left: 36px; width: 0; height: 0; opacity: 1; }
     100% { top: 0px; left: 0px; width: 72px; height: 72px; opacity: 0; }
+}
+
+.js .media_pane .media_file_rotate {
+    opacity: .5;
 }
 
 .js .media_pane .media_file_meta,
