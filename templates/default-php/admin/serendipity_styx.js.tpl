@@ -1723,6 +1723,12 @@ $(function() {
         }
     });
 
+    // Send media on properties form to a new format
+    $('#mediaPropertyForm').submit(function() {
+      $('body, html').animate({ 'scrollTop' : $('form').offset().top }, 500);
+      $( '#waitingspin' ).toggle();
+    });
+
     // Media scale change events
     $('#resize_width').change(function() {
         serendipity.rescale('width' , $(this).val());
