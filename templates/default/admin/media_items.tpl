@@ -148,7 +148,9 @@
                         </div>
                     {/if}
                 {else}
-                    {if $file.is_image}
+                    {if $file.is_image}{if NOT $media.enclose}
+
+                        <div id="waitingspin" class="pulsator format_image" style="display: none"><div></div><div></div></div>{/if}
 
                         <picture>{if isset($file.thumbSizeAVIF) AND $file.thumbSizeAVIF > 252 AND $file.thumbSizeAVIF != 34165 AND $file.thumbSizeAVIF != 3389 AND ($file.thumbSizeWebp == 0 OR $file.thumbSizeAVIF < $file.thumbSizeWebp)}
 
