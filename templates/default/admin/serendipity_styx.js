@@ -1769,7 +1769,13 @@ $(function() {
     // ajaxify image rotate, solving cache issue
     $('.media_rotate_right,.media_rotate_left').click(function(e) {
         e.preventDefault();
+        $rotateButton = $(this)
+        $preview = $(this).parent().parent().siblings().find('.media_file_preview');
+        $image   = $rotateButton.closest('.media_file').find('img');
         $spinner = $(this).parent().parent().siblings().find('.pulsator');
+
+        $preview.addClass('dimdark');
+        $image.addClass('media_file_rotate');
         $.ajaxSetup({
           beforeSend: function() {
              $spinner.toggle();
@@ -1779,9 +1785,10 @@ $(function() {
           },
           success: function() {}
         });
-        var $rotateButton = $(this)
         $.get($rotateButton.attr('href'), function() {
             serendipity.reloadImage($rotateButton.closest('.media_file').find('img'));
+            $image.toggleClass('media_file_rotate');
+            $preview.toggleClass('dimdark');
         });
     })
 
