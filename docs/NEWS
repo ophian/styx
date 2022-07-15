@@ -2,6 +2,8 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Extend image configuration ENABLEAVIF_DESC by issue solve up from PHP 8.2
+
   * Improve MediaLibrary media properties form by new "busy"-Icon too,
     especially when doing media format changes.
 
