@@ -906,15 +906,15 @@
 
     serendipity.reloadImage = function(img) {
         var chash = Math.random();
-        $(img).attr('src', $(img).attr('src')+'?'+chash);
+        $(img).attr('src', $(img).attr('src').split('?')[0]+'?'+chash);
         $(img).siblings().each(function() {
-            var varimg = $(this).attr('srcset');
+            var varimg = $(this).attr('srcset').split('?')[0];
             if (varimg.length > 0) {
                 $(this).attr('srcset', varimg+'?'+chash);
             }
         });
         var slink = $(img).closest('article').find('> ul.media_file_actions .media_fullsize');
-        $(slink).attr('href', $(slink).attr('href')+'?'+chash);
+        $(slink).attr('href', $(slink).attr('href').split('?')[0]+'?'+chash);
     }
 
     serendipity.catsList = function() {
