@@ -2090,6 +2090,7 @@ html[data-login-color-mode="dark"], [data-login-color-mode="dark"] button, [data
 }
 .media_file.mfile_prop h3 {
     width: 100%;
+    overflow: clip;
 }
 /* plugin stackable status icons (1), media hotlink share to media properties (2) */
 #content > h2 > svg,
@@ -2216,17 +2217,27 @@ fieldset p,
 }
 
 .media_file_metadata dl {
-    border-top: 1px solid #aaa;
-    float: left;
+    display: block;
     margin-top: 0;
+    border-top: 1px solid #aaa;
 }
-
 .media_file_metadata dt,
 .media_file_metadata dd {
-    border-bottom: 1px solid #aaa;
-    float: left;
+    display: inline-block;
     min-width: 15em;
+    width: auto;
     padding: .25em 0;
+    border-bottom: 1px solid #aaa;
+    overflow-wrap: break-word;
+    overflow: auto;
+}
+.media_file_metadata dd {
+    width: 100%;
+}
+@media only screen and (min-width: 640px) {
+    .media_file_metadata dd {
+        width: 70%;
+    }
 }
 
 .media_sync_thumbs .media_sync_list,
@@ -4356,7 +4367,7 @@ img.mfp-img {
 }
 
 @media only screen and (min-width: 560px) {
-    .media_file,
+    .media_file:not(.mfile_prop),
     .theme_file,
     .current_template,
     .current_backend_template  {
