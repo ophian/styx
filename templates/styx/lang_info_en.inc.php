@@ -32,6 +32,7 @@ This Standard Backend has its own style declarations, analogous to the "default/
 * 2021-05-05 - Improved input / radio field styles for ugly Mozilla(89+)/Chromium default (blue) outsign
 * 2021-06-19 - Styx Dark Mode
 * 2021-12-06 - Add Styx login Page Dark Mode
+* 2022-07-15 - Improve media properties styles including EXIF data and for responsive fluids
 </pre>
 
 THE FOLLOWING IS THE DESCRIPTION OF THE RELEGATED BACKEND&colon;<br>

@@ -26,12 +26,13 @@ Dieses Standard Backend verfügt über eine eigene styles Auszeichnung, analog zur
 * 2020-12-06 - Erlaube Media Screen iPhone 5/SE mit 320px Größen für media filter HTML datetime Felder.
 * 2021-02 / 2021-03 - Kleinere Verbesserungen im den CSS styles.
 * 2021-03-26 - Entries/Comments Filter Toolbars werden ab 360px Screen Breiten nach rechts verschoben.
-* 2021-03-29 - Erweiterung mit rechts gefloateten Toolbar Grupppen für Plugins/Themes/Eigene-Einstellungen mit "all" klappbaren Konfigurations Gruppen Containern.
+* 2021-03-29 - Erweiterung mit rechts gefloateten Toolbar Gruppen für Plugins/Themes/Eigene-Einstellungen mit "all" klappbaren Konfigurations Gruppen Containern.
 * 2021-04-01 - Cleanup für media inputs in Konfigurationsseiten.
 * 2021-04-28 - Mozilla: Fix des rechts fehlenden blau-schimmer Schattens bei bestimmten Klapp-bar-Buttons
 * 2021-05-05 - Verbesserte Eingabe-/Radiofelder für die (blaue) Standard-Mozilla(89+)/Chromium-Darstellung
 * 2021-06-19 - Styx Dark Mode
 * 2021-12-06 - Erweiterung für Styx login Page Dark Mode
+* 2022-07-15 - Verbesserte media properties styles inclusive EXIF data und responsive fluids
 </pre>
 
 DAS FOLGENDE IST DIE BESCHREIBUNG DES FALLBACK BACKENDS&colon;<br>
