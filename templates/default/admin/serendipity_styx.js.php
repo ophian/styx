@@ -901,7 +901,6 @@
               type: 'iframe'
             });
         <?php endif; ?>
-
     };
 
     serendipity.reloadImage = function(img) {
