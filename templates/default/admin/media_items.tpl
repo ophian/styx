@@ -285,6 +285,9 @@
                     {else if NOT empty($file.sizeWebp) && $file.sizeWebp < $file.size}
 
                     <li class="special"><a class="media_fullsize media_prop button_link" href="{$file.full_file_webp}" title="{$CONST.VARIATION}: {$file.full_file_webp|regex_replace:"~{$serendipityHTTPPath}uploads/{$file.path}.v/~":''}, {$file.dim_orig.0}x{$file.dim_orig.1}px" data-pwidth="{$file.dim_orig.0}" data-pheight="{$file.dim_orig.1}"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span><span class="visuallyhidden"> Image Of</span></a></li>
+                    {else if $file.is_image AND NOT $file.hotlink AND NOT in_array($file.extension, ['avif', 'webp'])}
+
+                    <li><a class="media_prop button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=variations&amp;serendipity[fid]={$file.id}{if isset($smarty.get.serendipity.page)}&amp;serendipity[page]={$smarty.get.serendipity.page}{/if}" title="{$CONST.MEDIA_CREATEVARS}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_CREATEVARS}</span></a></li>
                     {/if}
                 {/if}
 
