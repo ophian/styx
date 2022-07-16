@@ -12,7 +12,7 @@ Version 3.9-DEV ()
 
     More fine-graining would make this approach way too complicated, since this
     is for consistency or single image requirements only.
-    So - apart from upload case - we now have either the
+    So - apart from upload case and some special syncs - we now have either the
         - single image run OR
         - the maintenance image section bulk conversions.
 
