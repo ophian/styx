@@ -1692,10 +1692,11 @@ function serendipity_rotateImg($id, $degrees) {
 
 /**
  * Force an image AVIF/WebP Variation file format conversion on all supported files by range
+ * OR run-it for a single given image via MediaLibrary image items toolbar button.
  *
  * @return int num $items converted
  */
-function serendipity_generateVariations() {
+function serendipity_generateVariations($id = null) {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
@@ -1710,6 +1711,64 @@ function serendipity_generateVariations() {
         $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START MS serendipity_generateVariations() SEPARATOR" . str_repeat(" >>> ", 10) . "\n");
         $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
     }
+    // single image upgrade only
+    if (!empty($id)) {
+        $file = serendipity_fetchImageFromDatabase($id);
+        if (is_array($file) && !empty($file)) {
+            $resWebP = $resAVIF = false; // init
+            if (!in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png']) || $file['hotlink'] == 1) {
+                return false;
+            }
+            if ($debug) $logtag = 'SINGLE ML IMAGE-ADD-VARIATION - PART RUN ::';
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag EACH FILE AFTER: ".print_r($file,1)); }
+            $infile    = $outfile   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
+            $infileTH  = $outfileTH = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['thumbnail_name']) ? '' : '.' . $file['thumbnail_name']) . (empty($file['extension']) ? '' : '.' . $file['extension']);
+
+            // WebP case
+            if ($serendipity['useWebPFormat']) {
+                $newfile   = serendipity_makeImageVariationPath($outfile, 'webp');
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE WEBP: ".print_r($newfile,1)); }
+                $newfileTH = serendipity_makeImageVariationPath($outfileTH, 'webp');
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB WEBP: ".print_r($newfileTH,1)); }
+                if (in_array(strtoupper(explode('/', mime_content_type($outfile))[1]), serendipity_getSupportedFormats())) {
+                    $odim = filesize($infile);
+                    $webpIMQ = -1;
+                    #   1024 B x            3.6 MB         6 MB           9 MB           12 MB
+                    $dimensions = [0 => -1, 3686400 => 90, 6144000 => 85, 9216000 => 80, 12288000 => 75];
+                    foreach ($dimensions AS $dk => $dv) {
+                        if ($odim > $dk) {
+                            $webpIMQ = $dv;
+                        }
+                    }
+                } else {
+                    $webpIMQ = -1;
+                }
+                $result    = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true, $webpIMQ); // Origins WebP copy variation only in case it is big, else we might get bigger webp lossless expression than the origin
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO WEBP: ".print_r($result,1)); }
+                if ($result !== false && is_array($result) && $result[0] == 0) {
+                    serendipity_convertToWebPFormat($infileTH, $newfileTH['filepath'], $newfileTH['filename'], mime_content_type($outfileTH), true); // WebP thumbnail uses full quality by auto default
+                    $resWebP = true;
+                }
+            }
+            // AVIF case
+            if ($serendipity['useAvifFormat']) {
+                $newfile   = serendipity_makeImageVariationPath($outfile, 'avif');
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE AVIF: ".print_r($newfile,1)); }
+                $newfileTH = serendipity_makeImageVariationPath($outfileTH, 'avif');
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB AVIF: ".print_r($newfileTH,1)); }
+
+                $result    = serendipity_convertToAvifFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true);
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO AVIF: ".print_r($result,1)); }
+                if ($result !== false && is_array($result) && $result[0] == 0) {
+                    serendipity_convertToAvifFormat($infileTH, $newfileTH['filepath'], $newfileTH['filename'], mime_content_type($outfileTH), true);
+                    $resAVIF = true;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+    // bulk work
     $count = serendipity_db_query("SELECT count(*) FROM {$serendipity['dbPrefix']}images WHERE extension IN ('jpg', 'jpeg', 'png')", true, 'num');
     $i = 0;
     $iteration = 1;
