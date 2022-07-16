@@ -2,6 +2,8 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add new image processing "busy"-Icon to [+] icon action too
+
   * Refactor generating additional image variations by adding single image
     variations directly from MediaLibrary image items toolbar by a [+] icon,
     replacing the last [image-of] variation link icon in case.
