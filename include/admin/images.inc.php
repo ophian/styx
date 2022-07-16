@@ -371,6 +371,15 @@ switch ($serendipity['GET']['adminAction']) {
         echo serendipity_showPropertyForm($new_media);
         break;
 
+    // add single image variations per image
+    case 'variations':
+        if (serendipity_generateVariations((int)$serendipity['GET']['fid'])) {
+            echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> '.DONE.'! ' . "</span>\n";
+        } else {
+            echo '<div class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> Generating additional variations by this image not possible or available!' . "</span>\n";
+        }
+        break;
+
     case 'add':
         if (!serendipity_checkFormToken() || !serendipity_checkPermission('adminImagesAdd')) {
             return;
