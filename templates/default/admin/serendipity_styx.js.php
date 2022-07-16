@@ -1967,6 +1967,13 @@ $(function() {
         $('#' + window.location.hash.replace('#', '')).find(".toggle_info").click();
     }
 
+    // run spinner when adding single image variations via [+] icon
+    $('.media_addvar').click(function() {
+        $preview = $(this).parent().parent().siblings().find('.media_file_preview');
+        $preview.addClass('dimdark');
+        $preview.find('.pulsator').toggle();
+    })
+
     // ajaxify image rotate, solving cache issue
     $('.media_rotate_right,.media_rotate_left').click(function(e) {
         e.preventDefault();
