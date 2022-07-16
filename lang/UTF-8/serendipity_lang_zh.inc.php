@@ -879,6 +879,7 @@
 @define('MEDIA_EXIF_DESC', '如果开启，EXIF/JPEG 图库里的 metadata 会自动保存到数据库。');
 @define('MEDIA_PROP', '媒体内容');
 @define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as public media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname!');
+@define('MEDIA_CREATEVARS', 'Add additional image variations');
 
 @define('GO_ADD_PROPERTIES', '输入内容');
 @define('MEDIA_PROPERTY_DPI', 'DPI');

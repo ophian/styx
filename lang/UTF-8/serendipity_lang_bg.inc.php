@@ -878,6 +878,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('MEDIA_EXIF_DESC', 'Ако е позволено, съществуващите EXIF/JPEG метаданни в изображенията ще бъдат прочетени и записани в базата данни. Така ще има възможност да бъдат показвани в галерията с изображения.');
 @define('MEDIA_PROP', 'Свойства на медиийните файлове');
 @define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as public media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname!');
+@define('MEDIA_CREATEVARS', 'Add additional image variations');
 
 @define('GO_ADD_PROPERTIES', 'Продължаване за въвеждане на свойства');
 @define('MEDIA_PROPERTY_DPI', 'DPI');

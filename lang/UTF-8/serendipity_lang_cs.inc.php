@@ -886,6 +886,7 @@ $i18n_filename_to = array (
 @define('MEDIA_EXIF_DESC', 'Je-li povoleno, existující EXIF/JPEG metadata obrázků budou parsována a uložena v databázi, aby je bylo možno zobrazit v galerii medií.');
 @define('MEDIA_PROP', 'Vlastnosti media');
 @define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as public media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname!');
+@define('MEDIA_CREATEVARS', 'Add additional image variations');
 
 @define('GO_ADD_PROPERTIES', 'Zadej vlastnosti');
 @define('MEDIA_PROPERTY_DPI', 'DPI');

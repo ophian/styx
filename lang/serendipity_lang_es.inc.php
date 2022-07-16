@@ -897,6 +897,7 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('MEDIA_EXIF_DESC', 'Si lo activas, la metadata de las imágenes EXIF/JPEG existentes será analizada y almacenada en la base de datos para ser mostrada en la galería de medios.');
 @define('MEDIA_PROP', 'Propiedades de Medios');
 @define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as public media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname!');
+@define('MEDIA_CREATEVARS', 'Add additional image variations');
 
 @define('GO_ADD_PROPERTIES', 'Ir & ingresar propiedades');
 @define('MEDIA_PROPERTY_DPI', 'DPI');

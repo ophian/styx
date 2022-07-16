@@ -877,6 +877,7 @@
 @define('MEDIA_EXIF_DESC', 'Als dit aan staat, worden bestaande EXIF/JPEG-gegevens van afbeeldingen ingelezen en opgeslagen in de databank om weer te geven in de mediaverzameling.');
 @define('MEDIA_PROP', 'Media-eigenschappen');
 @define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as public media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname!');
+@define('MEDIA_CREATEVARS', 'Add additional image variations');
 
 @define('GO_ADD_PROPERTIES', 'Wijzig afbeeldingseigenschappen');
 @define('MEDIA_PROPERTY_DPI', 'DPI');

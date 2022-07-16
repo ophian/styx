@@ -876,6 +876,7 @@
 @define('MEDIA_EXIF_DESC', 'Hvis aktiv, vil EXIF/JPEG metadata blive indlæst og gemt i databasen for senere at kunne vises i medie galleriet.');
 @define('MEDIA_PROP', 'Medie egenskaber');
 @define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as public media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname!');
+@define('MEDIA_CREATEVARS', 'Add additional image variations');
 
 @define('GO_ADD_PROPERTIES', 'Go & enter properties');
 @define('MEDIA_PROPERTY_DPI', 'DPI');

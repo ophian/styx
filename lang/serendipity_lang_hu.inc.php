@@ -875,6 +875,7 @@
 @define('MEDIA_EXIF_DESC', 'Ha ezt engedélyezed, akkor a képeknél már létezõ EXIF/JPEG metaadatok bekerülnek az adatbázisba, és megjelennek a médiagalériban.');
 @define('MEDIA_PROP', 'Média tulajdonságok');
 @define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as public media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname!');
+@define('MEDIA_CREATEVARS', 'Add additional image variations');
 
 @define('GO_ADD_PROPERTIES', 'Mehet, majd utána a tulajdonságok szerkesztése');
 @define('MEDIA_PROPERTY_DPI', 'DPI');

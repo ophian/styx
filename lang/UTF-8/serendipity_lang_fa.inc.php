@@ -877,6 +877,7 @@
 @define('MEDIA_EXIF_DESC', 'در صورت فعال بودن، لیست اطلاعات موجود در EXIF/JPEG تصاویر، برای نمایش داده شدن در بخش گالری، در پایگاه داده ذخیره می شود.');
 @define('MEDIA_PROP', 'اطلاعات رسانه');
 @define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as public media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname!');
+@define('MEDIA_CREATEVARS', 'Add additional image variations');
 
 @define('GO_ADD_PROPERTIES', 'اطلاعات را وارد کن');
 @define('MEDIA_PROPERTY_DPI', 'DPI');

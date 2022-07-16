@@ -872,6 +872,7 @@
 @define('MEDIA_EXIF_DESC', 'Falls aktiviert, werden EXIF/JPEG Metadaten ausgelesen und in der Datenbank gespeichert.');
 @define('MEDIA_PROP', 'Medien-Eigenschaften');
 @define('MEDIA_PROP_STATUS', 'Die Formular-Eingabewerte "alt", "comment"s und "title" als öffentliche Medieneigenschaften sind noch nicht gespeichert, ODER entsprechen dem Standard. Derzeit wird ein Bildtitel-Attribut automatisch durch den Dateinamen erzeugt!');
+@define('MEDIA_CREATEVARS', 'Zusätzliche Bild-Variationen erzeugen');
 
 @define('GO_ADD_PROPERTIES', 'Los & Eigenschaften angeben');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
