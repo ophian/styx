@@ -2,6 +2,31 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Refactor generating additional image variations by adding single image
+    variations directly from MediaLibrary image items toolbar by a [+] icon,
+    replacing the last [image-of] variation link icon in case.
+    This only is available, if:
+        - the image is not a webp/avif image itself,
+        - has no variation (like webp) already set,
+        - is not a hotlink (external) image file.
+
+    More fine-graining would make this approach way too complicated, since this
+    is for consistency or single image requirements only.
+    So - apart from upload case - we now have either the
+        - single image run OR
+        - the maintenance image section bulk conversions.
+
+    Since the latter - especially when including AVIF encoding - is NOT a task
+    for every server and its given resources, you can use additional AVIF
+    variations only for new image uploads OR when you personally remove that
+    specific image path set .v/***.webp variations (full/thumb) in the file
+    system yourself. In that case the reload of your MediaLibrary will add the
+    new [+] icon, mentioned above.
+    JUST NOTE:
+        If your blog has used WebP variations already and you then enable
+        additional AVIF for PHP 8.1/8.2, you can happily live without doing
+        any additional conversion on old data.
+
   * Improve [ styx ]-theme media properties page CSS styles for EXIF data and
     responsive fluids.
 
