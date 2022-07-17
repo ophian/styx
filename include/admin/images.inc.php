@@ -237,7 +237,7 @@ switch ($serendipity['GET']['adminAction']) {
         if (!serendipity_checkFormToken() || !serendipity_checkPermission('adminImagesDirectories')) {
             return; // blank content page, but default token check parameter is presenting a XSRF message when false
         }
-        if ((!isset($serendipity['POST']['multiCheck']) || !is_array($serendipity['POST']['multiCheck'])) && (isset($_POST['toggle_move']) || isset($_POST['toggle_delete']))) {
+        if (!isset($serendipity['POST']['multiCheck']) || (!is_array($serendipity['POST']['multiCheck']) && (isset($_POST['toggle_move']) || isset($_POST['toggle_delete'])))) {
             echo '<div class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(MULTICHECK_NO_ITEM, serendipity_specialchars($_SERVER['HTTP_REFERER'], ENT_QUOTES | ENT_HTML401)) . '</div>'."\n";
             return; // blank content page exit
         }
