@@ -670,12 +670,12 @@
                 success: function(response) {
                     $response = (response.trim() == '')
                         ? '<p>Done!</p>\
-                           <button id="rename_ok" class="button_link state_submit" type="button">Go!</button>\
+                           <button id="rename_ok" class="button_link state_submit" type="button"> Go! </button>\
                           '
                         : response + ((response.indexOf("error") > -1) ? '\
                            <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> If you see this message there was probably an error message and something could not be done. To be able to undo any partial changes you may have made, the current MediaLibrary page is not reloaded by the following button. This means that the same action can be repeated directly with the old name so that the successing changes are back to the old state. On the other hand, partial changes that have already been made only become visible when you reload the current page manually! It is a question of which option you give priority to. The former is recommended, even if the error message probably repeats itself similarly, in order to only then trace the cause of the actual error message. Copy the error message for the subsequent debugging!</span>\
                            <input class="go_back" type="button" onClick="$.magnificPopup.close();" value="Back">\
-                          ' : ' <button id="rename_ok" class="button_link state_submit" type="button">Go!</button>\
+                          ' : ' <button id="rename_ok" class="button_link state_submit" type="button"> Go! </button>\
                           ');
                     $.magnificPopup.open({
                         items: {
@@ -704,7 +704,7 @@
                                         <h4>Rename this file</h4>\
                                         <p>"Status: " + textStatus</p>\
                                         '+ errorThrown +'\
-                                        <button id="rename_error" class="button_link state_submit" type="button" >Go!</button>\
+                                        <button id="rename_error" class="button_link state_submit" type="button"> Go! </button>\
                                         </div>')
                         },
                         type: 'inline',
@@ -735,7 +735,7 @@
                                 src: $('<div id="delete_msg">\
                                         <h4>Delete this file</h4>\
                                         '+ jqXHR + '\
-                                        <button id="delete_ok" class="button_link state_submit" type="button" >Go!</button>\
+                                        <button id="delete_ok" class="button_link state_submit" type="button"> Go! </button>\
                                         </div>')
                         },
                         type: 'inline',
@@ -760,7 +760,7 @@
                                         '+ jqXHR + '\
                                         <p>"Status: " + textStatus</p>\
                                         '+ errorThrown +'\
-                                        <button id="delete_error" class="button_link state_submit" type="button" >Go!</button>\
+                                        <button id="delete_error" class="button_link state_submit" type="button"> Go! </button>\
                                         </div>')
                         },
                         type: 'inline',

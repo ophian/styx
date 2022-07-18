@@ -666,12 +666,12 @@
                 success: function(response) {
                     $response = (response.trim() == '')
                         ? '<p><?= DONE ?>!</p>\
-                           <button id="rename_ok" class="button_link state_submit" type="button"><?= GO ?></button>\
+                           <button id="rename_ok" class="button_link state_submit" type="button"> <?= GO ?> </button>\
                           '
                         : response + ((response.indexOf("error") > -1) ? '\
                            <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> <?= MEDIA_RENAME_ERROR_RELOAD ?></span>\
                            <input class="go_back" type="button" onClick="$.magnificPopup.close();" value="<?= BACK ?>">\
-                          ' : ' <button id="rename_ok" class="button_link state_submit" type="button"><?= GO ?></button>\
+                          ' : ' <button id="rename_ok" class="button_link state_submit" type="button"> <?= GO ?> </button>\
                           ');
                     $.magnificPopup.open({
                         items: {
@@ -700,7 +700,7 @@
                                         <h4><?= MEDIA_RENAME ?></h4>\
                                         <p>"Status: " + textStatus</p>\
                                         '+ errorThrown +'\
-                                        <button id="rename_error" class="button_link state_submit" type="button" ><?= GO ?></button>\
+                                        <button id="rename_error" class="button_link state_submit" type="button"> <?= GO ?> </button>\
                                         </div>')
                         },
                         type: 'inline',
@@ -731,7 +731,7 @@
                                 src: $('<div id="delete_msg">\
                                         <h4><?= MEDIA_DELETE ?></h4>\
                                         '+ jqXHR + '\
-                                        <button id="delete_ok" class="button_link state_submit" type="button" ><?= GO ?></button>\
+                                        <button id="delete_ok" class="button_link state_submit" type="button"> <?= GO ?> </button>\
                                         </div>')
                         },
                         type: 'inline',
@@ -756,7 +756,7 @@
                                         '+ jqXHR + '\
                                         <p>"Status: " + textStatus</p>\
                                         '+ errorThrown +'\
-                                        <button id="delete_error" class="button_link state_submit" type="button" ><?= GO ?></button>\
+                                        <button id="delete_error" class="button_link state_submit" type="button"> <?= GO ?> </button>\
                                         </div>')
                         },
                         type: 'inline',
