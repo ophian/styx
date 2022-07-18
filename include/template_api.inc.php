@@ -68,22 +68,27 @@ class Smarty
 /* PHP template Smarty emulator */
 class serendipity_smarty_emulator
 {
-    var $compile_dir = '/tmp'; // Not used
-    var $security_settings = array(); // Not used
+    private $compile_dir = '/tmp'; // Not used
+    private $security_settings = []; // Not used
+
+    private $config_dir = null;
+    private $_configDirNormalized = null;
+    private $_templateDirNormalized = null;
+    private $_joined_config_dir = null;
 
     /**
      * flags for normalized template directory entries
      *
      * @var array
      */
-    protected $_processedConfigDir = array(); // cloned from Smarty, since used in methods below
+    private $_processedConfigDir = []; // cloned from Smarty, since used in methods below
 
     /**
      * template directory
      *
      * @var array
      */
-    protected $template_dir = array('./templates/', './plugins/'); // cloned from Smarty, and extended with plugins, since used in methods below
+    private $template_dir = ['./templates/', './plugins/']; // cloned from Smarty, and extended with plugins, since used in methods below
 
     /**
      * Directory separator
