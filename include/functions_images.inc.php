@@ -485,7 +485,7 @@ function serendipity_deleteImageVariations($id) {
                     }
                 }
             } else {
-                $messages .= sprintf('<span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> ' . DELETE_HOTLINK_FILE . "</span>\n", $file['name']);
+                $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . DELETE_FILE_FAIL . "</span>\n", $file['name']);
             }
         }
     }
