@@ -874,6 +874,10 @@
 @define('MEDIA_PROP_STATUS', 'Die Formular-Eingabewerte "alt", "comment"s und "title" als öffentliche Medieneigenschaften sind noch nicht gespeichert, ODER entsprechen dem Standard. Derzeit wird ein Bildtitel-Attribut automatisch durch den Dateinamen erzeugt!');
 @define('MEDIA_CREATEVARS', 'Zusätzliche Bild-Variationen erzeugen');
 
+@define('DIALOG_DELETE_VARIATIONS_PERITEM', 'Ja [ENTER-key] löscht alle Vorkommen dieser Datei; Nein [SPACE-key] löscht nur deren Bildvariationen (falls vorhanden), damit sie folgend über das [+] icon erneut aufgebaut werden können; Abbrechen [ESC-key] bewirkt nichts! "Ja" und "Nein" Aktionen können im Weiteren ebenfalls abgebrochen werden.');
+@define('DIALOG_DELETE_FILE_CONTINUE', 'Lösche Datei "%s"... Weiter ?');
+@define('DIALOG_DELETE_VARIATIONS', 'Variationen löschen');
+
 @define('GO_ADD_PROPERTIES', 'Los & Eigenschaften angeben');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Copyright');

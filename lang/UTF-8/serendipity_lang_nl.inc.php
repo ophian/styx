@@ -879,6 +879,10 @@
 @define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as public media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname!');
 @define('MEDIA_CREATEVARS', 'Add additional image variations');
 
+@define('DIALOG_DELETE_VARIATIONS_PERITEM', 'Yes [ENTER-key] will delete all occurrences of this file; No [SPACE-key] only deletes the image variations (if any), so that they can be rebuilt afterwards via the [+] icon; Cancel [ESC-key] will do nothing! "Yes" and "No" confirmation actions in the following can also be aborted.');
+@define('DIALOG_DELETE_FILE_CONTINUE', 'Delete file "%s"... Continue ?');
+@define('DIALOG_DELETE_VARIATIONS', 'Delete Variations');
+
 @define('GO_ADD_PROPERTIES', 'Wijzig afbeeldingseigenschappen');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Auteursrecht');
