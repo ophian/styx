@@ -718,6 +718,67 @@
         }
     }
 
+    // magnificPopup front-end tristate dialog deleting media files and/or variations
+    serendipity.confirmDialog = function(message, file, $el) {
+        var dialog = '<div class="dialog confirm mfp-container">';
+        if (file) {
+            var prep = '<?= DIALOG_DELETE_FILE_CONTINUE ?>';
+            dialog += '  <h2> ' + prep.replace(/%s/i, file)  + '</h2>';
+        }
+        dialog += '  <div class="content"><p>' + message + '</p></div>';
+        dialog += '  <div class="actions">';
+        dialog += '    <button class="btn btn-primary btn-yes" type="button" role="button" aria-labelledby="ENTER-key"> <?= YES ?> </button>';
+        dialog += '    <button class="btn btn-default btn-cancel" type="button" role="button" aria-labelledby="ESC-key"> <?= ABORT_NOW ?> </button> ';
+        dialog += '    <button class="btn btn-second btn-no" type="button" role="button" aria-labelledby="SPACE-key"> <?= NO ?> </button> ';
+        dialog += '  </div>';
+        dialog += '</div>';
+
+        $.magnificPopup.open( {
+            modal: true,
+            items: {
+                src: dialog,
+                type: 'inline'
+            },
+            callbacks: {
+                open: function() {
+                    var $content = $(this.content);
+
+                    $content.on('click', '.btn-yes', function() {
+                        serendipity.deleteFromML($el.attr('data-fileid'), $el.attr('data-filename'), 'doDelete');
+                        $.magnificPopup.close();
+                        $(document).off('keydown', keydownHandler);
+                    });
+
+                    $content.on('click', '.btn-cancel', function() {
+                        $.magnificPopup.close();
+                        $(document).off('keydown', keydownHandler);
+                    });
+
+                    $content.on('click', '.btn-no', function() {
+                        serendipity.deleteFromML($el.attr('data-fileid'), '.v/'+$el.attr('data-filename'), 'doDeleteVariations');
+                        $.magnificPopup.close();
+                        $(document).off('keydown', keydownHandler);
+                    });
+
+                    var keydownHandler = function (e) {
+                    console.log(e.keyCode);
+                        if (e.keyCode == 13) { // ENTER key
+                            $content.find('.btn-yes').click();
+                            return false;
+                        } else if (e.keyCode == 32) { // SPACE key
+                            $content.find('.btn-no').click();
+                            return false;
+                        } else if (e.keyCode == 27) { // ESC key
+                            $content.find('.btn-cancel').click();
+                            return false;
+                        }
+                    };
+                    $(document).on('keydown', keydownHandler);
+                }
+            }
+        });
+    };
+
     // Delete file from ML
     serendipity.deleteFromML = function(id, fname) {
         if (confirm('<?= MEDIA_DELETE ?>: "'+ fname +'" ?')) {
