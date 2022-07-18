@@ -1762,9 +1762,8 @@ $(function() {
     $('.media_delete').click(function(e) {
         e.preventDefault();
         var $el = $(this);
-        serendipity.deleteFromML($el.attr('data-fileid'), $el.attr('data-filename'));
+        serendipity.confirmDialog('<?= DIALOG_DELETE_VARIATIONS_PERITEM ?>', $el.attr('data-filename'), $el);
     });
-
 
     $('#media_crop').click(function(e) {
         window.open($(this).attr('href'), 'ImageCrop', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1').focus();

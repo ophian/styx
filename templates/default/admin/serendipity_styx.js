@@ -1688,9 +1688,8 @@ $(function() {
     $('.media_delete').click(function(e) {
         e.preventDefault();
         var $el = $(this);
-        serendipity.deleteFromML($el.attr('data-fileid'), $el.attr('data-filename'));
+        serendipity.confirmDialog('Yes [ENTER-key] will delete all occurrences of this file; No [SPACE-key] only deletes the image variations (if any), so that they can be rebuilt afterwards via the [+] icon; Cancel [ESC-key] will do nothing! "Yes" and "No" confirmation actions in the following can also be aborted.', $el.attr('data-filename'), $el);
     });
-
 
     $('#media_crop').click(function(e) {
         window.open($(this).attr('href'), 'ImageCrop', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1').focus();
