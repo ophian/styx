@@ -8,7 +8,8 @@ Version 3.9-DEV ()
     simply cleanup Variations per MediaLibrary item to be able to rebuild them
     by the new conditional [+] icon afterwards. IN EXAMPLE, most of them have
     WebP variation occurrences already, but you want them or singular items to
-    offer AVIF expressions too.
+    offer AVIF expressions too. (This makes the file system "handwork" note
+    down below in the [+] icon description obviously obsolete.)
 
   * Add new image processing "busy"-Icon to [+] icon action too
 
