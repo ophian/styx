@@ -782,18 +782,19 @@
         });
     };
 
-    // Delete file from ML
-    serendipity.deleteFromML = function(id, fname) {
-        if (confirm('Delete this file: "'+ fname +'" ?')) {
+    // Delete file from ML - per option all occurrences or only the variations
+    serendipity.deleteFromML = function(id, fname, param) {
+        var headline = (param == 'doDeleteVariations') ? 'Delete Variations' : 'Delete this file';
+        if (confirm(headline +' "'+ fname +'" ?')) {
             var media_token_url = $('input[name*="serendipity[token]"]').val();
-            $.post('?serendipity[adminModule]=images&serendipity[adminAction]=doDelete&serendipity[fid]='+ escape(id) +'&serendipity[token]='+ media_token_url)
+            $.post('?serendipity[adminModule]=images&serendipity[adminAction]='+param+'&serendipity[fid]='+ escape(id) +'&serendipity[token]='+ media_token_url)
             .done(function(jqXHR, textStatus) {
                 if (textStatus == 'success') {
                     $.magnificPopup.open({
                         items: {
                             type: 'inline',
                                 src: $('<div id="delete_msg">\
-                                        <h4>Delete this file</h4>\
+                                        <h4>'+headline+'</h4>\
                                         '+ jqXHR + '\
                                         <button id="delete_ok" class="button_link state_submit" type="button"> Go! </button>\
                                         </div>')
@@ -816,7 +817,7 @@
                         items: {
                             type: 'inline',
                                 src: $('<div id="delete_msg">\
-                                        <h4>Delete this file</h4>\
+                                        <h4>'+headline+'</h4>\
                                         '+ jqXHR + '\
                                         <p>"Status: " + textStatus</p>\
                                         '+ errorThrown +'\
