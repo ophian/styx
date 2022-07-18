@@ -380,6 +380,15 @@ switch ($serendipity['GET']['adminAction']) {
         }
         break;
 
+    case 'doDeleteVariations':
+        if (!serendipity_checkFormToken() || !serendipity_checkPermission('adminImagesDelete')) {
+            break;
+        }
+
+        $data['case_do_delete'] = true;
+        $data['messages'] = serendipity_deleteImageVariations($serendipity['GET']['fid']);
+        break;
+
     case 'add':
         if (!serendipity_checkFormToken() || !serendipity_checkPermission('adminImagesAdd')) {
             return;
