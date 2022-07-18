@@ -2,6 +2,14 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Refactor serendipity.deleteFromML js single media delete dialog actions
+    adding an additional front-end dialog before the image delete confirmation
+    to separate all image and image variation purges only. This allows us to
+    simply cleanup Variations per MediaLibrary item to be able to rebuild them
+    by the new conditional [+] icon afterwards. IN EXAMPLE, most of them have
+    WebP variation occurrences already, but you want them or singular items to
+    offer AVIF expressions too.
+
   * Add new image processing "busy"-Icon to [+] icon action too
 
   * Refactor generating additional image variations by adding single image
