@@ -427,6 +427,73 @@ function serendipity_deleteImage($id) {
 }
 
 /**
+ * Delete a media items Variation files only
+ *
+ * @access public
+ * @param   int     The ID of a media item
+ * @return
+ */
+function serendipity_deleteImageVariations($id) {
+    global $serendipity;
+
+    $dThumb   = array();
+    $messages = '';
+
+    $_file = serendipity_fetchImageFromDatabase($id);
+
+    if ($serendipity['useWebPFormat'] || $serendipity['useAvifFormat']) {
+        // get a possible image variations id (should only be, if that was development or somethings has went really wrong)
+        $vfile = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}images AS i WHERE path = '.v/' AND name = '{$_file['name']}' AND (extension = 'webp' OR extension = 'avif')", true, 'assoc');
+        $files = is_array($vfile) ? [ $_file, $vfile ] : [ $_file ];
+    } else {
+        $files = [ $_file ];
+    }
+
+    if (!is_array($files)) {
+        $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . FILE_NOT_FOUND . "</span>\n", $id);
+        //return false;
+    } else {
+        foreach ($files AS $file) {
+            $dFile = $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
+
+            $dThumb = array(array(
+                'fthumb' => $file['thumbnail_name']
+            ));
+
+            if (!serendipity_checkPermission('adminImagesDelete')) {
+                return;
+            }
+
+            if (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid']) {
+                // A non-admin user SHALL NOT be able to delete private files from other users.
+                return;
+            }
+
+            if (!$file['hotlink']) {
+                $v = serendipity_syncUnlinkVariation($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile, false);
+                foreach ($v AS $mv) {
+                    $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_FILE . "</span>\n", str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $mv));
+                }
+
+                foreach($dThumb AS $thumb) {
+                    $dfnThumb = $file['path'] . $file['name'] . (!empty($thumb['fthumb']) ? '.' . $thumb['fthumb'] : '') . (empty($file['extension']) ? '' : '.' . $file['extension']);
+                    $dfThumb  = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dfnThumb;
+
+                    $th = serendipity_syncUnlinkVariation($dfThumb, false);
+                    foreach ($th AS $mth) {
+                        $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_THUMBNAIL . "</span>\n", str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $mth));
+                    }
+                }
+            } else {
+                $messages .= sprintf('<span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> ' . DELETE_HOTLINK_FILE . "</span>\n", $file['name']);
+            }
+        }
+    }
+
+    return $messages;
+}
+
+/**
  * Open a directory and fetch all existing media items
  *
  * @access public
