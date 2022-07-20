@@ -2570,20 +2570,23 @@ function serendipity_createFullFileVariations($target, $info, $messages) {
  * and/or serendipity_deleteImage()
  *
  * @param  string $origin/Thumb/File The fullpath (thumb) file of the image object
+ * @param  boolean $silenced to give back success messages on false
  * @access private
- * @return
+ * @return void or file message
  */
-function serendipity_syncUnlinkVariation($originThumbFile) {
+function serendipity_syncUnlinkVariation($originThumbFile, $silenced = true) {
     $variant = ['avif', 'webp'];
     $varfile = array();
+    $msg = [];
 
     foreach ($variant AS $ext) {
         $varfile = serendipity_makeImageVariationPath($originThumbFile, $ext);
         if (file_exists($varfile['filepath'] . '/.v/' . $varfile['filename'])) {
             unlink($varfile['filepath'] . '/.v/' . $varfile['filename']);
+            $msg[] = $varfile['filepath'] . '/.v/' . $varfile['filename'];
         }
     }
-    return true;
+    return ($silenced ? true : $msg);
 }
 
 /**
