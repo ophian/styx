@@ -839,6 +839,61 @@
         }
     }
 
+    // Add image variation files via ML media item request
+    serendipity.addVariationsPerItem = function(id, fname) {
+        var headline = 'Add additional image variations';
+        var media_token_url = $('input[name*="serendipity[token]"]').val();
+        $.post('?serendipity[adminModule]=images&serendipity[adminAction]=variations&serendipity[fid]='+ escape(id) +'&serendipity[token]='+ media_token_url)
+        .done(function(jqXHR, textStatus) {
+            if (textStatus == 'success') {
+                $.magnificPopup.open({
+                    items: {
+                        type: 'inline',
+                            src: $('<div id="addvar_msg">\
+                                    <h4>'+headline+'</h4>\
+                                    '+ jqXHR + '\
+                                    <button id="addvar_ok" class="button_link state_submit" type="button"> Go! </button>\
+                                    </div>')
+                    },
+                    type: 'inline',
+                    midClick: true,
+                    callbacks: {
+                        open: function() {
+                            this.content.on('click', '#addvar_ok', function() {
+                                window.parent.parent.location.href= '?serendipity[adminModule]=images&serendipity[adminAction]=default';
+                            });
+                        },
+                    }
+                });
+            }
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            if (textStatus != null) { // what could that be ? "timeout", "error", "abort", "parsererror" ?
+                $.magnificPopup.open({
+                    items: {
+                        type: 'inline',
+                            src: $('<div id="addvar_msg">\
+                                    <h4>'+headline+'</h4>\
+                                    '+ jqXHR + '\
+                                    <p>"Status: " + textStatus</p>\
+                                    '+ errorThrown +'\
+                                    <button id="addvar_error" class="button_link state_submit" type="button"> Go! </button>\
+                                    </div>')
+                    },
+                    type: 'inline',
+                    midClick: true,
+                    callbacks: {
+                        open: function() {
+                            this.content.on('click', '#addvar_error', function() {
+                                window.parent.parent.location.href= '?serendipity[adminModule]=images&serendipity[adminAction]=default';
+                            });
+                        },
+                    }
+                });
+            }
+        });
+    }
+
     // Collapse/expand tree view in media db choose img popup window
     var tree_toggle_state = 'expand';
 
