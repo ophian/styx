@@ -3649,8 +3649,11 @@ input[name="serendipity[filter][fileCategory]"] {
 .mfp-container:before {
   content: '';
   display: inline-block;
-  height: 60%;
+  height: 100%;
   vertical-align: middle; }
+
+.dialog.confirm.mfp-container {
+  margin: -14em auto auto; }
 
 .mfp-align-top .mfp-container:before {
   display: none; }
