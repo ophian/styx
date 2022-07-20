@@ -1833,8 +1833,10 @@ function serendipity_generateVariations($id = null) {
             }
             return true;
         }
+
         return false;
     }
+
     // bulk work
     $count = serendipity_db_query("SELECT count(*) FROM {$serendipity['dbPrefix']}images WHERE extension IN ('jpg', 'jpeg', 'png')", true, 'num');
     $i = 0;
