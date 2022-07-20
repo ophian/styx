@@ -2514,6 +2514,7 @@ h3 .media_file_actions {
     padding-bottom: .583335em;
 }
 
+.mfp-content #addvar_msg,
 .mfp-content #delete_msg,
 .mfp-content #rename_msg {
     width: 40em;
@@ -2529,12 +2530,14 @@ h3 .media_file_actions {
     display: inline-block;
     text-align: left;
 }
+.mfp-content #addvar_ok,
 .mfp-content #delete_ok,
 .mfp-content #rename_ok {
     margin-bottom: 1em;
     color: #FFF;
     text-shadow: inherit;
 }
+.mfp-content #addvar_msg button.mfp-close,
 .mfp-content #delete_msg button.mfp-close,
 .mfp-content #rename_msg button.mfp-close {
     display: none;
