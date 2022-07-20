@@ -2,6 +2,8 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Removed MS Internet Explorer helpers in the backend javascript
+
   * Refactor serendipity.deleteFromML js single media delete dialog actions
     adding an additional front-end dialog before the image delete confirmation
     to separate all image and image variation purges only. This allows us to
