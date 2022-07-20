@@ -385,7 +385,6 @@ switch ($serendipity['GET']['adminAction']) {
             break;
         }
 
-        $data['case_do_delete'] = true;
         $data['messages'] = serendipity_deleteImageVariations($serendipity['GET']['fid']);
         break;
 
