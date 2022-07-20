@@ -2,6 +2,8 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Ajaxify the addVariations per item request and to fall back where started
+
   * Removed MS Internet Explorer helpers in the backend javascript
 
   * Refactor serendipity.deleteFromML js single media delete dialog actions
