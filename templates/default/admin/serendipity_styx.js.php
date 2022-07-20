@@ -2073,10 +2073,13 @@ $(function() {
     }
 
     // run spinner when adding single image variations via [+] icon
-    $('.media_addvar').click(function() {
-        $preview = $(this).parent().parent().siblings().find('.media_file_preview');
+    $('.media_addvar').click(function(e) {
+        e.preventDefault();
+        var $el = $(this);
+        $preview = $el.parent().parent().siblings().find('.media_file_preview');
         $preview.addClass('dimdark');
         $preview.find('.pulsator').toggle();
+        serendipity.addVariationsPerItem($el.attr('data-fileid'), $el.attr('data-filename'));
     })
 
     // ajaxify image rotate, solving cache issue
