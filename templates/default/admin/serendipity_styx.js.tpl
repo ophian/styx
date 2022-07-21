@@ -728,7 +728,7 @@
         dialog += '  <div class="mfp-dialog-actions">';
         dialog += '    <button class="mfp-btn mfp-btn-primary mfp-btn-yes state_submit" type="button" role="button" aria-labelledby="ENTER-key"> {$CONST.YES} </button>';
         dialog += '    <button class="mfp-btn mfp-btn-default mfp-btn-cancel" type="button" role="button" aria-labelledby="ESC-key"> {$CONST.ABORT_NOW} </button> ';
-        dialog += '    <button class="mfp-btn mfp-btn-second mfp-btn-no state_submit" type="button" role="button" aria-labelledby="SPACE-key"> {$CONST.NO} </button> ';
+        dialog += '    <button class="mfp-btn mfp-btn-secondary mfp-btn-no state_submit" type="button" role="button" aria-labelledby="SPACE-key"> {$CONST.NO} </button> ';
         dialog += '  </div>';
         dialog += '</div>';
 
@@ -760,15 +760,14 @@
                     });
 
                     var keydownHandler = function (e) {
-                    console.log(e.keyCode);
                         if (e.keyCode == 13) { // ENTER key
-                            $content.find('.btn-yes').click();
+                            $content.find('.mfp-btn-yes').click();
                             return false;
                         } else if (e.keyCode == 32) { // SPACE key
-                            $content.find('.btn-no').click();
+                            $content.find('.mfp-btn-no').click();
                             return false;
                         } else if (e.keyCode == 27) { // ESC key
-                            $content.find('.btn-cancel').click();
+                            $content.find('.mfp-btn-cancel').click();
                             return false;
                         }
                     };
