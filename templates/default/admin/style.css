@@ -3652,9 +3652,6 @@ input[name="serendipity[filter][fileCategory]"] {
   height: 100%;
   vertical-align: middle; }
 
-.dialog.confirm.mfp-container {
-  margin: -14em auto auto; }
-
 .mfp-align-top .mfp-container:before {
   display: none; }
 
@@ -3672,6 +3669,22 @@ input[name="serendipity[filter][fileCategory]"] {
   margin: 0 auto;
   text-align: left;
   z-index: 1045; }
+
+.mfp-dialog {
+  background: #1c2128cc;
+  padding: .5em;
+  border: .5em solid #444c56;
+  text-align: center;
+  color: #768390; }
+  @media only screen and (min-width: 1024px) {
+    .mfp-dialog {
+      margin: auto 20%;
+    }
+  }
+  /* mimic core a.button_link.state_submit,... styles */
+  .mfp-dialog .mfp-btn.state_submit {
+    color: #fafafa;
+    text-shadow: #050505 0 1px 1px; }
 
 .mfp-inline-holder .mfp-content,
 .mfp-ajax-holder .mfp-content {
