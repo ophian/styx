@@ -770,9 +770,9 @@ function serendipity_insertImageInDatabase($filename, $directory, $authorid = 0,
  */
 function serendipity_imageCreateFromAny($filepath) {
     if (function_exists("exif_imagetype")) {
-        $type = exif_imagetype($filepath);
+        $type = exif_imagetype($filepath); // normally this
     } else {
-        $type = getImageSize($filepath)[2];
+        $type = getimagesize($filepath)[2];// as fallback; could as well be serendipity_getImageSize
     }
     // default fallback so that $type is defined
     if (!is_int($type)) {
