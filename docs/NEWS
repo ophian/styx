@@ -2,6 +2,10 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Upgrade [b5] template assets to new Bootstrap v5.2.0 release.
+    See changelog at https://github.com/twbs/bootstrap/releases/tag/v5.2.0
+    and https://blog.getbootstrap.com/2022/07/19/bootstrap-5-2-0/
+
   * Upgrade [b4] template assets to new Bootstrap v4.6.2 release.
     See changelog at https://github.com/twbs/bootstrap/releases/tag/v4.6.2
 
