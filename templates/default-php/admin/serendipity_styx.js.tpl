@@ -743,18 +743,18 @@
                 open: function() {
                     var $content = $(this.content);
 
-                    $content.on('click', '.btn-yes', function() {
+                    $content.on('click', '.mfp-btn-yes', function() {
                         serendipity.deleteFromML($el.attr('data-fileid'), $el.attr('data-filename'), 'doDelete');
                         $.magnificPopup.close();
                         $(document).off('keydown', keydownHandler);
                     });
 
-                    $content.on('click', '.btn-cancel', function() {
+                    $content.on('click', '.mfp-btn-cancel', function() {
                         $.magnificPopup.close();
                         $(document).off('keydown', keydownHandler);
                     });
 
-                    $content.on('click', '.btn-no', function() {
+                    $content.on('click', '.mfp-btn-no', function() {
                         serendipity.deleteFromML($el.attr('data-fileid'), '.v/'+$el.attr('data-filename'), 'doDeleteVariations');
                         $.magnificPopup.close();
                         $(document).off('keydown', keydownHandler);
