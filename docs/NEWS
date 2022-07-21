@@ -2,6 +2,9 @@ Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Upgrade [b4] template assets to new Bootstrap v4.6.2 release.
+    See changelog at https://github.com/twbs/bootstrap/releases/tag/v4.6.2
+
   * Ajaxify the addVariations per item request and to fall back where started
 
   * Removed MS Internet Explorer helpers in the backend javascript
