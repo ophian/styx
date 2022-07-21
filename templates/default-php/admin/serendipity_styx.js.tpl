@@ -720,16 +720,16 @@
 
     // magnificPopup front-end tristate dialog deleting media files and/or variations
     serendipity.confirmDialog = function(message, file, $el) {
-        var dialog = '<div class="dialog confirm mfp-container">';
+        var dialog = '<div class="mfp-dialog mfp-confirm">';
         if (file) {
             var prep = '<?= DIALOG_DELETE_FILE_CONTINUE ?>';
             dialog += '  <h2> ' + prep.replace(/%s/i, file)  + '</h2>';
         }
-        dialog += '  <div class="content"><p>' + message + '</p></div>';
-        dialog += '  <div class="actions">';
-        dialog += '    <button class="btn btn-primary btn-yes" type="button" role="button" aria-labelledby="ENTER-key"> <?= YES ?> </button>';
-        dialog += '    <button class="btn btn-default btn-cancel" type="button" role="button" aria-labelledby="ESC-key"> <?= ABORT_NOW ?> </button> ';
-        dialog += '    <button class="btn btn-second btn-no" type="button" role="button" aria-labelledby="SPACE-key"> <?= NO ?> </button> ';
+        dialog += '  <div class="mfp-dialog-content"><p>' + message + '</p></div>';
+        dialog += '  <div class="mfp-dialog-actions">';
+        dialog += '    <button class="mfp-btn mfp-btn-primary mfp-btn-yes state_submit" type="button" role="button" aria-labelledby="ENTER-key"> <?= YES ?> </button>';
+        dialog += '    <button class="mfp-btn mfp-btn-default mfp-btn-cancel" type="button" role="button" aria-labelledby="ESC-key"> <?= ABORT_NOW ?> </button> ';
+        dialog += '    <button class="mfp-btn mfp-btn-second mfp-btn-no state_submit" type="button" role="button" aria-labelledby="SPACE-key"> <?= NO ?> </button> ';
         dialog += '  </div>';
         dialog += '</div>';
 
