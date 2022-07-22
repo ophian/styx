@@ -1581,6 +1581,11 @@ $(function() {
         }
     });
 
+    // Plugin update check added by spartacus/plugup
+    $('#upgrade_notice').click(function() {
+      $( '#waitingspin' ).toggle();
+    });
+
     // Plugins live filter
     $('#pluginfilter').keyup(function() {
         serendipity.liveFilters($(this), '.plugins_installable > li', '.plugin_features');
