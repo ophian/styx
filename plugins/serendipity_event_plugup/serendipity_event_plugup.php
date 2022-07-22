@@ -19,7 +19,7 @@ class serendipity_event_plugup extends serendipity_plugin
         $propbag->add('description',    PLUGIN_EVENT_PLUGUP_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',         'Ian Styx');
-        $propbag->add('version',        '1.12');
+        $propbag->add('version',        '1.13');
         $propbag->add('requirements',   array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -167,7 +167,8 @@ class serendipity_event_plugup extends serendipity_plugin
 ?>
                 <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> <?php echo sprintf(PLUGIN_DASHBOARD_PLUGUP_UP_AVAILABLE, $num) ?></span>
                 <?php /*if ($plugin > 0 || $event > 0) {*/ ?>
-                <div id="plup_notice" class="clearfix">
+                <div id="waitingspin" class="pulsator busy_update" style="display: none"><div></div><div></div></div>
+                <div id="upgrade_notice" class="clearfix">
                     <a id="upgrade_plugins" class="button_link state_submit" href="?serendipity[adminModule]=plugins&amp;serendipity[adminAction]=addnew&amp;serendipity[only_group]=UPGRADE"><?php echo PLUGIN_EVENT_SPARTACUS_CHECK ?></a>
                 </div>
 <?php           /*} else { echo "<span>(<em>".PLUGIN_DASHBOARD_PLUGUP_RELOAD."</em>)</span>\n"; }*/
