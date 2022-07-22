@@ -529,6 +529,11 @@ $tasks = array(
                     'title'     => '<b>ADMINISTRATION_NOTICE:</b> MediaLibrary upload filenames were improved to get strictly named uniquely only.',
                     'desc'      => 'Please check your MediaLibrary by the name filter tool for old media items with duplicate names, living in other directories and rename them by the ML rename tool yourself to avoid further conflicts.'),
 
+            array(  'version'   => '3.9.0',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => '<b>ADMINISTRATION_NOTICE:</b> Please read the current ChangeLog via your Maintenance section.',
+                    'desc'      => 'It holds additional notes about fixes, upcoming PHP 8.2 readiness and improved features for the new AV1 Image File format (AVIF).'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
