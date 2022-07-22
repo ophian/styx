@@ -1,6 +1,8 @@
 Version 3.9-DEV ()
  ------------------------------------------------------------------------
 
+  * Fire new waitingspin "busy"-Icon toggle on Plugin updates checks too
+
   * Upgrade custom CKEBasic asset to 4.19.1 (445cf24ebd revision)
     https://ckeditor.com/cke4/release-notes
 
