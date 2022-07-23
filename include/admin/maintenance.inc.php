@@ -128,7 +128,7 @@ switch($serendipity['GET']['adminAction']) {
             $dir = new DirectoryIterator($serendipity['serendipityPath'] . 'plugins');
             foreach ($dir AS $fileinfo) {
                 if ($fileinfo->isDir() && !$fileinfo->isDot()) {
-                    $dirname = str_replace(array('serendipity_event_', 'serendipity_plugin_'), '', $fileinfo->getFilename());
+                    $dirname = str_replace(array('serendipity_event_', 'serendipity_plugin_'), array('[ev] ', '[sb] '), $fileinfo->getFilename());
                     // exclude release plugin names
                     if (!in_array($dirname, $keepevplugins) && !in_array($dirname, $keepsbplugins)) {
                         if (!empty($plugins) && in_array($fileinfo->getFilename(), $plugins)) {
