@@ -90,7 +90,7 @@ function serendipity_deleteAuthor($authorid) {
 function serendipity_remove_config_var($name, $authorid = 0) {
     global $serendipity;
 
-    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name='" . serendipity_db_escape_string($name) . "' AND authorid = " . (int)$authorid);
+    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name='" . $name . "' AND authorid = " . (int)$authorid);
 }
 
 /**
@@ -106,13 +106,13 @@ function serendipity_remove_config_var($name, $authorid = 0) {
 function serendipity_set_config_var($name, $val, $authorid = 0) {
     global $serendipity;
 
-    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name='" . serendipity_db_escape_string($name) . "' AND authorid = " . (int)$authorid);
+    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name='" . $name . "' AND authorid = " . (int)$authorid);
 
     if ($name == 'password' || $name == 'check_password') {
         return;
     }
 
-    $r = serendipity_db_insert('config', array('name' => serendipity_db_escape_string($name), 'value' => serendipity_db_escape_string($val), 'authorid' => (int)$authorid));
+    $r = serendipity_db_insert('config', array('name' => $name, 'value' => $val, 'authorid' => (int)$authorid));
 
     if ($authorid === 0 || (isset($serendipity['authorid']) && $authorid === $serendipity['authorid'])) {
         if ($val === 'false') {
