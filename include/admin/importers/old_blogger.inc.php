@@ -57,7 +57,7 @@ class Serendipity_Import_OldBlogger extends Serendipity_Import
 }
 .style2 {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: x-small;
+    font-size: small;
 }
 -->
 </style>
