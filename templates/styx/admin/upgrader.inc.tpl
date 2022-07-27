@@ -85,7 +85,7 @@
         <div class="diagnose">
             {$result_diagnose}
 
-        {if $checksums}
+        {if isset($checksums) AND $checksums}
             <h4>{$CONST.INTEGRITY}</h4>
 
             <ul class="plainList">
