@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - modifier escape now triggers a E_USER_NOTICE when an unsupported escape type is used https://github.com/smarty-php/smarty/pull/649
+- Updated HTML of the debug template [#599](https://github.com/smarty-php/smarty/pull/599)
 
 ### Fixed
 - Math equation max(x, y) didn't work anymore #721
