@@ -412,7 +412,7 @@ function serendipity_logout() {
  * @return null
  */
 function serendipity_session_destroy() {
-    $_no_smarty = $_SESSION['no_smarty'];
+    $_no_smarty = $_SESSION['no_smarty'] ?? null;
     @session_destroy();
     session_start();// set regenerate new to avoid of possible (old) session hijacking
     session_regenerate_id(true);
