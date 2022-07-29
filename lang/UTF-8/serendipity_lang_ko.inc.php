@@ -1133,7 +1133,7 @@
 @define('MULTICHECK_NO_ITEM', '선택한 아이템이 없습니다. 최소한 한 개를 선택하십시오. <a href="%s">이전 페이지로 돌아가기</a>.');
 @define('MULTICHECK_NO_DIR', '선택한 디렉토리가 없습니다. 최고한 한 군데를 선택하십시오. <a href="%s">이전 페이지로 돌아가기</a>.');
 @define('BULKMOVE_INFO', '대량으로 이동하기');
-@define('BULKMOVE_INFO_DESC', 'You can select multiple files to bulk-move them to a new location. <strong>Note:</strong> This action takes effect immediately without any further demand. All checked files will be physically moved, and referring Blog entries are rewritten to point to the new location. The entrychange is also supported by staticpage versions up from v.4.52.');
+@define('BULKMOVE_INFO_DESC', 'You can select multiple files to bulk-move them to a new location. <strong>Note:</strong> This action takes effect immediately without any further demand. All checked files will be physically moved, and referring Blog entries are rewritten to point to the new location. Static pages by the staticpage plugin are rewritten too.');
 @define('FIRST_PAGE', '첫 페이지');
 @define('LAST_PAGE', '마지막 페이지');
 @define('MEDIA_PROPERTIES_DONE', '%d번의 등록정보가 변경되었습니다.');

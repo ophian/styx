@@ -1131,7 +1131,7 @@
 @define('MULTICHECK_NO_ITEM', 'Kein Element ausgewählt, wählen Sie mindestens eines. <a href="%s">Zurück zur vorherigen Seite</a>.');
 @define('MULTICHECK_NO_DIR', 'Kein Verzeichnis ausgewählt, wählen Sie eines. <a href="%s">Zurück zur vorherigen Seite</a>.');
 @define('BULKMOVE_INFO', 'Bulk-move Information');
-@define('BULKMOVE_INFO_DESC', 'Setzen Sie ein Häkchen bei den entsprechenden Dateien und wählen hier den Ort zum Verschieben aus. <b>Achtung:</b> Diese Aktion tritt ohne weitere Nachfrage sofort in Kraft. Alle gewählten Dateien werden auch physisch an den neuen Ort verschoben und alle Blog Einträge nach entsprechenden Pfaden durchsucht und geändert. Mit Staticpage Versionen ab v.4.52 gilt dies auch für Statische-Seiten-Einträge.');
+@define('BULKMOVE_INFO_DESC', 'Setzen Sie ein Häkchen bei den entsprechenden Dateien und wählen hier den Ort zum Verschieben aus. <b>Achtung:</b> Diese Aktion tritt ohne weitere Nachfrage sofort in Kraft. Alle gewählten Dateien werden auch physisch an den neuen Ort verschoben und alle Blog Einträge nach entsprechenden Pfaden durchsucht und geändert. Dies gilt auch für Statische-Seiten-Einträge des staticpage Plugins.');
 @define('FIRST_PAGE', 'Erste Seite');
 @define('LAST_PAGE', 'Letzte Seite');
 @define('MEDIA_PROPERTIES_DONE', 'Eigenschaften von #%d geändert.');
