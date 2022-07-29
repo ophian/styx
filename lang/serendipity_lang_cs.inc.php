@@ -1161,7 +1161,7 @@ $i18n_filename_to = array (
 @define('HIDE_SUBDIR_FILES', 'Hide Files of Subdirectories');
 
 @define('UPDATE_NOTIFICATION_URL', 'Update RELEASE-file URL');
-@define('UPDATE_NOTIFICATION_URL_DESC', 'This is Styx! Do not change, if not applying a different RELEASE file location for custom core downloads in combination with the Serendipity Autoupdate plugin. The origin Serendipity default value to apply here would then be: "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE". A here provided URL points to a file containing the current released Serendipity stable and beta version numbers per line, eg. "stable:5.3.0".');
+@define('UPDATE_NOTIFICATION_URL_DESC', 'This is Styx! Do not change, if not applying a different RELEASE file location for custom core downloads in combination with the Serendipity Autoupdate plugin. An intranet URL could then be alike "https://localhost/git/you/styx/docs/RELEASE" or whatever. A here provided URL points to a file containing the current released Serendipity stable and beta version numbers per line, eg. "stable:5.3.0". The Styx repository default file URL is: "https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE".');
 
 @define('URL_NOT_FOUND', '[ 404 ] - The page you have requested could not be found. Continue reading here.');
 

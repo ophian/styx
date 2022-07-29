@@ -1145,7 +1145,7 @@
 @define('HIDE_SUBDIR_FILES', 'Ohne Dateien von Unterverzeichnissen');
 
 @define('UPDATE_NOTIFICATION_URL', 'Update-RELEASE-Datei URL');
-@define('UPDATE_NOTIFICATION_URL_DESC', 'Dies ist Styx! Bitte nur ändern, wenn Sie eine andere Ankündigungs-Datei für benutzerdefinierte System Downloads, in Kombination mit dem Serendipity Autoupdate Plugin, erstellen wollen. Die Standard-URL für die Original Serendipity RELEASE-Datei wäre dann: "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE". Eine solche Datei enthält die Versionsnummern der aktuell freigegebenen (stable/beta) Veröffentlichung für das Autoupdate Plugin; zB. "stable:5.3.0".');
+@define('UPDATE_NOTIFICATION_URL_DESC', 'Dies ist Styx! Bitte nur ändern, wenn Sie eine andere Ankündigungs-Datei für benutzerdefinierte System Downloads, in Kombination mit dem Serendipity Autoupdate Plugin, erstellen wollen. Eine eigene Intranet URL zur Datei würde dann zum Beispiel so lauten: "https://localhost/git/you/styx/docs/RELEASE". Eine solche Datei enthält die Versionsnummern der aktuell freigegebenen (stable/beta) Veröffentlichung für das Autoupdate Plugin; zB. "stable:5.3.0". Die Styx Repository default URL ist: "https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE"');
 
 @define('URL_NOT_FOUND', '[ 404 ] - The page you have requested could not be found. Continue reading here.'); // better keep en
 
