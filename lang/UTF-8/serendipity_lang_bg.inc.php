@@ -396,7 +396,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_DBNAME', 'Име на базата данни');
 @define('INSTALL_DBNAME_DESC', 'Името на вашата база данни');
 @define('INSTALL_DBPREFIX', 'Представка на таблиците');
-@define('INSTALL_DBPREFIX_DESC', 'Представка на имената на таблиците, напр. serendipity_');
+@define('INSTALL_DBPREFIX_DESC', 'Представка на имената на таблиците, напр. styx_');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', 'Пътища');

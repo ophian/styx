@@ -362,7 +362,7 @@
 @define('INSTALL_DBNAME', 'Nafn gagnagrunns');
 @define('INSTALL_DBNAME_DESC', 'Nafnið á gagnagrunninum þínum');
 @define('INSTALL_DBPREFIX', 'Fasti á undan færslum í gagnagrunni');
-@define('INSTALL_DBPREFIX_DESC', 'Fasti fyrir nöfn í töflum, t.d. serendipity_');
+@define('INSTALL_DBPREFIX_DESC', 'Fasti fyrir nöfn í töflum, t.d. styx_');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', 'Slóðir');

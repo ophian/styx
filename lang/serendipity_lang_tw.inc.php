@@ -364,7 +364,7 @@ $i18n_unknown = 'tw';
 @define('INSTALL_DBNAME', '資料庫名稱');
 @define('INSTALL_DBNAME_DESC', '資料庫名稱');
 @define('INSTALL_DBPREFIX', '資料表前置名稱');
-@define('INSTALL_DBPREFIX_DESC', '資料表的前置名稱, 例如 serendipity_');
+@define('INSTALL_DBPREFIX_DESC', '資料表的前置名稱, 例如 styx_');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', '路徑設定');

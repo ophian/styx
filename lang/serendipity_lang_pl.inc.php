@@ -364,7 +364,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('INSTALL_DBNAME', 'Nazwa bazy danych');
 @define('INSTALL_DBNAME_DESC', 'Nazwa Twojej bazy danych');
 @define('INSTALL_DBPREFIX', 'Prefiks tabel bazy danych');
-@define('INSTALL_DBPREFIX_DESC', 'Prefiks dla nazw tabel, np. serendipity_');
+@define('INSTALL_DBPREFIX_DESC', 'Prefiks dla nazw tabel, np. styx_');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', '¦cie¿ki');

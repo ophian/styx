@@ -361,7 +361,7 @@
 @define('INSTALL_DBNAME', 'Kannan nimi');
 @define('INSTALL_DBNAME_DESC', 'Tietokannan nimi');
 @define('INSTALL_DBPREFIX', 'Tauluetuliite');
-@define('INSTALL_DBPREFIX_DESC', 'Etuliite kantataulujen nimille.Esim serendipity_');
+@define('INSTALL_DBPREFIX_DESC', 'Etuliite kantataulujen nimille.Esim styx_');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', 'Polut');

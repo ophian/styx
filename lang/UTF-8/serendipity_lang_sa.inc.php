@@ -364,7 +364,7 @@
 @define('INSTALL_DBNAME', 'اسم قاعدة البيانات');
 @define('INSTALL_DBNAME_DESC', 'أسم قاعدة البيانات');
 @define('INSTALL_DBPREFIX', 'بادئة جداول قاعدة البيانات');
-@define('INSTALL_DBPREFIX_DESC', 'بادئة الجداول مثال - serendipity_');
+@define('INSTALL_DBPREFIX_DESC', 'بادئة الجداول مثال - styx_');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', 'مسارات');

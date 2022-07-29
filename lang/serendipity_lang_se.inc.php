@@ -362,7 +362,7 @@
 @define('INSTALL_DBNAME', 'Databasnamn');
 @define('INSTALL_DBNAME_DESC', 'Namnet på din databas');
 @define('INSTALL_DBPREFIX', 'Databasens tabellprefix');
-@define('INSTALL_DBPREFIX_DESC', 'Prefixet för tabellnamnen, till exempel serendipity_');
+@define('INSTALL_DBPREFIX_DESC', 'Prefixet för tabellnamnen, till exempel styx_');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', 'Sökvägar');

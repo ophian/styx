@@ -365,7 +365,7 @@
 @define('INSTALL_DBNAME', 'Databanknaam');
 @define('INSTALL_DBNAME_DESC', 'De naam van uw databank');
 @define('INSTALL_DBPREFIX', 'Databankvoorvoegsel');
-@define('INSTALL_DBPREFIX_DESC', 'Het voorvoegsel voor de tabelnamen, bijvoorbeeld serendipity_');
+@define('INSTALL_DBPREFIX_DESC', 'Het voorvoegsel voor de tabelnamen, bijvoorbeeld styx_');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', 'Paden');

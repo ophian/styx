@@ -364,7 +364,7 @@
 @define('INSTALL_DBNAME', 'Veritabanı adı');
 @define('INSTALL_DBNAME_DESC', 'Veritabanınızın adı');
 @define('INSTALL_DBPREFIX', 'Veritabanı tablo öneki');
-@define('INSTALL_DBPREFIX_DESC', 'Veritabanınız için tablo öneki, e.g. serendipity_');
+@define('INSTALL_DBPREFIX_DESC', 'Veritabanınız için tablo öneki, e.g. styx_');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', 'Yollar');

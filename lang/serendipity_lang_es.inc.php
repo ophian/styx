@@ -347,7 +347,7 @@
 @define('INSTALL_DBNAME', 'Nombre');
 @define('INSTALL_DBNAME_DESC', 'El nombre de la base de datos');
 @define('INSTALL_DBPREFIX', 'Prefijo');
-@define('INSTALL_DBPREFIX_DESC', 'Prefijo para los nombres de las tablas, p. ej. serendipity_');
+@define('INSTALL_DBPREFIX_DESC', 'Prefijo para los nombres de las tablas, p. ej. styx_');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', 'Rutas');

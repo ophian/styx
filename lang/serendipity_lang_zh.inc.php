@@ -364,7 +364,7 @@
 @define('INSTALL_DBNAME', '数据名称');
 @define('INSTALL_DBNAME_DESC', '资料库名称');
 @define('INSTALL_DBPREFIX', '表前置名称');
-@define('INSTALL_DBPREFIX_DESC', '表的前置名称, 例如 serendipity_');
+@define('INSTALL_DBPREFIX_DESC', '表的前置名称, 例如 styx_');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', '路径设定');

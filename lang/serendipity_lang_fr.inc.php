@@ -342,7 +342,7 @@
 @define('INSTALL_DBNAME', 'Nom de la base de données');
 @define('INSTALL_DBNAME_DESC', 'Le nom de la base de données à laquelle Serendipity doit se connecter');
 @define('INSTALL_DBPREFIX', 'Préfixe des tables');
-@define('INSTALL_DBPREFIX_DESC', 'Le préfixe à utiliser pour les tables de Serendipity (exemple: serendipity_)');
+@define('INSTALL_DBPREFIX_DESC', 'Le préfixe à utiliser pour les tables de Serendipity (exemple: styx_)');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', 'Chemins');

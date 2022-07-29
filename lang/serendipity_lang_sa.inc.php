@@ -364,7 +364,7 @@
 @define('INSTALL_DBNAME', '«”„ ﬁ«⁄œ… «·»Ì«‰« ');
 @define('INSTALL_DBNAME_DESC', '√”„ ﬁ«⁄œ… «·»Ì«‰« ');
 @define('INSTALL_DBPREFIX', '»«œ∆… Ãœ«Ê· ﬁ«⁄œ… «·»Ì«‰« ');
-@define('INSTALL_DBPREFIX_DESC', '»«œ∆… «·Ãœ«Ê· „À«· - serendipity_');
+@define('INSTALL_DBPREFIX_DESC', '»«œ∆… «·Ãœ«Ê· „À«· - styx_');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', '„”«—« ');

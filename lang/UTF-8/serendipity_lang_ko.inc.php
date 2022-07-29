@@ -364,7 +364,7 @@
 @define('INSTALL_DBNAME', '데이터베이스 이름');
 @define('INSTALL_DBNAME_DESC', '사용할 데이터베이스의 이름');
 @define('INSTALL_DBPREFIX', '데이터베이스 테이블 접두사');
-@define('INSTALL_DBPREFIX_DESC', '테이블 이름 앞에 붙일 글자 (serendipity_ 식으로)');
+@define('INSTALL_DBPREFIX_DESC', '테이블 이름 앞에 붙일 글자 (styx_ 식으로)');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', '경로');

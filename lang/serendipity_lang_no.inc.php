@@ -322,7 +322,7 @@
 @define('INSTALL_DBNAME', 'Databasenavn');
 @define('INSTALL_DBNAME_DESC', 'Navnet på din database');
 @define('INSTALL_DBPREFIX', 'Databasetabell-prefiks');
-@define('INSTALL_DBPREFIX_DESC', 'Prefiks på tabellnavn, f.eks. serendipity_');
+@define('INSTALL_DBPREFIX_DESC', 'Prefiks på tabellnavn, f.eks. styx_');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', 'Baner');

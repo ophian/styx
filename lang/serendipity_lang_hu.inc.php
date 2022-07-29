@@ -362,7 +362,7 @@
 @define('INSTALL_DBNAME', 'Az adatbázis neve');
 @define('INSTALL_DBNAME_DESC', 'Az adatbázisod neve');
 @define('INSTALL_DBPREFIX', 'Az adatbázis táblák prefix-e');
-@define('INSTALL_DBPREFIX_DESC', 'A táblanevek prefix-e, pl.: serendipity_');
+@define('INSTALL_DBPREFIX_DESC', 'A táblanevek prefix-e, pl.: styx_');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', 'Útvonalak');

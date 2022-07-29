@@ -363,7 +363,7 @@
 @define('INSTALL_DBNAME', 'نام پایگاه داده');
 @define('INSTALL_DBNAME_DESC', 'نام پایگاه داده شما');
 @define('INSTALL_DBPREFIX', 'پیشوند جداول پایگاه داده');
-@define('INSTALL_DBPREFIX_DESC', 'پیشوند جدول های مربوط به سرندیپیتی، به طور مثال. serendipity_');
+@define('INSTALL_DBPREFIX_DESC', 'پیشوند جدول های مربوط به سرندیپیتی، به طور مثال. styx_');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', 'مسیر ها');

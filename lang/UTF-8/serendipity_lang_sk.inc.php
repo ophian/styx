@@ -377,7 +377,7 @@ $i18n_filename_to = array (
 @define('INSTALL_DBNAME', 'Názov');
 @define('INSTALL_DBNAME_DESC', 'Názov databázy');
 @define('INSTALL_DBPREFIX', 'Predpona');
-@define('INSTALL_DBPREFIX_DESC', 'Predpona pre názvy tabuliek, napr. serendipity_');
+@define('INSTALL_DBPREFIX_DESC', 'Predpona pre názvy tabuliek, napr. styx_');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', 'Cesty');

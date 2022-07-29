@@ -362,7 +362,7 @@
 @define('INSTALL_DBNAME', 'データベース名');
 @define('INSTALL_DBNAME_DESC', '使用するデータベース名を指定します。');
 @define('INSTALL_DBPREFIX', 'データベーステーブル接頭語');
-@define('INSTALL_DBPREFIX_DESC', 'テーブル名の接頭語を指定します。例えば「serendipity_」です。');
+@define('INSTALL_DBPREFIX_DESC', 'テーブル名の接頭語を指定します。例えば「styx_」です。');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', 'パス');

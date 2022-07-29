@@ -363,7 +363,7 @@
 @define('INSTALL_DBNAME', 'Nume bază de date');
 @define('INSTALL_DBNAME_DESC', 'Numele bazei tale de date');
 @define('INSTALL_DBPREFIX', 'Prefixul tabelelor');
-@define('INSTALL_DBPREFIX_DESC', 'Prefixul tabelelor din baza de date, ex. serendipity_');
+@define('INSTALL_DBPREFIX_DESC', 'Prefixul tabelelor din baza de date, ex. styx_');
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', 'Căi');
