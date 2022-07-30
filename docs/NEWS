@@ -1,11 +1,14 @@
 Version 3.9.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix an implemented type error bug with 3.9.0 resulting in a thrown MYSQL
+    EXCEPTION with certain PHP versions, when writing changed configuration
+    values to the database.
+
   * Fix another Methusalem bug in the plugin API remove_plugin_value() method,
     which probably never worked as desired since Plugin configuration name
     items are most commonly single words. We now use this strict so the given
     array name has to match.
-
 
 
 Version 3.9.0 (July, 28th 2022)
