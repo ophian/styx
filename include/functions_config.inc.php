@@ -112,7 +112,7 @@ function serendipity_set_config_var($name, $val, $authorid = 0) {
         return;
     }
 
-    $r = serendipity_db_insert('config', array('name' => serendipity_db_escape_string($name), 'value' => $val, 'authorid' => (int)$authorid));
+    $r = serendipity_db_insert('config', array('name' => serendipity_db_escape_string($name), 'value' => $val, 'authorid' => (string)$authorid)); // Some PHP versions below PHP 8.2 (/PHP 8.1?) need definite declared string integers
 
     if ($authorid === 0 || (isset($serendipity['authorid']) && $authorid === $serendipity['authorid'])) {
         if ($val === 'false') {
