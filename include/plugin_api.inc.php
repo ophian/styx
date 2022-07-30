@@ -277,10 +277,12 @@ class serendipity_plugin_api
 
         $where_sql = array();
         foreach($where AS $key) {
-            $where_sql[] = "(name LIKE '{$plugin_instance_id}/{$key}_%' AND value = '')";
+            $where_sql[] = "(name = '{$plugin_instance_id}/{$key}' AND value = '') "; // be strict with config option name and space for OR
         }
 
-        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE  " . implode(' OR ', $where_sql));
+        $query = "DELETE FROM  {$serendipity['dbPrefix']}config
+                        WHERE " . implode(' OR ', $where_sql);
+        serendipity_db_query($query);
     }
 
     /**
