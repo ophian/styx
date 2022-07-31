@@ -1,4 +1,4 @@
-Version 3.9.1-DEV ()
+Version 3.9.1 (July, 31st 2022)
  ------------------------------------------------------------------------
 
   * Fix an implemented type error bug with 3.9.0 resulting in a thrown MYSQL
