@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Math equation max(x, y) didn't work anymore #721
 - Fixed second parameter of unescape modifier not working [#777](https://github.com/smarty-php/smarty/issues/777)
+- Fixed problems with smarty_mb_str_replace [#549](https://github.com/smarty-php/smarty/issues/549)
 
 ### Security
 - Prevent evasion of the `static_classes` security policy. This addresses CVE-2021-21408
