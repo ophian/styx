@@ -35,10 +35,9 @@ function smarty_modifier_escape($string, $esc_type = 'html', $char_set = null, $
         // no break
         case 'htmlall':
             if (Smarty::$_MBSTRING) {
-                // mb_convert_encoding ignores htmlspecialchars()
-                $string = htmlspecialchars($string, ENT_QUOTES, $char_set, $double_encode);
+                $string = htmlspecialchars($string, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML40, $char_set, $double_encode);
                 // htmlentities() won't convert everything, so use mb_convert_encoding
-                return mb_convert_encoding($string, 'HTML-ENTITIES', $char_set);
+                return htmlspecialchars_decode(mb_convert_encoding($string, $char_set), $char_set); // PHP 8.2 sets HTML-ENTITIES deprecated and PHP 8.1 gave up ENT_COMPAT for the triplet default
             }
             // no MBString fallback
             return htmlentities($string, ENT_QUOTES, $char_set, $double_encode);
