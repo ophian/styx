@@ -83,8 +83,7 @@ class Smarty_Internal_Runtime_TplFunction
     public function getTplFunction(Smarty_Internal_Template $tpl, $name = null)
     {
         if (isset($name)) {
-            return ($tpl->tplFunctions[ $name ] ??
-                (isset($tpl->smarty->tplFunctions[ $name ]) ? $tpl->smarty->tplFunctions[ $name ] : false));
+            return ($tpl->tplFunctions[ $name ] ?? ($tpl->smarty->tplFunctions[ $name ] ?? false));
         } else {
             return empty($tpl->tplFunctions) ? $tpl->smarty->tplFunctions : $tpl->tplFunctions;
         }

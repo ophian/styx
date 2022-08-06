@@ -580,8 +580,8 @@ class Smarty_Internal_Template extends Smarty_Internal_TemplateBase
      */
     public function _getTemplateId()
     {
-        return ($this->templateId ?? $this->templateId =
-            $this->smarty->_getTemplateId($this->template_resource, $this->cache_id, $this->compile_id));
+        return ($this->templateId ?? ($this->templateId =
+            $this->smarty->_getTemplateId($this->template_resource, $this->cache_id, $this->compile_id)));
     }
 
     /**

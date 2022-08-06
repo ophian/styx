@@ -120,12 +120,12 @@ class Smarty_Internal_Runtime_GetIncludePath
     public function getIncludePath($dirs, $file, Smarty $smarty)
     {
         //if (!(isset($this->_has_stream_include) ? $this->_has_stream_include : $this->_has_stream_include = false)) {
-        if (!(($this->_has_stream_include ?? $this->_has_stream_include) = function_exists('stream_resolve_include_path'))) {
+        if (!($this->_has_stream_include ?? ($this->_has_stream_include = function_exists('stream_resolve_include_path')))) {
             $this->isNewIncludePath($smarty);
         }
         // try PHP include_path
         foreach ($dirs as $dir) {
-            $dir_n = ($this->number[ $dir ] ?? $this->number[ $dir ]) = $this->counter++;
+            $dir_n = $this->number[ $dir ] ?? ($this->number[ $dir ] = $this->counter++);
             if (isset($this->isFile[ $dir_n ][ $file ])) {
                 if ($this->isFile[ $dir_n ][ $file ]) {
                     return $this->isFile[ $dir_n ][ $file ];
@@ -157,7 +157,7 @@ class Smarty_Internal_Runtime_GetIncludePath
                 }
             } else {
                 foreach ($this->_include_dirs as $key => $_i_path) {
-                    $path = ($this->isPath[ $key ][ $dir_n ] ?? $this->isPath[ $key ][ $dir_n ]) = is_dir($_dir_path = $_i_path . $dir) ? $_dir_path : false;
+                    $path = $this->isPath[ $key ][ $dir_n ] ?? ($this->isPath[ $key ][ $dir_n ] = is_dir($_dir_path = $_i_path . $dir) ? $_dir_path : false);
                     if ($path === false) {
                         continue;
                     }
