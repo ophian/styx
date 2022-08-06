@@ -1770,9 +1770,10 @@ class Smarty_Internal_Templateparser
         $this->compiler = $compiler;
         $this->template = $this->compiler->template;
         $this->smarty = $this->template->smarty;
-        $this->security = isset($this->smarty->security_policy) ? $this->smarty->security_policy : false;
+        $this->security = $this->smarty->security_policy ?? false;
         $this->current_buffer = $this->root_buffer = new Smarty_Internal_ParseTree_Template();
-    }  /* The parser's stack */
+    }
+    /* The parser's stack */
     public static function yy_destructor($yymajor, $yypminor)
     {
         switch ($yymajor) {

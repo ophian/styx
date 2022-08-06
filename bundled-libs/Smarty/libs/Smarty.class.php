@@ -798,7 +798,7 @@ class Smarty extends Smarty_Internal_TemplateBase
             $this->_normalizeTemplateConfig($isConfig);
         }
         if ($index !== null) {
-            return isset($dir[ $index ]) ? $dir[ $index ] : null;
+            return ($dir[ $index ] ?? null);
         }
         return $dir;
     }
@@ -1017,7 +1017,7 @@ class Smarty extends Smarty_Internal_TemplateBase
         if ($do_clone) {
             $tpl->smarty = clone $tpl->smarty;
         }
-        $tpl->parent = $parent ? $parent : $this;
+        $tpl->parent = $parent ?? $this;
         // fill data if present
         if (!empty($data) && is_array($data)) {
             // set up variable values
