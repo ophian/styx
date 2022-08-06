@@ -4,7 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.39-dev-30 == 4.2.0-dev-10] - 2022-08-06
+
+- Serendipity Styx keeps the deprecated SMARTY_RESOURCE_CHAR_SET and SMARTY_RESOURCE_DATE_FORMAT constants since we have more than ISO-8859-1 defined by serendipity LANG_CHARSET 
+- Serendipity Styx does not want Smarty to silently hidefix PHP 8.[0|1|2] errors by wrong coded templates or php assigns or missing constants.
+    Styx is made to fix them in Styx PHP code, so they do not throw errors, notices, etc in Smarty.
+    If Smarty mutes all those, we never become better code and we will have a problem when PHP 9 drops the deprecations etc.
+- Serendipity Styx smarty_internal_compile_private_modifier conditioning for passing references by registered serendipity_refHookPlugin() method
+- Updates for PHP 8.1 / 8.2
+
 ## [Unreleased]
+
+## [4.2.0] - 2022-08-01
 
 ### Changed
 - modifier escape now triggers a E_USER_NOTICE when an unsupported escape type is used https://github.com/smarty-php/smarty/pull/649
