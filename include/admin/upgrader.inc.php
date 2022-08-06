@@ -534,6 +534,12 @@ $tasks = array(
                     'title'     => '<b>ADMINISTRATION_NOTICE:</b> Please read the current ChangeLog via your Maintenance section.',
                     'desc'      => 'It holds additional notes about fixes, upcoming PHP 8.2 readiness and improved features for the new AV1 Image File format (AVIF).'),
 
+            array(  'version'   => '3.9.2',
+                    'function'  => 'serendipity_removeDeadFiles_SPL',
+                    'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_400, array('internals'), true),
+                    'title'     => 'Removal of old dead files for 3.10.0 / 4.0.0',
+                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_400) . '</pre>'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
