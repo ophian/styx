@@ -491,6 +491,11 @@ $dead_files_340 = array(
     'templates/bootstrap4/theme.js'
 );
 
+/* A list of Styx files, to be removed or renamed by 3.10.0 / 4.0.0 */
+$dead_files_400 = array(
+    'bundled-libs/Smarty/libs/SmartyBC.class.php',
+);
+
 /**
  * recursive directory call to purge files and directories
  *
