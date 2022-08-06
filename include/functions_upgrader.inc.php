@@ -496,6 +496,7 @@ $dead_files_400 = array(
     'bundled-libs/Smarty/libs/SmartyBC.class.php',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_compile_include_php.php',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_compile_private_php.php',
+    'bundled-libs/Smarty/libs/sysplugins/smarty_internal_resource_registered.php',
 );
 
 /**
