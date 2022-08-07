@@ -431,7 +431,7 @@ class serendipity_smarty_emulator
 }
 
 /**
- * @author Garvin Hicking, Ian
+ * @author Garvin Hicking, Ian Styx
  * @state EXPERIMENTAL
  *
  * XML Engine
@@ -445,13 +445,13 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
     function match() {
         if (isset($GLOBALS['matches'][2]) && $GLOBALS['matches'][2] == 'admin/serendipity_styx.js') {
             return false;
-        } elseif ($GLOBALS['matches'][1] == 'serendipity_admin.js') {
+        } elseif (isset($GLOBALS['matches'][1]) && $GLOBALS['matches'][1] == 'serendipity_admin.js') {
             return false;
-        } elseif ($GLOBALS['matches'][1] == 'serendipity_admin.css') {
+        } elseif (isset($GLOBALS['matches'][1]) && $GLOBALS['matches'][1] == 'serendipity_admin.css') {
             return false;
         } elseif (defined('IN_serendipity_admin')) {
             return false;
-        } elseif ($GLOBALS['matches'][1] == 'plugin' && isset($GLOBALS['matches'][2])) {
+        } elseif (isset($GLOBALS['matches'][1]) && $GLOBALS['matches'][1] == 'plugin' && isset($GLOBALS['matches'][2])) {
             return false;
         }
         return true;
@@ -642,6 +642,7 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
      */
     function createXML(&$level, &$key, &$val)
     {
+        if (is_null($level)) { return; }
         if (!$this->match()) { return false; }
         if (is_numeric($key)) {
             $openkey  = 'item index="' . $key . '"';
