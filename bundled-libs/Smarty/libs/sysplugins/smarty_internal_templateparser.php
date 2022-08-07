@@ -24,7 +24,6 @@ class Smarty_Internal_Templateparser
     // line 23 "../smarty/lexer/smarty_internal_templateparser.y"
     const ERR1                      = 'Security error: Call to private object member not allowed';
     const ERR2                      = 'Security error: Call to dynamic object member not allowed';
-    const ERR3                      = 'PHP in template not allowed. Use SmartyBC to enable it';
     const TP_VERT                   = 1;
     const TP_COLON                  = 2;
     const TP_PHP                    = 3;
@@ -2147,24 +2146,6 @@ class Smarty_Internal_Templateparser
         $this->root_buffer->prepend_array($this, $this->template_prefix);
         $this->root_buffer->append_array($this, $this->template_postfix);
         $this->_retvalue = $this->root_buffer->to_smarty_php($this);
-    }
-
-    // line 251 "../smarty/lexer/smarty_internal_templateparser.y"
-    public function yy_r1()
-    {
-        $code =
-            $this->compiler->compileTag('private_php',
-                array(array('code' => $this->yystack[ $this->yyidx + 0 ]->minor), array('type' => $this->lex->phpType)),
-                array());
-        if ($this->compiler->has_code && !empty($code)) {
-            $tmp = '';
-            foreach ($this->compiler->prefix_code as $code) {
-                $tmp .= $code;
-            }
-            $this->compiler->prefix_code = array();
-            $this->current_buffer->append_subtree($this,
-                new Smarty_Internal_ParseTree_Tag($this, $this->compiler->processNocacheCode($tmp . $code, true)));
-        }
     }
 
     // line 255 "../smarty/lexer/smarty_internal_templateparser.y"
