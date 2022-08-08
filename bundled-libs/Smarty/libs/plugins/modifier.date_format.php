@@ -16,7 +16,7 @@
  *          - default_date: default date if $string is empty
  *
  * @link   https://www.smarty.net/docs/en/language.modifier.date.format.php date_format
- *           (Smarty online manual)
+ *         (Smarty online manual)
  * @author Monte Ohrt <monte at ohrt dot com>
  *
  * @param string $string       input date string

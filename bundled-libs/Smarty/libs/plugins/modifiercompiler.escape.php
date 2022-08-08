@@ -12,7 +12,7 @@
  * Purpose:  escape string for output
  *
  * @link   https://www.smarty.net/docs/en/language.modifier.escape count_characters
- *           (Smarty online manual)
+ *         (Smarty online manual)
  * @author Rodney Rehm
  *
  * @param array                                $params parameters

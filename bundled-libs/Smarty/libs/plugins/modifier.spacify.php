@@ -12,7 +12,7 @@
  * Purpose:  add spaces between characters in a string
  *
  * @link   https://www.smarty.net/docs/en/language.modifier.spacify.php spacify
- *           (Smarty online manual)
+ *         (Smarty online manual)
  * @author Monte Ohrt <monte at ohrt dot com>
  *
  * @param string $string       input string

@@ -14,7 +14,7 @@
  *               appending the $etc string or inserting $etc into the middle.
  *
  * @link   https://www.smarty.net/docs/en/language.modifier.truncate.php truncate
- *           (Smarty online manual)
+ *         (Smarty online manual)
  * @author Monte Ohrt <monte at ohrt dot com>
  *
  * @param string  $string      input string
