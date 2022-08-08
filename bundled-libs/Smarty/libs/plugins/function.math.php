@@ -25,36 +25,35 @@ function smarty_function_math($params, $template)
 {
     static $_allowed_funcs =
         array(
-            'int'   => true,
-            'abs'   => true,
-            'ceil'  => true,
-            'acos'  => true,
-            'acosh' => true,
-            'cos'   => true,
-            'cosh'  => true,
+            'int'     => true,
+            'abs'     => true,
+            'ceil'    => true,
+            'acos'    => true,
+            'acosh'   => true,
+            'cos'     => true,
+            'cosh'    => true,
             'deg2rad' => true,
             'rad2deg' => true,
-            'exp'   => true,
-            'floor' => true,
-            'log'   => true,
-            'log10' => true,
-            'max'   => true,
-            'min'   => true,
-            'pi'    => true,
-            'pow'   => true,
-            'rand'  => true,
-            'round' => true,
-            'asin'  => true,
-            'asinh' => true,
-            'sin'   => true,
-            'sinh'  => true,
-            'sqrt'  => true,
-            'srand' => true,
-            'tan'   => true,
-            'atan'  => true,
-            'atanh' => true,
-            'tan'   => true,
-            'tanh'  => true
+            'exp'     => true,
+            'floor'   => true,
+            'log'     => true,
+            'log10'   => true,
+            'max'     => true,
+            'min'     => true,
+            'pi'      => true,
+            'pow'     => true,
+            'rand'    => true,
+            'round'   => true,
+            'asin'    => true,
+            'asinh'   => true,
+            'sin'     => true,
+            'sinh'    => true,
+            'sqrt'    => true,
+            'srand'   => true,
+            'atan'    => true,
+            'atanh'   => true,
+            'tan'     => true,
+            'tanh'    => true
         );
 
     // be sure equation parameter is present
@@ -68,10 +67,10 @@ function smarty_function_math($params, $template)
     $equation = preg_replace('/\s+/', '', $equation);
 
     // Adapted from https://www.php.net/manual/en/function.eval.php#107377
-    $number = '(?:\d+(?:[,.]\d+)?|pi|p)'; // What is a number
+    $number = '(?:\d+(?:[,.]\d+)?|pi|π)'; // What is a number
     $functionsOrVars = '((?:0x[a-fA-F0-9]+)|([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*))';
     $operators = '[,+\/*\^%-]'; // Allowed math operators
-    $regexp = '/^(('.$number.'|'.$functionsOrVars.'|('.$functionsOrVars.'\s*\((?1)+\)|\((?1)+\)))(?:'.$operators.'(?2))?)+$/';
+    $regexp = '/^(('.$number.'|'.$functionsOrVars.'|('.$functionsOrVars.'\s*\((?1)+\)|\((?1)+\)))(?:'.$operators.'(?1))?)+$/';
 
     if (!preg_match($regexp, $equation)) {
         trigger_error("math: illegal characters", E_USER_WARNING);
@@ -95,7 +94,6 @@ function smarty_function_math($params, $template)
         trigger_error("math: dollar signs not allowed in equation", E_USER_WARNING);
         return;
     }
-
     foreach ($params as $key => $val) {
         if ($key !== 'equation' && $key !== 'format' && $key !== 'assign') {
             // make sure value is not empty
@@ -109,7 +107,6 @@ function smarty_function_math($params, $template)
             }
         }
     }
-
     // match all vars in equation, make sure all are passed
     preg_match_all('!(?:0x[a-fA-F0-9]+)|([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)!', $equation, $match);
     foreach ($match[ 1 ] as $curr_var) {
@@ -121,13 +118,11 @@ function smarty_function_math($params, $template)
             return;
         }
     }
-
     foreach ($params as $key => $val) {
         if ($key !== 'equation' && $key !== 'format' && $key !== 'assign') {
             $equation = preg_replace("/\b$key\b/", " \$params['$key'] ", $equation);
         }
     }
-
     $smarty_math_result = null;
     eval("\$smarty_math_result = " . $equation . ";");
 
