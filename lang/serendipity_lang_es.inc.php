@@ -767,25 +767,25 @@
 @define('SEARCH_TOO_SHORT', 'El patrón de búsqueda debe ser mayor a 3 caracteres. Puedes añadirle * a palabras más cortas, como: s9y* para poder hacer búsquedas más cortas.');
 @define('INSTALL_DBPORT', 'Puerto de la base de datos');
 @define('INSTALL_DBPORT_DESC', 'El puerto utilizado para conectarse con el servidor de tu base de datos');
-@define('PLUGIN_GROUP_FRONTEND_EXTERNAL_SERVICES', 'Interfaz: Servicios externos');
-@define('PLUGIN_GROUP_FRONTEND_FEATURES', 'Interfaz: Características');
+@define('PLUGIN_GROUP_FRONTEND_EXTERNAL_SERVICES', 'Portada: Servicios externos');
+@define('PLUGIN_GROUP_FRONTEND_FEATURES', 'Portada: Características');
 
-@define('PLUGIN_GROUP_FRONTEND_FULL_MODS', 'Interfaz: Full Mods');//Translate
+@define('PLUGIN_GROUP_FRONTEND_FULL_MODS', 'Portada: Full Mods');
 
-@define('PLUGIN_GROUP_FRONTEND_VIEWS', 'Interfaz: Vistas');
-@define('PLUGIN_GROUP_FRONTEND_ENTRY_RELATED', 'Interfaz: Relacionado a la entrada'); //Frontend: Entry Related
-@define('PLUGIN_GROUP_BACKEND_EDITOR', 'Motor: Editor');//Backend, better translation?
-@define('PLUGIN_GROUP_BACKEND_USERMANAGEMENT', 'Motor: Manejo de usuarios');//Backend, better translation?
-@define('PLUGIN_GROUP_BACKEND_METAINFORMATION', 'Motor: Meta información');//Backend, better translation?
-@define('PLUGIN_GROUP_BACKEND_TEMPLATES', 'Motor: Plantillas');//Backend, better translation?
-@define('PLUGIN_GROUP_BACKEND_FEATURES', 'Motor: Características');//Backend, better translation?
-@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Motor: Maintenance');//Backend, better translation?
-@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Motor: Dashboard');//Backend, better translation?
+@define('PLUGIN_GROUP_FRONTEND_VIEWS', 'Portada: Vistas');
+@define('PLUGIN_GROUP_FRONTEND_ENTRY_RELATED', 'Portada: Relacionado a la entrada');
+@define('PLUGIN_GROUP_BACKEND_EDITOR', 'Backend: Editor');
+@define('PLUGIN_GROUP_BACKEND_USERMANAGEMENT', 'Backend: Manejo de usuarios');
+@define('PLUGIN_GROUP_BACKEND_METAINFORMATION', 'Backend: Meta información');
+@define('PLUGIN_GROUP_BACKEND_TEMPLATES', 'Backend: Plantillas');
+@define('PLUGIN_GROUP_BACKEND_FEATURES', 'Backend: Características');
+@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Backend: Maintenance');
+@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Backend: Dashboard');
 @define('PLUGIN_GROUP_BACKEND_ADMIN', ADMIN); // is constant, no quotes, no translate!
 @define('PLUGIN_GROUP_IMAGES', 'Imágenes');
 @define('PLUGIN_GROUP_ANTISPAM', 'Antispam');
 
-@define('PLUGIN_GROUP_MARKUP', 'Markup');//Translate
+@define('PLUGIN_GROUP_MARKUP', 'Markup');
 
 @define('PLUGIN_GROUP_STATISTICS', 'Estadísticas');
 
