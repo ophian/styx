@@ -917,12 +917,12 @@
 @define('MEDIA_PROPERTY_RUN_LENGTH', 'Run-Length');
 
 @define('FILENAME_REASSIGNED', 'Nombre asignado automágicamente al nuevo fichero: %s');
-@define('MEDIA_UPLOAD_SIZE', 'Tamaño máximo de los ficheros');//'upload' removed [rlazo]
+@define('MEDIA_UPLOAD_SIZE', 'Tamaño máximo de carga de archivos');
 @define('MEDIA_UPLOAD_SIZE_DESC', 'Ingresa el tamaño máximo en bytes de los ficheros que puedes subir al servidor. Esta opción puede ser sobreescrita por la configuración en el servidor en PHP.ini: upload_max_filesize, post_max_size, max_input_time, todas las anteriores tiene precedencia sobre esta opción. Si la dejas en blanco se usarán sólo los límites definidos en el servidor.');
 @define('MEDIA_UPLOAD_SIZEERROR', 'Error: ¡No puedes subir ficheros de más de %s bytes!');
-@define('MEDIA_UPLOAD_MAXWIDTH', 'Ancho máximo de las imágenes'); //'upload' removed [rlazo]
+@define('MEDIA_UPLOAD_MAXWIDTH', 'Ancho máximo de los archivos de imagen para cargar');
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Ingresa la anchura máxima de las imágenes que se pueden subir al servidor en pixels.');
-@define('MEDIA_UPLOAD_MAXHEIGHT', 'Altura máxima de las imágenes');//'upload' removed [rlazo]
+@define('MEDIA_UPLOAD_MAXHEIGHT', 'Altura máxima de los archivos de imagen para cargar');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'Ingresa la altura máxima de las imágenes que se pueden subir al servidor en pixels.');
 @define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
 @define('MEDIA_TARGET', 'Objetivo de este enlace');
