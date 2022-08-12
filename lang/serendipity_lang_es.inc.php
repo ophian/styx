@@ -252,7 +252,6 @@
 @define('NEXT_PAGE', 'página siguiente');
 @define('ALL_CATEGORIES', 'Todas las categorías');
 
-/* TRANSLATE */
 @define('WRONG_USERNAME_OR_PASSWORD', 'Usuario o contraseña erróneo');
 @define('HTACCESS_ERROR', 'Para verificar tu instalación del servidor web, Serendipity deber ser capaz de escribir en el fichero ".htaccess". Esto no fue posible debido a errores de permisos. Por favor, ajusta los permisos como: <br> %s<br>y recarga esta página.');
 @define('SIDEBAR_PLUGINS', 'Extensiones de barra lateral');
@@ -455,7 +454,6 @@
 @define('POWERED_BY_SHOW_IMAGE', 'Mostrar "Serendipity" con una imagen');
 @define('POWERED_BY_SHOW_IMAGE_DESC', 'Mostrará el logotipo de Serendipity');
 
-/* TRANSLATE */
 @define('SETTINGS_SAVED_AT', 'La nueva configuración se ha guardado a la hora %s');
 @define('PLUGIN_ITEM_DISPLAY', '¿Dónde debería mostrarse el elemento?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'Sólo en la entrada extendida');
@@ -916,9 +914,8 @@
 @define('SYNDICATION_RFC2616_DESC', 'NO forzar el seguimiento de RFC2616 significa que todos los GETs condicionales a Serendipity regresarán entradas modificadas desde la fecha de la última solicitud. Con esa característica definida a "false", tus visitantes obtendrán todos los artículos desde su última solicitud, lo cual es considerado algo bueno. Sin embargo, algunos agentes como Planet tienen un comportamiento extraño, dado viola la norma RFC2616. De esta manera, si defines esta opción como "TRUE" estarás cumpliendo con la norma, pero los lectores de tus sindicaciones RSS quizás pierdan algunas entradas en sus días de ausencia. De cualquier forma, o evitas un funcionamiento adecuado de agregadores como Planet, o dañas a tus lectores reales. Si estás enfrentando quejas de cualquiera de los dos, puedes cambiar esta opción.');
 @define('MEDIA_PROPERTY_DATE', 'Fecha Asociada');
 
-/*Translate*/
 @define('MEDIA_PROPERTY_RUN_LENGTH', 'Run-Length');
-/**/
+
 @define('FILENAME_REASSIGNED', 'Nombre asignado automágicamente al nuevo fichero: %s');
 @define('MEDIA_UPLOAD_SIZE', 'Tamaño máximo de los ficheros');//'upload' removed [rlazo]
 @define('MEDIA_UPLOAD_SIZE_DESC', 'Ingresa el tamaño máximo en bytes de los ficheros que puedes subir al servidor. Esta opción puede ser sobreescrita por la configuración en el servidor en PHP.ini: upload_max_filesize, post_max_size, max_input_time, todas las anteriores tiene precedencia sobre esta opción. Si la dejas en blanco se usarán sólo los límites definidos en el servidor.');
@@ -934,15 +931,14 @@
 @define('MEDIA_TARGET_BLANK', 'Ventana emergente (a través de target=_blank)');
 @define('MEDIA_DYN_RESIZE', '¿Permitir redimensionar dinámicamente las imágenes?');
 @define('MEDIA_DYN_RESIZE_DESC', 'Si lo activas, el serendipity_admin_image_selector.php file puede regresar imágenes en cualquier tamaño solicitado a través de una variable GET. Los resultados se colocan en la caché, de esta manera puedes crear una base de ficheros muy grande si es que haces un uso intensivo de esta característica.');
+
 @define('MEDIA_DIRECTORY_MOVED', 'El directorio y los ficheros fueron exitosamente movidos a %s');
 @define('MEDIA_DIRECTORY_MOVE_ERROR', '¡El directorio y los ficheros no pudieron ser movidos a %s!');
 #@define('MEDIA_DIRECTORY_MOVE_ENTRY', 'En bases de datos distintas a MySQL, iterar sobre cada artículo para reemplazar el URL del directorio antiguo con la nueva dirección no es posible. Necesitarás que arreglar tus entradas de manera manual. También puedes regresar tu directorio a su ubicación original si hacer todo aquello te resulta muy incómodo.');
-/*translate*/
 @define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'Moved the URL of the moved directory in %s entries.');
 @define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Activa');
 @define('PLUGIN_INACTIVE', 'Inactiva');
-/*rlazo [20060722] spell checked*/
 
 @define('INSTALL_PERMALINK_COMMENTSPATH', 'Ruta a los comentarios');
 @define('PERM_SET_CHILD', 'Define los mismos permisos en todos los directorios hijos');
