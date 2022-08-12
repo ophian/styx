@@ -838,10 +838,6 @@
 @define('CALENDAR_ENABLE_EXTERNAL_EVENTS', 'Habilitar API de conexiones de las extensiones');
 @define('CALENDAR_EXTEVENT_DESC', 'Si está habilitada, esta opción permite que las extensiones se conecten con el calendario para mostrar sus eventos resaltados. Utilízalo sólo si has instalado extensiones que lo necesitan, de otra forma sólo disminuye el desempeño.');
 
-/*
-Melvin TODO [20060128]: Reorganize (perhaps) next constants in the order they belong
-Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
-*/
 @define('XMLRPC_NO_LONGER_BUNDLED', 'El API de la interfase XML-RPC en Serendipity no está incluido debido a problemas de seguridad que hay en curso con este API, además del hecho que no es usada con mucha frecuencia. De esta forma, usted necesita instalar la extensión XML-RPC para utilizar API de XML-RPC. Las URL que usa en sus aplicaciones NO cambiarán y tan pronto como instale la extensión podrá usar el API.');
 @define('PERM_READ', 'Permiso de lectura');
 @define('PERM_WRITE', 'Permiso de escritura');
@@ -869,8 +865,8 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('AUTHORS_SHOW_ARTICLE_COUNT_DESC', 'Si esta opción es activada, el número de artículos del autor se muestra al lado del nombre del autor en paréntesis.');
 @define('CUSTOM_ADMIN_INTERFACE', 'Interfaz de la suite de administración personalizada');
 @define('COMMENT_NOT_ADDED', 'Tu comentario no ha podido ser añadido debido a que, o bien, en esta entrada ha sido deshabilitado el envío de comentarios, ingresaste datos erróneos, o tu comentario ha sido capturado por medidas anti-spam.');
-@define('INSTALL_TRACKREF', 'Activar registro de "referrers"?');
-@define('INSTALL_TRACKREF_DESC', 'Activando el registro de "referrers" podrás ver cuales sitios envían visitas a tus artículos. Últimamente esto esta siendo abusado frecuentemente por spammers, así que puedes deshabilitarlo si quieres.');
+@define('INSTALL_TRACKREF', 'Activar registro de referidores?');
+@define('INSTALL_TRACKREF_DESC', 'Activando el registro de referidores podrás ver cuales sitios envían visitas a tus artículos. Últimamente esto esta siendo abusado frecuentemente por spammers, así que puedes deshabilitarlo si quieres.');
 @define('CATEGORIES_HIDE_PARENT', 'Ocular la categoría padre seleccionada?');
 @define('CATEGORIES_HIDE_PARENT_DESC', 'Si restringes el listado de categorías a una categoría especifica, por defecto verás la categoría padre (superior) dentro del listado generado. Si deshabilitas esta opción, el nombre de la categoría padre no será mostrado.');
 @define('WARNING_NO_GROUPS_SELECTED', 'Advertencia: No haz seleccionado ningún grupo de miembros. Esto efectivamente te dejaría fuera de la gerencia del grupo de usuarios, por lo tanto, tu membresía de grupo no fue cambiada.');
