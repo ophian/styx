@@ -87,4 +87,4 @@
     </form>
 {/if}
 
-</div>{* media library gallery pane end *}
+</div>{* MediaLibrary gallery pane end *}

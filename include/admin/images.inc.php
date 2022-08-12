@@ -274,7 +274,7 @@ switch ($serendipity['GET']['adminAction']) {
             }
             $data['messages'] = $messages;
             unset($messages);
-            // remember to return to last selected media library directory
+            // remember to return to last selected MediaLibrary directory
             serendipity_restoreVar($serendipity['COOKIE']['serendipity_only_path'], $serendipity['GET']['only_path']);
             // fall back
             $data['case_default'] = true;

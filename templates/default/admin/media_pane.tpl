@@ -68,4 +68,4 @@
     {/if}
 {/if}
 
-</div>{* media library pane end *}
+</div>{* MediaLibrary pane end *}
