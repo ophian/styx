@@ -353,7 +353,7 @@ function serendipity_getTemplateFile($file, $key = 'serendipityHTTPPath', $force
  * user-specific config
  *
  * @access public
- * @param   int     The Authorid to fetch the configuration from (0: global)
+ * @param   int     The authorid to fetch the configuration from (0: global)
  * @return  null
  */
 function serendipity_load_configuration($author = null) {
