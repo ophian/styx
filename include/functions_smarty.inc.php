@@ -729,7 +729,7 @@ function serendipity_smarty_getFile($params, $template) {
  * @param   array       Smarty parameter input array:
  *                          key: The plugin config value
  * @param   object      Smarty template object
- * @return  string      The requested configutation value
+ * @return  string      The requested configuration value
  */
 function serendipity_smarty_getConfigVar($params, $template) {
     if (empty($params['key'])) {
