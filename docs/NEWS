@@ -2,6 +2,10 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add new function to convert strftime() date formats to the dateTime
+    Interface successor up from PHP 8.2. This PHP version requires the
+    intl/icu extension loaded.
+
   * Upgrade to Smarty 4.2.0 library including all Serendipity Styx tweaks and
     further improvements for PHP 8.1 / 8.2.
 
