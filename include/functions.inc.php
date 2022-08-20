@@ -574,9 +574,9 @@ function serendipity_strftime($format, $timestamp = null, $useOffset = true, $us
                   Deprecation also doesn't mean removal, which won't happen until PHP 9, giving developers plenty of time to move to a saner threadsafe locale API based on intl/icu.
                   cheers Derick
                 */
-                if ((PHP_VERSION_ID >= 80100 && PHP_VERSION_ID < 80200) || PHP_VERSION_ICU === false) {
+                if (PHP_VERSION_ID >= 80100 && PHP_VERSION_ICU === false) {
                     $out = @strftime($format, $timestamp); // temporary disable deprecation notice with PHP 8.1 until found better solution with %A, %d. %B %Y alike formats, on frontend calls. Using date() replacement is doing well with generic formats like "%Y-%m-%d %H:%M:%S".
-                } elseif (PHP_VERSION_ID >= 80200) {
+                } elseif (PHP_VERSION_ICU === true) {
                     // ICU71 is fixed up from PHP 8.2
                     $out = serendipity_toDateTimeMapper($format, $timestamp, WYSIWYG_LANG);
                 } else {
