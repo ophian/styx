@@ -440,6 +440,9 @@ if (!defined('LANG_CHARSET')) {
     @define('LANG_CHARSET', 'ISO-8859-1');
 }
 
+// define a global constant for localized dateTime usage
+@define('PHP_VERSION_ICU', (PHP_VERSION_ID >= 80200 && extension_loaded('intl')));
+
 // Create array of permission levels, with descriptions
 $serendipity['permissionLevels'] = array(USERLEVEL_EDITOR => USERLEVEL_EDITOR_DESC,
                                          USERLEVEL_CHIEF => USERLEVEL_CHIEF_DESC,
