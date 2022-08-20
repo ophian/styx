@@ -2,6 +2,8 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Upgrade to Smarty 4.2.0 library including all Serendipity Styx tweaks and
+    further improvements for PHP 8.1 / 8.2.
 
 
 Version 3.9.1 (July, 31st 2022)
