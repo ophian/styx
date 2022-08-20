@@ -1,12 +1,5 @@
 <?php
 
-/************
-  TODO:
-
-  - Perform Serendipity version checks to only install plugins available for version
-
- ***********/
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
