@@ -2,6 +2,8 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Remove outdated Internet Explorer IE class suffixes in [ next ] theme
+
   * Add new function to convert strftime() date formats to the dateTime
     Interface successor up from PHP 8.2. This PHP version requires the
     intl/icu extension loaded.
