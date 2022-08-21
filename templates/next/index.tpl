@@ -1,7 +1,6 @@
 {if $is_embedded != true}
 <!DOCTYPE html>
-<!--[if IE 8 ]>    <html class="no-js lt-ie9" lang="{$lang}"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="{$lang}"> <!--<![endif]-->
+<html class="no-js" lang="{$lang}">
 <head>
     <meta charset="{$head_charset}">
     <title>{$head_title|default:$blogTitle}{if $head_subtitle} | {$head_subtitle}{/if}</title>
@@ -33,9 +32,6 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic">
 {/if}
     <link rel="stylesheet" href="{$head_link_stylesheet}">
-<!--[if lte IE 8]>
-    <link rel="stylesheet" href="{serendipity_getFile file="oldie.css"}">
-<![endif]-->
     <script src="{serendipity_getFile file="scripts/modernizr/modernizr.js"}"></script>
     <link rel="alternate" type="application/rss+xml" title="{$blogTitle} RSS feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2">
     <link rel="alternate" type="application/x.atom+xml" title="{$blogTitle} Atom feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml">

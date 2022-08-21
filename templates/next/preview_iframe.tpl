@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE 8 ]>    <html class="no-js lt-ie9" lang="{$lang}"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="{$lang}"> <!--<![endif]-->
+<html class="no-js" lang="{$lang}">
 <head>
     <meta charset="{$head_charset}">
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
@@ -24,9 +23,6 @@
 {else}
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css">
 {/if}
-<!--[if lte IE 8]>
-    <link rel="stylesheet" href="{serendipity_getFile file="oldie.css"}">
-<![endif]-->
     <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}">
 
 {if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
