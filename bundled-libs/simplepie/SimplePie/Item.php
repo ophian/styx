@@ -879,7 +879,13 @@ class SimplePie_Item
 		}
 		elseif (($date = $this->get_date('U')) !== null && $date !== false)
 		{
-			return @strftime($date_format, $date); // replace strftime() before PHP 9
+            if (PHP_VERSION_ICU === true) {
+                // ICU71 is fixed up from PHP 8.2
+                $out = serendipity_toDateTimeMapper($date_format, $date, WYSIWYG_LANG);
+            } else {
+                $out = @strftime($date_format, $date); // replace strftime() before PHP 9
+            }
+			return $out;
 		}
 
 		return null;
