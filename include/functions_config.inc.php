@@ -2123,7 +2123,7 @@ function serendipity_ACL_SQL(&$cond, $append_category = false, $type = 'category
         // If the user is logged in, we retrieve his authorid for the upcoming checks
         if (isset($_SESSION['serendipityAuthedUser']) && $_SESSION['serendipityAuthedUser'] === true) {
             $read_id = (int)$serendipity['authorid'];
-            $read_id_sql = 'acl_a.groupid OR acl_acc.groupid = 0';
+            $read_id_sql = 'acl_a.groupid OR acl_acc.groupid = 0 ';
         } else {
             // "0" as category property counts as "anonymous viewers"
             $read_id     = 0;
@@ -2165,21 +2165,21 @@ function serendipity_ACL_SQL(&$cond, $append_category = false, $type = 'category
         if (empty($cond['and'])) {
             $cond['and'] .= ' WHERE ';
         } else {
-            $cond['and'] .= ' AND ';
+            $cond['and'] .= '                   AND ';
         }
 
         // When in Admin-Mode, apply readership permissions.
-        $cond['and'] .= "    (
-                                 " . $sql_artifact_column . "
-                                 OR ( acl_acc.groupid = " . $read_id_sql . ")
-                                 OR ( acl_acc.artifact_id IS NULL
-                                      " . (isset($serendipity['GET']['adminModule']) &&
-                                           $serendipity['GET']['adminModule'] == 'entries' &&
-                                           !serendipity_checkPermission('adminEntriesMaintainOthers')
-                                        ? "AND (c.authorid IS NULL OR c.authorid = 0 OR c.authorid = " . $read_id . ")"
-                                        : "") . "
-                                    )
-                               )";
+        if (isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModule'] == 'entries' && !serendipity_checkPermission('adminEntriesMaintainOthers')) {
+            $rperm = " AND ( c.authorid IS NULL OR c.authorid = 0 OR c.authorid = " . $read_id . " )";
+        }
+        $rperm  = $rperm ?? '';
+        $rperm .= " )
+                         )";
+        $cond['and'] .= "
+                         (
+                            " . $sql_artifact_column . "
+                            OR ( acl_acc.groupid = " . $read_id_sql . ")
+                            OR ( acl_acc.artifact_id IS NULL" . $rperm;
         return true;
     }
 

@@ -310,7 +310,8 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
 
     if (!empty($drafts)) {
         if (!empty($cond['and'])) {
-            $cond['and'] .= " AND $drafts";
+            $cond['and'] .= "
+                    AND $drafts";
         } else {
             $cond['and'] = "WHERE $drafts";
         }
@@ -382,10 +383,12 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
 
     if (!isset($cond['addkey'])) {
         $cond['addkey'] = '';
+    } else {
+        $body .= ",";
+        $cond['addkey'] = "\n".rtrim($cond['addkey'], ',');
     }
     if (is_null($select_key)) {
         $select_key = "{$cond['distinct']}
-                    {$cond['addkey']}
 
                     e.id,
                     e.title,
@@ -400,7 +403,9 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
 
                     a.realname AS author,
                     a.username AS loginname,
-                    a.email";
+                    a.email,
+                    $body
+                    {$cond['addkey']}";
     }
 
     $cond['and']   = $cond['and'] ?? '';
@@ -432,7 +437,8 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
 
     $serendipity['fullCountQuery'] .= "
                     {$cond['joins']}
-                    {$cond['and']}";
+
+                 {$cond['and']}";
     // DEBUG:
     // die($serendipity['fullCountQuery']);
     if (!empty($limit)) {
@@ -465,15 +471,16 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
     if (!isset($cond['having'])) {
         $cond['having'] = '';
     }
+    // paranoid check to avoid $cond in-smuggled ending comma
+    $select_key = rtrim($select_key, ',');
 
-    $query = "SELECT $select_key,
-                    $body
+    $query = "SELECT $select_key
                      {$serendipity['fullCountQuery']}
                      {$cond['group']}
                      {$cond['having']}
                      " . (!empty($cond['orderby']) ? "ORDER BY {$cond['orderby']}" : '') . "
-                    $limit";
-
+                     $limit";
+    $query = rtrim($query);
     // DEBUG:
     // die($query);
     $fetch_single = ($returncode == 'single' ? true: false);
