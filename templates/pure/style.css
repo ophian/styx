@@ -1379,6 +1379,7 @@ body.grid-block .dsgvo_gdpr_footer {
 }
 
 #content > .serendipity_entrypaging + #entrypasswordform {
+    margin: 1.5em auto 1em;
     padding-top: 0;
 }
 #content > .serendipity_entrypaging:first-child {
