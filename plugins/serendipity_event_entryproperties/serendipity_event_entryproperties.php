@@ -997,7 +997,7 @@ class serendipity_event_entryproperties extends serendipity_event
                             $_SESSION['entrypassword_unlocked'][$serendipity['GET']['id']] = md5($eventData[0]['properties']['ep_entrypassword']);
                         } else {
                             if (is_array($eventData)) {
-                                $eventData['clean_page'] = true;
+                                $eventData['clean_page'] = true; // This is important to not display an entry list!
                             } else {
                                 $eventData = array('clean_page' => true);
                             }
@@ -1029,7 +1029,10 @@ class serendipity_event_entryproperties extends serendipity_event
                         return true;
                     }
                     if (isset($_SESSION['serendipityAuthedUser']) && $_SESSION['serendipityAuthedUser'] === true) {
-                        $conds[] = " (ep_access.property IS NULL OR ep_access.value = 'member' OR ep_access.value = 'public' OR (ep_access.value = 'private' AND e.authorid = " . (int)$serendipity['authorid'] . ")) ";
+                        $conds[] = "
+                        (
+                            ep_access.property IS NULL OR ep_access.value = 'member' OR ep_access.value = 'public' OR ( ep_access.value = 'private' AND e.authorid = " . (int)$serendipity['authorid'] . " )
+                        ) ";
 
                         if ($use_groups) {
                             $mygroups  = serendipity_checkPermission(null, null, true);
@@ -1056,25 +1059,26 @@ class serendipity_event_entryproperties extends serendipity_event
                      && !isset($serendipity['GET']['adminModule'])
                      && (!isset($serendipity['GET']['action']) || $serendipity['GET']['action'] != 'read')
                      && $event == 'frontend_fetchentries' && $addData['source'] != 'search') {
-                        $conds[] = " (ep_no_frontpage.property IS NULL OR ep_no_frontpage.value != 'true') ";
+                        $conds[] = "
+                        ( ep_no_frontpage.property IS NULL OR ep_no_frontpage.value != 'true' )\n";
                         $joins[] = "\n                    LEFT OUTER JOIN {$serendipity['dbPrefix']}entryproperties ep_no_frontpage
                            ON (e.id = ep_no_frontpage.entryid AND ep_no_frontpage.property = 'ep_no_frontpage')";
                     }
 
                     if (count($conds) > 0) {
-                        $cond = implode(' AND ', $conds);
+                        $cond = implode("\n                    AND ", $conds);
                         if (empty($eventData['and'])) {
                             $eventData['and'] = " WHERE $cond ";
                         } else {
-                            $eventData['and'] .= " AND $cond ";
+                            $eventData['and'] .= "\n                    AND $cond ";
                         }
                     }
 
                     $conds = array();
                     if ((!isset($addData['noSticky']) || $addData['noSticky'] !== true) && !isset($serendipity['skipSticky'])) {
-                        $conds[] = 'ep_sticky.value AS orderkey,';
+                        $conds[] = '                    ep_sticky.value AS orderkey'; // is the last $cond add key in order
                     } else {
-                        $conds[] = 'e.isdraft AS orderkey,';
+                        $conds[] = '                    e.isdraft AS orderkey'; // Ditto
                     }
 
                     if ($is_cache && (!isset($addData['noCache']) || !$addData['noCache'])) {
