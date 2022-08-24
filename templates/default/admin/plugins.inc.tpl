@@ -62,6 +62,8 @@
     <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}: {$e_name}</span>
     {/foreach}
 
+    <div id="waitingspin" class="pulsator busy_pluginup" style="display: none"><div></div><div></div></div>
+
     <form{if $only_group == 'UPGRADE'} class="button_group"{/if} action="serendipity_admin.php" method="get">
         {$formToken}
         <input name="serendipity[adminModule]" type="hidden" value="plugins">
@@ -161,7 +163,7 @@
                         <a class="button_link state_update" href="?serendipity[adminModule]=plugins&amp;serendipity[pluginPath]={$plug.pluginPath}&amp;serendipity[install_plugin]={$plug.plugin_class}&amp;{$urltoken}{if isset($plug['customURI'])}{$plug.customURI}{/if}" title="{$CONST.PLUGIN_EVENT_SPARTACUS_CHECK_HINT}">{$CONST.UPGRADE}</a>
                     {elseif $plug.installable}
                         {if $plug.stackable}<span class="block_level stackable"><span class="icon-ok-circled" aria-hidden="true"></span>  {$CONST.ALREADY_INSTALLED} <span class="icon-plus" aria-hidden="true"></span> </span>{/if}
-                        <a class="button_link" href="?serendipity[adminModule]=plugins&amp;serendipity[pluginPath]={$plug.pluginPath}&amp;serendipity[install_plugin]={$plug.plugin_class}&amp;{$urltoken}{if isset($plug.customURI)}{$plug.customURI}{/if}">{$CONST.INSTALL}</a>
+                        <a class="button_link state_install" href="?serendipity[adminModule]=plugins&amp;serendipity[pluginPath]={$plug.pluginPath}&amp;serendipity[install_plugin]={$plug.plugin_class}&amp;{$urltoken}{if isset($plug.customURI)}{$plug.customURI}{/if}">{$CONST.INSTALL}</a>
                     {else}
                         <span class="block_level"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.ALREADY_INSTALLED}</span>
                     {/if}
