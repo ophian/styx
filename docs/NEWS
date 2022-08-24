@@ -2,6 +2,10 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve plugin installations for the odd "flash of unstyled content" using
+    a temporary stored $_SESSION variable for install-to-configuration success
+    messages.
+
   * Fire new waitingspin "busy"-Icon toggle on Plugin install/update
 
   * Remove outdated Internet Explorer IE class suffixes in [ next ] theme
