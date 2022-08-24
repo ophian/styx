@@ -2,6 +2,8 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fire new waitingspin "busy"-Icon toggle on Plugin install/update
+
   * Remove outdated Internet Explorer IE class suffixes in [ next ] theme
 
   * Add new function to convert strftime() date formats to the dateTime
