@@ -17,7 +17,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.18');
+        $propbag->add('version',       '3.19');
         $propbag->add('requirements',  array(
             'serendipity' => '3.1',
             'php'         => '7.3'
@@ -1141,7 +1141,10 @@ class serendipity_event_spartacus extends serendipity_event
         }
 
         if (isset($baseDir)) {
-            $this->outputMSG('success', PLUGIN_EVENT_SPARTACUS_FETCHED_DONE);
+            ob_start();
+              $this->outputMSG('success', PLUGIN_EVENT_SPARTACUS_FETCHED_DONE);
+              $_SESSION['backend_last_pluginup_notificator'] = ob_get_contents();
+            ob_end_clean();
             return $baseDir;
         }
     }
