@@ -639,7 +639,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     }
 
     if (isset($_POST['REMOVE']) && serendipity_checkFormToken()) {
-        if (is_array($_POST['serendipity']['plugin_to_remove'])) {
+        if (isset($_POST['serendipity']['plugin_to_remove']) && is_array($_POST['serendipity']['plugin_to_remove'])) {
             $msg = '<ul class="msg_success plainList plugins_removed">
             <span><span class="icon-ok-circled" aria-hidden="true"></span> ' . REMOVE_TICKED_PLUGINS . ": </span>\n";
             foreach($_POST['serendipity']['plugin_to_remove'] AS $key) {
