@@ -1239,7 +1239,7 @@ function serendipity_track_referrer($entry = 0) {
         if (!isset($serendipity['_blockReferer']) || !is_array($serendipity['_blockReferer'])) {
             // Only generate an array once per call
             $serendipity['_blockReferer'] = array();
-            $serendipity['_blockReferer'] = @explode(';', $serendipity['blockReferer']);
+            $serendipity['_blockReferer'] = explode(';', $serendipity['blockReferer'] ?? '');
         }
 
         $url_parts  = parse_url($_SERVER['HTTP_REFERER']);
