@@ -1601,8 +1601,8 @@ class serendipity_plugin
         if (isset($this->dependencies) && is_array($this->dependencies)) {
 
             if ($remove) {
-                $dependencies = @explode(';', $this->get_config('dependencies'));
-                $modes        = @explode(';', $this->get_config('dependency_modes'));
+                $dependencies = explode(';', $this->get_config('dependencies', ''));
+                $modes        = explode(';', $this->get_config('dependency_modes', ''));
 
                 if (!empty($dependencies) && is_array($dependencies)) {
                     foreach($dependencies AS $idx => $dependency) {
