@@ -2,6 +2,9 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Update templates assets jQuery lib to 3.6.1
+    https://blog.jquery.com/2022/08/26/jquery-3-6-1-maintenance-release/
+
   * Improve entryproperties plugin (loop filter) for entryform disable_markup
     selection by removing plugins without any or empty markup relation.
 
