@@ -539,7 +539,7 @@ class serendipity_event_entryproperties extends serendipity_event
                         if (!$selected && isset($serendipity['wysiwyg']) && $serendipity['wysiwyg'] && $plugin_data['p']->act_pluginPath == 'serendipity_event_nl2br') {
                             $selected = true;
                         }
-                        echo '<option ' . ($selected ? 'selected="selected"' : '') . ' value="' . $plugin_data['p']->instance . '">' . serendipity_specialchars($plugin_data['p']->title) . '</option>' . "\n";
+                        echo '<option ' . ($selected ? 'selected="selected"' : '') . ' value="' . $plugin_data['p']->instance . '">' . serendipity_specialchars($plugin_data['t']) . '</option>' . "\n";
                     }
                 }
 ?>
