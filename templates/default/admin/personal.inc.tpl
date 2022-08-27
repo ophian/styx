@@ -7,7 +7,7 @@
     {elseif isset($password_check_fail) AND $password_check_fail}
     <span class="msg_error ppconf_msg"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.USERCONF_CHECK_PASSWORD_ERROR}</span>
     {else}
-    <span class="msg_success ppconf_msg"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.MODIFIED_USER|sprintf:"{$realname|escape}"} ?></span>
+    <span class="msg_success ppconf_msg"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.MODIFIED_USER|sprintf:"{$realname|escape}"}</span>
     {/if}
 {/if}
 <form action="?serendipity[adminModule]=personal&amp;serendipity[adminAction]=save" method="post">
