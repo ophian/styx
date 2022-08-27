@@ -1,3 +1,9 @@
+1.81:
+-----
+    * Improve disable_markup selection by removing plugins without markup relation
+    * Improve entries SQL query for debug views
+    * Improve some [de] lang constants
+
 1.80:
 -----
     * Add extended usage delay note as an added constant to the "plugin_to_conf" description toggle info
