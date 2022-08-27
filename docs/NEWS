@@ -2,6 +2,9 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve entryproperties plugin (loop filter) for entryform disable_markup
+    selection by removing plugins without any or empty markup relation.
+
   * Improve plugin installations for the odd "flash of unstyled content" using
     a temporary stored $_SESSION variable for install-to-configuration success
     messages.
