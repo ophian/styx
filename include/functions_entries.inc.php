@@ -120,6 +120,10 @@ function serendipity_fetchCategoryInfo($categoryid, $categoryname = '') {
 
         $ret =& serendipity_db_query($query);
         $ret[0]['category_icon_webp'] = $ret[0][7] = !empty($ret[0]['category_icon']) ? serendipity_generate_webpPathURI($ret[0]['category_icon']) : '';
+        $fpwebp = str_replace($serendipity['serendipityHTTPPath'], $serendipity['serendipityPath'], $ret[0]['category_icon_webp']);
+        if (!file_exists($fpwebp)) {
+            $ret[0]['category_icon_webp'] = $ret[0][7] = null;
+        }
         return $ret[0] ?? null; // Ditto (see above)
     }
 }
