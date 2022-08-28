@@ -33,6 +33,7 @@ This Standard Backend has its own style declarations, analogous to the "default/
 * 2021-06-19 - Styx Dark Mode
 * 2021-12-06 - Add Styx login Page Dark Mode
 * 2022-07-15 - Improve media properties styles including EXIF data and for responsive fluids
+* 2022-08-28 - Add a tad bottom margin space to info buttons in labels
 </pre>
 
 THE FOLLOWING IS THE DESCRIPTION OF THE RELEGATED BACKEND&colon;<br>

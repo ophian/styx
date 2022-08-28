@@ -33,6 +33,7 @@ Dieses Standard Backend verfügt über eine eigene styles Auszeichnung, analog z
 * 2021-06-19 - Styx Dark Mode
 * 2021-12-06 - Erweiterung für Styx login Page Dark Mode
 * 2022-07-15 - Verbesserte media properties styles inclusive EXIF data und responsive fluids
+* 2022-08-28 - Info-Schaltflächen in Beschriftungen mit etwas Abstand zum unteren Rand versehen
 </pre>
 
 DAS FOLGENDE IST DIE BESCHREIBUNG DES FALLBACK BACKENDS&colon;<br>
