@@ -1750,6 +1750,10 @@ a.media_show_info.button_link,
     margin-right: 2px;
 }
 
+.wrap_legend a.toggle_info.button_link {
+    margin-bottom: .25em;
+}
+
 #filter_comments label,
 #serendipity_comment label {
     width: 15%;
