@@ -2,6 +2,9 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix (backend) categories category image preview when not having a WebP
+    variation format
+
   * Update templates assets jQuery lib to 3.6.1
     https://blog.jquery.com/2022/08/26/jquery-3-6-1-maintenance-release/
 
