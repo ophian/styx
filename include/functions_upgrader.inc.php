@@ -498,6 +498,7 @@ $dead_files_400 = array(
     'bundled-libs/Smarty/error_reporting.ini',
     'bundled-libs/Smarty/INHERITANCE_RELEASE_NOTES.txt',
     'bundled-libs/Smarty/NEW_FEATURES.txt',
+    'bundled-libs/Smarty/README',
     'bundled-libs/Smarty/README_SMARTY_CACHING_PURPOSES.txt',
     'bundled-libs/Smarty/SMARTY_2_BC_NOTES.txt',
     'bundled-libs/Smarty/SMARTY_3.0_BC_NOTES.txt',
