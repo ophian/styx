@@ -638,12 +638,12 @@ class serendipity_event_entryproperties extends serendipity_event
                                ? 'checked="checked"'
                                : '';
 
-                    $no_frontpage =    (isset($eventData['properties']['ep_no_frontpage']) && serendipity_db_bool($eventData['properties']['ep_no_frontpage']))
+                    $no_frontpage = (isset($eventData['properties']['ep_no_frontpage']) && serendipity_db_bool($eventData['properties']['ep_no_frontpage']))
                                  || (isset($serendipity['POST']['properties']['no_frontpage']) && serendipity_db_bool($serendipity['POST']['properties']['no_frontpage']))
                                ? 'checked="checked"'
                                : '';
 
-                    $hiderss      =     (isset($eventData['properties']['ep_hiderss']) && serendipity_db_bool($eventData['properties']['ep_hiderss']))
+                    $hiderss      = (isset($eventData['properties']['ep_hiderss']) && serendipity_db_bool($eventData['properties']['ep_hiderss']))
                                  || (isset($serendipity['POST']['properties']['hiderss']) && serendipity_db_bool($serendipity['POST']['properties']['hiderss']))
                                ? 'checked="checked"'
                                : '';
