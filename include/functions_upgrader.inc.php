@@ -493,6 +493,14 @@ $dead_files_340 = array(
 
 /* A list of Styx files, to be removed or renamed by 3.10.0 / 4.0.0 */
 $dead_files_400 = array(
+    'bundled-libs/Smarty/SMARTY_3.1_NOTES.txt',
+    'bundled-libs/Smarty/COMPOSER_RELEASE_NOTES.txt',
+    'bundled-libs/Smarty/error_reporting.ini',
+    'bundled-libs/Smarty/INHERITANCE_RELEASE_NOTES.txt',
+    'bundled-libs/Smarty/NEW_FEATURES.txt',
+    'bundled-libs/Smarty/README_SMARTY_CACHING_PURPOSES.txt',
+    'bundled-libs/Smarty/SMARTY_2_BC_NOTES.txt',
+    'bundled-libs/Smarty/SMARTY_3.0_BC_NOTES.txt',
     'bundled-libs/Smarty/libs/SmartyBC.class.php',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_compile_include_php.php',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_compile_private_php.php',
