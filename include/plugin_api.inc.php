@@ -90,7 +90,7 @@ function serendipity_plugin_api_core_event_hook($event, &$bag, &$eventData, &$ad
         case 'backend_save':
         case 'backend_publish':
             // this is preview_iframe.tpl updertHooks [ NOT ONLY! See freetags - keep it strictly set to iframe mode save!]
-            if (serendipity_db_bool($serendipity['use_autosave']) && $_GET['serendipity']['is_iframe'] == 'true' && $_GET['serendipity']['iframe_mode'] == 'save') {
+            if (serendipity_db_bool($serendipity['use_autosave']) && isset($_GET['serendipity']['is_iframe']) && $_GET['serendipity']['is_iframe'] == 'true' && $_GET['serendipity']['iframe_mode'] == 'save') {
                 echo "\n".'<script>document.addEventListener("DOMContentLoaded", function() { if (window.parent.Modernizr.indexeddb) { window.parent.serendipity.eraseEntryEditorCache(); } });</script>'."\n";
             }
             break;
