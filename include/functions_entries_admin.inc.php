@@ -142,12 +142,6 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
         $template_vars['allowDateManipulation'] = true;
     }
 
-    if ((!empty($entry['extended']) || !empty($serendipity['COOKIE']['toggle_extended'])) && !$serendipity['wysiwyg']) {
-        $template_vars['show_wysiwyg'] = true;
-    }
-
-    $template_vars['wysiwyg_advanced'] = true;
-
     $template_vars['timestamp']               =  serendipity_serverOffsetHour(isset($entry['timestamp']) && $entry['timestamp'] > 0 ? $entry['timestamp'] : time());
     $template_vars['reset_timestamp']         =  serendipity_serverOffsetHour(time());
     $template_vars['hiddens']                 =  $hiddens;
