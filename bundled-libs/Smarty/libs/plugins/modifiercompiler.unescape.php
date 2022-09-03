@@ -39,7 +39,7 @@ function smarty_modifiercompiler_unescape($params, Smarty_Internal_TemplateCompi
         case 'entity':
         case 'htmlall':
             if (Smarty::$_MBSTRING) {
-                return 'htmlspecialchars_decode(mb_convert_encoding(' . $params[ 0 ] . ', ' . $params[ 2 ] . '))'; // PHP 8.2 sets HTML-ENTITIES deprecated
+                return 'html_entity_decode(htmlspecialchars_decode(mb_convert_encoding(' . $params[ 0 ] . ', ' . $params[ 2 ] . ')))'; // PHP 8.2 sets use of HTML-ENTITIES deprecated
             }
             return 'html_entity_decode(' . $params[ 0 ] . ', ENT_NOQUOTES, ' . $params[ 2 ] . ')';
         case 'html':
