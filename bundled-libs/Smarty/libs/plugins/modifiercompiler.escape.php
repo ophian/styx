@@ -46,9 +46,9 @@ function smarty_modifiercompiler_escape($params, Smarty_Internal_TemplateCompile
             // no break
             case 'htmlall':
                 if (Smarty::$_MBSTRING) {
-                    return 'htmlspecialchars_decode(mb_convert_encoding(htmlentities(' . $params[ 0 ] . ', ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, ' .
-                        var_export($char_set, true) . ', ' . var_export($double_encode, true) .'), ' .
-                        var_export($char_set, true) . '))'; // PHP 8.2 sets HTML-ENTITIES deprecated and PHP 8.1 gives up ENT_COMPAT for the triplet default
+                    return 'htmlspecialchars_decode(mb_convert_encoding(htmlentities(htmlspecialchars((string)' . $params[ 0 ] . ', ENT_QUOTES, ' .
+                        var_export($char_set, true) . ', ' . var_export($double_encode, true) .
+                        '), ENT_COMPAT, ' . var_export($char_set, true) . '), ' . var_export($char_set, true) . '))'; // PHP 8.2 sets HTML-ENTITIES deprecated
                 }
                 // no MBString fallback
                 return 'htmlentities(' . $params[ 0 ] . ', ENT_QUOTES, ' . var_export($char_set, true) . ', ' .
