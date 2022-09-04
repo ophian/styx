@@ -49,7 +49,7 @@ function smarty_modifiercompiler_escape($params, Smarty_Internal_TemplateCompile
                 if (Smarty::$_MBSTRING) {
                     return 'htmlspecialchars_decode(mb_convert_encoding(htmlentities(htmlspecialchars(' . $params[ 0 ] . ', ENT_QUOTES, ' .
                         var_export($char_set, true) . ', ' . var_export($double_encode, true) .
-                        '), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML40, ' . var_export($char_set, true) . '), ' . var_export($char_set, true) . '))'; // PHP 8.2 sets HTML-ENTITIES deprecated
+                        '), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, ' . var_export($char_set, true) . '), ' . var_export($char_set, true) . '))'; // PHP 8.2 sets HTML-ENTITIES deprecated
                 }
                 // no MBString fallback
                 return 'htmlentities(' . $params[ 0 ] . ', ENT_QUOTES, ' . var_export($char_set, true) . ', ' .
