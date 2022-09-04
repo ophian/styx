@@ -35,6 +35,7 @@ function smarty_modifiercompiler_unescape($params, Smarty_Internal_TemplateCompi
         $params[ 2 ] = '\'' . addslashes(Smarty::$_CHARSET) . '\'';
     }
 
+    $params[ 0 ] = (string)$params[ 0 ];
     switch ($esc_type) {
         case 'entity':
         case 'htmlall':
