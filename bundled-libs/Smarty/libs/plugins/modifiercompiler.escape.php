@@ -39,6 +39,7 @@ function smarty_modifiercompiler_escape($params, Smarty_Internal_TemplateCompile
         if (!$char_set) {
             $char_set = Smarty::$_CHARSET;
         }
+        $params[ 0 ] = (string)$params[ 0 ];
         switch ($esc_type) {
             case 'html':
                 return 'htmlspecialchars(' . $params[ 0 ] . ', ENT_QUOTES, ' . var_export($char_set, true) . ', ' .
@@ -46,7 +47,7 @@ function smarty_modifiercompiler_escape($params, Smarty_Internal_TemplateCompile
             // no break
             case 'htmlall':
                 if (Smarty::$_MBSTRING) {
-                    return 'htmlspecialchars_decode(mb_convert_encoding(htmlentities(htmlspecialchars((string)' . $params[ 0 ] . ', ENT_QUOTES, ' .
+                    return 'htmlspecialchars_decode(mb_convert_encoding(htmlentities(htmlspecialchars(' . $params[ 0 ] . ', ENT_QUOTES, ' .
                         var_export($char_set, true) . ', ' . var_export($double_encode, true) .
                         '), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML40, ' . var_export($char_set, true) . '), ' . var_export($char_set, true) . '))'; // PHP 8.2 sets HTML-ENTITIES deprecated
                 }
