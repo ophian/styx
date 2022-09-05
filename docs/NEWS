@@ -2,6 +2,8 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix spamblock plugin filter(s) for regular expression matches
+
   * Fix (backend) categories category image preview when not having a WebP
     variation format
 
