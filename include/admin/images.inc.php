@@ -1007,6 +1007,9 @@ switch ($serendipity['GET']['adminAction']) {
             $data['file_avif'] = (filesize($data['file_avif']) > filesize($data['file_webp']))
                                     ? ''
                                     : $data['file_avif'];
+            $data['file_webp'] = (filesize($data['file_webp']) > filesize($data['file']))
+                                    ? ''
+                                    : $data['file_web'];
         }
         break;
 
