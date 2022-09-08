@@ -114,7 +114,7 @@ if (IN_installer === true && IS_installed === false && defined('DEPLOYMENT_PATH'
     $install_deployment_token_file = DEPLOYMENT_PATH . '/install_token.php';
 }
 if ((file_exists($install_token_file) && is_readable($install_token_file) && filesize($install_token_file) > 0)
-  || file_exists($install_deployment_token_file) && is_readable($install_deployment_token_file) && filesize($install_deployment_token_file) > 0)
+  || isset($install_deployment_token_file) && file_exists($install_deployment_token_file) && is_readable($install_deployment_token_file) && filesize($install_deployment_token_file) > 0)
 {
     $install_token_file = file_exists($install_token_file) ? $install_token_file : $install_deployment_token_file;
     if (preg_match('@install_token\s*=\s*[\'"]([a-z\.0-9]+)[\'"];@imsU', file_get_contents($install_token_file), $tokenmatch)) {
