@@ -2,6 +2,10 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Upgrade [b5] template assets to new Bootstrap v5.2.1 release.
+    See changelog at https://github.com/twbs/bootstrap/releases/tag/v5.2.1
+    and https://blog.getbootstrap.com/2022/09/07/bootstrap-5-2-1/
+
   * Add MediaLibrary picture container srcset filesize comparison to scale/
     properties task page previews.
 
