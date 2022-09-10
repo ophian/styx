@@ -1198,11 +1198,10 @@ nav.pager ul {
       padding-left: 1em; }
     .post_content iframe {
       width: 100%; }
-    .post_content table thead tr,
-    .post_content table tbody tr {
+    .post_content table tr {
       width: 100%;
       display: inline-flex; }
-      .post_content table th[scope="col"],
+      .post_content table th,
       .post_content table td {
         width: inherit; }
 .serendipity_title {
