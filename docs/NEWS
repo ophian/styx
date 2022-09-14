@@ -2,6 +2,8 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add archives of category to the [ pure ] theme archives title, if in
+
   * Add some [ pure ] theme .post_content table default styles - expanding the
     head and body rows and cells equally.
 
