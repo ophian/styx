@@ -1,6 +1,6 @@
 {serendipity_hookPlugin hook="entries_header"}
 <article class="archive archive_overview">
-    <h2>{$CONST.ARCHIVES}</h2>
+    <h2>{$CONST.ARCHIVES}{if NOT empty($category)} {$CONST.IN} {$CONST.CATEGORY}: {$category_info.category_name}{/if}</h2>
 {if isset($archives) AND is_array($archives)}
 {foreach $archives AS $archive}{if $archive.sum === 0}{continue}{/if}
     <section class="archive_year">
