@@ -1,6 +1,6 @@
 Name: Pure [ Standard ] &lsaquo; 2022 &rsaquo;
 Author: Ian Styx
-Date: 2022-09-10
+Date: 2022-09-14
 Require Serendipity: 3.5
 Backend: No
 Responsive: Yes
