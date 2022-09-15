@@ -160,11 +160,6 @@ class Smarty extends Smarty_Internal_TemplateBase
     const PLUGIN_MODIFIERCOMPILER = 'modifiercompiler';
 
     /**
-     * Declare $smarty property for PHP 8.2 deprecation of dynamic properties
-     */
-    public $smarty = null;
-
-    /**
      * assigned global tpl vars
      */
     public static $global_tpl_vars = array();
