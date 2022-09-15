@@ -2,6 +2,8 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Merge Smarty [Sync 4.2.1] release
+
   * Add archives of category to the [ pure ] theme archives title, if in
 
   * Add some [ pure ] theme .post_content table default styles - expanding the
