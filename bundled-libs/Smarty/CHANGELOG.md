@@ -6,12 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [4.2.1-dev-13] - 2022-09-15
 
-## [Custom Styx features]
+### [Custom Styx features]
 - Fixes for the esacpe/unescape:'htmlall' HTML-ENTITIES PHP 8.2 deprecation fixes
 
-## [4.2.0-dev-11] - 2022-08-06
-
-## [Custom Styx features]
+### [Custom Styx features]
 - Serendipity Styx keeps the deprecated SMARTY_RESOURCE_CHAR_SET and SMARTY_RESOURCE_DATE_FORMAT constants since we have more than ISO-8859-1 defined by serendipity LANG_CHARSET 
 - Serendipity Styx does not want Smarty to silently hidefix PHP 8.[0|1|2] errors by wrong coded templates or php assigns or missing constants.
     Styx is made to fix them in Styx PHP code, so they do not throw errors, notices, etc in Smarty.
