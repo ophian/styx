@@ -937,6 +937,9 @@ nav.pager ul {
     border-radius: initial;
     margin-right: .25em;
 }
+nav.pager + .serendipity_blogpdf {
+    margin-top: 1rem;
+}
 
 #headsearch {
     margin: 1rem .25rem 0;
