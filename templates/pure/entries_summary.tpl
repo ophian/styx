@@ -16,6 +16,7 @@
     <nav class="pager">
         {if NOT empty($footer_info)}<p>{$footer_info}</p>{/if}
     {if $footer_prev_page OR $footer_next_page}
+
         <ul class="plainList">
             <li class="pager_prev">{if $footer_prev_page}<a href="{$footer_prev_page}">{$CONST.PREVIOUS_PAGE}</a>{else}&nbsp;{/if}</li>
             <li class="pager_next">{if $footer_next_page}<a href="{$footer_next_page}">{$CONST.NEXT_PAGE}</a>{else}&nbsp;{/if}</li>
