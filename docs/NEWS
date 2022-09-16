@@ -2,6 +2,9 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Do not allow [ pure ] theme entries_footer hook in (full) archives/summary
+    pages w/o having a date range.
+
   * Merge Smarty [Sync 4.2.1] release
 
   * Add archives of category to the [ pure ] theme archives title, if in
