@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 // Contributed by Udo Gerhards <udo@babyblaue-seiten.de>
 // OPML Contributed by Richard Thomas Harrison <rich@mibnet.plus.com>
@@ -277,7 +279,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
         $propbag->add('description',   PLUGIN_REMOTERSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Udo Gerhards, Richard Thomas Harrison, Ian Styx');
-        $propbag->add('version',       '1.32');
+        $propbag->add('version',       '1.33');
         $propbag->add('requirements',  array(
             'serendipity' => '3.1',
             'smarty'      => '3.1',
@@ -951,7 +953,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                         /* Pretend to be a html_nugget so we can apply markup events. */
                         if ($markup) {
                             $entry = array('html_nugget' => $content);
-                            serendipity_plugin_api::hook_event('frontend_display', $entry);
+                            serendipity_plugin_api::hook_event('frontend_display', $entry, array('from' => 'serendipity_plugin_remoterss:generate_content'));
                             $content = $entry['html_nugget'];
                         }
 
