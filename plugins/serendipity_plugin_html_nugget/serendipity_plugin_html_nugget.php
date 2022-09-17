@@ -22,7 +22,7 @@ class serendipity_plugin_html_nugget extends serendipity_plugin
         $propbag->add('description',   $desc);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team, Ian Styx');
-        $propbag->add('version',       '1.4');
+        $propbag->add('version',       '1.5');
         $propbag->add('configuration', array(
                                         'title',
                                         'backend_title',
@@ -102,7 +102,7 @@ class serendipity_plugin_html_nugget extends serendipity_plugin
 
         if (serendipity_db_bool($this->get_config('markup', 'true'))) {
             $entry = array('html_nugget' => $this->get_config('content'));
-            serendipity_plugin_api::hook_event('frontend_display', $entry);
+            serendipity_plugin_api::hook_event('frontend_display', $entry, array('from' => 'serendipity_plugin_html_nugget:generate_content'));
             echo $entry['html_nugget'];
         } else {
             echo $this->get_config('content');
