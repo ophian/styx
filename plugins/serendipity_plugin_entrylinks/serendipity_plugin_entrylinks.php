@@ -20,7 +20,7 @@ class serendipity_plugin_entrylinks extends serendipity_plugin
         $propbag->add('description',   PLUGIN_ENTRYLINKS_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.05');
+        $propbag->add('version',       '1.06');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -164,7 +164,7 @@ class serendipity_plugin_entrylinks extends serendipity_plugin
 
             if (serendipity_db_bool($this->get_config('markup', 'true'))) {
                 $entry = array('html_nugget' => $links, 'entry_id' => $id);
-                serendipity_plugin_api::hook_event('frontend_display', $entry);
+                serendipity_plugin_api::hook_event('frontend_display', $entry, array('from' => 'serendipity_plugin_entrylinks:generate_content'));
                 echo $entry['html_nugget'];
             } else {
                 echo $links;
