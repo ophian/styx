@@ -529,14 +529,14 @@
 @define('DELETE_THUMBNAIL', 'A következõ elõnézeti kép törlése: <b>%s</b>');
 @define('DELETE_FILE', 'A következõ fájlt töröltem: <b>%s</b>');
 @define('ABOUT_TO_DELETE_FILE', 'A következõ fájl törlésére készülsz: <b>%s</b><br>Ha van olyan bejegyzés ahol ezt használod, akkor így törött hivatkozások vagy hiányzó képek lesznek<br>Biztosan folytatod?<br><br>');
-@define('TRACKBACK_SENDING', 'Visszahivatkozás küldése ide: %s...');
+@define('TRACKBACK_SENDING', 'Visszahivatkozás küldése URI-ide: %s...');
 @define('TRACKBACK_SENT', 'A visszahivatkozás sikeres');
 @define('TRACKBACK_FAILED', 'A visszahivatkozás nem sikerült: %s');
-@define('TRACKBACK_NOT_FOUND', 'A visszahivatkozás URL nem található.');
-@define('TRACKBACK_URI_MISMATCH', 'Az automatikusan felismert visszahivatkozási URL nem egyezik meg a cél URL-el.');
+@define('TRACKBACK_NOT_FOUND', 'A visszahivatkozás URI nem található.');
+@define('TRACKBACK_URI_MISMATCH', 'Az automatikusan felismert visszahivatkozási URI nem egyezik meg a cél URI-el.');
 @define('TRACKBACK_CHECKING', '<u>%s</u> ellenõrzése lehetséges visszshivatkozásokra ...');
 @define('TRACKBACK_NO_DATA', 'Nem található adat');
-@define('TRACKBACK_SIZE', 'A cél URL meghaladta a maximális fájlméretet: %s bájt.');
+@define('TRACKBACK_SIZE', 'A cél URI meghaladta a maximális fájlméretet: %s bájt.');
 @define('COMMENTS_VIEWMODE_THREADED', 'Logikai sorrend');
 @define('COMMENTS_VIEWMODE_LINEAR', 'Folyamatos');
 @define('DISPLAY_COMMENTS_AS', 'A hozzászólások megjelenítése így:');

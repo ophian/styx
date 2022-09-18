@@ -518,14 +518,14 @@
 @define('DELETE_THUMBNAIL', 'Excluir a miniatura da imagem entitulada <b>%s</b>');
 @define('DELETE_FILE', 'Excluir o campo entitulado <b>%s</b>');
 @define('ABOUT_TO_DELETE_FILE', 'Você está prestes a apagar <b>%s</b><br>Se estiver utilizando esse arquivo em algum dos seus artigos, vai resultar em ligações ou imagens perdidas<br>Deseja realmente prosseguir com a exclusão?<br><br>');
-@define('TRACKBACK_SENDING', 'Enviando trackback para o URL %s...');
+@define('TRACKBACK_SENDING', 'Enviando trackback para o URI %s...');
 @define('TRACKBACK_SENT', 'Trackback enviada com sucesso');
 @define('TRACKBACK_FAILED', 'Trackback falhou: %s');
 @define('TRACKBACK_NOT_FOUND', 'Nenhum URI de trackback foi encontrado.');
-@define('TRACKBACK_URI_MISMATCH', 'A URI de trackback descoberta não com é semelhante ao URL alvo.');
+@define('TRACKBACK_URI_MISMATCH', 'A URI de trackback descoberta não com é semelhante ao URI alvo.');
 @define('TRACKBACK_CHECKING', 'Verificando <u>%s</u> para possíveis trackbacks...');
 @define('TRACKBACK_NO_DATA', 'O alvo não contém dados');
-@define('TRACKBACK_SIZE', 'URL alvo excedeu o tamanho máximo de %s bytes para um arquivo.');
+@define('TRACKBACK_SIZE', 'URI alvo excedeu o tamanho máximo de %s bytes para um arquivo.');
 @define('COMMENTS_VIEWMODE_THREADED', 'Discussão');
 @define('COMMENTS_VIEWMODE_LINEAR', 'Sequencial');
 @define('DISPLAY_COMMENTS_AS', 'Exibir comentários como');
