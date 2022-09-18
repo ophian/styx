@@ -391,6 +391,8 @@
 @define('INSTALL_POPUP_DESC', 'Voulez-vous que le blog utilise des fenêtres pop-up pour les commentaires, traçages et autres ?');
 @define('INSTALL_EMBED', 'Intégration dans une application externe');
 @define('INSTALL_EMBED_DESC', 'Si vous voulez intégrer Serendipity dans une page normale ou dans une application externe, choisissez \'Oui\'. Serendipity n\'affichera alors que les contenus du blog, vous permettant de les intégrer facilement dans n\'importe quelle page. Vous pouvez aussi utiliser l\'option \'Script principal\' pour créer un encapsulateur (wrapper) qui vous permettra d\'ajouter vos propres contenus et visuels. Pour plus d\'informations sur l\'intégration de Serendipity, consultez le fichier README fourni dans l\'installation.');
+@define('INSTALL_TOP_AS_LINKS', 'Afficher le top pages sortantes / référantes en tant que liens ?');
+@define('INSTALL_TOP_AS_LINKS_DESC', '\'Non\' : affichage en tant que texte seulement pour prévenir le spam par Google. \'Oui\' : affichage en tant que liens. Par défaut, l\'option de la configuration générale est utilisée.');
 @define('INSTALL_BLOCKREF', 'Exclure des pages référantes');
 @define('INSTALL_BLOCKREF_DESC', 'Vous pouvez exclure des noms de domaine spécifiques de la liste des pages référantes : séparez chaque nom de domaine avec \';\', et notez que l\'exclusion du nom de domaine se fait par la fonction <a href="https://www.php.net/substring" target="_blank" rel="noopener">substring()</a>.');
 @define('INSTALL_REWRITE', 'Réecritures URL');
@@ -445,8 +447,6 @@
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Affiche le slogan \'Serendipity Weblog\' en tant que texte');
 @define('POWERED_BY_SHOW_IMAGE', 'Afficher \'Serendipity\' avec un logo');
 @define('POWERED_BY_SHOW_IMAGE_DESC', 'Affiche le logo Serendipity');
-@define('INSTALL_TOP_AS_LINKS', 'Afficher le top pages sortantes / référantes en tant que liens ?');
-@define('INSTALL_TOP_AS_LINKS_DESC', '\'Non\' : affichage en tant que texte seulement pour prévenir le spam par Google. \'Oui\' : affichage en tant que liens. Par défaut, l\'option de la configuration générale est utilisée.');
 
 @define('SETTINGS_SAVED_AT', 'La nouvelle configuration a été enregistrée à %s');
 @define('PLUGIN_ITEM_DISPLAY', 'Où le billet doit-il être affiché ?');

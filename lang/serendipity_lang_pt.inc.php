@@ -397,6 +397,8 @@
 @define('INSTALL_POPUP_DESC', 'Você quer que o weblog utilize janelas popups para comentários, trackbacks e etc?');
 @define('INSTALL_EMBED', 'O Serendipity está integrado?');
 @define('INSTALL_EMBED_DESC', 'Se você quer empacotar o Serendipity em um website, mude para verdadeiro para descartar quaisquer cabeçalhos e apenas imprimir o conteúdo. Você pode fazer uso da opção \'Arquivo inicial\' para usar uma classe mais abrangente onde você colocaria os cabeçalhos normais de sua página. Veja o arquivo README para mais informações!');
+@define('INSTALL_TOP_AS_LINKS', 'Exibir maiores saídas/referências como links?');
+@define('INSTALL_TOP_AS_LINKS_DESC', '"não": Saídas e Referências são exibidas como puro texto para prevenir spam do Google. "sim": Saídas e Referências são exibidas como links. "padrão": Usa o valor definido na configuração global (recomendado).');
 @define('INSTALL_BLOCKREF', 'Referências bloqueadas');
 @define('INSTALL_BLOCKREF_DESC', 'Existem servidores especiais que você não gostaria de listar na sua lista de referências? Separe a lista dos servidores com \';\' e note que o servidor será bloqueado por uma busca parcial em sua string!');
 @define('INSTALL_REWRITE', 'Rescrita de URL');
@@ -526,8 +528,6 @@
 @define('COMMENTS_VIEWMODE_LINEAR', 'Seqüencial');
 @define('DISPLAY_COMMENTS_AS', 'Exibir comentários como');
 @define('CATEGORY_DELETED_ARTICLES_MOVED', 'Categoria #%s excluída. Os artigos antigos foram movidos para a categoria #%s');
-@define('INSTALL_TOP_AS_LINKS', 'Exibir maiores saídas/referências como links?');
-@define('INSTALL_TOP_AS_LINKS_DESC', '"não": Saídas e Referências são exibidas como puro texto para prevenir spam do Google. "sim": Saídas e Referências são exibidas como links. "padrão": Usa o valor definido na configuração global (recomendado).');
 @define('ADD_MEDIA_BLAHBLAH', '<b>Adiciona um arquivo para o seu repositório de mídia:</b><p>Aqui você pode transferir arquivos de mídia, ou oriente-me para pegá-lo em algum lugar na web! Se não possuir uma imagem apropriada, <a href="https://images.google.com" rel="noopener" target="_blank">procure no Google</a> alguma imagem que tenha relação com o assunto, os resultados são geralmente úteis e divertidos :)</p><p><b>Selecione o método:</b></p><br>');
 @define('COMMENTS_FILTER_SHOW', 'Mostrat');
 @define('COMMENTS_FILTER_ALL', 'Todos');
