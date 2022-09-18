@@ -407,8 +407,6 @@
 @define('INSTALL_CAT_DISPLAY_DESC', 'செரண்டிபிட்டியின் தேற்றம்');
 @define('INSTALL_WYSIWYG', 'விசிவிகு எடிட்டரைப் பயன்படுத்துக (WYSIWYG=What You See Is What You Get)');
 @define('INSTALL_WYSIWYG_DESC', 'For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
-@define('INSTALL_XHTML11', 'Force XHTML 1.1 compliance');
-@define('INSTALL_XHTML11_DESC', 'Do you want to force XHTML 1.1 compliance (may cause problems for back-/frontend on older 4th generation browsers)');
 @define('INSTALL_POPUP', 'Enable use of popup windows');
 @define('INSTALL_POPUP_DESC', 'Do you want to use popup windows for comments, trackbacks et al?');
 @define('INSTALL_EMBED', 'Is Serendipity embedded?');

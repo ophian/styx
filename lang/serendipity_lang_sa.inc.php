@@ -409,8 +409,6 @@
 @define('INSTALL_CAT_DISPLAY_DESC', ' ›«’Ì· ﬂÌ›  Êœ «‰ ÌﬂÊ‰ „ŸÂ— «·„Ã·…');
 @define('INSTALL_WYSIWYG', '’‰œÊﬁ «· Õ—Ì— «·„ ÿÊ—');
 @define('INSTALL_WYSIWYG_DESC', 'Do you want to use the WYSIWYG editor?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
-@define('INSTALL_XHTML11', 'Force XHTML 1.1 compliance');
-@define('INSTALL_XHTML11_DESC', 'Do you want to force XHTML 1.1 compliance (may cause problems for back-/frontend on older 4th generation browsers)');
 @define('INSTALL_POPUP', ' „ﬂÌ‰ «·‰Ê«›– «·„‰»Àﬁ… √Ê «· ·ﬁ«∆Ì…ø');
 @define('INSTALL_POPUP_DESC', 'Â·  Êœ «” Œœ«„ «·‰Ê«›– «·„‰»Àﬁ… ›Ì «· ⁄·Ìﬁ« ° —Ê«»ÿ  ⁄ﬁ» «· ⁄·Ìﬁ«  Ê€Ì—Â«ø');
 @define('INSTALL_EMBED', 'Â·  —Ìœ «·„Ã·…  ﬂÊ‰ Ã“¡ Ê«Õœø');

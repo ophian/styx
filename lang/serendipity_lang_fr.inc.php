@@ -387,8 +387,6 @@
 @define('INSTALL_CAT_DISPLAY_DESC', 'Personnalisation du \'look &amp; feel\' de l\'interface du blog.');
 @define('INSTALL_WYSIWYG', 'Utiliser l\'éditeur WYSIWYG');
 @define('INSTALL_WYSIWYG_DESC', 'Voulez-vous utiliser l\'éditeur WYSIWYG pour composer vos billets ?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
-@define('INSTALL_XHTML11', 'Forcer la conformité XHTML 1.1');
-@define('INSTALL_XHTML11_DESC', 'Voulez-vous forcer la conformité au standard XHTML 1.1 (peut causer des problèmes au niveau de l\'administration et du blog dans les navigateurs plus anciens de la 4ème génération)');
 @define('INSTALL_POPUP', 'Activer les fenêtres pop-pup');
 @define('INSTALL_POPUP_DESC', 'Voulez-vous que le blog utilise des fenêtres pop-up pour les commentaires, traçages et autres ?');
 @define('INSTALL_EMBED', 'Intégration dans une application externe');

@@ -422,8 +422,6 @@ $i18n_filename_to = array (
 @define('INSTALL_CAT_DISPLAY_DESC', 'Úprava vzhµadu a správania Serendipity');
 @define('INSTALL_WYSIWYG', 'Pou¾íva» WYSIWYG editor?');
 @define('INSTALL_WYSIWYG_DESC', 'Chcete pou¾íva» WYSIWYG editor?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
-@define('INSTALL_XHTML11', 'Vynúti» kompatibilitu s XHTML 1.1?');
-@define('INSTALL_XHTML11_DESC', 'Chcete plnú kompatibilitu s XHTML 1.1? (mô¾e spôsobi» problémy v star¹ích prehliadaèoch)');
 @define('INSTALL_POPUP', 'Zapnú» pou¾itie vyskakovacích okien');
 @define('INSTALL_POPUP_DESC', 'Chcete vo weblogu pou¾íva» vyskakovacie okná pre komentáre, odozvy atï.?');
 @define('INSTALL_EMBED', 'Je Serendipity integrované?');

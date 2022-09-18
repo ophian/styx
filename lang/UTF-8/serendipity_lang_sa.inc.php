@@ -409,8 +409,6 @@
 @define('INSTALL_CAT_DISPLAY_DESC', 'تفاصيل كيف تود ان يكون مظهر المجلة');
 @define('INSTALL_WYSIWYG', 'صندوق التحرير المتطور');
 @define('INSTALL_WYSIWYG_DESC', 'Do you want to use the WYSIWYG editor?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
-@define('INSTALL_XHTML11', 'Force XHTML 1.1 compliance');
-@define('INSTALL_XHTML11_DESC', 'Do you want to force XHTML 1.1 compliance (may cause problems for back-/frontend on older 4th generation browsers)');
 @define('INSTALL_POPUP', 'تمكين النوافذ المنبثقة أو التلقائية؟');
 @define('INSTALL_POPUP_DESC', 'هل تود استخدام النوافذ المنبثقة في التعليقات، روابط تعقب التعليقات وغيرها؟');
 @define('INSTALL_EMBED', 'هل تريد المجلة تكون جزء واحد؟');

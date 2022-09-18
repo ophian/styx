@@ -391,8 +391,6 @@
 @define('INSTALL_CAT_DISPLAY_DESC', 'Configura el aspecto general de Serendipity');
 @define('INSTALL_WYSIWYG', 'Usar editor WYSIWYG');
 @define('INSTALL_WYSIWYG_DESC', '¿Quieres usar el editor WYSIWYG?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
-@define('INSTALL_XHTML11', 'Forzar compatibilidad XHTML 1.1');
-@define('INSTALL_XHTML11_DESC', '¿Quieres forzar la compatibilidad XHTML 1.1? (puede causar problemas con navegadores más antiguos que la 4ª generación)');
 @define('INSTALL_POPUP', 'Activar el uso de ventanas emergentes');
 @define('INSTALL_POPUP_DESC', '¿Quieres que el blog use una ventana emergente para los comentarios, referencias, etc.?');
 @define('INSTALL_EMBED', '¿Está Serendipity insertado en otra web?');

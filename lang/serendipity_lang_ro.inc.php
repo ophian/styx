@@ -408,8 +408,6 @@
 @define('INSTALL_CAT_DISPLAY_DESC', 'Personalizează felul în care este \'îmbrăcat\' Serendipity');
 @define('INSTALL_WYSIWYG', 'Foloseşte editorul WYSIWYG (Ceea ce vezi este ceea ce obţii)');
 @define('INSTALL_WYSIWYG_DESC', 'Vrei să foloseşti editorul WYSIWYG?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
-@define('INSTALL_XHTML11', 'Forţează compatibilitatea cu XHTML 1.1');
-@define('INSTALL_XHTML11_DESC', 'Vrei să forţezi compatibilitatea cu XHTML 1.1 (poate cauza probleme pentru interfaţă/funcţionalitate în browserele mai vechi)');
 @define('INSTALL_POPUP', 'Permite folosirea ferestrelor popup');
 @define('INSTALL_POPUP_DESC', 'Vrei să foloseşti ferestre popup pentru comentarii, referinţe, etc ...?');
 @define('INSTALL_EMBED', 'Serendipity este integrat?');
