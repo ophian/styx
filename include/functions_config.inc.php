@@ -526,7 +526,7 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
             try {
                 $cipher = openssl_decrypt($cda, $algo, $key, \OPENSSL_RAW_DATA, $iv, $tag);
                 #aesDebugFile($debugfile, '#DECRYPT: data = '.$cipher.' key = ' . $key . ' tag = '.$tag.' and iv = '. $iv); // ATTENTION!!
-            } catch (Throwable $t) {
+            } catch (\Throwable $t) {
                 // Executed in PHP 7 only, will not match in PHP 5.x
                 if (!serendipity_db_bool($serendipity['maintenance'])) {
                     trigger_error('Whoops! Your Cookie stored LOGIN key did not match, since: "' . $t->getMessage() . '". You have been logged out automatically for security reasons.', E_USER_ERROR);
@@ -655,15 +655,15 @@ function serendipity_checkAutologin($ident, $iv) {
 function serendipity_setAuthorToken() {
     try {
         $string = random_bytes(32);
-    } catch (TypeError $e) {
+    } catch (\TypeError $e) {
         // Well, it's an integer, so this IS unexpected.
         #trigger_error('Create author token failed: An unexpected [type] error has occurred');
         $string = sha1(uniqid(mt_rand(), true));
-    } catch (Error $e) {
+    } catch (\Error $e) {
         // This is also unexpected because 32 is a reasonable integer.
         #trigger_error('Create author token failed: An unexpected error has occurred');
         $string = sha1(uniqid(mt_rand(), true));
-    } catch (Throwable $t) {
+    } catch (\Throwable $t) {
         // If you get this message, the CSPRNG failed hard.
         #trigger_error('Create author token failed: Could not generate a random string. Is our OS secure?');
         $string = sha1(uniqid(mt_rand(), true));

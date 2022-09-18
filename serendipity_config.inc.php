@@ -321,7 +321,7 @@ if (is_callable($serendipity['errorhandler'], false, $callable_name)) {
     // set serendipity global error to exception handler
     try {
         set_error_handler($serendipity['errorhandler'], $errLevel); // depends on upper set error_reporting(), to see which errors are passed to the handler, switched by $serendipity['production'].
-    } catch (Throwable $t) {
+    } catch (\Throwable $t) {
         register_shutdown_function('fatalErrorShutdownHandler'); // make fatal errors not die in a white screen of death
     }
 }

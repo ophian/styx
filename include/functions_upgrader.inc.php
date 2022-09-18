@@ -662,7 +662,7 @@ function serendipity_removeDeadFiles_SPL($dir=null, $deadfiles=null, $purgedir=n
     }
     try {
         $_dir = new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS);
-    } catch (Throwable $t) {
+    } catch (\Throwable $t) {
         return;
     }
 
@@ -747,7 +747,7 @@ function serendipity_cleanUpDirectories_SPL( $path=null ) {
             }
         }
         return true;
-    } catch (Throwable $t) {
+    } catch (\Throwable $t) {
         return;
     }
 }

@@ -73,7 +73,7 @@ try {
         }
         echo "\n";
     }
-} catch (Throwable $t) {
+} catch (\Throwable $t) {
     // Catch even fatal errors - we're just looking for constants
     echo $t->getMessage();
 }

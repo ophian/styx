@@ -866,7 +866,7 @@ function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
     @ini_set('memory_limit', '1024M');
     try {
         imagewebp($im, $outfile, $quality);
-    } catch (Throwable $t) {
+    } catch (\Throwable $t) {
         echo 'Could not create WebP image with GD: ',  $t->getMessage(), "\n";
         imagedestroy($im);
         return false;
@@ -2922,7 +2922,7 @@ function serendipity_resizeImageGD($infilename, $outfilename, $newwidth, $newhei
     try {
         // If an image exist that can not be loaded (invalid GIF for example), the page shall still be rendered
         $in = @$func['load']($infilename);
-    } catch (Throwable $t) {
+    } catch (\Throwable $t) {
         echo 'serendipity_resizeImageGD(): Could not create thumbnail resource: ',  $t->getMessage(), "\n";
         return false;
     }
@@ -5266,7 +5266,7 @@ function serendipity_renameDirAccess($oldDir, $newDir, $debug=false) {
     // Move the origin file in file system
     try {
         serendipity_makeDirRename($real_oldDir, $real_newDir);
-    } catch (Throwable $t) {
+    } catch (\Throwable $t) {
         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(MEDIA_DIRECTORY_MOVE_ERROR, $newDir) . "</span>\n";
         #echo ': '.$t->getMessage();
         return false;
@@ -5552,7 +5552,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
             // Move the origin file
             try {
                 rename($oldfile, $newfile);
-            } catch (Throwable $t) {
+            } catch (\Throwable $t) {
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (2)</span>\n";
             }
 
@@ -5569,7 +5569,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
                     // The thumb file and catch any wrong renaming
                     try {
                         rename($thisOldThumb, $thisNewThumb);
-                    } catch (Throwable $t) {
+                    } catch (\Throwable $t) {
                         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (3)</span>\n";
                     }
                     //  check the origin filedir has moved in bulkmove
@@ -5700,7 +5700,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
     // Move the origin file
     try {
         serendipity_makeDirRename($oldfile, $newfile);
-    } catch (Throwable $t) {
+    } catch (\Throwable $t) {
         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (5)</span>\n";
         $reserr = true;
     }
@@ -5726,7 +5726,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
             // Move the thumb file and catch any wrong renaming
             try {
                 serendipity_makeDirRename($thisOldThumb, $thisNewThumb);
-            } catch (Throwable $t) {
+            } catch (\Throwable $t) {
                 // Reset already updated image table
                 serendipity_updateImageInDatabase(array('path' => $oldDir), $item_id);
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (6)</span>\n";
