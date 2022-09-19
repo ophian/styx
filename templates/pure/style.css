@@ -440,6 +440,8 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
   [data-dark-theme="dark"] .faq_q {
     background: #3f4e60;
     border-color: #2d333b; }
+  [data-dark-theme="dark"] td.Today {
+    background-color: rebeccapurple; }
   [data-dark-theme="dark"] .mediasidebaritem img {
     background-color: #fff; /* a transparent img case */}
   [data-dark-theme="dark"] .cke_inner,
@@ -1981,7 +1983,7 @@ table.serendipity_calendar td {
     padding: 0.25em;
 }
 table.serendipity_calendar a {
-    color: #ff4136;
+    color: #ff4136 !important;
     font-weight: bold;
     text-decoration: none;
 }
@@ -1998,6 +2000,9 @@ td.serendipity_calendarHeader a:visited,
 td.serendipity_calendarHeader a:hover {
     border: 0 none;
     text-decoration: none;
+}
+td.Today {
+    background-color: mediumaquamarine;
 }
 .calendar-nav {
     width: 100%;
