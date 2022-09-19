@@ -440,6 +440,8 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
   [data-dark-theme="dark"] .faq_q {
     background: #3f4e60;
     border-color: #2d333b; }
+  [data-dark-theme="dark"] table.serendipity_calendar a, [data-dark-theme="dark"] table.serendipity_calendar a:visited {
+    color: #ff4136 !important; }
   [data-dark-theme="dark"] td.Today {
     background-color: rebeccapurple; }
   [data-dark-theme="dark"] .mediasidebaritem img {
@@ -1983,7 +1985,7 @@ table.serendipity_calendar td {
     padding: 0.25em;
 }
 table.serendipity_calendar a {
-    color: #ff4136 !important;
+    color: #ff4136;
     font-weight: bold;
     text-decoration: none;
 }
