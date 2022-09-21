@@ -93,8 +93,8 @@ function serendipity_pingback_autodiscover($loc, $body, $url=null) {
     echo '<div>&#8226; ' . sprintf(PINGBACK_SENDING, serendipity_specialchars($pingback)) . '</div>';
     flush();
 
-    $response =  _serendipity_send($pingback, $query, 'text/html');
-    $success  =   serendipity_pingback_is_success($response);
+    $response =  serendipity_send($pingback, $query, 'text/html');
+    $success  =  serendipity_pingback_is_success($response);
     if ($success == true) {
         echo '<div>&#8226; ' . PINGBACK_SENT .'</div>';
     } else {
@@ -111,7 +111,7 @@ function serendipity_pingback_autodiscover($loc, $body, $url=null) {
  * @param   string  The XML data with the trackback contents
  * @return  string  Response
  */
-function _serendipity_send($loc, $data, $contenttype = null) {
+function serendipity_send($loc, $data, $contenttype = null) {
     #global $serendipity;
 
     $target = parse_url($loc);
@@ -132,7 +132,7 @@ function _serendipity_send($loc, $data, $contenttype = null) {
     serendipity_plugin_api::hook_event('backend_http_request', $options, 'trackback_send');
 
     $fContent = serendipity_request_url($uri, 'POST', $contenttype, $data, $options, 'trackback_send');
-    #echo '<pre>_serendipity_send() '.print_r($serendipity['last_http_request'], true).'</pre>';
+    #echo '<pre>serendipity_send() '.print_r($serendipity['last_http_request'], true).'</pre>';
 
     return $fContent;
 }
@@ -206,7 +206,7 @@ function serendipity_trackback_autodiscover($res, $loc, $url, $author, $title, $
     printf(TRACKBACK_SENDING, serendipity_specialchars($trackURI));
     flush();
 
-    $response = serendipity_trackback_is_success(_serendipity_send($trackURI, $data));
+    $response = serendipity_trackback_is_success(serendipity_send($trackURI, $data));
 
     if ($response === true) {
         echo '<div>&#8226; ' . TRACKBACK_SENT . "</div>\n";
