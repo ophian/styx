@@ -1252,6 +1252,9 @@ nav.pager + .serendipity_blogpdf {
     content: " | ";
     padding-right: .25em;
 }
+.post_info .serendipity_blogpdf {
+    margin-bottom: 1rem;
+}
 .post table,
 .post_content table {/* yes, since within #extended id knot */
     display: grid;
