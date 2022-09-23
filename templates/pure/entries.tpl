@@ -109,7 +109,7 @@
         {/if}
 
             </ul>
-            {if isset($view) AND $view == 'entry'}{$entry.add_footer|default:''}{/if}
+            {if isset($view) AND $view == 'entry' || NOT empty($entry.properties.permalink)}{$entry.add_footer|default:''}{/if}
 
         </footer>
     {/if}
