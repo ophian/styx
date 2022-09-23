@@ -2,7 +2,8 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Improve [ pure ] standard theme for custom permalinks add_footer
+  * Improve [ pure ] standard theme for custom permalinks add_footer and for
+    plugin calendar styles.
 
   * Rename function _serendipity_send() for PING requests to serendipity_send().
     No official plugins or other file cases were found that ever used it outside
