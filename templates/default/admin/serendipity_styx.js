@@ -1537,6 +1537,15 @@ $(function() {
       $( '#waitingspin' ).toggle();
     });
 
+    // Filter entries list by entry ID for ENTER
+    $('input#skipto_entry').keypress(function(e) {
+      if (e.which == 13) {
+        $('input[name="serendipity[editSubmit]"]').click();
+        return false;
+      }
+      return true;
+    });
+
     // Plugins live filter
     $('#pluginfilter').keyup(function() {
         serendipity.liveFilters($(this), '.plugins_installable > li', '.plugin_features');
