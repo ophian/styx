@@ -2,6 +2,8 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve backend entries list skipto_entry filter for keyboard ENTER submit
+
   * Improve [ pure ] standard theme for custom permalinks add_footer and for
     plugin calendar styles.
 
