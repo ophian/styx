@@ -587,7 +587,7 @@ function serendipity_fetchEntryData(&$ret) {
  * @access public
  * @param   string      The column to compare $val against (like 'id')
  * @param   string      The value of the column $key to compare with (like '4711')
- * @param   boolean     Indicates if the full entry will be fetched (body+extended: TRUE), or only the body (FALSE). (Unused, keep for compat.)
+ * @param   boolean     Indicates if the full entry will be fetched (body+extended: TRUE), or only the body (FALSE)
  * @param   string      Indicates whether drafts should be fetched. Probably uses a string type to avoid confusions with fetchEntries() parameter.
  *                                                                  Default 'false' means entries that are already published . (Keep for compat.)
  * @return
@@ -610,15 +610,24 @@ function &serendipity_fetchEntry($key, $val, $full = true, $fetchDrafts = 'false
 
     serendipity_ACL_SQL($cond, true);
 
+    if ($full === true) {
+        $body = 'e.timestamp,
+                            e.body,
+                            e.comments,
+                            e.trackbacks,
+                            e.extended,';
+    } else {
+        $body = 'e.timestamp,
+                            e.body,
+                            e.comments,
+                            e.trackbacks,';
+    }
+
     serendipity_plugin_api::hook_event('frontend_fetchentry', $cond, array('noSticky' => true));
 
     $querystring = "SELECT  e.id,
                             e.title,
-                            e.timestamp,
-                            e.body,
-                            e.comments,
-                            e.trackbacks,
-                            e.extended,
+                            $body
                             e.exflag,
                             e.authorid,
                             e.isdraft,
