@@ -34,7 +34,7 @@ $serendipity['smarty']->assignByRef('rightSidebarElements', $rightSidebarElement
 $is_archives = false;
 $is_search_empty = false;
 
-/* Disabled again, since it borks search requests with blogs having a staticpage startpage and the follow-up pagination pages! To much to fiddle for such a simple change.
+/* Disabled again, since it borks search requests with blogs having a staticpage startpage and the follow-up pagination pages! Too much to fiddle for such a simple change.
 // Allow search requests per post
 if (empty($serendipity['GET']['searchTerm']) && !empty($serendipity['POST']['searchTerm'])) {
     $serendipity['GET']['action'] = 'search';
@@ -48,7 +48,7 @@ switch (@$serendipity['GET']['action']) {
     // User wants to read the diary
     case 'read':
         if (isset($serendipity['GET']['id'])) {
-            $entry = array(serendipity_fetchEntry('id', $serendipity['GET']['id']));
+            $entry = array(serendipity_fetchEntry('id', (int)$serendipity['GET']['id']));
             if (!is_array($entry) || count($entry) < 1 || !is_array($entry[0])) {
                 unset($serendipity['GET']['id']);
                 $entry = array(array());
