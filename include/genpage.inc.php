@@ -49,6 +49,7 @@ switch (@$serendipity['GET']['action']) {
     case 'read':
         if (isset($serendipity['GET']['id'])) {
             $entry = array(serendipity_fetchEntry('id', (int)$serendipity['GET']['id']));
+            // If none or invalid, reset everything related to not leak caches, non-public posts or so
             if (!is_array($entry) || count($entry) < 1 || !is_array($entry[0])) {
                 unset($serendipity['GET']['id']);
                 $entry = array(array());
