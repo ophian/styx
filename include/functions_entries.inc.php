@@ -606,9 +606,8 @@ function &serendipity_fetchEntry($key, $val, $full = true, $fetchDrafts = 'false
         $cond['and'] = " AND e.authorid = '" . $serendipity['authorid'] . "'";
     }
 
-    $cond['single_group'] = $cond['single_having'] = $cond['single_orderby'] = ''; // init for ACL
+    $cond['single_group'] = $cond['single_having'] = $cond['single_orderby'] = $cond['joins'] = ''; // init for ACL and frontend hooks
 
-    $cond['joins'] = $cond['joins'] ?? '';
     serendipity_ACL_SQL($cond, true);
 
     serendipity_plugin_api::hook_event('frontend_fetchentry', $cond, array('noSticky' => true));
