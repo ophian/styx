@@ -588,7 +588,8 @@ function serendipity_fetchEntryData(&$ret) {
  * @param   string      The column to compare $val against (like 'id')
  * @param   string      The value of the column $key to compare with (like '4711')
  * @param   boolean     Indicates if the full entry will be fetched (body+extended: TRUE), or only the body (FALSE). (Unused, keep for compat.)
- * @param   string      Indicates whether drafts should be fetched
+ * @param   string      Indicates whether drafts should be fetched. Probably uses a string type to avoid confusions with fetchEntries() parameter.
+ *                                                                  Default 'false' means entries that are already published . (Keep for compat.)
  * @return
  */
 function &serendipity_fetchEntry($key, $val, $full = true, $fetchDrafts = 'false') {
@@ -1583,7 +1584,7 @@ function serendipity_updertEntry($entry) {
         /* we need to update */
 
         // Get settings from entry if already in DB, which should not be alterable with POST methods
-        $_entry            = serendipity_fetchEntry('id', $entry['id'], 1, 1);
+        $_entry            = serendipity_fetchEntry('id', $entry['id']);
         $entry['authorid'] = $_entry['authorid'] ?? null;
 
         if (isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModule'] == 'entries' && $entry['authorid'] != $serendipity['authorid'] && !serendipity_checkPermission('adminEntriesMaintainOthers')) {
