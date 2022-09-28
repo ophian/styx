@@ -1080,7 +1080,7 @@ class serendipity_event_entryproperties extends serendipity_event
                         $stickey = true; // sticky key case true call
                     } else {
                         $conds[] = '                    e.isdraft AS orderkey'; // Ditto
-                        $stickey = false; // include sort sticky key case false but, for draft=true call, also the default orderkey ASCending sort state
+                        $stickey = false; // include sort sticky key case Null or false, but in special for draft=true calls. Also the default orderkey ASCending sort state.
                     }
 
                     if ($is_cache && (!isset($addData['noCache']) || !$addData['noCache'])) {
