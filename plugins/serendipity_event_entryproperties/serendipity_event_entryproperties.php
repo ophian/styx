@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC . (isset($serendipity['GET']['plugin_to_conf']) ? ' ' . PLUGIN_EVENT_ENTRYPROPERTIES_DESC_PLUS : ''));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.81');
+        $propbag->add('version',       '1.82');
         $propbag->add('requirements',  array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -1077,8 +1077,10 @@ class serendipity_event_entryproperties extends serendipity_event
                     $conds = array();
                     if ((!isset($addData['noSticky']) || $addData['noSticky'] !== true) && !isset($serendipity['skipSticky'])) {
                         $conds[] = '                    ep_sticky.value AS orderkey'; // is the last $cond add key in order
+                        $stickey = true; // sticky key case true call
                     } else {
                         $conds[] = '                    e.isdraft AS orderkey'; // Ditto
+                        $stickey = false; // include sort sticky key case false but, for draft=true call, also the default orderkey ASCending sort state
                     }
 
                     if ($is_cache && (!isset($addData['noCache']) || !$addData['noCache'])) {
@@ -1093,14 +1095,20 @@ class serendipity_event_entryproperties extends serendipity_event
                         $eventData['addkey'] .= $cond;
                     }
 
-                    if ($serendipity['dbType'] == 'postgres' || $serendipity['dbType'] == 'pdo-postgres') {
-                        // PostgreSQL is a bit weird here. Empty columns with NULL or "" content for
-                        // orderkey would get sorted on top when using DESC, and only after those
-                        // the "true" content would be inserted. Thus we order ASC in postgreSQL,
-                        // and silently wonder. Thanks to Nate Johnston for working this out!
-                        $cond = 'orderkey ASC';
+                    // Fix putting sticky entry on the last page in postgreSQL setups. S9y 0.8.5 bugfix in 2005 by Nate Johnston.
+                    // BUT showing drafts needs ASC!! while no-draft works well with it too!! We need to (re-)check this for postgres and the if sticky thing again, though.
+                    if ($stickey) {
+                        if ($serendipity['dbType'] == 'postgres' || $serendipity['dbType'] == 'pdo-postgres') {
+                            // PostgreSQL is a bit weird here. Empty columns with NULL or "" content for
+                            // orderkey would get sorted on top when using DESC, and only after those
+                            // the "true" content would be inserted. Thus we order ASC in postgreSQL,
+                            // and silently wonder. Thanks to Nate Johnston for working this out!
+                            $cond = 'orderkey ASC';
+                        } else {
+                            $cond = 'orderkey DESC';
+                        }
                     } else {
-                        $cond = 'orderkey DESC';
+                        $cond = 'orderkey ASC';
                     }
 
                     if (empty($eventData['orderby'])) {

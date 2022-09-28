@@ -1,3 +1,8 @@
+1.82:
+-----
+    * Fix serendipity(_smarty)_fetchPrintEntries parameter conditions Methusalem regression bug
+      for sorting the orderkey in special for DRAFTs on Postgres vs our other databases.
+
 1.81:
 -----
     * Improve disable_markup selection by removing plugins without markup relation
