@@ -2,6 +2,9 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix entryproperties plugin 'frontend_fetchentries' conditions for orderkey
+    mode calls including DRAFTs, as a regression Methusalem bugfix.
+
   * Add/enable entries API missing $full parameter check in the _fetchEntry()
     function and reduce redundant parameter calls in core. Plugins will follow.
 
