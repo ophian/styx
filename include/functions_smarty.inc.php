@@ -239,9 +239,7 @@ function serendipity_smarty_fetchPrintEntries($params, $template) {
         $params['range'] = null;
     }
 
-    if (empty($params['full'])) {
-        $params['full'] = true;
-    }
+    $params['full'] = $params['full'] ?? true; // be strict with true fallback sets to match a boolean false
 
     if (empty($params['fetchDrafts'])) {
         $params['fetchDrafts'] = false;
@@ -295,9 +293,7 @@ function serendipity_smarty_fetchPrintEntries($params, $template) {
         $params['groupmode'] = 'date';
     }
 
-    if (empty($params['skip_smarty_hooks'])) {
-        $params['skip_smarty_hooks'] = true;
-    }
+    $params['skip_smarty_hooks'] = $params['skip_smarty_hooks'] ?? true; // be strict with true fallback sets to match a boolean false
 
     if (empty($params['skip_smarty_hook'])) {
         $params['skip_smarty_hook'] = array();
@@ -319,13 +315,9 @@ function serendipity_smarty_fetchPrintEntries($params, $template) {
         $params['returncode'] = 'array';
     }
 
-    if (empty($params['joinauthors'])) {
-        $params['joinauthors'] = true;
-    }
+    $params['joinauthors'] = $params['joinauthors'] ?? true; // be strict with true fallback sets to match a boolean false
 
-    if (empty($params['joincategories'])) {
-        $params['joincategories'] = true;
-    }
+    $params['joincategories'] = $params['joincategories'] ?? true; // be strict with true fallback sets to match a boolean false
 
     if (empty($params['joinown'])) {
         $params['joinown'] = null;
