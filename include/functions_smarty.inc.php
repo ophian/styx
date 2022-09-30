@@ -235,6 +235,10 @@ function serendipity_smarty_fetchPrintEntries($params, $template) {
         $params['template'] = 'entries.tpl';
     }
 
+    if (empty($params['limit'])) {
+        $params['limit'] = null;
+    }
+
     if (empty($params['range'])) {
         $params['range'] = null;
     }
