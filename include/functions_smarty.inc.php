@@ -189,14 +189,14 @@ function serendipity_ifRemember($name, $value, $isDefault = false, $att = 'check
  *                                            If DD is "00", it will show all entries from that month.
  *                                            If DD is any other number, it will show entries of that specific day.
  *                                           2-Dimensional Array:
- *                                            Key #0   - Specifies the start timestamp (unix seconds)
- *                                            Key #1   - Specifies the end timestamp (unix seconds)
+ *                                            Key #0   - Specifies the start timestamp (UNIX seconds)
+ *                                            Key #1   - Specifies the end timestamp (UNIX seconds)
  *                                           Other (null, 3-dimensional Array, ...):
  *                                            Entries newer than $modified_since will be fetched
  *                          full             (boolean) Indicates if the full entry will be fetched (body+extended: TRUE), or only the body (FALSE).
  *                          limit            (string)  Holds a "Y" or "X, Y" string that tells which entries to fetch. X is the first entry offset, Y is number of entries. If not set, the global fetchLimit will be applied (15 entries by default)
  *                          fetchDrafts      (boolean) Indicates whether drafts should be fetched (TRUE) or not
- *                          modified_since   (int)     Holds a unix timestamp to be used in conjunction with $range, to fetch all entries newer than this timestamp
+ *                          modified_since   (int)     Holds a UNIX timestamp to be used in conjunction with $range, to fetch all entries newer than this timestamp
  *                          orderby          (string)  Holds the SQL "ORDER BY" statement.
  *                          filter_sql       (string)  Can contain any SQL code to inject into the central SQL statement for fetching the entry
  *                          noCache          (boolean) If set to TRUE, all entries will be fetched from scratch and any caching is ignored
@@ -215,7 +215,7 @@ function serendipity_ifRemember($name, $value, $isDefault = false, $att = 'check
  *                          block              (string   The name of the SMARTY block that this gets parsed into
  *                          use_hooks          (boolean  Indicates whether to apply footer/header event hooks
  *                          use_footer         (boolean  Indicates whether the pagination footer should be displayed
- *                          groupmode          (string   Indicates whether the input $entries array is already grouped in preparation for the smarty $entries output array [TRUE], or if it shall be grouped by date [FALSE]
+ *                          groupmode          (string   Indicates whether the input $entries array is already grouped in preparation for the Smarty $entries output array [TRUE], or if it shall be grouped by date [FALSE]
  *                          skip_smarty_hooks  (boolean) If TRUE, no plugins will be executed at all
  *                          skip_smarty_hook   (mixed)   Can be set to an array of plugin hooks to NOT execute
  *                          prevent_reset      (boolean) If set to TRUE, the Smarty $entries array will NOT be cleared. (to prevent possible duplicate output of entries)
