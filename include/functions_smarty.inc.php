@@ -774,9 +774,10 @@ function serendipity_smarty_pickKey($params, $template) {
         return;
     }
 
+    $params['default'] = $params['default'] ?? null;
+
     return serendipity_pickKey($params['array'], $params['key'], $params['default']);
 }
-
 
 /**
  * Smarty Function: Get a permalink for an entry
