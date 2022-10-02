@@ -524,6 +524,7 @@ function serendipity_smarty_showCommentForm($params, Smarty_Internal_Template $t
  *                          id:     An ID of a plugin to show
  *                          side:   The side of a plugin to show (left|right|hide|and|other|user-defined|sidebars)
  *                          negate: Revert previous filters
+ *                          empty:  When the callable plugin is not found, the string in the "empty" parameter will be shown instead, allowing users to get notified of a missing plugin, alike: empty="Twitter plugin not found!"
  * @param   object      Smarty template object
  * @return  string      The Smarty HTML response
  */
