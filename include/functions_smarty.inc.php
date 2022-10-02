@@ -486,13 +486,9 @@ function serendipity_smarty_showCommentForm($params, Smarty_Internal_Template $t
         $params['data'] = $serendipity['POST'];
     }
 
-    if (empty($params['showToolbar'])) {
-        $params['showToolbar'] = true;
-    }
+    $params['showToolbar'] = $params['showToolbar'] ?? true; // be strict with true fallback sets to match a boolean false
 
-    if (empty($params['moderate_comments'])) {
-        $params['moderate_comments'] = serendipity_db_bool($params['entry']['moderate_comments']);
-    }
+    $params['moderate_comments'] = $params['moderate_comments'] ?? serendipity_db_bool($params['entry']['moderate_comments']); // be strict with true fallback sets to match a boolean false
 
     $comment_add_data = array(
         'comments_messagestack' => (array) ($serendipity['messagestack']['comments'] ?? array()),
