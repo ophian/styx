@@ -1,6 +1,6 @@
 Name: B5blog [Example Blog]
 Author: Ian Styx
-Date: 2022-02-02
+Date: 2022-10-03
 Require Serendipity: 3.5
 Backend: No
 Engine: boot

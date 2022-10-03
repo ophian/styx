@@ -65,7 +65,7 @@
 </div>
 <!-- Blog Container -->
 <div class="container-fluid">
-  <header class="container-xl blog-header py-3">
+  <header class="container-xl blog-header lh-1 py-3">
     <div class="row flex-nowrap justify-content-start align-items-center">
       <div class="col-3 d-flex pt-1">
         <a class="link-secondary" href="{$serendipityBaseURL}feeds/index.rss2" title="{$CONST.SUBSCRIBE_TO_BLOG}"><svg class="bi m-0" width="36" height="36" role="img" aria-labelledby="title"><title id="sycrss">XML</title><use xlink:href="#rss-fill"></use></svg></a>
@@ -95,7 +95,7 @@
   <main class="container-lg mb-4">
 {* FEATURED BLOG POST container *}
 {if $template_option.featured != 0 AND in_array($view, ['start', 'entries'])}
-    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+    <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
       <div class="col-md-6 px-0">
         <h1 class="display-4 fst-italic">{$red.title|default:'Title of a longer featured blog post'}</h1>
         <p class="lead my-3">{$red.body|strip|strip_tags|truncate:280:'...'|default:'Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.'}</p>
