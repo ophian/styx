@@ -11,6 +11,8 @@ Version 3.10-DEV ()
   * Fix serendipity fetchPrintEntries smarty API to initialize parameter
     fallback sets for true, when calls of [full, joinauthors, joincategory,
     skip_smarty_hooks] parameters were set to false, which never got caught.
+    Same for serendipity showCommentForm [showToolbar, moderate_comments]
+    parameters.
 
   * Fix entryproperties plugin 'frontend_fetchentries' conditions for orderkey
     mode calls including DRAFTs, as a regression Methusalem bugfix.
