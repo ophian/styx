@@ -2,6 +2,8 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Update [ b5blog ] theme for new Bootstrap v5.2.2 release
+
   * Upgrade [b5] template assets to new Bootstrap v5.2.2 release.
     See changelog at https://github.com/twbs/bootstrap/releases/tag/v5.2.2
     and https://blog.getbootstrap.com/2022/10/03/bootstrap-5-2-2/
