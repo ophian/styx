@@ -1,3 +1,7 @@
+1.83:
+-----
+    * Fix POST properties access check for isset
+
 1.82:
 -----
     * Fix serendipity(_smarty)_fetchPrintEntries parameter conditions Methusalem regression bug

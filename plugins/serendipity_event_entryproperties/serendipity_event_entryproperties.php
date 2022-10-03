@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC . (isset($serendipity['GET']['plugin_to_conf']) ? ' ' . PLUGIN_EVENT_ENTRYPROPERTIES_DESC_PLUS : ''));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.82');
+        $propbag->add('version',       '1.83');
         $propbag->add('requirements',  array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -257,7 +257,7 @@ class serendipity_event_entryproperties extends serendipity_event
         array_push($reset_properties, 'multi_authors', 'access_groups', 'access_users'); // merge with array type entryproperties
 
         // reset a 'member' or 'private' access state to default 'public' on removal of either empty 'access_groups' or 'access_users' array keys
-        if (!isset($serendipity['POST']['propertyform']) && is_array($serendipity['POST']['properties']) && $serendipity['POST']['properties']['access'] != 'public' && !isset($serendipity['POST']['properties']['access_groups'][0]) && !isset($serendipity['POST']['properties']['access_users'][0])) {
+        if (!isset($serendipity['POST']['propertyform']) && is_array($serendipity['POST']['properties']) && (isset($serendipity['POST']['properties']['access']) && $serendipity['POST']['properties']['access'] != 'public') && !isset($serendipity['POST']['properties']['access_groups'][0]) && !isset($serendipity['POST']['properties']['access_users'][0])) {
             $properties['access'] = 'public';
         }
 
