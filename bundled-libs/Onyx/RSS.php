@@ -71,8 +71,9 @@ class ONYX_RSS
         if ($charset == 'native') {
             $charset = LANG_CHARSET;
         }
-        $this->parser = @xml_parser_create($charset);
-        if (!is_resource($this->parser))
+        $this->parser = xml_parser_create($charset);
+        $r = PHP_VERSION_ID < 80000 ? !is_resource($this->parser) : false; // With 8.0.0 parser expects an XMLParser instance now; previously, a resource was expected
+        if (!$this->parser || $r)
         {
             $this->raiseError((__LINE__-3), ONYX_ERR_NO_PARSER);
             return false;
