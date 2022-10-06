@@ -510,6 +510,11 @@ $dead_files_400 = array(
     'themes/next/oldie.css'
 );
 
+/* A list of old or removed directories for 3.10.0 / 4.0.0 */
+$dead_dirs_400 = array(
+    $serendipity['serendipityPath'] . 'bundled-libs/simplepie/SimplePie'
+);
+
 /**
  * recursive directory call to purge files and directories
  *

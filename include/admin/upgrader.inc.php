@@ -545,6 +545,12 @@ $tasks = array(
                     'title'     => '<b>ADMINISTRATION_NOTICE:</b> Please read the current ChangeLog via your Maintenance section.',
                     'desc'      => 'It holds additional notes about a function rename of _serendipity_send() for PING requests to serendipity_send(). There should no breakage exist, except, if you are using unsupported (non-official) plugins which might make use of it. The probability that this exists is extreme low. though!'),
 
+            array(  'version'   => '3.9.2',
+                    'function'  => 'recursive_directory_iterator',
+                    'arguments' => array($dead_dirs_400),
+                    'title'     => 'Styx removed the multi file implementation of bundled-libs SimplePie XML Parser on upgrade to v.1.7.0 to a single monolithic file.',
+                    'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_400) . '</pre>'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
