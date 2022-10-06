@@ -2,6 +2,11 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Update bundled-libs/SimplePie to v.1.7.0 as a bundled single-compiled file,
+    including the Styx fixes. The previously used v.1.5.6 with multi files will
+    be completely removed on upgrade per upgrade task.
+    https://github.com/simplepie/simplepie/releases
+
   * Update [ b5blog ] theme for new Bootstrap v5.2.2 release
 
   * Upgrade [b5] template assets to new Bootstrap v5.2.2 release.
