@@ -2,6 +2,9 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Upgrade custom CKEBasic asset to 4.20.0 (cb4a59c665 revision)
+    https://ckeditor.com/cke4/release-notes
+
   * Update bundled-libs/SimplePie to v.1.7.0 as a bundled single-compiled file,
     including the Styx fixes. The previously used v.1.5.6 with multi files will
     be completely removed on upgrade per upgrade task.
