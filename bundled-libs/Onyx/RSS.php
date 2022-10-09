@@ -37,22 +37,13 @@ if (!defined('ONYX_RSS_VERS'))
 
 class ONYX_RSS
 {
-   var $parser;
-   var $conf;
-   var $rss;
-   var $data;
-   var $type;
-   /* For when PHP v.5 is released
-    * http://www.phpvolcano.com/eide/php5.php?page=variables
-    * private $parser;
-    * private $conf;
-    * private $rss;
-    * private $data;
-    * private $type;
-   */
+   public $rss;
 
-   // Forward compatibility with PHP v.5
-   // http://www.phpvolcano.com/eide/php5.php?page=start
+   private $parser;
+   private $conf;
+   private $data;
+   private $type;
+
    function __construct($charset = 'UTF-8')
    {
         $this->conf = array();
