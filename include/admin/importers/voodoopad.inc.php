@@ -76,7 +76,7 @@ class Serendipity_Import_VoodooPad extends Serendipity_Import
 
     function validateData()
     {
-       return (is_array($_FILES['serendipity']['tmp_name']['import']['voodooPadXML']) ? sizeof($_FILES['serendipity']['tmp_name']['import']['voodooPadXML']) : false);
+       return (isset($_FILES['serendipity']) && is_array($_FILES['serendipity']['tmp_name']['import']['voodooPadXML']) ? sizeof($_FILES['serendipity']['tmp_name']['import']['voodooPadXML']) : false);
     }
 
     function getInputFields()
