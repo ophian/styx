@@ -176,7 +176,9 @@
 @define('CREATE_AUTHOR', '«‰‘«¡ „Õ—— \'%s\'.');
 @define('CREATE_CATEGORY', '«‰‘«¡ ’Ì€… \'%s\'.');
 @define('MYSQL_REQUIRED', 'You must have the MySQL extension in order to perform this action.');
+@define('PGSQL_REQUIRED', 'You must have the PostgreSQL extension in order to perform this action.');
 @define('COULDNT_CONNECT', '·« Ì„ﬂ‰ «·« ’«· »ﬁ«⁄œ… «·»Ì«‰« : %s.');
+@define('PGSQL_COULDNT_CONNECT', 'Could not connect to PostgreSQL database: %s.');
 @define('COULDNT_SELECT_DB', '·« Ì„ﬂ‰ √Œ Ì«— „⁄·Ê„«  ﬁ«⁄œ… «·»Ì«‰« : %s.');
 @define('COULDNT_SELECT_USER_INFO', '·« Ì„ﬂ‰ √Œ Ì«— „⁄·Ê„«  «·⁄÷Ê: %s.');
 @define('COULDNT_SELECT_CATEGORY_INFO', '·« Ì„ﬂ‰ √Œ Ì«— „⁄·Ê„«  «· ’‰Ì›: %s.');

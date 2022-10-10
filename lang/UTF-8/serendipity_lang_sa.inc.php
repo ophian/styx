@@ -176,7 +176,9 @@
 @define('CREATE_AUTHOR', 'انشاء محرر \'%s\'.');
 @define('CREATE_CATEGORY', 'انشاء صيغة \'%s\'.');
 @define('MYSQL_REQUIRED', 'You must have the MySQL extension in order to perform this action.');
+@define('PGSQL_REQUIRED', 'You must have the PostgreSQL extension in order to perform this action.');
 @define('COULDNT_CONNECT', 'لا يمكن الاتصال بقاعدة البيانات: %s.');
+@define('PGSQL_COULDNT_CONNECT', 'Could not connect to PostgreSQL database: %s.');
 @define('COULDNT_SELECT_DB', 'لا يمكن أختيار معلومات قاعدة البيانات: %s.');
 @define('COULDNT_SELECT_USER_INFO', 'لا يمكن أختيار معلومات العضو: %s.');
 @define('COULDNT_SELECT_CATEGORY_INFO', 'لا يمكن أختيار معلومات التصنيف: %s.');

@@ -174,7 +174,9 @@
 @define('CREATE_AUTHOR', 'Szerző létrehozása \'%s\'.');
 @define('CREATE_CATEGORY', 'Kategória létrehozása \'%s\'.');
 @define('MYSQL_REQUIRED', 'Ezen művelet végrehajtásához szükség van a MySQL kiterjesztésre.');
+@define('PGSQL_REQUIRED', 'Ezen művelet végrehajtásához szükség van a PostgreSQL kiterjesztésre.');
 @define('COULDNT_CONNECT', 'Nem tudok kapcsolódni az alábbi MySQL adatbázishoz: %s.');
+@define('PGSQL_COULDNT_CONNECT', 'Nem tudok kapcsolódni az alábbi PostgreSQL adatbázishoz: %s.');
 @define('COULDNT_SELECT_DB', 'Nem sikerült a SELECT: %s.');
 @define('COULDNT_SELECT_USER_INFO', 'Nem találom a felhasználói információkat: %s.');
 @define('COULDNT_SELECT_CATEGORY_INFO', 'Nem találom a kategória információkat: %s.');

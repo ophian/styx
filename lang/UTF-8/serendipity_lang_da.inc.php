@@ -543,7 +543,9 @@
 @define('CREATE_AUTHOR', 'Opret forfatter \'%s\'.');
 @define('CREATE_CATEGORY', 'Opret kategori \'%s\'.');
 @define('MYSQL_REQUIRED', 'Du skal have MySQL udvidelsen installere førend du kan udføre denne handling.');
+@define('PGSQL_REQUIRED', 'Du skal have PostgreSQL udvidelsen installere førend du kan udføre denne handling.');
 @define('COULDNT_CONNECT', 'Kunne ikke forbinde til MySQL database: %s.');
+@define('PGSQL_COULDNT_CONNECT', 'Kunne ikke forbinde til PostgreSQL database: %s.');
 @define('COULDNT_SELECT_DB', 'Kunne ikke vælge database: %s.');
 @define('COULDNT_SELECT_USER_INFO', 'Kunne ikke finde bruger information: %s.');
 @define('COULDNT_SELECT_CATEGORY_INFO', 'Kunne ikke finde kategori information: %s.');

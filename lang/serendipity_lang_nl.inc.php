@@ -177,7 +177,9 @@
 @define('CREATE_AUTHOR', 'Maak auteur \'%s\' aan.');
 @define('CREATE_CATEGORY', 'Maak categorie \'%s\' aan.');
 @define('MYSQL_REQUIRED', 'U moet een MySQL-verbinding hebben om deze actie te voltooien.');
+@define('PGSQL_REQUIRED', 'U moet een PostgreSQL-verbinding hebben om deze actie te voltooien.');
 @define('COULDNT_CONNECT', 'Kan geen verbinding maken met de volgende MySQL-databank: %s.');
+@define('PGSQL_COULDNT_CONNECT', 'Kan geen verbinding maken met de volgende PostgreSQL databank: %s.');
 @define('COULDNT_SELECT_DB', 'Kan de volgende databank niet selecteren: %s.');
 @define('COULDNT_SELECT_USER_INFO', 'Kan de volgende gebruikersinformatie niet selecteren: %s.');
 @define('COULDNT_SELECT_CATEGORY_INFO', 'Kan de volgende categorie niet selecteren: %s.');

@@ -176,7 +176,9 @@
 @define('CREATE_AUTHOR', 'Yazar ekle \'%s\'.');
 @define('CREATE_CATEGORY', 'Konu başlığı ekle \'%s\'.');
 @define('MYSQL_REQUIRED', 'Bu eylemi gerçekleştirebilmeniz için MySQL eklentisine sahip olmalısınız.');
-@define('COULDNT_CONNECT', ' MySQL Veritabanına bağlanılamadı: %s.');
+@define('PGSQL_REQUIRED', 'Bu eylemi gerçekleştirebilmeniz için PostgreSQL eklentisine sahip olmalısınız.');
+@define('COULDNT_CONNECT', 'MySQL Veritabanına bağlanılamadı: %s.');
+@define('PGSQL_COULDNT_CONNECT', 'PostgreSQL Veritabanına bağlanılamadı: %s.');
 @define('COULDNT_SELECT_DB', 'Veritabanı seçilemedi: %s.');
 @define('COULDNT_SELECT_USER_INFO', 'Kullanıcı bilgisi seçilemedi: %s.');
 @define('COULDNT_SELECT_CATEGORY_INFO', 'Konu başlığı bilgisi seçilemedi: %s.');

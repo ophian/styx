@@ -176,7 +176,9 @@
 @define('CREATE_AUTHOR', '작성자 \'%s\'(을)를 생성합니다.');
 @define('CREATE_CATEGORY', '범주 \'%s\'(을)를 생성합니다.');
 @define('MYSQL_REQUIRED', '이 기능을 수행하려면 MySQL 확장기능이 설치되어 있어야 합니다.');
+@define('PGSQL_REQUIRED', '이 기능을 수행하려면 PostgreSQL 확장기능이 설치되어 있어야 합니다.');
 @define('COULDNT_CONNECT', 'MySQL 데이터베이스 \'%s\'에 접속하지 못했습니다.');
+@define('PGSQL_COULDNT_CONNECT', 'PostgreSQL 확장기능이 설치되어 있어야 합니다.');
 @define('COULDNT_SELECT_DB', '데이터베이스 \'%s\'(을)를 선택하지 못했습니다.');
 @define('COULDNT_SELECT_USER_INFO', '사용자 정보 \'%s\'(을)를 선택하지 못했습니다.');
 @define('COULDNT_SELECT_CATEGORY_INFO', '범주 정보 \'%s\'(을)를 선택하지 못했습니다.');

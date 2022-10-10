@@ -175,7 +175,9 @@
 @define('CREATE_AUTHOR', 'ایجاد نویسنده \'%s\'.');
 @define('CREATE_CATEGORY', 'ایجاد موضوع \'%s\'.');
 @define('MYSQL_REQUIRED', 'برای انجام این عمل، باید توسعه MySQL را نصب داشته باشید.');
+@define('PGSQL_REQUIRED', 'برای انجام این عمل، باید توسعه PostgreSQL را نصب داشته باشید.');
 @define('COULDNT_CONNECT', 'اشکال در اتصال به پایگاه داده MySQL: %s.');
+@define('PGSQL_COULDNT_CONNECT', 'اشکال در اتصال به پایگاه داده PostgreSQL: %s.');
 @define('COULDNT_SELECT_DB', 'اشکال در انتخاب پایگاه داده: %s.');
 @define('COULDNT_SELECT_USER_INFO', 'اشکال در انتخاب نام کاربری: %s.');
 @define('COULDNT_SELECT_CATEGORY_INFO', 'اشکال در انتخاب موضوع: %s.');

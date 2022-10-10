@@ -175,7 +175,9 @@
 @define('CREATE_AUTHOR', 'Crează autor \'%s\'.');
 @define('CREATE_CATEGORY', 'Crează categorie \'%s\'.');
 @define('MYSQL_REQUIRED', 'Trebuie să ai extensia MySQL pentru a efectua această acţiune.');
+@define('PGSQL_REQUIRED', 'Trebuie să ai extensia PostgreSQL pentru a efectua această acţiune.');
 @define('COULDNT_CONNECT', 'Nu m-am putut conecta la baza de date MySQL: %s.');
+@define('PGSQL_COULDNT_CONNECT', 'Nu m-am putut conecta la baza de date PostgreSQL: %s.');
 @define('COULDNT_SELECT_DB', 'Nu am putut selecta baza de date: %s.');
 @define('COULDNT_SELECT_USER_INFO', 'Nu am putut colecta date despre utilizator: %s.');
 @define('COULDNT_SELECT_CATEGORY_INFO', 'Nu am putut colecta date despre categorie: %s.');

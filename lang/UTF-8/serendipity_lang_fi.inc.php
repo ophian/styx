@@ -174,7 +174,9 @@
 @define('CREATE_AUTHOR', 'Luo kirjoittaja \'%s\'.');
 @define('CREATE_CATEGORY', 'Luo kategoria \'%s\'.');
 @define('MYSQL_REQUIRED', 'Tähän tarvitaan MySQL-laajennos.');
+@define('PGSQL_REQUIRED', 'Tähän tarvitaan PostgreSQL-laajennos.');
 @define('COULDNT_CONNECT', 'Yhteyttä MySQL-tietokantaan: %s ei saatu.');
+@define('PGSQL_COULDNT_CONNECT', 'Yhteyttä PostgreSQL-tietokantaan: %s ei saatu.');
 @define('COULDNT_SELECT_DB', 'Tietokantaa: %s ei voitu valita.');
 @define('COULDNT_SELECT_USER_INFO', 'Käyttäjätiedon: %s valinta epäonnistui.');
 @define('COULDNT_SELECT_CATEGORY_INFO', 'Kategorian: %s valinta epäonnistui.');

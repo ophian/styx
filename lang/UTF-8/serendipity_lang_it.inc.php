@@ -543,7 +543,9 @@
 @define('CREATE_AUTHOR', 'Crea l\'autore \'%s\'.');
 @define('CREATE_CATEGORY', 'Crea la categoria \'%s\'.');
 @define('MYSQL_REQUIRED', 'Occorre l\'estensione MySQL per effettuare questa azione.');
+@define('PGSQL_REQUIRED', 'Occorre l\'estensione PostgreSQL per effettuare questa azione.');
 @define('COULDNT_CONNECT', 'Impossobile connettersi al database MySQL: %s.');
+@define('PGSQL_COULDNT_CONNECT', 'Impossobile connettersi al database PostgreSQL: %s.');
 @define('COULDNT_SELECT_DB', 'Impossibile selezionare il database: %s.');
 @define('COULDNT_SELECT_USER_INFO', 'Impossibile selezionare l\'informazione sull\'utente: %s.');
 @define('COULDNT_SELECT_CATEGORY_INFO', 'Impossibile selezionare l\'informazione sulla categoria: %s.');

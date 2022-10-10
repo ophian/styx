@@ -546,7 +546,9 @@
 @define('CREATE_AUTHOR', 'Créer l\'auteur \'%s\'.');
 @define('CREATE_CATEGORY', 'Créer la catégorie \'%s\'.');
 @define('MYSQL_REQUIRED', 'L\'extension MySQL doit être activée dans votre installation PHP pour pouvoir continuer.');
+@define('PGSQL_REQUIRED',  'L\'extension PostgreSQL doit être activée dans votre installation PHP pour pouvoir continuer.');
 @define('COULDNT_CONNECT', 'Impossible de se connecter à la base de données MySQL : %s.');
+@define('PGSQL_COULDNT_CONNECT', 'Impossible de se connecter à la base de données PostgreSQL : %s.');
 @define('COULDNT_SELECT_DB', 'Impossible de sélectionner une base de données : %s.');
 @define('COULDNT_SELECT_USER_INFO', 'Impossible d\'accéder aux informations d\'utilisateurs : %s.');
 @define('COULDNT_SELECT_CATEGORY_INFO', 'Impossible d\'accéder aux informations de catégories : %s.');

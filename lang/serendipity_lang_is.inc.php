@@ -174,7 +174,9 @@
 @define('CREATE_AUTHOR', 'Búa til höfund \'%s\'.');
 @define('CREATE_CATEGORY', 'Búa til flokk \'%s\'.');
 @define('MYSQL_REQUIRED', 'Þú verður að hafa MySQL viðbótina til að gera þetta.');
+@define('PGSQL_REQUIRED', 'Þú verður að hafa PostgreSQL viðbótina til að gera þetta.');
 @define('COULDNT_CONNECT', 'Gat ekki tengst MySQL gagnagrunni: %s.');
+@define('PGSQL_COULDNT_CONNECT', 'Gat ekki tengst PostgreSQL gagnagrunni: %s.');
 @define('COULDNT_SELECT_DB', 'Gat ekki valið gagnagrunn: %s.');
 @define('COULDNT_SELECT_USER_INFO', 'Gat ekki valið notandaupplýsingar: %s.');
 @define('COULDNT_SELECT_CATEGORY_INFO', 'Gat ekki valið flokksupplýsingar: %s.');

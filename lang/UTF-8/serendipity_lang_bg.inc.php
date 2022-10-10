@@ -545,7 +545,9 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('CREATE_AUTHOR', 'Създаване на автор "%s".');
 @define('CREATE_CATEGORY', 'Създаване на категория "%s".');
 @define('MYSQL_REQUIRED', 'Трябва да имате инсталирано разширение за MySQL, за да изпълните това действие.');
+@define('PGSQL_REQUIRED', 'Трябва да имате инсталирано разширение за PostgreSQL, за да изпълните това действие.');
 @define('COULDNT_CONNECT', 'Не може да бъде установена връзка с база данни на MySQL: %s.');
+@define('PGSQL_COULDNT_CONNECT', 'Не може да бъде установена връзка с база данни на PostgreSQL: %s.');
 @define('COULDNT_SELECT_DB', 'Не може да бъде избрана база данни: %s.');
 @define('COULDNT_SELECT_USER_INFO', 'Не може да бъде извлечена информация за потребител: %s.');
 @define('COULDNT_SELECT_CATEGORY_INFO', 'Не може да бъде извлечена информация за категория: %s.');

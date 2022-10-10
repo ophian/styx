@@ -189,7 +189,9 @@ $i18n_filename_to = array (
 @define('CREATE_AUTHOR', 'Vytvoøit autora \'%s\'.');
 @define('CREATE_CATEGORY', 'Vytvoøit kategorii \'%s\'.');
 @define('MYSQL_REQUIRED', 'Pro provedení této akce je nutné mít databázi MySQL.');
+@define('PGSQL_REQUIRED', 'Pro provedení této akce je nutné mít databázi PostgreSQL.');
 @define('COULDNT_CONNECT', 'Nebylo mo¾né se spojit s databází MySQL: %s.');
+@define('PGSQL_COULDNT_CONNECT', 'Nebylo mo¾né se spojit s databází PostgreSQL: %s.');
 @define('COULDNT_SELECT_DB', 'Nebylo mo¾né vybrat databázi: %s.');
 @define('COULDNT_SELECT_USER_INFO', 'Nebylo mo¾né vybrat u¾ivatelské informace: %s.');
 @define('COULDNT_SELECT_CATEGORY_INFO', 'Nebylo mo¾né vybrat informace o kategorii: %s.');

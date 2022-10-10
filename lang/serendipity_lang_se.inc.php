@@ -174,7 +174,9 @@
 @define('CREATE_AUTHOR', 'Skapa författare \'%s\'.');
 @define('CREATE_CATEGORY', 'Skapa kategori \'%s\'.');
 @define('MYSQL_REQUIRED', 'Du måste ha MySQL extension för att utföra denna operation.');
+@define('PGSQL_REQUIRED', 'Du måste ha PostgreSQL extension för att utföra denna operation.');
 @define('COULDNT_CONNECT', 'Kunde inte ansluta till MySQL-databasen: %s.');
+@define('PGSQL_COULDNT_CONNECT', 'Kunde inte ansluta till PostgreSQL-databasen: %s.');
 @define('COULDNT_SELECT_DB', 'Hittade inte databas: %s.');
 @define('COULDNT_SELECT_USER_INFO', 'Hittade inte användarinformation: %s.');
 @define('COULDNT_SELECT_CATEGORY_INFO', 'Hittade inte kategoriinformation: %s.');

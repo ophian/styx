@@ -544,7 +544,9 @@
 @define('CREATE_AUTHOR', 'Create author \'%s\'.'); // Translate
 @define('CREATE_CATEGORY', 'Create category \'%s\'.'); // Translate
 @define('MYSQL_REQUIRED', 'You must have the MySQL extension in order to perform this action.'); // Translate
+@define('PGSQL_REQUIRED', 'You must have the PostgreSQL extension in order to perform this action.');
 @define('COULDNT_CONNECT', 'Could not connect to MySQL database: %s.'); // Translate
+@define('PGSQL_COULDNT_CONNECT', 'Could not connect to PostgreSQL database: %s.');
 @define('COULDNT_SELECT_DB', 'Could not select database: %s.'); // Translate
 @define('COULDNT_SELECT_USER_INFO', 'Could not select user information: %s.'); // Translate
 @define('COULDNT_SELECT_CATEGORY_INFO', 'Could not select category information: %s.'); // Translate

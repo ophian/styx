@@ -174,7 +174,9 @@
 @define('CREATE_AUTHOR', '執筆者 \'%s\' を作成する');
 @define('CREATE_CATEGORY', 'カテゴリ \'%s\' を作成する');
 @define('MYSQL_REQUIRED', 'この操作を実行するには MySQL 拡張が古過ぎます。');
+@define('PGSQL_REQUIRED', 'この操作を実行するには PostgreSQL 拡張が古過ぎます。');
 @define('COULDNT_CONNECT', 'MySQL データベースへ接続できませんでした: %s');
+@define('PGSQL_COULDNT_CONNECT', 'PostgreSQL データベースへ接続できませんでした: %s');
 @define('COULDNT_SELECT_DB', 'データベースを選択できませんでした: %s');
 @define('COULDNT_SELECT_USER_INFO', 'ユーザー情報を選択できませんでした: %s');
 @define('COULDNT_SELECT_CATEGORY_INFO', 'カテゴリ情報を選択できませんでした: %s');

@@ -176,7 +176,9 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('CREATE_AUTHOR', 'Создать автора \'%s\'.');
 @define('CREATE_CATEGORY', 'Создать категорию \'%s\'.');
 @define('MYSQL_REQUIRED', 'Вы должны иметь поддержку MySQL чтобы выполнить это действие.');
+@define('PGSQL_REQUIRED', 'Вы должны иметь поддержку PostgreSQL чтобы выполнить это действие.');
 @define('COULDNT_CONNECT', 'Не удалось подключиться к базе данных MySQL : %s.');
+@define('PGSQL_COULDNT_CONNECT', 'Не удалось подключиться к базе данных PostgreSQL : %s.');
 @define('COULDNT_SELECT_DB', 'Не удалось выбрать базу данных: %s.');
 @define('COULDNT_SELECT_USER_INFO', 'Не удалось выбрать информацию о пользователе: %s.');
 @define('COULDNT_SELECT_CATEGORY_INFO', 'Не удалось выбрать информацию о категории: %s.');

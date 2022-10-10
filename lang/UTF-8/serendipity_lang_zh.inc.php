@@ -176,7 +176,9 @@
 @define('CREATE_AUTHOR', '新增作者 \'%s\'.');
 @define('CREATE_CATEGORY', '新增类别 \'%s\'.');
 @define('MYSQL_REQUIRED', '你必须要有 MySQL 的扩充功能才能执行这个动作');
+@define('PGSQL_REQUIRED', '你必须要有 PostgreSQL 的扩充功能才能执行这个动作');
 @define('COULDNT_CONNECT', '不能连接到 MySQL 资料库: %s.');
+@define('PGSQL_COULDNT_CONNECT', '不能连接到 PostgreSQL 资料库: %s.');
 @define('COULDNT_SELECT_DB', '不能选择数据库: %s.');
 @define('COULDNT_SELECT_USER_INFO', '不能选择使用者的资料: %s.');
 @define('COULDNT_SELECT_CATEGORY_INFO', '不能选择类别的资料: %s.');

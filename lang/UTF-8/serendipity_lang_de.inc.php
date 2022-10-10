@@ -543,7 +543,9 @@
 @define('CREATE_AUTHOR', 'Erstelle Autoren \'%s\'.');
 @define('CREATE_CATEGORY', 'Erstelle Kategorie \'%s\'.');
 @define('MYSQL_REQUIRED', 'Die MySQL-Erweiterung muss installiert sein, damit diese Aktion durchgeführt werden kann.');
-@define('COULDNT_CONNECT', 'Verbindung zu MySQL-Datenbank \'%s\' fehlgeschlagen.');
+@define('PGSQL_REQUIRED', 'Die PostgreSQL-Erweiterung muss installiert sein, damit diese Aktion durchgeführt werden kann.');
+@define('COULDNT_CONNECT', 'Verbindung zur MySQL-Datenbank \'%s\' fehlgeschlagen.');
+@define('PGSQL_COULDNT_CONNECT', 'Verbindung zur PostgreSQL-Datenbank \'%s\' fehlgeschlagen.');
 @define('COULDNT_SELECT_DB', 'Datenbank \'%s\' konnte nicht ausgewählt werden.');
 @define('COULDNT_SELECT_USER_INFO', 'Die Benutzerinformationen von %s konnten nicht gelesen werden.');
 @define('COULDNT_SELECT_CATEGORY_INFO', 'Die Kategorien von %s konnten nicht gelesen werden.');
