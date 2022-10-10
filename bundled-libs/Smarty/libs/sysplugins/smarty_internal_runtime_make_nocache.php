@@ -11,7 +11,7 @@ class Smarty_Internal_Runtime_Make_Nocache
 {
     /**
      * Save current variable value while rendering compiled template and inject nocache code to
-     * assign variable value in cahed template
+     * assign variable value in cached template
      *
      * @param \Smarty_Internal_Template $tpl
      * @param string                    $var variable name
