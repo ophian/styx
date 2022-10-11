@@ -89,7 +89,11 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import
             return PGSQL_REQUIRED;
         }
 
-        $wpdb = pg_connect("$this->data['host'], $this->data['port'], $this->data['user'], $this->data['pass'], $this->data['name']");
+        try {
+            $wpdb = pg_connect("$this->data['host'], $this->data['port'], $this->data['user'], $this->data['pass'], $this->data['name']");
+        } catch (\Throwable $t) {
+            $wpdb = false;
+        }
         if (!$wpdb) {
             return sprintf(PGSQL_COULDNT_CONNECT, serendipity_specialchars($this->data['pass']));
         }

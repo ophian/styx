@@ -85,7 +85,12 @@ class Serendipity_Import_nuke extends Serendipity_Import
             return MYSQL_REQUIRED;
         }
 
-        $nukedb = @mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        try {
+            $nukedb = mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        } catch (\Throwable $t) {
+            $nukedb = false;
+        }
+
         if (!$nukedb || mysqli_connect_error()) {
             return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
         }

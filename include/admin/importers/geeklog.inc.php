@@ -91,7 +91,12 @@ class Serendipity_Import_geeklog extends Serendipity_Import
             return MYSQL_REQUIRED;
         }
 
-        $gdb = @mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        try {
+            $gdb = mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        } catch (\Throwable $t) {
+            $gdb = false;
+        }
+
         if (!$gdb || mysqli_connect_error()) {
             return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
         }
@@ -101,7 +106,7 @@ class Serendipity_Import_geeklog extends Serendipity_Import
         }
 
         /* Users */
-        $res = @$this->nativeQuery("SELECT uid        AS ID,
+        $res = @$this->nativeQuery("SELECT uid AS ID,
                                     username   AS user_login,
                                     passwd     AS user_pass,
                                     email      AS user_email,

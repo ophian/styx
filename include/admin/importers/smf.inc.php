@@ -91,25 +91,30 @@ class Serendipity_Import_smf extends Serendipity_Import
             return MYSQL_REQUIRED;
         }
 
-        $gdb = @mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
-        if (!$gdb || mysqli_connect_error()) {
+        try {
+            $smfdb = mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        } catch (\Throwable $t) {
+            $smfdb = false;
+        }
+
+        if (!$smfdb || mysqli_connect_error()) {
             return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
         }
 
-        if (!@mysqli_select_db($gdb, $this->data['name'])) {
-            return sprintf(COULDNT_SELECT_DB, mysqli_error($gdb));
+        if (!@mysqli_select_db($smfdb, $this->data['name'])) {
+            return sprintf(COULDNT_SELECT_DB, mysqli_error($smfdb));
         }
         
         /* Users */
-        $res = @$this->nativeQuery("SELECT ID_MEMBER       AS ID,
-                                    memberName      AS user_login,
-                                    passwd AS user_pass,
-                                    emailAddress    AS user_email,
-                                    ID_GROUP AS user_level
-                               FROM {$this->data['prefix']}members
-                              WHERE is_activated = 1", $gdb);
+        $res = @$this->nativeQuery("SELECT ID_MEMBER AS ID,
+                                        memberName   AS user_login,
+                                        passwd       AS user_pass,
+                                        emailAddress AS user_email,
+                                        ID_GROUP     AS user_level
+                                     FROM {$this->data['prefix']}members
+                                    WHERE is_activated = 1", $smfdb);
         if (!$res) {
-            return sprintf(COULDNT_SELECT_USER_INFO, mysqli_error($gdb));
+            return sprintf(COULDNT_SELECT_USER_INFO, mysqli_error($smfdb));
         }
 
         for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x ; $x++ ) {
@@ -134,9 +139,9 @@ class Serendipity_Import_smf extends Serendipity_Import
         /* Categories */
         $res = @$this->nativeQuery("SELECT ID_CAT AS cat_ID,
                                     name AS cat_name
-                               FROM {$this->data['prefix']}categories", $gdb);
+                               FROM {$this->data['prefix']}categories", $smfdb);
         if (!$res) {
-            return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($gdb));
+            return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($smfdb));
         }
 
         // Get all the info we need
@@ -160,9 +165,9 @@ class Serendipity_Import_smf extends Serendipity_Import
                                     ID_CAT   AS parent_cat_id,
                                     name AS cat_name,
                                     description AS category_description
-                               FROM {$this->data['prefix']}boards ORDER BY boardOrder;", $gdb);
+                               FROM {$this->data['prefix']}boards ORDER BY boardOrder;", $smfdb);
         if (!$res) {
-            return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($gdb));
+            return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($smfdb));
         }
 
         // Get all the info we need
@@ -208,9 +213,9 @@ class Serendipity_Import_smf extends Serendipity_Import
         JOIN {$this->data['prefix']}messages AS tm
           ON tm.ID_MSG = t.ID_FIRST_MSG
 
-        GROUP BY t.ID_TOPIC", $gdb);
+        GROUP BY t.ID_TOPIC", $smfdb);
         if (!$res) {
-            return sprintf(COULDNT_SELECT_ENTRY_INFO, mysqli_error($gdb));
+            return sprintf(COULDNT_SELECT_ENTRY_INFO, mysqli_error($smfdb));
         }
 
         for ($x=0, $max_x = mysqli_num_rows($res) ; $x < $max_x ; $x++ ) {
@@ -259,7 +264,7 @@ class Serendipity_Import_smf extends Serendipity_Import
                                             JOIN {$this->data['prefix']}tags AS t
                                               ON tl.ID_TAG = t.ID_TAG
                                            WHERE tl.ID_TOPIC = {$topic_id}
-                                             AND t.approved = 1", $gdb);
+                                             AND t.approved = 1", $smfdb);
             if (mysqli_num_rows($t_res) > 0) {
                 while ($a = mysqli_fetch_assoc($t_res)) {
                     serendipity_db_insert('entrytags', array('entryid' => $entries[$x]['entryid'], 'tag' => $t_res['tag']));
@@ -280,10 +285,10 @@ class Serendipity_Import_smf extends Serendipity_Import
                 JOIN {$this->data['prefix']}messages AS tm
                   ON tm.ID_TOPIC = t.ID_TOPIC
                WHERE t.ID_TOPIC = {$topic_id}
-            ", $gdb);
+            ", $smfdb);
 
             if (!$c_res) {
-                return sprintf(COULDNT_SELECT_COMMENT_INFO, mysqli_error($gdb));
+                return sprintf(COULDNT_SELECT_COMMENT_INFO, mysqli_error($smfdb));
             }
 
             while ($a = mysqli_fetch_assoc($c_res)) {

@@ -86,26 +86,31 @@ class Serendipity_Import_phpbb extends Serendipity_Import
             return MYSQL_REQUIRED;
         }
 
-        $gdb = @mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
-        if (!$gdb || mysqli_connect_error()) {
+        try {
+            $phbbdb = mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        } catch (\Throwable $t) {
+            $phbbdb = false;
+        }
+
+        if (!$phbbdb || mysqli_connect_error()) {
             return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
         }
 
-        if (!@mysqli_select_db($gdb, $this->data['name'])) {
-            return sprintf(COULDNT_SELECT_DB, mysqli_error($gdb));
+        if (!@mysqli_select_db($phbbdb, $this->data['name'])) {
+            return sprintf(COULDNT_SELECT_DB, mysqli_error($phbbdb));
         }
 
         /* Users */
-        $res = @$this->nativeQuery("SELECT user_id       AS ID,
-                                    username      AS user_login,
-                                    user_password AS user_pass,
-                                    user_email    AS user_email,
-                                    user_website  AS user_url,
-                                    user_level
+        $res = @$this->nativeQuery("SELECT user_id AS ID,
+                                     username      AS user_login,
+                                     user_password AS user_pass,
+                                     user_email    AS user_email,
+                                     user_website  AS user_url,
+                                     user_level
                                FROM {$this->data['prefix']}users
-                              WHERE user_active = 1", $gdb);
+                              WHERE user_active = 1", $phbbdb);
         if (!$res) {
-            return sprintf(COULDNT_SELECT_USER_INFO, mysqli_error($gdb));
+            return sprintf(COULDNT_SELECT_USER_INFO, mysqli_error($phbbdb));
         }
 
         for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x ; $x++ ) {
@@ -130,9 +135,9 @@ class Serendipity_Import_phpbb extends Serendipity_Import
         /* Categories */
         $res = @$this->nativeQuery("SELECT cat_id AS cat_ID,
                                     cat_title AS cat_name
-                               FROM {$this->data['prefix']}categories", $gdb);
+                               FROM {$this->data['prefix']}categories", $phbbdb);
         if (!$res) {
-            return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($gdb));
+            return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($phbbdb));
         }
 
         // Get all the info we need
@@ -156,9 +161,9 @@ class Serendipity_Import_phpbb extends Serendipity_Import
                                     cat_id   AS parent_cat_id,
                                     forum_name AS cat_name,
                                     forum_desc AS category_description
-                               FROM {$this->data['prefix']}forums ORDER BY forum_order;", $gdb);
+                               FROM {$this->data['prefix']}forums ORDER BY forum_order;", $phbbdb);
         if (!$res) {
-            return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($gdb));
+            return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($phbbdb));
         }
 
         // Get all the info we need
@@ -204,9 +209,9 @@ class Serendipity_Import_phpbb extends Serendipity_Import
                     LEFT OUTER JOIN {$this->data['prefix']}posts_text  AS pt
                                  ON pt.post_id = p.post_id
                            GROUP BY p.topic_id
-                           ", $gdb);
+                           ", $phbbdb);
         if (!$res) {
-            return sprintf(COULDNT_SELECT_ENTRY_INFO, mysqli_error($gdb));
+            return sprintf(COULDNT_SELECT_ENTRY_INFO, mysqli_error($phbbdb));
         }
 
         for ($x=0, $max_x = mysqli_num_rows($res) ; $x < $max_x ; $x++ ) {
@@ -260,9 +265,9 @@ class Serendipity_Import_phpbb extends Serendipity_Import
                         LEFT OUTER JOIN {$this->data['prefix']}posts_text  AS pt
                                      ON pt.post_id = p.post_id
                                   WHERE p.topic_id = {$topic_id}
-                               ", $gdb);
+                               ", $phbbdb);
             if (!$c_res) {
-                return sprintf(COULDNT_SELECT_COMMENT_INFO, mysqli_error($gdb));
+                return sprintf(COULDNT_SELECT_COMMENT_INFO, mysqli_error($phbbdb));
             }
 
             while ($a = mysqli_fetch_assoc($c_res)) {

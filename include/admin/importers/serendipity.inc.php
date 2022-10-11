@@ -466,7 +466,12 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
             return MYSQL_REQUIRED;
         }
 
-        $s9ydb = @mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        try {
+            $s9ydb = mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        } catch (\Throwable $t) {
+            $s9ydb = false;
+        }
+
         if (!$s9ydb || mysqli_connect_error()) {
             return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
         }

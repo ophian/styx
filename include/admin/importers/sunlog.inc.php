@@ -92,23 +92,28 @@ class Serendipity_Import_sunlog extends Serendipity_Import
             return MYSQL_REQUIRED;
         }
 
-        $sunlogdb = @mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
-        if (!$sunlogdb || mysqli_connect_error()) {
+        try {
+            $slgdb = mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        } catch (\Throwable $t) {
+            $slgdb = false;
+        }
+
+        if (!$slgdb || mysqli_connect_error()) {
             return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
         }
 
-        if (!@mysqli_select_db($sunlogdb, $this->data['name'])) {
-            return sprintf(COULDNT_SELECT_DB, mysqli_error($sunlogdb));
+        if (!@mysqli_select_db($slgdb, $this->data['name'])) {
+            return sprintf(COULDNT_SELECT_DB, mysqli_error($slgdb));
         }
 
         /* Users */
-        $res = @$this->nativeQuery("SELECT id         AS ID,
+        $res = @$this->nativeQuery("SELECT id  AS ID,
                                     name       AS user_login,
                                     email      AS user_email,
                                     homepage   AS user_url
-                               FROM {$this->data['prefix']}users", $sunlogdb);
+                               FROM {$this->data['prefix']}users", $slgdb);
         if (!$res) {
-            return sprintf(COULDNT_SELECT_USER_INFO, mysqli_error($sunlogdb));
+            return sprintf(COULDNT_SELECT_USER_INFO, mysqli_error($slgdb));
         }
 
         for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x ; $x++ ) {
@@ -131,15 +136,15 @@ class Serendipity_Import_sunlog extends Serendipity_Import
         }
 
         /* Categories */
-        if (!$this->importCategories($sunlogdb, null, 0)) {
-            return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($sunlogdb));
+        if (!$this->importCategories($slgdb, null, 0)) {
+            return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($slgdb));
         }
         serendipity_rebuildCategoryTree();
 
         /* Entries */
-        $res = @$this->nativeQuery("SELECT * FROM {$this->data['prefix']}articles ORDER BY id;", $sunlogdb);
+        $res = @$this->nativeQuery("SELECT * FROM {$this->data['prefix']}articles ORDER BY id;", $slgdb);
         if (!$res) {
-            return sprintf(COULDNT_SELECT_ENTRY_INFO, mysqli_error($sunlogdb));
+            return sprintf(COULDNT_SELECT_ENTRY_INFO, mysqli_error($slgdb));
         }
 
         for ($x=0, $max_x = mysqli_num_rows($res) ; $x < $max_x ; $x++ ) {
@@ -169,9 +174,9 @@ class Serendipity_Import_sunlog extends Serendipity_Import
         }
 
         /* Even more category stuff */
-        $res = @$this->nativeQuery("SELECT * FROM {$this->data['prefix']}transfer_c;", $sunlogdb);
+        $res = @$this->nativeQuery("SELECT * FROM {$this->data['prefix']}transfer_c;", $slgdb);
         if (!$res) {
-            return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($sunlogdb));
+            return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($slgdb));
         }
 
         for ($x=0, $max_x = mysqli_num_rows($res) ; $x < $max_x ; $x++ ) {
@@ -200,9 +205,9 @@ class Serendipity_Import_sunlog extends Serendipity_Import
         }
 
         /* Comments */
-        $res = @$this->nativeQuery("SELECT * FROM {$this->data['prefix']}c_comments;", $sunlogdb);
+        $res = @$this->nativeQuery("SELECT * FROM {$this->data['prefix']}c_comments;", $slgdb);
         if (!$res) {
-            return sprintf(COULDNT_SELECT_COMMENT_INFO, mysqli_error($sunlogdb));
+            return sprintf(COULDNT_SELECT_COMMENT_INFO, mysqli_error($slgdb));
         }
 
         while ($a = mysqli_fetch_assoc($res)) {
@@ -246,12 +251,12 @@ class Serendipity_Import_sunlog extends Serendipity_Import
         return true;
     }
 
-    function importCategories($sunlogdb, $parentid = 0, $new_parentid = 0)
+    function importCategories($slgdb, $parentid = 0, $new_parentid = 0)
     {
         $where = "WHERE parent = '" . mysqli_escape_string($parentid) . "'";
 
         $res = $this->nativeQuery("SELECT * FROM {$this->data['prefix']}categories
-                                     " . $where, $sunlogdb);
+                                     " . $where, $slgdb);
         if (!$res) {
             echo mysqli_error();
             return false;
@@ -269,7 +274,7 @@ class Serendipity_Import_sunlog extends Serendipity_Import
             serendipity_db_insert('category', $this->strtrRecursive($cat));
             $row['categoryid']  = serendipity_db_insert_id('category', 'categoryid');
             $this->categories[] = $row;
-            $this->importCategories($sunlogdb, $row['id'], $row['categoryid']);
+            $this->importCategories($slgdb, $row['id'], $row['categoryid']);
         }
 
         return true;

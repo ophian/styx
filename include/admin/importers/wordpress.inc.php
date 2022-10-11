@@ -96,7 +96,12 @@ class Serendipity_Import_WordPress extends Serendipity_Import
             @set_time_limit(300);
         }
 
-        $wpdb = @mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        try {
+            $wpdb = mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        } catch (\Throwable $t) {
+            $wpdb = false;
+        }
+
         if (!$wpdb || mysqli_connect_error()) {
             return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
         }

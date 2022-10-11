@@ -85,7 +85,12 @@ class Serendipity_Import_lifetype extends Serendipity_Import
             return MYSQL_REQUIRED;
         }
 
-        $ltdb = @mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        try {
+            $ltdb = mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        } catch (\Throwable $t) {
+            $ltdb = false;
+        }
+
         if (!$ltdb || mysqli_connect_error()) {
             return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
         }
@@ -95,14 +100,13 @@ class Serendipity_Import_lifetype extends Serendipity_Import
         }
 
         /* Users */
-        $res = @$this->nativeQuery("SELECT
-                                            user AS user_login,
-                                            `password` AS user_pass,
-                                            email AS user_email,
-                                            full_name AS user_name,
-                                            site_admin AS user_level,
-                                            id AS ID
-                                       FROM lt_users", $ltdb);
+        $res = @$this->nativeQuery("SELECT user AS user_login,
+                                           password AS user_pass,
+                                           email AS user_email,
+                                           full_name AS user_name,
+                                           site_admin AS user_level,
+                                           id AS ID
+                                      FROM lt_users", $ltdb);
         if (!$res) {
             return sprintf(COULDNT_SELECT_USER_INFO, mysqli_error($ltdb));
         }
@@ -132,8 +136,7 @@ class Serendipity_Import_lifetype extends Serendipity_Import
         serendipity_rebuildCategoryTree();
 
         /* Entries */
-        $res = @$this->nativeQuery("SELECT
-                                           article_id AS ID,
+        $res = @$this->nativeQuery("SELECT article_id AS ID,
                                            UNIX_TIMESTAMP(`date`) AS tstamp,
                                            user_id AS post_author,
                                            status AS post_status,

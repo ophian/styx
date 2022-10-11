@@ -85,7 +85,12 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
             return MYSQL_REQUIRED;
         }
 
-        $b2db = @mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        try {
+            $b2db = mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        } catch (\Throwable $t) {
+            $b2db = false;
+        }
+
         if (!$b2db || mysqli_connect_error()) {
             return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
         }
@@ -95,7 +100,7 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
         }
 
         /* Users */
-        $res = @$this->nativeQuery("SELECT ID         AS ID,
+        $res = @$this->nativeQuery("SELECT ID  AS ID,
                                     user_login AS user_login,
                                     user_pass  AS user_pass,
                                     user_email AS user_email,

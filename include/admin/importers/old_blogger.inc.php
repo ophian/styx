@@ -185,7 +185,6 @@ ENDPOST
                 $authorid = $result['authorid'];
             }
 
-
             $entry = array('title'          => $title,
                            'isdraft'        => 'false',
                            'allow_comments' => 'true',

@@ -91,7 +91,12 @@ class Serendipity_Import_textpattern extends Serendipity_Import
             return MYSQL_REQUIRED;
         }
 
-        $txpdb = @mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        try {
+            $txpdb = mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        } catch (\Throwable $t) {
+            $txpdb = false;
+        }
+
         if (!$txpdb || mysqli_connect_error()) {
             return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
         }
@@ -101,11 +106,11 @@ class Serendipity_Import_textpattern extends Serendipity_Import
         }
 
         /* Users */
-        $res = @$this->nativeQuery("SELECT user_id    AS ID,
-                                    name       AS user_login,
-                                    `pass`     AS user_pass,
-                                    email      AS user_email,
-                                    privs      AS user_level
+        $res = @$this->nativeQuery("SELECT user_id AS ID,
+                                           name    AS user_login,
+                                           pass    AS user_pass,
+                                           email   AS user_email,
+                                           privs   AS user_level
                                FROM {$this->data['prefix']}txp_users", $txpdb);
         if (!$res) {
             return sprintf(COULDNT_SELECT_USER_INFO, mysqli_error($txpdb));

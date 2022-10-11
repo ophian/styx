@@ -86,7 +86,12 @@ class Serendipity_Import_pMachine extends Serendipity_Import
             return MYSQL_REQUIRED;
         }
 
-        $pmdb = @mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        try {
+            $pmdb = mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        } catch (\Throwable $t) {
+            $pmdb = false;
+        }
+
         if (!$pmdb || mysqli_connect_error()) {
             return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
         }
@@ -96,9 +101,9 @@ class Serendipity_Import_pMachine extends Serendipity_Import
         }
 
         /* Users */
-        $res = @$this->nativeQuery("SELECT id         AS ID,
+        $res = @$this->nativeQuery("SELECT id  AS ID,
                                     username   AS user_login,
-                                    `password` AS user_pass,
+                                    password   AS user_pass,
                                     email      AS user_email,
                                     status     AS user_level,
                                     url        AS url
@@ -131,9 +136,9 @@ class Serendipity_Import_pMachine extends Serendipity_Import
         }
 
         /* Categories */
-        $res = @$this->nativeQuery("SELECT id       AS cat_ID,
-                                    category AS cat_name,
-                                    category AS category_description
+        $res = @$this->nativeQuery("SELECT id AS cat_ID,
+                                    category  AS cat_name,
+                                    category  AS category_description
                                FROM {$this->data['prefix']}categories ORDER BY id", $pmdb);
         if (!$res) {
             return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($pmdb));

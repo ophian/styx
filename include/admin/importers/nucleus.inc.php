@@ -86,7 +86,12 @@ class Serendipity_Import_Nucleus extends Serendipity_Import
             return MYSQL_REQUIRED;;
         }
 
-        $nucdb = @mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        try {
+            $nucdb = mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        } catch (\Throwable $t) {
+            $nucdb = false;
+        }
+
         if (!$nucdb || mysqli_connect_error()) {
             return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
         }

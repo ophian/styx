@@ -85,25 +85,30 @@ class Serendipity_Import_bmachine extends Serendipity_Import
             return MYSQL_REQUIRED;
         }
 
-        $txpdb = @mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
-        if (!$txpdb || mysqli_connect_error()) {
+        try {
+            $bmcdb = mysqli_connect($this->data['host'], $this->data['user'], $this->data['pass']);
+        } catch (\Throwable $t) {
+            $bmcdb = false;
+        }
+
+        if (!$bmcdb || mysqli_connect_error()) {
             return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
         }
 
         if (!@mysqli_select_db($txtdb, $this->data['name'])) {
-            return sprintf(COULDNT_SELECT_DB, mysqli_error($txpdb));
+            return sprintf(COULDNT_SELECT_DB, mysqli_error($bmcdb));
         }
 
         /* Users */
-        $res = @$this->nativeQuery("SELECT id         AS ID,
+        $res = @$this->nativeQuery("SELECT id  AS ID,
                                     user_login AS user_login,
                                     user_pass  AS user_pass,
                                     user_email AS user_email,
                                     level      AS user_level,
                                     user_url   AS user_url
-                               FROM bmc_users", $txpdb);
+                               FROM bmc_users", $bmcdb);
         if (!$res) {
-            return sprintf(COULDNT_SELECT_USER_INFO, mysqli_error($txpdb));
+            return sprintf(COULDNT_SELECT_USER_INFO, mysqli_error($bmcdb));
         }
 
         for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x ; $x++ ) {
@@ -132,12 +137,12 @@ class Serendipity_Import_bmachine extends Serendipity_Import
         }
 
         /* Categories */
-        $res = @$this->nativeQuery("SELECT id       AS cat_ID,
-                                    cat_name AS cat_name,
-                                    cat_info AS category_description
-                               FROM bmc_cats ORDER BY id;", $txpdb);
+        $res = @$this->nativeQuery("SELECT id AS cat_ID,
+                                    cat_name  AS cat_name,
+                                    cat_info  AS category_description
+                               FROM bmc_cats ORDER BY id;", $bmcdb);
         if (!$res) {
-            return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($txpdb));
+            return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($bmcdb));
         }
 
         // Get all the info we need
@@ -160,9 +165,9 @@ class Serendipity_Import_bmachine extends Serendipity_Import
         serendipity_rebuildCategoryTree();
 
         /* Entries */
-        $res = @$this->nativeQuery("SELECT * FROM bmc_posts ORDER BY id;", $txpdb);
+        $res = @$this->nativeQuery("SELECT * FROM bmc_posts ORDER BY id;", $bmcdb);
         if (!$res) {
-            return sprintf(COULDNT_SELECT_ENTRY_INFO, mysqli_error($txpdb));
+            return sprintf(COULDNT_SELECT_ENTRY_INFO, mysqli_error($bmcdb));
         }
 
         for ($x=0, $max_x = mysqli_num_rows($res) ; $x < $max_x ; $x++ ) {
@@ -201,9 +206,9 @@ class Serendipity_Import_bmachine extends Serendipity_Import
         }
 
         /* Comments */
-        $res = @$this->nativeQuery("SELECT * FROM bmc_comments;", $txpdb);
+        $res = @$this->nativeQuery("SELECT * FROM bmc_comments;", $bmcdb);
         if (!$res) {
-            return sprintf(COULDNT_SELECT_COMMENT_INFO, mysqli_error($txpdb));
+            return sprintf(COULDNT_SELECT_COMMENT_INFO, mysqli_error($bmcdb));
         }
 
         while ($a = mysqli_fetch_assoc($res)) {
