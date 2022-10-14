@@ -100,9 +100,8 @@ class Serendipity_Import_nuke extends Serendipity_Import
         }
 
         /* Users: Authors */
-        $res = @$this->nativeQuery("SELECT
-                                            aid         AS user_login,
-                                            `pwd`       AS user_pass,
+        $res = @$this->nativeQuery("SELECT  aid         AS user_login,
+                                            pwd         AS user_pass,
                                             email       AS user_email,
                                             name        AS user_name,
                                             radminsuper AS user_level,
@@ -131,8 +130,7 @@ class Serendipity_Import_nuke extends Serendipity_Import
         }
 
         /* Users: Users */
-        $res = @$this->nativeQuery("SELECT
-                                            u.uname      AS user_login,
+        $res = @$this->nativeQuery("SELECT  u.uname      AS user_login,
                                             u.pass       AS user_pass,
                                             u.email      AS user_email,
                                             u.name       AS user_name,
