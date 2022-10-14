@@ -373,6 +373,7 @@
 @define('INSTALL_USERNAME_DESC', 'Nombre de usuario del administrador');
 @define('INSTALL_PASSWORD', 'Contraseña de administrador');
 @define('INSTALL_PASSWORD_DESC', 'Contraseña del administrador');
+@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', 'Correo electrónico');
 @define('INSTALL_EMAIL_DESC', 'Correo electrónico del administrador');
 @define('INSTALL_SENDMAIL', '¿Enviar correos al administrador?');

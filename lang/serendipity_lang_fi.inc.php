@@ -390,6 +390,7 @@
 @define('INSTALL_USERNAME_DESC', 'Ylläpitäjän käyttäjätunnus');
 @define('INSTALL_PASSWORD', 'Ylläpitäjän salasana');
 @define('INSTALL_PASSWORD_DESC', 'Ylläpitäjän salasana');
+@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', 'Ylläpitäjän sähköpostiosoite');
 @define('INSTALL_EMAIL_DESC', 'Ylläpitäjän sähköpostiosoite.');
 @define('INSTALL_SENDMAIL', 'Postit ylläpitäjälle?');

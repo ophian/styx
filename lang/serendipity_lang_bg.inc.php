@@ -423,6 +423,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_USERNAME_DESC', 'Потребителско име на администратора');
 @define('INSTALL_PASSWORD', 'Администраторска парола');
 @define('INSTALL_PASSWORD_DESC', 'Парола на администратора');
+@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', 'Ел. адрес на администратора');
 @define('INSTALL_EMAIL_DESC', 'Ел. адрес на администратора на блога');
 @define('INSTALL_SENDMAIL', 'Изпращане на поща до администратора?');

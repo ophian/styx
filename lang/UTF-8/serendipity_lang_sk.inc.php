@@ -406,6 +406,7 @@ $i18n_filename_to = array (
 @define('INSTALL_USERNAME_DESC', 'Prihlasovacie meno administrátora');
 @define('INSTALL_PASSWORD', 'Heslo administrátora');
 @define('INSTALL_PASSWORD_DESC', 'Prihlasovacie heslo administrátora');
+@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', 'E-mail administrátora');
 @define('INSTALL_EMAIL_DESC', 'E-mail administrátorského používateľa');
 @define('INSTALL_SENDMAIL', 'Posielať administrátorovi e-maily?');

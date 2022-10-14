@@ -391,6 +391,7 @@
 @define('INSTALL_USERNAME_DESC', 'Änvändarnamn för administratörsinloggning');
 @define('INSTALL_PASSWORD', 'Admin lösenord');
 @define('INSTALL_PASSWORD_DESC', 'Lösenord för administratörsinloggning');
+@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', 'Admin e-post');
 @define('INSTALL_EMAIL_DESC', 'E-post till bloggadministratören');
 @define('INSTALL_SENDMAIL', 'Skicka mail till admin?');

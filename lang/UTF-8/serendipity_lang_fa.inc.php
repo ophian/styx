@@ -392,6 +392,7 @@
 @define('INSTALL_USERNAME_DESC', 'نام کاربری مدیر برای ورود');
 @define('INSTALL_PASSWORD', 'رمز عبور مدیر');
 @define('INSTALL_PASSWORD_DESC', 'رمز عبور مدیر برای ورود');
+@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', 'ایمیل مدیر');
 @define('INSTALL_EMAIL_DESC', 'ایمیل مدیر وبلاگ');
 @define('INSTALL_SENDMAIL', 'آیا به مدیر ایمیلی ارسال شود؟');

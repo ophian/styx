@@ -392,6 +392,7 @@
 @define('INSTALL_USERNAME_DESC', 'Nume de utilizator pentru administrator');
 @define('INSTALL_PASSWORD', 'Parolă Admin');
 @define('INSTALL_PASSWORD_DESC', 'Parolă pentru administrator');
+@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', 'Email Admin');
 @define('INSTALL_EMAIL_DESC', 'Adresa de email pentru administratorul blog-ului');
 @define('INSTALL_SENDMAIL', 'Trimit mesaje email către admin?');

@@ -393,6 +393,7 @@
 @define('INSTALL_USERNAME_DESC', 'Чгу ЧсугЪЮЯу ссудбн');
 @define('INSTALL_PASSWORD', 'псуЩ убцб Чсудбн');
 @define('INSTALL_PASSWORD_DESC', 'псуЩ Чсубцб ссудбн');
+@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', 'ШбэЯ Чсудбн');
 @define('INSTALL_EMAIL_DESC', 'ШбэЯ Чсудбн ЧскЧу ссуЯцфЩ');
 @define('INSTALL_SENDMAIL', 'УбгЧс ШбэЯ Хсь Чсудбн ЧскЧуП');

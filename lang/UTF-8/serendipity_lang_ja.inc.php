@@ -391,6 +391,7 @@
 @define('INSTALL_USERNAME_DESC', '管理者ログインのユーザー名を指定します。');
 @define('INSTALL_PASSWORD', '管理者パスワード');
 @define('INSTALL_PASSWORD_DESC', '管理者ログインのパスワードを指定します。');
+@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', '管理者電子メール');
 @define('INSTALL_EMAIL_DESC', 'ブログ管理者の電子メールを指定します。');
 @define('INSTALL_SENDMAIL', '管理者にメールを送信しますか?');

@@ -393,6 +393,7 @@ $i18n_unknown = 'tw';
 @define('INSTALL_USERNAME_DESC', '管理員的登入名稱');
 @define('INSTALL_PASSWORD', '管理員密碼');
 @define('INSTALL_PASSWORD_DESC', '管理員的登入密碼');
+@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', '電子郵件');
 @define('INSTALL_EMAIL_DESC', '管理員的電子郵件');
 @define('INSTALL_SENDMAIL', '寄送電子郵件給管理員?');

@@ -393,6 +393,7 @@
 @define('INSTALL_USERNAME_DESC', '管理员登陆系统的帐号');
 @define('INSTALL_PASSWORD', '管理员密码');
 @define('INSTALL_PASSWORD_DESC', '管理员登陆系统的密码');
+@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', '电子邮件');
 @define('INSTALL_EMAIL_DESC', '管理员的电子邮件');
 @define('INSTALL_SENDMAIL', '发送电子邮件给管理员？');

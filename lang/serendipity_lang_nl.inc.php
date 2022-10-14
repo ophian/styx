@@ -394,6 +394,7 @@
 @define('INSTALL_USERNAME_DESC', 'De gebruikersnaam van de beheerder');
 @define('INSTALL_PASSWORD', 'Wachtwoord beheerder');
 @define('INSTALL_PASSWORD_DESC', 'Het wachtwoord van de beheerder');
+@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', 'E-mailadres van beheerder');
 @define('INSTALL_EMAIL_DESC', 'E-mailadres van de beheerder van het weblog');
 @define('INSTALL_SENDMAIL', 'E-mails versturen naar beheerder?');
