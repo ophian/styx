@@ -394,6 +394,37 @@ function serendipity_load_configuration($author = null) {
 }
 
 /**
+ * Generates a strong password by length and increased variety
+ *
+ * @param int       Length of return [Default: 16]
+ * @param string    Uppercased and lowercased strong characters - removed i, l, O
+ * @param boolean   Whether to include numbers [default: true] - removed 0, 1
+ * @param int       1 uses normal special chars, 2 adds extra more may or may not available in every language; Use 0 OR null for none
+ *
+ * @return string The random password.
+ */
+function serendipity_generate_password($length = 16, $ints = true, $extend = 1) {
+    $chars = 'ABCDEFGHIJKLMNPQRSTUVWXYZabcdefghjkmnopqrstuvwxyz';
+    if ($ints) {
+        $chars .= '23456789';
+    }
+    if ($extend === 1) {
+        $chars .= '!@#$%^&*()';
+    } else if ($extend === 2) {
+        $chars .= '-=~_+,./<>?;:[]{}\|';
+    }
+
+    $pw = '';
+    $max = strlen($chars) - 1;
+
+    for ($i=0; $i < $length; $i++) {
+        $pw .= $chars[random_int(0, $max)];
+    }
+
+    return $pw;
+}
+
+/**
  * Perform logout functions (destroys session data)
  *
  * @access public
