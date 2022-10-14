@@ -225,6 +225,7 @@ if (($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission
     $data['adminAction'] = $serendipity['GET']['adminAction'];
     $data['show_form'] = true;
     $data['formToken'] = serendipity_setFormToken();
+    $data['random_pw'] = serendipity_generate_password(20);
 
     if ($serendipity['GET']['adminAction'] == 'edit') {
         $user = serendipity_fetchUsers($serendipity['GET']['userid']);
