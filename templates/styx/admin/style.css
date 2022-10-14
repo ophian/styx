@@ -3084,6 +3084,21 @@ h3 button.toggle_info.button_link.group_info {
     color: #fcfcfc;
 }
 
+#password_info.field_info + .upw_field {
+    display: none;
+}
+#password_info.field_info.additional_info + .upw_field {
+    width: 48%;
+    display: contents;
+    font-weight: bold;
+    font-style: italic;
+    color: #595959;
+    text-shadow: 1px 1px 1px rgb(254, 239, 219);
+}
+.upw_field > span {
+    padding-right: .5em;
+}
+
 #isync_info a {
     color: #fffafa;
 }
