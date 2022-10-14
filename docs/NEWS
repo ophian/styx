@@ -2,6 +2,8 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Generate random takeaway password for new users forms password field
+
   * Upgrade custom CKEBasic asset to 4.20.0 (cb4a59c665 revision)
     https://ckeditor.com/cke4/release-notes
 
