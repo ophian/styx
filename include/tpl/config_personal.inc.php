@@ -19,7 +19,7 @@
 
                                     array('var'         => 'password',
                                           'title'       => USERCONF_PASSWORD,
-                                          'description' => USERCONF_PASSWORD_DESC,
+                                          'description' => USERCONF_PASSWORD_DESC . USERCONF_NEW_PASSWDEX_TOOLTIP_INFO,
                                           'type'        => 'fullprotected',
                                           'default'     => '',
                                           'permission'  => 'personalConfiguration'),
