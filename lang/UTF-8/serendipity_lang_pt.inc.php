@@ -375,7 +375,6 @@
 @define('INSTALL_USERNAME_DESC', 'Nome de usuário para o login do administrador');
 @define('INSTALL_PASSWORD', 'Senha do administrador');
 @define('INSTALL_PASSWORD_DESC', 'Senha para o login do administrador');
-@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', 'E-mail do administrador');
 @define('INSTALL_EMAIL_DESC', 'E-mail do administrador do blog');
 @define('INSTALL_SENDMAIL', 'Enviar e-mails ao administrador?');

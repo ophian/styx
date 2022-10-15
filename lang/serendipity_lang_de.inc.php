@@ -376,7 +376,6 @@
 @define('INSTALL_USERNAME_DESC', 'Benutzername für den Administrator-Zugang');
 @define('INSTALL_PASSWORD', 'Admin-Passwort');
 @define('INSTALL_PASSWORD_DESC', 'Passwort für den Administrator-Zugang');
-@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'Zufallsgeneriertes starkes & kryptographisch sicheres Styx Passwort zur Verwendung');
 @define('INSTALL_EMAIL', 'Admin-E-Mail');
 @define('INSTALL_EMAIL_DESC', 'E-Mail des Administrators');
 @define('INSTALL_SENDMAIL', 'Sende E-Mails zum Admin?');

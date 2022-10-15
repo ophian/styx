@@ -391,7 +391,6 @@
 @define('INSTALL_USERNAME_DESC', 'Notandanafn fyrir innskráningu umsjónarmanns');
 @define('INSTALL_PASSWORD', 'Lykilorð umsjónarmanns');
 @define('INSTALL_PASSWORD_DESC', 'Lykilorð fyrir innskráningu umsjónarmanns');
-@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', 'Netfang umsjónarmanns');
 @define('INSTALL_EMAIL_DESC', 'Netfang umsjónarmanns bloggsins');
 @define('INSTALL_SENDMAIL', 'Senda póst á umsjónarmann?');

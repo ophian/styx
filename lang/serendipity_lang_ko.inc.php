@@ -393,7 +393,6 @@
 @define('INSTALL_USERNAME_DESC', '관리자 로그인을 위한 아이디');
 @define('INSTALL_PASSWORD', '관리자 암호');
 @define('INSTALL_PASSWORD_DESC', '관리자 로그인을 위한 암호');
-@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', '관리자 전자우편');
 @define('INSTALL_EMAIL_DESC', '블로그 관리자의 전자우편 주소');
 @define('INSTALL_SENDMAIL', '관리자에게 전자우편 발송');

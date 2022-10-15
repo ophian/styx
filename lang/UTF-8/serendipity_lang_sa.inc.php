@@ -393,7 +393,6 @@
 @define('INSTALL_USERNAME_DESC', 'اسم المستخدم للمشرف');
 @define('INSTALL_PASSWORD', 'كلمة مرور المشرف');
 @define('INSTALL_PASSWORD_DESC', 'كلمة المرور للمشرف');
-@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', 'بريد المشرف');
 @define('INSTALL_EMAIL_DESC', 'بريد المشرف العام للمدونة');
 @define('INSTALL_SENDMAIL', 'أرسال بريد إلى المشرف العام؟');

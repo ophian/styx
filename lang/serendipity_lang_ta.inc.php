@@ -391,7 +391,6 @@
 @define('INSTALL_USERNAME_DESC', 'மேற்பார்வையாளரின் வலைக்குறிப்பு-பெயர்');
 @define('INSTALL_PASSWORD', 'மேற்பார்வையாளரின் மறைசொல்');
 @define('INSTALL_PASSWORD_DESC', 'மேற்பார்வையாளரின் மறைசொல்');
-@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', 'மேற்பார்வையாளரின் மின்னஞ்சல்');
 @define('INSTALL_EMAIL_DESC', 'மேற்பார்வையாளரின் மின்னஞ்சல்');
 @define('INSTALL_SENDMAIL', 'மேற்பார்வையாளருக்கு மின்னஞ்சல் அனுப்புக?');

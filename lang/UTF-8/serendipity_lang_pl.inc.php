@@ -393,7 +393,6 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('INSTALL_USERNAME_DESC', 'Nazwa użytkownika dla logowania administratora');
 @define('INSTALL_PASSWORD', 'Hasło administratora');
 @define('INSTALL_PASSWORD_DESC', 'Hasło dla logowania administratora');
-@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', 'E-mail administratora');
 @define('INSTALL_EMAIL_DESC', 'Adres e-mail administratora bloga');
 @define('INSTALL_SENDMAIL', 'Wysyłać powiadomienia e-mail do administratora?');

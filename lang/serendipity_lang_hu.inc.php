@@ -391,7 +391,6 @@
 @define('INSTALL_USERNAME_DESC', 'A mindenható adminisztrátor felhasználói neve');
 @define('INSTALL_PASSWORD', 'Az adminisztrátor jelszava');
 @define('INSTALL_PASSWORD_DESC', 'Az adminisztrátor felhasználóhoz tartozó jelszó');
-@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', 'Adminisztrátori email');
 @define('INSTALL_EMAIL_DESC', 'A blog adminisztrátor email címe');
 @define('INSTALL_SENDMAIL', 'Küldjek levelet az adminisztrátornak?');

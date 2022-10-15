@@ -393,7 +393,6 @@
 @define('INSTALL_USERNAME_DESC', 'Yönetici girişi için kulanıcı adı');
 @define('INSTALL_PASSWORD', 'Yönetici şifresi');
 @define('INSTALL_PASSWORD_DESC', 'Yönetici girişi için yönetici şifresi');
-@define('INSTALL_RANDOM_PASSWORD_TAKEAWAY', 'For copy: Random Styx strong & cryptographically secure password takeaway');
 @define('INSTALL_EMAIL', 'Yönetici e-posta adresi');
 @define('INSTALL_EMAIL_DESC', 'Site yöneticisinin e-posta adresi');
 @define('INSTALL_SENDMAIL', 'Yöneticiye e-posta gönderilebilsin mi?');
