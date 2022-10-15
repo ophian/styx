@@ -14,6 +14,8 @@ require_once(S9Y_INCLUDE_PATH . 'include/functions_installer.inc.php');
 
 $data = array();
 
+$data['random_pw'] = serendipity_generate_password(20);
+
 /* Delete a user */
 if (isset($_POST['DELETE_YES']) && serendipity_checkFormToken()) {
     $data['delete_yes'] = true;
@@ -225,7 +227,6 @@ if (($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission
     $data['adminAction'] = $serendipity['GET']['adminAction'];
     $data['show_form'] = true;
     $data['formToken'] = serendipity_setFormToken();
-    $data['random_pw'] = serendipity_generate_password(20);
 
     if ($serendipity['GET']['adminAction'] == 'edit') {
         $user = serendipity_fetchUsers($serendipity['GET']['userid']);
