@@ -449,6 +449,7 @@
 @define('USERCONF_USERNAME_DESC', 'Utilizatorul cu care te autentifici în blog');
 @define('USERCONF_PASSWORD', 'Parola ta');
 @define('USERCONF_PASSWORD_DESC', 'Parola pe care vrei să o foloseşti pentru a te autentifica cu utilizatorul de mai sus în blog');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Adresa e-mail');
 @define('USERCONF_EMAIL_DESC', 'Adresa ta de e-mail');
 @define('USERCONF_SENDCOMMENTS', 'Trimite notificări comentarii?');

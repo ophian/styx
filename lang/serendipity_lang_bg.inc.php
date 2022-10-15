@@ -480,6 +480,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('USERCONF_USERNAME_DESC', 'Потребителското име, с което ще влизате в блога');
 @define('USERCONF_PASSWORD', 'Парола');
 @define('USERCONF_PASSWORD_DESC', 'Паролата, която искате да използвате за влизане в блога');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Ел. адрес');
 @define('USERCONF_EMAIL_DESC', 'Вашият личен ел. адрес');
 @define('USERCONF_SENDCOMMENTS', 'Уведомяване при добавяне на коментар?');

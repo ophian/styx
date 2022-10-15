@@ -450,6 +450,7 @@
 @define('USERCONF_USERNAME_DESC', '블로그에 로그인하기 위한 사용자 이름');
 @define('USERCONF_PASSWORD', '암호');
 @define('USERCONF_PASSWORD_DESC', '블로그에 로그인하기 위한 암호');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', '전자우편 주소');
 @define('USERCONF_EMAIL_DESC', '사용하고 있는 개인 전자우편 주소');
 @define('USERCONF_SENDCOMMENTS', '덧글 알림 발송');

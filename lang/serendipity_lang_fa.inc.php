@@ -449,6 +449,7 @@
 @define('USERCONF_USERNAME_DESC', 'نام کاربری برای ورود شما به سیستم');
 @define('USERCONF_PASSWORD', 'رمز عبور');
 @define('USERCONF_PASSWORD_DESC', 'رمز عبور برای ورود شما به سیستم');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'آدرس ایمیل');
 @define('USERCONF_EMAIL_DESC', 'آدرس ایمیل شخصی شما');
 @define('USERCONF_SENDCOMMENTS', 'آیا خبر ارسال نظر ارسال گردد؟');

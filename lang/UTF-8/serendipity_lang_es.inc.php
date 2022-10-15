@@ -430,6 +430,7 @@
 @define('USERCONF_USERNAME_DESC', 'El nombre de usuario que se usa para conectar al blog');
 @define('USERCONF_PASSWORD', 'Contraseña');
 @define('USERCONF_PASSWORD_DESC', 'La contraseña que se usará para conectar al blog');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Correo electrónico');
 @define('USERCONF_EMAIL_DESC', 'La dirección de correo electrónico personal');
 @define('USERCONF_SENDCOMMENTS', '¿Enviar avisos de comentarios?');

@@ -450,6 +450,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('USERCONF_USERNAME_DESC', 'Имя пользователя, которое вы используете чтобы заходить на блог');
 @define('USERCONF_PASSWORD', 'Ваш пароль');
 @define('USERCONF_PASSWORD_DESC', 'Пароль, который вы хотите использовать при авторизации');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Ваш адрес e-mail');
 @define('USERCONF_EMAIL_DESC', 'Адрес вашей электронной почты');
 @define('USERCONF_SENDCOMMENTS', 'Посылать уведомления о комментария?');

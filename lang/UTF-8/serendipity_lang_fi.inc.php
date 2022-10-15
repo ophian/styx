@@ -447,6 +447,7 @@
 @define('USERCONF_USERNAME_DESC', 'Millä nimimerkillä kirjoitat tähän blogiin');
 @define('USERCONF_PASSWORD', 'Salasanasi');
 @define('USERCONF_PASSWORD_DESC', 'Nimimerkkisi salasana');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Sähköpostiosoitteesi');
 @define('USERCONF_EMAIL_DESC', 'Henkilökohtainen sähköpostiosoitteesi');
 @define('USERCONF_SENDCOMMENTS', 'Lähetänkö komentointi-ilmoitukset?');

@@ -448,6 +448,7 @@
 @define('USERCONF_USERNAME_DESC', 'Användarnamnet för att logga in till denna blogg');
 @define('USERCONF_PASSWORD', 'Ditt lösenord');
 @define('USERCONF_PASSWORD_DESC', 'Lösenordet du vill använda för att logga in till denna blogg');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Din e-post adress');
 @define('USERCONF_EMAIL_DESC', 'Din personliga e-post adress');
 @define('USERCONF_SENDCOMMENTS', 'Skicka kommentar-meddelanden?');

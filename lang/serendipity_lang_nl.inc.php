@@ -451,6 +451,7 @@
 @define('USERCONF_USERNAME_DESC', 'De gebruikersnaam waarmee in zich aanmeldt op het weblog');
 @define('USERCONF_PASSWORD', 'Uw wachtwoord');
 @define('USERCONF_PASSWORD_DESC', 'Het wachtwoord waarmee u zich wilt aanmelden op het weblog');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Uw e-mailadres');
 @define('USERCONF_EMAIL_DESC', 'Uw eigen e-mailadres');
 @define('USERCONF_SENDCOMMENTS', 'Bericht bij reacties?');

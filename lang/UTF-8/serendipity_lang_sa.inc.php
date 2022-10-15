@@ -450,6 +450,7 @@
 @define('USERCONF_USERNAME_DESC', 'الاسم الذي تستخدمة بالتسجيل في مدونتك');
 @define('USERCONF_PASSWORD', 'كلمة المرور الخاصة بك');
 @define('USERCONF_PASSWORD_DESC', 'كلمة المرور التي تستخدمها بالتسجيل الدخول في مدونتك');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'بريدك الالكتروني');
 @define('USERCONF_EMAIL_DESC', 'ضع بريدك الشخصي كي يتم المراسله من خلالة');
 @define('USERCONF_SENDCOMMENTS', 'أرسال تبليغ في حال تم كتابة تعليق؟ ');

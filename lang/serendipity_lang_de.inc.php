@@ -433,6 +433,7 @@
 @define('USERCONF_USERNAME_DESC', 'Ihr Benutzername');
 @define('USERCONF_PASSWORD', 'Passwort');
 @define('USERCONF_PASSWORD_DESC', 'Ihr Passwort');
+@define('USERCONF_PASSWORD_RANDOM', 'Neues, kryptographisch sicheres Passwort als kopierbarer Vorschlag');
 @define('USERCONF_EMAIL', 'E-Mail');
 @define('USERCONF_EMAIL_DESC', 'Ihre E-Mail-Adresse');
 @define('USERCONF_SENDCOMMENTS', 'Bei Kommentaren benachrichtigen?');

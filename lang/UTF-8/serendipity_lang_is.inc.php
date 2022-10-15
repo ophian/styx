@@ -448,6 +448,7 @@
 @define('USERCONF_USERNAME_DESC', 'Notandanafnið sem þú notar til að skrá þig inn á bloggið');
 @define('USERCONF_PASSWORD', 'Lykilorðið þitt');
 @define('USERCONF_PASSWORD_DESC', 'Lykilorðið sem þú notar til að skrá þigg inn á bloggið');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Netfangið þitt');
 @define('USERCONF_EMAIL_DESC', 'Persónulega netfangið þitt');
 @define('USERCONF_SENDCOMMENTS', 'Senda tilkynningar v/athugasemda?');

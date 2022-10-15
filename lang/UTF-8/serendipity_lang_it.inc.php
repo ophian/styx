@@ -434,6 +434,7 @@
 @define('USERCONF_USERNAME_DESC', 'Il nome utente che usi per collegarti al blog');
 @define('USERCONF_PASSWORD', 'La tua password');
 @define('USERCONF_PASSWORD_DESC', 'La password che usi per collegarti al blog');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Il tuo indirizzo e-mail');
 @define('USERCONF_EMAIL_DESC', 'Il tuo indirizzo e-mail personale');
 @define('USERCONF_SENDCOMMENTS', 'Manda avvisi di commenti?');

@@ -426,6 +426,7 @@
 @define('USERCONF_USERNAME_DESC', 'Votre nom d\'utilisateur');
 @define('USERCONF_PASSWORD', 'Votre mot de passe');
 @define('USERCONF_PASSWORD_DESC', 'Votre mot de passe');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Votre E-Mail');
 @define('USERCONF_EMAIL_DESC', 'Votre E-Mail');
 @define('USERCONF_SENDCOMMENTS', 'Notification de commentaire ?');

@@ -450,6 +450,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('USERCONF_USERNAME_DESC', 'Nazwa, której u¿ywasz przy logowaniu do bloga');
 @define('USERCONF_PASSWORD', 'Twoje has³o');
 @define('USERCONF_PASSWORD_DESC', 'Has³o, którego chcesz u¿yæ przy logowaniu do bloga');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Twój adres e-mail');
 @define('USERCONF_EMAIL_DESC', 'Twój prywatny adres e-mail');
 @define('USERCONF_SENDCOMMENTS', 'Wysy³aæ powiadomienia o komentarzach?');

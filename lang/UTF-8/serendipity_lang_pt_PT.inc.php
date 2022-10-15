@@ -434,6 +434,7 @@
 @define('USERCONF_USERNAME_DESC', 'O nome de utilizador que você usa para se identificar no blogue');
 @define('USERCONF_PASSWORD', 'A sua senha');
 @define('USERCONF_PASSWORD_DESC', 'A senha que você quer usar para se identificar no blogue');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'O seu endereço de e-mail');
 @define('USERCONF_EMAIL_DESC', 'O seu endereço de e-mail pessoal');
 @define('USERCONF_SENDCOMMENTS', 'Enviar notificação dos comentários?');

@@ -406,6 +406,7 @@
 @define('USERCONF_USERNAME_DESC', 'Brugernavnet du vil bruge for at logge ind i bloggen');
 @define('USERCONF_PASSWORD', 'Dit kodeord');
 @define('USERCONF_PASSWORD_DESC', 'Kodeordet du vil bruge for at logge ind i bloggen');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Din email adresse');
 @define('USERCONF_EMAIL_DESC', 'Din personlige email adresse');
 @define('USERCONF_SENDCOMMENTS', 'Send beskeder om nye kommentarer?');

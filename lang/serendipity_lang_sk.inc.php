@@ -460,6 +460,7 @@ $i18n_filename_to = array (
 @define('USERCONF_USERNAME_DESC', 'Va¹e u¾ívateµské meno');
 @define('USERCONF_PASSWORD', 'Heslo');
 @define('USERCONF_PASSWORD_DESC', 'Va¹e heslo');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'E-mailová adresa');
 @define('USERCONF_EMAIL_DESC', 'Vá¹ e-mail');
 @define('USERCONF_SENDCOMMENTS', 'Posiela» správy o komentároch?');

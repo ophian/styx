@@ -450,6 +450,7 @@
 @define('USERCONF_USERNAME_DESC', 'Siteye bağlanmak için kullanılacak kullanıcı adı');
 @define('USERCONF_PASSWORD', 'Şifreniz');
 @define('USERCONF_PASSWORD_DESC', 'Siteye bağlanma amacıyla kullanacağınız şifreniz');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'E-Posta Adresi');
 @define('USERCONF_EMAIL_DESC', 'Kişisel e-posta adresiniz');
 @define('USERCONF_SENDCOMMENTS', 'Görüş eklendiğinde haber verilsin mi?');

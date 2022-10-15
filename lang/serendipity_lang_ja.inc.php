@@ -448,6 +448,7 @@
 @define('USERCONF_USERNAME_DESC', 'ブログにログインするときに使うユーザー名を指定します。');
 @define('USERCONF_PASSWORD', 'パスワード');
 @define('USERCONF_PASSWORD_DESC', 'ブログにログインするときに使うパスワードを指定します。');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', '電子メールアドレス');
 @define('USERCONF_EMAIL_DESC', '個人の電子メールアドレスを指定します。');
 @define('USERCONF_SENDCOMMENTS', 'コメントの通知を送信しますか?');

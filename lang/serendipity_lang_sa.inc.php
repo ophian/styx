@@ -450,6 +450,7 @@
 @define('USERCONF_USERNAME_DESC', '«·«”„ «·–Ì  ” Œœ„… »«· ”ÃÌ· ›Ì „œÊ‰ ﬂ');
 @define('USERCONF_PASSWORD', 'ﬂ·„… «·„—Ê— «·Œ«’… »ﬂ');
 @define('USERCONF_PASSWORD_DESC', 'ﬂ·„… «·„—Ê— «· Ì  ” Œœ„Â« »«· ”ÃÌ· «·œŒÊ· ›Ì „œÊ‰ ﬂ');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', '»—Ìœﬂ «·«·ﬂ —Ê‰Ì');
 @define('USERCONF_EMAIL_DESC', '÷⁄ »—Ìœﬂ «·‘Œ’Ì ﬂÌ Ì „ «·„—«”·Â „‰ Œ·«·…');
 @define('USERCONF_SENDCOMMENTS', '√—”«·  »·Ì€ ›Ì Õ«·  „ ﬂ «»…  ⁄·Ìﬁø ');

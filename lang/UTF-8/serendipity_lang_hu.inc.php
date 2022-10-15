@@ -448,6 +448,7 @@
 @define('USERCONF_USERNAME_DESC', 'Ezzel a névvel jelentkezhetsz be');
 @define('USERCONF_PASSWORD', 'Jelszó');
 @define('USERCONF_PASSWORD_DESC', 'A belépéshez használt jelszó');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Email cím');
 @define('USERCONF_EMAIL_DESC', 'Az email címed');
 @define('USERCONF_SENDCOMMENTS', 'Hozzászólások elküldése?');

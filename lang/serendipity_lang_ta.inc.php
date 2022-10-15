@@ -448,6 +448,7 @@
 @define('USERCONF_USERNAME_DESC', 'வலைக்குறிப்பினுள் நுழைய நீங்கள் பயன்படுத்தும் வலைக்குறிப்பு-பெயர்');
 @define('USERCONF_PASSWORD', 'மறைசொல்');
 @define('USERCONF_PASSWORD_DESC', 'வலைக்குறிப்பினுள் நுழைய நீங்கள் பயன்படுத்தும் வலைக்குறிப்பு-மறைசொல்');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'உங்கள் மின்னஞ்சல் முகவரி');
 @define('USERCONF_EMAIL_DESC', 'வலைக்குறிப்பு தகவல்கள் இம்மின்னஞ்சல் முகவரிக்கு அனுப்பப்படும்');
 @define('USERCONF_SENDCOMMENTS', 'மின்னஞ்சலில் அன்பர் கருத்துகள் அறிவிப்பு');

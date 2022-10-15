@@ -450,6 +450,7 @@
 @define('USERCONF_USERNAME_DESC', '你登入系统的名称');
 @define('USERCONF_PASSWORD', '你的密码');
 @define('USERCONF_PASSWORD_DESC', '你登入系统的密码');
+@define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', '你的电子邮件');
 @define('USERCONF_EMAIL_DESC', '你使用的电子邮件');
 @define('USERCONF_SENDCOMMENTS', '寄送回复通知');
