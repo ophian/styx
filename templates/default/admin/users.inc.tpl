@@ -77,7 +77,7 @@
         {if $adminAction == 'edit'}{if isset($create_permission) AND $create_permission}<input name="serendipity[user]" type="hidden" value="{$from.authorid}">{/if}{/if}
         <h2>{if $adminAction == 'edit'}{if isset($no_create_permission) AND $no_create_permission}{$CONST.CREATE_NOT_AUTHORIZED}: {$CONST.EDIT}{else}{if $create_permission}{$CONST.EDIT}{else}{$CONST.CREATE_NOT_AUTHORIZED}: {$CONST.EDIT}{/if}{/if}{else}{$CONST.CREATE}{/if}</h2>
         {$CONFIG}{if $adminAction == 'new'}
-        <div id="rpex" class="field_info upw_field" title="{$CONST.INSTALL_RANDOM_PASSWORD_TAKEAWAY}"><span class="icon-info-circled" aria-hidden="true"></span>{$random_pw}</div>
+        <div id="rpex" class="field_info upw_field" title="{$CONST.USERCONF_PASSWORD_RANDOM}"><span class="icon-info-circled" aria-hidden="true"></span>{$random_pw}</div>
         <script> let rex = document.getElementById('rpex'); let field = document.getElementById('password_info'); field.parentNode.insertBefore(rex, field.nextSibling); </script>{/if}
         <div class="form_buttons">
         {if $adminAction == 'edit'}
