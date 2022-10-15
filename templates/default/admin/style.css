@@ -2914,6 +2914,7 @@ h3 button.toggle_info.button_link.group_info {
     color: #595959;
     text-shadow: 1px 1px 1px rgb(254, 239, 219);
 }
+.newrex > span,
 .upw_field > span {
     padding-right: .5em;
 }
