@@ -56,6 +56,7 @@ function serendipity_pluginListSort($x, $y) {
  */
 function show_plugins($event_only = false, $sidebars = null) {
     global $serendipity;
+    static $users = array(); // run once only & keep
 
     $sql_filter = '';
     if (is_array($sidebars)) {
@@ -107,7 +108,6 @@ function show_plugins($event_only = false, $sidebars = null) {
     }
     $data['plugin_placements'] = $plugin_placements;
 
-    static $users = array();
     if (empty($users)) {
         $users = serendipity_fetchUsers('', 'hidden');
     }
