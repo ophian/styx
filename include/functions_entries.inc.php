@@ -1512,7 +1512,7 @@ function serendipity_updertEntry($entry) {
 
     serendipity_plugin_api::hook_event('backend_entry_presave', $entry);
 
-    $categories = $entry['categories'];
+    $categories = $entry['categories'] ?? null;
     unset($entry['categories']);
 
     $had_categories = $entry['had_categories'] ?? null;
