@@ -139,7 +139,7 @@ function show_plugins($event_only = false, $sidebars = null) {
             $plugin  =& serendipity_plugin_api::load_plugin($plugin_data['name'], $plugin_data['authorid']);
             $key     = urlencode($plugin_data['name']);
             #$css_key = 's9ypid' . str_replace('%', '-', $key);
-            $crc32   = hash('crc32b', $plugin_data['name']);
+            $crc32   = hash('crc32b', random_int(0, 0x3fff)); // use crc32c up from PHP 7.4
             $is_plugin_owner    = ($plugin_data['authorid'] == $serendipity['authorid'] || serendipity_checkPermission('adminPluginsMaintainOthers'));
             $is_plugin_editable = ($is_plugin_owner || $plugin_data['authorid'] == '0');
             $cname = explode(':', $plugin_data['name']);
