@@ -1352,7 +1352,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
                 $entry['has_extended'] = false;
             }
 
-            if (isset($entry['exflag']) && $entry['exflag'] && ($extended || $preview)) {
+            if (isset($entry['exflag']) && $entry['exflag'] && ($extended || ($entry['has_extended'] && $preview))) {
                 $entry['is_extended'] = true;
             } else {
                 $entry['is_extended'] = false;
