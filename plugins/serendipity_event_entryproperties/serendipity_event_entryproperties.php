@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC . (isset($serendipity['GET']['plugin_to_conf']) ? ' ' . PLUGIN_EVENT_ENTRYPROPERTIES_DESC_PLUS : ''));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.83');
+        $propbag->add('version',       '1.84');
         $propbag->add('requirements',  array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -908,7 +908,7 @@ class serendipity_event_entryproperties extends serendipity_event
                     break;
 
                 case 'backend_entry_presave':
-                    if (is_array($serendipity['POST']['properties'])) {
+                    if (isset($serendipity['POST']['properties']) && is_array($serendipity['POST']['properties'])) {
                         $this->applyProperties($serendipity['POST']['properties']);
                     }
                     break;

@@ -1,3 +1,7 @@
+1.84:
+-----
+    * Fix 'backend_entry_presave' POST properties access check for isset
+
 1.83:
 -----
     * Fix POST properties access check for isset
