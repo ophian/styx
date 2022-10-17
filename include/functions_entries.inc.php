@@ -1592,7 +1592,7 @@ function serendipity_updertEntry($entry) {
         /* we need to update */
 
         // Get settings from entry if already in DB, which should not be alterable with POST methods
-        $_entry            = serendipity_fetchEntry('id', $entry['id'], 1, 1);
+        $_entry            = serendipity_fetchEntry('id', $entry['id'], true, 1);
         $entry['authorid'] = $_entry['authorid'] ?? null;
 
         if (isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModule'] == 'entries' && $entry['authorid'] != $serendipity['authorid'] && !serendipity_checkPermission('adminEntriesMaintainOthers')) {

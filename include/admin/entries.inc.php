@@ -41,7 +41,7 @@ $entryForm = '';
 switch($serendipity['GET']['adminAction']) {
 
     case 'preview':
-        $entry = serendipity_fetchEntry('id', (int)$serendipity['GET']['id'], 1, 1);
+        $entry = serendipity_fetchEntry('id', (int)$serendipity['GET']['id'], true, 1);
         $serendipity['POST']['preview'] = true;
         $preview_only = true;
         // no break [PSR-2] - extends save
@@ -143,7 +143,7 @@ switch($serendipity['GET']['adminAction']) {
 
                 if (!isset($entry['realname']) || !$entry['realname']) {
                     if (is_numeric($entry['id'])) {
-                        $_entry = serendipity_fetchEntry('id', $entry['id'], 1, 1);
+                        $_entry = serendipity_fetchEntry('id', $entry['id'], true, 1);
                         $entry['realname'] = $_entry['author'];
                     } elseif (!empty($serendipity['realname'])) {
                         $entry['realname'] = $serendipity['realname'];
@@ -209,7 +209,7 @@ switch($serendipity['GET']['adminAction']) {
             break;
         }
 
-        $entry = serendipity_fetchEntry('id', (int)$serendipity['GET']['id'], 1, 1);
+        $entry = serendipity_fetchEntry('id', (int)$serendipity['GET']['id'], true, 1);
         serendipity_deleteEntry((int)$serendipity['GET']['id']);
         $data['switched_output'] = true;
         $data['is_doDelete']     = true;
@@ -228,7 +228,7 @@ switch($serendipity['GET']['adminAction']) {
             foreach($parts AS $id) {
                 $id = (int)$id;
                 if ($id > 0) {
-                    $entry = serendipity_fetchEntry('id', $id, 1, 1);
+                    $entry = serendipity_fetchEntry('id', $id, true, 1);
                     serendipity_deleteEntry($id);
                     $data['is_doMultiDelete'] = true;
                     $data['del_entry'][]      = sprintf(RIP_ENTRY, $entry['id'] . ' - ' . serendipity_specialchars($entry['title']));
@@ -257,7 +257,7 @@ switch($serendipity['GET']['adminAction']) {
             $pinned = isset($serendipity['POST']['pinned_entries']) ? explode(',', $serendipity['POST']['pinned_entries']) : explode(',', $serendipity['GET']['pinned_entries']);
             foreach ($pinned AS $kpin => $vpin) {
                 if (empty($vpin)) continue;
-                $fe = serendipity_fetchEntry('id', (int)$vpin, 1, 1);
+                $fe = serendipity_fetchEntry('id', (int)$vpin, true, 1);
                 if (is_array($fe)) {
                     $pinned_entries[] = $fe;
                 }
@@ -497,7 +497,7 @@ switch($serendipity['GET']['adminAction']) {
         }
         $newLoc = '?' . serendipity_setFormToken('url') . '&amp;serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=doDelete&amp;serendipity[id]=' . (int)$serendipity['GET']['id'];
 
-        $entry = serendipity_fetchEntry('id', (int)$serendipity['GET']['id'], 1, 1);
+        $entry = serendipity_fetchEntry('id', (int)$serendipity['GET']['id'], true, 1);
         $data['switched_output'] = true;
         $data['is_delete']       = true;
         $data['newLoc']          = $newLoc;
@@ -518,7 +518,7 @@ switch($serendipity['GET']['adminAction']) {
         $data['rip_entry'] = array();
         foreach($serendipity['POST']['multiDelete'] AS $idx => $id) {
             $ids .= (int)$id . ',';
-            $entry = serendipity_fetchEntry('id', $id, 1, 1);
+            $entry = serendipity_fetchEntry('id', $id, true, 1);
             $data['is_multidelete'] = true;
             $data['rip_entry'][]    = sprintf(DELETE_SURE, $entry['id'] . ' - ' . serendipity_specialchars($entry['title']));
         }
@@ -531,7 +531,7 @@ switch($serendipity['GET']['adminAction']) {
         if (!serendipity_checkFormToken()) {
             break;
         }
-        $entry = serendipity_fetchEntry('id', (int)$serendipity['GET']['id'], 1, 1);
+        $entry = serendipity_fetchEntry('id', (int)$serendipity['GET']['id'], true, 1);
         // no break [PSR-2] - extends default
         if ($entry === false) {
             echo '<span class="msg_notice"><span class="icon-info-circled"></span> ' . sprintf(NO_ENTRIES_BLAHBLAH, 'ID '.(int)$serendipity['GET']['id'])  . ' - ' .PERMISSIONS."?</span>\n";
