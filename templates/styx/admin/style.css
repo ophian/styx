@@ -719,6 +719,9 @@ form > button,
 .block_level.stackable {
     display: initial;
 }
+.block_level.first {
+  margin-top: 1.75em;
+}
 
 .plugin_desc {
     padding-top: .5em;
