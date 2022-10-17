@@ -122,6 +122,9 @@ switch($serendipity['GET']['adminAction']) {
                     }
                 }
             } else {
+                if ($preview_only) {
+                    echo '<div class="msg_notice"><span class="icon-info-circled"></span> ' . IFRAME_PREVIEW . ' ' . TYPE . ': ' . DRAFT . "</div>\n";
+                }
                 // Only display the preview
                 $serendipity['hidefooter'] = true;
                 // Advanced templates use this to show update status and elapsed time
