@@ -1061,7 +1061,7 @@ function serendipity_iframe(&$entry, $mode = null) {
             if ($serendipity['template'] == 'default-php') {
                 // catch the entry already parsed through entries.tpl
                 ob_start();
-                echo serendipity_printEntries(array($entry), ($entry['extended'] != '' ? 1 : 0), true); //ok
+                echo serendipity_printEntries(array($entry), (isset($entry['extended']) && $entry['extended'] != '' ? 1 : 0), true); //ok
                 $php_preview = ob_get_contents();
                 ob_end_clean();
             }
@@ -1071,7 +1071,7 @@ function serendipity_iframe(&$entry, $mode = null) {
             if (!empty($php_preview)) {
                 $data['preview'] = $php_preview;
             } else {
-                $data['preview'] = serendipity_printEntries(array($entry), ($entry['extended'] != '' ? 1 : 0), true);
+                $data['preview'] = serendipity_printEntries(array($entry), (isset($entry['extended']) && $entry['extended'] != '' ? 1 : 0), true);
             }
             break;
     }
