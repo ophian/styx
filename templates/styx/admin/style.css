@@ -1580,6 +1580,13 @@ summary {
     padding: .5em;
 }
 
+.msg_success + #serendipity_iframe,
+.msg_notice + #serendipity_iframe,
+.msg_error + #serendipity_iframe,
+.msg_hint + #serendipity_iframe {
+    margin-top: auto;
+}
+
 .msg-0 {
     margin: 0;
 }
