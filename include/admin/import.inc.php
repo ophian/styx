@@ -216,9 +216,12 @@ class Serendipity_Import
             mysqli_set_charset( $db, $dbn );
         }
 
-        $return = mysqli_query($db, $query); // removed reference to avoid Notice: Only variable references should be returned by reference
+        mysqli_report(MYSQLI_REPORT_OFF);
+        $return = @mysqli_query($db, $query); // removed reference to avoid Notice: Only variable references should be returned by reference
+        mysqli_report(MYSQLI_REPORT_ERROR|MYSQLI_REPORT_STRICT);
         mysqli_select_db($serendipity['dbConn'], $serendipity['dbName']);
         serendipity_db_reconnect();
+
         return $return;
     }
 
