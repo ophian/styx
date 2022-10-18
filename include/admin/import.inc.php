@@ -172,8 +172,9 @@ class Serendipity_Import
         }
 
         // We need to convert interesting characters to HTML entities, except for those with special relevance to HTML.
-        $this->trans_table = get_html_translation_table(HTML_ENTITIES);
-        foreach(get_html_translation_table(HTML_SPECIALCHARS) AS $char => $encoded) {
+        $flags = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401; // PHP 8.1.0 default value
+        $this->trans_table = get_html_translation_table(HTML_ENTITIES, $flags, LANG_CHARSET);
+        foreach(get_html_translation_table(HTML_SPECIALCHARS, $flags, LANG_CHARSET) AS $char => $encoded) {
             if (isset($this->trans_table[$char])) {
                 unset($this->trans_table[$char]);
             }
