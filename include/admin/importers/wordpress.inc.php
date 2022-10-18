@@ -120,7 +120,7 @@ class Serendipity_Import_WordPress extends Serendipity_Import
             printf(COULDNT_SELECT_USER_INFO, mysqli_error($wpdb));
         } else {
             if ($debug) echo "<span class=\"block_level\">Importing users...</span>";
-            for ($x=0, $c = mysqli_num_rows($res) ; $x < $c ; $x++) {
+            for ($x=0, $c = mysqli_num_rows($res); $x < $c; $x++) {
                 $users[$x] = mysqli_fetch_assoc($res);
 
                 $data = array('right_publish' => (!isset($users[$x]['user_level']) || $users[$x]['user_level'] >= 1) ? 1 : 0,
@@ -164,12 +164,12 @@ class Serendipity_Import_WordPress extends Serendipity_Import
             if ($debug) echo "<span class=\"block_level\">Importing categories (WP 2.2 style)...</span>";
 
             // Get all the info we need
-            for ($x=0 ; $x<mysqli_num_rows($res) ; $x++) {
+            for ($x=0; $x<mysqli_num_rows($res); $x++) {
                 $categories[] = mysqli_fetch_assoc($res);
             }
 
             // Insert all categories as top level (we need to know everyone's ID before we can represent the hierarchy).
-            for ($x=0, $c = sizeof($categories) ; $x < $c ; $x++) {
+            for ($x=0, $c = sizeof($categories); $x < $c; $x++) {
                 $cat = array('category_name'        => $categories[$x]['cat_name'],
                              'category_description' => $categories[$x]['category_description'],
                              'parentid'             => 0,
@@ -231,12 +231,12 @@ class Serendipity_Import_WordPress extends Serendipity_Import
             if ($debug) echo "<span class=\"block_level\">Importing categories (WP 2.3 style)...</span>";
 
             // Get all the info we need
-            for ($x=0 ; $x<mysqli_num_rows($res) ; $x++) {
+            for ($x=0; $x < mysqli_num_rows($res); $x++) {
                 $categories[] = mysqli_fetch_assoc($res);
             }
 
             // Insert all categories as top level (we need to know everyone's ID before we can represent the hierarchy).
-            for ($x=0, $c = sizeof($categories) ; $x < $c ; $x++) {
+            for ($x=0, $c = sizeof($categories); $x < $c; $x++) {
                 $cat = array('category_name'        => $categories[$x]['cat_name'],
                              'category_description' => $categories[$x]['category_description'],
                              'parentid'             => 0,
@@ -292,7 +292,7 @@ class Serendipity_Import_WordPress extends Serendipity_Import
             printf(COULDNT_SELECT_ENTRY_INFO, mysqli_error($wpdb));
         } else {
             if ($debug) echo "<span class=\"block_level\">Importing entries...</span>";
-            for ($x=0, $c = mysqli_num_rows($res) ; $x < $c ; $x++ ) {
+            for ($x=0, $c = mysqli_num_rows($res); $x < $c; $x++) {
                 $entries[$x] = mysqli_fetch_assoc($res);
 
                 $content  = explode('<!--more-->', $entries[$x]['post_content'], 2);
