@@ -111,7 +111,7 @@ class Serendipity_Import_nuke extends Serendipity_Import
             return sprintf(COULDNT_SELECT_USER_INFO, mysqli_error($nukedb));
         }
 
-        for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x ; $x++ ) {
+        for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x; $x++) {
             $users[$x] = mysqli_fetch_assoc($res);
 
             $data = array('right_publish' => true,
@@ -144,7 +144,7 @@ class Serendipity_Import_nuke extends Serendipity_Import
             return sprintf(COULDNT_SELECT_USER_INFO, mysqli_error($nukedb));
         }
 
-        for ($x=$x, $max_x = $x + mysqli_num_rows($res); $x < $max_x ; $x++ ) {
+        for ($x=$x, $max_x = $x + mysqli_num_rows($res); $x < $max_x; $x++) {
             $users[$x] = mysqli_fetch_assoc($res);
             if (empty($users[$x]['user_name'])) {
                 $users[$x]['user_name'] = $users[$x]['user_login'];
@@ -186,7 +186,7 @@ class Serendipity_Import_nuke extends Serendipity_Import
             return sprintf(COULDNT_SELECT_ENTRY_INFO, mysqli_error($nukedb));
         }
 
-        for ($x=0, $max_x = mysqli_num_rows($res) ; $x < $max_x ; $x++ ) {
+        for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x; $x++) {
             $entries[$x] = mysqli_fetch_assoc($res);
             
             if (!empty($entries[$x]['informant'])) {
@@ -224,7 +224,7 @@ class Serendipity_Import_nuke extends Serendipity_Import
             return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($nukedb));
         }
 
-        for ($x=0, $max_x = mysqli_num_rows($res) ; $x < $max_x ; $x++ ) {
+        for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x; $x++) {
             $entrycat = mysqli_fetch_assoc($res);
 
             $entryid = 0;
@@ -307,7 +307,7 @@ class Serendipity_Import_nuke extends Serendipity_Import
         }
 
         // Get all the info we need
-        for ($x=0, $max_x = mysqli_num_rows($res) ; $x < $max_x ; $x++) {
+        for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x; $x++) {
             $row = mysqli_fetch_assoc($res);
             $cat = array('category_name'        => $row['cat_name'],
                          'category_description' => $row['cat_description'],
