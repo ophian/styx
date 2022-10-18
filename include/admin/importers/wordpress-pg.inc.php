@@ -104,7 +104,7 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import
             return sprintf(COULDNT_SELECT_USER_INFO, pg_last_error($wpdb));
         }
 
-        for ($x=0; $x<pg_num_rows($res); $x++) {
+        for ($x=0; $x < pg_num_rows($res); $x++) {
             $users[$x] = pg_fetch_assoc($res);
 
             $data = array('right_publish' => ($users[$x]['user_level'] >= 1) ? 1 : 0,
@@ -135,11 +135,11 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import
         }
 
         // Get all the info we need
-        for ($x=0; $x<pg_num_rows($res); $x++)
+        for ($x=0; $x < pg_num_rows($res); $x++)
             $categories[] = pg_fetch_assoc($res);
 
         // Insert all categories as top level (we need to know everyone's ID before we can represent the hierarchy).
-        for ($x=0; $x<sizeof($categories); $x++) {
+        for ($x=0; $x < sizeof($categories); $x++) {
             $cat = array('category_name'        => $categories[$x]['cat_name'],
                          'category_description' => $categories[$x]['category_description'],
                          'parentid'             => 0, // <---
@@ -176,7 +176,7 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import
             return sprintf(COULDNT_SELECT_ENTRY_INFO, pg_last_error($wpdb));
         }
 
-        for ($x=0; $x<pg_num_rows($res); $x++) {
+        for ($x=0; $x < pg_num_rows($res); $x++) {
             $entries[$x] = pg_fetch_assoc($res);
 
             $entry = array('title'          => $this->decode($entries[$x]['post_title']), // htmlentities() is called later, so we can leave this.
