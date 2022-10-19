@@ -122,7 +122,7 @@ class Serendipity_Import_WordPress extends Serendipity_Import
         /* Users */
         foreach (serendipity_fetchUsers() AS $uname) $ul[] = $uname['username'];
 
-        // Fields: ID, user_login, user_pass, user_email, user_level SQL JOINed wit metadata table to fetch userlevel credentials (WP ~2.0+ style)
+        // Fields: ID, user_login, user_pass, user_email, user_level. SQL JOINed with metadata table to fetch userlevel credentials (WP ~2.0+ style)
         // Since WP 1.5/2.0 user meta data like level etc live in table wp_usermeta
         $sql = "SELECT u.*,
                        m.meta_value AS wp_user_level
