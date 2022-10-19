@@ -156,7 +156,7 @@ class Serendipity_Import_WordPress extends Serendipity_Import
                         $data['userlevel'] = USERLEVEL_ADMIN;
                     }
                 } else {
-                    $data['userlevel'] = USERLEVEL_EDITOR; // reset to a simple Styx EDITOR role -  A manual ACL finetune set may follow later
+                    $data['userlevel'] = USERLEVEL_EDITOR; // reset to a simple Styx EDITOR role - A manual ACL finetune set may follow later
                 }
 
                 if ($serendipity['serendipityUserlevel'] < $data['userlevel']) {
@@ -173,15 +173,17 @@ class Serendipity_Import_WordPress extends Serendipity_Import
                 $users[$x]['authorid'] = serendipity_db_insert_id('authors', 'authorid');
 
                 // Add to mentoring
-                $ulist[$x][] = ['authorid' => $users[$x]['authorid']];
+                $ulist[$x] = array_merge($ulist[$x], [ 'authorid' => $users[$x]['authorid'], 'new_plain_password' => $npwd ]);
                 // Set association.
                 $assoc['users'][$users[$x]['ID']] = $users[$x]['authorid'];
             }
             if ($debug) echo '<span class="msg_success">Imported users.</span>';
 
             echo '<h3>Copyable PHP array to mentor credential changes to be used for email information or secured backup</h3>';
-            echo '<div class="msg_notice">PLEASE NOTE: The NEW password is encrypted in the database. So THIS IS the ONLY copy of used passwords to log in. Also, if a username for login was already taken, it was given a "wp_" prefix!</div>';
-            echo '<pre>' . var_export($ulist) . '</pre>';
+            echo '<div class="msg_notice">PLEASE NOTE: The NEW password is encrypted in the database. So THIS array IS the ONLY copy of used passwords to log in. Also, if a username for login was already taken, it was given a "wp_" prefix!</div>';
+            echo '<div class="import_full">';
+            echo '<pre><code class="language-php">$added_users = ' . var_export($ulist, 1) . '</code></pre>';
+            echo '</div>';
 
             // Clean memory
             unset($users);
