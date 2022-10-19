@@ -2,6 +2,9 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve and fix generic importer class for PHP 8.1 and silenced (known to
+    fail) native database query checkups.
+
   * Add message "title" for DRAFT type entries backend previews via list
 
   * Generate strong random & secure password suggestions for user forms
