@@ -316,7 +316,7 @@ class Serendipity_Import_WordPress extends Serendipity_Import
 
                 $content  = explode('<!--more-->', $entries[$x]['post_content'], 2);
                 $body     = $content[0];
-                $extended = $content[1];
+                $extended = $content[1] ?? '';
 
                 $entry = array('title'          => $this->decode($entries[$x]['post_title']), // htmlentities() is called later, so we can leave this.
                                'isdraft'        => ($entries[$x]['post_status'] == 'publish') ? 'false' : 'true',
