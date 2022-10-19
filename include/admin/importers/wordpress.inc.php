@@ -132,9 +132,9 @@ class Serendipity_Import_WordPress extends Serendipity_Import
                 $users[$x] = mysqli_fetch_assoc($res);
 
                 $data = array('right_publish' => (!isset($users[$x]['user_level']) || $users[$x]['user_level'] >= 1) ? 1 : 0,
-                              'realname'      => $users[$x]['user_login'],
+                              'realname'      => $users[$x]['display_name'] ?? $users[$x]['user_nicename'] ?? $users[$x]['user_login'],
                               'username'      => $users[$x]['user_login'],
-                              'password'      => $users[$x]['user_pass']); // WP uses md5, too.
+                              'password'      => serendipity_generate_password(20)); // WP uses MD5 or a salted MD5. So we have to create a new Styx password and keep it in an array to inform imported users later per email (if available)
 
                 if (isset($users[$x]['user_level']) && $users[$x]['user_level'] <= 1) {
                     $data['userlevel'] = USERLEVEL_EDITOR;
@@ -147,6 +147,10 @@ class Serendipity_Import_WordPress extends Serendipity_Import
                 if ($serendipity['serendipityUserlevel'] < $data['userlevel']) {
                     $data['userlevel'] = $serendipity['serendipityUserlevel'];
                 }
+                $data['mail_comments'] = 0;
+                $data['mail_trackbacks'] = 0;
+                $data['email'] = $users[$x]['user_email'] ?? '';
+                $data['hashtype'] = 2;
 
                 serendipity_db_insert('authors', $this->strtrRecursive($data));
                 $users[$x]['authorid'] = serendipity_db_insert_id('authors', 'authorid');
