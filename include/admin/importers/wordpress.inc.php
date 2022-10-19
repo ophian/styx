@@ -122,8 +122,19 @@ class Serendipity_Import_WordPress extends Serendipity_Import
         /* Users */
         foreach (serendipity_fetchUsers() AS $uname) $ul[] = $uname['username'];
 
-        // Fields: ID, user_login, user_pass, user_email, user_level
-        $res = @$this->nativeQuery("SELECT * FROM {$this->data['prefix']}users;", $wpdb);
+        // Fields: ID, user_login, user_pass, user_email, user_level SQL JOINed wit metadata table to fetch userlevel credentials (WP ~2.0+ style)
+        // Since WP 1.5/2.0 user meta data like level etc live in table wp_usermeta
+        $sql = "SELECT u.*,
+                       m.meta_value AS wp_user_level
+                  FROM {$this->data['prefix']}users AS u
+             LEFT JOIN {$this->data['prefix']}usermeta m
+                    ON m.user_id = u.ID
+                 WHERE m.meta_key = 'wp_user_level'
+                    ";
+        $res = @$this->nativeQuery($sql, $wpdb);
+        if (!$res) {
+            $res = @$this->nativeQuery("SELECT * FROM {$this->data['prefix']}users;", $wpdb); // old representation fallback
+        }
         if (!$res) {
             printf(COULDNT_SELECT_USER_INFO, mysqli_error($wpdb));
         } else {
@@ -136,12 +147,16 @@ class Serendipity_Import_WordPress extends Serendipity_Import
                               'username'      => in_array($users[$x]['user_login'], $ul) ? 'wp_' . $users[$x]['user_login'] : $users[$x]['user_login'],/*try to not allow non-unique usernames*/
                               'password'      => serendipity_hash($npwd)); // WP uses MD5 or a salted MD5. So we have to create a new Styx password and keep it in an array to inform imported users later per email (if available)
 
-                if (isset($users[$x]['user_level']) && $users[$x]['user_level'] <= 1) {
-                    $data['userlevel'] = USERLEVEL_EDITOR;
-                } elseif (isset($users[$x]['user_level']) && $users[$x]['user_level'] < 5) {
-                    $data['userlevel'] = USERLEVEL_CHIEF;
+                if (!empty($users[$x]['wp_user_level'])) {
+                    if (isset($users[$x]['wp_user_level']) && $users[$x]['wp_user_level'] <= 7) {
+                        $data['userlevel'] = USERLEVEL_EDITOR;
+                    } elseif (isset($users[$x]['wp_user_level']) && $users[$x]['wp_user_level'] < 10) {
+                        $data['userlevel'] = USERLEVEL_CHIEF;
+                    } else {
+                        $data['userlevel'] = USERLEVEL_ADMIN;
+                    }
                 } else {
-                    $data['userlevel'] = USERLEVEL_ADMIN;
+                    $data['userlevel'] = USERLEVEL_EDITOR; // reset to a simple Styx EDITOR role -  A manual ACL finetune set may follow later
                 }
 
                 if ($serendipity['serendipityUserlevel'] < $data['userlevel']) {
@@ -150,7 +165,7 @@ class Serendipity_Import_WordPress extends Serendipity_Import
                 $data['mail_comments'] = 0;
                 $data['mail_trackbacks'] = 0;
                 $data['email'] = $users[$x]['user_email'] ?? '';
-                $data['right_publish'] = 1; // simplified to publish true, since the wp_users.user_level field do not correspond (and maybe never did, as used for something different)
+                $data['right_publish'] = 1; // simplified to publish true, since real user level metadata roles live in wp_usermeta (see upper ACL note) and the wp_users.user_level field does not correspond (and maybe never did, as used for something different)
                 $data['hashtype'] = 2;
 
                 $ulist[$x][] = $udata = $this->strtrRecursive($data);
