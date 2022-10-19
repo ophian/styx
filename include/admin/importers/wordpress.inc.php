@@ -144,7 +144,7 @@ class Serendipity_Import_WordPress extends Serendipity_Import
 
                 $npwd = serendipity_generate_password(20);
                 $data = array('realname'      => $users[$x]['display_name'] ?? $users[$x]['user_nicename'] ?? $users[$x]['user_login'],
-                              'username'      => in_array($users[$x]['user_login'], $ul) ? 'wp_' . $users[$x]['user_login'] : $users[$x]['user_login'],/*try to not allow non-unique usernames*/
+                              'username'      => in_array('wp_' . $users[$x]['user_login'], $ul) ? 'wp_' . $users[$x]['user_login'].'-'.random_int(0, 0x3fff) : (in_array($users[$x]['user_login'], $ul) ? 'wp_' . $users[$x]['user_login'] : $users[$x]['user_login']),
                               'password'      => serendipity_hash($npwd)); // WP uses MD5 or a salted MD5. So we have to create a new Styx password and keep it in an array to inform imported users later per email (if available)
 
                 if (!empty($users[$x]['wp_user_level'])) {
@@ -180,7 +180,7 @@ class Serendipity_Import_WordPress extends Serendipity_Import
             if ($debug) echo '<span class="msg_success">Imported users.</span>';
 
             echo '<h3>Copyable PHP array to mentor credential changes to be used for email information or secured backup</h3>';
-            echo '<div class="msg_notice">PLEASE NOTE: The NEW password is encrypted in the database. So THIS array IS the ONLY copy of used passwords to log in. Also, if a username for login was already taken, it was given a "wp_" prefix!</div>';
+            echo '<div class="msg_notice">PLEASE NOTE: The NEW password is encrypted in the database. So THIS array IS the ONLY copy of used passwords to log in. Also, if a username for login was already taken, it was given a "wp_" prefix with a -number addition for uniqueness!</div>';
             echo '<div class="import_full">';
             echo '<pre><code class="language-php">$added_users = ' . var_export($ulist, 1) . '</code></pre>';
             echo '</div>';
