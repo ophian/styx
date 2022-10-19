@@ -157,7 +157,7 @@ class Serendipity_Import_WordPress extends Serendipity_Import
                 $users[$x]['authorid'] = serendipity_db_insert_id('authors', 'authorid');
 
                 // Add to mentoring
-                $ulist[$x] = ['authorid' => $users[$x]['authorid']];
+                $ulist[$x][] = ['authorid' => $users[$x]['authorid']];
                 // Set association.
                 $assoc['users'][$users[$x]['ID']] = $users[$x]['authorid'];
             }
