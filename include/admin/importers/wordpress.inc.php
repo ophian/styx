@@ -179,8 +179,8 @@ class Serendipity_Import_WordPress extends Serendipity_Import
             }
             if ($debug) echo '<span class="msg_success">Imported users.</span>';
 
-            echo '<h3>Copyable PHP array to mentor credential changes to be used for email information or secured backup</h3>';
-            echo '<div class="msg_notice">PLEASE NOTE: The NEW password is encrypted in the database. So THIS array IS the ONLY copy of used passwords to log in. Also, if a username for login was already taken, it was given a "wp_" prefix with a -number addition for uniqueness!</div>';
+            echo '<h3>PHP COPY-array to mentor credential changes for partial email information or secured backup</h3>';
+            echo '<div class="msg_notice"><strong>PLEASE NOTE</strong>: The NEW user password(s) are now encrypted <em>("$2y$10$&hellip;")</em> in the database. So <strong>this</strong> following array is the <strong><u>one & only</u></strong> copy of used <strong>new_plain_password</strong> value to log in. Also, if a username for login was already taken, it was given a "wp_" prefix with a -number addition for uniqueness!</div>';
             echo '<div class="import_full">';
             echo '<pre><code class="language-php">$added_users = ' . var_export($ulist, 1) . '</code></pre>';
             echo '</div>';
