@@ -131,8 +131,7 @@ class Serendipity_Import_WordPress extends Serendipity_Import
             for ($x=0, $c = mysqli_num_rows($res); $x < $c; $x++) {
                 $users[$x] = mysqli_fetch_assoc($res);
 
-                $data = array('right_publish' => (!isset($users[$x]['user_level']) || $users[$x]['user_level'] >= 1) ? 1 : 0,
-                              'realname'      => $users[$x]['display_name'] ?? $users[$x]['user_nicename'] ?? $users[$x]['user_login'],
+                $data = array('realname'      => $users[$x]['display_name'] ?? $users[$x]['user_nicename'] ?? $users[$x]['user_login'],
                               'username'      => in_array($users[$x]['user_login'], $ul) ? 'wp_' . $users[$x]['user_login'] : $users[$x]['user_login'],/*try to not allow non-unique usernames*/
                               'password'      => serendipity_hash(serendipity_generate_password(20))); // WP uses MD5 or a salted MD5. So we have to create a new Styx password and keep it in an array to inform imported users later per email (if available)
 
@@ -150,6 +149,7 @@ class Serendipity_Import_WordPress extends Serendipity_Import
                 $data['mail_comments'] = 0;
                 $data['mail_trackbacks'] = 0;
                 $data['email'] = $users[$x]['user_email'] ?? '';
+                $data['right_publish'] = 1; // simplified to publish true, since the wp_users.user_level field do not correspond (and maybe never did, as used for something different)
                 $data['hashtype'] = 2;
 
                 $ulist[$x][] = $udata = $this->strtrRecursive($data);
