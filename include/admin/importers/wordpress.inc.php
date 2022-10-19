@@ -113,7 +113,15 @@ class Serendipity_Import_WordPress extends Serendipity_Import
         // This will hold the s9y <-> WP ID associations.
         $assoc = array();
 
+        // This is used to check against existing Styx users
+        $ul = array();
+
+        // This array is build to list the added users with new credentials for later information purpose
+        $ulist = array();
+
         /* Users */
+        foreach (serendipity_fetchUsers() AS $uname) $ul[] = $uname['username'];
+
         // Fields: ID, user_login, user_pass, user_email, user_level
         $res = @$this->nativeQuery("SELECT * FROM {$this->data['prefix']}users;", $wpdb);
         if (!$res) {
