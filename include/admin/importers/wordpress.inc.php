@@ -152,13 +152,20 @@ class Serendipity_Import_WordPress extends Serendipity_Import
                 $data['email'] = $users[$x]['user_email'] ?? '';
                 $data['hashtype'] = 2;
 
-                serendipity_db_insert('authors', $this->strtrRecursive($data));
+                $ulist[$x][] = $udata = $this->strtrRecursive($data);
+                serendipity_db_insert('authors', $udata);
                 $users[$x]['authorid'] = serendipity_db_insert_id('authors', 'authorid');
 
+                // Add to mentoring
+                $ulist[$x] = ['authorid' => $users[$x]['authorid']];
                 // Set association.
                 $assoc['users'][$users[$x]['ID']] = $users[$x]['authorid'];
             }
             if ($debug) echo '<span class="msg_success">Imported users.</span>';
+
+            echo '<h3>Copyable PHP array to mentor credential changes to be used for email information or secured backup</h3>';
+            echo '<div class="msg_notice">PLEASE NOTE: The NEW password is encrypted in the database. So THIS IS the ONLY copy of used passwords to log in. Also, if a username for login was already taken, it was given a "wp_" prefix!</div>';
+            echo '<pre>' . var_export($ulist) . '</pre>';
 
             // Clean memory
             unset($users);
