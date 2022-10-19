@@ -365,6 +365,8 @@ class Serendipity_Import_WordPress extends Serendipity_Import
             $no_entrycat = false;
             if ($debug) echo '<span class="block_level">Importing category associations (WP 2.3 style)...</span>';
             while ($a = mysqli_fetch_assoc($res)) {
+                // Do not INSERT entrycat NULL data of both
+                if (!isset($assoc['entries'][$a['post_id']]) || !isset($assoc['categories'][$a['category_id']])) continue;
                 $data = array('entryid'    => $assoc['entries'][$a['post_id']],
                               'categoryid' => $assoc['categories'][$a['category_id']]);
                 serendipity_db_insert('entrycat', $this->strtrRecursive($data));
