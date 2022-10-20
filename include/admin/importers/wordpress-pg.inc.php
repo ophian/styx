@@ -84,13 +84,15 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import
         $users = array();
         $categories = array();
         $entries = array();
+        $ul = array();
+        $ulist = array();
 
         if (!extension_loaded('pgsql')) {
             return PGSQL_REQUIRED;
         }
 
-        try {
-            $wpdb = pg_connect("$this->data['host'], $this->data['port'], $this->data['user'], $this->data['pass'], $this->data['name']");
+        try { // As of PHP 8.1.0, using the default connection is deprecated. 8.1.0 	Returns an PgSql\Connection instance now; previously, a resource was returned. 
+            $wpdb = pg_connect("{$this->data['host']}, {$this->data['port']}, {$this->data['user']}, {$this->data['pass']}, {$this->data['name']}");
         } catch (\Throwable $t) {
             $wpdb = false;
         }
@@ -99,7 +101,19 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import
         }
 
         /* Users */
-        $res = pg_query($wpdb, "SELECT ID, user_login, user_pass, user_email, user_level FROM {$this->data['prefix']}users;");
+        foreach (serendipity_fetchUsers() AS $uname) $ul[] = $uname['username'];
+
+        $sql = "SELECT u.*,
+                       m.meta_value AS wp_user_level
+                  FROM {$this->data['prefix']}users AS u
+             LEFT JOIN {$this->data['prefix']}usermeta m
+                    ON m.user_id = u.ID
+                 WHERE m.meta_key = 'wp_user_level'
+                    ";
+        $res = @pg_query($wpdb, $sql);
+        if (!$res) {
+            $res = @pg_query($wpdb, "SELECT * FROM {$this->data['prefix']}users;"); // old WP representation fallback
+        }
         if (!$res) {
             return sprintf(COULDNT_SELECT_USER_INFO, pg_last_error($wpdb));
         }
@@ -107,25 +121,46 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import
         for ($x=0; $x < pg_num_rows($res); $x++) {
             $users[$x] = pg_fetch_assoc($res);
 
-            $data = array('right_publish' => ($users[$x]['user_level'] >= 1) ? 1 : 0,
-                          'realname'      => $users[$x]['user_login'],
-                          'username'      => $users[$x]['user_login'],
-                          'password'      => $users[$x]['user_pass']); // WP uses md5, too.
+            $npwd = serendipity_generate_password(20);
+            $data = array('realname'      => $users[$x]['display_name'] ?? $users[$x]['user_nicename'] ?? $users[$x]['user_login'],
+                          'username'      => in_array('wp_' . $users[$x]['user_login'], $ul) ? 'wp_' . $users[$x]['user_login'].'-'.random_int(0, 0x3fff) : (in_array($users[$x]['user_login'], $ul) ? 'wp_' . $users[$x]['user_login'] : $users[$x]['user_login']),
+                          'password'      => serendipity_hash($npwd)); // WP uses MD5 or a salted MD5. So we have to create a new Styx password and keep it in an array to inform imported users later per email (if available)
 
-            if ($users[$x]['user_level'] <= 1) {
-                $data['userlevel'] = USERLEVEL_EDITOR;
-            } elseif ($users[$x]['user_level'] < 5) {
-                $data['userlevel'] = USERLEVEL_CHIEF;
+            if (!empty($users[$x]['wp_user_level'])) {
+                if (isset($users[$x]['wp_user_level']) && $users[$x]['wp_user_level'] <= 7) {
+                    $data['userlevel'] = USERLEVEL_EDITOR;
+                } elseif (isset($users[$x]['wp_user_level']) && $users[$x]['wp_user_level'] < 10) {
+                    $data['userlevel'] = USERLEVEL_CHIEF;
+                } else {
+                    $data['userlevel'] = USERLEVEL_ADMIN;
+                }
             } else {
-                $data['userlevel'] = USERLEVEL_ADMIN;
+                $data['userlevel'] = USERLEVEL_EDITOR; // reset to a simple Styx EDITOR role -  A manual ACL finetune set may follow later
             }
 
             if ($serendipity['serendipityUserlevel'] < $data['userlevel']) {
                 $data['userlevel'] = $serendipity['serendipityUserlevel'];
             }
+            $data['mail_comments'] = 0;
+            $data['mail_trackbacks'] = 0;
+            $data['email'] = $users[$x]['user_email'] ?? '';
+            $data['right_publish'] = 1; // simplified to publish true, since real user level metadata roles live in wp_usermeta (see upper ACL note) and the wp_users.user_level field does not correspond (and maybe never did, as used for something different)
+            $data['hashtype'] = 2;
 
-            serendipity_db_insert('authors', $this->strtrRecursive($data));
+            $ulist[$x] = $udata = $this->strtrRecursive($data);
+            serendipity_db_insert('authors', $udata);
             $users[$x]['authorid'] = serendipity_db_insert_id('authors', 'authorid');
+
+            // Add to mentoring
+            $ulist[$x] = array_merge($ulist[$x], [ 'authorid' => $users[$x]['authorid'], 'new_plain_password' => $npwd ]);
+
+            if ($debug) echo '<span class="msg_success">Imported users.</span>';
+
+            echo '<h3>PHP COPY-array to mentor credential changes for partial email information or secured backup</h3>';
+            echo '<div class="msg_notice"><strong>PLEASE NOTE</strong>: The NEW user password(s) are now encrypted <em>("$2y$10$&hellip;")</em> in the database. So <strong>this</strong> following array is the <strong><u>one & only</u></strong> copy of used <strong>new_plain_password</strong> value to log in. Also, if a username for login was already taken, it was given a "wp_" prefix with a -number addition for uniqueness!</div>';
+            echo '<div class="import_full">';
+            echo '<pre><code class="language-php">$added_users = ' . var_export($ulist, 1) . '</code></pre>';
+            echo '</div>';
         }
 
         /* Categories */
@@ -142,7 +177,7 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import
         for ($x=0; $x < sizeof($categories); $x++) {
             $cat = array('category_name'        => $categories[$x]['cat_name'],
                          'category_description' => $categories[$x]['category_description'],
-                         'parentid'             => 0, // <---
+                         'parentid'             => 0,
                          'category_left'        => 0,
                          'category_right'       => 0);
 
