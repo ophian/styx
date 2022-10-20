@@ -116,7 +116,7 @@ class Serendipity_Import_sunlog extends Serendipity_Import
             return sprintf(COULDNT_SELECT_USER_INFO, mysqli_error($slgdb));
         }
 
-        for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x ; $x++ ) {
+        for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x; $x++) {
             $users[$x] = mysqli_fetch_assoc($res);
 
             $data = array('right_publish' => 1,
@@ -147,7 +147,7 @@ class Serendipity_Import_sunlog extends Serendipity_Import
             return sprintf(COULDNT_SELECT_ENTRY_INFO, mysqli_error($slgdb));
         }
 
-        for ($x=0, $max_x = mysqli_num_rows($res) ; $x < $max_x ; $x++ ) {
+        for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x; $x++) {
             $entries[$x] = mysqli_fetch_assoc($res);
 
             $entry = array('title'          => $this->decode($entries[$x]['title']),
@@ -179,7 +179,7 @@ class Serendipity_Import_sunlog extends Serendipity_Import
             return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($slgdb));
         }
 
-        for ($x=0, $max_x = mysqli_num_rows($res) ; $x < $max_x ; $x++ ) {
+        for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x; $x++) {
             $entrycat = mysqli_fetch_assoc($res);
 
             $entryid = 0;
@@ -263,7 +263,7 @@ class Serendipity_Import_sunlog extends Serendipity_Import
         }
 
         // Get all the info we need
-        for ($x=0, $max_x = mysqli_num_rows($res) ; $x < $max_x ; $x++) {
+        for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x; $x++) {
             $row = mysqli_fetch_assoc($res);
             $cat = array('category_name'        => $row['title'],
                          'category_description' => $row['optional_1'] . ' ' . $row['optional_2'] . ' ' . $row['optional_3'],

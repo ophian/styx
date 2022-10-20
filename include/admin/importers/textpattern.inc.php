@@ -116,7 +116,7 @@ class Serendipity_Import_textpattern extends Serendipity_Import
             return sprintf(COULDNT_SELECT_USER_INFO, mysqli_error($txpdb));
         }
 
-        for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x ; $x++ ) {
+        for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x; $x++) {
             $users[$x] = mysqli_fetch_assoc($res);
 
             $data = array('right_publish' => ($users[$x]['user_level'] <= 4) ? 1 : 0,
@@ -154,7 +154,7 @@ class Serendipity_Import_textpattern extends Serendipity_Import
             return sprintf(COULDNT_SELECT_ENTRY_INFO, mysqli_error($txpdb));
         }
 
-        for ($x=0, $max_x = mysqli_num_rows($res) ; $x < $max_x ; $x++ ) {
+        for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x; $x++) {
             $entries[$x] = mysqli_fetch_assoc($res);
 
             $entry = array('title'          => $this->decode($entries[$x]['Title']),
@@ -239,7 +239,7 @@ class Serendipity_Import_textpattern extends Serendipity_Import
         }
 
         // Get all the info we need
-        for ($x=0, $max_x = mysqli_num_rows($res) ; $x < $max_x ; $x++) {
+        for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x; $x++) {
             $row = mysqli_fetch_assoc($res);
             $cat = array('category_name'        => $row['name'],
                          'category_description' => $row['name'],
