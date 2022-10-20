@@ -124,7 +124,7 @@ class Serendipity_Import_smf extends Serendipity_Import
                           'realname'      => $users[$x]['user_login'],
                           'username'      => $users[$x]['user_login'],
                           'email'         => $users[$x]['user_email'],
-                          'userlevel'     => ($users[$x]['user_level'] == 1 ? USERLEVEL_ADMIN : USERLEVEL_EDITO),
+                          'userlevel'     => ($users[$x]['user_level'] == 1 ? USERLEVEL_ADMIN : USERLEVEL_EDITOR),
                           'password'      => $users[$x]['user_pass']); // MD5 compatible
 
             if ($serendipity['serendipityUserlevel'] < $data['userlevel']) {
@@ -149,10 +149,10 @@ class Serendipity_Import_smf extends Serendipity_Import
             $parent_categories[] = mysqli_fetch_assoc($res);
         }
 
-        for ($x=0, $max_x = sizeof($parent_categories) ; $x < $max_x ; $x++ ) {
+        for ($x=0, $max_x = sizeof($parent_categories); $x < $max_x; $x++) {
             $cat = array('category_name'        => $parent_categories[$x]['cat_name'],
                          'category_description' => '',
-                         'parentid'             => 0, // <---
+                         'parentid'             => 0,
                          'category_left'        => 0,
                          'category_right'       => 0);
 
@@ -176,7 +176,7 @@ class Serendipity_Import_smf extends Serendipity_Import
         }
 
         // Insert all categories as top level (we need to know everyone's ID before we can represent the hierarchy).
-        for ($x=0, $max_x = sizeof($categories) ; $x < $max_x ; $x++ ) {
+        for ($x=0, $max_x = sizeof($categories); $x < $max_x; $x++) {
             $pcatid = 0;
             foreach($parent_categories AS $pcat) {
                 if ($pcat['cat_ID'] == $categories[$x]['parent_cat_id']) {
@@ -187,7 +187,7 @@ class Serendipity_Import_smf extends Serendipity_Import
 
             $cat = array('category_name'        => $categories[$x]['cat_name'],
                          'category_description' => $categories[$x]['category_description'],
-                         'parentid'             => $pcatid, // <---
+                         'parentid'             => $pcatid,
                          'category_left'        => 0,
                          'category_right'       => 0);
 
