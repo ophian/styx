@@ -8,6 +8,7 @@ Version 3.10-DEV ()
     [*] Subject to reservation
         - also for wordpress-pg (PostgreSQL)
         - and upgraded the TextPattern CMS importer
+        - removed sunlog importer since passed away
 
   * Improve and fix generic importer class for PHP 8.1 and silenced (known to
     fail) native (MYSQLi) database query checkups.
