@@ -2,9 +2,10 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Refactor WordPress importer ..(testing) in special for changed password
+  * Refactor WordPress [*] importer ..(testing) in special for changed password
     hashing since Serendipity 1.5 (and so forth) making it incompatible with
     WP password storage. Now, NEW passwords are set for imported WP users.
+    [*] Subject to reservation also for wordpress-pg (PostgreSQL)
 
   * Improve and fix generic importer class for PHP 8.1 and silenced (known to
     fail) native (MYSQLi) database query checkups.
