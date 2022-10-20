@@ -18,6 +18,8 @@
         {else}
             <h2>{$CONST.IMPORT_PLEASE_ENTER}</h2>
 
+            <div id="waitingspin" class="pulsator busy_importing" style="display: none"><div></div><div></div></div>
+
             <form action="" method="POST" enctype="multipart/form-data">
                 {$formToken}
                 {if $notes}
@@ -31,7 +33,7 @@
                 </dl>
 
                 <div class="form_buttons">
-                    <button type="submit">{$CONST.IMPORT_NOW}</button>
+                    <button type="submit" class="button_link state_import">{$CONST.IMPORT_NOW}</button>
                 </div>
             </form>
         {/if}
