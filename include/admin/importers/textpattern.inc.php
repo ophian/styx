@@ -3,19 +3,24 @@
 # All rights reserved.  See LICENSE file for licensing details
 
 /*****************************************************************
- *  textpattern  Importer,   by Garvin Hicking *
+ *  textpattern  Importer,   by Garvin Hicking and Ian Styx      *
+ *  Due to the nature of Textpattern’s evolution, upgrading a Textpattern instance older than version 4.2.0 (released 17 September 2009)
+ *  requires a two-stage upgrade process to avoid loss of functionality and availability issues. Upgrade to version 4.2.0 first, ensuring
+ *  all admin functionality is working as expected, and then upgrade to the latest stable release.
+ *  For this major step the Textpattern Serendipity importer now requires at least a version up from 4.2.0 and the old importer’s implementation
+ *  up from 'Textpattern 1.0rc1' is abandoned.
  * ****************************************************************/
 
 class Serendipity_Import_textpattern extends Serendipity_Import
 {
-    var $info        = array('software' => 'Textpattern 1.0rc1');
+    var $info        = array('software' => 'Textpattern 4.2.0');
     var $data        = array();
     var $inputFields = array();
     var $categories  = array();
 
     function getImportNotes()
     {
-        return '<p>Textpattern uses MySQLs native PASSWORD() function to save passwords. Thus, those passwords are incompatible with the MD5 hashing of Serendipity. The passwords for all users have been set to "txp". <strong>You need to modify the passwords manually for each user</strong>, we are sorry for that inconvenience.</p>';
+        return 'This Importer was originally developed with Textpattern 1.0rc1 and some very early Serendipity version. As one can imagine, things have changed over time. This new lookup requires at least Textpattern v.4.2.0 up to current v.4.8.8 now and a running Styx instance up from latest v.3 Series. If you wish to give it a try, backup both database implementations and better do this in a testing environment first to see if you catch some breaking flaws. This new lookup has just been ported, NOT been tested! It does not capture and import an exact copy, just some main things like from authors, entries and categories, but NOT image references and/or the physically stored files for example (and so forth for other stored configurations, etc). This and the relations finetuning is "handmade" User stuff - up to YOU - later on! Now go and ride this horse. File an GitHub issue or start a Discussion for help!';
     }
 
     function __construct($data)
@@ -86,6 +91,8 @@ class Serendipity_Import_textpattern extends Serendipity_Import
         $this->data['prefix'] = serendipity_db_escape_string($this->data['prefix']);
         $users = array();
         $entries = array();
+        $ul = array();
+        $ulist = array();
 
         if (!extension_loaded('mysqli')) {
             return MYSQL_REQUIRED;
@@ -104,13 +111,16 @@ class Serendipity_Import_textpattern extends Serendipity_Import
         if (!@mysqli_select_db($txpdb, $this->data['name'])) {
             return sprintf(COULDNT_SELECT_DB, mysqli_error($txpdb));
         }
-
+        // https://docs.textpattern.com/development/database-schema-reference#txp_users
         /* Users */
-        $res = @$this->nativeQuery("SELECT user_id AS ID,
-                                           name    AS user_login,
-                                           pass    AS user_pass,
-                                           email   AS user_email,
-                                           privs   AS user_level
+        foreach (serendipity_fetchUsers() AS $uname) $ul[] = $uname['username'];
+
+        $res = @$this->nativeQuery("SELECT user_id  AS ID,
+                                           name     AS user_login,
+                                           RealName AS user_realname,
+                                           pass     AS user_pass,
+                                           email    AS user_email,
+                                           privs    AS user_level
                                FROM {$this->data['prefix']}txp_users", $txpdb);
         if (!$res) {
             return sprintf(COULDNT_SELECT_USER_INFO, mysqli_error($txpdb));
@@ -119,26 +129,48 @@ class Serendipity_Import_textpattern extends Serendipity_Import
         for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x; $x++) {
             $users[$x] = mysqli_fetch_assoc($res);
 
+            $npwd = serendipity_generate_password(20);
             $data = array('right_publish' => ($users[$x]['user_level'] <= 4) ? 1 : 0,
-                          'realname'      => $users[$x]['user_login'],
-                          'username'      => $users[$x]['user_login'],
-                          'email'         => $users[$x]['user_email'],
-                          'password'      => md5('txp')); // blame TXP for using PASSWORD().
+                          'realname'      => $users[$x]['user_realname'] ?? $users[$x]['user_login'],
+                          'username'      => in_array('txp_' . $users[$x]['user_login'], $ul) ? 'txp_' . $users[$x]['user_login'].'-'.random_int(0, 0x3fff) : (in_array($users[$x]['user_login'], $ul) ? 'txp_' . $users[$x]['user_login'] : $users[$x]['user_login']),
+                          'email'         => $data['email'] = $users[$x]['user_email'] ?? '',
+                          'password'      => serendipity_hash($npwd)); // Create a new Styx password and keep it in an array to inform imported users later per email (if available)
 
-            if ($users[$x]['user_level'] == 1) {
-                $data['userlevel'] = USERLEVEL_EDITOR;
-            } elseif ($users[$x]['user_level'] == 2) {
-                $data['userlevel'] = USERLEVEL_CHIEF;
+            // Privilege level (0 = none, 1 = publisher, 2 = managing editor, 3 = copy editor, 4 = staff writer, 5 = freelancer, 6 = designer). 
+            // https://docs.textpattern.com/administration/user-roles-and-privileges
+            if (!empty($users[$x]['user_level'])) {
+                if (isset($users[$x]['user_level']) && $users[$x]['user_level'] >= 3) {
+                    $data['userlevel'] = USERLEVEL_EDITOR;
+                } elseif (isset($users[$x]['user_level']) && $users[$x]['user_level'] > 1) {
+                    $data['userlevel'] = USERLEVEL_CHIEF;
+                } else {
+                    $data['userlevel'] = USERLEVEL_ADMIN;
+                }
             } else {
-                $data['userlevel'] = USERLEVEL_ADMIN;
+                $data['userlevel'] = USERLEVEL_EDITOR; // reset to a simple Styx EDITOR role -  A manual ACL finetune set may follow later
             }
 
             if ($serendipity['serendipityUserlevel'] < $data['userlevel']) {
                 $data['userlevel'] = $serendipity['serendipityUserlevel'];
             }
+            $data['mail_comments'] = 0;
+            $data['mail_trackbacks'] = 0;
+            $data['hashtype'] = 2;
 
-            serendipity_db_insert('authors', $this->strtrRecursive($data));
+            $ulist[$x] = $udata = $this->strtrRecursive($data);
+            serendipity_db_insert('authors', $udata);
             $users[$x]['authorid'] = serendipity_db_insert_id('authors', 'authorid');
+
+            // Add to mentoring
+            $ulist[$x] = array_merge($ulist[$x], [ 'authorid' => $users[$x]['authorid'], 'new_plain_password' => $npwd ]);
+
+            if ($debug) echo '<span class="msg_success">Imported users.</span>';
+
+            echo IMPORTER_USER_IMPORT_SUCCESS_TITLE;
+            echo sprintf(IMPORTER_USER_IMPORT_SUCCESS_MSG, 'txp');
+            echo '<div class="import_full">';
+            echo '<pre><code class="language-php">$added_users = ' . var_export($ulist, 1) . '</code></pre>';
+            echo '</div>';
         }
 
         /* Categories */
@@ -148,7 +180,6 @@ class Serendipity_Import_textpattern extends Serendipity_Import
         serendipity_rebuildCategoryTree();
 
         /* Entries */
-        // Notice: Textpattern doesn't honor the prefix for this table. Wicked system.
         $res = @$this->nativeQuery("SELECT * FROM {$this->data['prefix']}textpattern ORDER BY Posted;", $txpdb);
         if (!$res) {
             return sprintf(COULDNT_SELECT_ENTRY_INFO, mysqli_error($txpdb));
