@@ -228,6 +228,9 @@ class Serendipity_Import
 }
 
 
+@define('IMPORTER_USER_IMPORT_SUCCESS_TITLE', '<h3>PHP COPY-array to mentor credential changes for partial email information or secured backup</h3>');
+@define('IMPORTER_USER_IMPORT_SUCCESS_MSG', '<div class="msg_notice"><strong>PLEASE NOTE</strong>: The NEW user password(s) are now encrypted <em>("$2y$10$&hellip;")</em> in the database. So <strong>this</strong> following array is the <strong><u>one & only</u></strong> copy of used <strong>new_plain_password</strong> value to log in. Also, if a username for login was already taken, it was given a "%s_" prefix with a -N(umber) addition for uniqueness!</div>');
+
 if (isset($serendipity['GET']['importFrom']) && serendipity_checkFormToken()) {
     $data['importForm'] = true;
     /* Include the importer */
