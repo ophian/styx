@@ -10,6 +10,9 @@ Version 3.10-DEV ()
         - pushed an upgrade to the TextPattern CMS importer
         - removed the sunlog importer, since passed away long ago
         - pushed an upgrade to the SMF importer
+        - removed the pMachine Pro importer, since passed away long ago (its
+          recommended successor ExpressionEngine is way to different for porting
+          the template.)
 
   * Improve and fix generic importer class for PHP 8.1 and silenced (known to
     fail) native (MYSQLi) database query checkups.
