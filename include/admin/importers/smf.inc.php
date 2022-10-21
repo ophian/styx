@@ -8,14 +8,14 @@
 
 class Serendipity_Import_smf extends Serendipity_Import
 {
-    var $info        = array('software' => 'SMF');
+    var $info        = array('software' => 'SMF 2.1.x');
     var $data        = array();
     var $inputFields = array();
     var $categories  = array();
 
     function getImportNotes()
     {
-        return '<p>SMF uses salted MD5 passwords that Serendipity cannot import. Thus, those passwords are incompatible with the MD5 hashing of Serendipity. The passwords for all users have been set to a random string. <strong>You need to modify the passwords manually for each user</strong>, we are sorry for that inconvenience.</p>';
+        return 'This (Simple Machines Forum) Importer was originally developed with some early SMF ~v.1 and Serendipity version, in 2008. As one can imagine, things have changed over time. This new lookup requires at least SMF v.2.1.0 up to current v.2.1.2 now and a running Styx instance up from latest v.3 Series. If you wish to give it a try, backup both database implementations and better do this in a testing environment first to see if you catch some breaking flaws. This new lookup has just been ported, NOT been tested! It does not capture and import an exact copy, just some main things like from authors, entries, comments and categories, even tags if you have, but NO other, more detailed configurations. This and the relations finetuning is "handmade" User stuff - left up to YOU - later on! Now go and ride this horse. File an GitHub <a href="https://github.com/ophian/styx/issues" target="_blank">issue</a> or start a <a href="https://github.com/ophian/styx/discussions" target="_blank">discussion</a> for help!';
     }
 
     function __construct($data)
@@ -86,6 +86,8 @@ class Serendipity_Import_smf extends Serendipity_Import
         $this->data['prefix'] = serendipity_db_escape_string($this->data['prefix']);
         $users = array();
         $entries = array();
+        $ul = array();
+        $ulist = array();
 
         if (!extension_loaded('mysqli')) {
             return MYSQL_REQUIRED;
@@ -106,11 +108,14 @@ class Serendipity_Import_smf extends Serendipity_Import
         }
         
         /* Users */
-        $res = @$this->nativeQuery("SELECT ID_MEMBER AS ID,
-                                        memberName   AS user_login,
-                                        passwd       AS user_pass,
-                                        emailAddress AS user_email,
-                                        ID_GROUP     AS user_level
+        foreach (serendipity_fetchUsers() AS $uname) $ul[] = $uname['username'];
+
+        $res = @$this->nativeQuery("SELECT id_member  AS ID,
+                                        member_name   AS user_login,
+                                        real_name     AS user_realname,
+                                        passwd        AS user_pass,
+                                        email_address AS user_email,
+                                        id_group      AS user_level
                                      FROM {$this->data['prefix']}members
                                     WHERE is_activated = 1", $smfdb);
         if (!$res) {
@@ -120,25 +125,39 @@ class Serendipity_Import_smf extends Serendipity_Import
         for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x; $x++) {
             $users[$x] = mysqli_fetch_assoc($res);
 
+            $npwd = serendipity_generate_password(20);
             $data = array('right_publish' => 1,
-                          'realname'      => $users[$x]['user_login'],
-                          'username'      => $users[$x]['user_login'],
-                          'email'         => $users[$x]['user_email'],
+                          'realname'      => $users[$x]['user_realname'] ?? $users[$x]['user_login'],
+                          'username'      => in_array('smf_' . $users[$x]['user_login'], $ul) ? 'smf_' . $users[$x]['user_login'].'-'.random_int(0, 0x3fff) : (in_array($users[$x]['user_login'], $ul) ? 'smf_' . $users[$x]['user_login'] : $users[$x]['user_login']),
+                          'email'         => $users[$x]['user_email'] ?? '',
                           'userlevel'     => ($users[$x]['user_level'] == 1 ? USERLEVEL_ADMIN : USERLEVEL_EDITOR),
-                          'password'      => $users[$x]['user_pass']); // MD5 compatible
+                          'password'      => serendipity_hash($npwd)); // Create a new Styx password and keep it in an array to inform imported users later per email (if available)
 
             if ($serendipity['serendipityUserlevel'] < $data['userlevel']) {
                 $data['userlevel'] = $serendipity['serendipityUserlevel'];
             }
+            $data['mail_comments'] = 0;
+            $data['mail_trackbacks'] = 0;
+            $data['hashtype'] = 2;
 
-            serendipity_db_insert('authors', $this->strtrRecursive($data));
-            echo mysqli_error();
+            $ulist[$x] = $udata = $this->strtrRecursive($data);
+            serendipity_db_insert('authors', $udata);
+            #echo mysqli_error();
             $users[$x]['authorid'] = serendipity_db_insert_id('authors', 'authorid');
+
+            // Add to mentoring
+            $ulist[$x] = array_merge($ulist[$x], [ 'authorid' => $users[$x]['authorid'], 'new_plain_password' => $npwd ]);
+
+            echo IMPORTER_USER_IMPORT_SUCCESS_TITLE;
+            echo sprintf(IMPORTER_USER_IMPORT_SUCCESS_MSG, 'smf');
+            echo '<div class="import_full">';
+            echo '<pre><code class="language-php">$added_users = ' . var_export($ulist, 1) . '</code></pre>';
+            echo '</div>';
         }
 
         /* Categories */
-        $res = @$this->nativeQuery("SELECT ID_CAT AS cat_ID,
-                                    name AS cat_name
+        $res = @$this->nativeQuery("SELECT id_cat AS cat_ID,
+                                             name AS cat_name
                                FROM {$this->data['prefix']}categories", $smfdb);
         if (!$res) {
             return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($smfdb));
@@ -160,12 +179,12 @@ class Serendipity_Import_smf extends Serendipity_Import
             $parent_categories[$x]['categoryid'] = serendipity_db_insert_id('category', 'categoryid');
         }
 
-        /* Categories */
-        $res = @$this->nativeQuery("SELECT ID_BOARD AS cat_ID,
-                                    ID_CAT   AS parent_cat_id,
-                                    name AS cat_name,
-                                    description AS category_description
-                               FROM {$this->data['prefix']}boards ORDER BY boardOrder;", $smfdb);
+        /* Board Categories */
+        $res = @$this->nativeQuery("SELECT id_board    AS cat_ID,
+                                           id_cat      AS parent_cat_id,
+                                           name        AS cat_name,
+                                           description AS category_description
+                               FROM {$this->data['prefix']}boards ORDER BY board_order;", $smfdb);
         if (!$res) {
             return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($smfdb));
         }
@@ -199,21 +218,18 @@ class Serendipity_Import_smf extends Serendipity_Import
 
         /* Entries */
         $res = @$this->nativeQuery("SELECT
-
-        tm.subject AS post_subject,
-        t.ID_MEMBER_STARTED AS topic_poster,
-        t.ID_BOARD AS forum_id,
-        tm.posterTime AS post_time,
-        tm.body AS post_text,
-        t.ID_TOPIC AS topic_id,
-        t.ID_FIRST_MSG AS post_id,
-        t.numReplies AS ccount
-
-        FROM {$this->data['prefix']}topics AS t
-        JOIN {$this->data['prefix']}messages AS tm
-          ON tm.ID_MSG = t.ID_FIRST_MSG
-
-        GROUP BY t.ID_TOPIC", $smfdb);
+                                        tm.subject          AS post_subject,
+                                        t.id_member_started AS topic_poster,
+                                        t.id_board          AS forum_id,
+                                        tm.poster_time      AS post_time,
+                                        tm.body             AS post_text,
+                                        t.id_topic          AS topic_id,
+                                        t.id_first_msg      AS post_id,
+                                        t.num_replies       AS ccount
+                                FROM {$this->data['prefix']}topics AS t
+                                JOIN {$this->data['prefix']}messages AS tm
+                                  ON tm.id_msg = t.id_first_msg
+                            GROUP BY t.id_topic", $smfdb);
         if (!$res) {
             return sprintf(COULDNT_SELECT_ENTRY_INFO, mysqli_error($smfdb));
         }
@@ -258,34 +274,34 @@ class Serendipity_Import_smf extends Serendipity_Import
             // Store original ID, we might need it at some point.
             serendipity_db_insert('entryproperties', array('entryid' => $entries[$x]['entryid'], 'property' => 'foreign_import_id', 'value' => $entries[$x]['topic_id']));
 
-            // Convert SMF tags
+            // Convert SMF tags - do they exist ? in Series 2 ? Is it a plugin ?
             $t_res = @$this->nativeQuery("SELECT t.tag
                                             FROM {$this->data['prefix']}tags_log AS tl
                                             JOIN {$this->data['prefix']}tags AS t
-                                              ON tl.ID_TAG = t.ID_TAG
-                                           WHERE tl.ID_TOPIC = {$topic_id}
+                                              ON tl.id_tag = t.id_tag
+                                           WHERE tl.id_topic = {$topic_id}
                                              AND t.approved = 1", $smfdb);
             if (mysqli_num_rows($t_res) > 0) {
                 while ($a = mysqli_fetch_assoc($t_res)) {
-                    serendipity_db_insert('entrytags', array('entryid' => $entries[$x]['entryid'], 'tag' => $t_res['tag']));
+                    try { serendipity_db_insert('entrytags', array('entryid' => $entries[$x]['entryid'], 'tag' => $t_res['tag'])); } catch (\Throwable $t) {} // might not exist!
                 }
             }
 
             /* Comments */
             $c_res = @$this->nativeQuery("SELECT
-                tm.subject AS post_subject,
-                tm.body AS post_text,
-                tm.ID_MSG AS post_id,
-                tm.posterTime AS post_time,
-                tm.ID_BOARD AS forum_id,
-                tm.posterName AS poster_name,
-                tm.posterEmail AS poster_email
+                                            tm.subject      AS post_subject,
+                                            tm.body         AS post_text,
+                                            tm.id_msg       AS post_id,
+                                            tm.poster_time  AS post_time,
+                                            tm.id_board     AS forum_id,
+                                            tm.poster_name  AS poster_name,
+                                            tm.poster_email AS poster_email
 
-                FROM {$this->data['prefix']}topics AS t
-                JOIN {$this->data['prefix']}messages AS tm
-                  ON tm.ID_TOPIC = t.ID_TOPIC
-               WHERE t.ID_TOPIC = {$topic_id}
-            ", $smfdb);
+                                        FROM {$this->data['prefix']}topics AS t
+                                        JOIN {$this->data['prefix']}messages AS tm
+                                          ON tm.id_topic = t.id_topic
+                                       WHERE t.id_topic = {$topic_id}
+                                    ", $smfdb);
 
             if (!$c_res) {
                 return sprintf(COULDNT_SELECT_COMMENT_INFO, mysqli_error($smfdb));
