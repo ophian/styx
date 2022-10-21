@@ -4,6 +4,7 @@
 
 /*****************************************************************
  *  pMachine  Importer,  by Garvin Hicking *
+ *  NOTE: pMachine Pro has been replaced by ExpressionEngine. The vendor recommends upgrading. Better start from scratch for an ExpressionEngine importer - they are too different!
  * ****************************************************************/
 
 class Serendipity_Import_pMachine extends Serendipity_Import
@@ -150,10 +151,10 @@ class Serendipity_Import_pMachine extends Serendipity_Import
         }
 
         // Insert all categories as top level (we need to know everyone's ID before we can represent the hierarchy).
-        for ($x=0, $max_x = sizeof($categories) ; $x < $max_x ; $x++ ) {
+        for ($x=0, $max_x = sizeof($categories); $x < $max_x; $x++) {
             $cat = array('category_name'        => $categories[$x]['cat_name'],
                          'category_description' => $categories[$x]['category_description'],
-                         'parentid'             => 0, // <---
+                         'parentid'             => 0,
                          'category_left'        => 0,
                          'category_right'       => 0);
 
