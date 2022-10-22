@@ -13,6 +13,9 @@ Version 3.10-DEV ()
         - removed the pMachine Pro importer, since passed away long ago (its
           recommended successor ExpressionEngine is way to different for porting
           the template.)
+        - removed phpNuke importer, since passed away long ago (there actually
+          were some successors like OpenPHPNuke, PragmaMx, Xoops und Zikula, but
+          you better start a new importer template for those)
 
   * Improve and fix generic importer class for PHP 8.1 and silenced (known to
     fail) native (MYSQLi) database query checkups.
