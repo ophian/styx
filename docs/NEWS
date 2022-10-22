@@ -2,6 +2,8 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix & finish import class method getCharsets() to return sorted as advised
+
   * Refactor WordPress [*] importer ..(testing) in special for changed password
     hashing since Serendipity 1.5 (and so forth) making it incompatible with
     WP password storage. Now, NEW passwords are set for imported WP users.
