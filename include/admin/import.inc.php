@@ -68,6 +68,10 @@ class Serendipity_Import
             $charsets['native'] = LANG_CHARSET;
         }
 
+        if (LANG_CHARSET == 'UTF-8' || $utf8_default) {
+            $charsets = array_reverse($charsets);
+        }
+
         return $charsets;
     }
 
