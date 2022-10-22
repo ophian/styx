@@ -4,6 +4,7 @@
 
 /*****************************************************************
  *  Nucleus  Importer, by Garvin Hicking *
+ *  This project died away in June 2014. There were some successors but they did not survive.
  * ****************************************************************/
 
 class Serendipity_Import_Nucleus extends Serendipity_Import
