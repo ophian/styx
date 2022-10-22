@@ -4,6 +4,7 @@
 
 /*****************************************************************
  *  lifetype  Importer,   by Garvin Hicking *
+ *  This project died away in July 2013.
  * ****************************************************************/
 
 class Serendipity_Import_lifetype extends Serendipity_Import
