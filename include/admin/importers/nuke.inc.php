@@ -3,7 +3,8 @@
 # All rights reserved.  See LICENSE file for licensing details
 
 /*****************************************************************
- *  lifetype  Importer,   by Garvin Hicking *
+ *  phpNuke  Importer,   by Garvin Hicking *
+ *  This project died away January 2014. It has successors like OpenPHPNuke, PragmaMx, Xoops und Zikula. But better start from scratch if you need an importer.
  * ****************************************************************/
 
 class Serendipity_Import_nuke extends Serendipity_Import
