@@ -506,6 +506,8 @@ $dead_files_400 = array(
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_compile_include_php.php',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_compile_private_php.php',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_resource_registered.php',
+    'include/admin/importers/nucleus.inc.php',
+    'include/admin/importers/nuke.inc.php',
     'include/admin/importers/pmachine.inc.php',
     'include/admin/importers/sunlog.inc.php',
     'themes/2k11/oldie.css',
