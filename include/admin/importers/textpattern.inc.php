@@ -133,7 +133,7 @@ class Serendipity_Import_textpattern extends Serendipity_Import
             $data = array('right_publish' => ($users[$x]['user_level'] <= 4) ? 1 : 0,
                           'realname'      => $users[$x]['user_realname'] ?? $users[$x]['user_login'],
                           'username'      => in_array('txp_' . $users[$x]['user_login'], $ul) ? 'txp_' . $users[$x]['user_login'].'-'.random_int(0, 0x3fff) : (in_array($users[$x]['user_login'], $ul) ? 'txp_' . $users[$x]['user_login'] : $users[$x]['user_login']),
-                          'email'         => $data['email'] = $users[$x]['user_email'] ?? '',
+                          'email'         => $users[$x]['user_email'] ?? '',
                           'password'      => serendipity_hash($npwd)); // Create a new Styx password and keep it in an array to inform imported users later per email (if available)
 
             // Privilege level (0 = none, 1 = publisher, 2 = managing editor, 3 = copy editor, 4 = staff writer, 5 = freelancer, 6 = designer). 
