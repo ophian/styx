@@ -16,6 +16,7 @@ Version 3.10-DEV ()
         - removed phpNuke importer, since passed away long ago (there actually
           were some successors like OpenPHPNuke, PragmaMx, Xoops und Zikula, but
           you better start a new importer template for those)
+        - removed nucleus importer, since passed away long ago
 
   * Improve and fix generic importer class for PHP 8.1 and silenced (known to
     fail) native (MYSQLi) database query checkups.
