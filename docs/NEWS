@@ -16,7 +16,7 @@ Version 3.10-DEV ()
           recommended successor ExpressionEngine is way to different for porting
           the template)
         - removed phpNuke importer, since passed away long ago (there actually
-          were some successors like OpenPHPNuke, PragmaMx, Xoops und Zikula, but
+          were some successors like OpenPHPNuke, PragmaMx, Xoops and Zikula, but
           you better start a new importer template for those)
         - removed nucleus importer, since passed away long ago
 
