@@ -8,14 +8,14 @@
 
 class Serendipity_Import_b2evolution extends Serendipity_Import
 {
-    var $info        = array('software' => 'b2Evolution 0.9.0.11 Paris');
+    var $info        = array('software' => 'b2Evolution 4.1 +');
     var $data        = array();
     var $inputFields = array();
     var $categories  = array();
 
     function getImportNotes()
     {
-        return '';
+        return 'UH AHHHH! - <strong>b2Evolution</strong> has extremely changed over time! Be careful! This Importer was originally developed with b2Evolution 0.9.11 and some very early Serendipity version, loong ago. As one can imagine, things have changed over time. This new lookup requires at least b2Evolution 4.1 up to current v7.2.5-stable now and a running Styx instance up from latest v.3 Series. If you wish to give it a try, backup both database implementations and better do this in a testing environment first to see if you catch some breaking flaws. This new lookup has just been ported, NOT been tested! It does not capture and import an exact copy, just some main things like from authors, entries, comments and categories, but NOT image references and/or the physically stored files for example (and so forth for other stored configurations, granular controls over access privileges, etc). This and the relations finetuning is "handmade" User stuff - left up to YOU - later on! Now go and ride this horse. File an GitHub <a href="https://github.com/ophian/styx/issues" target="_blank">issue</a> or start a <a href="https://github.com/ophian/styx/discussions" target="_blank">discussion</a> for help!';
     }
 
     function __construct($data)
@@ -36,6 +36,11 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
                                    array('text' => INSTALL_DBNAME,
                                          'type' => 'input',
                                          'name' => 'name'),
+
+                                   array('text' => INSTALL_DBPREFIX,
+                                         'type' => 'input',
+                                         'name' => 'prefix',
+                                         'default' => 'evo_'),
 
                                    array('text'    => CHARSET,
                                          'type'    => 'list',
@@ -80,6 +85,8 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
 
         $users = array();
         $entries = array();
+        $ul = array();
+        $ulist = array();
 
         if (!extension_loaded('mysqli')) {
             return MYSQL_REQUIRED;
@@ -100,13 +107,16 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
         }
 
         /* Users */
-        $res = @$this->nativeQuery("SELECT ID  AS ID,
+        foreach (serendipity_fetchUsers() AS $uname) $ul[] = $uname['username'];
+
+        $res = @$this->nativeQuery("SELECT
+                                    user_ID    AS ID,
                                     user_login AS user_login,
                                     user_pass  AS user_pass,
                                     user_email AS user_email,
                                     user_level AS user_level,
                                     user_url   AS user_url
-                               FROM evo_users", $b2db);
+                               FROM {$this->data['prefix']}users", $b2db);
         if (!$res) {
             return sprintf(COULDNT_SELECT_USER_INFO, mysqli_error($b2db));
         }
@@ -114,11 +124,12 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
         for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x; $x++) {
             $users[$x] = mysqli_fetch_assoc($res);
 
+            $npwd = serendipity_generate_password(20);
             $data = array('right_publish' => ($users[$x]['user_level'] >= 2) ? 1 : 0,
-                          'realname'      => $users[$x]['user_login'],
-                          'username'      => $users[$x]['user_login'],
-                          'email'         => $users[$x]['user_email'],
-                          'password'      => $users[$x]['user_pass']); // MD5 compatible
+                          'realname'      => $users[$x]['user_realname'] ?? $users[$x]['user_login'],
+                          'username'      => in_array('b2e_' . $users[$x]['user_login'], $ul) ? 'b2e_' . $users[$x]['user_login'].'-'.random_int(0, 0x3fff) : (in_array($users[$x]['user_login'], $ul) ? 'b2e_' . $users[$x]['user_login'] : $users[$x]['user_login']),
+                          'email'         => $users[$x]['user_email'] ?? '',
+                          'password'      => serendipity_hash($npwd)); // Create a new Styx password and keep it in an array to inform imported users later per email (if available)
 
             if ($users[$x]['user_level'] <= 2) {
                 $data['userlevel'] = USERLEVEL_EDITOR;
@@ -131,9 +142,25 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
             if ($serendipity['serendipityUserlevel'] < $data['userlevel']) {
                 $data['userlevel'] = $serendipity['serendipityUserlevel'];
             }
+            $data['mail_comments'] = 0;
+            $data['mail_trackbacks'] = 0;
+            $data['hashtype'] = 2;
 
-            serendipity_db_insert('authors', $this->strtrRecursive($data));
+            $ulist[$x] = $udata = $this->strtrRecursive($data);
+            serendipity_db_insert('authors', $udata);
+            #echo mysqli_error();
             $users[$x]['authorid'] = serendipity_db_insert_id('authors', 'authorid');
+
+            // Add to mentoring
+            $ulist[$x] = array_merge($ulist[$x], [ 'authorid' => $users[$x]['authorid'], 'new_plain_password' => $npwd ]);
+
+            if ($debug) echo '<span class="msg_success">Imported users.</span>';
+
+            echo IMPORTER_USER_IMPORT_SUCCESS_TITLE;
+            echo sprintf(IMPORTER_USER_IMPORT_SUCCESS_MSG, 'b2e');
+            echo '<div class="import_full">';
+            echo '<pre><code class="language-php">$added_users = ' . var_export($ulist, 1) . '</code></pre>';
+            echo '</div>';
         }
 
         /* Categories */
@@ -143,7 +170,7 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
         serendipity_rebuildCategoryTree();
 
         /* Entries */
-        $res = @$this->nativeQuery("SELECT * FROM evo_posts ORDER BY ID;", $b2db);
+        $res = @$this->nativeQuery("SELECT * FROM {$this->data['prefix']}items__item ORDER BY post_ID;", $b2db);
         if (!$res) {
             return sprintf(COULDNT_SELECT_ENTRY_INFO, mysqli_error($b2db));
         }
@@ -153,14 +180,14 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
 
             $entry = array('title'          => $this->decode($entries[$x]['post_title']),
                            'isdraft'        => ($entries[$x]['post_status'] == 'published') ? 'false' : 'true',
-                           'allow_comments' => ($entries[$x]['post_comments'] == 'open' ) ? 'true' : 'false',
-                           'timestamp'      => strtotime(($entries[$x]['post_issue_date'] ?? $entries[$x]['post_date'])),
+                           'allow_comments' => ($entries[$x]['post_comment_status'] == 'open' ) ? 'true' : 'false',
+                           'timestamp'      => strtotime(($entries[$x]['post_datecreated'] ?? $entries[$x]['post_datestart'])),
                            'body'           => $this->strtr($entries[$x]['post_content']));
 
             $entry['authorid'] = '';
             $entry['author']   = '';
             foreach($users AS $user) {
-                if ($user['ID'] == $entries[$x]['post_author']) {
+                if ($user['post_ID'] == $entries[$x]['post_creator_user_ID']) {
                     $entry['authorid'] = $user['authorid'];
                     $entry['author']   = $user['user_login'];
                     break;
@@ -173,7 +200,7 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
 
             /* Entry/category */
             foreach($this->categories AS $category) {
-                if ($category['cat_ID'] == $entries[$x]['post_category'] ) {
+                if ($category['cat_ID'] == $entries[$x]['post_main_cat_ID'] ) {
                     $data = array('entryid'    => $entries[$x]['entryid'],
                                   'categoryid' => $category['categoryid']);
                     serendipity_db_insert('entrycat', $this->strtrRecursive($data));
@@ -183,7 +210,7 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
         }
 
         /* Even more category stuff */
-        $res = @$this->nativeQuery("SELECT * FROM evo_postcats;", $b2db);
+        $res = @$this->nativeQuery("SELECT * FROM {$this->data['prefix']}postcats;", $b2db);
         if (!$res) {
             return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($b2db));
         }
@@ -214,7 +241,7 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
         }
 
         /* Comments */
-        $res = @$this->nativeQuery("SELECT * FROM evo_comments;", $b2db);
+        $res = @$this->nativeQuery("SELECT * FROM {$this->data['prefix']}comments;", $b2db);
         if (!$res) {
             return sprintf(COULDNT_SELECT_COMMENT_INFO, mysqli_error($b2db));
         }
@@ -277,7 +304,7 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
             $where = "WHERE cat_parent_ID = '" . mysqli_escape_string($parentid) . "'";
         }
 
-        $res = $this->nativeQuery("SELECT * FROM evo_categories
+        $res = $this->nativeQuery("SELECT * FROM {$this->data['prefix']}categories
                                      " . $where, $b2db);
         if (!$res) {
             echo mysqli_error();
