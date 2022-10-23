@@ -25,6 +25,8 @@ Version 3.10-DEV ()
         - removed bblog importer, since passed away long ago
         - pushed a (rather vague !) porting upgrade to the b2Evolution importer
 
+    [*] Fix an old copy&paste bug with adding space to key entry_id name
+
   * Improve and fix generic importer class for PHP 8.1 and silenced (known to
     fail) native (MYSQLi) database query checkups.
 
