@@ -4,6 +4,7 @@
 
 /*****************************************************************
  *  bblog  Importer,    by Garvin Hicking *
+ *  This project died away in July 2005.
  * ****************************************************************/
 
 class Serendipity_Import_bblog extends Serendipity_Import
