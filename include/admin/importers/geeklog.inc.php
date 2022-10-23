@@ -3,19 +3,20 @@
 # All rights reserved.  See LICENSE file for licensing details
 
 /*****************************************************************
- *  geeklog  Importer,    by Garvin Hicking *
- * ****************************************************************/
+ *  geeklog  Importer,    by Garvin Hicking and Ian Styx         *
+ * ***************************************************************/
 
 class Serendipity_Import_geeklog extends Serendipity_Import
 {
-    var $info        = array('software' => 'Geeklog 1.3.11');
+    var $info        = array('software' => 'Geeklog 1.4.1');
     var $data        = array();
     var $inputFields = array();
     var $categories  = array();
 
     function getImportNotes()
     {
-        return 'GeekLog has a granular control over access privileges which cannot be migrated to Serendipity. All Users will be migrated as Superusers, you may need to set them to editor or chief users manually after import.';
+        $update = 'This Importer was originally developed with Geeklog 1.3.11 and some very early Serendipity version, loong ago. As one can imagine, things have changed over time. This new lookup requires at least Geeklog 1.4.1 up to current v2.2.2 now and a running Styx instance up from latest v.3 Series. If you wish to give it a try, backup both database implementations and better do this in a testing environment first to see if you catch some breaking flaws. This new lookup has just been ported, NOT been tested! It does not capture and import an exact copy, just some main things like from authors, entries, comments and categories, but NOT image references and/or the physically stored files for example (and so forth for other stored configurations, etc). This and the relations finetuning is "handmade" User stuff - left up to YOU - later on! Now go and ride this horse. File an GitHub <a href="https://github.com/ophian/styx/issues" target="_blank">issue</a> or start a <a href="https://github.com/ophian/styx/discussions" target="_blank">discussion</a> for help!';
+        return 'GeekLog has a granular control over access privileges which cannot be migrated to Serendipity. All Users will be migrated as Superusers, you may need to set them to EDITOR or CHIEF users manually after import. ' . $update;
     }
 
     function __construct($data)
@@ -86,6 +87,8 @@ class Serendipity_Import_geeklog extends Serendipity_Import
         $this->data['prefix'] = serendipity_db_escape_string($this->data['prefix']);
         $users = array();
         $entries = array();
+        $ul = array();
+        $ulist = array();
 
         if (!extension_loaded('mysqli')) {
             return MYSQL_REQUIRED;
@@ -108,6 +111,7 @@ class Serendipity_Import_geeklog extends Serendipity_Import
         /* Users */
         $res = @$this->nativeQuery("SELECT uid AS ID,
                                     username   AS user_login,
+                                    fullname   AS user_realname,
                                     passwd     AS user_pass,
                                     email      AS user_email,
                                     homepage   AS user_url
@@ -119,20 +123,36 @@ class Serendipity_Import_geeklog extends Serendipity_Import
         for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x; $x++) {
             $users[$x] = mysqli_fetch_assoc($res);
 
+            $npwd = serendipity_generate_password(20);
             $data = array('right_publish' => 1,
-                          'realname'      => $users[$x]['user_login'],
-                          'username'      => $users[$x]['user_login'],
-                          'email'         => $users[$x]['user_email'],
+                          'realname'      => $users[$x]['user_realname'] ?? $users[$x]['user_login'],
+                          'username'      => in_array('gkl_' . $users[$x]['user_login'], $ul) ? 'gkl_' . $users[$x]['user_login'].'-'.random_int(0, 0x3fff) : (in_array($users[$x]['user_login'], $ul) ? 'gkl_' . $users[$x]['user_login'] : $users[$x]['user_login']),
+                          'email'         => $users[$x]['user_email'] ?? '',
                           'userlevel'     => USERLEVEL_ADMIN,
-                          'password'      => $users[$x]['user_pass']); // MD5 compatible
+                          'password'      => serendipity_hash($npwd)); // Create a new Styx password and keep it in an array to inform imported users later per email (if available)
 
             if ($serendipity['serendipityUserlevel'] < $data['userlevel']) {
                 $data['userlevel'] = $serendipity['serendipityUserlevel'];
             }
+            $data['mail_comments'] = 0;
+            $data['mail_trackbacks'] = 0;
+            $data['hashtype'] = 2;
 
-            serendipity_db_insert('authors', $this->strtrRecursive($data));
-            echo mysqli_error();
+            $ulist[$x] = $udata = $this->strtrRecursive($data);
+            serendipity_db_insert('authors', $udata);
+            #echo mysqli_error();
             $users[$x]['authorid'] = serendipity_db_insert_id('authors', 'authorid');
+
+            // Add to mentoring
+            $ulist[$x] = array_merge($ulist[$x], [ 'authorid' => $users[$x]['authorid'], 'new_plain_password' => $npwd ]);
+
+            if ($debug) echo '<span class="msg_success">Imported users.</span>';
+
+            echo IMPORTER_USER_IMPORT_SUCCESS_TITLE;
+            echo sprintf(IMPORTER_USER_IMPORT_SUCCESS_MSG, 'gkl');
+            echo '<div class="import_full">';
+            echo '<pre><code class="language-php">$added_users = ' . var_export($ulist, 1) . '</code></pre>';
+            echo '</div>';
         }
 
         /* Categories */
@@ -150,7 +170,7 @@ class Serendipity_Import_geeklog extends Serendipity_Import
         for ($x=0, $max_x = sizeof($categories) ; $x < $max_x ; $x++ ) {
             $cat = array('category_name'        => $categories[$x]['cat_name'],
                          'category_description' => $categories[$x]['category_description'],
-                         'parentid'             => 0, // <---
+                         'parentid'             => 0,
                          'category_left'        => 0,
                          'category_right'       => 0);
 
