@@ -76,7 +76,7 @@ class Serendipity_Import_MovableType extends Serendipity_Import
 
         if ($debug) {
             $c++;
-            echo '<span class="block_level start">#' . $c . ' [' . date('d.m.Y H:i.s') . '] ' . $string . "</span>";
+            echo '<span class="block_level first">#' . $c . ' [' . date('d.m.Y H:i.s') . '] ' . $string . "</span>";
         }
     }
 
