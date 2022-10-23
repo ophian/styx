@@ -24,6 +24,7 @@ Version 3.10-DEV ()
         - removed bmachine (boastMachine) importer, since passed away long ago
         - removed bblog importer, since passed away long ago
         - pushed a (rather vague !) porting upgrade to the b2Evolution importer
+        - Fixup MoveableType for End-Of-Life, but keep as abandoned
 
     [*] Fix an old copy&paste bug with adding space to key entry_id name
 
