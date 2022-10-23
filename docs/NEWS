@@ -9,9 +9,9 @@ Version 3.10-DEV ()
     WP password storage. Now, NEW passwords are set for imported WP users.
     [*] Subject to reservation
         - in addition for wordpress-pg (WordPress-PostgreSQL)
-        - pushed an upgrade to the TextPattern CMS importer
+        - pushed a porting upgrade to the TextPattern CMS importer
         - removed the sunlog importer, since passed away long ago
-        - pushed an upgrade to the SMF (Simple Machine Forum) importer
+        - pushed a porting upgrade to the SMF (Simple Machine Forum) importer
         - removed the pMachine Pro importer, since passed away long ago (its
           recommended successor ExpressionEngine is way to different for porting
           the template)
@@ -20,10 +20,10 @@ Version 3.10-DEV ()
           you better start a new importer template for those)
         - removed nucleus importer, since passed away long ago
         - removed lifetype importer, since passed away long ago
-        - pushed an upgrade to the Geeklog importer
+        - pushed a porting upgrade to the Geeklog importer
         - removed bmachine (boastMachine) importer, since passed away long ago
         - removed bblog importer, since passed away long ago
-        - pushed an upgrade to the b2Evolution importer (rather vague !)
+        - pushed a (rather vague !) porting upgrade to the b2Evolution importer
 
   * Improve and fix generic importer class for PHP 8.1 and silenced (known to
     fail) native (MYSQLi) database query checkups.
