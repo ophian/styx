@@ -4,6 +4,12 @@
 
 /*****************************************************************
  *                MovableType Importer, by Evan Nemerson         *
+ *  This project as OS (OpenSource) died away January 2011 (as Melody fork) and April 2015 (last available OS of MovableType).
+ *  Six-Apart changed the licensing of the software several times. MovableType evolved from a free software to a
+ *  portfolio of different products with graduated license fees. A large part of the previously enthusiastic users
+ *  turned away and quickly rallied around b2/cafelog, which was revived as Wordpress and has now become the dominant platform.
+ *  Since we already have a Dominion (an interstellar superpower from the Gamma Quadrant of the Milky Way) Importer ;-)
+ *  MT is abandoned. Better start from scratch or take this template as a base if you need an importer for a commercial MT version 7+.
  *****************************************************************/
 
 switch ($serendipity['lang']) {
@@ -70,12 +76,13 @@ class Serendipity_Import_MovableType extends Serendipity_Import
 
         if ($debug) {
             $c++;
-            echo '<span class="block_level">#' . $c . ' [' . date('d.m.Y H:i.s') . '] ' . $string . "</span>";
+            echo '<span class="block_level start">#' . $c . ' [' . date('d.m.Y H:i.s') . '] ' . $string . "</span>";
         }
     }
 
     function getImportNotes()
     {
+        $head = '<strong>MovableType</strong> This project as OS (OpenSource) died away January 2011 (as Melody fork) and April 2015 (last available OS of MovableType). Six-Apart changed the licensing of the software several times. MovableType evolved from a free software to a portfolio of different products with graduated license fees. A large part of the previously enthusiastic users turned away and quickly rallied around b2/cafelog, which was revived as Wordpress and has now become the dominant platform. Since we already have a Dominion (an interstellar superpower from the Gamma Quadrant of the Milky Way) Importer ;-) MT is abandoned. Better start from scratch or take this template as a base if you need an importer for a commercial MT version 7+.';
         $notes = array();
         if (!class_exists('serendipity_event_nl2br')) {
             $notes[] = sprintf(IMPORTER_MT_WARN_PLUGIN, 'serendipity_event_nl2br');
@@ -84,8 +91,9 @@ class Serendipity_Import_MovableType extends Serendipity_Import
             $notes[] = sprintf(IMPORTER_MT_WARN_PLUGIN, 'serendipity_event_entryproperties');
         }
         if (count($notes) > 0) {
-            return '<ul><li>'.implode('</li><li>', $notes).'</li></ul>'.IMPORTER_MT_NOTE;
+            $dependencies = '<ul><li>'.implode('</li><li>', $notes).'</li></ul>'.IMPORTER_MT_NOTE;
         }
+        return $head . ($dependencies ?? '');
     }
 
     function validateData()
@@ -281,7 +289,7 @@ class Serendipity_Import_MovableType extends Serendipity_Import
     {
         global $serendipity;
 
-        $force    = ($this->data['mt_force'] == 'true');
+        $force = ($this->data['mt_force'] == 'true');
 
         if ($this->data['autodiscovery'] == 'false') {
             $serendipity['noautodiscovery'] = 1;
@@ -292,14 +300,18 @@ class Serendipity_Import_MovableType extends Serendipity_Import
         //$contents   = file_get_contents($_FILES['serendipity']['tmp_name']['import']['mt_dat']);
 
         $this->categories = serendipity_fetchCategories();
-        $tasks      = array();
+        $tasks   = array();
 
         $entries = array();
 
         if (empty($_FILES['serendipity']['tmp_name']['import']['mt_dat'])) {
-            $fh = fopen('/tmp/mt.dat', 'r');
+            $fh = @fopen('/tmp/mt.dat', 'r');
         } else {
-            $fh = fopen($_FILES['serendipity']['tmp_name']['import']['mt_dat'], 'r');
+            $fh = @fopen($_FILES['serendipity']['tmp_name']['import']['mt_dat'], 'r');
+        }
+        if (gettype($fh) !== "resource") {
+            echo '<span class="msg_error"><span class="icon-attention-circled"></span> ERROR: File must be of type resource, boolean given. Probably does not exist!' . "</span>\n";
+            return false;
         }
 
         $entry        = array();
@@ -309,6 +321,7 @@ class Serendipity_Import_MovableType extends Serendipity_Import
         $is_comment   = false;
         $is_trackback = false;
         $nofetch      = false;
+
         while (!feof($fh)) {
             if ($nofetch === false) {
                 $this->debug('Next line');
@@ -435,7 +448,7 @@ class Serendipity_Import_MovableType extends Serendipity_Import
         }
         fclose($fh);
 
-        if (!sizeof($tasks) || $force == true) {
+        if (!sizeof($tasks) || $force === true) {
             serendipity_db_begin_transaction();
             foreach($entries AS $entry) {
                 #echo '<pre>' . printR_($entry, true) . '</pre>';
