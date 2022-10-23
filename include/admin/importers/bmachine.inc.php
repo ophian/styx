@@ -4,6 +4,7 @@
 
 /*****************************************************************
  *  bmachine  Importer,   by Garvin Hicking *
+ *  This project died away in May 2012.
  * ****************************************************************/
 
 class Serendipity_Import_bmachine extends Serendipity_Import
