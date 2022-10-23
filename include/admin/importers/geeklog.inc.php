@@ -244,17 +244,17 @@ class Serendipity_Import_geeklog extends Serendipity_Import
                         }
                     }
 
-                    $comment = array('entry_id ' => $entry['entryid'],
-                                     'parent_id' => 0,
-                                     'timestamp' => strtotime($a['date']),
-                                     'author'    => $author,
-                                     'email'     => $mail,
-                                     'url'       => $url,
-                                     'ip'        => $a['ip'],
-                                     'status'    => 'approved',
-                                     'body'      => $a['comment'],
-                                     'subscribed'=> 'false',
-                                     'type'      => 'NORMAL');
+                    $comment = array('entry_id'   => $entry['entryid'],
+                                     'parent_id'  => 0,
+                                     'timestamp'  => strtotime($a['date']),
+                                     'author'     => $author,
+                                     'email'      => $mail,
+                                     'url'        => $url,
+                                     'ip'         => $a['ip'],
+                                     'status'     => 'approved',
+                                     'body'       => $a['comment'],
+                                     'subscribed' => 'false',
+                                     'type'       => 'NORMAL');
 
                     serendipity_db_insert('comments', $this->strtrRecursive($comment));
                     $cid = serendipity_db_insert_id('comments', 'id');

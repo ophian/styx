@@ -227,17 +227,17 @@ class Serendipity_Import_Blogger extends Serendipity_Import
                 // Check to make sure the related entry has been added to s9y
                 if (array_key_exists($cEntryId, $entryList)) {
                     // Add to s9y
-                    $sComment = array(  'entry_id ' => $entryList[$cEntryId][0],
-                                        'parent_id' => 0,
-                                        'timestamp' => strtotime($bEntry->published),
-                                        'author'    => (string)  $bEntry->author->name,
-                                        'email'     => (string)  $bEntry->author->email,
-                                        'url'       => (string) ($bEntry->author->uri ?? ''),
-                                        'ip'        => '',
-                                        'status'    => 'approved',
-                                        'body'      => $this->strtr((string) $bEntry->content),
-                                        'subscribed'=> 'false',
-                                        'type'      => 'NORMAL'
+                    $sComment = array(  'entry_id'   => $entryList[$cEntryId][0],
+                                        'parent_id'  => 0,
+                                        'timestamp'  => strtotime($bEntry->published),
+                                        'author'     => (string)  $bEntry->author->name,
+                                        'email'      => (string)  $bEntry->author->email,
+                                        'url'        => (string) ($bEntry->author->uri ?? ''),
+                                        'ip'         => '',
+                                        'status'     => 'approved',
+                                        'body'       => $this->strtr((string) $bEntry->content),
+                                        'subscribed' => 'false',
+                                        'type'       => 'NORMAL'
                                         );
                     serendipity_db_insert('comments', $sComment);
 

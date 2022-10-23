@@ -325,17 +325,17 @@ class Serendipity_Import_smf extends Serendipity_Import
                 }
                 $a['post_text'] = serendipity_entity_decode($a['post_text']);
 
-                $comment = array('entry_id ' => $entries[$x]['entryid'],
-                                 'parent_id' => 0,
-                                 'timestamp' => $a['post_time'],
-                                 'author'    => $author,
-                                 'email'     => $mail,
-                                 'url'       => $url,
-                                 'ip'        => '',
-                                 'status'    => 'approved',
-                                 'body'      => $a['post_text'],
-                                 'subscribed'=> 'false',
-                                 'type'      => 'NORMAL');
+                $comment = array('entry_id'   => $entries[$x]['entryid'],
+                                 'parent_id'  => 0,
+                                 'timestamp'  => $a['post_time'],
+                                 'author'     => $author,
+                                 'email'      => $mail,
+                                 'url'        => $url,
+                                 'ip'         => '',
+                                 'status'     => 'approved',
+                                 'body'       => $a['post_text'],
+                                 'subscribed' => 'false',
+                                 'type'       => 'NORMAL');
 
                 serendipity_db_insert('comments', $this->strtrRecursive($comment));
                 $cid = serendipity_db_insert_id('comments', 'id');

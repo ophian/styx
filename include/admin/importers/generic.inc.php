@@ -285,16 +285,16 @@ class Serendipity_Import_Generic extends Serendipity_Import
                     $c_type2 = 'NORMAL';
                 }
 
-                $s9y_comment = array('entry_id ' => $id,
-                                 'parent_id' => $s9y_cid[$c_pd],
-                                 'author'    => (string)$comment->comment_author,
-                                 'email'     => (string)$comment->comment_author_email,
-                                 'url'       => (string)$comment->comment_author_url,
-                                 'ip'        => (string)$comment->comment_author_IP,
-                                 'status'    => (empty($comment->comment_approved) || $comment->comment_approved == '1') ? 'approved' : 'pending',
-                                 'subscribed'=> 'false',
-                                 'body'      => (string)$comment->comment_content,
-                                 'type'      => $c_type2);
+                $s9y_comment = array('entry_id' => $id,
+                                 'parent_id'  => $s9y_cid[$c_pd],
+                                 'author'     => (string)$comment->comment_author,
+                                 'email'      => (string)$comment->comment_author_email,
+                                 'url'        => (string)$comment->comment_author_url,
+                                 'ip'         => (string)$comment->comment_author_IP,
+                                 'status'     => (empty($comment->comment_approved) || $comment->comment_approved == '1') ? 'approved' : 'pending',
+                                 'subscribed' => 'false',
+                                 'body'       => (string)$comment->comment_content,
+                                 'type'       => $c_type2);
 
                 if (preg_match('@^([0-9]{4})\-([0-9]{2})\-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2})$@', (string)$comment->comment_date, $timematch)) {
                     $s9y_comment['timestamp'] = mktime($timematch[4], $timematch[5], $timematch[6], $timematch[2], $timematch[3], $timematch[1]);

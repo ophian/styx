@@ -404,17 +404,17 @@ class Serendipity_Import_WordPress extends Serendipity_Import
             $serendipity['allowSubscriptions'] = false;
             if ($debug) echo '<span class="block_level">Importing comments...</span>';
             while ($a = mysqli_fetch_assoc($res)) {
-                $comment = array('entry_id ' => $assoc['entries'][$a['comment_post_ID']],
-                                 'parent_id' => 0,
-                                 'timestamp' => strtotime($a['comment_date']),
-                                 'author'    => $a['comment_author'],
-                                 'email'     => $a['comment_author_email'],
-                                 'url'       => $a['comment_author_url'],
-                                 'ip'        => $a['comment_author_IP'],
-                                 'status'    => (empty($a['comment_approved']) || $a['comment_approved'] == '1') ? 'approved' : 'pending',
-                                 'subscribed'=> 'false',
-                                 'body'      => $a['comment_content'],
-                                 'type'      => 'NORMAL');
+                $comment = array('entry_id'   => $assoc['entries'][$a['comment_post_ID']],
+                                 'parent_id'  => 0,
+                                 'timestamp'  => strtotime($a['comment_date']),
+                                 'author'     => $a['comment_author'],
+                                 'email'      => $a['comment_author_email'],
+                                 'url'        => $a['comment_author_url'],
+                                 'ip'         => $a['comment_author_IP'],
+                                 'status'     => (empty($a['comment_approved']) || $a['comment_approved'] == '1') ? 'approved' : 'pending',
+                                 'subscribed' => 'false',
+                                 'body'       => $a['comment_content'],
+                                 'type'       => 'NORMAL');
                 serendipity_db_insert('comments', $this->strtrRecursive($comment));
                 if ($comment['status'] == 'approved') {
                     $cid = serendipity_db_insert_id('comments', 'id');

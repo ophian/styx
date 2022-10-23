@@ -269,17 +269,17 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
                         $url = $a['comment_author_url'];
                     }
 
-                    $comment = array('entry_id ' => $entry['entryid'],
-                                     'parent_id' => 0,
-                                     'timestamp' => strtotime($a['comment_date']),
-                                     'author'    => $author,
-                                     'email'     => $mail,
-                                     'url'       => $url,
-                                     'ip'        => $a['comment_author_IP'],
-                                     'status'    => ($a['comment_status'] == 'published' ? 'approved' : 'pending'),
-                                     'body'      => $a['comment_content'],
-                                     'subscribed'=> 'false',
-                                     'type'      => 'NORMAL');
+                    $comment = array('entry_id'   => $entry['entryid'],
+                                     'parent_id'  => 0,
+                                     'timestamp'  => strtotime($a['comment_date']),
+                                     'author'     => $author,
+                                     'email'      => $mail,
+                                     'url'        => $url,
+                                     'ip'         => $a['comment_author_IP'],
+                                     'status'     => ($a['comment_status'] == 'published' ? 'approved' : 'pending'),
+                                     'body'       => $a['comment_content'],
+                                     'subscribed' => 'false',
+                                     'type'       => 'NORMAL');
 
                     serendipity_db_insert('comments', $this->strtrRecursive($comment));
                     if ($a['comment_status'] == 'published') {

@@ -229,17 +229,17 @@ ENDPOST
                     $cbody = trim($cbody[1]);
                 }
 
-                $icomment = array('entry_id ' => $id,
-                                 'parent_id' => 0,
-                                 'timestamp' => $cdate,
-                                 'author'    => $cauthor,
-                                 'email'     => '',
-                                 'url'       => $curl,
-                                 'ip'        => '',
-                                 'status'    => 'approved',
-                                 'body'      => $cbody,
-                                 'subscribed'=> 'false',
-                                 'type'      => 'NORMAL');
+                $icomment = array('entry_id'   => $id,
+                                  'parent_id'  => 0,
+                                  'timestamp'  => $cdate,
+                                  'author'     => $cauthor,
+                                  'email'      => '',
+                                  'url'        => $curl,
+                                  'ip'         => '',
+                                  'status'     => 'approved',
+                                  'body'       => $cbody,
+                                  'subscribed' => 'false',
+                                  'type'       => 'NORMAL');
 
                 serendipity_db_insert('comments', $icomment);
             }

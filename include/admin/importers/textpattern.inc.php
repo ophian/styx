@@ -233,17 +233,17 @@ class Serendipity_Import_textpattern extends Serendipity_Import
                     $mail     = $a['email'];
                     $url      = $a['web'];
 
-                    $comment = array('entry_id ' => $entry['entryid'],
-                                     'parent_id' => 0,
-                                     'timestamp' => strtotime($a['posted']),
-                                     'author'    => $author,
-                                     'email'     => $mail,
-                                     'url'       => $url,
-                                     'ip'        => $a['ip'],
-                                     'status'    => ($a['visible'] == '1' ? 'approved' : 'pending'),
-                                     'body'      => $a['message'],
-                                     'subscribed'=> 'false',
-                                     'type'      => 'NORMAL');
+                    $comment = array('entry_id'   => $entry['entryid'],
+                                     'parent_id'  => 0,
+                                     'timestamp'  => strtotime($a['posted']),
+                                     'author'     => $author,
+                                     'email'      => $mail,
+                                     'url'        => $url,
+                                     'ip'         => $a['ip'],
+                                     'status'     => ($a['visible'] == '1' ? 'approved' : 'pending'),
+                                     'body'       => $a['message'],
+                                     'subscribed' => 'false',
+                                     'type'       => 'NORMAL');
 
                     serendipity_db_insert('comments', $this->strtrRecursive($comment));
                     if ($a['visible'] == '1') {

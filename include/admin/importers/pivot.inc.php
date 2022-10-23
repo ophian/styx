@@ -176,17 +176,17 @@ class Serendipity_Import_Pivot extends Serendipity_Import
 
                         if (isset($entrydata['comments']) && count($entrydata['comments']) > 0) {
                             foreach($entrydata['comments'] AS $comment) {
-                                $comment = array('entry_id ' => $entry['id'],
-                                                 'parent_id' => 0,
-                                                 'timestamp' => $this->toTimestamp($comment['date']),
-                                                 'author'    => stripslashes($comment['name']),
-                                                 'email'     => stripslashes($comment['email']),
-                                                 'url'       => stripslashes($comment['url']),
-                                                 'ip'        => stripslashes($comment['ip']),
-                                                 'status'    => 'approved',
-                                                 'body'      => stripslashes($comment['comment']),
-                                                 'subscribed'=> ($comment['notify'] ? 'true' : 'false'),
-                                                 'type'      => 'NORMAL');
+                                $comment = array('entry_id'   => $entry['id'],
+                                                 'parent_id'  => 0,
+                                                 'timestamp'  => $this->toTimestamp($comment['date']),
+                                                 'author'     => stripslashes($comment['name']),
+                                                 'email'      => stripslashes($comment['email']),
+                                                 'url'        => stripslashes($comment['url']),
+                                                 'ip'         => stripslashes($comment['ip']),
+                                                 'status'     => 'approved',
+                                                 'body'       => stripslashes($comment['comment']),
+                                                 'subscribed' => ($comment['notify'] ? 'true' : 'false'),
+                                                 'type'       => 'NORMAL');
 
                                 serendipity_db_insert('comments', $comment);
                             }
