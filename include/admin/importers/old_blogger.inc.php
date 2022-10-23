@@ -18,7 +18,7 @@ class Serendipity_Import_OldBlogger extends Serendipity_Import
                                          'name'    => 'bloggerfile',
                                          'value'   => $serendipity['serendipityPath']),
 
-                                   array('text'    => 'New author default password (used for non-existing authors on the serendipity backend, as author passwords from Blogger are not migrated)',
+                                   array('text'    => '<span class="upw_field" title="'.USERCONF_PASSWORD_RANDOM.'">New author default password (used for non-existing authors on the serendipity backend, as author passwords from Blogger are not migrated) <span class="icon-info-circled" aria-hidden="true"></span>'.serendipity_generate_password(20).'</span>',
                                          'type'    => 'input',
                                          'name'    => 'defaultpass',
                                          'value'   => ''),
@@ -112,7 +112,7 @@ ENDPOST
         global $serendipity;
 
         if (empty($this->data['bloggerfile']) || !file_exists($this->data['bloggerfile'])) {
-            echo "Path to blogger file empty or path to file wrong! Go back and correct.";
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> Path to blogger file empty or path to file wrong! Go back and correct.</span>';
             return false;
         }
 
@@ -131,54 +131,57 @@ ENDPOST
             # locate the post title
             if (preg_match("/TITLE:(.*)/", $post, $title)) {
                 $title = trim($title[1]);
-                echo "<b class=\"block_level\">" . serendipity_specialchars($title) . "</b>";
+                echo '<b class="block_level">' . serendipity_specialchars($title) . "</b>\n";
             } else {
                 $title = "";
-                echo "<b class=\"block_level\">Empty title</b>";
+                echo '<b class="block_level">Empty title</b>';
             }
 
             # locate the post author
             if (preg_match("/AUTHOR:(.*)/", $post, $author)) {
                 $author = trim($author[1]);
-                echo "<em class=\"block_level\">" . serendipity_specialchars($author[1]) . "</em>";
+                echo '<em class="block_level">' . serendipity_specialchars($author[1]) . "</em>\n";
             } else {
                 $author = "";
-                echo "<em class=\"block_level\">Unknown author</em>";
+                echo '<em class="block_level">Unknown author</em>';
             }
 
             # locate the post date
             if (preg_match("/DATE:(.*)/", $post, $date)) {
                 $date = strtotime(trim($date[1]));
-                echo "<span class=\"block_level\">Posted on " . serendipity_specialchars($date[1]) . ".</span>";
+                echo '<span class="block_level">Posted on ' . serendipity_specialchars($date[1]) . ".</span>\n";
             } else {
                 $date = time();
-                echo "<span class=\"block_level\">Unknown posting time.</span>";
+                echo '<span class="block_level">Unknown posting time.</span>';
             }
 
             # locate the post body
             if (preg_match("/BODY:(.*)-----/sU", $post, $body)) {
                 $body = trim($body[1]);
-                echo '<span class="block_level">' . strlen($body) . " Bytes of text.</span>";
+                echo '<span class="block_level">' . strlen($body) . " Bytes of text.</span>\n";
             } else {
                 $body = "";
-                echo "<span class='msg_error'>Empty Body!</span>";
+                echo '<span class="msg_error">Empty Body!</span>';
             }
 
             # find all comments for the post using pattern matching
             if (preg_match_all( "/COMMENT:(.*)----/sU", $post, $commentlist)) {
-                echo '<span class="block_level">' . count($commentlist[1]) . " comments found.</span>";
+                echo '<span class="block_level">' . count($commentlist[1]) . " comments found.</span>\n";
             } else {
                 $commentlist = array();
-                echo "<span class=\"block_level\">No comments found.</span>";
+                echo '<span class="block_level">No comments found.</span>';
             }
 
-            $result = serendipity_db_query("SELECT authorid FROM ". $serendipity['dbPrefix'] ."authors WHERE username = '". serendipity_db_escape_string($author) ."' LIMIT 1", true, 'assoc');
+            $result = serendipity_db_query("SELECT authorid FROM {$serendipity['dbPrefix']}authors WHERE username = '". serendipity_db_escape_string($author) ."' LIMIT 1", true, 'assoc');
             if (!is_array($result)) {
-                $data = array('right_publish' => 1,
-                              'realname'      => $author,
-                              'username'      => $author,
-                              'userlevel'     => 0,
-                              'password'      => md5($defaultpass)); // MD5 compatible
+                $data = array('right_publish'   => 1,
+                              'realname'        => $author,
+                              'username'        => $author,
+                              'userlevel'       => 0,
+                              'mail_comments'   => 0,
+                              'mail_trackbacks' => 0,
+                              'hashtype'        => 2,
+                              'password'        => serendipity_hash($defaultpass));
                 serendipity_db_insert('authors', $data);
                 $authorid = serendipity_db_insert_id('authors', 'authorid');
             } else {
@@ -197,10 +200,10 @@ ENDPOST
 
             echo "<span class=\"block_level\">Entry insert...</span>";
             if (!is_int($id = serendipity_updertEntry($entry))) {
-                echo "<span class='msg_error'>Inserting entry failed.</span>";
+                echo '<span class="msg_error">Inserting entry failed.</span>';
                 return $id;
             } else {
-                echo "<span class='msg_notice'>Entry $id inserted.</span>";
+                echo "<span class=\"msg_notice\">Entry $id inserted.</span>";
             }
 
             # iterate through all comments
@@ -229,26 +232,26 @@ ENDPOST
                     $cbody = trim($cbody[1]);
                 }
 
-                $icomment = array('entry_id'   => $id,
-                                  'parent_id'  => 0,
-                                  'timestamp'  => $cdate,
-                                  'author'     => $cauthor,
-                                  'email'      => '',
-                                  'url'        => $curl,
-                                  'ip'         => '',
-                                  'status'     => 'approved',
-                                  'body'       => $cbody,
-                                  'subscribed' => 'false',
-                                  'type'       => 'NORMAL');
+                $icomment = array('entry_id' => $id,
+                                 'parent_id' => 0,
+                                 'timestamp' => $cdate,
+                                 'author'    => $cauthor,
+                                 'email'     => '',
+                                 'url'       => $curl,
+                                 'ip'        => '',
+                                 'status'    => 'approved',
+                                 'body'      => $cbody,
+                                 'subscribed'=> 'false',
+                                 'type'      => 'NORMAL');
 
                 serendipity_db_insert('comments', $icomment);
             }
 
             serendipity_db_query("UPDATE ". $serendipity['dbPrefix'] ."entries SET comments = ". $c ." WHERE id = ". $id);
-            echo "<span class=\"block_level\">Comment count set to: ". $c ."</span>";
+            echo '<span class="block_level">Comment count set to: '. $c ."</span>\n";
         }
 
-        echo "<span class=\"msg_success\">Import finished.</span>";
+        echo '<span class="msg_success">Import finished.</span>';
 
         return true;
     }
