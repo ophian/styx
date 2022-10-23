@@ -26,7 +26,8 @@ Version 3.10-DEV ()
         - pushed a (rather vague !) porting upgrade to the b2Evolution importer
         - Fixup MoveableType for End-Of-Life, but keep as abandoned
         - removed old_blogger importer, since passed away long ago (Further on,
-          use and improve the blogger API template)
+          use and improve the Blogger API template)
+        - pushed a porting upgrade to the Blogger API importer
 
     [*] Fix an old copy&paste bug with adding space to key entry_id name
 
