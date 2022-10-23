@@ -8,7 +8,7 @@ Version 3.10-DEV ()
     hashing since Serendipity 1.5 (and so forth) making it incompatible with
     WP password storage. Now, NEW passwords are set for imported WP users.
     [*] Subject to reservation
-        - in addition for wordpress-pg (PostgreSQL)
+        - in addition for wordpress-pg (WordPress-PostgreSQL)
         - pushed an upgrade to the TextPattern CMS importer
         - removed the sunlog importer, since passed away long ago
         - pushed an upgrade to the SMF (Simple Machine Forum) importer
