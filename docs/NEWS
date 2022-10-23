@@ -22,6 +22,7 @@ Version 3.10-DEV ()
         - removed lifetype importer, since passed away long ago
         - pushed an upgrade to the Geeklog importer
         - removed bmachine (boastMachine) importer, since passed away long ago
+        - removed bblog importer, since passed away long ago
 
   * Improve and fix generic importer class for PHP 8.1 and silenced (known to
     fail) native (MYSQLi) database query checkups.
