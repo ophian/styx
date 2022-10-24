@@ -13,8 +13,7 @@ Version 3.10-DEV ()
         - removed the sunlog importer, since passed away long ago
         - pushed a porting upgrade to the SMF (Simple Machine Forum) importer
         - removed the pMachine Pro importer, since passed away long ago (its
-          recommended successor ExpressionEngine is way to different for porting
-          the template)
+          successor ExpressionEngine is way to different for porting the template)
         - removed phpNuke importer, since passed away long ago (there actually
           were some successors like OpenPHPNuke, PragmaMx, Xoops and Zikula, but
           you better start a new importer template for those)
@@ -24,11 +23,11 @@ Version 3.10-DEV ()
         - removed bmachine (boastMachine) importer, since passed away long ago
         - removed bblog importer, since passed away long ago
         - pushed a (rather vague !) porting upgrade to the b2Evolution importer
-        - Fixup MoveableType for End-Of-Life, but keep as abandoned
+        - fixup MoveableType for End-Of-Life, but keep as abandoned
         - removed old_blogger importer, since passed away long ago (Further on,
           use and improve the Blogger API template)
         - pushed a porting upgrade to the Blogger API importer
-        - Fixup LiveJournal for End-Of-Life, but keep as abandoned
+        - fixup LiveJournal for End-Of-Life, but keep as abandoned
         - pushed a porting upgrade to the Generic (WP) RSS importer
         - pushed a "shaky candidate" porting upgrade to the phpBB importer
 
