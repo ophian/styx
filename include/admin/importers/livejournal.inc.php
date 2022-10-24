@@ -12,6 +12,11 @@ class Serendipity_Import_LiveJournalXML extends Serendipity_Import
     var $inputFields = array();
     var $force_recode = false;
 
+    function getImportNotes()
+    {
+        return 'LiveJournal\'s parent company was sold to Six Apart in 2005, the owners of MovableType. Erstwhile having Millions of users in the "aughts / noughties", this went down the same way as MT and was later on sold to a Russian company. See this template as abandoned, but kept a little longer to see if someone catches up.';
+    }
+
     function __construct($data)
     {
         global $serendipity;
@@ -261,6 +266,7 @@ class Serendipity_Import_LiveJournalXML extends Serendipity_Import
                     case 'event':
                         $new_entry['body']      = $entrydata['value'];
                         break;
+
                     case 'comments':
                         $new_entry['comments'] = $this->gatherComments($entrydata);
                         break;
@@ -279,7 +285,7 @@ class Serendipity_Import_LiveJournalXML extends Serendipity_Import
                     $cid = serendipity_insertComment($id, $comment);
                     $cid_map[$comment['jtalkid']] = $cid;
                 }
-                echo '<span class="msg_notice">Inserted comments for entry #' . $id . '</span>';
+                echo '<span class="msg_notice">Inserted comments for entry #' . $id . "</span>\n";
             }
 
             if (function_exists('ob_flush')) {
