@@ -113,12 +113,12 @@ class Serendipity_Import_phpbb extends Serendipity_Import
 
         $res = @$this->nativeQuery("SELECT
                                      user_id       AS ID,
-                                     group_id      AS user_level,
+                                     user_type     AS user_level,
                                      username      AS user_login,
                                      user_email    AS user_email,
-                                     user_website  AS user_url
+                                     user_website  AS user_url,
                                FROM {$this->data['prefix']}users
-                              WHERE user_type = 1", $phbbdb);
+                              WHERE user_type = 0 OR user_type = 3", $phbbdb); // 0 is for normal users, 1 is for deactivated/inactive users, 2 is for bots and anonymous user, 3 is founder user
         if (!$res) {
             return sprintf(COULDNT_SELECT_USER_INFO, mysqli_error($phbbdb));
         }
