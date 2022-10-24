@@ -4,7 +4,7 @@
 
 /*****************************************************************
  *                MovableType Importer, by Evan Nemerson         *
- *  This project as OS (OpenSource) died away January 2011 (as Melody fork) and April 2015 (last available OS of MovableType).
+ *  This project as OS (OpenSource) died away January 2011 (as Melody fork) and April 2015 (last available OS version of MovableType).
  *  Six-Apart changed the licensing of the software several times. MovableType evolved from a free software to a
  *  portfolio of different products with graduated license fees. A large part of the previously enthusiastic users
  *  turned away and quickly rallied around b2/cafelog, which was revived as Wordpress and has now become the dominant platform.
@@ -82,7 +82,7 @@ class Serendipity_Import_MovableType extends Serendipity_Import
 
     function getImportNotes()
     {
-        $head = '<strong>MovableType</strong> This project as OS (OpenSource) died away January 2011 (as Melody fork) and April 2015 (last available OS of MovableType). Six-Apart changed the licensing of the software several times. MovableType evolved from a free software to a portfolio of different products with graduated license fees. A large part of the previously enthusiastic users turned away and quickly rallied around b2/cafelog, which was revived as Wordpress and has now become the dominant platform. Since we already have a Dominion (<em>an interstellar superpower from the Gamma Quadrant of the Milky Way</em>) Importer ;-) MT is abandoned. Better start from scratch or take this template as a base if you need an importer for a commercial MT version 7+.';
+        $head = '<strong>MovableType</strong> This project as OS (OpenSource) died away January 2011 (as Melody fork) and April 2015 (last available OS version of MovableType). Six-Apart changed the licensing of the software several times. MovableType evolved from a free software to a portfolio of different products with graduated license fees. A large part of the previously enthusiastic users turned away and quickly rallied around b2/cafelog, which was revived as Wordpress and has now become the dominant platform. Since we already have a Dominion (<em>an interstellar superpower from the Gamma Quadrant of the Milky Way</em>) Importer ;-) MT is abandoned. Better start from scratch or take this template as a base if you need an importer for a commercial MT version 7+.';
         $notes = array();
         if (!class_exists('serendipity_event_nl2br')) {
             $notes[] = sprintf(IMPORTER_MT_WARN_PLUGIN, 'serendipity_event_nl2br');
