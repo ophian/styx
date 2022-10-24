@@ -4,14 +4,20 @@
 
 /*****************************************************************
  *  phpbb  Importer,     by Garvin Hicking *
+ *  Tried to up-port to phpBB 3.x .... Not easy! Be really careful!
  * ****************************************************************/
 
 class Serendipity_Import_phpbb extends Serendipity_Import
 {
-    var $info        = array('software' => 'phpBB');
+    var $info        = array('software' => 'phpBB 3.x');
     var $data        = array();
     var $inputFields = array();
     var $categories  = array();
+
+    function getImportNotes()
+    {
+        return 'This Importer was originally developed with phpBB in an early 2.0.x state and some early Serendipity version too, loong ago. As one can imagine, things have changed over time. This new lookup requires at least phpBB 3..x up to current v3.3.8 (<em>Dunno!</em>) now and a running Styx instance up from latest v.3 Series. If you wish to give it a try, backup both database implementations and better do this in a testing environment first to see if you catch some breaking flaws. This new lookup has just been ported (<em>with shaky results</em>), and NOT been tested! It does not capture and import an exact copy, just some main things like from users, posts/topics and forums/categories, but NOT any other stored configurations, files, etc). This and the relations finetuning is "handmade" User stuff - left up to YOU - later on! Now go and ride this horse. File an GitHub <a href="https://github.com/ophian/styx/issues" target="_blank">issue</a> or start a <a href="https://github.com/ophian/styx/discussions" target="_blank">discussion</a> for help!';
+    }
 
     function __construct($data)
     {
@@ -81,6 +87,8 @@ class Serendipity_Import_phpbb extends Serendipity_Import
         $this->data['prefix'] = serendipity_db_escape_string($this->data['prefix']);
         $users = array();
         $entries = array();
+        $ul = array();
+        $ulist = array();
 
         if (!extension_loaded('mysqli')) {
             return MYSQL_REQUIRED;
@@ -101,14 +109,16 @@ class Serendipity_Import_phpbb extends Serendipity_Import
         }
 
         /* Users */
-        $res = @$this->nativeQuery("SELECT user_id AS ID,
+        foreach (serendipity_fetchUsers() AS $uname) $ul[] = $uname['username'];
+
+        $res = @$this->nativeQuery("SELECT
+                                     user_id       AS ID,
+                                     group_id      AS user_level,
                                      username      AS user_login,
-                                     user_password AS user_pass,
                                      user_email    AS user_email,
-                                     user_website  AS user_url,
-                                     user_level
+                                     user_website  AS user_url
                                FROM {$this->data['prefix']}users
-                              WHERE user_active = 1", $phbbdb);
+                              WHERE user_type = 1", $phbbdb);
         if (!$res) {
             return sprintf(COULDNT_SELECT_USER_INFO, mysqli_error($phbbdb));
         }
@@ -116,23 +126,38 @@ class Serendipity_Import_phpbb extends Serendipity_Import
         for ($x=0, $max_x = mysqli_num_rows($res); $x < $max_x; $x++) {
             $users[$x] = mysqli_fetch_assoc($res);
 
+            $npwd = serendipity_generate_password(20);
             $data = array('right_publish' => 1,
                           'realname'      => $users[$x]['user_login'],
+                          'username'      => in_array('pbb_' . $users[$x]['user_login'], $ul) ? 'pbb_' . $users[$x]['user_login'].'-'.random_int(0, 0x3fff) : (in_array($users[$x]['user_login'], $ul) ? 'pbb_' . $users[$x]['user_login'] : $users[$x]['user_login']),
                           'username'      => $users[$x]['user_login'],
-                          'email'         => $users[$x]['user_email'],
+                          'email'         => $users[$x]['user_email'] ?? '',
                           'userlevel'     => ($users[$x]['user_level'] == 0 ? USERLEVEL_EDITOR : USERLEVEL_ADMIN),
-                          'password'      => $users[$x]['user_pass']); // MD5 compatible
+                          'password'      => serendipity_hash($npwd)); // Create a new Styx password and keep it in an array to inform imported users later per email (if available)
 
             if ($serendipity['serendipityUserlevel'] < $data['userlevel']) {
                 $data['userlevel'] = $serendipity['serendipityUserlevel'];
             }
+            $data['mail_comments'] = 0;
+            $data['mail_trackbacks'] = 0;
+            $data['hashtype'] = 2;
 
-            serendipity_db_insert('authors', $this->strtrRecursive($data));
-            echo mysqli_error();
+            $ulist[$x] = $udata = $this->strtrRecursive($data);
+            serendipity_db_insert('authors', $udata);
+            #echo mysqli_error();
             $users[$x]['authorid'] = serendipity_db_insert_id('authors', 'authorid');
+
+            // Add to mentoring
+            $ulist[$x] = array_merge($ulist[$x], [ 'authorid' => $users[$x]['authorid'], 'new_plain_password' => $npwd ]);
+
+            echo IMPORTER_USER_IMPORT_SUCCESS_TITLE;
+            echo sprintf(IMPORTER_USER_IMPORT_SUCCESS_MSG, 'pbb');
+            echo '<div class="import_full">';
+            echo '<pre><code class="language-php">$added_users = ' . var_export($ulist, 1) . '</code></pre>';
+            echo '</div>';
         }
 
-        /* Categories */
+        /* Categories OLD OLD OLD - Remove this after further tests! Please! */
         $res = @$this->nativeQuery("SELECT cat_id AS cat_ID,
                                     cat_title AS cat_name
                                FROM {$this->data['prefix']}categories", $phbbdb);
@@ -145,10 +170,10 @@ class Serendipity_Import_phpbb extends Serendipity_Import
             $parent_categories[] = mysqli_fetch_assoc($res);
         }
 
-        for ($x=0, $max_x = sizeof($parent_categories) ; $x < $max_x ; $x++ ) {
+        for ($x=0, $max_x = sizeof($parent_categories); $x < $max_x; $x++) {
             $cat = array('category_name'        => $parent_categories[$x]['cat_name'],
                          'category_description' => '',
-                         'parentid'             => 0, // <---
+                         'parentid'             => 0,
                          'category_left'        => 0,
                          'category_right'       => 0);
 
@@ -157,11 +182,12 @@ class Serendipity_Import_phpbb extends Serendipity_Import
         }
 
         /* Categories */
-        $res = @$this->nativeQuery("SELECT forum_id AS cat_ID,
-                                    cat_id   AS parent_cat_id,
+        $res = @$this->nativeQuery("SELECT
+                                    forum_id   AS cat_ID,
+                                    parent_id  AS parent_cat_id,
                                     forum_name AS cat_name,
                                     forum_desc AS category_description
-                               FROM {$this->data['prefix']}forums ORDER BY forum_order;", $phbbdb);
+                               FROM {$this->data['prefix']}forums ORDER BY forum_last_post_id;", $phbbdb); // was ORDER BY forum_order in the old days. Is that the right up-port replacement?
         if (!$res) {
             return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($phbbdb));
         }
@@ -172,7 +198,7 @@ class Serendipity_Import_phpbb extends Serendipity_Import
         }
 
         // Insert all categories as top level (we need to know everyone's ID before we can represent the hierarchy).
-        for ($x=0, $max_x = sizeof($categories) ; $x < $max_x ; $x++ ) {
+        for ($x=0, $max_x = sizeof($categories); $x < $max_x; $x++) {
             $pcatid = 0;
             foreach($parent_categories AS $pcat) {
                 if ($pcat['cat_ID'] == $categories[$x]['parent_cat_id']) {
@@ -183,7 +209,7 @@ class Serendipity_Import_phpbb extends Serendipity_Import
 
             $cat = array('category_name'        => $categories[$x]['cat_name'],
                          'category_description' => $categories[$x]['category_description'],
-                         'parentid'             => $pcatid, // <---
+                         'parentid'             => $pcatid,
                          'category_left'        => 0,
                          'category_right'       => 0);
 
@@ -206,10 +232,10 @@ class Serendipity_Import_phpbb extends Serendipity_Import
                                FROM {$this->data['prefix']}topics AS t
                     LEFT OUTER JOIN {$this->data['prefix']}posts  AS p
                                  ON t.topic_id = p.topic_id
-                    LEFT OUTER JOIN {$this->data['prefix']}posts_text  AS pt
+                    LEFT OUTER JOIN {$this->data['prefix']}posts  AS pt
                                  ON pt.post_id = p.post_id
                            GROUP BY p.topic_id
-                           ", $phbbdb);
+                           ", $phbbdb); // pt. was posts_text table which now does not exists any more. So is this right with a doubled outer join on self?
         if (!$res) {
             return sprintf(COULDNT_SELECT_ENTRY_INFO, mysqli_error($phbbdb));
         }
@@ -262,10 +288,10 @@ class Serendipity_Import_phpbb extends Serendipity_Import
                                    FROM {$this->data['prefix']}topics AS t
                         LEFT OUTER JOIN {$this->data['prefix']}posts  AS p
                                      ON t.topic_id = p.topic_id
-                        LEFT OUTER JOIN {$this->data['prefix']}posts_text  AS pt
+                        LEFT OUTER JOIN {$this->data['prefix']}posts  AS pt
                                      ON pt.post_id = p.post_id
                                   WHERE p.topic_id = {$topic_id}
-                               ", $phbbdb);
+                               ", $phbbdb); // pt. was posts_text table which now does not exists any more. So is this right with a doubled outer join on self?
             if (!$c_res) {
                 return sprintf(COULDNT_SELECT_COMMENT_INFO, mysqli_error($phbbdb));
             }
