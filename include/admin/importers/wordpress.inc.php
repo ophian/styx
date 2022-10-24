@@ -168,7 +168,7 @@ class Serendipity_Import_WordPress extends Serendipity_Import
                 $data['right_publish'] = 1; // simplified to publish true, since real user level metadata roles live in wp_usermeta (see upper ACL note) and the wp_users.user_level field does not correspond (and maybe never did, as used for something different)
                 $data['hashtype'] = 2;
 
-                $ulist[$x][] = $udata = $this->strtrRecursive($data);
+                $ulist[$x] = $udata = $this->strtrRecursive($data);
                 serendipity_db_insert('authors', $udata);
                 $users[$x]['authorid'] = serendipity_db_insert_id('authors', 'authorid');
 
