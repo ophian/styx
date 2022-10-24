@@ -109,6 +109,8 @@ class Serendipity_Import_geeklog extends Serendipity_Import
         }
 
         /* Users */
+        foreach (serendipity_fetchUsers() AS $uname) $ul[] = $uname['username'];
+
         $res = @$this->nativeQuery("SELECT uid AS ID,
                                     username   AS user_login,
                                     fullname   AS user_realname,
@@ -145,8 +147,6 @@ class Serendipity_Import_geeklog extends Serendipity_Import
 
             // Add to mentoring
             $ulist[$x] = array_merge($ulist[$x], [ 'authorid' => $users[$x]['authorid'], 'new_plain_password' => $npwd ]);
-
-            if ($debug) echo '<span class="msg_success">Imported users.</span>';
 
             echo IMPORTER_USER_IMPORT_SUCCESS_TITLE;
             echo sprintf(IMPORTER_USER_IMPORT_SUCCESS_MSG, 'gkl');
