@@ -174,6 +174,7 @@ class Serendipity_Import_Generic extends Serendipity_Import
                 $s9y_users[$v['realname']] = $v;
             }
         }
+        $ulist = array();
 
         /* ************* CATEGORIES **********************/
         $_s9y_cat = serendipity_fetchCategories('all');
@@ -254,9 +255,14 @@ class Serendipity_Import_Generic extends Serendipity_Import
                 if ($dry_run) {
                     $s9y_users[$wp_user]['authorid'] = time();
                 } else {
-                    $s9y_users[$wp_user]['authorid'] = serendipity_addAuthor($wp_user, md5(time()), $wp_user, '', USERLEVEL_EDITOR);
+                    $npwd = serendipity_generate_password(20);
+                    $s9y_users[$wp_user]['authorid'] = serendipity_addAuthor($wp_user, $npwd, $wp_user, '', USERLEVEL_EDITOR);
                     serendipity_set_config_var('enableBackendPopupGranular', 'categories,tags,links', $s9y_users[$wp_user]['authorid']);
                 }
+
+                // Add to mentoring
+                $ulist[$idx] = [ 'username' => $wp_user, 'authorid' => $s9y_users[$wp_user]['authorid'], 'email' => '', 'user_level' => USERLEVEL_EDITOR, 'new_plain_password' => $npwd ];
+
                 echo '<span class="block_level">';
                 printf(CREATE_AUTHOR, serendipity_specialchars($wp_user));
                 echo "</span>";
@@ -316,6 +322,15 @@ class Serendipity_Import_Generic extends Serendipity_Import
 
             echo '<span class="msg_notice">Entry \'' . serendipity_specialchars($entry['title']) . "' ($c_i comments) imported.</span>\n";
         }
+
+        if (!empty($ulist)) {
+            echo IMPORTER_USER_IMPORT_SUCCESS_TITLE;
+            echo sprintf(IMPORTER_USER_IMPORT_SUCCESS_MSG, 'wpg');
+            echo '<div class="import_full">';
+            echo '<pre><code class="language-php">$added_users = ' . var_export($ulist, 1) . '</code></pre>';
+            echo '</div>';
+        }
+
         return true;
     }
 
