@@ -29,6 +29,7 @@ Version 3.10-DEV ()
           use and improve the Blogger API template)
         - pushed a porting upgrade to the Blogger API importer
         - Fixup LiveJournal for End-Of-Life, but keep as abandoned
+        - pushed a porting upgrade to the Generic (WP) RSS importer
 
     [*] Fix an old copy&paste bug with adding space to key entry_id name
 
