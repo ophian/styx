@@ -30,6 +30,7 @@ Version 3.10-DEV ()
         - pushed a porting upgrade to the Blogger API importer
         - Fixup LiveJournal for End-Of-Life, but keep as abandoned
         - pushed a porting upgrade to the Generic (WP) RSS importer
+        - pushed a "shaky candidate" porting upgrade to the phpBB importer
 
     [*] Fix an old copy&paste bug with adding space to key entry_id name
 
