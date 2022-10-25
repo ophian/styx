@@ -30,6 +30,7 @@ Version 3.10-DEV ()
         - fixup LiveJournal for End-Of-Life, but keep as abandoned
         - pushed a porting upgrade to the Generic (WP) RSS importer
         - pushed a "shaky candidate" porting upgrade to the phpBB importer
+        - removed pivot importer, since it had its time, long enough
 
     [*] Fix an old copy&paste bug with adding space to key entry_id name
 
