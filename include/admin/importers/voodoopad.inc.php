@@ -5,6 +5,7 @@
 /*****************************************************************
  *                VoodooPad Importer, by Tim Putnam
  *               http://deepbluesea.fracsoft.com  *
+ *   Declare EOL. Is/was this Apple iOS and macOS VoodooPad Primate Labs' personal wiki application?
  *****************************************************************/
 
 // These are used by the XML parser
