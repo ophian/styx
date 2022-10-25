@@ -33,9 +33,9 @@ Version 3.10-DEV ()
         - removed pivot importer, since it had its time, long enough
         - removed voodoopad importer, since it had its time, long enough
 
-    Last state of removed importer files, if case anyone needs them as a copy
-    for future(s).
-    Recommended for lookups are those files that still persist supported.
+    Last state of removed importer files, in case anyone needs them as a copy
+    for future(s). Otherwise, recommended for lookups are those files that still
+    persist supported in Styx.
     In any case, please NOTE, additionally added state of status:
 
         [-] marked files have no user migrations!
