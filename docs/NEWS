@@ -31,6 +31,7 @@ Version 3.10-DEV ()
         - pushed a porting upgrade to the Generic (WP) RSS importer
         - pushed a "shaky candidate" porting upgrade to the phpBB importer
         - removed pivot importer, since it had its time, long enough
+        - removed voodoopad importer, since it had its time, long enough
 
     [*] Fix an old copy&paste bug with adding space to key entry_id name
 
