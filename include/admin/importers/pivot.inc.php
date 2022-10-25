@@ -4,6 +4,9 @@
 
 # Loosely based on the Importer by Stefan Koopmanschap for TXP:
 # http://www.leftontheweb.com/pivot_to_textpattern.phps
+/*
+    Declare EOL. Is/was this MS PivotTable?
+*/
 
 class Serendipity_Import_Pivot extends Serendipity_Import
 {
