@@ -4,48 +4,54 @@ Version 3.10-DEV ()
 
   * Fix & finish import class method getCharsets() to return sorted as advised
 
-  * Refactor WordPress importer  [*]..(testing) in special for changed password
+  * Refactor WordPress importers [+*](untested) in special for changed password
     hashing since Serendipity 1.5 (and so forth) making it incompatible with
     WP password storage. Now, NEW passwords are set for imported WP users.
     [*] Subject to reservation
-        - in addition for wordpress-pg (WordPress-PostgreSQL)
-        - pushed a porting upgrade to the TextPattern CMS importer
-        - removed the sunlog importer, since passed away long ago
-        - pushed a porting upgrade to the SMF (Simple Machine Forum) importer
-        - removed the pMachine Pro importer, since passed away long ago (its
-          successor ExpressionEngine is way to different for porting the template)
-        - removed phpNuke importer, since passed away long ago (there actually
-          were some successors like OpenPHPNuke, PragmaMx, Xoops and Zikula, but
-          you better start a new importer template for those)
-        - removed nucleus importer, since passed away long ago
-        - removed lifetype importer, since passed away long ago
-        - pushed a porting upgrade to the Geeklog importer
-        - removed bmachine (boastMachine) importer, since passed away long ago
-        - removed bblog importer, since passed away long ago
-        - pushed a (rather vague !) porting upgrade to the b2Evolution importer
-        - fixup MoveableType for End-Of-Life, but keep as abandoned
-        - removed old_blogger importer, since passed away long ago (Further on,
-          use and improve the Blogger API template)
-        - pushed a porting upgrade to the Blogger API importer
-        - fixup LiveJournal for End-Of-Life, but keep as abandoned
-        - pushed a porting upgrade to the Generic (WP) RSS importer
-        - pushed a "shaky candidate" porting upgrade to the phpBB importer
-        - removed pivot importer, since it had its time, long enough
-        - removed voodoopad importer, since it had its time, long enough
+        - Pushed a porting upgrade to
+                - TextPattern CMS
+                - SMF (Simple Machine Forum)
+                - Geeklog
+                - b2Evolution ("rather vague !")
+                - Blogger API
+                - Generic (WP) RSS
+                - phpBB ("shaky candidate !")
+           importers.
+
+         - Fixing up as End-Of-Life deprecation updates
+                - LiveJournal
+                - MoveableType
+           kept a little longer, to see if they can be used for a fresh version
+           upgrade. In the old days both had millions of users each, but their
+           companies were sold and monetized and then moved to products with
+           graduated license fees.
+
+        - Removed several importers for ORIGINS given up long ago:
+            - bblog, - bmachine (boastMachine), - lifetype, - nucleus, - sunlog.
+
+        - Removed several importers actually having successors, but were found
+          to heavy for a port:
+                - nuke [ phpNuke ] (OpenPHPNuke, PragmaMx, Xoops and Zikula)
+                - old_blogger (given up for the Blogger API template)
+                - pmachine [ pMachine Pro] (ExpressionEngine).
+
+        - Removed several importers which state of origin was unclear and in
+          question or whose "aged" necessities seemed too personal only:
+            - pivot [ from PivotTable by Microsoft ? ] and
+            - voodoopad [Apple owned VoodooPad from Primate Labs. A personal
+            wiki application ? ]
 
     Last state of removed importer files, in case anyone needs them as a copy
     for future(s). Otherwise, recommended for lookups are those files that still
     persist supported in Styx.
     In any case, please NOTE, additionally added state of status:
 
-        [-] marked files have no user migrations!
-        [x] marked are those, which import user and passwords like in the old
-            days - wrong for today!
-        [+] the old_blogger.inc file has a current user migration already set!
+        [-] marked files have no users migration!
+        [x] marked are those, which user import section is still wrong for today!
+        [+] the old_blogger.inc file that has a current user migration already set!
 
     https://github.com/ophian/styx/blob/0526213577536668365486c9b40e15b4a5f08c47/include/admin/importers/voodoopad.inc.php  [-]
     https://github.com/ophian/styx/blob/e836cb711e7839861e1a9f146ac0e88ae18492e2/include/admin/importers/pivot.inc.php  [-]
-    https://github.com/ophian/styx/blob/2d448d6aef4e190fd12bc9e98f61047c474b5b04/include/admin/importers/old_blogger.inc.php [+]
     https://github.com/ophian/styx/blob/c17fde42a4c58163069956efda983a6974f280a0/include/admin/importers/bblog.inc.php [x]
     https://github.com/ophian/styx/blob/ed14b561271b0d11a9fa89dcb92ad680a7be365c/include/admin/importers/bmachine.inc.php [x]
     https://github.com/ophian/styx/blob/cfac8737887a5b543751fbef95ea7580ab5505f5/include/admin/importers/lifetype.inc.php [x]
@@ -53,6 +59,7 @@ Version 3.10-DEV ()
     https://github.com/ophian/styx/blob/44f397ef6da13fe68f58247a51daeec522d0c14a/include/admin/importers/nuke.inc.php [x]
     https://github.com/ophian/styx/blob/1f4226c23140af2fbdac602d5347cd304e2dc814/include/admin/importers/pmachine.inc.php [x]
     https://github.com/ophian/styx/blob/16a12e7e502a191ea01298ff5344fe946998e7eb/include/admin/importers/sunlog.inc.php [x]
+    https://github.com/ophian/styx/blob/2d448d6aef4e190fd12bc9e98f61047c474b5b04/include/admin/importers/old_blogger.inc.php [+]
 
     [*] Fix an old copy&paste bug with adding space to key entry_id name
 
@@ -746,7 +753,7 @@ Version 3.6.0 (November 4th 2021)
     groundwork ready for extreme testers and other Developers. See setting
     $serendipity['useAvifFormat'] = true note in serendipity_config.inc.php
     file at ~ Line 520. So by default enabled AVIF support is going to come
-    with next Styx 3.7 - and this probably already this year. ;-)
+    with next Styx 3.7 - and this probably already this year. ;-OpenPHPNuke, PragmaMx, Xoops and Zikula)
 
     Also see some interesting external comparison pages for the new format:
     << https://www.gumlet.com/learn/avif-for-image-coding-everything-you-need-to-know/ >>
