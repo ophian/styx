@@ -50,16 +50,16 @@ Version 3.10-DEV ()
         [x] marked are those, which user import section is still wrong for today!
         [+] the old_blogger.inc file that has a current user migration already set!
 
-    https://github.com/ophian/styx/blob/0526213577536668365486c9b40e15b4a5f08c47/include/admin/importers/voodoopad.inc.php  [-]
-    https://github.com/ophian/styx/blob/e836cb711e7839861e1a9f146ac0e88ae18492e2/include/admin/importers/pivot.inc.php  [-]
-    https://github.com/ophian/styx/blob/c17fde42a4c58163069956efda983a6974f280a0/include/admin/importers/bblog.inc.php [x]
-    https://github.com/ophian/styx/blob/ed14b561271b0d11a9fa89dcb92ad680a7be365c/include/admin/importers/bmachine.inc.php [x]
-    https://github.com/ophian/styx/blob/cfac8737887a5b543751fbef95ea7580ab5505f5/include/admin/importers/lifetype.inc.php [x]
-    https://github.com/ophian/styx/blob/17768010f7919fc737a7a0cecf85a4647f04c341/include/admin/importers/nucleus.inc.php [x]
-    https://github.com/ophian/styx/blob/44f397ef6da13fe68f58247a51daeec522d0c14a/include/admin/importers/nuke.inc.php [x]
-    https://github.com/ophian/styx/blob/1f4226c23140af2fbdac602d5347cd304e2dc814/include/admin/importers/pmachine.inc.php [x]
-    https://github.com/ophian/styx/blob/16a12e7e502a191ea01298ff5344fe946998e7eb/include/admin/importers/sunlog.inc.php [x]
-    https://github.com/ophian/styx/blob/2d448d6aef4e190fd12bc9e98f61047c474b5b04/include/admin/importers/old_blogger.inc.php [+]
+    [-]  https://github.com/ophian/styx/blob/0526213577536668365486c9b40e15b4a5f08c47/include/admin/importers/voodoopad.inc.php
+    [-]  https://github.com/ophian/styx/blob/e836cb711e7839861e1a9f146ac0e88ae18492e2/include/admin/importers/pivot.inc.php
+    [x]  https://github.com/ophian/styx/blob/c17fde42a4c58163069956efda983a6974f280a0/include/admin/importers/bblog.inc.php
+    [x]  https://github.com/ophian/styx/blob/ed14b561271b0d11a9fa89dcb92ad680a7be365c/include/admin/importers/bmachine.inc.php
+    [x]  https://github.com/ophian/styx/blob/cfac8737887a5b543751fbef95ea7580ab5505f5/include/admin/importers/lifetype.inc.php
+    [x]  https://github.com/ophian/styx/blob/17768010f7919fc737a7a0cecf85a4647f04c341/include/admin/importers/nucleus.inc.php
+    [x]  https://github.com/ophian/styx/blob/44f397ef6da13fe68f58247a51daeec522d0c14a/include/admin/importers/nuke.inc.php
+    [x]  https://github.com/ophian/styx/blob/1f4226c23140af2fbdac602d5347cd304e2dc814/include/admin/importers/pmachine.inc.php
+    [x]  https://github.com/ophian/styx/blob/16a12e7e502a191ea01298ff5344fe946998e7eb/include/admin/importers/sunlog.inc.php
+    [+]  https://github.com/ophian/styx/blob/2d448d6aef4e190fd12bc9e98f61047c474b5b04/include/admin/importers/old_blogger.inc.php
 
     [*] Fix an old copy&paste bug with adding space to key entry_id name
 
