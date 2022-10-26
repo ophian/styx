@@ -9,13 +9,13 @@ Version 3.10-DEV ()
     storage. Now, NEW passwords are set for imported WP users.
     [*] Subject to reservation
         - Pushed a porting upgrade to
-                - TextPattern CMS
-                - SMF (Simple Machine Forum)
-                - Geeklog
                 - b2Evolution ("rather vague !")
-                - Blogger API (giving up old_blogger)
-                - Generic (WP) RSS
                 - phpBB ("shaky candidate !")
+                - Blogger API (giving up old_blogger)
+                - Geeklog
+                - Generic (WP) RSS
+                - SMF (Simple Machine Forum)
+                - TextPattern CMS
            importers.
 
          - Fixing up as End-Of-Life deprecation updates
