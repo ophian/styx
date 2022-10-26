@@ -512,9 +512,9 @@ $dead_files_400 = array(
     'include/admin/importers/nucleus.inc.php',
     'include/admin/importers/nuke.inc.php',
     'include/admin/importers/old_blogger.inc.php',
+    'include/admin/importers/pivot.inc.php',
     'include/admin/importers/pmachine.inc.php',
     'include/admin/importers/sunlog.inc.php',
-    'include/admin/importers/pivot.inc.php',
     'include/admin/importers/voodoopad.inc.php',
     'themes/2k11/oldie.css',
     'themes/next/oldie.css'
