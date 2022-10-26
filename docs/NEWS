@@ -13,7 +13,7 @@ Version 3.10-DEV ()
                 - SMF (Simple Machine Forum)
                 - Geeklog
                 - b2Evolution ("rather vague !")
-                - Blogger API
+                - Blogger API (giving up old_blogger)
                 - Generic (WP) RSS
                 - phpBB ("shaky candidate !")
            importers.
@@ -24,26 +24,26 @@ Version 3.10-DEV ()
            kept a little longer, to see if they can be used for a fresh version
            upgrade. In the old days both had millions of users each, but their
            companies were sold and monetized and then moved to products with
-           graduated license fees.
+           graduated license fees, with loss of their market relevance.
 
-        - Removed several importers for ORIGINS given up long ago:
-            - bblog, - bmachine (boastMachine), - lifetype, - nucleus, - sunlog.
+        - Removed several importers whose ORIGINS were given up long ago:
+                - bblog, - bmachine (boastMachine),
+                - lifetype, - nucleus, - sunlog.
 
-        - Removed several importers actually having successors, but were found
-          to heavy for a port:
+        - Removed importers actually having successors, but were found too heavy
+          for an untested port:
                 - nuke [ phpNuke ] (OpenPHPNuke, PragmaMx, Xoops and Zikula)
-                - old_blogger (given up for the Blogger API template)
                 - pmachine [ pMachine Pro] (ExpressionEngine).
 
-        - Removed several importers which state of origin was unclear and in
-          question or whose "aged" necessities seemed too personal only:
-            - pivot [ from PivotTable by Microsoft ? ] and
-            - voodoopad [Apple owned VoodooPad from Primate Labs. A personal
-            wiki application ? ]
+        - Removed importers which state of ORIGIN was unclear and in question
+          or whose "aged" necessities seemed too personal only for today:
+            - pivot [ from PivotTable by Microsoft ? ]
+            - voodoopad [VoodooPad from Primate Labs, owned by Apple.
+                         A personal wiki application ? ]
 
     Last state of removed importer files, in case anyone needs them as a copy
     for future(s). Otherwise, recommended for lookups are those files that still
-    persist supported in Styx.
+    persist supported in Serendipity Styx.
     In any case, please NOTE, additionally added state of status:
 
         [-] marked files have no users migration!
