@@ -40,7 +40,7 @@ class Serendipity_Import_Blogger extends Serendipity_Import
     {
         if (empty($_REQUEST['token'])) {
             $msg = 'In order to import your blog on Blogger, Serendipity needs to be able to access it via Google\'s Blogger Data APIs.';
-            $msg .= 'Login to your Google/Blogger account and then click the link below.';
+            $msg .= ' Login to your Google/Blogger account and then click the link below. <strong>ADDITIONAL NOTE</strong>, this still is the old blogger API v1 (and deprecated set) AuthSub proxy authentication link method. For Blogger API v2 or v3 you might need something different !';
             $msg .= '<a class="block_level standalone" href="https://www.google.com/accounts/AuthSubRequest?scope=http%3A%2F%2Fwww.blogger.com%2Ffeeds%2F&session=1&secure=0&next='. urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']) .'">Go to Google to grant access</a>';
             return $msg;
         } else {
