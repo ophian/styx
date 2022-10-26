@@ -4,9 +4,9 @@ Version 3.10-DEV ()
 
   * Fix & finish import class method getCharsets() to return sorted as advised
 
-  * Refactor WordPress importers [+*](untested) in special for changed password
-    hashing since Serendipity 1.5 (and so forth) making it incompatible with
-    WP password storage. Now, NEW passwords are set for imported WP users.
+  * Refactor WordPress importers [*] in special for the changed password hashing
+    since Serendipity 1.5 (and so forth) making it incompatible with WP password
+    storage. Now, NEW passwords are set for imported WP users.
     [*] Subject to reservation
         - Pushed a porting upgrade to
                 - TextPattern CMS
@@ -38,7 +38,7 @@ Version 3.10-DEV ()
         - Removed importers which state of ORIGIN was unclear and in question
           or whose "aged" necessities seemed too personal only for today:
             - pivot [ from PivotTable by Microsoft ? ]
-            - voodoopad [VoodooPad from Primate Labs, owned by Apple.
+            - voodoopad [VoodooPad from Primate Labs, owned by Apple;
                          A personal wiki application ? ]
 
     Last state of removed importer files, in case anyone needs them as a copy
