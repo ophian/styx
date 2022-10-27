@@ -485,22 +485,12 @@ if (function_exists('date_default_timezone_get')) {
 
 /**
  * Serendipity htmlspecialchars mapper
- * In PHP 5.4, the default encoding of htmlspecialchar changed to UTF-8 and it will emit empty strings when given
- * native encoded strings containing umlauts. This wrapper should to be used in the core until PHP 5.6 fixes the bug.
+ * ... not yet using PHP 8.1.0 default flags ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401 - maybe with Styx 4.0
  */
 function serendipity_specialchars($string, $flags = null, $encoding = LANG_CHARSET, $double_encode = true) {
-    if ($flags == null) {
-        if (defined('ENT_HTML401')) {
-            // Added with PHP 5.4.x
-            $flags = ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE;
-        } else {
-            // For PHP < 5.4 compatibility
-            $flags = ENT_COMPAT;
-        }
-    }
-
+    $flags = ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE;
     if (!$encoding || $encoding == 'LANG_CHARSET') {
-        // if called before LANG_CHARSET is set, we need to set a fallback encoding to not throw a php warning that
+        // if called before LANG_CHARSET is set, we need to set a fallback encoding to not throw a PHP warning that
         // would kill s9y blogs sometimes (https://github.com/s9y/Serendipity/issues/236)
         $encoding = 'UTF-8';
     }
@@ -513,15 +503,7 @@ function serendipity_specialchars($string, $flags = null, $encoding = LANG_CHARS
  * @see serendipity_specialchars()
  */
 function serendipity_entities($string, $flags = null, $encoding = LANG_CHARSET, $double_encode = true) {
-    if ($flags == null) {
-        if (defined('ENT_HTML401')) {
-            // Added with PHP 5.4.x
-            $flags = ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE;
-        } else {
-            // For PHP < 5.4 compatibility
-            $flags = ENT_COMPAT;
-        }
-    }
+    $flags = ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE;
     if (!$encoding || $encoding == 'LANG_CHARSET') {
         $encoding = 'UTF-8';
     }
@@ -533,17 +515,7 @@ function serendipity_entities($string, $flags = null, $encoding = LANG_CHARSET, 
  * @see serendipity_specialchars()
  */
 function serendipity_entity_decode($string, $flags = null, $encoding = LANG_CHARSET) {
-    if ($flags == null) {
-        # NOTE: ENT_SUBSTITUTE does not exist for this function, and the documentation does not specify that it will
-        # ever echo empty strings on charset errors
-        if (defined('ENT_HTML401')) {
-            // Added with PHP 5.4.x
-            $flags = ENT_COMPAT | ENT_HTML401;
-        } else {
-            // For PHP < 5.4 compatibility
-            $flags = ENT_COMPAT;
-        }
-    }
+    $flags = ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE;
     if (!$encoding || $encoding == 'LANG_CHARSET') {
         $encoding = 'UTF-8';
     }
