@@ -2,6 +2,9 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Better sanitize comments array item parts to avoid double encoding of HTML
+    ENTITIES. Fixes wrong behaviour when stored as entities.
+
   * Fix & finish import class method getCharsets() to return sorted as advised
 
   * Refactor WordPress importers [*] in special for the changed password hashing
