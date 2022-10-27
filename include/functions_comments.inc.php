@@ -266,13 +266,14 @@ function serendipity_displayCommentForm($id, $url = '', $comments = NULL, $data 
             $comments = serendipity_fetchComments($id);
         }
     }
+    // In frontend and backend, using htmlspecialchars w/o double encode false will set valid html entities to encoded again, so escape once here and only!
     // Do not run on $comments(true) the Frontend entries case @L~1400
     if (is_array($comments)) {
         // this are all comments data of this entry. $_commentform_replyTo is the parent ID of this current answer.
         // fetch all current possible comment ids for this current answer
         foreach ($comments AS $comment) {
             if (isset($data['id']) && $comment['id'] != $data['id']) {
-                $entry_comment_parents[] = array('id' => $comment['id'], 'name' => str_replace(array('[', ']', '(', ')', '\'', '"'), '', serendipity_specialchars(substr($comment['author'], 0, 16))));
+                $entry_comment_parents[] = array('id' => $comment['id'], 'name' => str_replace(array('[', ']', '(', ')', '\'', '"'), '', htmlspecialchars(substr($comment['author'], 0, 16), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, false)));
             }
         }
         if (isset($entry_comment_parents)) {
@@ -289,14 +290,14 @@ function serendipity_displayCommentForm($id, $url = '', $comments = NULL, $data 
     $commentform_data = array(
         'commentform_action'         => $url,
         'commentform_id'             => (int)$id,
-        'commentform_name'           => isset($data['name'])      ? serendipity_specialchars($data['name'])    : (isset($serendipity['COOKIE']['name'])     ? serendipity_specialchars($serendipity['COOKIE']['name']) : ''),
-        'commentform_email'          => isset($data['email'])     ? serendipity_specialchars($data['email'])   : (isset($serendipity['COOKIE']['email'])    ? serendipity_specialchars($serendipity['COOKIE']['email']) : ''),
-        'commentform_url'            => isset($data['url'])       ? serendipity_specialchars($data['url'])     : (isset($serendipity['COOKIE']['url'])      ? serendipity_specialchars($serendipity['COOKIE']['url']) : ''),
-        'commentform_remember'       => isset($data['remember'])  ? ' checked="checked"'                       : (isset($serendipity['COOKIE']['remember']) ? ' checked="checked"' : ''),
+        'commentform_name'           => isset($data['name'])      ? htmlspecialchars($data['name'], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, false)    : (isset($serendipity['COOKIE']['name'])     ? htmlspecialchars($serendipity['COOKIE']['name'], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, false) : ''),
+        'commentform_email'          => isset($data['email'])     ? htmlspecialchars($data['email'], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, false)   : (isset($serendipity['COOKIE']['email'])    ? htmlspecialchars($serendipity['COOKIE']['email'], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, false) : ''),
+        'commentform_url'            => isset($data['url'])       ? htmlspecialchars($data['url'], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, false)     : (isset($serendipity['COOKIE']['url'])      ? htmlspecialchars($serendipity['COOKIE']['url'], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, false) : ''),
+        'commentform_remember'       => isset($data['remember'])  ? ' checked="checked"' : (isset($serendipity['COOKIE']['remember']) ? ' checked="checked"' : ''),
         'commentform_replyTo'        => $_commentform_replyTo,
         'commentform_changeReplyTo'  => !empty($entry_comment_parents) ? $entry_comment_parents : null,
         'commentform_subscribe'      => isset($data['subscribe']) ? ' checked="checked"' : '',
-        'commentform_data'           => isset($data['comment'])   ? serendipity_specialchars($data['comment']) : '',
+        'commentform_data'           => isset($data['comment'])   ? htmlspecialchars($data['comment'], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, false) : '',
         'is_commentform_showToolbar' => $showToolbar,
         'is_allowSubscriptions'      => (serendipity_db_bool($serendipity['allowSubscriptions']) || $serendipity['allowSubscriptions'] === 'fulltext' ? true : false),
         'is_moderate_comments'       => $moderate_comments,
@@ -451,7 +452,7 @@ function serendipity_generateCommentList($id, $comments = NULL, $selected = 0, $
     foreach($comments AS $comment) {
         if ($comment['parent_id'] == $parent) {
             $i++;
-            $retval .= '<option value="' . $comment['id'] . '"'. ($selected == $comment['id'] || (isset($serendipity['POST']['replyTo']) && $comment['id'] == $serendipity['POST']['replyTo']) ? ' selected="selected"' : '') .'>' . str_repeat('&#160;', $level * 2) . '#' . $indent . $i . ': ' . (empty($comment['author']) ? ANONYMOUS : serendipity_specialchars($comment['author'])) . ' ' . ON . ' ' . serendipity_mb('ucfirst', serendipity_strftime(DATE_FORMAT_SHORT, $comment['timestamp'])) . "</option>\n";
+            $retval .= '<option value="' . $comment['id'] . '"'. ($selected == $comment['id'] || (isset($serendipity['POST']['replyTo']) && $comment['id'] == $serendipity['POST']['replyTo']) ? ' selected="selected"' : '') .'>' . str_repeat('&#160;', $level * 2) . '#' . $indent . $i . ': ' . (empty($comment['author']) ? ANONYMOUS : htmlspecialchars($comment['author'], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, false)) . ' ' . ON . ' ' . serendipity_mb('ucfirst', serendipity_strftime(DATE_FORMAT_SHORT, $comment['timestamp'])) . "</option>\n";
             $retval .= serendipity_generateCommentList($id, $comments, $selected, $comment['id'], $level + 1, $indent . $i . '.');
         }
     }
@@ -500,7 +501,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             if ($serendipity['allowHtmlComment']) {
                 $comment['comment'] = serendipity_sanitizeHtmlComments((string)$comment['body']); // cast as string (for PREVIEW modes only)
             } else {
-                $comment['comment'] = serendipity_specialchars(strip_tags((string)$comment['body'])); // cast as strings (for PREVIEW mode only)
+                $comment['comment'] = htmlspecialchars(strip_tags((string)$comment['body']), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, false); // cast as strings (for PREVIEW mode only)
             }
             $comment['url'] = strip_tags((string)$comment['url']); // via serendipity_smarty_printComments() to not error strip sanitizers
             if (isset($comment['id'])) {
@@ -554,13 +555,14 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
                 $comment['comment'] = '<span class="serendipity_msg_important msg_error"><strong>Security Alert</strong>: Empty, since removed probably bad injection</span>';
             }
 
-            $comment['body']    = $comment['comment'];
+            // in frontend, using htmlspecialchars w/o double encode false will set valid html entities to encoded again, so escape once here and only!
+            $comment['body']    = htmlspecialchars($comment['comment'], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, false);
             $comment['pos']     = $i;
             $comment['trace']   = $trace . $i;
             $comment['depth']   = $depth;
-            $comment['author']  = serendipity_specialchars($comment['author']);
+            $comment['author']  = htmlspecialchars($comment['author'], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, false);
             if (isset($comment['title'])) {
-                $comment['title'] = serendipity_specialchars($comment['title']);
+                $comment['title'] = htmlspecialchars($comment['title'], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, false);
             }
             if (serendipity_userLoggedIn()) {
                 // these pop-up in the edit preview of Backend comments for logged-in users
