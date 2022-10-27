@@ -2,6 +2,8 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Update serendipity entity mappers to current PHP requirement
+
   * Better sanitize comments array item parts to avoid double encoding of HTML
     ENTITIES. Fixes wrong behaviour when stored as entities.
 
