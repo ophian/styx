@@ -690,7 +690,7 @@
 @define('AUTOLANG_DESC', 'Hvis aktiveret, vil brugerens browsersprog benyttes til at finde det viste sprog i dine artikler og interface.');
 @define('INSTALL_AUTODETECT_URL', 'Autoudregn anvendt HTTP-Host');
 @define('INSTALL_AUTODETECT_URL_DESC', 'Hvis denne er sat til "ja", vil Serendipity sikre at den HTTP Host der anvendes af dine besøgende, anvendes som din BaseURL indstilling. Aktiverer du dette, kan du bruge flere domænenavne på samme Serendipity Blog.');
-@define('CONVERT_HTMLENTITIES', 'Prøv at konvertere HTML entities automatisk?');
+@define('CONVERT_HTMLENTITIES', 'Prøv at konvertere HTML entities automatisk?'); // Translate again
 @define('EMPTY_SETTING', 'Du angav ikke en gyldig værdi for "%s"!');
 @define('USERCONF_REALNAME', 'Rigtigt navn');
 @define('USERCONF_REALNAME_DESC', 'Det fulde navn på forfatteren. Dette er navnet set af læserne');

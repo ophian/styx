@@ -693,7 +693,7 @@
 @define('AUTOLANG_DESC', '如果开启这个功能将使用浏览器内设定的编码');
 @define('INSTALL_AUTODETECT_URL', '自动检测 HTTP-Host');
 @define('INSTALL_AUTODETECT_URL_DESC', '如果设定为 "true"，HTTP Host 跟基本的地址设定相同。开启这项功能可以允许你使用多个的域名的日志和使用这个日志域名连接。');
-@define('CONVERT_HTMLENTITIES', '自动改变 HTML 的标签');
+@define('CONVERT_HTMLENTITIES', '自动改变 HTML 的标签'); // Translate again
 @define('EMPTY_SETTING', '你没有提供 "%s" 的正确参数');
 @define('USERCONF_REALNAME', '全名');
 @define('USERCONF_REALNAME_DESC', '作者全名，将显示全部读者');

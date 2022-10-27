@@ -689,7 +689,7 @@
 @define('AUTOLANG_DESC', 'Om aktiverat, kommer besökarens språkinställning att avgöra standardinställning för språk på din artikel och för gränssnittsspråket.');
 @define('INSTALL_AUTODETECT_URL', 'Känn igen HTTP-värd automatiskt');
 @define('INSTALL_AUTODETECT_URL_DESC', 'Om satt till "true", kommer Serendipity se till att den HTTP-värd som användes av din besökare är din BaseURL-inställning. Om du aktiverar detta kommer du att kunna använda flera domännamn för din Serendipity Blogg och använda den domänen för uppföljande länkar som användaren använde för att få tillgång till din blogg.');
-@define('CONVERT_HTMLENTITIES', 'Försök auto-konvertera HTML-entiteter?');
+@define('CONVERT_HTMLENTITIES', 'Försök auto-konvertera HTML-entiteter?'); // Translate again
 @define('EMPTY_SETTING', 'Du angav ett ogiltigt värde för "%s"!');
 @define('USERCONF_REALNAME', 'Riktigt namm');
 @define('USERCONF_REALNAME_DESC', 'Författarens hela namn. Detta namn ses av läsarna');

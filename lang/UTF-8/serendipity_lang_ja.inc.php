@@ -689,7 +689,7 @@
 @define('AUTOLANG_DESC', 'もし有効にしたならエントリーとインターフェースの言語の決定は訪問者のブラウザーの言語設定を使用します。');
 @define('INSTALL_AUTODETECT_URL', '自動検知に HTTP-Host を使う');
 @define('INSTALL_AUTODETECT_URL_DESC', 'If set to "true", Serendipity will ensure that the HTTP Host which was used by your visitor is used as your BaseURL setting. Enabling this will let you be able to use multiple domain names for your Serendipity Blog, and use the domain for all follow-up links which the user used to access your blog.'); // Translate
-@define('CONVERT_HTMLENTITIES', 'HTML 実体への自動変換を試みますか?');
+@define('CONVERT_HTMLENTITIES', 'HTML 実体への自動変換を試みますか?'); // Translate again
 @define('EMPTY_SETTING', '%s の値が正しく指定されていません!');
 @define('USERCONF_REALNAME', '本名');
 @define('USERCONF_REALNAME_DESC', '著作者のフルネームです。これは読者に見える名前です。');

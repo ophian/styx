@@ -688,7 +688,7 @@
 @define('AUTOLANG_DESC', 'Jos otat tämän käyttöön, esitetään blogisi käyttöliittymä ja merkinnät käyttäjän selaimen kielellä, jos mahdollista.');
 @define('INSTALL_AUTODETECT_URL', 'Havaitse käytetty HTTP-isäntä automaattisesti');
 @define('INSTALL_AUTODETECT_URL_DESC', 'Jos valitset kyllä, Serendipity käyttää vierailijan käyttämäää HTTP-isäntänimeä BaseURL:ina. Tätä käyttämällä voit antaa blogillesi useamman verkkonimen ja käyttää samaa verkkonimeä kaikissa linkeissä, joita vierailija käyttää lukiessaan blogiasi.');
-@define('CONVERT_HTMLENTITIES', 'Yritä konvertoida HTML-entiteetit automaattisesti?');
+@define('CONVERT_HTMLENTITIES', 'Yritä konvertoida HTML-entiteetit automaattisesti?'); // Translate again
 @define('EMPTY_SETTING', 'Kentän "%s" syöte on epäkelpo!');
 @define('USERCONF_REALNAME', 'Nimi');
 @define('USERCONF_REALNAME_DESC', 'Kirjoittajan koko nimi. Tämä on se nimi, joka näytetään lukijoille');

@@ -690,7 +690,7 @@
 @define('AUTOLANG_DESC', 'Se abilitato, sarà utilizzata la lingua del browser del visitatore per determinare la lingua di default della tua notizia e della tua interfaccia.');
 @define('INSTALL_AUTODETECT_URL', 'Autoriconoscimento dell\'HTTP-Host utilizzato');
 @define('INSTALL_AUTODETECT_URL_DESC', 'Se impostato a "vero", Serendipity controllerà che l\'Host HTTP usato dal tuo visitatore sia usato come la tua impostazione BaseURL. Ablitando questo sarai in grado di utilizzare nomi di dominio multipli per il tuo Blog Serendipity, anare il dominio per tutti i links di follow-up che l\'utente ha usato per accedere al tuo blog.');
-@define('CONVERT_HTMLENTITIES', 'Prova ad auto-convertire le entità HTML?');
+@define('CONVERT_HTMLENTITIES', 'Prova ad auto-convertire le entità HTML?'); // Translate again
 @define('EMPTY_SETTING', 'Non hai specificato un valore valido per "%s"!');
 @define('USERCONF_REALNAME', 'Nome reale');
 @define('USERCONF_REALNAME_DESC', 'Il nome completo dell\'autore. Questo è il nome visto dai lettori');

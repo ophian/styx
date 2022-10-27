@@ -689,7 +689,7 @@
 @define('AUTOLANG_DESC', 'Ha ez "igen"-re van állítva, akkor az oldal megtekintõjének a böngészõjében megadott nyelv lesz aktív a bejegyzéseknél és a felületen.');
 @define('INSTALL_AUTODETECT_URL', 'HTTP-Hoszt automatikus meghatározása');
 @define('INSTALL_AUTODETECT_URL_DESC', 'Ha ez "igen"-re van állítva, akkor a látogató által használt domain név kerül használatra  az általad beállított BaseURL helyett. Ezzel a beállítással több domain-es környezetben is használhatod a Serendipity blog-ot, így nem okoz gondot a linkek kezelése.');
-@define('CONVERT_HTMLENTITIES', 'A HTML bejegyzések automatikus konvertálása?');
+@define('CONVERT_HTMLENTITIES', 'A HTML bejegyzések automatikus konvertálása?'); // Translate again
 @define('EMPTY_SETTING', 'Nem adtál meg értéket ehhez: "%s"!');
 @define('USERCONF_REALNAME', 'Valódi név');
 @define('USERCONF_REALNAME_DESC', 'A szerzõ teljes neve. Ezt látják az olvasók.');

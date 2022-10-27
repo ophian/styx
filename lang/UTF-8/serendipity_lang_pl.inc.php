@@ -691,7 +691,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('AUTOLANG_DESC', 'Jeśli ta opcja zostanie włączona, język, w jakim będą wyświetlane komunikaty i wpis będzie zdeterminowany ustawienim języka przeglądarki użytkownika odwiedzającego Twojego bloga. Serendipity będzie automatycznie dobierało wersję językową w zależności od ustwień przeglądarki.');
 @define('INSTALL_AUTODETECT_URL', 'Autodetect used HTTP-Host');
 @define('INSTALL_AUTODETECT_URL_DESC', 'If set to "true", Serendipity will ensure that the HTTP Host which was used by your visitor is used as your BaseURL setting. Enabling this will let you be able to use multiple domain names for your Serendipity Blog, and use the domain for all follow-up links which the user used to access your blog.');
-@define('CONVERT_HTMLENTITIES', 'Próbować autokonwersji fragmentów HTML?');
+@define('CONVERT_HTMLENTITIES', 'Próbować autokonwersji fragmentów HTML?'); // Translate again
 @define('EMPTY_SETTING', 'Podano nieprawidłowe dane dla "%s"!');
 @define('USERCONF_REALNAME', 'Prawdziwe imię i nazwisko');
 @define('USERCONF_REALNAME_DESC', 'Pełne imię i nazwisko, jest widziane przez czytających');

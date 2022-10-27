@@ -691,7 +691,7 @@
 @define('AUTOLANG_DESC', 'Als dit aan staat, zal de browserinstelling van de bezoeker de taal bepalen van uw artikelen en interface.');
 @define('INSTALL_AUTODETECT_URL', 'Automatisch detecteren van HTTP-Host');
 @define('INSTALL_AUTODETECT_URL_DESC', 'Als dit aan staat, dan zal Serendipity er voor zorgen dat de HTTP-Host die werd gebruikt door uw bezoeker gezet zal worden als uw basis-URL. Hierdoor wordt het mogelijk zijn om meerdere domeinnamen te gebruiken voor uw weblog en het domein gebruiken voor alle hyperlinks in uw weblog binnen die sessie.');
-@define('CONVERT_HTMLENTITIES', 'Proberen de HTML-entiteiten automatisch om te zetten?');
+@define('CONVERT_HTMLENTITIES', 'Proberen de HTML-entiteiten automatisch om te zetten?'); // Translate again
 @define('EMPTY_SETTING', 'U heeft geen geldige waarde opgegeven voor "%s"!');
 @define('USERCONF_REALNAME', 'Echte naam');
 @define('USERCONF_REALNAME_DESC', 'Volledige naam van de auteur. Dit is de naam die wordt gezien door de lezers');

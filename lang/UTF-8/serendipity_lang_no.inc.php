@@ -691,7 +691,7 @@
 @define('AUTOLANG_DESC', 'If enabled, this will use the visitor\'s browser language setting to determine the default language of your entry and interface language.');
 @define('INSTALL_AUTODETECT_URL', 'Autodetect used HTTP-Host'); // Translate
 @define('INSTALL_AUTODETECT_URL_DESC', 'If set to "true", Serendipity will ensure that the HTTP Host which was used by your visitor is used as your BaseURL setting. Enabling this will let you be able to use multiple domain names for your Serendipity Blog, and use the domain for all follow-up links which the user used to access your blog.'); // Translate
-@define('CONVERT_HTMLENTITIES', 'Try to auto-convert HTML entities?');
+@define('CONVERT_HTMLENTITIES', 'Try to auto-convert to/from HTML entities? Check your DB import data first. (Mostly "No", if both use UTF-8.)');
 @define('EMPTY_SETTING', 'You did not specify a valid value for "%s"!');
 @define('USERCONF_REALNAME', 'Real name'); // Translate
 @define('USERCONF_REALNAME_DESC', 'The full name of the author. This is the name seen by readers'); // Translate

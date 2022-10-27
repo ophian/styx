@@ -701,7 +701,7 @@ $i18n_filename_to = array (
 @define('AUTOLANG_DESC', 'Zapnutím téjto voľby určíte, že jazyk prehliadača bude prevzatý ako základný jazyk pre uživateľské rozhranie a pre články.');
 @define('INSTALL_AUTODETECT_URL', 'Autodetekcia použitej HTTP adresy na serveri');
 @define('INSTALL_AUTODETECT_URL_DESC', 'Pri voľbe "Áno" bude Serendipity predpokladať, že HTTP adresa použitá návštevníkom, je Vašé základné nastavenie URL. Zapnutie umožní používáníe rôznych domén k prístupu na Vaše stránky, a použitie téjto jednej domény pre všetky odkazy na sledovánie zmien na stránkách.');
-@define('CONVERT_HTMLENTITIES', 'Skúsiť automatickú konverziu HTML entít?');
+@define('CONVERT_HTMLENTITIES', 'Skúsiť automatickú konverziu HTML entít?'); // Translate again
 @define('EMPTY_SETTING', 'Nezadali ste platnú hodnotu pre "%s"!');
 @define('USERCONF_REALNAME', 'Skutočné Meno');
 @define('USERCONF_REALNAME_DESC', 'Plné meno autora. Toto meno je viditeľné pre návštevníkov');

@@ -691,7 +691,7 @@
 @define('AUTOLANG_DESC', '사용할 경우 방문자의 브라우저 언어 설정을 확인하여 화면에 표시되는 언어 및 글의 언어를 결정합니다.');
 @define('INSTALL_AUTODETECT_URL', '사용된 HTTP 호스트를 자동 감지');
 @define('INSTALL_AUTODETECT_URL_DESC', '사용할 경우 방문자가 사용한 HTTP 호스트를 세렌디피티가 기본 인터넷 주소로 쓰게 됩니다. 이렇게 되면 세렌디피티 블로그를 여러 개의 도메인 이름 하에 사용할 수 있게 되며, 해당 도메인을 방문자가 블로그를 방문하는데 사용한 추가 링크에 사용할 수 있게 됩니다.');
-@define('CONVERT_HTMLENTITIES', 'HTML 엔티티로 표현된 문자의 자동 변환을 시도하겠습니까?');
+@define('CONVERT_HTMLENTITIES', 'HTML 엔티티로 표현된 문자의 자동 변환을 시도하겠습니까?'); // Translate again
 @define('EMPTY_SETTING', '"%s"에 대한 유효한 값을 지정하지 않았습니다.');
 @define('USERCONF_REALNAME', '실제 이름');
 @define('USERCONF_REALNAME_DESC', '작성자의 실제 이름으로서, 독자가 보게 되는 이름입니다.');

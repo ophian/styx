@@ -692,7 +692,7 @@
 @define('AUTOLANG_DESC', 'ֵה Êד Êדßםה ו׀ַ ַב־םַׁ ׃זÝ ÊÊֽזב ַבבÛֹ ָהֱַ Úבל ַבבÛֹ ַבד׃Ê־ֿדֹ דה Þָב דÊױÝֽ ַבֶַׁׂ / ַבׂזַׁ');
 @define('INSTALL_AUTODETECT_URL', 'ַבÊÚׁÝ ַבÊבÞֶַם Úבל ה״ַÞ (Domain) ַבדזÞÚ');
 @define('INSTALL_AUTODETECT_URL_DESC', 'ֳה ֳ־Êׁ ַב־םַׁ ױֽםֽ. ׃זÝ ÊÊדßה ַבדּבֹ דה דÚׁÝֹ ַבַָׁ״ ַב׀ם ם׃Ê־ֿדו ַבׂזַׁ Úבל ֳהו ַבַָׁ״ ַבֳ׃ַ׃ם. ַָ־Êםַׁß ו׀ַ ַב־םַׁ םּÚבß Þַֿׁ Úבל ַ׃Ê־ַֿד ֳßֻׁ דה ֳ׃ד ה״ַÞ (ֿזדםה) בבזױזב ֵבל דֿזהÊß. ז׃זÝ ם׃Ê־ֿד ֳ׃ד ַבה״ַÞ ו׀ַ בּדםÚ ַבׁזַָ״ ַבÊַָÚֹ בבדֿזהֹ');
-@define('CONVERT_HTMLENTITIES', 'ָּׁ Êֽזםב ַבדזַײםÚ ֵבל וÊדב¿');
+@define('CONVERT_HTMLENTITIES', 'ָּׁ Êֽזםב ַבדזַײםÚ ֵבל וÊדב¿'); // Translate again
 @define('EMPTY_SETTING', 'בד ÊÞד ֳָÚ״ֱַ דÚבזדַÊ ֿÞםÞֹ Úה "%s"!');
 @define('USERCONF_REALNAME', 'ַבֳ׃ד ַבֽÞםÞם');
 @define('USERCONF_REALNAME_DESC', 'ַבֳ׃ד ַבßַדב בבדֽׁׁ ֳז ַבהַװׁ. זו׀ַ ׃זÝ םÙוׁ בÞֱַׁ ַבדזײזÚ');

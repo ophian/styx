@@ -691,7 +691,7 @@
 @define('AUTOLANG_DESC', 'Eğer bu seçenek açık olursa ziyaretçilerin tarayıcılarında kullandıkları dil sizin yazı ve arabirim dili üstünde öntanımlı olacaktır.');
 @define('INSTALL_AUTODETECT_URL', 'HTTP-Host Servisini otomatik belirle');
 @define('INSTALL_AUTODETECT_URL_DESC', 'Eğer "true" olarak seçilirse, Serendipity ziyaretçilerin HTTP Host adresini sizin BaseURL ayarlarınıza göre kesin olarak belirleyebilecek.Bu seçenek açık olursa çoklu domain kullanma imkanına da sahip olursunuz, ve tüm izleyen bağlantılarda hangi kullanıcı hangi site bölümünüze erişmek istiyorsa erişebilir.');
-@define('CONVERT_HTMLENTITIES', 'HTML işaretleri kendiliğinden dönüştürülsün mü?');
+@define('CONVERT_HTMLENTITIES', 'HTML işaretleri kendiliğinden dönüştürülsün mü?'); // Translate again
 @define('EMPTY_SETTING', 'Bunun için doğru bir değer belirlemediniz: "%s"!');
 @define('USERCONF_REALNAME', 'Gerçek Ad');
 @define('USERCONF_REALNAME_DESC', 'Yazarın tam adı. Okuyucular için gerekli');

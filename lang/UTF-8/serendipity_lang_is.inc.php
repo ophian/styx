@@ -690,7 +690,7 @@
 @define('AUTOLANG_DESC', 'Ef þetta er virkt mun Serendipity nota tungumálið sem stillt er á í vafra viðkomandi gests fyrir viðmótið (og færslur ef við á).');
 @define('INSTALL_AUTODETECT_URL', 'Skynja sjálfvirkt HTTP-Host');
 @define('INSTALL_AUTODETECT_URL_DESC', 'Ef þetta er stillt á "true" mun Serendipity sjá til þess að HTTP Host nafnið sem var notað sé notað sem BaseURL stilling. Að virkja þetta mun gera þér kleift að nota mörg mismunandi vélarnöfn fyrir Serendipity bloggið þitt, og nota það vélarnafn fyrir alla tengla fyrir alla tengla eftir það sem eru notaðir til að vafra um bloggið þitt.');
-@define('CONVERT_HTMLENTITIES', 'Reyna að Try to breyta HTML færslum sjálfkrafa?');
+@define('CONVERT_HTMLENTITIES', 'Reyna að Try to breyta HTML færslum sjálfkrafa?'); // Translate again
 @define('EMPTY_SETTING', 'Þú skilgreindir ekki löglegt gildi fyrir "%s"!');
 @define('USERCONF_REALNAME', 'Nafn');
 @define('USERCONF_REALNAME_DESC', 'Fullt nafn höfundar. Þetta er nafnið eins og lesendur sjá það');

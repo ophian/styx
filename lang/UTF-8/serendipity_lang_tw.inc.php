@@ -692,7 +692,7 @@ $i18n_unknown = 'tw';
 @define('AUTOLANG_DESC', '如果開啟，這個功能將使用讀者的瀏覽器內所設定的語系。');
 @define('INSTALL_AUTODETECT_URL', '自動偵測 HTTP-Host');
 @define('INSTALL_AUTODETECT_URL_DESC', '如果設定為 "true"，Serendipity 會確定讀者的 HTTP Host 跟您的基本 URL 設定相同。開啟這項功能可以允許您使用多數的網域名稱給您的網誌，和使用這個網域給跟進的連結。');
-@define('CONVERT_HTMLENTITIES', '自動改變 HTML 的實體?');
+@define('CONVERT_HTMLENTITIES', '自動改變 HTML 的實體?'); // Translate again
 @define('EMPTY_SETTING', '您沒有提供 "%s" 的正確值!');
 @define('USERCONF_REALNAME', '全名');
 @define('USERCONF_REALNAME_DESC', '作者的全名，將顯示給全部讀者');
