@@ -44,7 +44,7 @@ class Serendipity_Import_WordPress extends Serendipity_Import
                                    array('text'    => CONVERT_HTMLENTITIES,
                                          'type'    => 'bool',
                                          'name'    => 'use_strtr',
-                                         'default' => 'true'),
+                                         'default' => LANG_CHARSET == 'UTF-8' ? 'false' : 'true'),
 
                                    array('text'    => ACTIVATE_AUTODISCOVERY,
                                          'type'    => 'bool',
