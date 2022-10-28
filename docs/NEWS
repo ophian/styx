@@ -2,6 +2,9 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix normal comment body escape parsing vs allowHtmlComment configuration
+    (true) and improve for hooked $eventData data (this relates to gravatar).
+
   * Update serendipity entity mappers to current PHP requirement
 
   * Better sanitize comments array item parts to avoid double encoding of HTML
