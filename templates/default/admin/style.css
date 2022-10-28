@@ -2947,7 +2947,6 @@ h3 button.toggle_info.button_link.group_info {
 }
 
 select#serendipity_commentform_replyToParent {
-    max-width: 10em;
     text-align-last: right;
 }
 #serendipity_commentform_replyToParent option {
@@ -4971,6 +4970,11 @@ img.mfp-img {
 
     #keyword_list {
         padding-top: 2em;
+    }
+
+    select#serendipity_commentform_replyToParent {
+        width: auto;
+        max-width: 25em;
     }
 
     .js .media_controls video {
