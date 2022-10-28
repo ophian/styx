@@ -498,6 +498,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
         if ($parentid === VIEWMODE_LINEAR || !isset($comment['parent_id']) || $comment['parent_id'] == $parentid) {
             $i++;
 
+            // keep the body 'comment' copy in $comment array for later hook pass to comment_avatar, nl2br, etc
             if ($serendipity['allowHtmlComment']) {
                 $comment['comment'] = serendipity_sanitizeHtmlComments((string)$comment['body']); // cast as string (for PREVIEW modes only)
             } else {
@@ -525,18 +526,18 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
                 $comment['url'] = serendipity_specialchars($comment['url'], ENT_QUOTES);
             }
 
-            // Since this is a looped setting, destroy (a possible - see below) global transported var for the hook and follow-up comments
-            if ($serendipity['allowHtmlComment'] && isset($serendipity['comment_dismarkup_temp'])) {
+            // Since this is a looped setting, destroy vars for the hook and follow-up comments
+            if ($serendipity['allowHtmlComment'] && isset($_comment_dismarkup_temp)) {
                 unset($serendipity['POST']['properties']['disable_markups']);
-                unset($serendipity['comment_dismarkup_temp']);
+                $_comment_dismarkup_temp = false;
             }
 
             // check the origin field entry to HTML display each comment using NL2P in Backend and/or Frontend - and in shortcut /comments/ pages
             if ($serendipity['allowHtmlComment'] && false !== strpos($comment['body'], '</p>')) {
                 // disable NL2BR plugin parsing, for the NL2BR newline to p-tag option
                 $serendipity['POST']['properties']['disable_markups'] = array(true);
-                // Set a temporary GLOBAL to know this has run. This is more strict than checking disable_markups only (see above)
-                $serendipity['comment_dismarkup_temp'] = true;
+                // Set a temporary runtime var to know this has run for this comment item. This is more strict than checking disable_markups only (see above)
+                $_comment_dismarkup_temp = true;
             }
 
             $addData = array('from' => 'functions_entries:printComments');
@@ -553,10 +554,11 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             // Frontend entry comments - do for both else add ($serendipity['allowHtmlComment'] && )
             if (isset($comment['type']) && $comment['type'] == 'NORMAL' && empty(trim($comment['comment']))) {
                 $comment['comment'] = '<span class="serendipity_msg_important msg_error"><strong>Security Alert</strong>: Empty, since removed probably bad injection</span>';
+                $_comment_dismarkup_temp = true;
             }
 
             // in frontend, using htmlspecialchars w/o double encode false will set valid html entities to encoded again, so escape once here and only!
-            $comment['body']    = htmlspecialchars($comment['comment'], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, false);
+            $comment['body']    = (isset($_comment_dismarkup_temp) && $_comment_dismarkup_temp === true) ? $comment['comment'] : htmlspecialchars($comment['comment'], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, false);
             $comment['pos']     = $i;
             $comment['trace']   = $trace . $i;
             $comment['depth']   = $depth;
