@@ -3,8 +3,8 @@ Version 3.10-DEV ()
 
 
   * Refactor normal, plain text comment body escape parsing vs allowHtmlComment
-    configuration (true) and vice versa. Also improves for hooked $eventData
-    data (this relates to the (gr)avatar plugin).
+    configuration (true) and vice versa. Atom feed will follow this practice.
+    Also improves for hooked $eventData data (related to the (gr)avatar plugin).
 
   * Update serendipity entity mappers to current PHP requirement
 
