@@ -2,8 +2,9 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Fix normal comment body escape parsing vs allowHtmlComment configuration
-    (true) and improve for hooked $eventData data (this relates to gravatar).
+  * Refactor normal, plain text comment body escape parsing vs allowHtmlComment
+    configuration (true) and vice versa. Also improves for hooked $eventData
+    data (this relates to the (gr)avatar plugin).
 
   * Update serendipity entity mappers to current PHP requirement
 
