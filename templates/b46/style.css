@@ -594,7 +594,8 @@ ul.pagination {
   padding: 1.5rem 0; }
 
 .page-item.info {
-  padding: .5rem 1rem; }
+  padding: .5rem 1rem;
+  text-align: center; }
 
 .bi.bi-rss-fill {
   vertical-align: text-bottom; }
