@@ -460,7 +460,16 @@ ul.pagination {
   padding: 1.5rem 0; }
 
 .page-item.info {
-  padding: .5rem 1rem; }
+  padding: .5rem 1rem;
+  text-align: center; }
+@media only screen and (min-width: 460px) and (max-width: 768px) {
+  .page-link {
+    white-space: nowrap;}
+}
+@media only screen and (min-width: 992px) {
+  .page-link {
+    white-space: nowrap;}
+}
 
 .bi.bi-rss-fill {
   vertical-align: text-bottom; }
