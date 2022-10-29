@@ -30,7 +30,7 @@
 
                     <li>{$CONST.IN} {$CONST.TITLE}: <span class="comment_source_ctitle">{$comment.ctitle|truncate:42|wordwrap:15:"\n":true|escape}</span></li>
                 {else}
-                {if $comment.parent_id != 0}
+                {if $comment.parent_id != 0 AND isset($entry)}{* avoid running these "pure" theme constant when answering in backend *}
 
                     <li><a class="reply_origin" href="#c{$comment.parent_id}" title="{$CONST.PURE_REPLYORIGIN}: {$CONST.COMMENT} #c{$comment.parent_id}">{$CONST.PURE_REPLYORIGIN}</a></li>
                 {/if}
