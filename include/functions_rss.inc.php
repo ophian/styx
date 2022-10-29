@@ -89,9 +89,11 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
                 $entry['body'] = str_replace('&nbsp;', ' ', $entry['body']);
             }
 
-            // avoid parsing html comments through nl2br
-            if ($serendipity['allowHtmlComment'] && $options['comments'] === true && $version == 'atom1.0') {
-                $entry['properties']['ep_no_nl2br'] = true;
+            // avoid parsing html comments through NL2BR
+            if ($options['comments'] === true && $version == 'atom1.0') {
+                if ($serendipity['allowHtmlComment'] || false !== strpos($entry['body'], '</p>')) {
+                    $entry['properties']['ep_no_nl2br'] = true;
+                }
             }
             $addData = array('from' => 'functions_entries:printEntries_rss', 'rss_options' => $options);
             serendipity_plugin_api::hook_event('frontend_display', $entry, $addData);
