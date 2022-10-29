@@ -495,6 +495,8 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
 
     $i = 0;
     foreach($comments AS $comment) {
+        $_comment_dismarkup_temp = false; // set false for every run
+
         if ($parentid === VIEWMODE_LINEAR || !isset($comment['parent_id']) || $comment['parent_id'] == $parentid) {
             $i++;
 
@@ -527,12 +529,11 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             }
 
             // Since this is a looped setting, destroy vars for the hook and follow-up comments
-            if ($serendipity['allowHtmlComment'] && isset($_comment_dismarkup_temp)) {
+            if ($serendipity['allowHtmlComment']) {
                 unset($serendipity['POST']['properties']['disable_markups']);
-                $_comment_dismarkup_temp = false;
             }
 
-            // check the origin field entry to HTML display each comment using NL2P in Backend and/or Frontend - and in shortcut /comments/ pages
+            // Check the origin [body] field entry, to HTML display each comment - OR using NL2P in Backend and/or Frontend - AND in shortcut /comments/ pages
             if ($serendipity['allowHtmlComment'] && false !== strpos($comment['body'], '</p>')) {
                 // disable NL2BR plugin parsing, for the NL2BR newline to p-tag option
                 $serendipity['POST']['properties']['disable_markups'] = array(true);
@@ -540,12 +541,18 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
                 $_comment_dismarkup_temp = true;
             }
 
+            // Dive through plugin hooks
             $addData = array('from' => 'functions_entries:printComments');
             serendipity_plugin_api::hook_event('frontend_display', $comment, $addData);
 
             // re-check hooked $comment['comment'] for escaping or NOT
             #if (preg_match("/<img.*class=['\"].*comment_avatar.*['\"]*>+/i", $comment['comment'])) {
             if (isset($comment['dismark']) && $comment['dismark']) {
+                $_comment_dismarkup_temp = true;
+            }
+            // Yes, in plain, non-HTML comment text NL2BR has now run too...
+            if (!$serendipity['allowHtmlComment'] && false !== strpos($comment['body'], '<br />')) {
+                $comment['comment'] = preg_replace('{(<br[^>]*>\s*){3,}+}i', "<br/>\n", $comment['comment']); // leaves paragraph like double br
                 $_comment_dismarkup_temp = true;
             }
             $comment['clear_email'] = !empty($comment['email']) ? $comment['email'] : null; // independently from spamblock no_email option, since used for selector (self/owner) checks only!
