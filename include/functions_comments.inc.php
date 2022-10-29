@@ -550,8 +550,8 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             if (isset($comment['dismark']) && $comment['dismark']) {
                 $_comment_dismarkup_temp = true;
             }
-            // Yes, in plain, non-HTML comment text NL2BR has now run too...
-            if (!$serendipity['allowHtmlComment'] && false !== strpos($comment['body'], '<br />')) {
+            // Yes, in plain, non-HTML comment text NL2BR has now run too... (but we do it in both cases for convenience)
+            if (false !== strpos($comment['body'], '<br />')) {
                 $comment['comment'] = preg_replace('{(<br[^>]*>\s*){3,}+}i', "<br/>\n", $comment['comment']); // leaves paragraph like double br
                 $_comment_dismarkup_temp = true;
             }
