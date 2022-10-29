@@ -2,6 +2,8 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve the spamblock plugin for PHP 8.2
+
   * Refactor normal, plain text comment body escape parsing vs allowHtmlComment
     configuration (true) and vice versa. Atom feed will follow this practice.
     Also improves for hooked $eventData data (related to the (gr)avatar plugin).
