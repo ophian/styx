@@ -534,24 +534,24 @@ $tasks = array(
                     'title'     => '<b>ADMINISTRATION_NOTICE:</b> Please read the current ChangeLog via your Maintenance section.',
                     'desc'      => 'It holds additional notes about fixes, upcoming PHP 8.2 readiness and improved features for the new AV1 Image File format (AVIF).'),
 
-            array(  'version'   => '3.9.2',
+            array(  'version'   => '3.9.9',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_400, array('internals'), true),
                     'title'     => 'Removal of old dead files for 3.10.0 / 4.0.0',
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_400) . '</pre>'),
 
-            array(  'version'   => '3.9.2',
+            array(  'version'   => '3.9.9',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
                     'title'     => '<b>ADMINISTRATION_NOTICE:</b> Please read the current ChangeLog via your Maintenance section.',
                     'desc'      => 'It holds additional notes about a function rename of _serendipity_send() for PING requests to serendipity_send(). There should no breakage exist, except, if you are using unsupported (non-official) plugins which might make use of it. The probability that this exists is extreme low. though!'),
 
-            array(  'version'   => '3.9.2',
+            array(  'version'   => '3.9.9',
                     'function'  => 'recursive_directory_iterator',
                     'arguments' => array($dead_dirs_400),
                     'title'     => 'Styx removed the multi file implementation of bundled-libs SimplePie XML Parser on upgrade to v.1.7.0 to a single monolithic file.',
                     'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_400) . '</pre>'),
 
-            array(  'version'   => '3.9.2',
+            array(  'version'   => '3.9.9',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
                     'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '7.4.0') >= 0) ? 'OK' : 'outdated') . '.',
                     'desc'      => 'The minimum required PHP version for Serendipity Styx 4.0 is <b>PHP 7.4</b>.x. But better jump to recommended PHP 8.0/1/2 versions, since PHP 7.4 security support will end on 28 Nov 2022 soon.'),
