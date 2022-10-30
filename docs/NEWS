@@ -2,7 +2,8 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Bugfix backend comment answer issue using a [ pure ] theme template file
+  * Bugfix issue within backend comment answer, using a standard themes
+    fallback template file.
 
   * Improve comment summary pagination styles in [ boot, b5blog, b46 ] themes
 
