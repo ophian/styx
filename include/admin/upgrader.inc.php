@@ -554,7 +554,7 @@ $tasks = array(
             array(  'version'   => '3.9.9',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
                     'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '7.4.0') >= 0) ? 'OK' : 'outdated') . '.',
-                    'desc'      => 'The minimum required PHP version for Serendipity Styx 4.0 is <b>PHP 7.4</b>.x. But better jump to recommended PHP 8.0/1/2 versions, since PHP 7.4 security support will end on 28 Nov 2022 soon.'),
+                    'desc'      => 'The minimum required PHP version for Serendipity Styx 4.0 is <b>PHP 7.4</b>.x. But better jump to recommended PHP 8.0/1/2 versions, since PHP 7.4 security support will end on 28 Nov 2022 soon. Styx will require PHP 8 only up from around v.4.2.'),
 
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
