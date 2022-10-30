@@ -551,6 +551,11 @@ $tasks = array(
                     'title'     => 'Styx removed the multi file implementation of bundled-libs SimplePie XML Parser on upgrade to v.1.7.0 to a single monolithic file.',
                     'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_400) . '</pre>'),
 
+            array(  'version'   => '3.9.2',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '7.4.0') >= 0) ? 'OK' : 'outdated') . '.',
+                    'desc'      => 'The minimum required PHP version for Serendipity Styx 4.0 is <b>PHP 7.4</b>.x. But better jump to recommended PHP 8.0/1/2 versions, since PHP 7.4 security support will end on 28 Nov 2022 soon.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
