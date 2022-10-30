@@ -2,6 +2,9 @@ Version 3.10-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Raised minimum required PHP version to PHP 7.4 for installations, since
+    PHP 7.3 security End-Of-Life support ended in Dec 2021.
+
   * Bugfix issue within backend comment answer, using a standard themes
     fallback template file.
 
