@@ -79,6 +79,12 @@ function serendipity_updateLocalConfig($dbName, $dbPrefix, $dbHost, $dbUser, $db
         $dbName = $_POST['sqlitedbName'];
     }
 
+    // in case it is (somehow) missing - which shall not!
+    if (!isset($serendipity['dbNames'])) {
+        serendipity_set_config_var('dbNames', 'true', 0);
+        $serendipity['dbNames'] = true;
+    }
+
     $file_start    = "<?php\n"
                    . "\t/*\n"
                    . "\t  Serendipity configuration file\n";
@@ -105,6 +111,7 @@ function serendipity_updateLocalConfig($dbName, $dbPrefix, $dbHost, $dbUser, $db
     fwrite($configfp, "\t\$serendipity['dbPass']            = '" . addslashes($dbPass) . "';\n");
     fwrite($configfp, "\t\$serendipity['dbType']            = '" . addslashes($dbType) . "';\n");
     fwrite($configfp, "\t\$serendipity['dbPersistent']      = ". (serendipity_db_bool($dbPersistent) ? 'true' : 'false') .";\n");
+
     if ($serendipity['dbNames']) {
         if (defined('SQL_CHARSET') && !defined('SQL_CHARSET_INIT')) {
             fwrite($configfp, "\t\$serendipity['dbCharset']         = '" . addslashes(SQL_CHARSET) . "';\n");
