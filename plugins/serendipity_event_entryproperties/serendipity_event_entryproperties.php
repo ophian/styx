@@ -1076,7 +1076,7 @@ class serendipity_event_entryproperties extends serendipity_event
 
                     $conds = array();
                     if ((!isset($addData['noSticky']) || $addData['noSticky'] !== true) && !isset($serendipity['skipSticky'])) {
-                        $conds[] = '                    ep_sticky.value AS orderkey'; // is the last $cond add key in order
+                        $conds[] = '                    ep_sticky.value AS orderkey'; // is the last $cond addkey in order (except in serendipity_searchEntries(), but we have a comma conditioning there)
                         $stickey = true; // sticky key case true call
                     } else {
                         $conds[] = '                    e.isdraft AS orderkey'; // Ditto
