@@ -2,6 +2,8 @@ Version 4.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix searchquery regression of ep orderkey 'frontend_fetchentries' bugfix
+
   * Raised minimum required PHP version to PHP 7.4 for installations, since
     PHP 7.3 security End-Of-Life support ended in Dec 2021.
 
