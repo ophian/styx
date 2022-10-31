@@ -26,7 +26,10 @@ Version 4.0-DEV ()
   * Refactor WordPress importers [*] in special for the changed password hashing
     since Serendipity 1.5 (and so forth) making it incompatible with WP password
     storage. Now, NEW passwords are set for imported WP users.
-    [*] Subject to reservation
+
+    [*] Fix an old copy&paste bug with adding space to key entry_id name
+
+    [*] Subject to reservation...
         - Pushed a porting upgrade to
                 - b2Evolution ("rather vague !")
                 - phpBB ("shaky candidate !")
@@ -79,8 +82,6 @@ Version 4.0-DEV ()
     [x]  https://github.com/ophian/styx/blob/1f4226c23140af2fbdac602d5347cd304e2dc814/include/admin/importers/pmachine.inc.php
     [x]  https://github.com/ophian/styx/blob/16a12e7e502a191ea01298ff5344fe946998e7eb/include/admin/importers/sunlog.inc.php
     [+]  https://github.com/ophian/styx/blob/2d448d6aef4e190fd12bc9e98f61047c474b5b04/include/admin/importers/old_blogger.inc.php
-
-    [*] Fix an old copy&paste bug with adding space to key entry_id name
 
   * Improve and fix generic importer class for PHP 8.1 and silenced (known to
     fail) native (MYSQLi) database query checkups.
