@@ -949,7 +949,7 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
     serendipity_ACL_SQL($cond, 'limited');
 
     $cond['having'] = $cond['having'] ?? '';
-    $cond['addkey'] = $cond['addkey'] ?? '';
+    $cond['addkey'] = !empty($cond['addkey']) ? rtrim(trim($cond['addkey']), ',').',' : ''; // by entryproperties; Normally placed at the end w/o need of comma
 
     $serendipity['fullCountQuery'] = "
                       FROM
