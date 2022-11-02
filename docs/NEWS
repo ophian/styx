@@ -1,6 +1,5 @@
-Version 4.0-DEV ()
+Version 4.0-beta1 (November, 2cd 2022)
  ------------------------------------------------------------------------
-
 
   * Fix searchquery regression of ep orderkey 'frontend_fetchentries' bugfix
 
