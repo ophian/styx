@@ -1881,7 +1881,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
 
         list($musec, $msec) = explode(' ', microtime());
         $srand = intval((float) $msec + ((float) $musec * 100000));
-        mt_srand($srand); // By intval() silencea nasty "Implicit conversion from float 1634150650.2 to int loses precision" error, destroying the image
+        mt_srand($srand); // By intval() silences nasty "Implicit conversion from float 1634150650.2 to int loses precision" error, destroying the image
         $width = 120;
         $height = 40;
 
