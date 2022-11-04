@@ -595,10 +595,10 @@ switch ($serendipity['GET']['adminAction']) {
                     $cnum = serendipity_fetchImagesByName($filebase.'%', true);
 
                     // Simplified serendipity_imageAppend() approach to avoid having duplicate filenames regardless where located in the physical ML
-                    if ($cnum[0] > 20) {
+                    if (isset($cnum[0]) && $cnum[0] > 20) {
                         $target = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $serendipity['POST']['target_directory'][$idx] . $filebase . md5(time() . $filebase) . (empty($ext) ? '' : '.' . $ext);
                         $tfile = $filebase . md5(time() . $filebase) . (empty($ext) ? '' : '.' . $ext); // build new tfile and realname reference
-                    } else if ($cnum[0] > 0) {
+                    } else if (isset($cnum[0]) && $cnum[0] > 0) {
                         $target = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $serendipity['POST']['target_directory'][$idx] . $filebase . $cnum[0] . (empty($ext) ? '' : '.' . $ext);
                         $tfile = $filebase . $cnum[0] . (empty($ext) ? '' : '.' . $ext); // build new tfile and realname reference
                     }
