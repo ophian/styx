@@ -2,6 +2,8 @@ Version 4.0-beta2 ()
  ------------------------------------------------------------------------
 
 
+  * Remove deprecated " $is_xhtml, $head_version " Smarty variable assigns.
+    Old themes [ bulletproof, photo ] were fixed for this.
 
 
 Version 4.0-beta1 (November, 2cd 2022)
