@@ -894,7 +894,6 @@ class serendipity_plugin_api
      *
      * @access public
      * @param   string      The side of plugins to show (left/right/hide/event/eventh)
-     * @param   string      deprecated: Indicated which wrapping HTML element to use for plugins
      * @param   boolean     Indicates whether only all plugins should be shown that are not in the $side list
      * @param   string      Only show plugins of this plugin class
      * @param   string      Only show a plugin with this instance ID
