@@ -1139,19 +1139,15 @@ function serendipity_smarty_init($vars = array()) {
             $force_backendpopups[$fbp_val] = $fbp_val;
         }
 
-        /* Variable 'is_xhtml' deprecated with 2.1, keep for compatibility only, since this was configurable in old Serendipity versions and used in some themes (eg. bulletproof) */
-        /* Variable 'head_version' deprecated before 1.1-alpha, @see https://github.com/ophian/styx/commit/529dca9 as last history and only kept for old themes */
         $serendipity['smarty']->assign(
             array(
                 'head_charset'              => LANG_CHARSET,
-                'head_version'              => $serendipity['version'],
                 'head_title'                => $serendipity['head_title'],
                 'head_subtitle'             => $serendipity['head_subtitle'],
                 'head_link_stylesheet'      => $serendipity['smarty_vars']['head_link_stylesheet'],
                 'head_link_script'          => $serendipity['smarty_vars']['head_link_script'],
                 'head_link_stylesheet_frontend' => $serendipity['smarty_vars']['head_link_stylesheet_frontend'] ?? null,
 
-                'is_xhtml'                  => true,
                 'use_popups'                => $serendipity['enablePopup'] ?? false,
                 'use_backendpopups'         => $serendipity['enableBackendPopup'] ?? false,
                 'force_backendpopups'       => $force_backendpopups,
