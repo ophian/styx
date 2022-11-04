@@ -82,16 +82,19 @@ function serendipity_db_reconnect() {
 
 /**
  * Returns an escaped string, so that it can be safely included in a SQL string encapsulated within quotes, without allowing SQL injection.
+ * As of PHP 8.1.0, using the default connection is deprecated, so we need the real connection.
  *
  * @access  public
  * @param   string   input string
  * @return  string   output string
  */
 function serendipity_db_escape_string($string) {
+    global $serendipity;
+
     if ($string == null) {
         return;
     }
-    return pg_escape_string($string);
+    return pg_escape_string($serendipity['dbConn'], $string);
 }
 
 /**
