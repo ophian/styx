@@ -1010,7 +1010,7 @@ class HTTP_Request2 implements SplSubject
      * Tries to detect MIME type of a file
      *
      * The method will try to use fileinfo extension if it is available,
-     * deprecated mime_content_type() function in the other case. If neither
+     * mime_content_type() function in the other case. If neither
      * works, default 'application/octet-stream' MIME type is returned
      *
      * @param string $filename file name
@@ -1028,7 +1028,7 @@ class HTTP_Request2 implements SplSubject
                 $info = finfo_file(self::$_fileinfoDb, $filename);
             }
         }
-        // (deprecated) mime_content_type function available
+        // mime_content_type function available
         if (empty($info) && function_exists('mime_content_type')) {
             $info = mime_content_type($filename);
         }
