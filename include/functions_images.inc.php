@@ -4387,7 +4387,7 @@ function serendipity_updateSingleMediaProperty($image_id, $property_fields, $set
     $q = "UPDATE {$serendipity['dbPrefix']}mediaproperties
              SET value = '" . serendipity_db_escape_string($setval) . "'
            WHERE mediaid = " . (int)$image_id . $AND;
-    serendipity_db_query($q);
+    serendipity_db_query($q, true, 'both', false, false, false, true); // set single true and last expectError true, since table is known to fail when field(s) do(es) not exist (yet)
 }
 
 /**
