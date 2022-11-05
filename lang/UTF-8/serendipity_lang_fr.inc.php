@@ -654,7 +654,7 @@
 @define('NEXT', 'Suivant');
 @define('APPROVE', 'Valider');
 @define('CATEGORY_ALREADY_EXIST', 'Une catégorie avec le nom "%s" existe déjà');
-@define('IMPORT_NOTES', 'Remarque :');
+@define('IMPORT_NOTES', 'Remarque:');
 @define('ERROR_FILE_FORBIDDEN', 'Vous n\'êtes pas autorisé à télécharger des fichiers avec ce contenu');
 @define('ADMIN', 'Administration');
 @define('ADMIN_FRONTPAGE', 'Page d\'accueil');

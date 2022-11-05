@@ -583,7 +583,7 @@
 @define('IMPORT_FAILED', 'Import fehlgeschlagen');
 @define('IMPORT_DONE', 'Import erfolgreich abgeschlossen!');
 @define('IMPORT_WEBLOG_APP', 'Weblog-Software');
-@define('IMPORT_NOTES', 'Hinweis');
+@define('IMPORT_NOTES', 'Hinweis:');
 @define('EXPORT_FEED', 'Vollständigen RSS-Feed exportieren');
 @define('IMPORT_STATUS', 'Status nach dem Importieren');
 @define('IMPORT_GENERIC_RSS', 'Allgemeiner RSS-Import');
