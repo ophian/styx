@@ -249,10 +249,13 @@ function serendipity_db_connect() {
     $connparts = explode(':', $serendipity['dbHost']);
     if (!empty($connparts[1])) {
         // A "hostname:port" connection was specified
-        $serendipity['dbConn'] = $function($connparts[0], $serendipity['dbUser'], $serendipity['dbPass'], $serendipity['dbName'], $connparts[1]);
+        try { $serendipity['dbConn'] = $function($connparts[0], $serendipity['dbUser'], $serendipity['dbPass'], $serendipity['dbName'], $connparts[1]); } catch (\Throwable $t) {}
     } else {
         // Connect with default ports
-        $serendipity['dbConn'] = $function($connparts[0], $serendipity['dbUser'], $serendipity['dbPass']);
+        try { $serendipity['dbConn'] = $function($connparts[0], $serendipity['dbUser'], $serendipity['dbPass']); } catch (\Throwable $t) {}
+    }
+    if (is_null($serendipity['dbConn']) && isset($t)) {
+        serendipity_die(substr($t, 0, 96)); // mysqli_sql_exception: No connection could be made because the target machine actively refused it
     }
     mysqli_select_db($serendipity['dbConn'], $serendipity['dbName']);
     serendipity_db_reconnect();
