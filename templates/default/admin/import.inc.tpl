@@ -23,7 +23,7 @@
             <form action="" method="POST" enctype="multipart/form-data">
                 {$formToken}
                 {if $notes}
-                <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.IMPORT_NOTES}: {$notes}</span>
+                <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.IMPORT_NOTES} {$notes}</span>
                 {/if}
                 <dl class="importer_data">
                 {foreach $fields AS $field}
