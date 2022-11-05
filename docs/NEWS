@@ -2,6 +2,8 @@ Version 4.0-beta2 ()
  ------------------------------------------------------------------------
 
 
+  * Improve catching MySQL DB thrown connection issues
+
   * Better die on PostgresQL db connection issues
 
   * Improve serendipity_updateSingleMediaProperty() SQL query for PostgresQL
