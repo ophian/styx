@@ -598,13 +598,13 @@ function serendipity_db_probe($hash, &$errs) {
     $connparts = explode(':', $hash['dbHost']);
     if (!empty($connparts[1])) {
         // A "hostname:port" connection was specified
-        $c = @$function($connparts[0], $hash['dbUser'], $hash['dbPass'], $hash['dbName'], $connparts[1]);
+        try { $c = $function($connparts[0], $hash['dbUser'], $hash['dbPass'], $hash['dbName'], $connparts[1]); } catch (\Throwable $t) {}
     } else {
         // Connect with default ports
-        $c = @$function($connparts[0], $hash['dbUser'], $hash['dbPass']);
+        try { $c = $function($connparts[0], $hash['dbUser'], $hash['dbPass']); } catch (\Throwable $t) {}
     }
 
-    if (!$c) {
+    if (!isset($c) && isset($t)) {
         $errs[] = 'Could not connect to database; check your settings.';
         $errs[] = 'The mySQL error was: ' . serendipity_specialchars(mysqli_connect_error());
         return false;
