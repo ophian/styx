@@ -64,7 +64,7 @@ function serendipity_db_connect() {
         }
     }
 
-    $serendipity['dbConn'] = $function(
+    $serendipity['dbConn'] = @$function(
                                sprintf(
                                  '%sdbname=%s user=%s password=%s',
                                  "$host$port",
