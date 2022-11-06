@@ -375,10 +375,11 @@ function serendipity_fetchComments($id, $limit = null, $order = '', $showAll = f
     $cond['joins'] = $cond['joins'] ?? '';
     $cond['and']   = $cond['and'] ?? '';
     if (!empty($cond['and'])) {
-        $and = str_replace(' AND 1', '', $and); // Remove serendipity_printCommentsByAuthor() required faked 'where' condition
+        $and = str_replace(' AND 1=1', '', $and); // Remove serendipity_printCommentsByAuthor() required faked 'where' condition
         $where = empty($and) ? ' WHERE ' : ' AND ';
     }
     $and .=  $where . $cond['and'];
+    $and = str_replace(array(' AND 1=1'), '', $and);
     //echo $and;
 
     // KEEP IN MIND:
@@ -630,7 +631,7 @@ function serendipity_printCommentsByAuthor() {
         $sql_where = " AND co.author = '" . serendipity_db_escape_string($serendipity['GET']['viewCommentAuthor']) . "'";
         $group_by  = "GROUP BY co.author";
     } else {
-        $sql_where = " AND 1"; // Required fake 'where' condition
+        $sql_where = " AND 1=1"; // Required fake 'where' condition
         $group_by  = "";
     }
 
@@ -694,7 +695,7 @@ function serendipity_printCommentsByAuthor() {
     $cond['joins'] = $cond['joins'] ?? '';
     $cond['and']   = $cond['and'] ?? '';
     if (!empty($cond['and'])) {
-        $sql_where = str_replace(' AND 1', '', $sql_where); // Remove this faked 'where' condition
+        $sql_where = str_replace(' AND 1=1', '', $sql_where); // Remove this faked 'where' condition
         $and = ' AND ';
     }
     $cond['and'] =  "\n" . $and . $cond['and'];
