@@ -63,7 +63,7 @@
 {if $case_directoryDoDelete}
     {if isset($print_DIRECTORY_WRITE_ERROR)}<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$print_DIRECTORY_WRITE_ERROR}</span>{/if}
     {if isset($ob_serendipity_killPath)}{$ob_serendipity_killPath}{/if}
-    {if $print_ERROR_NO_DIRECTORY}<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$print_ERROR_NO_DIRECTORY}</span>{/if}
+    {if NOT empty($print_ERROR_NO_DIRECTORY)}<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$print_ERROR_NO_DIRECTORY}</span>{/if}
 {/if}
 {if $case_directoryEdit}
     {if !empty($smarty.post.serendipity.save) AND isset($savedirtime)}
