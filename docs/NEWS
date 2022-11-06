@@ -2,6 +2,9 @@ Version 4.0-beta2 ()
  ------------------------------------------------------------------------
 
 
+  * Fix PostgresQL LIMIT OFFSET settings before having enough entries for
+    pagination in comments vs entries lists.
+
   * Improve comments SQL queries for PostgresQL being picky on concatenated
     'AND 1' fake additions.
 
