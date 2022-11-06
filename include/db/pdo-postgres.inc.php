@@ -113,10 +113,10 @@ function serendipity_db_limit($start, $offset) {
  */
 function serendipity_db_limit_sql($limitstring) {
     $limit_split = explode(',', $limitstring);
-    if (count($limit_split) > 1) {
+    if ($limit_split[0] > 0 && count($limit_split) > 1) {
         $limit = ' LIMIT ' . $limit_split[0] . ' OFFSET ' . $limit_split[1];
     } else {
-        $limit = ' LIMIT ' . $limit_split[0];
+        $limit = ' LIMIT ' . ($limit_split[1] ?? $limit_split[0]); // this ternary is for comments [1] vs entries [0]
     }
     return $limit;
 }
