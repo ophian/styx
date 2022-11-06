@@ -293,6 +293,9 @@
         {if isset($is_iframepreview) AND $is_iframepreview}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.IFRAME_PREVIEW}</span>
         {/if}
+        {if isset($smarty.post.serendipity.properties.freetag_kill)}
+        <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.RELOAD_THIS_PAGE|sprintf:"?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry_id}&amp;{$urltoken}":{$CONST.EDIT}}</span>
+        {/if}
     {/if}
     {if $is_doDelete OR $is_doMultiDelete}
         {foreach $del_entry AS $delent}
