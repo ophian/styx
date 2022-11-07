@@ -648,7 +648,7 @@ p.wl_notopbottom {
     /**
      * Sophisticated nl to p - blocktag stage
      * handles content with blocktags, apply nl2p to the block elements if tag allows it
-     * works also for ommitted closing tags
+     * works also for omitted closing tags
      * @param: text
      * return string
      */
