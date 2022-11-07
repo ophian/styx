@@ -2,6 +2,8 @@ Version 4.0-beta2 ()
  ------------------------------------------------------------------------
 
 
+  * Fix PostgresQL to_tsvector() SQL search queries in front- and backend
+
   * Fix for the s9ymarkup plugin in regression of comment escape refactoring
     (see below).
 
