@@ -2,6 +2,9 @@ Version 4.0-beta2 ()
  ------------------------------------------------------------------------
 
 
+  * Fix for the s9ymarkup plugin in regression of comment escape refactoring
+    (see below).
+
   * Fix PostgresQL LIMIT OFFSET settings before having enough entries for
     pagination in comments vs entries lists.
 
@@ -46,7 +49,8 @@ Version 4.0-beta1 (November, 2cd 2022)
 
   * Refactor normal, plain text comment body escape parsing vs allowHtmlComment
     configuration (true) and vice versa. Atom feed will follow this practice.
-    Also improves for hooked $eventData data (related to the (gr)avatar plugin).
+    Also improves for hooked $eventData data (related to the (gr)avatar and
+    s9ymarkup plugins).
 
   * Update serendipity entity mappers to current PHP requirement
 
