@@ -508,7 +508,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
                 $comment['comment'] = htmlspecialchars(strip_tags((string)$comment['body']), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, false); // cast as strings (for PREVIEW mode only)
             }
             $comment['url'] = strip_tags((string)$comment['url']); // via serendipity_smarty_printComments() to not error strip sanitizers
-            if (isset($comment['id'])) {
+            if ($_SESSION['serendipityAuthedUser'] === true && isset($comment['id'])) {
                 $comment['link_delete'] = $serendipity['baseURL'] . 'comment.php?serendipity[delete]=' . $comment['id'] . '&amp;serendipity[entry]=' . $comment['entry_id'] . '&amp;serendipity[type]=comments&amp;' . serendipity_setFormToken('url');
             }
 
