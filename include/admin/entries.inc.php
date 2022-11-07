@@ -342,10 +342,10 @@ switch($serendipity['GET']['adminAction']) {
                 if (is_array($r) && $r[0]['counter'] > 0) {
                     $term = str_replace('&amp;', '&', $term);
                     $filter[] = "(
-                    to_tsvector('english', title)    @@to_tsquery('$term') OR
-                    to_tsvector('english', body)     @@to_tsquery('$term') OR
-                    to_tsvector('english', extended) @@to_tsquery('$term')
-                    )";
+                                to_tsvector(title)    @@ to_tsquery('$term') OR
+                                to_tsvector(body)     @@ to_tsquery('$term') OR
+                                to_tsvector(extended) @@ to_tsquery('$term')
+                            )";
                 } else {
                     $filter[] = "(title ILIKE '%$term%' OR body ILIKE '%$term%' OR extended ILIKE '%$term%')";
                 }
