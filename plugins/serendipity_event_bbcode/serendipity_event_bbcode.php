@@ -153,10 +153,10 @@ class serendipity_event_bbcode extends serendipity_event
         // Only allow numbers and characters for CSS: "red", "#FF0000", ...
         static $pattern_css   = '([ 0-9a-z#-]+?)';
 
-        // Only allow strings occuring in emails: .-_@, 0-9, a-z
+        // Only allow strings occurring in emails: .-_@, 0-9, a-z
         static $pattern_mail  = '([\.\-\+~@_0-9a-z]+?)';
 
-        // Only allow strings occuring in URLs: &;?:.-_@/, 0-9, a-z
+        // Only allow strings occurring in URLs: &;?:.-_@/, 0-9, a-z
         static $pattern_url   = '([@!=~\?:&;0-9a-z#\.\-_\/,%\+]+?)';
 
         // Disallow possibly evil HTML characters which may lead to Javascript XSS: '"();
