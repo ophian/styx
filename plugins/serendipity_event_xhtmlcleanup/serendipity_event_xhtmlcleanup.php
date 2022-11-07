@@ -220,7 +220,7 @@ class serendipity_event_xhtmlcleanup extends serendipity_event
         return $out;
     }
 
-    // Takes an input tag and search for ommitted attributes. Expects a single tag (array, index 0)
+    // Takes an input tag and search for omitted attributes. Expects a single tag (array, index 0)
     function clean_tag($data)
     {
         // Restore tags from preg_replace_callback buffer, as those can't be passed in the function header
