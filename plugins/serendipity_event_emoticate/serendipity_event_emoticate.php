@@ -20,7 +20,7 @@ class serendipity_event_emoticate extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_EMOTICATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team, Ian Styx');
-        $propbag->add('version',       '1.19');
+        $propbag->add('version',       '1.20');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1.0',
@@ -98,7 +98,7 @@ class serendipity_event_emoticate extends serendipity_event
             }
         }
 
-        if (!isset($this->smilies)) {
+        if (!isset($this->smilies) || sizeof($this->smilies) == 0) {
             $ext = $this->get_config('extension', 'png');
             $this->smilies = array(
                 "\:'\("    => serendipity_getTemplateFile('img/emoticons/cry.'.$ext, 'serendipityHTTPPath', true),

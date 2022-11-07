@@ -1,3 +1,7 @@
+1.20:
+----
+ * Fix condition for ASCII to default smilies conversion as a "regression" of the previous PHP 8.2/9.0 fix
+
 1.19:
 ----
  * Add missing property declaration for PHP 8.2/9.0
