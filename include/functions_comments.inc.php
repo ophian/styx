@@ -550,6 +550,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             #if (preg_match("/<img.*class=['\"].*comment_avatar.*['\"]*>+/i", $comment['comment'])) {
             if (isset($comment['dismark']) && $comment['dismark']) {
                 $_comment_dismarkup_temp = true;
+                unset($comment['dismark']); // better always unset after
             }
             // Yes, in plain, non-HTML comment text NL2BR has now run too... (but we do it in both cases for convenience)
             if (false !== strpos($comment['body'], '<br />')) {
