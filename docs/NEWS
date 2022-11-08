@@ -2,17 +2,17 @@ Version 4.0-beta2 ()
  ------------------------------------------------------------------------
 
 
-  * Fix PostgresQL ILIKE search entries SQL fallback in the entries API.
+  * Fix PostgreSQL ILIKE search entries SQL fallback in the entries API.
 
-  * Fix PostgresQL to_tsvector() SQL search queries in front- and backend
+  * Fix PostgreSQL to_tsvector() SQL search queries in front- and backend
 
   * Fix for the s9ymarkup plugin in regression of comment escape refactoring
     (see below).
 
-  * Fix PostgresQL LIMIT OFFSET settings before having enough entries for
+  * Fix PostgreSQL LIMIT OFFSET settings before having enough entries for
     pagination in comments vs entries lists.
 
-  * Improve comments SQL queries for PostgresQL being picky on concatenated
+  * Improve comments SQL queries for PostgreSQL being picky on concatenated
     'AND 1' fake additions.
 
   * Improve the entries edit form with our RELOAD_THIS_PAGE notice for submits
@@ -20,13 +20,13 @@ Version 4.0-beta2 ()
 
   * Improve message catch of iMySQL thrown db connection issues
 
-  * Better die on PostgresQL db connection issues
+  * Better die on PostgreSQL db connection issues
 
-  * Improve serendipity_updateSingleMediaProperty() SQL query for PostgresQL
+  * Improve serendipity_updateSingleMediaProperty() SQL query for PostgreSQL
     since updating mediaproperties table fields that don't (yet) exist will
     fail, so we need a explicit known-to-fail serendipity_db_query set here.
 
-  * Improve serendipity_fetchImagesByName() SQL query for PostgresQL and fix
+  * Improve serendipity_fetchImagesByName() SQL query for PostgreSQL and fix
     its naming doubles conditional return case checkup.
 
   * Improve db/postgres.inc for PHP 8.1+ fixup, while using the (undeclared)
