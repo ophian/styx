@@ -911,15 +911,15 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
         $cond['group']     = 'GROUP BY e.id';
         $cond['distinct']  = '';
         $term              = serendipity_mb('strtolower', $term);
-        $cond['find_part'] = "(lower(title) LIKE '%$term%' OR lower(body) LIKE '%$term%' OR lower(extended) LIKE '%$term%')"; // Using percentage (%) wildcard
+        $cond['find_part'] = "(lower(title) LIKE '%$term%' OR lower(body) LIKE '%$term%' OR lower(extended) LIKE '%$term%')"; // Using percentage (%) wildcard already
     } else {
         $cond['group']     = 'GROUP BY e.id';
         $cond['distinct']  = '';
         $term              = str_replace('&quot;', '"', $term);
         $relevance_enabled = true;
         if (@mb_detect_encoding($term, 'UTF-8', true) && @mb_strlen($term, 'utf-8') < strlen($term)) {
-            $_term = str_replace('*', '', $term);
-            $cond['find_part'] = "(title LIKE '%$_term%' OR body LIKE '%$_term%' OR extended LIKE '%$_term%')";
+            $term = str_replace('*', '', $term);
+            $cond['find_part'] = "(title LIKE '%$term%' OR body LIKE '%$term%' OR extended LIKE '%$term%')"; // Using percentage (%) wildcard already
         } else {
             if (preg_match('@["\+\-\*~<>\(\)]+@', $term)) {
                 $cond['find_part'] = "MATCH(title,body,extended) AGAINST('$term' IN BOOLEAN MODE)";
