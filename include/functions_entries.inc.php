@@ -884,7 +884,7 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
     $term = (string)serendipity_db_escape_string($term); // since empty string seems to return null up from PHP 8 and then errors using string functions like str_replace()
     $cond = array();
     $relevance_enabled = false;
-    $pg_ilike = false;
+
     if ($serendipity['dbType'] == 'postgres' ||
         $serendipity['dbType'] == 'pdo-postgres') {
         $cond['group']     = '';
@@ -902,8 +902,7 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
                                 to_tsvector(extended) @@ to_tsquery('$term')
                             )";
         } else {
-            $cond['find_part'] = "(title ILIKE '%$term%' OR body ILIKE '%$term%' OR extended ILIKE '%$term%')";
-            $pg_ilike = true;
+            $cond['find_part'] = "(title ILIKE '%$term%' OR body ILIKE '%$term%' OR extended ILIKE '%$term%')"; // Using percentage (%) wildcard
         }
     } elseif ($serendipity['dbType'] == 'sqlite' || $serendipity['dbType'] == 'sqlite3' || $serendipity['dbType'] == 'pdo-sqlite' || $serendipity['dbType'] == 'sqlite3oo') {
         // Very extensive SQLite search. There currently seems no other way to perform fulltext search in SQLite without having text search extension FTS3 / FTS4 / FTS5 installed.
@@ -998,8 +997,6 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
             $ids_current[$data['id']] = true;
         }
 
-        if (is_bool($search) && $pg_ilike) $search = []; // PostgreSQL to_tsvector and ILIKE behave differently. The latter "somehow" sets $search to a boolean 1, which breaks conditionals for the 2cd run! [...]
-
         foreach($search AS $idx => $data) {
             if (isset($ids_current[$data['id']])) {
                 unset($search[$idx]);
@@ -1009,13 +1006,13 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
     }
 
     // If * wasn't already appended and if there are none or not enough
-    // results, search again for entries containing the searchterm as a part
-    if (false === strpos($term, '*') && $serendipity['dbType'] != 'sqlite' && $serendipity['dbType'] != 'sqlite3' && $serendipity['dbType'] != 'pdo-sqlite' && $serendipity['dbType'] != 'sqlite3oo') {
-        if (!is_array($search) && false === $pg_ilike) {
+    // results, search again for entries containing the searchterm as a part [MySQL only]
+    if (false === strpos($term, '*') && $serendipity['dbType'] == 'mysqli') {
+        if (!is_array($search)) {
             return serendipity_searchEntries($term.'*', $orig_limit);
         } else {
             $ec = count($search);
-            $checkcount = ($pg_ilike) ? 1 : 4;
+            $checkcount = 4;
             if ($serendipity['fetchLimit'] < $checkcount) {
                 $checkcount = $serendipity['fetchLimit'];
             }
