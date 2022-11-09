@@ -347,16 +347,16 @@ switch($serendipity['GET']['adminAction']) {
                                 to_tsvector(extended) @@ to_tsquery('$term')
                             )";
                 } else {
-                    $filter[] = "(title ILIKE '%$term%' OR body ILIKE '%$term%' OR extended ILIKE '%$term%')";
+                    $filter[] = "(title ILIKE '%$term%' OR body ILIKE '%$term%' OR extended ILIKE '%$term%')"; // Using percentage (%) wildcard
                 }
             } elseif ($serendipity['dbType'] == 'sqlite' || $serendipity['dbType'] == 'sqlite3' || $serendipity['dbType'] == 'pdo-sqlite' || $serendipity['dbType'] == 'sqlite3oo') {
-                $term = str_replace('*', '%', $term);
+                $term = str_replace('*', '', $term);
                 $term = serendipity_mb('strtolower', $term);
-                $filter[] = "(lower(title) LIKE '%$term%' OR lower(body) LIKE '%$term%' OR lower(extended) LIKE '%$term%')";
+                $filter[] = "(lower(title) LIKE '%$term%' OR lower(body) LIKE '%$term%' OR lower(extended) LIKE '%$term%')"; // Using percentage (%) wildcard already
             } else {
                 if (@mb_detect_encoding($term, 'UTF-8', true) && @mb_strlen($term, 'utf-8') < strlen($term)) {
                     $_term = str_replace('*', '', $term);
-                    $filter['find_part'] = "(title LIKE '%$_term%' OR body LIKE '%$_term%' OR extended LIKE '%$_term%')";
+                    $filter['find_part'] = "(title LIKE '%$_term%' OR body LIKE '%$_term%' OR extended LIKE '%$_term%')"; // Using percentage (%) wildcard already
                 } else {
                     if (preg_match('@["\+\-\*~<>\(\)]+@', $term)) {
                         $filter['find_part'] = "MATCH(title,body,extended) AGAINST('$term' IN BOOLEAN MODE)";
