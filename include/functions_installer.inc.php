@@ -79,12 +79,6 @@ function serendipity_updateLocalConfig($dbName, $dbPrefix, $dbHost, $dbUser, $db
         $dbName = $_POST['sqlitedbName'];
     }
 
-    // in case it is (somehow) missing - which shall not!
-    if (!isset($serendipity['dbNames'])) {
-        serendipity_set_config_var('dbNames', 'true', 0);
-        $serendipity['dbNames'] = true;
-    }
-
     $file_start    = "<?php\n"
                    . "\t/*\n"
                    . "\t  Serendipity configuration file\n";
