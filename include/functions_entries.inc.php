@@ -907,11 +907,11 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
     } elseif ($serendipity['dbType'] == 'sqlite' || $serendipity['dbType'] == 'sqlite3' || $serendipity['dbType'] == 'pdo-sqlite' || $serendipity['dbType'] == 'sqlite3oo') {
         // Very extensive SQLite search. There currently seems no other way to perform fulltext search in SQLite without having text search extension FTS3 / FTS4 / FTS5 installed.
         // But it's better than no search at all :-D
-        $term = str_replace('*', '%', $term);
+        $term = str_replace('*', '', $term);
         $cond['group']     = 'GROUP BY e.id';
         $cond['distinct']  = '';
         $term              = serendipity_mb('strtolower', $term);
-        $cond['find_part'] = "(lower(title) LIKE '%$term%' OR lower(body) LIKE '%$term%' OR lower(extended) LIKE '%$term%')";
+        $cond['find_part'] = "(lower(title) LIKE '%$term%' OR lower(body) LIKE '%$term%' OR lower(extended) LIKE '%$term%')"; // Using percentage (%) wildcard
     } else {
         $cond['group']     = 'GROUP BY e.id';
         $cond['distinct']  = '';
