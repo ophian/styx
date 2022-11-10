@@ -5,8 +5,8 @@ Version 4.0-beta2 ()
   * Improve both PostgreSQL DB db_schema_import() flavors for int(2) to int2
     replacement. (Example: statistics event plugin table installation)
 
-  * Fix for known-to-fail PDO SQL connects on all databases, while up from
-    PHP 8.0 changed behaviour to PDO: Default error mode set to exceptions.
+  * Fix for known-to-fail SQL PDO connects on all supported databases, while
+    up from PHP 8.0 the default behaviour changed and was set to exceptions.
 
   * Improve SQLite and MySQL search entries SQL for [*] wildcard usage
 
