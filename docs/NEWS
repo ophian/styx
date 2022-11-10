@@ -2,6 +2,9 @@ Version 4.0-beta2 ()
  ------------------------------------------------------------------------
 
 
+  * Improve both PostgreSQL DB flavors for int(2) to int2 replacement
+    (Example: statistics event plugin table installation.)
+
   * Fix for known-to-fail PDO SQL connects on all databases, while up from
     PHP 8.0 changed behaviour to PDO: Default error mode set to exceptions.
 
