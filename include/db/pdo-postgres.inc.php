@@ -283,8 +283,8 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
  */
 function serendipity_db_schema_import($query) {
     static $search  = array('{AUTOINCREMENT}', '{PRIMARY}', '{UNSIGNED}',
-        '{FULLTEXT}', '{BOOLEAN}', 'int(1)', 'int(10)', 'int(11)', 'int(4)', '{UTF_8}', '{TEXT}');
-    static $replace = array('SERIAL', 'primary key', '', '', 'BOOLEAN NOT NULL', 'int2',
+        '{FULLTEXT}', '{BOOLEAN}', 'int(1)', 'int(2)', 'int(10)', 'int(11)', 'int(4)', '{UTF_8}', '{TEXT}');
+    static $replace = array('SERIAL', 'primary key', '', '', 'BOOLEAN NOT NULL', 'int2', 'int2',
         'int4', 'int4', 'int4', '', 'text');
 
     if (stristr($query, '{FULLTEXT_MYSQL}')) {
