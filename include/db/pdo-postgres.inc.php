@@ -217,6 +217,7 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
     } else {
         try {
             $serendipity['dbSth'] = $serendipity['dbConn']->prepare($sql);
+            $serendipity['dbSth']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT); // PHP 8.0: PDO: Default error mode set to exceptions. Previously used silent.
         } catch(Exception $e) {
             return $type_map['false'];
         }
