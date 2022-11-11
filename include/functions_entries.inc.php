@@ -918,8 +918,8 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
         $term              = str_replace('&quot;', '"', $term);
         $relevance_enabled = true;
         if (@mb_detect_encoding($term, 'UTF-8', true) && @mb_strlen($term, 'utf-8') < strlen($term)) {
-            $term = str_replace('*', '', $term);
-            $cond['find_part'] = "(title LIKE '%$term%' OR body LIKE '%$term%' OR extended LIKE '%$term%')"; // Using percentage (%) wildcard already
+            $_term = str_replace('*', '', $term);
+            $cond['find_part'] = "(title LIKE '%$_term%' OR body LIKE '%$_term%' OR extended LIKE '%$_term%')"; // Using percentage (%) wildcard already
         } else {
             if (preg_match('@["\+\-\*~<>\(\)]+@', $term)) {
                 $cond['find_part'] = "MATCH(title,body,extended) AGAINST('$term' IN BOOLEAN MODE)";
