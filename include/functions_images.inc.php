@@ -585,7 +585,7 @@ function serendipity_fetchImagesByName($file, $sum = false) {
 
     $field = $sum ? 'count(*)' : '*';
     $rtype = $sum ? 'num' : 'assoc';
-    $query = "SELECT $field FROM {$serendipity['dbPrefix']}images WHERE name LIKE '" . serendipity_db_escape_String($file) . "' GROUP BY name ORDER BY name ASC";
+    $query = "SELECT $field FROM {$serendipity['dbPrefix']}images WHERE name LIKE '" . serendipity_db_escape_String($file) . "' GROUP BY name, id ORDER BY name ASC";
     $res = serendipity_db_query($query, true, $rtype);
 
     return $res;
