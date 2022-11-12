@@ -2,6 +2,8 @@ Version 4.0-beta2 ()
  ------------------------------------------------------------------------
 
 
+  * Catch PDO DB flavored PDOException to die() on re/connection() failures
+
   * Improve both PostgreSQL DB db_schema_import() flavors for int(2) to int2
     replacement. (Example: statistics event plugin table installation)
 
