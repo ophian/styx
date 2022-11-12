@@ -102,9 +102,16 @@ function serendipity_db_in_sql($col, &$search_ids, $type = ' OR ') {
 function serendipity_db_connect() {
     global $serendipity;
 
-    $serendipity['dbConn'] = new PDO(
-                                 'sqlite:' . (defined('S9Y_DATA_PATH') ? S9Y_DATA_PATH : $serendipity['serendipityPath']) . $serendipity['dbName'] . '.db'
-                             );
+    try {
+        $serendipity['dbConn'] = new PDO(
+                                    'sqlite:' . (defined('S9Y_DATA_PATH')
+                                                    ? S9Y_DATA_PATH
+                                                    : $serendipity['serendipityPath']
+                                                ) . $serendipity['dbName'] . '.db'
+                                );
+    } catch (\PDOException $e) {
+        $serendipity['dbConn'] = false;
+    }
 
     return $serendipity['dbConn'];
 }
@@ -345,9 +352,14 @@ function serendipity_db_probe($hash, &$errs) {
         $dbfile = $serendipity['serendipityPath'] . $dbName . '.db';
     }
 
-    $serendipity['dbConn'] = new PDO(
-                                 'sqlite:' . $dbfile
-                             );
+    try {
+        $serendipity['dbConn'] = new PDO(
+                                    'sqlite:' . $dbfile
+                                );
+    } catch (\PDOException $e) {
+        $errs[] = "Unable to open \"$dbfile\" - check permissions (directory needs to be writeable for webserver)!";
+        return false;
+    }
 
     if (!$serendipity['dbConn']) {
         $errs[] = "Unable to open \"$dbfile\" - check permissions (directory needs to be writeable for webserver)!";
