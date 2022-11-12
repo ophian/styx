@@ -60,15 +60,19 @@ function serendipity_db_connect() {
         }
     }
 
-    $serendipity['dbConn'] = new PDO(
-                               sprintf(
-                                 'pgsql:%sdbname=%s',
-                                 "$host$port",
-                                 $serendipity['dbName']
-                               ),
-                               $serendipity['dbUser'],
-                               $serendipity['dbPass']
-                             );
+    try {
+        $serendipity['dbConn'] = new PDO(
+                                    sprintf(
+                                        'pgsql:%sdbname=%s',
+                                        "$host$port",
+                                        $serendipity['dbName']
+                                    ),
+                                    $serendipity['dbUser'],
+                                    $serendipity['dbPass']
+                                );
+    } catch (\PDOException $e) {
+        $serendipity['dbConn'] = false;
+    }
 
     return $serendipity['dbConn'];
 }
@@ -316,15 +320,20 @@ function serendipity_db_probe($hash, &$errs) {
         return false;
     }
 
-    $serendipity['dbConn'] = new PDO(
-                               sprintf(
-                                 'pgsql:%sdbname=%s',
-                                 strlen($hash['dbHost']) ? ('host=' . $hash['dbHost'] . ';') : '',
-                                 $hash['dbName']
-                               ),
-                               $hash['dbUser'],
-                               $hash['dbPass']
-                             );
+    try {
+        $serendipity['dbConn'] = new PDO(
+                                   sprintf(
+                                     'pgsql:%sdbname=%s',
+                                     strlen($hash['dbHost']) ? ('host=' . $hash['dbHost'] . ';') : '',
+                                     $hash['dbName']
+                                   ),
+                                   $hash['dbUser'],
+                                   $hash['dbPass']
+                                 );
+    } catch (\PDOException $e) {
+        $errs[] = 'Could not connect to database; check your settings.';
+        return false;
+    }
 
     if (!$serendipity['dbConn']) {
         $errs[] = 'Could not connect to database; check your settings.';
