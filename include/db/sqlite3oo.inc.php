@@ -146,6 +146,7 @@ function serendipity_db_sqlite_fetch_array($res, $type = SQLITE3_BOTH) {
 
     /* strip any slashes, correct fieldname */
     foreach($row AS $i => $v) {
+        if (is_null($v)) continue;
         // TODO: If a query of the format 'SELECT a.id, b.text FROM table' is used,
         //       the sqlite extension will give us key indizes 'a.id' and 'b.text'
         //       instead of just 'id' and 'text' like in mysql/postgresql extension.
