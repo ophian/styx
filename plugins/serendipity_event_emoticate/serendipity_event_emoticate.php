@@ -20,7 +20,7 @@ class serendipity_event_emoticate extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_EMOTICATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team, Ian Styx');
-        $propbag->add('version',       '1.20');
+        $propbag->add('version',       '1.21');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1.0',
@@ -187,6 +187,7 @@ class serendipity_event_emoticate extends serendipity_event
                         if (serendipity_db_bool($this->get_config($temp['name'], 'true')) && !empty($eventData[$temp['element']])
                         && (!isset($eventData['properties']['ep_disable_markup_' . $this->instance]) || !$eventData['properties']['ep_disable_markup_' . $this->instance])
                         && !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
+                            $_element = $eventData[$temp['element']];
                             $element = &$eventData[$temp['element']];
 
                             foreach ($this->getEmoticons() AS $key => $value) {
@@ -194,6 +195,9 @@ class serendipity_event_emoticate extends serendipity_event
                                 $element = preg_replace("/([\t\s\.\!>]+|^)" . $key . "([\t\s\!\.\)<]+|\$)/U",
                                     "$1<img src=\"$value\" alt=\"" . (class_exists('serendipity_event_textile') ? str_replace('.'.$this->get_config('extension', 'png'), '', $path_parts['filename']) : $this->humanReadableEmoticon($key)) . "\" class=\"emoticon\" />$2",
                                     $element);
+                            }
+                            if (!isset($eventData['dismark']) && $element !== $_element) {
+                                $eventData['dismark'] = true; // no escape parsing (in case no other has already taken place)
                             }
                         }
                     }
