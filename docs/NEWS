@@ -2,6 +2,10 @@ Version 4.0-beta2 ()
  ------------------------------------------------------------------------
 
 
+  * Fix and improve spamblock Captchas for the frontend since Styx 3.9.0, when
+    the backend uses the dark mode. Frontend Captchas are white-backgrounded
+    only, while the backend serves both.
+
   * Fix non-PDO SQLite flavors for PHP 8.1 preg-regex with str_replace on NULL
 
   * Catch PDO DB flavored PDOException to die() on re/connection() failures
