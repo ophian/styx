@@ -23,7 +23,7 @@ Version 4.0-beta2 ()
 
   * Fix PostgreSQL to_tsvector() SQL search queries in FRONT- and BACKend
 
-  * Regression fix for s9ymarkup and emoticate plugins for escape refactoring
+  * Regression fix in [ s9ymarkup, emoticate ] plugins for escape refactoring
     (see below).
 
   * Fix PostgreSQL LIMIT OFFSET settings before having enough entries for
