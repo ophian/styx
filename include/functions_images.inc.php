@@ -3202,7 +3202,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
                         }
                     }
 
-                    if ($sFile['hotlink']) {
+                    if (isset($sFile['hotlink']) && $sFile['hotlink']) {
                         $sFileName = $sFile['path'];
                         $sThumbNailFile = '';
                     } else {
