@@ -6,4 +6,4 @@ Backend: No
 Responsive: Yes
 Mobile: Yes
 
-Summary: Do just use as a child themes parent fallback pool, please! See example B5blog.
+Summary: Do just use as a child themes parent fallback pool, please! See example B5blog. Nonetheless, "boot" is build for both sidebars, using "col-md-(3 | 6 | 3)" class selectors.
