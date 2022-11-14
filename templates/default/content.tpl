@@ -9,6 +9,7 @@
 {elseif isset($searchresult_noEntries)}
     <h3 class="serendipity_date">{$CONST.QUICKSEARCH}</h3>
     <div class="serendipity_search serendipity_search_noentries">{$content_message}</div>
+    {if empty($searchresult_results) AND NOT empty($comment_searchresults) AND NOT empty($comment_results)}{$comment_search_result}{/if}
 {elseif isset($searchresult_results)}
     <h3 class="serendipity_date">{$CONST.QUICKSEARCH}</h3>
     <div class="serendipity_search serendipity_search_results">{$content_message}</div>
