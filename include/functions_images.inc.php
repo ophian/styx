@@ -2003,7 +2003,7 @@ function serendipity_generateThumbs() {
     foreach($serendipity['imageList'] AS $k => $file) {
         $is_image = serendipity_isImage($file);
 
-        if ($is_image && !$file['hotlink']) {
+        if ($is_image && (!isset($file['hotlink']) || !$file['hotlink'])) {
             $update   = false;
             $filename = $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
             $ffull    = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $filename;
@@ -3486,7 +3486,7 @@ function serendipity_isImage(&$file, $strict = false, $allowed = 'image/') {
     $file['displaymime'] = $file['mime'];
 
     // Strip HTTP path out of imgsrc
-    $file['location'] = !$file['hotlink'] ? $serendipity['serendipityPath'] . preg_replace('@^(' . preg_quote($serendipity['serendipityHTTPPath']) . ')@i', '', ($file['imgsrc'] ?? '')) : '';
+    $file['location'] = (!isset($file['hotlink']) || !$file['hotlink']) ? $serendipity['serendipityPath'] . preg_replace('@^(' . preg_quote($serendipity['serendipityHTTPPath']) . ')@i', '', ($file['imgsrc'] ?? '')) : '';
 
     // File is PDF -> Thumb is PNG
     // Detect PDF thumbs
