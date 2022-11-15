@@ -9,6 +9,7 @@
 <?php elseif (isset($GLOBALS['tpl']['searchresult_noEntries'])): ?>
     <h3 class="serendipity_date"><?= QUICKSEARCH ?></h3>
     <div class="serendipity_search serendipity_search_noentries"><?= $GLOBALS['tpl']['content_message']; ?></div>
+    <?php if (empty($GLOBALS['tpl']['searchresult_results']) && !empty($GLOBALS['tpl']['comment_searchresults']) && !empty($GLOBALS['tpl']['comment_results'])): ?><?= $GLOBALS['tpl']['comment_search_result']; ?><?php endif; ?>
 <?php elseif (isset($GLOBALS['tpl']['searchresult_results'])): ?>
     <h3 class="serendipity_date"><?= QUICKSEARCH ?></h3>
     <div class="serendipity_search serendipity_search_results"><?= $GLOBALS['tpl']['content_message']; ?></div>
