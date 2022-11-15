@@ -20,6 +20,7 @@
             <h3 class="serendipity_date">{$CONST.QUICKSEARCH}</h3>
             <div class="serendipity_search serendipity_search_noentries">{$content_message|replace:'"':''}</div>
           </div>
+         {if empty($searchresult_results) AND NOT empty($comment_searchresults) AND NOT empty($comment_results)}{$comment_search_result}{/if}
   {elseif !empty($searchresult_results)}
 
           <div id="search_results_nav" class="serendipity_Entry_Date results_navigation">
