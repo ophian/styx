@@ -24,6 +24,7 @@
         </div>
     </div>
 </div>
+{if empty($searchresult_results) AND NOT empty($comment_searchresults) AND NOT empty($comment_results)}{$comment_search_result}{/if}
 
 {elseif isset($searchresult_error)}
 <div id="search-block" class="row">
