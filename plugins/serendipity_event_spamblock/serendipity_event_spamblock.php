@@ -28,7 +28,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.1.0'
         ));
-        $propbag->add('version',       '2.63');
+        $propbag->add('version',       '2.64');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1148,22 +1148,23 @@ class serendipity_event_spamblock extends serendipity_event
                                         $serendipity['csuccess']        = 'moderate';
                                         $serendipity['moderate_reason'] = sprintf(PLUGIN_EVENT_SPAMBLOCK_REASON_IPVALIDATION, $addData['url'], '-', '-');
                                     }
-                                }
-                                // Not whitelisted? Check by IP then.
-                                $trackback_ip = preg_replace('/[^0-9.]/', '', gethostbyname($parts['host'])); // IPv4
-                                $sender_ip    = preg_replace('/[^0-9.]/', '', $_SERVER['REMOTE_ADDR']); // But can return servers IPv6 ...
-                                $sender_ua    = $debug ? ', ua="' . $_SERVER['HTTP_USER_AGENT'] . '"' : '';
-                                // Is host IP and sender IP matching? Comparable only, if both are in same IPv4 format. Else use the whitelist!
-                                if ($trackback_ip != $sender_ip) {
-                                    $this->log($logfile, $eventData['id'], $tipval_method, sprintf(PLUGIN_EVENT_SPAMBLOCK_REASON_IPVALIDATION, $parts['host'], $trackback_ip, $sender_ip  . $sender_ua), strip_tags(json_encode($addData)));
-                                    if ($trackback_ipvalidation_option == 'reject' && $is_ipv6 == false) {
-                                        $eventData = array('allow_comments' => false);
-                                        $serendipity['messagestack']['comments'][] = sprintf(PLUGIN_EVENT_SPAMBLOCK_REASON_IPVALIDATION, $parts['host'], $trackback_ip, $sender_ip . $sender_ua);
-                                        return false;
-                                    } else {
-                                        $eventData['moderate_comments'] = true;
-                                        $serendipity['csuccess']        = 'moderate';
-                                        $serendipity['moderate_reason'] = sprintf(PLUGIN_EVENT_SPAMBLOCK_REASON_IPVALIDATION, $parts['host'], $trackback_ip, $sender_ip . $sender_ua);
+                                } else {
+                                    // Not whitelisted? Check by IP then.
+                                    $trackback_ip = preg_replace('/[^0-9.]/', '', gethostbyname($parts['host'])); // IPv4
+                                    $sender_ip    = preg_replace('/[^0-9.]/', '', $_SERVER['REMOTE_ADDR']); // But can return servers IPv6 ...
+                                    $sender_ua    = $debug ? ', ua="' . $_SERVER['HTTP_USER_AGENT'] . '"' : '';
+                                    // Is host IP and sender IP matching? Comparable only, if both are in same IPv4 format. Else use the whitelist!
+                                    if ($trackback_ip != $sender_ip) {
+                                        $this->log($logfile, $eventData['id'], $tipval_method, sprintf(PLUGIN_EVENT_SPAMBLOCK_REASON_IPVALIDATION, $parts['host'], $trackback_ip, $sender_ip  . $sender_ua), strip_tags(json_encode($addData)));
+                                        if ($trackback_ipvalidation_option == 'reject' && $is_ipv6 == false) {
+                                            $eventData = array('allow_comments' => false);
+                                            $serendipity['messagestack']['comments'][] = sprintf(PLUGIN_EVENT_SPAMBLOCK_REASON_IPVALIDATION, $parts['host'], $trackback_ip, $sender_ip . $sender_ua);
+                                            return false;
+                                        } else {
+                                            $eventData['moderate_comments'] = true;
+                                            $serendipity['csuccess']        = 'moderate';
+                                            $serendipity['moderate_reason'] = sprintf(PLUGIN_EVENT_SPAMBLOCK_REASON_IPVALIDATION, $parts['host'], $trackback_ip, $sender_ip . $sender_ua);
+                                        }
                                     }
                                 }
                             } else {
