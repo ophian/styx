@@ -2,6 +2,10 @@ Version 4.0-beta2 ()
  ------------------------------------------------------------------------
 
 
+  * Fix spamblock plugin filter verification for htmlcomments
+
+  * Fix spamblock plugin text file log messaging
+
   * Improve all core themes for the commentsearch plugin up from version 2.0.0;
     Handing out comment search results on entries with no match.
 
