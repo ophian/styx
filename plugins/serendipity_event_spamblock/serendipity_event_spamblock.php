@@ -28,7 +28,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.1.0'
         ));
-        $propbag->add('version',       '2.65');
+        $propbag->add('version',       '2.66');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1835,12 +1835,12 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                     $switch,
                     $reason,
                     $id,
-                    str_replace("\n", ' ', $comment['name']),
-                    str_replace("\n", ' ', $comment['email']),
-                    str_replace("\n", ' ', $comment['url']),
+                    str_replace("\n", ' ', ($comment['name'] ?? '')),
+                    str_replace("\n", ' ', ($comment['email'] ?? '')),
+                    str_replace("\n", ' ', ($comment['url'] ?? '')),
                     str_replace("\n", ' ', $_SERVER['HTTP_USER_AGENT']),
                     $_SERVER['REMOTE_ADDR'],
-                    str_replace("\n", ' ', $comment['comment'])
+                    str_replace("\n", ' ', ($comment['comment'] ?? ''))
                 ));
 
                 fclose($fp);
