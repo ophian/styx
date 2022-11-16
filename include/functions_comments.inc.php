@@ -765,12 +765,12 @@ function serendipity_deleteComment($id, $entry_id, $type='comments', $token=fals
         /* Check to see if the comment has children
          * if it does, don't delete, but replace with "*(COMMENT DELETED)*"
            to delete a tree, delete children first */
-        $has_parent = serendipity_db_query("SELECT count(id) AS count
+        $childs = serendipity_db_query("SELECT count(id) AS count
                                               FROM {$serendipity['dbPrefix']}comments
                                              WHERE parent_id = ". $id . "
                                              LIMIT 1", true);
 
-        if (is_array($has_parent) && isset($has_parent['count']) && $has_parent['count'] > 0 && $sql['body'] != 'COMMENT_DELETED') {
+        if (is_array($childs) && isset($childs['count']) && $childs['count'] > 0 && $sql['body'] != 'COMMENT_DELETED') {
             // Comment has childs, so don't delete it.
             serendipity_db_query("UPDATE {$serendipity['dbPrefix']}comments
                                      SET body = 'COMMENT_DELETED'
