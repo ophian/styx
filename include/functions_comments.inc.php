@@ -790,7 +790,8 @@ function serendipity_deleteComment($id, $entry_id, $type='comments', $token=fals
                 serendipity_db_query("UPDATE {$serendipity['dbPrefix']}entries SET $type = $type-1 WHERE id = ". $entry_id ." AND $type > 0 $admin");
             }
 
-            serendipity_db_query("UPDATE {$serendipity['dbPrefix']}comments SET parent_id = " . (int)$sql['parent_id'] . " WHERE parent_id = " . $id);
+            // this seems a little redundant here since we should have deleted it already, didn't we...?!? Is it a paranoid cleanup task only...?
+            serendipity_db_query("UPDATE {$serendipity['dbPrefix']}comments SET parent_id = " . (int)($sql['parent_id'] ?? 0) . " WHERE parent_id = " . $id);
         }
 
         $addData = array('cid' => $id, 'entry_id' => $entry_id);
