@@ -28,7 +28,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.1.0'
         ));
-        $propbag->add('version',       '2.64');
+        $propbag->add('version',       '2.65');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1809,7 +1809,19 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                     return;
                 }
                 if (strpos($logfile, '%') !== false) {
-                    $logfile = strftime($logfile);
+                    /*
+                      strftime is infected by thread unsafe locales, which is plenty of reason to deprecate it, with additional pro reasons for doing so being its disparate functionality among different os-es and libc's.
+                      Deprecation also doesn't mean removal, which won't happen until PHP 9, giving developers plenty of time to move to a saner threadsafe locale API based on intl/icu.
+                      cheers Derick
+                    */
+                    if (PHP_VERSION_ID >= 80100 && PHP_VERSION_ICU === false) {
+                        $logfile = @strftime($logfile); // temporary disable deprecation notice with PHP 8.1 until found better solution with %A, %d. %B %Y alike formats, on frontend calls. Using date() replacement is doing well with generic formats like "%Y-%m-%d %H:%M:%S".
+                    } elseif (PHP_VERSION_ICU === true) {
+                        // ICU71 is fixed up from PHP 8.2
+                        $logfile = serendipity_toDateTimeMapper($logfile);
+                    } else {
+                        $logfile = strftime($logfile); // legacy default
+                    }
                 }
 
                 $fp = @fopen($logfile, 'a+');
