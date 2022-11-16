@@ -2,6 +2,8 @@ Version 4.0-beta2 ()
  ------------------------------------------------------------------------
 
 
+  * Fix some spamblock plugin text log file + item preparations for PHP 8.1+
+
   * Fix a logic bug in spamblock plugin trackback/pingback host/ip verification
 
   * Fix spamblock plugin filter verification for htmlcomments
