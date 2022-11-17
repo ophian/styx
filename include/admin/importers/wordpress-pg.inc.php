@@ -92,12 +92,13 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import
         }
 
         try { // As of PHP 8.1.0, using the default connection is deprecated. 8.1.0 	Returns an PgSql\Connection instance now; previously, a resource was returned. 
-            $wpdb = pg_connect("{$this->data['host']}, {$this->data['port']}, {$this->data['user']}, {$this->data['pass']}, {$this->data['name']}");
+            // The old syntax with multiple parameters $conn = pg_connect("host", "port", "options", "tty", "dbname") has been deprecated. 
+            $wpdb = @pg_connect("host={$this->data['host']} port={$this->data['port']} user={$this->data['user']} password={$this->data['password']} dbname={$this->data['name']}");
         } catch (\Throwable $t) {
-            $wpdb = false;
+            $wpdb = false; // Returns an PgSql\Connection instance on success, or false on failure. So making it false ( here again) seems valid only for old resource returns
         }
         if (!$wpdb) {
-            return sprintf(PGSQL_COULDNT_CONNECT, serendipity_specialchars($this->data['pass']));
+            return sprintf(PGSQL_COULDNT_CONNECT, ($t ?? 'Check your import DB credential data again'));
         }
 
         /* Users */
