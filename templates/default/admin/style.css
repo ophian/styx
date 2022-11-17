@@ -3036,6 +3036,9 @@ input.pinpoint {
     min-width: 11em;
 }
 
+.ihelp .icon-info-circled {
+    cursor: help; /* color of parent */
+}
 .newrex .icon-info-circled,
 .upw_field .icon-info-circled,
 .plugin_docu .icon-info-circled,
