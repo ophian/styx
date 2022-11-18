@@ -872,7 +872,7 @@
 @define('MEDIA_EXIF', 'EXIF/JPEG Metadaten übernehmen?');
 @define('MEDIA_EXIF_DESC', 'Falls aktiviert, werden EXIF/JPEG Metadaten ausgelesen und in der Datenbank gespeichert.');
 @define('MEDIA_PROP', 'Medien-Eigenschaften');
-@define('MEDIA_PROP_STATUS', 'Die Formular-Eingabewerte "alt", "comment"s und "title" als öffentliche Medieneigenschaften sind noch nicht gespeichert, ODER entsprechen dem Standard. Derzeit wird ein Bildtitel-Attribut automatisch durch den Dateinamen erzeugt!');
+@define('MEDIA_PROP_STATUS', 'Die Formular-Eingabewerte "alt", "comment"s und "title" als <b>öffentliche</b> Medieneigenschaften sind noch nicht gespeichert, ODER entsprechen dem Standard. Derzeit wird ein Bildtitel-Attribut automatisch durch den Dateinamen erzeugt! Vermeiden Sie es auch, den Copyright-Wert mit Ihrem hier eventuell vor-eingestellten Login-Namen zu speichern, wenn Sie die Rechte nicht wirklich besitzen! Nutzen Sie "unknown" oder Ähnliches, oder lassen Sie den Wert leer.');
 @define('MEDIA_CREATEVARS', 'Zusätzliche Bild-Variationen erzeugen');
 
 @define('DIALOG_DELETE_VARIATIONS_PERITEM', 'Ja [ENTER-key] löscht alle Vorkommen dieser Datei; Nein [SPACE-key] löscht nur deren Bildvariationen (falls vorhanden), damit sie folgend über das [+] icon erneut aufgebaut werden können; Abbrechen [ESC-key] bewirkt nichts! "Ja" und "Nein" Aktionen können im Weiteren ebenfalls abgebrochen werden.');

@@ -878,7 +878,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('MEDIA_EXIF', 'Внасяне на EXIF/JPEG данните за изображенията');
 @define('MEDIA_EXIF_DESC', 'Ако е позволено, съществуващите EXIF/JPEG метаданни в изображенията ще бъдат прочетени и записани в базата данни. Така ще има възможност да бъдат показвани в галерията с изображения.');
 @define('MEDIA_PROP', 'Свойства на медиийните файлове');
-@define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as public media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname!');
+@define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as <b>public</b> media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname! Also, beware of saving the copyright value with the here eventually pre-set login name of yours, when you don\'t actually own the rights! Better use "unknown", or such, or leave empty.');
 @define('MEDIA_CREATEVARS', 'Add additional image variations');
 
 @define('DIALOG_DELETE_VARIATIONS_PERITEM', 'Yes [ENTER-key] will delete all occurrences of this file; No [SPACE-key] only deletes the image variations (if any), so that they can be rebuilt afterwards via the [+] icon; Cancel [ESC-key] will do nothing! "Yes" and "No" confirmation actions in the following can also be aborted.');

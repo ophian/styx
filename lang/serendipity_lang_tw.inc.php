@@ -878,7 +878,7 @@ $i18n_unknown = 'tw';
 @define('MEDIA_EXIF', '輸入 EXIF/JPEG 圖片資料');
 @define('MEDIA_EXIF_DESC', '如果開啟，EXIF/JPEG 圖檔裡的 metadata 會自動儲存到資料庫。');
 @define('MEDIA_PROP', '媒體內容');
-@define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as public media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname!');
+@define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as <b>public</b> media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname! Also, beware of saving the copyright value with the here eventually pre-set login name of yours, when you don\'t actually own the rights! Better use "unknown", or such, or leave empty.');
 @define('MEDIA_CREATEVARS', 'Add additional image variations');
 
 @define('DIALOG_DELETE_VARIATIONS_PERITEM', 'Yes [ENTER-key] will delete all occurrences of this file; No [SPACE-key] only deletes the image variations (if any), so that they can be rebuilt afterwards via the [+] icon; Cancel [ESC-key] will do nothing! "Yes" and "No" confirmation actions in the following can also be aborted.');

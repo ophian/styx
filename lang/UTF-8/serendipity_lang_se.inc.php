@@ -875,7 +875,7 @@
 @define('MEDIA_EXIF', 'Importera EXIF/JPEG-bilddata');
 @define('MEDIA_EXIF_DESC', 'Om aktiv kommer existerande EXIF/JPEG-metadata i bilder att läsas och lagras i databasen för visning i mediagalleriet.');
 @define('MEDIA_PROP', 'Mediaegenskaper');
-@define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as public media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname!');
+@define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as <b>public</b> media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname! Also, beware of saving the copyright value with the here eventually pre-set login name of yours, when you don\'t actually own the rights! Better use "unknown", or such, or leave empty.');
 @define('MEDIA_CREATEVARS', 'Add additional image variations');
 
 @define('DIALOG_DELETE_VARIATIONS_PERITEM', 'Yes [ENTER-key] will delete all occurrences of this file; No [SPACE-key] only deletes the image variations (if any), so that they can be rebuilt afterwards via the [+] icon; Cancel [ESC-key] will do nothing! "Yes" and "No" confirmation actions in the following can also be aborted.');
