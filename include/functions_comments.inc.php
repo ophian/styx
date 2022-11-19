@@ -547,18 +547,17 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             serendipity_plugin_api::hook_event('frontend_display', $comment, $addData);
 
             // re-check hooked $comment['comment'] for escaping or NOT
-            #if (preg_match("/<img.*class=['\"].*comment_avatar.*['\"]*>+/i", $comment['comment'])) {
             if (isset($comment['dismark']) && $comment['dismark']) {
                 $_comment_dismarkup_temp = true;
-                unset($comment['dismark']); // better always unset after
             }
-            // Yes, in plain, non-HTML comment text NL2BR has now run too... (but we do it in both cases for convenience)
+            // Yes, in plain, non-HTML comment text NL2BR has now run too... (but for paranoids we do it in both cases for convenience)
+            // 'body' is the unchanged content of DB - while 'comment' is the current state of parsed hook: 'frontend_display'
             if (false !== strpos($comment['body'], '<br />')) {
                 $comment['comment'] = preg_replace('{(<br[^>]*>\s*){3,}+}i', "<br/>\n", $comment['comment']); // leaves paragraph like double br
                 $_comment_dismarkup_temp = true;
             }
-            $comment['clear_email'] = !empty($comment['email']) ? $comment['email'] : null; // independently from spamblock no_email option, since used for selector (self/owner) checks only!
 
+            $comment['clear_email'] = !empty($comment['email']) ? $comment['email'] : null; // independently from spamblock no_email option, since used for selector (self/owner) checks only!
             if (isset($comment['no_email']) && $comment['no_email']) {
                 $comment['email'] = false;
             } elseif (!empty($comment['email'])) {
