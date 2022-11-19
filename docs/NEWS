@@ -2,6 +2,8 @@ Version 4.0-rc1 ()
  ------------------------------------------------------------------------
 
 
+  * Improved _printComments() hooked comment-data for nl2br linebreaks
+
   * Added comment data dismark (escape) flag to NL2BR markup parsing
 
 
