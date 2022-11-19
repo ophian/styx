@@ -18,7 +18,7 @@ class serendipity_event_nl2br extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_NL2BR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team, Ian Styx, Stephan Brunker');
-        $propbag->add('version',       '2.55');
+        $propbag->add('version',       '2.56');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1.0',
@@ -286,6 +286,9 @@ class serendipity_event_nl2br extends serendipity_event
                         &&  !isset($serendipity['POST']['properties']['ep_no_nl2br'])) {
 
                             $element = $temp['element'];
+                            if ($element == 'comment') {
+                                $_element = $eventData[$element]; // a pre state copy for comparison
+                            }
                             if ($p_tags) {
                                 // NL2P OPERATION
                                 $this->isolationtags = $isolate;
@@ -334,6 +337,11 @@ class serendipity_event_nl2br extends serendipity_event
                                 $eventData[$element] = str_replace(array("\r\n", "\r"), "\n", $eventData[$element]);
                                 // clean special tags from nl2br
                                 $eventData[$element] = $this->clean_nl2brtags($eventData[$element]);
+                            }
+
+                            if ($element == 'comment' && $eventData['comment'] !== $_element) {
+                                // no escape parsing, since changed
+                                $eventData['dismark'] = true;
                             }
                         }
                     }
