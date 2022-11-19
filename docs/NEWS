@@ -2,6 +2,7 @@ Version 4.0-rc1 ()
  ------------------------------------------------------------------------
 
 
+  * Added comment data dismark (escape) flag to NL2BR markup parsing
 
 
 Version 4.0-beta2 (November, 17th 2022)
