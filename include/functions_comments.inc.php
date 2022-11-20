@@ -550,10 +550,18 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             if (isset($comment['dismark']) && $comment['dismark']) {
                 $_comment_dismarkup_temp = true;
             }
-            // Yes, in plain, non-HTML comment text NL2BR has now run too... (but for paranoids we do it in both cases for convenience)
-            // 'body' is the unchanged content of DB - while 'comment' is the current state of parsed hook: 'frontend_display'
-            if (false !== strpos($comment['body'], '<br />')) {
-                $comment['comment'] = preg_replace('{(<br[^>]*>\s*){3,}+}i', "<br/>\n", $comment['comment']); // leaves paragraph like double br
+            // Yes, in plain, non-HTML mode the comments 'comment' text NL2BR (if set) has now run too...
+            // Paranoid follow-up considerations:  Shall we do it in all possible cases for convenience and don't care about blown up redundancies?
+            // The 'body' field is the non-hooked content of DB - while 'comment' is the current state of parsed hook: 'frontend_display'.
+            // Both html/plain flavors have been already sanitized on top before.
+            // To avoid redundancy checks this now is additionally checked against an already set _comment_dismarkup_temp flag - so we assume NL2BR br checks were straight enough for this case.
+            //         (BUT - being paranoid - I am NOT << absolute "100%" (!!!) >> sure if comment CASES CAN EXIST
+            //          where we should be even more paranoid to remove it...?!?
+            //          ... since it is only preparing/removing exuberant line breaks for output on the first hand
+            //          ... and independently setting the flag when DB comment body has <br /> tags)
+            // Generally it seems to me that this check AT ALL is now completely obsolete... and we should disable/remove it and/or place the preg into nl2br...
+            if (empty($_comment_dismarkup_temp) && false !== strpos($comment['body'], '<br />')) {
+                $comment['comment'] = preg_replace('{(<br[^>]*>\s*){3,}+}i', "<br/>\n", $comment['comment']); // leaves "paragraph alike" double br
                 $_comment_dismarkup_temp = true;
             }
 
