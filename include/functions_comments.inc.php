@@ -550,7 +550,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             if (isset($comment['dismark']) && $comment['dismark']) {
                 $_comment_dismarkup_temp = true;
             }
-            // Yes, in plain, non-HTML mode the comments 'comment' text NL2BR (if set) has now run too...
+            // Yes, in plain, non-HTML mode - for the comments 'comment' text - NL2BR (if set) has now run too...
             // Paranoid follow-up considerations:  Shall we do it in all possible cases for convenience and don't care about blown up redundancies?
             // The 'body' field is the non-hooked content of DB - while 'comment' is the current state of parsed hook: 'frontend_display'.
             // Both html/plain flavors have been already sanitized on top before.
