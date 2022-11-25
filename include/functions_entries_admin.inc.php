@@ -142,6 +142,13 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
         $template_vars['allowDateManipulation'] = true;
     }
 
+    if (isset($entry['markupeditor'])) {
+        $template_vars['markupeditor'] = $entry['markupeditor'];
+    }
+    if (isset($entry['markupeditortype'])) {
+        $template_vars['markupeditortype'] = $entry['markupeditortype'];
+    }
+
     $template_vars['timestamp']               =  serendipity_serverOffsetHour(isset($entry['timestamp']) && $entry['timestamp'] > 0 ? $entry['timestamp'] : time());
     $template_vars['reset_timestamp']         =  serendipity_serverOffsetHour(time());
     $template_vars['hiddens']                 =  $hiddens;
