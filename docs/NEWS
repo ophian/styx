@@ -2,6 +2,16 @@ Version 4.0-rc1 ()
  ------------------------------------------------------------------------
 
 
+  * Improve the entry form plain text (editor) buttons for being strict on used
+    markup editor (markdown or textile plugins).
+
+    PLEASE NOTE:
+    Set a manually added serendipity variable [*] into your local serendipity
+    config file user area, if you want to use the previous PLAINTEXT buttons in
+    your backend entry forms again.
+
+        [*]     $serendipity['strict_markup_editors'] = false;
+
   * Improved _printComments() hooked comment-data for nl2br linebreaks
 
   * Added comment data dismark (escape) flag to NL2BR markup parsing
