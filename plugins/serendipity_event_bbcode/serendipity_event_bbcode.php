@@ -17,14 +17,19 @@ class serendipity_event_bbcode extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_BBCODE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Jez Hancock, Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '2.15');
+        $propbag->add('version',       '2.16');
         $propbag->add('requirements',  array(
-            'serendipity' => '1.6',
-            'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'serendipity' => '2.0',
+            'smarty'      => '3.1',
+            'php'         => '7.4'
         ));
         $propbag->add('cachable_events', array('frontend_display' => true));
-        $propbag->add('event_hooks', array('frontend_display' => true, 'frontend_comment' => true, 'css' => true));
+        $propbag->add('event_hooks', array(
+            'backend_entryform' => true,
+            'frontend_display'  => true,
+            'frontend_comment'  => true,
+            'css'               => true
+        ));
         $propbag->add('groups', array('MARKUP'));
 
         $this->markup_elements = array(
@@ -240,6 +245,16 @@ class serendipity_event_bbcode extends serendipity_event
         if (isset($hooks[$event])) {
 
             switch($event) {
+
+                case 'backend_entryform':
+                    // Make a proper notation that the user has two concurring markup plugins installed, which is not recommended to have!
+                    if (!empty($eventData['markupeditortype'])) {
+                        $eventData['markupeditortype'] .= ' & <a href="http://www.phpbb.com/phpBB/faq.php?mode=bbcode">BBCode</a>';
+                    } else {
+                        $eventData['markupeditor'] = false;
+                        $eventData['markupeditortype'] = PLUGIN_EVENT_BBCODE_TRANSFORM;
+                    }
+                    break;
 
                 case 'frontend_display':
 

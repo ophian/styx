@@ -9,6 +9,6 @@
 
 @define('PLUGIN_EVENT_BBCODE_NAME',         'Markup: BBCode');
 @define('PLUGIN_EVENT_BBCODE_DESC',         'Značkování textu pomocí BBCode');
-@define('PLUGIN_EVENT_BBCODE_TRANSFORM',    'Povolit (= překládat) značkovací formát <a href="http://www.phpbb.com/phpBB/faq.php?mode=bbcode">BBCode</a>');
+@define('PLUGIN_EVENT_BBCODE_TRANSFORM',    'Povolený formát <a href="https://www.phpbb.com/community/help/bbcode">BBCode</a>');
 @define('PLUGIN_EVENT_BBCODE_TARGET',       'Použít pro odkazy target="_blank" (odkazy otevírat v novém okně)?');
 

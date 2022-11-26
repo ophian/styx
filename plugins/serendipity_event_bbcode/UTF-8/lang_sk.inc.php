@@ -7,8 +7,8 @@
  *  Translated on 2010-08-17
  */
 
-@define('PLUGIN_EVENT_BBCODE_NAME',         'Markup: BBCode');
-@define('PLUGIN_EVENT_BBCODE_DESC',         'Transofmácia textu pomocou BBCode');
-@define('PLUGIN_EVENT_BBCODE_TRANSFORM',    'Zapnúť (= prekladať) označovací formát <a href="http://www.phpbb.com/phpBB/faq.php?mode=bbcode">BBCode</a>');
-@define('PLUGIN_EVENT_BBCODE_TARGET',       'Použiť pre odkazy target="_blank" (odkazy otvárať v novom okne)?');
+@define('PLUGIN_EVENT_BBCODE_NAME', 'Markup: BBCode');
+@define('PLUGIN_EVENT_BBCODE_DESC', 'Transofmácia textu pomocou BBCode');
+@define('PLUGIN_EVENT_BBCODE_TRANSFORM', 'Povolený formát <a href="https://www.phpbb.com/community/help/bbcode">BBCode</a>');
+@define('PLUGIN_EVENT_BBCODE_TARGET', 'Použiť pre odkazy target="_blank" (odkazy otvárať v novom okne)?');
 

@@ -14,5 +14,5 @@
 
 @define('PLUGIN_EVENT_BBCODE_NAME', '標記語言: BBCode');
 @define('PLUGIN_EVENT_BBCODE_DESC', '使用 BBCode 的標記語言');
-@define('PLUGIN_EVENT_BBCODE_TRANSFORM', '<a href="http://www.phpbb.com/phpBB/faq.php?mode=bbcode">BBCode</a> 可用的格式');
+@define('PLUGIN_EVENT_BBCODE_TRANSFORM', '<a href="https://www.phpbb.com/community/help/bbcode">BBCode</a> 可用的格式');
 
