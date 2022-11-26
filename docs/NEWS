@@ -2,6 +2,9 @@ Version 4.0-rc1 ()
  ------------------------------------------------------------------------
 
 
+  * Improve [ s9ymarkup, emoticate ] plugins for now better used consistency
+    of comment escape refactoring.
+
   * Deny mixing of PLAIN TEXT "bbcode" editor buttons in the entry forms when
     used with markup editors like markdown or textile plugins.
 
