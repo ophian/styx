@@ -1,3 +1,7 @@
+1.22:
+----
+ * Restrict 1.21 to 'comment' markup_elements only
+
 1.21:
 ----
  * Disable escape parsing when emoticate took place in PLAIN TEXT contents
