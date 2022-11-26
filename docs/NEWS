@@ -2,8 +2,8 @@ Version 4.0-rc1 ()
  ------------------------------------------------------------------------
 
 
-  * Improve the entry form plain text (editor) buttons for being strict on used
-    markup editor (markdown or textile plugins).
+  * Deny mixing of PLAIN TEXT "bbcode" editor buttons in the entry forms when
+    used with markup editors like markdown or textile plugins.
 
     PLEASE NOTE:
     Set a manually added serendipity variable [*] into your local serendipity
