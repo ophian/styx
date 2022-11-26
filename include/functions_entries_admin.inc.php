@@ -142,10 +142,11 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
         $template_vars['allowDateManipulation'] = true;
     }
 
-    if (isset($entry['markupeditor'])) {
+    // check for isset and boolean type
+    if (!empty($entry['markupeditor'])) {
         $template_vars['markupeditor'] = $entry['markupeditor'];
     }
-    if (isset($entry['markupeditortype'])) {
+    if (!empty($entry['markupeditortype'])) {
         $template_vars['markupeditortype'] = $entry['markupeditortype'];
     }
 
