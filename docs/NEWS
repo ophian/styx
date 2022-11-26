@@ -8,7 +8,7 @@ Version 4.0-rc1 ()
     PLEASE NOTE:
     Set a manually added serendipity variable [*] into your local serendipity
     config file user area, if you want to use the previous PLAINTEXT buttons in
-    your backend entry forms again.
+    your backend entry forms again for this case.
 
         [*]     $serendipity['strict_markup_editors'] = false;
 
