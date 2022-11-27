@@ -249,7 +249,7 @@ class serendipity_event_bbcode extends serendipity_event
                 case 'backend_entryform':
                     // Make a proper notation that the user has two concurring markup plugins installed, which is not recommended to have!
                     if (!empty($eventData['markupeditortype'])) {
-                        $eventData['markupeditortype'] .= ' & <a href="https://www.phpbb.com/community/help/bbcode" target="_blank">BBCode</a>';
+                        $eventData['markupeditortype'] .= ' <span class="icon-plus" aria-hidden="true"></span> <a href="https://www.phpbb.com/community/help/bbcode" target="_blank">BBCode</a>';
                     } else {
                         $eventData['markupeditor'] = false;
                         $eventData['markupeditortype'] = PLUGIN_EVENT_BBCODE_TRANSFORM;
