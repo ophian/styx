@@ -18,11 +18,11 @@ class serendipity_plugin_eventwrapper extends serendipity_plugin
         $propbag->add('description',   PLUGIN_EVENT_WRAPPER_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.2');
+        $propbag->add('version',       '1.3');
         $propbag->add('requirements',  array(
-            'serendipity' => '1.6',
-            'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'serendipity' => '2.0',
+            'smarty'      => '3.1',
+            'php'         => '7.4'
         ));
         $propbag->add('groups', array('FRONTEND_FEATURES'));
         $propbag->add('configuration', array('event_plugin', 'title'));
