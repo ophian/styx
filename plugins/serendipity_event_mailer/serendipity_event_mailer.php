@@ -19,11 +19,11 @@ class serendipity_event_mailer extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_MAILER_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Sebastian Nohn, Kristian Koehntopp, Garvin Hicking');
-        $propbag->add('version',       '1.60');
+        $propbag->add('version',       '1.61');
         $propbag->add('requirements',  array(
-            'serendipity' => '1.6',
-            'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'serendipity' => '2.0',
+            'smarty'      => '3.1',
+            'php'         => '7.4'
         ));
         $propbag->add('event_hooks',    array(
             'backend_publish' => true,
