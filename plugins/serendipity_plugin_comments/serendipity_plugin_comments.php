@@ -20,11 +20,11 @@ class serendipity_plugin_comments extends serendipity_plugin
         $propbag->add('description',   PLUGIN_COMMENTS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Garvin Hicking, Tadashi Jokagi, Judebert, G. Brockhaus, Ian Styx');
-        $propbag->add('version',       '1.23');
+        $propbag->add('version',       '1.24');
         $propbag->add('requirements',  array(
-            'serendipity' => '1.6',
-            'smarty'      => '2.6.7',
-            'php'         => '5.3.4'
+            'serendipity' => '2.0',
+            'smarty'      => '3.1',
+            'php'         => '7.4'
         ));
         $propbag->add('groups', array('FRONTEND_VIEWS'));
         $propbag->add('configuration', array(
