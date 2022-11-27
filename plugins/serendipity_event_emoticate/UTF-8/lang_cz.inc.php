@@ -6,9 +6,9 @@
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
-@define('PLUGIN_EVENT_EMOTICATE_NAME', 'Markup: Smajlíci');
-@define('PLUGIN_EVENT_EMOTICATE_DESC', 'Pøevádí standardní smajlíky na grafické obrázky');
-@define('PLUGIN_EVENT_EMOTICATE_TRANSFORM', 'Standardní smajlíci jako :-) nebo ;-) budou pøevedeni na obrázky.');
-@define('PLUGIN_EVENT_EMOTICATE_EXTENSION', 'Pøípona souboru');
-@define('PLUGIN_EVENT_EMOTICATE_EXTENSION_BLAHBLAH', 'Pøípona souboru va¹ich emotikon. Rozli¹uje velikost písmen.');
+@define('PLUGIN_EVENT_EMOTICATE_NAME', 'Markup: SmajlÃ­ci');
+@define('PLUGIN_EVENT_EMOTICATE_DESC', 'PÃ¸evÃ¡dÃ­ standardnÃ­ smajlÃ­ky na grafickÃ© obrÃ¡zky');
+@define('PLUGIN_EVENT_EMOTICATE_TRANSFORM', 'StandardnÃ­ smajlÃ­ci jako :-) nebo ;-) budou pÃ¸evedeni na obrÃ¡zky.');
+@define('PLUGIN_EVENT_EMOTICATE_EXTENSION', 'PÃ¸Ã­pona souboru');
+@define('PLUGIN_EVENT_EMOTICATE_EXTENSION_BLAHBLAH', 'PÃ¸Ã­pona souboru vaÂ¹ich emotikon. RozliÂ¹uje velikost pÃ­smen.');
 
