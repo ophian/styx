@@ -17,7 +17,7 @@ class serendipity_event_bbcode extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_BBCODE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Jez Hancock, Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '2.16');
+        $propbag->add('version',       '2.17');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1',
@@ -249,7 +249,7 @@ class serendipity_event_bbcode extends serendipity_event
                 case 'backend_entryform':
                     // Make a proper notation that the user has two concurring markup plugins installed, which is not recommended to have!
                     if (!empty($eventData['markupeditortype'])) {
-                        $eventData['markupeditortype'] .= ' & <a href="https://www.phpbb.com/community/help/bbcode">BBCode</a>';
+                        $eventData['markupeditortype'] .= ' & <a href="https://www.phpbb.com/community/help/bbcode" target="_blank">BBCode</a>';
                     } else {
                         $eventData['markupeditor'] = false;
                         $eventData['markupeditortype'] = PLUGIN_EVENT_BBCODE_TRANSFORM;

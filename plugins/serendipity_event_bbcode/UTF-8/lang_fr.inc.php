@@ -15,5 +15,5 @@
 
 @define('PLUGIN_EVENT_BBCODE_NAME', 'Balises: BBCode');
 @define('PLUGIN_EVENT_BBCODE_DESC', 'Permet l\'utilisation de balises BBCode dans le texte de vos billets');
-@define('PLUGIN_EVENT_BBCODE_TRANSFORM', 'Syntaxe <a href="https://www.phpbb.com/community/help/bbcode">BBCode</a> autorisée');
+@define('PLUGIN_EVENT_BBCODE_TRANSFORM', 'Syntaxe <a href="https://www.phpbb.com/community/help/bbcode" target="_blank">BBCode</a> autorisée');
 

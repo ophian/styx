@@ -7,5 +7,5 @@
 
 @define('PLUGIN_EVENT_BBCODE_NAME', 'Formato: BBCode');
 @define('PLUGIN_EVENT_BBCODE_DESC', 'Dar formato al texto utilizando BBCode');
-@define('PLUGIN_EVENT_BBCODE_TRANSFORM', 'Formato <a href="https://www.phpbb.com/community/help/bbcode">BBCode</a> permitido');
+@define('PLUGIN_EVENT_BBCODE_TRANSFORM', 'Formato <a href="https://www.phpbb.com/community/help/bbcode" target="_blank">BBCode</a> permitido');
 
