@@ -3239,6 +3239,10 @@ input.pinpoint {
 .entry_info .status_timestamp .icon-info-circled {
     color: #718395;
 }
+.alertinfo {
+    cursor: help;
+    color: #dc143c;
+}
 
 .show_config_option {
     text-decoration: none;
