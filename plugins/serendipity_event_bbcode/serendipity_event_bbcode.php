@@ -254,7 +254,7 @@ class serendipity_event_bbcode extends serendipity_event
                     if (!empty($eventData['markupeditortype'])) {
                         $serendipity['pdata']['markupeditortype'] = $eventData['markupeditortype'] .= ' <span class="icon-plus" aria-hidden="true"></span> <a href="https://www.phpbb.com/community/help/bbcode" target="_blank">BBCode</a>';
                     } else {
-                        $serendipity['pdata']['markupeditor'] = $eventData['markupeditor'] = false;
+                        $serendipity['pdata']['markupeditor'] = $eventData['markupeditor'] = null; // real markup plugins use boolean type (!)
                         $serendipity['pdata']['markupeditortype'] = $eventData['markupeditortype'] = PLUGIN_EVENT_BBCODE_TRANSFORM;
                     }
                     break;
