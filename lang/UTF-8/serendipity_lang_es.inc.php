@@ -204,7 +204,7 @@
 @define('REMOTE_FILE_NOT_FOUND', 'El fichero no fue localizado en el servidor remoto, ¿estás seguro de que la URL: <b>%s</b> es correcta?');
 @define('FILE_FETCHED', '%s enlazado como: %s');
 @define('FILE_UPLOADED', 'El fichero %s fue transferido correctamente: %s');
-@define('WORD_OR', 'O...');
+@define('WORD_OR', 'O');
 @define('SCALING_IMAGE', 'Escalando %s a %s x %s px');
 @define('FORCE_RELOAD', 'With certain image characteristics it can occasionally happen that the old image is still present in the browser cache. If so, check into the MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'Mantener las proporciones');
