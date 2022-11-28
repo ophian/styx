@@ -9,6 +9,7 @@ if (IN_serendipity !== true) {
 class serendipity_event_bbcode extends serendipity_event
 {
     var $title = PLUGIN_EVENT_BBCODE_NAME;
+
     function introspect(&$propbag)
     {
         global $serendipity;
@@ -17,7 +18,7 @@ class serendipity_event_bbcode extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_BBCODE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Jez Hancock, Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '2.17');
+        $propbag->add('version',       '2.18');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1',
@@ -26,6 +27,7 @@ class serendipity_event_bbcode extends serendipity_event
         $propbag->add('cachable_events', array('frontend_display' => true));
         $propbag->add('event_hooks', array(
             'backend_entryform' => true,
+            'backend_configure' => true,
             'frontend_display'  => true,
             'frontend_comment'  => true,
             'css'               => true
@@ -247,12 +249,13 @@ class serendipity_event_bbcode extends serendipity_event
             switch($event) {
 
                 case 'backend_entryform':
+                case 'backend_configure':
                     // Make a proper notation that the user has two concurring markup plugins installed, which is not recommended to have!
                     if (!empty($eventData['markupeditortype'])) {
-                        $eventData['markupeditortype'] .= ' <span class="icon-plus" aria-hidden="true"></span> <a href="https://www.phpbb.com/community/help/bbcode" target="_blank">BBCode</a>';
+                        $serendipity['pdata']['markupeditortype'] = $eventData['markupeditortype'] .= ' <span class="icon-plus" aria-hidden="true"></span> <a href="https://www.phpbb.com/community/help/bbcode" target="_blank">BBCode</a>';
                     } else {
-                        $eventData['markupeditor'] = false;
-                        $eventData['markupeditortype'] = PLUGIN_EVENT_BBCODE_TRANSFORM;
+                        $serendipity['pdata']['markupeditor'] = $eventData['markupeditor'] = false;
+                        $serendipity['pdata']['markupeditortype'] = $eventData['markupeditortype'] = PLUGIN_EVENT_BBCODE_TRANSFORM;
                     }
                     break;
 
