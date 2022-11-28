@@ -2,6 +2,8 @@ Version 4.0-rc1 ()
  ------------------------------------------------------------------------
 
 
+  * Improve scope of [ bbcode ] plugin variables for [ staticpage ] entry forms
+
   * Improve [ s9ymarkup, emoticate ] plugins for now better used consistency
     of comment escape refactoring.
 
