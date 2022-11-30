@@ -1,6 +1,5 @@
-Version 4.0-rc1 ()
+Version 4.0-rc1 (November, 30th 2022)
  ------------------------------------------------------------------------
-
 
   * Improve scope of [ bbcode ] plugin variables for [ staticpage ] entry forms
 
