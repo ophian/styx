@@ -1,6 +1,7 @@
 Version 4.0.0 ()
  ------------------------------------------------------------------------
 
+ * Fix [ entryproperties ] plugin SQL conditions order for cache relations
 
 
 Version 4.0-rc1 (November, 30th 2022)
