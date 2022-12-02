@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC . (isset($serendipity['GET']['plugin_to_conf']) ? ' ' . PLUGIN_EVENT_ENTRYPROPERTIES_DESC_PLUS : ''));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.84');
+        $propbag->add('version',       '1.85');
         $propbag->add('requirements',  array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -1075,17 +1075,17 @@ class serendipity_event_entryproperties extends serendipity_event
                     }
 
                     $conds = array();
+                    if ($is_cache && (!isset($addData['noCache']) || !$addData['noCache'])) {
+                        $conds[] = 'ep_cache_extended.value AS ep_cache_extended,';
+                        $conds[] = 'ep_cache_body.value     AS ep_cache_body,';
+                    }
+
                     if ((!isset($addData['noSticky']) || $addData['noSticky'] !== true) && !isset($serendipity['skipSticky'])) {
                         $conds[] = '                    ep_sticky.value AS orderkey'; // is the last $cond addkey in order (except in serendipity_searchEntries(), but we have a comma conditioning there)
                         $stickey = true; // sticky key case true call
                     } else {
                         $conds[] = '                    e.isdraft AS orderkey'; // Ditto
                         $stickey = false; // include sort sticky key case Null or false, but in special for draft=true calls. Also the default orderkey ASCending sort state.
-                    }
-
-                    if ($is_cache && (!isset($addData['noCache']) || !$addData['noCache'])) {
-                        $conds[] = 'ep_cache_extended.value AS ep_cache_extended,';
-                        $conds[] = 'ep_cache_body.value     AS ep_cache_body,';
                     }
 
                     $cond = implode("\n", $conds);
