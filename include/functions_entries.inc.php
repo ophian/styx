@@ -389,7 +389,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
         $cond['addkey'] = '';
     } else {
         $body .= ",";
-        $cond['addkey'] = "\n".rtrim($cond['addkey'], ',');
+        $cond['addkey'] = "\n".rtrim(rtrim($cond['addkey']), ','); // inlined rtrim w/o param strips away spaces and line endings first
     }
     if (is_null($select_key)) {
         $select_key = "{$cond['distinct']}
