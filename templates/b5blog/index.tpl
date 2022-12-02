@@ -154,7 +154,7 @@
 {* BLOG POSTS TITLE headline *}
 {if $template_option.title != 0 AND in_array($view, ['start', 'entries'])}
         <h3 class="pb-4 mb-4 fst-italic border-bottom">
-          {$template_option.title|escape|default:'From the Styx Firehose'}
+          {$template_option.title|default:'From the Styx Firehose'|escape}
         </h3>
 {/if}
         {$CONTENT}
@@ -166,8 +166,8 @@
 {* SIDEBAR ABOUT BOX container *}
 {if $template_option.about}
           <div class="p-4 mb-3 bg-light rounded">
-            <h4 class="fst-italic">{$template_option.abouttitle|escape|default:''}</h4>
-            <p class="mb-0">{$template_option.abouttext|escape|default:''}</p>
+            <h4 class="fst-italic">{$template_option.abouttitle|default:''|escape}</h4>
+            <p class="mb-0">{$template_option.abouttext|default:''|escape}</p>
           </div>
 {/if}
 
