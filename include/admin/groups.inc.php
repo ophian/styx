@@ -86,7 +86,7 @@ if ($serendipity['GET']['adminAction'] == 'edit' || isset($_POST['NEW']) || $ser
     $data['from'] = $from;
 
     if (!isset($data['from']['name'])) {
-        $data['from']['name'] = null; // avoid templates warnings on NEW
+        $data['from']['name'] = ''; // avoid templates warnings on NEW
     }
 
     $allusers = serendipity_chainByLevel(serendipity_fetchUsers());
