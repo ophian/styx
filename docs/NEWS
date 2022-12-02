@@ -1,6 +1,8 @@
 Version 4.0.0 ()
  ------------------------------------------------------------------------
 
+ * Improve entries list SQL query rtrim() handler for a non-working case
+
  * Fix [ entryproperties ] plugin SQL conditions order for cache relations
 
 
