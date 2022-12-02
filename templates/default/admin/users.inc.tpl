@@ -26,7 +26,7 @@
         {if isset($no_group_selected) AND $no_group_selected}
             <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.WARNING_NO_GROUPS_SELECTED}</span>
         {/if}
-            <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.CREATED_USER|sprintf:"# {$user|escape}":"{$realname|escape|default:''}"}</span>
+            <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.CREATED_USER|sprintf:"# {$user|escape}":"{$realname|default:''|escape}"}</span>
     {/if}
 {/if}
 {if isset($save_edit) AND $save_edit}
@@ -39,7 +39,7 @@
             {if isset($no_group_selected) AND $no_group_selected}
             <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.WARNING_NO_GROUPS_SELECTED}</span>
             {/if}
-            <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.MODIFIED_USER|sprintf:"{$realname|escape|default:''}"}</span>
+            <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.MODIFIED_USER|sprintf:"{$realname|default:''|escape}"}</span>
         {/if}
     {/if}
 {/if}
