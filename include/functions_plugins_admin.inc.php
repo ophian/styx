@@ -422,7 +422,7 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 }
                 $data['text_rows'] = $text_rows;
                 if ($cbag->get('type') == 'html') {
-                    $data['ctype'] = 'html'; // YES! DO it again, since it got overridden  when a plugin config has both, 'html' and 'text' fields
+                    $data['ctype'] = 'html'; // YES! DO it again, since it is overridden by text when a plugin config has both, 'html' and 'text' fields
                     $htmlnugget[] = $elcount;
                     if (!function_exists('serendipity_emit_htmlarea_code')) {
                         @include_once dirname(__FILE__) . '/functions_entries_admin.inc.php';
