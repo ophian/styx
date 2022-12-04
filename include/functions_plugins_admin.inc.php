@@ -408,8 +408,12 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 $assign_plugin_config($data);
                 break;
 
-            case 'html': $data['ctype'] = 'html';
-            case 'text': $data['ctype'] = 'text';
+            case 'html':
+                $data['ctype'] = 'html';
+                $data['pdata']['markupeditor'] = $serendipity['pdata']['markupeditor'] ?? null;
+                $data['pdata']['markupeditortype'] = $serendipity['pdata']['markupeditortype'] ?? null;
+            case 'text':
+                $data['ctype'] = 'text';
                 if (empty($text_rows)) {
                     $text_rows = $cbag->get('rows');
                     if (empty($text_rows)) {
@@ -418,12 +422,16 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 }
                 $data['text_rows'] = $text_rows;
                 if ($cbag->get('type') == 'html') {
+                    $data['ctype'] = 'html'; // YES! DO it again, since it got overridden  when a plugin config has both, 'html' and 'text' fields
                     $htmlnugget[] = $elcount;
                     if (!function_exists('serendipity_emit_htmlarea_code')) {
                         @include_once dirname(__FILE__) . '/functions_entries_admin.inc.php';
                     }
                     // use SpawnMulti false per default (for multi nugget textareas, eg linklist sidebar plugin) - but where do we use jsname though?
                     serendipity_emit_htmlarea_code("nuggets{$elcount}", "nuggets{$elcount}");
+                    if ($spawnNuggets && isset($serendipity['wysiwyg']) && $serendipity['wysiwyg'] && count($htmlnugget) > 0) {
+                        $data['wysiwyg'] = true;
+                    }
                 }
                 $assign_plugin_config($data);
                 break;
