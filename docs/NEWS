@@ -1,6 +1,8 @@
 Version 4.0.0 ()
  ------------------------------------------------------------------------
 
+ * Improve plugin html nugget areas for markupeditor/type assignments
+
  * Improve entries list SQL query rtrim() handler for a non-working case
 
  * Fix [ entryproperties ] plugin SQL conditions order for cache relations
