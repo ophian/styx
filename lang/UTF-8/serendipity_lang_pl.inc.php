@@ -271,7 +271,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('NEXT_PAGE', 'następna strona');
 @define('ALL_CATEGORIES', 'Wszystkie kategorie');
 @define('DO_MARKUP', 'Formatuj za pomocą wtyczek Znaczników');
-@define('DO_MARKUP_DESCRIPTION', 'Zastosuj formatowania wtyczek Znaczników do tekstu (emotikonki, skróty znaczników tworzone przez użycie *, /, _, ...). Wyłączenie tej opcji spowoduje zachowanie kodu HTML w tekście.');
+@define('DO_MARKUP_DESCRIPTION', 'Zastosuj (plugin) transformacje znaczników do tekstu (uśmieszki, bbcode, skróty s9y, markdown, itp.). Jeśli opcja jest wyłączona, treść jest renderowana 1:1, a wszelkie formatowanie HTML jest zachowane. Jeśli ta opcja jest włączona, inne wtyczki mogą modyfikować zawartość bryłki.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Format daty');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Format daty wpisu, używa zmiennych funkcji strftime() języka PHP. (Standardowo: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Nie mogę otworzyć pliku stylu (template). Proszę, sprawdź lub unowocześnij swoją instalację Serendipity!');

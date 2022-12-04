@@ -269,7 +269,7 @@
 @define('NEXT_PAGE', 'seuraava sivu');
 @define('ALL_CATEGORIES', 'Kaikki kategoriat');
 @define('DO_MARKUP', 'Tee notaatio muunnokset');
-@define('DO_MARKUP_DESCRIPTION', 'Tee tekstille notaatiomuutokset (hymiöt, lyhennelmät käyttäen *, /, _, ...). Kieltämällä tämä säilyy  HTML-koodi tekstissä sellaisenaan.');
+@define('DO_MARKUP_DESCRIPTION', 'Soveltaa (plugin) merkintämuunnoksia tekstiin (hymiöt, bbcode, s9y-lyhytmerkinnät, markdown jne.). Jos se on poistettu käytöstä, sisältö renderöidään 1:1 ja HTML-muotoilu säilytetään. Jos tämä vaihtoehto on aktivoitu, muut liitännäiset voivat muokata nuggetin sisältöä.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Päiväyksen muotoilu');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Merkinnän todellinen päiväys, PHPn strftime() muuttujilla. (Oletus: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Mallipohjan avaaminen epäonnistui, ole kiltti ja päivitä  Serendipity!');

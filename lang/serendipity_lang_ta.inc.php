@@ -269,7 +269,7 @@
 @define('NEXT_PAGE', 'அடுத்தபக்கம்');
 @define('ALL_CATEGORIES', 'அனைத்து பிரிவுகள்');
 @define('DO_MARKUP', 'Perform Markup Transformations');
-@define('DO_MARKUP_DESCRIPTION', 'Apply markup transformations to the text (smilies, shortcut markups via *, /, _, ...). Disabling this will preserve any HTML-code in the text.');
+@define('DO_MARKUP_DESCRIPTION', 'உரைக்கு (புன்னகைகள், bbcode, s9y ஷார்ட்கட் மார்க்அப்கள், மார்க் டவுன், முதலியன) மார்க்அப் மாற்றங்களைப் பயன்படுத்தவும். முடக்கப்பட்டால், உள்ளடக்கம் 1:1 என ரெண்டர் செய்யப்படும் மற்றும் எந்த HTML வடிவமைப்பும் பாதுகாக்கப்படும். இந்த விருப்பம் செயல்படுத்தப்பட்டால், பிற செருகுநிரல்கள் நகட்டின் உள்ளடக்கங்களை மாற்றலாம்.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Dateformatting');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'The format of the entry\'s actual date, using PHPs strftime() variables. (Default: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Unable to open template file, please update Serendipity!');

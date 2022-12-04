@@ -271,7 +271,7 @@
 @define('NEXT_PAGE', '«б’ЁЌ… «б «бн…');
 @define('ALL_CATEGORIES', 'ћгнЏ «б ’«днЁ');
 @define('DO_MARKUP', '≈ћ—«Ѕ«   Ќжнб «б«яж«ѕ');
-@define('DO_MARKUP_DESCRIPTION', 'нгяд  Ќжнб «б«Ќ—Ё «бён«”н… ≈бм Џб«г«  √ж ≈» ”«г«  гЋ«б («б«» ”«г« , «б«ќ ’«—«  »ж«”Ў… *, /, _, ...) Џѕг «б гянд ”жЁ нЌ Ёў »ћгнЏ √яж«ѕ HTML Џбм «де« д’ж’ ЁёЎ.');
+@define('DO_MARKUP_DESCRIPTION', 'ёг » Ў»нё  Ќжнб«  «б —гн“ («бгяжд «б≈÷«Ён) Џбм «бд’ («б«» ”«г«  ° ж bbcode ° жЏб«г«  «б«ќ ’«— s9y ° ж«б ќЁн÷«  ° жг« ≈бм –бя). ≈–«  г  ЏЎнбе ° н г Џ—÷ «бгЌ жм »д”»… 1: 1 жн г «б«Ќ Ё«ў »√н  д”нё HTML. ≈–«  г  д‘нЎ е–« «бќн«— ° нгяд бб≈÷«Ё«  «б√ќ—м  Џѕнб гЌ жн«  «бя б….');
 @define('GENERAL_PLUGIN_DATEFORMAT', '’нџ… «б «—нќ');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', '’нџ… «ѕќ«б «б «—нќ «бЌёнён Ён PHPs strftime() variables. (Default: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'џн— ё«ѕ— Џбм Ё Ќ гбЁ «бё«б». «б—ћ«Ѕ  ЌѕнЋ «бгћб…');

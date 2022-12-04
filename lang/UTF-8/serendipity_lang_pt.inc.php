@@ -253,7 +253,7 @@
 @define('NEXT_PAGE', 'próxima página');
 @define('ALL_CATEGORIES', 'Todas as categorias');
 @define('DO_MARKUP', 'Executar trasnformações de marcação');
-@define('DO_MARKUP_DESCRIPTION', 'Aplicar transformações de marcas no texto (carinhas, abreviaturas com *, /, _, ...). Desabilitando isso você preservará o código HTML no texto.');
+@define('DO_MARKUP_DESCRIPTION', 'Aplicar (plugin) transformações de marcação no texto (smilies, bbcode, s9y marcação de atalhos, markdown, etc.). Se desabilitado, o conteúdo é renderizado 1:1 e qualquer formatação HTML é preservada. Se esta opção for ativada, outros plugins podem modificar o conteúdo do nugget.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Formatação de data');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Formato da data atual do artigo, usando a mesma formatação da função strftime() do PHP. (Padrão: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Não foi possível abrir o arquivo de template, por favor atualize o Serendipity!');

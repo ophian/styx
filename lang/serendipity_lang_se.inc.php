@@ -269,7 +269,7 @@
 @define('NEXT_PAGE', 'nästa sida');
 @define('ALL_CATEGORIES', 'Alla kategorier');
 @define('DO_MARKUP', 'Utför Markup Transformations');
-@define('DO_MARKUP_DESCRIPTION', 'Applicera förkortad textdekoration (smilies, snabbformatering med *, /, _, ...). Att avvaktivera detta kommer att bevara all HTML-kod i texten.');
+@define('DO_MARKUP_DESCRIPTION', 'Tillämpa (insticksmodul) markeringsomvandlingar på texten (smilies, bbcode, s9y-genvägsmarkeringar, markdown, etc.). Om den är inaktiverad återges innehållet 1:1 och HTML-formatering bevaras. Om det här alternativet är aktiverat kan andra plugins ändra innehållet i nugget.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Datumformatering');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Formatet på artikelns verkliga datum, med hjälp PHPs strftime() variabler. (Ursprungsvärde: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Kunde inte öppna mallfil. Uppdatera Serendipity!');

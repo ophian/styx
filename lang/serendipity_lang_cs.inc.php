@@ -286,7 +286,7 @@ $i18n_filename_to = array (
 @define('NEXT_PAGE', 'další stránka');
 @define('ALL_CATEGORIES', 'Všechny kategorie');
 @define('DO_MARKUP', 'Umožnit pøevod znaèek');
-@define('DO_MARKUP_DESCRIPTION', 'Pøevést znaèky na text (smajlíky, zkratky *, /, _, ...). Vypnutí této volby zajistí uložení HTML kódù v textu.');
+@define('DO_MARKUP_DESCRIPTION', 'Použijte (zásuvný modul) transformace znacek na text (smajlíky, bbcode, znacky zkratek s9y, markdown atd.). Pokud je vypnuto, obsah se vykreslí 1:1 a veškeré formátování HTML zustane zachováno. Pokud je tato volba aktivována, mohou ostatní zásuvné moduly obsah samorostu upravovat.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Formátování data');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Formát aktuálního data záznamu, používá PHP promìnnou strftime(). (Pøednastaveno: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Nelze otevøít vzorový soubor, updatujte Serendipity!');

@@ -269,7 +269,7 @@
 @define('NEXT_PAGE', 'næsta síða');
 @define('ALL_CATEGORIES', 'Allir flokkar');
 @define('DO_MARKUP', 'Gera breytingar á texta');
-@define('DO_MARKUP_DESCRIPTION', 'Virkja breytinga rá texta út frá ákveðnum táknum (broskarlar, styttri leiðir í gegnum *, /, _, ...). Óvirking á þessu mun varðveita allan HTML-kóða í textanum. Sjálfgefið gildi er "Já".');
+@define('DO_MARKUP_DESCRIPTION', 'Notaðu (viðbót) merkingarbreytingar á textann (broskallar, bbcode, s9y flýtileiðir, markdown, osfrv.). Ef slökkt er á því er efnið gefið 1:1 og hvaða HTML-snið sem er varðveitt. Ef þessi valkostur er virkur geta önnur viðbætur breytt innihaldi gullmolans.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Dagsetningarsnið');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Snið alvöru dagsetningar færslunnar, sem notar strftime() breytu PHP. (Sjálfgefið: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Gat ekki opnað forsniðsskrá, vinsamlegast uppfærðu Serendipity!');

@@ -255,7 +255,7 @@
 @define('NEXT_PAGE', 'Page suivante');
 @define('ALL_CATEGORIES', 'Toutes les catégories');
 @define('DO_MARKUP', 'Transformation de balises dans le texte');
-@define('DO_MARKUP_DESCRIPTION', 'Transforme les balises dans le texte (smileys, raccourcis via *, /, _, ...). La désactiver préserva tout le code HTML dans le texte.');
+@define('DO_MARKUP_DESCRIPTION', 'Appliquer des transformations de balises (plugins) au texte (smileys, bbcode, raccourcis s9y, markdown, etc.). Si cette option est désactivée, le contenu est rendu 1:1 et tout formatage HTML est préservé. Si cette option est activée, d\'autres plugins peuvent modifier le contenu de la pépite.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Format de la date');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Le format dans lequel la date des billets doit être affichée. Toute syntaxe permise par la fonction PHP <a href="http://www.php.net/strftime" target="blank">strftime()</a> est possible. (Défaut : "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Impossible d\'ouvrir le fichier du thème, merci de mettre à jour Serendipity !');

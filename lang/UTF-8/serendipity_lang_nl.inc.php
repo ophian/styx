@@ -272,7 +272,7 @@
 @define('NEXT_PAGE', 'volgende pagina');
 @define('ALL_CATEGORIES', 'Alle categorieën');
 @define('DO_MARKUP', 'Voer tekstopmaakveranderingen uit');
-@define('DO_MARKUP_DESCRIPTION', 'Voer tekstopmaak uit (smilies, verkort opmaak via *, /, _, ...). Met het uitschakelen van deze optie behoudt u de HTML-code in de tekst.');
+@define('DO_MARKUP_DESCRIPTION', 'Pas (plugin) markup transformaties toe op de tekst (smilies, bbcode, s9y verkort opmaak, markdown, etc.). Indien uitgeschakeld, wordt de inhoud 1:1 weergegeven en blijft eventuele HTML-opmaak behouden. Als deze optie is geactiveerd, kunnen andere plugins de inhoud van de nugget wijzigen.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Datumformaat');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'De echte datum van het artikel, gebruikmakend van PHPs strftime()-variabelen. (Standaard: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Kan de template niet openen, werk alstublieft Serendipity bij!');

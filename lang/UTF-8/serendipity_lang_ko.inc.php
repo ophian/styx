@@ -271,7 +271,7 @@
 @define('NEXT_PAGE', '다음 페이지');
 @define('ALL_CATEGORIES', '모든 범주');
 @define('DO_MARKUP', '마크업 변환을 수행합니다');
-@define('DO_MARKUP_DESCRIPTION', '텍스트에 마크업 변환(이모티콘, *, /, _ 등을 활용한 마크업)을 적용합니다. 사용하지 않으면 입력한 HTML 코드가 모두 보존됩니다.');
+@define('DO_MARKUP_DESCRIPTION', '(플러그인) 마크업 변환을 텍스트에 적용합니다(smilies, bbcode, s9y 단축 마크업, 마크다운 등). 비활성화하면 콘텐츠가 1:1로 렌더링되고 모든 HTML 서식이 유지됩니다. 이 옵션이 활성화되면 다른 플러그인이 너깃의 내용을 수정할 수 있습니다.');
 @define('GENERAL_PLUGIN_DATEFORMAT', '날짜 형태');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'PHP의 strftime() 변수를 통해 글의 작성 날짜 형태를 표현합니다. (기본값: "%s")');
 @define('ERROR_TEMPLATE_FILE', '템플릿 파일을 열지 못했습니다. 세렌디피티를 업데이트 하십시오.');

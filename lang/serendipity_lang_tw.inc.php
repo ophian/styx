@@ -271,7 +271,7 @@ $i18n_unknown = 'tw';
 @define('NEXT_PAGE', '下一頁');
 @define('ALL_CATEGORIES', '全部類別');
 @define('DO_MARKUP', '執行標記轉換');
-@define('DO_MARKUP_DESCRIPTION', '套用自動格式化到文章內 (表情圖案, 符號 *, /, _, ...)。關閉這項功能將會保存任何文章內出現的 HTML 碼。');
+@define('DO_MARKUP_DESCRIPTION', '將（插件）標記轉換應用於文本（表情符號、bbcode、s9y 快捷方式標記、markdown 等）。 如果禁用，內容將按 1:1 呈現並保留任何 HTML 格式。 如果激活此選項，其他插件可以修改塊的內容。');
 @define('GENERAL_PLUGIN_DATEFORMAT', '日期格式化');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', '文章的日期格式, 使用 PHP 的 strftime() 變數. (預設: "%s")');
 @define('ERROR_TEMPLATE_FILE', '無法開啟佈景檔案, 請更新 Serendipity!');

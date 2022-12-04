@@ -284,7 +284,7 @@ $i18n_filename_to = array (
 @define('NEXT_PAGE', 'ïal¹ia stránka');
 @define('ALL_CATEGORIES', 'V¹etky kategórie');
 @define('DO_MARKUP', 'Formátova» text (markup)');
-@define('DO_MARKUP_DESCRIPTION', 'Aplikova» transformácie na text (smajlíky, skratky *, /, _, ...). Vypnutie tohto nastavenia zabezpeèí ulo¾enie HTML kódov v texte.');
+@define('DO_MARKUP_DESCRIPTION', 'Aplikujte (zásuvné moduly) transformácie znaciek na text (smajlíky, bbcode, znacky skratiek s9y, markdown atd.). Ak je vypnuté, obsah sa vykreslí 1:1 a zachová sa akékolvek formátovanie HTML. Ak je táto možnost aktivovaná, ostatné zásuvné moduly môžu obsah nugetu upravovat.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Formát dátumu');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Formát dátumu èlánku, vytvára sa pomocou PHP funkcie strftime(). (Prednastavené: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Súbor so ¹ablónou sa nepodarilo otvori», prosím aktualizujte verziu Serendipity!');

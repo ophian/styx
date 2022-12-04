@@ -270,7 +270,7 @@
 @define('NEXT_PAGE', 'pagina următoare');
 @define('ALL_CATEGORIES', 'Toate categoriile');
 @define('DO_MARKUP', 'Execută transformările pentru selecţii');
-@define('DO_MARKUP_DESCRIPTION', 'Aplică transformări pentru text (emoticonuri, scurtături via *, /, _, ...). Dezactivând asta vei păstra eventualul cod HTML din text intact.');
+@define('DO_MARKUP_DESCRIPTION', 'Aplicați transformări de marcare (plugin) la text (smilies, bbcode, marcaje de scurtătură s9y, markdown etc.). Dacă este dezactivat, conținutul este redat 1:1 și orice formatare HTML este păstrată. Dacă această opțiune este activată, alte pluginuri pot modifica conținutul nuggetului.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Format dată');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Forma datei pentru însemnare, folosind variabilele funcţiei PHP strftime(). (Implicit: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Nu pot deschide fişierul cu tematică, verifică configuraţia Serendipity!');

@@ -269,7 +269,7 @@
 @define('NEXT_PAGE', '次のページ');
 @define('ALL_CATEGORIES', 'すべてのカテゴリ');
 @define('DO_MARKUP', 'マークアップ変換を行う');
-@define('DO_MARKUP_DESCRIPTION', 'マークアップ変換をテキストに適用します (顔文字、「*」、「/」、「_」などのマークアップショートカット。無効にするとテキスト中のどんな HTML コードも保持します。デフォルトは「はい」です。');
+@define('DO_MARKUP_DESCRIPTION', 'テキストに（プラグインの）マークアップ変換を適用します（スマイリー、bbcode、s9yショートカットマークアップ、マークダウンなど）。無効の場合、コンテンツは1:1でレンダリングされ、あらゆるHTMLフォーマットが保持されます。このオプションが有効な場合、他のプラグインがナゲットのコンテンツを修正することができます。');
 @define('GENERAL_PLUGIN_DATEFORMAT', '日付書式');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'エントリーの実際の日付の書式です。PHP の strftime() 値を使用します (デフォルト: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'テンプレートファイルを開けません。Serendipity をアップデートしてください!');

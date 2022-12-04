@@ -253,7 +253,7 @@
 @define('NEXT_PAGE', 'næste side');
 @define('ALL_CATEGORIES', 'Alle kategorier');
 @define('DO_MARKUP', 'Udført Markup-transformation');
-@define('DO_MARKUP_DESCRIPTION', 'Tilføj markup-transformationer på teksten (smilies, shortcut markups via *, /, _, ...). Hvis du slår dette fra vil al HTML-kode i teksten blive bibeholdt.');
+@define('DO_MARKUP_DESCRIPTION', 'Anvend (plugin) markup-transformationer på teksten (smilies, bbcode, s9y-genvejsmarkeringer, markdown osv.). Hvis den er deaktiveret, gengives indholdet 1:1, og enhver HTML-formatering bevares. Hvis denne indstilling er aktiveret, kan andre plugins ændre indholdet af nugget\'en.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Datoformat');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Formatet på artiklens faktiske dato, brug PHPs strftime() variabler. (Standard: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Kunne ikke åbne skabelonen, opdater Serendipity!');

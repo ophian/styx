@@ -271,7 +271,7 @@
 @define('NEXT_PAGE', '下一页');
 @define('ALL_CATEGORIES', '全部类别');
 @define('DO_MARKUP', '执行标记转换');
-@define('DO_MARKUP_DESCRIPTION', '套用自动化格式到文章内 (表情, 符号 *, /, _, ...)。关闭这项功能将会保存任何文章内出现的 HTML 语法。');
+@define('DO_MARKUP_DESCRIPTION', '对文本应用（插件）标记转换（笑脸、bbcode、s9y快捷标记、markdown等）。如果禁用，内容会被1:1渲染，任何HTML格式都会被保留。如果这个选项被激活，其他插件可以修改金块的内容。');
 @define('GENERAL_PLUGIN_DATEFORMAT', '日期格式');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', '文章的日期格式, 使用 PHP 的 strftime() 变数. (预设: "%s")');
 @define('ERROR_TEMPLATE_FILE', '无法开启主题文件, 请更新系统！');

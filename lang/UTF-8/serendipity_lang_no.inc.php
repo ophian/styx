@@ -251,7 +251,7 @@
 @define('NEXT_PAGE', 'neste side');
 @define('ALL_CATEGORIES', 'Alle kategorier');
 @define('DO_MARKUP', 'Utført Markup-transformasjon');
-@define('DO_MARKUP_DESCRIPTION', 'Tilføy markup-transformasjoner på teksten (smilies, shortcut markups via *, /, _, ...). Hvis du slår dette av vil all HTML-kode i teksten bli beholdt.');
+@define('DO_MARKUP_DESCRIPTION', 'Bruk (plugin) markup-transformasjoner på teksten (smilies, bbcode, s9y-snarveismarkeringer, markdown, etc.). Hvis deaktivert, gjengis innholdet 1:1 og eventuell HTML-formatering bevares. Hvis dette alternativet er aktivert, kan andre plugins endre innholdet i nuggeten.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Datoformat');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Formatet på artiklens faktiske dato, brug PHPs strftime()-variabler. (Standard: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Kunne ikke åpne malen, oppater Serendipity!');

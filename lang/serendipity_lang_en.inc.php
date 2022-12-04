@@ -269,7 +269,7 @@
 @define('NEXT_PAGE', 'next page');
 @define('ALL_CATEGORIES', 'All categories');
 @define('DO_MARKUP', 'Perform Markup Transformations');
-@define('DO_MARKUP_DESCRIPTION', 'Apply markup transformations to the text (smilies, shortcut markups via *, /, _, ...). Disabling this will preserve any HTML-code in the text.');
+@define('DO_MARKUP_DESCRIPTION', 'Apply (plugin) markup transformations to the text (smilies, bbcode, s9y shortcut markups, markdown, etc.). If disabled, the content is rendered 1:1 and any HTML formatting is preserved. If this option is activated, other plugins can modify the contents of the nugget.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Dateformatting');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'The format of the entry\'s actual date, using PHPs strftime() variables. (Default: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Unable to open template file, please update Serendipity!');

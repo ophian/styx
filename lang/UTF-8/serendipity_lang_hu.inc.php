@@ -269,7 +269,7 @@
 @define('NEXT_PAGE', 'következő oldal');
 @define('ALL_CATEGORIES', 'Minden kategória');
 @define('DO_MARKUP', 'Forrás transzformálás elvégzése.');
-@define('DO_MARKUP_DESCRIPTION', 'Szövegjelölések transzformálása (vigyorgó fejek, rövidítésre használt jelölések a következő módon: *, /, _, ...). Ezt tiltva, a szövegben nem lehet semmilyen HTML kód.');
+@define('DO_MARKUP_DESCRIPTION', 'Alkalmazza a szövegre a (plugin) jelölési transzformációkat (smilies, bbcode, s9y rövidítésjelölések, markdown stb.). Ha ki van kapcsolva, a tartalom 1:1 arányban kerül megjelenítésre, és minden HTML-formázás megmarad. Ha ez az opció be van kapcsolva, más pluginek módosíthatják a nugget tartalmát.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Dátumformázás');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Az aktuális bejegyzés dátuma, a következő formátumot használva: PHP strftime() változó. (Alapértelmezett: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Nem tudom megnyitni a sablonfájlt, kérlek frissítsd a serendipity-t!');

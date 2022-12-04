@@ -247,7 +247,7 @@
 @define('NEXT_PAGE', 'nächste Seite');
 @define('ALL_CATEGORIES', 'Alle Kategorien');
 @define('DO_MARKUP', 'Textformatierung(en) durchführen');
-@define('DO_MARKUP_DESCRIPTION', 'Textformatierung(en) durchführen, wie z.B. Smileys, Schnellformatierung via *, /, _, ... Wenn deaktiviert, wird der Inhalt 1:1 ausgegeben und jegliche HTML-Formatierung beibehalten. Wenn diese Option aktiviert ist, können andere Plugins den Inhalt des Klotzes modifizieren (falls benötigt).');
+@define('DO_MARKUP_DESCRIPTION', 'Wenden Sie (Plugin-) Markup-Transformationen auf den Text an (Smilies, BBCode, S9y, Markdown, etc.). Wenn deaktiviert, wird der Inhalt 1:1 ausgegeben und jegliche HTML-Formatierung beibehalten. Wenn diese Option aktiviert ist, können andere Plugins den Inhalt des Klotzes modifizieren.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Datumsformat');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Das Datumsformat des Eintrages, mithilfe von PHPs strftime() Variablen. (Standard: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Die Template-Datei konnte nicht geöffnet werden. Bitte die Serendipity-Version aktualisieren!');

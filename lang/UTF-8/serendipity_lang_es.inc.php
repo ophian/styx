@@ -536,7 +536,7 @@
 @define('DISPLAY_COMMENTS_AS', 'Mostrar comentarios como');
 @define('LOGIN', 'Conectar');
 @define('DO_MARKUP', 'Realizar transformaciones marcas');
-@define('DO_MARKUP_DESCRIPTION', 'Aplicar transformaciones de marcas al texto (caras, marcas abreviadas como *. /, _, ...). Desactivando esto preservará cualquier código HTML en el texto.');
+@define('DO_MARKUP_DESCRIPTION', 'Aplicar transformaciones de marcado (plugin) al texto (smilies, bbcode, marcas de acceso directo s9y, markdown, etc.). Si se desactiva, el contenido se renderiza 1:1 y se conserva cualquier formato HTML. Si esta opción está activada, otros plugins pueden modificar el contenido del nugget.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Formato de fecha');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'El formato de fecha de la entrada actual, usa las variables strftime() de PHP. (Predeterminado: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Incapaz de abrir el fichero plantilla, ¡por favor actualiza Serendipity!');

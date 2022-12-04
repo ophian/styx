@@ -271,7 +271,7 @@
 @define('NEXT_PAGE', 'sonraki sayfa');
 @define('ALL_CATEGORIES', 'Tüm konu başlıkları');
 @define('DO_MARKUP', 'Etiketleme dili dönüşümü gerçekleştir');
-@define('DO_MARKUP_DESCRIPTION', ' Markup dönüşümünü yazılara uygula  (smilie işaretleri, kısayol işaretleri öreneğin *, /, _, ...). Bu kapalı olursa her türlü HTML-kodunu yazıda kullanabilirsiniz.');
+@define('DO_MARKUP_DESCRIPTION', 'Metne (eklenti) biçimlendirme dönüşümleri uygulayın (smilies, bbcode, s9y kısayol işaretlemeleri, markdown, vb.) Devre dışı bırakılırsa, içerik 1:1 olarak işlenir ve tüm HTML biçimlendirmeleri korunur. Bu seçenek etkinleştirilirse, diğer eklentiler nugget\'ın içeriğini değiştirebilir.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'tarih biçimleme');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Yazının biçimi\'s gerçek tarihi için,  PHPs strftime() değişkenlerini kullan. (Öntanımlı: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Şablon dosyası açılamıyor, Lütfen yazılımınızı güncelleyin!');
