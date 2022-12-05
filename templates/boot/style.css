@@ -1027,8 +1027,9 @@ p > img.serendipity_image_center {
   margin: 0 0 .625rem .625rem;
   float: right; }
 
-.sidebar_widget.serendipity_plugin_calendar .sidebar_content {
-  overflow: auto;
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .sidebar_widget.serendipity_plugin_calendar .sidebar_content {
+    overflow: auto; }
 }
 .serendipity_calendar {
   border: 1px solid #3e5f81; }
