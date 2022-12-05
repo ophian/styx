@@ -1,6 +1,10 @@
 Version 4.0.0 ()
  ------------------------------------------------------------------------
 
+  * Upgrade [b5] template assets to new Bootstrap v5.2.3 release.
+    See changelog at https://github.com/twbs/bootstrap/releases/tag/v5.2.3
+    and https://blog.getbootstrap.com/2022/11/22/bootstrap-5-2-3/
+
  * Improve plugin html nugget areas for markupeditor/type assignments
 
  * Improve entries list SQL query rtrim() handler for a non-working case
