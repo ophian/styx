@@ -1673,8 +1673,8 @@ ol.plainList > .comment.commentlevel-16 {
         background-color: #EBFBFB; }
 .comments_for_entry .tp-url {
     display: inline-block;
-    background-color: #a51584;/*#e600b2;#ec82d4*/
-    border: 1px solid #360278;/*#bbb;*/
+    background-color: #a51584;
+    border: 1px solid #360278;
     padding: 0 .25rem;
 }
 #content .comments_for_entry .tp-url a {
