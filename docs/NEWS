@@ -1,6 +1,14 @@
 Version 4.0.0 ()
  ------------------------------------------------------------------------
 
+  * Improve [ pure, bootstrap4, clean-blog ] themes using flexible viewpoint [%]
+    image max-width styles per default, combined with the responsive images
+    plugin, which adds size designed srcsets images to normal image tags.
+
+    NOTE: Styx, using the "internal" variation formats, does a better job by
+          file size, so you do not actually need the mentioned plugin for
+          image responsive sizes! Using both might lead to more issues.
+
   * Improve [ pure ] theme comment body field display for current font
 
   * Fix a serendipity_plugin_html_nugget non-production error mode thrown
