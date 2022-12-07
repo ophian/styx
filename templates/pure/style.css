@@ -1690,9 +1690,10 @@ ol.plainList > .comment.commentlevel-16 {
     font-size: 15px;
     font-size: .938rem;
     font-weight: 500;
+    line-height: 1.25rem;
     word-break: break-word;
 }
-/* Lucida has a weight of 700 which is too much for both comment normal and strong bolder! */
+/* Lucida has a default font weight of 700 which is too much for both comment normal and strong bolder! */
 .comment_content strong {
     font-weight: 600;
 }
