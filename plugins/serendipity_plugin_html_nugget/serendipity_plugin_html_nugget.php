@@ -66,7 +66,7 @@ class serendipity_plugin_html_nugget extends serendipity_plugin
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        DO_MARKUP);
                 $propbag->add('description', DO_MARKUP_DESCRIPTION);
-                $propbag->add('default',     ((isset($serendipity['wysiwyg']) && $serendipity['wysiwyg']) ? 'false' : 'true')); // also excessed on frontend where wysiwyg for unlogged users/visitors might not exist
+                $propbag->add('default',     ((isset($serendipity['wysiwyg']) && $serendipity['wysiwyg']) ? 'false' : 'true')); // 'markup' option also excessed on frontend where wysiwyg for unlogged users/visitors might not exist
                 break;
 
             case 'show_where':
