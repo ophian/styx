@@ -612,16 +612,16 @@ p > img.serendipity_image_center {
 .serendipity_image_block.col.c4 {
     display: inline-block;
 }
-/* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! */
+/* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! | !in responsiveimages plugin cases */
 @media screen and (min-width: 400px) {
     .page_content .serendipity_imageComment_left,
     .page_content .serendipity_imageComment_right,
-    .page_content p .serendipity_image_left,
-    .page_content p .serendipity_image_right,
+    .page_content p .serendipity_image_left:not([srcset*=".400W."]),
+    .page_content p .serendipity_image_right:not([srcset*=".400W."]),
     .post .serendipity_imageComment_left,
     .post .serendipity_imageComment_right,
-    .post p .serendipity_image_left,
-    .post p .serendipity_image_right {
+    .post p .serendipity_image_left:not([srcset*=".400W."]),
+    .post p .serendipity_image_right:not([srcset*=".400W."]) {
       max-width: 44.5%; }
     .serendipity_image_block:not(.col):not(.row) > .serendipity_image_left {
       max-width: 48%; }
@@ -631,12 +631,12 @@ p > img.serendipity_image_center {
 @media screen and (min-width: 768px) {
     .page_content .serendipity_imageComment_left,
     .page_content .serendipity_imageComment_right,
-    .page_content p .serendipity_image_left,
-    .page_content p .serendipity_image_right,
+    .page_content p .serendipity_image_left:not([srcset*=".400W."]),
+    .page_content p .serendipity_image_right:not([srcset*=".400W."]),
     .post .serendipity_imageComment_left,
     .post .serendipity_imageComment_right,
-    .post p .serendipity_image_left,
-    .post p .serendipity_image_right {
+    .post p .serendipity_image_left:not([srcset*=".400W."]),
+    .post p .serendipity_image_right:not([srcset*=".400W."]) {
       max-width: 47%; }
     .serendipity_image_block:not(.col):not(.row) > .serendipity_image_left {
       max-width: 50%; }
