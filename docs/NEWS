@@ -1,6 +1,9 @@
 Version 4.0.0 ()
  ------------------------------------------------------------------------
 
+  * Fix a serendipity_plugin_html_nugget non-production error mode thrown
+    visitor error for PHP 8.1+.
+
   * Upgrade custom CKEBasic asset to 4.20.1 (b520aa2b40 revision)
     https://ckeditor.com/cke4/release-notes
 
