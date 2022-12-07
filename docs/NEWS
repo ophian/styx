@@ -1,6 +1,8 @@
 Version 4.0.0 ()
  ------------------------------------------------------------------------
 
+  * Improve [ pure ] theme comment body field display for current font
+
   * Fix a serendipity_plugin_html_nugget non-production error mode thrown
     visitor error for PHP 8.1+.
 
