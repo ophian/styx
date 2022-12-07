@@ -145,19 +145,19 @@ hr {
   font-size: small;
   opacity: .7; }
 
-/* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! */
-@media (min-width:280px){
+/* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! | !in responsiveimages plugin cases */
+@media (min-width:280px) {
   .page_content .serendipity_imageComment_left,
   .page_content .serendipity_imageComment_right,
-  .page_content p .serendipity_image_left,
-  .page_content p .serendipity_image_right,
+  .page_content p .serendipity_image_left:not([srcset*=".400W."]),
+  .page_content p .serendipity_image_right:not([srcset*=".400W."]),
   .post .serendipity_imageComment_left,
   .post .serendipity_imageComment_right,
-  .post p .serendipity_image_left,
-  .post p .serendipity_image_right {
+  .post p .serendipity_image_left:not([srcset*=".400W."]),
+  .post p .serendipity_image_right:not([srcset*=".400W."]) {
     max-width: 46%; }
-  }
-  @media screen and (min-width: 1560px) {
+}
+@media screen and (min-width: 1560px) {
     .page_content .serendipity_imageComment_left,
     .page_content .serendipity_imageComment_right,
     .page_content p .serendipity_image_left,
