@@ -35,6 +35,7 @@ Dieses Standard Backend verfügt über eine eigene styles Auszeichnung, analog zur
 * 2022-07-15 - Verbesserte media properties styles inclusive EXIF data und responsive fluids
 * 2022-08-28 - Info-Schaltflächen in Beschriftungen mit etwas Abstand zum unteren Rand versehen
 * 2022-10-17 - Verbesserter Abstand für Backend Benachrichtigungen die #serendipity_iframe voranstehen
+* 2022-12-08 - Erweiterung für Styx modemaintain login info
 </pre>
 
 DAS FOLGENDE IST DIE BESCHREIBUNG DES FALLBACK BACKENDS&colon;<br>

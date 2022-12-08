@@ -35,6 +35,7 @@ This Standard Backend has its own style declarations, analogous to the "default/
 * 2022-07-15 - Improve media properties styles including EXIF data and for responsive fluids
 * 2022-08-28 - Add a tad bottom margin space to info buttons in labels
 * 2022-10-17 - Improved margin for backend messages followed by #serendipity_iframe
+* 2022-12-08 - Improved margins for Styx modemaintain login info
 </pre>
 
 THE FOLLOWING IS THE DESCRIPTION OF THE RELEGATED BACKEND&colon;<br>
