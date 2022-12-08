@@ -33,7 +33,7 @@ class serendipity_event_modemaintain extends serendipity_event
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.31');
+        $propbag->add('version',       '1.32');
         $propbag->add('requirements',  array(
             'serendipity' => '3.3',
             'php'         => '7.3.0'
@@ -226,7 +226,8 @@ class serendipity_event_modemaintain extends serendipity_event
     <section id="maintenance_moma" class="quick_list">
         <h3><?=PLUGIN_MODEMAINTAIN_MAINTAIN?></h3>
 
-        <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_TITLE_AUTOLOGIN?></span>
+        <button class="toggle_info button_link stat" type="button" data-href="#moma_logininfo"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?=MORE?></span></button>
+        <div id="moma_logininfo" class="msg_notice msg-btm additional_info"><?=PLUGIN_MODEMAINTAIN_TITLE_AUTOLOGIN?></div>
     </section>
 
 <?php
