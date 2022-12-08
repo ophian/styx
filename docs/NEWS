@@ -1,7 +1,7 @@
 Version 4.0.0 ()
  ------------------------------------------------------------------------
 
-  * Hide modemaintain non-remembered login info inside a toogle info
+  * Hide modemaintain "non-remembered login info" inside a toggle info
 
   * Improve [ pure, bootstrap4, clean-blog ] themes using flexible viewpoint [%]
     image max-width styles per default, combined with the responsive images
