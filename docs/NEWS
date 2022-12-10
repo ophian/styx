@@ -2,6 +2,7 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix some POST value backend warnings approving comments for a unusual case
 
 
 Version 4.0.0 (December, 8th 2022)
