@@ -52,7 +52,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
     if (isset($serendipity['POST']['commentform']['replyToParent']) && $serendipity['POST']['commentform']['replyToParent'] >= 0) {
         $_replyTo = ($_replyTo != $serendipity['POST']['commentform']['replyToParent']) ? (int)$serendipity['POST']['commentform']['replyToParent'] : $_replyTo;
     }
-    if (isset($serendipity['POST']) && $_id > 0) {
+    if (isset($serendipity['POST']['entry_id']) && $_id > 0) {
         $sql = "UPDATE {$serendipity['dbPrefix']}comments
                    SET
                         author = '" . serendipity_db_escape_string($serendipity['POST']['name'])    . "',
