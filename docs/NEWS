@@ -2,6 +2,9 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Update templates assets jQuery lib to 3.6.2
+    https://blog.jquery.com/2022/12/13/jquery-3-6-2-released/
+
   * Fix PHP POST value backend warnings approving comments for an unusual case
 
 
