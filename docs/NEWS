@@ -2,6 +2,8 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve spamblock maintenance cleanspam reasons for type REJECTED
+
   * Update templates asset jQuery lib to 3.6.2
     https://blog.jquery.com/2022/12/13/jquery-3-6-2-released/
 
