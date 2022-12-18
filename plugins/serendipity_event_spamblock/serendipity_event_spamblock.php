@@ -28,7 +28,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.1.0'
         ));
-        $propbag->add('version',       '2.68');
+        $propbag->add('version',       '2.69');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -2029,6 +2029,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                             $sbldone = true;
                         }
                         if ($p == 'amx') {
+                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' AND (reason='".PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION."' OR reason='Auto-moderation after X days')"); // Auto-moderation after X days, we use the constant and <en> lang
                             @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'MODERATE' AND (reason='".PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION."' OR reason='Auto-moderation after X days')"); // Auto-moderation after X days, we use the constant and <en> lang
                             $sbldone = true;
                         }
