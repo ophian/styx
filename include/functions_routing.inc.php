@@ -210,7 +210,7 @@ function serveSearch() {
             continue;
         }
 
-        if ($k === array_key_last($_args) && $v[0] == 'P') { /* Page */
+        if ($k === array_key_last($_args) && false !== preg_match('@P\d+@', $v)) { /* Page */
             $page = substr($v, 1);
             // check for someone is willingly trying to break Serendipity by adding page orders > P2500.., which could result in breaking db limits - so we set a hard page limit
             if ($page > $serendipity['max_page_limit']) {
