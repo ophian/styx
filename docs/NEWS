@@ -2,6 +2,8 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve P-Word search request colliding with P-Page uriArguments for routing
+
   * Improve spamblock maintenance cleanspam reasons for type REJECTED
 
   * Update templates asset jQuery lib to 3.6.3
