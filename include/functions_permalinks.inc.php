@@ -279,7 +279,7 @@ function serendipity_initPermalinks() {
  * Build an array containing all regular expression permalinks
  *
  * @access public
- * @param   boolean     If set to true, the list of permalinks will be returned. If false, all permalinks will be applied as Constants
+ * @param   boolean     If set to true, the list of permalinks will be returned. If false, all permalinks will be applied as CONSTANTS
  * @return  array       (conditional on $return) List of permalinks
  */
 function &serendipity_permalinkPatterns($return = false) {
@@ -287,14 +287,14 @@ function &serendipity_permalinkPatterns($return = false) {
 
     $PAT = array();
 
-    $PAT['UNSUBSCRIBE']              = '@/'  . $serendipity['permalinkUnsubscribePath'].'/(.*)/([0-9]+)@';
-    $PAT['APPROVE']                  = '@/'  . $serendipity['permalinkApprovePath'].'/(.*)/(.*)/([0-9]+)@';
-    $PAT['DELETE']                   = '@/'  . $serendipity['permalinkDeletePath'].'/(.*)/(.*)/([0-9]+)@';
-    $PAT['ARCHIVES']                 = '@/'  . $serendipity['permalinkArchivesPath'].'/([/A-Za-z0-9]+)\.html@';
-    $PAT['FEEDS']                    = '@/'  . $serendipity['permalinkFeedsPath'].'/@';
+    $PAT['UNSUBSCRIBE']              = '@/'  . $serendipity['permalinkUnsubscribePath'] . '/(.*)/([0-9]+)@';
+    $PAT['APPROVE']                  = '@/'  . $serendipity['permalinkApprovePath'] . '/(.*)/(.*)/([0-9]+)@';
+    $PAT['DELETE']                   = '@/'  . $serendipity['permalinkDeletePath'] . '/(.*)/(.*)/([0-9]+)@';
+    $PAT['ARCHIVES']                 = '@/'  . $serendipity['permalinkArchivesPath'] . '/([/A-Za-z0-9]+)\.html@';
+    $PAT['FEEDS']                    = '@/'  . $serendipity['permalinkFeedsPath'] . '/@';
     $PAT['ADMIN']                    = '@/(' . $serendipity['permalinkAdminPath'] . '|entries)(/.+)?$@'; // these 2 (see below) OR patterns "are?" used for internal/external rewrite cases
     $PAT['ARCHIVE']                  = '@/'  . $serendipity['permalinkArchivePath'] . '/?@';
-    $PAT['CATEGORIES']               = '@/'  . $serendipity['permalinkCategoriesPath'].'/([0-9;]+)@';
+    $PAT['CATEGORIES']               = '@/'  . $serendipity['permalinkCategoriesPath'] . '/([0-9;]+)@';
     $PAT['PLUGIN']                   = '@/(' . $serendipity['permalinkPluginPath'] . '|plugin)/(.*)@'; // at least this latter CAN (or shall) NOT be removed! Since it "errors" as 1 for serendipity_styx.js
     $PAT['SEARCH']                   = '@/'  . $serendipity['permalinkSearchPath'] . '/(.*)@';
     $PAT['COMMENTS']                 = '@/'  . $serendipity['permalinkCommentsPath'] . '/(.*)@';
