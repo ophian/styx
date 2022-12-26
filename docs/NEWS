@@ -2,9 +2,9 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Improve permalinks pattern for an issue when 'styx' used as an admin access
-    permalink shortcut was already in use in the blogs URL path. This reverts a
-    change to allow '/styx' for admin, silently introduced in the 3.0 development.
+  * Improve permalinks pattern for an issue when 'styx', used as an admin access
+    permalink shortcut, was already in use in the blogs URL path. This reverts a
+    patch to allow '/styx' for admin, silently introduced in the 3.0 development.
 
     Also the CONFIG_PERMALINK_PATH_DESC was improved for all shortcut expressions,
     to clarify that named "prefix" is a KEYWORD and we SHALL NOT have it in our
