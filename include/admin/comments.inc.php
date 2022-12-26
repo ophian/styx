@@ -49,7 +49,7 @@ if (!empty($serendipity['POST']) && isset($serendipity['POST']['formAction']) &&
 
 /* We are asked to save the edited comment, and we are NOT in preview mode NOR in comments form multi mode */
 if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'doEdit'
- && !isset($serendipity['POST']['formAction']) && !isset($serendipity['POST']['preview']) && $_id > 0 && serendipity_checkFormToken()) {
+&& !isset($serendipity['POST']['formAction']) && !isset($serendipity['POST']['preview']) && $_id > 0 && serendipity_checkFormToken()) {
     // re-assign this comments parent
     if (isset($serendipity['POST']['commentform']['replyToParent']) && $serendipity['POST']['commentform']['replyToParent'] >= 0) {
         $_replyTo = ($_replyTo != $serendipity['POST']['commentform']['replyToParent']) ? (int)$serendipity['POST']['commentform']['replyToParent'] : $_replyTo;
