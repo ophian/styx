@@ -1141,7 +1141,7 @@
 @define('MEDIA_RESIZE_EXISTS', 'Datei-Dimensionen bereits vorhanden!');
 @define('USE_CACHE', 'Erlaube caching');
 @define('USE_CACHE_DESC', 'Erlaubt einen internen Puffer (cache), um spezifische SQL queries zwischenzuspeichern. Dadurch verringert sich die Last auf Servern mit mittlerem bis hohem Verkehr und verbessert die Ladezeit.');
-@define('CONFIG_PERMALINK_PATH_DESC', 'Bitte beachten Sie, dass Sie ein Präfix verwenden, so dass Serendipity die URL der richtigen Aktion zuordnen kann. Sie können das Präfix in jeden einzigartigen ASCII-Namen ändern, aber nicht komplett entfernen. Dies gilt für alle Pfad-Präfix Definitionen.');
+@define('CONFIG_PERMALINK_PATH_DESC', 'Bitte beachten Sie, dass Sie ein "Präfix" (hinweisendes Schlüsselwort) verwenden, so dass Serendipity die URL der richtigen Aktion zuordnen kann. Sie können das Präfix in jeden einzigartigen ASCII-Namen ändern, aber nicht komplett entfernen. Dies gilt für alle Pfad-Präfix Definitionen. Beachten Sie auch, dass dieses Präfix nicht bereits anderweitig in Ihrem URL-Pfad zum Blog verwendet wird.');
 
 @define('HIDE_SUBDIR_FILES', 'Ohne Dateien von Unterverzeichnissen');
 
