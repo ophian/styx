@@ -498,7 +498,7 @@ function serendipity_buildPermalinks() {
  * @param   boolean     If set to TRUE this will bypass all pretty URLs and format the link so that it works everywhere
  * @return  string      The rewritten URL
  */
-function serendipity_rewriteURL($path, $key='baseURL', $forceNone = false) {
+function serendipity_rewriteURL($path, $key = 'baseURL', $forceNone = false) {
     global $serendipity;
 
     return ($serendipity[$key] ?? '') . ($serendipity['rewrite'] == 'none' || ($serendipity['rewrite'] != 'none' && $forceNone) ? $serendipity['indexFile'] . '?/' : '') . $path;
@@ -728,7 +728,7 @@ function serendipity_feedAuthorURL(&$data, $key = 'baseURL', $checkrewrite = tru
  * @param   string  The base URL/path key
  * @return  string  The permalink
  */
-function serendipity_archiveDateUrl($range, $summary=false, $key='baseURL') {
+function serendipity_archiveDateUrl($range, $summary = false, $key = 'baseURL') {
     return serendipity_rewriteURL(PATH_ARCHIVES . '/' . $range . ($summary ? '/summary' : '') . '.html', $key);
 }
 
