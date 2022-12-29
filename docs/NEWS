@@ -2,6 +2,8 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Remove some remaining Internet Explorer USER_AGENT css/js no-cache header sets
+
   * Improve permalinks pattern for an issue when 'styx', used as an admin access
     permalink shortcut, was already in use in the blogs URL path. This reverts a
     patch to allow '/styx' for admin, silently introduced in the 3.0 development.
