@@ -154,14 +154,9 @@ function serveJS($js_mode) {
 
     $serendipity['view'] = 'js';
 
-    if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false) {
-        header('Cache-Control: no-cache');
-    } else {
-        header('Cache-Control:');
-        header('Pragma:');
-        header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time()+3600));
-    }
-
+    header('Cache-Control:');
+    header('Pragma:');
+    header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time()+3600));
     header('Content-type: application/javascript; charset=' . LANG_CHARSET);
 
     $out = '';
