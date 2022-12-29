@@ -625,7 +625,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                                 if (!$smarty) $content .= '</a></div>';
                             }
 
-                            $item['timestamp'] = strtotime(($item['pubdate'] ?? $item['dc:date']));
+                            $item['timestamp'] = strtotime((string)($item['pubdate'] ?? $item['dc:date']));
                             if (false !== $item['timestamp'] AND $displaydate) {
                                 if (!$smarty) $content .= '<div class="serendipitySideBarDate">'
                                           . serendipity_specialchars(serendipity_formatTime($dateformat, $item['timestamp'], false))
@@ -731,7 +731,11 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                         // Template specifics go here
                         switch($tpl) {
                             case 'plugin_remoterss_nasaiotd.tpl':
-                                $smarty_items['nasa_image'] = $c->getData('image');
+                                if (PHP_VERSION_ID < 80000) {
+                                    $smarty_items['nasa_image'] = $c->getData('image');
+                                } else {
+                                    $smarty_items['nasa_image'] = $x['rss']['channel']['image'] ?? ['url' => ''];
+                                }
                             break;
                         }
                         $content = $this->parseTemplate($tpl);
@@ -873,7 +877,11 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                         // Template specifics go here
                         switch($tpl) {
                             case 'plugin_remoterss_nasaiotd.tpl':
-                                $smarty_items['nasa_image'] = $x->getData('image');
+                                if (PHP_VERSION_ID < 80000) {
+                                    $smarty_items['nasa_image'] = $c->getData('image');
+                                } else {
+                                    $smarty_items['nasa_image'] = $x['rss']['channel']['image'] ?? ['url' => ''];
+                                }
                             break;
                         }
                         $content = $this->parseTemplate($tpl);
