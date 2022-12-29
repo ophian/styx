@@ -279,7 +279,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
         $propbag->add('description',   PLUGIN_REMOTERSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Udo Gerhards, Richard Thomas Harrison, Ian Styx');
-        $propbag->add('version',       '1.33');
+        $propbag->add('version',       '1.34');
         $propbag->add('requirements',  array(
             'serendipity' => '3.1',
             'smarty'      => '3.1',
@@ -873,7 +873,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                         // Template specifics go here
                         switch($tpl) {
                             case 'plugin_remoterss_nasaiotd.tpl':
-                                $smarty_items['nasa_image'] = $c->getData('image');
+                                $smarty_items['nasa_image'] = $x->getData('image');
                             break;
                         }
                         $content = $this->parseTemplate($tpl);
