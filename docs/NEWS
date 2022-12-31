@@ -1,6 +1,5 @@
-Version 4.1-DEV ()
+Version 4.0.1 (December, 31st 2022)
  ------------------------------------------------------------------------
-
 
   * Remove some remaining Internet Explorer USER_AGENT css/js no-cache header sets
 
