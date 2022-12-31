@@ -389,7 +389,7 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     border-color: #444c56; }
     [data-dark-theme="dark"] article.post.byauthor h3 a, [data-dark-theme="dark"] article.post.byauthor h3 a:visited {
       color: #9ca1af !important; }
-  [data-dark-theme="dark"] .comment_oddbox, [data-dark-theme="dark"] .serendipity_comment.odd {
+  [data-dark-theme="dark"] .serendipity_comment.odd {
     background-color: #2d353e;
     border-color: #3b434c; }
   [data-dark-theme="dark"] .comment_content blockquote,
@@ -1850,7 +1850,6 @@ ol.plainList > .comment.commentlevel-16 {
     font-style: normal;
     text-shadow: 1px 1px 2px #222;
 }
-.comment_oddbox,
 .serendipity_comment.odd {
     background-color: #f8f8f8;
     border-width: 1px;
