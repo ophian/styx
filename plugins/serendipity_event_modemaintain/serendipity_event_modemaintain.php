@@ -239,7 +239,7 @@ class serendipity_event_modemaintain extends serendipity_event
                             $t = serendipity_db_query("SELECT name FROM {$serendipity['dbPrefix']}options
                                                         WHERE okey = 'l_" . serendipity_db_escape_string($serendipity['COOKIE']['author_information']) . "'");
                             if (isset($t[0]['name'])) {
-                                $timediff = time() - $t[0]['name'];// NOW minus the session based timestamp
+                                $timediff = time() - $t[0]['name']; // NOW minus the session based timestamp
                             }
                         }
                         $timeleft = isset($timediff) ? date('H:i', $timediff) : null;
