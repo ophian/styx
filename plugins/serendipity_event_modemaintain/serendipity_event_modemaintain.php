@@ -33,7 +33,7 @@ class serendipity_event_modemaintain extends serendipity_event
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.33');
+        $propbag->add('version',       '1.34');
         $propbag->add('requirements',  array(
             'serendipity' => '3.3',
             'php'         => '7.3.0'
@@ -239,11 +239,10 @@ class serendipity_event_modemaintain extends serendipity_event
                             $t = serendipity_db_query("SELECT name FROM {$serendipity['dbPrefix']}options
                                                         WHERE okey = 'l_" . serendipity_db_escape_string($serendipity['COOKIE']['author_information']) . "'");
                             if (isset($t[0]['name'])) {
-                                $timediff = time() - $t[0]['name'];
-                                $remaints = 86400 - ($timediff + 300); // securing 5 min OFF
+                                $timediff = time() - $t[0]['name'];// NOW minus the session based timestamp
                             }
                         }
-                        $timeleft = isset($remaints) ? date('H:i', $remaints) : null;
+                        $timeleft = isset($timediff) ? date('H:i', $timediff) : null;
                     }
                     $catch24_msg = ($catch24 && !empty($timeleft))
                                     ? '<span class="msg_notice" style="margin-top:0"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(PLUGIN_MODEMAINTAIN_OPENSSL_TIME_RESTRICTION, $timeleft) . "</span>\n"
