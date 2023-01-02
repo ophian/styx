@@ -239,11 +239,11 @@ class serendipity_event_modemaintain extends serendipity_event
                             $t = serendipity_db_query("SELECT name FROM {$serendipity['dbPrefix']}options
                                                         WHERE okey = 'l_" . serendipity_db_escape_string($serendipity['COOKIE']['author_information']) . "'");
                             if (isset($t[0]['name'])) {
-                                $timediff = time() - $t[0]['name']; // NOW minus the session based timestamp
-                                $remaints = 86400 - $timediff; // 24h minus the timediff between NOW and Session start timestamp
+                                $timediff = serendipity_serverOffsetHour() - $t[0]['name']; // NOW (inclusive serendipity offset) minus the session based unix timestamp
+                                $remaints = 86400 - $timediff; // 24h minus the timediff (between NOW and Session start timestamp)
                             }
                         }
-                        $timeleft = isset($remaints) ? date('H:i', $remaints) : null; // remaining time in seconds left converted into hours and minutes
+                        $timeleft = isset($remaints) ? date('H:i', $remaints) : null; // remaining time left in seconds converted into hours and minutes. Though date('H:i', $remaints) result still having a timezone hour issue...
                     }
                     $catch24_msg = ($catch24 && !empty($timeleft))
                                     ? '<span class="msg_notice" style="margin-top:0"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(PLUGIN_MODEMAINTAIN_OPENSSL_TIME_RESTRICTION, $timeleft) . "</span>\n"
