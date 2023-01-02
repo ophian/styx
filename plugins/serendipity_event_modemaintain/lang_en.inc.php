@@ -7,7 +7,7 @@
 @define('PLUGIN_DASHBOARD_MAINTENANCE_MODE_ACTIVE', '...active maintenance...');
 @define('PLUGIN_MODEMAINTAIN_INFOALERT', 'Attention: Read the description first!');
 @define('PLUGIN_MODEMAINTAIN_DASHBOARD_MODE_DESC', "ATTENTION:<br>\nDo <b>not</b> log-off, close your browser or tab, or submit the Configuration options form, until reset to false again!");
-@define('PLUGIN_MODEMAINTAIN_DASHBOARD_EXWARNING_DESC', "WARNING:<br>\nCurrently there <em>may</em> be a (Session based) page loading issue not switching the mode button (green/red) here immediately after page reload. You then need to click somewhere else in the backend via sidebar and return, to see the button change (which has to get: green to red, or vice versa).");
+@define('PLUGIN_MODEMAINTAIN_DASHBOARD_EXWARNING_DESC', "WARNING:<br>\nCurrently there <em>may</em> be a page (cache) loading issue not switching the mode button (green/red) here immediately after page reload. You then need to click somewhere else in the backend via sidebar and return, to see the button change (which has to get: green to red, or vice versa).");
 @define('PLUGIN_MODEMAINTAIN_DASHBOARD_EMERGENCY_DESC', "EMERGENCY CASE:<br>\nIf you ever logged yourself out without resetting the 503 Maintenance Mode, or your login cookie got destroyed, you need to set the &dollar;serendipity['maintenance'] variable to 'false' in your serendipity_config_local.inc.php file to get public access to your blog again!");
 
 @define('PLUGIN_MODEMAINTAIN_MAINTAIN_NOTE', 'Additional Maintenance Mode Text');
@@ -25,5 +25,5 @@
 
 @define('PLUGIN_MODEMAINTAIN_HINT_MAINTENANCE_MODE', 'Since long, or having possible frontend effects, this could be a valid task to use the Maintenance-Mode!');
 
-@define('PLUGIN_MODEMAINTAIN_OPENSSL_TIME_RESTRICTION', 'The Styx required "OPENSSL_VERSION_NUMBER" does not match! Therefore, only session-based encryption can be used. The autologin cookie is restricted to work within 24 hours only from set. But, do <strong>NOT</strong> hide your blog by this 503-Maintenance-Mode longer than "<strong>%s</strong>" (h:min) from NOW on, without an active/renewed Browser Session!');
+@define('PLUGIN_MODEMAINTAIN_OPENSSL_TIME_RESTRICTION', 'The Styx required "OPENSSL_VERSION_NUMBER" does not match! Therefore, only a session-based authentication can be used. The autologin cookie is restricted to work within 24 hours only from set. Do <strong>NOT</strong> hide your blog by this 503-Maintenance-Mode any longer than "<strong>%s</strong>" (h:min) from NOW on!');
 

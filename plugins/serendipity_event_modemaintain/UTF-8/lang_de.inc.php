@@ -7,7 +7,7 @@
 @define('PLUGIN_DASHBOARD_MAINTENANCE_MODE_ACTIVE', '...aktiver Wartungsmodus...');
 @define('PLUGIN_MODEMAINTAIN_INFOALERT', 'Achtung: Bitte Beschreibung lesen!');
 @define('PLUGIN_MODEMAINTAIN_DASHBOARD_MODE_DESC', "ACHTUNG:<br>\n<b>Nicht</b> ausloggen, den Browser oder das Tab schließen, oder das generelle Konfigurations-Formular absenden, ohne den Wartungsmodus zurückgesetzt zu haben!");
-@define('PLUGIN_MODEMAINTAIN_DASHBOARD_EXWARNING_DESC', "ACHTUNG:<br>\nEs <em>kann</em> unter Umständen eine (Session basierende) Situation geben, bei dem obiger 503-Submit-Knopf nach dem Absenden und Seitenreload seine Farbe (grün/rot) nicht unmittelbar ändert, um anzuzeigen, in welchem Modus sich die Wartung gerade wirklich befindet. In diesem Fall wählen Sie irgendeine andere Backendseite aus der Seitenleiste und kehren dann in die Wartung zurück. Erst dann sehen Sie den augenblicklichen Status.");
+@define('PLUGIN_MODEMAINTAIN_DASHBOARD_EXWARNING_DESC', "ACHTUNG:<br>\nEs <em>kann</em> unter Umständen eine (Seitencache basierende) Situation geben, bei dem obiger 503-Submit-Knopf nach dem Absenden und Seitenreload seine Farbe (grün/rot) nicht unmittelbar ändert, um anzuzeigen, in welchem Modus sich die Wartung gerade wirklich befindet. In diesem Fall wählen Sie irgendeine andere Backendseite aus der Seitenleiste und kehren dann in die Wartung zurück. Erst dann sehen Sie den augenblicklichen Status.");
 @define('PLUGIN_MODEMAINTAIN_DASHBOARD_EMERGENCY_DESC', "IM NOTFALL:<br>\nWenn Sie sich jemals ausloggen, ohne den 503 Maintenance Mode zurückgestellt zu haben, oder ihr Login Cookie beschädigt oder gelöscht wurde, müssen Sie die &dollar;serendipity['maintenance'] Variable in der serendipity_config_local.inc.php Datei manuell auf 'false' stellen, um sich und der Öffentlichkeit wieder Zugang zu ihrem Blog zu ermöglichen!");
 
 @define('PLUGIN_MODEMAINTAIN_MAINTAIN_NOTE', 'Ergänzender Wartungs-Modus Text');
@@ -25,5 +25,5 @@
 
 @define('PLUGIN_MODEMAINTAIN_HINT_MAINTENANCE_MODE', 'Wenn länger andauernd, oder mit möglichen Frontend-Auswirkungen verbunden, könnte dies eine gültige Aufgabe sein, den Wartungs-Modus zu nutzen!');
 
-@define('PLUGIN_MODEMAINTAIN_OPENSSL_TIME_RESTRICTION', 'Die von Styx geforderte "OPENSSL_VERSION_NUMBER" stimmt nicht überein! Deshalb kann nur eine Session basierte Verschlüsselung erfolgen. Das Autologin Cookie verfällt nach 24 Stunden. Versetzen Sie ihr Blog in den 503-Wartungsmodus aber <strong>nicht</strong> länger als "<strong>%s</strong>" (h:min) von JETZT an, ohne eine aktive/erneuerte Browser Session!');
+@define('PLUGIN_MODEMAINTAIN_OPENSSL_TIME_RESTRICTION', 'Die von Styx geforderte "OPENSSL_VERSION_NUMBER" stimmt nicht überein! Deshalb kann nur eine Session basierte Authentifikation erfolgen. Das Autologin Cookie verfällt nach 24 Stunden. Versetzen Sie ihr Blog <strong>nicht</strong> länger als "<strong>%s</strong>" (h:min) von JETZT an in den 503-Wartungsmodus!');
 
