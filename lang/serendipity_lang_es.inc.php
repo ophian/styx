@@ -59,7 +59,7 @@
 @define('EDIT_ENTRIES', 'Editar entradas');
 @define('CATEGORIES', 'Categorías');
 @define('IMAGESYNC_WARNING', 'ATENCIóN:<br>Puede tardar si hay muchas imágenes que no tienen miniatura. Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
-@define('CREATE_THUMBS', 'Crear las miniaturas');
+@define('CREATE_THUMBS', 'Reconstruir las miniaturas');
 @define('MANAGE_IMAGES', 'Gestión de imágenes');
 @define('NAME', 'Nombre');
 @define('EMAIL', 'Correo electrónico');
