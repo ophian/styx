@@ -240,9 +240,10 @@ class serendipity_event_modemaintain extends serendipity_event
                                                         WHERE okey = 'l_" . serendipity_db_escape_string($serendipity['COOKIE']['author_information']) . "'");
                             if (isset($t[0]['name'])) {
                                 $timediff = time() - $t[0]['name']; // NOW minus the session based timestamp
+                                $remaints = 86400 - $timediff; // 24h minus the timediff between NOW and Session start timestamp
                             }
                         }
-                        $timeleft = isset($timediff) ? date('H:i', $timediff) : null;
+                        $timeleft = isset($remaints) ? date('H:i', $remaints) : null; // remaining time in seconds left converted into hours and minutes
                     }
                     $catch24_msg = ($catch24 && !empty($timeleft))
                                     ? '<span class="msg_notice" style="margin-top:0"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(PLUGIN_MODEMAINTAIN_OPENSSL_TIME_RESTRICTION, $timeleft) . "</span>\n"
