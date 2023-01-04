@@ -33,7 +33,7 @@ class serendipity_event_modemaintain extends serendipity_event
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.34');
+        $propbag->add('version',       '1.35');
         $propbag->add('requirements',  array(
             'serendipity' => '3.3',
             'php'         => '7.3.0'
@@ -239,11 +239,30 @@ class serendipity_event_modemaintain extends serendipity_event
                             $t = serendipity_db_query("SELECT name FROM {$serendipity['dbPrefix']}options
                                                         WHERE okey = 'l_" . serendipity_db_escape_string($serendipity['COOKIE']['author_information']) . "'");
                             if (isset($t[0]['name'])) {
-                                $timediff = serendipity_serverOffsetHour() - $t[0]['name']; // NOW (inclusive serendipity offset) minus the session based unix timestamp
-                                $remaints = 86400 - $timediff; // 24h minus the timediff (between NOW and Session start timestamp)
+                                $date = new DateTime();
+                                $timeZone = $date->getTimezone();
+                                $tz = $timeZone->getName();
+                                $sess_start = DateTime::createFromFormat('U', $t[0]['name'], new DateTimeZone($tz));
+                                // Concatenated the '@' with a Unix timestamp, DateTime can handle it. The time zone is always "+00: 00" (UTC)! If a time zone is set as an optional parameter, this is ignored.
+                                $againstnow = new DateTime('@'.serendipity_serverOffsetHour(), new DateTimeZone($tz));// run time() timestamp including the serendipity offset against plain "now"
+                                $interval = $sess_start->diff($againstnow);
                             }
                         }
-                        $timeleft = isset($remaints) ? date('H:i', $remaints) : null; // remaining time left in seconds converted into hours and minutes. Though date('H:i', $remaints) result still having a timezone hour issue...
+                        // ToDo: Shall it have a secured offset of -N minutes ?
+                        if (isset($interval)) {
+                            $dth = $interval->format('%H'); // Normally a 24-hour format of an hour with leading zeros
+                            $dtm = $interval->format('%i'); // Normally Minutes with leading zeros
+                            #echo "Session started $dth Hours $dtm Minutes ago";echo " &uArr; (increasing)<br>\n";
+                            $h = ($dtm == 00) ? 24-$dth : 23-$dth;
+                            if (strlen($h) < 2) $h = "0$h"; // But well, I actually do still need this though!
+                            $m = $dtm < 1 ? '00' : 60-$dtm;
+                            if (strlen($m) < 2) $m = "0$m"; // But well, I actually do still need this though!
+                            $timeleft = "$h:$m"; // remain time left
+                            if ($timeleft == '24:00') $timeleft = '00:00'; // The old Session has ended, wait a minute for a new 24h Session start
+                            #echo "Remaining maintenance working time left = $timeleft (h:m)";echo " &dArr; (DESC)<br>\n";
+                        } else {
+                            $timeleft = 'NULL';
+                        }
                     }
                     $catch24_msg = ($catch24 && !empty($timeleft))
                                     ? '<span class="msg_notice" style="margin-top:0"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(PLUGIN_MODEMAINTAIN_OPENSSL_TIME_RESTRICTION, $timeleft) . "</span>\n"
