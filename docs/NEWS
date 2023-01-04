@@ -2,6 +2,9 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix & improve the maintenance OPENSSL_VERSION fallback of the session-based
+    authentication timer for the decreasing "h:min" display calculation.
+
 
 Version 4.0.1 (December, 31st 2022)
  ------------------------------------------------------------------------
