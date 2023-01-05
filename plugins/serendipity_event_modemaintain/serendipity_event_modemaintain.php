@@ -243,8 +243,7 @@ class serendipity_event_modemaintain extends serendipity_event
                                 $timeZone = $date->getTimezone();
                                 $tz = $timeZone->getName();
                                 $sess_start = DateTime::createFromFormat('U', $t[0]['name'], new DateTimeZone($tz));
-                                // Concatenated the '@' with a Unix timestamp, DateTime can handle it. The time zone is always "+00: 00" (UTC)! If a time zone is set as an optional parameter, this is ignored.
-                                $againstnow = new DateTime('@'.serendipity_serverOffsetHour(), new DateTimeZone($tz));// run time() timestamp including the serendipity offset against plain "now"
+                                $againstnow = new DateTime("now", new DateTimeZone($tz)); // The time zone is always "+00: 00" (UTC)! If a time zone is set as an optional parameter, this is ignored.
                                 $interval = $sess_start->diff($againstnow);
                             }
                         }
