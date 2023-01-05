@@ -1586,8 +1586,8 @@ $(function() {
       $( '#waitingspin' ).toggle();
     });
 
-    // Plugin single update / install / import
-    $('.button_link.state_update, .button_link.state_install, .button_link.state_import').click(function() {
+    // Plugin single update / install / import / statistics
+    $('.button_link.state_update, .button_link.state_install, .button_link.state_import, #plugin_stats').click(function() {
       $('body, html').animate({ 'scrollTop' : $('#serendipity_admin_page').offset().top }, 500);
       $( '#waitingspin' ).toggle();
     });
