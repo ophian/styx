@@ -35,6 +35,7 @@
     </header>
 {/if}
 
+    <div id="waitingspin" class="pulsator busy_update" style="display: none"><div></div><div></div></div>
     <main id="workspace" class="clearfix">
     {if NOT $admin_vars.is_logged_in}
         {$admin_vars.out|serendipity_refhookPlugin:'backend_login_page'}
