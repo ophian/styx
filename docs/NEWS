@@ -2,6 +2,9 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fire waitingspin "busy"-Icon toggle on backend call of statistics Plugin
+    for the garbage collect workload.
+
   * Fix & improve the maintenance OPENSSL_VERSION fallback of the session-based
     authentication timer for the decreasing "h:min" display calculation.
 
