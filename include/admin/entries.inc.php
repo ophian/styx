@@ -354,10 +354,17 @@ switch($serendipity['GET']['adminAction']) {
                 $term = serendipity_mb('strtolower', $term);
                 $filter[] = "(lower(title) LIKE '%$term%' OR lower(body) LIKE '%$term%' OR lower(extended) LIKE '%$term%')"; // Using percentage (%) wildcard already
             } else {
-                if (@mb_detect_encoding($term, 'UTF-8', true) && @mb_strlen($term, 'utf-8') < strlen($term)) {
+                // The previously added condition and idea(? really ?) was used to detect UTF-8 and multi-bytes to allow full Unicode (and Asian language char) search requests. (Because of an exception error? I don't remember...)
+                // But that was wrong, since it prevented using MATCH() AGAINST() on most terms, which (now) also works for these ranges.
+                // Now used as:
+                // If NOT is UTF-8 && counted (*) < counted multi-bytes. This conditional double check matches both, UTF-8 and ASCII/ISOs, to detect unsupported chars or bytes to not break the MATCH() AGAINST() SQL.
+                // (*) mb_strlen: Returns the number of characters in string string having character encoding encoding. A multi-byte character is counted as 1. Otherwise strlen counts ASCII as 1 and multi-bytes as bytes per char.
+                // STRLEN CHECK EXAMPLES: Given an UTF-8 emoji == 1 < 4, given an UTF-8 or ISO ä = 1 < 2, given plain ASCII abc = 3 < 3
+                if (false === @mb_detect_encoding($term, ['UTF-8'], true) && @mb_strlen($term, 'UTF-8') < strlen($term)) {
                     $term = str_replace('*', '', $term);
                     $filter['find_part'] = "(title LIKE '%$term%' OR body LIKE '%$term%' OR extended LIKE '%$term%')"; // Using percentage (%) wildcard already
                 } else {
+                    // This is the main search using MATCH() AGAINST()
                     if (preg_match('@["\+\-\*~<>\(\)]+@', $term)) {
                         $filter['find_part'] = "MATCH(title,body,extended) AGAINST('$term' IN BOOLEAN MODE)";
                     } else {
