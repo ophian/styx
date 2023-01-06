@@ -358,7 +358,7 @@ switch($serendipity['GET']['adminAction']) {
                 // But that was wrong, since it prevented using MATCH() AGAINST() on most terms, which (now) also works for these ranges.
                 // Now used as:
                 // If NOT is UTF-8 && counted (*) < counted multi-bytes. This conditional double check matches both, UTF-8 and ASCII/ISOs, to detect unsupported chars or bytes to not break the MATCH() AGAINST() SQL.
-                // (*) mb_strlen: Returns the number of characters in string string having character encoding encoding. A multi-byte character is counted as 1. Otherwise strlen counts ASCII as 1 and multi-bytes as bytes per char.
+                // (*) mb_strlen: Returns the number of characters in string string having character encoding encoding. A multi-byte character is counted as 1. Otherwise strlen counts ASCII as 1 and multi-bytes as N-bytes per char.
                 // STRLEN CHECK EXAMPLES: Given an UTF-8 emoji == 1 < 4, given an UTF-8 or ISO ä = 1 < 2, given plain ASCII abc = 3 < 3
                 if (false === @mb_detect_encoding($term, ['UTF-8'], true) && @mb_strlen($term, 'UTF-8') < strlen($term)) {
                     $term = str_replace('*', '', $term);
