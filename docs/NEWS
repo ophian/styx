@@ -6,7 +6,7 @@ Version 4.1-DEV ()
     for the garbage collect workload.
 
   * Fix & improve the maintenance OPENSSL_VERSION fallback of the session-based
-    authentication timer for the decreasing "h:min" display calculation.
+    authentication timer for the decreasing 24h "h:min" display calculation.
 
 
 Version 4.0.1 (December, 31st 2022)
