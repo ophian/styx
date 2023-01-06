@@ -3,6 +3,7 @@ Version 4.1-DEV ()
 
 
   * Fix MYSQLi multi-byte search requests for using the MySQL Fulltext search
+    in Back- and Frontend.
 
   * Fire waitingspin "busy"-Icon toggle on backend call of statistics Plugin
     for the garbage collect workload.
