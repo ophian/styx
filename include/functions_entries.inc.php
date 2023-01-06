@@ -862,6 +862,8 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
     global $serendipity;
     static $log_queries = false;
 
+    if (empty($term)) return;
+
     if ($log_queries) {
         $fp = fopen($serendipity['serendipityPath'] . 'archives/queries.csv', 'a');
         fwrite($fp, date('Y-m-d H:i') . ';'
@@ -881,7 +883,7 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
 
     $limit = serendipity_db_limit_sql($limit);
 
-    $term = (string)serendipity_db_escape_string($term); // since empty string seems to return null up from PHP 8 and then errors using string functions like str_replace()
+    $term = (string)serendipity_db_escape_string($term); // avoid errors on NULL using string functions like str_replace()
     $cond = array();
     $relevance_enabled = false;
 
