@@ -3622,7 +3622,6 @@ label .perm_name,
     top: 3.5em;
     left: 16.5em;
 }
-.js #idx_waitingspin.pulsator.scale_image,
 .js #waitingspin.pulsator.scale_image {
     margin-top: -1.5em;
 }
