@@ -1531,10 +1531,15 @@ $(function() {
       $( '#waitingspin' ).toggle();
     });
 
-    // Plugin single update / install / import / statistics
-    $('.button_link.state_update, .button_link.state_install, .button_link.state_import, #plugin_stats').click(function() {
+    // Plugin single update / install / import
+    $('.button_link.state_update, .button_link.state_install, .button_link.state_import').click(function() {
       $('body, html').animate({ 'scrollTop' : $('#serendipity_admin_page').offset().top }, 500);
       $( '#waitingspin' ).toggle();
+    });
+    // Plugin statistics independently, since living in index.tpl which needs a different CSS styling
+    $('#plugin_stats').click(function() {
+      $('body, html').animate({ 'scrollTop' : $('#serendipity_admin_page').offset().top }, 500);
+      $( '#idx_waitingspin' ).toggle();
     });
 
     // Filter entries list by entry ID for ENTER
