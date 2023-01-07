@@ -3611,15 +3611,22 @@ label .perm_name,
 }
 /*gallery pane end*/
 
+.js #idx_waitingspin.pulsator {
+    position: absolute;
+    top: 6.5rem;
+    left: 42.5%;
+}
 .js #waitingspin.pulsator {
     display: flex;
     position: relative;
     top: 3.5em;
     left: 16.5em;
 }
+.js #idx_waitingspin.pulsator.scale_image,
 .js #waitingspin.pulsator.scale_image {
     margin-top: -1.5em;
 }
+.js #idx_waitingspin.pulsator div,
 .js #waitingspin.pulsator div {
     border: 4px solid #000;
 }
