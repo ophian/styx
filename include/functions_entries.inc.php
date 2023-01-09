@@ -1094,7 +1094,7 @@ function serendipity_printEntryFooter($suffix = '.html', $totalEntries = null, $
         $serendipity['smarty']->assign('footer_currentPage', $serendipity['GET']['page']);
     }
 
-    $serendipity['smarty']->assign('footer_pageLink', str_replace(array('%2A', '//P'), array('*', '/P'), serendipity_rewriteURL(implode('/', $uriArguments) . $suffix)));
+    $serendipity['smarty']->assign('footer_pageLink', serendipity_rewriteURL(implode('/', $uriArguments)) . $suffix);
     $serendipity['smarty']->assign('footer_info', sprintf(PAGE_BROWSE_ENTRIES, (int)$serendipity['GET']['page'], $totalPages, $totalEntries));
 
     if ($serendipity['GET']['page'] < $totalPages) {
