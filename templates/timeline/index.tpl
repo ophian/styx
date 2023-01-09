@@ -129,14 +129,14 @@
                         <a class="btn btn-secondary btn-md btn-theme" title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><i class="fa fa-arrow-left" aria-hidden="true"></i><span class="sr-only">{$CONST.PREVIOUS_PAGE}</span></a>
                     {/if}
                     {if $paginationStartPage > 1}
-                        <a class="btn btn-secondary btn-md btn-theme" href="{'1'|string_format:$footer_pageLink}">1</a>
+                        <a class="btn btn-secondary btn-md btn-theme" href="{$footer_pageLink|replace:'%s':1}">1</a>
                     {/if}
                     {if $paginationStartPage > 2}
                         &hellip;
                     {/if}
                     {section name=i start=$paginationStartPage loop=($footer_totalPages+1) max=5}
                         {if $smarty.section.i.index != $footer_currentPage}
-                            <a class="btn btn-secondary btn-md btn-theme" href="{$smarty.section.i.index|string_format:$footer_pageLink}">{$smarty.section.i.index}</a>
+                            <a class="btn btn-secondary btn-md btn-theme" href="{$footer_pageLink|replace:'%s':$smarty.section.i.index}">{$smarty.section.i.index}</a>
                         {else}
                             <span class="thispage btn btn-secondary btn-md btn-theme disabled">{$smarty.section.i.index}</span>
                         {/if}
@@ -145,7 +145,7 @@
                         &hellip;
                     {/if}
                     {if $smarty.section.i.index <= $footer_totalPages}
-                        <a class="btn btn-secondary btn-md btn-theme" href="{$footer_totalPages|string_format:$footer_pageLink}">{$footer_totalPages}</a>
+                        <a class="btn btn-secondary btn-md btn-theme" href="{$footer_pageLink|replace:'%s':$footer_totalPages}">{$footer_totalPages}</a>
                     {/if}
                     {if $footer_next_page}
                         <a class="btn btn-secondary btn-md btn-theme" title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><i class="fa fa-arrow-right" aria-hidden="true"></i><span class="sr-only">{$CONST.NEXT_PAGE}</span></a>
