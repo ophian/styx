@@ -2,9 +2,9 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Fix entries/index template entry paging for urlencoded 'footer_pageLink'
-    assignments in the [ timeline ] theme. This issue might happen to all
-    [ bulletproof ] theme derivatives/successors out there.
+  * Fix index/entries template entries paging for urlencoded 'footer_pageLink'
+    assignments in the [ timeline ] theme. This issue - breaking Smarty - might
+    happen to all [ bulletproof ] theme derivatives/successors out there.
     PLEASE update your theme copies for these changes.
 
   * Fix MYSQLi multi-byte search requests for using the MySQL Fulltext search
