@@ -71,13 +71,13 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
                     // NO NEED to strip for atom, but make sure we don't do any double encoding !!
                 } else{
                     // [old] RSS2 only - No HTML allowed here:
-                    $entry['body'] = strip_tags($entry['body']); // see c580fa35d3ab51cb79d41a2a00863ed52aa0a83c
+                    $entry['body'] = strip_tags($entry['body'] ?? ''); // see c580fa35d3ab51cb79d41a2a00863ed52aa0a83c
                 }
             }
 
             // Embed a link to extended entry, if existing
             if ($options['fullFeed']) {
-                $entry['body'] .= "\n" . ($options['version'] == 'atom1.0' ? serendipity_specialchars($entry['extended'], ENT_XHTML, LANG_CHARSET, false) : $entry['extended']);
+                $entry['body'] .= "\n" . ($options['version'] == 'atom1.0' ? htmlspecialchars(($entry['extended'] ?? ''), ENT_XHTML, LANG_CHARSET, false) : ($entry['extended'] ?? ''));
                 $ext = '';
             } elseif (isset($entry['exflag']) && $entry['exflag']) {
                 $ext = '<a class="block_level" href="' . $entry['feed_entryLink'] . '#extended">' . sprintf(VIEW_EXTENDED_ENTRY, ($options['version'] == 'atom1.0' ? serendipity_specialchars($entry['title'], ENT_XHTML, LANG_CHARSET, false) : $entry['title'])) . '</a>';
@@ -86,7 +86,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
             }
 
             if ($options['comments'] === false && $version == 'atom1.0') {
-                $entry['body'] = str_replace('&nbsp;', ' ', $entry['body']);
+                $entry['body'] = str_replace('&nbsp;', ' ', $entry['body'] ?? '');
             }
 
             // avoid parsing html comments through NL2BR
