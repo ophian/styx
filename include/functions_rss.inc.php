@@ -59,13 +59,13 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
             if ($options['comments'] === true) {
                 // Display username as part of the title for easier feed-readability
                 if ($entry['type'] == 'TRACKBACK' && !empty($entry['ctitle'])) {
-                    $entry['author'] .= ' - ' . ($options['version'] == 'atom1.0' ? serendipity_specialchars($entry['ctitle'], ENT_XHTML, LANG_CHARSET, false) : $entry['ctitle']);
+                    $entry['author'] .= ' - ' . ($options['version'] == 'atom1.0' ? htmlspecialchars($entry['ctitle'], ENT_XHTML, LANG_CHARSET, false) : $entry['ctitle']);
                 }
                 if ($options['version'] == 'atom1.0') {
                     $entry['title'] = str_replace(['&nbsp;', '&#160;', '  '], [' '], $entry['title']);
                     $entry['title'] = str_replace(' & ', ' + ', $entry['title']); // this weird hotfix is necessary to avoid broken entities (?wherever?) breaking the xml! An entry title is not stored by htmlspecialchars().
                 }
-                $entry['title'] = (!empty($entry['author']) ? $entry['author'] : ANONYMOUS) . ': ' . ($options['version'] == 'atom1.0' ? serendipity_specialchars($entry['title'], ENT_XHTML, LANG_CHARSET, false) : $entry['title']);
+                $entry['title'] = (!empty($entry['author']) ? $entry['author'] : ANONYMOUS) . ': ' . ($options['version'] == 'atom1.0' ? htmlspecialchars($entry['title'], ENT_XHTML, LANG_CHARSET, false) : $entry['title']);
 
                 if ($options['version'] == 'atom1.0') {
                     // NO NEED to strip for atom, but make sure we don't do any double encoding !!
@@ -80,7 +80,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
                 $entry['body'] .= "\n" . ($options['version'] == 'atom1.0' ? htmlspecialchars(($entry['extended'] ?? ''), ENT_XHTML, LANG_CHARSET, false) : ($entry['extended'] ?? ''));
                 $ext = '';
             } elseif (isset($entry['exflag']) && $entry['exflag']) {
-                $ext = '<a class="block_level" href="' . $entry['feed_entryLink'] . '#extended">' . sprintf(VIEW_EXTENDED_ENTRY, ($options['version'] == 'atom1.0' ? serendipity_specialchars($entry['title'], ENT_XHTML, LANG_CHARSET, false) : $entry['title'])) . '</a>';
+                $ext = '<a class="block_level" href="' . $entry['feed_entryLink'] . '#extended">' . sprintf(VIEW_EXTENDED_ENTRY, ($options['version'] == 'atom1.0' ? htmlspecialchars($entry['title'], ENT_XHTML, LANG_CHARSET, false) : $entry['title'])) . '</a>';
             } else {
                 $ext = '';
             }
