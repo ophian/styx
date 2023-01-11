@@ -940,7 +940,7 @@ Version 3.6.0 (November 4th 2021)
     groundwork ready for extreme testers and other Developers. See setting
     $serendipity['useAvifFormat'] = true note in serendipity_config.inc.php
     file at ~ Line 520. So by default enabled AVIF support is going to come
-    with next Styx 3.7 - and this probably already this year. ;-OpenPHPNuke, PragmaMx, Xoops and Zikula)
+    with next Styx 3.7 - and this probably already this year.
 
     Also see some interesting external comparison pages for the new format:
     << https://www.gumlet.com/learn/avif-for-image-coding-everything-you-need-to-know/ >>
