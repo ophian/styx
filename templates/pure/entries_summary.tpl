@@ -25,4 +25,5 @@
 
     </nav>
 {/if}
+
 {if $dateRange.0 !== 1}{serendipity_hookPlugin hook="entries_footer"}{/if}

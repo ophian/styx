@@ -233,4 +233,5 @@
 
     </nav>
 {/if}
+
 {serendipity_hookPlugin hook="entries_footer"}
