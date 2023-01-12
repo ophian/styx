@@ -412,6 +412,11 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     box-shadow: none; }
   [data-dark-theme="dark"] .staticpage_results, [data-dark-theme="dark"] .serendipity_search, [data-dark-theme="dark"] .serendipity_content_message, [data-dark-theme="dark"] .content_msg .serendipity_msg_success, [data-dark-theme="dark"] .msg_success, [data-dark-theme="dark"] .serendipity_msg_notice, [data-dark-theme="dark"] .msg_notice, [data-dark-theme="dark"] .serendipity_msg_important, [data-dark-theme="dark"] .msg_important, [data-dark-theme="dark"] .msg_question, [data-dark-theme="dark"] .serendipity_commentDirection {
     box-shadow: none; }
+  [data-dark-theme="dark"] .search-results h3, [data-dark-theme="dark"] .pages_found h3 {
+    display: inline-block;
+    background-color: #20242b;
+    border: 1px solid #444c56;
+    padding: .5em; }
   [data-dark-theme="dark"] .freetag_cloud .serendipity_freetag_taglist {
     margin-top: .25rem;
     background-color: #222a31;
