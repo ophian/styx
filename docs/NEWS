@@ -4,6 +4,7 @@ Version 4.1-DEV ()
 
   * Add [ pure ] theme dark-mode styles for additional search result head titles
     by comments and staticpages.
+    - Add plugin_faq_searchresults template and improve sisters for consistency
 
   * Fix index/entries template entries paging for urlencoded 'footer_pageLink'
     assignments in the [ timeline ] theme. This issue - breaking Smarty - might
