@@ -366,6 +366,7 @@ switch($serendipity['GET']['adminAction']) {
                 } else {
                     // This is the main search using MATCH() AGAINST()
                     if (preg_match('@["\+\-\*~<>\(\)]+@', $term)) {
+                        #$term = str_replace(' + ', ' +', $term); // be strict for BOOLEAN MODE
                         $filter['find_part'] = "MATCH(title,body,extended) AGAINST('$term' IN BOOLEAN MODE)";
                     } else {
                         $filter['find_part'] = "MATCH(title,body,extended) AGAINST('$term')";
