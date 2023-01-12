@@ -354,23 +354,18 @@ switch($serendipity['GET']['adminAction']) {
                 $term = serendipity_mb('strtolower', $term);
                 $filter[] = "(lower(title) LIKE '%$term%' OR lower(body) LIKE '%$term%' OR lower(extended) LIKE '%$term%')"; // Using percentage (%) wildcard already
             } else {
-                // The previously added condition and idea(? really ?) was used to detect UTF-8 and multi-bytes to allow full Unicode (and Asian language char) search requests. (Because of an exception error? I don't remember...)
-                // But that was wrong, since it prevented using MATCH() AGAINST() on most terms, which (now) also works for these ranges.
-                // Now used as:
-                // If NOT is UTF-8 && counted (*) < counted multi-bytes. This conditional double check matches both, UTF-8 and ASCII/ISOs, to detect unsupported chars or bytes to not break the MATCH() AGAINST() SQL.
-                // (*) mb_strlen: Returns the number of characters in string string having character encoding encoding. A multi-byte character is counted as 1. Otherwise strlen counts ASCII as 1 and multi-bytes as N-bytes per char.
-                // STRLEN CHECK EXAMPLES: Given an UTF-8 emoji == 1 < 4, given an UTF-8 or ISO ä = 1 < 2, given plain ASCII abc = 3 < 3
-                if (false === @mb_detect_encoding($term, ['UTF-8'], true) && @mb_strlen($term, 'UTF-8') < strlen($term)) {
-                    $term = str_replace('*', '', $term);
-                    $filter['find_part'] = "(title LIKE '%$term%' OR body LIKE '%$term%' OR extended LIKE '%$term%')"; // Using percentage (%) wildcard already
+                // FULLTEXT search with an ideographic language such as Chinese, Japanese, and Korean is not possible without a prepared database using N-gram or such.
+                // The built-in MySQL full-text parser determines the beginning and end of words using white space. When it comes to ideographic languages such as Chinese,
+                // Japanese, and Korean, the full-text parser has a limitation that these ideographic languages do not use word delimiters.
+                // (see https://www.mysqltutorial.org/mysql-ngram-full-text-parser/
+                //  OR  https://levelup.gitconnected.com/how-to-make-chinese-full-text-search-dd8b6df801fb?gi=a923d8711895
+                //  OR  https://www.taogenjia.com/2022/09/30/MySQL-Full-Text-Index/
+                //  OR  https://dev.mysql.com/doc/refman/8.0/en/fulltext-natural-language.html)
+                if (preg_match('@["\+\-\*~<>\(\)]+@', $term)) {
+                    #$term = str_replace(' + ', ' +', $term); // be strict for BOOLEAN MODE
+                    $cond['find_part'] = "MATCH(title,body,extended) AGAINST('$term' IN BOOLEAN MODE)";
                 } else {
-                    // This is the main search using MATCH() AGAINST()
-                    if (preg_match('@["\+\-\*~<>\(\)]+@', $term)) {
-                        #$term = str_replace(' + ', ' +', $term); // be strict for BOOLEAN MODE
-                        $filter['find_part'] = "MATCH(title,body,extended) AGAINST('$term' IN BOOLEAN MODE)";
-                    } else {
-                        $filter['find_part'] = "MATCH(title,body,extended) AGAINST('$term')";
-                    }
+                    $cond['find_part'] = "MATCH(title,body,extended) AGAINST('$term')"; // is same as IN NATURAL LANGUAGE MODE, which is the default. There are no special operators, and searches consist of one or more comma-separated keywords.
                 }
             }
         }
