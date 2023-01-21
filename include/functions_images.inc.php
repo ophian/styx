@@ -2958,7 +2958,11 @@ function serendipity_resizeImageGD($infilename, $outfilename, $newwidth, $newhei
     imagecopyresampled($out, $in, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
     @umask(0000);
     touch($outfilename); // safe_mode requirement
-    @$func['save']($out, $outfilename, $func['qual']); // mute possible expectations, eg. animated gifs with GD
+    if ($func['save'] == 'imagegif') {
+        @$func['save']($out, $outfilename); // A 2 param func only. Mute possible expectations, eg. animated gifs with GD
+    } else {
+        @$func['save']($out, $outfilename, $func['qual']); // Else functs have at least 3 params. Mute possible expectations, eg. animated gifs with GD
+    }
     @chmod($outfilename, 0664);
     $out = null;
     $in  = null;
