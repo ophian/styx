@@ -2,6 +2,9 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve serendipity_resizeImageGD() redirector case to the PHP imagegif()
+    function for overloaded parameters.
+
   * Add [ pure ] theme dark-mode styles for additional search result head titles
     by comments and staticpages.
     - Add plugin_faq_searchresults template and improve sisters for consistency
