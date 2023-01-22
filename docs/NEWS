@@ -2,6 +2,9 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix MediaLibrary Synchronization task for certain image types for "Paletter
+    image not supported by webp" errors.
+
   * Improve serendipity_resizeImageGD() redirector case to the PHP imagegif()
     function for overloaded parameters.
 
