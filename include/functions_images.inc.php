@@ -797,12 +797,13 @@ function serendipity_imageCreateFromAny($filepath) {
             break;
         case 3:
             $im = imagecreatefrompng($filepath);
+            $im = imagepalettetotruecolor($im); // Converts a palette based image to true color (RGB)
             break;
         case 6:
             $im = imagecreatefrombmp($filepath);
             break;
     }
-    $im = imagepalettetotruecolor($im); // Converts a palette based image to true color (RGB)
+
     return $im;
 }
 
@@ -2791,7 +2792,7 @@ function serendipity_functionsGD($infilename, $q = null) {
         case 'gif':
             $func['load'] = 'imagecreatefromgif';
             $func['save'] = 'imagegif';
-            $func['qual'] = 100;
+            $func['qual'] = 100; // unused, since imagegif() is a 2 param funct
             break;
 
         case 'jpeg':
