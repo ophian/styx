@@ -852,6 +852,25 @@ function serendipity_convertImageFormat($file, $oldMime, $newMime) {
 }
 
 /**
+ * Temporary function until we are PHP 8 only
+ */
+function check_image_resource_vs_instance($im) {
+    if (PHP_VERSION_ID >= 80000) {
+        if ($im instanceof \GdImage) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        if (is_resource($im)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+/**
  * Convert JPG, PNG, GIF, BMP formatted images to the WebP image format with PHP build-in GD image library
  *
  * @param string $infile    The fullpath file format from string
@@ -861,7 +880,7 @@ function serendipity_convertImageFormat($file, $oldMime, $newMime) {
  */
 function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
     $im = serendipity_imageCreateFromAny($infile);
-    if (!$im) {
+    if (false === check_image_resource_vs_instance($im) || $im === false) {
         return false;
     }
     @ini_set('memory_limit', '1024M');
@@ -889,7 +908,7 @@ function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
  */
 function serendipity_imageGDAvifConversion($infile, $outfile, $quality = -1) {
     $im = serendipity_imageCreateFromAny($infile);
-    if (!$im) {
+    if (false === check_image_resource_vs_instance($im) || $im === false) {
         return false;
     }
     $mlimit = round(filesize($infile)/1024, 0); // Image example 14210367 b filesize = 13877 KB
