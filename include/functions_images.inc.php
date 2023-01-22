@@ -779,8 +779,8 @@ function serendipity_imageCreateFromAny($filepath) {
         $type = IMAGETYPE_JPEG;
     }
 
-#        1,  // [] gif/* [muted for GD "Fatal error: Paletter image not supported by webp"] */
     $allowedTypes = array(
+        1,  // [] gif
         2,  // [] jpg
         3,  // [] png
         6   // [] bmp
@@ -802,6 +802,7 @@ function serendipity_imageCreateFromAny($filepath) {
             $im = imagecreatefrombmp($filepath);
             break;
     }
+    $im = imagepalettetotruecolor($im); // Converts a palette based image to true color (RGB)
     return $im;
 }
 
