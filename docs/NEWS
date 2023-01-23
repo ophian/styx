@@ -5,8 +5,7 @@ Version 4.1-DEV ()
   * Fix image Variation build checkups for PHP 8 change regarding resource vs.
     instanceof \GdImage.
 
-  * Fix MediaLibrary Synchronization task for PNG image types for "Paletter
-    image not supported by webp" errors.
+  * Fix images API image Variation converts for palette (color) based images
 
   * Improve serendipity_resizeImageGD() redirector case to the PHP imagegif()
     function for overloaded parameters.
