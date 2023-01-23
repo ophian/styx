@@ -2542,7 +2542,8 @@ function serendipity_createFullFileVariations($target, $info, $messages) {
         }
         $result = serendipity_convertToWebPFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target), false, $webpIMQ);
         if (is_array($result)) {
-            $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> WebP image format variation(s) created!</span>'."\n";
+            $_relative_result_outfile = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $result[1]);
+            $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> WebP image format variation(s) "<em>'.$_relative_result_outfile.'</em>" created!</span>'."\n";
             if (is_array($result) && $result[0] == 0) {
                 if (is_string($result[1])) {
                     if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: Image WebP format creation success {$result[2]} from $target " . DONE); }
@@ -2551,7 +2552,8 @@ function serendipity_createFullFileVariations($target, $info, $messages) {
                 }
             }
         } else {
-            $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> WebP image format copy creation failed!</span>'."\n";
+            $_create_variation_outfile = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $variat['filepath'] . '/.v/' . $variat['filename']);
+            $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> WebP image format copy "<em>'.$_create_variation_outfile.'</em>" creation failed!</span>'."\n";
             if ($serendipity['magick'] !== true) {
                 if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: GD Image WebP format creation failed"); }
             } else {
@@ -2570,7 +2572,8 @@ function serendipity_createFullFileVariations($target, $info, $messages) {
             $variat = serendipity_makeImageVariationPath($target, 'avif');
             $result = serendipity_convertToAvifFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target), false);
             if (is_array($result)) {
-                $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> AVIF image format variation(s) created!</span>'."\n";
+                $_relative_result_outfile = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $result[1]);
+                $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> AVIF image format variation(s) "<em>'.$_relative_result_outfile.'</em>" created!</span>'."\n";
                 if (is_array($result) && $result[0] == 0) {
                     if (is_string($result[1])) {
                         if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: Image AVIF format creation success {$result[2]} from $target " . DONE); }
@@ -2579,7 +2582,8 @@ function serendipity_createFullFileVariations($target, $info, $messages) {
                     }
                 }
             } else {
-                $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> AVIF image format copy creation failed!</span>'."\n";
+                $_create_variation_outfile = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $variat['filepath'] . '/.v/' . $variat['filename']);
+                $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> AVIF image format copy "<em>'.$_create_variation_outfile.'</em>" creation failed!</span>'."\n";
                 if ($serendipity['magick'] !== true) {
                     if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: GD Image AVIF format creation failed"); }
                 } else {
