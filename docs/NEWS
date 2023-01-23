@@ -2,6 +2,8 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Time to allow GIF image(s) to Variation(s) converts
+
   * Fix image Variation build checkups for PHP 8 change regarding resource vs.
     instanceof \GdImage.
 
