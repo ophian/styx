@@ -1809,7 +1809,7 @@ function serendipity_generateVariations($id = null) {
         $file = serendipity_fetchImageFromDatabase($id);
         if (is_array($file) && !empty($file)) {
             $resWebP = $resAVIF = false; // init
-            if (!in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png']) || $file['hotlink'] == 1) {
+            if (!in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png', 'gif']) || $file['hotlink'] == 1) {
                 return false;
             }
             if ($debug) $logtag = 'SINGLE ML IMAGE-ADD-VARIATION - PART RUN ::';
@@ -1877,7 +1877,7 @@ function serendipity_generateVariations($id = null) {
         if (is_array($files) && !empty($files)) {
             foreach($files AS $f => $file) {
                 $resWebP = $resAVIF = false; // init
-                if (!in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png']) || $file['hotlink'] == 1) {
+                if (!in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png', 'gif']) || $file['hotlink'] == 1) {
                     continue; // next
                 }
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag EACH FILE AFTER: ".print_r($file,1)); }
