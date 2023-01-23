@@ -797,14 +797,14 @@ function serendipity_imageCreateFromAny($filepath) {
             break;
         case 3:
             $im = imagecreatefrompng($filepath);
-            // Check if image is a true color image or not
-            if (!imageistruecolor($im)) {
-                imagepalettetotruecolor($im); // Converts a palette based image to true color (RGB)
-            }
             break;
         case 6:
             $im = imagecreatefrombmp($filepath);
             break;
+    }
+    // Check if image is a true color image or not
+    if (!imageistruecolor($im)) {
+       imagepalettetotruecolor($im); // Converts a palette based image to true color (RGB)
     }
 
     return $im;
@@ -889,10 +889,6 @@ function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
     }
     @ini_set('memory_limit', '1024M');
     try {
-        // Check if image is a true color image or not
-        if (!imageistruecolor($im)) {
-            imagepalettetotruecolor($im);
-        }
         imagewebp($im, $outfile, $quality);
     } catch (\Throwable $t) {
         echo 'Could not create WebP image with GD: ',  $t->getMessage(), "\n";
