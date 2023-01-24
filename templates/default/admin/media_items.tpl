@@ -271,7 +271,7 @@
 
                     <li><a class="media_delete button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=delete&amp;serendipity[fid]={$file.id}" title="{$CONST.MEDIA_DELETE}" data-fileid="{$file.id}" data-filename="{$file.name|escape:'javascript'}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_DELETE}</span></a></li>
                     {/if}
-                    {if NOT empty($imagesNoSync)}
+                    {if (NOT empty($file.full_file_webp) OR NOT empty($file.full_file_avif)) AND NOT empty($imagesNoSync)}
                     {foreach $imagesNoSync AS $special}
                     {if $file.name == $special.pfilename}{* Check out erroneous build AVIF files by filesize and switch special case variation link on AVIF true *}
                     {if $special.extension == 'avif'}{if $special.filesize == null OR $special.filesize <= 252 OR $special.filesize == 34165 OR $special.filesize == 3389 OR (isset($special.linknext) AND $special.linknext === true)}{continue}{else}{assign var="isavif" value=true}{/if}{/if}
