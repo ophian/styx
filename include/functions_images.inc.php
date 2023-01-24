@@ -994,7 +994,7 @@ function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $mu
  * Copy of serendipity_convertToWebPFormat()
  *
  * NOTE: An image upload source is the origin file object. Thumb prefixed previews AND media sized "previews" are origin sub-variations.
- *       A AVIF image is an extra origin variant of the source and is "on top" the variation(s). We STORE them in a (preserved key) current dir/.v directory!
+ *       An AVIF image is an extra origin variant of the source and is "on top" the variation(s). We STORE them in a (preserved key) current dir/.v directory!
  *
  * WHY USING A HIDDEN DIRECTORY for storage of image variations:
  *       Hidden files offer a convenient mechanism for associating arbitrary metadata with a directory location while remaining largely independent of file system or OS mechanics.
