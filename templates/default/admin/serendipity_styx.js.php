@@ -1592,7 +1592,7 @@ $(function() {
       $( '#waitingspin' ).toggle();
     });
     // Plugin statistics independently, since living in index.tpl which needs a different CSS styling
-    $('#plugin_stats').click(function() {
+    $('#plugin_stats, #maintenance_thumbs input[type="submit"]').click(function() {
       $('body, html').animate({ 'scrollTop' : $('#serendipity_admin_page').offset().top }, 500);
       $( '#idx_waitingspin' ).toggle();
     });
