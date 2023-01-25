@@ -2,6 +2,8 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve backend sync image WebP/AVIF Variations built/failed messaging
+
   * Fire waitingspin "busy"-Icon toggle on Image Sync Maintenance
 
   * Update bundled-libs/SimplePie to v.1.8.0
