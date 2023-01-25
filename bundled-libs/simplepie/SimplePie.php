@@ -9545,7 +9545,13 @@ class Item implements RegistryAware
         if (!$date_format) {
             return $this->sanitize($this->get_date(''), \SimplePie\SimplePie::CONSTRUCT_TEXT);
         } elseif (($date = $this->get_date('U')) !== null && $date !== false) {
-            return strftime($date_format, $date);
+            if (PHP_VERSION_ICU === true) {
+                // ICU71 is fixed up from PHP 8.2
+                $out = serendipity_toDateTimeMapper($date_format, $date, WYSIWYG_LANG);
+            } else {
+                $out = @strftime($date_format, $date); // replace strftime() before PHP 9
+            }
+            return $out;
         }
 
         return null;
