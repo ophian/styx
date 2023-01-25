@@ -11776,6 +11776,9 @@ class Misc
         if ($output === 'Windows-31J') {
             $output = 'SJIS';
         }
+        if ($output === 'native') {
+            $output = LANG_CHARSET;
+        }
 
         // Check that the encoding is supported
         if (!in_array($input, mb_list_encodings())) {
