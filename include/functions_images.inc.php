@@ -2553,7 +2553,8 @@ function serendipity_createFullFileVariations($target, $info, $messages) {
             }
         } else {
             $_create_variation_outfile = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $variat['filepath'] . '/.v/' . $variat['filename']);
-            $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> WebP image format copy "<em>'.$_create_variation_outfile.'</em>" creation failed!</span>'."\n";
+            $_xtwrng = !in_array(strtolower($info['extension']), ['jpg', 'jpeg', 'png', 'gif']) ? " (File extension: \"{$info['extension']}\" not convertible)" : '';
+            $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> WebP image format copy "<em>'.$_create_variation_outfile.'</em>" creation failed!'.$_xtwrng.'</span>'."\n";
             if ($serendipity['magick'] !== true) {
                 if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: GD Image WebP format creation failed"); }
             } else {
@@ -2583,7 +2584,8 @@ function serendipity_createFullFileVariations($target, $info, $messages) {
                 }
             } else {
                 $_create_variation_outfile = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $variat['filepath'] . '/.v/' . $variat['filename']);
-                $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> AVIF image format copy "<em>'.$_create_variation_outfile.'</em>" creation failed!</span>'."\n";
+                $_xtwrng = !in_array(strtolower($info['extension']), ['jpg', 'jpeg', 'png', 'gif']) ? " (File extension: \"{$info['extension']}\" not convertible)" : '';
+                $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> AVIF image format copy "<em>'.$_create_variation_outfile.'</em>" creation failed!'.$_xtwrng.'</span>'."\n";
                 if ($serendipity['magick'] !== true) {
                     if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: GD Image AVIF format creation failed"); }
                 } else {
