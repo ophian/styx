@@ -9,7 +9,7 @@ Version 4.1-DEV ()
   * Fire waitingspin "busy"-Icon toggle on Image Sync Maintenance
 
   * Update bundled-libs/SimplePie to v.1.8.0
-    https://github.com/simplepie/simplepie/releases
+    https://github.com/simplepie/simplepie/blob/master/CHANGELOG.md
 
   * Fix MediaLibrary media items [+] Variation button since Styx 3.9.0, when the
     Image Tab Configuration "on-the-fly media synchronization" option was enabled.
