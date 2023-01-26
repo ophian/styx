@@ -2,6 +2,8 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve busy "icon" for auto blend difference color based on background
+
   * Improve backend sync image WebP/AVIF Variations built/failed messaging
 
   * Fire waitingspin "busy"-Icon toggle on Image Sync Maintenance
