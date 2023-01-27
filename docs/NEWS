@@ -2,6 +2,9 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve MediaLibrary to follow given paging for per item Variation delete or
+    re-/build actions.
+
   * Improve busy "icon" for auto blend difference color against background color
 
   * Improve backend sync image WebP/AVIF Variations built/failed messaging
