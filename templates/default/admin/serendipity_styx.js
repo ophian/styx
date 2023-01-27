@@ -747,7 +747,7 @@
                     var $content = $(this.content);
 
                     $content.on('click', '.mfp-btn-yes', function() {
-                        serendipity.deleteFromML($el.attr('data-fileid'), $el.attr('data-filename'), 'doDelete');
+                        serendipity.deleteFromML($el.attr('data-fileid'), $el.attr('data-filename'), 'doDelete', $el.attr('data-getpage'));
                         $.magnificPopup.close();
                         $(document).off('keydown', keydownHandler);
                     });
@@ -758,7 +758,7 @@
                     });
 
                     $content.on('click', '.mfp-btn-no', function() {
-                        serendipity.deleteFromML($el.attr('data-fileid'), '.v/'+$el.attr('data-filename'), 'doDeleteVariations');
+                        serendipity.deleteFromML($el.attr('data-fileid'), '.v/'+$el.attr('data-filename'), 'doDeleteVariations', $el.attr('data-getpage'));
                         $.magnificPopup.close();
                         $(document).off('keydown', keydownHandler);
                     });
@@ -782,7 +782,7 @@
     };
 
     // Delete file from ML - per option all occurrences or only the variations
-    serendipity.deleteFromML = function(id, fname, param) {
+    serendipity.deleteFromML = function(id, fname, param, page=null) {
         var headline = (param == 'doDeleteVariations') ? 'Delete Variations' : 'Delete this file';
         if (confirm(headline +' "'+ fname +'" ?')) {
             var media_token_url = $('input[name*="serendipity[token]"]').val();
@@ -803,7 +803,7 @@
                         callbacks: {
                             open: function() {
                                 this.content.on('click', '#delete_ok', function() {
-                                    window.parent.parent.location.href= '?serendipity[adminModule]=images&serendipity[adminAction]=default';
+                                    window.parent.parent.location.href= '?serendipity[adminModule]=images&serendipity[adminAction]=default';/*fallback to ML start, since shrinking*/
                                 });
                             },
                         }
@@ -828,7 +828,7 @@
                         callbacks: {
                             open: function() {
                                 this.content.on('click', '#delete_error', function() {
-                                    window.parent.parent.location.href= '?serendipity[adminModule]=images&serendipity[adminAction]=default';
+                                    window.parent.parent.location.href= '?serendipity[adminModule]=images&serendipity[adminAction]=default&serendipity[page]='+ page;
                                 });
                             },
                         }
@@ -839,7 +839,7 @@
     }
 
     // Add image variation files via ML media item request
-    serendipity.addVariationsPerItem = function(id, fname) {
+    serendipity.addVariationsPerItem = function(id, fname, page=null) {
         var headline = 'Add additional image variations';
         var media_token_url = $('input[name*="serendipity[token]"]').val();
         $.post('?serendipity[adminModule]=images&serendipity[adminAction]=variations&serendipity[fid]='+ escape(id) +'&serendipity[token]='+ media_token_url)
@@ -859,7 +859,7 @@
                     callbacks: {
                         open: function() {
                             this.content.on('click', '#addvar_ok', function() {
-                                window.parent.parent.location.href= '?serendipity[adminModule]=images&serendipity[adminAction]=default';
+                                window.parent.parent.location.href= '?serendipity[adminModule]=images&serendipity[adminAction]=default&serendipity[page]='+ page;
                             });
                         },
                     }
@@ -884,7 +884,7 @@
                     callbacks: {
                         open: function() {
                             this.content.on('click', '#addvar_error', function() {
-                                window.parent.parent.location.href= '?serendipity[adminModule]=images&serendipity[adminAction]=default';
+                                window.parent.parent.location.href= '?serendipity[adminModule]=images&serendipity[adminAction]=default&serendipity[page]='+ page;
                             });
                         },
                     }
@@ -1901,7 +1901,7 @@ $(function() {
         $preview = $el.parent().parent().siblings().find('.media_file_preview');
         $preview.addClass('dimdark');
         $preview.find('.pulsator').toggle();
-        serendipity.addVariationsPerItem($el.attr('data-fileid'), $el.attr('data-filename'));
+        serendipity.addVariationsPerItem($el.attr('data-fileid'), $el.attr('data-filename'), $el.attr('data-getpage'));
     })
 
     // ajaxify image rotate, solving cache issue
