@@ -803,7 +803,11 @@
                         callbacks: {
                             open: function() {
                                 this.content.on('click', '#delete_ok', function() {
-                                    window.parent.parent.location.href= '?serendipity[adminModule]=images&serendipity[adminAction]=default';/*fallback to ML start, since shrinking*/
+                                    if (param == 'doDeleteVariations') {
+                                        window.parent.parent.location.href= '?serendipity[adminModule]=images&serendipity[adminAction]=default&serendipity[page]='+ page;
+                                    } else {
+                                        window.parent.parent.location.href= '?serendipity[adminModule]=images&serendipity[adminAction]=default';/*media is on purge, fallback to ML pages start, since shrinking*/
+                                    }
                                 });
                             },
                         }
