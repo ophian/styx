@@ -2,6 +2,9 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Removed Smarty sizeof() allowance from custom $php_(functions/modifiers) in
+    serendipity_smarty_class, since just being an alias of count().
+
   * Improve MediaLibrary to follow given paging for per item Variation delete or
     re-/build actions.
 
