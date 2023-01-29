@@ -746,7 +746,7 @@ if (($showAbort && $serendipity['GET']['action'] == 'ignore') || $serendipity['G
 
     $data['errorCount'] = $errorCount;
     if ($errorCount < 1) {
-        if (sizeof($sqlfiles) > 0) {
+        if (count($sqlfiles) > 0) {
             $data['database_update_types'] = sprintf(SERENDIPITY_UPGRADER_DATABASE_UPDATES, $serendipity['dbType']);
             $data['sqlfiles'] = $sqlfiles;
         }
