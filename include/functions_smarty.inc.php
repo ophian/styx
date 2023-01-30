@@ -492,8 +492,8 @@ function serendipity_smarty_showCommentForm($params, Smarty_Internal_Template $t
 
     $comment_add_data = array(
         'comments_messagestack' => (array) ($serendipity['messagestack']['comments'] ?? array()),
-        'is_comment_added'      => ( (isset($serendipity['GET']['csuccess']) && $serendipity['GET']['csuccess'] == 'true') ? true: false),
-        'is_comment_moderate'   => ( (isset($serendipity['GET']['csuccess']) && $serendipity['GET']['csuccess'] == 'moderate') ? true: false)
+        'is_comment_added'      => ( (isset($serendipity['GET']['csuccess']) && $serendipity['GET']['csuccess'] == 'true') ? true : false),
+        'is_comment_moderate'   => ( (isset($serendipity['GET']['csuccess']) && $serendipity['GET']['csuccess'] == 'moderate') ? true : false)
     );
 
     $template->assign($comment_add_data);
