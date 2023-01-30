@@ -678,15 +678,17 @@ switch ($serendipity['GET']['adminAction']) {
 
         $data['case_directoryDoDelete'] = true;
         $new_dir = serendipity_uploadSecure($serendipity['GET']['dir'], true);
-        if (is_dir($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $new_dir)) {
-            if (!is_writable($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $new_dir)) {
+        $nd      = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $new_dir;
+        if (is_dir($nd)) {
+            if (!is_writable($nd)) {
                 $data['print_DIRECTORY_WRITE_ERROR'] = sprintf(DIRECTORY_WRITE_ERROR, $new_dir);
             } else {
                 ob_start();
                 // Directory exists and is writable. Now dive within subdirectories and kill 'em all.
-                serendipity_killPath($serendipity['serendipityPath'] . $serendipity['uploadPath'], $new_dir, (isset($serendipity['POST']['nuke']) ? true : false));
+                serendipity_killPath($nd, (isset($serendipity['POST']['nuke']) ? true : false));
                 $data['ob_serendipity_killPath'] = ob_get_contents();
                 ob_end_clean();
+                serendipity_cleanCache();
            }
         } else {
             $data['print_ERROR_NO_DIRECTORY'] = sprintf(ERROR_NO_DIRECTORY, $new_dir);
@@ -793,7 +795,8 @@ switch ($serendipity['GET']['adminAction']) {
         if (is_dir($nd) || @mkdir($nd)) {
             $data['print_DIRECTORY_CREATED'] = sprintf(DIRECTORY_CREATED, serendipity_specialchars($new_dir));
             @umask(0000);
-            @chmod($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $new_dir, 0777);
+            @chmod($nd, 0777);
+            serendipity_cleanCache();
 
             // Apply parent ACL to new child.
             $array_parent_read  = serendipity_ACLGet(0, 'directory', 'read',  $serendipity['POST']['parent']);
