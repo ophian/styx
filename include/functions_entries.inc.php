@@ -119,6 +119,7 @@ function serendipity_fetchCategoryInfo($categoryid, $categoryname = '') {
                    WHERE categoryid = " . (int)$categoryid;
 
         $ret =& serendipity_db_query($query);
+        if (is_bool($ret)) return;
         $ret[0]['category_icon_webp'] = $ret[0][7] = !empty($ret[0]['category_icon']) ? serendipity_generate_webpPathURI($ret[0]['category_icon']) : '';
         $fpwebp = str_replace($serendipity['serendipityHTTPPath'], $serendipity['serendipityPath'], $ret[0]['category_icon_webp']);
         if (!file_exists($fpwebp)) {
