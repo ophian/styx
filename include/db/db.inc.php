@@ -67,8 +67,9 @@ function serendipity_db_insert($table, $values, $action = 'execute') {
 
     $vals = '';
     foreach($values AS $k => $v) {
-        if (strlen($vals))
+        if (strlen($vals)) {
             $vals .= ', ';
+        }
         $vals .= '\'' . serendipity_db_escape_string($v) . '\'';
     }
 
