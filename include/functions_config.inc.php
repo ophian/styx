@@ -106,11 +106,12 @@ function serendipity_remove_config_var($name, $authorid = 0) {
 function serendipity_set_config_var($name, $val, $authorid = 0) {
     global $serendipity;
 
-    if ($authorid == '') {
-        $authorid = 0; // A db_insert cast to int works with PHP 8.2, but not in PHP 7/8.0 for the serendipity_db_query().
-                       // Some PHP versions in combination with MYSQLI_SQL_EXCEPTION MYSQLI_REPORT_* flags throw  Incorrect integer value: '' for column authorid
+    if (!is_numeric($authorid)) {
+        $authorid = 0; // A db_insert array item CAST to INT works with PHP 8.2, but not in PHP 7/8.0 for the serendipity_db_query(), since it is converted into ''.
+                       // The is_numeric() works as a good enough POST filter and for the empty string array issue.
+                       // Some PHP versions in combination with MYSQLI_SQL_EXCEPTION MYSQLI_REPORT_* flags throw  Incorrect integer value: '' for column authorid.
                        // It may be a (known) problem by 64bit vs 32bit systems, which may give back wrong types https://www.php.net/manual/de/function.array-keys.php#105578
-                       // OR it is (and this presumably is the main reason) that arrays were build for the web as strings and only highly late PHP versions are able to pass real INTs
+                       // BUT the main issue is that arrays were build for the web as strings and only highly late PHP versions as of PHP 8.1/2 are able to type cast to INTs.
     }
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name='" . serendipity_db_escape_string($name) . "' AND authorid = " . $authorid);
 
@@ -118,7 +119,7 @@ function serendipity_set_config_var($name, $val, $authorid = 0) {
         return;
     }
 
-    $r = serendipity_db_insert('config', array('name' => serendipity_db_escape_string($name), 'value' => $val, 'authorid' => $authorid)); // see above type note
+    $r = serendipity_db_insert('config', array('name' => serendipity_db_escape_string($name), 'value' => $val, 'authorid' => $authorid)); // see above array type note
 
     if ($authorid === 0 || (isset($serendipity['authorid']) && $authorid === $serendipity['authorid'])) {
         if ($val === 'false') {
