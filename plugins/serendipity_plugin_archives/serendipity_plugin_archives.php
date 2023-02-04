@@ -14,7 +14,7 @@ class serendipity_plugin_archives extends serendipity_plugin
         $propbag->add('description',   BROWSE_ARCHIVES);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team, Ian Styx');
-        $propbag->add('version',       '1.6');
+        $propbag->add('version',       '1.7');
         $propbag->add('configuration', array('title', 'frequency', 'count', 'show_count', 'hide_zero_count'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -198,15 +198,15 @@ class serendipity_plugin_archives extends serendipity_plugin
         }
         // Category views are either "archives/C%ID%.html" OR "categories/%ID%-name"
         // find category archive
-        if (isset($args[0]) && $args[0] == PATH_ARCHIVE && isset($args[1][0]) && $args[1][0] == 'C') {
+        if (isset($args[0]) && $args[0] == PATH_ARCHIVE && isset($args[1][0]) && $args[1][0] == 'C' && isset($serendipity['GET']['subpage'])) {
             echo '    <li><a href="' . str_replace(PATH_ARCHIVE, PATH_ARCHIVES, $serendipity['GET']['subpage']) . '.html">' . RECENT. "</a></li>\n";
         } else
             // find categories path
             if (isset($args[0]) && $args[0] == PATH_CATEGORIES && isset($args[1])) {
-                echo '    <li><a href="' . $serendipity['GET']['subpage'] . '">' . RECENT. "</a></li>\n";
+                echo '    <li><a href="' . ($serendipity['GET']['subpage'] ?? '') . '">' . RECENT. "</a></li>\n";
         } else
             // find category startpage
-            if (isset($args[1]) && $serendipity['GET']['subpage'] == $serendipity['serendipityHTTPPath'] . PATH_ARCHIVES . '/' . $args[1] . '.html') {
+            if (isset($args[1]) && isset($serendipity['GET']['subpage']) && $serendipity['GET']['subpage'] == $serendipity['serendipityHTTPPath'] . PATH_ARCHIVES . '/' . $args[1] . '.html') {
                 echo '    <li><a href="' . $serendipity['GET']['subpage'] . '">' . RECENT. "</a></li>\n";
         } else
             // find category sub (month) view
