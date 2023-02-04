@@ -618,8 +618,10 @@ switch ($serendipity['GET']['adminAction']) {
 
                         if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML case UPLOAD file(s) CREATE VARIATIONS SEPARATOR" . str_repeat(" <<< ", 10) . "\n"); }
 
-                        // Create ORIGIN TARGET full file Variations
-                        $messages = serendipity_createFullFileVariations($target, $info, $messages);
+                        // Create ORIGIN TARGET full file Variations, if file is supported to have Variations!
+                        if (in_array(strtoupper(explode('/', serendipity_guessMime($info['extension']))[1]), serendipity_getSupportedFormats())) {
+                            $messages = serendipity_createFullFileVariations($target, $info, $messages);
+                        }
 
                         $thumbs = array(array(
                             'thumbSize' => $serendipity['thumbSize'],
