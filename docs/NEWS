@@ -2,6 +2,8 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Deny success/failed upload messaging for files with no-Variation support
+
   * Fixed serendipity_fetchCategoryInfo() for a non existing category
 
   * Removed Smarty sizeof() allowance from custom $php_(functions/modifiers) in
