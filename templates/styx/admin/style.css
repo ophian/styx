@@ -1593,6 +1593,9 @@ summary {
 .msg-0 {
     margin: 0;
 }
+.msg-t1 {
+    margin-top: .5em;
+}
 .msg-btm {
     margin: 0 0 .5em;
 }
