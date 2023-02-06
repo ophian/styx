@@ -1,5 +1,5 @@
 <?php
-// serendipity_smarty_class.inc.php lm 2023-01-29 Ian Styx
+// serendipity_smarty_class.inc.php lm 2023-02-05 Ian Styx
 
 // define secure_dir and trusted_dirs for Serendipity_Smarty_Security_Policy class.
 @define('S9Y_TEMPLATE_FALLBACK',    $serendipity['serendipityPath'] . $serendipity['templatePath'] . 'default');
@@ -95,6 +95,31 @@ class Serendipity_Smarty extends Smarty
         self::setParams();
     }
 
+    /**
+     * Cleanup template dir array for possible duplicates by
+     *         engine(s) vs $serendipity['template'] vs $serendipity['defaultTemplate'].
+     *         Intentional keeps possible iteration duplicates that are not in direct order!
+     * @access private
+     * @param   int     The build template directory array for cleanup
+     * @param   array
+     * @return  array
+     */
+    private function checkDirectSiblings($tda)
+    {
+        foreach ($tda AS $key => $value) {
+            if (!is_string($key)) {
+               if (isset($tda[$key+1])) {
+                  // Compare $tda[$key] (eq $value) with next $tda[$key+1]
+                  #var_dump($tda[$key+1] === $tda[$key]);
+                  if (isset($tda[$key]) && $tda[$key+1] === $tda[$key]) {
+                      unset($tda[$key+1]); // remove the direct sibling duplicate
+                  }
+               }
+            }
+        }
+        return array_values($tda); // set new keys
+    }
+
     // Smarty (3.1.x) object main parameter setup
     private function setParams()
     {
@@ -138,6 +163,8 @@ class Serendipity_Smarty extends Smarty
         $template_dirs[] = $serendipity['serendipityPath'] . 'plugins';
         // Add default template to addTemplate array, if not already set in engine
         $template_dirs[] = S9Y_TEMPLATE_FALLBACK;
+        // cleanup, to not having to travel twice or more inside fallback cycles
+        $template_dirs = $this->checkDirectSiblings($template_dirs);
 
         $this->setTemplateDir($template_dirs);
 
