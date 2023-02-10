@@ -6,7 +6,7 @@
             <p class="msg_important">{$CONST.COMMENTS_WILL_BE_MODERATED}</p>
         {/if}
 
-            <form id="serendipity_comment" action="{$commentform_action}#feedback" method="post">
+            <form id="serendipity_comment" action="{$commentform_action}#c0" method="post">
                 <input type="hidden" name="serendipity[entry_id]" value="{$commentform_id}">
 
                 <div class="form_field">
