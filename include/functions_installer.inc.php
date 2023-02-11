@@ -646,7 +646,7 @@ function serendipity_checkInstallation() {
 
     // Check dirs
     if (!is_dir($_POST['serendipityPath'])) {
-        $errs[] = sprintf(DIRECTORY_NON_EXISTANT, $ipath);
+        $errs[] = sprintf(DIRECTORY_NON_EXISTENT, $ipath);
     }
     elseif (!is_writable($_POST['serendipityPath']) ) {
         $errs[] = sprintf(DIRECTORY_WRITE_ERROR, $ipath);
