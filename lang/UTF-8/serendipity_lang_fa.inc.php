@@ -187,6 +187,7 @@
 @define('NO', 'خیر');
 @define('USE_DEFAULT', 'پیش فرض');
 @define('CHECK_N_SAVE', 'چک و ثبت کن');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', 'توانایی نوشتن در شاخه %s وجود ندارم. دسترسی ها را چک کنید.');
 @define('DIRECTORY_CREATE_ERROR', 'شاخه %s وجود ندارد یا قابلیت ایجاد کردن آن نیست. لطفا خودتان به صورت دستی، آن را بسازید');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; <i>%s %s</i> را اجرا کن');

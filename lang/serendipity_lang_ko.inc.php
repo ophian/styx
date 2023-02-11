@@ -188,6 +188,7 @@
 @define('NO', '아니오');
 @define('USE_DEFAULT', '기본값');
 @define('CHECK_N_SAVE', '확인 및 저장');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', '디렉토리 %s에 기록할 수 없습니다. 권한 설정을 확인하십시오.');
 @define('DIRECTORY_CREATE_ERROR', '디렉토리 %s(이)가 존재하지 않으며 생성할 수 없습니다. 직접 디렉토리를 생성해 주십시오');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; 실행: <i>%s %s</i>');

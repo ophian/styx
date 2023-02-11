@@ -201,6 +201,7 @@ $i18n_filename_to = array (
 @define('NO', 'Ne');
 @define('USE_DEFAULT', 'Default');
 @define('CHECK_N_SAVE', 'Prověřit a uložit');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', 'Nelze zapisovat do adresáře %s - prověřte oprávnění.');
 @define('DIRECTORY_CREATE_ERROR', 'Adresář %s neexistuje a nemohl být vytvořen. Vytvořte adresář manuálně.');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; spustit <i>%s %s</i>');

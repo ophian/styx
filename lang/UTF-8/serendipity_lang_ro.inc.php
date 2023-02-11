@@ -187,6 +187,7 @@
 @define('NO', 'Nu');
 @define('USE_DEFAULT', 'Implicit');
 @define('CHECK_N_SAVE', 'Verifică şi salvează');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', 'Nu pot scrie în directorul %s. Verifică te rog permisiunile.');
 @define('DIRECTORY_CREATE_ERROR', 'Directorul %s nu există şi nu poate fi creat. Te rog să creezi directorul manual');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; execută <i>%s %s</i>');

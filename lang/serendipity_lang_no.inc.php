@@ -167,6 +167,7 @@
 @define('NO', 'Nei');
 @define('USE_DEFAULT', 'Default');
 @define('CHECK_N_SAVE', 'Sjekk &amp; lagre');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', 'Kan ikke skrive til biblioteket %s. Sjekk filrettighederne.');
 @define('DIRECTORY_CREATE_ERROR', 'Biblioteket %s eksisterer ikke og kunne ikke op1prettes. Vennligst opprett biblioteket manuelt');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; Kjør <i>%s %s</i>');

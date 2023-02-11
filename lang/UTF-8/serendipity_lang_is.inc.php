@@ -186,6 +186,7 @@
 @define('NO', 'Nei');
 @define('USE_DEFAULT', 'Sjálfgefið');
 @define('CHECK_N_SAVE', 'Prófa &amp; vista');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', 'Get ekki skrifað í möppu %s. Athugaðu eiginleika hennar.');
 @define('DIRECTORY_CREATE_ERROR', 'Mappan %s er ekki til og gat ekki búið hana til. Vinsamlegast búðu hana til á annan hátt');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; keyra <i>%s %s</i>');

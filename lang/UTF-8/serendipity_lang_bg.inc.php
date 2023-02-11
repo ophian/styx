@@ -169,6 +169,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('YES', 'Да');
 @define('NO', 'Не');
 @define('CHECK_N_SAVE', 'Проверка и запис');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', 'Не може да се записва в директория %s. Моля, проверете правата.');
 @define('DIRECTORY_CREATE_ERROR', 'Директорията %s не съществува и не може да бъде създадена. Моля, създайте директорията ръчно');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; изпълнете: <i>%s %s</i>');

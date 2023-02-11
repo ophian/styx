@@ -188,6 +188,7 @@
 @define('NO', '否');
 @define('USE_DEFAULT', '预设');
 @define('CHECK_N_SAVE', '保存');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', '不能读写文件夹 %s，请检查权限！');
 @define('DIRECTORY_CREATE_ERROR', '文件夹 %s 不存在也无法建立，请自己建立这个文件夹！');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; run <i>%s %s</i>');

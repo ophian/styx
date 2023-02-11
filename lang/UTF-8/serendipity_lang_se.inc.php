@@ -186,6 +186,7 @@
 @define('NO', 'Nej');
 @define('USE_DEFAULT', 'Förvalt');
 @define('CHECK_N_SAVE', 'Välj &amp; spara');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', 'Kan inte skriva till katalogen %s. Kontrollera rättigheter.');
 @define('DIRECTORY_CREATE_ERROR', 'Katalogen %s finns inte och kunde inte skapas. Skapa katalogen manuellt');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; kör <i>%s %s</i>');

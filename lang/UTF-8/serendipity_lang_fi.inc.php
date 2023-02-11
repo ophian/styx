@@ -186,6 +186,7 @@
 @define('NO', 'Ei');
 @define('USE_DEFAULT', 'Oletus');
 @define('CHECK_N_SAVE', 'Tarkista ja talleta');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', 'Ei oikeutta hakemistoon %s.');
 @define('DIRECTORY_CREATE_ERROR', 'Hakemistoa %s ei ole, eikä voi luoda. Ole kiltti ja tee se itse.');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; komento <i>%s %s</i>');

@@ -188,6 +188,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('NO', 'Nie');
 @define('USE_DEFAULT', 'Default');
 @define('CHECK_N_SAVE', 'Sprawd¼ i zapisz');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', 'Nie mogê zapisywaæ w katalogu %s. Proszê, sprawd¼ prawa dostêpu do katalogu.');
 @define('DIRECTORY_CREATE_ERROR', 'Katalog nie istnieje i nie mo¿e byæ utworzony. Proszê stworzyæ katalog samodzielnie.');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; run <i>%s %s</i>');

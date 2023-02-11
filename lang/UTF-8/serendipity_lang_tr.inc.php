@@ -188,6 +188,7 @@
 @define('NO', 'Hayır');
 @define('USE_DEFAULT', 'Öntanımlı');
 @define('CHECK_N_SAVE', 'Denetle &amp; kaydet');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', 'Dizine yazılamıyory %s. Lütfen izinleri kontrol edin.');
 @define('DIRECTORY_CREATE_ERROR', 'Dizin %s mevcut değil ve oluşturulamıyor. Lütfen kendiniz oluşturun');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; çalıştır <i>%s %s</i>');

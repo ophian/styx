@@ -199,6 +199,7 @@ $i18n_filename_to = array (
 @define('NO', 'Nie');
 @define('USE_DEFAULT', 'Prednastavené');
 @define('CHECK_N_SAVE', 'Skontrolovať a uložiť');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', 'Do priečinka %s sa nedá zapisovať - prosím skontrolujte oprávnenia');
 @define('DIRECTORY_CREATE_ERROR', 'Priečinok %s neexistuje a nepodarilo sa ho vytvoriť. Prosím vytvorte priečinok ručne.');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; spustiť <i>%s %s</i>');

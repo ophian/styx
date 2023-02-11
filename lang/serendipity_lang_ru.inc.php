@@ -188,6 +188,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('NO', 'Нет');
 @define('USE_DEFAULT', 'По умолчанию');
 @define('CHECK_N_SAVE', 'Проверить &amp; сохранить');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', 'Не могу записать в каталог %s. Проверьте права доступа к каталогу.');
 @define('DIRECTORY_CREATE_ERROR', 'Каталог %s не существует и не может быть создан. Пожалуйста, создайте его вручную.');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; run <i>%s %s</i>');

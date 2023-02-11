@@ -170,6 +170,7 @@
 @define('NO', 'Não');
 @define('USE_DEFAULT', 'Default');
 @define('CHECK_N_SAVE', 'Verificar &amp; salvar');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', 'Não foi possível escrever no diretório %s. Verifique as permissões.');
 @define('DIRECTORY_CREATE_ERROR', 'O Diretório %s não existe e não pode ser criado. Tente criá-lo manualmente');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; execute <i>%s %s</i>');

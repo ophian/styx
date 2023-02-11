@@ -186,6 +186,7 @@
 @define('NO', 'いいえ');
 @define('USE_DEFAULT', '標準');
 @define('CHECK_N_SAVE', '確認と保存をする');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', 'ディレクトリー %s の書き込みができませんでした。パーミッションを調べてください');
 @define('DIRECTORY_CREATE_ERROR', 'ディレクトリー %s が存在しないか作成することができませんでした。手動でディレクトリーを作成してください。');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; 実行 <i>%s %s</i>');

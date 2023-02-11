@@ -172,6 +172,7 @@
 @define('NO', 'Nein');
 @define('USE_DEFAULT', 'Standard');
 @define('CHECK_N_SAVE', 'Testen &amp; speichern');
+@define('DIRECTORY_NON_EXISTENT', 'Das Verzeichnis %s existiert nicht. Vielleicht ist es ein virtuelles Umleitungsverzeichnis.');
 @define('DIRECTORY_WRITE_ERROR', 'Keine Schreibrechte für Verzeichnis %s. Bitte korrigieren');
 @define('DIRECTORY_CREATE_ERROR', 'Verzeichnis %s existiert nicht und konnte nicht erstellt werden. Bitte legen Sie es manuell an.');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; führen Sie <i>%s %s</i> aus!');

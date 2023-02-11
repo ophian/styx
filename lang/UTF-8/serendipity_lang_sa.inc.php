@@ -188,6 +188,7 @@
 @define('NO', 'لا');
 @define('USE_DEFAULT', 'أفتراضي');
 @define('CHECK_N_SAVE', 'فحص و حفظ');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', 'غير قادر بالكتابة في المجلد %s الرجاء التأكد من التصاريح');
 @define('DIRECTORY_CREATE_ERROR', 'المجلد %s لم يتم انشاء المجلد الرجاء قم بأنشاءة يدوياً');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; run <i>%s %s</i>');

@@ -169,6 +169,7 @@
 @define('NO', 'Nej');
 @define('USE_DEFAULT', 'Default');
 @define('CHECK_N_SAVE', 'Check &amp; gem');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', 'Kan ikke skrive til biblioteket %s. Check filrettighederne.');
 @define('DIRECTORY_CREATE_ERROR', 'Biblioteket %s eksisterer ikke og kunne ikke oprettes. Opret venligst biblioteket manuelt');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; Kør <i>%s %s</i>');

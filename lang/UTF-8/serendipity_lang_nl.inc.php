@@ -189,6 +189,7 @@
 @define('NO', 'Nee');
 @define('USE_DEFAULT', 'Standaard');
 @define('CHECK_N_SAVE', 'Controleren &amp; bewaren');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', 'Kan niet schrijven naar map %s. Controleer de toegangsrechten.');
 @define('DIRECTORY_CREATE_ERROR', 'Map %s bestaat niet en kon niet worden aangemaakt. Maak deze alstublieft handmatig aan');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; voer <i>%s %s</i> uit');

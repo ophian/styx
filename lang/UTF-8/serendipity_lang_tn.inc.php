@@ -188,6 +188,7 @@ $i18n_unknown = 'tw';
 @define('NO', '否');
 @define('USE_DEFAULT', '預設');
 @define('CHECK_N_SAVE', '儲存');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', '不能讀寫檔案夾 %s. 請檢查權限.');
 @define('DIRECTORY_CREATE_ERROR', '檔案夾 %s 不存在也無法建立. 請自己建立這個檔案夾');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; run <i>%s %s</i>');

@@ -186,6 +186,7 @@
 @define('NO', 'Nem');
 @define('USE_DEFAULT', 'Alapértelmezett');
 @define('CHECK_N_SAVE', 'Ellenőrzés &amp; mentés');
+@define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
 @define('DIRECTORY_WRITE_ERROR', 'A %s szót nem tudom felvenni a szótárba. Kérlek ellenőrizd a hozzáférési jogokat.');
 @define('DIRECTORY_CREATE_ERROR', 'A %s könyvtár nem létezik, és nem is tudom létrehozni. Kérlek hozd létre Te');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; fut <i>%s %s</i>');
