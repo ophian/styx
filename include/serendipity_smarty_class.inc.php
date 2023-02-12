@@ -1,5 +1,5 @@
 <?php
-// serendipity_smarty_class.inc.php lm 2023-02-05 Ian Styx
+// serendipity_smarty_class.inc.php lm 2023-02-12 Ian Styx
 
 // define secure_dir and trusted_dirs for Serendipity_Smarty_Security_Policy class.
 @define('S9Y_TEMPLATE_FALLBACK',    $serendipity['serendipityPath'] . $serendipity['templatePath'] . 'default');
@@ -179,7 +179,7 @@ class Serendipity_Smarty extends Smarty
 
         $this->setConfigDir(array(S9Y_TEMPLATE_USERDEFAULT));
 
-        if ((!is_dir($this->getCompileDir()) || !is_writable($this->getCompileDir())) && IN_installer !== true) {
+        if ((!is_dir($this->getCompileDir()) || !is_writable($this->getCompileDir())) && (!defined('IN_installer') || IN_installer !== true)) {
             if (ini_get('display_errors') == 0 || ini_get('display_errors') == 'off') {
                 printf(DIRECTORY_WRITE_ERROR, $this->getCompileDir());
             }
