@@ -796,11 +796,15 @@ function serendipity_imageCreateFromAny($filepath) {
             $im = imagecreatefromjpeg($filepath);
             break;
         case 3:
-            $im = imagecreatefrompng($filepath);
+            $im = @imagecreatefrompng($filepath); // still needs to silence, see IDAT or setjmp errors
             break;
         case 6:
             $im = imagecreatefrombmp($filepath);
             break;
+    }
+    // if imagecreatefrom*** returns bool for error, i.e. imagecreatefrompng(): gd-png: fatal libpng error: IDAT or imagecreatefrompng(): gd-png error: setjmp returns error condition 3 etc
+    if (false === check_image_resource_vs_instance($im) || $im === false) {
+        return false;
     }
     // Check if image is a true color image or not
     if (!imageistruecolor($im)) {
