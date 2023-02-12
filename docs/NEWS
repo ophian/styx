@@ -2,6 +2,8 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix images API image Variation convert workflow for broken png based images
+
   * Fix a possible PHP 8.1 installer issue, accessing a Methusalem old failure
     constant, which was never defined.
 
