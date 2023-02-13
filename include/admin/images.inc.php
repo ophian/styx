@@ -734,8 +734,8 @@ switch ($serendipity['GET']['adminAction']) {
                 $use_dir = (!empty($newDir) && $newDir != '/') ? rtrim($newDir, '/') . '/' : $newDir;
             }
 
-            serendipity_ACLGrant(0, 'directory', 'read', $serendipity['POST']['read_authors'], $use_dir);
-            serendipity_ACLGrant(0, 'directory', 'write', $serendipity['POST']['write_authors'], $use_dir);
+            serendipity_ACLGrant(0, 'directory', 'read', ($serendipity['POST']['read_authors'] ?? null), $use_dir);
+            serendipity_ACLGrant(0, 'directory', 'write', ($serendipity['POST']['write_authors'] ?? null), $use_dir);
             $data['savedirtime'] = serendipity_strftime('%H:%M:%S');
         }
 
@@ -756,8 +756,8 @@ switch ($serendipity['GET']['adminAction']) {
             );
             foreach($dir_list AS $f => $dir) {
                 // Apply parent ACL to children.
-                serendipity_ACLGrant(0, 'directory', 'read', $serendipity['POST']['read_authors'], $dir['relpath']);
-                serendipity_ACLGrant(0, 'directory', 'write', $serendipity['POST']['write_authors'], $dir['relpath']);
+                serendipity_ACLGrant(0, 'directory', 'read', ($serendipity['POST']['read_authors'] ?? null), $dir['relpath']);
+                serendipity_ACLGrant(0, 'directory', 'write', ($serendipity['POST']['write_authors'] ?? null), $dir['relpath']);
             }
         }
         $data['groups']       = $groups;
