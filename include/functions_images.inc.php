@@ -6038,7 +6038,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $file, $pick=
     } elseif ($type == 'dir') {
         // since this is case 'dir', we do not have a filename and have to rename replacement File vars to oldDir and newDir values for the update preg_replace match
         $oldDirFile = $oldDir;
-        $ispOldFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDirFile . (($_file['extension']) ? '.'.$_file['extension'] : '');
+        $ispOldFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDirFile . (!empty($_file['extension']) ? '.'.$_file['extension'] : '');
         $joinThumbs = ''; // we don't need to join Thumbs in special, since this is the 'dir' type case only! (Fixes matching and the counter!)
     }
 
