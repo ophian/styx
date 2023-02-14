@@ -556,6 +556,11 @@ $tasks = array(
                     'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '7.4.0') >= 0) ? 'OK' : 'outdated') . '.',
                     'desc'      => 'The minimum required PHP version for Serendipity Styx 4.0 is <b>PHP 7.4</b>.x. But better jump to recommended PHP 8.0/1/2 versions, since PHP 7.4 security support will end on 28 Nov 2022 soon. Styx will require PHP 8 only up from around v.4.2.'),
 
+            array(  'version'   => '4.1.0',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Old images with the name "0" (null, i.e. "0.jpg") may cause errors with some image actions, for example when moving to another path location.',
+                    'desc'      => 'In the early Serendipity days it was possible to have them as name "0". Please check your MediaLibrary and rename them differently to avoid future problems. "01.jpg" is allowed.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
