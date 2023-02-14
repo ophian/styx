@@ -2,6 +2,9 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix a small bunch of remaining PHP warnings/errors when moving image data
+    around, when having PHP extended error reporting active.
+
   * Fix images API image Variation convert workflow for broken png based images
 
   * Fix a possible PHP 8.1 installer issue, accessing a Methusalem old failure
