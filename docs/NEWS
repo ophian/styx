@@ -2,6 +2,8 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix a case of false $page parameter type transported to _displayImageList()
+
   * Fix a small bunch of remaining PHP warnings/errors when moving image data
     around and having PHP extended error reporting active.
 
