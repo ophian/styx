@@ -363,9 +363,9 @@ switch($serendipity['GET']['adminAction']) {
                 //  OR  https://dev.mysql.com/doc/refman/8.0/en/fulltext-natural-language.html)
                 if (preg_match('@["\+\-\*~<>\(\)]+@', $term)) {
                     #$term = str_replace(' + ', ' +', $term); // be strict for BOOLEAN MODE
-                    $cond['find_part'] = "MATCH(title,body,extended) AGAINST('$term' IN BOOLEAN MODE)";
+                    $filter['find_part'] = "MATCH(title,body,extended) AGAINST('$term' IN BOOLEAN MODE)";
                 } else {
-                    $cond['find_part'] = "MATCH(title,body,extended) AGAINST('$term')"; // is same as IN NATURAL LANGUAGE MODE, which is the default. There are no special operators, and searches consist of one or more comma-separated keywords.
+                    $filter['find_part'] = "MATCH(title,body,extended) AGAINST('$term')"; // is same as IN NATURAL LANGUAGE MODE, which is the default. There are no special operators, and searches consist of one or more comma-separated keywords.
                 }
             }
         }
