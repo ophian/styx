@@ -3131,7 +3131,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
     $hideSubdirFiles = (isset($serendipity['GET']['hideSubdirFiles']) && $serendipity['GET']['hideSubdirFiles'] == 'yes') ? true : false; // default
     $userPerms       = array('delete' => serendipity_checkPermission('adminImagesDelete'));
     if (empty($page)) {
-        $page = 1; // to avoid unsupported operand types: string - int. Set to 1 instead for following 1-1 + perPage
+        $page = 1; // to avoid unsupported operand types: string - int. Set to 1 instead for following 1-1 + perPage operation
     }
 
     $displayGallery  = (isset($serendipity['GET']['showGallery']) && !$show_upload && $serendipity['GET']['showGallery'] == 'true') ? true : false;
