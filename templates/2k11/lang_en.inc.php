@@ -1,6 +1,6 @@
 <?php
 // Theme options
-@define('TWOK11_INSTR', 'To extend 2k11 with your own styles in an update-safe way, you can add a file <code>/templates/2k11/user.css</code>; it will be included automagically by Serendipity.');
+@define('TWOK11_INSTR', 'To extend 2k11 with your own styles in an update-safe way, you can add a file <code>/templates/2k11/user.css</code>; It will be included automagically by Serendipity Styx. If your theme is a CHILD or ENGINE theme, put the user.css file into there.');
 @define('TWOK11_HEADER_IMG','Use a banner image in the header? (1120 pixels wide; leave box empty to not use a banner)');
 @define('TWOK11_USE_CORENAV', 'Use global navigation?');
 @define('TWOK11_WEBFONTS', 'Use a webfont, hosted by Google?');
@@ -26,7 +26,7 @@
 @define('TWOK11_TWEET_THIS', 'Share article on Twitter');
 @define('TWOK11_DENT_THIS', 'Share article on Identica');
 @define('TWOK11_SHORT_URL', 'Short URL');
-@define('TWOK11_SHORT_URL_HINT', 'This link is not meant to be clicked. It contains the short URL for this entry. You can use this URL to link to this entry. To copy the link, right click and select Copy Shortcut in Internet Explorer or Copy Link Location in Mozilla.');
+@define('TWOK11_SHORT_URL_HINT', 'This link is not meant to be clicked. It contains the short URL for this entry. You can use this URL to link to this entry. To copy the link, right click and select "Copy Shortcut" or "Copy Link Location" depending of your browser.');
 @define('TWOK11_EMPTYTRACKBACK', 'Unfortunately, the contents of this trackback can not be displayed.');
 @define('TWOK11_TRACKBACKPREVIEW', 'Show preview');
 @define('TWOK11_REPLYORIGIN', 'Origin');
