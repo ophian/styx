@@ -851,6 +851,8 @@
 
 @define('INSTALL_RSSFETCHLIMIT', 'Einträge im Feed');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Anzahl der Einträge, die im RSS-Feed dargestellt werden sollen.');
+@define('INSTALL_CBAFETCHLIMIT', 'Kommentare für Kommentarübersichten');
+@define('INSTALL_CBAFETCHLIMIT_DESC', 'Anzahl der Kommentare, die per Seite auf Kommentarübersichtsseiten (/comments/) dargestellt werden sollen.');
 @define('INSTALL_DB_UTF8', 'Datenbank-Zeichensatzkonvertierung aktivieren');
 @define('INSTALL_DB_UTF8_DESC', 'Sendet einen MySQL "SET NAMES" Befehl, um den verwendeten Zeichensatz der Datenbank mitzuteilen. Falls sich merkwürdige oder fehlende Zeichen im Blog zeigen, ist es einen Versuch wert, diese Option zu (de)aktivieren.');
 @define('ONTHEFLYSYNCH', 'Auto-Synchronisation der Mediathek');

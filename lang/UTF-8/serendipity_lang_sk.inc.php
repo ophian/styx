@@ -865,6 +865,8 @@ $i18n_filename_to = array (
 @define('WARNING_NO_GROUPS_SELECTED', 'Varovanie: Nevybrali ste členstvo v žiadnej skupine. To by Vás odhlásilo zo správy užívateľských skupín a Vaše nastavenie členstva v skupinách by zostalo nezmenené.');
 @define('INSTALL_RSSFETCHLIMIT', 'Články, ktoré sa majú zobraziť v RSS Feede');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Počet článkov, ktoré sa majú zobraziť na každej stránke v RSS Feede.');
+@define('INSTALL_CBAFETCHLIMIT', 'Comments to display when viewing listed comments only');
+@define('INSTALL_CBAFETCHLIMIT_DESC', 'Number of comments to display for each page on the so called "Comment overview" /comments/ pages.');
 @define('INSTALL_DB_UTF8', 'Zapnúť konverziu databázovej znakovej sady');
 @define('INSTALL_DB_UTF8_DESC', 'Spustí dotaz MySQL "SET NAMES", aby sa zistila požadovaná znaková sada pre databázu. Zapnite alebo vypnite, ak sa Vám na blogu objevujú divné znaky.');
 @define('ONTHEFLYSYNCH', 'Zapnúť synchronizáciu médií za behu (on the fly)');

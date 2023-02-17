@@ -855,6 +855,8 @@
 @define('WARNING_NO_GROUPS_SELECTED', '警告: いくつかのグループメンバーを選択していません。 This would effectively log you out of the usergroup management, and thus your group memberships were not changed.');
 @define('INSTALL_RSSFETCHLIMIT', 'フィードに表示するエントリー数');
 @define('INSTALL_RSSFETCHLIMIT_DESC', '各ページでRSSフィードに表示するエントリーの数です。');
+@define('INSTALL_CBAFETCHLIMIT', 'Comments to display when viewing listed comments only');
+@define('INSTALL_CBAFETCHLIMIT_DESC', 'Number of comments to display for each page on the so called "Comment overview" /comments/ pages.');
 @define('INSTALL_DB_UTF8', 'データベース文字エンコード変換を有効にする');
 @define('INSTALL_DB_UTF8_DESC', 'Issues a MySQL "SET NAMES" query to indicate the required charset for the database. Turn this on or off, if you see weird or missing characters in your blog.');
 @define('ONTHEFLYSYNCH', 'オンザフライメディアの同期を有効にする');

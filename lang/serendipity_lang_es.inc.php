@@ -872,6 +872,8 @@
 @define('WARNING_NO_GROUPS_SELECTED', 'Advertencia: No haz seleccionado ningún grupo de miembros. Esto efectivamente te dejaría fuera de la gerencia del grupo de usuarios, por lo tanto, tu membresía de grupo no fue cambiada.');
 @define('INSTALL_RSSFETCHLIMIT', 'Entradas a mostrar en las sindicaciones');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Número de entradas a mostrar por cada página.');
+@define('INSTALL_CBAFETCHLIMIT', 'Comments to display when viewing listed comments only');
+@define('INSTALL_CBAFETCHLIMIT_DESC', 'Number of comments to display for each page on the so called "Comment overview" /comments/ pages.');
 @define('INSTALL_DB_UTF8', 'Activar conversión del juego de caracteres en la BD');
 @define('INSTALL_DB_UTF8_DESC', 'Envía una consulta MySQL "SET NAMES" para definir el juego de caracteres requerido por la base de datos. Actívalo o desactívalo sí ves caracteres extraños en tu blog.');
 @define('ONTHEFLYSYNCH', 'Activar sincronización de medios al-vuelo');

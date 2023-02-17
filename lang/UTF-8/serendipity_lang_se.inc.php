@@ -854,6 +854,8 @@
 @define('WARNING_NO_GROUPS_SELECTED', 'OBS! Du valde inte något gruppmedlemskap. Det medför att du kommer att loggas ut från hanteringen av användargrupper. Ditt medlemskap har därför inte ändrats.');
 @define('INSTALL_RSSFETCHLIMIT', 'Artiklar som visas i flöden');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Antal artiklar att visa på varje sida i RSS-flödet.');
+@define('INSTALL_CBAFETCHLIMIT', 'Comments to display when viewing listed comments only');
+@define('INSTALL_CBAFETCHLIMIT_DESC', 'Number of comments to display for each page on the so called "Comment overview" /comments/ pages.');
 @define('INSTALL_DB_UTF8', 'Aktivera Enable DB-teckenuppsättningskonvertering');
 @define('INSTALL_DB_UTF8_DESC', 'Utfärdare MySQL-förfrågan "SET NAMES" för att indikera den för databasen nödvändiga teckenuppsättningen. Ändra denna inställning om du ser märkliga tecken i din blogg.');
 @define('ONTHEFLYSYNCH', 'Aktivera mediasynkronisering');
