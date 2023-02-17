@@ -20,6 +20,8 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', 'Artikel cachen?');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Falls diese Option aktiviert ist, wird eine Cache-Version des Artikels gespeichert. Dieses Caching wird zwar die Performance erhöhen, die Flexibilität anderer Plugins aber eventuell einschränken. Sollten Sie den Rich-Text Editor verwenden (wysiwyg) ist ein cache eigentlich sinnlos, außer Sie verwenden viele Plugins die das Ausgabemarkup weiter verändern.');
 @define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'Cachen aller Artikel');
+@define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE_AUTO', 'Bestätige Cache Dialog automatisch?');
+@define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE_AUTO_DESC', 'Falls diese Option aktiviert ist, wird der Javascript Bestätigungsdialog für die nächsten 25 Cache Einträge per Seite nach 3 Sekunden automatisch gesetzt.');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'Suche nach zu cachenden Artikeln...');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', 'Bearbeite Artikel %d bis %d');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_BUILDING', 'Erzeuge Cache für Artikel #%d, <em>%s</em>...');

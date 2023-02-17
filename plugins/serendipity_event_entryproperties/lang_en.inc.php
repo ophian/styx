@@ -21,6 +21,8 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', 'Allow to cache entries?');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'If enabled, a cached version will be generated on every saving. Caching will increase performance, but maybe decrease flexibility for other plugins. If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
 @define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'Build cached entries');
+@define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE_AUTO', 'Confirm build cache automatically?');
+@define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE_AUTO_DESC', 'If enabled, the cache of 25 entries per page javascript confirmation dialog is confirmed automatically after 3 seconds.');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'Fetching next batch of entries...');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', 'Fetching entries %d to %d');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_BUILDING', 'Building cache for entry #%d, <em>%s</em>...');
