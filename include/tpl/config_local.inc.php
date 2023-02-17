@@ -468,6 +468,13 @@
                                           'default'     => 15,
                                           'permission'  => 'blogConfiguration'),
 
+                                    array('var'         => 'CBAfetchLimit',
+                                          'title'       => INSTALL_CBAFETCHLIMIT,
+                                          'description' => INSTALL_CBAFETCHLIMIT_DESC,
+                                          'type'        => 'int',
+                                          'default'     => 15,
+                                          'permission'  => 'blogConfiguration'),
+
                                     array('var'         => 'archiveSortStable',
                                           'title'       => ARCHIVE_SORT_STABLE,
                                           'description' => ARCHIVE_SORT_STABLE_DESC,
