@@ -2,6 +2,10 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve the entryproperties plugin by adding a new configuration option,
+    to automatize the cache-entries confirmation dialog for the next pages
+    after the 1st confirm.
+
   * Add new "Comments_by_Authors" (CBAfetchLimit) configuration option to
     "Appearance and Options", which extends, or better implements the special
     configuration global added in Styx 2.6.
