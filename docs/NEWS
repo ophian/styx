@@ -2,6 +2,13 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add new "Comments_by_Authors" (CBAfetchLimit) configuration option to
+    "Appearance and Options", which extends, or better implements the special
+    configuration global added in Styx 2.6.
+    If you ever used it before in your ..local.inc.. file, just remove it now
+    and set the new comment overview page limit value in the configuration.
+    Recommended set is about 20 items per page.
+
   * Fix a case of false $page parameter type transported to _displayImageList()
 
   * Fix a small bunch of remaining PHP warnings/errors when moving image data
