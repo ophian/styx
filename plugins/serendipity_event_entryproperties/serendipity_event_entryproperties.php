@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC . (isset($serendipity['GET']['plugin_to_conf']) ? ' ' . PLUGIN_EVENT_ENTRYPROPERTIES_DESC_PLUS : ''));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.85');
+        $propbag->add('version',       '1.86');
         $propbag->add('requirements',  array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -47,7 +47,7 @@ class serendipity_event_entryproperties extends serendipity_event
             'frontend_configure'                                => true
         ));
         $propbag->add('groups', array('BACKEND_EDITOR'));
-        $propbag->add('configuration', array('cache', 'sequence', 'use_groups', 'use_users', 'use_ext_joins', 'default_read', 'customfields'));
+        $propbag->add('configuration', array('cache', 'autocache', 'sequence', 'use_groups', 'use_users', 'use_ext_joins', 'default_read', 'customfields'));
         $propbag->add('legal',    array(
             'services' => array(),
             'frontend' => array(
@@ -111,6 +111,13 @@ class serendipity_event_entryproperties extends serendipity_event
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_ENTRYPROPERTIES_CACHE);
                 $propbag->add('description', PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC);
+                $propbag->add('default',     'false');
+                break;
+
+             case 'autocache':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE_AUTO);
+                $propbag->add('description', PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE_AUTO_DESC);
                 $propbag->add('default',     'false');
                 break;
 
@@ -611,6 +618,7 @@ class serendipity_event_entryproperties extends serendipity_event
     {
         global $serendipity;
         static $is_cache = null;
+        static $auto_cache = null;
         static $use_groups = null;
         static $use_users = null;
         static $ext_joins = null;
@@ -619,6 +627,7 @@ class serendipity_event_entryproperties extends serendipity_event
 
         if ($is_cache === null) {
             $is_cache   = serendipity_db_bool($this->get_config('cache', 'false'));
+            $auto_cache = serendipity_db_bool($this->get_config('autocache', 'false'));
             $use_groups = serendipity_db_bool($this->get_config('use_groups', 'false'));
             $use_users  = serendipity_db_bool($this->get_config('use_users', 'false'));
             $ext_joins  = serendipity_db_bool($this->get_config('use_ext_joins', 'true'));
@@ -865,6 +874,18 @@ class serendipity_event_entryproperties extends serendipity_event
                         }
 
                         if ($to < $total) {
+                            if ($auto_cache) {
+                                sleep(3);
+?>
+                        <script>
+                            if (window.setTimeout(function() { confirm("<?php echo serendipity_specialchars(PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT); ?>"); }, 1)) {
+                                location.href = "?serendipity[adminModule]=event_display&serendipity[adminAction]=buildcache&serendipity[page]=<?php echo ($page+1); ?>";
+                            } else {
+                                alert("<?php echo serendipity_specialchars(PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_ABORTED); ?>");
+                            }
+                        </script>
+<?php
+                            } else {
 ?>
                         <script>
                             if (confirm("<?php echo serendipity_specialchars(PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT); ?>")) {
@@ -874,6 +895,7 @@ class serendipity_event_entryproperties extends serendipity_event
                             }
                         </script>
 <?php
+                            }
                         } else {
                             echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span>' . PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DONE . '</span>';
                         }
