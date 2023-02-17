@@ -1,3 +1,7 @@
+1.86:
+-----
+    * Add new config option to automatize the cache-entries confirmation dialog for the next pages after 1st confirm
+
 1.85:
 -----
     * Fix SQL conditions order for cache relations
