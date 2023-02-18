@@ -2,6 +2,8 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve meaning of comment [eye] action button(s) by differing constant
+
   * Improve the entryproperties plugin by adding a new configuration option,
     to automatize the cache-entries confirmation dialog for the next pages
     after the 1st confirm.
