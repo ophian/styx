@@ -516,6 +516,7 @@
 @define('FILES_PER_PAGE', 'ページ毎のファイル数');
 @define('CLICK_FILE_TO_INSERT', '追加したいファイルをクリック:');
 @define('SELECT_FILE', '追加するファイルの選択');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'フルサイズ');
 @define('CALENDAR_BOW_DESC', 'その週の始めと考えるべき週の曜日です。デフォルトは「Monday(月曜日)」です。');
 @define('SUPERUSER', 'ブログ管理');

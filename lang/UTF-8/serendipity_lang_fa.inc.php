@@ -517,6 +517,7 @@
 @define('FILES_PER_PAGE', 'فایل در صفحه');
 @define('CLICK_FILE_TO_INSERT', 'برای الحاق کردن، روی تصویر کلیک کنید:');
 @define('SELECT_FILE', 'فایل را برای الحاق کردن مشخص کنید');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'اندازه کامل');
 @define('CALENDAR_BOW_DESC', 'روزی که به عنوان اولین روز هفته در نظر گرفته می شود. Monday مقدار پیش فرض می باشد');
 @define('SUPERUSER', 'مدیریت وبلاگ');

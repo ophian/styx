@@ -518,6 +518,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('FILES_PER_PAGE', 'Plików na stronę');
 @define('CLICK_FILE_TO_INSERT', 'Kliknij na pliku, który chcesz umieścić:');
 @define('SELECT_FILE', 'Wybierz plik do umieszczenia');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'Pełen rozmiar');
 @define('CALENDAR_BOW_DESC', 'Dzień uznany za początek tygodnia. Standardowo jest to poniedziałek.');
 @define('SUPERUSER', 'Administracja blogiem');

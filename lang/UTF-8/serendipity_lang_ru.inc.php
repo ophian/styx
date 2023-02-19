@@ -518,6 +518,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('FILES_PER_PAGE', 'Файлов на странице');
 @define('CLICK_FILE_TO_INSERT', 'Кликните на файл, который вы хотите вставить:');
 @define('SELECT_FILE', 'Выберите файл для вставки');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'Полный размер');
 @define('CALENDAR_BOW_DESC', 'День недели, который должен считаться началом недели. По умолчанию это понедельник.');
 @define('SUPERUSER', 'Администрирование');

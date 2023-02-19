@@ -516,6 +516,7 @@
 @define('FILES_PER_PAGE', 'Oldalanként megjelenő fájlok');
 @define('CLICK_FILE_TO_INSERT', 'Kattints a beillesztendő fájlra:');
 @define('SELECT_FILE', 'Válassz ki fájlt a beillesztéshez');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'Teljes méret');
 @define('CALENDAR_BOW_DESC', 'A hét azon napja, amely a kezdőnapnak számít. Alapértelmezés: Hétfő');
 @define('SUPERUSER', 'Blog adminisztráció');

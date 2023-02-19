@@ -530,6 +530,7 @@ $i18n_filename_to = array (
 @define('FILES_PER_PAGE', 'Souborů na stránku');
 @define('CLICK_FILE_TO_INSERT', 'Klikněte na soubor, který chcete vložit:');
 @define('SELECT_FILE', 'Vyberte soubor pro vložení:');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'Plný rozměr');
 @define('CALENDAR_BOW_DESC', 'Den, určený jako začátek týdne. Default je pondělí');
 @define('SUPERUSER', 'Superuživatel');

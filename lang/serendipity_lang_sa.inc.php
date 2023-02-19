@@ -518,6 +518,7 @@
 @define('FILES_PER_PAGE', '╟сус▌╟╩ ▌э ▀с ╒▌═╔');
 @define('CLICK_FILE_TO_INSERT', '╟╓█╪ ┌сь ╟сус▌ ╟с╨э ╩╤э╧ ╟╧╬╟с╔:');
 @define('SELECT_FILE', '╟╬╩╤ ╟сус▌ ▀э э╩у ╟╧╬╟с╔');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', '═╠у ╟сус▌');
 @define('CALENDAR_BOW_DESC', 'э╠╚ ├╬╨ ╟с╟┌╩╚╟╤ ▌э ╟сэцу ╟с╨э э╚╧├ ╚х ╟с├╙╚ц┌ - ┌╟╧╔ ╟с╟╦фэ');
 @define('SUPERUSER', '╟╧╟╤╔ ╟су╠с╔');

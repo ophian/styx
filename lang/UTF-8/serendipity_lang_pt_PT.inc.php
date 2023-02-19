@@ -503,6 +503,7 @@
 @define('FILES_PER_PAGE', 'Ficheiros por página');
 @define('CLICK_FILE_TO_INSERT', 'Clique no ficheiro que deseja inserir:');
 @define('SELECT_FILE', 'Seleccione arquivo para inserir');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'Tamanho total');
 @define('CALENDAR_BOW_DESC', 'Dia da semana que deve ser considerado o início da semana. O padrão é segunda-feira');
 @define('SUPERUSER', 'Administração do weblog');

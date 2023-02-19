@@ -306,6 +306,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('FILES_PER_PAGE', 'Файлове в страница');
 @define('CLICK_FILE_TO_INSERT', 'Изберете файла, който искате да вмъкнете:');
 @define('SELECT_FILE', 'Изберете файл за вмъкване');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'Пълен размер');
 @define('CALENDAR_BOW_DESC', 'Денят от седмицата, който ще бъде считан за начало на седмицата. По подразбиране е понеделник');
 @define('SUPERUSER', 'Администриране на блога');

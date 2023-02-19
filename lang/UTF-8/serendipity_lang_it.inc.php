@@ -502,6 +502,7 @@
 @define('FILES_PER_PAGE', 'File per pagina');
 @define('CLICK_FILE_TO_INSERT', 'Clicka sul file che vuoi inserire:');
 @define('SELECT_FILE', 'Seleziona il file da inserire');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'Dimensioni piene');
 @define('CALENDAR_BOW_DESC', 'Il giorno della settimana che dovrebbe essere considerato il primo. Il default è Lunedì');
 @define('SUPERUSER', 'Amministrazione');

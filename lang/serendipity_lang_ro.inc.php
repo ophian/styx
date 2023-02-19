@@ -517,6 +517,7 @@
 @define('FILES_PER_PAGE', 'Fişiere pe o pagină');
 @define('CLICK_FILE_TO_INSERT', 'Click pe fişierul pe care vrei să-l foloseşti:');
 @define('SELECT_FILE', 'Alege fişierul pe care vrei să-l foloseşti');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'Mărime originală');
 @define('CALENDAR_BOW_DESC', 'Ziua din săptămână care ar trebui considerată începutul săptămânii. Implicit e Luni');
 @define('SUPERUSER', 'Administrare Blog');

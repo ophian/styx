@@ -499,6 +499,7 @@
 @define('FILES_PER_PAGE', 'Filer per side');
 @define('CLICK_FILE_TO_INSERT', 'Klik på filen du vil indsætte:');
 @define('SELECT_FILE', 'Vælg filen du vil indsætte');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'Fuld størrelse');
 @define('CALENDAR_BOW_DESC', 'Dagen i ugen der skal bruges som den første dag i ugen. Standardværdien er Mandag');
 @define('SUPERUSER', 'Blog Administration');

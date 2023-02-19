@@ -517,6 +517,7 @@ $i18n_unknown = 'tw';
 @define('FILES_PER_PAGE', '每頁顯示的檔案數');
 @define('CLICK_FILE_TO_INSERT', '點選您要輸入的檔案:');
 @define('SELECT_FILE', '選擇要輸入的檔案');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', '完整尺寸');
 @define('CALENDAR_BOW_DESC', '一個禮拜的第一天. 預設是星期一');
 @define('SUPERUSER', '網誌管理');

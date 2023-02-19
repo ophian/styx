@@ -518,6 +518,7 @@
 @define('FILES_PER_PAGE', '페이지 당 파일 개수');
 @define('CLICK_FILE_TO_INSERT', '삽입할 파일을 누르십시오:');
 @define('SELECT_FILE', '삽입할 파일 선택');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', '최대 크기');
 @define('CALENDAR_BOW_DESC', '한 주일의 시작으로 간주할 요일을 선택합니다. 기본값은 월요일입니다.');
 @define('SUPERUSER', '블로그 관리');

@@ -507,6 +507,7 @@
 @define('FILES_PER_PAGE', 'Ficheros por página');
 @define('CLICK_FILE_TO_INSERT', 'Haz click en el fichero que quieres insertar:');
 @define('SELECT_FILE', 'Selecciona el fichero a insertar');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'Tamaño real');
 @define('CALENDAR_BOW_DESC', 'El día de la semana que debe considerarse como principio de semana. El predeterminado es el lunes');
 @define('SUPERUSER', 'Administración del Blog');

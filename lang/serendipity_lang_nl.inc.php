@@ -519,6 +519,7 @@
 @define('FILES_PER_PAGE', 'Bestanden per pagina');
 @define('CLICK_FILE_TO_INSERT', 'Selecteer het bestand dat u wilt invoegen:');
 @define('SELECT_FILE', 'Selecteer bestand om in te voegen');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'Volledige grootte');
 @define('CALENDAR_BOW_DESC', 'De eerste dag van de week. Standaard is maandag');
 @define('SUPERUSER', 'Weblogbeheer');

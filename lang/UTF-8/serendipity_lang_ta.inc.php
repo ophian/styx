@@ -516,6 +516,7 @@
 @define('FILES_PER_PAGE', 'வலைபொருள்/பக்கம்');
 @define('CLICK_FILE_TO_INSERT', 'Click the file you want to insert:');
 @define('SELECT_FILE', 'Select file to insert');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'Fullsize');
 @define('CALENDAR_BOW_DESC', 'The day of the week that should be considered the beginning of the week. Default is Monday');
 @define('SUPERUSER', 'வலைக்குறிப்பு நிர்வாகம்');

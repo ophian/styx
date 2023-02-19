@@ -500,6 +500,7 @@
 @define('FILES_PER_PAGE', 'Dateien pro Seite');
 @define('CLICK_FILE_TO_INSERT', 'Auf eine Datei klicken, um diese einzufügen:');
 @define('SELECT_FILE', 'Bitte wählen Sie eine Datei');
+@define('SELECT_PAGE', 'Seite anzeigen:');
 @define('MEDIA_FULLSIZE', 'Vollbild');
 @define('CALENDAR_BOW_DESC', 'Welcher Tag gibt den Wochenanfang an? Standard ist Montag.');
 @define('SUPERUSER', 'Verwaltung des Blogs');

@@ -516,6 +516,7 @@
 @define('FILES_PER_PAGE', 'Filer per sida');
 @define('CLICK_FILE_TO_INSERT', 'Klicka på filen du vill infoga:');
 @define('SELECT_FILE', 'Välj fil att infoga');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'Full storlek');
 @define('CALENDAR_BOW_DESC', 'Veckodag som börjar vecka. Standardinställning är måndag');
 @define('SUPERUSER', 'Administrera bloggen');

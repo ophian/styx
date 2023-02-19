@@ -499,6 +499,7 @@
 @define('FILES_PER_PAGE', 'Antall filer per side');
 @define('CLICK_FILE_TO_INSERT', 'Klikk på filen du ønsker å sette inn:');
 @define('SELECT_FILE', 'Velg fil å sette inn');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'Full størrelse');
 @define('CALENDAR_BOW_DESC', 'Ukedagen som skal være starten på uken.  Standard er mandag');
 @define('SUPERUSER', 'Blogg-administrasjon');

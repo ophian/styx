@@ -518,6 +518,7 @@
 @define('FILES_PER_PAGE', 'Sayfa başına dosya sayısı');
 @define('CLICK_FILE_TO_INSERT', 'Eklemek istediğiniz dosyanın üstüne tıklayın:');
 @define('SELECT_FILE', 'Eklemek için dosya seçin');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'Tamboyut');
 @define('CALENDAR_BOW_DESC', 'Haftanın günleri haftanın başı olan günle başlamalı. Öntanımlı olarak Pazartesi seçili');
 @define('SUPERUSER', 'Site Yönetim Arabirimi');

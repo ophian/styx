@@ -517,6 +517,7 @@
 @define('FILES_PER_PAGE', '每页显示的文件数');
 @define('CLICK_FILE_TO_INSERT', '点选你要输入的文件:');
 @define('SELECT_FILE', '选择要输入的文件');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', '完整尺寸');
 @define('CALENDAR_BOW_DESC', '一个星期的第一天[预设是星期一]');
 @define('SUPERUSER', '系统管理');

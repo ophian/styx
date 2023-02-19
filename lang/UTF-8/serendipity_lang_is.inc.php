@@ -516,6 +516,7 @@
 @define('FILES_PER_PAGE', 'Skrár á síðu');
 @define('CLICK_FILE_TO_INSERT', 'Smelltu á skrána sem þú vilt bæta við:');
 @define('SELECT_FILE', 'Veldu skrána til að bæta við');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'Fylla skjáinn');
 @define('CALENDAR_BOW_DESC', 'Dagur vikunnar sem er tekinn sem byrjunardagur vikunnar. Sjálfgefið gildi er mánudagur');
 @define('SUPERUSER', 'Umsjón vefkerfis');

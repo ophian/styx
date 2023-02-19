@@ -518,6 +518,7 @@
 @define('FILES_PER_PAGE', 'الملفات في كل صفحة');
 @define('CLICK_FILE_TO_INSERT', 'اضغط على الملف الذي تريد ادخالة:');
 @define('SELECT_FILE', 'اختر الملف كي يتم ادخالة');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'حجم الملف');
 @define('CALENDAR_BOW_DESC', 'يجب أخذ الاعتبار في اليوم الذي يبدأ به الأسبوع - عادة الاثني');
 @define('SUPERUSER', 'ادارة المجلة');

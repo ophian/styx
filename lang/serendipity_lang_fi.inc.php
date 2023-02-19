@@ -515,6 +515,7 @@
 @define('FILES_PER_PAGE', 'Tiedostoja sivulla');
 @define('CLICK_FILE_TO_INSERT', 'Napsauta tiedostoa, jonka haluat lisätä:');
 @define('SELECT_FILE', 'Valitse lisättävä tiedosto');
+@define('SELECT_PAGE', 'Select page:');
 @define('MEDIA_FULLSIZE', 'Täysikokoinen');
 @define('CALENDAR_BOW_DESC', 'Viikon aloittava päivä. Oletus on maanantai');
 @define('SUPERUSER', 'Blogin ylläpito');
