@@ -154,8 +154,10 @@
 
                 <div id="keyword_list" class="clearfix {if $media.simpleFilters}keywords {/if}right">
                 {foreach $media.keywords AS $keyword}
+                {if NOT empty($keyword)}
 
                     <a class="add_keyword" href="#keyword-input" data-keyword="{$keyword|escape}" title="{$keyword|escape}">{$keyword|escape|truncate:20:"&hellip;"}</a>
+                {/if}
                 {/foreach}
 
                 </div>
