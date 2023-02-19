@@ -215,6 +215,11 @@
                         <div class="hideSubDirLabel">{$CONST.HIDE_SUBDIR_FILES}</div>
                     </div>
                 </div>
+
+                <div class="form_field media_page">
+                    <label for="select_page">{$CONST.SELECT_PAGE}</label>
+                    <input id="select_page" name="serendipity[page]" type="text" value="">
+                </div>
                 {/if}
 
             </div>
