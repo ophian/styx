@@ -2,6 +2,9 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Change [en, de, no] ADMIN_FRONTPAGE language constant wording used in tab
+    title on backend start page to avoid confusions when hovering tabs.
+
   * Improve meaning of comment [eye] action button(s) by hide/view constants
 
   * Improve the entryproperties plugin by adding a new configuration option,
