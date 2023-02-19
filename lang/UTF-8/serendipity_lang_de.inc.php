@@ -651,7 +651,7 @@
 @define('CATEGORY_ALREADY_EXIST', 'Eine Kategorie namens "%s" besteht bereits!');
 @define('ERROR_FILE_FORBIDDEN', 'Der Upload von Dateien mit aktivem Inhalt ist nicht gestattet!');
 @define('ADMIN', 'Administration');
-@define('ADMIN_FRONTPAGE', 'Startseite');
+@define('ADMIN_FRONTPAGE', 'Verwaltung');
 @define('QUOTE', 'Zitat');
 @define('IFRAME_SAVE', 'Serendipity speichert nun den Eintrag, erstellt etwaige Trackbacks und führt mögliche XML-RPC Aufrufe durch. Dies kann eine Weile dauern ...');
 @define('IFRAME_SAVE_DRAFT', 'Der Entwurf dieses Eintrags wurde gespeichert.');

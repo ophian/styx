@@ -654,7 +654,7 @@
 @define('CATEGORY_ALREADY_EXIST', 'A category with the name "%s" already exist');
 @define('ERROR_FILE_FORBIDDEN', 'You are not allowed to upload files with active content');
 @define('ADMIN', 'Administration');
-@define('ADMIN_FRONTPAGE', 'Frontpage');
+@define('ADMIN_FRONTPAGE', 'AdminPanel');
 @define('QUOTE', 'Quote');
 @define('IFRAME_SAVE', 'Serendipity is now saving your entry, creating trackbacks and performing possible XML-RPC calls. This may take a while..');
 @define('IFRAME_SAVE_DRAFT', 'A draft of this entry has been saved');

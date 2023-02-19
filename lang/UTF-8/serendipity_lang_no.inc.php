@@ -656,7 +656,7 @@
 @define('IMPORT_NOTES', 'Note:'); // Translate
 @define('ERROR_FILE_FORBIDDEN', 'You are not allowed to upload files with active content'); // Translate
 @define('ADMIN', 'Administration'); // Re-Translate
-@define('ADMIN_FRONTPAGE', 'Frontpage'); // Translate
+@define('ADMIN_FRONTPAGE', 'AdminPanel'); // Translate
 @define('QUOTE', 'Quote'); // Translate
 @define('IFRAME_SAVE', 'Serendipity is now saving your entry, creating trackbacks and performing possible XML-RPC calls. This may take a while..'); // Translate
 @define('IFRAME_SAVE_DRAFT', 'A draft of this entry has been saved'); // Translate
