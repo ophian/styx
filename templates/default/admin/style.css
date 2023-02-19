@@ -3578,6 +3578,17 @@ input[name="serendipity[filter][fileCategory]"] {
     width: 100%;
 }
 
+#media_pane_sort .media_page {
+    display: inline-block;
+    width: 100%;
+}
+#media_pane_sort .media_page label {
+    display: inline-block;
+}
+input#select_page {
+    width: 54px;
+}
+
 #overlay {
     position: fixed;
     top: 0;
@@ -4945,6 +4956,11 @@ img.mfp-img {
     #media_pane_sort > .grouped > div {
         float: left;
         width: 33% ;
+    }
+
+    #media_pane_sort .form_field.media_page {
+        float: right;
+        width: 34%;
     }
 
     .serendipity_commentForm.reassign #serendipity_comment .form_field,
