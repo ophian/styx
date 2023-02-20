@@ -105,6 +105,12 @@
                 <input id="skipto_entry" name="serendipity[id]" type="text" size="3">
                 <input name="serendipity[editSubmit]" type="submit" value="{$CONST.GO}">
             </div>
+
+            <div class="form_field select_page">
+                <label for="select_page">{$CONST.SELECT_PAGE}</label>
+                <input id="select_page" name="serendipity[selectpage]" type="text" value="">
+                <input name="serendipity[pageSubmit]" type="submit" value="{$CONST.GO}">
+            </div>
         </div>
 {/if}
 
