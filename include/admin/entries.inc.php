@@ -295,6 +295,10 @@ switch($serendipity['GET']['adminAction']) {
             }
         }
 
+        // entries paging is running from 0 to N, NOT 1 to N; ML pagination is build differently. The header shown as entries "Page X of N" is for humans! When a person wants page 4, it actually is page 3.
+        if (!empty($serendipity['GET']['selectpage'])) {
+            $serendipity['GET']['page'] = $serendipity['GET']['selectpage'] - 1;
+        }
         $perPage = !empty($serendipity['GET']['sort']['perPage']) ? $serendipity['GET']['sort']['perPage'] : $per_page[0];
         $page    = isset($serendipity['GET']['page']) ? (int)$serendipity['GET']['page'] : null;
         $offSet  = $perPage*$page;
