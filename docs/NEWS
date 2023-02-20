@@ -2,6 +2,9 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add new SELECT_PAGE form field to the entries list "Edit entry #" filter
+    toolbar to also be able to filter entries pagination by page.
+
   * Add new SELECT_PAGE form field to the MediaLibrary media_pane_sort form
 
   * Change [en, de, no] ADMIN_FRONTPAGE language constant wording used in tab
