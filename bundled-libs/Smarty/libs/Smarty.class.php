@@ -36,7 +36,7 @@ if (!defined('SMARTY_DIR')) {
     /**
      *
      */
-    define('SMARTY_DIR', dirname(__FILE__) . DIRECTORY_SEPARATOR);
+    define('SMARTY_DIR', __DIR__ . DIRECTORY_SEPARATOR);
 }
 /**
  * set SMARTY_SYSPLUGINS_DIR to absolute path to Smarty internal plugins.
@@ -60,25 +60,21 @@ if (!defined('SMARTY_MBSTRING')) {
      */
     define('SMARTY_MBSTRING', function_exists('mb_get_info'));
 }
-if (!defined('SMARTY_RESOURCE_CHAR_SET')) {
-    // UTF-8 can only be done properly when mbstring is available!
-    /**
-     * @deprecated in favor of Smarty::$_CHARSET
-     */
-    define('SMARTY_RESOURCE_CHAR_SET', SMARTY_MBSTRING ? 'UTF-8' : 'ISO-8859-1');
+
+/**
+ * Load helper functions
+ */
+if (!defined('SMARTY_HELPER_FUNCTIONS_LOADED')) {
+    include __DIR__ . '/functions.php';
 }
-if (!defined('SMARTY_RESOURCE_DATE_FORMAT')) {
-    /**
-     * @deprecated in favor of Smarty::$_DATE_FORMAT
-     */
-    define('SMARTY_RESOURCE_DATE_FORMAT', '%b %e, %Y');
-}
+
 /**
  * Load Smarty_Autoloader
  */
 if (!class_exists('Smarty_Autoloader')) {
-    include dirname(__FILE__) . '/bootstrap.php';
+    include __DIR__ . '/bootstrap.php';
 }
+
 /**
  * Load always needed external class files
  */
@@ -111,7 +107,7 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * smarty version
      */
-    const SMARTY_VERSION = '4.2.1-dev-13';
+    const SMARTY_VERSION = '4.3.1-dev-4';
     /**
      * define variable scopes
      */
@@ -143,6 +139,7 @@ class Smarty extends Smarty_Internal_TemplateBase
     const DEBUG_OFF        = 0;
     const DEBUG_ON         = 1;
     const DEBUG_INDIVIDUAL = 2;
+
     /**
      * filter types
      */
@@ -172,13 +169,13 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * The character set to adhere to (e.g. "UTF-8")
      */
-    public static $_CHARSET = SMARTY_RESOURCE_CHAR_SET;
+    public static $_CHARSET = SMARTY_MBSTRING ? 'UTF-8' : 'ISO-8859-1';
 
     /**
      * The date format to be used internally
      * (accepts date() and strftime())
      */
-    public static $_DATE_FORMAT = SMARTY_RESOURCE_DATE_FORMAT;
+    public static $_DATE_FORMAT = '%b %e, %Y';
 
     /**
      * Flag denoting if PCRE should run in UTF-8 mode
@@ -653,6 +650,12 @@ class Smarty extends Smarty_Internal_TemplateBase
     );
 
     /**
+     * PHP7 Compatibility mode
+     * @var bool
+     */
+    private $isMutingUndefinedOrNullWarnings = false;
+
+    /**
      * Initialize new Smarty object
      */
     public function __construct()
@@ -672,27 +675,6 @@ class Smarty extends Smarty_Internal_TemplateBase
         if (Smarty::$_CHARSET !== 'UTF-8') {
             Smarty::$_UTF8_MODIFIER = '';
         }
-    }
-
-    /**
-     * Enable error handler to mute expected messages
-     *
-     * @return     boolean
-     * @deprecated
-     */
-    public static function muteExpectedErrors()
-    {
-        return Smarty_Internal_ErrorHandler::muteExpectedErrors();
-    }
-
-    /**
-     * Disable error handler muting expected messages
-     *
-     * @deprecated
-     */
-    public static function unmuteExpectedErrors()
-    {
-        restore_error_handler();
     }
 
     /**
@@ -894,7 +876,7 @@ class Smarty extends Smarty_Internal_TemplateBase
                 $this->plugins_dir = (array)$this->plugins_dir;
             }
             foreach ($this->plugins_dir as $k => $v) {
-                $this->plugins_dir[ $k ] = $this->_realpath(rtrim($v, '/\\') . DIRECTORY_SEPARATOR, true);
+                $this->plugins_dir[ $k ] = $this->_realpath(rtrim(($v ?? ''), '/\\') . DIRECTORY_SEPARATOR, true);
             }
             $this->_cache[ 'plugin_files' ] = array();
             $this->_pluginsDirNormalized = true;
@@ -1372,12 +1354,7 @@ class Smarty extends Smarty_Internal_TemplateBase
      */
     private function _normalizeDir($dirName, $dir)
     {
-        $this->{$dirName} = $this->_realpath(rtrim($dir, "/\\") . DIRECTORY_SEPARATOR, true);
-        if (class_exists('Smarty_Internal_ErrorHandler', false)) {
-            if (!isset(Smarty_Internal_ErrorHandler::$mutedDirectories[ $this->{$dirName} ])) {
-                Smarty_Internal_ErrorHandler::$mutedDirectories[ $this->{$dirName} ] = null;
-            }
-        }
+        $this->{$dirName} = $this->_realpath(rtrim(($dir ?? ''), "/\\") . DIRECTORY_SEPARATOR, true);
     }
 
     /**
@@ -1399,7 +1376,7 @@ class Smarty extends Smarty_Internal_TemplateBase
         }
         foreach ($dir as $k => $v) {
             if (!isset($processed[ $k ])) {
-                $dir[ $k ] = $v = $this->_realpath(rtrim($v, "/\\") . DIRECTORY_SEPARATOR, true);
+                $dir[ $k ] = $v = $this->_realpath(rtrim(($v ?? ''), "/\\") . DIRECTORY_SEPARATOR, true);
                 $processed[ $k ] = true;
             }
         }
@@ -1407,4 +1384,23 @@ class Smarty extends Smarty_Internal_TemplateBase
         $isConfig ? $this->_joined_config_dir = join('#', $this->config_dir) :
             $this->_joined_template_dir = join('#', $this->template_dir);
     }
+
+    /**
+     * Activates PHP7 compatibility mode:
+     * - converts E_WARNINGS for "undefined array key" and "trying to read property of null" errors to E_NOTICE
+     *
+     * @void
+     */
+    public function muteUndefinedOrNullWarnings(): void {
+        $this->isMutingUndefinedOrNullWarnings = true;
+    }
+
+    /**
+     * Indicates if PHP7 compatibility mode is set.
+     * @bool
+     */
+    public function isMutingUndefinedOrNullWarnings(): bool {
+        return $this->isMutingUndefinedOrNullWarnings;
+    }
+
 }

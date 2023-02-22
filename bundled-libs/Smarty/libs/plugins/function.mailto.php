@@ -54,6 +54,7 @@ function smarty_function_mailto($params)
         'hex' => true,
         'none' => true
     ];
+
     $extra = '';
     if (empty($params[ 'address' ])) {
         trigger_error("mailto: missing 'address' parameter", E_USER_WARNING);

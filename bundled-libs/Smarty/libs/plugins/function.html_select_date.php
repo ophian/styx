@@ -194,6 +194,11 @@ function smarty_function_html_select_date($params, Smarty_Internal_Template $tem
             // no date found, use NOW
             [$_year, $_month, $_day] = explode('-', date('Y-m-d'));
         }
+    } elseif (isset($time) && preg_match("/(\d*)-(\d*)-(\d*)/", $time, $matches)) {
+        $_year = $_month = $_day = null;
+        if ($matches[1] > '') $_year = (int) $matches[1];
+        if ($matches[2] > '') $_month = (int) $matches[2];
+        if ($matches[3] > '') $_day = (int) $matches[3];
     } elseif ($time === null) {
         if (array_key_exists('time', $params)) {
             $_year = $_month = $_day = null;
