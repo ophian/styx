@@ -2,6 +2,8 @@ Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Merge Smarty upgrade 4.3.0 into custom Styx 4.3.1-dev-4 version
+
   * Add new SELECT_PAGE form field to the entries list "Edit entry #" filter
     toolbar to also be able to filter entries pagination by page.
 
