@@ -1,6 +1,8 @@
 Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Upgrade custom CKEBasic asset to 4.20.2 (3a6ef162af revision)
+    https://ckeditor.com/cke4/release-notes
 
   * Bump DEV version to 4.1-alpha2
 
