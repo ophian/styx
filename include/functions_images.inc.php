@@ -6262,7 +6262,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $file, $pick=
                            FROM {$serendipity['dbPrefix']}entryproperties
                           WHERE entryid = $id AND property = 'ep_cache_body'";
                 $eps1 = serendipity_db_query($epq1, false, 'assoc');
-                if (is_array($eps1)) {
+                if (is_array($eps1) && isset($eps1['value']) && isset($eps1['entryid'])) {
                     $eps1['value'] = preg_replace('@(src=|href=|data-fallback=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newDirFile, $eps1['value']);
                     if (!isset($file['newformat'])) {
                         $eps1['value'] = preg_replace('@(srcset=|href=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFileVariation) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFileVariation) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newDirFileVariation, $eps1['value']);
@@ -6292,7 +6292,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $file, $pick=
                            FROM {$serendipity['dbPrefix']}entryproperties
                           WHERE entryid = $id AND property = 'ep_cache_extended'";
                 $eps2 = serendipity_db_query($epq2, false, 'assoc');
-                if (is_array($eps2)) {
+                if (is_array($eps2) && isset($eps2['value']) && isset($eps2['entryid'])) {
                     $eps2['value'] = preg_replace('@(src=|href=|data-fallback=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newDirFile, $eps2['value']);
                     if (!isset($file['newformat'])) {
                         $eps2['value'] = preg_replace('@(srcset=|href=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFileVariation) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFileVariation) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newDirFileVariation, $eps2['value']);
