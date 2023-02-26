@@ -1,6 +1,8 @@
 Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve the MediaLibrary bulkmove info constant for entryproperties cache(s)
+
   * Upgrade custom CKEBasic asset to 4.20.2 (3a6ef162af revision)
     https://ckeditor.com/cke4/release-notes
 
