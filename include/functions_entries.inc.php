@@ -221,10 +221,13 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
     $initial_args = array_values(func_get_args());
 
     if ($serendipity['useInternalCache']) {
+        if (isset($serendipity['range'])) {
+            $_this_range = implode(', ', $serendipity['range']); // this will never be unserialized as an global item and is used only for uniquely key building
+        }
         $key = md5(
                 serialize($initial_args)
                     . ($serendipity['short_archives'] ?? null)
-                    . '||' . ($serendipity['range'] ?? null)
+                    . '||' . ($_this_range ?? '')
                     . '||' . ($serendipity['GET']['category'] ?? '')
                     . '||' . ($serendipity['GET']['hide_category'] ?? '')
                     . '||' . ($serendipity['GET']['viewAuthor'] ?? '')
@@ -512,10 +515,13 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
     }
 
     if ($serendipity['useInternalCache']) {
+        if (isset($serendipity['range']) && !isset($_this_range)) {
+            $_this_range = implode(', ', $serendipity['range']); // this will never be unserialized as an global item and is used only for uniquely key building
+        }
         $key = md5(
                 serialize($initial_args)
                     . ($serendipity['short_archives'] ?? null)
-                    . '||' . ($serendipity['range'] ?? null)
+                    . '||' . ($_this_range ?? '')
                     . '||' . ($serendipity['GET']['category'] ?? '')
                     . '||' . ($serendipity['GET']['hide_category'] ?? '')
                     . '||' . ($serendipity['GET']['viewAuthor'] ?? '')
