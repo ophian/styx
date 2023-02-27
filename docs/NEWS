@@ -1,6 +1,9 @@
 Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix array to string conversion building the voku/simple_cache key
+    and Update voku/simple_cache to 4.1.0.
+
   * Improve the MediaLibrary bulkmove info constant for entryproperties cache(s)
 
   * Upgrade custom CKEBasic asset to 4.20.2 (3a6ef162af revision)
