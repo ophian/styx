@@ -108,7 +108,6 @@ template,
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box }
-@-ms-viewport { width: device-width; }
 ul,ol { list-style-position: inside; }
 
 table { border-collapse: collapse; border-spacing: 0; }
@@ -476,12 +475,10 @@ p {
     overflow-wrap: break-word;
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
-    -ms-hypens: auto;
     hyphens: auto; }
     p code, p samp, p kbd {
         -webkit-hyphens: none;
         -moz-hyphens: none;
-        -ms-hypens: none;
         hyphens: none; }
 
 /** links **/
