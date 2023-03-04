@@ -94,7 +94,6 @@ template, [hidden] {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box }
-@-ms-viewport { width: device-width; }
 ul,ol { list-style-position: inside; }
 
 table { border-collapse: collapse; border-spacing: 0; }
@@ -582,13 +581,11 @@ p {
   overflow-wrap: break-word;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
-  -ms-hyphens: auto;
   hyphens: auto; }
   p code, p samp, p kbd {
     overflow-wrap: anywhere;
     -webkit-hyphens: none;
     -moz-hyphens: none;
-    -ms-hyphens: none;
     hyphens: none; }
 
 nav { display: block; }
@@ -607,9 +604,6 @@ input[type="file"]:focus, input[type="file"]:active, input[type="radio"]:focus, 
   color: #888; }
 
 ::-moz-placeholder {
-  color: #888; }
-
-:-ms-input-placeholder {
   color: #888; }
 
 :invalid {
@@ -703,7 +697,6 @@ form button, input[type="button"], input[type="reset"], input[type="submit"] {
     cursor: default;
     -webkit-user-select: none;
     -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none; }
 
 .form_field, .form_select {
