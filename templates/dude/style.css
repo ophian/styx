@@ -781,7 +781,7 @@ a.comment_source_trace {
         vertical-align: top; }
     .serendipity_commentForm table td:not([class]) {
         display: initial; }
-    td.serendipity_commentsValue input:not(type="button"),
+    td.serendipity_commentsValue input:not([type="button"]),
     td.serendipity_commentsValue select,
     td.serendipity_commentsValue textarea {
         font-size: .75rem; }
