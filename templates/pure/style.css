@@ -1170,7 +1170,7 @@ nav.pager + .serendipity_blogpdf {
     background: #f2dede; /* light red */
     border-color: #eed3d7;
     color: #b94a2b; }
-  .msg_success. .serendipity_msg_success {
+  .msg_success, .serendipity_msg_success {
     background: #dff0d8; /* light green */
     border-color: #d6e9c6;
     color: #468847; }
