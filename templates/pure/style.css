@@ -1806,7 +1806,7 @@ ol.plainList > .comment.commentlevel-16 {
 .serendipity_commentsLabel label {
     vertical-align: bottom;
 }
-.serendipity_commentsValue input:not(type="button"),
+.serendipity_commentsValue input:not([type="button"]),
 .serendipity_commentsValue select,
 .serendipity_commentsValue textarea {
     font-size: 16px;
