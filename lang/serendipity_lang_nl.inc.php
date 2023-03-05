@@ -140,7 +140,7 @@
 @define('LAST_UPDATED', 'Laatst bewerkt');
 @define('TRACKBACK_SPECIFIC', 'Trackback-URI voor dit artikel');
 @define('DIRECT_LINK', 'Directe link naar dit artikel');
-@define('COMMENT_ADDED', 'Uw reactie is succesvol toegevoegd. ');
+@define('COMMENT_ADDED', 'Uw reactie %sis succesvol toegevoegd. ');
 @define('COMMENT_ADDED_CLICK', 'Keer terug naar de %sreacties%s of %ssluit%s dit scherm.');
 @define('COMMENT_NOT_ADDED_CLICK', 'Keer terug naar de %sreacties%s of %ssluit%s dit scherm.');
 @define('COMMENTS_DISABLE', 'Sta geen reacties toe op dit artikel');

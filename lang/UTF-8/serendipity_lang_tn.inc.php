@@ -139,7 +139,7 @@ $i18n_unknown = 'tw';
 @define('LAST_UPDATED', '最後更新');
 @define('TRACKBACK_SPECIFIC', '引用此文章特定的 URI (網址)');
 @define('DIRECT_LINK', '直接的文章連結');
-@define('COMMENT_ADDED', '您的迴響已成功增入. ');
+@define('COMMENT_ADDED', '您的评论%s已成功添加。 ');
 @define('COMMENT_ADDED_CLICK', '點 %s這裡返回%s 到迴響, 和點 %s這裡關閉%s 這個視窗.');
 @define('COMMENT_NOT_ADDED_CLICK', '點 %s這裡返回%s 到迴響, 和點 %s這裡關閉%s 這個視窗.');
 @define('COMMENTS_DISABLE', '不允許迴響到這篇文章');

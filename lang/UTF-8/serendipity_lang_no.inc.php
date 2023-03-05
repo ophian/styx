@@ -131,7 +131,7 @@
 @define('LAST_UPDATED', 'Sist opdatert');
 @define('TRACKBACK_SPECIFIC', 'Trackback URI til denne artikkel');
 @define('DIRECT_LINK', 'Direktelink til denne artikkel');
-@define('COMMENT_ADDED', 'Din kommentar ble lagt til. ');
+@define('COMMENT_ADDED', 'Din kommentar %sble lagt til. ');
 @define('COMMENT_ADDED_CLICK', 'Klik %her for å gå tilbake%s til kommentarene, og %sher for å lukke%s dette vinduet.');
 @define('COMMENT_NOT_ADDED_CLICK', 'Klikk %sher for å gå tilbake%s til kommentarene, og %sher for å lukke%s dette vinduet. ');
 @define('COMMENTS_DISABLE', 'Tillat ikke kommentarer til denne artikkelen');

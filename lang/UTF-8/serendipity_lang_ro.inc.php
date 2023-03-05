@@ -138,7 +138,7 @@
 @define('LAST_UPDATED', 'Ultima actualizare');
 @define('TRACKBACK_SPECIFIC', 'URI de referinţă pentru această însemnare');
 @define('DIRECT_LINK', 'Legătură directă pentru această însemnare');
-@define('COMMENT_ADDED', 'Comentariul tău a fost adăugat cu succes. ');
+@define('COMMENT_ADDED', 'Comentariul %stău a fost adăugat cu succes. ');
 @define('COMMENT_ADDED_CLICK', 'Click %saici pentru a te întoarce%s la comentarii, şi %saici ca să închizi%s această fereastră.');
 @define('COMMENT_NOT_ADDED_CLICK', 'Click %saici pentru a te întoarce%s la comentarii, şi %saici ca să închizi%s această fereastră.');
 @define('COMMENTS_DISABLE', 'Nu permite comentarii la această însemnare');

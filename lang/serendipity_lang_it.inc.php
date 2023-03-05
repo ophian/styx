@@ -136,7 +136,7 @@
 @define('LAST_UPDATED', 'Ultimo aggiornamento');
 @define('TRACKBACK_SPECIFIC', 'URI specifico di Trackback per questa notizia');
 @define('DIRECT_LINK', 'Link diretto a questa notizia');
-@define('COMMENT_ADDED', 'Il tuo commento è stato inviato con successo. ');
+@define('COMMENT_ADDED', 'Il tuo commento %sè stato inviato con successo. ');
 @define('COMMENT_ADDED_CLICK', 'Clicka %squi per tornare%s ai commenti, e %squi per chiudere%s questa finestra.');
 @define('COMMENT_NOT_ADDED_CLICK', 'Clicka %squi per tornare%s ai commenti, e %squi per chiudere%s questa finestra.');
 @define('COMMENTS_DISABLE', 'Non consentire commenti a questa notizia');

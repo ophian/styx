@@ -138,7 +138,7 @@
 @define('LAST_UPDATED', 'آخرین به روز رسانی');
 @define('TRACKBACK_SPECIFIC', 'یک آدرس دنبالک برای ارسال');
 @define('DIRECT_LINK', 'لینک مستقیم به ارسال');
-@define('COMMENT_ADDED', 'نظر شما با موفقیت ارسال شد. ');
+@define('COMMENT_ADDED', 'نظر %sشما با موفقیت اضافه شد. ');
 @define('COMMENT_ADDED_CLICK', 'برای بازگشت به نظر ها %sاینجا%s و برای بستن این پنجره %sاینجا%s کلیک کنید.');
 @define('COMMENT_NOT_ADDED_CLICK', 'برای بازگشت به نظر ها %sاینجا%s، و برای بستن پنجره %sاینجا%s کلیک کنید.');
 @define('COMMENTS_DISABLE', 'اجازه ارسال نظر داده نشود');

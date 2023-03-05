@@ -138,7 +138,7 @@
 @define('LAST_UPDATED', 'أخر تحديث');
 @define('TRACKBACK_SPECIFIC', 'تعقب رابط معين لهذه المشاركة');
 @define('DIRECT_LINK', 'ربط مباشر مع هذه المشاركة');
-@define('COMMENT_ADDED', 'تم ادراج تعليقاتك بنجاح ');
+@define('COMMENT_ADDED', 'تمت إضافة تعليقك٪s بنجاح. ');
 @define('COMMENT_ADDED_CLICK', 'Click %shere to return%s to the comments, and %shere to close%s this window.');
 @define('COMMENT_NOT_ADDED', 'تم إيقاف التعليقات على هذه الموضوع لذلك لم يتم ادراج تعليقك ');
 @define('COMMENT_NOT_ADDED_CLICK', 'Click %shere to return%s to the comments, and %shere to close%s this window.');

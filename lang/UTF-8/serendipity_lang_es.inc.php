@@ -142,7 +142,7 @@
 @define('LAST_UPDATED', 'Última actualización');
 @define('TRACKBACK_SPECIFIC', 'URI de referencia para esta entrada');
 @define('DIRECT_LINK', 'Enlace directo a esta entrada');
-@define('COMMENT_ADDED', 'Tu comentario ha sido añadido correctamente.');
+@define('COMMENT_ADDED', 'Tu comentario %sha sido añadido correctamente. ');
 @define('COMMENT_ADDED_CLICK', 'Pulsa %saquí para volver%s a los comentarios, y %saquí para cerrar%s esta ventana.');
 @define('COMMENT_NOT_ADDED_CLICK', 'Pulsa %saquí para volver%s a los comentarios, y %saquí para cerrar%s esta ventana');
 @define('COMMENTS_DISABLE', 'No permitir comentarios a esta entrada');

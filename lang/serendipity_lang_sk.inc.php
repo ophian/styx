@@ -150,7 +150,7 @@ $i18n_filename_to = array (
 @define('LAST_UPDATED', 'Naposledy zmenené');
 @define('TRACKBACK_SPECIFIC', 'Odozva zo ¹pecifického URI na tento èlánok');
 @define('DIRECT_LINK', 'Priamy odkaz na tento èlánok');
-@define('COMMENT_ADDED', 'Vá¹ komentár bol úspe¹ne pridaný.');
+@define('COMMENT_ADDED', 'Vá¹ komentár %sbol úspe¹ne pridaný. ');
 @define('COMMENT_ADDED_CLICK', 'Kliknite %ssem%s pre návrat ku komentárom nebo %ssem%s pre zavretie okna.');
 @define('COMMENT_NOT_ADDED_CLICK', 'Kliknite %ssem%s pre návrat ku komentárom alebo %ssem%s pre zavretie okna.');
 @define('COMMENTS_DISABLE', 'Zablokova» pridávánie komentárov');

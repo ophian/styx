@@ -137,7 +137,7 @@
 @define('LAST_UPDATED', '最終更新日');
 @define('TRACKBACK_SPECIFIC', 'このエントリーのトラックバック URI を指定する');
 @define('DIRECT_LINK', 'このエントリーへのダイレクトリンク');
-@define('COMMENT_ADDED', 'コメントの追加に成功しました。');
+@define('COMMENT_ADDED', 'コメント%sの追加に成功しました。 ');
 @define('COMMENT_ADDED_CLICK', '%sここ%s をクリックするとコメントに戻ります。%sここ%s をクリックするとウィンドウを閉じます。');
 @define('COMMENT_NOT_ADDED_CLICK', '%s戻る%s でコメントに戻ります。%s閉じる%s でウィンドウを閉じます。');
 @define('COMMENTS_DISABLE', 'このエントリーのコメントを許可しない');

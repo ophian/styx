@@ -139,7 +139,7 @@
 @define('LAST_UPDATED', '최종 업데이트');
 @define('TRACKBACK_SPECIFIC', '이 글에 대한 트랙백 전용 URI');
 @define('DIRECT_LINK', '이 글에 대한 직접 링크');
-@define('COMMENT_ADDED', '덧글이 성공적으로 달렸습니다.');
+@define('COMMENT_ADDED', '댓글 %s성공적으로 추가되었습니다. ');
 @define('COMMENT_ADDED_CLICK', '%s여기를 눌러%s 덧글 목록으로 돌아가거나 %s여기를 눌러%s 이 창을 닫습니다.');
 @define('COMMENT_NOT_ADDED_CLICK', '%s여기를 눌러%s 덧글 목록으로 돌아가거나 %s여기를 눌러%s 이 창을 닫습니다.');
 @define('COMMENTS_DISABLE', '이 글에 덧글을 금지하기');

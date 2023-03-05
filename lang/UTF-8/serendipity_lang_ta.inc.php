@@ -137,7 +137,7 @@
 @define('LAST_UPDATED', 'அண்மையில் மாற்றியவை');
 @define('TRACKBACK_SPECIFIC', 'மேற்கோளிடக்கூடிய வலைமுகவரி');
 @define('DIRECT_LINK', 'நேரடி வலைமுகவரி');
-@define('COMMENT_ADDED', 'உங்கள் கருத்து சேர்க்கப்பட்டது. ');
+@define('COMMENT_ADDED', 'உங்கள் %sகருத்து சேர்க்கப்பட்டது. ');
 @define('COMMENT_ADDED_CLICK', 'கருத்துகளுக்குச் செல்ல %sஇங்கு சுட்டுக%s. இப்பக்கத்தை மூட %sஇங்கு சுட்டுக%s.');
 @define('COMMENT_NOT_ADDED_CLICK', 'கருத்துகளுக்குச் செல்ல %sஇங்கு சுட்டுக%s. இப்பக்கத்தை மூட %sஇங்கு சுட்டுக%s.');
 @define('COMMENTS_DISABLE', 'இக்குறிப்பு பற்றி உரையாடலை நிறுத்துக');
