@@ -185,7 +185,7 @@
     <p class="msg_important">{$message}</p>
     {/foreach}
     {if $is_comment_added}
-    <p class="msg_notice">{$CONST.COMMENT_ADDED}</p>
+    <p class="msg_notice">{$CONST.COMMENT_ADDED|sprintf:"<a href=\"#c{$smarty.get.last_insert_cid}\">{$smarty.get.last_insert_cid}</a> "}</p>
     {elseif $is_comment_moderate}
     <p class="msg_important">{$CONST.COMMENT_ADDED}{$CONST.THIS_COMMENT_NEEDS_REVIEW}</p>
     {elseif NOT $entry.allow_comments}
