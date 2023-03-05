@@ -424,7 +424,9 @@ function serveEntry($matches) {
 
         if (!empty($comment['comment'])) {
             if (serendipity_saveComment($serendipity['POST']['entry_id'], $comment, 'NORMAL')) {
-                $sc_url = ($_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . (strstr($_SERVER['REQUEST_URI'], '?') ? '&' : '?') . 'serendipity[csuccess]=' . ($serendipity['csuccess'] ?? 'true') . '#feedback';
+                // $serendipity['last_insert_comment_id'] used for for comment added messaging
+                $sc_url = ($_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . (strstr($_SERVER['REQUEST_URI'], '?') ? '&' : '?') . 'serendipity[csuccess]=' . ($serendipity['csuccess'] ?? 'true') . '&last_insert_cid=' . ($serendipity['last_insert_comment_id'] ?? '') . '#feedback';
+                unset($serendipity['last_insert_comment_id']); // remove the temporary global, set in function serendipity_saveComment
                 if (serendipity_isResponseClean($sc_url)) {
                     header('Status: 302 Found');
                     header('Location: ' . $sc_url);

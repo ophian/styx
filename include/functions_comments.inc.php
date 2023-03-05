@@ -1277,6 +1277,7 @@ function serendipity_saveComment($id, $commentInfo, $type = 'NORMAL', $source = 
         $commentInfo['comment_cid'] = serendipity_insertComment($id, $commentInfo, $type, $source, $ca);
         $commentInfo['comment_id'] = $id;
         serendipity_plugin_api::hook_event('frontend_saveComment_finish', $ca, $commentInfo);
+        $serendipity['last_insert_comment_id'] = $commentInfo['comment_cid']; // temporary global for comment added link messaging, see serendipity_saveComment() -> serveEntry() -> header('Location' redirect
         return true;
     } else {
         if (isset($GLOBALS['tb_logging']) && $GLOBALS['tb_logging']) {
