@@ -1259,7 +1259,7 @@ class serendipity_event_spamblock extends serendipity_event
 //                            $this->log($logfile, $eventData['id'], 'REJECTED', 'Captcha not needed: ' . $serendipity['POST']['captcha'] . ' / ' . $_SESSION['spamblock']['captcha'] . ' // Source: ' . $_SERVER['REQUEST_URI'], strip_tags(json_encode($addData)));
                         }
 
-                        // Check for forced comment moderation (X days)
+                        // Check for forced COMMENT moderation (X days) w/ $forcemoderation !!
                         if ($addData['type'] == 'NORMAL' && $forcemoderation > 0 && $eventData['timestamp'] < (time() - ($forcemoderation * 60 * 60 * 24))) {
                             $fm_method = $forcemoderation_treat == 'reject' ? 'REJECTED' : 'MODERATE';
                             $this->log($logfile, $eventData['id'], $fm_method, PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION, strip_tags(json_encode($addData)));
@@ -1274,7 +1274,7 @@ class serendipity_event_spamblock extends serendipity_event
                             }
                         }
 
-                        // Check for forced trackback moderation
+                        // Check for forced TRACKBACK moderation w/ $forcemoderationt !!
                         if ($addData['type'] != 'NORMAL' && $forcemoderationt > 0 && $eventData['timestamp'] < (time() - ($forcemoderationt * 60 * 60 * 24))) {
                             $fmt_method = $forcemoderationt_treat == 'reject' ? 'REJECTED' : 'MODERATE';
                             $this->log($logfile, $eventData['id'], $fmt_method, PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION, strip_tags(json_encode($addData)));
