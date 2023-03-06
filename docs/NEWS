@@ -3,7 +3,7 @@ Version 4.1-DEV ()
 
   * Improve the COMMENT_ADDED messaging for last added comment ID.
     For now in [ pure ] theme entries.tpl only for testing.
-    Using this comment backlink will now allow logged-in users to be no longer
+    Using this comment backlink will allow logged-in users now to be no longer
     restricted by adding more comments in the same workflow.
 
   * Fix array to string conversion building the voku/simple_cache key
