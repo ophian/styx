@@ -100,7 +100,7 @@
     <p class="msg-warning"><span class="icon-info-circled" aria-hidden="true"></span> {$message}</p>
     {/foreach}
     {if $is_comment_added}
-    <p class="msg-success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.COMMENT_ADDED}</p>
+    <p class="msg-success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.COMMENT_ADDED|sprintf:"<a href=\"{if $is_logged_in}$commentform_action}{/if}#c{$smarty.get.last_insert_cid}\">#{$smarty.get.last_insert_cid}</a> "}</p>
     {if $is_logged_in}
     <section id="reply" class="clearfix">
         <h3>{$CONST.ADD_COMMENT}</h3>
@@ -108,7 +108,7 @@
     </section>
     {/if}
     {elseif $is_comment_moderate}
-    <p class="msg-notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.COMMENT_ADDED} {$CONST.THIS_COMMENT_NEEDS_REVIEW}</p>
+    <p class="msg-notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.COMMENT_ADDED|sprintf:''} {$CONST.THIS_COMMENT_NEEDS_REVIEW}</p>
     {elseif NOT $entry.allow_comments}
     <p class="msg-warning"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.COMMENTS_CLOSED}</p>
     {else}
