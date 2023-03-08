@@ -159,11 +159,11 @@
 
                 <?php if ($GLOBALS['tpl']['is_comment_moderate']): ?>
 
-                <div class="serendipity_center serendipity_msg_success"><?= COMMENT_ADDED; ?><br><?= THIS_COMMENT_NEEDS_REVIEW ?></div>
+                <div class="serendipity_center serendipity_msg_success"><?= sprintf(COMMENT_ADDED, '<a href="{if $is_logged_in}$commentform_action}{/if}#c{$smarty.get.last_insert_cid}">#{$smarty.get.last_insert_cid}</a> '); ?><br><?= THIS_COMMENT_NEEDS_REVIEW ?></div>
 
                 <?php elseif ($GLOBALS['tpl']['is_comment_added']): ?>
 
-                <div class="serendipity_center serendipity_msg_success"><?= COMMENT_ADDED; ?></div>
+                <div class="serendipity_center serendipity_msg_success"><?= sprintf(COMMENT_ADDED, ''); ?></div>
 
                 <?php elseif (!$entry['allow_comments']): ?>
 
