@@ -437,10 +437,10 @@
                 {/foreach}
                 {if $is_comment_moderate}
 
-                    <div class="serendipity_center serendipity_msg_notice">{$CONST.COMMENT_ADDED}<br>{$CONST.THIS_COMMENT_NEEDS_REVIEW}</div>
+                    <div class="serendipity_center serendipity_msg_notice">{$CONST.COMMENT_ADDED|sprintf:''}<br>{$CONST.THIS_COMMENT_NEEDS_REVIEW}</div>
                 {elseif $is_comment_added}
 
-                    <div class="serendipity_center serendipity_msg_notice">{$CONST.COMMENT_ADDED}</div>
+                    <div class="serendipity_center serendipity_msg_notice">{$CONST.COMMENT_ADDED|sprintf:"<a href=\"{if $is_logged_in}$commentform_action}{/if}#c{$smarty.get.last_insert_cid}\">#{$smarty.get.last_insert_cid}</a> "}</div>
 {if $is_logged_in}
                     <div class="serendipity_section_commentform">
                        <div class="serendipity_commentsTitle">{$CONST.ADD_COMMENT}</div>
