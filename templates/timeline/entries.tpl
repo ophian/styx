@@ -258,7 +258,7 @@
                 <div class="col-md-10 col-md-offset-1">
                     <div class="alert alert-success alert-dismissible fade in" role="alert">
                         <button type="button" class="close" data-target="#search-block" data-dismiss="alert" aria-label="Close" title="{$CONST.CLOSE}"><span aria-hidden="true">&times;</span></button>
-                        <span class="fa-stack text-success" aria-hidden="true"><i class="far fa-smile fa-2x"></i></span> {$CONST.COMMENT_ADDED}
+                        <span class="fa-stack text-success" aria-hidden="true"><i class="far fa-smile fa-2x"></i></span> {$CONST.COMMENT_ADDED|sprintf:"<a href=\"{if $is_logged_in}$commentform_action}{/if}#c{$smarty.get.last_insert_cid}\">#{$smarty.get.last_insert_cid}</a> "}
                     </div>
                 </div>
             </div>
@@ -267,7 +267,7 @@
                 <div class="col-md-10 col-md-offset-1">
                     <div class="alert alert-warning alert-dismissible fade in" role="alert">
                         <button type="button" class="close" data-target="#search-block" data-dismiss="alert" aria-label="Close" title="{$CONST.CLOSE}"><span aria-hidden="true">&times;</span></button>
-                        <p class="text-success"><span class="fa-stack" aria-hidden="true"><i class="far fa-smile fa-2x"></i></span> {$CONST.COMMENT_ADDED}</p>
+                        <p class="text-success"><span class="fa-stack" aria-hidden="true"><i class="far fa-smile fa-2x"></i></span> {$CONST.COMMENT_ADDED|sprintf:''}</p>
                         <p class="text-warning"><span class="fa-stack" aria-hidden="true"><i class="fas fa-info-circle fa-2x"></i></span> {$CONST.THIS_COMMENT_NEEDS_REVIEW}</p>
                     </div>
                 </div>
