@@ -119,7 +119,7 @@
             <p class="serendipity_msg_important">{$message}</p>
         {/foreach}
         {if $is_comment_added}
-            <p class="serendipity_msg_success">{$CONST.COMMENT_ADDED}</p>
+            <p class="serendipity_msg_success">{$CONST.COMMENT_ADDED|sprintf:"<a href=\"{if $is_logged_in}$commentform_action}{/if}#c{$smarty.get.last_insert_cid}\">#{$smarty.get.last_insert_cid}</a> "}</p>
         {if $is_logged_in}
         <section id="respond" class="serendipity_section_commentform">
             <h3>{$CONST.ADD_COMMENT}</h3>
@@ -127,7 +127,7 @@
         </section>
         {/if}
         {elseif $is_comment_moderate}
-            <p class="serendipity_msg_success">{$CONST.COMMENT_ADDED} {$CONST.THIS_COMMENT_NEEDS_REVIEW}</p>
+            <p class="serendipity_msg_success">{$CONST.COMMENT_ADDED|sprintf:''} {$CONST.THIS_COMMENT_NEEDS_REVIEW}</p>
         {elseif NOT $entry.allow_comments}
             <p class="serendipity_msg_important">{$CONST.COMMENTS_CLOSED}</p>
         {else}
