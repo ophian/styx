@@ -4,9 +4,10 @@ Version 4.1-DEV ()
   * Fix the spamblog plugin logfile for empty comment data, introduced in 4.0
 
   * Improve the COMMENT_ADDED messaging for last added comment ID.
-    For now in [ pure ] theme entries.tpl only for testing.
     Using this comment backlink will allow logged-in users now to be no longer
     restricted by adding more comments in the same workflow.
+    COPY THEMERS:
+        Follow this change in the themes entries.tpl file !
 
   * Fix array to string conversion building the voku/simple_cache key
     and Update voku/simple_cache to 4.1.0.
