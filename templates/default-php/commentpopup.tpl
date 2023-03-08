@@ -13,7 +13,7 @@
 
 <?php if (!empty($GLOBALS['tpl']['is_comment_added'])): ?>
 
-    <div class="popup_comments_message popup_comments_message_added"><?= COMMENT_ADDED ?><?= $GLOBALS['tpl']['comment_string'][0] ?><a href="<?= $GLOBALS['tpl']['comment_url'] ?>"><?= $GLOBALS['tpl']['comment_string'][1] ?></a><?= $GLOBALS['tpl']['comment_string'][2] ?><a href="#" onclick="self.close()"><?= $GLOBALS['tpl']['comment_string'][3] ?></a><?= $GLOBALS['tpl']['comment_string'][4] ?></div>
+    <div class="popup_comments_message popup_comments_message_added"><?= sprintf(COMMENT_ADDED, '<a href="{if $is_logged_in}$commentform_action}{/if}#c{$smarty.get.last_insert_cid}">#{$smarty.get.last_insert_cid}</a> '); ?><?= $GLOBALS['tpl']['comment_string'][0] ?><a href="<?= $GLOBALS['tpl']['comment_url'] ?>"><?= $GLOBALS['tpl']['comment_string'][1] ?></a><?= $GLOBALS['tpl']['comment_string'][2] ?><a href="#" onclick="self.close()"><?= $GLOBALS['tpl']['comment_string'][3] ?></a><?= $GLOBALS['tpl']['comment_string'][4] ?></div>
 
 <?php elseif (!empty($GLOBALS['tpl']['is_comment_notadded'])): ?>
 
