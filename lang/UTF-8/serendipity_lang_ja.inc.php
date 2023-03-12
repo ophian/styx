@@ -902,7 +902,7 @@
 @define('PLUGIN_AVAILABLE_COUNT', '合計: %d プラグインです。');
 
 @define('SYNDICATION_RFC2616', '厳密に RFC2616 に準拠した RSS フィードを動作させる');
-@define('SYNDICATION_RFC2616_DESC', 'NOT Enforcing RFC2616 means that all Conditional GETs to Serendipity will return entries last modified since the time of the last request. With that setting to "false", your visitors will get all articles since their last request, which is considered a good thing. However, some Agents like Planet act weird, if that happens, at it also violates RFC2616. So if you set this option to "TRUE" you will comply with that RFC, but readers of your RSS feed might miss items in their holidays. So either way, either it hearts Aggregators like Planet, or it hurts actual readers of your blog. If you are facing complaints from either side, you can toggle this option.');
+@define('SYNDICATION_RFC2616_DESC', 'NOT Enforcing RFC2616 means that all Conditional GETs to Serendipity will return entries last modified since the time of the last request. With that setting to "false", your visitors will get all articles since their last request, which is considered a good thing. However, some Agents like Planet act weird, if that happens, at it also violates RFC2616. So if you set this option to "TRUE" you will comply with that RFC, but readers of your RSS feed might miss items in their holidays. So either way, either it hurts Aggregators like Planet, or it hurts actual readers of your blog. If you are facing complaints from either side, you can toggle this option.');
 @define('MEDIA_PROPERTY_DATE', '関連した日付');
 @define('MEDIA_PROPERTY_RUN_LENGTH', 'Run-Length');
 @define('FILENAME_REASSIGNED', '次の新規ファイル名が自動割当されました: %s');
