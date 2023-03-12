@@ -1074,7 +1074,7 @@
 @define('RESET_FILTERS', 'Filter entfernen');
 @define('UPDATE_FAILMSG', 'Update-Check für neue Serendipity-Version fehlgeschlagen. Das kann passieren wenn die URL %s nicht erreichbar ist, der Server ausgehende Verbindungen verhindert oder es andere Verbindungsprobleme gibt.');
 @define('UPDATE_FAILACTION', 'Automatischen Update-Check deaktivieren');
-@define('UPDATE_NOTIFICATION_DESC', 'Sollen Update-Checks auf der Backend Startseite angezeigt werden, und wenn ja für welche Versionen?');
+@define('UPDATE_NOTIFICATION_DESC', 'Sollen Update-Checks auf der Backend Startseite angezeigt werden, und wenn ja für welche Versionen? Beta beinhaltet Stable Releases.');
 @define('FRONTEND', 'Frontend');
 @define('BACKEND', 'Backend');
 @define('MEDIA_UPLOAD_RESIZE', 'Vor dem Upload Größe anpassen');

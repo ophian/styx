@@ -1080,7 +1080,7 @@
 @define('RESET_FILTERS', 'Reset filters');
 @define('UPDATE_FAILMSG', 'Check for new Serendipity version failed. This can happen because either the URL %s is down, your server blocks outgoing connections or there are other connection issues.');
 @define('UPDATE_FAILACTION', 'Disable automatic update check');
-@define('UPDATE_NOTIFICATION_DESC', 'Show the update notification on the backend startpage, and for which channel?');
+@define('UPDATE_NOTIFICATION_DESC', 'Show the update notification on the backend startpage, and for which channel? Beta includes Stable releases.');
 @define('FRONTEND', 'Frontend');
 @define('BACKEND', 'Backend');
 @define('MEDIA_UPLOAD_RESIZE', 'Resize before Upload');
