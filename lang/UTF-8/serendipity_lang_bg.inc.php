@@ -60,7 +60,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('EMAIL', 'Ел.адрес');
 @define('HOMEPAGE', 'Страница в Интернет');
 @define('COMMENT', 'Коментар');
-@define('REMEMBER_INFO', 'Запомняне на информацията? ');
+@define('REMEMBER_INFO', 'Запомняне на информацията?');
 @define('SUBMIT_COMMENT', 'Добавяне на коментар');
 @define('NO_ENTRIES_TO_PRINT', 'Няма статии за показване');
 @define('COMMENTS', 'Коментари');

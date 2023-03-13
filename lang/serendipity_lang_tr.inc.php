@@ -60,7 +60,7 @@
 @define('EMAIL', 'E-Posta');
 @define('HOMEPAGE', 'Anasayfa');
 @define('COMMENT', 'Görüşler');
-@define('REMEMBER_INFO', 'Bilgi hatırlansın mı? ');
+@define('REMEMBER_INFO', 'Bilgi hatırlansın mı?');
 @define('SUBMIT_COMMENT', 'Görüş bildir');
 @define('NO_ENTRIES_TO_PRINT', 'Yazdırılan yazı yok');
 @define('COMMENTS', 'Görüşler');

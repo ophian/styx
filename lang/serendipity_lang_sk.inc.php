@@ -71,7 +71,7 @@ $i18n_filename_to = array (
 @define('EMAIL', 'E-mail');
 @define('HOMEPAGE', 'Domovská webstránka');
 @define('COMMENT', 'Komentár');
-@define('REMEMBER_INFO', 'Zapamäta» údaje? ');
+@define('REMEMBER_INFO', 'Zapamäta» údaje?');
 @define('SUBMIT_COMMENT', 'Odosla» komentár');
 @define('NO_ENTRIES_TO_PRINT', '®iadne èlánky na zobrazenie');
 @define('COMMENTS', 'Komentáre');

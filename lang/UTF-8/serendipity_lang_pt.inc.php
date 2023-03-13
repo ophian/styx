@@ -60,7 +60,7 @@
 @define('EMAIL', 'E-mail');
 @define('HOMEPAGE', 'Página pessoal');
 @define('COMMENT', 'Comentário');
-@define('REMEMBER_INFO', 'Relembrar Informações? ');
+@define('REMEMBER_INFO', 'Relembrar Informações?');
 @define('SUBMIT_COMMENT', 'Enviar Comentário');
 @define('NO_ENTRIES_TO_PRINT', 'Nenhum artigo para imprimir');
 @define('COMMENTS', 'Comentários');

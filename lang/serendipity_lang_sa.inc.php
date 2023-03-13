@@ -59,7 +59,7 @@
 @define('EMAIL', 'ШбэЯп ЧсЧспЪбцфэ');
 @define('HOMEPAGE', 'енЭЪп Уц уцокп Чсунжс');
 @define('COMMENT', 'ЧсЪксэо');
-@define('REMEMBER_INFO', 'Ъапб ЧсуксцуЧЪП ');
+@define('REMEMBER_INFO', 'Ъапб ЧсуксцуЧЪП');
 @define('SUBMIT_COMMENT', 'ЧЯбЬ Ъксэо');
 @define('NO_ENTRIES_TO_PRINT', 'сЧ эцЬЯ уцЧжэк ссиШЧкЩ');
 @define('COMMENTS', 'ЪксэоЧЪ');

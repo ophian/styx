@@ -59,7 +59,7 @@
 @define('EMAIL', 'E-post');
 @define('HOMEPAGE', 'Hemsida');
 @define('COMMENT', 'Kommentar');
-@define('REMEMBER_INFO', 'Kom ihåg information? ');
+@define('REMEMBER_INFO', 'Kom ihåg information?');
 @define('SUBMIT_COMMENT', 'Spara kommentar');
 @define('NO_ENTRIES_TO_PRINT', 'Ingen artikel att skriva ut');
 @define('COMMENTS', 'Kommentarer');

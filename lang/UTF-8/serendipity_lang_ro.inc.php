@@ -60,7 +60,7 @@
 @define('EMAIL', 'Email');
 @define('HOMEPAGE', 'Pagină web');
 @define('COMMENT', 'Comentariu');
-@define('REMEMBER_INFO', 'Păstrează informaţiile? ');
+@define('REMEMBER_INFO', 'Păstrează informaţiile?');
 @define('SUBMIT_COMMENT', 'Adaugă Comentariu');
 @define('NO_ENTRIES_TO_PRINT', 'Nici o însemnare de afişat');
 @define('COMMENTS', 'Comentarii');

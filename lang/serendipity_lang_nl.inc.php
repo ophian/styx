@@ -62,7 +62,7 @@
 @define('EMAIL', 'E-mail');
 @define('HOMEPAGE', 'Homepage');
 @define('COMMENT', 'Reactie');
-@define('REMEMBER_INFO', 'Informatie onthouden? ');
+@define('REMEMBER_INFO', 'Informatie onthouden?');
 @define('SUBMIT_COMMENT', 'Reactie plaatsen');
 @define('NO_ENTRIES_TO_PRINT', 'Er zijn geen artikelen om weer te geven');
 @define('COMMENTS', 'Reacties');

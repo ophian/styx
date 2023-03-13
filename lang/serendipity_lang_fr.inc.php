@@ -62,7 +62,7 @@
 @define('EMAIL', 'Email');
 @define('HOMEPAGE', 'Site');
 @define('COMMENT', 'Commentaire');
-@define('REMEMBER_INFO', 'Enregistrer ces informations ?');
+@define('REMEMBER_INFO', 'Enregistrer ces informations?');
 @define('SUBMIT_COMMENT', 'Poster le commentaire');
 @define('NO_ENTRIES_TO_PRINT', 'Aucun billet à afficher');
 @define('COMMENTS', 'Commentaires');

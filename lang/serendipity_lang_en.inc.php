@@ -58,7 +58,7 @@
 @define('EMAIL', 'Email');
 @define('HOMEPAGE', 'Homepage');
 @define('COMMENT', 'Comment');
-@define('REMEMBER_INFO', 'Remember Information? ');
+@define('REMEMBER_INFO', 'Remember Information?');
 @define('SUBMIT_COMMENT', 'Submit Comment');
 @define('NO_ENTRIES_TO_PRINT', 'No entries to print');
 @define('COMMENTS', 'Comments');

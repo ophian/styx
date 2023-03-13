@@ -59,7 +59,7 @@
 @define('EMAIL', 'E-Mail');
 @define('HOMEPAGE', 'Homepage');
 @define('COMMENT', 'Kommentar');
-@define('REMEMBER_INFO', 'Daten merken? ');
+@define('REMEMBER_INFO', 'Daten merken?');
 @define('SUBMIT_COMMENT', 'Kommentar abschicken');
 @define('NO_ENTRIES_TO_PRINT', 'Keine Einträge vorhanden');
 @define('COMMENTS', 'Kommentare');

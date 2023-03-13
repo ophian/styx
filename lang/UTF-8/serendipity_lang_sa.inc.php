@@ -59,7 +59,7 @@
 @define('EMAIL', 'بريدك الالكتروني');
 @define('HOMEPAGE', 'صفحتك أو موقعك المفضل');
 @define('COMMENT', 'التعليق');
-@define('REMEMBER_INFO', 'تذكر المعلومات؟ ');
+@define('REMEMBER_INFO', 'تذكر المعلومات؟');
 @define('SUBMIT_COMMENT', 'ادرج تعليق');
 @define('NO_ENTRIES_TO_PRINT', 'لا يوجد مواضيع للطباعة');
 @define('COMMENTS', 'تعليقات');

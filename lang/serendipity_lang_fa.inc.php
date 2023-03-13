@@ -60,7 +60,7 @@
 @define('EMAIL', 'پست الکترونیکی');
 @define('HOMEPAGE', 'سایت');
 @define('COMMENT', 'نظر');
-@define('REMEMBER_INFO', 'آیا اطلاعات را به یاد داشته باشم؟ ');
+@define('REMEMBER_INFO', 'آیا اطلاعات را به یاد داشته باشم؟');
 @define('SUBMIT_COMMENT', 'ارسال نظر');
 @define('NO_ENTRIES_TO_PRINT', 'هیچ ارسالی وجود ندارد');
 @define('COMMENTS', 'نظر ها');

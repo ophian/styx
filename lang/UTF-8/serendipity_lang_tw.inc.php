@@ -61,7 +61,7 @@ $i18n_unknown = 'tw';
 @define('EMAIL', 'Email');
 @define('HOMEPAGE', '網址');
 @define('COMMENT', '迴響');
-@define('REMEMBER_INFO', '記住資料? ');
+@define('REMEMBER_INFO', '記住資料?');
 @define('SUBMIT_COMMENT', '傳送迴響');
 @define('NO_ENTRIES_TO_PRINT', '沒有文章可以顯示');
 @define('COMMENTS', '迴響');

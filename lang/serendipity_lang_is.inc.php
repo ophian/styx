@@ -59,7 +59,7 @@
 @define('EMAIL', 'Netfang');
 @define('HOMEPAGE', 'Heimasíða');
 @define('COMMENT', 'Athugasemd');
-@define('REMEMBER_INFO', 'Muna þessar upplýsingar? ');
+@define('REMEMBER_INFO', 'Muna þessar upplýsingar?');
 @define('SUBMIT_COMMENT', 'Skrá athugasemd');
 @define('NO_ENTRIES_TO_PRINT', 'Engar færslur til að sýna.');
 @define('COMMENTS', 'Athugasemdir');

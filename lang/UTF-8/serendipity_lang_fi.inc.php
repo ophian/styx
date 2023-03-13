@@ -59,7 +59,7 @@
 @define('EMAIL', 'Sähköposti');
 @define('HOMEPAGE', 'Kotisivu');
 @define('COMMENT', 'Kommentti');
-@define('REMEMBER_INFO', 'Muista tiedot? ');
+@define('REMEMBER_INFO', 'Muista tiedot?');
 @define('SUBMIT_COMMENT', 'Lähetä kommentti');
 @define('NO_ENTRIES_TO_PRINT', 'Ei merkintöjä');
 @define('COMMENTS', 'Kommentit');

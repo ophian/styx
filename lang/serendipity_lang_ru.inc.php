@@ -61,7 +61,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('EMAIL', 'Email');
 @define('HOMEPAGE', 'Домашняя страница');
 @define('COMMENT', 'Комментарий');
-@define('REMEMBER_INFO', 'Запомнить информацию? ');
+@define('REMEMBER_INFO', 'Запомнить информацию?');
 @define('SUBMIT_COMMENT', 'Отправить комментарий');
 @define('NO_ENTRIES_TO_PRINT', 'Нету здесь никаких заметок...');
 @define('COMMENTS', 'Комментарии');

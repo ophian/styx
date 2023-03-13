@@ -59,7 +59,7 @@
 @define('EMAIL', 'email');
 @define('HOMEPAGE', 'Honlap');
 @define('COMMENT', 'Megjegyzés');
-@define('REMEMBER_INFO', 'Megjegyezzem a megadott adatokat? ');
+@define('REMEMBER_INFO', 'Megjegyezzem a megadott adatokat?');
 @define('SUBMIT_COMMENT', 'Hozzászólás beküldése');
 @define('NO_ENTRIES_TO_PRINT', 'Nincs mit megjeleníteni');
 @define('COMMENTS', 'Hozzászólások');

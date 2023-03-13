@@ -58,7 +58,7 @@
 @define('EMAIL', 'மின்னஞ்சல்');
 @define('HOMEPAGE', 'வலைபதிவின் முதற்பக்கம்');
 @define('COMMENT', 'கருத்து');
-@define('REMEMBER_INFO', 'மேல் உள்ள பெயர், மின்னஞ்சல் ஆகியன நினைவில் இருத்துக? ');
+@define('REMEMBER_INFO', 'மேல் உள்ள பெயர், மின்னஞ்சல் ஆகியன நினைவில் இருத்துக?');
 @define('SUBMIT_COMMENT', 'கருத்தை வெளியிடுக');
 @define('NO_ENTRIES_TO_PRINT', 'வலைகுறிப்புகள் ஏதுமில்லை');
 @define('COMMENTS', 'அன்பர் கருத்து');
