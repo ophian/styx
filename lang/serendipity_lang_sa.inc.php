@@ -138,7 +138,7 @@
 @define('LAST_UPDATED', 'УЮб ЪЭЯэЫ');
 @define('TRACKBACK_SPECIFIC', 'ЪкоШ бЧШи укэф схах ЧсудЧбпЩ');
 @define('DIRECT_LINK', 'бШи уШЧдб ук хах ЧсудЧбпЩ');
-@define('COMMENT_ADDED', 'ЪуЪ ХжЧнЩ Ъксэоп?s ШфЬЧЭ. ');
+@define('COMMENT_ADDED', 'ЪуЪ ХжЧнЩ Ъксэоп?s ШфЬЧЭ.');
 @define('COMMENT_ADDED_CLICK', 'Click %shere to return%s to the comments, and %shere to close%s this window.');
 @define('COMMENT_NOT_ADDED', 'Ъу ХэоЧн ЧсЪксэоЧЪ ксь хах Чсуцжцк сасп су эЪу ЧЯбЧЬ Ъксэоп ');
 @define('COMMENT_NOT_ADDED_CLICK', 'Click %shere to return%s to the comments, and %shere to close%s this window.');

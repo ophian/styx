@@ -139,7 +139,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('LAST_UPDATED', 'Ostatnio zaktualizowany');
 @define('TRACKBACK_SPECIFIC', 'Użyj tego linku jeśli chcesz stworzyć Ślad (Trackback) do tego wpisu');
 @define('DIRECT_LINK', 'Bezpośredni link do tego wpisu');
-@define('COMMENT_ADDED', 'Twój komentarz %szostał dodany. ');
+@define('COMMENT_ADDED', 'Twój komentarz %szostał dodany.');
 @define('COMMENT_ADDED_CLICK', 'Kliknij %stutaj by powrócić%s do komentarzy oraz %stutaj by zamknąć%s to okno.');
 @define('COMMENT_NOT_ADDED_CLICK', 'Kliknij %stutaj aby wrócić%s do komentarzy albo %stutaj by zamknąć%s to okno.');
 @define('COMMENTS_DISABLE', 'Nie zezwalaj na komentowanie tego wpisu');

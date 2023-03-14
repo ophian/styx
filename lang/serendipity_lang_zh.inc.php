@@ -139,7 +139,7 @@
 @define('LAST_UPDATED', '最后更新');
 @define('TRACKBACK_SPECIFIC', '引用此文章特定的网址');
 @define('DIRECT_LINK', '直接的文章连接');
-@define('COMMENT_ADDED', '你的回复%s已成功添加。 ');
+@define('COMMENT_ADDED', '你的回复%s已成功添加。');
 @define('COMMENT_ADDED_CLICK', '点 %s这里返回%s 到回复, 和点 %s这里关闭%s 这个视窗。');
 @define('COMMENT_NOT_ADDED_CLICK', '点 %s这里返回%s 到回复, 和点 %s这里关闭%s 这个视窗。');
 @define('COMMENTS_DISABLE', '不允许回复到这篇文章');

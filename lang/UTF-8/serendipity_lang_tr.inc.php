@@ -139,7 +139,7 @@
 @define('LAST_UPDATED', 'Son güncelleme');
 @define('TRACKBACK_SPECIFIC', 'Bu yazıya iz bırakmak için özel URI adresiniz');
 @define('DIRECT_LINK', 'Bu yazıya doğrudan bağlantı');
-@define('COMMENT_ADDED', 'Görüşünüz %sbaşarıyla eklendi. ');
+@define('COMMENT_ADDED', 'Görüşünüz %sbaşarıyla eklendi.');
 @define('COMMENT_ADDED_CLICK', ' %sBuraya%s tıklarsanız görüşler bölümüne dönersiniz,  %Buraya da%s pencereyi kapatmak için tıklayınız.');
 @define('COMMENT_NOT_ADDED_CLICK', '%sBuraya%s tıklarsanız görüşler bölümüne dönersiniz,  %Buraya da%s pencereyi kapatmak için tıklayınız.');
 @define('COMMENTS_DISABLE', 'Bu yazı hakkında görüş ekleme özelliği kapalı');

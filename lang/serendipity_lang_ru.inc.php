@@ -139,7 +139,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('LAST_UPDATED', 'Последнее обновление');
 @define('TRACKBACK_SPECIFIC', 'URI этой записи для создания обратных ссылок (trackback)');
 @define('DIRECT_LINK', 'Прямая ссылка на эту запись');
-@define('COMMENT_ADDED', 'Ваш комментарий %sбыл успешно добавлен. ');
+@define('COMMENT_ADDED', 'Ваш комментарий %sбыл успешно добавлен.');
 @define('COMMENT_ADDED_CLICK', 'Кликните %sздесь, чтобы вернуться%s к комментариям, и %sздесь, чтобы закрыть%s это окно.');
 @define('COMMENT_NOT_ADDED_CLICK', 'Кликните %sздесь, чтобы вернуться%s к комментариям, и %sздесь, чтобы закрыть%s это окно.');
 @define('COMMENTS_DISABLE', 'Запретить добавление комментариев к этой записи');

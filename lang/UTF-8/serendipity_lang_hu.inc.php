@@ -137,7 +137,7 @@
 @define('LAST_UPDATED', 'Utolsó Frissítés');
 @define('TRACKBACK_SPECIFIC', 'Visszahivatkozás specifikus URI ehhez a bejegyzéshez');
 @define('DIRECT_LINK', 'Közvetlen link ehhez a bejegyzéshez.');
-@define('COMMENT_ADDED', 'A hozzászólásodat %ssikeresen rögzítettem. ');
+@define('COMMENT_ADDED', 'A hozzászólásodat %ssikeresen rögzítettem.');
 @define('COMMENT_ADDED_CLICK', 'Kattints %side a visszatéréshez%s, vagy %side az ablak bezárásához%s.');
 @define('COMMENT_NOT_ADDED_CLICK', 'Kattints %side%s a hozzászólásokhoz, vagy %side%s ezen ablak bezárásához.');
 @define('COMMENTS_DISABLE', 'Ne lehessen hozzászólni');

@@ -137,7 +137,7 @@
 @define('LAST_UPDATED', 'Last Updated');
 @define('TRACKBACK_SPECIFIC', 'Trackback specific URI for this entry');
 @define('DIRECT_LINK', 'Direct link to this entry');
-@define('COMMENT_ADDED', 'Your comment %swas successfully added. ');
+@define('COMMENT_ADDED', 'Your comment %swas successfully added.');
 @define('COMMENT_ADDED_CLICK', 'Click %shere to return%s to the comments, and %shere to close%s this window.');
 @define('COMMENT_NOT_ADDED_CLICK', 'Click %shere to return%s to the comments, and %shere to close%s this window.');
 @define('COMMENTS_DISABLE', 'Do not allow comments to this entry');

@@ -137,7 +137,7 @@
 @define('LAST_UPDATED', 'Síðast uppfært');
 @define('TRACKBACK_SPECIFIC', 'URI slóð fyrir tilvísun á þessa færslu');
 @define('DIRECT_LINK', 'Bein slóð á þessa færslu');
-@define('COMMENT_ADDED', 'Athugasemd þinni %shefur verið bætt við. ');
+@define('COMMENT_ADDED', 'Athugasemd þinni %shefur verið bætt við.');
 @define('COMMENT_ADDED_CLICK', 'Smelltu %shér til að fara%s á athugasemdir, og %shér til að loka%s þessum glugga.');
 @define('COMMENT_NOT_ADDED_CLICK', 'Smelltu %shér til að fara%s á athugasemdir, og %shér til að loka%s þessum glugga.');
 @define('COMMENTS_DISABLE', 'Leyfa ekki athugasemdir á þessa færslu');

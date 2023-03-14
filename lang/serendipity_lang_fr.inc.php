@@ -137,7 +137,7 @@
 @define('LAST_UPDATED', 'Dernière mise à jour');
 @define('TRACKBACK_SPECIFIC', 'Rétrolien spécifique pour ce billet');
 @define('DIRECT_LINK', 'Lien direct à ce billet');
-@define('COMMENT_ADDED', 'Votre %scommentaire a été ajouté. ');
+@define('COMMENT_ADDED', 'Votre %scommentaire a été ajouté.');
 @define('COMMENT_ADDED_CLICK', 'Cliquez %sici pour retourner%s aux commentaires, et %sici pour fermer%s cette fenêtre.');
 @define('COMMENT_NOT_ADDED_CLICK', 'Cliquez %sici pour retourner%s aux commentaires, et %sici pour fermer%s cette fenêtre.');
 @define('COMMENTS_DISABLE', 'Ne pas autoriser de commentaires pour ce billet');

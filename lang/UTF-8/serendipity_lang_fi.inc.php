@@ -137,7 +137,7 @@
 @define('LAST_UPDATED', 'Viimeisin päivitys');
 @define('TRACKBACK_SPECIFIC', 'Kirjauksen URI paluuviitteille');
 @define('DIRECT_LINK', 'Suora linkki tähän kirjaukseen');
-@define('COMMENT_ADDED', 'Kommentti %slisätty. ');
+@define('COMMENT_ADDED', 'Kommentti %slisätty.');
 @define('COMMENT_ADDED_CLICK', 'Napasauta %spalataksesi%s kommentteihin, ja %s sulkeaksesi%s tämän ikkunan.');
 @define('COMMENT_NOT_ADDED_CLICK', 'Napsauta %spalataksesi%s kommentteihin, ja %ssulkeaksesi%s tämän ikkunan.');
 @define('COMMENTS_DISABLE', 'Kiellä merkinnän kommentointi.');
