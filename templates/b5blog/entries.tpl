@@ -177,7 +177,7 @@
     {if $is_comment_added}
     <p class="serendipity_msg_notice">{$CONST.COMMENT_ADDED|sprintf:"<a href=\"{if $is_logged_in}$commentform_action}{/if}#c{$smarty.get.last_insert_cid}\">#{$smarty.get.last_insert_cid}</a> "}</p>
     {elseif $is_comment_moderate}
-    <p class="serendipity_msg_important">{$CONST.COMMENT_ADDED|sprintf:''}{$CONST.THIS_COMMENT_NEEDS_REVIEW}</p>
+    <p class="serendipity_msg_important">{$CONST.COMMENT_ADDED|sprintf:''} {$CONST.THIS_COMMENT_NEEDS_REVIEW}</p>
     {elseif NOT $entry.allow_comments}
     <p class="serendipity_msg_important">{$CONST.COMMENTS_CLOSED}</p>
     {else}
