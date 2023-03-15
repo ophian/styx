@@ -566,6 +566,11 @@ $tasks = array(
                     'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> The "Comments_by_Authors" (CBAfetchLimit) configuration option was set (moved) to "Appearance and Options".',
                     'desc'      => 'Introduced in Styx 2.6, this was a special global $serendipity variable only for private use in the ..local.inc.. file. If have, please remove it there and set to your needs in the configuration.'),
 
+            array(  'version'   => '4.1.0',
+                    'type'      => 'TEMPLATE_NOTICE',
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> The COMMENT_ADDED messaging constant was changed to support a link variable.',
+                    'desc'      => 'Templates usage must now at least add <code>{$CONST.COMMENT_ADDED|sprintf:''}</code>. All themes were already changed. If you have a copy theme with a custom entries.tpl file, please follow your engine theme.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
