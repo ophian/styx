@@ -1,6 +1,10 @@
 Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
+  [ ToDo ]:
+  ... Awaiting bootstrap 5.3-alpha2/betas/release assets
+  ... Change [ boot, b5blog ] themes accordingly
+
   [ 4.1-beta-1 ]
   * Fix the spamblog plugin logfile for empty comment data, introduced in 4.0
 
