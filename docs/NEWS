@@ -1,6 +1,7 @@
 Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
+  [ 4.1-beta-1 ]
   * Fix the spamblog plugin logfile for empty comment data, introduced in 4.0
 
   * FRONTEND: Improve the COMMENT_ADDED messaging for last added comment ID.
