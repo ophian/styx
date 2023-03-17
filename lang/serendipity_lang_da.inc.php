@@ -287,6 +287,7 @@
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Nej, jeg udfører dem manuelt');
 @define('SERENDIPITY_UPGRADER_PROCEED_DOIT', 'Ja tak!');
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'Det ser ud til at opgradering ikke er nødvendig.');
+@define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even though no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Serendipity er opgraderet');
 @define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Du har ignoreret en del af opgraderingen. Undersøg venligst om databasen er korrekt opdateret, og planlagte opgaver udført');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'Din Serendipity-installation er nu opgraderet til version %s');

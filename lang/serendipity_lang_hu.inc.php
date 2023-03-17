@@ -305,6 +305,7 @@
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Nem, inkább manuálisan futtatom azokat');
 @define('SERENDIPITY_UPGRADER_PROCEED_DOIT', 'Igen, mehet');
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'Úgy látom, nem kell a frissítést elvégezni');
+@define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even though no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Serendipity frissítésének elõkészítése kész');
 @define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'A Serendipity frissítésének fázisát figyelmen kívül hagytad, ellenõrizd hogy az adatbázis megfelelõen van installálva, és az idõzített feladatok futnak');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'A Serendipity rendszer frissítése megtörtént a következõ verzióra: %s');

@@ -287,6 +287,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Не, ще си ги направя ръчно');
 @define('SERENDIPITY_UPGRADER_PROCEED_DOIT', 'Да, моля');
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'Изглежда няма нужда от действия по надграждане');
+@define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even though no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Считайте Serendipity за надграден');
 @define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Вие пренебрегнахте надграждането на Serendipity. Моля, уверете се, че базата данни е правилно инсталирана и планираните функции са изпълнени');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'Вашата инсталация на Serendipity вече е надградена до версия %s');

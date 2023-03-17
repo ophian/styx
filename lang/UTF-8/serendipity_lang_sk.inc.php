@@ -320,6 +320,7 @@ $i18n_filename_to = array (
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Nie, spustím ich ručne');
 @define('SERENDIPITY_UPGRADER_PROCEED_DOIT', 'Áno, vykonať');
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'Aktualizácia nie je potrebná');
+@define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even though no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Serendipity bol aktualizovaný');
 @define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Vynechali ste aktualizačný proces Serendipity, prosím preverte, či je Vaša databáza správne nainštalovaná a plánované úlohy boli spustené');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'Vaša inštalácia Serendipity bola aktualizovaná na verziu %s');

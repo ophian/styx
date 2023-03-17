@@ -307,6 +307,7 @@
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Hayır, sonra kendim çalıştıracağım');
 @define('SERENDIPITY_UPGRADER_PROCEED_DOIT', 'Evet, lütfen benim için yap');
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'Herhangi bir güncellemeye ihtiyacınız yok gibi görünüyor');
+@define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even though no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', ' Serendipity güncellemesi hesaplandığı gibi başarıldı');
 @define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Serendipity güncellemesini gözardı edebilirsiniz, sadece veritabanınızın doğru kurulduğundan emin olun, ve işlevleri otomatik çalışacak şekilde ayarlayın');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', ' Serendipity kurulumunuz şimdi şu sürüme gncellenecek %s');

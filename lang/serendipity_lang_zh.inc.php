@@ -307,6 +307,7 @@
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', '我自己执行');
 @define('SERENDIPITY_UPGRADER_PROCEED_DOIT', '请帮我执行');
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', '不需要进行任何更新');
+@define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even though no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Serendipity 更新完成');
 @define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', '你跳过了更新任务, 请确定数据库已安装完成, 和其它的任务安装无误！');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', '你的 Serendipity 已经更新版本为 %s');

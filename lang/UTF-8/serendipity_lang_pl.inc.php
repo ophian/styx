@@ -307,6 +307,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Nie, wykonam je własnoręcznie');
 @define('SERENDIPITY_UPGRADER_PROCEED_DOIT', 'Tak, wykonaj je');
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'Wygląda na to, że nie musisz aktualizować swojej instalacji');
+@define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even though no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Serendipity zostało zaktualizowane');
 @define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Zignorowałeś(aś) etap uaktualnienia Serendipity. Proszę, upewnij się, że Twoja baza danych jest prawidłowo zainstalowana a zaplanowane zadania zostaną uruchomione.');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'Twoja instalacja Serendipity została uaktualniona do wersji %s');

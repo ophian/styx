@@ -306,6 +306,7 @@
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Nu, le voi executa manual');
 @define('SERENDIPITY_UPGRADER_PROCEED_DOIT', 'Da, chiar te rog');
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'Se pare că nu ai nevoie de actualizări');
+@define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even though no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Consideră Serendipity actualizat');
 @define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Ai ignorat paşii de actualizare pentru Serendipity, verifică te rog dacă baza de date e corect instalată, şi eventualele operaţiile programate sunt rulate');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'Instalarea Serendipity este acum actualizată la versiunea %s');
