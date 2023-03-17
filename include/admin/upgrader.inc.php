@@ -571,6 +571,11 @@ $tasks = array(
                     'title'     => '<b>TEMPLATE_NOTICE:</b> The COMMENT_ADDED messaging constant was changed to support a link variable.',
                     'desc'      => 'Templates usage must now at least add <code>{$CONST.COMMENT_ADDED|sprintf:''}</code>. All themes were already changed. If you have a copy theme with a custom entries.tpl file, please follow your engine theme.'),
 
+            array(  'version'   => '4.1.0',
+                    'type'      => 'REQUIREMENT_NOTICE',
+                    'title'     => '<b>REQUIREMENT_NOTICE:</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '7.4.0') >= 0) ? 'OK' : 'outdated') . '.',
+                    'desc'      => 'Please remember, that next Serendipity Styx version up from 4.2 (in summer ’23) will require a minimum version of <b>PHP 8.0</b>. Styx recommends using at least PHP 8.2 to get fully AVIF image file support.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
