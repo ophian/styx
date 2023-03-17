@@ -151,6 +151,7 @@
             {/if}
             {if $taskCount > 0 OR (isset($sqlfiles) AND (count($sqlfiles) > 0))}
                 <h3>{$CONST.SERENDIPITY_UPGRADER_PROCEED_QUESTION} ({$CONST.RECOMMENDED})</h3>
+                <p><em>{$CONST.SERENDIPITY_UPGRADER_PROCEED_WITH_TASK}</em></p>
 
                 <a class="button_link state_submit" href="{$upgradeLoc}">{$CONST.SERENDIPITY_UPGRADER_PROCEED_DOIT}</a>{if $showAbort} <a class="button_link state_cancel" href="{$abortLoc}">{$CONST.SERENDIPITY_UPGRADER_PROCEED_ABORT}</a>{/if}
             {else}
