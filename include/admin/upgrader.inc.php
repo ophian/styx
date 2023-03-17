@@ -569,7 +569,7 @@ $tasks = array(
             array(  'version'   => '4.1.0',
                     'type'      => 'TEMPLATE_NOTICE',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> The COMMENT_ADDED messaging constant was changed to support a link variable.',
-                    'desc'      => 'Templates usage must now at least add <code>{$CONST.COMMENT_ADDED|sprintf:''}</code>. All themes were already changed. If you have a copy theme with a custom entries.tpl file, please follow your engine theme.'),
+                    'desc'      => 'Templates usage must now at least add <code>{$CONST.COMMENT_ADDED|sprintf:\'\'}</code>. All themes were already changed. If you have a copy theme with a custom entries.tpl file, please follow your engine theme.'),
 
             array(  'version'   => '4.1.0',
                     'type'      => 'REQUIREMENT_NOTICE',
