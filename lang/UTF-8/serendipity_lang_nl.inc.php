@@ -325,7 +325,7 @@
 @define('LIMIT_TO_NUMBER', 'Hoeveel items moeten er worden weergegeven?');
 @define('ENTRIES_PER_PAGE', 'artikelen per pagina');
 @define('XML_IMAGE_TO_DISPLAY', 'Verzamelpublicatieafbeelding');
-@define('XML_IMAGE_TO_DISPLAY_DESC','Deze afbeelding wordt getoond bij hyperlinks naar verzamelpublicaties. Laat het veld leeg voor de standaardinstellingen, voer \'none\' in om het uit te schakelen.');
+@define('XML_IMAGE_TO_DISPLAY_DESC', 'Deze afbeelding wordt getoond bij hyperlinks naar verzamelpublicaties. Laat het veld leeg voor de standaardinstellingen, voer \'none\' in om het uit te schakelen.');
 
 @define('DIRECTORIES_AVAILABLE', 'In de lijst van beschikbare mappen kunt u een willekeurige map selecteren om een nieuwe map in aan te maken.');
 @define('ALL_DIRECTORIES', 'alle mappen');

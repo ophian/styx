@@ -322,7 +322,7 @@
 @define('LIMIT_TO_NUMBER', 'Hány elemet mutassunk?');
 @define('ENTRIES_PER_PAGE', 'bejegyzések oldalanként');
 @define('XML_IMAGE_TO_DISPLAY', 'XML gomb');
-@define('XML_IMAGE_TO_DISPLAY_DESC','Az XML csatornákra mutató hivatkozásokat ez a kép jelöli. Hagyd üresen az alapértelmezetthez, a letiltáshoz írd be: \'none\'.');
+@define('XML_IMAGE_TO_DISPLAY_DESC', 'Az XML csatornákra mutató hivatkozásokat ez a kép jelöli. Hagyd üresen az alapértelmezetthez, a letiltáshoz írd be: \'none\'.');
 
 @define('DIRECTORIES_AVAILABLE', 'A létező alkönyvtárak listájában, egy könyvtárra kattintva új könyvtárakat hozhatsz létre abban a struktúrában.');
 @define('ALL_DIRECTORIES', 'összes könyvtár');

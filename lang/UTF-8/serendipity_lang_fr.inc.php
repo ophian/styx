@@ -308,7 +308,7 @@
 @define('LIMIT_TO_NUMBER', 'Limiter le nombre de billets à ?');
 @define('ENTRIES_PER_PAGE', 'billets par page');
 @define('XML_IMAGE_TO_DISPLAY', 'Bouton "XML"');
-@define('XML_IMAGE_TO_DISPLAY_DESC','Les liens vers les fils XML seront affichés avec cette image. Laissez vide pour l\'image par défaut, ou tapez \'none\' pour la désactiver.');
+@define('XML_IMAGE_TO_DISPLAY_DESC', 'Les liens vers les fils XML seront affichés avec cette image. Laissez vide pour l\'image par défaut, ou tapez \'none\' pour la désactiver.');
 
 @define('DIRECTORIES_AVAILABLE', 'Dans la liste des sous-dossiers disponibles, vous pouvez cliquer sur un nom de dossier pour en créer un nouveau à cet endroit.');
 @define('ALL_DIRECTORIES', 'tous les dossiers');

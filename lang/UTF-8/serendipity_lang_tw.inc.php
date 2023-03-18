@@ -324,7 +324,7 @@ $i18n_unknown = 'tw';
 @define('LIMIT_TO_NUMBER', '要顯示多少項目?');
 @define('ENTRIES_PER_PAGE', '每頁顯示的文章');
 @define('XML_IMAGE_TO_DISPLAY', 'XML 按鈕');
-@define('XML_IMAGE_TO_DISPLAY_DESC','連結到 XML Feeds 的都會用這個圖片表示. 不填寫將會使用預設的圖片, 或輸入 \'none\' 關閉這個功能.');
+@define('XML_IMAGE_TO_DISPLAY_DESC', '連結到 XML Feeds 的都會用這個圖片表示. 不填寫將會使用預設的圖片, 或輸入 \'none\' 關閉這個功能.');
 
 @define('DIRECTORIES_AVAILABLE', '您可以在子目錄內點任何目錄來建立新的目錄.');
 @define('ALL_DIRECTORIES', '全部目綠');

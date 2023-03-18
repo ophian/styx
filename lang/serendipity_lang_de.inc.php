@@ -334,7 +334,7 @@
 @define('CHECKSUMS_PASS', 'Alle erforderlichen Dateien wurden überprüft.');
 @define('CHECKSUM_FAILED', '%s beschädigt oder verändert: Überprüfung fehlgeschlagen');
 @define('XML_IMAGE_TO_DISPLAY', 'XML-Button');
-@define('XML_IMAGE_TO_DISPLAY_DESC','Bilddatei, um ein Icon für XML-Feeds darzustellen. Für das Standardbild leer lassen, oder \'none\' zum Deaktivieren.');
+@define('XML_IMAGE_TO_DISPLAY_DESC', 'Bilddatei, um ein Icon für XML-Feeds darzustellen. Für das Standardbild leer lassen, oder \'none\' zum Deaktivieren.');
 @define('SETTINGS_SAVED_AT', 'Die neuen Einstellungen wurden um %s gespeichert.');
 
 /* DATABASE SETTINGS */

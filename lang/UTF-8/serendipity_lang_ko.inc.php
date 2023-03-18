@@ -324,7 +324,7 @@
 @define('LIMIT_TO_NUMBER', '몇 개의 아이템을 표시하겠습니까?');
 @define('ENTRIES_PER_PAGE', '한 페이지에 표시할 글');
 @define('XML_IMAGE_TO_DISPLAY', 'XML 버튼');
-@define('XML_IMAGE_TO_DISPLAY_DESC','XML 피드에 이 그림이 나타납니다. 비운 상태면 기본 그림이 보이고 \'없음\'을 입력하면 나타나지 않습니다.');
+@define('XML_IMAGE_TO_DISPLAY_DESC', 'XML 피드에 이 그림이 나타납니다. 비운 상태면 기본 그림이 보이고 \'없음\'을 입력하면 나타나지 않습니다.');
 
 @define('DIRECTORIES_AVAILABLE', '하위 디렉토리 목록에서 디렉토리 이름을 누르면 그 디렉토리 안에 새 디렉토리를 만들 수 있습니다.');
 @define('ALL_DIRECTORIES', '모든 디렉토리');

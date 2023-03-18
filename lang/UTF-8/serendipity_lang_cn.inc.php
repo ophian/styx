@@ -324,7 +324,7 @@
 @define('LIMIT_TO_NUMBER', '要显示多少项');
 @define('ENTRIES_PER_PAGE', '每页显示的文章');
 @define('XML_IMAGE_TO_DISPLAY', 'XML 按钮');
-@define('XML_IMAGE_TO_DISPLAY_DESC','连接到 XML Feeds 的都会用这个图片表示. 不填写将会使用预设的图片, 或输入 \'none\' 关闭这个功能。');
+@define('XML_IMAGE_TO_DISPLAY_DESC', '连接到 XML Feeds 的都会用这个图片表示. 不填写将会使用预设的图片, 或输入 \'none\' 关闭这个功能。');
 
 @define('DIRECTORIES_AVAILABLE', '你可以在这里建立媒体存放的目录');
 @define('ALL_DIRECTORIES', '全部目录');

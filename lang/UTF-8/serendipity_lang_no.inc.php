@@ -438,7 +438,7 @@
 @define('IN_REPLY_TO', 'Som svar på');
 @define('TOP_LEVEL', 'Topnivå');
 @define('XML_IMAGE_TO_DISPLAY', 'XML-knapp');
-@define('XML_IMAGE_TO_DISPLAY_DESC','Linker til XML-feeder vil bli vist med dette bildet.  Etterlat tomt for standard, tast inn \'none\' for å deaktivere.');
+@define('XML_IMAGE_TO_DISPLAY_DESC', 'Linker til XML-feeder vil bli vist med dette bildet.  Etterlat tomt for standard, tast inn \'none\' for å deaktivere.');
 @define('SUCCESS', 'Suksess');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', ',');

@@ -322,7 +322,7 @@
 @define('LIMIT_TO_NUMBER', 'How many items should be displayed?');
 @define('ENTRIES_PER_PAGE', 'entries per page');
 @define('XML_IMAGE_TO_DISPLAY', 'XML Button');
-@define('XML_IMAGE_TO_DISPLAY_DESC','Links to XML Feeds will be displayed by this image. Leave empty for default, enter \'none\' to disable.');
+@define('XML_IMAGE_TO_DISPLAY_DESC', 'Links to XML Feeds will be displayed by this image. Leave empty for default, enter \'none\' to disable.');
 
 @define('DIRECTORIES_AVAILABLE', 'In the list of available subdirectories you can click on any directory name to create a new directory within that structure.');
 @define('ALL_DIRECTORIES', 'all directories');

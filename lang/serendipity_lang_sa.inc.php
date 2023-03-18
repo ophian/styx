@@ -324,7 +324,7 @@
 @define('LIMIT_TO_NUMBER', 'ßã ãÇÏÉ íãßä ÚÑÖåÇ¿');
 @define('ENTRIES_PER_PAGE', 'ÇáãæÇÖíÚ İí ßá ÕİÍÉ');
 @define('XML_IMAGE_TO_DISPLAY', 'XML Button');
-@define('XML_IMAGE_TO_DISPLAY_DESC','Links to XML Feeds will be displayed by this image. Leave empty for default, enter \'none\' to disable.');
+@define('XML_IMAGE_TO_DISPLAY_DESC', 'Links to XML Feeds will be displayed by this image. Leave empty for default, enter \'none\' to disable.');
 
 @define('DIRECTORIES_AVAILABLE', 'İíÇáŞÇÆãÉ íæÌÏ ãÌáÏÇÊ İÑÚíå. íãßä áß Ãä ÊÖÛØ Úáì ÃÓã ! !  Ãí ãäåÇ áÅäÔÇÁ ãÌáÏ ÌÏíÏ ÈäİÓ Çáåíßá åĞÇ');
 @define('ALL_DIRECTORIES', 'ÌãíÚ ÇáãÌáÏÇÊ');

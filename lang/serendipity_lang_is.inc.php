@@ -322,7 +322,7 @@
 @define('LIMIT_TO_NUMBER', 'Hversu margar færslur skal sýna?');
 @define('ENTRIES_PER_PAGE', 'færslur á síðu');
 @define('XML_IMAGE_TO_DISPLAY', 'XML takki');
-@define('XML_IMAGE_TO_DISPLAY_DESC','Hlekkir á XML strauma verða sýnd með þessari mynd. Skildu eftir tómt fyrir sjálfgefið gildi, eða sláðu inn \'none\' til að óvirkja.');
+@define('XML_IMAGE_TO_DISPLAY_DESC', 'Hlekkir á XML strauma verða sýnd með þessari mynd. Skildu eftir tómt fyrir sjálfgefið gildi, eða sláðu inn \'none\' til að óvirkja.');
 
 @define('DIRECTORIES_AVAILABLE', 'Í listanum af mögulegum undirmöppum geturðu smellt á hvaða möppu sem er til að búa til nýja möppu innan hennar.');
 @define('ALL_DIRECTORIES', 'allar möppur');

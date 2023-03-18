@@ -86,7 +86,7 @@
 @define('ERROR_FILE_EXISTS_ALREADY', 'Error: File already exists on your machine!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Unknown error occurred, file not uploaded. Maybe your filesize is larger than the maximum size allowed by your server installation. Check with your ISP or edit your php.ini file to allow larger file size uploads.');
 @define('NOT_AVAILABLE', 'N/A'); // short!
-@define('GO','செயல்படுத்துக!');
+@define('GO', 'செயல்படுத்துக!');
 @define('NEWSIZE', 'New size: ');
 @define('RESIZE_BLAHBLAH', 'Resize %s');
 @define('ORIGINAL_SIZE', 'Original size: <i>%sx%s</i> pixel');
@@ -322,7 +322,7 @@
 @define('LIMIT_TO_NUMBER', 'எத்தனை குறிப்புகளை காட்டவேண்டும்?');
 @define('ENTRIES_PER_PAGE', 'குறிப்புகள்/தாள்');
 @define('XML_IMAGE_TO_DISPLAY', 'XML Button');
-@define('XML_IMAGE_TO_DISPLAY_DESC','Links to XML Feeds will be displayed by this image. Leave empty for default, enter \'none\' to disable.');
+@define('XML_IMAGE_TO_DISPLAY_DESC', 'Links to XML Feeds will be displayed by this image. Leave empty for default, enter \'none\' to disable.');
 
 @define('DIRECTORIES_AVAILABLE', 'In the list of available subdirectories you can click on any directory name to create a new directory within that structure.');
 @define('ALL_DIRECTORIES', 'பெட்டகம் அனைத்தும்');

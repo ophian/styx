@@ -322,7 +322,7 @@
 @define('LIMIT_TO_NUMBER', 'Montako näytetään?');
 @define('ENTRIES_PER_PAGE', 'Merkintää sivulla');
 @define('XML_IMAGE_TO_DISPLAY', 'XML Nappula');
-@define('XML_IMAGE_TO_DISPLAY_DESC','XML-kanavat esitetään tällä kuvanappulalla. Tyhjä valitsee oletuksen kirjoittamalla:\'none\' ei käytetä kuvanappulaa.');
+@define('XML_IMAGE_TO_DISPLAY_DESC', 'XML-kanavat esitetään tällä kuvanappulalla. Tyhjä valitsee oletuksen kirjoittamalla:\'none\' ei käytetä kuvanappulaa.');
 @define('DIRECTORIES_AVAILABLE', 'Valitsemalla hakemistolistasta hakemiston valitset hakemiston johon uusi hakemisto luodaan.');
 @define('ALL_DIRECTORIES', 'kaikki hakemistot');
 @define('MANAGE_DIRECTORIES', 'Ylläpidä hakemistoja');

@@ -322,7 +322,7 @@
 @define('LIMIT_TO_NUMBER', 'Hur många poster skall visas?');
 @define('ENTRIES_PER_PAGE', 'artiklar per sida');
 @define('XML_IMAGE_TO_DISPLAY', 'XML-knapp');
-@define('XML_IMAGE_TO_DISPLAY_DESC','Länkar till XML-matningar kommer att visas med denna bild. Lämna tomt för standardbild, skriv \'none\' för att inaktivera.');
+@define('XML_IMAGE_TO_DISPLAY_DESC', 'Länkar till XML-matningar kommer att visas med denna bild. Lämna tomt för standardbild, skriv \'none\' för att inaktivera.');
 
 @define('DIRECTORIES_AVAILABLE', 'Klicka i listan över tillgängliga underkataloger för att skapa en ny katalog.');
 @define('ALL_DIRECTORIES', 'Alla kataloger');

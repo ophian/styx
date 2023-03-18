@@ -324,7 +324,7 @@
 @define('LIMIT_TO_NUMBER', 'Anasayfada gösterilecek yazı sayısı?');
 @define('ENTRIES_PER_PAGE', 'sayfa başına yazı sayısı');
 @define('XML_IMAGE_TO_DISPLAY', 'XML Butonu');
-@define('XML_IMAGE_TO_DISPLAY_DESC','XML Abonelik Beslemesi için bu resim kulanılacak. Öntanımlı resmi kullanmak için boş bırakın, kapatmak için \'none\' seçeneğini girin.');
+@define('XML_IMAGE_TO_DISPLAY_DESC', 'XML Abonelik Beslemesi için bu resim kulanılacak. Öntanımlı resmi kullanmak için boş bırakın, kapatmak için \'none\' seçeneğini girin.');
 
 @define('DIRECTORIES_AVAILABLE', 'Listelenen alt dizinlerin üstüne tıklayarak yeni bir dizin oluşturabilirsiniz.');
 @define('ALL_DIRECTORIES', 'tüm dizinler');

@@ -442,7 +442,7 @@
 @define('USERCONF_ALLOWPUBLISH_DESC', '¿El usuario puede publicar entradas?');
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('XML_IMAGE_TO_DISPLAY', 'Botón XML');
-@define('XML_IMAGE_TO_DISPLAY_DESC','Enlaces a feeds XML se mostrarán con esta imagen. Déjalo vacío para el valor predeterminado, introduce \'none\' para desactivar.');
+@define('XML_IMAGE_TO_DISPLAY_DESC', 'Enlaces a feeds XML se mostrarán con esta imagen. Déjalo vacío para el valor predeterminado, introduce \'none\' para desactivar.');
 @define('ENTRY_SAVED', 'Tu entrada ha sido guardada');
 @define('SUCCESS', 'Éxito');
 

@@ -322,7 +322,7 @@
 @define('LIMIT_TO_NUMBER', 'どれだけの項目を表示しますか?');
 @define('ENTRIES_PER_PAGE', 'ページ毎のエントリー');
 @define('XML_IMAGE_TO_DISPLAY', 'XML ボタン');
-@define('XML_IMAGE_TO_DISPLAY_DESC','この画像で XML フィードへのリンクを表示します。デフォルトは空にし、「none」を入力すると無効にします。');
+@define('XML_IMAGE_TO_DISPLAY_DESC', 'この画像で XML フィードへのリンクを表示します。デフォルトは空にし、「none」を入力すると無効にします。');
 
 @define('DIRECTORIES_AVAILABLE', 'In the list of available subdirectories you can click on any directory name to create a new directory within that structure.');
 @define('ALL_DIRECTORIES', 'すべてのディレクトリー');

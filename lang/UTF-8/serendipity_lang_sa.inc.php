@@ -324,7 +324,7 @@
 @define('LIMIT_TO_NUMBER', 'كم مادة يمكن عرضها؟');
 @define('ENTRIES_PER_PAGE', 'المواضيع في كل صفحة');
 @define('XML_IMAGE_TO_DISPLAY', 'XML Button');
-@define('XML_IMAGE_TO_DISPLAY_DESC','Links to XML Feeds will be displayed by this image. Leave empty for default, enter \'none\' to disable.');
+@define('XML_IMAGE_TO_DISPLAY_DESC', 'Links to XML Feeds will be displayed by this image. Leave empty for default, enter \'none\' to disable.');
 
 @define('DIRECTORIES_AVAILABLE', 'فيالقائمة يوجد مجلدات فرعيه. يمكن لك أن تضغط على أسم ! !  أي منها لإنشاء مجلد جديد بنفس الهيكل هذا');
 @define('ALL_DIRECTORIES', 'جميع المجلدات');

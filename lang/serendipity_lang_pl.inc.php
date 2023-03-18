@@ -324,7 +324,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('LIMIT_TO_NUMBER', 'Jak wiele elementów ma byæ pokazanych?');
 @define('ENTRIES_PER_PAGE', 'Wpisów na stronê');
 @define('XML_IMAGE_TO_DISPLAY', 'XML Button');
-@define('XML_IMAGE_TO_DISPLAY_DESC','Linki do feedów XML bêd± pokazywane za pomoc± tego obrazka. Pozostaw puste pole dla ustawieñ domy¶lnych lub wpisz \'none\' aby nie pokazywaæ obrazka.');
+@define('XML_IMAGE_TO_DISPLAY_DESC', 'Linki do feedów XML bêd± pokazywane za pomoc± tego obrazka. Pozostaw puste pole dla ustawieñ domy¶lnych lub wpisz \'none\' aby nie pokazywaæ obrazka.');
 
 @define('DIRECTORIES_AVAILABLE', 'Na li¶cie dostêpnych podkatalogów mo¿esz klikn±æ na dowolnym katalogu by stworzyæ nowy katalog w tej strukturze.');
 @define('ALL_DIRECTORIES', 'wszystkie katalogi');

@@ -323,7 +323,7 @@
 @define('LIMIT_TO_NUMBER', 'Câte elemente să afişez?');
 @define('ENTRIES_PER_PAGE', 'însemnări pe o pagină');
 @define('XML_IMAGE_TO_DISPLAY', 'Buton XML');
-@define('XML_IMAGE_TO_DISPLAY_DESC','Legăturile către serviciile de informare XML vor fi afişate sub această imagine. Lasă gol pentru valoarea implicită, sau \'none\' pentru a dezactiva această funcţionalitate.');
+@define('XML_IMAGE_TO_DISPLAY_DESC', 'Legăturile către serviciile de informare XML vor fi afişate sub această imagine. Lasă gol pentru valoarea implicită, sau \'none\' pentru a dezactiva această funcţionalitate.');
 
 @define('DIRECTORIES_AVAILABLE', 'În lista subdirectoarelor disponibile poţi face click pe orice nume de director pentru a creea un nou director în acea structură.');
 @define('ALL_DIRECTORIES', 'toate directoarele');
