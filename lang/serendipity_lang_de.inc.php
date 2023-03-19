@@ -293,7 +293,7 @@
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'Es müssen keine Aktualisierungen vorgenommen werden.');
 @define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Auch wenn keine spezifischen upgrade tasks zu bewältigen sind und nur versionsabhängige Hinweise für das Update erscheinen, ist es empfohlen, den grünen "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" Button zu benutzen.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Serendipity wurde an die neue Version angepasst!');
-@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Sie haben den automatischen Aktualisierungsvorgang ignoriert. Bitte stellen Sie sicher, dass die Datenbank anhand der SQL-Dateien aktualisiert wird und die geplanten Funktionen aufgerufen werden!');
+@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Sie haben den automatischen Aktualisierungsvorgang ignoriert. Bitte stellen Sie sicher, dass die Datenbank anhand möglicher SQL-Dateien aktualisiert und die geplanten Funktionen aufgerufen werden!');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'Die Serendipity-Installation ist nun auf die Version %s aktualisiert!');
 @define('SERENDIPITY_UPGRADER_RETURN_HERE', 'Zurück zum %sBlog%s');
 @define('MANAGE_USERS', 'Benutzerverwaltung');
