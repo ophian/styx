@@ -299,6 +299,11 @@ switch($version) {
         // For people wanting extra RFC compliance
         // header('Content-Type: application/atom+xml; charset=utf-8');
         $namespace_hook = 'frontend_display:atom-1.0:namespace';
+        // help out for HTML5 w/o /> to XML to /> in special for picture container source tags
+        foreach ($entries AS &$entry) {
+            $entry['feed_body'] = preg_replace('/\<(img|source|br|hr)([^>]*)(?<!\/)>/', '<\1\2\3\4/>', $entry['feed_body']);
+            $entry['feed_ext']  = preg_replace('/\<(img|source|br|hr)([^>]*)(?<!\/)>/', '<\1\2\3\4/>', $entry['feed_ext']);
+        }
         break;
 }
 
