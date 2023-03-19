@@ -574,7 +574,7 @@ $tasks = array(
             array(  'version'   => '4.1.0',
                     'type'      => 'REQUIREMENT_NOTICE',
                     'title'     => '<b>REQUIREMENT_NOTICE:</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '7.4.0') >= 0) ? 'OK' : 'outdated') . '.',
-                    'desc'      => 'Please remember, that next Serendipity Styx version up from 4.2 (~in summer &rsquo;23) will require a minimum version of <b>PHP 8.0</b>. Styx recommends using at least PHP 8.2 to get fully AVIF image file support.'),
+                    'desc'      => 'Please remember, that next Serendipity Styx version up from 4.2 (~in summer &rsquo;23) will require a minimum version of <b>PHP 8.0</b>. Styx recommends using at least <b>PHP 8.2</b> to get fully AVIF image file support.'),
 
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
