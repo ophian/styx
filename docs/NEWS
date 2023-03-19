@@ -5,6 +5,9 @@ Version 4.1-DEV ()
   ... Awaiting bootstrap 5.3-alpha2/betas/release assets
   ... Change [ boot, b5blog ] themes accordingly
 
+  * Fix atom1.0 entries feed for XML invalidity with HTML5 media container source
+    tags.
+
   * Update templates asset jQuery lib to 3.6.4
     https://blog.jquery.com/2023/03/08/jquery-3-6-4-released-selector-forgiveness/
 
