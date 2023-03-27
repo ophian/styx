@@ -1,6 +1,6 @@
 Name: B53 [Example Blog]
 Author: Ian Styx
-Date: 2023-03-20
+Date: 2023-03-27
 Require Serendipity: 4.1
 Backend: No
 Engine: boot
