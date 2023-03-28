@@ -55,7 +55,7 @@
     </div>
   </div>
 </div>
-<header class="navbar navbar-expand-lg bd-navbar mb-3 sticky-top">
+<header class="navbar navbar-expand-lg bd-navbar py-2 mb-3 sticky-top">
   <nav class="container-xxl flex-wrap flex-lg-nowrap" aria-label="Main navigation">
     <div class="d-lg-none" style="width: 1.5rem;"></div>
 
