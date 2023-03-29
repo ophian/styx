@@ -1,6 +1,10 @@
 Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Added new "Use CSS cache file control appendix" option to the "Appearance
+    and Options" configuration section, to configurable "fix" a possible "flash
+    of unstyled content" caching issue with LightSpeed server caches.
+
   [ 4.1-beta-2 ]
   * Added the new [ b53 ] theme for long awaited bootstrap 5.3-alpha2 assets.
     This is a Work-In-Progress [ WIP ] and has a playground character.
