@@ -503,6 +503,13 @@
                                           'default'     => false,
                                           'permission'  => 'siteConfiguration'),
 
+                                    array('var'         => 'useCacheAppendix',
+                                          'title'       => INSTALL_CSS_CTAPPENDIX,
+                                          'description' => INSTALL_CSS_CTAPPENDIX_DESC,
+                                          'type'        => 'bool',
+                                          'default'     => true,
+                                          'permission'  => 'siteConfiguration'),
+
                                     array('var'         => 'enablePopup',
                                           'title'       => INSTALL_POPUP,
                                           'description' => INSTALL_POPUP_DESC,
