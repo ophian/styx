@@ -1109,13 +1109,15 @@ function serendipity_smarty_init($vars = array()) {
                 $serendipity['smarty_vars']['head_link_stylesheet'] = serendipity_rewriteURL('serendipity.css');
             }
 
-            // When templates are switched, append a specific version string to make sure the browser does not cache the CSS
-            if (strstr($serendipity['smarty_vars']['head_link_stylesheet'], '?')) {
-                $serendipity['smarty_vars']['head_link_stylesheet'] .= '&amp;v=' . $ct;
-                $serendipity['smarty_vars']['head_link_stylesheet_frontend'] .= '&amp;v=' . $ct;
-            } else {
-                $serendipity['smarty_vars']['head_link_stylesheet'] .= '?v=' . $ct;
-                $serendipity['smarty_vars']['head_link_stylesheet_frontend'] .= '?v=' . $ct;
+            if (!isset($serendipity['useCacheAppendix']) || true === $serendipity['useCacheAppendix']) {
+                // When templates are switched, append a specific version string to make sure the browser does not cache the CSS
+                if (strstr($serendipity['smarty_vars']['head_link_stylesheet'], '?')) {
+                    $serendipity['smarty_vars']['head_link_stylesheet'] .= '&amp;v=' . $ct;
+                    $serendipity['smarty_vars']['head_link_stylesheet_frontend'] .= '&amp;v=' . $ct;
+                } else {
+                    $serendipity['smarty_vars']['head_link_stylesheet'] .= '?v=' . $ct;
+                    $serendipity['smarty_vars']['head_link_stylesheet_frontend'] .= '?v=' . $ct;
+                }
             }
         }
 
@@ -1126,10 +1128,12 @@ function serendipity_smarty_init($vars = array()) {
                 $serendipity['smarty_vars']['head_link_script'] = serendipity_rewriteURL('serendipity.js');
             }
 
-            if (strstr($serendipity['smarty_vars']['head_link_script'], '?')) {
-                $serendipity['smarty_vars']['head_link_script'] .= '&amp;v=' . $ct;
-            } else {
-                $serendipity['smarty_vars']['head_link_script'] .= '?v=' . $ct;
+            if (!isset($serendipity['useCacheAppendix']) || true === $serendipity['useCacheAppendix']) {
+                if (strstr($serendipity['smarty_vars']['head_link_script'], '?')) {
+                    $serendipity['smarty_vars']['head_link_script'] .= '&amp;v=' . $ct;
+                } else {
+                    $serendipity['smarty_vars']['head_link_script'] .= '?v=' . $ct;
+                }
             }
         }
 
