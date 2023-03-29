@@ -597,6 +597,8 @@
 @define('ADMIN_FOOTER_POWERED_BY', 'Drives af Serendipity %s og PHP %s');
 @define('INSTALL_USEGZIP', 'Benyt gzip komprimerede sider');
 @define('INSTALL_USEGZIP_DESC', 'For at fremskynde levering af sider, kan vi komprimere siderne vi sender til den besøgende, givet at hans browser understøtter dette. Dette er anbefalet');
+@define('INSTALL_CSS_CTAPPENDIX', 'Use CSS cache file control appendix');
+@define('INSTALL_CSS_CTAPPENDIX_DESC', 'Announces "last_template_change" (CSS) timestamp changes to browser caches. Defaults to "<b>yes</b>".<br><br><b>NOTE:</b> On certain systems with usage of high-speed cache servers, in special with "LiteSpeed Cache", cache request problems were reported with FOUC (<em>Flash of Unstyled Content</em>) on Chromium/Safari browsers not (re-)loading the CSS file after having reached the cache servers time limit, e.g. after 30 minutes, without being hard forced "<em>[Ctrl]+Reload</em>" to do so. Then it helps to reset this option to "<b>no</b>", so these browsers keep loading the clients previously stored file as long as internally hold-by. Mozilla Firefox does not have this issue. So, if you face this problem - and after your site having gone public more statically - this may help your visitors for the time being, until this issue or bug is ironed out more generally.');
 @define('INSTALL_SHOWFUTURE', 'Vis fremtidige artikler');
 @define('INSTALL_SHOWFUTURE_DESC', 'Hvis aktiveret, dette vil vise alle fremtidige artikler på din blog. Som standard skjules disse artikler og vises først når udgivelsesdatoen er nået.');
 @define('INSTALL_DBPERSISTENT', 'Brug vedvarende forbindelser');
