@@ -598,7 +598,7 @@
 @define('PLEASE_ENTER_CREDENTIALS', 'Please enter your credentials below.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Powered by Serendipity %s and PHP %s');
 @define('INSTALL_USEGZIP', 'Use gzip compressed pages');
-@define('INSTALL_USEGZIP_DESC', 'To speed up delivery of pages, we can compress the pages we send to the visitor, given that his browser supports this. This is recommended');
+@define('INSTALL_USEGZIP_DESC', 'To speed up delivery of pages, we can compress the pages we send to the visitor, given that his browser supports this. This is recommended.');
 @define('INSTALL_SHOWFUTURE', 'Show future entries');
 @define('INSTALL_SHOWFUTURE_DESC', 'If enabled, this will show all entries in the future on your Blog. Default is to hide those entries and only show them if the publish date has arrived.');
 @define('INSTALL_DBPERSISTENT', 'Use persistent connections');

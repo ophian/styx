@@ -598,7 +598,7 @@
 @define('PLEASE_ENTER_CREDENTIALS', 'உங்கள் நுழைவு சொற்களை தருக.');
 @define('ADMIN_FOOTER_POWERED_BY', 'இயக்க மென்பொருள் செரண்டிபிட்டி %s மற்றும் PHP %s');
 @define('INSTALL_USEGZIP', 'Use gzip compressed pages');
-@define('INSTALL_USEGZIP_DESC', 'To speed up delivery of pages, we can compress the pages we send to the visitor, given that his browser supports this. This is recommended');
+@define('INSTALL_USEGZIP_DESC', 'To speed up delivery of pages, we can compress the pages we send to the visitor, given that his browser supports this. This is recommended.');
 @define('INSTALL_SHOWFUTURE', 'Show future entries');
 @define('INSTALL_SHOWFUTURE_DESC', 'If enabled, this will show all entries in the future on your blog. Default is to hide those entries and only show them if the publish date has arrived.');
 @define('INSTALL_DBPERSISTENT', 'Use persistent connections');
