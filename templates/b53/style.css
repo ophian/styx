@@ -985,13 +985,24 @@ article.post li .pc-owner {
     text-overflow: ellipsis;
     display: inline-block;
     vertical-align: text-bottom; }
-  @media screen and (min-width: 768px) and (max-width: 991px) {
+  #serendipity_commentlist .co-short .comment_content p {
+    word-wrap: anywhere; }
+  @media screen and (max-width: 767px) {
+    .comment pre {
+      display: contents;
+      width: max-content;
+      overflow: overlay; }
+  }
+  @media screen and (min-width: 768px) {
     .comment.odd, .comment.even,
     .trackback.tb-odd, .trackback.tb-even {
+     display: flow-root; /*chromium*/
      display: inline flow-root list-item;
-     overflow: hidden;
+     overflow: overlay;
      max-width: 100%;
      min-width: 14rem; }
+    .comment pre {
+      width: fit-content; }
   }
 
 #comments ol > li:nth-of-type(2n),
