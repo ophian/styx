@@ -912,6 +912,14 @@ html[data-bs-theme="dark"] .hljs-keyword, html[data-bs-theme="dark"] .hljs-selec
   float: right;
   margin-right: -.5rem;
   font-size: .9125rem; }
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    .comment_info.plainList {
+      display: block;
+      overflow: hidden;
+      white-space: nowrap;
+      margin-right: -.5rem;
+      float: none; }
+  }
   .comment.odd .comment_info.plainList,
   .comments_for_entry .comment.even .comment_info.plainList {
     background-color: #eee; }
@@ -970,6 +978,21 @@ article.post li .pc-owner {
   box-sizing: border-box;
   padding: 0 .4rem .4rem;
   border: 1px solid #ddd; }
+  #serendipity_commentlist .co-short time {
+    width: auto;
+    white-space: nowrap;
+    overflow: auto;
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: text-bottom; }
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    .comment.odd, .comment.even,
+    .trackback.tb-odd, .trackback.tb-even {
+     display: inline flow-root list-item;
+     overflow: hidden;
+     max-width: 100%;
+     min-width: 14rem; }
+  }
 
 #comments ol > li:nth-of-type(2n),
 .comments_for_entry .comment.odd {
