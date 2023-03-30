@@ -107,7 +107,7 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * smarty version
      */
-    const SMARTY_VERSION = '4.3.1-dev-4';
+    const SMARTY_VERSION = '4.3.2-dev-4';
     /**
      * define variable scopes
      */
@@ -1396,7 +1396,7 @@ class Smarty extends Smarty_Internal_TemplateBase
     }
 
     /**
-     * Indicates if PHP7 compatibility mode is set.
+     * Indicates if Smarty will mute errors for "undefined index", "undefined array key" and "trying to read property of null".
      * @bool
      */
     public function isMutingUndefinedOrNullWarnings(): bool {
