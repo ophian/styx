@@ -1017,38 +1017,30 @@ article.post li .pc-owner {
   width: 30px; }
 
 html[data-bs-theme="dark"] #comments ol > li:nth-of-type(2n), html[data-bs-theme="dark"] .comments_for_entry .comment.odd {
-  background: transparent;
-}
+  background: transparent; }
 html[data-bs-theme="dark"] .comment.odd .comment_info.plainList, html[data-bs-theme="dark"] .comments_for_entry .comment.even .comment_info.plainList,
 html[data-bs-theme="dark"] .hljs {
   background-color: transparent;
-  color: var(--text-body-emphasis);
-}
-
+  color: var(--text-body-emphasis); }
 html[data-bs-theme="dark"] .comment.even .comment_info.plainList, html[data-bs-theme="dark"] .comments_for_entry .comment.odd .comment_info.plainList {
-  background-color: #dfdfdf20;
-}
+  background-color: #dfdfdf20; }
 html[data-bs-theme="dark"] .comment_info.plainList {
   border-right: 1px solid #dddddd2e;
-  border-bottom: 1px solid #dddddd36;
-}
-
+  border-bottom: 1px solid #dddddd36; }
+html[data-bs-theme="dark"] .comment .bi.bi-calendar3 {
+  fill: #ffe484; }
 html[data-bs-theme="dark"] #trackbacks ol > li:nth-of-type(2n) {
-  background-color: var(--bs-secondary-bg);
-}
+  background-color: var(--bs-secondary-bg); }
 html[data-bs-theme="dark"] article.post li .pc-owner {
   background-color: var(--bd-violet-bg);
-  color: var(--bs-dark-text-emphasis);
-}
+  color: var(--bs-dark-text-emphasis); }
 html[data-bs-theme="dark"] article.post li.comment .d-inline-block:not(.pc-owner) .bi.bi-file-person,
 html[data-bs-theme="dark"] article.post li.comment.even .d-inline-block:not(.pc-owner) .bi.bi-file-person {
-  background: transparent;
-}
+  background: transparent; }
 html[data-bs-theme="dark"] #serendipity_commentlist .comment, html[data-bs-theme="dark"] .comment.odd, html[data-bs-theme="dark"] .comment.even, html[data-bs-theme="dark"] .trackback.tb-odd, html[data-bs-theme="dark"] .trackback.tb-even,
 html[data-bs-theme="dark"] .post pre, html[data-bs-theme="dark"] .page pre, html[data-bs-theme="dark"] .post .geshi, html[data-bs-theme="dark"] .page .geshi,
 html[data-bs-theme="dark"] .serendipity_image_left,  html[data-bs-theme="dark"] .serendipity_image_right,  html[data-bs-theme="dark"] .serendipity_image_center,  html[data-bs-theme="dark"] .serendipity_imageComment_img {
-  border-color: var(--bs-border-color);
-}
+  border-color: var(--bs-border-color); }
 /* comments styling add end */
 
 .form_field label, .form_select label, .form_tarea label {
