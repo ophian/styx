@@ -1,7 +1,7 @@
 Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
-  * Merge Smarty 4.3.1 security release into Styx Smarty 3.4.2-dev-4 revision
+  * Merge Smarty v.4.3.1 security release into Styx Smarty v.4.3.2-dev-4 revision
 
   * Added new "Use CSS cache file control appendix" option to the "Appearance
     and Options" configuration section, to configurable "fix" a possible "flash
