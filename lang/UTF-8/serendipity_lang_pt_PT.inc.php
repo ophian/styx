@@ -469,6 +469,7 @@
 @define('VIEW', 'Exibir');
 @define('COMMENT_ALREADY_APPROVED', 'Comentário #%s parece já ter sido aprovado');
 @define('COMMENT_EDITED', 'O comentário selecionado foi editado');
+@define('AWAKE', 'Fade in');
 @define('HIDE', 'Ocultar');
 @define('VIEW_EXTENDED_ENTRY', 'Continuar lendo "%s"');
 @define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older Blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other Blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');

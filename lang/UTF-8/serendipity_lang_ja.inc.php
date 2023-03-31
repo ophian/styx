@@ -487,6 +487,7 @@
 @define('VIEW', '閲覧');
 @define('COMMENT_ALREADY_APPROVED', 'コメント #%s は既に承認されたようです。');
 @define('COMMENT_EDITED', '選択されたコメントを編集しました。');
+@define('AWAKE', 'Fade in');
 @define('HIDE', '隠す');
 @define('VIEW_EXTENDED_ENTRY', '"%s" の続きを読む...');
 @define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older Blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other Blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');

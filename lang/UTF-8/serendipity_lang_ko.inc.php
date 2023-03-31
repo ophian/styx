@@ -489,6 +489,7 @@
 @define('VIEW', '보기');
 @define('COMMENT_ALREADY_APPROVED', '%s번 덧글은 이미 승인받은 것으로 나타났습니다.');
 @define('COMMENT_EDITED', '선택된 덧글이 편집되었습니다.');
+@define('AWAKE', 'Fade in');
 @define('HIDE', '숨기기');
 @define('VIEW_EXTENDED_ENTRY', '"%s" 계속 읽기');
 @define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older Blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other Blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');

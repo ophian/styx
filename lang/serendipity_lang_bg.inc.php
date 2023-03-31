@@ -519,6 +519,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('VIEW', 'Преглед');
 @define('COMMENT_ALREADY_APPROVED', 'Коментар №&#160;%s изглежда вече е одобрен');
 @define('COMMENT_EDITED', 'Избраният коментар е редактиран');
+@define('AWAKE', 'Fade in');
 @define('HIDE', 'Скриване');
 @define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older Blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other Blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', 'Използване на https за влизане');
