@@ -2192,6 +2192,12 @@ div.serendipityPlug a {
 .content.staticpage_content p > .serendipity_imageComment_center,
 .content.staticpage_content p > .serendipity_image_right {
     margin: .25em auto; }
+@media screen and (max-width: 464px) {
+  .post div .serendipity_image_left,
+  .post div .serendipity_image_right {
+    margin-bottom: .5em;
+  }
+}
 .serendipity_image_left,
 .post p > .serendipity_image_left {
     margin-left: 0;
