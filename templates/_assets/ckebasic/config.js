@@ -27,10 +27,13 @@ CKEDITOR.editorConfig = function( config ) {
     ];
 
     if (typeof STYX_DARKMODE === 'undefined' || STYX_DARKMODE === null) STYX_DARKMODE = false;
-    let sisdark = sessionStorage.getItem('dark_mode');
+    let sisdark = localStorage.getItem('theme');
+        sisdark = sisdark ? sisdark : sessionStorage.getItem('dark_mode');
     config.skin = (STYX_DARKMODE === true ? 'moono-dark' : 'moono-lisa');
     if (STYX_DARKMODE !== true && document.getElementById('serendipity_commentform_comment') !== null
-    && ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && (typeof sisdark !== 'undefined' && sisdark !== null && sisdark !== 'light')) || sisdark === 'dark')) {
+    && ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && (typeof sisdark !== 'undefined' && sisdark !== null && sisdark !== 'light'))
+    || (sisdark === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ||  sisdark === 'dark')) {
         config.skin = 'moono-dark';
         config.contentsCss = [ CKEDITOR.basePath + 'dark-contents.css' ];
     }
