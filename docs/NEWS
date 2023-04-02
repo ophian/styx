@@ -1,6 +1,8 @@
 Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve [ b53 ] theme for Rich Text Editor color mode toggles
+
   * Prepare ckebasic assets for additional [ b53 ] theme color mode toggles
 
   * Merge Smarty v.4.3.1 security release into Styx Smarty v.4.3.2-dev-4 revision
