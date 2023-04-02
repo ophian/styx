@@ -11,7 +11,6 @@
     <meta name="robots" content="noindex,follow">
 {/if}
     <meta name="theme-color" content="#7952b3">
-    <script src="{serendipity_getFile file="js/color-modes.js"}"></script>
     <title>{$head_title|default:$blogTitle}{if $head_subtitle} | {$head_subtitle}{/if}</title>
 {if $view == 'entry' AND isset($entry)}
     <link rel="canonical" href="{$entry.rdf_ident}">
@@ -189,7 +188,7 @@
 
   <script src="{serendipity_getFile file="js/bootstrap.bundle.min.js"}"></script>
   <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
-  <script> const themePath = '{$serendipityHTTPPath}{$templatePath}{$template}'; </script>
+  <script> const themePath = '{$serendipityHTTPPath}{$templatePath}{$template}';</script>
   <script src="{serendipity_getFile file="theme.js"}"></script>
 {/if}
 {$raw_data}
