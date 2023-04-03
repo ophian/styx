@@ -75,6 +75,7 @@ if (dark_mode == null) {
 
 const dark = () => {
     let dark_mode = sessionStorage.getItem("dark_mode");
+    localStorage.removeItem('theme');/* remove possible [ b53 ] theme toggler to not get in conflict within HTML comment RichTextEditor */
     if (dark_mode == "dark") {
         sessionStorage.setItem("dark_mode", "light");
         document.documentElement.removeAttribute('data-dark-theme');
