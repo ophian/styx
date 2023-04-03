@@ -133,6 +133,7 @@ checkWebP(function(support) {
         toggle.addEventListener('click', () => {
           const theme = toggle.getAttribute('data-bs-theme-value')
           localStorage.setItem('theme', theme)
+          sessionStorage.removeItem('dark_mode'); /* remove possible [ pure ] theme toggler to not get in conflict within HTML comment RichTextEditor */
           setTheme(theme)
           if (theme === 'auto') {
             if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
