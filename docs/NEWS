@@ -15,7 +15,7 @@ Version 4.1-DEV ()
 
   [ 4.1-beta-2 ]
   * Added the new [ b53 ] theme for long awaited bootstrap 5.3-alpha2 assets.
-    This is a Work-In-Progress [ WIP ] and has a playground character.
+    This is a Work-In-Progress [ WIP ] and still has a playground character.
     The Series 5 assets and related themes [ boot, b5blog ] will be migrated
     when Bootstrap 5.3 is released.
 
