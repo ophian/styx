@@ -216,6 +216,12 @@ document.addEventListener("DOMContentLoaded", function() {
         spx[i].parentNode.removeChild(spx[i]);
     }
 
+    let apx = document.querySelectorAll('.serendipity_plugin_authors .serendipity_xml_icon > img');
+    for(let i = 0; i < apx.length; i++) {
+        apx[i].insertAdjacentHTML('afterend','<svg class="bi me-1" width="16" height="16" role="img" aria-labelledby="title"><title id="sycrss">XML</title><use xlink:href="#rss-fill"/></svg>');
+        apx[i].parentNode.removeChild(apx[i]);
+    }
+
     let tbd = document.querySelectorAll('.trackback details > div > a');
     for(let i = 0; i < tbd.length; i++) {
         tbd[i].setAttribute('class', 'btn btn-secondary btn-sm btn-admin trackbacks-delete');
