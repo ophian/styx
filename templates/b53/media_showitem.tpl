@@ -137,7 +137,7 @@
 <div class="container-fluid content">
 
   <div class="container bg-light">
-    <main class="col-md-6">
+    <main class="col-md-{if ($leftSidebarElements > 0 AND $rightSidebarElements > 0)}6{else if (($leftSidebarElements > 0 AND $rightSidebarElements == 0) OR ($rightSidebarElements > 0 AND $leftSidebarElements == 0))}9{else}12{/if}">
 
         <section id="entries_dategroup" class="serendipity_Entry_Date">
             <article class="post post_single">
