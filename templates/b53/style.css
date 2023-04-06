@@ -360,6 +360,8 @@ textarea {
   --bs-dropdown-min-width: 8rem; }
 .bd-navbar .dropdown-menu .dropdown-item {
   border-radius: .25rem; }
+.cn-none hr {
+  display: none; }
 a:not(.btn, .navbar-brand, .nav-link, .cke_dialog_ui_button_cancel):not(.link-body-emphasis) {
   color: rgba(var(--bs-emphasis-color-rgb),var(--bs-link-opacity,1));
   -webkit-text-decoration-color: rgba(var(--bs-emphasis-color-rgb),var(--bs-link-underline-opacity,1));

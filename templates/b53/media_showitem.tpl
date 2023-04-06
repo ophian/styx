@@ -70,7 +70,7 @@
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
       </div>
 
-      <div class="offcanvas-body p-4 pt-0 p-lg-0">
+      <div class="offcanvas-body p-4 pt-0 p-lg-0{if NOT $template_option.use_corenav} cn-none{/if}">
         <hr class="d-lg-none text-white-50">
         <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 {if $template_option.use_corenav}
