@@ -1,6 +1,9 @@
 Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve [ b53 ] theme for conditional sidebar column selectors and usage of
+    custom (backend) preview_iframe color on "auto" coloring mode theming.
+
   [ 4.1-rc1 ]
   * Update to Bootstrap v5.3.0-alpha3 assets in [ b53 ] theme
 
