@@ -66,6 +66,7 @@ checkWebP(function(support) {
     $('#category_submit').addClass('btn btn-outline-secondary btn-sm');
     $('.serendipity_freeTag_xmlTagEntry > .serendipity_xml_icon > img.serendipity_freeTag_xmlButton').replaceWith('<svg class="bi me-1" width="16" height="16" role="img" aria-labelledby="title"><title id="ftrss">XML</title><use xlink:href="#rss-fill"/></svg>');
     $('#serendipity_syndication_list .serendipity_xml_icon > img').replaceWith('<svg class="bi me-1" width="16" height="16" role="img" aria-labelledby="title"><title id="sycrss">XML</title><use xlink:href="#rss-fill"/></svg>');
+    $('.serendipity_plugin_authors .serendipity_xml_icon > img').replaceWith('<svg class="bi me-1" width="16" height="16" role="img" aria-labelledby="title"><title id="sycrss">XML</title><use xlink:href="#rss-fill"/></svg>');
     $('.trackback details > div > a').attr('class', 'btn btn-secondary btn-sm btn-admin trackbacks-delete');
     $('#trackback_url').click(function(e) { e.preventDefault(); $(this).next('.trackback-hint').show(); });
     $('.serendipity_entrypaging').addClass('mobile');
