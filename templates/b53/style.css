@@ -1112,7 +1112,7 @@ input[type="checkbox"] {
 .serendipity_plugin_calendar tfoot a:visited,
 .serendipity_plugin_calendar .Today,
 .serendipity_freetag_taglist_related { font-weight: bold }
-.serendipity_plugin_calendar .month { text-align: center }
+.serendipity_plugin_calendar .month { }
 .serendipity_plugin_calendar .next { text-align: right }
 /*.serendipity_plugin_calendar .Active a { color: aquamarine }*/
 .serendipity_plugin_calendar .Today { color: tomato }
@@ -1324,8 +1324,6 @@ p > img.serendipity_image_center {
 
 .next {
   text-align: right; }
-.calendar-nav .month {
-  text-align: center; }
 
 .serendipity_freeTag {
   font-size: 14px;
@@ -1497,14 +1495,14 @@ html[data-bs-theme="dark"] .serendipity_freetag_taglist ul {
     #comments article.comment.odd {
       margin: 0 45px 36px 0;
       margin: 0 3rem 2rem 0rem; }
-  table.calendar {
+  table.calendar, table.calendar-nav {
     max-width: 17.75rem; }
     .calendar.table.table-light > thead th {
       border-bottom-color: lightgray; }
     .calendar th, .calendar td {
-      text-align:right }
-    table.calendar-nav {
-      max-width: 24rem; }
+      text-align: right }
+    .calendar-nav .month {
+      text-align: center; }
   table.calendar-nav .prev span,
   table.calendar-nav .next span {
     display: none; }
