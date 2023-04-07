@@ -667,6 +667,9 @@ form > button,
     margin-top: 1.5em;
     margin-bottom: 1.5em;
 }
+#maintenance > section > .button_link.stat {
+    margin: .75em 0;
+}
 #maintenance_thumbs .form_buttons {
     margin: 0.5em auto;
 }
