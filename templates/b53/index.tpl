@@ -70,7 +70,6 @@
 {/if}
 
     <div class="d-flex">
-
       <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-label="Toggle navigation">
         <svg class="bi" aria-hidden="true"><use xlink:href="#three-dots"></use></svg>
       </button>
@@ -100,12 +99,12 @@
 
         <hr class="d-lg-none text-white-50">
 
-        <form class="col-12 col-lg-auto mt-1 mb-3 mb-lg-0 me-lg-3" method="get" role="search">
+        <form class="col-12 col-lg-auto mt-1 mb-3 mb-lg-0 me-lg-2" method="get" role="search">
           <input type="hidden" name="serendipity[action]" value="search">
           <input type="search" class="form-control" name="serendipity[searchTerm]" placeholder="{$CONST.BS_PLACEHOLDER_QUICKSEARCH}" value="" aria-label="{$CONST.QUICKSEARCH}">
         </form>
 
-        <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+        <ul class="navbar-nav flex-row flex-wrap">
           <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
             <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
             <hr class="d-lg-none my-2 text-white-50">
