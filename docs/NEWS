@@ -1,6 +1,9 @@
 Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve [ b53 ] theme for blogDescription appendix w/o corenav, the search
+    input field appearance and some better sidebar calendar selectors.
+
   * Improve [ boot, b53 ] themes for consistent xml icons. adding serendipity_
     plugin_authors sidebar to the element changing event.
 
