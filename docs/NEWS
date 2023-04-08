@@ -1,6 +1,9 @@
 Version 4.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve [ boot, b53 ] themes for consistent xml icons. adding serendipity_
+    plugin_authors sidebar to the element changing event.
+
   * Improve [ b53 ] theme for conditional sidebar column selectors and usage of
     custom (backend) preview_iframe color on "auto" coloring mode theming.
 
