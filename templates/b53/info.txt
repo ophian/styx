@@ -1,4 +1,4 @@
-Name: B53 [Example Blog]
+Name: B53 [ WIP Blog ]
 Author: Ian Styx
 Date: 2023-04-07
 Require Serendipity: 4.1
