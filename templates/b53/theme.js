@@ -210,6 +210,12 @@ document.addEventListener("DOMContentLoaded", function() {
         ftx[i].parentNode.removeChild(ftx[i]);
     }
 
+    let scx = document.querySelectorAll('#serendipity_categories_list .serendipity_xml_icon > img');
+    for(let i = 0; i < scx.length; i++) {
+        scx[i].insertAdjacentHTML('afterend','<svg class="bi me-1" width="16" height="16" role="img" aria-labelledby="title"><title id="sycrss">XML</title><use xlink:href="#rss-fill"/></svg>');
+        scx[i].parentNode.removeChild(scx[i]);
+    }
+
     let spx = document.querySelectorAll('#serendipity_syndication_list .serendipity_xml_icon > img');
     for(let i = 0; i < spx.length; i++) {
         spx[i].insertAdjacentHTML('afterend','<svg class="bi me-1" width="16" height="16" role="img" aria-labelledby="title"><title id="sycrss">XML</title><use xlink:href="#rss-fill"/></svg>');
