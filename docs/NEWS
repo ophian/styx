@@ -1,5 +1,8 @@
-Version 4.1-DEV ()
+Version 4.1.0 (April, 9th 2023)
  ------------------------------------------------------------------------
+
+  * Improve [ b53 ] theme for blogDescription appendix w/o corenav, the search
+    input field appearance and some better sidebar calendar selectors.
 
   * Improve [ b53 ] theme for blogDescription appendix w/o corenav, the search
     input field appearance and some better sidebar calendar selectors.
