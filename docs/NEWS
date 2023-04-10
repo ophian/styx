@@ -1,6 +1,8 @@
-Version 4.x-DEV ()
+Version 4.1.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix incorrect integer value: '' MYSQLI_SQL_EXCEPTION for PHP versions
+    lower than 8.1, setting config (table) vars over serendipity_db_insert().
 
 
 Version 4.1.0 (April, 9th 2023)
