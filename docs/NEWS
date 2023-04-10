@@ -1,4 +1,4 @@
-Version 4.1.1-DEV ()
+Version 4.1.1 (April, 10th 2023)
  ------------------------------------------------------------------------
 
   * Fix incorrect integer value: '' MYSQLI_SQL_EXCEPTION for PHP versions
