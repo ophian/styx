@@ -470,7 +470,12 @@ if (IS_up2date === false && !defined('IN_upgrader')) {
 
 // We don't care who tells us what to do
 if (!isset($serendipity['GET']['action'])) {
-    $serendipity['GET']['action'] = $serendipity['POST']['action'] ?? '';
+    // trying to get rid of possible rare "Uncaught TypeError: Cannot access offset of type string on string" errors
+    if (is_array($serendipity['POST'])) {
+        $serendipity['GET']['action'] = $serendipity['POST']['action'] ?? '';
+    } else {
+        $serendipity['GET']['action'] = '';
+    }
 }
 
 if (!isset($serendipity['GET']['adminAction'])) {
