@@ -111,7 +111,8 @@ function serendipity_set_config_var($name, $val, $authorid = 0) {
                        // Some PHP versions in combination with MYSQLI_SQL_EXCEPTION MYSQLI_REPORT_* flags throw  Incorrect integer value: '' for column authorid.
                        // The is_numeric() works as a good enough POST filter and for the empty string array issue here.
                        // It may be a (known) problem by 64bit vs 32bit systems, which may give back wrong types https://www.php.net/manual/de/function.array-keys.php#105578
-                       // BUT the main issue is that arrays were build for the web as strings and only highly late PHP versions as of PHP 8.1/2 are able to type cast to INTs.
+                       // BUT the main issue is that arrays were build for the web as strings and only highly late PHP versions as of PHP 8.2 are able to type cast to INTs.
+                       // So having removed our previous CAST for the authorid in the following insert query, we have to check this in db.inc by fnc serendipity_db_insert()
     }
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name='" . serendipity_db_escape_string($name) . "' AND authorid = " . $authorid);
 
