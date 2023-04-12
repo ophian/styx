@@ -28,7 +28,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.1.0'
         ));
-        $propbag->add('version',       '2.70');
+        $propbag->add('version',       '2.71');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1081,7 +1081,9 @@ class serendipity_event_spamblock extends serendipity_event
                         if (serendipity_db_bool($this->get_config('entrytitle', 'true'))) {
                             // Remove the blog name from the comment which might be in <title>
                             $comment = str_replace($serendipity['blogTitle'], '', strip_tags($addData['comment']));
-                            $comment = str_replace($eventData['title'], '', $comment);
+                            if (isset($eventData['title'])) {
+                                $comment = str_replace($eventData['title'], '', $comment);
+                            }
                             // Now blog- and entry title was stripped from comment.
                             // Remove special letters, that might have been between them:
                             $comment = trim(preg_replace('@[\s\-_:\(\)\|/]*@', '', $comment));
