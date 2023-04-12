@@ -1,6 +1,7 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix #40 for PHP 8.1 in the Styx 4.1.1 fix, since it is lower PHP 8.2
 
 
 Version 4.1.1 (April, 10th 2023)
