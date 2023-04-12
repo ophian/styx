@@ -119,7 +119,7 @@ function serendipity_set_config_var($name, $val, $authorid = 0) {
         return;
     }
 
-    $r = serendipity_db_insert('config', array('name' => serendipity_db_escape_string($name), 'value' => $val, 'authorid' => $authorid)); // see above array type note
+    $r = serendipity_db_insert('config', array('name' => $name, 'value' => $val, 'authorid' => $authorid)); // see above array type note
 
     if ($authorid === 0 || (isset($serendipity['authorid']) && $authorid === $serendipity['authorid'])) {
         if ($val === 'false') {
