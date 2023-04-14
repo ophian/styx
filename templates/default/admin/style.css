@@ -3362,8 +3362,8 @@ label .perm_name,
     visibility: hidden;
 }
 .js .media_controls {
-	margin-top: .25em;
-	margin-bottom: .25em;
+    margin-top: .25em;
+    margin-bottom: .25em;
 }
 .js .mlDefCol .media_controls audio {
     width: max-content;
@@ -3376,8 +3376,8 @@ label .perm_name,
     width: 2em;
 }
 .js .media_controls video {
-	width: auto;
-	height: auto;
+    width: auto;
+    height: auto;
     max-width: 96%;
 }
 
