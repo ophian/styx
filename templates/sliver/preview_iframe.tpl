@@ -37,7 +37,7 @@
     <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
 {/if}
 
-	<script type="text/javascript">
+    <script type="text/javascript">
         window.onload = function() {ldelim}
             var frameheight = document.querySelector('html').offsetHeight{* if $mode == 'preview'}-14{/if *};
             parent.document.getElementById('serendipity_iframe').style.height = frameheight + 'px';

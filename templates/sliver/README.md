@@ -38,12 +38,12 @@ Sliver uses HTML5 and CSS3 features and ships with some external libs.
 Sliver comes with nearly full boilerplate supported template root files, as there are
 
     .htaccess
-	404.html (unused)
+    404.html (unused)
 
 All Boilerplate and Sliver included files (like js, css) are found in these dirs.
 
     js/*
-	css/*
+    css/*
 
 ## Attention:
 
