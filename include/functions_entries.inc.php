@@ -1003,7 +1003,7 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
     $search =& serendipity_db_query($querystring);
 
     // Add param searchresults at the top and remove duplicates.
-    if (is_array($searchresults)) {
+    if (is_array($searchresults) && is_array($search)) {
         $ids_current = array();
         foreach($searchresults AS $idx => $data) {
             $ids_current[$data['id']] = true;
