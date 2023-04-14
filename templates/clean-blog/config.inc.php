@@ -288,7 +288,7 @@ if (false !== serendipity_db_bool($template_loaded_config['use_variation']) || f
 
 $navlinks_collapse = array( 'use_corenav', 'amount');
 for ($i = 0; $i < $template_loaded_config['amount']; $i++) {
-	array_push($navlinks_collapse, 'navlink' . $i . 'text' ,'navlink' . $i . 'url');
+    array_push($navlinks_collapse, 'navlink' . $i . 'text' ,'navlink' . $i . 'url');
 }
 
 $template_config_groups = array(
