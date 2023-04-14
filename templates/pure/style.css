@@ -2089,8 +2089,8 @@ div.serendipityPlug a {
 /* freetag popping into real sidebar mode - do what was configured */
 @media screen and (min-width: 1024px) {
     .sidebar_widget.serendipity_plugin_freetag .plainList br {
-		display: initial;
-	}
+        display: initial;
+    }
 }
 /* authors */
 .container_serendipity_plugin_authors .serendipitySideBarContent div {
