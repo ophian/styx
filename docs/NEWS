@@ -4,7 +4,7 @@ Version 4.x-DEV ()
   * Better catch mysqli connection errors w/o exception and returning bool.
     Probably some break-in attempts!
 
-  * Bugfix issue #40 again as in regression for PHP 8.2 versions on specific
+  * Bugfix issue #40 again, as regression for PHP 8.2 versions on specific
     servers by removing the conditional version restriction.
 
   * Improve [ b53 ] theme for containers and remaining deprecated selectors
