@@ -65,7 +65,7 @@
 
     <div class="offcanvas-lg offcanvas-end flex-grow-1" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel" data-bs-scroll="true">
       <div class="offcanvas-header px-4 pb-0">
-        <h5 class="offcanvas-title text-white" id="bdNavbarOffcanvasLabel">{$blogTitle}</h5>
+        <h5 class="offcanvas-title text-body-emphasis" id="bdNavbarOffcanvasLabel">{$blogTitle}</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
       </div>
 
@@ -94,7 +94,7 @@
 
         <ul class="navbar-nav flex-row flex-wrap">
           <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
-            <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+            <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-body-emphasis"></div>
             <hr class="d-lg-none my-2 text-white-50">
           </li>
 
