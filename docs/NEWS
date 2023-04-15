@@ -1,6 +1,9 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Bugfix issue #40 again as in regression for PHP 8.2 versions on specific
+    servers by removing the conditional version restriction.
+
   * Improve [ b53 ] theme for containers and remaining deprecated selectors
 
   * Fix entries search result on bool (no result) for PHP 8.2
