@@ -1566,6 +1566,12 @@ html[data-bs-theme="dark"] .serendipity_freetag_taglist ul {
     width: 49%; }
 }
 
+/* Overrule bootstrap default containers to nearly fully expand for 2 sidebar view between 2 breakpoints */
+@media (min-width: 768px) and (max-width: 991px) {
+  .container, .container-md, .container-sm {
+    max-width: 98%; }
+}
+
 @media screen and (min-width: 768px) {
   html {
     padding: 0;
