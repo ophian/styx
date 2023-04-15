@@ -1,6 +1,8 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve [ b53 ] theme for containers and remaining deprecated selectors
+
   * Fix entries search result on bool (no result) for PHP 8.2
 
 
