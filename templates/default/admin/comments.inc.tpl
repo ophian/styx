@@ -175,7 +175,7 @@
 {/if}
 {if ($comment.status == 'pending') OR ($comment.status == 'confirm')}
                                 <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=hide&amp;serendipity[id]={$comment.id}&amp;{$urltoken}" title="{$CONST.HIDE}"><span class="icon-eye-off" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.HIDE}</span></a></li>
-                                <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=approve&amp;serendipity[id]={$comment.id}&amp;{$urltoken}" title="{$CONST.VIEW}"><span class="icon-toggle-on" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.VIEW}</span></a></li>
+                                <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=approve&amp;serendipity[id]={$comment.id}&amp;{$urltoken}" title="{$CONST.APPROVE}"><span class="icon-toggle-on" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.APPROVE}</span></a></li>
 {/if}
 {if $comment.status == 'hidden'}
                                 <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=public&amp;serendipity[id]={$comment.id}&amp;{$urltoken}" title="{$CONST.AWAKE}"><span class="icon-eye" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.AWAKE}</span></a></li>
