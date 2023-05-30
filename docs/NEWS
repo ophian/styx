@@ -1,6 +1,8 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Upgrade templates general jQuery lib to v3.7.0
+
   * Upgrade custom CKEBasic asset to 4.21.0 (d529d176d7 revision)
     https://ckeditor.com/cke4/release-notes
 
