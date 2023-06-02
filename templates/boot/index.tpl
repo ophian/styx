@@ -244,7 +244,7 @@
     hljs.configure({
       tabReplace: '    ', // 4 spaces
     });
-    hljs.initHighlightingOnLoad();
+    hljs.highlightAll();
 </script>
 {/if}
 {* Bootstrap alert icons 1: success, 2: info, 3: error/warning *}
