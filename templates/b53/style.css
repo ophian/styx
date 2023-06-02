@@ -347,6 +347,7 @@ a:not(.btn, .navbar-brand, .nav-link, .cke_dialog_ui_button_cancel):not(.link-bo
     background-image: linear-gradient(rgba(var(--bd-violet-rgb), 1), rgba(var(--bd-violet-rgb), 0.95));
     padding-bottom: 1rem !important; }
   #bdNavbarOffcanvasLabel {
+    color: rgba(255,255,255,0.85) !important;
     margin-top: calc(-.5 * var(--bs-offcanvas-padding-y)); }
 }
 
