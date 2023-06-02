@@ -206,13 +206,8 @@
         {if NOT empty($footer_info)}<p>{$footer_info}</p>{/if}
     {if $footer_prev_page OR $footer_next_page}
         <ul class="plainList d-flex">
-        {if $footer_prev_page}
-            <li class="pager_prev"><a href="{$footer_prev_page}">{$CONST.PREVIOUS_PAGE}</a></li>
-        {/if}
-        {if $footer_next_page}
-            <li class="pager_next text-end"><a href="{$footer_next_page}">{$CONST.NEXT_PAGE}</a></li>
-        {/if}
-
+            <li class="pager pager_prev{if NOT $footer_prev_page} disabled{/if}"><a href="{$footer_prev_page}">{$CONST.PREVIOUS_PAGE}</a></li>
+            <li class="pager pager_next text-end{if NOT $footer_next_page} disabled{/if}"><a href="{$footer_next_page}">{$CONST.NEXT_PAGE}</a></li>
         </ul>
     {/if}
 
