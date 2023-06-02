@@ -4,22 +4,18 @@
   --bd-violet: #712cf9;
   --bd-violet-rgb: 112.520718,44.062154,249.437846;
   --bd-violet-bg: var(--bd-violet);
-  --bs-btn-disabled-color: var(--bs-secondary-color);
-  --bs-btn-disabled-bg: var(--bs-secondary-bg);
-  --bs-btn-disabled-border-color: var(--bs-border-color);
+  --bd-btn-disabled-color: var(--bs-secondary-color);
+  --bd-btn-disabled-bg: var(--bs-secondary-bg);
+  --bd-btn-disabled-border-color: var(--bs-border-color);
 }
 [data-bs-theme="dark"] {
   --bd-violet: #9461fb;
   --bd-violet-bg: #712cf9;
-  --bs-btn-disabled-color: var(--bs-secondary-color);
-  --bs-btn-disabled-bg: var(--bs-secondary-bg);
-  --bs-btn-disabled-border-color: var(--bs-border-color);
 }
 
 /**
  * B53+ -  Bootstrap 5 [ boot ] pool based
  **/
-
 
 a:active, a:hover {
   outline: 0; }
@@ -333,11 +329,11 @@ a:not(.btn, .navbar-brand, .nav-link, .cke_dialog_ui_button_cancel):not(.link-bo
     text-decoration-color: #fff; }
     .pager.disabled {
       pointer-events: none;
-      border-color: var(--bs-btn-disabled-border-color);
+      border-color: var(--bd-btn-disabled-border-color);
       opacity: .5; }
       .pager.disabled a {
-        background-color: var(--bs-btn-disabled-bg);
-        color: var(--bs-btn-disabled-color);
+        background-color: var(--bd-btn-disabled-bg);
+        color: var(--bd-btn-disabled-color);
         text-decoration: none; }
 @media screen and (max-width: 991px) {
   html[data-bs-theme="light"] .offcanvas-body, html[data-bs-theme="light"] .bd-navbar .nav-link {
