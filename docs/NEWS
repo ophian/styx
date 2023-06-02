@@ -1,7 +1,8 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
-  * Improve entries paging for [ boot, b53 ] themes
+  * Improve entries paging for [ boot, b53 ] themes.
+    COPY THEMERS, please check your entries.tpl file.
 
   * Activate new highlight js init() in [ pure, psg, dude, boot, b5blog, b46,
     b53 ] themes index.tpl file, since the old onLoad init is set deprecated.
