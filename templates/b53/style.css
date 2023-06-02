@@ -1,6 +1,8 @@
 /* color mode defines */
 :root, [data-bs-theme="light"] {
   --bd-purple: #4c0bce;
+  --bd-indigo: #6610f2;
+  --bd-indigo-rgb: 102,16,242;
   --bd-violet: #712cf9;
   --bd-violet-rgb: 112.520718,44.062154,249.437846;
   --bd-violet-bg: var(--bd-violet);
