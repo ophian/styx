@@ -331,6 +331,14 @@ a:not(.btn, .navbar-brand, .nav-link, .cke_dialog_ui_button_cancel):not(.link-bo
     color: #fff;
     -webkit-text-decoration-color: #fff;
     text-decoration-color: #fff; }
+    .pager.disabled {
+      pointer-events: none;
+      border-color: var(--bs-btn-disabled-border-color);
+      opacity: .5; }
+      .pager.disabled a {
+        background-color: var(--bs-btn-disabled-bg);
+        color: var(--bs-btn-disabled-color);
+        text-decoration: none; }
 @media screen and (max-width: 991px) {
   html[data-bs-theme="light"] .offcanvas-body, html[data-bs-theme="light"] .bd-navbar .nav-link {
     color: #000 !important;
