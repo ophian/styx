@@ -1,64 +1,25 @@
-/* from bootstrap docs WIP and b53 playground */
+/* color mode defines */
 :root, [data-bs-theme="light"] {
   --bd-purple: #4c0bce;
   --bd-violet: #712cf9;
-  --bd-accent: #ffe484;
   --bd-violet-rgb: 112.520718,44.062154,249.437846;
-  --bd-accent-rgb: 255,228,132;
-  --bd-pink-rgb: 214,51,132;
-  --bd-teal-rgb: 32,201,151;
   --bd-violet-bg: var(--bd-violet);
-  --bd-toc-color: var(--bd-violet);
-  --bd-sidebar-link-bg: rgba(var(--bd-violet-rgb), .1);
-  --bd-callout-link: 10,88,202;
-  --bd-callout-code-color: #ab296a;
-  --bd-pre-bg: var(--bs-tertiary-bg);
+  --bs-btn-disabled-color: var(--bs-secondary-color);
+  --bs-btn-disabled-bg: var(--bs-secondary-bg);
+  --bs-btn-disabled-border-color: var(--bs-border-color);
 }
 [data-bs-theme="dark"] {
   --bd-violet: #9461fb;
   --bd-violet-bg: #712cf9;
-  --bd-toc-color: var(--bs-emphasis-color);
-  --bd-sidebar-link-bg: rgba(84,33,187, .5);
-  --bd-callout-link: 110,168,254;
-  --bd-callout-code-color: #e685b5;
-  --bd-pre-bg: #1b1f22;
-}
-:root, [data-bs-theme="light"] {
-  --base02: #c8c8fa;
-  --base03: #565c64;
-  --base04: #666;
-  --base05: #333;
-  --base06: #fff;
-  --base07: #13795b;
-  --base08: #c6303e;
-  --base09: #087990;
-  --base0A: #6f42c1;
-  --base0B: #084298;
-  --base0C: #084298;
-  --base0D: #6f42c1;
-  --base0E: #ab296a;
-  --base0F: #333;
-}
-[data-bs-theme="dark"] {
-  --base02: #3e4451;
-  --base03: #868e96;
-  --base04: #868e96;
-  --base05: #abb2bf;
-  --base06: #b6bdca;
-  --base07: #feb272;
-  --base08: #6edff6;
-  --base09: #feb272;
-  --base0A: #ffe69c;
-  --base0B: #79dfc1;
-  --base0C: #79dfc1;
-  --base0D: #6ea8fe;
-  --base0E: #c29ffa;
-  --base0F: #ea868f;
+  --bs-btn-disabled-color: var(--bs-secondary-color);
+  --bs-btn-disabled-bg: var(--bs-secondary-bg);
+  --bs-btn-disabled-border-color: var(--bs-border-color);
 }
 
 /**
- * Boot -  Bootstrap 5 boot pool
+ * B53+ -  Bootstrap 5 [ boot ] pool based
  **/
+
 
 a:active, a:hover {
   outline: 0; }
