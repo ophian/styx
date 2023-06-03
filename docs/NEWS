@@ -1,6 +1,9 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Style upload target & image variation message parts in dark mode for better
+    readability.
+
   * Improve entries paging for [ boot, b53 ] themes.
     COPY THEMERS, please check your entries.tpl file.
 
