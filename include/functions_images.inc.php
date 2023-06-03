@@ -2549,7 +2549,7 @@ function serendipity_createFullFileVariations($target, $info, $messages) {
             $_relative_result_outfile = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $result[1]);
             // do not in case array and empty
             if (!empty($_relative_result_outfile)) {
-                $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> WebP image format variation(s) "<em>'.$_relative_result_outfile.'</em>" created!</span>'."\n";
+                $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> WebP image format variation(s) \'<em class="media_msg v">'.$_relative_result_outfile.'</em>\' created!</span>'."\n";
             }
             if (is_array($result) && $result[0] == 0) {
                 if (is_string($result[1])) {
@@ -2583,7 +2583,7 @@ function serendipity_createFullFileVariations($target, $info, $messages) {
                 $_relative_result_outfile = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $result[1]);
                 // do not in case array and empty
                 if (!empty($_relative_result_outfile)) {
-                    $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> AVIF image format variation(s) "<em>'.$_relative_result_outfile.'</em>" created!</span>'."\n";
+                    $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> AVIF image format variation(s) \'<em class="media_msg v">'.$_relative_result_outfile.'</em>\' created!</span>'."\n";
                 }
                 if (is_array($result) && $result[0] == 0) {
                     if (is_string($result[1])) {
