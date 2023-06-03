@@ -612,7 +612,7 @@ switch ($serendipity['GET']['adminAction']) {
                     // Accept file
                     if (is_uploaded_file($uploadtmp) && serendipity_checkMediaSize($uploadtmp) && move_uploaded_file($uploadtmp, $target)) {
                         $uploadfile = serendipity_specialchars($uploadfile); // @see $tfile L 439 - and we DO WANT the ORIGIN NAME here!
-                        $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . FILE_UPLOADED . "</span>\n", "<b>$uploadfile</b>", $target);
+                        $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . FILE_UPLOADED . "</span>\n", "<b>$uploadfile</b>", "<em class=\"media_msg t\">$target</em>");
                         @umask(0000);
                         @chmod($target, 0664);
 
