@@ -2546,13 +2546,14 @@ function serendipity_createFullFileVariations($target, $info, $messages) {
         }
         $result = serendipity_convertToWebPFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target), false, $webpIMQ);
         if (is_array($result)) {
+            // capture GD result
             $_relative_result_outfile = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $result[1]);
-            // Split IM result ($out) array by strings between double-quotes
-            $vname = preg_split('/("[^"]*")/', $result[2], -1, PREG_SPLIT_NO_EMPTY|PREG_SPLIT_DELIM_CAPTURE);
-            if (!empty($vname[4]) && empty($_relative_result_outfile)) {
-                $_relative_result_outfile = str_replace('"', '', $vname[4]);
+            // capture IM result ($out) array
+            $_vname = str_replace('"', '', substr($result[2], strpos($result[2], '-strip ') + 7));
+            if (in_array(strrchr($_vname, '.'), ['.webp', '.avif']) && empty($_relative_result_outfile)) {
+                $_relative_result_outfile = str_replace(['"', $serendipity['serendipityPath'] . $serendipity['uploadPath']], '', $_vname);
             }
-            // do not in case array and empty
+            // do not if empty
             if (!empty($_relative_result_outfile)) {
                 $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> WebP image format variation(s) \'<em class="media_msg v">'.$_relative_result_outfile.'</em>\' created!</span>'."\n";
             }
@@ -2585,13 +2586,14 @@ function serendipity_createFullFileVariations($target, $info, $messages) {
             $variat = serendipity_makeImageVariationPath($target, 'avif');
             $result = serendipity_convertToAvifFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target), false);
             if (is_array($result)) {
+                // capture GD result
                 $_relative_result_outfile = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $result[1]);
-                // Split IM result ($out) array by strings between double-quotes
-                $vname = preg_split('/("[^"]*")/', $result[2], -1, PREG_SPLIT_NO_EMPTY|PREG_SPLIT_DELIM_CAPTURE);
-                if (!empty($vname[4]) && empty($_relative_result_outfile)) {
-                    $_relative_result_outfile = str_replace('"', '', $vname[4]);
+                // capture IM result ($out) array
+                $_vname = str_replace('"', '', substr($result[2], strpos($result[2], '-strip ') + 7));
+                if (in_array(strrchr($_vname, '.'), ['.webp', '.avif']) && empty($_relative_result_outfile)) {
+                    $_relative_result_outfile = str_replace(['"', $serendipity['serendipityPath'] . $serendipity['uploadPath']], '', $_vname);
                 }
-                // do not in case array and empty
+                // do not if empty
                 if (!empty($_relative_result_outfile)) {
                     $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> AVIF image format variation(s) \'<em class="media_msg v">'.$_relative_result_outfile.'</em>\' created!</span>'."\n";
                 }
