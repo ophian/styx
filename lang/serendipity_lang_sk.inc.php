@@ -95,7 +95,7 @@ $i18n_filename_to = array (
 @define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Chyba: Nieèo nie je v poriadku.');
 @define('ADDING_IMAGE', 'Prida» obrázok...');
-@define('THUMB_CREATED_DONE', 'Náhµad %s vytvorený.<br>Hotové.');
+@define('THUMB_CREATED_DONE', 'Náhµad %s vytvorený.<br>Hotové.'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', 'Chyba: Súbor u¾ na serveri existuje!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Neznáma chyba, súbor sa nenahral. Mo¾ným dôvodom je, ¾e veµkos» súboru prekraèuje maximálnu veµkos» povolenú serverom. Spojte sa s va¹ím providerom alebo upravte súbor php.ini a povolte väè¹iu veµkos».');
 @define('NOT_AVAILABLE', 'N/A'); // short!

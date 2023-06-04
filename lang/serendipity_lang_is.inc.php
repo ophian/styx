@@ -82,7 +82,7 @@
 @define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Villa: Eitthvað er að.');
 @define('ADDING_IMAGE', 'Bæti við mynd...');
-@define('THUMB_CREATED_DONE', 'Sýnishorn %s búið til.<br>Lokið.');
+@define('THUMB_CREATED_DONE', 'Sýnishorn %s búið til.<br>Lokið.'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', 'Villa: Skráin er þegar til á vélinni!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Óþekkt villa hefur komið upp, skrá ekki vistuð. Kannski var stærð skráarinnar meiri heldur en hámarksstærðin sem netjónninn skilgreinir. Hafðu samband við þjónustuaðilann þinn eða breytti php.ini skránni til að leyfa stærri skráarflutninga.');
 @define('NOT_AVAILABLE', 'N/A'); // short!

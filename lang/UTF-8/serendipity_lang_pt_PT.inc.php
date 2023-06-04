@@ -85,7 +85,7 @@
 @define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Erro: Problema desconhecido.');
 @define('ADDING_IMAGE', 'Adicionando imagem...');
-@define('THUMB_CREATED_DONE', 'Miniatura %s criada.<br>Pronto.');
+@define('THUMB_CREATED_DONE', 'Miniatura %s criada.<br>Pronto.'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', 'Erro: O ficheiro já existe no seu servidor!');
 @define('NOT_AVAILABLE', 'N/A'); // short!
 @define('GO', 'Vamos!');

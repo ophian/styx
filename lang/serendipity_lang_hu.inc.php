@@ -82,7 +82,7 @@
 @define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Hiba: valami nem stimmel.');
 @define('ADDING_IMAGE', 'Kép hozzáadása...');
-@define('THUMB_CREATED_DONE', 'Elõnézeti %s kép létrehozva.<br>Kész.');
+@define('THUMB_CREATED_DONE', 'Elõnézeti %s kép létrehozva.<br>Kész.'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', 'Hiba: A fájl már létezik a gépeden!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Ismeretlen hiba történt, a fájl nincs feltöltve. Talán a fájl mérete nagyobb mint a szerveren beállított megengedett maximum érték. Ezt a beállítást a szerver üzemeltetõje tudja megváltoztatni.');
 @define('NOT_AVAILABLE', 'N/A'); // short!

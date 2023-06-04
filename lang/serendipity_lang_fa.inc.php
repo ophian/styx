@@ -83,7 +83,7 @@
 @define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'خطا: مشکلی وجود دارد.');
 @define('ADDING_IMAGE', 'افزودن عکس...');
-@define('THUMB_CREATED_DONE', 'عکس های کوچک ساخته شدند.<br>%s انجام شد.');
+@define('THUMB_CREATED_DONE', 'عکس های کوچک ساخته شدند.<br>%s انجام شد.'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', 'خطا: این فایل قبلا در سیستم وجود داشته است!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'خطای ناشناخته، فایلی بالاگذاری نشد. ممکن است که حجم فایل شما بیشتر از ماکزیمم حجم اجازه داده شده باشد. لطفا ISP یا فایل php.ini خود را چک کنید.');
 @define('NOT_AVAILABLE', 'N/A'); // short!

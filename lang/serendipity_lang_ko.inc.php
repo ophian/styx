@@ -84,7 +84,7 @@
 @define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', '오류: 무언가 잘못되었습니다.');
 @define('ADDING_IMAGE', '그림 추가중...');
-@define('THUMB_CREATED_DONE', '작은 그림이 %s 생성되었습니다.<br>완료.');
+@define('THUMB_CREATED_DONE', '작은 그림이 %s 생성되었습니다.<br>완료.'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', '오류: 파일이 이미 존재합니다.');
 @define('ERROR_UNKNOWN_NOUPLOAD', '알 수 없는 오류가 발생하여 파일이 업로드되지 않았습니다. 서버가 허용하는 파일 크기를 초과했을 수 있습니다. 호스팅 업체에 확인을 하거나 php.ini 파일을 수정하여 더 큰 파일을 업로드할 수 있도록 하십시오.');
 @define('NOT_AVAILABLE', 'N/A'); // short!

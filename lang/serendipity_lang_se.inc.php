@@ -82,7 +82,7 @@
 @define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Fel: Någonting är fel.');
 @define('ADDING_IMAGE', 'Lägger till bild...');
-@define('THUMB_CREATED_DONE', 'Miniatyr %s skapad.<br>Klar.');
+@define('THUMB_CREATED_DONE', 'Miniatyr %s skapad.<br>Klar.'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', 'Fel: Filen finns redan i din dator!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Ett okänt fel inträffade och filen laddades inte upp. Filstorleken är kanske större än vad som tillåts av din serverinstallation. Kolla med din tjänsteleverantör eller ändra i filen php.ini för att tillåta uppladdning av större filer.');
 @define('NOT_AVAILABLE', 'N/A'); // short!

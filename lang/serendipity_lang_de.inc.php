@@ -81,7 +81,7 @@
 @define('ERROR_SELECTION', 'Fehler: Gemeinsame Änderungen beider Auswahlfelder über die Medien-Eigenschaften zur selben Zeit sind nicht erlaubt. Gehen Sie zurück und probieren Sie es erneut!');
 @define('ERROR_SOMETHING', 'Fehler: Irgend etwas stimmt nicht.');
 @define('ADDING_IMAGE', 'Bild hinzufügen ...');
-@define('THUMB_CREATED_DONE', 'Vorschau %s erstellt.<br>Fertig.');
+@define('THUMB_CREATED_DONE', 'Vorschau %s und aller Variationen erstellt.<br>Fertig.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Fehler: Diese Datei existiert schon auf dem Server!');
 @define('NOT_AVAILABLE', 'Unbekannt'); // short!
 @define('GO', 'Los!');

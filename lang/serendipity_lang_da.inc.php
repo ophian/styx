@@ -81,7 +81,7 @@
 @define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Fejl: Der gik noget galt');
 @define('ADDING_IMAGE', 'Tilføjet billede...');
-@define('THUMB_CREATED_DONE', 'Minibillede %s er oprettet.<br>Done.');
+@define('THUMB_CREATED_DONE', 'Minibillede %s er oprettet.<br>Done.'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', 'Fejl: Filen findes allerede på din maskine!');
 @define('NOT_AVAILABLE', 'N/A'); // short!
 @define('GO', 'Begynd!');

@@ -82,7 +82,7 @@
 @define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Virhe: Jokin meni pieleen.');
 @define('ADDING_IMAGE', 'Lisätään kuvaa...');
-@define('THUMB_CREATED_DONE', 'Pienoiskuvaa %s luodaan.<br>Valmis.');
+@define('THUMB_CREATED_DONE', 'Pienoiskuvaa %s luodaan.<br>Valmis.'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', 'Virhe: Tiedosto on jo olemassa!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Pieleen meni, tiedostoa ei tuotu. Kenties tiedoston koko oli liian suuri. Kysy palveluntarjoajaltasi apua tai muokkaa php.ini tiedostoasi salliaksesi isompien tiedostojen tuonnin..');
 @define('NOT_AVAILABLE', 'N/A'); // short!

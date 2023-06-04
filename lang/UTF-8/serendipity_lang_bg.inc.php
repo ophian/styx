@@ -83,7 +83,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Грешка: Нещо не е наред.');
 @define('ADDING_IMAGE', 'Добавяне на изображение...');
-@define('THUMB_CREATED_DONE', 'Миниатюрата %s е направена.<br>Готово.');
+@define('THUMB_CREATED_DONE', 'Миниатюрата %s е направена.<br>Готово.'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', 'Грешка: Този файл вече съществува!');
 @define('NOT_AVAILABLE', 'N/A'); // short!
 @define('GO', 'Продължаване');

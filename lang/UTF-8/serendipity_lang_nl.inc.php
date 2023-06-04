@@ -85,7 +85,7 @@
 @define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Fout: Er gaat iets fout');
 @define('ADDING_IMAGE', 'Afbeelding toevoegen...');
-@define('THUMB_CREATED_DONE', 'Miniatuur %s gemaakt.<br>Gedaan.');
+@define('THUMB_CREATED_DONE', 'Miniatuur %s gemaakt.<br>Gedaan.'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', 'Fout: Bestand bestaat al!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Er is een onbekende fout opgetreden, het bestand is niet verzonden. Misschien is het bestand groter dan uw server toestaat. Controleer dit bij uw provider of bewerk uw php.ini zodat deze grotere bestanden toelaat.');
 @define('NOT_AVAILABLE', 'N/A'); // short!
