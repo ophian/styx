@@ -338,6 +338,8 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     background-color: #2e343e; }
   [data-dark-theme="dark"] fieldset.form-group {
     border-color: #444c56; }
+  [data-dark-theme="dark"] figure {
+    border-color: #444c56; }
   [data-dark-theme="dark"] .serendipity_imageComment_txt {
     border-color: #3b434c;
     background-color: #22252a; }
