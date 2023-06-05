@@ -789,6 +789,8 @@ html[data-bs-theme="dark"] .hljs-keyword, html[data-bs-theme="dark"] .hljs-selec
 .archive.archive_summary {
     margin: auto;
     width: 100%; }
+.archive.archive_summary h2 {
+  font-size: 1.75rem; }
 .archive.archive_overview,
 .archive.archive_summary {
     margin-bottom: 2rem;
