@@ -962,6 +962,11 @@
 @define('CENTER', 'center');
 @define('FULL_COMMENT_TEXT', 'Yes, with full comment text');
 
+@define('SECURITY_ALERT', 'Security Alert');
+@define('COMMENT_SUMMARY_STRIPPED_VIEW_SECURED', 'Disable HTML-comments mode for check. Then use EDIT or the toggle option for a secured preview.'); // no quotes!
+@define('COMMENT_SUMMARY_STRIPPED_EMPTY', 'Empty, since removed probably bad injection.');
+@define('COMMENT_SUMMARY_STRIPPED', 'HTML - Stripped by security! Review content in EDIT or VIEW mode.'); // no quotes!
+
 @define('COMMENT_TOKENS', 'Use Tokens for Comment Moderation?');
 @define('COMMENT_TOKENS_DESC', 'If tokens are used, comments can be approved and deleted by clicking the email links without requiring login access to the blog. Note that this is a convenience feature, and if your mails get hijacked, those people can approve/delete the referenced comment without further authentication.');
 @define('COMMENT_NOTOKENMATCH', 'Moderation link has expired or comment #%s has already been approved or deleted');

@@ -962,6 +962,11 @@
 @define('CENTER', 'center');
 @define('FULL_COMMENT_TEXT', 'Yes, with full comment text');
 
+@define('SECURITY_ALERT', 'Security Alert');
+@define('COMMENT_SUMMARY_STRIPPED_VIEW_SECURED', 'Disable HTML-comments mode for check. Then use EDIT or the toggle option for a secured preview.'); // no quotes!
+@define('COMMENT_SUMMARY_STRIPPED_EMPTY', 'Empty, since removed probably bad injection.');
+@define('COMMENT_SUMMARY_STRIPPED', 'HTML - Stripped by security! Review content in EDIT or VIEW mode.'); // no quotes!
+
 @define('COMMENT_TOKENS', 'Tokenek használata a hozzászólások moderálásához?');
 @define('COMMENT_TOKENS_DESC', 'Amennyiben tokeneket használunk, a hozzászólásokat elfogadhatjuk vagy törölhetjük az emailben kapott linkre kattintva a blogba való bejelentkezés nélkül. Ez egy kényelmi funkció, de amennyiben egy ilyen email illetéktelenek kezébe kerül, ők is manipulálhatnak a kérdéses hozzászólásokkal további azonosítás nélkül.');
 @define('COMMENT_NOTOKENMATCH', 'A moderációs link lejárt, vagy a #%s számú hozzászólás már elfogadott/törölt');

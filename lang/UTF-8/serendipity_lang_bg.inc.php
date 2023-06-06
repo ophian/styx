@@ -965,6 +965,11 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('CENTER', 'център');
 @define('FULL_COMMENT_TEXT', 'Да, с пълен текст на коментара');
 
+@define('SECURITY_ALERT', 'Security Alert');
+@define('COMMENT_SUMMARY_STRIPPED_VIEW_SECURED', 'Disable HTML-comments mode for check. Then use EDIT or the toggle option for a secured preview.'); // no quotes!
+@define('COMMENT_SUMMARY_STRIPPED_EMPTY', 'Empty, since removed probably bad injection.');
+@define('COMMENT_SUMMARY_STRIPPED', 'HTML - Stripped by security! Review content in EDIT or VIEW mode.'); // no quotes!
+
 @define('COMMENT_TOKENS', 'Използване на Tokens за модериране на коментари?');
 @define('COMMENT_TOKENS_DESC', 'Ако се използват tokens, коментарите могат да се одобряват или изтриват чрез избиране на връзки в e-mail, без изискване за влизане в блога и име и парола. Въпреки, че това е удобно, ако вашият email бъбде прехванат, коментарите могат да бъдат одобрявани или изтривани без допълнително удостовервяване.');
 @define('COMMENT_NOTOKENMATCH', 'Връзката е с изтекъл срок или коментар #%s вече е бил одобрен или изтрит');

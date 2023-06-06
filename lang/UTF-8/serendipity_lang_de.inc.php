@@ -959,6 +959,11 @@
 @define('CENTER', 'mitte');
 @define('FULL_COMMENT_TEXT', 'Ja, mit vollständigen Kommentar-Texten.');
 
+@define('SECURITY_ALERT', 'Sicherheitswarnung');
+@define('COMMENT_SUMMARY_STRIPPED_VIEW_SECURED', 'Zur Überprüfung deaktivieren Sie den HTML-Kommentarmodus. Folgend kann mit EDIT oder der Umschaltoption für eine gesicherte Vorschau der Inhalt eingesehen werden.'); // no quotes!
+@define('COMMENT_SUMMARY_STRIPPED_EMPTY', 'Inhalt entfernt, da vermutete Angriffsvektoren.');
+@define('COMMENT_SUMMARY_STRIPPED', 'HTML - Aus Sicherheitsgründen entfernt! Inhalt bitte im EDIT oder VIEW Modus überprüfen.'); // no quotes!
+
 @define('COMMENT_TOKENS', 'Schnelle Kommentar-Moderation verwenden?');
 @define('COMMENT_TOKENS_DESC', 'Diese Methode setzt Tokens ein, damit Kommentare direkt aus der Hinweis-E-Mail heraus gelöscht oder akzeptiert werden können. Diese Funktion ist für höheren Komfort gedacht, geht aber zu Lasten der Sicherheit: Wenn jemand die E-Mail abfängt, kann diese Person entsprechende Kommentare ohne weitere Authentifikation löschen oder freischalten.');
 @define('COMMENT_NOTOKENMATCH', 'Der Kommentar-Link ist nicht mehr gültig, oder Kommentar #%s wurde bereits akzeptiert oder gelöscht.');

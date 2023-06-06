@@ -972,11 +972,18 @@ $i18n_filename_to = array (
 @define('COMMENT_MODERATED', 'Komentár è.%s bol úspe¹ne schválený');
 @define('CENTER', 'stred');
 @define('FULL_COMMENT_TEXT', 'Áno, s plným znením komentára');
+
+@define('SECURITY_ALERT', 'Security Alert');
+@define('COMMENT_SUMMARY_STRIPPED_VIEW_SECURED', 'Disable HTML-comments mode for check. Then use EDIT or the toggle option for a secured preview.'); // no quotes!
+@define('COMMENT_SUMMARY_STRIPPED_EMPTY', 'Empty, since removed probably bad injection.');
+@define('COMMENT_SUMMARY_STRIPPED', 'HTML - Stripped by security! Review content in EDIT or VIEW mode.'); // no quotes!
+
 @define('COMMENT_TOKENS', 'Pou¾i» príznaky (tokens) pre schvaµovanie komentárov?');
 @define('COMMENT_TOKENS_DESC', 'Ak sú príznaky (tokens) pou¾íváné, komentáre mô¾u by» schválené alebo odstránené kliknutím na odkaz v oznamovacom e-maile, bez potreby prihlásenia do weblogu. Berte do úvahy, ¾e ak niekto získa prístup k Va¹ím e-mailom, mô¾e schvaµova» a maza» komentáre bez zadania prihlasovacích údajov.');
 @define('COMMENT_NOTOKENMATCH', 'Odkazu na schválenie vypr¹ala platnos», alebo bol komentár è. %s u¾ schválený alebo odstránený');
 @define('TRACKBACK_NOTOKENMATCH', 'Odkazu na schválenie vypr¹ala platnos», alebo bola odozva è. %s u¾ schválená alebo odstránená');
 @define('BADTOKEN', 'Neplatný odkaz na schválenie');
+
 @define('CONFIRMATION_MAIL_ALWAYS', "Dobrý deò %s,\n\nPoslali ste nový komentár na \"%s\". Komentár znie:\n\n%s\n\nVlastník weblogu po¾aduje e-mailové potvrdenie, tak¾e je potrebné komentár potvrdi» kliknútím na nasledujúcí odkaz:\n<%s>\n");
 @define('CONFIRMATION_MAIL_ONCE', "Dobrý deò %s,\n\nPoslali ste nový komentár na \"%s\". Vá¹ komentár znie:\n\n%s\n\nVlastník weblogu vy¾aduje prvotné e-mailové potvrdenie. Znamená to, ¾e je potrebné komentár potvrdi» kliknutím na nasledující odkaz:\n<%s>\n\nSúèasne tým budú potvrdené v¹etky ïal¹ie komentáre s tým istým menom a tou istou e-mailovou adresou, tak¾e Vám v budúcnosti u¾ podobné oznámenie nebude doruèované.");
 @define('INSTALL_SUBSCRIBE_OPTIN', 'Pou¾i» Double-Opt In pre zápis k odoberaniu komentárov?');

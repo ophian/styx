@@ -963,6 +963,11 @@
 @define('CENTER', '중앙');
 @define('FULL_COMMENT_TEXT', '네, 전체 덧글을 포함합니다');
 
+@define('SECURITY_ALERT', 'Security Alert');
+@define('COMMENT_SUMMARY_STRIPPED_VIEW_SECURED', 'Disable HTML-comments mode for check. Then use EDIT or the toggle option for a secured preview.'); // no quotes!
+@define('COMMENT_SUMMARY_STRIPPED_EMPTY', 'Empty, since removed probably bad injection.');
+@define('COMMENT_SUMMARY_STRIPPED', 'HTML - Stripped by security! Review content in EDIT or VIEW mode.'); // no quotes!
+
 @define('COMMENT_TOKENS', '덧글 중재에 토큰 사용');
 @define('COMMENT_TOKENS_DESC', '토큰을 사용할 경우 블로그에 로그인하지 않고도 전자우편 링크를 통해 덧글을 승인하거나 삭제할 수 있습니다. 편의 기능이라는 점에 유의하십시오. 만약 전자우편 계정을 다른 사람이 탈취할 경우 그 사람이 별도의 인증 없이 덧글을 승인하거나 삭제할 수 있게 됩니다.');
 @define('COMMENT_NOTOKENMATCH', '중재 링크의 유효기간이 지났거나 %s번 덧글이 이미 승인 또는 삭제되었습니다');

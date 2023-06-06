@@ -973,6 +973,11 @@ $i18n_filename_to = array (
 @define('CENTER', 'center');
 @define('FULL_COMMENT_TEXT', 'Ano, s plným znìním komentáøe');
 
+@define('SECURITY_ALERT', 'Security Alert');
+@define('COMMENT_SUMMARY_STRIPPED_VIEW_SECURED', 'Disable HTML-comments mode for check. Then use EDIT or the toggle option for a secured preview.'); // no quotes!
+@define('COMMENT_SUMMARY_STRIPPED_EMPTY', 'Empty, since removed probably bad injection.');
+@define('COMMENT_SUMMARY_STRIPPED', 'HTML - Stripped by security! Review content in EDIT or VIEW mode.'); // no quotes!
+
 @define('COMMENT_TOKENS', 'Pou¾ít pøíznaky pro schvalování komentáøù?');
 @define('COMMENT_TOKENS_DESC', 'Pokud jsou pøíznaky pou¾ívány, komentáøe mohou být schváleny nebo odstranìny kliknutím na odkaz v oznamovacím emailu, ani¾ by bylo tøeba pøihlásit se do blogu. Mìjte na pamìti, ¾e je to sice pohodlná vlastnost, ale pokud nìkdo získá pøístup k Va¹í mailové schránce, mù¾e schvalovat/mazat komentáøe ani¾ by musel zadávat pøihla¹ovací data.');
 @define('COMMENT_NOTOKENMATCH', 'Schvalovacímu odkazu vypr¹ela platnost, nebo byl komentáø è.%s ji¾ schválen èi odstranìn');
