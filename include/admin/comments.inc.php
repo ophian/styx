@@ -461,9 +461,9 @@ if (is_array($sql)) {
         // Backend only: Do for both - else add ($serendipity['allowHtmlComment'] && )
         if ($comment['type'] == 'NORMAL' && serendipity_isCommentStripped($comment['summary'], $comment['excerpt'])) {
             if (empty($comment['summary'])) {
-                $comment['summary'] .= '<span class="msg_error ihelp" title="Check with disabled HTML-comments mode and EDIT or use the toggle option for a secured preview"><strong>Security Alert</strong>: Empty, since removed probably bad injection. <span class="icon-info-circled" aria-hidden="true"></span>&hellip;</span>';
+                $comment['summary'] .= '<span class="msg_error ihelp" title="'.COMMENT_SUMMARY_STRIPPED_VIEW_SECURED.'"><strong>'.SECURITY_ALERT.'</strong>: '.COMMENT_SUMMARY_STRIPPED_EMPTY.' <span class="icon-info-circled" aria-hidden="true"></span>&hellip;</span>';
             } else {
-                $comment['summary'] .= '<span class="summary_stripped" title="HTML - Stripped by security! Review content in EDIT or VIEW mode">&hellip;<span class="icon-code"></span></span>';
+                $comment['summary'] .= '<span class="summary_stripped" title="'.COMMENT_SUMMARY_STRIPPED.'">&hellip;<span class="icon-code"></span></span>';
             }
         }
         serendipity_plugin_api::hook_event('backend_view_comment', $comment, '&amp;serendipity[page]='. $page . $searchString);
