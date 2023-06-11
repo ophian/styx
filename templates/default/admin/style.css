@@ -1327,8 +1327,6 @@ h3.additional_properties {
 .configuration_group div > fieldset,
 .theme_options .configuration_group > fieldset,
 .configure_plugin .configuration_group > fieldset,
-.configure_plugin .config_optiongroup .odd,
-.configure_plugin .config_optiongroup .even,
 .configuration_group .form_field,
 .configuration_group .form_area,
 .configuration_group .form_select,
