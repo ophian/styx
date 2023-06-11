@@ -490,7 +490,7 @@ function serendipity_toDateTimeMapper(string $format, $timestamp = null, ?string
  * @param  boolean  A toggle to indicate, if the timezone offset should be ADDED or SUBSTRACTED from the timezone. Subtracting is required to restore original time when posting an entry.
  * @return int      The final timestamp
  */
-function serendipity_serverOffsetHour($timestamp = null, $negative = false) {
+function serendipity_serverOffsetHour($timestamp = null, $negative = false): int {
     global $serendipity;
 
     if ($timestamp === null) {
@@ -498,9 +498,9 @@ function serendipity_serverOffsetHour($timestamp = null, $negative = false) {
     }
 
     if (empty($serendipity['serverOffsetHours']) || !is_numeric($serendipity['serverOffsetHours']) || $serendipity['serverOffsetHours'] == 0) {
-        return $timestamp;
+        return (int) $timestamp;
     } else {
-        return $timestamp + (($negative ? -$serendipity['serverOffsetHours'] : $serendipity['serverOffsetHours']) * 60 * 60);
+        return (int) $timestamp + (($negative ? -$serendipity['serverOffsetHours'] : $serendipity['serverOffsetHours']) * 60 * 60);
     }
 }
 
