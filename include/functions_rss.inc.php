@@ -172,7 +172,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
             $entry['feed_last_modified'] = !empty($entry['last_modified'])
                                                 ? gmdate('Y-m-d\TH:i:s\Z', serendipity_serverOffsetHour($entry['last_modified']))
                                                 : $entry['feed_timestamp'];
-            $entry['feed_timestamp_r']   = date('r', $entry['timestamp']);
+            $entry['feed_timestamp_r']   = date('r', (int) $entry['timestamp']);
 
             // 3. UTF8 encoding
             $entry['feed_body'] = serendipity_utf8_encode($entry['body']);
