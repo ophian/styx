@@ -1,6 +1,9 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix .htaccess core templates for Apache 2.3 deny syntax. This also is the
+    minimum Apache Server version supported.
+
   * Add [ b53 ] theme to kept core themes
 
   * Add success message for ImageMagick image variation(s) results on upload
