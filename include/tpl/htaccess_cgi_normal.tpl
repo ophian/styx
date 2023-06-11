@@ -2,23 +2,23 @@
 DirectoryIndex {PREFIX}{indexFile}
 
 <Files *.tpl.php>
-    deny from all
+    Require all denied
 </Files>
 
 <Files *.tpl>
-    deny from all
+    Require all denied
 </Files>
 
 <Files *.sql>
-    deny from all
+    Require all denied
 </Files>
 
 <Files *.inc.php>
-    deny from all
+    Require all denied
 </Files>
 
 <Files *.db>
-    deny from all
+    Require all denied
 </Files>
 
 # END s9y
