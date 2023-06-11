@@ -4758,21 +4758,21 @@ function serendipity_prepareMedia(&$file, $url = '') {
     #if ($file['hotlink']) {//no need up from 2.0
     #    $file['nice_hotlink'] = wordwrap($file['path'], 45, '<br>', 1);
     #}
-    $file['nice_size'] = number_format(round($file['size']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
+    $file['nice_size'] = number_format(round($file['size']/1024, 2), (int) NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
     if (isset($file['thumbSize'])) {
-        $file['nice_thumbsize'] = number_format(round($file['thumbSize']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
+        $file['nice_thumbsize'] = number_format(round($file['thumbSize']/1024, 2), (int) NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
     }
     if (isset($file['sizeWebp'])) {
-        $file['nice_size_webp'] = number_format(round($file['sizeWebp']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
+        $file['nice_size_webp'] = number_format(round($file['sizeWebp']/1024, 2), (int) NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
     }
     if (isset($file['thumbSizeWebp'])) {
-        $file['nice_thumbsize_webp'] = number_format(round($file['thumbSizeWebp']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
+        $file['nice_thumbsize_webp'] = number_format(round($file['thumbSizeWebp']/1024, 2), (int) NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
     }
     if (isset($file['sizeAVIF'])) {
-        $file['nice_size_avif'] = number_format(round($file['sizeAVIF']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
+        $file['nice_size_avif'] = number_format(round($file['sizeAVIF']/1024, 2), (int) NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
     }
     if (isset($file['thumbSizeAVIF'])) {
-        $file['nice_thumbsize_avif'] = number_format(round($file['thumbSizeAVIF']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
+        $file['nice_thumbsize_avif'] = number_format(round($file['thumbSizeAVIF']/1024, 2), (int) NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
     }
 
     // inits
