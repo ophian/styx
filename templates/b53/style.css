@@ -230,7 +230,7 @@ html[data-bs-theme="dark"] input[type="date"], html[data-bs-theme="dark"] input[
 html[data-bs-theme="dark"] input[type="number"], html[data-bs-theme="dark"] input[type="password"], html[data-bs-theme="dark"] input[type="time"], html[data-bs-theme="dark"] input[type="week"],
 html[data-bs-theme="dark"] input[type="email"], html[data-bs-theme="dark"] input[type="search"], html[data-bs-theme="dark"] input[type="tel"], html[data-bs-theme="dark"] input[type="url"],
 html[data-bs-theme="dark"] select, html[data-bs-theme="dark"] textarea, html[data-bs-theme="dark"] input[type="text"] {
-  background-color: var(--bs-tertiary-bg);
+  background-color: var(--bs-dark-bg-subtle);
   border-color: var(--bs-border-color) var(--bs-border-color) var(--bs-secondary-bg);
   color: var(--bs-dark-text-emphasis); }
 html[data-bs-theme="dark"] .serendipity_imageComment_txt {
