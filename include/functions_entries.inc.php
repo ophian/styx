@@ -1920,7 +1920,7 @@ function serendipity_printArchives() {
     $group = array();
     if (is_array($entries)) {
         foreach($entries AS $entry) {
-            $d = date('Ym', $entry['timestamp']);
+            $d = date('Ym', (int) $entry['timestamp']);
             if(!isset($group[$d])) $group[$d] = ''; // mute possible empty items offset up-counting
             $group[$d]++; // same as += 1
         }
@@ -1945,17 +1945,17 @@ function serendipity_printArchives() {
             switch($serendipity['calendar']) {
                 case 'gregorian':
                 default:
-                    $s = serendipity_serverOffsetHour(mktime(0, 0, 0, $m, 1, $y), true);
-                    $e = serendipity_serverOffsetHour(mktime(23, 59, 59, $m, date('t', $s), $y), true);
+                    $s = serendipity_serverOffsetHour(mktime(0, 0, 0, $m, 1, (int) $y), true);
+                    $e = serendipity_serverOffsetHour(mktime(23, 59, 59, $m, (int) date('t', $s), (int) $y), true);
                     break;
                 case 'persian-utf8':
                     require_once S9Y_INCLUDE_PATH . 'include/functions_calendars.inc.php';
-                    $s = serendipity_serverOffsetHour(persian_mktime(0, 0, 0, $m, 1, $y), true);
-                    $e = serendipity_serverOffsetHour(persian_mktime(23, 59, 59, $m, date('t', $s), $y), true);
+                    $s = serendipity_serverOffsetHour(persian_mktime(0, 0, 0, $m, 1, (int) $y), true);
+                    $e = serendipity_serverOffsetHour(persian_mktime(23, 59, 59, $m, (int) date('t', $s), (int) $y), true);
                     break;
             }
 
-            $entry_count = $group[$y . (strlen($m) == 1 ? '0' : '') . $m] ?? 0;
+            $entry_count = $group[$y . (strlen((string) $m) == 1 ? '0' : '') . $m] ?? 0;
 
             /* A silly hack to get the maximum amount of entries per month */
             if ($entry_count > $max) {
