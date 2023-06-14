@@ -1,4 +1,3 @@
 <Files "*.txt">
-    deny from all
     Require all denied
 </Files>
