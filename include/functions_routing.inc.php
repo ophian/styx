@@ -549,11 +549,11 @@ function serveArchives() {
                         $serendipity['summaryFetchLimit'] = $serendipity['fetchLimit'] != 25 ? 25 : 24; // check case to make it independently unique - reset by case in genpage
                     // we have a month & year only order
                     } else {
-                        $ts = mktime(0, 0, 1, $month, $gday, $year);
+                        $ts = mktime(0, 0, 1, (int) $month, (int) $gday, (int) $year);
                         if (!isset($gday2)) {
                             $gday2 = date('t', $ts);
                         }
-                        $te = mktime(23, 59, 59, $month, $gday2, $year);
+                        $te = mktime(23, 59, 59, (int) $month, (int) $gday2, (int) $year);
                         $date = serendipity_formatTime('%B %Y', $ts, false);
                         $serendipity['summaryFetchLimit'] = $serendipity['fetchLimit'] != 25 ? 25 : 24; // check case to make it independently unique
                     }
@@ -609,11 +609,11 @@ function serveArchives() {
                         $serendipity['summaryFetchLimit'] = $serendipity['fetchLimit'] != 25 ? 25 : 24; // check case to make it independently unique - reset by case in genpage
                     // we have a month & year only order
                     } else {
-                        $ts = persian_mktime(0, 0, 1, $month, $gday, $year);
+                        $ts = persian_mktime(0, 0, 1, (int) $month, (int) $gday, (int) $year);
                         if (!isset($gday2)) {
                             $gday2 = persian_date_utf('t', $ts);
                         }
-                        $te = persian_mktime(23, 59, 59, $month, $gday2, $year);
+                        $te = persian_mktime(23, 59, 59, (int) $month, (int) $gday2, (int) $year);
                         $date = serendipity_formatTime('%B %Y', $ts, false);
                         $serendipity['summaryFetchLimit'] = $serendipity['fetchLimit'] != 25 ? 25 : 24; // check case to make it independently unique
                     }
