@@ -3,7 +3,7 @@ Version 4.x-DEV ()
 
   * Fix .htaccess core templates for Apache 2.3 deny syntax. This also is the
     minimum Apache Server version supported.
-    This also lived in templates/logs/.htaccess and its deployment copy.
+    This also lived in templates_c/logs/.htaccess and its deployment copy.
 
     ON APACHE 2.3.x/2.4.x Servers not using the mod_access_compat module:
       If you get/got an internal server error you might want to check if your
