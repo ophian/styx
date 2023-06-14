@@ -1,6 +1,8 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix [ b53 ] theme for search request redirects
+
   * Fix .htaccess core templates for Apache 2.3 deny syntax. This also is the
     minimum Apache Server version supported.
     This also lived in templates_c/logs/.htaccess and its deployment copy.
