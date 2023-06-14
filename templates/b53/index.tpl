@@ -99,7 +99,7 @@
 
         <hr class="d-lg-none text-white-50">
 
-        <form class="col-12 col-lg-auto mt-1 mb-3 mb-lg-0 me-lg-2" method="get" role="search">
+        <form class="col-12 col-lg-auto mt-1 mb-3 mb-lg-0 me-lg-2" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get" role="search">
           <input type="hidden" name="serendipity[action]" value="search">
           <input type="search" class="form-control" name="serendipity[searchTerm]" placeholder="{$CONST.BS_PLACEHOLDER_QUICKSEARCH}" value="" aria-label="{$CONST.QUICKSEARCH}">
         </form>
