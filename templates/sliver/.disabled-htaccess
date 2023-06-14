@@ -1,3 +1,9 @@
+###########################################################
+########
+######## This file and some directives are outdated, since newer Apache versions use different syntax. PLEASE CHECK THIS BEFORE USING!
+########
+###########################################################
+
 # Apache configuration file
 # httpd.apache.org/docs/2.2/mod/quickreference.html
 
