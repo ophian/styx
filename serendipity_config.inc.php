@@ -474,6 +474,9 @@ if (!isset($serendipity['GET']['action'])) {
     if (is_array($serendipity['POST'])) {
         $serendipity['GET']['action'] = $serendipity['POST']['action'] ?? '';
     } else {
+        if (!is_array($serendipity['GET'])) {
+            $serendipity['GET'] = [];
+        }
         $serendipity['GET']['action'] = '';
     }
 }
