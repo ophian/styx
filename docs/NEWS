@@ -5,6 +5,11 @@ Version 4.x-DEV ()
     minimum Apache Server version supported.
     This also lived in templates/logs/.htaccess and its deployment copy.
 
+    ON APACHE 2.3.x/2.4.x Servers not using the mod_access_compat module:
+      If you get/got an internal server error you might want to check if your
+      old Serendipity Styx .htaccess files still say "deny from all", which
+      since long have to be set to "Require all denied" syntax.
+
   * Add [ b53 ] theme to kept core themes
 
   * Add success message for ImageMagick image variation(s) results on upload
