@@ -83,6 +83,9 @@ fieldset {
 
 legend {
   border: 0; }
+  /* this is contactform only, since commentform uses label */
+  #serendipity_comment legend {
+    font-size: 1.125rem; }
 
 optgroup {
   font-weight: bold; }
@@ -1179,8 +1182,8 @@ details summary {
   margin: 0 !important; }
 
 .serendipity_imageComment_txt {
-  font-size: 14px;
-  font-size: .8125rem;
+  font-size: 12.825px;
+  font-size: .7125rem;
   word-wrap: anywhere;
   overflow: hidden;
   margin: auto;
