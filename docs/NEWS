@@ -1,8 +1,8 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
-  * Fix plugin categories sidebar logic for multi-categories views per
-    checkbox selection, related to CATEGORIES_HIDE_PARALLEL option.
+  * Fix plugin categories sidebar logic for multi-category views over
+    checkbox selection, related to the CATEGORIES_HIDE_PARALLEL option.
 
   * Fix [ b53 ] theme for search request redirects
 
