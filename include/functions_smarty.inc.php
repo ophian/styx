@@ -96,7 +96,7 @@ function &serendipity_printTrackbacks(&$trackbacks) {
  * @param  int  The unix timestamp to format
  * @return timestamp in ISO-format
  */
-function serendipity_smarty_html5time(?int $timestamp): string {
+function serendipity_smarty_html5time(int $timestamp): string {
     return date('c', $timestamp);
 }
 
