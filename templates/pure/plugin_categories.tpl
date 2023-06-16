@@ -15,7 +15,7 @@
     {/foreach}
     </ul>
 {if $is_form}
-    <div class="category_submit"><input id="category_submit" type="submit" name="serendipity[isMultiCat]" value="{if isset($smarty.get.serendipity.category)}{$CONST.RESET_FILTERS}{else}{$CONST.GO}{/if}"></div>
+    <div class="category_submit"><input id="category_submit" type="submit" name="serendipity[isMultiCat]" value="{if NOT empty($smarty.get.serendipity.category)}{$CONST.RESET_FILTERS}{else}{$CONST.GO}{/if}"></div>
 {/if}
 {if $show_all}
     <div class="category_link_all"><a href="{$form_url}?frontpage" title="{$CONST.ALL_CATEGORIES}">{$CONST.ALL_CATEGORIES}</a></div>
