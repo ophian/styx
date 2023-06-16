@@ -20,7 +20,7 @@
     </ul>
 
 {if $is_form}
-    <div class="category_submit"><input type="submit" name="serendipity[isMultiCat]" value="{if isset($smarty.get.serendipity.category)}{$CONST.RESET_FILTERS}{else}{$CONST.GO}{/if}"></div>
+    <div class="category_submit"><input type="submit" name="serendipity[isMultiCat]" value="{if NOT empty($smarty.get.serendipity.category)}{$CONST.RESET_FILTERS}{else}{$CONST.GO}{/if}"></div>
 {/if}
 
 {if $show_all}
