@@ -1719,6 +1719,8 @@ html[data-bs-theme="dark"] .serendipity_freetag_taglist ul {
 }
 
 @media only screen and (min-width: 992px) {
+  .container.ctcol3 {
+    max-width: initial; }
   .serendipity_entrypaging.mobile {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
@@ -1748,7 +1750,15 @@ html[data-bs-theme="dark"] .serendipity_freetag_taglist ul {
     text-align: left; }
 }
 
+@media (min-width: 1320px) {
+  .container.ctcol3 {
+    max-width: 1360px; }
+}
+
 @media screen and (min-width: 1400px) {
   html {
     font-size: 112.5%; }
+
+  .container.ctcol3 {
+    max-width: 1240px; }
 }
