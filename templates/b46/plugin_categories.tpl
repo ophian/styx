@@ -5,7 +5,7 @@
     {foreach $categories AS $plugin_category}
         <li class="category_depth{$plugin_category.catdepth}">
         {if $is_form}
-            <input type="checkbox" name="serendipity[multiCat][]" value="{$plugin_category.categoryid}">
+            <input type="checkbox" name="serendipity[multiCat][]" value="{$plugin_category.categoryid}"{if isset($plugin_category.checkcat)} checked=checked{/if}>
         {/if}
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-rss-fill" role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title">
               <title id="title">XML</title>
