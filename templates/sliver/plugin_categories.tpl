@@ -7,7 +7,7 @@
 {foreach $categories AS $plugin_category}
         <li class="category_depth{$plugin_category.catdepth} category_{$plugin_category.categoryid}">
         {if $is_form}
-            <input type="checkbox" name="serendipity[multiCat][]" value="{$plugin_category.categoryid}"{if isset($plugin_category.checkcat)} checked=checked{/if}>
+            <input type="checkbox" name="serendipity[multiCat][]" value="{$plugin_category.categoryid}">
         {/if}
 
         {if NOT empty($category_image)}
