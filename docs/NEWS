@@ -1,6 +1,8 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Implement [ b53 ] theme container [ .ctcol3 ] selector for better fluids
+
   * Improve plugin categories sidebar logic adding an array checkcat item for
     selected checkbox selections.
     For this an addition was made to the plugin_categories.tpl file in [ pure,
