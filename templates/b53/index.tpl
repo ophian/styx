@@ -144,7 +144,7 @@
     </div>
   </nav>
 </header>
-  <div class="container bg-auto">
+  <div class="container bg-auto{if ($leftSidebarElements > 0 AND $rightSidebarElements > 0)} ctcol3{/if}">
     <div class="row">
 {if $leftSidebarElements > 0}
 
