@@ -1,6 +1,6 @@
 Name: Bootstrap 4
 Author: Matthias Mees, Ian Styx
-Date: 2023-03-13
+Date: 2023-06-16
 Require Serendipity: 3.5
 Backend: No
 Responsive: Yes
