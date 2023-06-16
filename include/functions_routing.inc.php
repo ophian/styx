@@ -286,9 +286,15 @@ function serveCategory($matches, $is_multicat=false) {
     $uri = $_SERVER['REQUEST_URI'];
 
     if ($is_multicat) {
-        $serendipity['GET']['category'] = serendipity_specialchars(implode(';', $serendipity['POST']['multiCat']));
+        if (isset($serendipity['POST']['isMultiCat']) && $serendipity['POST']['isMultiCat'] != RESET_FILTERS) {
+            $serendipity['GET']['category'] = serendipity_specialchars(implode(';', $serendipity['POST']['multiCat']));
+        } else {
+            $serendipity['GET']['category'] = '';
+        }
         $serendipity['uriArguments'][]  = PATH_CATEGORIES;
-        $serendipity['uriArguments'][]  = serendipity_db_escape_string($serendipity['GET']['category']) . '-multi';
+        if (!empty($serendipity['GET']['category'])) {
+            $serendipity['uriArguments'][]  = serendipity_db_escape_string($serendipity['GET']['category']) . '-multi';
+        }
     } elseif (preg_match('@/([0-9;]+)@', $uri, $multimatch)) {
         if (stristr($multimatch[1], ';')) {
             $is_multicat = true;
