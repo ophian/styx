@@ -1750,9 +1750,9 @@ html[data-bs-theme="dark"] .serendipity_freetag_taglist ul {
     text-align: left; }
 }
 
-@media (min-width: 1320px) {
+@media screen and (min-width: 1320px) {
   .container.ctcol3 {
-    max-width: 1360px; }
+    max-width: 1300px; }
 }
 
 @media screen and (min-width: 1400px) {
@@ -1760,5 +1760,5 @@ html[data-bs-theme="dark"] .serendipity_freetag_taglist ul {
     font-size: 112.5%; }
 
   .container.ctcol3 {
-    max-width: 1240px; }
+    max-width: 1300px; }
 }
