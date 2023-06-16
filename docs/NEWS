@@ -1,6 +1,10 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve plugin_categories.tpl for the Smarty RESET_FILTERS logic in [ pure,
+    boot, b46, bootstrap4, 2k11, next, skeleton, default, default-php ] themes.
+    COPY THEMERS: Watch out for file changes, please.
+
   * Fix plugin categories sidebar logic for multi-category views over
     checkbox selection, related to the CATEGORIES_HIDE_PARALLEL option.
 
