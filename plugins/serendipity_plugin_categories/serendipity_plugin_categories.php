@@ -15,7 +15,7 @@ class serendipity_plugin_categories extends serendipity_plugin
         $propbag->add('description', CATEGORY_PLUGIN_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.17');
+        $propbag->add('version',       '2.18');
         $propbag->add('configuration', array('title', 'authorid', 'parent_base', 'hide_parent', 'image', 'sort_order', 'sort_method', 'allow_select', 'hide_parallel', 'show_count', 'show_all', 'smarty'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -253,6 +253,11 @@ class serendipity_plugin_categories extends serendipity_plugin
                             $hidedepth = $cat['depth'];
                         }
                     }
+                }
+
+                // add checked for chosen categories (not for child dependencies)
+                if ($hide_parallel && (!empty($serendipity['GET']['category']) && in_array($cat['categoryid'], explode(';', $serendipity['GET']['category'])))) {
+                    $categories[$cid]['checkcat']    = true;
                 }
 
                 $categories[$cid]['feedCategoryURL'] = serendipity_feedCategoryURL($cat, 'serendipityHTTPPath');
