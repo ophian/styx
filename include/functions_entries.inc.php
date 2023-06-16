@@ -450,7 +450,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
     // DEBUG:
     // die($serendipity['fullCountQuery']);
     if (!empty($limit)) {
-        if (isset($serendipity['GET']['page']) && ($serendipity['GET']['page'] > 1 || serendipity_db_bool($serendipity['archiveSortStable'])) && !strstr($limit, ',')) {
+        if (isset($serendipity['GET']['page']) && ($serendipity['GET']['page'] > 1 || serendipity_db_bool($serendipity['archiveSortStable'])) && !strstr((string) $limit, ',')) {
             if (serendipity_db_bool($serendipity['archiveSortStable'])) {
                 $totalEntries = serendipity_getTotalEntries();
 
