@@ -1095,6 +1095,27 @@ input[type="checkbox"] {
     white-space: nowrap;
     padding-bottom: 1rem; }
 
+.serendipity_plugin_categories a:first-of-type {
+    text-decoration: none; }
+[data-bs-theme="dark"] .serendipity_plugin_categories a:last-of-type {
+   text-decoration-color: var(--bs-gray-500); }
+[data-bs-theme="dark"] .serendipity_plugin_categories a:hover:last-of-type {
+   text-decoration-color: var(--bs-primary-text-emphasis); }
+.serendipity_plugin_categories .category_depth1 a:last-of-type {
+    margin-left: .5em; }
+.serendipity_plugin_categories .category_depth2 a:last-of-type {
+    margin-left: 1em; }
+.serendipity_plugin_categories .category_depth3 a:last-of-type {
+    margin-left: 1.5em; }
+@media only screen and (min-width: 768px) and (max-width:920px) {
+  .serendipity_plugin_categories .category_depth1 a:last-of-type {
+    margin-left: .25rem; }
+  .serendipity_plugin_categories .category_depth2 a:last-of-type {
+    margin-left: .5rem; }
+  .serendipity_plugin_categories .category_depth3 a:last-of-type {
+    margin-left: .75rem; }
+}
+
 #serendipity_categories_list input[type="checkbox"] {
   vertical-align: middle;
   margin-right: 9px;
