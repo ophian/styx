@@ -1,6 +1,8 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Allow search result on page message in [ boot ] pool theme
+
   * Implement [ b53 ] theme container [ .ctcol3 ] selector for better fluids
 
   * Improve plugin categories sidebar logic adding an array checkcat item for
