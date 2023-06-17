@@ -1358,6 +1358,11 @@ html[data-bs-theme="dark"] .serendipity_freetag_taglist ul {
   border: 1px outset #f0ffff2e;
   background: #f0f8ff2e; }
 
+/* multilingual lang selection */
+select[name="user_language"] {
+  font-size: 1rem !important;
+}
+
 .commentspice_announce_article {
   font-size: 14px;
   font-size: .8125rem;
