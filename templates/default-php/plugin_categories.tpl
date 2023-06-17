@@ -8,7 +8,7 @@
     foreach ($GLOBALS['tpl']['categories'] AS $plugin_category):?>
         <li>
         <?php if ($GLOBALS['tpl']['is_form']): ?>
-            <input type="checkbox" name="serendipity[multiCat][]" value="<?= $plugin_category['categoryid'] ?>"<?php if (isset($plugin_category['checkcat'])): ?> checked=checked<?php endif; ?>>
+            <input type="checkbox" name="serendipity[multiCat][]" value="<?= $plugin_category['categoryid'] ?>"<?php if (isset($plugin_category['checkcat'])): ?> checked="checked"<?php endif; ?>>
         <?php endif; ?>
 
         <?php if (!empty($GLOBALS['tpl']['category_image'])): ?>
