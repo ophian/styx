@@ -4357,8 +4357,11 @@ img.mfp-img {
         max-width: 95%;
         width: 95%;
     }
-    /* @see 360+ top right floated long titled bee, dsgvo_gdpr, sidebarlogo set */
-    #plugin_options h2,
+    /* @see 360+ top right floated long titled bee, dsgvo_gdpr, sidebarlogo, serendipity_plugin_nugget_multilingual set */
+    #plugin_options h2 {
+        max-width: 100%;
+        word-break: initial;
+    }
     .plugin_info.tgroup_info {
         max-width: 93%;
         word-break: initial;
