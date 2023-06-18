@@ -280,9 +280,9 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
     }
 
     if (is_numeric($range)) {
-        $year  = (int)substr($range, 0, 4);
-        $month = (int)substr($range, 4, 2);
-        $day   = (int)substr($range, 6, 2);
+        $year  = (int)substr((string) $range, 0, 4);
+        $month = (int)substr((string) $range, 4, 2);
+        $day   = (int)substr((string) $range, 6, 2);
 
         $startts = serendipity_serverOffsetHour(mktime(0, 0, 0, $month, ($day == 0 ? 1 : $day), $year), true);
 
