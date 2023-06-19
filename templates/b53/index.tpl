@@ -210,7 +210,7 @@
 {/if}
 {if (in_array($view, ['start', 'entries', 'entry', 'comments', 'categories']) AND $wysiwyg_comment) OR isset($hljsload) && $hljsload === true}
 
-<link rel="stylesheet" href="{serendipity_getFile file="highlight/github.min.css"}">
+<link rel="stylesheet" href="{serendipity_getFile file="highlight/github-boot.min.css"}">
 <script src="{serendipity_getFile file="highlight/highlight.min.js"}"></script>
 <script>
     // launch the codesnippet highlight
