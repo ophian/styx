@@ -1,6 +1,11 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Add [ boot ] pool and [ pure ] combined light/dark mode assets
+     _assets/highlight/github-pool.min.css
+     _assets/highlight/github-pure.min.css
+    for highlight js code, differed by the used dark mode prefix.
+
   * Add _assets/highlight/github-dark.min.css for singular dark mode themes to
     template assets.
 
