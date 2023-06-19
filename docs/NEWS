@@ -1,6 +1,8 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Enable [ b53 ] theme using the combined "github-pool.min.css" file
+
   * Add [ boot ] pool and [ pure ] combined light/dark mode assets
      _assets/highlight/github-pool.min.css
      _assets/highlight/github-pure.min.css
