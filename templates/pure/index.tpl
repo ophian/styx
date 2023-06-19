@@ -137,7 +137,7 @@
     {assign var="hljsload" value=true}
 {/if}
 {if (in_array($view, ['start', 'entries', 'entry', 'comments', 'categories']) AND $template_option.use_highlight === true) OR isset($hljsload) && $hljsload === true}
-    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}_assets/highlight/github.min.css">
+    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}_assets/highlight/github-pure.min.css">
     <script src="{$serendipityHTTPPath}{$templatePath}_assets/highlight/highlight.min.js"></script>
     <script>
         // launch the codesnippet highlight
