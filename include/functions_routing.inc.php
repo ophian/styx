@@ -530,9 +530,9 @@ function serveArchives() {
             $gday = 1;
 
             if (isset($week)) {
-                $tm = strtotime('+ '. ($week-2) .' WEEKS monday', mktime(0, 0, 0, 1, 1, $year));
-                $ts = mktime(0, 0, 1, date('m', $tm), date('j', $tm), $year);
-                $te = mktime(23, 59, 59, date('m', $tm), date('j', $tm)+7, $year);
+                $tm = strtotime('+ '. ($week-2) .' WEEKS monday', mktime(0, 0, 0, 1, 1, (int) $year));
+                $ts = mktime(0, 0, 1, date('m', $tm), date('j', $tm), (int) $year);
+                $te = mktime(23, 59, 59, date('m', $tm), date('j', $tm)+7, (int) $year);
                 $date = serendipity_formatTime(WEEK .' '. $week .', %Y', $ts, false);
             } else {
                 // all entry summary order only
@@ -544,13 +544,13 @@ function serveArchives() {
                 } else {
                     // we have a full date day order OR either the default case for current date archives ie. /archives/P2.html OR 'C' (category), 'A' (author) alike archives pages
                     if ($day) {
-                        $ts = mktime(0, 0, 1, $month, $day, $year);
-                        $te = mktime(23, 59, 59, $month, $day, $year);
+                        $ts = mktime(0, 0, 1, (int) $month, (int) $day, (int) $year);
+                        $te = mktime(23, 59, 59, (int) $month, (int) $day, (int) $year);
                         $date = serendipity_formatTime(DATE_FORMAT_ENTRY, $ts, false);
                     // we have a year order only AND this can be either /archives/2018/summary.html OR /archives/2018.html
                     } elseif ($year && !isset($month)) {
-                        $ts = mktime(0, 0, 1, 1, 1, $year);
-                        $te = mktime(23, 59, 59, 12, 31, $year);
+                        $ts = mktime(0, 0, 1, 1, 1, (int) $year);
+                        $te = mktime(23, 59, 59, 12, 31, (int) $year);
                         $date = $year;
                         $serendipity['summaryFetchLimit'] = $serendipity['fetchLimit'] != 25 ? 25 : 24; // check case to make it independently unique - reset by case in genpage
                     // we have a month & year only order
