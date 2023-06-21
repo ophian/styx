@@ -507,5 +507,5 @@ function persian_mktime($hour='', $min='', $sec='', $mon='', $day='', $year='') 
         $day += $j_days_in_month[$temp_month];
     }
     list($year, $mon, $day) = p2g($year, $mon, $day);
-    return mktime($hour, $min, $sec, $mon, $day, $year);
+    return mktime((int) $hour, (int) $min, (int) $sec, (int) $mon, (int) $day, (int) $year);
 }
