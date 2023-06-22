@@ -1,6 +1,12 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+
+  * Move backend sidebar item "Maintenance" in the styx backend theme back into
+    the configuration/administration section. Having thought about this all the
+    years now and found that it is much more a core administration/configuration
+    task than an activity task.
+
   * Fix template logic for empty entries NO_ENTRIES_TO_PRINT message in
     "index.tpl" of [ boot, b5blog ] themes.
     COPY THEMERS: Follow file changes, please.
