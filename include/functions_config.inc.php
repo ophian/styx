@@ -630,7 +630,7 @@ function serendipity_issueAutologin($array) {
         $package = serialize($array); // fallback to session based authentication
     }
 
-    $rnd = md5(uniqid(time(), true) . $_SERVER['REMOTE_ADDR']);
+    $rnd = md5(uniqid((string)time(), true) . $_SERVER['REMOTE_ADDR']);
 
     // Delete possible current cookie. Also delete any autologin keys that smell like 3-week-old, dead fish.
     if (stristr($serendipity['dbType'], 'sqlite')) {
