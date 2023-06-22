@@ -1,6 +1,10 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix template logic for empty entries NO_ENTRIES_TO_PRINT message in
+    "index.tpl" of [ boot, b5blog ] themes.
+    COPY THEMERS: Follow file changes, please.
+
   * Enable [ pure ] theme using the combined "github-pure.min.css" file
 
   * Enable [ b53 ] theme using the combined "github-pool.min.css" file
