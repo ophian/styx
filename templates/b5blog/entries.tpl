@@ -194,11 +194,11 @@
     {/foreach}
 
 </section>
-{foreachelse}
-    {if NOT $plugin_clean_page AND $view != '404'}
+{/foreach}
+{else}
+    {if NOT $plugin_clean_page AND NOT isset($staticpage_pagetitle) AND NOT in_array($view, ['404', 'start'])}
     <p class="serendipity_msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
-{/foreach}
 {/if}
 {if NOT $is_single_entry AND NOT $is_preview AND NOT $plugin_clean_page AND (NOT empty($footer_prev_page) OR NOT empty($footer_next_page))}
 
