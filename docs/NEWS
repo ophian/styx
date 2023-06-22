@@ -13,6 +13,7 @@ Version 4.x-DEV ()
      _assets/highlight/github-pool.min.css
      _assets/highlight/github-pure.min.css
     for highlight js code, differed by the used dark mode prefix.
+    COPY THEMERS: Improve you copy files, please.
 
   * Add _assets/highlight/github-dark.min.css for singular dark mode themes to
     template assets.
