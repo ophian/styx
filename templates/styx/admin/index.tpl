@@ -165,10 +165,6 @@
                     {if 'adminPlugins'|checkPermission AND $admin_vars.no_create !== true}
                         {serendipity_hookPlugin hook="backend_sidebar_admin_appearance" hookAll="true"}
                     {/if}
-                    {if 'siteConfiguration'|checkPermission OR 'siteAutoUpgrades'|checkPermission}
-
-                        <li><a href="serendipity_admin.php?serendipity[adminModule]=maintenance">{$CONST.MENU_MAINTENANCE}</a></li>
-                    {/if}
 
                     </ul>
                 </li>
@@ -187,6 +183,10 @@
                     {if 'adminPlugins'|checkPermission}
 
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=plugins">{$CONST.MENU_PLUGINS}</a></li>
+                    {/if}
+                    {if 'siteConfiguration'|checkPermission OR 'siteAutoUpgrades'|checkPermission}
+
+                        <li><a href="serendipity_admin.php?serendipity[adminModule]=maintenance">{$CONST.MENU_MAINTENANCE}</a></li>
                     {/if}
                     {if $admin_vars.no_create !== true}
 
