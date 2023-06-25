@@ -2,6 +2,10 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix and improve the "last page of" multipage search results on MySQL which
+    could get extended by the wildcard * search and so borked the paging
+    consistency.
+
   * Fix and improve the archives plugin for incorrectly labeled C0 category
 
   * Move backend sidebar item "Maintenance" in the styx backend theme back into
