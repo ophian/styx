@@ -1806,7 +1806,7 @@ function serendipity_generateVariations($id = null) {
         $logtag = 'MAINTENANCE ML IMAGE-SYNC OPT #4 - PART RUN ::';
         $trace  = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
         $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START MS serendipity_generateVariations() SEPARATOR" . str_repeat(" >>> ", 10) . "\n");
-        $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
+        $serendipity['logger']->debug("TRACE: " . print_r($trace,true));
     }
     // single image upgrade only
     if (!empty($id)) {
@@ -1817,16 +1817,16 @@ function serendipity_generateVariations($id = null) {
                 return false;
             }
             if ($debug) $logtag = 'SINGLE ML IMAGE-ADD-VARIATION - PART RUN ::';
-            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag EACH FILE AFTER: ".print_r($file,1)); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag EACH FILE AFTER: ".print_r($file,true)); }
             $infile    = $outfile   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
             $infileTH  = $outfileTH = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['thumbnail_name']) ? '' : '.' . $file['thumbnail_name']) . (empty($file['extension']) ? '' : '.' . $file['extension']);
 
             // WebP case
             if ($serendipity['useWebPFormat']) {
                 $newfile   = serendipity_makeImageVariationPath($outfile, 'webp');
-                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE WEBP: ".print_r($newfile,1)); }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE WEBP: ".print_r($newfile,true)); }
                 $newfileTH = serendipity_makeImageVariationPath($outfileTH, 'webp');
-                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB WEBP: ".print_r($newfileTH,1)); }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB WEBP: ".print_r($newfileTH,true)); }
                 if (in_array(strtoupper(explode('/', mime_content_type($outfile))[1]), serendipity_getSupportedFormats())) {
                     $odim = filesize($infile);
                     $webpIMQ = -1;
@@ -1841,7 +1841,7 @@ function serendipity_generateVariations($id = null) {
                     $webpIMQ = -1;
                 }
                 $result    = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true, $webpIMQ); // Origins WebP copy variation only in case it is big, else we might get bigger webp lossless expression than the origin
-                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO WEBP: ".print_r($result,1)); }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO WEBP: ".print_r($result,true)); }
                 if ($result !== false && is_array($result) && $result[0] == 0) {
                     serendipity_convertToWebPFormat($infileTH, $newfileTH['filepath'], $newfileTH['filename'], mime_content_type($outfileTH), true); // WebP thumbnail uses full quality by auto default
                     $resWebP = true;
@@ -1850,12 +1850,12 @@ function serendipity_generateVariations($id = null) {
             // AVIF case
             if ($serendipity['useAvifFormat']) {
                 $newfile   = serendipity_makeImageVariationPath($outfile, 'avif');
-                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE AVIF: ".print_r($newfile,1)); }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE AVIF: ".print_r($newfile,true)); }
                 $newfileTH = serendipity_makeImageVariationPath($outfileTH, 'avif');
-                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB AVIF: ".print_r($newfileTH,1)); }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB AVIF: ".print_r($newfileTH,true)); }
 
                 $result    = serendipity_convertToAvifFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true);
-                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO AVIF: ".print_r($result,1)); }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO AVIF: ".print_r($result,true)); }
                 if ($result !== false && is_array($result) && $result[0] == 0) {
                     serendipity_convertToAvifFormat($infileTH, $newfileTH['filepath'], $newfileTH['filename'], mime_content_type($outfileTH), true);
                     $resAVIF = true;
@@ -1877,23 +1877,23 @@ function serendipity_generateVariations($id = null) {
         echo "<li>" . sprintf(SYNC_IMAGE_LIST_ITERATION_RANGE_PART, $iteration, ($count[0]-$part)) . "</li>\n";
         // we use and set a filter extension for webp to get same results for the part range
         $files = serendipity_fetchImagesFromDatabase($part, 25, $total, array('path, name'), 'ASC', '', '', '', array('by.extension' => array(0 => 'jpg', 1 => 'jpeg', 2 => 'png')));
-        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag FETCH PART $iteration DB FILES: ".print_r($files,1)); }
+        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag FETCH PART $iteration DB FILES: ".print_r($files,true)); }
         if (is_array($files) && !empty($files)) {
             foreach($files AS $f => $file) {
                 $resWebP = $resAVIF = false; // init
                 if (!in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png', 'gif']) || $file['hotlink'] == 1) {
                     continue; // next
                 }
-                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag EACH FILE AFTER: ".print_r($file,1)); }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag EACH FILE AFTER: ".print_r($file,true)); }
                 $infile    = $outfile   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
                 $infileTH  = $outfileTH = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['thumbnail_name']) ? '' : '.' . $file['thumbnail_name']) . (empty($file['extension']) ? '' : '.' . $file['extension']);
 
                 // WebP case
                 if ($serendipity['useWebPFormat']) {
                     $newfile   = serendipity_makeImageVariationPath($outfile, 'webp');
-                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE WEBP: ".print_r($newfile,1)); }
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE WEBP: ".print_r($newfile,true)); }
                     $newfileTH = serendipity_makeImageVariationPath($outfileTH, 'webp');
-                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB WEBP: ".print_r($newfileTH,1)); }
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB WEBP: ".print_r($newfileTH,true)); }
                     if (in_array(strtoupper(explode('/', mime_content_type($outfile))[1]), serendipity_getSupportedFormats())) {
                         $odim = filesize($infile);
                         $webpIMQ = -1;
@@ -1908,7 +1908,7 @@ function serendipity_generateVariations($id = null) {
                         $webpIMQ = -1;
                     }
                     $result    = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true, $webpIMQ); // Origins WebP copy variation only in case it is big, else we might get bigger webp lossless expression than the origin
-                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO WEBP: ".print_r($result,1)); }
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO WEBP: ".print_r($result,true)); }
                     if ($result !== false && is_array($result) && $result[0] == 0) {
                         serendipity_convertToWebPFormat($infileTH, $newfileTH['filepath'], $newfileTH['filename'], mime_content_type($outfileTH), true); // WebP thumbnail uses full quality by auto default
                         $resWebP = true;
@@ -1917,12 +1917,12 @@ function serendipity_generateVariations($id = null) {
                 // AVIF case
                 if ($serendipity['useAvifFormat']) {
                     $newfile   = serendipity_makeImageVariationPath($outfile, 'avif');
-                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE AVIF: ".print_r($newfile,1)); }
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE AVIF: ".print_r($newfile,true)); }
                     $newfileTH = serendipity_makeImageVariationPath($outfileTH, 'avif');
-                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB AVIF: ".print_r($newfileTH,1)); }
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB AVIF: ".print_r($newfileTH,true)); }
 
                     $result    = serendipity_convertToAvifFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true);
-                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO AVIF: ".print_r($result,1)); }
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO AVIF: ".print_r($result,true)); }
                     if ($result !== false && is_array($result) && $result[0] == 0) {
                         serendipity_convertToAvifFormat($infileTH, $newfileTH['filepath'], $newfileTH['filename'], mime_content_type($outfileTH), true);
                         $resAVIF = true;
@@ -2366,7 +2366,7 @@ function serendipity_convertThumbs() {
         $logtag = 'MAINTENANCE IMAGE-SYNC Opt4::';
         $trace  = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
         $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START MS serendipity_convertThumbs() SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
-        $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
+        $serendipity['logger']->debug("TRACE: " . print_r($trace,true));
     }
     // fetch all excluded files from list in $files relative to /uploads directory (make sure it is synced before)
     $ofiles = serendipity_fetchImages(true);
@@ -2374,8 +2374,8 @@ function serendipity_convertThumbs() {
     $i = $e = $s = 0;
 
     if ($debug) {
-        $serendipity['logger']->debug("L_".__LINE__.":: $logtag UniqueThumbSuffixes: ".print_r($serendipity['uniqueThumbSuffixes'],1));
-        $serendipity['logger']->debug("L_".__LINE__.":: $logtag REVERSE THUMB FILES: ".print_r($ofiles,1));
+        $serendipity['logger']->debug("L_".__LINE__.":: $logtag UniqueThumbSuffixes: ".print_r($serendipity['uniqueThumbSuffixes'],true));
+        $serendipity['logger']->debug("L_".__LINE__.":: $logtag REVERSE THUMB FILES: ".print_r($ofiles,true));
     }
 
     if (empty($ofiles)) return $i;
@@ -3133,7 +3133,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
         $logtag = 'ML-LIST::';
         $trace  = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
         $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML serendipity_displayImageList SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
-        $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
+        $serendipity['logger']->debug("TRACE: " . print_r($trace,true));
     }
     $extraParems     = serendipity_generateImageSelectorParems();
     $hideSubdirFiles = (isset($serendipity['GET']['hideSubdirFiles']) && $serendipity['GET']['hideSubdirFiles'] == 'yes') ? true : false; // default
@@ -3362,7 +3362,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
 
     // Out of Sync Files
     if (!isset($aFilesNoSync)) $aFilesNoSync = array();
-    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag ".print_r($aFilesNoSync,1)); }
+    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag ".print_r($aFilesNoSync,true)); }
     $serendipity['aFilesNoSync'] = $aFilesNoSync;
     $serendipity['smarty']->assign('imagesNoSync', $aFilesNoSync);
 
@@ -5298,7 +5298,7 @@ function serendipity_renameDirAccess($oldDir, $newDir, $debug=false) {
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
     if ($debug) {
         $serendipity['logger']->debug("IN serendipity_renameDirAccess");
-        $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
+        $serendipity['logger']->debug("TRACE: " . print_r($trace,true));
     }
     if (is_array($trace) && $trace[1]['function'] != 'serendipity_moveMediaDirectory') {
         echo 'P1: Please use the API workflow via serendipity_moveMediaDirectory()!';
@@ -5385,7 +5385,7 @@ function serendipity_renameDirAccess($oldDir, $newDir, $debug=false) {
     serendipity_plugin_api::hook_event('backend_media_rename', $renameValues); // this is type dir, renamimg media directories
 
     if ($debug) {
-        $serendipity['logger']->debug(print_r($renameValues,1));
+        $serendipity['logger']->debug(print_r($renameValues,true));
     }
     return true;
 }
@@ -5410,7 +5410,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
     if ($debug) {
         $logtag = 'renameRealFileName::';
         $serendipity['logger']->debug("IN serendipity_renameRealFileName");
-        $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
+        $serendipity['logger']->debug("TRACE: " . print_r($trace,true));
     }
     if (is_array($trace) && $trace[1]['function'] != 'serendipity_moveMediaDirectory') {
         echo 'P2: Please use the API workflow via serendipity_moveMediaDirectory()!';
@@ -5708,7 +5708,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
     if ($debug) {
         $serendipity['logger']->debug("IN serendipity_renameRealFileDir");
-        $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
+        $serendipity['logger']->debug("TRACE: " . print_r($trace,true));
     }
     if (is_array($trace) && $trace[1]['function'] != 'serendipity_moveMediaDirectory') {
         echo 'P3: Please use the API workflow via serendipity_moveMediaDirectory()!';
@@ -5831,7 +5831,7 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
     if ($debug) {
         $logtag = 'formatRealFile::';
         $serendipity['logger']->debug("IN serendipity_formatRealFile");
-        $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
+        $serendipity['logger']->debug("TRACE: " . print_r($trace,true));
     }
     if (is_array($trace) && $trace[1]['function'] != 'serendipity_convertImageFormat') {
         echo 'Please use the API workflow via serendipity_convertImageFormat()!';
@@ -6001,7 +6001,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $file, $pick=
     if ($debug) {
         $logtag = 'moveMediaInEntriesDB::';
         $serendipity['logger']->debug("IN serendipity_moveMediaInEntriesDB");
-        $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
+        $serendipity['logger']->debug("TRACE: " . print_r($trace,true));
     }
     if (is_array($trace) && !in_array($trace[1]['function'], ['serendipity_moveMediaDirectory', 'serendipity_formatRealFile'])) {
         echo 'P4: Please use the API workflow via serendipity_moveMediaDirectory()!';
