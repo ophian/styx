@@ -2,6 +2,8 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix and improve the archives plugin for incorrectly labeled C0 category
+
   * Move backend sidebar item "Maintenance" in the styx backend theme back into
     the [ Settings ] section. Having thought about this all the years now and
     found it to be much more a core administration task than an activity task.
