@@ -86,7 +86,7 @@ switch($serendipity['GET']['adminAction']) {
 
             if (isset($serendipity['POST']['adminOption']['execute'])) {
                 $data['dbUtf8mb4_migrate'] = serendipity_db_migrate_index(false, $serendipity['dbPrefix']);
-                #echo '<pre>'.print_r($data['dbUtf8mb4_migrate'],1).'</pre>';
+                #echo '<pre>'.print_r($data['dbUtf8mb4_migrate'],true).'</pre>';
                 serendipity_set_config_var('dbUtf8mb4_converted', 'true');
                 $data['dbUtf8mb4_executed'] = true;
             } else {
