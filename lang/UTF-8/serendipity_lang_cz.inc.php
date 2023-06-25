@@ -89,7 +89,7 @@ $i18n_filename_to = array (
 @define('CATEGORY', 'Kategorie');
 @define('EDIT', 'Editace');
 @define('NO_ENTRIES_BLAHBLAH', 'Nenalezen žádný záznam odpovídající volbě %s');
-@define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Vyhledávání %s odpovídá %s výsledků:');
+@define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Vyhledávání %s odpovídá %s výsledků');
 @define('SEARCH_TOO_SHORT', 'Vyhledávací dotaz musí být delší než 3 znaky. Ke kratším slovům můžete zkusit přidat *, jako: s9y*, abyste  vyhledávání přiměli pracovat s kratšími slovy.');
 @define('IMAGE', 'Obrázek');
 @define('ERROR_FILE_NOT_EXISTS', 'Chyba: Jméno souboru neexistuje!');

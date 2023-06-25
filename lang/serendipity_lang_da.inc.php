@@ -74,7 +74,7 @@
 @define('CATEGORY', 'Kategori');
 @define('EDIT', 'Rediger');
 @define('NO_ENTRIES_BLAHBLAH', 'Ingen artikler blev fundet som indeholdt %s');
-@define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Din søgning på %s returnerede %s resultater:');
+@define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Din søgning på %s returnerede %s resultater');
 @define('IMAGE', 'Billede');
 @define('ERROR_FILE_NOT_EXISTS', 'Fejl: Det gamle filnavn findes ikke!');
 @define('ERROR_FILE_EXISTS', 'Fejl: Det nye filnavn eksisterer allerede, vælg et andet!');

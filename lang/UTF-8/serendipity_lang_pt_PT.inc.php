@@ -78,7 +78,7 @@
 @define('CATEGORY', 'Categoria:');
 @define('EDIT', 'Editar');
 @define('NO_ENTRIES_BLAHBLAH', 'Nenhum artigo encontrado para a consulta %s');
-@define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'A sua busca de %s obteve %s resultados:');
+@define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'A sua busca de %s obteve %s resultados');
 @define('IMAGE', 'Imagem');
 @define('ERROR_FILE_NOT_EXISTS', 'Erro: O nome de ficheiro antigo não existe!');
 @define('ERROR_FILE_EXISTS', 'Erro: O novo nome de ficheiro já existe, escolha outro!');

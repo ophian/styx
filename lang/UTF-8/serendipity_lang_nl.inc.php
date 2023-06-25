@@ -78,7 +78,7 @@
 @define('CATEGORY', 'Categorie');
 @define('EDIT', 'Bewerk');
 @define('NO_ENTRIES_BLAHBLAH', 'Er zijn geen artikelen gevonden voor zoekopdracht %s');
-@define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Uw zoekopdracht naar %s heeft %s zoekresultaten opgeleverd:');
+@define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Uw zoekopdracht naar %s heeft %s zoekresultaten opgeleverd');
 @define('IMAGE', 'Afbeelding');
 @define('ERROR_FILE_NOT_EXISTS', 'Fout: Oude bestandsnaam bestaat niet!');
 @define('ERROR_FILE_EXISTS', 'Fout: Nieuwe bestandsnaam is reeds in gebruik, kies een andere!');

@@ -76,7 +76,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('CATEGORY', 'Kategoria');
 @define('EDIT', 'Edycja');
 @define('NO_ENTRIES_BLAHBLAH', 'Nie znaleziono wpisów zawieraj±cych zapytanie %s');
-@define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Twoje zapytanie o %s zwróci³o %s wyników:');
+@define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Twoje zapytanie o %s zwróci³o %s wyników');
 @define('SEARCH_TOO_SHORT', 'Ilo¶æ znaków w zapytaniu musi byæ wiêksza od trzech. Mo¿esz próbowaæ dodaæ * do krótszych s³ów, np. s9y* aby "oszukaæ" wyszukiwarkê by u¿y³a krótsze zapytania.');
 @define('IMAGE', 'Obrazek');
 @define('ERROR_FILE_NOT_EXISTS', 'B³±d: Stara nazwa pliku nie istnieje!');

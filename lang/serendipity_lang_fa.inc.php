@@ -76,7 +76,7 @@
 @define('CATEGORY', 'موضوع');
 @define('EDIT', 'ویرایش');
 @define('NO_ENTRIES_BLAHBLAH', 'هیچ مقداری برای گزارش %s پیدا نشد.');
-@define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'جستجو برای عبارت %s، %s نتیجه برگردانید:');
+@define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'جستجو برای عبارت %s، %s نتیجه برگردانید');
 @define('IMAGE', 'عکس');
 @define('ERROR_FILE_NOT_EXISTS', 'خطا: فایل های قدیمی وجود ندارند!');
 @define('ERROR_FILE_EXISTS', 'خطا: فایلی با این نام وجود دارد، نام دیگری انتخاب کنید!');

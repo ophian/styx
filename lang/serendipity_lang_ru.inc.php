@@ -77,7 +77,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('CATEGORY', 'Категория');
 @define('EDIT', 'Редактировать');
 @define('NO_ENTRIES_BLAHBLAH', 'Не было найдено записей по завпросу %s');
-@define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'По вашему поиску %s найдено результатов:');
+@define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'По вашему поиску %s найдено результатов');
 @define('IMAGE', 'Изображение');
 @define('ERROR_FILE_NOT_EXISTS', 'Ошибка: Старое имя файла не существует!');
 @define('ERROR_FILE_EXISTS', 'Ошибка: Новое имя файла уже используется, пожалуйста выберите другое!');
