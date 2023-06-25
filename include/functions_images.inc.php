@@ -3001,7 +3001,7 @@ function serendipity_resizeImageGD($infilename, $outfilename, $newwidth, $newhei
         $newheight = $newsizes[1];
     }
 
-    $out = imagecreatetruecolor($newwidth, $newheight);
+    $out = imagecreatetruecolor((int) $newwidth, (int) $newheight);
 
     /* Attempt to copy transparency information, this really only works for PNG */
     if (function_exists('imagesavealpha') && $func['save'] == 'imagepng') {
@@ -3009,7 +3009,7 @@ function serendipity_resizeImageGD($infilename, $outfilename, $newwidth, $newhei
         imagesavealpha($out, true);
     }
 
-    imagecopyresampled($out, $in, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+    imagecopyresampled($out, $in, 0, 0, 0, 0, (int) $newwidth, (int) $newheight, $width, $height);
     @umask(0000);
     touch($outfilename); // safe_mode requirement
     if ($func['save'] == 'imagegif') {
