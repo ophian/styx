@@ -135,8 +135,8 @@ foreach (array_values($im) AS $it) {
 
 if (empty($serendipity['POST']['multiCheck']) && empty($serendipity['POST']['orphaned'])) {
     echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . sprintf(MLORPHAN_MTASK_MAIN_PATTERN_MATCHES, $count) . "</span>\n";
-#DEBUG    echo '<pre>'.print_r($images,1).'</pre>';
-#DEBUG    echo '<pre>'.print_r($im,1).'</pre>';
+#DEBUG    echo '<pre>'.print_r($images,true).'</pre>';
+#DEBUG    echo '<pre>'.print_r($im,true).'</pre>';
 }
 
 function exclude_image_matches(&$_images, $keys) {
@@ -168,7 +168,7 @@ foreach ($im AS $imk => $imv) {
     }
 }
 $rkeys = array_keys(array_flip($dkeys));
-#DEBUG echo '<pre>'.print_r($rkeys,1).'</pre>';
+#DEBUG echo '<pre>'.print_r($rkeys,true).'</pre>';
 
 if (empty($serendipity['POST']['multiCheck']) && empty($serendipity['POST']['orphaned'])) {
     echo MLORPHAN_MTASK_MAIN_PATTERN_RESULTCHECK_ACTION . "\n";
@@ -293,7 +293,7 @@ if (empty($serendipity['POST']['multiCheck']) && empty($serendipity['POST']['orp
                 </div>
             </form>
         </div>
-        <pre id="orphaned_array" class="orphaned_status additional_info">' . print_r($orphaned,1) . '</pre>
+        <pre id="orphaned_array" class="orphaned_status additional_info">' . print_r($orphaned,true) . '</pre>
     </fieldset>
 </section>'."\n";
 
@@ -323,8 +323,8 @@ if (empty($serendipity['POST']['multiCheck']) && empty($serendipity['POST']['orp
 ";
 
     // check images that are not in use by entries/staticpages
-#DEBUG echo '<pre>'.print_r($orphaned,1).'</pre>'; // better show this to the user only to not get confused about the keys
-#DEBUG echo '<pre>'.print_r($_images,1).'</pre>';
+#DEBUG echo '<pre>'.print_r($orphaned,true).'</pre>'; // better show this to the user only to not get confused about the keys
+#DEBUG echo '<pre>'.print_r($_images,true).'</pre>';
 
 }
 
