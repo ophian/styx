@@ -201,7 +201,7 @@ switch ($serendipity['GET']['adminAction']) {
             $file = serendipity_fetchImageFromDatabase((int)$media_id);
             serendipity_prepareMedia($file);
             $file['props'] =& serendipity_fetchMediaProperties((int)$media_id);
-            #if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_SELECTMULTIGALLERYITEMS: Images MediaProperties: " . print_r($file['props'],1)); }
+            #if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_SELECTMULTIGALLERYITEMS: Images MediaProperties: " . print_r($file['props'],true)); }
             serendipity_plugin_api::hook_event('media_getproperties_cached', $file['props']['base_metadata'], $file['realfile']);
             // serendipity_fetchMediaProperties() returns either with subgroup key properties or without, by case having saved the media items properties page before. Do not trust viewed items, since they may be copy-placed EXIF data of the image itself not having been saved.
             $file['prop_imagecomment'] = serendipity_specialchars(($file['props']['base_property']['ALL']['COMMENT1'] ?? ($file['props']['base_property']['COMMENT1'] ?? '')));
