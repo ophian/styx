@@ -14,7 +14,7 @@ class serendipity_plugin_archives extends serendipity_plugin
         $propbag->add('description',   BROWSE_ARCHIVES);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team, Ian Styx');
-        $propbag->add('version',       '1.7');
+        $propbag->add('version',       '1.8');
         $propbag->add('configuration', array('title', 'frequency', 'count', 'show_count', 'hide_zero_count'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -70,7 +70,7 @@ class serendipity_plugin_archives extends serendipity_plugin
         global $serendipity;
 
         $title = $this->get_config('title', $this->title);
-        $ts = mktime(0, 0, 0, date('m'), 1);
+        $ts = mktime(0, 0, 0, (int) date('m'), 1);
         $add_query = '';
 
         if (class_exists('serendipity_event_categorytemplates')) {
@@ -78,7 +78,7 @@ class serendipity_plugin_archives extends serendipity_plugin
             $args = serendipity_getUriArguments($uri);
         }
 
-        $category_set = isset($serendipity['GET']['category']);
+        $category_set = !empty($serendipity['GET']['category']);
         if ($category_set) {
             $base_query = 'C' . (int)$serendipity['GET']['category'];
             $add_query = '/' . $base_query;
@@ -107,7 +107,7 @@ class serendipity_plugin_archives extends serendipity_plugin
                         case 'gregorian':
                             $linkStamp = date('Y/m', $ts);
                             $ts_title = serendipity_formatTime("%B %Y", $ts, false);
-                            $ts = mktime(0, 0, 0, date('m', $ts)-1, 1, date('Y', $ts)); // Must be last in 'case' statement
+                            $ts = mktime(0, 0, 0, (int) date('m', $ts)-1, 1, (int) date('Y', $ts)); // Must be last in 'case' statement
                             break;
                         case 'persian-utf8':
                             require_once S9Y_INCLUDE_PATH . 'include/functions_calendars.inc.php';
@@ -123,7 +123,7 @@ class serendipity_plugin_archives extends serendipity_plugin
                         case 'gregorian':
                             $linkStamp = date('Y/\WW', $ts);
                             $ts_title = WEEK . ' '. date('W, Y', $ts);
-                            $ts = mktime(0, 0, 0, date('m', $ts), date('d', $ts)-7, date('Y', $ts));
+                            $ts = mktime(0, 0, 0, (int) date('m', $ts), (int) date('d', $ts)-7, (int) date('Y', $ts));
                             break;
                         case 'persian-utf8':
                             require_once S9Y_INCLUDE_PATH . 'include/functions_calendars.inc.php';
@@ -139,7 +139,7 @@ class serendipity_plugin_archives extends serendipity_plugin
                         case 'gregorian':
                             $linkStamp = date('Y/m/d', $ts);
                             $ts_title = serendipity_formatTime("%B %e. %Y", $ts, false);
-                            $ts = mktime(0, 0, 0, date('m', $ts), date('d', $ts)-1, date('Y', $ts)); // Must be last in 'case' statement
+                            $ts = mktime(0, 0, 0, (int) date('m', $ts), (int) date('d', $ts)-1, (int) date('Y', $ts)); // Must be last in 'case' statement
                             break;
                         case 'persian-utf8':
                             require_once S9Y_INCLUDE_PATH . 'include/functions_calendars.inc.php';
