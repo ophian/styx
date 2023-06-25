@@ -1044,7 +1044,7 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
 /**
  * Creates the Footer below the entries, with pagination options and parses it to Smarty
  *
- * The list of total entries is calculated from the serendipity_getTotelEntries() function
+ * The list of total entries is calculated from the serendipity_getTotalEntries() function
  *
  * @param string    suffix for URLs
  * @param int       Amount of total entries
