@@ -1116,6 +1116,9 @@ input[type="checkbox"] {
     margin-left: .75rem; }
 }
 
+:root  .lightbox .lb-image {
+  border-color: var(--bs-border-color); }
+
 #serendipity_categories_list input[type="checkbox"] {
   vertical-align: middle;
   margin-right: 9px;
