@@ -408,6 +408,8 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
       color: currentColor; }
     [data-dark-theme="dark"] .hljs-tag, [data-dark-theme="dark"] .hljs-name, [data-dark-theme="dark"] .hljs-attribute {
       color: #bebeff; }
+  :root .lightbox .lb-image {
+    border-color: #495057; }
   [data-dark-theme="dark"] .serendipity_commentDirection {
     background: transparent;
     box-shadow: none; }
