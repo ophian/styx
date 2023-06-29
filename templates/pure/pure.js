@@ -51,6 +51,8 @@ checkWebP(function(support) {
     }
 });
 
+const MATCH_SESSIONSTORAGE = true;
+
 let dark_mode = sessionStorage.getItem('dark_mode');
 
 if (dark_mode == null) {
