@@ -69,6 +69,8 @@ checkWebP(function(support) {
 (() => {
   'use strict'
 
+  const MATCH_LOCALSTORAGE = true;
+
   const storedTheme = localStorage.getItem('theme')
 
   const getPreferredTheme = () => {
