@@ -26,9 +26,22 @@ CKEDITOR.editorConfig = function( config ) {
         { name: 'about' }
     ];
 
+    // backend
     if (typeof STYX_DARKMODE === 'undefined' || STYX_DARKMODE === null) STYX_DARKMODE = false;
+    // NOT pure theme + derivates
+    if (typeof MATCH_SESSIONSTORAGE === 'undefined' || MATCH_SESSIONSTORAGE === null) MATCH_SESSIONSTORAGE = false;
+    // NOT b53 theme + derivates
+    if (typeof MATCH_LOCALSTORAGE === 'undefined' || MATCH_LOCALSTORAGE === null) MATCH_LOCALSTORAGE = false;
     let sisdark = localStorage.getItem('theme');
         sisdark = sisdark ? sisdark : sessionStorage.getItem('dark_mode');
+    if (MATCH_LOCALSTORAGE === true) {
+        localStorage.setItem('theme', 'auto');
+        sisdark = 'dark';
+    } else {
+        if (MATCH_SESSIONSTORAGE === false){
+            sisdark = null;
+        }
+    }
     config.skin = (STYX_DARKMODE === true ? 'moono-dark' : 'moono-lisa');
     if (STYX_DARKMODE !== true && document.getElementById('serendipity_commentform_comment') !== null
     && ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && (typeof sisdark !== 'undefined' && sisdark !== null && sisdark !== 'light'))
