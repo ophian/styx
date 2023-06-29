@@ -2,6 +2,11 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Better distinguish between HTML (comment) form color modes storage sets
+    using themes SESSION storage [ pure ] and LOCAL storage [ b53 ] and all
+    other themes without, for the default behaviour.
+    COPY THEMERS: Follow the themes js file change.
+
   * Fix and improve the "last page of" multipage search results on MySQL which
     could get extended by the wildcard * search and so borked the paging
     consistency.
