@@ -1119,6 +1119,16 @@ input[type="checkbox"] {
 :root  .lightbox .lb-image {
   border-color: var(--bs-border-color); }
 
+[data-bs-theme="dark"] .shariff-button {
+  border-color: var(--bs-border-color) !important;
+}
+[data-bs-theme="dark"] .shariff-button a {
+  background: var(--bs-secondary-bg) !important;
+}
+[data-bs-theme="dark"] .shariff-button a:hover {
+  background-color: var(--bs-tertiary-bg) !important;
+}
+
 #serendipity_categories_list input[type="checkbox"] {
   vertical-align: middle;
   margin-right: 9px;
