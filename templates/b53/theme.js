@@ -58,6 +58,9 @@ checkWebP(function(support) {
     }
 });
 
+/* Color mode STORAGE constant for HTMLComments mode */
+const MATCH_LOCALSTORAGE = true;
+
 /*!
  * Color mode toggler for Bootstrap's docs (https://getbootstrap.com/)
  * Copyright 2011-2023 The Bootstrap Authors
@@ -65,11 +68,8 @@ checkWebP(function(support) {
  *
  * Changed/Extended by Serendipity Styx for dark mode toggle
  */
-
 (() => {
   'use strict'
-
-  const MATCH_LOCALSTORAGE = true;
 
   const storedTheme = localStorage.getItem('theme')
 
