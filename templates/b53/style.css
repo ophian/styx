@@ -1326,6 +1326,11 @@ p > img.serendipity_image_center {
   padding: 2.25px;
   padding: .125rem;
   text-align: center; }
+  /* for triple plus day headers, ie. see French language */
+@media only screen and (min-width: 768px) and (max-width: 1469px) {
+  .calendar th, .calendar td {
+    padding: .25rem .125rem; }
+}
 
 .plugin_comment_body {
   overflow-wrap: break-word; }
