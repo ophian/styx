@@ -205,7 +205,7 @@ function serendipity_db_escape_string($string) {
     if ($string == null) {
         return;
     }
-    return mysqli_escape_string($serendipity['dbConn'], $string);
+    return mysqli_escape_string($serendipity['dbConn'], (string) $string);
 }
 
 /**

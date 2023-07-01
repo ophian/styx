@@ -94,7 +94,7 @@ function serendipity_db_escape_string($string) {
     if ($string == null) {
         return;
     }
-    return pg_escape_string($serendipity['dbConn'], $string);
+    return pg_escape_string($serendipity['dbConn'], (string) $string);
 }
 
 /**

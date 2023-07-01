@@ -132,7 +132,7 @@ function serendipity_db_escape_string($string) {
     if ($string == null) {
         return;
     }
-    return substr($serendipity['dbConn']->quote($string), 1, -1);
+    return substr($serendipity['dbConn']->quote((string) $string), 1, -1);
 }
 
 /**

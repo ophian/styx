@@ -70,7 +70,7 @@ function serendipity_db_escape_string($string) {
     if ($string == null) {
         return;
     }
-    return str_replace($search, $replace, $string);
+    return str_replace($search, $replace, (string) $string);
 }
 
 /**
