@@ -241,7 +241,8 @@ html[data-bs-theme="dark"] .serendipity_imageComment_txt {
 html[data-bs-theme="dark"] .btn-dark {
   background-color: var(--bd-violet-bg); }
 .form-control::placeholder {
-  color: var(--bs-tertiary-color); }
+  color: var(--bs-tertiary-color);
+  opacity: .5; }
 input.form-control {
   min-width: 14.5rem; }
 
