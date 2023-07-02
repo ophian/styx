@@ -1024,7 +1024,7 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
             return serendipity_searchEntries($term.'*', $orig_limit);
         } else {
             // DO NOT (!) on (last page of) multipage search results
-            if ($serendipity['GET']['page'] < 2) {
+            if (isset($serendipity['GET']['page']) && $serendipity['GET']['page'] < 2) {
                 $ec = count($search);
                 $checkcount = 4;
                 if ($serendipity['fetchLimit'] < $checkcount) {
