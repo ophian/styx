@@ -860,7 +860,7 @@
 @define('WARNING_NO_GROUPS_SELECTED', 'Advarsel: Du har ikke valgt noget gruppemedlemskab. Da dette ville logge dig ud af brugergruppeadministrationen, er dine ændringer derfor ikke gemt.');
 @define('INSTALL_RSSFETCHLIMIT', 'Artikler i feeds');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Antallet af artikler der skal vises på hver side i RSS feeds.');
-@define('INSTALL_CBAFETCHLIMIT', 'Comments to display when viewing listed comments only');
+@define('INSTALL_CBAFETCHLIMIT', 'Comments to display per comment summary pages');
 @define('INSTALL_CBAFETCHLIMIT_DESC', 'Number of comments to display for each page on the so called "Comment overview" /comments/ pages.');
 @define('INSTALL_DB_UTF8', 'Brug database karaktersæt-oversættelse');
 @define('INSTALL_DB_UTF8_DESC', 'Udfører MySQL kommandoen "SET NAMES .." for at angive det krævede karaktersæt. Deaktiver hvis du ser underlige karakterer i din blog.');

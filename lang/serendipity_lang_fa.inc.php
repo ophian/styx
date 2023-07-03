@@ -861,7 +861,7 @@
 @define('WARNING_NO_GROUPS_SELECTED', 'هشدار: شما عضو هیچ گروهی نشده اید. پس دیگر نمی توانید از امکانات مدیریت گروه ها استفاده نمایید.');
 @define('INSTALL_RSSFETCHLIMIT', 'مواردی که در بخش خوراک نمایش داده شود');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'تعداد ارسال هایی که در feed در هر صفحه نمایش داده شود.');
-@define('INSTALL_CBAFETCHLIMIT', 'Comments to display when viewing listed comments only');
+@define('INSTALL_CBAFETCHLIMIT', 'Comments to display per comment summary pages');
 @define('INSTALL_CBAFETCHLIMIT_DESC', 'Number of comments to display for each page on the so called "Comment overview" /comments/ pages.');
 @define('INSTALL_DB_UTF8', 'فعال کردن تبدیل انکودینگ پایگاه داده');
 @define('INSTALL_DB_UTF8_DESC', 'ارسال دستور "SET NAMES" به MySQL برای تشخیص انکودینگ مناسب برای پایگاه داده. در صورتی که در مشاهده حرف های وبلاگتان مشکل دارید، این گزینه را فعال یا غیر فعال کنید.');

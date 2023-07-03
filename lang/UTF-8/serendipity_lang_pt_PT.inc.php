@@ -863,7 +863,7 @@
 @define('WARNING_NO_GROUPS_SELECTED', 'Aviso: Não seleccionou afiliações em grupos. Isto encerrou a sua gestão de grupos, e as suas afiliações em grupos não foram alteradas.');
 @define('INSTALL_RSSFETCHLIMIT', 'Entradas a mostrar nos Feeds');  // Verify
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Número de entradas a mostrar por página do RSS Feed.'); // Verify
-@define('INSTALL_CBAFETCHLIMIT', 'Comments to display when viewing listed comments only');
+@define('INSTALL_CBAFETCHLIMIT', 'Comments to display per comment summary pages');
 @define('INSTALL_CBAFETCHLIMIT_DESC', 'Number of comments to display for each page on the so called "Comment overview" /comments/ pages.');
 @define('INSTALL_DB_UTF8', 'Activar conversão da codificação de caracteres na base de dados');
 @define('INSTALL_DB_UTF8_DESC', 'Envia um comando MySQL "SET NAMES" para indicar a codificação de caracteres requerida para a base de dados. Ligue ou desligue, se vir caracteres estranhos no seu blogue.');

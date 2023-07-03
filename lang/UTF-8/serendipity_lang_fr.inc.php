@@ -864,7 +864,7 @@
 @define('WARNING_NO_GROUPS_SELECTED', 'Attention : vous n\'avez pas sélectionné d\'appartenance de groupe. Comme vous risquez de vous exclure vous-même de la gestion des groupes d\'utilisateurs, vos modifications n\'ont pas été enregistrées.');
 @define('INSTALL_RSSFETCHLIMIT', 'Entries to display in Feeds');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Number of entries to display for each page on the RSS Feed.');
-@define('INSTALL_CBAFETCHLIMIT', 'Comments to display when viewing listed comments only');
+@define('INSTALL_CBAFETCHLIMIT', 'Comments to display per comment summary pages');
 @define('INSTALL_CBAFETCHLIMIT_DESC', 'Number of comments to display for each page on the so called "Comment overview" /comments/ pages.');
 @define('INSTALL_DB_UTF8', 'Enable DB-charset conversion');
 @define('INSTALL_DB_UTF8_DESC', 'Issues a MySQL "SET NAMES" query to indicate the required charset for the database. Turn this on or off, if you see weird or missing characters in your blog.');

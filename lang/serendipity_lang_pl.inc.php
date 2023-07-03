@@ -860,7 +860,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('WARNING_NO_GROUPS_SELECTED', 'Uwaga: Nie dokonano przydzia³ów do ¿adnej grupy. To spowoduje uniemo¿liwienie dministrowania przydzia³ami do grup. Twoje dotychczasowe przydzia³y nie zosta³y jednak zmienione. W przypadku problemów - skontaktuj siê z administratorem.');
 @define('INSTALL_RSSFETCHLIMIT', 'Ilo¶æ wpisów wy¶wietlanych w feedach RSS');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Ilo¶æ wpisów wy¶wietlanych na ka¿dej stronie feeda RSS');
-@define('INSTALL_CBAFETCHLIMIT', 'Comments to display when viewing listed comments only');
+@define('INSTALL_CBAFETCHLIMIT', 'Comments to display per comment summary pages');
 @define('INSTALL_CBAFETCHLIMIT_DESC', 'Number of comments to display for each page on the so called "Comment overview" /comments/ pages.');
 @define('INSTALL_DB_UTF8', 'W³±cz konwersjê kodowania zaków dla bazy danych');
 @define('INSTALL_DB_UTF8_DESC', 'Rozwi±zuje problem z zapytaniem SET NAMES bazy danych aby ustaliæ prawid³owe kodowanie dla bazy danych. W³±cz lub wy³±cz tê opcjê je¶li widzisz na swojej stronie dziwne znaczki zamiast znaków diakrytycznych.');

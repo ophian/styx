@@ -859,7 +859,7 @@
 @define('WARNING_NO_GROUPS_SELECTED', 'Figyelem: nem jelöltél ki egyetlen csoporttagságot sem. Így nem tudod majd a csoport jogokat szerkeszteni, ezért az eredeti csoporttagságaid nem változtak.');
 @define('INSTALL_RSSFETCHLIMIT', 'A hírcsatornában megjelenítendõ bejegyzések');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Az RSS hírcsatornában megjelenítendõ bejegyzések száma.');
-@define('INSTALL_CBAFETCHLIMIT', 'Comments to display when viewing listed comments only');
+@define('INSTALL_CBAFETCHLIMIT', 'Comments to display per comment summary pages');
 @define('INSTALL_CBAFETCHLIMIT_DESC', 'Number of comments to display for each page on the so called "Comment overview" /comments/ pages.');
 @define('INSTALL_DB_UTF8', 'Adatbázis katakterkonverzió engedélyezése');
 @define('INSTALL_DB_UTF8_DESC', 'MySQL esetében add ki a következõ parancsot a szükséges karakterkódolás megállapításához: "SET NAMES". Kapcsold ki vagy be ezt az opciót, ha furcsa karaktereket látsz a blog-ban.');

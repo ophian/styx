@@ -862,7 +862,7 @@ $i18n_unknown = 'tw';
 @define('WARNING_NO_GROUPS_SELECTED', '警告：您沒有選擇會員群組。這會將您登出群組的管理，會員的群組不會被改變。');
 @define('INSTALL_RSSFETCHLIMIT', 'Entries to display in Feeds');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'RSS Feed 頁面裡顯示的文章數量。');
-@define('INSTALL_CBAFETCHLIMIT', 'Comments to display when viewing listed comments only');
+@define('INSTALL_CBAFETCHLIMIT', 'Comments to display per comment summary pages');
 @define('INSTALL_CBAFETCHLIMIT_DESC', 'Number of comments to display for each page on the so called "Comment overview" /comments/ pages.');
 @define('INSTALL_DB_UTF8', '開啟資料庫的編碼轉換');
 @define('INSTALL_DB_UTF8_DESC', '使用 MySQL 的 "SET NAMES" 查詢來設定編碼。如果文章出現亂碼可以將這個設定打開或關閉。');

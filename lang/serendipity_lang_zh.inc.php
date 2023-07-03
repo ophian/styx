@@ -863,7 +863,7 @@
 @define('WARNING_NO_GROUPS_SELECTED', '警告：你没有选择会员群组。这会将你登出群组的管理，会员的群组不会被改变。');
 @define('INSTALL_RSSFETCHLIMIT', 'Entries to display in Feeds');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'RSS Feed 页面里显示的文章数量。');
-@define('INSTALL_CBAFETCHLIMIT', 'Comments to display when viewing listed comments only');
+@define('INSTALL_CBAFETCHLIMIT', 'Comments to display per comment summary pages');
 @define('INSTALL_CBAFETCHLIMIT_DESC', 'Number of comments to display for each page on the so called "Comment overview" /comments/ pages.');
 @define('INSTALL_DB_UTF8', '开启数据库编码转换');
 @define('INSTALL_DB_UTF8_DESC', '使用 MySQL 的 "SET NAMES" 查询来设定编码。如果文章出现乱码可以将这设定打开或关闭。');

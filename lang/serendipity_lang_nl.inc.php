@@ -861,7 +861,7 @@
 @define('WARNING_NO_GROUPS_SELECTED', 'Waarschuwing: u heeft geen enkel groepslidmaatschap geselecteerd. Dit zou u uitloggen uit het groepsbeheer, dus werden uw groepslidmaatschappen niet gewijzigd.');
 @define('INSTALL_RSSFETCHLIMIT', 'Artikelen per toevoer');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Aantal artikelen die getoond worden per pagina van de verzamelpublicatietoevoer.');
-@define('INSTALL_CBAFETCHLIMIT', 'Comments to display when viewing listed comments only');
+@define('INSTALL_CBAFETCHLIMIT', 'Comments to display per comment summary pages');
 @define('INSTALL_CBAFETCHLIMIT_DESC', 'Number of comments to display for each page on the so called "Comment overview" /comments/ pages.');
 @define('INSTALL_DB_UTF8', 'DB-tekensetconversie aanzetten');
 @define('INSTALL_DB_UTF8_DESC', 'Stuurt een MySQL-"SET NAMES"-query met de gewenste tekenset naar de databank. Wijzig deze optie als u rare tekens ziet in uw weblog.');

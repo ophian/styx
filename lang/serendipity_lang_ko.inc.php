@@ -860,7 +860,7 @@
 @define('WARNING_NO_GROUPS_SELECTED', '경고: 아무런 그룹 소속도 선택하지 않았습니다. 이 경우 사용자 그룹 관리에서 강제 퇴장하는 것과 같으므로 그룹 소속을 변경하지 않았습니다.');
 @define('INSTALL_RSSFETCHLIMIT', '피드에 보여줄 글 수');
 @define('INSTALL_RSSFETCHLIMIT_DESC', '각 RSS 피드 페이지에 보여줄 글의 수입니다.');
-@define('INSTALL_CBAFETCHLIMIT', 'Comments to display when viewing listed comments only');
+@define('INSTALL_CBAFETCHLIMIT', 'Comments to display per comment summary pages');
 @define('INSTALL_CBAFETCHLIMIT_DESC', 'Number of comments to display for each page on the so called "Comment overview" /comments/ pages.');
 @define('INSTALL_DB_UTF8', '데이터베이스-문자열 변환 사용하기');
 @define('INSTALL_DB_UTF8_DESC', '데이터베이스에 필요한 문자열 종류를 지정하기 위해 MySQL "SET NAMES" 질의를 실행합니다. 블로그에 이상한 글자가 보일 경우 이를 켜거나 꺼보십시오.');
