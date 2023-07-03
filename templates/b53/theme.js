@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     addClass('.serendipity_entrypaging_right a', 'btn btn-secondary'); // no space since added class
 
-    let n = document.querySelector('.serendipity_edit_nugget');
+    let n = document.querySelector('main .serendipity_edit_nugget');
     if (n !== null) n.setAttribute('class', 'bi bi-pencil-square text-editicon serendipity_edit_nugget btn btn-admin btn-sm');
 
     let s = document.querySelector('.msg_notice.serendipity_subscription_off');
