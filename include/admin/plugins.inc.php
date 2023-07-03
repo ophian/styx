@@ -555,7 +555,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
 
             serendipity_plugin_api::update_plugin_owner(
                 addslashes($plugin['id']),
-                addslashes((int)$plugin['authorid'])
+                addslashes($plugin['authorid'])
             );
             $pos++;
         }
