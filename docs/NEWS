@@ -2,6 +2,10 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Precise theme JS _edit_nugget selector for adding icon selectors in
+    [ boot, b46, b53 ] themes.
+    COPY THEMERS: Please follow the themes js file change.
+
   * Better distinguish between HTML (comment) form color modes storage sets
     using themes SESSION storage [ pure ] and LOCAL storage [ b53 ] and all
     other themes without, for the default behaviour.
