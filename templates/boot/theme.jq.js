@@ -57,7 +57,7 @@ checkWebP(function(support) {
     $('.serendipity_toggle_emoticon_bar.serendipityPrettyButton').attr('class', 'btn btn-outline-secondary btn-sm me-2');
     $('.serendipity_entrypaging_left a').addClass('btn btn-secondary');
     $('.serendipity_entrypaging_right a').addClass('btn btn-secondary');
-    $('.serendipity_edit_nugget').attr('class', 'bi bi-pencil-square text-editicon serendipity_edit_nugget btn btn-admin btn-sm');
+    $('main .serendipity_edit_nugget').attr('class', 'bi bi-pencil-square text-editicon serendipity_edit_nugget btn btn-admin btn-sm');
     $('.msg_notice.serendipity_subscription_off').attr('class', 'alert alert-warning serendipity_subscription_off').attr('role', 'alert');
     $('.serendipity_msg_important.msg_error').attr('class', 'alert alert-danger').attr('role', 'alert');
     $('.serendipity_msg_important').addClass('alert alert-secondary').attr('role', 'alert');
