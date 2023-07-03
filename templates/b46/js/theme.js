@@ -56,7 +56,7 @@ checkWebP(function(support) {
     $('<div id="LSResult" style="display: none;"><div id="LSShadow"></div></div>').appendTo('#searchform');
     $('.serendipity_entrypaging_left a').addClass('btn btn-secondary');
     $('.serendipity_entrypaging_right a').addClass('btn btn-secondary');
-    $('.serendipity_edit_nugget').attr('class', 'bi bi-pencil-square text-editicon serendipity_edit_nugget btn btn-admin btn-sm');
+    $('main .serendipity_edit_nugget').attr('class', 'bi bi-pencil-square text-editicon serendipity_edit_nugget btn btn-admin btn-sm');
     $('.msg_notice.serendipity_subscription_off').attr('class', 'alert alert-warning serendipity_subscription_off').attr('role', 'alert');
     $('.serendipity_msg_important.msg_error').attr('class', 'alert alert-danger').attr('role', 'alert');
     $('.serendipity_msg_important').addClass('alert alert-secondary').attr('role', 'alert');
