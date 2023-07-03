@@ -1127,6 +1127,9 @@ input[type="checkbox"] {
 [data-bs-theme="dark"] .shariff-button a:hover {
   background-color: var(--bs-tertiary-bg) !important; }
 
+.sidebar_widget.serendipity_plugin_authors div {
+  margin-bottom: .5rem; }
+
 #serendipity_categories_list input[type="checkbox"] {
   vertical-align: middle;
   margin-right: 9px;
