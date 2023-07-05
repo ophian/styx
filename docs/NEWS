@@ -2,6 +2,8 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add new config.versionCheck var to OFF to avoid logging with ckebasic 4.22
+
   * Upgrade custom CKEBasic asset to 4.22.1 (4a1fb11f44 revision)
     https://ckeditor.com/cke4/release-notes
     As announced this is the last open source release of CKEditor 4.
