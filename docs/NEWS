@@ -2,6 +2,10 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Upgrade custom CKEBasic asset to 4.22.1 (4a1fb11f44 revision)
+    https://ckeditor.com/cke4/release-notes
+    As announced this is the last open source release of CKEditor 4.
+
   * Precise theme JS _edit_nugget selector for adding icon selectors in
     [ boot, b46, b53 ] themes.
     COPY THEMERS: Please follow the themes js file change.
