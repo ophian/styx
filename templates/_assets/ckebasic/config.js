@@ -100,5 +100,8 @@ CKEDITOR.editorConfig = function( config ) {
         config.extraAllowedContent = 'mediainsert[*]{*}(*);gallery[*]{*}(*);media[*]{*}(*);audio[*]{*}(*);video[*];div[*]{*}(*);h2;h3;h4;p[lang](*);q[lang](*);ul[lang]{*}(*);a[*](*);span[*]{*}(*);figure{*}(*);figcaption(*);picture;source[*]{*}(*);img[*]{*}(*);code(*);hr;pre[*](*);';
         // Do not use auto paragraphs, added to these allowed tags (only!). Please regard that this was marked deprecated by CKE 4.4.5, but is a need for (our use of) extraAllowedContent - check this again by future versions!
         config.autoParagraph = false; // defaults(true)
+        // Up from v.4.22 EOL the ckeditor script is checking "3rd" party for "security", see https://github.com/ckeditor/ckeditor4/commit/b7b2f4748be71eb01c2f99afefaff002f5061a3e.
+        // We don't want this for privacy, since that is easily a logger! See https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-versionCheck
+        config.versionCheck = false;
     }
 };
