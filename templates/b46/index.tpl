@@ -17,8 +17,8 @@
 {if in_array($view, ['start', 'entries'])}
     <link rel="canonical" href="{$serendipityBaseURL}">
 {/if}
-    <link rel="stylesheet" href="{serendipity_getFile file="b4/css/bootstrap.min.css"}">
-    <link rel="stylesheet" href="{$head_link_stylesheet}">
+    <link rel="stylesheet" href="{serendipity_getFile file="b4/css/bootstrap.min.css"}" type="text/css">
+    <link rel="stylesheet" href="{$head_link_stylesheet}" type="text/css">
 {if $template_option.lineup}
     <style>
       .b46-lineup-nav { visibility: hidden; }
@@ -245,7 +245,7 @@
 {assign var="hljsload" value=true}
 {/if}
 {if (in_array($view, ['start', 'entries', 'entry', 'comments', 'categories']) AND $wysiwyg_comment) OR isset($hljsload) && $hljsload === true}
-<link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}_assets/highlight/github.min.css">
+<link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}_assets/highlight/github.min.css" type="text/css">
 <script src="{$serendipityHTTPPath}{$templatePath}_assets/highlight/highlight.min.js"></script>
 <script>
     // launch the codesnippet highlight
