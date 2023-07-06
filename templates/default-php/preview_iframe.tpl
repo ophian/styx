@@ -4,13 +4,13 @@
         <meta charset="<?= $GLOBALS['tpl']['head_charset'] ?>">
         <title><?= SERENDIPITY_ADMIN_SUITE ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="<?= $GLOBALS['tpl']['head_link_stylesheet'] ?>">
+        <link rel="stylesheet" type="text/css" href="<?= $GLOBALS['tpl']['head_link_stylesheet'] ?>" type="text/css">
     <?php if ($GLOBALS['tpl']['head_link_stylesheet_frontend']): ?>
-        <link rel="stylesheet" href="<?= $GLOBALS['tpl']['head_link_stylesheet_frontend'] ?>">
+        <link rel="stylesheet" href="<?= $GLOBALS['tpl']['head_link_stylesheet_frontend'] ?>" type="text/css">
     <?php else: ?>
-        <link rel="stylesheet" href="<?= $GLOBALS['tpl']['serendipityHTTPPath'] ?><?= $GLOBALS['tpl']['serendipityRewritePrefix'] ?>serendipity.css">
+        <link rel="stylesheet" href="<?= $GLOBALS['tpl']['serendipityHTTPPath'] ?><?= $GLOBALS['tpl']['serendipityRewritePrefix'] ?>serendipity.css" type="text/css">
     <?php endif; ?>
-        <link rel="stylesheet" href="<?= $GLOBALS['tpl']['iconizr'] ?>">
+        <link rel="stylesheet" href="<?= $GLOBALS['tpl']['iconizr'] ?>" type="text/css">
         <style> #content { width: 99%; background-color: #fcfcfc; padding: 5px; } .save_preview_content .msg_success { margin: 0; } </style>
     <?php if ($GLOBALS['tpl']['mode'] == 'save'): /* we need this for modernizr.indexDB cleaning up autosave entry modifications */ ?>
         <script src="<?= $GLOBALS['tpl']['modernizr'] ?>"></script>

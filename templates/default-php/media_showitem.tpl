@@ -17,7 +17,7 @@
 <?php if (in_array($GLOBALS['tpl']['view'], ['start', 'entries'])): ?>
     <link rel="canonical" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?>">
 <?php endif; ?>
-    <link rel="stylesheet" href="<?= $GLOBALS['tpl']['head_link_stylesheet'] ?>">
+    <link rel="stylesheet" href="<?= $GLOBALS['tpl']['head_link_stylesheet'] ?>" type="text/css">
 <?php /*serendipity_plugin_api::hook_event('frontend_header', $GLOBALS['tpl'])*//* ENABLE TO USE any plugin hooked assets - see footer */ ?>
     <script src="<?= $GLOBALS['tpl']['head_link_script'] ?>"></script>
 </head>

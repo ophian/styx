@@ -5,10 +5,7 @@
     <meta charset="<?= LANG_CHARSET ?>">
     <title><?= PLUGIN_LINKTRIMMER_NAME ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="<?= $GLOBALS['tpl']['serendipityBaseURL'] ?>serendipity.css.php?serendipity[css_mode]=serendipity_admin.css">
-<!--[if lte IE 8]>
-    <link rel="stylesheet" href="<?= serendipity_getTemplateFile('admin/oldie.css', 'serendipityHTTPPath') ?>">
-<![endif]-->
+    <link rel="stylesheet" href="<?= $GLOBALS['tpl']['serendipityBaseURL'] ?>serendipity.css.php?serendipity[css_mode]=serendipity_admin.css" type="text/css">
     <script src="<?= serendipity_getTemplateFile('admin/js/modernizr.min.js', 'serendipityHTTPPath') ?>"></script>
 
     <style>{* popup only classes *}
