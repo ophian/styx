@@ -763,7 +763,7 @@ function serendipity_installFiles($serendipity_core = '') {
 
             $safeFP = @fopen($serendipity_core . '.installer_detection_failsafe', 'w');
             fclose($safeFP);
-            $sock = fsockopen($serendipity_host, $_SERVER['SERVER_PORT'], $errorno, $errorstring, 10);
+            $sock = fsockopen($serendipity_host, (int) $_SERVER['SERVER_PORT'], $errorno, $errorstring, 10);
             if ($sock) {
                 fputs($sock, "GET {$serendipityHTTPPath} HTTP/1.0\r\n");
                 fputs($sock, "Host: $serendipity_host\r\n");
