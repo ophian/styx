@@ -8,9 +8,9 @@
     <title>{$blogTitle} | {if $admin_vars.title}{$admin_vars.title} | {/if}{if $admin_vars.is_logged_in}{$CONST.SERENDIPITY_ADMIN_SUITE}{/if}</title>
 {/if}
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{$head_link_stylesheet}">
+    <link rel="stylesheet" href="{$head_link_stylesheet}" type="text/css">
 {if $admin_vars.darkmode}
-    <link rel="stylesheet" href="{serendipity_getFile file='admin/styx_dark.min.css'}">
+    <link rel="stylesheet" href="{serendipity_getFile file='admin/styx_dark.min.css'}" type="text/css">
 {/if}
     <script src="{serendipity_getFile file='admin/js/modernizr.min.js'}"></script>
 {if $admin_vars.is_logged_in}

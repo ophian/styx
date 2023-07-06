@@ -4,7 +4,7 @@
     <meta charset="{$CONST.LANG_CHARSET}">
     <title>{if isset($admin_vars.title)}{$admin_vars.title} | {/if}{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{$head_link_stylesheet}">
+    <link rel="stylesheet" href="{$head_link_stylesheet}" type="text/css">
     <script src="{serendipity_getFile file='admin/js/modernizr.min.js'}"></script>
 {if isset($admin_vars.admin_installed)}{serendipity_hookPlugin hook="backend_header" hookAll="true"}{/if}
     <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
