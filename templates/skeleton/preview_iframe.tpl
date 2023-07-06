@@ -5,10 +5,10 @@
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 {if $template_option.use_googlefonts}
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,300,600">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" type="text/css">
 {/if}
-    <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css">
-    <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}">
+    <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css" type="text/css">
+    <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}" type="text/css">
 
 {if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
     <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
