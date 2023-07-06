@@ -5,12 +5,12 @@
         <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     {if $head_link_stylesheet_frontend}
-        <link rel="stylesheet" href="{$head_link_stylesheet_frontend}">
+        <link rel="stylesheet" href="{$head_link_stylesheet_frontend}" type="text/css">
     {else}
-        <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css">
+        <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css" type="text/css">
     {/if}
 
-        <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}">
+        <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}" type="text/css">
 
     {if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
         <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>

@@ -4,7 +4,7 @@
     <meta charset="{$CONST.LANG_CHARSET}">
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{serendipity_getFile file='admin/installer.css'}">
+    <link rel="stylesheet" href="{serendipity_getFile file='admin/installer.css'}" type="text/css">
     <script src="{serendipity_getFile file='admin/js/modernizr.min.js'}"></script>
     <script src="templates/jquery.js"></script>
     <script src="{serendipity_getFile file='admin/js/plugins.js'}"></script>

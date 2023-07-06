@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="{$lang}"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" dir="{$CONST.LANG_DIRECTION}" lang="{$lang}"> <!--<![endif]-->
+<html class="no-js" dir="{$CONST.LANG_DIRECTION}" lang="{$lang}">
 <head>
     <meta charset="{$CONST.LANG_CHARSET}">
 {if !$admin_vars.backendBlogtitleFirst}
@@ -9,10 +8,7 @@
     <title>{$blogTitle} | {if $admin_vars.title}{$admin_vars.title} | {/if}{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
 {/if}
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{$head_link_stylesheet}">
-<!--[if lte IE 8]>
-    <link rel="stylesheet" href="{serendipity_getFile file='admin/oldie.css'}">
-<![endif]-->
+    <link rel="stylesheet" href="{$head_link_stylesheet}" type="text/css">
     <script src="{serendipity_getFile file='admin/js/modernizr.min.js'}"></script>
 {if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_header" hookAll="true"}{/if}
     <script src="{serendipity_getFile file='admin/js/plugins.js'}"></script>
