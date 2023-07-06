@@ -6,25 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 {if isset($template_option.webfonts)}
 {if $template_option.webfonts == 'droid'}
-    <link  rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700" type="text/css">
 {elseif $template_option.webfonts == 'ptsans'}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic" type="text/css">
 {elseif $template_option.webfonts == 'osans'}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic" type="text/css">
 {elseif $template_option.webfonts == 'cabin'}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Cabin:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Cabin:400,400italic,700,700italic" type="text/css">
 {elseif $template_option.webfonts == 'ubuntu'}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic" type="text/css">
 {elseif $template_option.webfonts == 'dserif'}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic" type="text/css">
 {/if}
 {/if}
 {if $head_link_stylesheet_frontend}
-    <link rel="stylesheet" href="{$head_link_stylesheet_frontend}">
+    <link rel="stylesheet" href="{$head_link_stylesheet}" type="text/css">
 {else}
-    <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css">
+    <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css" type="text/css">
 {/if}
-    <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}">
+    <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}" type="text/css">
 {if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
 
     <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>

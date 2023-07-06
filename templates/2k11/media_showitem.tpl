@@ -10,19 +10,19 @@
     <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 {if $template_option.webfonts == 'droid'}
-    <link  rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700" type="text/css">
 {elseif $template_option.webfonts == 'ptsans'}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic" type="text/css">
 {elseif $template_option.webfonts == 'osans'}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic" type="text/css">
 {elseif $template_option.webfonts == 'cabin'}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Cabin:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Cabin:400,400italic,700,700italic" type="text/css">
 {elseif $template_option.webfonts == 'ubuntu'}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic" type="text/css">
 {elseif $template_option.webfonts == 'dserif'}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic" type="text/css">
 {/if}
-    <link rel="stylesheet" href="{$head_link_stylesheet}">
+    <link rel="stylesheet" href="{$head_link_stylesheet}" type="text/css">
     <script src="{serendipity_getFile file="js/modernizr-2.7.1.min.js"}"></script>
 {* serendipity_hookPlugin hook="frontend_header" *}{* ENABLE TO USE any plugin hooked assets - see footer *}
     <script src="{$head_link_script}"></script>
