@@ -2,6 +2,8 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add missing type attribute for stylesheets in [ ..all..] themes
+
   * Add new config.versionCheck var to OFF to avoid logging with ckebasic 4.22
 
   * Upgrade custom CKEBasic asset to 4.22.1 (4a1fb11f44 revision)
