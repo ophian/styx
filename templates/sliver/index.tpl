@@ -33,19 +33,19 @@
 {/if}
 {if $template_option.webfonts == 'droid'}
 
-    <link  rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700" type="text/css">
 {elseif $template_option.webfonts == 'ptsans'}
 
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic" type="text/css">
 {elseif $template_option.webfonts == 'osans'}
 
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic" type="text/css">
 {elseif $template_option.webfonts == 'cabin'}
 
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Cabin:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Cabin:400,400italic,700,700italic" type="text/css">
 {elseif $template_option.webfonts == 'ubuntu'}
 
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic" type="text/css">
 {/if}
 {if isset($view) AND $view == 'entry' AND isset($entry.rdf_ident)}
 
@@ -65,12 +65,12 @@
     <link rel="canonical" href="{$serendipityBaseURL}">
 {/if}
 
-    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/normalize.css">
-    <link rel="stylesheet" href="{$head_link_stylesheet}">
-    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/endandprint.css">
+    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="{$head_link_stylesheet}" type="text/css">
+    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/endandprint.css" type="text/css">
 {if $template_option.use_slivers_codeprettifier}
 
-    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/prettify.css">
+    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/prettify.css" type="text/css">
 {/if}
 
     <script src="{$serendipityHTTPPath}{$templatePath}{$template}/js/modernizr-3.6.0.min.js"></script>

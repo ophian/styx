@@ -7,31 +7,31 @@
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
 
 {if $template_option.webfonts == 'droid'}
-    <link  rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700" type="text/css">
 {elseif $template_option.webfonts == 'ptsans'}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic" type="text/css">
 {elseif $template_option.webfonts == 'osans'}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic" type="text/css">
 {elseif $template_option.webfonts == 'cabin'}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Cabin:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Cabin:400,400italic,700,700italic" type="text/css">
 {elseif $template_option.webfonts == 'ubuntu'}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic" type="text/css">
 {/if}
 
     <link rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}{$template}/favicon.ico">
-    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/normalize.css">
+    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/normalize.css" type="text/css">
     {* this is the default fallback and additional plugin stylesheet generated into serendipity.css - DO NOT USE href="{$head_link_stylesheet}" here, since we want this templates styles, not 2k11s!! *}
 {if $head_link_stylesheet_frontend}
-    <link rel="stylesheet" href="{$head_link_stylesheet_frontend}">
+    <link rel="stylesheet" href="{$head_link_stylesheet_frontend}" type="text/css">
 {else}
-    <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css">
+    <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css" type="text/css">
 {/if}
     {* this is the end of boilerplate style and mixed print styles *}
 {if $mode == 'preview'}
 
-    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/endandprint.css">
+    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/endandprint.css" type="text/css">
 {/if}
-    <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}">
+    <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}" type="text/css">
 {if $mode == 'save'}
 
     <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>

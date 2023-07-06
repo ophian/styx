@@ -5,7 +5,7 @@
     <title>{$head_title|default:$blogTitle} {if $head_subtitle} - {$head_subtitle}{/if}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}">
-    <link rel="stylesheet" type="text/css" href="{$serendipityHTTPPath}serendipity.css.php">
+    <link rel="stylesheet" type="text/css" href="{$serendipityHTTPPath}serendipity.css.php" type="text/css">
 {serendipity_hookPlugin hook="frontend_header"}
 </head>
 
