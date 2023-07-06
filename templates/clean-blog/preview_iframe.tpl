@@ -5,14 +5,14 @@
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 {* BOOTSTRAP CORE CSS *}
-    <link rel="stylesheet" href="{serendipity_getFile file="b4/css/bootstrap.min.css"}">
+    <link rel="stylesheet" href="{serendipity_getFile file="b4/css/bootstrap.min.css"}" type="text/css">
 {* S9Y CSS *}
 {if $head_link_stylesheet_frontend}
-    <link rel="stylesheet" href="{$head_link_stylesheet_frontend}">
+    <link rel="stylesheet" href="{$head_link_stylesheet_frontend}" type="text/css">
 {else}
-    <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css">
+    <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css" type="text/css">
 {/if}
-    <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}">
+    <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}" type="text/css">
 {* CUSTOM FONTS *}
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 {if $template_option.use_googlefonts}
