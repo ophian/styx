@@ -17,8 +17,8 @@
 {if in_array($view, ['start', 'entries'])}
     <link rel="canonical" href="{$serendipityBaseURL}">
 {/if}
-    <link rel="stylesheet" href="{serendipity_getFile file="b4/css/bootstrap.min.css"}">
-    <link rel="stylesheet" href="{$head_link_stylesheet}">
+    <link rel="stylesheet" href="{serendipity_getFile file="b4/css/bootstrap.min.css"}" type="text/css">
+    <link rel="stylesheet" href="{$head_link_stylesheet}" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="{$blogTitle} RSS feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2">
     <link rel="alternate" type="application/x.atom+xml" title="{$blogTitle} Atom feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml">
 {if $entry_id}
