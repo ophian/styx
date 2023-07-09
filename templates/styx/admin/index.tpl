@@ -12,6 +12,7 @@
 {if $admin_vars.darkmode}
     <link rel="stylesheet" href="{serendipity_getFile file='admin/styx_dark.min.css'}" type="text/css">
 {/if}
+    <link rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}styx/s.t.y.x.png" type="image/x-icon">
     <script src="{serendipity_getFile file='admin/js/modernizr.min.js'}"></script>
 {if $admin_vars.is_logged_in}
 {if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_header" hookAll="true"}{/if}
