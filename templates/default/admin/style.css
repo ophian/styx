@@ -2286,6 +2286,11 @@ form > .button_link:first-of-type,
     margin: 0 0 1em;
 }
 
+#template_select a.media_fullsize {
+  height: auto;
+  display: inline-block;
+}
+
 .plugins_removed li {
     margin-left: 1.5em;
 }
