@@ -20,7 +20,7 @@ class serendipity_event_changelog extends serendipity_event
         $propbag->add('description',    PLUGIN_CHANGELOG_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.38');
+        $propbag->add('version',       '1.39');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.2',
             'php'         => '5.3.0'
@@ -58,7 +58,7 @@ class serendipity_event_changelog extends serendipity_event
                     $part = explode('/', $eventData);
                     if ($part[0] == 'changelog') {
                         if (!headers_sent()) {
-                            header('HTTP/1.0 200');
+                            header(serendipity_getServerProtocol() . ' 200');
                             header('Status: 200 OK');
                         }
                         header('Content-language: en');
@@ -69,7 +69,7 @@ class serendipity_event_changelog extends serendipity_event
                     }
                     if ($part[0] == 'logs' && is_object($serendipity['logger'])) {
                         if (!headers_sent()) {
-                            header('HTTP/1.0 200');
+                            header(serendipity_getServerProtocol() . ' 200');
                             header('Status: 200 OK');
                         }
 
