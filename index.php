@@ -2,9 +2,13 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+$protocol = $_SERVER['SERVER_PROTOCOL'] ?? '';
+if ( ! in_array( $protocol, [ 'HTTP/1.1', 'HTTP/2', 'HTTP/2.0', 'HTTP/3' ], true ) ) {
+    $protocol = 'HTTP/1.0';
+}
 // We need to set this to return a 200 since we use .htaccess ErrorDocument
 // rules to handle archives.
-header('HTTP/1.0 200');
+header($protocol . ' 200');
 header('Status: 200 OK');
 
 // Session are needed to also remember an autologin user on the frontend
