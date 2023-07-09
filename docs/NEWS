@@ -2,6 +2,10 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Since modern servers more and more tend to use the HTTP/2 header, Styx
+    is now switching to check the SERVER_PROTOCOL variable to deliver the
+    right protocol version. Additional Plugins will follow after release.
+
   * Add missing type attribute for stylesheets in [ ..all..] themes
 
   * Add new config.versionCheck var to OFF to avoid possible logging for
