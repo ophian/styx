@@ -17,7 +17,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.19');
+        $propbag->add('version',       '3.20');
         $propbag->add('requirements',  array(
             'serendipity' => '3.1',
             'php'         => '7.3'
@@ -384,7 +384,7 @@ class serendipity_event_spartacus extends serendipity_event
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> '. $msg .'</span>' . "\n";
                 if ($serendipity['ajax']) {
                     // we need to set an actual error header so the ajax request can react to the error state
-                    header('HTTP/1.1 400');
+                    header(serendipity_getServerProtocol() . ' 400');
                 }
                 break;
 
