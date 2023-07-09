@@ -42,7 +42,7 @@ if (serendipity_isResponseClean($url)) {
     }
 
     if ($trust_url || $open_redir) {
-        header('HTTP/1.0 301 Moved Permanently');
+        header(serendipity_getServerProtocol() . ' 301 Moved Permanently');
         header('Status: 301 Moved Permanently');
         header('Location: ' . $url);
     }

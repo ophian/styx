@@ -59,7 +59,7 @@ switch (@$serendipity['GET']['action']) {
                 $serendipity['smarty']->assign('head_subtitle', $serendipity['head_subtitle']);
                 $serendipity['view'] = '404';
                 $serendipity['content_message'] = URL_NOT_FOUND;
-                serendipity_header('HTTP/1.0 404 Not found');
+                serendipity_header(serendipity_getServerProtocol() . ' 404 Not found');
                 serendipity_header('Status: 404 Not found');
             }
 

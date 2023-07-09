@@ -141,7 +141,7 @@ if ($ob_buffer) {
 
         if ($hashValue === $reqHeader) {
             // Tell client to use the cached version and destroy output buffer
-            @header('HTTP/1.1 304 Not Modified', true, 304);
+            @header(serendipity_getServerProtocol() . ' 304 Not Modified', true, 304);
             ob_clean();
         }
     }
