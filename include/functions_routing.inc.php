@@ -35,7 +35,7 @@ function serve404() {
         $serendipity['content_message'] = URL_NOT_FOUND;
     }
 
-    header('HTTP/1.0 404 Not found');
+    header(serendipity_getServerProtocol() . ' 404 Not found');
     header('Status: 404 Not found');
 
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
@@ -266,7 +266,7 @@ function serveAuthorPage($matches, $is_multiauth=false) {
         $serendipity['view'] = '404';
         $serendipity['viewtype'] = '404_3';
 
-        header('HTTP/1.0 404 Not found');
+        header(serendipity_getServerProtocol() . ' 404 Not found');
         header('Status: 404 Not found');
     } else {
         $serendipity['head_title']    = sprintf(ENTRIES_BY, $uInfo[0]['realname']);
@@ -316,7 +316,7 @@ function serveCategory($matches, $is_multicat=false) {
         $serendipity['view'] = '404';
         $serendipity['viewtype'] = '404_2';
 
-        header('HTTP/1.0 404 Not found');
+        header(serendipity_getServerProtocol() . ' 404 Not found');
         header('Status: 404 Not found');
     } else {
         $serendipity['head_title'] = $cInfo['category_name'];
@@ -462,7 +462,7 @@ function serveEntry($matches) {
         $serendipity['view'] = '404';
         $serendipity['viewtype'] = '404_1';
 
-        header('HTTP/1.0 404 Not found');
+        header(serendipity_getServerProtocol() . ' 404 Not found');
         header('Status: 404 Not found');
         // here we give back an empty entries array and else print out the "no entries available" message in theme
     }
