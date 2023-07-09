@@ -33,7 +33,7 @@ class serendipity_event_modemaintain extends serendipity_event
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.35');
+        $propbag->add('version',       '1.36');
         $propbag->add('requirements',  array(
             'serendipity' => '3.3',
             'php'         => '7.3.0'
@@ -87,11 +87,7 @@ class serendipity_event_modemaintain extends serendipity_event
     private function service_mode($logo='')
     {
         $retry = 300; // seconds
-        $protocol = $_SERVER["SERVER_PROTOCOL"];
-        if ( 'HTTP/1.1' != $protocol && 'HTTP/1.0' != $protocol ) {
-            $protocol = 'HTTP/1.0';
-        }
-        serendipity_header( "$protocol 503 Service Temporarily Unavailable", true, 503 );
+        serendipity_header( serendipity_getServerProtocol() . ' 503 Service Temporarily Unavailable', true, 503 );
         serendipity_header( 'Status: 503 Service Temporarily Unavailable', true, 503 );
         serendipity_header( 'X-S9y-Maintenance: true' ); // Used for debugging detection
         serendipity_header( 'Content-Type: text/html; charset=utf-8' );
