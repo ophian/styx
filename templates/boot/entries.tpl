@@ -88,7 +88,7 @@
 
                 <li class="post_admin d-inline-block text-editicon editentrylink">
                     <a class="btn btn-secondary btn-sm btn-admin" href="{$entry.link_edit}">
-                      <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="bitmod">{$CONST.EDIT_ENTRY}</title><use xlink:href="#pencil-square"/></svg><span class="admin-edit">{$CONST.EDIT}</span>
+                      <svg class="bi mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="bitmod">{$CONST.EDIT_ENTRY}</title><use xlink:href="#pencil-square"/></svg><span class="admin-edit">{$CONST.EDIT}</span>
                     </a>
                 </li>
             {/if}
