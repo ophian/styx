@@ -830,6 +830,7 @@ input[type="submit"] {
     padding: .25em .5em;
     text-decoration: none;
     width: auto;
+    max-width: fit-content;
 }
 
 .button_link,
@@ -3640,6 +3641,10 @@ label .perm_name,
     position: relative;
     top: 3.5em;
     left: 16.5em;
+}
+.js #dash_plup #waitingspin.pulsator {
+    top: 0em;
+    left: 6em;
 }
 .js #waitingspin.pulsator.scale_image {
     margin-top: -1.5em;
