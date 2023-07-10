@@ -688,7 +688,7 @@ class HTTP_Request2_Adapter_Socket extends HTTP_Request2_Adapter
      * @return   string  value of [Proxy-]Authorization request header
      * @link     http://tools.ietf.org/html/rfc2617#section-3.2.2
      */
-    protected function createDigestResponse($user, $password, $url, &$challenge)
+    protected function createDigestResponse($user, #[\SensitiveParameter] $password, $url, &$challenge)
     {
         if (false !== ($q = strpos($url, '?'))
             && $this->request->getConfig('digest_compat_ie')
