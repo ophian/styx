@@ -1,3 +1,7 @@
+1.87:
+-----
+    * Add PHP 8.2: Sensitive Parameter value redaction support
+
 1.86:
 -----
     * Add new config option to automatize the cache-entries confirmation dialog for the next pages after 1st confirm
