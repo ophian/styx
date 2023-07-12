@@ -818,6 +818,8 @@ input[type="submit"] {
     padding: .25em .5em;
     text-decoration: none;
     width: auto;
+}
+.button_link {
     max-width: fit-content;
 }
 
