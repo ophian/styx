@@ -2,8 +2,6 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Add PHP 8.2: Sensitive Parameter value redaction support
-
   * Since modern servers more and more tend to use the HTTP/2 header, Styx
     is now switching to check the SERVER_PROTOCOL variable to deliver the
     right protocol version. Additional Plugins will follow after release.
