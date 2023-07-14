@@ -92,7 +92,7 @@ class HTTP_Request2_SOCKS5 extends HTTP_Request2_SocketWrapper
      * @throws HTTP_Request2_MessageException
      * @link http://tools.ietf.org/html/rfc1929
      */
-    protected function performAuthentication($username, #[\SensitiveParameter] $password)
+    protected function performAuthentication($username, $password)
     {
         $request  = pack('C2', 1, strlen($username)) . $username
                     . pack('C', strlen($password)) . $password;
