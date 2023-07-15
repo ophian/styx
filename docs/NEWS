@@ -5,6 +5,7 @@ Version 4.x-DEV ()
   * Since modern servers more and more tend to use the HTTP/2 header, Styx
     is now switching to check the SERVER_PROTOCOL variable to deliver the
     right protocol version. Additional Plugins will follow after release.
+    Giving up sending deprecated Pragma (HTTP/1.0) header.
 
   * Add missing type attribute for stylesheets in [ ..all..] themes
 
