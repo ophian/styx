@@ -23,7 +23,6 @@ if ($serendipity['CacheControl']) {
         header('Cache-Control: private, pre-check=0, post-check=0, max-age=0');
     }
     header('Expires: Wed, 21 Oct 2015 07:28:00 GMT');
-    header('Pragma: no-cache');
 }
 $uri = $_SERVER['REQUEST_URI'];
 
