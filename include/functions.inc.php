@@ -518,11 +518,11 @@ function serendipity_serverOffsetHour($timestamp = null, $negative = false): int
 }
 
 /**
- * Converts a date string (DD.MM.YYYY, YYYY-MM-DD, MM/DD/YYYY) into a unix timestamp
+ * Converts a date string (DD.MM.YYYY, YYYY-MM-DD, MM/DD/YYYY) into a UNIX timestamp
  *
  * @access public
  * @param  string  The input date
- * @return int     The output unix timestamp
+ * @return int     The output UNIX timestamp
  */
 function &serendipity_convertToTimestamp($in) {
     if (preg_match('@([0-9]+)([/\.-])([0-9]+)([/\.-])([0-9]+)@', $in, $m)) {
