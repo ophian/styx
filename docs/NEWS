@@ -6,6 +6,11 @@ Version 4.x-DEV ()
     is now switching to check the SERVER_PROTOCOL variable to deliver the
     right protocol version. Additional Plugins will follow after release.
     Includes, giving up deprecated Pragma (HTTP/1.0) header.
+            - giving the Expire (date) header a date in the past
+            - adding a cache control header to the main serendipity.css
+              frontend file to immediate react on changes.
+            - Refactoring of 304 Not Modified header for the main
+              serendipity.css frontend file to be reusable.
 
   * Add missing type attribute for stylesheets in [ ..all..] themes
 
