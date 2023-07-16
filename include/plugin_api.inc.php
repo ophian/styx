@@ -81,9 +81,18 @@ function serendipity_plugin_api_core_event_hook($event, &$bag, &$eventData, &$ad
 
         case 'external_plugin':
             if ($eventData == 'admin/serendipity_styx.js') {
-                header('Content-Type: application/javascript');
-
+                // for serendipity_setNotModifiedHeader
+                if ($serendipity['CacheControl'] && !ob_get_level()) {
+                    ob_start();
+                }
+                // Note that no-cache does not mean "don't cache". no-cache allows caches to store a response but requires them to revalidate it before reuse.
+                // If the sense of "don't cache" that you want is actually "don't store", then no-store is the directive to use.
+                header("Cache-Control: no-cache, max-age=3600"); // 1 hour - if this all works we could set this to 12/24 hours
+                header('Content-type: application/javascript; charset=' . LANG_CHARSET);
                 echo serendipity_smarty_showTemplate('admin/serendipity_styx.js.tpl', null, 'JS', 'include/plugin_api.inc.php:external_plugin');
+                if ($serendipity['CacheControl']) {
+                    serendipity_setNotModifiedHeader(); // 304
+                }
             }
             break;
 
