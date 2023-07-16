@@ -259,6 +259,47 @@ function serendipity_getServerProtocol(): string {
 }
 
 /**
+ * Return the 304 Not Modified header.
+ *
+ * @access public
+ * @return void
+ */
+function serendipity_setNotModifiedHeader() {
+    //
+    // Fetch output buffer containing the CSS output and create eTag header
+    //
+    $ob_buffer = ob_get_contents();
+
+    if ($ob_buffer) {
+
+        // Calculate hash for eTag and get request header. The hash value
+        // changes with every modification to any part of the CSS styles.
+        // This includes the installation of a plugin that adds plugin
+        // specific styles.
+
+        // Send ETag header using the hash value of the CSS code
+        #$hashValue = hash('xxh128', $ob_buffer); // md5() is going to be replaced with hash('xxh128', ...); up from PHP 8.1
+        $hashValue = md5($ob_buffer);
+        header('ETag: "' . $hashValue . '"');
+
+        // Compare value of If-None-Match header (if available) to hash value
+        if (!empty($_SERVER['HTTP_IF_NONE_MATCH'])) {
+            // Get request header value and chop off optional quotes
+            $reqHeader = trim($_SERVER['HTTP_IF_NONE_MATCH'], '"');
+
+            if ($hashValue === $reqHeader) {
+                // Tell client to use the cached version and destroy output buffer
+                header(serendipity_getServerProtocol() . ' 304 Not Modified', true, 304);
+                header("Vary: Accept-Encoding");
+                ob_clean();
+            }
+        }
+    }
+
+    ob_end_flush();
+}
+
+/**
  * Get the Referrer calling function name for the current HTTP Request
  *
  * @access public

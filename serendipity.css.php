@@ -69,6 +69,7 @@ function serendipity_printStylesheet($file, $dir = '', $root = '') {
             file_get_contents($file, 1));
 }
 
+// We want the css file to immediate be recognized as a new file when changes have happened. This is done by checking and setting the ETag hash. We don't do query string timestamps any more!
 // Note that no-cache does not mean "don't cache". no-cache allows caches to store a response but requires them to revalidate it before reuse.
 // If the sense of "don't cache" that you want is actually "don't store", then no-store is the directive to use.
 header("Cache-Control: no-cache, max-age=3600"); // 1 hour - if this all works we could even set this to 12/24 hours
@@ -119,35 +120,6 @@ $out .= serendipity_printStylesheet(
 
 echo $out;
 
-//
-// Fetch output buffer containing the CSS output and create eTag header
-//
-$ob_buffer = ob_get_contents();
-
-if ($ob_buffer) {
-
-    // Calculate hash for eTag and get request header. The hash value
-    // changes with every modification to any part of the CSS styles.
-    // This includes the installation of a plugin that adds plugin
-    // specific styles.
-
-    // Send ETag header using the hash value of the CSS code
-    $hashValue = md5($ob_buffer);
-    @header('ETag: "' . $hashValue . '"');
-
-    // Compare value of If-None-Match header (if available) to hash value
-    if (!empty($_SERVER['HTTP_IF_NONE_MATCH'])) {
-        // Get request header value and chop off optional quotes
-        $reqHeader = trim($_SERVER['HTTP_IF_NONE_MATCH'], '"');
-
-        if ($hashValue === $reqHeader) {
-            // Tell client to use the cached version and destroy output buffer
-            @header(serendipity_getServerProtocol() . ' 304 Not Modified', true, 304);
-            ob_clean();
-        }
-    }
-}
-
-ob_end_flush();
+serendipity_setNotModifiedHeader(); // 304
 
 /* vim: set sts=4 ts=4 expandtab : */
