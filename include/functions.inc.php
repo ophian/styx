@@ -248,12 +248,12 @@ function serendipity_emptyArray($array) {
  * Return the HTTP protocol sent by the server.
  *
  * @access public
- * @return string The HTTP protocol. Default fallback HTTP/1.0.
+ * @return string The HTTP protocol. Default fallback HTTP/1.1 for 304.
  */
 function serendipity_getServerProtocol(): string {
 	$protocol = $_SERVER['SERVER_PROTOCOL'] ?? '';
 	if ( ! in_array( $protocol, [ 'HTTP/1.1', 'HTTP/2', 'HTTP/2.0', 'HTTP/3' ], true ) ) {
-		$protocol = 'HTTP/1.0';
+		$protocol = 'HTTP/1.1';
 	}
 	return $protocol;
 }

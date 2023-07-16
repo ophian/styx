@@ -4,7 +4,7 @@
 
 $protocol = $_SERVER['SERVER_PROTOCOL'] ?? '';
 if ( ! in_array( $protocol, [ 'HTTP/1.1', 'HTTP/2', 'HTTP/2.0', 'HTTP/3' ], true ) ) {
-    $protocol = 'HTTP/1.0';
+    $protocol = 'HTTP/1.1';
 }
 // We need to set this to return a 200 since we use .htaccess ErrorDocument
 // rules to handle archives.
