@@ -11,6 +11,7 @@ Version 4.x-DEV ()
               frontend file to immediate react on changes.
             - Refactoring of 304 Not Modified header for the main
               serendipity.css frontend file to be reusable.
+            - Refactor dynamic serendipity_*** js headers for cache and 304
 
   * Add missing type attribute for stylesheets in [ ..all..] themes
 
