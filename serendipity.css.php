@@ -69,9 +69,11 @@ function serendipity_printStylesheet($file, $dir = '', $root = '') {
             file_get_contents($file, 1));
 }
 
-header('Cache-Control:');
-header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time()+3600));
-header('Content-type: text/css; charset=' . LANG_CHARSET);
+// Note that no-cache does not mean "don't cache". no-cache allows caches to store a response but requires them to revalidate it before reuse.
+// If the sense of "don't cache" that you want is actually "don't store", then no-store is the directive to use.
+header("Cache-Control: no-cache, max-age=3600"); // 1 hour - if this all works we could even set this to 12/24 hours
+
+header('Content-type: text/css; charset=' . LANG_CHARSET); // set correct mime type
 
 if (IS_installed === false) {
     if (file_exists(S9Y_INCLUDE_PATH . 'templates/' . $serendipity['defaultTemplate'] . '/' . $css_file)) {
