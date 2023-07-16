@@ -148,15 +148,25 @@ function serveComments() {
 
 /**
  * The default URI route to serve virtual javascript
+ * PAT_JS = serendipity.js | serendipity_admin.js
  */
 function serveJS($js_mode) {
     global $serendipity;
 
     $serendipity['view'] = 'js';
 
-    header('Cache-Control:');
-    header('Pragma:');
-    header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time()+3600));
+    if ($serendipity['CacheControl'] && !ob_get_level()) {
+        ob_start();
+    }
+
+    if ($serendipity['CacheControl']) {
+        // Note that no-cache does not mean "don't cache". no-cache allows caches to store a response but requires them to revalidate it before reuse.
+        // If the sense of "don't cache" that you want is actually "don't store", then no-store is the directive to use.
+        header("Cache-Control: no-cache, max-age=3600"); // 1 hour - if this all works we could set this to 12/24 hours
+    } else {
+        header('Cache-Control:');
+        header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time()+3600));
+    }
     header('Content-type: application/javascript; charset=' . LANG_CHARSET);
 
     $out = '';
@@ -175,6 +185,10 @@ function serveJS($js_mode) {
         serendipity_plugin_api::hook_event('js', $out);
     }
     echo $out;
+
+    if ($serendipity['CacheControl']) {
+        serendipity_setNotModifiedHeader(); // 304
+    }
 }
 
 /**
