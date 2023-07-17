@@ -600,8 +600,6 @@
 @define('ADMIN_FOOTER_POWERED_BY', 'Powered by Serendipity %s and PHP %s');
 @define('INSTALL_USEGZIP', 'ページの gzip 圧縮を使う');
 @define('INSTALL_USEGZIP_DESC', 'ページの送信を高速化するために、ブラウザーがこれをサポートするなら、訪問者へ送るページを圧縮することができます。これが推奨です。');
-@define('INSTALL_CSS_CTAPPENDIX', 'Use CSS cache file control appendix');
-@define('INSTALL_CSS_CTAPPENDIX_DESC', 'Announces "last_template_change" (CSS) timestamp changes to browser caches. Defaults to "<b>yes</b>".<br><br><b>NOTE:</b> On certain systems with usage of high-speed cache servers, in special with "LiteSpeed Cache", cache request problems were reported with FOUC (<em>Flash of Unstyled Content</em>) on Chromium/Safari browsers not (re-)loading the CSS file after having reached the cache servers time limit, e.g. after 30 minutes, without being hard forced "<em>[Ctrl]+Reload</em>" to do so. Then it helps to reset this option to "<b>no</b>", so these browsers keep loading the clients previously stored file as long as internally hold-by. Mozilla Firefox does not have this issue. So, if you face this problem - and after your site having gone public more statically - this may help your visitors for the time being, until this issue or bug is ironed out more generally. Then put a saved version of the current "serendipity.css" and the "serendipity_admin.css" into the root directory of your blog.');
 @define('INSTALL_SHOWFUTURE', '未来のエントリーを表示する');
 @define('INSTALL_SHOWFUTURE_DESC', 'もし有効にしたならブログは未来を含むすべてのエントリーを表示するでしょう。デフォルトはそれらのエントリーを隠し、公開日が到来したらそれらを表示します。');
 @define('INSTALL_DBPERSISTENT', '持続的接続を使用する');
