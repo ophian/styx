@@ -184,6 +184,7 @@ function serveJS($js_mode) {
     } else {
         serendipity_plugin_api::hook_event('js', $out);
     }
+
     echo $out;
 
     if ($serendipity['CacheControl']) {
