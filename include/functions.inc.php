@@ -278,7 +278,7 @@ function serendipity_setNotModifiedHeader() {
         // specific styles.
 
         // Send ETag header using the hash value of the CSS code
-        #$hashValue = hash('xxh128', $ob_buffer); // md5() is going to be replaced with hash('xxh128', ...); up from PHP 8.1
+        #$hashValue = hash('xxh3', $ob_buffer); // md5() is going to be replaced with hash('xxh3', ...); 64 bit hashing up from PHP 8.1
         $hashValue = md5($ob_buffer);
         header('ETag: "' . $hashValue . '"');
 
