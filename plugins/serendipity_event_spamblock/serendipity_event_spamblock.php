@@ -1572,7 +1572,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                 case 'backend_view_comment':
                     $author_is_filtered = $this->checkFilter('authors', $eventData['author']);
                     $clink = 'comment_' . $eventData['id'];
-                    $randomString = '&amp;random=' . substr(sha1(rand()), 0, 10);    # the random string will force browser to reload the page,
+                    $randomString = '&amp;random=' . substr(sha1((string) rand()), 0, 10);    # the random string will force browser to reload the page,
                                                                                      # so the server knows who to block/unblock when clicking again on the same link,
                                                                                      # see http://stackoverflow.com/a/2573986/2508518, http://stackoverflow.com/a/14043346/2508518
                     $akismet_apikey = $this->get_config('akismet');
