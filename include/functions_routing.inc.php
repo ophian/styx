@@ -162,9 +162,14 @@ function serveJS($js_mode) {
     if ($serendipity['CacheControl']) {
         // Note that no-cache does not mean "don't cache". no-cache allows caches to store a response but requires them to revalidate it before reuse.
         // If the sense of "don't cache" that you want is actually "don't store", then no-store is the directive to use.
-        header("Cache-Control: no-cache, max-age=3600"); // 1 hour - if this all works we could set this to 12/24 hours
+        if (!empty($_SERVER['SERVER_SOFTWARE']) && strstr($_SERVER['SERVER_SOFTWARE'], 'LiteSpeed')) {
+            header('Cache-Control: private, max-age=3600, must-revalidate'); // for Hostinger Cache on LiteSpeed
+            header('Pragma:'); // for Hostinger Cache on LiteSpeed
+        } else {
+            header("Cache-Control: no-cache, max-age=3600, s-maxage=3600, must-revalidate, proxy-revalidate"); // 1 hour - if this all works we could set this to 12/24 hours
+        }
     } else {
-        header('Cache-Control:');
+        header('Cache-Control: must-revalidate, proxy-revalidate');
         header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time()+3600));
     }
     header('Content-type: application/javascript; charset=' . LANG_CHARSET);
