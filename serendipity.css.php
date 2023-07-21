@@ -69,10 +69,21 @@ function serendipity_printStylesheet($file, $dir = '', $root = '') {
             file_get_contents($file, 1));
 }
 
-// We want the css file to immediate be recognized as a new file when changes have happened. This is done by checking and setting the ETag hash. We don't do query string timestamps any more!
-// Note that no-cache does not mean "don't cache". no-cache allows caches to store a response but requires them to revalidate it before reuse.
-// If the sense of "don't cache" that you want is actually "don't store", then no-store is the directive to use.
-header("Cache-Control: no-cache, max-age=3600"); // 1 hour - if this all works we could even set this to 12/24 hours
+// Actually we want the CSS file(s) to immediate be recognized as a new file when changes have happened. Changing themes, adding plugins with CSS injection, configuring theme configurations that have color styles, etc.
+// This is done by checking and setting the ETag hash in serendipity_setNotModifiedHeader(). We don't do query string timestamps any more!
+if ($serendipity['CacheControl'] && !empty($_SERVER['SERVER_SOFTWARE']) && strstr($_SERVER['SERVER_SOFTWARE'], 'LiteSpeed')) {
+    // LiteSpeed servers (on Hostinger) that use a "high speed proxy caching" - which isn't the LiteSpeed Caching itself (I think) and LiteSpeed check announces itself as not set ON -
+    // have the issue of expiring after default of 30 min, but not renewing the BROWSER stored CSS file cache on Chromium / Safari based browsers (Firefox does not have this issue)
+    // which then also seems expired but not totally cleared and so the page is shown without styles until the USER forces a hard page reload that causes an overwrite of cached files (sadly for all of them)
+    // Even 'Cache-Control: private, max-age=3600, must-revalidate, s-maxage=0, proxy-revalidate' won't work when max-age time has run off limits.
+    header('Cache-Control: no-store'); // for LiteSpeed - NO no-cache !!  When using no-store the CSS file will be fetched on each request, which is the only solution I found working... but it sadly removes the value of caching.
+    header('Pragma:'); // reset for LiteSpeed
+} else {
+    // Note that no-cache does not mean "don't cache". no-cache allows caches to store a response but requires them to revalidate it before reuse.
+    // If the sense of "don't cache" that you want is actually "don't store", then no-store is the directive to use.
+    header("Cache-Control: no-cache, max-age=3600"); // 1 hour - if this all works we could even set this to 12/24 hours
+    header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time()+3600)); // no-cache max-age has preference
+}
 
 header('Content-type: text/css; charset=' . LANG_CHARSET); // set correct mime type
 
