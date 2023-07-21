@@ -14,6 +14,7 @@ Version 4.x-DEV ()
             - Refactor dynamic serendipity (JS) headers for cache and 304
             - Remove "last_template_change" (CSS) timestamp appends for browser
               caches, since now being a LIVE task over ETag headers.
+            - Exceptions for LiteSpeed server caches in special for dynamic css
 
   * Add missing type attribute for stylesheets in [ ..all..] themes
 
