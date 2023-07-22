@@ -2,6 +2,8 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve/Upgrade [ b53 ] theme by adding colorsets
+
   * Since modern servers more and more tend to use the HTTP/2 header, Styx
     is now switching to check the SERVER_PROTOCOL variable to deliver the
     right protocol version. Additional Plugins will follow after release.
