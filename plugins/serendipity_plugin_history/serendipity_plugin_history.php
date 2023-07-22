@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.36');
+        $propbag->add('version',       '1.37');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1',
@@ -249,8 +249,8 @@ class serendipity_plugin_history extends serendipity_plugin
         $displayauthor = serendipity_db_bool($this->get_config('displayauthor', 'false'));
 
         $nowts = serendipity_serverOffsetHour();
-        $maxts = mktime(23, 59, 59,  date('m', $nowts), date('d', $nowts), date('Y', $nowts)); // this is todays timestamp at last minute of day
-        $mints = mktime(0, 0, 0, date('m', $nowts), date('d', $nowts), date('Y', $nowts)); // this is todays timestamp at start of day
+        $maxts = mktime(23, 59, 59,  (int) date('m', $nowts), (int) date('d', $nowts), (int) date('Y', $nowts)); // this is todays timestamp at last minute of day
+        $mints = mktime(0, 0, 0, (int) date('m', $nowts), (int) date('d', $nowts), (int) date('Y', $nowts)); // this is todays timestamp at start of day
 
         if (!is_numeric($min_age) || $min_age < 0 || $specialage == 'year') {
             $min_age = 365 + date('L', serendipity_serverOffsetHour());
