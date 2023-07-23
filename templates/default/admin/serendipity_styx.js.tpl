@@ -2005,6 +2005,8 @@ $(function() {
                                 $('.form_buttons').prepend(mlLink);
                                 $(mlLink).fadeIn();
                             }
+                            // Stop the working pulsator after first added image since the rest is done over progress container success green
+                            $('#waitingspin').css({ 'display': 'none' });
                             $('#uploadform .check_inputs').prop('disabled', false);
                         });
                     };
