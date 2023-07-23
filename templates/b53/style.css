@@ -14,7 +14,7 @@
 
   --bd-pink: #d73384;
   --bd-pink-rgb: 214.520718,51.062154,132.437846;
-  --bd-pink-bg:var(--bd-pink);
+  --bd-pink-bg: var(--bd-pink);
   --bd-pink-form-bg: #98235d;
   --bd-pink-text-dim-on-bg: var(--bs-secondary);
 
@@ -85,7 +85,7 @@
   --bd-indigo-text-dim-on-bg: var(--bs-secondary);
 
   --bd-default: var(--bd-indigo);
-  --bd-default-rgb: var(--bd-indigo.rgb);
+  --bd-default-rgb: var(--bd-indigo-rgb);
   --bd-default-bg: var(--bd-indigo-bg);
   --bd-default-form-bg: var(--bd-indigo-form-bg);
   --bd-default-text-dim-on-bg: var(--bd-indigo-text-dim-on-bg);
