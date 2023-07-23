@@ -75,18 +75,22 @@ if (!function_exists('serendipity_plugin_api_pre_event_hook')) {
 
     switch($event) {
         case 'js_backend':
+        // plugin and theme configuration options run through the same build API for form items. So this can have effect to other forms that start with a boolean config item, then disappearing the YES/NO labeling
+        //      #template_options avoids effecting plugin configurations
+        //      .main_group avoids other starting configuration groups in themes
+        // but it can sadly still effect other themes with main_group first item being a boolean (radio ctype) option
 echo "(() => {
     'use strict'
 
     window.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('.configuration_group div:nth-child(1) .form_radio label')
+        document.querySelectorAll('#template_options .configuration_group.main_group div:nth-child(1) .form_radio label')
           .forEach(color => {
                 const selector = color.innerHTML;
                 const title = selector.replace(/showblock /i, '');
                 color.title = title;
                 color.innerHTML = '<div class=\"' + selector + '\"></div>';
           });
-        document.querySelectorAll('.configuration_group div:nth-child(1) .form_radio input')
+        document.querySelectorAll('#template_options .configuration_group.main_group div:nth-child(1) .form_radio input')
           .forEach(input => {
                 input.title = input.title.replace(/showblock /i, '');
           });
