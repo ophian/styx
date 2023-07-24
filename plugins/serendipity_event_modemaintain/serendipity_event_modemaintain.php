@@ -33,10 +33,10 @@ class serendipity_event_modemaintain extends serendipity_event
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.36');
+        $propbag->add('version',       '1.37');
         $propbag->add('requirements',  array(
-            'serendipity' => '3.3',
-            'php'         => '7.3.0'
+            'serendipity' => '4.1',
+            'php'         => '7.4.0'
         ));
         $propbag->add('event_hooks',    array(
             'css_backend'         => true,
@@ -44,7 +44,7 @@ class serendipity_event_modemaintain extends serendipity_event
             'backend_maintenance' => true,
             'external_plugin'     => true
         ));
-        $propbag->add('configuration',  array('momatext', 'use_s9ylogo'));
+        $propbag->add('configuration',  array('momatext', 'use_logo'));
         $propbag->add('groups',         array('BACKEND_ADMIN', 'BACKEND_FEATURES', 'BACKEND_MAINTAIN', 'MAINTENANCE'));
     }
 
@@ -59,7 +59,7 @@ class serendipity_event_modemaintain extends serendipity_event
                 $propbag->add('default',     str_replace(array('&#187;','&#171;'), '"', PLUGIN_MODEMAINTAIN_MAINTAIN_TEXT));
                 break;
 
-            case 'use_s9ylogo':
+            case 'use_logo':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_MODEMAINTAIN_MAINTAIN_USELOGO);
                 $propbag->add('description', '');
@@ -175,7 +175,7 @@ class serendipity_event_modemaintain extends serendipity_event
                     // if var is set to true and user is not authenticated and logged into admin users.
                     // This $serendipity['maintenance'] var is stored in serendipity_config_local.inc file!
                     if (!$superuser && !serendipity_checkPermission('adminUsers') && isset($serendipity['maintenance']) && serendipity_db_bool($serendipity['maintenance']) ) {
-                        $logo = serendipity_db_bool($this->get_config('use_s9ylogo', 'true')) ? '<img class="logo" src="'.$serendipity['serendipityHTTPPath'] . $serendipity['templatePath'] . 's9y_banner_small.png" alt="Serendipity Styx" />' : '';
+                        $logo = serendipity_db_bool($this->get_config('use_logo', 'true')) ? '<a href="https://ophian.github.io/" target="_blank"><img class="logo" src="'.$serendipity['serendipityHTTPPath'] . $serendipity['templatePath'] . 'styx_logo_150.png" title="&copy; Serendipity Styx Edition" alt="Serendipity Styx" /></a>' : '';
                         $this->service_mode($logo);
                     }
                     break;
