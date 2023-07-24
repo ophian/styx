@@ -9,7 +9,7 @@ Version 4.x-DEV ()
             - logo preview to the Styx backend theme
             - logo to serendipity_plugin_plug, which sets the old s9y logo
               deprecated and which will be removed with Styx 5.
-    Please update personal usage to follow "themes/styx_logo_150.png".
+    Please update personal usage to follow "templates/styx_logo_150.png".
 
   * Improve/Upgrade [ b53 ] theme by adding colorsets
 
