@@ -438,6 +438,7 @@ function serendipity_die($html, $error = true) {
     die('<!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="text/html; charset=' . $charset . '" http-equiv="Content-Type">
     <meta name="robots" content="noindex,nofollow" />
 
@@ -445,12 +446,13 @@ function serendipity_die($html, $error = true) {
     <style>
         html { height: 100%; font-family: \'Terminal Dosis\', calibri, tahoma, sans-serif; }
         body { color: ' . $color . '; background: -webkit-gradient(linear, left top, right bottom, from(#fff), to(#e1d9d9)) fixed; background: linear-gradient(135deg, #fff 0%, #e1d9d9) fixed; }
-        .container { width: 60rem; margin: 10rem auto; }
+        .container { width: 100%; max-width: 60em; }
+        @media screen and (min-width: 640px) { .container { margin: 6vh auto; } }
+        @media screen and (min-width: 1024px) { .container { margin: 12vh auto; } }
         h1 { font-weight: bold; line-height: 1.125; margin-bottom: 0.1rem; }
         h2 { margin:0 }
-        .msg_alert { display: block; margin: 1.5em 0; padding: .5em; width: 95%; background: #f2dede; border: 1px solid #e4b9b9; color: #b94a48; }
-        .msg_alert .logo { float: right; margin-top: -6rem; margin-right: 2rem; }
-        .msg_alert .logo:after { clear: right; }
+        .msg_alert { display: block; margin: 1.5em 0; padding: .5em 0 .5em .5em; width: auto; background: #f2dede; border: 1px solid #e4b9b9; color: #b94a48; }
+        .msg_alert .logo { display: inline-flex; vertical-align: middle; margin-right: 1em; }
     </style>
 </head>
 <body>
@@ -485,7 +487,7 @@ if (function_exists('date_default_timezone_get')) {
 
 /**
  * Serendipity htmlspecialchars mapper
- * ... not yet using PHP 8.1.0 default flags ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401 - maybe with Styx 4.2
+ * ... not yet using PHP 8.1.0 default flags ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401 - convert for Styx 5.0
  */
 function serendipity_specialchars($string, $flags = null, $encoding = LANG_CHARSET, $double_encode = true) {
     $flags = ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE;
