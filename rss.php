@@ -162,7 +162,7 @@ if (serendipity_get_config_var('feedBannerURL') != '') {
     $w   = $i[0];
     $h   = $i[1];
 } else {
-    $img = $serendipity['baseURL'] . $serendipity['templatePath'] . 's9y_banner_small.png';
+    $img = $serendipity['baseURL'] . $serendipity['templatePath'] . 'styx_logo_150.png';
     $w   = 120;
     $h   = 58;
 }
