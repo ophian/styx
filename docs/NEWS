@@ -2,6 +2,15 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add the new Styx Logo
+    Includes, logo to serendipty_die()
+            - logo to rss
+            - logo to serendipity_event_modemaintain
+            - logo preview to the Styx backend theme
+            - logo to serendipity_plugin_plug, which sets the old s9y logo
+              deprecated and which will be removed with Styx 5.
+    Please update personal usage to follow "themes/styx_logo_150.png".
+
   * Improve/Upgrade [ b53 ] theme by adding colorsets
 
   * Since modern servers more and more tend to use the HTTP/2 header, Styx
