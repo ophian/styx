@@ -71,6 +71,11 @@ ul#serendipity_categories_list {
     padding: 0;
     list-style-type: none; }
 
+.serendipityPlug img {
+    border: 0px;
+    width: 120px;
+    margin-bottom: 1em; }
+
 .serendipity_calendar {
     width: 100%; }
 
