@@ -1440,6 +1440,23 @@ p > img.serendipity_image_center {
 .next {
   text-align: right; }
 
+.serendipityPlug img {
+  height: auto;
+  max-width: 15em;
+}
+@media screen and (max-width: 767px) {
+  .serendipityPlug img {
+    width: 65.2225% !important;
+    max-width: 150px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .serendipityPlug img {
+    width: 65.2225% !important;
+    max-width: 150px;
+  }
+}
+
 .serendipity_freeTag {
   font-size: 14px;
   font-size: .8125rem;
