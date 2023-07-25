@@ -576,6 +576,16 @@ $tasks = array(
                     'title'     => '<b>REQUIREMENT_NOTICE:</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '7.4.0') >= 0) ? 'OK' : 'outdated') . '.',
                     'desc'      => 'Please remember, that next Serendipity Styx version up from 4.2 (~in summer &rsquo;23) will require a minimum version of <b>PHP 8.0</b>. Styx recommends using at least <b>PHP 8.2</b> to get fully AVIF image file support.'),
 
+            array(  'version'   => '4.2-beta1',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> The previously announced REQUIREMENT_NOTICE change to a minimum version of PHP 8 has been kept back for the next major Styx 5.0 version, which shall be based on PHP 8.2.',
+                    'desc'      => 'So this final 4.2 update is more seen as a last set of the Styx 4.x version series, which will probably only receive further minor bugfix point releases. At least that is the plan.<br>For other relevant upgrades regarding the new Styx logo, header changes and others, please read through the changelog via the maintenance changelog view.'),
+
+            array(  'version'   => '4.2-beta1',
+                    'type'      => 'TEMPLATE_NOTICE',
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> Templates have changed during development.',
+                    'desc'      => 'To keep track, the recommended way for upgrade is to fetch a new fresh template copy for your copy themes, if have. You can find detailed notes in the changelog.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
