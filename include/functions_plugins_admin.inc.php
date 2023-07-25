@@ -462,6 +462,7 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 break;
 
             case 'media':
+                if ($value === false) break;
                 $data['ctype'] = 'media';
                 // Print the HTML to display the popup media selector
                 $preview_width = $cbag->get('preview_width');
