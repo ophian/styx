@@ -461,9 +461,9 @@
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Framgång');
 @define('POWERED_BY_SHOW_TEXT', 'Visa "Serendipity" som text');
-@define('POWERED_BY_SHOW_TEXT_DESC', 'Kommer att visa "Serendipity Weblog" som text');
+@define('POWERED_BY_SHOW_TEXT_DESC', 'Kommer att visa "Serendipity Styx Weblog" som text');
 @define('POWERED_BY_SHOW_IMAGE', 'Visa "Serendipity" med en logga');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Visar Serendipitys logga');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'Visar Serendipity Styx logga');
 @define('PLUGIN_ITEM_DISPLAY', 'Var skall denna post visas?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'Endast utvidgad artikel');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'Endast översiktssida');

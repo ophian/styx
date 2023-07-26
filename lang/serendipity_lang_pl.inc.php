@@ -463,9 +463,9 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Sukces');
 @define('POWERED_BY_SHOW_TEXT', 'Poka¿ "Serendipity" jako tekst');
-@define('POWERED_BY_SHOW_TEXT_DESC', 'Poka¿e "Serendipity Weblog" jako tekst');
+@define('POWERED_BY_SHOW_TEXT_DESC', 'Poka¿e "Serendipity Styx Weblog" jako tekst');
 @define('POWERED_BY_SHOW_IMAGE', 'Poka¿ "Serendipity" jako logo');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Poka¿e logo Serendipity (obrazek)');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'Poka¿e logo Serendipity Styx (obrazek)');
 @define('PLUGIN_ITEM_DISPLAY', 'Gdzie element ma byæ wy¶wietlany?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'Tylko w pe³nym widoku wpisu');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'Tylko na stronie g³ównej');

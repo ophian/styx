@@ -462,9 +462,9 @@
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Succes');
 @define('POWERED_BY_SHOW_TEXT', 'Arată "Serendipity" ca text');
-@define('POWERED_BY_SHOW_TEXT_DESC', 'Va afişa "Serendipity Weblog" ca text');
+@define('POWERED_BY_SHOW_TEXT_DESC', 'Va afişa "Serendipity Styx Weblog" ca text');
 @define('POWERED_BY_SHOW_IMAGE', 'Arată "Serendipity" ca un logo');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Va afişa imaginea logo pentru Serendipity');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'Va afişa imaginea logo pentru Serendipity Styx');
 @define('PLUGIN_ITEM_DISPLAY', 'Unde ar trebui plasat acest element?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'Numai însemnări avansate');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'Doar pagina rezumat');

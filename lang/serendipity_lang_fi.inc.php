@@ -460,9 +460,9 @@
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Onnistui');
 @define('POWERED_BY_SHOW_TEXT', 'Näytä "Serendipity" tekstinä');
-@define('POWERED_BY_SHOW_TEXT_DESC', 'Tulostaa "Serendipity Weblog" tekstinä');
+@define('POWERED_BY_SHOW_TEXT_DESC', 'Tulostaa "Serendipity Styx Weblog" tekstinä');
 @define('POWERED_BY_SHOW_IMAGE', 'Näytä "Serendipity" logolla');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Näyttää Serendipityn logon');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'Näyttää Serendipity Styx logon');
 @define('PLUGIN_ITEM_DISPLAY', 'Missä kohde näytetään?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'Vain jatko-osiosssa');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'Vain yleisnäkymässä');

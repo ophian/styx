@@ -461,9 +461,9 @@
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'A művelet siker');
 @define('POWERED_BY_SHOW_TEXT', 'A "Serendipity" felirat szövegként mutatása');
-@define('POWERED_BY_SHOW_TEXT_DESC', 'A "Serendipity Weblog" feliratot szövegként mutatja');
+@define('POWERED_BY_SHOW_TEXT_DESC', 'A "Serendipity Styx Weblog" feliratot szövegként mutatja');
 @define('POWERED_BY_SHOW_IMAGE', 'A "Serendipity" felirat megjelenítése logo-val');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Megjeleníti a Serendipity logo-t');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'Megjeleníti a Serendipity Styx logo-t');
 @define('PLUGIN_ITEM_DISPLAY', 'Hol legyen látható az elem?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'Részletes oldal');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'Áttekintő oldal');

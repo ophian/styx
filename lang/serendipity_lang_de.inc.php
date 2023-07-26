@@ -446,9 +446,9 @@
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Erfolgreich beendet');
 @define('POWERED_BY_SHOW_TEXT', 'Zeige "Serendipity" als Text');
-@define('POWERED_BY_SHOW_TEXT_DESC', 'Zeigt den Text "Serendipity Blog" an');
+@define('POWERED_BY_SHOW_TEXT_DESC', 'Zeigt den Text "Serendipity Styx Blog" an');
 @define('POWERED_BY_SHOW_IMAGE', 'Zeige "Serendipity" als Logo');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Stellt das Serendipity-Logo dar');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'Stellt das Serendipity Styx-Logo dar');
 @define('PLUGIN_ITEM_DISPLAY', 'Wo soll dieses Plugin angezeigt werden?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'Nur Artikel-Detailansicht');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'Nur Artikelübersicht');

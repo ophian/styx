@@ -464,9 +464,9 @@
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Succes');
 @define('POWERED_BY_SHOW_TEXT', 'Toon "Serendipity" als tekst');
-@define('POWERED_BY_SHOW_TEXT_DESC', 'Dit laat "Serendipity Weblog" als tekst zien');
+@define('POWERED_BY_SHOW_TEXT_DESC', 'Dit laat "Serendipity Styx Weblog" als tekst zien');
 @define('POWERED_BY_SHOW_IMAGE', 'Toon "Serendipity" met logo');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Toont het Serendipity-logo');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'Toont het Serendipity Styx-logo');
 @define('PLUGIN_ITEM_DISPLAY', 'Waar moeten de items worden weergegeven?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'Alleen bij uitgebreide artikelen');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'Alleen bij overzichtspagina');

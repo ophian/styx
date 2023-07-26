@@ -444,9 +444,9 @@
 @define('NUMBER_FORMAT_DECPOINT', ',');
 @define('NUMBER_FORMAT_THOUSANDS', '.');
 @define('POWERED_BY_SHOW_TEXT', 'Vis "Serendipity" som tekst');
-@define('POWERED_BY_SHOW_TEXT_DESC', 'Vil vise "Serendipity Weblog" som tekst');
+@define('POWERED_BY_SHOW_TEXT_DESC', 'Vil vise "Serendipity Styx Weblog" som tekst');
 @define('POWERED_BY_SHOW_IMAGE', 'Vis "Serendipity" med en logo');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Vis Serendipity-logoen');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'Vis Serendipity Styx-logoen');
 @define('SETTINGS_SAVED_AT', 'De nye innstillgene er lagret kl %s');
 @define('PLUGIN_ITEM_DISPLAY', 'Hvor skal enheten vises?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'Kun udvidet artikkel');

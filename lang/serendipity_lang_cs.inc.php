@@ -475,9 +475,9 @@ $i18n_filename_to = array (
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Úspìch');
 @define('POWERED_BY_SHOW_TEXT', 'Zobrazit "Serendipity" jako text');
-@define('POWERED_BY_SHOW_TEXT_DESC', 'Vytvoøeno v "Serendipity" se zobrazí jako text');
+@define('POWERED_BY_SHOW_TEXT_DESC', 'Vytvoøeno v "Serendipity Styx" se zobrazí jako text');
 @define('POWERED_BY_SHOW_IMAGE', 'Zobrazit "Serendipity" s logem');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Zobrazí se logo Serendipity');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'Zobrazí se logo Serendipity Styx');
 @define('PLUGIN_ITEM_DISPLAY', 'Kde by mìla být tato položka zobrazena?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'V rozšíøené èásti');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'V pøehledu');

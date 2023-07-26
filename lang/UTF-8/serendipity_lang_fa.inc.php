@@ -462,7 +462,7 @@
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'موفقیت');
 @define('POWERED_BY_SHOW_TEXT', 'نمایش متنی "Serendipity"');
-@define('POWERED_BY_SHOW_TEXT_DESC', 'عبارت "Serendipity Weblog" را به صورت متنی نمایش می دهد');
+@define('POWERED_BY_SHOW_TEXT_DESC', 'عبارت "Serendipity Styx Weblog" را به صورت متنی نمایش می دهد');
 @define('POWERED_BY_SHOW_IMAGE', 'نمایش "Serendipity" همراه با یک لوگو');
 @define('POWERED_BY_SHOW_IMAGE_DESC', 'لوگوی سرندیپیتی را نمایش می دهد');
 @define('PLUGIN_ITEM_DISPLAY', 'این گزینه کجا نمایش داده شود؟');

@@ -447,9 +447,9 @@
 @define('ENTRY_SAVED', 'Votre billet a été enregistré');
 @define('SUCCESS', 'Succès');
 @define('POWERED_BY_SHOW_TEXT', 'Afficher \'Serendipity\' en tant que texte');
-@define('POWERED_BY_SHOW_TEXT_DESC', 'Affiche le slogan \'Serendipity Weblog\' en tant que texte');
+@define('POWERED_BY_SHOW_TEXT_DESC', 'Affiche le slogan \'Serendipity Styx Weblog\' en tant que texte');
 @define('POWERED_BY_SHOW_IMAGE', 'Afficher \'Serendipity\' avec un logo');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Affiche le logo Serendipity');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'Affiche le logo Serendipity Styx');
 
 @define('SETTINGS_SAVED_AT', 'La nouvelle configuration a été enregistrée à %s');
 @define('PLUGIN_ITEM_DISPLAY', 'Où le billet doit-il être affiché ?');

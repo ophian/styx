@@ -494,9 +494,9 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Успех');
 @define('POWERED_BY_SHOW_TEXT', 'Показване на "Serendipity" като текст');
-@define('POWERED_BY_SHOW_TEXT_DESC', 'Показване на "Serendipity Weblog" като текст');
+@define('POWERED_BY_SHOW_TEXT_DESC', 'Показване на "Serendipity Styx Weblog" като текст');
 @define('POWERED_BY_SHOW_IMAGE', 'Показване на "Serendipity" като лого');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Показване на логото на Serendipity');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'Показване на логото на Serendipity Styx');
 @define('PLUGIN_ITEM_DISPLAY', 'Къде да бъде показван този елемент?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'Само при разширени статии');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'Само при прегледи');

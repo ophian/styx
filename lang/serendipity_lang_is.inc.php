@@ -461,9 +461,9 @@
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Árangur');
 @define('POWERED_BY_SHOW_TEXT', 'Sýna "Serendipity" sem texa');
-@define('POWERED_BY_SHOW_TEXT_DESC', 'Mun birta "Serendipity Weblog" sem texta');
+@define('POWERED_BY_SHOW_TEXT_DESC', 'Mun birta "Serendipity Styx Weblog" sem texta');
 @define('POWERED_BY_SHOW_IMAGE', 'Sýna "Serendipity" með merki');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Sýnir merki Serendipity');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'Sýnir merki Serendipity Styx');
 @define('PLUGIN_ITEM_DISPLAY', 'Hvar ætti merkið að vera sýnt?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'Opna bara færslu');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'Yfirsýn yfir bara blaðsíðu');
