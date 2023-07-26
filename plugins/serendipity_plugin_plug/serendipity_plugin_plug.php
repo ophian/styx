@@ -14,7 +14,7 @@ class serendipity_plugin_plug extends serendipity_plugin
         $propbag->add('description',   ADVERTISES_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.5');
+        $propbag->add('version',       '1.5.1');
         $propbag->add('configuration', array(
                                         'image',
                                         'image2',
@@ -28,21 +28,21 @@ class serendipity_plugin_plug extends serendipity_plugin
             case 'image':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        sprintf(POWERED_BY_SHOW_IMAGE, 'Serendipity Styx') . ' 1');
-                $propbag->add('description', sprintf(POWERED_BY_SHOW_IMAGE_DESC, 'Serendipity Styx'));
+                $propbag->add('description', POWERED_BY_SHOW_IMAGE_DESC);
                 $propbag->add('default',     'true');
                 break;
 
             case 'image2':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        sprintf(POWERED_BY_SHOW_IMAGE, 'Serendipity Styx') . ' 2');
-                $propbag->add('description', sprintf(POWERED_BY_SHOW_IMAGE_DESC, 'Serendipity Styx') . ' (deprecated)');
+                $propbag->add('description', str_replace(' Styx'. ''. POWERED_BY_SHOW_IMAGE_DESC) . ' (deprecated)');
                 $propbag->add('default',     'false');
                 break;
 
             case 'text':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        sprintf(POWERED_BY_SHOW_TEXT, 'Serendipity Styx'));
-                $propbag->add('description', sprintf(POWERED_BY_SHOW_TEXT_DESC, 'Serendipity Styx'));
+                $propbag->add('description', POWERED_BY_SHOW_TEXT_DESC);
                 $propbag->add('default',     'true');
                 break;
 
