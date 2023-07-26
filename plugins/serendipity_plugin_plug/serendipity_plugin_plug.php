@@ -35,7 +35,7 @@ class serendipity_plugin_plug extends serendipity_plugin
             case 'image2':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        sprintf(POWERED_BY_SHOW_IMAGE, 'Serendipity Styx') . ' 2');
-                $propbag->add('description', str_replace(' Styx'. ''. POWERED_BY_SHOW_IMAGE_DESC) . ' (deprecated)');
+                $propbag->add('description', str_replace(' Styx', '', POWERED_BY_SHOW_IMAGE_DESC) . ' (deprecated)');
                 $propbag->add('default',     'false');
                 break;
 
