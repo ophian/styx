@@ -1,7 +1,7 @@
 Version 4.2-DEV ()
  ------------------------------------------------------------------------
 
-  * Make Styx backend rheme "fav"-icon react on dark/light scheme (of browser)
+  * Make Styx backend theme "fav"-icon react on dark/light scheme (of browser)
 
   [ 4.2-beta1 ]
   * Update the [ b53 ] theme for bootstrap 5.3.1 release assets.
