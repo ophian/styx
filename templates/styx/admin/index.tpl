@@ -12,7 +12,8 @@
 {if $admin_vars.darkmode}
     <link rel="stylesheet" href="{serendipity_getFile file='admin/styx_dark.min.css'}" type="text/css">
 {/if}
-    <link rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}styx/s.t.y.x.png" type="image/x-icon">
+    <link id="light-scheme-icon" rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}styx/sty.x.png" type="image/x-icon">
+    <link id="dark-scheme-icon" rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}styx/s.t.y.x.png" type="image/x-icon">
     <script src="{serendipity_getFile file='admin/js/modernizr.min.js'}"></script>
 {if $admin_vars.is_logged_in}
 {if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_header" hookAll="true"}{/if}
@@ -268,10 +269,29 @@
 {if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_footer" hookAll="true"}{/if}
 
     <script>
+        // favicon loader
+        lightSchemeIcon = document.querySelector('link#light-scheme-icon');
+        darkSchemeIcon = document.querySelector('link#dark-scheme-icon');
+
+        function onUpdate() {
+          if (matcher.matches) {
+            lightSchemeIcon.remove();
+            document.head.append(darkSchemeIcon);
+          } else {
+            document.head.append(lightSchemeIcon);
+            darkSchemeIcon.remove();
+          }
+        }
+
+        // Styx backend option loader
         let dark_mode = localStorage.getItem('dark_mode');
         if (typeof STYX_DARKMODE !== 'undefined' && dark_mode == null && STYX_DARKMODE === true) {
             localStorage.setItem('data-login-color-mode', 'dark');
         }
+        // favicon loader listener
+        matcher = window.matchMedia('(prefers-color-scheme: dark)');
+        matcher.addListener(onUpdate);
+        onUpdate();
     </script>
 </body>
 </html>
