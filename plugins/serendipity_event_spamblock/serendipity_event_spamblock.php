@@ -28,7 +28,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.1.0'
         ));
-        $propbag->add('version',       '2.72');
+        $propbag->add('version',       '2.73');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1937,7 +1937,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
             } else {
                 $image  = imagecreate($width, $height); // returns a white background-color
             }
-            $bgcol  = imagecolorallocate($image, trim($bgcolors[0]), trim($bgcolors[1]), trim($bgcolors[2]));
+            $bgcol  = imagecolorallocate($image, (int) trim($bgcolors[0]), (int) trim($bgcolors[1]), (int) trim($bgcolors[2]));
             // imagettftext($image, 10, 1, 1, 15, imagecolorallocate($image, 255, 255, 255), $font, 'String: ' . $string);
 
             $pos_x  = 5;
@@ -1945,7 +1945,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                 $color = imagecolorallocate($image, mt_rand(50, 235), mt_rand(50, 235), mt_rand(50,235));
                 $size  = intval(mt_rand(15, 21));
                 $angle = mt_rand(-20, 20); // by intval() silences nasty "Implicit conversion from float 1.2 to int loses precision" errors, destroying the image
-                $pos_y = ceil($height - (@mt_rand($size/3, $size/2))); // leave the @ silencer for PHP 8.2 with production 'debug' mode
+                $pos_y = intval(ceil($height - (mt_rand(intval($size/3), intval($size/2)))));
 
                 imagettftext(
                   $image,
@@ -1955,7 +1955,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                   $pos_y,
                   $color,
                   $font,
-                  $this->chars[$charidx]
+                  (string) $this->chars[$charidx]
                 );
 
                 $pos_x = $pos_x + $size + 2;
@@ -1963,7 +1963,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
 
             if ($_captchas === 'scramble') {
                 $line_diff = mt_rand(5, 15);
-                $pixel_col = imagecolorallocate($image, trim($bgcolors[0])-mt_rand(10,50), trim($bgcolors[1])-mt_rand(10,50), trim($bgcolors[2])-mt_rand(10,50));
+                $pixel_col = imagecolorallocate($image, (int) trim($bgcolors[0])-mt_rand(10,50), (int) trim($bgcolors[1])-mt_rand(10,50), (int) trim($bgcolors[2])-mt_rand(10,50));
                 for ($y = $line_diff; $y < $height; $y += $line_diff) {
                     $row_diff = mt_rand(5, 15);
                     for ($x = $row_diff; $x < $width; $x+= $row_diff) {
