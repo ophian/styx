@@ -683,7 +683,7 @@ function serendipity_checkInstallation() {
     if ($_POST['dbType'] == 'sqlite' || $_POST['dbType'] == 'sqlite3' || $_POST['dbType'] == 'pdo-sqlite' || $_POST['dbType'] == 'sqlite3oo') {
         // We don't want that our SQLite db file can be guessed from other applications on a server
         // and have access to ours. So we randomize the SQLite dbname.
-        $_POST['sqlitedbName'] = $_POST['dbName'] . '_' . md5(time());
+        $_POST['sqlitedbName'] = $_POST['dbName'] . '_' . md5((string) time());
     }
 
     if (empty($_POST['dbPrefix']) && empty($serendipity['dbPrefix'])) {
