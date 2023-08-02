@@ -3229,7 +3229,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
 
         usort($paths, 'serendipity_sortPath');
 
-        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Got real disc files: " . print_r($aFilesOnDisk, 1)); }
+        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Got real disc files: " . print_r($aFilesOnDisk, true)); }
         $serendipity['current_image_hash'] = md5(serialize($aFilesOnDisk));
         $serendipity['last_image_hash'] = $serendipity['last_image_hash'] ?? ''; // avoid a non-isset by a relatively new image database which had never run setting the $serendipity['last_image_hash'] before
 
@@ -3247,7 +3247,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
             $aResultSet = serendipity_db_query("SELECT id, name, extension, thumbnail_name, path, hotlink
                                                   FROM {$serendipity['dbPrefix']}images WHERE path != '.v/'", false, 'assoc'); // exclude possible variations (.v/ path should only be if that was development or somethings has went wrong)
 
-            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Got images: " . print_r($aResultSet, 1)); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Got images: " . print_r($aResultSet, true)); }
 
             if (is_array($aResultSet)) {
                 $msgdelfile = [];
@@ -3302,7 +3302,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
             serendipity_set_config_var('last_image_hash', $serendipity['current_image_hash'], 0);
             $aUnmatchedOnDisk = array_keys($aFilesOnDisk);
 
-            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Got unmatched files: " . print_r($aUnmatchedOnDisk, 1)); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Got unmatched files: " . print_r($aUnmatchedOnDisk, true)); }
 
             $nCount = 0;
             foreach($aUnmatchedOnDisk AS $sFile) {
@@ -6018,7 +6018,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $file, $pick=
 
     if ($debug) {
         $which = $type == 'filedir' ? 'NEW (\'filedir\')' : 'OLD (\'file\')';
-        $serendipity['logger']->debug("L_".__LINE__.":: $logtag TRANSPORTED $which type _file " . print_r($_file, 1));
+        $serendipity['logger']->debug("L_".__LINE__.":: $logtag TRANSPORTED $which type _file " . print_r($_file, true));
     }
 
     // Prepare the SELECT query for filetypes
