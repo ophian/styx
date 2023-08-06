@@ -586,6 +586,12 @@ $tasks = array(
                     'title'     => '<b>TEMPLATE_NOTICE:</b> Templates have changed during development.',
                     'desc'      => 'To keep track, the recommended way for upgrade is to fetch a new fresh template copy for your copy themes, if have. You can find detailed notes in the changelog.'),
 
+            array(  'version'   => '4.2.0',
+                    'function'  => 'serendipity_removeDeadFiles_SPL',
+                    'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_420, array('internals'), true),
+                    'title'     => 'Removal of old dead files for 4.2.0',
+                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_420) . '</pre>'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
