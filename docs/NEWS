@@ -1,4 +1,4 @@
-Version 4.2-DEV ()
+Version 4.2.0 (August 6th, 2023)
  ------------------------------------------------------------------------
 
   * Make Styx backend theme "fav"-icon react on dark/light scheme (of browser)
