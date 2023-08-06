@@ -525,6 +525,13 @@ $dead_dirs_400 = array(
     $serendipity['serendipityPath'] . 'bundled-libs/simplepie/SimplePie'
 );
 
+/* A list of Styx files, to be removed or renamed by 4.2.0 */
+$dead_files_420 = array(
+    'templates/styx/s.t.y.x.png',
+    'templates/2k11/oldie.css',
+    'templates/next/oldie.css'
+);
+
 /**
  * recursive directory call to purge files and directories
  *
