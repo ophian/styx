@@ -516,8 +516,8 @@ $dead_files_400 = array(
     'include/admin/importers/pmachine.inc.php',
     'include/admin/importers/sunlog.inc.php',
     'include/admin/importers/voodoopad.inc.php',
-    'themes/2k11/oldie.css',
-    'themes/next/oldie.css'
+    'templates/2k11/oldie.css',
+    'templates/next/oldie.css'
 );
 
 /* A list of old or removed directories for 3.10.0 / 4.0.0 */
