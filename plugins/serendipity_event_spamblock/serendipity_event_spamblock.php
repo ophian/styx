@@ -2007,7 +2007,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                 $cleanspamlog = serendipity_db_query("SELECT * , from_unixtime( timestamp ) AS tdate FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' OR type LIKE 'reject' OR type LIKE 'MODERATE' ORDER BY tdate DESC");
                 if (is_object($serendipity['logger'])) {
                     $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START serendipity_event_spamblock (cleanspam) SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
-                    $serendipity['logger']->debug("LOG: " . print_r($cleanspamlog,1));
+                    $serendipity['logger']->debug("LOG: " . print_r($cleanspamlog,true));
                     $append = 'logged';
                 }
                 unset($cleanspamlog);
