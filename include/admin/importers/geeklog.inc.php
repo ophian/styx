@@ -167,7 +167,7 @@ class Serendipity_Import_geeklog extends Serendipity_Import
         }
 
         // Insert all categories as top level (we need to know everyone's ID before we can represent the hierarchy).
-        for ($x=0, $max_x = sizeof($categories) ; $x < $max_x ; $x++ ) {
+        for ($x=0, $max_x = sizeof($categories); $x < $max_x; $x++) {
             $cat = array('category_name'        => $categories[$x]['cat_name'],
                          'category_description' => $categories[$x]['category_description'],
                          'parentid'             => 0,
