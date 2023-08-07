@@ -159,7 +159,7 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
             echo IMPORTER_USER_IMPORT_SUCCESS_TITLE;
             echo sprintf(IMPORTER_USER_IMPORT_SUCCESS_MSG, 'b2e');
             echo '<div class="import_full">';
-            echo '<pre><code class="language-php">$added_users = ' . var_export($ulist, 1) . '</code></pre>';
+            echo '<pre><code class="language-php">$added_users = ' . var_export($ulist, true) . '</code></pre>';
             echo '</div>';
         }
 

@@ -182,7 +182,7 @@ class Serendipity_Import_WordPress extends Serendipity_Import
             echo IMPORTER_USER_IMPORT_SUCCESS_TITLE;
             echo sprintf(IMPORTER_USER_IMPORT_SUCCESS_MSG, 'wp');
             echo '<div class="import_full">';
-            echo '<pre><code class="language-php">$added_users = ' . var_export($ulist, 1) . '</code></pre>';
+            echo '<pre><code class="language-php">$added_users = ' . var_export($ulist, true) . '</code></pre>';
             echo '</div>';
 
             // Clean memory
