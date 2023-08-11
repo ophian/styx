@@ -2,6 +2,9 @@ Version 4.2.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve and fix Styx media gallery issue placing "null" string type when an
+    image variation thumbnail image does not exist by accident "upload".
+
   * Improve comments sidebar plugin for better matching of multiple blockquotes
 
 
