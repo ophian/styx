@@ -346,8 +346,8 @@
                 ilinkfb = v['full_file']; /* fallback case */
                 title   = v['prop_title'] != '' ? v['prop_title'] : v['realname'];
                 imgalt  = v['prop_alt'] ? v['prop_alt'] : v['realname']; /* yes check properties set alt first, then fallback */
-                iftavif = v['full_thumb_avif'];
-                iftwebp = v['full_thumb_webp'];
+                iftavif = v['full_thumb_avif'] ? v['full_thumb_avif'] : ''; /* to avoid having */
+                iftwebp = v['full_thumb_webp'] ? v['full_thumb_webp'] : ''; /* null strings, when thumb variation not exists */
                 hotlink = v['hotlink'];
                 if (hotlink) {
                     imgName = v['realfile'];
