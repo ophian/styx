@@ -2,6 +2,9 @@ Version 4.2.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Refactor comment escaping, fixing a regression with valid code snippets on
+    re-edit cases.
+
   * Improve and fix Styx media gallery issue placing "null" string type when an
     image variation thumbnail image does not exist by accident "upload".
 
