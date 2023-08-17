@@ -531,7 +531,8 @@
             parent.self = window.parent.parent.$.magnificPopup;
             parent.self.opener = window.parent.parent;
         }
-        if (pictureSubmit && imgWebPfu != '' && noLink) {
+        // Add generic div for ALL pictureSubmit cases
+        if (pictureSubmit && (imgWebPfu != '' || noLink)) {
             img = '<div>' + img + '</div>';
             //console.log('nolink img = '+img); // if not inside a container of what ever "p, div, span..." the picture/source element is magically removed when landing in your textarea
         }
