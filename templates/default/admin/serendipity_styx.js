@@ -361,10 +361,10 @@
                     img = '<!-- s9ymdb:'+ imgID +' --><picture>'
                     + (thbAVFt ? '<source type="image/avif" srcset="' + iftavif + '">' : '')
                     + '<source type="image/webp" srcset="' + iftwebp + '">'
-                    + '<img class="serendipity_image_'+ float +'" width="'+ imgWdth +'" height="'+ imgHght +'" src="'+ imgName +'"'+ ((title != '' && g['isLink'] == 'no') ? 'itle="'+ title +'"' : '') +' loading="lazy" alt="'+ imgalt +'">'
+                    + '<img class="serendipity_image_'+ float +'" width="'+ imgWdth +'" height="'+ imgHght +'" src="'+ imgName +'"'+ ((title != '' && g['isLink'] == 'no') ? ' title="'+ title +'"' : '') +' loading="lazy" alt="'+ imgalt +'">'
                     + '</picture>';
                 } else {
-                    img = '<!-- s9ymdb:'+ imgID +' --><img class="serendipity_image_'+ float +'" width="'+ imgWdth +'" height="'+ imgHght +'" src="'+ imgName +'"'+ ((title != '' && g['isLink'] == 'no') ? 'itle="'+ title +'"' : '') +' loading="lazy" alt="'+ imgalt +'">';
+                    img = '<!-- s9ymdb:'+ imgID +' --><img class="serendipity_image_'+ float +'" width="'+ imgWdth +'" height="'+ imgHght +'" src="'+ imgName +'"'+ ((title != '' && g['isLink'] == 'no') ? ' title="'+ title +'"' : '') +' loading="lazy" alt="'+ imgalt +'">';
                 }
                 if (g['isLink'] == 'yes') {
                     img = '<a class="serendipity_image_link"'+ (title != '' ? ' title="'+ title +'"' : '') +' href="'+ ilink +'" data-fallback="'+ ilinkfb +'">'+ img +'</a>';
