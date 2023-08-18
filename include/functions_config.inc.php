@@ -1013,7 +1013,7 @@ function serendipity_deleteCookie($name) {
 function serendipity_is_iframe() {
     global $serendipity;
 
-    if (isset($serendipity['GET']['is_iframe']) && $serendipity['GET']['is_iframe'] == 'true' && is_array($_SESSION['save_entry'])) {
+    if (isset($serendipity['GET']['is_iframe']) && $serendipity['GET']['is_iframe'] == 'true' && isset($_SESSION['save_entry']) && is_array($_SESSION['save_entry'])) {
         if (!is_object($serendipity['smarty'])) {
             // We need Smarty also in the iframe to load a template's config.inc.php and register possible event hooks.
             serendipity_smarty_init();
