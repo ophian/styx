@@ -2,6 +2,8 @@ Version 4.2.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Mark custom release file notifications as custom
+
   * Improve image condition building a generic div container around selected
     picture container(s). This improves placement via the RichText-Editor.
 
