@@ -72,6 +72,7 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
     $data['updateCheck']  = $serendipity['updateCheck'];
     $data['curVersion']   = serendipity_getCurrentVersion();
     $data['releaseFUrl']  = serendipity_get_config_var('updateReleaseFileUrl', 'https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE');
+    $data['isCustom']     = $data['releaseFUrl'] != 'https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE' ? true : false;
     $data['curVersName']  = $serendipity['updateVersionName'] ?? null;
     $data['update']       = version_compare($data['usedVersion'], $data['curVersion'], '<');
     serendipity_plugin_api::hook_event('plugin_dashboard_updater', $output, $data['curVersion']);
