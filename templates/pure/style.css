@@ -2382,6 +2382,12 @@ div.serendipityPlug a {
     background-color: unset;
 }
 
+@media screen and (min-width: 1024px) {
+  .serendipityPlug img {
+    width: 65.2225% !important;
+    max-width: 150px; }
+}
+
 /** MEDIA QUERIES **/
 
 /* For SMALL SCREENS above */
