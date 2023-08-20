@@ -2,18 +2,7 @@
 
 [Serendipity Styx](https://ophian.github.io/) is a PHP-powered weblog engine which gives the user an easy way to maintain a Blog. While the default package is designed for the casual blogger, Serendipity offers an expandable framework with the power for professional applications.
 
-<div>
- <div>
-  <figure>
-   <picture>
-    <source type="image/avif" srcset="https://ophian.github.io/i/v/styx_example_blog.avif">
-    <source type="image/webp" srcset="https://ophian.github.io/i/v/styx_example_blog.webp">
-    <img src="https://ophian.github.io/i/v/styx_example_blog.png" title="Standard Pure Theme w/ automode" alt="example blog preview">
-   </picture>
-   <figcaption><p style="text-align: center;">Serendipity Styx Example</p></figcaption>
-  </figure>
- </div>
-</div>
+![Serendipity Styx Example](https://ophian.github.io/i/v/styx_example_blog.webp "Example: Standard Pure Theme w/ automode")
 
 ### Why Styx?
 Its project name originally originates from *"River Styx"* in Greek classical mythology. Make your mind why this was chosen.
