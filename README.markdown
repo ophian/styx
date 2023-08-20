@@ -45,7 +45,7 @@ On most hosters, everything needed to run Serendipity should already be installe
 
 For more details, please consult [the manual](https://ophian.github.io/hc/en/installation.html#docs-install-the-easy-way).
 
-Recommendations are *PHP 8.2+*, *ImageMagick 7.1+*, *MariaDB 10.6+*
+Recommendations for Styx are: *PHP 8.2+*, *ImageMagick 7.1+*, *MariaDB 10.6+*, *Apache HTTP server*.
 
 ## Features
 
@@ -82,4 +82,4 @@ Serendipity Styx is developed by Ian Styx. Serendipity has always focused stayin
 
 If you want to request features, you can open a thread [in the GitHub discussion channel](https://github.com/ophian/styx/discussions). Much of the development of Serendipity is user driven, feature requests are welcome.
 
-The [license of this project](https://github.com/ophian/styx/blob/master/LICENSE) is the BSD 3-Clause license. It's a permissive license allowing free usage of the code and derived projects.
+The [license of this project](https://github.com/ophian/styx/blob/master/docs/LICENSE) is the BSD 3-Clause license. It's a permissive license allowing free usage of the code and derived projects.
