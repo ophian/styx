@@ -2,14 +2,18 @@
 
 [Serendipity Styx](https://ophian.github.io/) is a PHP-powered weblog engine which gives the user an easy way to maintain a Blog. While the default package is designed for the casual blogger, Serendipity offers an expandable framework with the power for professional applications.
 
-<figure markdown="1">
-  <picture>
+<div>
+ <div>
+  <figure>
+   <picture>
     <source type="image/avif" srcset="https://ophian.github.io/i/v/styx_example_blog.avif">
     <source type="image/webp" srcset="https://ophian.github.io/i/v/styx_example_blog.webp">
     <img src="https://ophian.github.io/i/v/styx_example_blog.png" title="Standard Pure Theme w/ automode" alt="example blog preview">
-  </picture>
-  <figcaption>Serendipity Styx Example</figcaption>
-</figure>
+   </picture>
+   <figcaption style="text-align: center">Serendipity Styx Example</figcaption>
+  </figure>
+ </div>
+</div>
 
 ### Why Styx?
 Its project name originally originates from *"River Styx"* in Greek classical mythology. Make your mind why this was chosen.
@@ -68,13 +72,13 @@ Plugins can be added in the backend plugin interface without the need to manuall
 
 ## Support
 
-The website contains helpful [documentation](https://ophian.github.io/hc/) that might answer your questions.
+The website contains helpful [documentation](https://ophian.github.io/hc/en/) that might answer your questions.
 
-Please visit [the forums](https://github.com/ophian/styx/discussions) for additional questions and discussions. Having trouble or found a bug you can also [file an issue](https://github.com/ophian/styx).
+Please visit [the "forum"](https://github.com/ophian/styx/discussions) for additional questions and discussions. Having trouble or found a bug you can also [file an issue](https://github.com/ophian/styx/issues).
 
 ## Development
 
-Serendipity Styx is developed by Ian Styx. Serendipity has alway focused staying backwards compatible. Though major versions do cut with elder requirements and shifts to use the better defaults of today. If you want to contribute changes, you can send in a pull request and we will work with you to bring the changes into the software if possible. After enough trust we might offer quick team memberships.
+Serendipity Styx is developed by Ian Styx. Serendipity has always focused staying backwards compatible. Though major versions do cut with elder requirements and shift to use the better defaults of today. If you want to contribute changes, you can send in a pull request and we will work with you to bring the changes into the software if possible. After enough trust supporting contributions we might offer quick team memberships.
 
 If you want to request features, you can open a thread [in the GitHub discussion channel](https://github.com/ophian/styx/discussions). Much of the development of Serendipity is user driven, feature requests are welcome.
 
