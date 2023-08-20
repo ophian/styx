@@ -10,7 +10,7 @@
     <source type="image/webp" srcset="https://ophian.github.io/i/v/styx_example_blog.webp">
     <img src="https://ophian.github.io/i/v/styx_example_blog.png" title="Standard Pure Theme w/ automode" alt="example blog preview">
    </picture>
-   <figcaption style="text-align: center">Serendipity Styx Example</figcaption>
+   <figcaption><p style="text-align: center;">Serendipity Styx Example</p></figcaption>
   </figure>
  </div>
 </div>
