@@ -474,7 +474,7 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
   [data-dark-theme="dark"] a.cke_dialog_ui_button {
     color: #cdd9e5 !important;
     background: #323941 !important;
-    background-image: -webkit-linear-gradient(#444c56,#2s333b) !important;
+    background-image: -webkit-linear-gradient(#444c56,#2d333b) !important;
     background-image: linear-gradient(#444c56,#2d333b) !important;
     border-color: #636e7b !important; }
 
