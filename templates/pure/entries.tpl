@@ -21,6 +21,7 @@
 <section id="entries_dategroup" class="serendipity_Entry_Date">
     <header>
         {if NOT $is_single_entry}<p class="serendipity_date">{if $dategroup.is_sticky}{$CONST.STICKY_POSTINGS}{else}{$dategroup.date|formatTime:DATE_FORMAT_ENTRY}{/if}</p>{/if}
+
     </header>
     {foreach $dategroup.entries AS $entry}{if $is_single_entry AND $view == 'entry'}{assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" - $entry array relates in trackbacks - and index.tpl Rich Text Editor asset includes *}{/if}
 
