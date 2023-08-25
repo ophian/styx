@@ -2,6 +2,9 @@ Version 4.2.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Enable "Guided Tour" link "Using the RichText Editor" (lessons) in the Styx
+    site help center documentaries.
+
   * Mark custom release file notifications as custom
 
   * Improve image condition building a generic div container around selected
