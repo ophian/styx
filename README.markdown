@@ -30,7 +30,7 @@ _September 23, 2016_
 
 ## Installation
 
-On most hosters, everything needed to run Serendipity should already be installed. If you install it on your custom server, install PHP >= 7.4, MySQL/MariaDB, PostgreSQL or SQLite, and Apache. ImageMagick is also useful. Upload the files from [a release archive](https://github.com/ophian/styx/releases) to your webroot and visit your URL to start the installer. 
+On most server hosts, everything needed to run Serendipity should already be installed. If you install it on your custom server, install PHP >= 7.4, MySQL/MariaDB, PostgreSQL or SQLite, and Apache. ImageMagick is also useful. Upload the files from [a release archive](https://github.com/ophian/styx/releases) to your webroot and visit your URL to start the installer. 
 
 For more details, please consult [the manual](https://ophian.github.io/hc/en/installation.html#docs-install-the-easy-way).
 
@@ -40,11 +40,11 @@ Recommendations for Styx are: *PHP 8.2+*, *ImageMagick 7.1+*, *MariaDB 10.6+*, *
 
 By default, Serendipity Styx includes:
 
- 1. An editor to write blog entries recommended use of RichText Editor or all variants of PlainText Editors w/ markdown etc
- 2. Support for trackbacks and pingbacks
+ 1. An editor to write blog entries with recommended use of RichText Editor or all other variants of PlainText Editors w/ markdown, etc
+ 2. Support for entry comments (+html-comments), trackbacks and pingbacks
  3. A media library to upload images, videos and other files and add them into entries, supporting WebP and AVIF as image variants for picture element containers
  4. Integrated anti-spam measures
- 5. A collection of themes that can be selected in the backend
+ 5. A collection of modernized themes that can be selected in the backend
  6. A plugin management interface for local and remote (SPARTACUS)
  7. Categories that can be applied to written blog entries
  8. Groups and user management
@@ -52,12 +52,12 @@ By default, Serendipity Styx includes:
 
 Via plugins, additional functionality can easily be added. Some popular plugins add
 
- 1. Support for static pages, giving your site CMS features
- 2. Additional anti-spam features
- 3. Tags, in addition to categories
+ 1. Support for independent static pages, giving your site CMS features
+ 2. Additional anti-spam features (bee)
+ 3. Tags (freetag), in addition to categories
  4. Markup languages like Markdown and Textile and so on
 
-Plugins can be added in the backend plugin interface without the need to manually upload files.
+Plugins can be added in the backend plugin interface (Spartacus) without the need to manually upload files.
 
 ## Support
 
@@ -67,7 +67,7 @@ Please visit [the "forum"](https://github.com/ophian/styx/discussions) for addit
 
 ## Development
 
-Serendipity Styx is developed by Ian Styx. Serendipity has always focused staying backwards compatible. Though major versions do cut with elder requirements and shift to use the better defaults of today. If you want to contribute changes, you can send in a pull request and we will work with you to bring the changes into the software if possible. After enough trust supporting contributions we might offer quick team memberships.
+Serendipity Styx is developed by Ian Styx. Serendipity has always focused staying backwards compatible. Though major versions do cut with elder requirements or upgrade tasks and shift to use the better defaults of today. If you want to contribute changes, you can send in a pull request and we will work with you to bring the changes into the software if possible. After enough trust supporting contributions we might offer quick team memberships.
 
 If you want to request features, you can open a thread [in the GitHub discussion channel](https://github.com/ophian/styx/discussions). Much of the development of Serendipity is user driven, feature requests are welcome.
 
