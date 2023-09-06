@@ -1014,7 +1014,7 @@ class serendipity_plugin_api
             $serendipity['no_events'] = $ne;
         }
 
-        if (strlen(trim($title)) == 0) {
+        if (is_null($title) || strlen(trim($title)) == 0) {
             if (!empty($default_title)) {
                 $title = $default_title;
             } else {
