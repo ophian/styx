@@ -128,7 +128,7 @@ class ONYX_RSS
 
             } catch (HTTP_Request2_Exception $e) {
                 serendipity_request_end();
-                $this->raiseError((__LINE__-2), ONYX_ERR_INVALID_URI . ' (#' . $res->getStatus() . ')');
+                $this->raiseError((__LINE__-2), ONYX_ERR_INVALID_URI . ' (#' . $e . ')');
                 return false;
             }
 
