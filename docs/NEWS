@@ -2,6 +2,9 @@ Version 4.2.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve backend startpage overview plugin API "$backend_frontpage_display"
+    placement, so it works up from Styx 4.3 as a normal dashboard widget.
+
   * Enable "Guided Tour" link "Using the RichText Editor" (lessons) in the Styx
     site help center documentaries.
 
