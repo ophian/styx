@@ -2,7 +2,7 @@
         <h2>{$CONST.WELCOME_BACK} {$username|escape}</h2>
         <a href="#s9y_links" class="button_link toggle_links"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.FURTHER_LINKS}</span></a>
     </div>
-{$backend_frontpage_display}
+
     <div id="dashboard">
     {if isset($published)}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.ENTRY_PUBLISHED|sprintf:$published|escape}</span>
@@ -86,7 +86,10 @@
             {include "./doc/quicktip_$lang.tpl" caching}
             {/if}
         </section>
-    </div>
+
+{$backend_frontpage_display}
+
+    </div><!-- dashboard end -->
 
 <script type="text/javascript">
 $(document).ready(function() {
