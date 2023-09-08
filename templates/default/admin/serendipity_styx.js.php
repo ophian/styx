@@ -1178,7 +1178,7 @@
         // argument defaults
         stateClass = stateClass || 'additional_info';
         stateIcon = stateIcon || '> span';
-        if (toggler[0].className == 'button_link toggle_comment_full') {
+        if (toggler[0].className.substring(0, 31) == 'button_link toggle_comment_full') {
             stateOpen = stateOpen || 'icon-up-dir';
         } else {
             stateOpen = stateOpen || 'icon-down-dir';
@@ -1214,10 +1214,6 @@
             if (togglerId !== undefined && localStorage !== null) {
                 localStorage.setItem(storageKey, "true");
             }
-        }
-
-        if ($toggleIcon[0].className == 'icon-up-dir icon-down-dir') {
-            $toggleIcon.removeClass('icon-up-dir icon-down-dir').addClass(stateClosed);
         }
 
         $(target).toggleClass(stateClass);
