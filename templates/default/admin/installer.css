@@ -1944,8 +1944,7 @@ form > .button_link:first-of-type,
     visibility: hidden;
 }
 
-.mfp-content #edit_entry_category .form_check input[type="checkbox"]:checked + label,
-.lt-ie9 .mfp-content #edit_entry_category .form_check .selected {
+.mfp-content #edit_entry_category .form_check input[type="checkbox"]:checked + label {
     background-color: #eee;
     border-color: #aaa;
 }
