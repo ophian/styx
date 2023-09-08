@@ -2,6 +2,10 @@ Version 4.2.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix styx js for full toggled "additional_info" containers back to summary
+    previews, changing the "icon-down-dir" to an "icon-up-dir" button icon
+    (Apr/18 to Jul/18).
+
   * Improve backend startpage overview plugin API "$backend_frontpage_display"
     placement, so it works up from Styx 4.3 as a normal dashboard widget.
 
