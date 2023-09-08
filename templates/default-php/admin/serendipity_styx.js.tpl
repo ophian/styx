@@ -1178,7 +1178,7 @@
         // argument defaults
         stateClass = stateClass || 'additional_info';
         stateIcon = stateIcon || '> span';
-        if (toggler.className == 'button_link toggle_comment_full') {
+        if (toggler[0].className == 'button_link toggle_comment_full') {
             stateOpen = stateOpen || 'icon-up-dir';
         } else {
             stateOpen = stateOpen || 'icon-down-dir';
