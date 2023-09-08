@@ -1218,15 +1218,9 @@
 
     serendipity.sync_heights = function() {
         if ($('.equal_heights').length > 0) {
-            if ($('html').hasClass('lt-ie9')) {
-                $('.equal_heights').syncHeight({
-                    updateOnResize: false
-                });
-            } else {
-                $('.equal_heights').syncHeight({
-                    updateOnResize: true
-                });
-            }
+            $('.equal_heights').syncHeight({
+                updateOnResize: true
+            });
         }
     }
 
