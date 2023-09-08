@@ -1209,6 +1209,10 @@
             }
         }
 
+        if ($toggleIcon[0].className == 'icon-up-dir icon-down-dir') {
+            $toggleIcon.removeClass('icon-up-dir icon-down-dir').addClass(stateClosed);
+        }
+
         $(target).toggleClass(stateClass);
     }
 
