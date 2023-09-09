@@ -2,6 +2,8 @@ Version 4.2.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Upgrade templates general jQuery lib to v3.7.1
+
   * Fix styx js for full toggled "additional_info" containers back to summary
     previews, changing the "icon-down-dir" to an "icon-up-dir" button icon
     (Apr/Jul 2018).
