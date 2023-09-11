@@ -3121,6 +3121,10 @@ h3 button.toggle_info.button_link.group_info {
     color: #fcfcfc;
 }
 
+#plugin_options .field_info, #template_options .field_info {
+    font-size: .925rem;
+}
+
 #password_info.field_info + .upw_field {
     display: none;
 }
