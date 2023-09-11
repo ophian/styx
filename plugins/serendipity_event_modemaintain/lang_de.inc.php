@@ -12,7 +12,7 @@
 
 @define('PLUGIN_MODEMAINTAIN_MAINTAIN_NOTE', 'Ergänzender Wartungs-Modus Text');
 @define('PLUGIN_MODEMAINTAIN_MAINTAIN_TEXT', '');
-@define('PLUGIN_MODEMAINTAIN_MAINTAIN_USELOGO', 'Binde das Serendipity2 Logo ein?');
+@define('PLUGIN_MODEMAINTAIN_MAINTAIN_USELOGO', 'Binde das Serendipity Styx Logo ein?');
 
 @define('PLUGIN_MODEMAINTAIN_BUTTON', 'Aktiviere den 503 Modus');
 @define('PLUGIN_MODEMAINTAIN_FREEBUTTON', 'Zurücksetzen des 503 Modus');
