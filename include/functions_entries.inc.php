@@ -1958,7 +1958,7 @@ function serendipity_printArchives() {
                     break;
             }
 
-            $entry_count = (int) $group[$y . (strlen((string) $m) == 1 ? '0' : '') . $m] ?? 0;
+            $entry_count = (int) ($group[$y . (strlen((string) $m) == 1 ? '0' : '') . $m] ?? 0);
 
             /* A silly hack to get the maximum amount of entries per month */
             if ($entry_count > $max) {
