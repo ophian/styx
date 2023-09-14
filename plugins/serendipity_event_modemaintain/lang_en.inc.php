@@ -12,7 +12,7 @@
 
 @define('PLUGIN_MODEMAINTAIN_MAINTAIN_NOTE', 'Additional Maintenance Mode Text');
 @define('PLUGIN_MODEMAINTAIN_MAINTAIN_TEXT', '');
-@define('PLUGIN_MODEMAINTAIN_MAINTAIN_USELOGO', 'Show the Serendipity2 logo?');
+@define('PLUGIN_MODEMAINTAIN_MAINTAIN_USELOGO', 'Show the Serendipity Styx logo?');
 
 @define('PLUGIN_MODEMAINTAIN_BUTTON', 'Set 503 Maintenance Mode');
 @define('PLUGIN_MODEMAINTAIN_FREEBUTTON', 'Unset 503 Maintenance Mode');

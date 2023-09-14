@@ -35,6 +35,7 @@
                 </li>
                 <li>
                     <b>VII. Styx Ratgeber:</b><br>
-                    <span><em>Für Migrationen, lesen Sie die wichtige Styx Upgrade Dokumentation und den &#187;hitchhikers "upgrade" guide&#171; für das Styx Backend im <a href="https://ophian.github.io/hc/en/installation.html#user-content-the-important-upgraders-howto---step-by-step-guide" target="_blank" rel="noopener">Help Center</a> der Styx Webseite</em>.</span>
+                    <span><em>Für Migrationen, lesen Sie die wichtige Styx Upgrade Dokumentation und den &#187;hitchhikers "upgrade" guide&#171; für das Styx Backend im <a href="https://ophian.github.io/hc/en/installation.html#user-content-the-important-upgraders-howto---step-by-step-guide" target="_blank" rel="noopener">Help Center</a> der Styx Webseite</em>.</span><br>
+                    <span><em>Erlernen Sie unseren RichText-Editor mit den dafür empfohlenen Techniken zu verwenden. Probieren Sie unsere Schritt für Schritt <a href="https://ophian.github.io/hc/en/the-stockholm-lessons.html" target="_blank" rel="noopener">RichText-Editor-Lektionen</a> auf der englischen Hilfe Webseite aus</em>.</span>
                 </li>
             </ol>

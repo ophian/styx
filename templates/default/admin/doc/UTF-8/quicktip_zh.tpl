@@ -35,6 +35,7 @@
                 </li>
                 <li>
                     <b>VII. Styx Guide:</b><br>
-                    <span><em>For migrations, read the important Styx Upgrade Documentation and the hitchhikers guide to the Styx Backend in the Serendipity Styx Website <a href="https://ophian.github.io/hc/en/installation.html#user-content-the-important-upgraders-howto---step-by-step-guide" target="_blank" rel="noopener">Help Center</a></em>.</span>
+                    <span><em>For migrations, read the important Styx Upgrade Documentation and the hitchhikers guide to the Styx Backend in the Serendipity Styx Website <a href="https://ophian.github.io/hc/en/installation.html#user-content-the-important-upgraders-howto---step-by-step-guide" target="_blank" rel="noopener">Help Center</a></em>.</span><br>
+                    <span><em>You want to learn how to use our recommended RichText Editor for recommended techniques. Read and try the step by step <a href="https://ophian.github.io/hc/en/the-stockholm-lessons.html" target="_blank" rel="noopener">RichText-Editor Lecture Lessons</a> at the Serendipity Styx Website</em>.</span>
                 </li>
             </ol>
