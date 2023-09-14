@@ -2,6 +2,9 @@ Version 4.2.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Preparations for upcoming PHP 8.3:
+      - entries API: Refactor entries archive item counting
+
   * Upgrade templates general jQuery lib to v3.7.1
 
   * Fix styx js for full toggled "additional_info" containers back to summary
