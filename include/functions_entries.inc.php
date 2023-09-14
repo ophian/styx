@@ -1924,8 +1924,8 @@ function serendipity_printArchives() {
     if (is_array($entries)) {
         foreach($entries AS $entry) {
             $d = date('Ym', (int) $entry['timestamp']);
-            if(!isset($group[$d])) $group[$d] = ''; // mute possible empty items offset up-counting
-            $group[$d]++; // same as += 1
+            if (!isset($group[$d])) $group[$d] = 0; // per default startup being 0
+            $group[$d] += 1; // increment the count of keys to 1 or plus when key iterates, so we have the max counted items for year/month
         }
     }
 
@@ -1958,7 +1958,7 @@ function serendipity_printArchives() {
                     break;
             }
 
-            $entry_count = $group[$y . (strlen((string) $m) == 1 ? '0' : '') . $m] ?? 0;
+            $entry_count = (int) $group[$y . (strlen((string) $m) == 1 ? '0' : '') . $m] ?? 0;
 
             /* A silly hack to get the maximum amount of entries per month */
             if ($entry_count > $max) {
