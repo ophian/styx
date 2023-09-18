@@ -1,6 +1,6 @@
 Name: B53+ [ WIP Blog ]
 Author: Ian Styx
-Date: 2023-07-27
+Date: 2023-09-18
 Require Serendipity: 4.1
 Backend: No
 Engine: boot
