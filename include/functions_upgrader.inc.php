@@ -596,6 +596,8 @@ function serendipity_fixPlugins($case) {
 
         case 'change_backend_name':
             if ($serendipity['template_backend'] == '2styx') {
+                global $dead_dirs_300;
+
                 serendipity_db_query("UPDATE {$serendipity['dbPrefix']}config
                                          SET value = 'styx'
                                        WHERE name = 'template_backend'
