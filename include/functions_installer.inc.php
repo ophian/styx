@@ -1076,9 +1076,9 @@ function serendipity_checkWebPSupport($set = false, $msg = false) {
         }
     } else {
         @exec($serendipity['convert'] . " -version", $out, $result);
-        if ($result == 0 || $result[0] == 0) {
+        if ($result == 0 || (isset($result[0]) && $result[0] == 0)) {
             @preg_match('/ImageMagick ([0-9]+\.[0-9]+\.[0-9]+)/', $out[0], $v);
-            if (version_compare($v[1], '6.9.9') <= 0) {
+            if (isset($v[1]) && version_compare($v[1], '6.9.9') <= 0) {
                 if ($msg) {
                     print "<b>WebP-Support</b>: Your current ImageMagick Version {$v[1]} is '6.9.9' or older, please upgrade!<br>\n";
                 }
@@ -1086,6 +1086,10 @@ function serendipity_checkWebPSupport($set = false, $msg = false) {
             } else {
                 $webpSupport = true;
             }
+        } else {
+            if (!function_exists('gd_info')) return false;
+            $gd = gd_info();
+            $webpSupport = $gd['WebP Support'] ?? false;
         }
     }
     if ($webpSupport && $set) {
