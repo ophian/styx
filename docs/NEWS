@@ -2,6 +2,9 @@ Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix some very old updert task cases to strait-jump to fairly new PHP
+    versions using Styx DEV with extended error reporting.
+
   * b53: Upgrade to Bootstrap v5.3.2 assets
          https://github.com/twbs/bootstrap/releases/tag/v5.3.2
 
