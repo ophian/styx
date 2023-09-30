@@ -471,7 +471,7 @@ function serveEntry($matches) {
     $_GET['serendipity']['action'] = 'read';
     $_GET['serendipity']['id']     = $id === 0 ? false : $id; // ... but the GLOBAL _GET var must be set to FALSE
 
-    $title = serendipity_db_query("SELECT title FROM {$serendipity['dbPrefix']}entries WHERE id=$id AND isdraft = 'false' " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? ' AND timestamp <= ' . serendipity_db_time() : ''), true);
+    $title = serendipity_db_query("SELECT title FROM {$serendipity['dbPrefix']}entries WHERE id=$id AND isdraft = 'false'" . (!serendipity_db_bool($serendipity['showFutureEntries']) ? ' AND timestamp <= ' . serendipity_db_time() : ''), true);
     if (is_array($title)) {
         $serendipity['head_title']    = serendipity_specialchars($title[0]);
         $serendipity['head_subtitle'] = serendipity_specialchars($serendipity['blogTitle']);
