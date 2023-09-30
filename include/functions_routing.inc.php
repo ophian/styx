@@ -466,13 +466,10 @@ function serveEntry($matches) {
         }
     }
 
-    $id = (int)$matches[1];
-    if ($id === 0) {
-        $id = false;
-    }
+    $id = (int)$matches[1]; // An empty or non-integer /?p= (permalink ID) shall be 0 for the process and shall end up with NO_ENTRIES_TO_PRINT ...
 
     $_GET['serendipity']['action'] = 'read';
-    $_GET['serendipity']['id']     = $id;
+    $_GET['serendipity']['id']     = $id === 0 ? false : $id; // ... but the GLOBAL _GET var must be set to FALSE
 
     $title = serendipity_db_query("SELECT title FROM {$serendipity['dbPrefix']}entries WHERE id=$id AND isdraft = 'false' " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? ' AND timestamp <= ' . serendipity_db_time() : ''), true);
     if (is_array($title)) {
