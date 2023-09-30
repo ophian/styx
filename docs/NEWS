@@ -2,6 +2,9 @@ Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix the default URI route to serve entry requests on empty or non-integer
+    permalink (p) requests.
+
   * Fix some very old updert task cases to strait-jump to fairly new PHP
     versions using Styx DEV with extended error reporting.
 
