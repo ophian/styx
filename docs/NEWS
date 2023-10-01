@@ -2,6 +2,11 @@ Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Retired plugin "serendipity_event_smartymarkup" in styx/additional_plugins
+    due to some Smarty changes regarding the registerResource() method.
+    Please regard the notes about retired plugins in the README file of the
+    github additional_plugin repository directory.
+
   * Fix the default URI route to serve entry requests on empty or non-integer
     permalink (p) requests.
 
