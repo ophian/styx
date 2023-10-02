@@ -2,6 +2,9 @@ Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix an issue of doubled list preview button case in the MediaLibrary
+    for the first (last added) item in case of "Out of Sync Files".
+
   * Update bundled-libs/Smarty: Merge v.4.3.4 release to 4.3.4-dev-4
         https://github.com/smarty-php/smarty/releases/tag/v4.3.4
 
