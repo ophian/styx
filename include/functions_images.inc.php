@@ -3364,7 +3364,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
     if (!isset($aFilesNoSync)) $aFilesNoSync = array();
     if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag ".print_r($aFilesNoSync,true)); }
     $serendipity['aFilesNoSync'] = $aFilesNoSync;
-    $serendipity['smarty']->assign('imagesNoSync', $aFilesNoSync);
+    $serendipity['smarty']->assign('imagesNoSync', array_reverse($aFilesNoSync)); // in reversed order, so the avif full image extension loops first for media_items special assignment (case 1)
 
     ## Apply ACL afterwards:
     serendipity_directoryACL($paths, 'read');
