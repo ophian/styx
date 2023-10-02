@@ -2,6 +2,9 @@ Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Update bundled-libs/Smarty: Merge v.4.3.4 release to 4.3.4-dev-4
+        https://github.com/smarty-php/smarty/releases/tag/v4.3.4
+
   * Retired plugin "serendipity_event_smartymarkup" in styx/additional_plugins
     due to some Smarty changes regarding the registerResource() method.
     Please regard the notes about retired plugins in the README file of the
