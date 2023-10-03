@@ -3163,7 +3163,8 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
         serendipity_plugin_api::hook_event('backend_media_path_exclude_directories', $aExclude);
         $paths        = array();
         $aFilesOnDisk = array();
-        $aFilesNoSync = array();
+        $aFilesNoSync = array(); // Special cased: Out of Sync Files (i.e. Variations)
+
         $aResultSet   = serendipity_traversePath(
             $serendipity['serendipityPath'] . $serendipity['uploadPath']. $limit_path,
             '',
@@ -3360,7 +3361,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
         ## SYNC FINISHED ##
     }
 
-    // Out of Sync Files
+    // Special cased: Out of Sync Files (i.e. Variations)
     if (!isset($aFilesNoSync)) {
         $aFilesNoSync = array();
     } else {
