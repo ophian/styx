@@ -3364,8 +3364,10 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
     if (!isset($aFilesNoSync)) {
         $aFilesNoSync = array();
     } else {
-        $key_values = array_column($aFilesNoSync, 'extension');
-        array_multisort($key_values, SORT_ASC, $aFilesNoSync);
+        if (!empty($aFilesNoSync)) {
+            $key_values = array_column($aFilesNoSync, 'extension');
+            array_multisort($key_values, SORT_ASC, $aFilesNoSync);
+        }
     }
     if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag ".print_r($aFilesNoSync,true)); }
     $serendipity['aFilesNoSync'] = $aFilesNoSync;
