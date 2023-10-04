@@ -25,5 +25,5 @@
 
 @define('PLUGIN_MODEMAINTAIN_HINT_MAINTENANCE_MODE', 'Since long, or having possible frontend effects, this could be a valid task to use the Maintenance-Mode!');
 
-@define('PLUGIN_MODEMAINTAIN_OPENSSL_TIME_RESTRICTION', 'The Styx required "OPENSSL_VERSION_NUMBER" does not match! Therefore, only a session-based authentication can be used. The autologin cookie is restricted to work within 24 hours only from set. Do <strong>NOT</strong> hide your blog by this 503-Maintenance-Mode any longer than "<strong>%s</strong>" (h:min) from NOW on! If the remain time is too low, wait for a new 24h Session start.');
+@define('PLUGIN_MODEMAINTAIN_OPENSSL_TIME_RESTRICTION', 'The Styx required "OPENSSL_VERSION_NUMBER" does not match! Therefore, only a session-based authentication can be used. The autologin cookie is restricted to work within 24 hours only from set. Do <strong>NOT</strong> hide your blog by this 503-Maintenance-Mode any longer than "<strong>%s</strong>" (h:min) from NOW on! If the remain time is too low or "00:00", wait these minutes for a new down-counting 24h Session start.');
 

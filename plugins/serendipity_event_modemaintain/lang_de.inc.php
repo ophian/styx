@@ -25,5 +25,5 @@
 
 @define('PLUGIN_MODEMAINTAIN_HINT_MAINTENANCE_MODE', 'Wenn länger andauernd, oder mit möglichen Frontend-Auswirkungen verbunden, könnte dies eine gültige Aufgabe sein, den Wartungs-Modus zu nutzen!');
 
-@define('PLUGIN_MODEMAINTAIN_OPENSSL_TIME_RESTRICTION', 'Die von Styx geforderte "OPENSSL_VERSION_NUMBER" stimmt nicht überein! Deshalb kann nur eine Session basierte Authentifikation erfolgen. Das Autologin Cookie verfällt nach 24 Stunden. Versetzen Sie ihr Blog <strong>nicht</strong> länger als "<strong>%s</strong>" (h:min) von JETZT an in den 503-Wartungsmodus! Wenn die verbleibende Zeit zu gering ist, warten Sie auf den Start einer neuen 24-Stunden-Sitzung.');
+@define('PLUGIN_MODEMAINTAIN_OPENSSL_TIME_RESTRICTION', 'Die von Styx geforderte "OPENSSL_VERSION_NUMBER" stimmt nicht überein! Deshalb kann nur eine Session basierte Authentifikation erfolgen. Das Autologin Cookie verfällt nach 24 Stunden. Versetzen Sie ihr Blog <strong>nicht</strong> länger als "<strong>%s</strong>" (h:min) von JETZT an in den 503-Wartungsmodus! Wenn die verbleibende Zeit zu gering oder gerade bei "00:00" ist, warten Sie besser 1 bis X Minuten auf den Start einer neuen 24-Stunden-Sitzung.');
 
