@@ -2,6 +2,9 @@ Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve and fix the entries API archives "entries per month" counters
+    SQL query for the usage with the categorytemplates plugin.
+
   * Fix a (rare) conditional display issue of doubled image variation [o-o]
     button cases in the MediaLibrary by an unsorted Variation files array loop.
 
