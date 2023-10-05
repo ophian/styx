@@ -20,7 +20,7 @@
             {/if}
             <ul class="timeline">
             {if isset($archives) AND is_array($archives)}
-                {foreach $archives AS $archive}
+                {foreach $archives AS $archive}{if $archive.sum === 0}{continue}{/if}
                     <li class="{cycle values='left,timeline-inverted timeline-top-margin'}">
                         <div class="timeline-badge"><i class="far fa-dot-circle" aria-hidden="true"></i></div>
                         <div class="timeline-panel">
