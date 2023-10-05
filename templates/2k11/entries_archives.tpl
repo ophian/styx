@@ -2,7 +2,7 @@
 <article class="archives clearfix">
     <h2>{$CONST.ARCHIVES}{if NOT empty($category_info.categoryid)} :: {$category_info.category_name}{/if}</h2>
 {if isset($archives) AND is_array($archives)}
-{foreach $archives AS $archive}
+{foreach $archives AS $archive}{if $archive.sum === 0}{continue}{/if}
     <section class="archives_year clearfix {cycle values="arch_odd,arch_even"}">
         <h3>{$archive.year}</h3>
 
