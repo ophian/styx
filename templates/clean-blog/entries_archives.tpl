@@ -16,7 +16,7 @@
     {/if}
     <h2>{if $category}{$category_info.category_name} - {/if}{$CONST.ARCHIVES}</h2>
 {if isset($archives) AND is_array($archives)}
-    {foreach $archives AS $archive}
+    {foreach $archives AS $archive}{if $archive.sum === 0}{continue}{/if}
         <section class="archives_year">
             <div class="container-fluid">
                 <div class="row archive-year">
