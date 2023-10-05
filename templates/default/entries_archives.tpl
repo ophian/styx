@@ -1,7 +1,7 @@
 {serendipity_hookPlugin hook="entries_header"}
 <h3 class="serendipity_date">{$CONST.ARCHIVES}{if NOT empty($category_info.categoryid)} :: {$category_info.category_name}{/if}</h3>
 {if isset($archives) AND is_array($archives)}
-{foreach $archives AS $archive}
+{foreach $archives AS $archive}{if $archive.sum === 0}{continue}{/if}
 <table class="archives_listing">
     <tr class="archives_header">
         <td class="archives_header" colspan="5"><h2>{$archive.year}</h2></td>
