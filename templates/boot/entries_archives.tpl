@@ -4,7 +4,7 @@
 
     <div id="archives">
 {if isset($archives) AND is_array($archives)}
-    {foreach $archives AS $archive}
+    {foreach $archives AS $archive}{if $archive.sum === 0}{continue}{/if}
     <section class="card mb-1 me-1">
         <div class="card-header" id="header-{$archive.year}">
             <h3 class="mb-0">
