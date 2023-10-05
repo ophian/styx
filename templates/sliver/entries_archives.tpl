@@ -22,7 +22,7 @@
     <h2>{$CONST.DATE}</h2>
     <p>{$CONST.ARCHIVE_TEXT_YEARMONTH}</p>
 
-  {foreach $archives AS $archive}
+  {foreach $archives AS $archive}{if $archive.sum === 0}{continue}{/if}
     <div class="archive-year {cycle name="blah" values="left,center,right"}">
     <h3>{$archive.year}</h3>
 
