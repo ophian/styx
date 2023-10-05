@@ -2,6 +2,12 @@ Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve "entries_archives.tpl" template conditional in ALL other core
+    (parent) themes for empty (blog) years, in follow of an improvement made
+    in 2020 with Styx 3.2.0 (and implemented in the [ pure ] standard theme)
+    to easily exclude empty year blocks from the archives list.
+    COPY THEMERS: To profit, please follow the origin theme change.
+
   * Improve and fix the "entries per month" SQL query archive counter for a
     distinct usage by the categorytemplates plugin and the entrycat table.
 
