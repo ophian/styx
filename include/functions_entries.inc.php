@@ -1907,7 +1907,7 @@ function serendipity_printArchives() {
     // when the entrycat table is JOINed by the categorytemplates plugin for the purpose of "hidden" (template) categories.
     // This 'frontend_fetcharchives' hook exists singularly for the categorytemplates plugin, see https://github.com/ophian/styx/commit/6eca73434d01772a89523508b768c26c22d3fb91
     if (empty($distinct) && !empty($cond['joins']) && $cond['joins'] == "LEFT JOIN {$serendipity['dbPrefix']}entrycat AS ec ON (ec.entryid IS NULL OR ec.entryid = e.id)") {
-        $distinct = 'DISTINCT';
+        $distinct = $cond['distinct'] ?? ''; // 'DISTINCT ec.entryid,'
     }
 
     $q = "SELECT $distinct e.timestamp
