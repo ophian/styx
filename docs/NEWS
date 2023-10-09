@@ -2,6 +2,10 @@ Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve the [ pure ] standard theme for a s{i|a}mple [back-to-top] button
+    implementation, for the entries list and single post views including the
+    commentform. And some other minor CSS fine-tunes.
+
   * Improve "entries_archives.tpl" template conditional in ALL other core
     (parent) themes for empty (blog) years, in follow of an improvement made
     in 2020 with Styx 3.2.0 (and implemented in the [ pure ] standard theme)
