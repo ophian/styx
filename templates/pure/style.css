@@ -932,6 +932,13 @@ nav.pager {
     border: 1px solid #eee;
     border-radius: 5px;
 }
+nav.pager .totop {
+    margin-top: -2.5em;
+    margin-left: 92%; }
+    @media screen and (min-width: 667px) {
+      nav.pager .totop {
+        margin-left: 97%; }
+    }
 nav.pager ul {
     margin: 0 3em 1.5em;
     display: -webkit-flex;
