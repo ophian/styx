@@ -1283,6 +1283,9 @@ nav.pager + .serendipity_blogpdf {
 .serendipity_Entry_Date {
     margin: auto;
 }
+.serendipity_Entry_Date:last-of-type + .serendipity_entrypaging {
+    margin-top: 0.5em;
+}
 .serendipity_date {
     font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
     font-variant: all-petite-caps;
