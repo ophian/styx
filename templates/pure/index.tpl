@@ -26,7 +26,7 @@
 {/if}
 {serendipity_hookPlugin hook="frontend_header"}
 </head>
-<body class="grid-{if $leftSidebarElements > 0 AND $rightSidebarElements > 0}col{elseif $leftSidebarElements > 0 OR $rightSidebarElements > 0}flex{else}block{/if}"><a id="ptop"></a>
+<body class="grid-{if $leftSidebarElements > 0 AND $rightSidebarElements > 0}col{elseif $leftSidebarElements > 0 OR $rightSidebarElements > 0}flex{else}block{/if}">
 {else}
 {serendipity_hookPlugin hook="frontend_header"}
 {/if}
