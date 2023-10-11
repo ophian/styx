@@ -127,3 +127,11 @@ const dark = () => {
         $(this).next(".trackback-hint").show();
     });
 })(jQuery);
+
+/* Make sure to have a independent "top-of-page" jumpback on mobiles
+   with non-displayed (hidden and therefore being a non active selector) #serendipty_banner child anchor */
+(function ($) {
+    if (navigator.userAgent.indexOf('Mobile') !== -1 && $('#serendipity_banner').is(':hidden')) {
+        $('body').prepend('<a id="topofpage"></a>');
+    }
+})(jQuery);
