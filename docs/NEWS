@@ -3,8 +3,11 @@ Version 4.3-DEV ()
 
 
   * Improve the [ pure ] standard theme for a s{i|a}mple [back-to-top] button
-    implementation, for the entries list and single post views, including the
+    implementation, in the entries list and for single post views including the
     commentform or having comments. And for some other minor CSS fine-tunes.
+    COPY / CHILD THEMERS: If not using the fallback of the pure engine,
+        please follow the entries.tpl and the pure.js asset file(s) change
+        for mobiles.
 
   * Improve "entries_archives.tpl" template conditional in ALL other core
     (parent) themes for empty (blog) years, in follow of an improvement made
