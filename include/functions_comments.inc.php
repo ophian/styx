@@ -266,11 +266,21 @@ function serendipity_displayCommentForm($id, $url = '', $comments = NULL, $data 
             $comments = serendipity_fetchComments($id);
         }
     }
-    // In FRONTEND and BACKEND, using htmlspecialchars w/o 3rd param double_encode set to FALSE will set valid HTML ENTITIES to encoded again, eg &auml; to ä, so escape once here and only!
-    // But do NOT when we are in BACKEND using our Editor textarea form and we review an already added comment that uses codesnippet snips containing <pre> with HTML tag elements containing "ENTITIFIED" tags eg "&lt;tag&gt;" !
-    // Using FALSE is insecure in principle and borks editor forms having pre code codesnippets when entry is a review from database. They MUST stay converted in both (PLAIN/RT) cases; But in special for the RT-Editor with ACL; AND on SAVE. See 'commentform_data' assignment.
-    // So generally I think it is better to be strict and clean here and therefore accept (elder) other HTML ENTITIES outside the code blocks being not decoded and so stick to i.e. &amp;auml;
-    // But we do allow FALSE for NON-HTML Comment Mode in comment body data for frontend output only. We could do it for the author or name in backend list and frontend comments too, but I thinks these fields (like url and email in addition) should better not support that.
+    // In FRONTEND and BACKEND,
+    // using htmlspecialchars (w/o 3rd param double_encode set to FALSE) will set valid HTML ENTITIES to encoded again, eg &auml; to ä, so escape once - here and only!
+
+    // But do NOT when we are in BACKEND using our Editor textarea form and we review an already added comment that uses codesnippet snips containing <pre> with
+    // HTML tag elements containing "ENTITIFIED" tags, eg "&lt;tag&gt;" !
+
+    // Using FALSE is insecure in principle and borks editor forms having pre code codesnippets when entry is a review from database. They MUST stay converted in
+    // both (PLAIN/RT) mode cases; But in special for the RT-Editor with ACL; AND on SAVE submits. See 'commentform_data' assignment.
+
+    // So generally I think it is better to be strict and clean here and therefore accept (elder) other HTML ENTITIES outside the code blocks being not decoded
+    // and so stick to i.e. "&amp;auml;".
+
+    // But we do allow FALSE for NON-HTML Comment Mode in comment body data for frontend output only. We could do it for the author or name in backend list and
+    // frontend comments too, but I thinks these fields (like url and email in addition) should better not support that.
+
     // Do not run on $comments(true) the Frontend entries case @L~1400
     if (is_array($comments)) {
         // this are all comments data of this entry. $_commentform_replyTo is the parent ID of this current answer.
@@ -510,7 +520,8 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             if ($serendipity['allowHtmlComment']) {
                 $comment['comment'] = serendipity_sanitizeHtmlComments((string)$comment['body']); // cast as string (for PREVIEW modes only)
             } else {
-                // Since being stripped out, do not double_encode twice already encoded data from database for output. (Is this vulnerable with old payload data by using HTML ENTITIES? I don't know!!)
+                // Since being stripped out, do not double_encode twice already encoded data from database for output.
+                // (Is this vulnerable with old payload data by using HTML ENTITIES? I don't know !!)
                 $comment['comment'] = htmlspecialchars(strip_tags((string)$comment['body']), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, false); // cast as strings (for PREVIEW mode only)
             }
             $comment['url'] = strip_tags((string)$comment['url']); // via serendipity_smarty_printComments() to not error strip sanitizers
@@ -585,6 +596,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             }
 
             // in frontend, using htmlspecialchars w/o double encode false will set valid html entities to encoded again, so escape once here and only!
+            // See upper serendipity_printComments() $comment['comment'] at ~L524.
             $comment['body']    = (isset($_comment_dismarkup_temp) && $_comment_dismarkup_temp === true) ? $comment['comment'] : htmlspecialchars($comment['comment'], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, true);
             $comment['pos']     = $i;
             $comment['trace']   = $trace . $i;
