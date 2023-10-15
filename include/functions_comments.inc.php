@@ -269,11 +269,14 @@ function serendipity_displayCommentForm($id, $url = '', $comments = NULL, $data 
     // In FRONTEND and BACKEND,
     // using htmlspecialchars (w/o 3rd param double_encode set to FALSE) will set valid HTML ENTITIES to encoded again, eg &auml; to ä, so escape once - here and only!
 
-    // But do NOT when we are in BACKEND using our Editor textarea form and we review an already added comment that uses codesnippet snips containing <pre> with
+    // BUT DO NOT when we are in BACKEND using our Editor textarea form and we review an already added comment that uses codesnippet snips containing <pre> with
     // HTML tag elements containing "ENTITIFIED" tags, eg "&lt;tag&gt;" !
 
-    // Using FALSE is insecure in principle and borks editor forms having pre code codesnippets when entry is a review from database. They MUST stay converted in
-    // both (PLAIN/RT) mode cases; But in special for the RT-Editor with ACL; AND on SAVE submits. See 'commentform_data' assignment.
+    // Using FALSE is insecure in principle and borks editor forms having pre code codesnippets when an entry is a review from database. They MUST stay converted
+    // in both (PLAIN/RT) mode cases; BUT IN SPECIAL for the RT-Editor with auto switch mode Advanced-Content-Filter (ACF) cleanups; AND for ACF on SAVE submits.
+    // See 'commentform_data' assignment.
+    // These (saved) ACF cleanups (the the decoded snippet tags) could break out the PRE CODE tag element gutter and destroy the page HTML, producing access issues,
+    // i.e. when the snippet had unclosed tags, etc.
 
     // So generally I think it is better to be strict and clean here and therefore accept (elder) other HTML ENTITIES outside the code blocks being not decoded
     // and so stick to i.e. "&amp;auml;".
