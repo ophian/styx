@@ -59,5 +59,4 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_MULTI_AUTHORS', 'Multiple authors');
 
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_RECOMMENDED_SET', 'Article overviews show all "simple" [body] entry fields, e.g. even when the single entry view is protected by a password set here. Otherwise, you can also paste the protected content into the extended body field.');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_PASSWORD_SET', 'Article passwords are - unlike login passwords - stored unencrypted, thus simple and unsecured. You should not want to operate a security-relevant access system with them!');
 

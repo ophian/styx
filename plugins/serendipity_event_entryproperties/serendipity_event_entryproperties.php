@@ -407,7 +407,7 @@ class serendipity_event_entryproperties extends serendipity_event
                 <label for="properties_access_pw"><?php echo PASSWORD; ?>:</label>
                 <input type="password" name="ignore_password" value="" style="visibility: hidden; width: 1px">
                 <input id="properties_access_pw" name="serendipity[properties][entrypassword]" type="password" autocomplete="off" value="<?php echo serendipity_specialchars($password); ?>">
-                <i class="icon-info-circled" aria-hidden="true" title="<?php echo serendipity_specialchars(PLUGIN_EVENT_ENTRYPROPERTIES_PASSWORD_SET); ?>"></i>
+                <i class="icon-info-circled" aria-hidden="true" title="<?php echo serendipity_specialchars(ENTRY_PAGE_PASSWORD_INFO_SET); ?>"></i>
             </div>
 <?php
                 break;
