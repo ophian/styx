@@ -1,3 +1,7 @@
+1.87:
+-----
+    * Add info icon to password field for additional notes about security
+
 1.86:
 -----
     * Add new config option to automatize the cache-entries confirmation dialog for the next pages after 1st confirm
