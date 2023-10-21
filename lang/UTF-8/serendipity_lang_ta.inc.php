@@ -409,7 +409,7 @@
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'தோற்றம் மற்றும் தேர்வுகள்');
 @define('INSTALL_CAT_DISPLAY_DESC', 'செரண்டிபிட்டியின் தேற்றம்');
-@define('INSTALL_WYSIWYG', 'விசிவிகு எடிட்டரைப் பயன்படுத்துக (WYSIWYG=What You See Is What You Get)');
+@define('INSTALL_WYSIWYG', 'ரிச்டெக்ஸ்ட் எடிட்டரைப் பயன்படுத்தவும்');
 @define('INSTALL_WYSIWYG_DESC', 'For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
 @define('INSTALL_POPUP', 'Enable use of popup windows');
 @define('INSTALL_POPUP_DESC', 'Do you want to use popup windows for comments, trackbacks et al?');
