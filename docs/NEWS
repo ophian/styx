@@ -2,6 +2,8 @@ Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Clarify entryproperties plugin entry password widget by info notification
+
   * Improve the [ pure ] standard theme for a s{i|a}mple [back-to-top] button
     implementation, in the entries list and for single post views including the
     commentform or having comments. And for some other minor CSS fine-tunes.
