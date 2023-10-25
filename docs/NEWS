@@ -2,6 +2,9 @@ Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix unsupported usage of "out-of-band" template var on preview in
+    [ default-php ] theme.
+
   * Clarify entryproperties plugin entry password widget by info notification
 
   * Improve the [ pure ] standard theme for a s{i|a}mple [back-to-top] button
