@@ -1,7 +1,9 @@
 <!-- ENTRIES START -->
-    <?php serendipity_plugin_api::hook_event('entries_header', $GLOBALS['tpl'], @$GLOBALS['tpl']['entry_id']); ?>
-<?php /* NOTE: in case of staticpages it either needs to check is_array() or cast foreach($GLOBALS as (array) */ ?>
-<?php if (! empty($GLOBALS['tpl']['entries'])):
+<?php if (!isset($_GET['serendipity']['iframe_mode']) || $_GET['serendipity']['iframe_mode'] != 'preview'):
+    serendipity_plugin_api::hook_event('entries_header', $GLOBALS['tpl'], @$GLOBALS['tpl']['entry_id']);
+endif;
+/* NOTE: in case of staticpages it either needs to check is_array() or cast foreach($GLOBALS as (array) */
+if (! empty($GLOBALS['tpl']['entries'])):
     foreach($GLOBALS['tpl']['entries'] AS $dategroup): ?>
     <div class="serendipity_Entry_Date">
         <?php if ($dategroup['is_sticky']): ?>
@@ -40,7 +42,7 @@
             <p><a href="<?= $entry['link'] ?>#extended"><?php printf(VIEW_EXTENDED_ENTRY, $entry['title']) ?></a></p>
             <?php endif; ?>
 
-            <?php if (!$GLOBALS['tpl']['is_preview']): ?>
+            <?php if (!isset($_GET['serendipity']['iframe_mode']) || $_GET['serendipity']['iframe_mode'] != 'preview'): ?>
             <div class="serendipity_entryFooter">
                 <?= POSTED_BY ?> <a href="<?= $entry['link_author'] ?>"><?= $entry['author'] ?></a>
                 <?php if (!empty($entry['categories'])): ?>
@@ -96,7 +98,7 @@
 
         <?= $entry['plugin_display_dat'] ?>
 
-        <?php if ($GLOBALS['tpl']['is_single_entry'] && !$GLOBALS['tpl']['is_preview']): ?>
+        <?php if ((!isset($_GET['serendipity']['iframe_mode']) || $_GET['serendipity']['iframe_mode'] != 'preview') && $GLOBALS['tpl']['is_single_entry']): ?>
             <?php if (defined(DATA_UNSUBSCRIBED)): ?>
                 <div class="serendipity_center serendipity_msg_success"><?= sprintf(DATA_UNSUBSCRIBED, UNSUBSCRIBE_OK) ?></div>
             <?php endif; ?>
@@ -193,7 +195,7 @@
     <?php endif; ?>
 <?php endif; ?>
 
-<?php if (!isset($GLOBALS['tpl']['$is_single_entry']) && !$GLOBALS['tpl']['is_preview'] && !$GLOBALS['tpl']['plugin_clean_page'] && (!empty($GLOBALS['tpl']['footer_prev_page']) OR !empty($GLOBALS['tpl']['footer_next_page']))): ?>
+<?php if ((!isset($_GET['serendipity']['iframe_mode']) || $_GET['serendipity']['iframe_mode'] != 'preview') && !$GLOBALS['tpl']['is_single_entry'] && !$GLOBALS['tpl']['plugin_clean_page'] && (!empty($GLOBALS['tpl']['footer_prev_page']) OR !empty($GLOBALS['tpl']['footer_next_page']))): ?>
     <div class="serendipity_entries_footer">
     <?php if ($GLOBALS['tpl']['footer_prev_page']): ?>
         <a href="<?= $GLOBALS['tpl']['footer_prev_page'] ?>">&laquo; <?= PREVIOUS_PAGE; ?></a>&#160;&#160;
