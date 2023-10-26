@@ -2,6 +2,12 @@ Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Refactor the plugin zombies comparison checkup maintenance task, since it
+    did not fetch all occurrences of outdated plugins.
+    PLEASE NOTE:
+        Run this task again to avoid running into conflicts with non-updated
+        plugin zombies.
+
   * Fix unsupported usage of "out-of-band" template vars on preview in
     [ default-php ] theme.
 
