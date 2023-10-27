@@ -549,6 +549,25 @@ function recursive_directory_iterator($dir = array()) {
 }
 
 /**
+ * recursive local plugins purging DB call that have been removed physically
+ *
+ * @param array $locals directories
+ * @return void
+ */
+function recursive_local_iterator($locals = array()) {
+    if (null === $locals) {
+        return;
+    }
+    global $serendipity;
+
+    foreach($locals AS $local) {
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}pluginlist
+                               WHERE class_name = '". serendipity_db_escape_string($local) . "'
+                                 AND pluginlocation = 'local'");
+    }
+}
+
+/**
  * Set/change config variables; Fix pluginlist for upgrade cases.
  *
  * @access private
