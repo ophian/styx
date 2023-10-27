@@ -140,6 +140,10 @@ switch($serendipity['GET']['adminAction']) {
             }
             // cleanup remaining local plugin items from database (cleanup compat "regression" for the 0523bd959b590f42a9492aca5077d1dd82f6187c fix of Nov 18, 2018 tasks)
             if (!empty($plugins)) {
+                // Avoid purging the DB pluginlist "local" plugins, when they still exist physically.
+                // No pre array sorting(s) necessary to return only differences.
+                // Reset with new index result for preserved key.
+                $plugins = array_values(array_diff($plugins, array_keys($data['local_plugins'])));
                 recursive_local_iterator($plugins);
             }
         }
