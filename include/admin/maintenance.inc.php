@@ -21,7 +21,7 @@ $keepsbplugins = [ 'archives', 'authors', 'calendar', 'categories', 'comments', 
             'eventwrapper', 'history', 'html_nugget', 'plug', 'quicksearch', 'recententries',
             'remoterss', 'superuser', 'syndication' ];
 
-if ($serendipity['GET']['adminAction'] == 'cleartemp' || $serendipity['GET']['adminAction'] == 'clearplug') {
+if ($serendipity['GET']['adminAction'] == 'cleartemp' || $serendipity['GET']['adminAction'] == 'checkplug' || $serendipity['GET']['adminAction'] == 'clearplug') {
     include_once S9Y_INCLUDE_PATH . 'include/functions_upgrader.inc.php';
 }
 
@@ -138,6 +138,10 @@ switch($serendipity['GET']['adminAction']) {
                     }
                 }
             }
+            // cleanup remaining local plugin items from database (cleanup compat "regression" for the 0523bd959b590f42a9492aca5077d1dd82f6187c fix of Nov 18, 2018 tasks)
+            if (!empty($plugins)) {
+                recursive_local_iterator($plugins);
+            }
         }
         $data['select_localplugins_total'] = isset($data['local_plugins']) ? count($data['local_plugins']) : 0;
         break;
@@ -158,6 +162,8 @@ switch($serendipity['GET']['adminAction']) {
                 recursive_directory_iterator($plugzombies);
                 // test the first for messaging, since method does not return boolean
                 if (!is_dir($plugzombies[0])) {
+                    // remove from database
+                    recursive_local_iterator($plugzombies);
                     $data['zombP'] = true;
                 }
             }
