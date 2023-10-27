@@ -592,6 +592,11 @@ $tasks = array(
                     'title'     => 'Removal of old dead files for 4.2.0',
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_420) . '</pre>'),
 
+            array(  'version'   => '4.3.0',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> It occurred that the Maintenance task for the local plugin zombies comparison checkup',
+                    'desc'      => 'did not fully select all remaining plugins and caused incompatibilities on elder systems by this regression. Please run the task again at least ONCE to avoid running into (future) conflicts with non-updated local plugin zombies and remaining old data.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
