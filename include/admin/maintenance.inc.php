@@ -110,7 +110,7 @@ switch($serendipity['GET']['adminAction']) {
             $data['pluginmanager_error'] = PERM_DENIED;
             break;
         }
-        $extpluginzs = serendipity_db_query("SELECT a.class_name AS path, a.upgrade_version AS zombie, b.version AS new_version
+        $extpluginzs = serendipity_db_query("SELECT a.class_name AS cname, a.upgrade_version AS zombie, b.version AS new_version
                                             FROM {$serendipity['dbPrefix']}pluginlist a
                                        LEFT JOIN {$serendipity['dbPrefix']}pluginlist b
                                               ON a.pluginlocation = 'local' AND b.pluginlocation = 'Spartacus' AND
@@ -120,8 +120,8 @@ switch($serendipity['GET']['adminAction']) {
             // secured by check against installed plugins here!
             foreach ($extpluginzs AS $pstack) {
                 // returns array in case of found installed, else enum_plugins::serendipity_db_query returns bool
-                if (version_compare($pstack['zombie'], $pstack['new_version'], '<') && is_bool(serendipity_plugin_api::enum_plugins('*', false, $pstack['path']))) {
-                    $plugins[] = $pstack['path'];
+                if (version_compare($pstack['zombie'], $pstack['new_version'], '<') && is_bool(serendipity_plugin_api::enum_plugins('*', false, $pstack['cname']))) {
+                    $plugins[] = $pstack['cname'];
                 }
             }
 
