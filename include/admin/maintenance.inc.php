@@ -143,7 +143,7 @@ switch($serendipity['GET']['adminAction']) {
                 // Avoid purging the DB pluginlist "local" plugins, when they still exist physically.
                 // No pre array sorting(s) necessary to return only differences.
                 // Reset with new index result for preserved key.
-                $plugins = array_values(array_diff($plugins, array_keys($data['local_plugins'])));
+                $plugins = array_values(array_diff($plugins, array_keys($data['local_plugins'] ?? [])));
                 recursive_local_iterator($plugins);
             }
         }
