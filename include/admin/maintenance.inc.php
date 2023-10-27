@@ -21,7 +21,7 @@ $keepsbplugins = [ 'archives', 'authors', 'calendar', 'categories', 'comments', 
             'eventwrapper', 'history', 'html_nugget', 'plug', 'quicksearch', 'recententries',
             'remoterss', 'superuser', 'syndication' ];
 
-if (in_array($serendipity['GET']['adminAction'], ['cleartemp', 'checkplug', 'clearplug']) {
+if (in_array($serendipity['GET']['adminAction'], ['cleartemp', 'checkplug', 'clearplug'])) {
     include_once S9Y_INCLUDE_PATH . 'include/functions_upgrader.inc.php';
 }
 
