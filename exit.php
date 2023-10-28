@@ -42,8 +42,8 @@ if (serendipity_isResponseClean($url)) {
     }
 
     if ($trust_url || $open_redir) {
-        header(serendipity_getServerProtocol() . ' 301 Moved Permanently');
-        header('Status: 301 Moved Permanently');
+        header(serendipity_getServerProtocol() . ' 301 Moved Permanently', true, 301); // force
+        header('Status: 301 Moved Permanently'); // overwrite Status 200
         header('Location: ' . $url);
     }
 }

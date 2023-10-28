@@ -83,8 +83,8 @@ if (!isset($_GET['nocache'])) {
         if (($none_match == $last_modified && $modified_since == $last_modified) ||
             (!$none_match && $modified_since == $last_modified) ||
             (!$modified_since && $none_match == $last_modified)) {
-            header(serendipity_getServerProtocol() . ' 304 Not Modified');
-            header('Status: 304 Not Modified');
+            header(serendipity_getServerProtocol() . ' 304 Not Modified', true, 304); // force
+            header('Status: 304 Not Modified'); // overwrite Status 200
             return;
         }
     }
