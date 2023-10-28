@@ -2,6 +2,8 @@ Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Enforce [ 301, 304, 404 ] header() overwrites of Styx 4.2.0 refactoring
+
   * Refactor the plugin zombies comparison checkup maintenance task, since it
     did not fully fetch all occurrences of outdated plugins to remove.
     ADMINISTRATOR NOTE:
