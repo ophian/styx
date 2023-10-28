@@ -289,8 +289,9 @@ function serendipity_setNotModifiedHeader() {
 
             if ($hashValue === $reqHeader) {
                 // Tell client to use the cached version and destroy output buffer
-                header(serendipity_getServerProtocol() . ' 304 Not Modified', true, 304);
-                header("Vary: Accept-Encoding");
+                header(serendipity_getServerProtocol() . ' 304 Not Modified', true, 304); // force
+                header('Status: 304 Not Modified'); // overwrite Status 200
+                header('Vary: Accept-Encoding');
                 ob_clean();
             }
         }
