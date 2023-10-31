@@ -597,6 +597,11 @@ $tasks = array(
                     'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> It occurred that the Maintenance task for the local plugin zombies comparison checkup',
                     'desc'      => 'did not fully select all remaining plugins and caused incompatibilities on elder systems by this regression. Please run the task again at least ONCE to avoid running into (future) conflicts with non-updated local plugin zombies and remaining old data.'),
 
+            array(  'version'   => '4.3.0',
+                    'type'      => 'REQUIREMENT_NOTICE',
+                    'title'     => '<b>REQUIREMENT_NOTICE:</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '8.2.0') >= 0) ? 'OK' : 'outdated') . '.',
+                    'desc'      => 'Please remember, that <b>next</b> Serendipity Styx major version <b>Series 5</b> will require a minimum version of <b>PHP 8.2</b>. This Series 4 will further only get security or needed bugfix releases, if any...'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
