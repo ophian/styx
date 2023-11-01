@@ -75,7 +75,14 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
     $data['isCustom']     = $data['releaseFUrl'] != 'https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE' ? true : false;
     $data['curVersName']  = $serendipity['updateVersionName'] ?? null;
     $data['update']       = version_compare($data['usedVersion'], $data['curVersion'], '<');
-    serendipity_plugin_api::hook_event('plugin_dashboard_updater', $output, $data['curVersion']);
+    $is_major             = ($data['curVersion'][0] > 4 && PHP_VERSION_ID >= 80200);
+    if ($is_major === true || $data['curVersion'][0] < 5) {
+        serendipity_plugin_api::hook_event('plugin_dashboard_updater', $output, $data['curVersion']);
+    } else {
+        $data['update'] = true; // Announce available upgrade todo
+        $str = 'This major series upgrade is available via the "automatic upgrade", but requires at least <b><u>%s</u></b> as the minimum version. Please upgrade to <b>%s</b> first. Do NOT pull custom upgrades without !';
+        $output = '<span class="msg_notice"><span class="icon-info-circled"></span> ' . sprintf($str, 'PHP 8.2', 'PHP 8.2');
+    }
     $output = !empty($output) ? $output : '<span class="msg_error"><span class="icon-info-circled"></span> To get a button, check if the "Serendipity Autoupdate" event plugin is installed!</span>';
     $data['updateButton'] = $output;
 }
