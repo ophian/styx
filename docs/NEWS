@@ -2,6 +2,8 @@ Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add logic to check an automatic upgrade GO for the next Styx major 5 series
+
   * Enforce [ 301, 304, 404 ] header() overwrites of Styx 4.2.0 refactoring
 
   * Refactor the plugin zombies comparison checkup maintenance task, since it
