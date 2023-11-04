@@ -444,10 +444,10 @@
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Este usuário está autorizado a publicar artigos?');
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Sucesso');
-@define('POWERED_BY_SHOW_TEXT', 'Exibir "Serendipity" como texto');
+@define('POWERED_BY_SHOW_TEXT', 'Exibir "%s" como texto');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Exibirá o "Serendipity Styx Weblog" como texto');
-@define('POWERED_BY_SHOW_IMAGE', 'Exibir "Serendipity" como um logotipo');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Exibe o logotipo do Serendipity Styx');
+@define('POWERED_BY_SHOW_IMAGE', 'Exibir "%s" como um logotipo');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'Exibe o logotipo do %s');
 
 @define('SETTINGS_SAVED_AT', 'As novas configurações foram salvas às %s');
 @define('PLUGIN_ITEM_DISPLAY', 'Onde o item deve ser exibido?');

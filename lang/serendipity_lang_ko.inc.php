@@ -462,10 +462,10 @@
 @define('USERCONF_ALLOWPUBLISH_DESC', '이 사용자가 글을 작성할 권한이 있습니까?');
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', '성공');
-@define('POWERED_BY_SHOW_TEXT', '"세렌디피티"를 텍스트로 출력');
-@define('POWERED_BY_SHOW_TEXT_DESC', '"세렌디피티 웹로그"를 텍스트로 출력함');
-@define('POWERED_BY_SHOW_IMAGE', '"세렌디피티"를 로고로 출력');
-@define('POWERED_BY_SHOW_IMAGE_DESC', '세렌디피티 로고를 보여줌');
+@define('POWERED_BY_SHOW_TEXT', '"세렌디피티"를 텍스트로 출력'); // should be 'Show "%s" as text'
+@define('POWERED_BY_SHOW_TEXT_DESC', '"세렌디피티 웹로그"를 텍스트로 출력함'); // Serendipity should be Serendipity Styx
+@define('POWERED_BY_SHOW_IMAGE', '"세렌디피티"를 로고로 출력'); // should be 'Show "%s" with a logo'
+@define('POWERED_BY_SHOW_IMAGE_DESC', '세렌디피티 로고를 보여줌'); // should be 'Displays the %s-logo'
 @define('PLUGIN_ITEM_DISPLAY', '아이템이 어디에 표시됩니까?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', '추가 내용에만');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', '요약 페이지에만');

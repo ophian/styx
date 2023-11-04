@@ -462,10 +462,10 @@
 @define('USERCONF_ALLOWPUBLISH_DESC', 'וב םÍÞ בבדÓÊÎÏד הÔÑ דזÇÖםÚ¿');
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'הÌÇÍ');
-@define('POWERED_BY_SHOW_TEXT', 'ÃÚÑÖ ÇבדÌבÉ Úבל וםÆÉ הÕ Ê‗ÓÊ');
-@define('POWERED_BY_SHOW_TEXT_DESC', 'ÓזÝ םÊד ÚÑÖ ÇבדÌבÉ Úבל וםÆÉ הÕ Ê‗ÓÊ');
-@define('POWERED_BY_SHOW_IMAGE', 'ÃÚÑÖ ÇבדÌבÉ דÚ ÇבÔÚÇÑ ÇבÎÇÕ ÈוÇ');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'ÃÚÑÖ ÔוÇÑ ÇבדÌבÉ');
+@define('POWERED_BY_SHOW_TEXT', 'ÃÚÑÖ ÇבדÌבÉ Úבל וםÆÉ הÕ Ê‗ÓÊ'); // should be 'Show "%s" as text'
+@define('POWERED_BY_SHOW_TEXT_DESC', 'ÓזÝ םÊד ÚÑÖ ÇבדÌבÉ Úבל וםÆÉ הÕ Ê‗ÓÊ'); // Serendipity should be Serendipity Styx
+@define('POWERED_BY_SHOW_IMAGE', 'ÃÚÑÖ ÇבדÌבÉ דÚ ÇבÔÚÇÑ ÇבÎÇÕ ÈוÇ'); // should be 'Show "%s" with a logo'
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'ÃÚÑÖ ÔוÇÑ ÇבדÌבÉ'); // should be 'Displays the %s-logo'
 @define('PLUGIN_ITEM_DISPLAY', 'Çםה םד‗ה ÚÑÖוÇ¿');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'ÝÞØ ÇבדזÇÖםÚ ÇבדÊדדÏÉ');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'ÚÑÖ ÇבÕÝÍÉ ÝÞØ');

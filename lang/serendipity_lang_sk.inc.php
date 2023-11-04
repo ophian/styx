@@ -472,10 +472,10 @@ $i18n_filename_to = array (
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Umo¾ni» u¾ívateµovi publikova» èlánky?');
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Úspe¹ne dokonèené.');
-@define('POWERED_BY_SHOW_TEXT', 'Zobrazi» "Serendipity" ako text');
+@define('POWERED_BY_SHOW_TEXT', 'Zobrazi» "%s" ako text');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Vytvorené v "Serendipity Styx" sa zobrazí ako text');
-@define('POWERED_BY_SHOW_IMAGE', 'Zobrazi» "Serendipity" s logom');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Zobrazí sa logo Serendipity Styx');
+@define('POWERED_BY_SHOW_IMAGE', 'Zobrazi» "%s" s logom');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'Zobrazí sa logo %s');
 @define('PLUGIN_ITEM_DISPLAY', 'Kde by mala bý» táto polo¾ka zobrazená?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'V roz¹írenej èasti');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'V prehµade');

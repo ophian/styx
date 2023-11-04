@@ -460,10 +460,10 @@
 @define('USERCONF_ALLOWPUBLISH_DESC', 'このユーザーがエントリーを公開することを許可しますか?');
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', '成功');
-@define('POWERED_BY_SHOW_TEXT', 'テキストとして "Serendipity" を表示する');
+@define('POWERED_BY_SHOW_TEXT', 'テキストとして "%s" を表示する');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'テキストとして "Serendipity Styx Weblog" を表示するでしょう。');
-@define('POWERED_BY_SHOW_IMAGE', '"Serendipity" とロゴを表示');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Serendipity Styx ロゴを表示します。');
+@define('POWERED_BY_SHOW_IMAGE', '"%s" とロゴを表示');
+@define('POWERED_BY_SHOW_IMAGE_DESC', '%s ロゴを表示します。');
 @define('PLUGIN_ITEM_DISPLAY', 'どこで項目を表示するべきですか?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', '拡張エントリーのみ表示');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', '概要ページのみ表示');

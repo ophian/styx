@@ -462,10 +462,10 @@
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Bu kullanıcı yazılarını doğrudan yayınlayabilsin mi?');
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Başarıldı');
-@define('POWERED_BY_SHOW_TEXT', ' "Serendipity" sitesini düzmetin olarak göster');
+@define('POWERED_BY_SHOW_TEXT', ' "%s" sitesini düzmetin olarak göster');
 @define('POWERED_BY_SHOW_TEXT_DESC', '"Serendipity Styx" sitesini düzmetin olarak gösterme seçeneği açık');
-@define('POWERED_BY_SHOW_IMAGE', ' "Serendipity" logosuyla göster');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Serendipity Styx logosunu göster');
+@define('POWERED_BY_SHOW_IMAGE', ' "%s" logosuyla göster');
+@define('POWERED_BY_SHOW_IMAGE_DESC', '%s logosunu göster');
 @define('PLUGIN_ITEM_DISPLAY', 'Yazıların ne kadarı gösterilecek?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'Sadece genişletilmiş yazı');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'Sadece önizleme sayfası');

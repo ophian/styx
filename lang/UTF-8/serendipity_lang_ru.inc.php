@@ -462,10 +462,10 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Разрешено ли этому пользователю публиковать записи?');
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Успешно!');
-@define('POWERED_BY_SHOW_TEXT', 'Показывать "Serendipity" как текст');
+@define('POWERED_BY_SHOW_TEXT', 'Показывать "%s" как текст');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Покажет слова "Веблог Serendipity Styx" как текст');
-@define('POWERED_BY_SHOW_IMAGE', 'Показывать "Serendipity" и лого');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Показывает логотип Serendipity Styx и ссылку');
+@define('POWERED_BY_SHOW_IMAGE', 'Показывать "%s" и лого');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'Показывает логотип %s и ссылку');
 @define('PLUGIN_ITEM_DISPLAY', 'Где должен быть показан этот объект?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'Только в расширенном тексте записи');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'Только на странице обзора');

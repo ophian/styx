@@ -443,10 +443,10 @@
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', ',');
 @define('NUMBER_FORMAT_THOUSANDS', '.');
-@define('POWERED_BY_SHOW_TEXT', 'Vis "Serendipity" som tekst');
+@define('POWERED_BY_SHOW_TEXT', 'Vis "%s" som tekst');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Vil vise "Serendipity Styx Weblog" som tekst');
-@define('POWERED_BY_SHOW_IMAGE', 'Vis "Serendipity"" som et logo');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Vis Serendipity Styx logoet');
+@define('POWERED_BY_SHOW_IMAGE', 'Vis "%s"" som et logo');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'Vis %s logoet');
 @define('SETTINGS_SAVED_AT', 'De nye indstillinger er blevet gemt kl %s');
 @define('PLUGIN_ITEM_DISPLAY', 'Hvor skal enheden vises?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'Kun udvidet artikel');

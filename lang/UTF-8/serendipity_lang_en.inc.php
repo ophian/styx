@@ -460,10 +460,10 @@
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Is this user allowed to publish entries?');
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Success');
-@define('POWERED_BY_SHOW_TEXT', 'Show "Serendipity" as text');
+@define('POWERED_BY_SHOW_TEXT', 'Show "%s" as text');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Will display "Serendipity Styx Weblog" as text');
-@define('POWERED_BY_SHOW_IMAGE', 'Show "Serendipity" with a logo');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Displays the Serendipity Styx logo');
+@define('POWERED_BY_SHOW_IMAGE', 'Show "%s" with a logo');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'Displays the %s-logo');
 @define('PLUGIN_ITEM_DISPLAY', 'Where should the item be displayed?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'Extended entry only');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'Overview page only');

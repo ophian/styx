@@ -461,10 +461,10 @@
 @define('USERCONF_ALLOWPUBLISH_DESC', 'آیا این کاربر توانایی ارسال مطلب دارد؟');
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'موفقیت');
-@define('POWERED_BY_SHOW_TEXT', 'نمایش متنی "Serendipity"');
+@define('POWERED_BY_SHOW_TEXT', 'نمایش متنی "%s"');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'عبارت "Serendipity Styx Weblog" را به صورت متنی نمایش می دهد');
-@define('POWERED_BY_SHOW_IMAGE', 'نمایش "Serendipity Styx" همراه با یک لوگو');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'لوگوی سرندیپیتی را نمایش می دهد');
+@define('POWERED_BY_SHOW_IMAGE', 'نمایش "%s" همراه با یک لوگو');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'لوگوی سرندیپیتی را نمایش می دهد'); // should be 'Displays the %s-logo'
 @define('PLUGIN_ITEM_DISPLAY', 'این گزینه کجا نمایش داده شود؟');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'فقط ارسال های توسعه داده شده');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'فقط در صفحه خلاصه');

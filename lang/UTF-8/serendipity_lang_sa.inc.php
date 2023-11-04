@@ -462,10 +462,10 @@
 @define('USERCONF_ALLOWPUBLISH_DESC', 'هل يحق للمستخدم نشر مواضيع؟');
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'نجاح');
-@define('POWERED_BY_SHOW_TEXT', 'أعرض المجلة على هيئة نص تكست');
-@define('POWERED_BY_SHOW_TEXT_DESC', 'سوف يتم عرض المجلة على هيئة نص تكست');
-@define('POWERED_BY_SHOW_IMAGE', 'أعرض المجلة مع الشعار الخاص بها');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'أعرض شهار المجلة');
+@define('POWERED_BY_SHOW_TEXT', 'أعرض المجلة على هيئة نص تكست'); // should be 'Show "%s" as text'
+@define('POWERED_BY_SHOW_TEXT_DESC', 'سوف يتم عرض المجلة على هيئة نص تكست'); // Serendipity should be Serendipity Styx
+@define('POWERED_BY_SHOW_IMAGE', 'أعرض المجلة مع الشعار الخاص بها'); // should be 'Show "%s" with a logo'
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'أعرض شهار المجلة'); // should be 'Displays the %s-logo'
 @define('PLUGIN_ITEM_DISPLAY', 'اين يمكن عرضها؟');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'فقط المواضيع المتممدة');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'عرض الصفحة فقط');

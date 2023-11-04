@@ -474,10 +474,10 @@ $i18n_filename_to = array (
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Umožnit uživateli publikovat záznamy');
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Úspěch');
-@define('POWERED_BY_SHOW_TEXT', 'Zobrazit "Serendipity" jako text');
+@define('POWERED_BY_SHOW_TEXT', 'Zobrazit "%s" jako text');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Vytvořeno v "Serendipity Styx" se zobrazí jako text');
-@define('POWERED_BY_SHOW_IMAGE', 'Zobrazit "Serendipity" s logem');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Zobrazí se logo Serendipity Styx');
+@define('POWERED_BY_SHOW_IMAGE', 'Zobrazit "%s" s logem');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'Zobrazí se logo %s');
 @define('PLUGIN_ITEM_DISPLAY', 'Kde by měla být tato položka zobrazena?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'V rozšířené části');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'V přehledu');

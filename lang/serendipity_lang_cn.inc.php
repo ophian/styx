@@ -462,10 +462,10 @@
 @define('USERCONF_ALLOWPUBLISH_DESC', '允许这位作者发布文章');
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', '完成');
-@define('POWERED_BY_SHOW_TEXT', '以文字显示 "Serendipity"');
+@define('POWERED_BY_SHOW_TEXT', '以文字显示 "%s"');
 @define('POWERED_BY_SHOW_TEXT_DESC', '将用文字显示 "Serendipity Styx Weblog"');
-@define('POWERED_BY_SHOW_IMAGE', '以 logo 显示 "Serendipity"');
-@define('POWERED_BY_SHOW_IMAGE_DESC', '显示 Serendipity Styx 的 logo');
+@define('POWERED_BY_SHOW_IMAGE', '以 logo 显示 "%s"');
+@define('POWERED_BY_SHOW_IMAGE_DESC', '显示 %s 的 logo');
 @define('PLUGIN_ITEM_DISPLAY', '该项目的显示地址');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', '只在副内容显示');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', '只在框架内显示');

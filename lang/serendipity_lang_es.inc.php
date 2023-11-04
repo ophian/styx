@@ -450,10 +450,10 @@
 @define('NUMBER_FORMAT_DECPOINT', ',');
 @define('NUMBER_FORMAT_THOUSANDS', '.');
 
-@define('POWERED_BY_SHOW_TEXT', 'Mostrar "Serendipity" como texto');
+@define('POWERED_BY_SHOW_TEXT', 'Mostrar "%s" como texto');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Mostrará "Serendipity Styx Weblog" como texto');
-@define('POWERED_BY_SHOW_IMAGE', 'Mostrar "Serendipity" con una imagen');
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'Mostrará el logotipo de Serendipity Styx');
+@define('POWERED_BY_SHOW_IMAGE', 'Mostrar "%s" con una imagen');
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'Mostrará el logotipo de %s');
 
 @define('SETTINGS_SAVED_AT', 'La nueva configuración se ha guardado a la hora %s');
 @define('PLUGIN_ITEM_DISPLAY', '¿Dónde debería mostrarse el elemento?');
