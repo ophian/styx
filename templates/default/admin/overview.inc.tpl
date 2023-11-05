@@ -42,7 +42,7 @@
         <section id="dashboard_ticker" class="clearfix dashboard_widget{if NOT isset($shortcuts)} expand blend{/if}">
             <h3>{$CONST.DASHBOARD_INFO_HEADER}</h3>
 
-            <div class="{if !isset($shortcuts)}msg_{/if}notice">
+            <div class="{if NOT isset($shortcuts)}msg_{/if}notice">
                 {if isset($shortcuts)}{* $CONST.DASHBOARD_INFO_CONTENT}: *}{else}<span class="icon-info-circled" aria-hidden="true"></span> <em>{$CONST.DASHBOARD_INFO_EMPTY}</em>{/if}
             {if isset($shortcuts)}
                 <ul class="plainList">
