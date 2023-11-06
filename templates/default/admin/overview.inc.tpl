@@ -59,7 +59,37 @@
             {/if}
             </div>
         </section>
+{if NOT empty($sysinfo)}
 
+        <section id="dashboard_sysinfo" class="clearfix dashboard_widget">
+            <h3>{$CONST.DASHBOARD_SYSTEM_TICKER}</h3>
+
+            <div>{$CONST.DASHBOARD_SYSINFO_GREETING}</div>
+
+            <form id="syskey_notifications" name="serendipity[sysinfo]" method="post" target="_self">
+                <ul class="plainList">
+                {foreach $sysinfo AS $info}
+
+                    <li>
+                        <div class="msg_notice">
+                            <header>{$CONST.PUBLISHED} {$CONST.ON} <time datetime="{$info.ts|formatTime:"%Y-%m-%dT%H:%M:%SZ"}" pubdate>{$info.ts|formatTime:$template_option.date_format}</time></header>
+                            <span class="icon-info-circled" aria-hidden="true"></span> {$info.msg}
+                                <div class="sysinfo_item ">
+                                    <input type="hidden" name="serendipity[sysinfo][checked][hash][{$info@key}][0]" value="0">
+                                    <input type="checkbox" name="serendipity[sysinfo][checked][hash][{$info@key}][1]" value="{$info.hash}">
+                                    <label for="serendipity[sysinfo][checked][hash]">
+                                        {$CONST.DASHBOARD_SYSINFO_HIDE_NOTE}
+                                    </label>
+                                </div>
+                        </div>
+                    </li>
+                {/foreach}
+
+                </ul>
+                <input name="serendipity[sysinfo][go]" type="submit" value="{$CONST.GO}">
+            </form>
+        </section>
+{/if}
         {serendipity_hookPlugin hook="backend_dashboard" hookAll="true"}
 
 {/if}{* no create end *}
