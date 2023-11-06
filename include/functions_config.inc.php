@@ -2434,7 +2434,8 @@ XML;
                 if (!in_array($hash, $exclude_hashes)) {
                     $xml[] = array('author' => $n->author, 'title' => $n->title, 'msg' => $n->note, 'hash' => $hash, 'ts' => $n->timestamp, 'rating' => $n->rating);
                     // store each hash to options table - checked against is stored already
-                    $is_hash = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}options WHERE name = 'sysinfo_ticker' AND value = '$hash' AND okey = 'l_sysinfo_{$whoami}-{$hash}'", true); // is single
+                    $is_hash = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}options
+                                                      WHERE name = 'sysinfo_ticker' AND value = '$hash' AND okey = 'l_sysinfo_{$whoami}-{$hash}'", true); // is single
                     if (!is_array($is_hash)) {
                          // okey needs to be unique enough for Duplicate entry 'sysinfo_ticker-l_sysinfo_John Doe_1' for key 'PRIMARY' index key (also see above)
                          serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey) VALUES ('$name', '$hash', '{$okey}-{$hash}')");
