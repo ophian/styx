@@ -2431,7 +2431,7 @@ XML;
             $syscall = new SimpleXMLElement($xmlstr);
 
             foreach ($syscall->notification AS $n) {
-                $hash = md5($n->note); // hash-it
+                $hash = md5((string) $n->note); // hash-it
                 if (!in_array($hash, $exclude_hashes)) {
                     $xml[] = array('author' => $n->author, 'title' => $n->title, 'msg' => $n->note, 'hash' => $hash, 'ts' => $n->ts, 'rating' => $n->rating);
                     // store each hash to options table - checked against is stored already
