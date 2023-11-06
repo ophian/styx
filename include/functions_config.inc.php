@@ -2399,14 +2399,14 @@ function serendipity_sysinfo_ticker(bool $check = false, string $whoami = '', ar
 <notifications>
  <notification>
   <timestamp>1699178598</timestamp>
-  <title>PHP: Behind the Parser</title>
+  <title>Spartacus: New location URL for additional_plugins</title>
   <note>
-   So, this language. It's like, a programming language. Or is it a
-   scripting language? All is revealed in this thrilling horror spoof
-   of a documentary.
+    Prepare Spartacus having switched additional_plugins/ to a new "legacy"
+    Github branch, which will allow Styx 4.3 users to still be able to load
+    security and important bugfix plugin commits via Spartacus.
   </note>
   <author>Ian Styx</author>
-  <rating>2</rating>
+  <rating>5</rating>
  </notification>
  <notification>
   <timestamp>1699178602</timestamp>
