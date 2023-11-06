@@ -2855,6 +2855,13 @@ h3 .media_file_actions {
     float: right;
 }
 
+#dashboard_sysinfo {
+    max-height: 30rem;
+    height: auto;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #8899b1 #1e2127;
+}
 #dashboard_sysinfo .sysinfo_item {
     font-size: .925rem;
 }
