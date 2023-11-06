@@ -72,11 +72,11 @@
 
                     <li>
                         <div class="msg_notice">
-                            <header>{$CONST.PUBLISHED} {$CONST.ON} <time datetime="{$info.ts|formatTime:"%Y-%m-%dT%H:%M:%SZ"}" pubdate>{$info.ts|formatTime:$template_option.date_format}</time></header>
-                            <span class="icon-info-circled" aria-hidden="true"></span> {$info.msg}
+                            <header>{$CONST.PUBLISHED} {$CONST.ON} <time datetime="{$info.ts|escape|formatTime:"%Y-%m-%dT%H:%M:%SZ"}" pubdate>{$info.ts|escape|formatTime:$template_option.date_format}</time></header>
+                            <span class="icon-info-circled" aria-hidden="true"></span> {$info.msg|escape}
                                 <div class="sysinfo_item ">
                                     <input type="hidden" name="serendipity[sysinfo][checked][hash][{$info@key}][0]" value="0">
-                                    <input type="checkbox" name="serendipity[sysinfo][checked][hash][{$info@key}][1]" value="{$info.hash}">
+                                    <input type="checkbox" name="serendipity[sysinfo][checked][hash][{$info@key}][1]" value="{$info.hash|escape}">
                                     <label for="serendipity[sysinfo][checked][hash]">
                                         {$CONST.DASHBOARD_SYSINFO_HIDE_NOTE}
                                     </label>
