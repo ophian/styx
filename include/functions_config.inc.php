@@ -2392,8 +2392,41 @@ function serendipity_sysinfo_ticker(bool $check = false, string $whoami = '', ar
         $okey = 'l_sysinfo_' . $whoami;
         // check the remote file
         // Get XML via response blah blah and curl fallback or temporary by this php file
-        @include $serendipity['serendipityPath'] . 'templates_c/sysnotes/notifications.php';
-
+        #@include $serendipity['serendipityPath'] . 'templates_c/sysnotes/notifications.php';
+        // temporary test string
+        $xmlstr = <<<XML
+<?xml version='1.0' standalone='yes'?>
+<notifications>
+ <notification>
+  <timestamp>1699178598</timestamp>
+  <title>PHP: Behind the Parser</title>
+  <note>
+   So, this language. It's like, a programming language. Or is it a
+   scripting language? All is revealed in this thrilling horror spoof
+   of a documentary.
+  </note>
+  <author>Ian Styx</author>
+  <rating>2</rating>
+ </notification>
+ <notification>
+  <timestamp>1699178602</timestamp>
+  <title>Styx is going beta</title>
+  <note>
+   To avoid conflicts with development (versions) of next major Styx 5
+   series with new system requirements within the next few months, some
+   logical changes have already been applied to divide series 4 and 5
+   versions apart. This also was necessary for Spartacus access to
+   "additional plugins", which for the current series moved to another
+   branch on GitHub, called "legacy". Please watch out for eventually
+   raised related "Remote System Notification" issues in your blogs
+   backend or at the Serendipity Styx <a href="https://ophian.github.io/blog/"
+   rel="external noopener" target="_blank">website blog</a>.
+  </note>
+  <author>Ian Styx</author>
+  <rating>3</rating>
+ </notification>
+</notifications>
+XML;
         if (!empty($xmlstr)) {
             $syscall = new SimpleXMLElement($xmlstr);
 
