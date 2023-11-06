@@ -2679,6 +2679,11 @@ h3 .media_file_actions {
     text-align: end;
     font-size: .925rem;
 }
+#dashboard_sysinfo .sysinfo_title {
+    display: inherit;
+    margin-bottom: .125em;
+    color: firebrick;
+}
 #dashboard_sysinfo input[type="submit"] {
     margin-bottom: 1em;
 }
