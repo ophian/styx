@@ -87,7 +87,7 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
     $output = !empty($output) ? $output : '<span class="msg_error"><span class="icon-info-circled"></span> To get a button, check if the "Serendipity Autoupdate" event plugin is installed!</span>';
     $data['updateButton'] = $output;
 
-    // Check Remote sysinfo ticker for the Admins
+    // Check remote sysinfo ticker for the Admins
     //get_config Allow remote ticker for the Admins
     if (serendipity_db_bool(serendipity_get_config_var('remoteticker', 'true'))) {
         $author = $user[0]['realname'] . '_' . $serendipity['authorid'];
