@@ -68,6 +68,7 @@ $output = array(); // re-new array for the autoupdate empty check below
 // Do not give that Group more rights than a CHIEF already has, except the two noted above. In special, this means to keep:
 //    adminPluginsMaintainOthers, adminUsersMaintainOthers and siteConfiguration assigned to the ADMINISTRATOR only!!
 if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_checkPermission('siteAutoUpgrades')) && serendipity_checkPermission('adminUsersGroups'))) {
+    // Update check
     $data['usedVersion']  = $serendipity['version'];
     $data['updateCheck']  = $serendipity['updateCheck'];
     $data['curVersion']   = serendipity_getCurrentVersion();
@@ -85,6 +86,46 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
     }
     $output = !empty($output) ? $output : '<span class="msg_error"><span class="icon-info-circled"></span> To get a button, check if the "Serendipity Autoupdate" event plugin is installed!</span>';
     $data['updateButton'] = $output;
+
+    // Check Remote sysinfo ticker for the Admins
+    //get_config Allow remote ticker for the Admins
+    if (serendipity_db_bool(serendipity_get_config_var('remoteticker', 'true'))) {
+        $author = $user[0]['realname'] . '_' . $serendipity['authorid'];
+        if (isset($serendipity['POST']['sysinfo']['go']) && !empty($serendipity['POST']['sysinfo']['checked']['hash'])) {
+            foreach ($serendipity['POST']['sysinfo']['checked']['hash'] AS $harray) {
+                $hash = serendipity_db_escape_string($harray[1]);
+                $hashes[] = $hash;
+                if ($hash != '0') {
+                    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE name = 'sysinfo_ticker' AND okey = 'l_syskey_$author' AND value = '$hash'");
+                }
+            }
+        }
+        $pshv = []; // previously-stored-hash-values
+        // get the stored away hashes
+        $stored_hashes = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}options WHERE okey = 'l_read_sysinfo_hashes' AND name < UNIX_TIMESTAMP()");
+        // serialized result is type of array
+        if (is_array($stored_hashes)) {
+            foreach (unserialize($stored_hashes[0]['value']) AS $shv) {
+                $pshv[] = $shv;
+            }
+        }
+        if (!empty($hashes) && !empty($pshv)) {
+            $hashes = array_unique(array_merge($hashes, $pshv));
+        }
+        if (!empty($hashes)) {
+            // Store hidden hashes away for half a year, a year or even two... until nuked
+            $ts = time(); // No _serverOffsetHour() call, since fully compat with DateTimeImmutable Zone
+            $rh = serialize($hashes);
+            serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey) VALUES ('$ts', '$rh', 'l_read_sysinfo_hashes')");
+            // garbage collect
+            $date_gc = new \DateTimeImmutable('-6 Month');
+            $tso = $date_gc->getTimestamp();
+            serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE okey = 'l_read_sysinfo_hashes' AND name < '$tso'");
+        }
+
+        // read the ticker for new
+        $data['sysinfo'] = serendipity_sysinfo_ticker(true, $author, $pshv ?? []); // yes check-it !
+    }
 }
 
 $data['urltoken'] = serendipity_setFormToken('url');
