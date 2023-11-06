@@ -2664,6 +2664,25 @@ h3 .media_file_actions {
     float: right;
 }
 
+#dashboard_sysinfo .sysinfo_item {
+    font-size: .925rem;
+}
+#dashboard_sysinfo .sysinfo_item > label {
+    vertical-align: middle;
+}
+#dashboard_sysinfo > div {
+    margin: .5rem auto auto;
+    font-style: italic;
+}
+#dashboard_sysinfo header {
+    color: blueviolet;
+    text-align: end;
+    font-size: .925rem;
+}
+#dashboard_sysinfo input[type="submit"] {
+    margin-bottom: 1em;
+}
+
 #dashboard .quick_info {
     height: 14em;
     overflow: auto;
