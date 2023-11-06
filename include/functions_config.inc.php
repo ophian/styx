@@ -2419,8 +2419,7 @@ function serendipity_sysinfo_ticker(bool $check = false, string $whoami = '', ar
    "additional plugins", which for the current series moved to another
    branch on GitHub, called "legacy". Please watch out for eventually
    raised related "Remote System Notification" issues in your blogs
-   backend or at the Serendipity Styx <a href="https://ophian.github.io/blog/"
-   rel="external noopener" target="_blank">website blog</a>.
+   backend or at the Serendipity Styx website blog ("https://ophian.github.io/blog/").
   </note>
   <author>Ian Styx</author>
   <rating>3</rating>
