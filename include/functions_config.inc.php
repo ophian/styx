@@ -2393,7 +2393,7 @@ function serendipity_sysinfo_ticker(bool $check = false, string $whoami = '', ar
         // check the remote file
         // Get XML via response blah blah and curl fallback or temporary by this php file
         #@include $serendipity['serendipityPath'] . 'templates_c/sysnotes/notifications.php';
-        // temporary test string
+        // temporary test string w/ NO HTML tags like links in note
         $xmlstr = <<<XML
 <?xml version='1.0' standalone='yes'?>
 <notifications>
