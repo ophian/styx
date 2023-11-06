@@ -2375,6 +2375,48 @@ function serendipity_setFormToken($type = 'form') {
 }
 
 /**
+ * Check remote system notification XML for the Backend Dashboard ticker
+ *
+ * @param bool      The return type to store or show
+ * @param string    The Serendipity user identifier
+ * @param string    Have read XML item notification hash
+ *
+ * @return mixed    The cashed string or bool false
+ */
+function serendipity_sysinfo_ticker(bool $check = false, string $whoami = '', array $exclude_hashes): array|bool {
+    if ($check === true) {
+        global $serendipity;
+
+        $xml = []; // create array for multiple notifications
+        $name = 'sysinfo_ticker';
+        $okey = 'l_sysinfo_' . $whoami;
+        // check the remote file
+        // Get XML via response blah blah and curl fallback or temporary by this php file
+        @include $serendipity['serendipityPath'] . 'templates_c/sysnotes/notifications.php';
+
+        if (!empty($xmlstr)) {
+            $syscall = new SimpleXMLElement($xmlstr);
+
+            foreach ($syscall->notification AS $n) {
+                $hash = md5($n->note); // hash-it
+                if (!in_array($hash, $exclude_hashes)) {
+                    $xml[] = array('author' => $n->author, 'title' => $n->title, 'msg' => $n->note, 'hash' => $hash, 'ts' => $n->ts, 'rating' => $n->rating);
+                    // store each hash to options table - checked against is stored already
+                    $is_hash = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}options WHERE name = 'sysinfo_ticker' AND value = '$hash' AND okey = 'l_sysinfo_$whoami'", true); // is single
+                    if (!is_array($is_hash)) {
+                        serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey) VALUES ('$name', '$hash', '$okey')");
+                    }
+                }
+            }
+            if (!empty($xml)) {
+                return $xml;
+            }
+        }
+    }
+    return false;
+}
+
+/**
  * Load available/configured options for a specific theme (through config.inc.php of a template directory)
  * into an array.
  *
