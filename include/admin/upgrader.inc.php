@@ -602,6 +602,11 @@ $tasks = array(
                     'title'     => '<b>REQUIREMENT_NOTICE:</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '8.2.0') >= 0) ? 'OK' : 'outdated') . '.',
                     'desc'      => 'Please remember, that <b>next</b> Serendipity Styx major version <b>Series 5</b> will require a minimum version of <b>PHP 8.2</b>. This Series 4 will further only get security or needed bugfix releases, if any...'),
 
+            array(  'version'   => '4.3.0',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> To avoid conflicts with development (versions) of next major Styx 5 series with new system requirements within the next few months,',
+                    'desc'      => 'some logical changes have already been applied to divide series 4 and 5 versions apart. This also was necessary for Spartacus access to "additional plugins", which for the current series moved to another branch on GitHub, called "legacy". Please watch out for eventually raised related "Remote System Notification" issues in your blogs backend or at the Serendipity Styx <a href="https://ophian.github.io/blog/" rel="external noopener" target="_blank">website blog</a>.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
