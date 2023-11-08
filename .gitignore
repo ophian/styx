@@ -16,5 +16,6 @@ templates/previews.sh
 .editorconfig
 *.git
 tests/phpunit.xml
+tests/remote_notifications.xml
 Thumbs.db
 desktop.ini
