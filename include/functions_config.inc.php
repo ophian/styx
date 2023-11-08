@@ -2441,7 +2441,7 @@ function serendipity_sysinfo_ticker(bool $check = false, string $whoami = '', ar
                 }
             }
             if (!empty($xml)) {
-                return $xml;
+                return $xml; // escape is done in template
             }
         }
     }
