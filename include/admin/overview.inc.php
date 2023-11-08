@@ -87,21 +87,24 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
     $output = !empty($output) ? $output : '<span class="msg_error"><span class="icon-info-circled"></span> To get a button, check if the "Serendipity Autoupdate" event plugin is installed!</span>';
     $data['updateButton'] = $output;
 
-    // Check remote sysinfo ticker for the Admins
-    //get_config Allow remote ticker for the Admins
+    // Check remote sysinfo ticker messages for the Admins
+    $store_message = false;
+    // Get_config: Allow remote ticker messages for the Admins
     if (serendipity_db_bool(serendipity_get_config_var('remoteticker', 'true'))) {
         $author = $user[0]['realname'] . '_' . $serendipity['authorid'];
         if (isset($serendipity['POST']['sysinfo']['go']) && !empty($serendipity['POST']['sysinfo']['checked']['hash'])) {
-            foreach ($serendipity['POST']['sysinfo']['checked']['hash'] AS $harray) {
-                $hash = serendipity_db_escape_string($harray[1]);
-                $hashes[] = $hash;
+            foreach ($serendipity['POST']['sysinfo']['checked']['hash'] AS $post_hash) {
+                $hash = serendipity_db_escape_string($post_hash[1]);
+                $hide_hashes[] = $hash;
                 if ($hash != '0') {
-                    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE name = 'sysinfo_ticker' AND okey = 'l_syskey_$author' AND value = '$hash'");
+                    // delete the sysinfo_ticker hash message item from databse
+                    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE name = 'sysinfo_ticker' AND okey = 'l_sysinfo_{$author}-{$hash}' AND value = '$hash'");
+                    $store_message = true;
                 }
             }
         }
-        $pshv = []; // previously-stored-hash-values
-        // get the stored away hashes
+        $pshv = []; // array init for previously-stored-hash-values
+        // get the stored away serialized hashes array
         $stored_hashes = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}options WHERE okey = 'l_read_sysinfo_hashes' AND name < UNIX_TIMESTAMP()");
         // serialized result is type of array
         if (is_array($stored_hashes)) {
@@ -109,15 +112,20 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
                 $pshv[] = $shv;
             }
         }
-        if (!empty($hashes) && !empty($pshv)) {
-            $hashes = array_unique(array_merge($hashes, $pshv));
+        if (!empty($hide_hashes) && !empty($pshv)) {
+            $hashes = array_unique(array_merge($hide_hashes, $pshv));
+        } else {
+            $hashes = $hide_hashes ?? [];
         }
         if (!empty($hashes)) {
+            if ($store_message) {
+                echo '<span class="msg_success"><span class="icon-ok-circled"></span> Store hidden message identifiers. Please return to this page for the updated request.</span>'."\n";
+            }
             // Store hidden hashes away for half a year, a year or even two... until nuked
-            $ts = time(); // No _serverOffsetHour() call, since fully compat with DateTimeImmutable Zone
+            $ts = time(); // No internal _serverOffsetHour() call, since fully compat with DateTimeImmutable Zone
             $rh = serialize($hashes);
             serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey) VALUES ('$ts', '$rh', 'l_read_sysinfo_hashes')");
-            // garbage collect
+            // garbage collect stored hashes
             $date_gc = new \DateTimeImmutable('-6 Month');
             $tso = $date_gc->getTimestamp();
             serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE okey = 'l_read_sysinfo_hashes' AND name < '$tso'");
