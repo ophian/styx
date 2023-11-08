@@ -2412,7 +2412,7 @@ function serendipity_sysinfo_ticker(bool $check = false, string $whoami = '', ar
             try {
                 $xmlstr = @file_get_contents($target);
             } catch(\Throwable $t) {
-                trigger_error('Error: The URL for the remote ticker could not be opened (' . $t->getMessage() . '), nor has been a callback file created yet. There may be server or network problems.', E_USER_ERROR);
+                trigger_error('Error: The URL for the remote ticker could not be opened (' . $t->getMessage() . '), nor has a callback file been created yet. There may be server or network problems.', E_USER_ERROR);
             }
         }
         // add fallback
