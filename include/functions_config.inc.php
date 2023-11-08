@@ -2390,43 +2390,41 @@ function serendipity_sysinfo_ticker(bool $check = false, string $whoami = '', ar
         $xml = []; // create array for multiple notifications
         $name = 'sysinfo_ticker';
         $okey = 'l_sysinfo_' . $whoami;
+
+        // Get XML via response blah blah or curl or temporary by an old copy fallback file
+        $remoteURL = 'https://raw.githubusercontent.com/ophian/styx/master/tests/remote_notifications.xml';
+        $target    = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/sysnotes/remote_notifications.xml';
+        $context   = stream_context_create(array('http' => array('timeout' => 5.0)));
+        // get and read and write to target
+        $xmlstr   = @file_get_contents($remoteURL, false, $context);
+        // Some servers return a " Warning: file_get_contents(): https:// wrapper is disabled in the server configuration by allow_url_fopen=0 " so we use Curl instead
+        if (false === $xmlstr) {
+            if (function_exists('curl_init')) {
+                $ch = curl_init($remoteURL);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_TIMEOUT, '5');
+                $xmlstr = curl_exec($ch);
+                curl_close($ch);
+            }
+        }
+        // use fallback
+        if (false === $xmlstr) {
+            try {
+                $xmlstr = @file_get_contents($target);
+            } catch(\Throwable $t) {
+                trigger_error('Error: The URL for the remote ticker could not be opened (' . $t->getMessage() . '), nor has been a callback file created yet. There may be server or network problems.', E_USER_ERROR);
+            }
+        }
+        // add fallback
+        if (is_string($xmlstr) && !empty($xmlstr)) {
+            if (! file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/sysnotes')) {
+                mkdir($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/sysnotes');
+            }
+            file_put_contents($target, $xmlstr, LOCK_EX);
+        }
+
         // check the remote file
-        // Get XML via response blah blah and curl fallback or temporary by this php file
-        #@include $serendipity['serendipityPath'] . 'templates_c/sysnotes/notifications.php';
-        // temporary test string w/ NO HTML tags like links in note
-        $xmlstr = <<<XML
-<?xml version='1.0' standalone='yes'?>
-<notifications>
- <notification>
-  <timestamp>1699178598</timestamp>
-  <title>Spartacus: New location URL for additional_plugins</title>
-  <note>
-    Prepare Spartacus having switched additional_plugins/ to a new "legacy"
-    Github branch, which will allow Styx 4.3 users to still be able to load
-    security and important bugfix plugin commits via Spartacus.
-  </note>
-  <author>Ian Styx</author>
-  <rating>5</rating>
- </notification>
- <notification>
-  <timestamp>1699178602</timestamp>
-  <title>Styx is going beta</title>
-  <note>
-   To avoid conflicts with development (versions) of next major Styx 5
-   series with new system requirements within the next few months, some
-   logical changes have already been applied to divide series 4 and 5
-   versions apart. This also was necessary for Spartacus access to
-   "additional plugins", which for the current series moved to another
-   branch on GitHub, called "legacy". Please watch out for eventually
-   raised related "Remote System Notification" issues in your blogs
-   backend or at the Serendipity Styx website blog ("https://ophian.github.io/blog/").
-  </note>
-  <author>Ian Styx</author>
-  <rating>3</rating>
- </notification>
-</notifications>
-XML;
-        if (!empty($xmlstr)) {
+        if (is_string($xmlstr) && !empty($xmlstr)) {
             $syscall = new SimpleXMLElement($xmlstr);
 
             foreach ($syscall->notification AS $n) {
