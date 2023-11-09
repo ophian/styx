@@ -66,7 +66,7 @@
 
             <div>{$CONST.DASHBOARD_SYSINFO_GREETING}</div>
 
-            <form id="syskey_notifications" name="serendipity[sysinfo]" method="post" target="_self">
+            <form id="sysinfo_notifications" name="serendipity[sysinfo]" method="post" target="_self">
                 <ul class="plainList">
                 {foreach $sysinfo AS $info}
 
