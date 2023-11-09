@@ -2430,7 +2430,7 @@ function serendipity_sysinfo_ticker(bool $check = false, string $whoami = '', ar
             foreach ($syscall->notification AS $n) {
                 $hash = md5((string) $n->note); // hash-it
                 if (!in_array($hash, $exclude_hashes)) {
-                    $xml[] = array('author' => $n->author, 'title' => $n->title, 'msg' => $n->note, 'hash' => $hash, 'ts' => $n->timestamp, 'rating' => $n->rating);
+                    $xml[] = array('author' => $n->author, 'title' => $n->title, 'msg' => $n->note, 'hash' => $hash, 'ts' => $n->timestamp, 'priority' => $n->priority);
                     // store each hash to options table - checked against is stored already
                     $is_hash = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}options
                                                       WHERE name = 'sysinfo_ticker' AND value = '$hash' AND okey = 'l_sysinfo_{$whoami}-{$hash}'", true); // is single
