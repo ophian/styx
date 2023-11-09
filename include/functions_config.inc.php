@@ -2423,7 +2423,7 @@ function serendipity_sysinfo_ticker(bool $check = false, string $whoami = '', ar
             file_put_contents($target, $xmlstr, LOCK_EX);
         }
 
-        // check the remote file
+        // check the remote file string
         if (is_string($xmlstr) && !empty($xmlstr)) {
             $syscall = new SimpleXMLElement($xmlstr);
 
