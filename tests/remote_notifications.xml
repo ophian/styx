@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<notifications last_modified="1699540257">
+<notifications last_modified="1699546557">
   <notification id="1">
-    <timestamp>1699539402</timestamp>
-    <title>Styx: Behind the szenes</title>
+    <timestamp>1699546548</timestamp>
+    <title>Styx: Behind the Scenes</title>
     <note>So, this version now offers a new remote ticker notification system. So I can talk to you on demand! ;-)</note>
     <author>Ian Styx</author>
-    <priority>1</priority>
+    <priority>2</priority>
   </notification>
   <notification id="2">
     <timestamp>1699615519</timestamp>
