@@ -87,7 +87,7 @@
                 {/foreach}
 
                 </ul>
-                <input name="serendipity[sysinfo][go]" type="submit" value="{$CONST.GO}">
+                <input name="serendipity[sysinfo][go]" type="submit" value="{$CONST.HIDE}">
             </form>
         </section>
 {/if}
