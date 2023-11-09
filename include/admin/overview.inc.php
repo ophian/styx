@@ -97,7 +97,7 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
                 $hash = serendipity_db_escape_string($post_hash[1]);
                 $hide_hashes[] = $hash;
                 if ($hash != '0') {
-                    // delete the sysinfo_ticker hash message item from databse
+                    // delete the sysinfo_ticker hash message item from database. It will be renewed in the fnc serendipity_sysinfo_ticker() unless being marked as read checked and stored hashes.
                     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE name = 'sysinfo_ticker' AND okey = 'l_sysinfo_{$author}-{$hash}' AND value = '$hash'");
                     $store_message = true;
                 }
@@ -112,11 +112,13 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
                 $pshv[] = $shv;
             }
         }
+        // Merge the two for new only, for current remote and already stored hashes
         if (!empty($hide_hashes) && !empty($pshv)) {
             $hashes = array_unique(array_merge($hide_hashes, $pshv));
         } else {
             $hashes = $hide_hashes ?? [];
         }
+        // New and unchecked hash messages only
         if (!empty($hashes)) {
             if ($store_message) {
                 echo '<span class="msg_success"><span class="icon-ok-circled"></span> Store hidden message identifiers. Please return to this page for the updated request.</span>'."\n";
@@ -125,7 +127,7 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
             $ts = time(); // No internal _serverOffsetHour() call, since fully compat with DateTimeImmutable Zone
             $rh = serialize($hashes);
             serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey) VALUES ('$ts', '$rh', 'l_read_sysinfo_hashes')");
-            // garbage collect stored hashes
+            // garbage collect old stored hashes
             $date_gc = new \DateTimeImmutable('-6 Month');
             $tso = $date_gc->getTimestamp();
             serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE okey = 'l_read_sysinfo_hashes' AND name < '$tso'");
