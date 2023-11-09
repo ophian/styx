@@ -2664,12 +2664,19 @@ h3 .media_file_actions {
     float: right;
 }
 
-#dashboard_sysinfo {
-    max-height: 30rem;
+#sysinfo_notifications ul {
+    max-height: 15rem;
     height: auto;
     overflow: auto;
     scrollbar-width: thin;
     scrollbar-color: #8899b1 #1e2127;
+    margin: .75em auto;
+}
+#sysinfo_notifications ul.plainList .msg_notice {
+    margin-top: 0;
+}
+#sysinfo_notifications ul li:last-of-type .msg_notice {
+    margin-bottom: 0;
 }
 #dashboard_sysinfo .sysinfo_item {
     font-size: .925rem;
