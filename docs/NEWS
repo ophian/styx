@@ -2,6 +2,9 @@ Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve [ styx ] backend theme styles for remoterss and adminnotes plugin
+    widgets.
+
   * Add a new remote ticker notification system for urgent update and future
     preparation notifications, in special regarding the following Styx 5 Series
     development. And per global option [ in General Settings ] to disable.
