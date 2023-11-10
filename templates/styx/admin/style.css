@@ -3168,7 +3168,9 @@ h3 button.toggle_info.button_link.group_info {
     color: #fcfcfc;
 }
 
-#plugin_options .field_info, #template_options .field_info {
+#serendipity_config_options .field_info,
+#plugin_options .field_info,
+#template_options .field_info {
     font-size: .925rem;
 }
 
