@@ -2855,6 +2855,15 @@ h3 .media_file_actions {
     float: right;
 }
 
+#dashboard_backendrss .backendrss ul li {
+  width: 100%;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  list-style-position: inside;
+  margin-left: -2.65em;
+}
+
 #sysinfo_notifications ul,
 #dashboard_backendrss ul,
 #dashboard_quicknotes ol {
