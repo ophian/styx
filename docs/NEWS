@@ -1,7 +1,7 @@
 Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
-
+  [ 4.3-beta1 ]
   * Improve [ styx ] backend theme styles for remoterss and adminnotes plugin
     widgets.
 
