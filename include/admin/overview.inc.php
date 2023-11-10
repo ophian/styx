@@ -135,7 +135,7 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
         }
 
         // read the ticker for new
-        $data['sysinfo'] = serendipity_sysinfo_ticker(true, $author, $pshv ?? []); // yes check-it !
+        $data['sysinfo'] = serendipity_sysinfo_ticker(true, $author, $pshv); // yes check-it !
     }
 }
 
