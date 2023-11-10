@@ -2681,8 +2681,11 @@ h3 .media_file_actions {
 #dashboard_sysinfo .sysinfo_item {
     font-size: .925rem;
 }
-#dashboard_sysinfo .sysinfo_item > label {
+#dashboard_sysinfo .sysinfo_item label {
     vertical-align: middle;
+}
+#dashboard_sysinfo .sysinfo_item em {
+    color: sienna;
 }
 #dashboard_sysinfo > div {
     margin: .5rem auto auto;
