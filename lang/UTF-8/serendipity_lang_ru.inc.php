@@ -1181,6 +1181,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('DASHBOARD_INFO_CONTENT', 'Shortcuts');
 @define('DASHBOARD_INFO_EMPTY', 'We don\'t have enough data to show anything useful. No pending comments, future or draft entries are available.');
 @define('DASHBOARD_SYSTEM_TICKER', 'Remote System Notification');
+@define('DASHBOARD_SYSTEM_TICKER_DESC', 'Allows hideable remote system notifications in the backend dashboard panel.');
 @define('DASHBOARD_SYSINFO_GREETING', 'Hello Administrator ! The following messages require your brief administrative attention:');
 @define('DASHBOARD_SYSINFO_HIDE_NOTE', 'Check for: &raquo;&nbsp;<em>I understand! Don\'t show me again!</em>&nbsp;&laquo;');
 @define('COMMENTS_PENDING', 'Pending comments');

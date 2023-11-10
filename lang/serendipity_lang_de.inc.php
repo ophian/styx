@@ -1177,6 +1177,7 @@
 @define('DASHBOARD_INFO_CONTENT', 'Abkürzungen');
 @define('DASHBOARD_INFO_EMPTY', 'Wir haben nicht genug Daten, um etwas Nützliches zu zeigen. Es sind keine anhängigen Kommentare, Zukunfts- oder Entwurfseinträge vorhanden.');
 @define('DASHBOARD_SYSTEM_TICKER', 'Remote System Notification');
+@define('DASHBOARD_SYSTEM_TICKER_DESC', 'Allows hideable remote system notifications in the backend dashboard panel.');
 @define('DASHBOARD_SYSINFO_GREETING', 'Hallo Administrator ! Die folgenden Meldungen benötigen kurz Ihre administrative Aufmerksamkeit:');
 @define('DASHBOARD_SYSINFO_HIDE_NOTE', 'Abhaken für: &raquo;&nbsp;<em>Ich habe verstanden! Zeige nie wieder!</em>&nbsp;&laquo;');
 @define('COMMENTS_PENDING', 'Zu bewilligende Kommentare');
