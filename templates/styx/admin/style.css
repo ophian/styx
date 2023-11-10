@@ -2855,7 +2855,9 @@ h3 .media_file_actions {
     float: right;
 }
 
-#sysinfo_notifications ul {
+#sysinfo_notifications ul,
+#dashboard_backendrss ul,
+#dashboard_quicknotes ol {
     max-height: 15rem;
     height: auto;
     overflow: auto;
