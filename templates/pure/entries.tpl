@@ -223,9 +223,6 @@
     </section>
     {/if}
 {/if}
-    </section>
-    {/if}
-{/if}
     {$entry.backend_preview}
 
     </article>
