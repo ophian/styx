@@ -422,6 +422,14 @@
                                           'default'     => false,
                                           'permission'  => 'blogConfiguration'),
 
+                                    array('var'         => 'remoteticker',
+                                          'title'       => DASHBOARD_SYSTEM_TICKER,
+                                          'description' => DASHBOARD_SYSTEM_TICKER_DESC,
+                                          'type'        => 'bool',
+                                          'default'     => true,
+                                          'permission'  => array('adminUsersMaintainOthers', 'adminUsersMaintainSame'),
+                                          'perm_mode'   => 'or'),
+
                                     array('var'         => 'updateCheck',
                                           'title'       => UPDATE_NOTIFICATION,
                                           'description' => UPDATE_NOTIFICATION_DESC,
