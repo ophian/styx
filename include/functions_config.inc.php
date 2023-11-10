@@ -2383,7 +2383,7 @@ function serendipity_setFormToken($type = 'form') {
  *
  * @return mixed    The cashed string or bool false
  */
-function serendipity_sysinfo_ticker(bool $check = false, string $whoami = '', array $exclude_hashes): array|bool {
+function serendipity_sysinfo_ticker(bool $check = false, string $whoami = '', array $exclude_hashes = []): array|bool {
     if ($check === true) {
         global $serendipity;
 
