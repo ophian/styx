@@ -94,6 +94,7 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
         $author = $user[0]['realname'] . '_' . $serendipity['authorid'];
         if (isset($serendipity['POST']['sysinfo']['go']) && !empty($serendipity['POST']['sysinfo']['checked']['hash'])) {
             foreach ($serendipity['POST']['sysinfo']['checked']['hash'] AS $post_hash) {
+                if ($post_hash[0] == 0) break;
                 $hash = serendipity_db_escape_string($post_hash[1]);
                 $hide_hashes[] = $hash;
                 if ($hash != '0') {
