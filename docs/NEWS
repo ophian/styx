@@ -2,6 +2,10 @@ Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add a new remote ticker notification system for urgent update and future
+    preparation notifications, in special regarding the following Styx 5 Series
+    development.
+
   * Prepare Spartacus having switched additional_plugins/ to a new "legacy"
     Github branch, which will allow Styx 4.3 users to still be able to load
     security and important bugfix plugin commits via Spartacus.
