@@ -9,9 +9,9 @@
         <label for="radio_cfg_{$name}_no">{$CONST.NO}</label>
     </div>
 {elseif $type == 'fullprotected'}
-    <input id="{$name}" type="password" name="{$name}" value="{$value|default:''|escape}" autocomplete="off">
+    <input id="{$name}" type="password" name="{$name}" value="{$value|default:''|escape}" autocomplete="new-password">
 {elseif $type == 'protected'}
-    <input id="{$name}" type="password" name="{$name}" value="{$value|default:''|escape}">
+    <input id="{$name}" type="password" name="{$name}" value="{$value|default:''|escape}" autocomplete="new-password">
 {elseif $type == 'multilist'}
     <select id="{$name}" name="{$name}[]" multiple="multiple" size="5">';
     {foreach $default AS $k => $v}
@@ -29,5 +29,5 @@
 {elseif $type == 'textarea'}
     <textarea id="{$name}" rows="5" name="{$name}">{$value|escape}</textarea>
 {else}
-    <input id="{$name}" type="text" name="{$name}" value="{$value|default:''|escape}">
+    <input id="{$name}" type="text" name="{$name}" value="{$value|default:''|escape}"{if $name == 'username'} autocomplete="new-password"{/if}>
 {/if}
