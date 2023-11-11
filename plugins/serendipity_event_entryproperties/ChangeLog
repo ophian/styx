@@ -1,3 +1,7 @@
+1.88:
+-----
+    * Use input field password attribute autocomplete="new-password" instead of autocomplete="off" in special for Mozilla browser cases.
+
 1.87:
 -----
     * Add info icon to password field for additional notes about security
