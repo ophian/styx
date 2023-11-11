@@ -1,6 +1,9 @@
 Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve backend forms for browser autocomplete behaviour, in special for
+    Mozilla Firefox cases.
+
   [ 4.3-beta2 ]
   * Improve [ styx ] backend theme styles for remoterss and adminnotes plugin
     widgets.
