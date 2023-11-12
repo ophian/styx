@@ -1147,7 +1147,17 @@ You should not want to operate a security-relevant access system with them!');
 @define('MULTICHECK_NO_ITEM', '선택한 아이템이 없습니다. 최소한 한 개를 선택하십시오. <a href="%s">이전 페이지로 돌아가기</a>.');
 @define('MULTICHECK_NO_DIR', '선택한 디렉토리가 없습니다. 최고한 한 군데를 선택하십시오. <a href="%s">이전 페이지로 돌아가기</a>.');
 @define('BULKMOVE_INFO', '대량으로 이동하기');
-@define('BULKMOVE_INFO_DESC', 'You can select multiple files to bulk-move them to a new location. <strong>Note:</strong> This action takes effect immediately without any further demand. All checked files will be physically moved, and referring Blog entries are rewritten to point to the new location. Static pages by the staticpage plugin are rewritten too.<br><b>Attention:</b><br>If using the maintenance located, markup ready entryproperties entries cache, by here changed entries with new (moved) image path will need a new saving submit to update the cache. Check your frontend for possible non-displayed images entries (or better know where they live) and then re-save those entries in the backend within the entry form, which have the correct image file path already.');
+@define('BULKMOVE_INFO_DESC', '
+Place a tick next to the relevant file names and select down here the location to move them to.<br>
+<strong>Note:</strong><br>
+This action takes effect immediately without further prompting. All selected files are physically moved to the new location and all blog entries are searched for the relevant path parts and altered. <sup>[1]</sup><br>
+This automatic replacement also runs through static page entries of the staticpage plugin and entries of the possibly used (<em>output-ready</em>) entry cache of the entryproperties plugin (<em>see Maintenance</em>).<br>
+<strong>Addendum:</strong><br>
+If you use the latter cache, you may <sup>[1]</sup> have to save changed blog entries for the cache again, due to the changed image path. <sup>[2]</sup>
+<p>
+    <sup>(1) <em>Such replacement routines are only as good as the expected source material. Especially on old blogs with old entries ahead the "Serendipity Styx" era, you should always check the results personally. It would be good to have some prior knowledge and an idea of which entries the shift would affect.</em></sup><br>
+    <sup>(2) <em>Check your frontend (while logged in) for possible image entries that are no longer displayed and simply save those entries (using the "Edit" link there) via the entry form of the backend for the entry cache, if they have already received the new image file path as a result of the move.</em></sup>
+</p>');
 @define('FIRST_PAGE', '첫 페이지');
 @define('LAST_PAGE', '마지막 페이지');
 @define('MEDIA_PROPERTIES_DONE', '%d번의 등록정보가 변경되었습니다.');

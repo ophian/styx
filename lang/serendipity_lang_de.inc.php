@@ -1145,7 +1145,17 @@ Sie sollten damit kein sicherheitsrelevantes Zugangssystem betreiben wollen!');
 @define('MULTICHECK_NO_ITEM', 'Kein Element ausgewählt, wählen Sie mindestens eines. <a href="%s">Zurück zur vorherigen Seite</a>.');
 @define('MULTICHECK_NO_DIR', 'Kein Verzeichnis ausgewählt, wählen Sie eines. <a href="%s">Zurück zur vorherigen Seite</a>.');
 @define('BULKMOVE_INFO', 'Bulk-move Information');
-@define('BULKMOVE_INFO_DESC', 'Setzen Sie ein Häkchen bei den entsprechenden Dateien und wählen hier den Ort zum Verschieben aus. <b>Achtung:</b> Diese Aktion tritt ohne weitere Nachfrage sofort in Kraft. Alle gewählten Dateien werden auch physisch an den neuen Ort verschoben und alle Blog Einträge nach entsprechenden Pfaden durchsucht und geändert. Dies gilt auch für Statische-Seiten-Einträge des staticpage Plugins.<br><b>Achtung:</b><br>Wenn Sie den (ausgabefertigen) Eintrags-Cache des entryproperties Plugins verwenden, müssen hier geänderte Einträge dort mit neuem Bildpfad anschließend neu gespeichert werden. Überprüfen Sie Ihr Frontend auf mögliche nun nicht mehr angezeigte Bildeinträge (Vorabwissen welche dies sein könnten wäre definitiv besser) und speichern Sie dann im Backend innerhalb des Eintragsformulars diejenigen Einträge neu ab, die durch das Verschieben bereits den korrekten Bilddateipfad erhalten haben.');
+@define('BULKMOVE_INFO_DESC', '
+Setzen Sie ein Häkchen bei den entsprechenden Dateien und wählen hier den Ort zum Verschieben aus.<br>
+<strong>Achtung:</strong><br>
+Diese Aktion tritt ohne weitere Nachfrage sofort in Kraft. Alle gewählten Dateien werden physisch an den neuen Ort verschoben und alle Blog Einträge nach entsprechenden Pfaden durchsucht und geändert. <sup>[1]</sup><br>
+Diese automatische Ersetzung durchläuft auch Statische-Seiten-Einträge des staticpage Plugins und Einträge des eventuell genutzten (<em>ausgabefertigen</em>) Eintrags-Cache des entryproperties Plugins (<em>siehe Wartung</em>).<br>
+<strong>Zusatz:</strong><br>
+Wenn Sie den letztgenannten Cache verwenden, müssen eventuell <sup>[1]</sup> durch das Verschieben nun geänderte Blog-Einträge für den Cache, aufgrund des geänderten Bildpfades, erneut gespeichert werden. <sup>[2]</sup>
+<p>
+    <sup>(1) <em>Solche Ersetzungsroutinen sind immer nur so gut wie das erwartete Ausgangsmaterial. Gerade auf alten Blogs mit alten Einträgen aus der "Serendipity Styx Vorzeit" sollten Sie die Ergebnisse besser immer persönlich überprüfen. Zum Auffinden wäre ein Vorwissen, eine Ahnung, welche Einträge die Verschiebung in etwa betreffen würde, sicher gut.</em></sup><br>
+    <sup>(2) <em>Überprüfen Sie (im eingeloggtem Zustand) Ihr Frontend auf mögliche nun nicht mehr angezeigte Bildeinträge und speichern diejenigen Einträge (mittels des dortigen "Bearbeiten"-Links), über das Eintragsformular des Backends, für den Eintrags-Cache einfach neu ab, wenn diese durch das Verschieben bereits den neuen Bilddateipfad erhalten haben.</em></sup>
+</p>');
 @define('FIRST_PAGE', 'Erste Seite');
 @define('LAST_PAGE', 'Letzte Seite');
 @define('MEDIA_PROPERTIES_DONE', 'Eigenschaften von #%d geändert.');

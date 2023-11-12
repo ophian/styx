@@ -1150,7 +1150,17 @@ You should not want to operate a security-relevant access system with them!');
 @define('MULTICHECK_NO_ITEM', 'No item selected, please check at least one. <a href="%s">Return to previous page</a>.');
 @define('MULTICHECK_NO_DIR', 'No directory selected, please choose one. <a href="%s">Return to previous page</a>.');
 @define('BULKMOVE_INFO', 'Bulk-move info');
-@define('BULKMOVE_INFO_DESC', 'You can select multiple files to bulk-move them to a new location. <strong>Note:</strong> This action takes effect immediately without any further demand. All checked files will be physically moved, and referring Blog entries are rewritten to point to the new location. Static pages by the staticpage plugin are rewritten too.<br><b>Attention:</b><br>If using the maintenance located, markup ready entryproperties entries cache, by here changed entries with new (moved) image path will need a new saving submit to update the cache. Check your frontend for possible non-displayed images entries (or better know where they live) and then re-save those entries in the backend within the entry form, which have the correct image file path already.');
+@define('BULKMOVE_INFO_DESC', '
+Place a tick next to the relevant file names and select down here the location to move them to.<br>
+<strong>Note:</strong><br>
+This action takes effect immediately without further prompting. All selected files are physically moved to the new location and all blog entries are searched for the relevant path parts and altered. <sup>[1]</sup><br>
+This automatic replacement also runs through static page entries of the staticpage plugin and entries of the possibly used (<em>output-ready</em>) entry cache of the entryproperties plugin (<em>see Maintenance</em>).<br>
+<strong>Addendum:</strong><br>
+If you use the latter cache, you may <sup>[1]</sup> have to save changed blog entries for the cache again, due to the changed image path. <sup>[2]</sup>
+<p>
+    <sup>(1) <em>Such replacement routines are only as good as the expected source material. Especially on old blogs with old entries ahead the "Serendipity Styx" era, you should always check the results personally. It would be good to have some prior knowledge and an idea of which entries the shift would affect.</em></sup><br>
+    <sup>(2) <em>Check your frontend (while logged in) for possible image entries that are no longer displayed and simply save those entries (using the "Edit" link there) via the entry form of the backend for the entry cache, if they have already received the new image file path as a result of the move.</em></sup>
+</p>');
 @define('FIRST_PAGE', 'First Page');
 @define('LAST_PAGE', 'Last Page');
 @define('MEDIA_PROPERTIES_DONE', 'Properties of #%d changed.');
