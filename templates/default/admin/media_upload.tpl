@@ -32,9 +32,9 @@
                         <label for="target_directory_1" class="uploadform_target_directory_label">{$CONST.STORE_IN_DIRECTORY}</label>
                         <select id="target_directory_1" class="uploadform_target_directory" name="serendipity[target_directory][1]">
                             <option value="">{$CONST.BASE_DIRECTORY}</option>
-                            {foreach $media.folders AS $folder}
+{foreach $media.folders AS $folder}
                             <option{if $media.addmedia_lastdir == $folder.relpath} selected{/if} value="{$folder.relpath}">{'&nbsp;'|str_repeat:($folder.depth*2)} {$folder.name}</option>
-                            {/foreach}
+{/foreach}
                         </select>
                     </div>
 
@@ -73,9 +73,9 @@
                     <label for="imagetargetdirectory" class="uploadform_target_directory_label">{$CONST.STORE_IN_DIRECTORY}</label>
                     <select id="imagetargetdirectory" class="uploadform_target_directory" name="serendipity[target_directory][]">
                         <option value="">{$CONST.BASE_DIRECTORY}</option>
-                        {foreach $media.folders AS $folder}
+{foreach $media.folders AS $folder}
                         <option{if $media.addmedia_lastdir == $folder.relpath} selected{/if} value="{$folder.relpath}">{'&nbsp;'|str_repeat:($folder.depth*2)} {$folder.name}</option>
-                        {/foreach}
+{/foreach}
                     </select>
                 </div>
             </div>
@@ -85,8 +85,8 @@
     {serendipity_hookPlugin hook="backend_image_addform" hookAll=true}
     <div class="form_buttons">
         <input class="check_inputs" type="submit" value="{$CONST.GO}">
-        {if $media.manage}
-            <input class="check_inputs" name="go_properties" type="submit" value="{$CONST.GO_ADD_PROPERTIES|escape}">
-        {/if}
+{if $media.manage}
+        <input class="check_inputs" name="go_properties" type="submit" value="{$CONST.GO_ADD_PROPERTIES|escape}">
+{/if}
     </div>
 </form>
