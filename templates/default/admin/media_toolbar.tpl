@@ -3,7 +3,17 @@
 
     <h2>{$CONST.MEDIA_LIBRARY}{if $media.grid AND NOT empty($media.filter)} <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-filter-circle-fill" fill="#3e5f81" xmlns="http://www.w3.org/2000/svg"><title id="title">{$CONST.FILTERS}</title><path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM3.5 5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zM5 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm2 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z"/></svg>{/if}</h2>
 
-    <script>$(document).ready(function() { var smcol = Cookies.get('serendipity[media_grid]'); if (typeof smcol == 'undefined' || smcol === null || smcol == 'undefined') { serendipity.changeMediaGrid('mlDefCol') } else { serendipity.changeMediaGrid(smcol) } });</script>
+    <script>
+        $(document).ready(function() {
+            var smcol = Cookies.get('serendipity[media_grid]');
+            if (typeof smcol == 'undefined' || smcol === null || smcol == 'undefined') {
+                serendipity.changeMediaGrid('mlDefCol')
+            } else {
+                serendipity.changeMediaGrid(smcol)
+            }
+        });
+    </script>
+
     <div id="grid-selector" class="media-grid-selector{if $media.nr_files < 3 AND !$media.grid} poor{/if}">
         <div id="col-def-selector" class="mediaGrid" title="2-column grid" onclick="serendipity.changeMediaGrid('mlDefCol')">
           <div class="mediaGrid-cell tic"></div>
@@ -27,9 +37,7 @@
 {/if}
 
     <form id="media_library_control" method="get" action="?">
-        {$media.token}
-        {if empty($media.form_hidden)}
-
+        {$media.token}{if empty($media.form_hidden)}
         <input type="hidden" name="serendipity[adminModule]" value="media">
         <input type="hidden" name="serendipity[action]" value="">
         <input type="hidden" name="serendipity[adminAction]" value="">
@@ -37,31 +45,30 @@
         {else}{$media.form_hidden}{/if}
 
         <ul class="filters_toolbar clearfix plainList">
-            {if $media.standardpane}
+{if $media.standardpane}
             <li><a class="button_link" href="#media_pane_filter" title="Show filters"><span class="icon-filter" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.FILTERS}</span></a></li>
             <li><a class="button_link" href="#media_pane_sort" title="{$CONST.SORT_ORDER}"><span class="icon-sort" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.SORT_ORDER}</span></a></li>
-            {/if}
+{/if}
             <li id="media_filter_path">
                 <div class="form_select">
                     <label for="serendipity_only_path" class="visuallyhidden">{$CONST.FILTER_DIRECTORY}</label>
                     <select id="serendipity_only_path" name="serendipity[only_path]">
                         <option value="">{if NOT $media.limit_path}{if isset($media.toggle_dir) AND $media.toggle_dir == 'yes' OR $media.hideSubdirFiles == 'yes'}{$CONST.BASE_DIRECTORY}{else}{$CONST.ALL_DIRECTORIES}{/if}{else}{$media.blimit_path}{/if}</option>
-                    {foreach $media.paths AS $folderHead}
-
-                        <option{if ($media.only_path == $media.limit_path|cat:$folderHead.relpath)} selected{/if} value="{$folderHead.relpath}">{'&nbsp;'|str_repeat:($folderHead.depth*2)}{$folderHead.name}</option>{* * *}
-                    {/foreach}
+{foreach $media.paths AS $folderHead}
+                        <option{if ($media.only_path == $media.limit_path|cat:$folderHead.relpath)} selected{/if} value="{$folderHead.relpath}">{'&nbsp;'|str_repeat:($folderHead.depth*2)}{$folderHead.name}</option>
+{/foreach}
                     </select>
 
                     <input name="go" type="submit" value="{$CONST.GO}">
-                    {if NOT $media.standardpane}
+{if NOT $media.standardpane}
                     <button class="toggle_info button_link" type="button" data-href="#media_gallery_selection"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden">Gallery item selection</span></button>
                     <div id="media_gallery_selection" class="clearfix additional_info media_gallery_selection">
                         <span class="msg_hint focused">{$CONST.MEDIA_GALLERY_SELECTION}</span>
                     </div>
-                    {/if}
+{/if}
                 </div>
             </li>
-            {if $media.standardpane}
+{if $media.standardpane}
             <li id="media_selector_bar">
                 <fieldset>
                     <input id="serendipity[filter][fileCategory][All]" type="radio" name="serendipity[filter][fileCategory]"{if isset($media.filter.fileCategory) AND $media.filter.fileCategory == ""} checked{/if} value="all">
@@ -72,13 +79,13 @@
                     <label for="serendipity[filter][fileCategory][Video]" class="media_selector button_link">{$CONST.VIDEO}</label>
                 </fieldset>
             </li>
-            {/if}
-        {if isset($smarty.get.serendipity.showUpload) AND $smarty.get.serendipity.showUpload}
+{/if}
+{if isset($smarty.get.serendipity.showUpload) AND $smarty.get.serendipity.showUpload}
             <li class="popuplayer_showUpload"><a class="button_link" href="?serendipity[adminModule]=media&amp;serendipity[adminAction]=addSelect&amp;{$media.extraParems}">{$CONST.ADD_MEDIA}</a></li>
-        {/if}
+{/if}
         </ul>
-
     {if $media.standardpane}
+
         <fieldset id="media_pane_filter" class="additional_info filter_pane">
             <legend class="visuallyhidden">{$CONST.FILTERS}</legend>
 {* Keep in mind that $media.sort_order is different than $media.sortorder! The first is for building the key names; the second is the value that was set by POST! *}
@@ -115,14 +122,14 @@
 
                         <select id="serendipity_filter_{$filter@key}" name="serendipity[filter][{$filter@key}]">
                             <option value="">{$CONST.ALL_AUTHORS}</option>
-                            {foreach $media.authors AS $media_author}
-
+{foreach $media.authors AS $media_author}
                             <option value="{$media_author.authorid}"{if isset($media.filter[$filter@key]) AND $media.filter[$filter@key] == $media_author.authorid} selected{/if}>{$media_author.realname|escape}</option>
-                            {/foreach}
-
+{/foreach}
                         </select>
-                {else}{* this is of type string w/o being named *}
-                        {* label is already set on loop start, when type is not date or intrange *}
+                {* this following is of type string w/o being named *}
+                {* label is already set on loop start, when type is not date or intrange *}
+                {else}
+
                         <input id="serendipity_filter_{$filter@key}" name="serendipity[filter][{$filter@key}]" type="text" value="{if isset($media.filter[$filter@key])}{$media.filter[$filter@key]|default:''|escape}{/if}">
                 {/if}
                 {if isset($filter.type) AND ($filter.type == 'date' OR $filter.type == 'intrange')}
@@ -154,14 +161,14 @@
 
                 <div id="keyword_list" class="clearfix {if $media.simpleFilters}keywords {/if}right">
                 {foreach $media.keywords AS $keyword}
-                {if NOT empty($keyword)}
-
+{if NOT empty($keyword)}
                     <a class="add_keyword" href="#keyword-input" data-keyword="{$keyword|escape}" title="{$keyword|escape}">{$keyword|escape|truncate:20:"&hellip;"}</a>
-                {/if}
+{/if}
                 {/foreach}
 
                 </div>
             </div>{* media filter end *}
+
         </fieldset>
 
         <fieldset id="media_pane_sort" class="additional_info filter_pane">
@@ -169,19 +176,17 @@
             <div class="clearfix grouped">
                 <div class="form_select">
                     <label for="serendipity_sortorder_order">{$CONST.SORT_BY}</label>
-                    {* Keep in mind that $media.sort_order is different than $media.sortorder! *}
+{* Keep in mind that $media.sort_order is different than $media.sortorder! *}
                     <select id="serendipity_sortorder_order" name="serendipity[sortorder][order]">
-                    {foreach $media.sort_order AS $orderVal}
-                        {* The first is for building the key names *}
+{foreach $media.sort_order AS $orderVal}{* The first is for building the key names *}
                         <option value="{$orderVal@key}"{if $media.sortorder.order == $orderVal@key} selected{/if}>{$orderVal.desc}</option>
-                    {/foreach}
-
+{/foreach}
                     </select>
                 </div>
 
                 <div class="form_select">
                     <label for="serendipity_sortorder_ordermode">{$CONST.SORT_ORDER}</label>
-                    {* The second is the value that was set by POST or COOKIE! *}
+{* The second is the value that was set by POST or COOKIE! *}
                     <select id="serendipity_sortorder_ordermode" name="serendipity[sortorder][ordermode]">
                         <option value="DESC"{if $media.sortorder.ordermode == 'DESC'} selected{/if}>{$CONST.SORT_ORDER_DESC}</option>
                         <option value="ASC"{if $media.sortorder.ordermode == 'ASC'} selected{/if}>{$CONST.SORT_ORDER_ASC}</option>
@@ -192,11 +197,9 @@
                     <label for="serendipity_sortorder_perpage">{$CONST.FILES_PER_PAGE}</label>
 
                     <select id="serendipity_sortorder_perpage" name="serendipity[sortorder][perpage]">
-                    {foreach $media.sort_row_interval AS $perPageVal}
-
+{foreach $media.sort_row_interval AS $perPageVal}
                         <option value="{$perPageVal}"{if $media.perPage == $perPageVal} selected{/if}>{$perPageVal}</option>
-                    {/foreach}
-
+{/foreach}
                     </select>
                 </div>
                 {if !$media.simpleFilters}
@@ -223,11 +226,13 @@
                 {/if}
 
             </div>
+
             <div class="form_buttons">
                 <input name="go" type="submit" value="{$CONST.GO}">
                 <input class="reset_media_filters state_cancel" name="media_filters_reset" title="{$CONST.RESET_FILTERS}" type="submit" value="Reset">
             </div>
         </fieldset>
+
         <script>
             $(document).ready(function() {
                 // write: is plain "foo", read: is "serendipity[foo]"!
@@ -274,5 +279,6 @@
             });
         </script>
     {/if}
+
     </form>
 </div>{* has toolbar end *}

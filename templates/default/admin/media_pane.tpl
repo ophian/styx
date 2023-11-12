@@ -47,11 +47,9 @@
             <select id="newDir" name="serendipity[newDir]">
                 <option value=""></option>
                 <option value="uploadRoot">{$CONST.BASE_DIRECTORY}</option>
-            {foreach $media.paths AS $folderFoot}
-
+{foreach $media.paths AS $folderFoot}
                 <option value="{$folderFoot.relpath}">{'&nbsp;'|str_repeat:($folderFoot.depth*2)}{$folderFoot.name}</option>{* * *}
-            {/foreach}
-
+{/foreach}
             </select>
         </div>
         <div class="form_buttons">

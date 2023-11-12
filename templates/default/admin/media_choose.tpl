@@ -63,6 +63,7 @@
                 {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_imagesize' data=$media.file}
             </fieldset>
             {if NOT $media.filename_only}
+
             <fieldset id="image_alignment">
                 <span class="wrap_legend"><legend>{$CONST.IMAGE_ALIGNMENT}</legend></span>
 
@@ -160,6 +161,7 @@
         </form>
     {else}{* if $media.file.is_image end *}
         {if $media.filename_only}
+
         <script>
             {serendipity_hookPlugin hookAll=true hook='frontend_image_add_filenameonly' data=$media}
             if (parent.self.opener == undefined) {
@@ -171,6 +173,7 @@
             parent.self.close();
         </script>
         {else}
+
         <script>
         {if in_array($media.file.mediatype, ['video', 'binary']) AND in_array($media.file.extension, ['mp4', 'webm', 'ogv']) AND NOT isset($smarty.get.mediaobject.link)}
             block = '<div class="media_object_container"><!-- s9ymdb:{$media.file.id} --><video controls="" src="{$media.file.full_file}" title="Play: {$media.file.realname|escape}" type="video/{$media.file.extension}"></video></div>';

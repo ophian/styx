@@ -102,9 +102,9 @@
                     {/if}
 
                     <h3 title="{$file.diskname}">{if $media.manage}{$file.diskname|truncate:38:"&hellip;":true}{else}{$file.diskname}{/if}{if NOT empty($file.orderkey)}: {$file.orderkey|escape}{/if}
-                    {if $file.hotlink}<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-share-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+{if $file.hotlink}<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-share-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                       <title id="title">External hotlink</title><path fill-rule="evenodd" d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
-                    </svg>{/if}</h3>
+</svg>{/if}</h3>
                     {if $file.authorid != 0}<span class="author block_level">{$file.authorname}</span>{/if}
 
                 </header>
@@ -362,10 +362,9 @@
                         <textarea id="mediaProperty{$prop_content@key}" name="serendipity[mediaProperties][0][{$prop_content.title}]" rows="5">{$prop_content.val|escape}</textarea>
                     {elseif $prop_content.type == 'readonly'}
                         {$prop_content.val|escape}
-                    {elseif $prop_content.type == 'input'}
-
+{elseif $prop_content.type == 'input'}
                         <input id="mediaProperty{$prop_content@key}" name="serendipity[mediaProperties][0][{$prop_content.title}]" type="text" value="{$prop_content.val|escape}">
-                    {/if}
+{/if}
 
                     </div>
                 {/foreach}
@@ -378,10 +377,9 @@
                         <input type="hidden" name="serendipity[mediaDirectory][0][oldDir]" value="{$file.path|escape}">
                         <select id="newDir" name="serendipity[mediaDirectory][0][newDir]">
                             <option{if empty($file.path)} selected="selected"{/if} value="">{$CONST.BASE_DIRECTORY}</option>
-                        {foreach $media.paths AS $folder}
-
+{foreach $media.paths AS $folder}
                             <option{if ($file.path == $folder.relpath)} selected="selected"{/if} value="{$folder.relpath}">{'&nbsp;'|str_repeat:($folder.depth*2)}{$folder.name}</option>{* * *}
-                        {/foreach}
+{/foreach}
 
                         </select>
                       </div>
@@ -391,10 +389,9 @@
                         <label for="newFormat">{$CONST.FORMATS}</label>
                         <input type="hidden" name="serendipity[mediaFormat][0][oldMime]" value="{$file.mime}">
                         <select id="newFormat" name="serendipity[mediaFormat][0][newMime]">
-                        {foreach $media.formats AS $format}{if $format.mime == 'image/webp' OR $format.mime == 'image/avif'}{assign "isvariation" true}{/if}
-
+{foreach $media.formats AS $format}{if $format.mime == 'image/webp' OR $format.mime == 'image/avif'}{assign "isvariation" true}{/if}
                             <option{if ($file.mime == $format.mime)} selected="selected"{/if} value="{$format.mime}">{$format.extension}</option>
-                        {/foreach}
+{/foreach}
 
                         </select>
                       </div>
@@ -412,13 +409,12 @@
                     <ul class="clearfix plainList">
                     {foreach $file.base_keywords AS $keyword_cells}
                         {foreach $keyword_cells AS $keyword}
-                        {if NOT empty($keyword.name)}
-
+{if NOT empty($keyword.name)}
                         <li>
                             <input id="mediaKeyword{$keyword.name}" name="serendipity[mediaKeywords][0][{$keyword.name}]" type="checkbox" value="true"{if $keyword.selected} checked="checked"{/if}>
                             <label for="mediaKeyword{$keyword.name}">{$keyword.name|truncate:20:"&hellip;"}</label>
                         </li>
-                        {/if}
+{/if}
                         {/foreach}
                     {/foreach}
 
@@ -453,10 +449,9 @@
                     <h4>{$CONST.REFERER}</h4>
 
                     <ul>
-                    {foreach $file.references AS $ref}
-
+{foreach $file.references AS $ref}
                         <li>({$ref.name|escape}) <a rel="nofollow" href="{$ref.link|escape}">{$ref.link|default:$CONST.NONE|escape}</a></li>
-                    {/foreach}
+{/foreach}
 
                     </ul>
                 </section>
