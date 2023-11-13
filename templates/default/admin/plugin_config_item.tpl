@@ -22,14 +22,17 @@
     <fieldset{if $cdesc != ''} class="has_info"{/if}>
         <span class="wrap_legend"><legend>{$cname}{if $cdesc != ''} <button class="toggle_info button_link" type="button" data-href="#{$config_item|cleanChars}_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</legend></span>
         {if $cdesc != ''}<span id="{$config_item|cleanChars}_info" class="field_info additional_info">{$cdesc}</span>{/if}
+
         <div class="clearfix grouped">
         {foreach $radio_button AS $r}
+
             <div class="form_radio">
-                <input id="serendipity_plugin_{$r['id']}" class="direction_{$lang_direction}" name="serendipity[{$postKey}][{$config_item}]" type="radio" value="{$r['value']}"{(!empty($r['checked'])) ? ' checked="checked"' : ''} title="{$r['index']|escape}">
+                <input id="serendipity_plugin_{$r['id']}" class="direction_{$lang_direction}" name="serendipity[{$postKey}][{$config_item}]" type="radio" value="{$r['value']}"{if !empty($r['checked'])} checked="checked"{/if} title="{$r['index']}">
                 <label for="serendipity_plugin_{$r['id']}">{$r['index']}{* escapement is already done *}</label>
                 {assign var="r" value="counter[0]"}
             </div>
         {/foreach}
+
         </div>
     </fieldset>
 {elseif $ctype == 'string'}
