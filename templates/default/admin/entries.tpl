@@ -186,16 +186,15 @@
         </div>
     </div>
 
-    {capture name='advanced_options'}{$entry_vars.entry|serendipity_refhookPlugin:'backend_display'}{/capture}
-    {if !empty($smarty.capture.advanced_options)}
-
+{capture name='advanced_options'}{$entry_vars.entry|serendipity_refhookPlugin:'backend_display'}{/capture}
+{if !empty($smarty.capture.advanced_options)}
     <div id="advanced_options">
         <button id="toggle_advanced" class="icon_link" type="button"><span class="icon-right-dir" aria-hidden="true"></span> {$CONST.ADVANCED_OPTIONS}</button>
         <div id="adv_opts" class="additional_info">
             {$smarty.capture.advanced_options}
         </div>
     </div>
-    {/if}
+{/if}
 
 </form>
 {if $entry_vars.wysiwyg}
