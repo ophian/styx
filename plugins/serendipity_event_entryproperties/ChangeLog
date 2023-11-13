@@ -1,3 +1,8 @@
+1.89:
+-----
+    * Better indent for Smarty parsing output
+    * Improve help msg styled to hint to customfields
+
 1.88:
 -----
     * Use input field password attribute autocomplete="new-password" instead of autocomplete="off" in special for Mozilla browser cases.
