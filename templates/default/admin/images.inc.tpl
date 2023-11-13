@@ -165,9 +165,9 @@
             <label for="dircreate_parent">{$CONST.PARENT_DIRECTORY}</label>
             <select id="dircreate_parent" name="serendipity[parent]">
                 <option value="">{$CONST.BASE_DIRECTORY}</option>
-            {foreach $folders AS $folder}
-                <option{if $folder.relpath == $get.only_path OR $folder.relpath == $dir} selected{/if} value="{$folder.relpath}">{'&nbsp;'|str_repeat:($folder.depth*2)}{$folder.name}</option>{* * *}
-            {/foreach}
+{foreach $folders AS $folder}
+                <option{if $folder.relpath == $get.only_path OR $folder.relpath == $dir} selected{/if} value="{$folder.relpath}">{'&nbsp;'|str_repeat:($folder.depth*2)}{$folder.name}</option>
+{/foreach}
             </select>
         </div>
         {serendipity_hookPlugin hookAll=true hook="backend_directory_createoptions" addData=$folders}
