@@ -101,11 +101,9 @@
     <script>
     function Spawnnugget() {
         /* init plugin nuggets when not using the default wysiwyg-editor */
-        {foreach $ev['nuggets'] AS $htmlnuggetid}
-
+{foreach $ev['nuggets'] AS $htmlnuggetid}
         if (window.Spawnnuggets) Spawnnuggets('{$htmlnuggetid}');
-        {/foreach}
-
+{/foreach}
     }
     </script>
     {/if}
