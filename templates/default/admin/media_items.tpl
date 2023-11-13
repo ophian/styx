@@ -269,7 +269,7 @@
                     {/if}
                     {if $media.multiperm OR 'adminImagesDelete'|checkPermission}
 
-                    <li><a class="media_delete button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=delete&amp;serendipity[fid]={$file.id}" title="{$CONST.MEDIA_DELETE}" data-fileid="{$file.id}" data-filename="{$file.name|escape:'javascript'}" data-getpage="{if isset($smarty.get.serendipity.page)}{$smarty.get.serendipity.page}{/if}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_DELETE}</span></a></li>
+                    <li><a class="media_delete button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=delete&amp;serendipity[fid]={$file.id}" title="{$CONST.MEDIA_DELETE}" data-fileid="{$file.id}" data-filename="{$file.name|escape:'javascript'}" data-getpage="{if isset($smarty.get.serendipity.page)}{$smarty.get.serendipity.page}{/if}" data-lastpage="{$media.pages}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_DELETE}</span></a></li>
                     {/if}
                     {if (NOT empty($file.full_file_webp) OR NOT empty($file.full_file_avif)) AND NOT empty($imagesNoSync)}
                     {foreach $imagesNoSync AS $special}
@@ -288,7 +288,7 @@
                     <li class="special"><a class="media_fullsize media_prop button_link" href="{$file.full_file_webp}" title="{$CONST.VARIATION}: {$file.full_file_webp|regex_replace:"~{$serendipityHTTPPath}uploads/{$file.path}.v/~":''}, {$file.dim_orig.0}x{$file.dim_orig.1}px" data-pwidth="{$file.dim_orig.0}" data-pheight="{$file.dim_orig.1}"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span><span class="visuallyhidden"> Image Of</span></a></li>
                     {else if $file.is_image AND NOT $file.hotlink AND in_array($file.extension, ['jpg', 'jpeg', 'png', 'gif']) AND (empty($file.full_file_webp) OR empty($file.full_thumb_webp))}
 
-                    <li><a class="media_addvar button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=variations&amp;serendipity[fid]={$file.id}" title="{$CONST.MEDIA_CREATEVARS}" data-fileid="{$file.id}" data-filename="{$file.name|escape:'javascript'}" data-getpage="{if isset($smarty.get.serendipity.page)}{$smarty.get.serendipity.page}{/if}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_CREATEVARS}</span></a></li>
+                    <li><a class="media_addvar button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=variations&amp;serendipity[fid]={$file.id}" title="{$CONST.MEDIA_CREATEVARS}" data-fileid="{$file.id}" data-filename="{$file.name|escape:'javascript'}" data-getpage="{if isset($smarty.get.serendipity.page)}{$smarty.get.serendipity.page}{/if}" data-lastpage="{$media.pages}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_CREATEVARS}</span></a></li>
                     {/if}
                 {/if}
 
@@ -365,7 +365,6 @@
 {elseif $prop_content.type == 'input'}
                         <input id="mediaProperty{$prop_content@key}" name="serendipity[mediaProperties][0][{$prop_content.title}]" type="text" value="{$prop_content.val|escape}">
 {/if}
-
                     </div>
                 {/foreach}
                 {if NOT $file.hotlink}
@@ -378,9 +377,8 @@
                         <select id="newDir" name="serendipity[mediaDirectory][0][newDir]">
                             <option{if empty($file.path)} selected="selected"{/if} value="">{$CONST.BASE_DIRECTORY}</option>
 {foreach $media.paths AS $folder}
-                            <option{if ($file.path == $folder.relpath)} selected="selected"{/if} value="{$folder.relpath}">{'&nbsp;'|str_repeat:($folder.depth*2)}{$folder.name}</option>{* * *}
+                            <option{if ($file.path == $folder.relpath)} selected="selected"{/if} value="{$folder.relpath}">{'&nbsp;'|str_repeat:($folder.depth*2)}{$folder.name}</option>
 {/foreach}
-
                         </select>
                       </div>
                     {if $file.is_image AND $media.resetperm}
@@ -392,7 +390,6 @@
 {foreach $media.formats AS $format}{if $format.mime == 'image/webp' OR $format.mime == 'image/avif'}{assign "isvariation" true}{/if}
                             <option{if ($file.mime == $format.mime)} selected="selected"{/if} value="{$format.mime}">{$format.extension}</option>
 {/foreach}
-
                         </select>
                       </div>
                     {/if}
@@ -452,7 +449,6 @@
 {foreach $file.references AS $ref}
                         <li>({$ref.name|escape}) <a rel="nofollow" href="{$ref.link|escape}">{$ref.link|default:$CONST.NONE|escape}</a></li>
 {/foreach}
-
                     </ul>
                 </section>
             {/if}
