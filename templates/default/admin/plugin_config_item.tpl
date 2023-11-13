@@ -29,7 +29,6 @@
             <div class="form_radio">
                 <input id="serendipity_plugin_{$r['id']}" class="direction_{$lang_direction}" name="serendipity[{$postKey}][{$config_item}]" type="radio" value="{$r['value']}"{if !empty($r['checked'])} checked="checked"{/if} title="{$r['index']}">
                 <label for="serendipity_plugin_{$r['id']}">{$r['index']}{* escapement is already done *}</label>
-                {assign var="r" value="counter[0]"}
             </div>
         {/foreach}
 
