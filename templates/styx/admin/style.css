@@ -1274,6 +1274,10 @@ input[type=checkbox],
     margin-top: .75em;
     margin-bottom: .75em;
 }
+#ep_customfields .msg_hint {
+    margin: .25em 0 0 0;
+}
+
 
 #category_permissions legend {
     margin-bottom: .5rem;
