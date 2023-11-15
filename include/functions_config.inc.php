@@ -2363,8 +2363,6 @@ function serendipity_checkFormToken($output = true) {
  * @return  string      Returns the form token to be used in your functions
  */
 function serendipity_setFormToken($type = 'form') {
-    global $serendipity;
-
     if ($type == 'form') {
         return '<input type="hidden" name="serendipity[token]" value="' . md5(session_id()) . '">';
     } elseif ($type == 'url') {
