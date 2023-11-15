@@ -310,6 +310,8 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
         $data['hvalue']      = $hvalue;
         $data['postKey']     = $_postKey;
         $data['config_item'] = $config_item;
+        // implement double tab (8 space) indent for configuration group items for the plugin_config_item.tpl file
+        $data['group_ident'] = (is_array($config_groups) && in_array($config_item, array_merge(...array_values($config_groups)), true)) ? true : false;
 
         $assign_plugin_config = function($data) use (&$plugin_options, $tfile, $config_item) {
             $plugin_options[$config_item] = array(
