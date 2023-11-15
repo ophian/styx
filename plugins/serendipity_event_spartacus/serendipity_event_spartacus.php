@@ -17,7 +17,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.21');
+        $propbag->add('version',       '3.22');
         $propbag->add('requirements',  array(
             'serendipity' => '3.1',
             'php'         => '7.3'
@@ -1339,10 +1339,10 @@ class serendipity_event_spartacus extends serendipity_event
                     if (serendipity_db_bool($this->get_config('enable_plugins', 'true'))) {
 ?>
 
-        <div id="waitingspin" class="pulsator busy_update" style="display: none"><div></div><div></div></div>
-        <div id="upgrade_notice" class="clearfix">
-            <a id="upgrade_plugins" class="button_link" href="?serendipity[adminModule]=plugins&amp;serendipity[adminAction]=addnew&amp;serendipity[only_group]=UPGRADE"><?php echo PLUGIN_EVENT_SPARTACUS_CHECK ?></a>
-        </div>
+    <div id="waitingspin" class="pulsator busy_update" style="display: none"><div></div><div></div></div>
+    <div id="upgrade_notice" class="clearfix">
+        <a id="upgrade_plugins" class="button_link" href="?serendipity[adminModule]=plugins&amp;serendipity[adminAction]=addnew&amp;serendipity[only_group]=UPGRADE"><?php echo PLUGIN_EVENT_SPARTACUS_CHECK ?></a>
+    </div>
 
 <?php
                     }
