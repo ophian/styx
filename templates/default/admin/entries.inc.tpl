@@ -6,14 +6,14 @@
         <input name="serendipity[action]" type="hidden" value="admin">
         <input name="serendipity[adminModule]" type="hidden" value="entries">
         <input name="serendipity[adminAction]" type="hidden" value="editSelect">
-        <input type="hidden" name="serendipity[pinned_entries]" value="{$pin_entries}">
+        <input name="serendipity[pinned_entries]" type="hidden" value="{$pin_entries}">
         {$formtoken}
         <ul class="filters_toolbar filter_entries plainList">
             <li><a class="button_link" href="#filter_entries" title="{$CONST.FILTERS}"><span class="icon-filter" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.FILTERS}</span></a></li>
             <li><a class="button_link" href="#sort_entries" title="{$CONST.SORT_ORDER}"><span class="icon-sort" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.SORT_ORDER}</span></a></li>
-            {if NOT $simpleFilters}
-                <li><a class="button_link" href="#entry_skip" title="{$CONST.EDIT_ENTRY} #"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT_ENTRY} #</span></a></li>
-            {/if}
+{if NOT $simpleFilters}
+            <li><a class="button_link" href="#entry_skip" title="{$CONST.EDIT_ENTRY} #"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT_ENTRY} #</span></a></li>
+{/if}
         </ul>
 
         <fieldset id="filter_entries" class="additional_info filter_pane">
@@ -24,14 +24,9 @@
                     <label for="filter_author">{$CONST.AUTHOR}</label>
                     <select id="filter_author" name="serendipity[filter][author]">
                         <option value="">-</option>
-                {if is_array($users)}
-                    {foreach $users AS $user}
-                        {if isset($user.artcount) AND $user.artcount < 1}{continue}{/if}
-
+{if is_array($users)}{foreach $users AS $user}{if isset($user.artcount) AND $user.artcount < 1}{continue}{/if}
                         <option value="{$user.authorid}"{(isset($get.filter.author) AND $get.filter.author == $user.authorid) ? ' selected' : ''}>{$user.realname|escape}</option>
-                    {/foreach}
-                {/if}
-
+{/foreach}{/if}
                     </select>
                 </div>
 
@@ -49,9 +44,9 @@
                     <select id="filter_category" name="serendipity[filter][category]">
                         <option value="">-</option>
                         <option value="nocat">{$CONST.NO_CATEGORY}</option>
-                    {foreach $categories AS $cat}
+{foreach $categories AS $cat}
                         <option value="{$cat.categoryid}"{(isset($get.filter.category) AND $get.filter.category == $cat.categoryid) ? ' selected' : ''}>{'&nbsp;'|str_repeat:$cat.depth} {$cat.category_name|escape}</option>
-                    {/foreach}
+{/foreach}
                     </select>
                 </div>
 
@@ -69,9 +64,9 @@
                 <div class="form_select">
                     <label for="sort_order">{$CONST.SORT_BY}</label>
                     <select id="sort_order" name="serendipity[sort][order]">
-                    {foreach $sort_order AS $so_key => $so_val}
+{foreach $sort_order AS $so_key => $so_val}
                         <option value="{$so_key}"{(isset($get.sort.order) AND ($get.sort.order == $so_key) ? ' selected': '')}>{$so_val}</option>
-                    {/foreach}
+{/foreach}
                     </select>
                 </div>
 
@@ -86,9 +81,9 @@
                 <div class="form_select">
                     <label for="sort_perpage">{$CONST.ENTRIES_PER_PAGE}</label>
                     <select id="sort_perpage" name="serendipity[sort][perPage]">
-                    {foreach $per_page AS $per_page_nr}
+{foreach $per_page AS $per_page_nr}
                         <option value="{$per_page_nr}"{((isset($get.sort.perPage) AND ($get.sort.perPage == $per_page_nr)) ? ' selected' : '')}> {$per_page_nr}</option>
-                    {/foreach}
+{/foreach}
                     </select>
                 </div>
             </div>
@@ -113,27 +108,25 @@
             </div>
         </div>
 {/if}
-
     </form>
 
     <script>
         $(document).ready(function() {
-        {if isset($filter_import) AND is_array($filter_import)}
-        {foreach $filter_import AS $f_import}
-            {if $f_import == 'isdraft' AND isset($smarty.get.dashboard.filter.noset)}{continue}{/if}
-            {if NOT empty($get_filter_{$f_import})}
+{if isset($filter_import) AND is_array($filter_import)}
+{foreach $filter_import AS $f_import}
+{if $f_import == 'isdraft' AND isset($smarty.get.dashboard.filter.noset)}{continue}{/if}
+{if NOT empty($get_filter_{$f_import})}
             serendipity.SetCookie("entrylist_filter_{$f_import}", "{$get_filter_{$f_import}}");
-            {/if}
-        {/foreach}
-        {/if}
-        {if isset($sort_import) AND is_array($sort_import)}
-        {foreach $sort_import AS $s_import}
-            {if NOT empty($get_sort_{$s_import})}
+{/if}
+{/foreach}
+{/if}
+{if isset($sort_import) AND is_array($sort_import)}
+{foreach $sort_import AS $s_import}
+{if NOT empty($get_sort_{$s_import})}
             serendipity.SetCookie("entrylist_sort_{$s_import}", "{$get_sort_{$s_import}}");
-            {/if}
-        {/foreach}
-        {/if}
-
+{/if}
+{/foreach}
+{/if}
             $('#filter_entries').find('.reset_entry_filters').addClass('reset_filter');
             $('#sort_entries').find('.reset_entry_filters').addClass('reset_sort');
 
@@ -153,99 +146,78 @@
 
 </div>{* has toolbar end *}
 
-    {if isset($is_entries) AND $is_entries}
-    {if NOT $simpleFilters}
+{if isset($is_entries) AND $is_entries}
+{if NOT $simpleFilters}
 
+<div class="entries_list">
     <form id="formMultiSelect" name="formMultiSelect" action="?" method="post">
         {$formtoken}
         <input name="serendipity[action]" type="hidden" value="admin">
         <input name="serendipity[adminModule]" type="hidden" value="entries">
         <input name="serendipity[adminAction]" type="hidden" value="multidelete">
-    {/if}
-
+{/if}
         <div class="entries_pane">
-        {if isset($entries) AND is_array($entries)}
-
+{if isset($entries) AND is_array($entries)}
             <ul id="entries_list" class="plainList zebra_list">
-            {foreach $entries AS $entry}
-                {if ($entry@index >= $perPage)}{continue}{/if}
-
+{foreach $entries AS $entry}{if ($entry@index >= $perPage)}{continue}{/if}
                 <li id="entry_{$entry.id}" class="clearfix {cycle values="odd,even"}">
-                {if NOT $simpleFilters}
-
+{if NOT $simpleFilters}
                     <div class="form_check">
                         <input id="multidelete_entry{$entry.id}" class="multicheck" name="serendipity[multiDelete][]" type="checkbox" value="{$entry.id}" data-multixid="entry_{$entry.id}"><label for="multidelete_entry{$entry.id}" class="visuallyhidden">{$CONST.TOGGLE_SELECT} (#{$entry_id})</label>
                     </div>
-                {/if}
-
+{/if}
                     <h3><a href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry.id}&amp;{$urltoken}" title="#{$entry.id}: {$entry.title|escape:'html':$CONST.LANG_CHARSET:false}">{if NOT empty($entry.title)}{$entry.title|escape:'html':$CONST.LANG_CHARSET:false}{else} &#8212;no title set&#8212; {/if}</a></h3>
 
                     <ul class="plainList clearfix actions">
-                    {if $entry.preview OR (!$showFutureEntries AND ($entry.timestamp >= $serverOffsetHour))}
-
+{if $entry.preview OR (!$showFutureEntries AND ($entry.timestamp >= $serverOffsetHour))}
                         <li><a class="button_link linkout" href="{$entry.preview_link}" title="{$CONST.PREVIEW} #{$entry.id}"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.PREVIEW}</span></a></li>
-                    {else}
-
+{else}
                         <li><a class="button_link linkout" href="{$entry.archive_link}" title="{$CONST.VIEW} #{$entry.id}"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.VIEW}</span></a></li>
-                    {/if}
-
+{/if}
                         <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry.id}&amp;{$urltoken}" title="{$CONST.EDIT} #{$entry.id}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
                         <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=delete&amp;serendipity[id]={$entry.id}&amp;{$urltoken}" title="{$CONST.DELETE} #{$entry.id}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
-                    {if $entry.ep_is_sticky}
-
+{if $entry.ep_is_sticky}
                         <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect&amp;serendipity[id]={$entry.id}&amp;serendipity[timestamp]={$entry.timestamp}&amp;serendipity[preview]=false&amp;{$urltoken}&amp;serendipity[properties][is_sticky]=false" title="{$CONST.RESET_STATUS}: {$CONST.PLUGIN_EVENT_ENTRYPROPERTIES_STICKYPOSTS}"><span class="icon-off" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.RESET_STATUS}</span></a></li>
-                    {/if}
-
+{/if}
                     </ul>
-
                     <div class="entry_info clearfix">
                         <span class="status_timestamp">
                             {$entry.timestamp|formatTime:"{$CONST.DATE_FORMAT_SHORT}"}{if $entry.timestamp <= ($entry.last_modified - 1800)} <span class="icon-info-circled" aria-hidden="true" title="{$CONST.LAST_UPDATED}: {$entry.last_modified|formatTime:"{$CONST.DATE_FORMAT_SHORT}"}"></span><span class="visuallyhidden"> {$CONST.LAST_UPDATED}</span>{/if}
 
                         </span>
-                        <span class="entry_meta"><span class="icon-edit" aria-hidden="true" title="{$CONST.POSTED_BY}"></span>: {$entry.author|escape}
-                        {if count($entry.cats)} {$CONST.IN}
-                          {foreach $entry.cats AS $cat}
-
-                            <a class="linkout" href="{$cat.link}">{$cat.category_name|escape}</a>{if NOT empty($cat.grouped)}{foreach $cat.groupname AS $gshortname} <span class="icon-users {$gshortname}" aria-hidden="true" title="read and view restriction to group {$gshortname}"></span>{/foreach}{/if}{if (count($entry.cats) > 1) AND !$cat@last}, {/if}
-                          {/foreach}
-                        {/if}</span>
-                    {if NOT empty($entry.ep_is_locked)}
-
+{capture name='_cap_linkout' assign=cap_linkout}{if count($entry.cats)} {$CONST.IN}{foreach $entry.cats AS $cat}
+ <a class="linkout" href="{$cat.link}">{$cat.category_name|escape}</a>{if NOT empty($cat.grouped)}{foreach $cat.groupname AS $gshortname} <span class="icon-users {$gshortname}" aria-hidden="true" title="read and view restriction to group {$gshortname}"></span>{/foreach}{/if}{if (count($entry.cats) > 1) AND !$cat@last}, {/if}
+{/foreach}{/if}{/capture}
+                        <span class="entry_meta"><span class="icon-edit" aria-hidden="true" title="{$CONST.POSTED_BY}"></span>: {$entry.author|escape}{$cap_linkout|default:''}</span>
+{if NOT empty($entry.ep_is_locked)}
                         <span class="entry_status status_locked"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-lock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><title id="title">lock protected</title><path d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z"></path><path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"></path></svg></span>
-                    {/if}
-                    {if !$showFutureEntries AND ($entry.timestamp >= $serverOffsetHour)}
-
+{/if}
+{if !$showFutureEntries AND ($entry.timestamp >= $serverOffsetHour)}
                         <span class="entry_status status_future">{$CONST.SCHEDULED}</span>
-                    {/if}
-                    {if $entry.ep_is_sticky}
-
+{/if}
+{if $entry.ep_is_sticky}
                         <span class="entry_status status_sticky">{$CONST.STICKY_POSTINGS}</span>
-                    {/if}
-                    {if $entry.isdraft}
-
+{/if}
+{if $entry.isdraft}
                         <span class="entry_status status_draft">{$CONST.DRAFT}</span>
-                    {/if}
-                    {if (isset($smarty.get.go) AND (NOT empty($get.filter.body) OR (isset($smarty.post.serendipity.editSubmit) AND NOT empty($smarty.post.serendipity.id)))) OR $entry.is_pinned}
-
+{/if}
+{if (isset($smarty.get.go) AND (NOT empty($get.filter.body) OR (isset($smarty.post.serendipity.editSubmit) AND NOT empty($smarty.post.serendipity.id)))) OR $entry.is_pinned}
                         <span class="entry_status status_pin"><input class="pinpoint" name="serendipity[entryQuickPin][]" type="checkbox" value="{$entry.id}"{assign "pinstr" "entrylist_pin_entry_{$entry.id}"}{if isset($smarty.cookies.serendipity.$pinstr)} checked="checked"{/if} onClick="serendipity.PinFilter({$entry.id})"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#dc3545" class="bi bi-pin-angle-fill" viewBox="0 0 16 16"><title id="title">{$CONST.ENTRY_QUICKPIN}</title><path d="M9.828.722a.5.5 0 0 1 .354.146l4.95 4.95a.5.5 0 0 1 0 .707c-.48.48-1.072.588-1.503.588-.177 0-.335-.018-.46-.039l-3.134 3.134a5.927 5.927 0 0 1 .16 1.013c.046.702-.032 1.687-.72 2.375a.5.5 0 0 1-.707 0l-2.829-2.828-3.182 3.182c-.195.195-1.219.902-1.414.707-.195-.195.512-1.22.707-1.414l3.182-3.182-2.828-2.829a.5.5 0 0 1 0-.707c.688-.688 1.673-.767 2.375-.72a5.92 5.92 0 0 1 1.013.16l3.134-3.133a2.772 2.772 0 0 1-.04-.461c0-.43.108-1.022.589-1.503a.5.5 0 0 1 .353-.146z"/></svg></span>
                         <script> serendipity.GetPinExpireTime({$entry.id}) </script>
-                    {else}
+{else}
                         {if NOT empty($entry.info_more)}{$entry.info_more}{/if}{* Plugin eventData, ie. vgwort; No need in filter cases. *}
-                    {/if}
-                    {if isset($entry.lang) AND $entry.lang != 'all'}
-
+{/if}
+{if isset($entry.lang) AND $entry.lang != 'all'}
                         <span class="entry_status status_lang"><span class="icon-plus" aria-hidden="true"></span> {$CONST.INSTALL_LANG}: [ {$entry.lang} ]</span>
-                    {/if}
+{/if}
 
                     </div>
                 </li>
-            {/foreach}
-
+{/foreach}
             </ul>
-        {/if}{* isset entries end *}
-        {if ($offSet > 0) OR ($count > $perPage)}
-            {math assign=totalPages equation="ceil(values/parts)" values=$totalEntries parts=$perPage}
+{/if}{* isset entries end *}
+{if ($offSet > 0) OR ($count > $perPage)}
+{math assign=totalPages equation="ceil(values/parts)" values=$totalEntries parts=$perPage}
             <nav class="pagination">
                 <h3>{$CONST.PAGE_BROWSE_ENTRIES|sprintf:($page+1):$totalPages:$totalEntries}</h3>
 
@@ -257,75 +229,74 @@
                     <li class="next">{if $count > $perPage}<a class="button_link" href="{$linkNext}" title="{$CONST.NEXT}"><span class="visuallyhidden">{$CONST.NEXT} </span><span class="icon-right-dir" aria-hidden="true"></span></a>{else}<span class="visuallyhidden">{$CONST.NO_ENTRIES_TO_PRINT}</span>{/if}</li>
                 </ul>
             </nav>
-        {/if}
-
+{/if}
         </div>
-    {/if}
-    {if NOT $simpleFilters AND isset($entries) AND is_array($entries)}
+{/if}
+{if NOT $simpleFilters AND isset($entries) AND is_array($entries)}
 
         <div id="multidelete_tools" class="form_buttons">
-            {if isset($smarty.get.serendipity.catref) AND (!isset($smarty.get.serendipity.filter.isdraft) OR $smarty.get.serendipity.filter.isdraft != 'draft')}<a class="button_link" href="?serendipity[adminModule]=category&serendipity[adminAction]=view">{$CONST.BACK}</a>{/if}
-
+{if isset($smarty.get.serendipity.catref) AND (!isset($smarty.get.serendipity.filter.isdraft) OR $smarty.get.serendipity.filter.isdraft != 'draft')}
+            <a class="button_link" href="?serendipity[adminModule]=category&serendipity[adminAction]=view">{$CONST.BACK}</a>
+{/if}
             <input class="invert_selection" name="toggle" type="button" value="{$CONST.INVERT_SELECTIONS}">
             <input class="state_cancel" name="toggle" type="submit" value="{$CONST.DELETE}">
         </div>
     </form>
-    {/if}
-{/if}
-{if isset($no_entries)}
-    {if empty($drawList)}<h2>{$CONST.FIND_ENTRIES}</h2>{/if}
+</div>{*  div.entries_list around formMultiSelect end *}
+{/if}{/if}
 
-    <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.NO_ENTRIES_TO_PRINT}</span>
+{if isset($no_entries)}
+{if empty($drawList)}<h2>{$CONST.FIND_ENTRIES}</h2>{/if}
+<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.NO_ENTRIES_TO_PRINT}</span>
 {/if}
 
 {if $switched_output}
-    {if isset($get.adminAction) AND $get.adminAction == 'save' AND $dateval}
-        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.DATE_INVALID}</span>
-    {/if}
-    {if isset($get.adminAction) AND $get.adminAction == 'save' AND $single_error}
-        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PUBLISH_ERROR} {$is_empty}</span>
-    {/if}
-    {if isset($get.adminAction) AND $get.adminAction == 'save' AND $use_legacy}
-        {if $is_draft AND ! $errors}
-        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.IFRAME_SAVE_DRAFT}</span>
-        {/if}
-        {if $is_iframe === true}
-        {if isset($smarty.post.serendipity.properties.lang_selected)}
-        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.PLUGIN_EVENT_MULTILINGUAL_ENTRY_RELOADED|sprintf:{('' == $smarty.post.serendipity.properties.lang_selected) ? $lang : $smarty.post.serendipity.properties.lang_selected}}</span>
-        {else}
-        <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.IFRAME_SAVE}</span>
-        {/if}
-        {/if}
-        {if isset($is_iframepreview) AND $is_iframepreview}
-        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.IFRAME_PREVIEW}</span>
-        {/if}
-        {if isset($smarty.post.serendipity.properties.freetag_kill)}
-        <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.RELOAD_THIS_PAGE|sprintf:"?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry_id}&amp;{$urltoken}":{$CONST.EDIT}}</span>
-        {/if}
-    {/if}
-    {if $is_doDelete OR $is_doMultiDelete}
-        {foreach $del_entry AS $delent}
-        <span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> {$delent}</span>
-        {/foreach}
-    {/if}
-    {if $is_delete OR $is_multidelete}
-        {foreach $rip_entry AS $ripent}
-        <span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> {$ripent}</span>
-        {/foreach}
-        <div class="form_buttons">
-            <a class="button_link state_cancel icon_link" href="{$smarty.server.HTTP_REFERER|escape}">{$CONST.NOT_REALLY}</a>
-            <a class="button_link state_submit icon_link" href="{$newLoc}">{$CONST.DUMP_IT}</a>
-        </div>
-    {/if}
+{if isset($get.adminAction) AND $get.adminAction == 'save' AND $dateval}
+<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.DATE_INVALID}</span>
+{/if}
+{if isset($get.adminAction) AND $get.adminAction == 'save' AND $single_error}
+<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PUBLISH_ERROR} {$is_empty}</span>
+{/if}
+{if isset($get.adminAction) AND $get.adminAction == 'save' AND $use_legacy}
+{if $is_draft AND ! $errors}
+<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.IFRAME_SAVE_DRAFT}</span>
+{/if}
+{if $is_iframe === true}
+{if isset($smarty.post.serendipity.properties.lang_selected)}
+<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.PLUGIN_EVENT_MULTILINGUAL_ENTRY_RELOADED|sprintf:{('' == $smarty.post.serendipity.properties.lang_selected) ? $lang : $smarty.post.serendipity.properties.lang_selected}}</span>
+{else}
+<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.IFRAME_SAVE}</span>
+{/if}
+{/if}
+{if isset($is_iframepreview) AND $is_iframepreview}
+<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.IFRAME_PREVIEW}</span>
+{/if}
+{if isset($smarty.post.serendipity.properties.freetag_kill)}
+<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.RELOAD_THIS_PAGE|sprintf:"?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry_id}&amp;{$urltoken}":{$CONST.EDIT}}</span>
+{/if}
+{/if}
+{if $is_doDelete OR $is_doMultiDelete}
+{foreach $del_entry AS $delent}
+<span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> {$delent}</span>
+{/foreach}
+{/if}
+{if $is_delete OR $is_multidelete}
+{foreach $rip_entry AS $ripent}
+<span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> {$ripent}</span>
+{/foreach}
+<div class="form_buttons">
+    <a class="button_link state_cancel icon_link" href="{$smarty.server.HTTP_REFERER|escape}">{$CONST.NOT_REALLY}</a>
+    <a class="button_link state_submit icon_link" href="{$newLoc}">{$CONST.DUMP_IT}</a>
+</div>
+{/if}
 {/if}
 {if $iframe !== true}{$iframe}{/if}
 {if isset($is_iframepreview) AND $is_iframepreview AND $preview_only}
-
-        <div class="form_buttons">
-            <a class="button_link" id="draft_preview_back" href="?serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect&amp;serendipity[filter][author]=&amp;serendipity[filter][isdraft]=draft">{$CONST.BACK}</a>
-            <a class="button_link" id="full_entries_list" href="?serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect">{$CONST.EDIT_ENTRIES}</a>
-            <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry_id}&amp;{$urltoken}" title="{$CONST.EDIT} #{$entry_id}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a>
-            <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=delete&amp;serendipity[id]={$entry_id}&amp;{$urltoken}" title="{$CONST.DELETE} #{$entry_id}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a>
-        </div>
+<div class="form_buttons">
+    <a class="button_link" id="draft_preview_back" href="?serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect&amp;serendipity[filter][author]=&amp;serendipity[filter][isdraft]=draft">{$CONST.BACK}</a>
+    <a class="button_link" id="full_entries_list" href="?serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect">{$CONST.EDIT_ENTRIES}</a>
+    <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry_id}&amp;{$urltoken}" title="{$CONST.EDIT} #{$entry_id}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a>
+    <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=delete&amp;serendipity[id]={$entry_id}&amp;{$urltoken}" title="{$CONST.DELETE} #{$entry_id}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a>
+</div>
 {/if}
 {$entryForm}
