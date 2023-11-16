@@ -160,7 +160,7 @@
 {if isset($entries) AND is_array($entries)}
             <ul id="entries_list" class="plainList zebra_list">
 {foreach $entries AS $entry}{if ($entry@index >= $perPage)}{continue}{/if}
-                <li id="entry_{$entry.id}" class="clearfix {cycle values="odd,even"}">
+                <li id="entry_{$entry.id}" class="clearfix {cycle values='odd,even'}">
 {if NOT $simpleFilters}
                     <div class="form_check">
                         <input id="multidelete_entry{$entry.id}" class="multicheck" name="serendipity[multiDelete][]" type="checkbox" value="{$entry.id}" data-multixid="entry_{$entry.id}"><label for="multidelete_entry{$entry.id}" class="visuallyhidden">{$CONST.TOGGLE_SELECT} (#{$entry_id})</label>
@@ -231,7 +231,7 @@
             </nav>
 {/if}
         </div>
-{/if}
+{/if}{* isset is_entries end *}
 {if NOT $simpleFilters AND isset($entries) AND is_array($entries)}
 
         <div id="multidelete_tools" class="form_buttons">
@@ -242,9 +242,10 @@
             <input class="state_cancel" name="toggle" type="submit" value="{$CONST.DELETE}">
         </div>
     </form>
-</div>{*  div.entries_list around formMultiSelect end *}
-{/if}{/if}
+</div>{* div.entries_list around formMultiSelect end *}
+{/if}{/if}{* isset drawList end *}
 
+{* result messaging or actions *}
 {if isset($no_entries)}
 {if empty($drawList)}<h2>{$CONST.FIND_ENTRIES}</h2>{/if}
 <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.NO_ENTRIES_TO_PRINT}</span>
