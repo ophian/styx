@@ -1,29 +1,37 @@
 {if NOT empty($post_save)}
-    {if NOT empty($new)}
+{if NOT empty($new)}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.CATEGORY_SAVED}</span>
-    {/if}
-    {if NOT empty($edit)}
-        {if isset($editPermission) AND $editPermission === false}
+
+{/if}
+{if NOT empty($edit)}
+{if isset($editPermission) AND $editPermission === false}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PERM_DENIED} {$failedperm}</span>
-        {else}
-        {if NOT empty($subcat)}{$subcat}{else}
+
+{else}
+{if NOT empty($subcat)}
+        {$subcat}
+{else}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.CATEGORY_SAVED}</span>
-        {/if}
-        {/if}
-    {/if}
-    {if isset($error_name)}
+
+{/if}
+{/if}
+{/if}
+{if isset($error_name)}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CATEGORY_ALREADY_EXIST|sprintf:$category_name|escape}</span>
-    {/if}
+
+{/if}
 {/if}
 {if NOT empty($doDelete)}
-  {if NOT empty($deleteSuccess)}
+{if NOT empty($deleteSuccess)}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {if isset($remainingCat)}{$CONST.CATEGORY_DELETED_ARTICLES_MOVED|sprintf:$remainingCat:$cid}{else}{$cid|string_format:"{$CONST.CATEGORY_DELETED}"}{/if}</span>
-  {else}
+
+{else}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.INVALID_CATEGORY}</span>
-  {/if}
+
+{/if}
 {/if}
 {if NOT empty($delete)}
-    {if $deletePermission === true}
+{if $deletePermission === true}
         <h2>{$categoryName|escape}</h2>
 
         <form method="POST" name="serendipityCategory" action="?serendipity[adminModule]=category&amp;serendipity[adminAction]=doDelete&amp;serendipity[cid]={$cid}">
@@ -33,21 +41,21 @@
                 <label for="remaining_cat">{$CONST.CATEGORY_REMAINING}:</label>
                 <select id="remaining_cat" name="serendipity[cat][remaining_catid]">
                     <option value="0">{$CONST.NO_CATEGORY}</option>
-                {foreach $cats AS $cat_data}
+{foreach $cats AS $cat_data}
                     <option value="{$cat_data.categoryid}">{$cat_data.category_name|escape}</option>
-                {/foreach}
+{/foreach}
                 </select>
             </div>
 
             <input class="state_cancel" name="REMOVE" type="submit" value="{$CONST.DELETE}">
         </form>
-    {/if}
+{/if}
+{/if}
+{if empty($post_save) AND (NOT empty($edit) OR NOT empty($new))}
+{if NOT empty($edit)}
+        <h2>{$category_name|escape|string_format:"{$CONST.EDIT_THIS_CAT}"}</h2>
 {/if}
 
-{if empty($post_save) AND (NOT empty($edit) OR NOT empty($new))}
-    {if NOT empty($edit)}
-        <h2>{$category_name|escape|string_format:"{$CONST.EDIT_THIS_CAT}"}</h2>
-    {/if}
         <form id="serendipity_category" method="POST" name="serendipityCategory">
             {$formToken}
 
@@ -72,10 +80,10 @@
                     <label for="parent_cat">{$CONST.PARENT_CATEGORY}</label>
                     <select id="parent_cat" name="serendipity[cat][parent_cat]">
                         <option value="0"{if $cid == 0} selected{/if}>{$CONST.NO_CATEGORY}</option>
-                    {foreach $categories AS $cat}
-                        {if $cat.categoryid == $cid}{continue}{/if}
+{foreach $categories AS $cat}
+{if $cat.categoryid == $cid}{continue}{/if}
                         <option value="{$cat.categoryid}"{if isset($this_cat.parentid) AND $this_cat.parentid == $cat.categoryid} selected{/if}>{for $i=1 to $cat.depth}&nbsp{/for} {$cat.category_name|escape}</option>
-                    {/foreach}
+{/foreach}
                     </select>
                 </div>
 
@@ -111,9 +119,9 @@
                     <label for="read_authors">{$CONST.PERM_READ}</label>
                     <select id="read_authors" size="6" multiple name="serendipity[cat][read_authors][]">
                         <option value="0"{if $selectAllReadAuthors} selected{/if}>{$CONST.ALL_AUTHORS}</option>
-                    {foreach $groups AS $group}
+{foreach $groups AS $group}
                         <option value="{$group.confkey}"{if isset($read_groups.{$group.confkey})} selected{/if}>{$group.confvalue|escape}</option>
-                    {/foreach}
+{/foreach}
                     </select>
                 </div>
 
@@ -121,9 +129,9 @@
                     <label for="write_authors">{$CONST.PERM_WRITE}</label>
                     <select id="write_authors" size="6" multiple name="serendipity[cat][write_authors][]">
                         <option value="0"{if $selectAllWriteAuthors} selected{/if}>{$CONST.ALL_AUTHORS}</option>
-                    {foreach $groups AS $group}
+{foreach $groups AS $group}
                         <option value="{$group.confkey}"{if isset($write_groups.{$group.confkey})} selected{/if}>{$group.confvalue|escape}</option>
-                    {/foreach}
+{/foreach}
                     </select>
                 </div>
             </div>
@@ -158,14 +166,11 @@
         </form>
 {/if}
 {if isset($view) AND $view}
-
     <h2>{$CONST.CATEGORIES}</h2>
 
-    {if is_array($viewCats)}
-
+{if is_array($viewCats)}
     <ul id="categories" class="option_list{if NOT $threadedCat} slist{/if}">
-    {if NOT empty($entriesnocat)}
-
+{if NOT empty($entriesnocat)}
         <li>
             <div class="clearfix x-odd">
                 <div class="category_data">
@@ -179,30 +184,35 @@
                     <li>{if $entriesnocat.0 > 0}<a class="button_link" href="?serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&serendipity[filter][category]=nocat&serendipity[catref]=1" title="{$CONST.ENTRIES} {$CONST.CATEGORY} {$CONST.NO_CATEGORY}"><span class="catctlabel"><em>{$entriesnocat.0}</em>{else}<span class="emptydim catctlabel"><em>0{/if} {$CONST.ENTRIES}</em></span></a> <span class="catctlabel groupbyauthor"><em>({$entriesbyauthor})</em></span></li>
                 </ul>
             </div>
-        </li>
-    {/if}
-    {foreach $viewCategories AS $category}
-        {if NOT $category@first}
-            {if $category.depth > $priorDepth}<ul>{/if}
+        </li><!-- close root item no cat -->
+{/if}
+{foreach $viewCategories AS $category}
+{if NOT $category@first}
+{if $category.depth > $priorDepth}
 
-            {if $category.depth < $priorDepth}
-                </li>
-                {for $i=$category.depth+1 to $priorDepth}</ul></li>{/for}
-            {/if}
+            <ul><!-- start a subcat of "{$category.category_name|escape}" as depth {$category.depth} -->
+{/if}
+{if $category.depth < $priorDepth}
+        </li><!-- close last main list item -->
+{for $i=$category.depth+1 to $priorDepth}
+            </ul></li><!-- close last opened subcat (indent) -->
+{/for}
+{/if}
+{if $category.depth == $priorDepth}
+        </li><!-- close single or last main category list item -->
+{/if}
+{/if}
+{$priorDepth=$category.depth}
+        <li>{if $category.depth == 0}<!-- open next main list item -->{/if}
 
-            {if $category.depth == $priorDepth}</li>{/if}
-        {/if}
-        {$priorDepth=$category.depth}
-
-        <li>
             <div class="clearfix {cycle values="odd,even"}">
                 <details class="category_data">
                     <summary>{$category.category_name|escape}</summary>
 
                     <div class="category_info clearfix">
-                    {if $category.category_description != ''}
+{if $category.category_description != ''}
                         <span class="category_desc">{$category.category_description|escape}</span>
-                    {/if}
+{/if}
                         (<span>{if $category.authorid == 0}{$CONST.ALL_AUTHORS}{else}{$category.realname|escape}{/if}</span>)
                     </div>
                 </details>
@@ -214,13 +224,18 @@
                     <li><a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=delete&amp;serendipity[cid]={$category.categoryid}" title="{$CONST.DELETE} {$category.category_name|escape}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
                 </ul>
             </div>
-    {/foreach}
+{/foreach}
 
         </li>
-        {for $i=1 to $priorDepth}</ul></li>{/for}
+{for $i=1 to $priorDepth}
+
+        </ul></li><!-- close last subcat (indent) -->
+{/for}
     </ul>
-    {else}
+{else}
+
     <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.NO_CATEGORIES}</span>
-    {/if}
+{/if}
+
     <a class="button_link" href="?serendipity[adminModule]=category&serendipity[adminAction]=new">{$CONST.CREATE_NEW_CAT}</a>
 {/if}
