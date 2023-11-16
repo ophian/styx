@@ -102,7 +102,7 @@ function serendipity_smarty_html5time(int $timestamp): string {
 
 
 /**
- * Smarty: Fetch a smarty block and pass it on to Serendipity Templates - use with Smarty > 3.0 only
+ * Smarty: Fetch a Smarty block and pass it on to Serendipity Templates
  *
  * @access public
  * @param   string      The name of the block to parse data into ("COMMENTS" - virtual variable like {$COMMENTS})
@@ -114,7 +114,7 @@ function &serendipity_smarty_fetch($block, $file, $echo = false) {
     global $serendipity;
 
     $output = $serendipity['smarty']->fetch('file:'. serendipity_getTemplateFile($file, 'serendipityPath'), null, null, null, ($echo === true && $serendipity['smarty_raw_mode']));
-    $output = $block == 'CONTENT' ? ltrim($output) : $output;
+    $output = $block == 'CONTENT' ? ltrim($output) : $output; // ltrim here for the frontend only!
 
     $serendipity['smarty']->assignByRef($block, $output);
 
