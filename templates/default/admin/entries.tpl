@@ -1,7 +1,9 @@
 <h2>{if isset($entry_vars.entry.title)}{$CONST.EDIT_ENTRY}{else}{$CONST.NEW_ENTRY}{/if}</h2>
 {if $entry_vars.errMsg}
-    <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$entry_vars.errMsg}</span>
+
+<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$entry_vars.errMsg}</span>
 {/if}
+
 <form id="serendipityEntry" name="serendipityEntry"{if isset($entry_vars.entry.entry_form)} {$entry_vars.entry.entry_form}{/if} action="{$entry_vars.targetURL}" method="post">
 {foreach $entry_vars.hiddens AS $key => $value}{if $key == 'serendipity[timestamp]' AND $entry_vars.timestamp == $value}{* avoid possible doublet *}{else}
     <input type="hidden" name="{$key}" value="{$value}">
