@@ -959,7 +959,7 @@ function serendipity_JSsetCookie($name, $value) {
     $name  = serendipity_entities($name);
     $value = urlencode($value);
 
-    echo '<script type="text/javascript">serendipity.SetCookie("' . $name . '", unescape("' . $value . '"))</script>' . "\n";
+    echo '        <script type="text/javascript">serendipity.SetCookie("' . $name . '", unescape("' . $value . '"))</script>';
 }
 
 /**
