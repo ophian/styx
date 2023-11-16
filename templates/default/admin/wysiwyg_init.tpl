@@ -35,27 +35,27 @@
 
         styxmediabuttons.push('styx_mediaLibrary_{$item}');
         styxmediabuttons.push('styx_mediaGallery_{$item}');
-
 {foreach $buttons AS $button}
-            CKEDITOR.plugins.add('{$button.id}', {
-                init: function( editor ) {
-                    editor.addCommand( '{$button.name}', {
-                        exec : function( editor ) {
-                            popupEditorInstance = editor;
-                            ( {$button.javascript} () )
-                        }
-                    });
-                    editor.ui.addButton('{$button.id}', {
-                        label: '{$button.name}',
-                        title: '{$button.name} Plugin',
-                        command: '{$button.name}',
-                        icon: '{$button.img_url}',
-                        iconName: '{$button.id}_icon'
-                    });
-                }
-            });
 
-            styxpluginbuttons.push('{$button.id}');
+        CKEDITOR.plugins.add('{$button.id}', {
+            init: function( editor ) {
+                editor.addCommand( '{$button.name}', {
+                    exec : function( editor ) {
+                        popupEditorInstance = editor;
+                        ( {$button.javascript} () )
+                    }
+                });
+                editor.ui.addButton('{$button.id}', {
+                    label: '{$button.name}',
+                    title: '{$button.name} Plugin',
+                    command: '{$button.name}',
+                    icon: '{$button.img_url}',
+                    iconName: '{$button.id}_icon'
+                });
+            }
+        });
+
+        styxpluginbuttons.push('{$button.id}');
 {/foreach}
         var styxplugins = styxcustomplugins.concat('styx_mediaLibrary_{$item}{foreach $buttons AS $button},{$button.id}{/foreach}');
 
