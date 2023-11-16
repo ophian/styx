@@ -254,7 +254,7 @@ if (!$use_installer && $is_logged_in) {
             break;
     }
 
-    $main_content = ob_get_contents();
+    $main_content = ltrim(ob_get_contents()); // strip starting whitespace indents brought into by ob_***()
     ob_end_clean();
 }
 
