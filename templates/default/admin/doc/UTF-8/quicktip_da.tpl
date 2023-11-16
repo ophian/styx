@@ -1,4 +1,4 @@
-            <h3>Styx Quick Tip</h3>
+<h3>Styx Quick Tip</h3>
             <ol class="plainList quick_info">
                 <li>
                     <b>I. What is this?</b><br>
