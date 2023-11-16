@@ -2,7 +2,6 @@
 
 <script src="{$serendipityHTTPPath}templates/_assets/ckebasic/ckeditor.js"></script>
 <script src="{$serendipityHTTPPath}templates/_assets/ckebasic_plugin.js"></script>
-
 {/if}
 
 <script>
@@ -37,8 +36,7 @@
         styxmediabuttons.push('styx_mediaLibrary_{$item}');
         styxmediabuttons.push('styx_mediaGallery_{$item}');
 
-        {foreach $buttons AS $button}
-
+{foreach $buttons AS $button}
             CKEDITOR.plugins.add('{$button.id}', {
                 init: function( editor ) {
                     editor.addCommand( '{$button.name}', {
@@ -58,14 +56,12 @@
             });
 
             styxpluginbuttons.push('{$button.id}');
-
-        {/foreach}
-
+{/foreach}
         var styxplugins = styxcustomplugins.concat('styx_mediaLibrary_{$item}{foreach $buttons AS $button},{$button.id}{/foreach}');
 
         CKEDITOR.replace($('#'+serendipity.escapeBrackets('{$item}')).get(0), {
             extraPlugins : styxplugins,
-            {if $use_autosave == 'true'}
+{if $use_autosave == 'true'}
 
             on: {
                 instanceReady: function( evt ) {
@@ -78,7 +74,7 @@
                     }
                 }
             }
-            {/if}
+{/if}
 
         });
     });
