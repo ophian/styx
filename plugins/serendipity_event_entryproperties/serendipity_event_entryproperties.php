@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC . (isset($serendipity['GET']['plugin_to_conf']) ? ' ' . PLUGIN_EVENT_ENTRYPROPERTIES_DESC_PLUS : ''));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.89');
+        $propbag->add('version',       '1.90');
         $propbag->add('requirements',  array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -402,10 +402,22 @@ class serendipity_event_entryproperties extends serendipity_event
                 break;
 
             case 'password':
+/*
+ The hidden password input element was set to type="password" before and - as a workaround - used to prevent the Firefox browser [early <= 42 versions]
+ to auto fill password fields into other normal input fields. Garvin, Jan 15, 2015, https://github.com/s9y/Serendipity/commit/1b9e5de787c36c08a449c631ca271e2a0556770d
+ In follow of this, the issue #378 at https://github.com/s9y/Serendipity/issues/378 added https://github.com/s9y/Serendipity/commit/c98e858886ce83877620e84d00f11259c8576354 to the config_local.inc.php.
+ This - for the here case - does NOT DO any more.
+ This is why the FF only autocomplete="new-password" attribute was added to the real password field, since that officially is the attribute Firefox supports for this case.
+ It further turned out that now - currently with FF v120 - other input fields of type="text" did get the auto added "password manager" hotlink added,
+ eg. the entry form freetag field, which ann/destr-oys the autocomplete JS of the tags event.
+ Other fields do not behave so; Like the entry form "title" input field; So it probably seems related to some misbehaving JS event handler...
+ BUT we can prevent this behavior by changing the name="ignore_password" input workaround element field to a type="text" field. Then everything works as desired.
+ Keep in mind for later browser changes though!
+*/
 ?>
                 <div id="ep_access_pw" class="entryproperties_access_pw adv_opts_box form_field">
                     <label for="properties_access_pw"><?php echo PASSWORD; ?>:</label>
-                    <input type="password" name="ignore_password" autocomplete="new-password" value="" style="visibility: hidden; width: 1px">
+                    <input type="text" name="ignore_password" value="" style="visibility: hidden; width: 1px">
                     <input id="properties_access_pw" name="serendipity[properties][entrypassword]" type="password" autocomplete="new-password" value="<?php echo serendipity_specialchars($password); ?>">
                     <i class="icon-info-circled" aria-hidden="true" title="<?php echo serendipity_specialchars(ENTRY_PAGE_PASSWORD_INFO_SET); ?>"></i>
                 </div>

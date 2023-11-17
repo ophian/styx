@@ -1,3 +1,9 @@
+1.90:
+-----
+    * Improve entryproperties v.1.88 and in addition an old Serendipity 2.0 development
+      Mozilla browser behavior issue with an unrelated input fields (freetag) when having
+      an additional form password field.
+
 1.89:
 -----
     * Better indent for Smarty parsing output
