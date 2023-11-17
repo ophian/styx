@@ -14,7 +14,7 @@
     {$entry_vars.formToken}
     <div id="edit_entry_title" class="form_field">
         <label for="entryTitle">{$CONST.TITLE}</label>
-        <input id="entryTitle" name="serendipity[title]" type="text" value="{if isset($entry_vars.entry.title)}{$entry_vars.entry.title|default:''|escape}{/if}" autocomplete="new-password">
+        <input id="entryTitle" name="serendipity[title]" type="text" value="{if isset($entry_vars.entry.title)}{$entry_vars.entry.title|default:''|escape}{/if}">
     </div>
 
     <div id="cats_list" class="clearfix taxonomy">
