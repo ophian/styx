@@ -2866,12 +2866,14 @@ h3 .media_file_actions {
 #serendipity_users .edit_actions .user_level,
 #serendipity_users .edit_actions .entryctlabel,
 #serendipity_image_folders .imgctlabel,
-.category_base_entries .catctlabel,
 #categories .edit_actions .catctlabel {
     font-size: .8125em;
 }
 #categories .edit_actions .catctlabel.groupbyauthor {
     padding: 0 1rem;
+}
+#categories .edit_actions .catctlabel {
+    font-style: italic;
 }
 /* Categories + MediaLibrary directories - zebra to gradient replacement */
 #categories.slist .x-odd,
@@ -3390,7 +3392,6 @@ label .perm_name,
     margin: 0 0 1em;
 }
 
-.category_base_entries,
 .media_directory_entries {
     text-align: right;
     display: inherit;
@@ -4130,7 +4131,6 @@ img.mfp-img {
         width: 15em;
     }
 
-    .category_base_entries,
     .media_directory_entries {
         margin-top: -3.2rem;
     }
