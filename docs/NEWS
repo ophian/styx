@@ -2,7 +2,8 @@ Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
   * Improve backend forms for browser autocomplete behaviour, in special for
-    Mozilla Firefox cases.
+    Mozilla Firefox cases. This refactors entryproperties and config_local.inc
+    template workaround items.
 
   [ 4.3-beta2 ]
   * Improve [ styx ] backend theme styles for remoterss and adminnotes plugin
