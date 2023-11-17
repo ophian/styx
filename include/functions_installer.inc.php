@@ -548,10 +548,6 @@ function serendipity_printConfigTemplate($config, $from = false, $noForm = false
                 $item['default'] = serendipity_probeInstallation($item['var']);
             }
 
-            if (in_array('ignore', $item['flags'])) {
-                $item['ignore'] = true;
-            }
-
             if (in_array('ifEmpty', $item['flags']) && empty($value)) {
                 $value = serendipity_query_default($item['var'], $item['default']);
             }
