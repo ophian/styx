@@ -1022,7 +1022,7 @@
 // New 2.0 constants
 @define('SIMPLE_FILTERS', 'Vereinfachte Filter');
 @define('SIMPLE_FILTERS_DESC', 'Wenn aktiviert, werden Suchformulare und Filteroptionen auf die notwendigen Optionen reduziert. Ist diese Option deaktiviert, werden alle erweiterten Filteroptionen angezeigt, zB. in der "Einträge bearbeiten" Liste oder in der "Mediathek", die den aktuellen User-Berechtigungen entsprechen.');
-@define('ENTRY_PAGE_PASSWORD_INFO_SET', 'Artikel-Passwörter sind - anders als Login-Passwörter - unverschlüsselt, also einfach und ungesichert gespeichert.
+@define('ENTRY_PAGE_PASSWORD_INFO_SET', 'Artikelbasierende Passwörter werden - anders als Login-Passwörter - unverschlüsselt, also einfach und ungesichert gespeichert.
 Sie sollten damit kein sicherheitsrelevantes Zugangssystem betreiben wollen!');
 @define('TOGGLE_SELECT', 'Zu Auswahl hinzufügen');
 @define('MORE', 'Mehr');
