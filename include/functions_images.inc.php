@@ -4916,20 +4916,22 @@ function serendipity_metaFieldConvert(&$item, $type) {
             break;
 
         case 'date2':
-            $parts = preg_split('&[ :]&', $item);
-            return mktime((int)$parts[3], (int)$parts[4], (int)$parts[5], $parts[1], $parts[2], $parts[0]);
+            $parts = array_map('intval', preg_split('&[ :]&', $item));
+            return mktime($parts[3], $parts[4], $parts[5], $parts[1], $parts[2], $parts[0]);
             break;
 
         case 'IPTCdate':
             preg_match('@(\d{4})(\d{2})(\d{2})@', $item, $parts);
-            return mktime(0, 0, 0, intval($parts[2]), intval($parts[3]), intval($parts[1]));
+            $parts = array_map('intval', $parts);
+            return mktime(0, 0, 0, $parts[2], $parts[3], $parts[1]);
             break;
 
         case 'IPTCtime':
             preg_match('@(\d{2})(\d{2})(\d{2})([\+-])(\d{2})(\d{2})@', $item, $parts);
             if (array_keys($parts)) {
-                $time = serendipity_strftime('%H:%M', mktime(intval($parts[1]), intval($parts[2]), intval($parts[3]), 0, 0, 0));
-                $timezone = serendipity_strftime('%H:%M', mktime(intval($parts[5]), intval($parts[6]), 0, 0, 0, 0));
+                $parts = array_map('intval', $parts);
+                $time = serendipity_strftime('%H:%M', mktime($parts[1], $parts[2], $parts[3], 0, 0, 0));
+                $timezone = serendipity_strftime('%H:%M', mktime($parts[5], $parts[6], 0, 0, 0, 0));
                 return $time . ' GMT' . $parts[4] . $timezone;
             }
             break;
