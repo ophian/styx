@@ -13,16 +13,16 @@
 {elseif $type == 'protected'}
     <input id="{$name}" type="password" name="{$name}" value="{$value|default:''|escape}" autocomplete="new-password">
 {elseif $type == 'multilist'}
-    <select id="{$name}" name="{$name}[]" multiple="multiple" size="5">';
-    {foreach $default AS $k => $v}
+    <select id="{$name}" name="{$name}[]" multiple="multiple" size="5">
+{foreach $default AS $k => $v}
         <option value="{$v.confkey}"{if $selected.$name.$k.selected} selected="selected"{/if}>{$v.confvalue}</option>
-    {/foreach}
+{/foreach}
     </select>
 {elseif $type == 'list'}
     <select id="{$name}" name="{$name}">
-    {foreach $default AS $k => $v}
+{foreach $default AS $k => $v}
         <option value="{$k}"{if $selected.$name.$k.selected} selected="selected"{/if}>{$v}</option>
-    {/foreach}
+{/foreach}
     </select>
 {elseif $type == 'file'}
     <input id="{$name}" type="file" name="{$name}">
