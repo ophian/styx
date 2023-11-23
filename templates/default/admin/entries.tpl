@@ -56,9 +56,12 @@
 {/if}
         </div>
 {else}
+{capture name=editor_toolbar}{serendipity_hookPlugin hook="backend_entry_toolbar_body" data=$entry_data.entry|default:'' hookAll="true"}{/capture}
+{if !empty($smarty.capture.editor_toolbar)}
         <div id="tools_entry" class="editor_toolbar">
-            {serendipity_hookPlugin hook="backend_entry_toolbar_body" data=$entry_data.entry|default:'' hookAll="true"}
+            {$smarty.capture.editor_toolbar}
         </div>
+{/if}
 {/if}
         <div id="teaser_entry_editor">
             <textarea id="serendipity[body]" name="serendipity[body]" rows="15">{if isset($entry_vars.entry.body)}{$entry_vars.entry.body|default:''|escape}{/if}</textarea>
