@@ -37,12 +37,13 @@
 {/if}
 
     <form id="media_library_control" method="get" action="?">
-        {$media.token}{if empty($media.form_hidden)}
+        {$media.token}
+{if empty($media.form_hidden)}
         <input type="hidden" name="serendipity[adminModule]" value="media">
         <input type="hidden" name="serendipity[action]" value="">
         <input type="hidden" name="serendipity[adminAction]" value="">
         <input type="hidden" name="serendipity[only_path]" value="{$media.only_path}">
-        {else}{$media.form_hidden}{/if}
+{else}{$media.form_hidden}{/if}
 
         <ul class="filters_toolbar clearfix plainList">
 {if $media.standardpane}
@@ -84,64 +85,55 @@
             <li class="popuplayer_showUpload"><a class="button_link" href="?serendipity[adminModule]=media&amp;serendipity[adminAction]=addSelect&amp;{$media.extraParems}">{$CONST.ADD_MEDIA}</a></li>
 {/if}
         </ul>
-    {if $media.standardpane}
+{if $media.standardpane}
 
         <fieldset id="media_pane_filter" class="additional_info filter_pane">
             <legend class="visuallyhidden">{$CONST.FILTERS}</legend>
 {* Keep in mind that $media.sort_order is different than $media.sortorder! The first is for building the key names; the second is the value that was set by POST! *}
             <div id="media_filter" class="clearfix">
-            {foreach $media.sort_order AS $filtername => $filter}
+{foreach $media.sort_order AS $filtername => $filter}
 
                 <div class="{cycle values="left,center,right"}{if $filter@iteration > 6} bp_filters{/if}">
-                {if isset($filter.type) AND ($filter.type == 'date' OR $filter.type == 'intrange')}
-
+{if isset($filter.type) AND ($filter.type == 'date' OR $filter.type == 'intrange')}
                     <fieldset>
                         <span class="wrap_legend"><legend>{$filter.desc}</legend></span>
-                {else}
-
+{else}
                     <div class="form_{if isset($filter.type) AND $filter.type == 'authors'}select{else}field{/if}">
                         <label for="serendipity_filter_{$filter@key}">{$filter.desc}</label>
-                {/if}
-                {if isset($filter.type) AND $filter.type == 'date'}
-
+{/if}
+{if isset($filter.type) AND $filter.type == 'date'}
                         <div class="form_field">
                             <label for="serendipity_filter_{$filter@key}_from" class="range-label hidden">{$CONST.RANGE_FROM|lower}</label>
                             <input id="serendipity_filter_{$filter@key}_from" name="serendipity[filter][{$filter@key}][from]" type="date" placeholder="2001-01-31" value="{if isset($media.filter[$filter@key].from)}{$media.filter[$filter@key].from|default:''|escape}{/if}">
                             <label for="serendipity_filter_{$filter@key}_to" class="range-label"><span class="hidden">{$CONST.RANGE_TO|lower}</span><span class="icon-right-dir" title="{$CONST.RANGE_FROM|lower} - {$CONST.RANGE_TO|lower}"></span></label>
                             <input id="serendipity_filter_{$filter@key}_to" name="serendipity[filter][{$filter@key}][to]" type="date" placeholder="2005-12-31" value="{if isset($media.filter[$filter@key].to)}{$media.filter[$filter@key].to|default:''|escape}{/if}">
                         </div>
-                {elseif isset($filter.type) AND $filter.type == 'intrange'}
-
+{elseif isset($filter.type) AND $filter.type == 'intrange'}
                         <div class="form_field">
                             <label for="serendipity_filter_{$filter@key}_from" class="range-label">{$CONST.RANGE_FROM|lower}</label>
                             <input id="serendipity_filter_{$filter@key}_from" name="serendipity[filter][{$filter@key}][from]" type="text" placeholder="{if $filtername == 'bp.RUN_LENGTH'}in{/if}" value="{if isset($media.filter[$filter@key].from)}{$media.filter[$filter@key].from|default:''|escape}{/if}">
                             <label for="serendipity_filter_{$filter@key}_to" class="range-label">{$CONST.RANGE_TO|lower}</label>
                             <input id="serendipity_filter_{$filter@key}_to" name="serendipity[filter][{$filter@key}][to]" type="text" placeholder="{if $filtername == 'bp.RUN_LENGTH'}seconds{/if}" value="{if isset($media.filter[$filter@key].to)}{$media.filter[$filter@key].to|default:''|escape}{/if}">
                         </div>
-                {elseif isset($filter.type) AND $filter.type == 'authors'}
-
+{elseif isset($filter.type) AND $filter.type == 'authors'}
                         <select id="serendipity_filter_{$filter@key}" name="serendipity[filter][{$filter@key}]">
                             <option value="">{$CONST.ALL_AUTHORS}</option>
 {foreach $media.authors AS $media_author}
                             <option value="{$media_author.authorid}"{if isset($media.filter[$filter@key]) AND $media.filter[$filter@key] == $media_author.authorid} selected{/if}>{$media_author.realname|escape}</option>
 {/foreach}
                         </select>
-                {* this following is of type string w/o being named *}
-                {* label is already set on loop start, when type is not date or intrange *}
-                {else}
-
+{* this following is of type string w/o being named *}
+{* label is already set on loop start, when type is not date or intrange *}
+{else}
                         <input id="serendipity_filter_{$filter@key}" name="serendipity[filter][{$filter@key}]" type="text" value="{if isset($media.filter[$filter@key])}{$media.filter[$filter@key]|default:''|escape}{/if}">
-                {/if}
-                {if isset($filter.type) AND ($filter.type == 'date' OR $filter.type == 'intrange')}
-
+{/if}
+{if isset($filter.type) AND ($filter.type == 'date' OR $filter.type == 'intrange')}
                     </fieldset>
-                {else}
-
+{else}
                     </div>
-                {/if}
-
+{/if}
                 </div>
-                {if $filter@last AND !$media.simpleFilters}
+{if $filter@last AND !$media.simpleFilters}
 
                 <div class="right bp_filters">
                     <div class="form_field">
@@ -151,22 +143,21 @@
                         </div>
                     </div>
                 </div>
-                {/if}
-            {/foreach}
+{/if}
+{/foreach}
 
                 <div id="media_filter_keywords" class="form_field {if $media.simpleFilters}right{else}center{/if}">
                     <label for="keyword_input">{$CONST.MEDIA_KEYWORDS}</label>
                     <input id="keyword_input" name="serendipity[keywords]" type="text" value="{$media.keywords_selected|escape}">
                 </div>
 
+{if NOT empty($media.keywords.0)}
                 <div id="keyword_list" class="clearfix {if $media.simpleFilters}keywords {/if}right">
-                {foreach $media.keywords AS $keyword}
-{if NOT empty($keyword)}
+{foreach $media.keywords AS $keyword}{if NOT empty($keyword)}
                     <a class="add_keyword" href="#keyword-input" data-keyword="{$keyword|escape}" title="{$keyword|escape}">{$keyword|escape|truncate:20:"&hellip;"}</a>
-{/if}
-                {/foreach}
-
+{/if}{/foreach}
                 </div>
+{/if}
             </div>{* media filter end *}
 
         </fieldset>
@@ -202,7 +193,7 @@
 {/foreach}
                     </select>
                 </div>
-                {if !$media.simpleFilters}
+{if !$media.simpleFilters}
 
                 <div class="form_field">
                     <div class="clearfix">
@@ -223,8 +214,7 @@
                     <label for="select_page">{$CONST.SELECT_PAGE}</label>
                     <input id="select_page" name="serendipity[page]" type="text" value="">
                 </div>
-                {/if}
-
+{/if}
             </div>
 
             <div class="form_buttons">
@@ -236,31 +226,26 @@
         <script>
             $(document).ready(function() {
                 // write: is plain "foo", read: is "serendipity[foo]"!
-            {foreach $media.sortParams AS $sortParam}
-
+{foreach $media.sortParams AS $sortParam}
                 serendipity.SetCookie("sortorder_{$sortParam}", "{$media.sortorder.{$sortParam}}");
-            {/foreach}
-            {if isset($filterParams)}
-            {foreach $media.filterParams AS $filterParam}
-
+{/foreach}
+{if isset($filterParams)}
+{foreach $media.filterParams AS $filterParam}
                 serendipity.SetCookie("{$filterParam}", "{$media.{$filterParam}}");
-            {/foreach}
-            {/if}
-
+{/foreach}
+{/if}
                 serendipity.SetCookie("only_path", "{$media.only_path}");
-
                 serendipity.SetCookie("hideSubdirFiles", "{$media.hideSubdirFiles}");
-            {foreach $media.filter AS $k => $v}
-                {if !is_array($media.filter[{$k}])}
 
+{foreach $media.filter AS $k => $v}
+{if !is_array($media.filter[{$k}])}
                 serendipity.SetCookie("[filter][{$k}]", "{$media.filter[{$k}]}");
-                {else}
-                    {foreach $media.filter[{$k}] AS $key => $val}
-
+{else}
+{foreach $media.filter[{$k}] AS $key => $val}
                 serendipity.SetCookie("[filter][{$k}][{$key}]", "{$media.filter[{$k}][{$key}]}");
-                    {/foreach}
-                {/if}
-            {/foreach}
+{/foreach}
+{/if}
+{/foreach}
 
                 $('#media_pane_filter').find('.reset_media_filters').addClass('reset_filter');
                 $('#media_pane_sort').find('.reset_media_filters').addClass('reset_sort');
@@ -278,7 +263,7 @@
                 });
             });
         </script>
-    {/if}
+{/if}
 
     </form>
 </div>{* has toolbar end *}
