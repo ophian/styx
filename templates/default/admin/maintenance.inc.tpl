@@ -98,12 +98,8 @@
 {/if}
                     <div id="iconvert_info" class="comment_status additional_info">
                         <span class="icon-info-circled" aria-hidden="true"></span> {$CONST.SYNC_OPTION_CONVERTTHUMBS_INFO|sprintf:$thumbsuffix}
-{* if $dbnotmysql AND NOT empty($CONST.MEDIA_THUMBURL_REPLACE_ENTRY)}<br><br>*}{* remove this part and constant, when non-mysql database LIKE replacements found being proofed guilty by others too *}
-{*    <span class="icon-info-circled" aria-hidden="true"></span> {$CONST.MEDIA_THUMBURL_REPLACE_ENTRY}
-{else*}
                         <br><br>
                         <span class="icon-info-circled" aria-hidden="true"></span> {$CONST.PLUGIN_MODEMAINTAIN_HINT_MAINTENANCE_MODE}
-{* /if*}
                     </div>
 
                     <div id="isync_info" class="comment_status additional_info">
@@ -212,24 +208,6 @@
     </section>
 {/if}
 
-{if 'siteConfiguration'|checkPermission AND $dbreftable}
-    <section id="maintenance_reftrack" class="quick_list">
-        <h3>{$CONST.REFTRACK_CLEANUP_TITLE|default:'Maintain Referrer Tracker'}</h3>
-
-{if (isset($dbrtclup_error) AND $dbrtclup_error) OR (isset($dbrtclup_done) AND $dbrtclup_done)}
-{if $dbrtclup_error}
-        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PERM_DENIED}</span></span>
-{/if}
-{if isset($dbrtclup_done) AND $dbrtclup_done}
-        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DONE}</span>
-{/if}
-{else}
-        <a id="reftrackclup" class="button_link state_action" href="?serendipity[action]=admin&serendipity[adminModule]=maintenance&serendipity[adminAction]=runreftrackclup" title=""><span>{$CONST.REFTRACK_CLEANUP_TASK|default:'Cleanup referrer tracking table'}</span></a>
-        <button class="toggle_info button_link rtclup_info" type="button" data-href="#rtclup_info_desc"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
-        <span id="rtclup_info_desc" class="comment_status additional_info">{$CONST.REFTRACK_CLEANUP_INFO_DESC|default:'Räumt Datenbank-Referrer-Logeinträge auf, bestimmt durch die generelle Konfigurationsoption: "Referrer Tracking". Dies sollte periodisch angestoßen werden, da Spammer die Logs kontinuierlich aufblähen und das Blog immer weiter verlangsamen. Ähnlich wie die Tabelle <code>%sexits</code> enthält die Tabelle <code>%sreferrers</code> eine Liste von Links, die tagesabhängig sind. Dieser Task löscht alle Referrer, die älter als einen Monat sind. Unabhängig davon wird dieser Task erst ab einer Mindestmenge von 1000 Einträgen dargestellt.'|sprintf:$dbPrefix:$dbPrefix}</span>
-{/if}
-    </section>
-{/if}
 {if 'adminImport'|checkPermission}
     <section id="maintenance_export" class="quick_list">
         <h3>{$CONST.EXPORT_ENTRIES}</h3>
