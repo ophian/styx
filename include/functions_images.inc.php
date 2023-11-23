@@ -2562,6 +2562,10 @@ function serendipity_createFullFileVariations($target, $info, $messages) {
                     if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: Image WebP format creation success {$result[2]} from $target " . DONE); }
                 } else {
                     if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image WebP format creation success {$result[2]} from $target " . DONE); }
+                    // Is this missing...?? not clear...!!
+                    if (empty($_relative_result_outfile) && !empty($result[2])) {
+                        $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> WebP image format variation(s) \'<em class="media_msg v">'.$result[2].'</em>\' created!</span>'."\n";
+                    }
                 }
             }
         } else {
