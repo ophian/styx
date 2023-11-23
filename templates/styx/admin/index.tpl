@@ -38,66 +38,63 @@
 
     <header id="top">
         <div id="banner{if NOT $admin_vars.is_logged_in}_install{/if}" class="clearfix">
-        {if $admin_vars.is_logged_in}
+{if $admin_vars.is_logged_in}
             <a id="nav-toggle" class="button_link" href="#main_menu"><span class="icon-menu" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.NAVIGATION}</span></a>
-        {/if}
-        {if $admin_vars.admin_installed}
-
+{/if}
+{if $admin_vars.admin_installed}
             <h1><a href="serendipity_admin.php"><span class="visuallyhidden">{$CONST.SERENDIPITY_ADMIN_SUITE|replace:' Styx':''}: </span>{$CONST.ADMIN}: <span class="chop-title">{$blogTitle}</span></a></h1>
-        {else}
-
+{else}
             <h1>{$CONST.SERENDIPITY_INSTALLATION}</h1>
-        {/if}
-
+{/if}
         </div>
     </header>
 {/if}
 
     <div id="idx_waitingspin" class="pulsator busy_update" style="display: none"><div></div><div></div></div>
     <main id="workspace" class="clearfix">
-    {if NOT $admin_vars.is_logged_in}
+{if NOT $admin_vars.is_logged_in}
         {$admin_vars.out|serendipity_refhookPlugin:'backend_login_page'}
-            {if isset($admin_vars.out.header)}{$admin_vars.out.header|default:''}{/if}
-        {if $admin_vars.post_action != '' AND NOT $admin_vars.is_logged_in}
-            <span class="msg_error">{$CONST.WRONG_USERNAME_OR_PASSWORD}</span>
-        {/if}
+        {if isset($admin_vars.out.header)}{$admin_vars.out.header|default:''}{/if}
+{if $admin_vars.post_action != '' AND NOT $admin_vars.is_logged_in}
+        <span class="msg_error">{$CONST.WRONG_USERNAME_OR_PASSWORD}</span>
+{/if}
 
-            <form id="login" class="clearfix" action="serendipity_admin.php" method="post">
-                <input type="hidden" name="serendipity[action]" value="admin">
-                <fieldset>
-                    <span class="wrap_legend"><legend>{$CONST.PLEASE_ENTER_CREDENTIALS}</legend></span>
+        <form id="login" class="clearfix" action="serendipity_admin.php" method="post">
+            <input type="hidden" name="serendipity[action]" value="admin">
+            <fieldset>
+                <span class="wrap_legend"><legend>{$CONST.PLEASE_ENTER_CREDENTIALS}</legend></span>
 
-                    <div class="form_field">
-                        <label for="login_uid">{$CONST.USERNAME}</label>
-                        <input id="login_uid" name="serendipity[user]" autocomplete="name" type="text" autofocus>
-                    </div>
+                <div class="form_field">
+                    <label for="login_uid">{$CONST.USERNAME}</label>
+                    <input id="login_uid" name="serendipity[user]" autocomplete="name" type="text" autofocus>
+                </div>
 
-                    <div class="form_field">
-                        <label for="login_pwd">{$CONST.PASSWORD}</label>
-                        <input id="login_pwd" name="serendipity[pass]" autocomplete="current-password" type="password">
-                    </div>
+                <div class="form_field">
+                    <label for="login_pwd">{$CONST.PASSWORD}</label>
+                    <input id="login_pwd" name="serendipity[pass]" autocomplete="current-password" type="password">
+                </div>
 
-                    <div class="form_check">
-                        <input id="login_auto" name="serendipity[auto]" type="checkbox"><label for="login_auto">{$CONST.AUTOMATIC_LOGIN}</label>
-                    </div>
+                <div class="form_check">
+                    <input id="login_auto" name="serendipity[auto]" type="checkbox"><label for="login_auto">{$CONST.AUTOMATIC_LOGIN}</label>
+                </div>
 
-                    <div class="form_buttons">
-                        <input id="login_send" name="submit" type="submit" value="{$CONST.LOGIN}">
-                        <a class="button_link" href="{$serendipityBaseURL}">{$CONST.BACK_TO_BLOG}</a>
-                    </div>
-                </fieldset>
-                {if isset($admin_vars.out.table)}{$admin_vars.out.table|default:''}{/if}
+                <div class="form_buttons">
+                    <input id="login_send" name="submit" type="submit" value="{$CONST.LOGIN}">
+                    <a class="button_link" href="{$serendipityBaseURL}">{$CONST.BACK_TO_BLOG}</a>
+                </div>
+            </fieldset>
+            {if isset($admin_vars.out.table)}{$admin_vars.out.table|default:''}{/if}
 
-            </form>
-            {if isset($admin_vars.out.footer)}{$admin_vars.out.footer|default:''}{/if}
+        </form>
+        {if isset($admin_vars.out.footer)}{$admin_vars.out.footer|default:''}{/if}
 
-            <script>
-                if ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) || localStorage.getItem('data-login-color-mode') === 'dark') {
-                    document.documentElement.setAttribute('data-login-color-mode', 'dark');
-                }
-            </script>
-    {else}
-        {if NOT $admin_vars.no_sidebar}
+        <script>
+            if ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) || localStorage.getItem('data-login-color-mode') === 'dark') {
+                document.documentElement.setAttribute('data-login-color-mode', 'dark');
+            }
+        </script>
+{else}
+{if NOT $admin_vars.no_sidebar}
 
         <nav id="main_menu">
             <h2 class="visuallyhidden">{$CONST.MAIN_MENU}</h2>
@@ -106,158 +103,133 @@
                 <li id="user_menu"><h3>{$admin_vars.self_info}</h3>
                     <ul class="clearfix">
                         <li><a class="button_link" href="serendipity_admin.php" title="{$CONST.MENU_DASHBOARD}"><span class="icon-home" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MENU_DASHBOARD}</span></a></li>
-                    {if 'personalConfiguration'|checkPermission}
-
+{if 'personalConfiguration'|checkPermission}
                         <li><a class="button_link" href="serendipity_admin.php?serendipity[adminModule]=personal" title="{$CONST.PERSONAL_SETTINGS}"><span class="icon-cog-alt" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.PERSONAL_SETTINGS}</span></a></li>
-                    {/if}
-
+{/if}
                         <li><a class="button_link" href="{$serendipityBaseURL}" title="{$CONST.BACK_TO_BLOG}"><span class="icon-globe" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.BACK_TO_BLOG}</span></a></li>
                         <li><a class="button_link" href="serendipity_admin.php?serendipity[adminModule]=logout" title="{$CONST.LOGOUT}"><span class="icon-logout" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.LOGOUT}</span></a></li>
                     </ul>
                 </li>
-                {if 'adminEntries'|checkPermission OR 'adminEntriesPlugins'|checkPermission}
 
-                <li><h3>{$CONST.CONTENT}</h3>
+{if 'adminEntries'|checkPermission OR 'adminEntriesPlugins'|checkPermission}
+                <li>
+                    <h3>{$CONST.CONTENT}</h3>
                     <ul>
-                    {if 'adminEntries'|checkPermission}
-
+{if 'adminEntries'|checkPermission}
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=entries&amp;serendipity[adminAction]=new">{$CONST.NEW_ENTRY}</a></li>
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect&amp;serendipity[pinned_entries]={$pin_entries}">{$CONST.EDIT_ENTRIES}</a></li>
-                    {/if}
-                    {if 'adminCategories'|checkPermission}
-
+{/if}
+{if 'adminCategories'|checkPermission}
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=category&amp;serendipity[adminAction]=view">{$CONST.CATEGORIES}</a></li>
-                    {/if}
-                    {if 'adminEntries'|checkPermission OR 'adminEntriesPlugins'|checkPermission}
-                        {if $admin_vars.no_create !== true}
-                        {serendipity_hookPlugin hook="backend_sidebar_entries" hookAll="true"}
-                        {/if}
-                    {/if}
-
+{/if}
+{if 'adminEntries'|checkPermission OR 'adminEntriesPlugins'|checkPermission}
+{if $admin_vars.no_create !== true}
+                        {serendipity_hookPlugin hook="backend_sidebar_entries" hookAll="true"}{/if}{/if}
                     </ul>
                 </li>
-                {/if}
-                {if 'adminImages'|checkPermission}
+{/if}
 
-                <li><h3>{$CONST.MEDIA}</h3>
+{if 'adminImages'|checkPermission}
+                <li>
+                    <h3>{$CONST.MEDIA}</h3>
                     <ul>
-                    {if 'adminImagesAdd'|checkPermission}
-
+{if 'adminImagesAdd'|checkPermission}
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=media&amp;serendipity[adminAction]=addSelect">{$CONST.ADD_MEDIA}</a></li>
-                    {/if}
-                    {if 'adminImagesView'|checkPermission}
-
+{/if}
+{if 'adminImagesView'|checkPermission}
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=media">{$CONST.MEDIA_LIBRARY}</a></li>
-                    {/if}
-                    {if 'adminImagesDirectories'|checkPermission}
-
+{/if}
+{if 'adminImagesDirectories'|checkPermission}
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=media&amp;serendipity[adminAction]=directorySelect">{$CONST.MANAGE_DIRECTORIES}</a></li>
-                    {/if}
-                    {if $admin_vars.no_create !== true}
+{/if}
+{if $admin_vars.no_create !== true}
                         {serendipity_hookPlugin hook="backend_sidebar_entries_images" hookAll="true"}
-                    {/if}
-
+{/if}
                     </ul>
                 </li>
-                {/if}
+{/if}
 
-                <li><h3>{$CONST.MENU_ACTIVITY}</h3>
+                <li>
+                    <h3>{$CONST.MENU_ACTIVITY}</h3>
                     <ul>
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=comments">{$CONST.COMMENTS}</a></li>
-                    {if 'adminPlugins'|checkPermission AND $admin_vars.no_create !== true}
+{if 'adminPlugins'|checkPermission AND $admin_vars.no_create !== true}
                         {serendipity_hookPlugin hook="backend_sidebar_admin_appearance" hookAll="true"}
-                    {/if}
-
+{/if}
                     </ul>
                 </li>
-                {if 'adminImport'|checkPermission OR 'siteConfiguration'|checkPermission OR 'blogConfiguration'|checkPermission OR 'adminTemplates'|checkPermission OR 'adminPlugins'|checkPermission}
 
-                <li><h3>{$CONST.MENU_SETTINGS}</h3>
+{if 'adminImport'|checkPermission OR 'siteConfiguration'|checkPermission OR 'blogConfiguration'|checkPermission OR 'adminTemplates'|checkPermission OR 'adminPlugins'|checkPermission}
+                <li>
+                    <h3>{$CONST.MENU_SETTINGS}</h3>
                     <ul>
-                    {if 'siteConfiguration'|checkPermission OR 'blogConfiguration'|checkPermission}
-
+{if 'siteConfiguration'|checkPermission OR 'blogConfiguration'|checkPermission}
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=configuration">{$CONST.CONFIGURATION}</a></li>
-                    {/if}
-                    {if 'adminTemplates'|checkPermission}
-
+{/if}
+{if 'adminTemplates'|checkPermission}
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=templates">{$CONST.MENU_TEMPLATES}</a></li>
-                    {/if}
-                    {if 'adminPlugins'|checkPermission}
-
+{/if}
+{if 'adminPlugins'|checkPermission}
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=plugins">{$CONST.MENU_PLUGINS}</a></li>
-                    {/if}
-                    {if 'siteConfiguration'|checkPermission OR 'siteAutoUpgrades'|checkPermission}
-
+{/if}
+{if 'siteConfiguration'|checkPermission OR 'siteAutoUpgrades'|checkPermission}
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=maintenance">{$CONST.MENU_MAINTENANCE}</a></li>
-                    {/if}
-                    {if $admin_vars.no_create !== true}
-
+{/if}
+{if $admin_vars.no_create !== true}
                         {serendipity_hookPlugin hook="backend_sidebar_admin" hookAll="true"}
-                    {/if}
-
+{/if}
                     </ul>
                 </li>
-                {/if}
+{/if}
 
-                <li><h3>{$CONST.MANAGE_USERS}</h3>
+                <li>
+                    <h3>{$CONST.MANAGE_USERS}</h3>
                     <ul>
-                {if 'adminUsersGroups'|checkPermission OR 'adminUsers'|checkPermission}
-
-                    {if 'adminUsers'|checkPermission}
-
+{if 'adminUsersGroups'|checkPermission OR 'adminUsers'|checkPermission}
+{if 'adminUsers'|checkPermission}
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=users">{$CONST.MENU_USERS}</a></li>
-                    {/if}
-                    {if 'adminUsersGroups'|checkPermission}
-
+{/if}
+{if 'adminUsersGroups'|checkPermission}
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=groups">{$CONST.MENU_GROUPS}</a></li>
-                    {/if}
-                    {if $admin_vars.no_create !== true}
-
+{/if}
+{if $admin_vars.no_create !== true}
                         {serendipity_hookPlugin hook="backend_sidebar_users" hookAll="true"}
-
-                    {/if}
-                {else}
-                    {if $admin_vars.no_create !== true}
-
+{/if}
+{else}
+{if $admin_vars.no_create !== true}
                         {serendipity_hookPlugin hook="backend_sidebar_users" hookAll="true"}
-
-                    {/if}
-
-                    {if $admin_vars.right_publish !== true}
-
+{/if}
+{if $admin_vars.right_publish !== true}
                     <li>
                         <span class="msg_hint">{$CONST.USER_ALERT} "<b>{$CONST.PERMISSIONS|upper}</b>"<br>&laquo;&nbsp;<em>{$CONST.ENTRY_STATUS}: {$CONST.DRAFT}</em>&nbsp;&raquo;</span>
                         <span class="msg_notice hyphenate"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.USER_PERMISSION_NOTIFIER_DRAFT_MODE}</span>
                         <span class="msg_notice hyphenate"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.USER_PERMISSION_NOTIFIER_RESET}</span>
                     </li>
-                    {/if}
-                    {if $admin_vars.no_create === true}
-
+{/if}
+{if $admin_vars.no_create === true}
                     <li>
                         <span class="msg_hint">{$CONST.USER_ALERT} "<b>{$CONST.PERMISSIONS|upper}</b>"<br>&laquo;&nbsp;<em>{$CONST.PERMISSIONS}: {$CONST.NONE}</em>&nbsp;&raquo;</span>
                         <span class="msg_notice hyphenate"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.USER_PERMISSION_NOTIFIER_RESET}</span>
                     </li>
-                    {/if}
-                    {if $admin_vars.no_create !== true}
-
+{/if}
+{if $admin_vars.no_create !== true}
                         {serendipity_hookPlugin hook="backend_sidebar_useralert" hookAll="true"}
-
-                    {/if}
-                {/if}
-
+{/if}{/if}
                     </ul>
                 </li>
 
             </ul>
         </nav>
-        {/if}
+{/if}
 
         <div id="content" class="clearfix">
 
-{$admin_vars.main_content}
+{$admin_vars.main_content}{* starts from root 0 indent *}
 
-        </div>
-    {/if}
+
+        </div><!-- #content end -->
+
+{/if}{* endif of logged-in *}
 
     </main>
 {if NOT $admin_vars.no_footer}
@@ -293,5 +265,6 @@
         matcher.addListener(onUpdate);
         onUpdate();
     </script>
+
 </body>
 </html>
