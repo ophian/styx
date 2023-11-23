@@ -1874,7 +1874,7 @@ function serendipity_generateVariations($id = null) {
     echo "<ul class=\"plainList\">\n";
     $parts = ($count[0] > 25) ? range(0, $count[0], 25) : array(0);
     foreach($parts AS $part) {
-        echo "<li>" . sprintf(SYNC_IMAGE_LIST_ITERATION_RANGE_PART, $iteration, ($count[0]-$part)) . "</li>\n";
+        echo "    <li>" . sprintf(SYNC_IMAGE_LIST_ITERATION_RANGE_PART, $iteration, ($count[0]-$part)) . "</li>\n";
         // we use and set a filter extension for webp to get same results for the part range
         $files = serendipity_fetchImagesFromDatabase($part, 25, $total, array('path, name'), 'ASC', '', '', '', array('by.extension' => array(0 => 'jpg', 1 => 'jpeg', 2 => 'png')));
         if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag FETCH PART $iteration DB FILES: ".print_r($files,true)); }
@@ -1934,7 +1934,7 @@ function serendipity_generateVariations($id = null) {
                 }
             }
         }
-        echo '<li>' , sprintf(SYNC_IMAGE_LIST_ITERATION_RANGE_DONE, $iteration, DONE, $i) , "<br>\n</li>\n";
+        echo '    <li>' , sprintf(SYNC_IMAGE_LIST_ITERATION_RANGE_DONE, $iteration, DONE, $i) , "<br>\n</li>\n";
         if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag ".sprintf(SYNC_IMAGE_LIST_ITERATION_RANGE_DONE, $iteration, DONE, $i)); }
         ++$iteration;
         flush();
@@ -1984,7 +1984,7 @@ function serendipity_purgeVariations($path = null, $doPurge = false) {
                     if ($fileinfo->getExtension() == 'webp' || $fileinfo->getExtension() == 'avif') {
                         $wpurges[] = $fileinfo->__toString();
                         if (!$doPurge) {
-                            print('<li>' . $fileinfo->__toString() . '</li>' . PHP_EOL); // OK
+                            print('    <li>' . $fileinfo->__toString() . '</li>' . PHP_EOL); // OK
                         } else {
                             unlink($fileinfo->__toString());
                         }
@@ -2028,7 +2028,7 @@ function serendipity_generateThumbs() {
     $m = []; // message array for full file sync
 
     echo '<section class="media_rebuild_thumbs">' . "\n";
-    printf('    <header><h2>' . sprintf(RESIZE_BLAHBLAH, THUMBNAIL_SHORT) . "</h2></header>\n");
+    printf('    <header><h2>' . sprintf(RESIZE_BLAHBLAH, THUMBNAIL_SHORT) . "</h2></header>\n\n");
 
     foreach($serendipity['imageList'] AS $k => $file) {
         $is_image = serendipity_isImage($file);
@@ -2056,8 +2056,8 @@ function serendipity_generateThumbs() {
             // FTP like added images - Create ORIGIN Full File Variations - check by missing mandatory WebP Variation image
             if (!file_exists($ffuva)) {
                 $mfile = serendipity_createFullFileVariations($ffull, pathinfo($ffull), $m);
-                if (isset($mfile[0])) $_list .= '<li>' . $mfile[0] . "</li>\n";
-                if (isset($mfile[1])) $_list .= '<li>' . $mfile[1] . "</li>\n";
+                if (isset($mfile[0])) $_list .= '    <li>' . $mfile[0] . "</li>\n";
+                if (isset($mfile[1])) $_list .= '    <li>' . $mfile[1] . "</li>\n";
                 $m = []; // restart
             }
 
@@ -2065,9 +2065,9 @@ function serendipity_generateThumbs() {
             if (!file_exists($oldThumb) && !file_exists($newThumb) && is_array($fdim) && ($fdim[0] > $serendipity['thumbSize'] || $fdim[1] > $serendipity['thumbSize'])) {
                 $returnsize = serendipity_makeThumbnail($file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']), $file['path'], false, false, false, false, true); // suppress "trying to webp" message
                 if ($returnsize !== false && is_array($returnsize)) {
-                    $_list .= '<li>' . sprintf(RESIZE_BLAHBLAH, '<b>' . $sThumb . '</b>') . ': ' . $returnsize[0] . 'x' . $returnsize[1] . "</li>\n";
+                    $_list .= '    <li>' . sprintf(RESIZE_BLAHBLAH, '<b>' . $sThumb . '</b>') . ': ' . $returnsize[0] . 'x' . $returnsize[1] . "</li>\n";
                     if (!file_exists($newThumb)) {
-                        $_list .= sprintf('<li>' . THUMBNAIL_FAILED_COPY . "</li>\n", '<b>' . $sThumb . '</b>');
+                        $_list .= sprintf('    <li>' . THUMBNAIL_FAILED_COPY . "</li>\n", '<b>' . $sThumb . '</b>');
                     } else {
                         $update = true;
                     }
@@ -2076,10 +2076,10 @@ function serendipity_generateThumbs() {
             } elseif (!file_exists($oldThumb) && !file_exists($newThumb) && is_array($fdim) && $fdim[0] <= $serendipity['thumbSize'] && $fdim[1] <= $serendipity['thumbSize']) {
                 $res = @copy($ffull, $newThumb);
                 if (@$res === true) {
-                    $_list .= sprintf('<li>' . THUMBNAIL_USING_OWN . "</li>\n", '<b>' . $filename . '</b>');
+                    $_list .= sprintf('    <li>' . THUMBNAIL_USING_OWN . "</li>\n", '<b>' . $filename . '</b>');
                     $update = true;
                 } else {
-                    $_list .= sprintf('<li>' . THUMBNAIL_FAILED_COPY . "</li>\n", '<b>' . $sThumb . '</b>');
+                    $_list .= sprintf('    <li>' . THUMBNAIL_FAILED_COPY . "</li>\n", '<b>' . $sThumb . '</b>');
                 }
             }
 
@@ -2099,11 +2099,11 @@ function serendipity_generateThumbs() {
 
     // Close the list, if it was created
     if (!empty($_list)) {
-         echo '<ul class="plainList">' . "\n";
-         echo $_list;
-         echo "</ul>\n";
+        echo '    <ul class="plainList">' . "\n";
+        echo $_list;
+        echo "    </ul>\n";
     } else {
-        echo '    <span class="msg_success"><span class="icon-ok-circled"></span> ' . DONE . ' (' . NOTHING_TODO . ')</span>' . "\n";
+        echo '<span class="msg_success"><span class="icon-ok-circled"></span> ' . DONE . ' (' . NOTHING_TODO . ')</span>' . "\n";
     }
     echo "</section>\n";
 
@@ -2499,7 +2499,7 @@ function serendipity_convertThumbs() {
             }
         }
         $i++;
-        echo "<li>$oldthumbnail <b>converted</b> to {$serendipity['thumbSuffix']}</li>\n";
+        echo "    <li>$oldthumbnail <b>converted</b> to {$serendipity['thumbSuffix']}</li>\n";
         flush();
     }
     echo "</ul>\n</span>\n";
@@ -2663,7 +2663,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
 
     echo "\n";
     echo '<section class="media_sync_thumbs">' . "\n";
-    echo '    <header><h2>' . sprintf(SYNC_OPTION_DELETETHUMBS, '') . "</h2></header>\n";
+    echo '    <header><h2>' . sprintf(SYNC_OPTION_DELETETHUMBS, '') . "</h2></header>\n\n";
 
     for ($x = 0; $x < $fcount; $x++) {
         $update = array();
@@ -3291,7 +3291,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
                 if (count($msgdelfile) > 0) {
                     echo "<h3>MediaLibrary Cleanup:</h3>";
                     echo '<ul class="plainList">'."\n";
-                    foreach ($msgdelfile AS $f) { echo "<li>$f</li>\n"; }
+                    foreach ($msgdelfile AS $f) { echo "    <li>$f</li>\n"; }
                     echo "</ul>\n";
                 }
             }
@@ -3600,13 +3600,13 @@ function serendipity_killPath($basedir, $directory = '', $forceDelete = false) {
         if (is_array($files)) {
             echo '<ul class="plainList">'."\n";
             foreach($files AS $f => $file) {
-                echo "<li>\n";
+                echo "    <li>\n";
                 if ($serious) {
                     echo serendipity_deleteImage($file['id']);
                 } else {
                     echo $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
                 }
-                echo "</li>\n";
+                echo "    </li>\n";
 
                 unset($filestack[$file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension'])]);
                 unset($filestack[$file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . (empty($file['extension']) ? '' : '.' . $file['extension'])]);
@@ -3619,9 +3619,9 @@ function serendipity_killPath($basedir, $directory = '', $forceDelete = false) {
                 echo '<ul class="plainList">'."\n";
                 foreach($filestack AS $f => $file) {
                     if ($serious && unlink($basedir . $file)) {
-                        printf('<li><span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETING_FILE . ' ' . DONE . "</span></li>\n", $file);
+                        printf('    <li><span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETING_FILE . ' ' . DONE . "</span></li>\n", $file);
                     } else {
-                        printf('<li><span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . DELETING_FILE . ' ' . ERROR . "</span></li>\n", $file);
+                        printf('    <li><span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . DELETING_FILE . ' ' . ERROR . "</span></li>\n", $file);
                     }
                 }
                 echo "</ul>\n";
@@ -3629,7 +3629,7 @@ function serendipity_killPath($basedir, $directory = '', $forceDelete = false) {
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_DIRECTORY_NOT_EMPTY . "</span>\n";
                 echo "<ul>\n";
                 foreach($filestack AS $f => $file) {
-                    echo "<li>$file</li>\n";
+                    echo "    <li>$file</li>\n";
                 }
                 echo "</ul>\n";
             }
