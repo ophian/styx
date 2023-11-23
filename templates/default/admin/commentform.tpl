@@ -30,23 +30,23 @@ if (!window.CKEDITOR) {
             <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}</label>
             <input id="serendipity_commentform_url" name="serendipity[url]" type="url" value="{$commentform_url}">
         </div>
-        {if isset($commentform_changeReplyTo)}
+{if isset($commentform_changeReplyTo)}
 
         <div class="form_select">
             <label for="serendipity_commentform_replyToParent">{$CONST.IN_REPLY_TO} {$CONST.COMMENT} ID</label>
             <select id="serendipity_commentform_replyToParent" name="serendipity[commentform][replyToParent]">
-            {foreach $commentform_changeReplyTo AS $copa}
+{foreach $commentform_changeReplyTo AS $copa}
 {if empty($copa.id)}
                 <option value="{$copa}"{if $commentform_replyTo == $copa} selected="selected"{/if}> {$CONST.TOP_LEVEL}</option>
 {else}
                 <option value="{$copa.id}"{if $commentform_replyTo == $copa.id} selected="selected"{/if}>{$copa.name} #c{$copa.id}</option>
 {/if}
-            {/foreach}
+{/foreach}
             </select>
             <button class="toggle_info button_link" type="button" data-href="#copa_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
             <span id="copa_info" class="comment_status additional_info"><em>{$CONST.COMMENT_CHANGE_PARENT_INFO}</em></span>
         </div>
-        {/if}
+{/if}
 
         <div class="form_tarea">
             <label for="serendipity_commentform_comment">{$CONST.COMMENT}</label>
