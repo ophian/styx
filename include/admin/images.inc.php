@@ -888,7 +888,7 @@ switch ($serendipity['GET']['adminAction']) {
         if (isset($image_selector_addvars) && is_array($image_selector_addvars)) {
             // These variables may come from serendipity_admin_image_selector.php to show embedded upload form
             foreach($image_selector_addvars AS $imgsel_key => $imgsel_val) {
-                $form_hidden .= '          <input type="hidden" name="serendipity[' . serendipity_specialchars($imgsel_key) . ']" value="' . serendipity_specialchars($imgsel_val) . '" />' . "\n";
+                $form_hidden .= '        <input type="hidden" name="serendipity[' . serendipity_specialchars($imgsel_key) . ']" value="' . serendipity_specialchars($imgsel_val) . '">' . "\n";
             }
         }
 
