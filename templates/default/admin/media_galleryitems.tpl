@@ -16,27 +16,22 @@
 
                 <div class="clearfix media_file_wrap">
                     <div class="media_file_preview media_file_pregal">
-                    {if $file.hotlink}
-
+{if $file.hotlink}
                         <img src="{$file.path}" title="{$file.name}" alt="{$file.realname}">
-                    {elseif empty($file.full_thumb)}
-
+{elseif empty($file.full_thumb)}
                         <picture>
                             {if isset($file.sizeAVIF) AND $file.sizeAVIF > 252 AND $file.sizeAVIF != 34165 AND $file.sizeAVIF != 3389 AND ( $file.sizeWebp == 0 OR $file.sizeAVIF <= $file.sizeWebp )}<source type="image/avif" srcset="{$file.full_file_avif|default:''}">{/if}
                             <source type="image/webp" srcset="{if $file.sizeWebp > 0 AND $file.sizeWebp <= $file.size}{$file.full_file_webp|default:''}{/if}">
                             <img src="{$file.full_file}" class="ml_preview_img" title="{$file.name}" alt="{$file.diskname}">
                         </picture>
-                    {else}
-
+{else}
                         <picture>
                             {if isset($file.thumbSizeAVIF) AND $file.thumbSizeAVIF > 252 AND $file.thumbSizeAVIF != 34165 AND $file.thumbSizeAVIF != 3389 AND ( $file.thumbSizeWebp == 0 OR $file.thumbSizeAVIF <= $file.thumbSizeWebp )}<source type="image/avif" srcset="{$file.full_thumb_avif|default:''}">{/if}
                             <source type="image/webp" srcset="{if NOT isset($file.thumbSizeWebp) OR $file.thumbSizeWebp > 0}{$file.full_thumb_webp|default:''}{/if}">
                             <img src="{$file.full_thumb}" class="ml_preview_img" title="{$file.name}" alt="{$file.diskname}">
                         </picture>
-                    {/if}
-
+{/if}
                     </div>
                 </div>
             </article>
-
 {/foreach}
