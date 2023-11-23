@@ -11,8 +11,7 @@
     <input name="serendipity[adminModule]" type="hidden" value="media">
     <input name="serendipity[adminAction]" type="hidden" value="add">
     {$media.form_hidden}
-
-    <div class="clearfix tabs" id="mediaupload_tabs">
+    <div id="mediaupload_tabs" class="clearfix tabs">
         <h3>{$CONST.UPLOAD}</h3>
 
         <div class="panel">
@@ -80,8 +79,8 @@
                 </div>
             </div>
         </div>
-    </div>
 
+    </div>
     {serendipity_hookPlugin hook="backend_image_addform" hookAll=true}
     <div class="form_buttons">
         <input class="check_inputs" type="submit" value="{$CONST.GO}">
