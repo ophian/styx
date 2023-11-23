@@ -47,7 +47,6 @@ if (isset($_POST['DELETE_YES']) && serendipity_checkFormToken()) {
     }
 }
 
-
 /* Save new user */
 if (isset($_POST['SAVE_NEW']) && serendipity_checkFormToken()) {
     $data['save_new'] = true;
