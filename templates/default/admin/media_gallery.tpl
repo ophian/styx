@@ -15,7 +15,7 @@
         <div class="media_pane media_gallery" data-thumbmaxwidth="{$media.thumbSize}">
             {$MEDIA_ITEMS}
 
-        {if ($media.page != 1 AND $media.page <= $media.pages) OR $media.page != $media.pages}
+{if ($media.page != 1 AND $media.page <= $media.pages) OR $media.page != $media.pages}
 
             <nav class="pagination">
                 <h3>{$CONST.PAGE_BROWSE_ENTRIES|sprintf:$media.page:$media.pages:$media.totalImages}</h3>
@@ -28,7 +28,7 @@
                     <li class="next">{if $media.page != $media.pages}<a class="button_link" href="{$media.linkNext}&amp;serendipity[showGallery]=true" title="{$CONST.NEXT}"><span class="visuallyhidden">{$CONST.NEXT} </span><span class="icon-right-dir" aria-hidden="true"></span></a>{else}<span class="visuallyhidden">{$CONST.NO_ENTRIES_TO_PRINT}</span>{/if}</li>
                 </ul>
             </nav>
-        {/if}
+{/if}
 
         </div>{* media pane gallery edition end *}
 
@@ -78,10 +78,10 @@
             <input name="serendipity[align]" type="hidden" value="left">
             <input name="serendipity[mediaTextarea]" type="hidden" value="{$media.textarea}">
             <input class="state_submit" name="gallery_insert" type="submit" value="{$CONST.ADD_MEDIA}">
-            {if $media.supportsWebP}
-                <input type="hidden" name="picturerequest" id="picturerequest">
-                <input id="picSubmit" class="input_button state_submit" type="submit" value="{$CONST.ADD_MEDIA_PICTELEMENT}" data-submit="enhanced" name="serendipity[formatPicture]" onClick="document.formMultiSelect.picturerequest.value = 1;">
-            {/if}
+{if $media.supportsWebP}
+            <input type="hidden" name="picturerequest" id="picturerequest">
+            <input id="picSubmit" class="input_button state_submit" type="submit" value="{$CONST.ADD_MEDIA_PICTELEMENT}" data-submit="enhanced" name="serendipity[formatPicture]" onClick="document.formMultiSelect.picturerequest.value = 1;">
+{/if}
         </div>
 
     </form>
