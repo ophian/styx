@@ -4,25 +4,25 @@
 {/foreach}{/if}
 
 {if $case_doSync}
-    {if !$perm_adminImagesSync}
-        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PERM_DENIED}</span>
-    {else}
-        {if empty($convertThumbs) AND empty($buildVariation) AND empty($purgeVariation)}
-        <h2>{$CONST.SYNCING}</h2>
+{if !$perm_adminImagesSync}
+    <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PERM_DENIED}</span>
+{else}
+{if empty($convertThumbs) AND empty($buildVariation) AND empty($purgeVariation)}
+    <h2>{$CONST.SYNCING}</h2>
 
-        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_SYNC_DONE}</span>
-        {/if}
-        {if NOT empty($convertThumbs)}
-        <h2>{$CONST.RESIZING}</h2>
+    <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_SYNC_DONE}</span>
+{/if}
+{if NOT empty($convertThumbs)}
+    <h2>{$CONST.RESIZING}</h2>
 
-        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_RESIZE_DONE|default:$CONST.NOTHING_TODO}</span>
-        {/if}
-        {if NOT empty($buildVariation)}
-        <h2>{$CONST.SYNC_BUILD_VARIATIONS}</h2>
+    <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_RESIZE_DONE|default:$CONST.NOTHING_TODO}</span>
+{/if}
+{if NOT empty($buildVariation)}
+    <h2>{$CONST.SYNC_BUILD_VARIATIONS}</h2>
 
-        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_VARIATIONBUILDS_DONE}</span>
-        {/if}
-    {/if}
+    <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_VARIATIONBUILDS_DONE}</span>
+{/if}
+{/if}
 {/if}
 {if NOT empty($purgedVariations)}
     <h2>{$CONST.SYNC_PURGED_VARIATIONS}</h2>
@@ -44,9 +44,9 @@
 {if $case_multidelete}
     <form id="delete_image" method="get">
         <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.ABOUT_TO_DELETE_FILES}</span>
-    {foreach $rip_image AS $ripimg}
+{foreach $rip_image AS $ripimg}
         <span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> {$ripimg}</span>
-    {/foreach}
+{/foreach}
         <div class="form_buttons">
             <a class="button_link state_cancel icon_link" href="{$abortLoc}">{$CONST.BACK}</a>
             <a class="button_link state_submit icon_link" href="{$newLoc}">{$CONST.DUMP_IT}</a>
@@ -54,21 +54,31 @@
     </form>
 {/if}
 {if $case_do_multidelete OR $case_do_delete}
-    {if isset($showML)}{$showML}{/if}
+{if isset($showML)}
+    {$showML}
+{/if}
 {/if}
 {* A $case_rename can not respond to reload page while in JS - serendipity.rename() ajax will reload and set message events by script *}
 {if $case_add OR $case_changeProp}
-    {if isset($showML)}{$showML}{/if}
+{if isset($showML)}
+    {$showML}
+{/if}
 {/if}
 {if $case_directoryDoDelete}
-    {if isset($print_DIRECTORY_WRITE_ERROR)}<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$print_DIRECTORY_WRITE_ERROR}</span>{/if}
-    {if isset($ob_serendipity_killPath)}{$ob_serendipity_killPath}{/if}
-    {if NOT empty($print_ERROR_NO_DIRECTORY)}<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$print_ERROR_NO_DIRECTORY}</span>{/if}
+{if isset($print_DIRECTORY_WRITE_ERROR)}
+    <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$print_DIRECTORY_WRITE_ERROR}</span>
+{/if}
+{if isset($ob_serendipity_killPath)}
+    {$ob_serendipity_killPath}
+{/if}
+{if NOT empty($print_ERROR_NO_DIRECTORY)}
+    <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$print_ERROR_NO_DIRECTORY}</span>
+{/if}
 {/if}
 {if $case_directoryEdit}
-    {if !empty($smarty.post.serendipity.save) AND isset($savedirtime)}
+{if !empty($smarty.post.serendipity.save) AND isset($savedirtime)}
     <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.SETTINGS_SAVED_AT|sprintf:$savedirtime}</span>
-    {/if}
+{/if}
     <h2>{$CONST.MANAGE_DIRECTORIES}</h2>
 
     <form id="image_directory_edit_form" method="POST" action="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$dir|escape}">
@@ -89,9 +99,9 @@
                 <label for="read_authors">{$CONST.PERM_READ}</label>
                 <select id="read_authors" name="serendipity[read_authors][]" multiple size="6">
                     <option value="0"{if $rgroups} selected{/if}>{$CONST.ALL_AUTHORS}</option>
-                {foreach $groups AS $group}
+{foreach $groups AS $group}
                     <option value="{$group.confkey}"{if isset($read_groups.{$group.confkey})} selected{/if}>{$group.confvalue|escape}</option>
-                {/foreach}
+{/foreach}
                 </select>
             </div>
 
@@ -99,9 +109,9 @@
                 <label for="write_authors">{$CONST.PERM_WRITE}</label>
                 <select id="write_authors" name="serendipity[write_authors][]" multiple size="6">
                     <option value="0"{if $wgroups} selected{/if}>{$CONST.ALL_AUTHORS}</option>
-                {foreach $groups AS $group}
+{foreach $groups AS $group}
                     <option value="{$group.confkey}"{if isset($write_groups.{$group.confkey})} selected{/if}>{$group.confvalue|escape}</option>
-                {/foreach}
+{/foreach}
                 </select>
             </div>
 
@@ -114,6 +124,7 @@
 
                 <span id="acl_rw_info" class="field_info additional_info">{$CONST.PERMISSION_READ_WRITE_ACL_DESC}</span>
             </div>
+
         </div>
 
         <div class="form_buttons">
@@ -134,19 +145,19 @@
             <label for="diredit_delete"><b>{$basename_dir}</b> - {$CONST.FORCE_DELETE}</label>
         </div>
 
-        {* I think this is redundant: <p>{$CONST.CONFIRM_DELETE_DIRECTORY|sprintf:$dir|escape}</p> *}
+{* I think this is redundant: <p>{$CONST.CONFIRM_DELETE_DIRECTORY|sprintf:$dir|escape}</p> *}
         <div class="form_buttons">
             <input class="state_cancel" name="SAVE" type="submit" value="{$CONST.DELETE_DIRECTORY}">
         </div>
     </form>
 {/if}
 {if $case_directoryDoCreate}
-    {if $print_DIRECTORY_CREATED}
+{if $print_DIRECTORY_CREATED}
     <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_DIRECTORY_CREATED}</span>
-    {/if}
-    {if isset($print_DIRECTORY_WRITE_ERROR)}
+{/if}
+{if isset($print_DIRECTORY_WRITE_ERROR)}
     <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$print_DIRECTORY_WRITE_ERROR}</span>
-    {/if}
+{/if}
     <a class="button_link state_submit" href="serendipity_admin.php?serendipity[adminModule]=media&amp;serendipity[adminAction]=directorySelect">{$CONST.BACK}</a>
 {/if}
 {if $case_directoryCreate}
@@ -186,7 +197,7 @@
     </header>
 
     <ul id="serendipity_image_folders" class="option_list{if !$threadedDirs} slist{/if}">
-    {if !empty($folders) || isset($pathitems[''])}
+{if !empty($folders) || isset($pathitems[''])}
         <li>
             <div class="clearfix odd">
                 <div class="directory_data">
@@ -204,33 +215,109 @@
                 </ul>
             </div>
         </li>
-    {/if}
-    {foreach $folders AS $folder}
-        {if ! $folder@first}
-            {if $folder.depth > $priorDepth}
+{/if}
+{* allows a Source nesting level of 4 else no nesting of markup tags *}
+{foreach $folders AS $folder}{if ! $folder@first}{if $folder.depth > $priorDepth}
+{if $folder.depth == 6}
+                                            <ul><!-- start sub case depth {$folder.depth} ({$folder.name}) -->
+{elseif $folder.depth == 5}
+                                    <ul><!-- start sub case depth {$folder.depth} ({$folder.name}) -->
+{elseif $folder.depth == 4}
+                            <ul><!-- start sub case depth {$folder.depth} ({$folder.name}) -->
+{elseif $folder.depth == 3}
+                    <ul><!-- start sub case depth {$folder.depth} ({$folder.name}) -->
+{else}
+            <ul><!-- start sub case depth {$folder.depth} ({$folder.name}) -->
+{/if}{/if}{if $folder.depth < $priorDepth}
+{if $priorDepth == 6}
+                                                </li><!-- close the lists of sub case {$priorDepth} -->
+{elseif $priorDepth == 5}
+                                        </li><!-- close the lists of sub case {$priorDepth} -->
+{elseif $priorDepth == 4}
+                                </li><!-- close the lists of sub case {$priorDepth} -->
+{elseif $priorDepth == 3}
+                        </li><!-- close the lists of sub case {$priorDepth} -->
+{else}
+                </li><!-- close the lists of sub case {$priorDepth} -->
+{/if}
+{for $i=($folder.depth+1) to $priorDepth}
+{*            <!-- sadly un-nested in the for loop: folder.depth+1 {$i} to priorDepth {$priorDepth} case, since too many possible cases to check for to set the correct indent -->*}
+            </ul><!-- close prior sub case -->
+        </li><!-- close {if (($priorDepth+1)-$i) > 1}prior sub list item{else}nested sub case item {$folder.depth}{/if} -->
+{/for}
+{/if}
+{if $folder.depth == $priorDepth}{if $priorDepth == 2}
+                </li><!-- cN {$folder.depth} == {$priorDepth} -->
+{else}
+       </li><!-- cN {$folder.depth} == {$priorDepth} -->
+{/if}{/if}
+{/if}
+{* assign the looped $priorDepth dynamically *}
+{$priorDepth=$folder.depth}
+{if $folder.depth == 6}
+                                                <li>
+                                                    <div class="clearfix {cycle values="odd,even"}">
+                                                        <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
 
-            <ul>
-            {/if}
+                                                        <ul class="plainList clearfix edit_actions">
+                                                            <li>{if isset($pathitems[$folder.relpath])}<span class="imgctlabel">{$pathitems[$folder.relpath]} {$CONST.MEDIA}</span>{else}<span class="emptydim imgctlabel">0 {$CONST.MEDIA}</span>{/if}</li>
+                                                            <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.EDIT} {$folder.name}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
+                                                            <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreateSub&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.CREATE_DIRECTORY}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_DIRECTORY}</span></a></li>
+                                                            <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
+                                                        </ul>
+                                                    </div>
+{elseif $folder.depth == 5}
+                                        <li>
+                                            <div class="clearfix {cycle values="odd,even"}">
+                                                <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
 
-            {if $folder.depth < $priorDepth}
+                                                <ul class="plainList clearfix edit_actions">
+                                                    <li>{if isset($pathitems[$folder.relpath])}<span class="imgctlabel">{$pathitems[$folder.relpath]} {$CONST.MEDIA}</span>{else}<span class="emptydim imgctlabel">0 {$CONST.MEDIA}</span>{/if}</li>
+                                                    <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.EDIT} {$folder.name}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
+                                                    <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreateSub&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.CREATE_DIRECTORY}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_DIRECTORY}</span></a></li>
+                                                    <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
+                                                </ul>
+                                            </div>
+{elseif $folder.depth == 4}
+                                <li>
+                                    <div class="clearfix {cycle values="odd,even"}">
+                                        <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
 
-        </li>
+                                        <ul class="plainList clearfix edit_actions">
+                                            <li>{if isset($pathitems[$folder.relpath])}<span class="imgctlabel">{$pathitems[$folder.relpath]} {$CONST.MEDIA}</span>{else}<span class="emptydim imgctlabel">0 {$CONST.MEDIA}</span>{/if}</li>
+                                            <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.EDIT} {$folder.name}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
+                                            <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreateSub&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.CREATE_DIRECTORY}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_DIRECTORY}</span></a></li>
+                                            <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
+                                        </ul>
+                                    </div>
+{elseif $folder.depth == 3}
+                        <li>
+                            <div class="clearfix {cycle values="odd,even"}">
+                                <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
 
-            {for $i=($folder.depth+1) to $priorDepth}
+                                <ul class="plainList clearfix edit_actions">
+                                    <li>{if isset($pathitems[$folder.relpath])}<span class="imgctlabel">{$pathitems[$folder.relpath]} {$CONST.MEDIA}</span>{else}<span class="emptydim imgctlabel">0 {$CONST.MEDIA}</span>{/if}</li>
+                                    <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.EDIT} {$folder.name}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
+                                    <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreateSub&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.CREATE_DIRECTORY}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_DIRECTORY}</span></a></li>
+                                    <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
+                                </ul>
+                            </div>
+{elseif $folder.depth == 2}
+                <li>
+                    <div class="clearfix {cycle values="odd,even"}">
+                        <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
 
-            </ul>
-         </li>
-            {/for}
-            {/if}
-
-            {if $folder.depth == $priorDepth}
-
-        </li>
-            {/if}
-        {/if}
-
-        {$priorDepth=$folder.depth}
-
+                        <ul class="plainList clearfix edit_actions">
+                            <li>{if isset($pathitems[$folder.relpath])}<span class="imgctlabel">{$pathitems[$folder.relpath]} {$CONST.MEDIA}</span>{else}<span class="emptydim imgctlabel">0 {$CONST.MEDIA}</span>{/if}</li>
+                            <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.EDIT} {$folder.name}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
+                            <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreateSub&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.CREATE_DIRECTORY}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_DIRECTORY}</span></a></li>
+                            <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
+                        </ul>
+                    </div>
+{else}
+{if $folder.depth > 6}
+        <!-- unknown deep nested fallback case -->
+{/if}
         <li>
             <div class="clearfix {cycle values="odd,even"}">
                 <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
@@ -242,23 +329,23 @@
                     <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
                 </ul>
             </div>
-    {/foreach}
-
-{if isset($priorDepth)}
-    {if $priorDepth > 1}
-            </li><!-- Depth:{$priorDepth} -->
-    {/if}
-    {if $priorDepth > 0}
-    {for $i=1 to $priorDepth}
-        {if $i != $priorDepth}
-
-            </ul>
-        </li>
-        {/if}
-    {/for}
-    {/if}
 {/if}
-
+{/foreach}
+{if isset($priorDepth)}
+{if $priorDepth >= 1}{if 1 == $priorDepth AND $folder.depth == $priorDepth}
+        </li><!-- x1 finally finish list items of depth fd {$folder.depth} vs pd {$priorDepth} -->
+{else}
+                </li><!-- x2 finish list items of depth fd {$folder.depth} vs pd {$priorDepth} -->
+{/if}{/if}
+{if $priorDepth > 0}
+{for $i=1 to $priorDepth}
+{if $i != $priorDepth}
+            </ul><!-- close prior ({$folder.name}) sub case {($priorDepth)-$i} -->
+        </li><!-- {if (($priorDepth-2)-$i) > 1}close prior ({$folder.name}) sub list item {($priorDepth-2)-$i}{else}finally finish list items of depth {$priorDepth-1}{/if} -->
+{/if}
+{/for}
+{/if}
+{/if}
     </ul>
 
     <a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreate">{$CONST.CREATE_NEW_DIRECTORY}</a>
@@ -266,99 +353,113 @@
 
 {* TODO: obsolete? *}
 {if isset($case_addSelect) AND $case_addSelect}
-    {** smarty display 'admin/media_upload.tpl' **}
+{** smarty display 'admin/media_upload.tpl' **}
 {/if}
 {* END *}
 
 {if $case_rotateCW}
-    {if $rotate_img_done}
+{if $rotate_img_done}
     <script>location.href="{$adminFile_redirect}";</script>
     <noscript><a class="button_link icon_link standalone" href="{$adminFile_redirect}">{$CONST.DONE}</a></noscript>
-    {/if}
+{/if}
 {/if}
 {if $case_rotateCCW}
-    {if $rotate_img_done}
+{if $rotate_img_done}
     <script>location.href="{$adminFile_redirect}";</script>
     <noscript><a class="button_link icon_link standalone" href="{$adminFile_redirect}">{$CONST.DONE}</a></noscript>
-    {/if}
+{/if}
 {/if}
 {if $case_scale}
-    {if isset($print_SCALING_IMAGE)}<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$print_SCALING_IMAGE}</span>{/if}
-    {if isset($scaleImgError)}<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$scaleImgError}</span>{/if}
-    {if isset($is_done)}
-        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DONE}</span>
-        <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.FORCE_RELOAD}</span>
-    {/if}
-    {if $showML}{$showML}{/if}
+{if isset($print_SCALING_IMAGE)}
+    <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$print_SCALING_IMAGE}</span>
+{/if}
+{if isset($scaleImgError)}
+    <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$scaleImgError}</span>
+{/if}
+{if isset($is_done)}
+    <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DONE}</span>
+    <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.FORCE_RELOAD}</span>
+{/if}
+{if $showML}
+    {$showML}
+{/if}
 {/if}
 {if $case_scaleSelect}
-    {if isset($scaleFileName)}<h2>{$CONST.RESIZE_BLAHBLAH|sprintf:'<span class="scale_fname">%s</span>'|sprintf:$scaleFileName}</h2>{/if}
-    {if $unscalable}<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> Scale Format w/o thumbnail not available !! Don't do any scaling action here !!</span>{/if}
+{if isset($scaleFileName)}
+<h2>{$CONST.RESIZE_BLAHBLAH|sprintf:'<span class="scale_fname">%s</span>'|sprintf:$scaleFileName}</h2>
+{/if}
+{if $unscalable}
+<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> Scale Format w/o thumbnail not available !! Don't do any scaling action here !!</span>
+{/if}
 
-    <div id="waitingspin" class="pulsator scale_image" style="display: none"><div></div><div></div></div>
-    {if isset($scaleOriginSize)}
+<div id="waitingspin" class="pulsator scale_image" style="display: none"><div></div><div></div></div>
+{if isset($scaleOriginSize)}
 
-    <span class="block_level standalone">
-        {$CONST.ORIGINAL_SIZE|sprintf:$scaleOriginSize.width:$scaleOriginSize.height}
-        <button class="toggle_info button_link" type="button" data-href="#media_scale_selection"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
-        <span id="media_scale_selection" class="clearfix additional_info media_scale_selection">
-            <span class="msg_hint image_resize_hint"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.HERE_YOU_CAN_ENTER_BLAHBLAH}</span>
-        </span>
+<span class="block_level standalone">
+    {$CONST.ORIGINAL_SIZE|sprintf:$scaleOriginSize.width:$scaleOriginSize.height}
+    <button class="toggle_info button_link" type="button" data-href="#media_scale_selection"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
+    <span id="media_scale_selection" class="clearfix additional_info media_scale_selection">
+        <span class="msg_hint image_resize_hint"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.HERE_YOU_CAN_ENTER_BLAHBLAH}</span>
     </span>
-    {/if}
+</span>
+{/if}
 
-    <div class="clearfix">
-        <form id="serendipityScaleForm" name="serendipityScaleForm" action="?" method="GET">
-            {$formtoken}
-            <input name="serendipity[adminModule]" type="hidden" value="images">
-            <input name="serendipity[adminAction]" type="hidden" value="scale">
-            <input name="serendipity[fid]" type="hidden" value="{$get.fid}">
-            {if isset($smarty.get.serendipity.page)}<input name="serendipity[page]" type="hidden" value="{$smarty.get.serendipity.page}">{/if}
+<div class="clearfix">
+    <form id="serendipityScaleForm" name="serendipityScaleForm" action="?" method="GET">
+        {$formtoken}
+        <input name="serendipity[adminModule]" type="hidden" value="images">
+        <input name="serendipity[adminAction]" type="hidden" value="scale">
+        <input name="serendipity[fid]" type="hidden" value="{$get.fid}">
+{if isset($smarty.get.serendipity.page)}
+        <input name="serendipity[page]" type="hidden" value="{$smarty.get.serendipity.page}">
+{/if}
 
-            <fieldset>
-                <span class="wrap_legend"><legend>{$CONST.NEWSIZE}</legend></span>
+        <fieldset>
+            <span class="wrap_legend"><legend>{$CONST.NEWSIZE}</legend></span>
 
-                <div class="form_field">
-                    <label for="resize_width">{$CONST.INSTALL_THUMBDIM_WIDTH}</label>
-                    <input id="resize_width" name="serendipity[width]" type="text" value="{$scaleOriginSize.width}">
-                </div>
-
-                <div class="form_field">
-                    <label for="resize_height">{$CONST.INSTALL_THUMBDIM_HEIGHT}</label>
-                    <input id="resize_height" name="serendipity[height]" type="text" value="{$scaleOriginSize.height}">
-                </div>
-            </fieldset>
-
-            <div class="form_check">
-                <input id="resize_keepprops" name="auto" type="checkbox" checked="checked">
-                <label for="resize_keepprops">{$CONST.KEEP_PROPORTIONS}</label>
+            <div class="form_field">
+                <label for="resize_width">{$CONST.INSTALL_THUMBDIM_WIDTH}</label>
+                <input id="resize_width" name="serendipity[width]" type="text" value="{$scaleOriginSize.width}">
             </div>
 
-            <div class="form_check">
-                <input id="resize_scalethumbvariation" name="serendipity[scaleThumbVariation]" type="checkbox">
-                <label for="resize_scalethumbvariation">{$CONST.SCALE_THUMB_VARIATION} <button class="toggle_info button_link" type="button" data-href="#media_scale_selection"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button></label>
+            <div class="form_field">
+                <label for="resize_height">{$CONST.INSTALL_THUMBDIM_HEIGHT}</label>
+                <input id="resize_height" name="serendipity[height]" type="text" value="{$scaleOriginSize.height}">
             </div>
+        </fieldset>
 
-            <div class="form_buttons">
-                <a class="button_link" href="?serendipity[adminModule]=media{if isset($smarty.get.serendipity.page)}&amp;serendipity[page]={$smarty.get.serendipity.page}{/if}">{$CONST.BACK}</a>
-                <input class="image_scale state_submit" name="scale" type="submit" value="{$CONST.IMAGE_RESIZE}">
-            </div>
-        </form>
-
-        <div id="serendipityScaleImg" data-imgwidth="{$scaleOriginSize.width}" data-imgheight="{$scaleOriginSize.height}" title="{$scaleFileName}, {$CONST.ORIGINAL_SIZE|sprintf:$scaleOriginSize.width:$scaleOriginSize.height|strip_tags}, scaled for browser preview">
-            <picture>{if NOT empty($file_avif)}
-
-                <source type="image/avif" srcset="{$file_avif|default:''}">{/if}{if NOT empty($file_webp)}
-
-                <source type="image/webp" srcset="{$file_webp|default:''}">{/if}
-
-                <img src="{$file}" class="ml_preview_img" name="serendipityScaleImg" alt="{$CONST.PREVIEW}">
-            </picture>
+        <div class="form_check">
+            <input id="resize_keepprops" name="auto" type="checkbox" checked="checked">
+            <label for="resize_keepprops">{$CONST.KEEP_PROPORTIONS}</label>
         </div>
+
+        <div class="form_check">
+            <input id="resize_scalethumbvariation" name="serendipity[scaleThumbVariation]" type="checkbox">
+            <label for="resize_scalethumbvariation">{$CONST.SCALE_THUMB_VARIATION} <button class="toggle_info button_link" type="button" data-href="#media_scale_selection"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button></label>
+        </div>
+
+        <div class="form_buttons">
+            <a class="button_link" href="?serendipity[adminModule]=media{if isset($smarty.get.serendipity.page)}&amp;serendipity[page]={$smarty.get.serendipity.page}{/if}">{$CONST.BACK}</a>
+            <input class="image_scale state_submit" name="scale" type="submit" value="{$CONST.IMAGE_RESIZE}">
+        </div>
+    </form>
+
+    <div id="serendipityScaleImg" data-imgwidth="{$scaleOriginSize.width}" data-imgheight="{$scaleOriginSize.height}" title="{$scaleFileName}, {$CONST.ORIGINAL_SIZE|sprintf:$scaleOriginSize.width:$scaleOriginSize.height|strip_tags}, scaled for browser preview">
+        <picture>{if NOT empty($file_avif)}
+
+            <source type="image/avif" srcset="{$file_avif|default:''}">{/if}{if NOT empty($file_webp)}
+
+            <source type="image/webp" srcset="{$file_webp|default:''}">{/if}
+
+            <img src="{$file}" class="ml_preview_img" name="serendipityScaleImg" alt="{$CONST.PREVIEW}">
+        </picture>
     </div>
+</div>
 {/if}
 {if $case_default}
-    {if $showML}{$showML}{/if}
+{if $showML}
+    {$showML}
+{/if}
 {/if}
 {if $showMLbutton}
     <a id="ml_link" class="button_link" href="?serendipity[adminModule]=media">{$CONST.MEDIA_LIBRARY}</a>
