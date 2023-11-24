@@ -28,7 +28,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.1.0'
         ));
-        $propbag->add('version',       '2.73');
+        $propbag->add('version',       '2.74');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -907,8 +907,8 @@ class serendipity_event_spamblock extends serendipity_event
         if (isset($hooks[$event])) {
 
             $captchas_ttl = $this->get_config('captchas_ttl', 7);
-            $_captchas    = $this->get_config('captchas', 'yes');
-            $captchas     = ($_captchas !== 'no' && ($_captchas === 'yes' || $_captchas === 'scramble' || serendipity_db_bool($_captchas)));
+            $_captchas    = $this->get_config('captchas', 1);
+            $captchas     = ($_captchas !== 'no' && ($_captchas === 'yes' || $_captchas === 'scramble' || serendipity_db_bool($_captchas) || $_captchas == 1));
 
             // Check if the entry is older than the allowed amount of time. Enforce Captchas if that is true
             // or if Captchas are activated for every entry
@@ -1597,8 +1597,8 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                         $eventData['action_email'] .= ' <a class="button_link" title="' . ($email_is_filtered ? PLUGIN_EVENT_SPAMBLOCK_REMOVE_EMAIL : PLUGIN_EVENT_SPAMBLOCK_ADD_EMAIL) . '" href="serendipity_admin.php?serendipity[adminModule]=comments&amp;serendipity[spamBlockEmail]=' . $eventData['id'] . $addData . $randomString . '#' . $clink . '"><span class="icon-' . ($email_is_filtered ? 'ok-circled' : 'block') .'" aria-hidden="true"></span><span class="visuallyhidden"> ' . ($email_is_filtered ? PLUGIN_EVENT_SPAMBLOCK_REMOVE_EMAIL : PLUGIN_EVENT_SPAMBLOCK_ADD_EMAIL) . '</span></a>';
                     }
                     // init assign
-                    $eventData['action_email'] = $eventData['action_email'] ?? null;
-                    $eventData['action_ip'] = $eventData['action_ip'] ?? null;
+                    $eventData['action_email']   = $eventData['action_email'] ?? null;
+                    $eventData['action_ip']      = $eventData['action_ip'] ?? null;
                     $eventData['action_referer'] = $eventData['action_referer'] ?? null;
                     break;
 /*
