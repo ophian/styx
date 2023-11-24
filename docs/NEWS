@@ -1,6 +1,7 @@
 Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
+  [ 4.3-beta3 ]
   * Improve all backend templates producing Smarty conditioned output markup
     for the [ Styx ] backend-theme, now generally starting the main content
     markup up from root indent 0 for readability. Apart from a few special
