@@ -1,6 +1,12 @@
 Version 4.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve all backend templates producing Smarty conditioned output markup
+    for the [ Styx ] backend-theme, now generally starting the main content
+    markup up from root indent 0 for readability. Apart from a few special
+    features, such as for auto-generated field data, the markup with its
+    nesting now better refers to each other.
+
   * Improve backend forms for browser autocomplete behaviour, in special for
     Mozilla Firefox cases. This refactors entryproperties and config_local.inc
     template workaround items.
