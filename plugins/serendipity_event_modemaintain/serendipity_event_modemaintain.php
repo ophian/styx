@@ -12,6 +12,7 @@ if (IN_serendipity !== true) {
 class serendipity_event_modemaintain extends serendipity_event
 {
     var $title = PLUGIN_MODEMAINTAIN_TITLE;
+
     /**
      * Access property maintenanceText
      * Set Frontend maintenance mode text (set to pre-defined constant, as not allowed to use dynamic Serendipity array var)
@@ -33,7 +34,7 @@ class serendipity_event_modemaintain extends serendipity_event
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.39');
+        $propbag->add('version',       '1.40');
         $propbag->add('requirements',  array(
             'serendipity' => '4.1',
             'php'         => '7.4.0'
@@ -218,7 +219,6 @@ class serendipity_event_modemaintain extends serendipity_event
                     // do not allow session based authentication
                     if ($_SESSION['serendipityAuthedUser'] == true && !isset($serendipity['COOKIE']['author_information'])) {
 ?>
-
     <section id="maintenance_moma" class="quick_list">
         <h3><?=PLUGIN_MODEMAINTAIN_MAINTAIN?></h3>
 
@@ -260,7 +260,7 @@ class serendipity_event_modemaintain extends serendipity_event
                         }
                     }
                     $catch24_msg = ($catch24 && !empty($timeleft))
-                                    ? '<span class="msg_notice" style="margin-top:0"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(PLUGIN_MODEMAINTAIN_OPENSSL_TIME_RESTRICTION, $timeleft) . "</span>\n"
+                                    ? '        <span class="msg_notice" style="margin-top:0"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(PLUGIN_MODEMAINTAIN_OPENSSL_TIME_RESTRICTION, $timeleft) . '</span>'
                                     : '';
                     if ((!isset($serendipity['maintenance']) || serendipity_db_bool($serendipity['maintenance']) !== true) && $this->blockMaintenance) {
 ?>
@@ -270,10 +270,13 @@ class serendipity_event_modemaintain extends serendipity_event
 
         <a id="moma" class="button_link state_submit" href="<?php echo $serendipity['serendipityHTTPPath'] . (($serendipity['rewrite'] == 'rewrite') ? '' : 'index.php?/') ?>plugin/maintenance/" title="<?=PLUGIN_MODEMAINTAIN_INFOALERT?>"><span><?=PLUGIN_MODEMAINTAIN_BUTTON?></span></a>
         <button class="toggle_info button_link" type="button" data-href="#moma_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?=MORE?></span></button>
-        <div id="moma_info" class="comment_status additional_info"><?=PLUGIN_MODEMAINTAIN_TITLE_DESC?> <br><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_MODE_DESC?>
+        <div id="moma_info" class="comment_status additional_info">
+            <?=PLUGIN_MODEMAINTAIN_TITLE_DESC?> <br>
+            <span class="icon-info-circled" aria-hidden="true"></span>
+            <?=PLUGIN_MODEMAINTAIN_DASHBOARD_MODE_DESC?>
         <p><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_EXWARNING_DESC?></p>
         <div><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_EMERGENCY_DESC?></div></div>
-        <?=$catch24_msg?>
+<?=$catch24_msg?>
     </section>
 
 <?php
@@ -288,7 +291,7 @@ class serendipity_event_modemaintain extends serendipity_event
         <div id="moma_info" class="comment_status additional_info"><?=PLUGIN_MODEMAINTAIN_TITLE_DESC?> <br><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_MODE_DESC?>
         <p><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_EXWARNING_DESC?></p>
         <div><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_EMERGENCY_DESC?></div></div>
-        <?=$catch24_msg?>
+<?=$catch24_msg?>
     </section>
 
 <?php
