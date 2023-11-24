@@ -32,7 +32,7 @@ Version 4.3-DEV ()
       - This is a breaking change for those who don't care to update their
         systems in-time though and which will load additional plugins from
         master/ that long. Though they can use the new location URL as a
-        customlocation mirror in plugin options or Update to Styx 4.3.
+        custom location mirror in plugin options or Update to Styx 4.3.
       - The Spartacus website XML usage and announcements will be on legacy/
         that long.
 
