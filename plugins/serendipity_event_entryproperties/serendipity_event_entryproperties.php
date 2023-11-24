@@ -1031,6 +1031,9 @@ class serendipity_event_entryproperties extends serendipity_event
                             // Do not show login form again, once we have first enabled it.
                             $_SESSION['entrypassword_unlocked'][$serendipity['GET']['id']] = md5($eventData[0]['properties']['ep_entrypassword']);
                         } else {
+                            // Adding eventData makes no real sense for excluding eventData items like in 'entries_footer',
+                            // apart from the preview, the entries list and 'external_plugin' hook which all play after,
+                            // since entryproperties is the last plugin in the row!
                             if (is_array($eventData)) {
                                 $eventData['clean_page'] = true; // This is important to not display an entry list!
                             } else {
