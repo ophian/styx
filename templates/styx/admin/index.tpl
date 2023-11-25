@@ -124,7 +124,8 @@
 {/if}
 {if 'adminEntries'|checkPermission OR 'adminEntriesPlugins'|checkPermission}
 {if $admin_vars.no_create !== true}
-                        {serendipity_hookPlugin hook="backend_sidebar_entries" hookAll="true"}{/if}{/if}
+                        {serendipity_hookPlugin hook="backend_sidebar_entries" hookAll="true"}
+{/if}{/if}
                     </ul>
                 </li>
 {/if}
