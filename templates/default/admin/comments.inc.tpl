@@ -99,11 +99,11 @@
 
 <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span>
 {if $c_type == 'TRACKBACK'}
-        {$CONST.NO_TRACKBACKS}
+    {$CONST.NO_TRACKBACKS}
 {else if $c_type == 'PINGBACK'}
-        {$CONST.NO_PINGBACKS}
+    {$CONST.NO_PINGBACKS}
 {else}
-        {$CONST.NO_COMMENTS}
+    {$CONST.NO_COMMENTS}
 {/if}
 </span>
 
