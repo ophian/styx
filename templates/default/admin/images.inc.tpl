@@ -66,289 +66,289 @@
 {/if}
 {if $case_directoryDoDelete}
 {if isset($print_DIRECTORY_WRITE_ERROR)}
-    <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$print_DIRECTORY_WRITE_ERROR}</span>
+<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$print_DIRECTORY_WRITE_ERROR}</span>
 {/if}
 {if isset($ob_serendipity_killPath)}
-    {$ob_serendipity_killPath}
+{$ob_serendipity_killPath}
 {/if}
 {if NOT empty($print_ERROR_NO_DIRECTORY)}
-    <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$print_ERROR_NO_DIRECTORY}</span>
+<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$print_ERROR_NO_DIRECTORY}</span>
 {/if}
 {/if}
 {if $case_directoryEdit}
 {if !empty($smarty.post.serendipity.save) AND isset($savedirtime)}
     <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.SETTINGS_SAVED_AT|sprintf:$savedirtime}</span>
 {/if}
-    <h2>{$CONST.MANAGE_DIRECTORIES}</h2>
+<h2>{$CONST.MANAGE_DIRECTORIES}</h2>
 
-    <form id="image_directory_edit_form" method="POST" action="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$dir|escape}">
-        {$formtoken}
-        <input name="serendipity[oldDir]" type="hidden" value="{$use_dir}">
+<form id="image_directory_edit_form" method="POST" action="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$dir|escape}">
+    {$formtoken}
+    <input name="serendipity[oldDir]" type="hidden" value="{$use_dir}">
 
-        <div class="form_field">
-            <label for="diredit_new">{$CONST.NAME}</label>
-            <input id="diredit_new" name="serendipity[newDir]" type="text" value="{$use_dir}">
-        </div>
+    <div class="form_field">
+        <label for="diredit_new">{$CONST.NAME}</label>
+        <input id="diredit_new" name="serendipity[newDir]" type="text" value="{$use_dir}">
+    </div>
 
-        <h3 class="toggle_headline">
-            <button class="show_config_option icon_link{if $closed} show_config_option_hide{/if}" type="button" data-href="#directory_permissions" title="{$CONST.TOGGLE_OPTION}"><span class="icon-right-dir" aria-hidden="true"></span> {$CONST.PERMISSIONS}</button>
-        </h3>
+    <h3 class="toggle_headline">
+        <button class="show_config_option icon_link{if $closed} show_config_option_hide{/if}" type="button" data-href="#directory_permissions" title="{$CONST.TOGGLE_OPTION}"><span class="icon-right-dir" aria-hidden="true"></span> {$CONST.PERMISSIONS}</button>
+    </h3>
 
-        <div id="directory_permissions" class="clearfix additional_info">
-            <div class="form_multiselect">
-                <label for="read_authors">{$CONST.PERM_READ}</label>
-                <select id="read_authors" name="serendipity[read_authors][]" multiple size="6">
-                    <option value="0"{if $rgroups} selected{/if}>{$CONST.ALL_AUTHORS}</option>
+    <div id="directory_permissions" class="clearfix additional_info">
+        <div class="form_multiselect">
+            <label for="read_authors">{$CONST.PERM_READ}</label>
+            <select id="read_authors" name="serendipity[read_authors][]" multiple size="6">
+                <option value="0"{if $rgroups} selected{/if}>{$CONST.ALL_AUTHORS}</option>
 {foreach $groups AS $group}
-                    <option value="{$group.confkey}"{if isset($read_groups.{$group.confkey})} selected{/if}>{$group.confvalue|escape}</option>
-{/foreach}
-                </select>
-            </div>
-
-            <div class="form_multiselect">
-                <label for="write_authors">{$CONST.PERM_WRITE}</label>
-                <select id="write_authors" name="serendipity[write_authors][]" multiple size="6">
-                    <option value="0"{if $wgroups} selected{/if}>{$CONST.ALL_AUTHORS}</option>
-{foreach $groups AS $group}
-                    <option value="{$group.confkey}"{if isset($write_groups.{$group.confkey})} selected{/if}>{$group.confvalue|escape}</option>
-{/foreach}
-                </select>
-            </div>
-
-            <div class="form_check">
-                <input id="setchild" name="serendipity[update_children]" type="checkbox" value="true"{if !empty($smarty.post.update_children) == 'on'} checked="checked"{/if}><label for="setchild">{$CONST.PERM_SET_CHILD}</label>
-            </div>
-
-            <div class="form_field">
-                <span class="wrap_legend"><legend>{$CONST.PERMISSIONS} <a class="toggle_info button_link" href="#acl_rw_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></a></legend></span>
-
-                <span id="acl_rw_info" class="field_info additional_info">{$CONST.PERMISSION_READ_WRITE_ACL_DESC}</span>
-            </div>
-
-        </div>
-
-        <div class="form_buttons">
-            <a class="button_link" href="serendipity_admin.php?serendipity[adminModule]=media&amp;serendipity[adminAction]=directorySelect">{$CONST.BACK}</a>
-            <input name="serendipity[save]" type="submit" value="{$CONST.SAVE}">
-        </div>
-    </form>
-{/if}
-{if $case_directoryDelete}
-    <h2>{$CONST.DELETE_DIRECTORY}</h2>
-
-    <p>{$CONST.DELETE_DIRECTORY_DESC}</p>
-
-    <form id="image_directory_delete_form" method="POST" action="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDoDelete&amp;serendipity[dir]={$dir|escape}">
-        {$formtoken}
-        <div class="form_check">
-            <input id="diredit_delete" name="serendipity[nuke]" type="checkbox" value="true">
-            <label for="diredit_delete"><b>{$basename_dir}</b> - {$CONST.FORCE_DELETE}</label>
-        </div>
-
-{* I think this is redundant: <p>{$CONST.CONFIRM_DELETE_DIRECTORY|sprintf:$dir|escape}</p> *}
-        <div class="form_buttons">
-            <input class="state_cancel" name="SAVE" type="submit" value="{$CONST.DELETE_DIRECTORY}">
-        </div>
-    </form>
-{/if}
-{if $case_directoryDoCreate}
-{if $print_DIRECTORY_CREATED}
-    <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_DIRECTORY_CREATED}</span>
-{/if}
-{if isset($print_DIRECTORY_WRITE_ERROR)}
-    <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$print_DIRECTORY_WRITE_ERROR}</span>
-{/if}
-    <a class="button_link state_submit" href="serendipity_admin.php?serendipity[adminModule]=media&amp;serendipity[adminAction]=directorySelect">{$CONST.BACK}</a>
-{/if}
-{if $case_directoryCreate}
-    <h2>{$CONST.CREATE_DIRECTORY}</h2>
-
-    <p>{$CONST.CREATE_DIRECTORY_DESC}</p>
-
-    <form id="image_directory_create_form" method="POST" action="?serendipity[step]=directoryDoCreate&amp;serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDoCreate">
-        {$formtoken}
-        <div class="form_field">
-            <label for="dircreate_name">{$CONST.NAME}</label>
-            <input id="dircreate_name" name="serendipity[name]" type="text" value="" required>
-        </div>
-
-        <div class="form_select">
-            <label for="dircreate_parent">{$CONST.PARENT_DIRECTORY}</label>
-            <select id="dircreate_parent" name="serendipity[parent]">
-                <option value="">{$CONST.BASE_DIRECTORY}</option>
-{foreach $folders AS $folder}
-                <option{if $folder.relpath == $get.only_path OR $folder.relpath == $dir} selected{/if} value="{$folder.relpath}">{'&nbsp;'|str_repeat:($folder.depth*2)}{$folder.name}</option>
+                <option value="{$group.confkey}"{if isset($read_groups.{$group.confkey})} selected{/if}>{$group.confvalue|escape}</option>
 {/foreach}
             </select>
         </div>
-        {serendipity_hookPlugin hookAll=true hook="backend_directory_createoptions" addData=$folders}
-        <div class="form_buttons">
-            <a class="button_link" href="?serendipity[adminModule]=media&amp;serendipity[adminAction]=directorySelect">{$CONST.BACK}</a>
-            <input name="SAVE" type="submit" value="{$CONST.CREATE_DIRECTORY}">
+
+        <div class="form_multiselect">
+            <label for="write_authors">{$CONST.PERM_WRITE}</label>
+            <select id="write_authors" name="serendipity[write_authors][]" multiple size="6">
+                <option value="0"{if $wgroups} selected{/if}>{$CONST.ALL_AUTHORS}</option>
+{foreach $groups AS $group}
+                <option value="{$group.confkey}"{if isset($write_groups.{$group.confkey})} selected{/if}>{$group.confvalue|escape}</option>
+{/foreach}
+            </select>
         </div>
-    </form>
+
+        <div class="form_check">
+            <input id="setchild" name="serendipity[update_children]" type="checkbox" value="true"{if !empty($smarty.post.update_children) == 'on'} checked="checked"{/if}><label for="setchild">{$CONST.PERM_SET_CHILD}</label>
+        </div>
+
+        <div class="form_field">
+            <span class="wrap_legend"><legend>{$CONST.PERMISSIONS} <a class="toggle_info button_link" href="#acl_rw_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></a></legend></span>
+
+            <span id="acl_rw_info" class="field_info additional_info">{$CONST.PERMISSION_READ_WRITE_ACL_DESC}</span>
+        </div>
+
+    </div>
+
+    <div class="form_buttons">
+        <a class="button_link" href="serendipity_admin.php?serendipity[adminModule]=media&amp;serendipity[adminAction]=directorySelect">{$CONST.BACK}</a>
+        <input name="serendipity[save]" type="submit" value="{$CONST.SAVE}">
+    </div>
+</form>
+{/if}
+{if $case_directoryDelete}
+<h2>{$CONST.DELETE_DIRECTORY}</h2>
+
+<p>{$CONST.DELETE_DIRECTORY_DESC}</p>
+
+<form id="image_directory_delete_form" method="POST" action="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDoDelete&amp;serendipity[dir]={$dir|escape}">
+    {$formtoken}
+    <div class="form_check">
+        <input id="diredit_delete" name="serendipity[nuke]" type="checkbox" value="true">
+        <label for="diredit_delete"><b>{$basename_dir}</b> - {$CONST.FORCE_DELETE}</label>
+    </div>
+
+{* I think this is redundant: <p>{$CONST.CONFIRM_DELETE_DIRECTORY|sprintf:$dir|escape}</p> *}
+    <div class="form_buttons">
+        <input class="state_cancel" name="SAVE" type="submit" value="{$CONST.DELETE_DIRECTORY}">
+    </div>
+</form>
+{/if}
+{if $case_directoryDoCreate}
+{if $print_DIRECTORY_CREATED}
+<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_DIRECTORY_CREATED}</span>
+{/if}
+{if isset($print_DIRECTORY_WRITE_ERROR)}
+<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$print_DIRECTORY_WRITE_ERROR}</span>
+{/if}
+<a class="button_link state_submit" href="serendipity_admin.php?serendipity[adminModule]=media&amp;serendipity[adminAction]=directorySelect">{$CONST.BACK}</a>
+{/if}
+{if $case_directoryCreate}
+<h2>{$CONST.CREATE_DIRECTORY}</h2>
+
+<p>{$CONST.CREATE_DIRECTORY_DESC}</p>
+
+<form id="image_directory_create_form" method="POST" action="?serendipity[step]=directoryDoCreate&amp;serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDoCreate">
+    {$formtoken}
+    <div class="form_field">
+        <label for="dircreate_name">{$CONST.NAME}</label>
+        <input id="dircreate_name" name="serendipity[name]" type="text" value="" required>
+    </div>
+
+    <div class="form_select">
+        <label for="dircreate_parent">{$CONST.PARENT_DIRECTORY}</label>
+        <select id="dircreate_parent" name="serendipity[parent]">
+            <option value="">{$CONST.BASE_DIRECTORY}</option>
+{foreach $folders AS $folder}
+            <option{if $folder.relpath == $get.only_path OR $folder.relpath == $dir} selected{/if} value="{$folder.relpath}">{'&nbsp;'|str_repeat:($folder.depth*2)}{$folder.name}</option>
+{/foreach}
+        </select>
+    </div>
+    {serendipity_hookPlugin hookAll=true hook="backend_directory_createoptions" addData=$folders}
+    <div class="form_buttons">
+        <a class="button_link" href="?serendipity[adminModule]=media&amp;serendipity[adminAction]=directorySelect">{$CONST.BACK}</a>
+        <input name="SAVE" type="submit" value="{$CONST.CREATE_DIRECTORY}">
+    </div>
+</form>
 {/if}
 {if $case_directorySelect}
-    <h2>{$CONST.MANAGE_DIRECTORIES}</h2>
+<h2>{$CONST.MANAGE_DIRECTORIES}</h2>
 
-    <div class="mediabase_file_action"><a class="media_show_info button_link" href="#media_directory_info" title="{$CONST.DIRECTORY_INFO}"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DIRECTORY_INFO}</span></a></div>
-    <header id="media_directory_info" class="media_directory_info additional_info">
-        <span class="msg_hint focused">{$CONST.DIRECTORY_INFO_DESC}</span>
-    </header>
+<div class="mediabase_file_action"><a class="media_show_info button_link" href="#media_directory_info" title="{$CONST.DIRECTORY_INFO}"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DIRECTORY_INFO}</span></a></div>
+<header id="media_directory_info" class="media_directory_info additional_info">
+    <span class="msg_hint focused">{$CONST.DIRECTORY_INFO_DESC}</span>
+</header>
 
-    <ul id="serendipity_image_folders" class="option_list{if !$threadedDirs} slist{/if}">
+<ul id="serendipity_image_folders" class="option_list{if !$threadedDirs} slist{/if}">
 {if !empty($folders) || isset($pathitems[''])}
-        <li>
-            <div class="clearfix odd">
-                <div class="directory_data">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-folder-minus" viewBox="0 0 16 16">
-                      <title>{$CONST.BASE_DIRECTORY}</title>
-                      <path d="m.5 3 .04.87a1.99 1.99 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14H9v-1H2.826a1 1 0 0 1-.995-.91l-.637-7A1 1 0 0 1 2.19 4h11.62a1 1 0 0 1 .996 1.09L14.54 8h1.005l.256-2.819A2 2 0 0 0 13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2zm5.672-1a1 1 0 0 1 .707.293L7.586 3H2.19c-.24 0-.47.042-.683.12L1.5 2.98a1 1 0 0 1 1-.98h3.672z"/>
-                      <path d="M11 11.5a.5.5 0 0 1 .5-.5h4a.5.5 0 1 1 0 1h-4a.5.5 0 0 1-.5-.5z"/>
-                    </svg>
-                </div>
-
-                <ul class="plainList clearfix edit_actions">
-                    <li>
-                        <span class="media_directory_entries imgctlabel" title="{$CONST.IN} {$CONST.BASE_DIRECTORY}"><em>{if isset($pathitems[''])}{$pathitems['']}{else}<span class="emptydim imgctlabel">0</span>{/if} {$CONST.PLUGIN_GROUP_IMAGES}</em></span>
-                    </li>
-                </ul>
+    <li>
+        <div class="clearfix odd">
+            <div class="directory_data">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-folder-minus" viewBox="0 0 16 16">
+                  <title>{$CONST.BASE_DIRECTORY}</title>
+                  <path d="m.5 3 .04.87a1.99 1.99 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14H9v-1H2.826a1 1 0 0 1-.995-.91l-.637-7A1 1 0 0 1 2.19 4h11.62a1 1 0 0 1 .996 1.09L14.54 8h1.005l.256-2.819A2 2 0 0 0 13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2zm5.672-1a1 1 0 0 1 .707.293L7.586 3H2.19c-.24 0-.47.042-.683.12L1.5 2.98a1 1 0 0 1 1-.98h3.672z"/>
+                  <path d="M11 11.5a.5.5 0 0 1 .5-.5h4a.5.5 0 1 1 0 1h-4a.5.5 0 0 1-.5-.5z"/>
+                </svg>
             </div>
-        </li>
+
+            <ul class="plainList clearfix edit_actions">
+                <li>
+                    <span class="media_directory_entries imgctlabel" title="{$CONST.IN} {$CONST.BASE_DIRECTORY}"><em>{if isset($pathitems[''])}{$pathitems['']}{else}<span class="emptydim imgctlabel">0</span>{/if} {$CONST.PLUGIN_GROUP_IMAGES}</em></span>
+                </li>
+            </ul>
+        </div>
+    </li>
 {/if}
 {* allows a Source nesting level of 4 else no nesting of markup tags *}
 {foreach $folders AS $folder}{if ! $folder@first}{if $folder.depth > $priorDepth}
 {if $folder.depth == 6}
-                                            <ul><!-- start sub case depth {$folder.depth} ({$folder.name}) -->
+                                        <ul><!-- start sub case depth {$folder.depth} ({$folder.name}) -->
 {elseif $folder.depth == 5}
-                                    <ul><!-- start sub case depth {$folder.depth} ({$folder.name}) -->
+                                <ul><!-- start sub case depth {$folder.depth} ({$folder.name}) -->
 {elseif $folder.depth == 4}
-                            <ul><!-- start sub case depth {$folder.depth} ({$folder.name}) -->
+                        <ul><!-- start sub case depth {$folder.depth} ({$folder.name}) -->
 {elseif $folder.depth == 3}
-                    <ul><!-- start sub case depth {$folder.depth} ({$folder.name}) -->
+                <ul><!-- start sub case depth {$folder.depth} ({$folder.name}) -->
 {else}
-            <ul><!-- start sub case depth {$folder.depth} ({$folder.name}) -->
+        <ul><!-- start sub case depth {$folder.depth} ({$folder.name}) -->
 {/if}{/if}{if $folder.depth < $priorDepth}
 {if $priorDepth == 6}
-                                                </li><!-- close the lists of sub case {$priorDepth} -->
+                                            </li><!-- close the lists of sub case {$priorDepth} -->
 {elseif $priorDepth == 5}
-                                        </li><!-- close the lists of sub case {$priorDepth} -->
+                                    </li><!-- close the lists of sub case {$priorDepth} -->
 {elseif $priorDepth == 4}
-                                </li><!-- close the lists of sub case {$priorDepth} -->
+                            </li><!-- close the lists of sub case {$priorDepth} -->
 {elseif $priorDepth == 3}
-                        </li><!-- close the lists of sub case {$priorDepth} -->
+                    </li><!-- close the lists of sub case {$priorDepth} -->
 {else}
-                </li><!-- close the lists of sub case {$priorDepth} -->
+            </li><!-- close the lists of sub case {$priorDepth} -->
 {/if}
 {for $i=($folder.depth+1) to $priorDepth}
 {*            <!-- sadly un-nested in the for loop: folder.depth+1 {$i} to priorDepth {$priorDepth} case, since too many possible cases to check for to set the correct indent -->*}
-            </ul><!-- close prior sub case -->
-        </li><!-- close {if (($priorDepth+1)-$i) > 1}prior sub list item{else}nested sub case item {$folder.depth}{/if} -->
+        </ul><!-- close prior sub case -->
+    </li><!-- close {if (($priorDepth+1)-$i) > 1}prior sub list item{else}nested sub case item {$folder.depth}{/if} -->
 {/for}
 {/if}
 {if $folder.depth == $priorDepth}{if $priorDepth == 2}
-                </li><!-- cN {$folder.depth} == {$priorDepth} -->
+            </li><!-- cN {$folder.depth} == {$priorDepth} -->
 {else}
-       </li><!-- cN {$folder.depth} == {$priorDepth} -->
+    </li><!-- cN {$folder.depth} == {$priorDepth} -->
 {/if}{/if}
 {/if}
 {* assign the looped $priorDepth dynamically *}
 {$priorDepth=$folder.depth}
 {if $folder.depth == 6}
-                                                <li>
-                                                    <div class="clearfix {cycle values="odd,even"}">
-                                                        <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
+                                            <li>
+                                                <div class="clearfix {cycle values="odd,even"}">
+                                                    <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
 
-                                                        <ul class="plainList clearfix edit_actions">
-                                                            <li>{if isset($pathitems[$folder.relpath])}<span class="imgctlabel">{$pathitems[$folder.relpath]} {$CONST.MEDIA}</span>{else}<span class="emptydim imgctlabel">0 {$CONST.MEDIA}</span>{/if}</li>
-                                                            <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.EDIT} {$folder.name}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
-                                                            <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreateSub&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.CREATE_DIRECTORY}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_DIRECTORY}</span></a></li>
-                                                            <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
-                                                        </ul>
-                                                    </div>
+                                                    <ul class="plainList clearfix edit_actions">
+                                                        <li>{if isset($pathitems[$folder.relpath])}<span class="imgctlabel">{$pathitems[$folder.relpath]} {$CONST.MEDIA}</span>{else}<span class="emptydim imgctlabel">0 {$CONST.MEDIA}</span>{/if}</li>
+                                                        <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.EDIT} {$folder.name}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
+                                                        <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreateSub&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.CREATE_DIRECTORY}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_DIRECTORY}</span></a></li>
+                                                        <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
+                                                    </ul>
+                                                </div>
 {elseif $folder.depth == 5}
-                                        <li>
-                                            <div class="clearfix {cycle values="odd,even"}">
-                                                <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
+                                    <li>
+                                        <div class="clearfix {cycle values="odd,even"}">
+                                            <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
 
-                                                <ul class="plainList clearfix edit_actions">
-                                                    <li>{if isset($pathitems[$folder.relpath])}<span class="imgctlabel">{$pathitems[$folder.relpath]} {$CONST.MEDIA}</span>{else}<span class="emptydim imgctlabel">0 {$CONST.MEDIA}</span>{/if}</li>
-                                                    <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.EDIT} {$folder.name}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
-                                                    <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreateSub&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.CREATE_DIRECTORY}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_DIRECTORY}</span></a></li>
-                                                    <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
-                                                </ul>
-                                            </div>
+                                            <ul class="plainList clearfix edit_actions">
+                                                <li>{if isset($pathitems[$folder.relpath])}<span class="imgctlabel">{$pathitems[$folder.relpath]} {$CONST.MEDIA}</span>{else}<span class="emptydim imgctlabel">0 {$CONST.MEDIA}</span>{/if}</li>
+                                                <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.EDIT} {$folder.name}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
+                                                <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreateSub&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.CREATE_DIRECTORY}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_DIRECTORY}</span></a></li>
+                                                <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
+                                            </ul>
+                                        </div>
 {elseif $folder.depth == 4}
-                                <li>
-                                    <div class="clearfix {cycle values="odd,even"}">
-                                        <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
+                            <li>
+                                <div class="clearfix {cycle values="odd,even"}">
+                                    <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
 
-                                        <ul class="plainList clearfix edit_actions">
-                                            <li>{if isset($pathitems[$folder.relpath])}<span class="imgctlabel">{$pathitems[$folder.relpath]} {$CONST.MEDIA}</span>{else}<span class="emptydim imgctlabel">0 {$CONST.MEDIA}</span>{/if}</li>
-                                            <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.EDIT} {$folder.name}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
-                                            <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreateSub&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.CREATE_DIRECTORY}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_DIRECTORY}</span></a></li>
-                                            <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
-                                        </ul>
-                                    </div>
+                                    <ul class="plainList clearfix edit_actions">
+                                        <li>{if isset($pathitems[$folder.relpath])}<span class="imgctlabel">{$pathitems[$folder.relpath]} {$CONST.MEDIA}</span>{else}<span class="emptydim imgctlabel">0 {$CONST.MEDIA}</span>{/if}</li>
+                                        <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.EDIT} {$folder.name}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
+                                        <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreateSub&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.CREATE_DIRECTORY}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_DIRECTORY}</span></a></li>
+                                        <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
+                                    </ul>
+                                </div>
 {elseif $folder.depth == 3}
-                        <li>
-                            <div class="clearfix {cycle values="odd,even"}">
-                                <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
+                    <li>
+                        <div class="clearfix {cycle values="odd,even"}">
+                            <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
 
-                                <ul class="plainList clearfix edit_actions">
-                                    <li>{if isset($pathitems[$folder.relpath])}<span class="imgctlabel">{$pathitems[$folder.relpath]} {$CONST.MEDIA}</span>{else}<span class="emptydim imgctlabel">0 {$CONST.MEDIA}</span>{/if}</li>
-                                    <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.EDIT} {$folder.name}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
-                                    <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreateSub&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.CREATE_DIRECTORY}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_DIRECTORY}</span></a></li>
-                                    <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
-                                </ul>
-                            </div>
+                            <ul class="plainList clearfix edit_actions">
+                                <li>{if isset($pathitems[$folder.relpath])}<span class="imgctlabel">{$pathitems[$folder.relpath]} {$CONST.MEDIA}</span>{else}<span class="emptydim imgctlabel">0 {$CONST.MEDIA}</span>{/if}</li>
+                                <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.EDIT} {$folder.name}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
+                                <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreateSub&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.CREATE_DIRECTORY}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_DIRECTORY}</span></a></li>
+                                <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
+                            </ul>
+                        </div>
 {elseif $folder.depth == 2}
-                <li>
-                    <div class="clearfix {cycle values="odd,even"}">
-                        <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
+            <li>
+                <div class="clearfix {cycle values="odd,even"}">
+                    <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
 
-                        <ul class="plainList clearfix edit_actions">
-                            <li>{if isset($pathitems[$folder.relpath])}<span class="imgctlabel">{$pathitems[$folder.relpath]} {$CONST.MEDIA}</span>{else}<span class="emptydim imgctlabel">0 {$CONST.MEDIA}</span>{/if}</li>
-                            <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.EDIT} {$folder.name}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
-                            <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreateSub&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.CREATE_DIRECTORY}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_DIRECTORY}</span></a></li>
-                            <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
-                        </ul>
-                    </div>
+                    <ul class="plainList clearfix edit_actions">
+                        <li>{if isset($pathitems[$folder.relpath])}<span class="imgctlabel">{$pathitems[$folder.relpath]} {$CONST.MEDIA}</span>{else}<span class="emptydim imgctlabel">0 {$CONST.MEDIA}</span>{/if}</li>
+                        <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.EDIT} {$folder.name}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
+                        <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreateSub&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.CREATE_DIRECTORY}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_DIRECTORY}</span></a></li>
+                        <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
+                    </ul>
+                </div>
 {else}
 {if $folder.depth > 6}
-        <!-- unknown deep nested fallback case -->
+    <!-- unknown deep nested fallback case -->
 {/if}
-        <li>
-            <div class="clearfix {cycle values="odd,even"}">
-                <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
+    <li>
+        <div class="clearfix {cycle values="odd,even"}">
+            <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
 
-                <ul class="plainList clearfix edit_actions">
-                    <li>{if isset($pathitems[$folder.relpath])}<span class="imgctlabel">{$pathitems[$folder.relpath]} {$CONST.MEDIA}</span>{else}<span class="emptydim imgctlabel">0 {$CONST.MEDIA}</span>{/if}</li>
-                    <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.EDIT} {$folder.name}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
-                    <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreateSub&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.CREATE_DIRECTORY}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_DIRECTORY}</span></a></li>
-                    <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
-                </ul>
-            </div>
+            <ul class="plainList clearfix edit_actions">
+                <li>{if isset($pathitems[$folder.relpath])}<span class="imgctlabel">{$pathitems[$folder.relpath]} {$CONST.MEDIA}</span>{else}<span class="emptydim imgctlabel">0 {$CONST.MEDIA}</span>{/if}</li>
+                <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.EDIT} {$folder.name}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
+                <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreateSub&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.CREATE_DIRECTORY}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_DIRECTORY}</span></a></li>
+                <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
+            </ul>
+        </div>
 {/if}
 {/foreach}
 {if isset($priorDepth)}
 {if $priorDepth >= 1}{if 1 == $priorDepth AND $folder.depth == $priorDepth}
-        </li><!-- x1 finally finish list items of depth fd {$folder.depth} vs pd {$priorDepth} -->
+    </li><!-- x1 finally finish list items of fdepth {$folder.depth} vs pdepth {$priorDepth} -->
 {else}
-                </li><!-- x2 finish list items of depth fd {$folder.depth} vs pd {$priorDepth} -->
+            </li><!-- x2 finish list items of fdepth {$folder.depth} vs pdepth {$priorDepth} -->
 {/if}{/if}
 {if $priorDepth > 0}
 {for $i=1 to $priorDepth}
 {if $i != $priorDepth}
-            </ul><!-- close prior ({$folder.name}) sub case {($priorDepth)-$i} -->
-        </li><!-- {if (($priorDepth-2)-$i) > 1}close prior ({$folder.name}) sub list item {($priorDepth-2)-$i}{else}finally finish list items of depth {$priorDepth-1}{/if} -->
+        </ul><!-- close prior ({$folder.name}) sub case {($priorDepth)-$i} -->
+    </li><!-- {if (($priorDepth-2)-$i) > 1}close prior ({$folder.name}) sub list item {($priorDepth-2)-$i}{else}finally finish list items of depth {$priorDepth-1}{/if} -->
 {/if}
 {/for}
 {/if}
 {/if}
-    </ul>
+</ul>
 
-    <a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreate">{$CONST.CREATE_NEW_DIRECTORY}</a>
+<a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreate">{$CONST.CREATE_NEW_DIRECTORY}</a>
 {/if}
 
 {* TODO: obsolete? *}
