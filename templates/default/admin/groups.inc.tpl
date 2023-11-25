@@ -21,24 +21,24 @@
 
 {if empty($delete)}
 
-    <h2>{$CONST.GROUP}</h2>
+<h2>{$CONST.GROUP}</h2>
 
-    <ul id="serendipity_groups" class="plainList zebra_list">
+<ul id="serendipity_groups" class="plainList zebra_list">
 {foreach $groups AS $group}
 
-        <li class="clearfix {cycle values="odd,even"}">
-            <span class="group_name"><span class="icon-users {$group.shortname|default:'user'}" aria-hidden="true"></span> {$group.name|escape}</span>
-            <ul class="plainList clearfix edit_actions">
-                <li><a class="button_link" href="?serendipity[adminModule]=groups&amp;serendipity[adminAction]=edit&amp;serendipity[group]={$group.id}" title="{$CONST.EDIT} {$group.name|escape}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
-                <li><a class="button_link" href="?{$deleteFormToken}&amp;serendipity[adminModule]=groups&amp;serendipity[adminAction]=delete&amp;serendipity[group]={$group.id}" title="{$CONST.DELETE} {$group.name|escape}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
-            </ul>
-        </li>
+    <li class="clearfix {cycle values="odd,even"}">
+        <span class="group_name"><span class="icon-users {$group.shortname|default:'user'}" aria-hidden="true"></span> {$group.name|escape}</span>
+        <ul class="plainList clearfix edit_actions">
+            <li><a class="button_link" href="?serendipity[adminModule]=groups&amp;serendipity[adminAction]=edit&amp;serendipity[group]={$group.id}" title="{$CONST.EDIT} {$group.name|escape}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
+            <li><a class="button_link" href="?{$deleteFormToken}&amp;serendipity[adminModule]=groups&amp;serendipity[adminAction]=delete&amp;serendipity[group]={$group.id}" title="{$CONST.DELETE} {$group.name|escape}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
+        </ul>
+    </li>
 {/foreach}
 
-    </ul>
+</ul>
 {if isset($start) AND $start}
 
-    <a class="button_link" href="?serendipity[adminModule]=groups&serendipity[adminAction]=new">{$CONST.CREATE_NEW_GROUP}</a>
+<a class="button_link" href="?serendipity[adminModule]=groups&serendipity[adminAction]=new">{$CONST.CREATE_NEW_GROUP}</a>
 {/if}
 {/if}
 
