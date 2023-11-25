@@ -192,7 +192,7 @@
 {if $category.depth < $priorDepth}
     </li><!-- close last main list item -->
 {for $i=$category.depth+1 to $priorDepth}
-        </ul></li><!-- close last opened subcat (indent) -->
+        </ul></li><!-- close the last opened subcat (indent) and its parent list item -->
 {/for}
 {/if}
 {if $category.depth == $priorDepth}
@@ -226,7 +226,7 @@
     </li>
 {for $i=1 to $priorDepth}
 
-    </ul></li><!-- close last subcat (indent) -->
+    </ul></li><!-- close the real last subcat(s) (indent) and its parent list item -->
 {/for}
 </ul>
 {else}
