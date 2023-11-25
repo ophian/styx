@@ -216,13 +216,14 @@
     </section>
 {/if}
 {if 'siteConfiguration'|checkPermission AND !$dbnotmysql AND !$utf8mb4noshow}
+
     <section id="maintenance_utf8mb4" class="quick_list{if NOT $dbUtf8mb4_converted AND $dbUtf8mb4_migrate AND $dbUtf8mb4_ready AND NOT empty($dbUtf8mb4_migrate.sql)} mtask_long{/if}">
         <h3>{$CONST.UTF8MB4_MIGRATION_TITLE}</h3>
 
 {if isset($dbUtf8mb4_error) AND $dbUtf8mb4_error}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.UTF8MB4_MIGRATION_ERROR|sprintf:$dbUtf8mb4_error}</span></span>
-{/if}
 
+{/if}
 {if isset($dbUtf8mb4_migrate) AND $dbUtf8mb4_migrate}
             <p>{$CONST.UTF8MB4_MIGRATION_TASK_RETURN}</p>
             <ul>
@@ -250,7 +251,6 @@
             </ul>
 
 {/if}
-
 {if $dbUtf8mb4_converted === true AND $dbUtf8mb4_ready === true}
         <span class="msg_success">
             <span class="icon-ok-circled" aria-hidden="true" title="{$CONST.UTF8MB4_MIGRATION_TASK_DONE}"></span>
