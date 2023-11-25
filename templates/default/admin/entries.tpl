@@ -22,8 +22,8 @@
 
         <ul class="plainList"></ul>
     </div>
-
 {if class_exists('serendipity_event_freetag')}
+
     <div id="tags_list" class="clearfix taxonomy">
         <h3>{$CONST.EDITOR_TAGS}</h3>
 
