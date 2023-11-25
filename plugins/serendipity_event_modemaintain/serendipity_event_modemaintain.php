@@ -219,6 +219,7 @@ class serendipity_event_modemaintain extends serendipity_event
                     // do not allow session based authentication
                     if ($_SESSION['serendipityAuthedUser'] == true && !isset($serendipity['COOKIE']['author_information'])) {
 ?>
+
     <section id="maintenance_moma" class="quick_list">
         <h3><?=PLUGIN_MODEMAINTAIN_MAINTAIN?></h3>
 
