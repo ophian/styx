@@ -121,10 +121,17 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
             array_walk_recursive($pshv, function($value) use (&$temp){ $temp[] = $value; });
             $pshv = array_unique($temp, SORT_REGULAR);
         }
+        // if it still is a multidim array, because the prior hasn't run, flatten again for sure
+        if (isset($pshv[0][0])) {
+            array_walk_recursive($pshv, function($value) use (&$temp){ $temp[] = $value; });
+            $pshv = array_unique($temp, SORT_REGULAR);
+        }
 
         // Merge the two for new only, for current remote and already stored hashes
         if (!empty($hide_hashes) && !empty($pshv)) {
             $hashes = array_unique(array_merge($hide_hashes, $pshv));
+        } elseif (!empty($pshv)) {
+            $hashes = $pshv;
         } else {
             $hashes = $hide_hashes ?? [];
         }
