@@ -130,8 +130,6 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
         // Merge the two for new only, for current remote and already stored hashes
         if (!empty($hide_hashes) && !empty($pshv)) {
             $hashes = array_unique(array_merge($hide_hashes, $pshv));
-        } elseif (!empty($pshv)) {
-            $hashes = $pshv;
         } else {
             $hashes = $hide_hashes ?? [];
         }
@@ -150,6 +148,10 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
             serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE okey = 'l_read_sysinfo_hashes' AND name < '$tso'");
         }
 
+        // but if already stored send to xml readout to exclude
+        if (!empty($pshv)) {
+            $hashes = $pshv;
+        }
         // read the ticker for new
         $data['sysinfo'] = serendipity_sysinfo_ticker(true, $author, $pshv); // yes check-it !
     }
