@@ -94,24 +94,34 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
         $author = $user[0]['realname'] . '_' . $serendipity['authorid'];
         if (isset($serendipity['POST']['sysinfo']['go']) && !empty($serendipity['POST']['sysinfo']['checked']['hash'])) {
             foreach ($serendipity['POST']['sysinfo']['checked']['hash'] AS $post_hash) {
-                $hash = serendipity_db_escape_string($post_hash[1]);
-                $hide_hashes[] = $hash;
-                if ($hash != '0') {
-                    // delete the sysinfo_ticker hash message item from database. It will be renewed in the fnc serendipity_sysinfo_ticker() unless being marked as read checked and stored hashes.
-                    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE name = 'sysinfo_ticker' AND okey = 'l_sysinfo_{$author}-{$hash}' AND value = '$hash'");
-                    $store_message = true;
+                if (!empty($post_hash[1])) {
+                    $hash = serendipity_db_escape_string($post_hash[1]);
+                    $hide_hashes[] = $hash;
+                    if ($hash != '0') {
+                        // delete the sysinfo_ticker hash message item from database. It will be renewed in the fnc serendipity_sysinfo_ticker() unless being marked as read checked and stored hashes.
+                        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE name = 'sysinfo_ticker' AND okey = 'l_sysinfo_{$author}-{$hash}' AND value = '$hash'");
+                        $store_message = true;
+                    }
                 }
             }
         }
         $pshv = []; // array init for previously-stored-hash-values
-        // get the stored away serialized hashes array
-        $stored_hashes = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}options WHERE okey = 'l_read_sysinfo_hashes' AND name < UNIX_TIMESTAMP()");
+        // get the stored away serialized hashes array (PQ needs the ORDER BY added to DISTINCT. In this case it does not matter for MySQL and SQLite)
+        $stored_hashes = serendipity_db_query("SELECT DISTINCT value FROM {$serendipity['dbPrefix']}options WHERE okey = 'l_read_sysinfo_hashes' AND name < UNIX_TIMESTAMP() ORDER BY value");
         // serialized result is type of array
         if (is_array($stored_hashes)) {
-            foreach (unserialize($stored_hashes[0]['value']) AS $shv) {
-                $pshv[] = $shv;
+            foreach ($stored_hashes AS $shv) {
+                $pshv[] = unserialize($shv['value']);
             }
         }
+
+        // flatten the still possible multidim array with already stored hashes (by differing timestamps) to then sort out uniques only
+        if (!empty($pshv) && count($pshv) > 1) {
+            $temp = array();
+            array_walk_recursive($pshv, function($value) use (&$temp){ $temp[] = $value; });
+            $pshv = array_unique($temp, SORT_REGULAR);
+        }
+
         // Merge the two for new only, for current remote and already stored hashes
         if (!empty($hide_hashes) && !empty($pshv)) {
             $hashes = array_unique(array_merge($hide_hashes, $pshv));
