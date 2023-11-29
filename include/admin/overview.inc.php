@@ -115,16 +115,15 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
             }
         }
 
-        // flatten the still possible multidim array with already stored hashes (by differing timestamps) to then sort out uniques only
-        if (!empty($pshv) && count($pshv) > 1) {
-            $temp = array();
-            array_walk_recursive($pshv, function($value) use (&$temp){ $temp[] = $value; });
-            $pshv = array_unique($temp, SORT_REGULAR);
-        }
-        // if it still is a multidim array, because the prior hasn't run, flatten again for sure
-        if (isset($pshv[0][0])) {
-            array_walk_recursive($pshv, function($value) use (&$temp){ $temp[] = $value; });
-            $pshv = array_unique($temp, SORT_REGULAR);
+        // flatten the possible multidim array with already stored hashes (by differing timestamps) to then sort out uniques only
+        if (!empty($pshv)) {
+            // check for potential multidimensional array values
+            $is_multi = (function($pshv) { foreach ($pshv as $a) { if (is_array($a)) return true; } return false; });
+            if ($is_multi) {
+                $temp = array();
+                array_walk_recursive($pshv, function($value) use (&$temp){ $temp[] = $value; });
+                $pshv = array_unique($temp, SORT_REGULAR);
+            }
         }
 
         // Merge the two for new only, for current remote and already stored hashes
@@ -148,11 +147,7 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
             serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE okey = 'l_read_sysinfo_hashes' AND name < '$tso'");
         }
 
-        // but if already stored send to xml readout to exclude
-        if (!empty($pshv)) {
-            $hashes = $pshv;
-        }
-        // read the ticker for new
+        // read the ticker for new - but if already having been stored send previously-stored-hash-values to xml readout to exclude
         $data['sysinfo'] = serendipity_sysinfo_ticker(true, $author, $pshv); // yes check-it !
     }
 }
