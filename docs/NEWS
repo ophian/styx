@@ -1,6 +1,8 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix remote_ticker uncaught "Data too long for column" SQL exception
+
   * Improve several remote_ticker issues (mostly) backported to 4.3.0 release
 
 
