@@ -110,8 +110,8 @@
                         <li><a class="button_link" href="serendipity_admin.php?serendipity[adminModule]=logout" title="{$CONST.LOGOUT}"><span class="icon-logout" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.LOGOUT}</span></a></li>
                     </ul>
                 </li>
-
 {if 'adminEntries'|checkPermission OR 'adminEntriesPlugins'|checkPermission}
+
                 <li>
                     <h3>{$CONST.CONTENT}</h3>
                     <ul>
@@ -122,15 +122,12 @@
 {if 'adminCategories'|checkPermission}
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=category&amp;serendipity[adminAction]=view">{$CONST.CATEGORIES}</a></li>
 {/if}
-{if 'adminEntries'|checkPermission OR 'adminEntriesPlugins'|checkPermission}
-{if $admin_vars.no_create !== true}
-                        {serendipity_hookPlugin hook="backend_sidebar_entries" hookAll="true"}
-{/if}{/if}
+{if 'adminEntries'|checkPermission OR 'adminEntriesPlugins'|checkPermission}{if $admin_vars.no_create !== true}{serendipity_hookPlugin hook="backend_sidebar_entries" hookAll="true"}{/if}{/if}
                     </ul>
                 </li>
 {/if}
-
 {if 'adminImages'|checkPermission}
+
                 <li>
                     <h3>{$CONST.MEDIA}</h3>
                     <ul>
@@ -143,9 +140,7 @@
 {if 'adminImagesDirectories'|checkPermission}
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=media&amp;serendipity[adminAction]=directorySelect">{$CONST.MANAGE_DIRECTORIES}</a></li>
 {/if}
-{if $admin_vars.no_create !== true}
-                        {serendipity_hookPlugin hook="backend_sidebar_entries_images" hookAll="true"}
-{/if}
+{if $admin_vars.no_create !== true}{serendipity_hookPlugin hook="backend_sidebar_entries_images" hookAll="true"}{/if}
                     </ul>
                 </li>
 {/if}
@@ -154,13 +149,11 @@
                     <h3>{$CONST.MENU_ACTIVITY}</h3>
                     <ul>
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=comments">{$CONST.COMMENTS}</a></li>
-{if 'adminPlugins'|checkPermission AND $admin_vars.no_create !== true}
-                        {serendipity_hookPlugin hook="backend_sidebar_admin_appearance" hookAll="true"}
-{/if}
+{if 'adminPlugins'|checkPermission AND $admin_vars.no_create !== true}{serendipity_hookPlugin hook="backend_sidebar_admin_appearance" hookAll="true"}{/if}
                     </ul>
                 </li>
-
 {if 'adminImport'|checkPermission OR 'siteConfiguration'|checkPermission OR 'blogConfiguration'|checkPermission OR 'adminTemplates'|checkPermission OR 'adminPlugins'|checkPermission}
+
                 <li>
                     <h3>{$CONST.MENU_SETTINGS}</h3>
                     <ul>
@@ -193,13 +186,9 @@
 {if 'adminUsersGroups'|checkPermission}
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=groups">{$CONST.MENU_GROUPS}</a></li>
 {/if}
-{if $admin_vars.no_create !== true}
-                        {serendipity_hookPlugin hook="backend_sidebar_users" hookAll="true"}
-{/if}
+{if $admin_vars.no_create !== true}{serendipity_hookPlugin hook="backend_sidebar_users" hookAll="true"}{/if}
 {else}
-{if $admin_vars.no_create !== true}
-                        {serendipity_hookPlugin hook="backend_sidebar_users" hookAll="true"}
-{/if}
+{if $admin_vars.no_create !== true}{serendipity_hookPlugin hook="backend_sidebar_users" hookAll="true"}{/if}
 {if $admin_vars.right_publish !== true}
                     <li>
                         <span class="msg_hint">{$CONST.USER_ALERT} "<b>{$CONST.PERMISSIONS|upper}</b>"<br>&laquo;&nbsp;<em>{$CONST.ENTRY_STATUS}: {$CONST.DRAFT}</em>&nbsp;&raquo;</span>
@@ -213,9 +202,8 @@
                         <span class="msg_notice hyphenate"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.USER_PERMISSION_NOTIFIER_RESET}</span>
                     </li>
 {/if}
-{if $admin_vars.no_create !== true}
-                        {serendipity_hookPlugin hook="backend_sidebar_useralert" hookAll="true"}
-{/if}{/if}
+{if $admin_vars.no_create !== true}{serendipity_hookPlugin hook="backend_sidebar_useralert" hookAll="true"}{/if}
+{/if}
                     </ul>
                 </li>
 
