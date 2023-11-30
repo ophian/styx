@@ -2426,7 +2426,7 @@ function serendipity_sysinfo_ticker(bool $check = false, string $whoami = '', ar
             $syscall = new SimpleXMLElement($xmlstr);
 
             foreach ($syscall->notification AS $n) {
-                $hash = md5((string) $n->note); // hash-it
+                $hash = PHP_VERSION_ID >= 82000 ? hash('xxh128', (string) $n->note) : md5((string) $n->note); // hash-it
                 if (!in_array($hash, $exclude_hashes)) {
                     $xml[] = array('author' => $n->author, 'title' => $n->title, 'msg' => $n->note, 'hash' => $hash, 'ts' => $n->timestamp, 'priority' => (int)$n->priority);
                     // store each hash to options table - checked against is stored already
@@ -2434,7 +2434,9 @@ function serendipity_sysinfo_ticker(bool $check = false, string $whoami = '', ar
                                                       WHERE name = 'sysinfo_ticker' AND value = '$hash' AND okey = 'l_sysinfo_{$whoami}-{$hash}'", true); // is single
                     if (!is_array($is_hash)) {
                         // okey needs to be unique enough for Duplicate entry 'sysinfo_ticker-l_sysinfo_John Doe_1' for possible key 'PRIMARY' index key (also see above)
-                        serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey) VALUES ('$name', '$hash', '{$okey}-{$hash}')");
+                        // shorten for the okey  field varchar(64) length !!
+                        $short_okey = PHP_VERSION_ID >= 82000 ? hash('xxh3', '{$okey}-{$hash}') : hexdec(hash('crc32', '{$okey}-{$hash}') . hash('crc32b', '{$okey}-{$hash}'));
+                        serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey) VALUES ('$name', '$hash', '{$short_okey}')");
                     }
                 }
             }
