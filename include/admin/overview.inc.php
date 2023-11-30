@@ -97,10 +97,10 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
                 if (!empty($post_hash[1])) {
                     $hash = serendipity_db_escape_string($post_hash[1]);
                     $hide_hashes[] = $hash;
-                    $short_okey = PHP_VERSION_ID >= 82000 ? hash('xxh3', 'l_sysinfo_{$author}-{$hash}') : hexdec(hash('crc32', 'l_sysinfo_{$author}-{$hash}') . hash('crc32b', 'l_sysinfo_{$author}-{$hash}'));
+                    $aha = md5('{$author}{$hash}');
                     if ($hash != '0') {
                         // delete the sysinfo_ticker hash message item from database. It will be renewed in the fnc serendipity_sysinfo_ticker() unless being marked as read checked and stored hashes.
-                        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE name = 'sysinfo_ticker' AND okey = '{$short_okey}' AND value = '$hash'");
+                        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE name = 'sysinfo_ticker' AND okey = 'l_sysinfo_{$aha}' AND value = '$hash'");
                         $store_message = true;
                     }
                 }
