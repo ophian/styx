@@ -1,8 +1,7 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
-
-
+  * Improve several remote_ticker issues backported to 4.3.0 release
 
 
 Version 4.3.0 (November, 26th 2023)
