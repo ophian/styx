@@ -1,7 +1,8 @@
 Version 4.3.1 ()
  ------------------------------------------------------------------------
 
-  * Fix remote_ticker uncaught "Data too long for column" SQL exception
+  * Fix remote_ticker uncaught "Data too long for column" SQL exception, which
+    needed to reset all stored hash length data of user.
 
   * Improve several remote_ticker issues (mostly) backported to 4.3.0 release
 
