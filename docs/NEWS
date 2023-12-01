@@ -1,6 +1,9 @@
 Version 4.3.1 ()
  ------------------------------------------------------------------------
 
+  * Add an upgrade task to automatically cleanup old references for the
+    remote_ticker data length refactoring.
+
   * Fix remote_ticker uncaught "Data too long for column" SQL exception, which
     needed to reset all stored hash length data for the case of too long named
     users.
