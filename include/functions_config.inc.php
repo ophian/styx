@@ -2434,7 +2434,11 @@ function serendipity_sysinfo_ticker(bool $check = false, string $whoami = '', ar
                     if (!is_array($is_hash)) {
                         // okey needs to be unique enough for Duplicate entry 'sysinfo_ticker-l_sysinfo_John Doe_1' for possible key 'PRIMARY' index key (also see above)
                         // but also must be short enough for the varchar(64) field length
-                        serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey) VALUES ('sysinfo_ticker', '{$hash}', 'l_sysinfo_{$comb}')");
+                        try {
+                            serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey) VALUES ('sysinfo_ticker', '{$hash}', 'l_sysinfo_{$comb}')");
+                        } catch (\Throwable $t) {
+                            trigger_error('Error: The \'sysinfo_ticker\' hashes could not be stored to DB (' . $t->getMessage() . '). Please examine the message.', E_USER_ERROR);
+                        }
                     }
                 }
             }
