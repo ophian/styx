@@ -141,7 +141,7 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
             // Store hidden hashes away for half a year, a year or even two... until nuked
             $ts = time(); // No internal _serverOffsetHour() call, since fully compat with DateTimeImmutable Zone
             $rh = serialize($hashes);
-            serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey) VALUES ('$ts', '$rh', 'l_read_sysinfo_hashes')");
+            @serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey) VALUES ('$ts', '$rh', 'l_read_sysinfo_hashes')");
             // garbage collect old stored hashes
             $date_gc = new \DateTimeImmutable('-6 Month');
             $tso = $date_gc->getTimestamp();
