@@ -77,7 +77,7 @@
 {/if}
 {if $case_directoryEdit}
 {if !empty($smarty.post.serendipity.save) AND isset($savedirtime)}
-    <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.SETTINGS_SAVED_AT|sprintf:$savedirtime}</span>
+<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.SETTINGS_SAVED_AT|sprintf:$savedirtime}</span>
 {/if}
 <h2>{$CONST.MANAGE_DIRECTORIES}</h2>
 
