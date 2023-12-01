@@ -686,6 +686,18 @@ function serendipity_killPlugin($name) {
 }
 
 /**
+ * Nukes old 'sysinfo_ticker' hash message items from database set by Styx 4.3.0 for refactored Styx 4.3.1
+ *
+ * @return void
+ */
+function serendipity_nuke_okey_sys_tick_items() {
+    global $serendipity;
+
+    // delete the overview.inc set 'sysinfo_ticker' hash message item from database that is not of current length with 4.3.1
+    @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE name = 'sysinfo_ticker' AND okey LIKE 'l_sysinfo_%' AND length(okey) != 42"); // current length of 4.3.1
+}
+
+/**
  * Empty a given directory recursively using the Standard PHP Library (SPL) iterator
  * Use as full purge by serendipity_removeDeadFiles_SPL(/path/to/dir)
  * Or strict by serendipity_removeDeadFiles_SPL('/path/to/dir', $filelist, $directorylist, true)
