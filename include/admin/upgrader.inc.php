@@ -607,6 +607,11 @@ $tasks = array(
                     'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> To avoid conflicts with development (versions) of next major Styx 5 series with new system requirements within the next few months,',
                     'desc'      => 'some logical changes have already been applied to divide series 4 and 5 versions apart. This also was necessary for Spartacus access to "additional plugins", which for the current series moved to another branch on GitHub, called "legacy". Please watch out for eventually raised related "Remote System Notification" issues in your blogs backend or at the Serendipity Styx <a href="https://ophian.github.io/blog/" rel="external noopener" target="_blank">website blog</a>.'),
 
+            array(  'version'   => '4.3.1',
+                    'function'  => 'serendipity_nuke_okey_sys_tick_items',
+                    'title'     => 'Removal of old remote sysinfo_ticker storage for 4.3.0',
+                    'desc'      => 'An automatic cleanup for the Styx 4.3.1 refactoring.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
