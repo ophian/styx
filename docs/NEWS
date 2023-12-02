@@ -1,6 +1,8 @@
 Version 4.3.1 ()
  ------------------------------------------------------------------------
 
+  * Improve Spartacus "legacy" branching
+
   * Add an upgrade task to automatically cleanup old references for the
     remote_ticker data length refactoring.
 
