@@ -107,7 +107,7 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
             }
         }
         $pshv = []; // array init for previously-stored-hash-values
-        // get the stored away serialized hashes array (PQ needs the ORDER BY added to DISTINCT. In this case it does not matter for MySQL and SQLite)
+        // get the stored away serialized hashes array (PG needs the ORDER BY added to DISTINCT. In this case it does not matter for MySQL and SQLite)
         $stored_hashes = serendipity_db_query("SELECT DISTINCT value FROM {$serendipity['dbPrefix']}options WHERE okey = 'l_read_sysinfo_hashes' AND name < UNIX_TIMESTAMP() ORDER BY value");
         // serialized result is type of array
         if (is_array($stored_hashes)) {
