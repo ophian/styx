@@ -17,7 +17,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.22');
+        $propbag->add('version',       '3.23');
         $propbag->add('requirements',  array(
             'serendipity' => '3.1',
             'php'         => '7.3'
@@ -1119,7 +1119,11 @@ class serendipity_event_spartacus extends serendipity_event
         }
 
         if (stristr($mirror, 'githubusercontent.com')) {
-            $gitloc = 'legacy/';
+            if ($sub == 'plugins') {
+                $gitloc = 'legacy/';
+            } else {
+                $gitloc = 'master/';
+            }
             $cvshack = '';
         }
 
