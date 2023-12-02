@@ -2425,7 +2425,7 @@ function serendipity_sysinfo_ticker(bool $check = false, string $whoami = '', ar
 
             foreach ($syscall->notification AS $n) {
                 $hash = md5((string) $n->note); // hash-it
-                $comb = md5("{$whoami}-{$hash}"); // new hash combo of user and the 32 bit note hash
+                $comb = md5("{$whoami}-{$hash}"); // new hash combo of user and the 32 length note hash
                 if (!in_array($hash, $exclude_hashes)) {
                     $xml[] = array('author' => $n->author, 'title' => $n->title, 'msg' => $n->note, 'hash' => $hash, 'ts' => $n->timestamp, 'priority' => (int)$n->priority);
                     // store each hash to options table - checked against is stored already
