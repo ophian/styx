@@ -667,7 +667,8 @@ form > button,
     margin-top: 1.5em;
     margin-bottom: 1.5em;
 }
-#content:nth-child(-n + 3) > #upgrade_notice {
+/* as Styx Club Sandwich */
+#content > #upgrade_notice:nth-child(3) {
     margin-top: .25em;
     margin-bottom: .25em;
 }
