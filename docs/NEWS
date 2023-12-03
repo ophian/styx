@@ -1,8 +1,8 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
-
-
+  * Fix an uncommon auto scale overflow issue with img sizes greater content
+    for left/right oriented images within p tags in the [ pure ] theme CSS.
 
 
 Version 4.3.1 (December, 2cd 2023)
