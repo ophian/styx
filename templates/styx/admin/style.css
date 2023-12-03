@@ -667,6 +667,10 @@ form > button,
     margin-top: 1.5em;
     margin-bottom: 1.5em;
 }
+#content:nth-child(-n + 3) > #upgrade_notice {
+    margin-top: .25em;
+    margin-bottom: .25em;
+}
 #maintenance > section > .button_link.stat {
     margin: .75em 0;
 }
