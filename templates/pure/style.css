@@ -2282,7 +2282,10 @@ div.serendipityPlug a {
     width: -webkit-fill-available;
 }
 
-/* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! */
+/* Auto scales
+   - single set left/right oriented bigger images within p tags
+   - 400px left/right oriented image thumbs with floated text
+   - DOES NOT touch smaller defined images, which is perfect! */
 .page .serendipity_imageComment_left,
 .page .serendipity_imageComment_right,
 .page p .serendipity_image_left,
@@ -2357,7 +2360,7 @@ div.serendipityPlug a {
     .grid-flex .post .serendipity_imageComment_right,
     .grid-flex .post p .serendipity_image_left:not([srcset*=".400W."]),
     .grid-flex .post p .serendipity_image_right:not([srcset*=".400W."]) {
-        max-width: initial; }
+        max-width: 100%; }
 }
 @media screen and (min-width: 1520px) {
     /* 2-sidebars | !in responsiveimages plugin cases */
@@ -2381,7 +2384,7 @@ div.serendipityPlug a {
     .post .serendipity_imageComment_right,
     .post p .serendipity_image_left:not([srcset*=".800W."]),
     .post p .serendipity_image_right:not([srcset*=".800W."]) {
-        max-width: initial; }
+        max-width: 100%; }
 }
 
 /* overwrite fallback plain image padding */
