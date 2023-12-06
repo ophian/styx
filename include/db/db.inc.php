@@ -179,4 +179,26 @@ function serendipity_db_implode($string, &$array, $type = 'int') {
     return $string;
 }
 
+/**
+ * Operates on differing DB layer concepts to convert
+ * the CURRENT or DATE field value to a "UNIX TIMESTAMP" for SQL SELECT usage
+ *
+ * @access public
+ * @param   string optional (joined) field name to work on (resulting to eg. '2021-12-05') - CURRENT or NOW by default
+ * @return  string string command by dbType to include to query
+ */
+function serendipity_db_get_unixTimestamp(string $field = '') : string {
+    global $serendipity;
+
+    if ($serendipity['dbType'] == 'postgres' || $serendipity['dbType'] == 'pdo-postgres') {
+        $field = empty($field) ? 'now()' : $field;
+        return "EXTRACT(EPOCH FROM $field)";
+    } elseif ($serendipity['dbType'] == 'sqlite' || $serendipity['dbType'] == 'sqlite3' || $serendipity['dbType'] == 'pdo-sqlite' || $serendipity['dbType'] == 'sqlite3oo') {
+        $field = empty($field) ? "'now'" : $field; // OK
+        return "STRFTIME('%s', $field)"; // change to UNIXEPOCH($field) w/ Styx 5 for SQLite >= 3.38.0 (2022-02-22) only
+    } else {
+        return "UNIX_TIMESTAMP($field)";
+    }
+}
+
 /* vim: set sts=4 ts=4 expandtab : */
