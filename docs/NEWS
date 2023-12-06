@@ -1,6 +1,9 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix remote ticker DISTINCT SELECT for SQLite and PostgreSQL DB layers
+    regarding (by) UNIX TIMESTAMP commands.
+
   * Add new serendipity_db_get_unixTimestamp() function to the general db.inc
     to support fetching by UNIX TIMESTAMP generations with supported databases,
     which all three have different commands they support.
