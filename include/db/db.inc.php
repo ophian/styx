@@ -180,8 +180,8 @@ function serendipity_db_implode($string, &$array, $type = 'int') {
 }
 
 /**
- * Operates on differing DB layer concepts to convert
- * the CURRENT or DATE field value to a "UNIX TIMESTAMP" for SQL SELECT usage
+ * Operates on differing database command concepts to convert
+ * the CURRENT or a DATE field value to a "UNIX TIMESTAMP" for SQL SELECT usage
  *
  * @access public
  * @param   string optional (joined) field name to work on (resulting to eg. '2021-12-05') - CURRENT or NOW by default
