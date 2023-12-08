@@ -181,17 +181,18 @@ function serendipity_db_implode($string, &$array, $type = 'int') {
 
 /**
  * Operates on differing database command concepts to convert
- * the CURRENT or a DATE field value to a "UNIX TIMESTAMP" for SQL SELECT usage
+ * the CURRENT or a DATE field value to a "UNIX TIMESTAMP" (UTC) for SQL SELECT usage
  *
  * @access public
- * @param   string optional (joined) field name to work on (resulting to eg. '2021-12-05') - CURRENT or NOW by default
- * @return  string string command by dbType to include to query
+ * @param   string Optional (joined) field name to work on (resulting to eg. '2021-12-05')
+ *          - CURRENT or NOW by default
+ * @return  string String command by dbType to include to a query
  */
 function serendipity_db_get_unixTimestamp(string $field = '') : string {
     global $serendipity;
 
     if ($serendipity['dbType'] == 'postgres' || $serendipity['dbType'] == 'pdo-postgres') {
-        $field = empty($field) ? 'now()' : $field;
+        $field = empty($field) ? 'NOW()' : $field;
         return "EXTRACT(EPOCH FROM $field)";
     } elseif ($serendipity['dbType'] == 'sqlite' || $serendipity['dbType'] == 'sqlite3' || $serendipity['dbType'] == 'pdo-sqlite' || $serendipity['dbType'] == 'sqlite3oo') {
         $field = empty($field) ? "'now'" : $field; // OK
