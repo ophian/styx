@@ -1,6 +1,8 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Improved the Styx backend theme
+
   * Fix remote ticker DISTINCT SELECT for SQLite and PostgreSQL DB layers
     regarding (by) UNIX TIMESTAMP commands.
 
