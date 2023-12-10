@@ -3268,7 +3268,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
                         }
                     }
 
-                    if (isset($sFile['hotlink']) && $sFile['hotlink']) {
+                    if (isset($sFile['hotlink'])) {
                         $sFileName = $sFile['path'];
                         $sThumbNailFile = '';
                     } else {
@@ -3283,7 +3283,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
                     if (isset($aFilesOnDisk[$sFileName])) {
                         unset($aFilesOnDisk[$sFileName]);
                     } else {
-                        if (!$sFile['hotlink']) {
+                        if (!isset($sFile['hotlink'])) {
                             if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Deleting Image {$sFile['id']}"); }
 
                             $msgdelfile[] = serendipity_deleteImage($sFile['id']);
