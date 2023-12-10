@@ -1,6 +1,8 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve the changelog plugin for debug logs, adding the file size
+
   * Fixes for (imported) hotlink images
       - fixes several warning for not strictly matching conditionals
       - fixes a wrong file name variable for message output
