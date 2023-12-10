@@ -390,7 +390,7 @@ function serendipity_deleteImage($id) {
                 return;
             }
 
-            if (!$file['hotlink']) {
+            if (!isset($file['hotlink'])) {
                 if (file_exists($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile)) {
                     if (unlink($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile)) {
                         // Silently delete an already generated .v/origin.[webp|avif] variation file too
@@ -469,7 +469,7 @@ function serendipity_deleteImageVariations($id) {
                 return;
             }
 
-            if (!$file['hotlink']) {
+            if (!isset($file['hotlink'])) {
                 $v = serendipity_syncUnlinkVariation($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile, false);
                 foreach ($v AS $mv) {
                     $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_FILE . "</span>\n", str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $mv));
@@ -1813,7 +1813,7 @@ function serendipity_generateVariations($id = null) {
         $file = serendipity_fetchImageFromDatabase($id);
         if (is_array($file) && !empty($file)) {
             $resWebP = $resAVIF = false; // init
-            if (!in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png', 'gif']) || $file['hotlink'] == 1) {
+            if (!in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png', 'gif']) || (isset($file['hotlink']) && $file['hotlink'] == 1)) {
                 return false;
             }
             if ($debug) $logtag = 'SINGLE ML IMAGE-ADD-VARIATION - PART RUN ::';
@@ -1881,7 +1881,7 @@ function serendipity_generateVariations($id = null) {
         if (is_array($files) && !empty($files)) {
             foreach($files AS $f => $file) {
                 $resWebP = $resAVIF = false; // init
-                if (!in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png', 'gif']) || $file['hotlink'] == 1) {
+                if (!in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png', 'gif']) || (isset($file['hotlink']) && $file['hotlink'] == 1)) {
                     continue; // next
                 }
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag EACH FILE AFTER: ".print_r($file,true)); }
@@ -2033,7 +2033,7 @@ function serendipity_generateThumbs() {
     foreach($serendipity['imageList'] AS $k => $file) {
         $is_image = serendipity_isImage($file);
 
-        if ($is_image && (!isset($file['hotlink']) || !$file['hotlink'])) {
+        if ($is_image && !isset($file['hotlink'])) {
             $update   = false;
             $filename = $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
             $ffull    = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $filename;
@@ -3559,7 +3559,7 @@ function serendipity_isImage(&$file, $strict = false, $allowed = 'image/') {
     $file['displaymime'] = $file['mime'];
 
     // Strip HTTP path out of imgsrc
-    $file['location'] = (!isset($file['hotlink']) || !$file['hotlink']) ? $serendipity['serendipityPath'] . preg_replace('@^(' . preg_quote($serendipity['serendipityHTTPPath']) . ')@i', '', ($file['imgsrc'] ?? '')) : '';
+    $file['location'] = !isset($file['hotlink']) ? $serendipity['serendipityPath'] . preg_replace('@^(' . preg_quote($serendipity['serendipityHTTPPath']) . ')@i', '', ($file['imgsrc'] ?? '')) : '';
 
     // File is PDF -> Thumb is PNG
     // Detect PDF thumbs
@@ -4652,7 +4652,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
     $sThumbSource_webp = serendipity_getThumbNailPath($file['path'].'.v/', $file['name'], 'webp', $file['thumbnail_name']);
     $sThumbSource_avif = serendipity_getThumbNailPath($file['path'].'.v/', $file['name'], 'avif', $file['thumbnail_name']);
 
-    if (! $file['hotlink']) {
+    if (!isset($file['hotlink'])) {
         $file['full_path_thumb'] = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sThumbSource;
         $file['full_thumb']      = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $sThumbSource;
 
@@ -4668,7 +4668,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
 
     $file['url'] = $url;
 
-    if ($file['hotlink']) {
+    if (isset($file['hotlink'])) {
         $file['full_file']  = $file['path'];
         $file['show_thumb'] = $file['path'];
         if (!isset($file['imgsrc'])) {
@@ -4735,7 +4735,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
         $file['mediatype'] = 'binary';
     }
 
-    $file['realfile'] = ($file['hotlink'])
+    $file['realfile'] = isset($file['hotlink'])
                         ? $file['path']
                         : $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
 
@@ -4750,7 +4750,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
         $file['thumbWidth']  = $file['dim'][0] ?? null;
         $file['thumbHeight'] = $file['dim'][1] ?? null;
         $file['thumbSize']   = isset($file['full_path_thumb']) ? filesize($file['full_path_thumb']) : null;
-    } elseif ($file['is_image'] && $file['hotlink']) {
+    } elseif ($file['is_image'] && isset($file['hotlink'])) {
         $sizes = serendipity_calculateAspectSize($file['dimensions_width'], $file['dimensions_height'], $serendipity['thumbSize'], $serendipity['thumbConstraint']);
         $file['thumbWidth']  = $sizes[0];
         $file['thumbHeight'] = $sizes[1];
@@ -4767,7 +4767,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
     $_iplus = ((isset($serendipity['enableBackendPopupGranular']) && false !== stripos($serendipity['enableBackendPopupGranular'], 'images')) || (isset($serendipity['enableBackendPopup']) && $serendipity['enableBackendPopup'])) ? 20 : 0;
     $file['popupWidth']   = ($file['is_image'] ? ($file['dimensions_width']  + $_iplus) : 600);
     $file['popupHeight']  = ($file['is_image'] ? ($file['dimensions_height'] + $_iplus) : 500);
-    #if ($file['hotlink']) {//no need up from 2.0
+    #if (isset($file['hotlink'])) {//no need up from 2.0
     #    $file['nice_hotlink'] = wordwrap($file['path'], 45, '<br>', 1);
     #}
     $file['nice_size'] = number_format(round($file['size']/1024, 2), (int) NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
@@ -6429,7 +6429,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
             return false;
         }
 
-        if (!empty($file['hotlink'])) {
+        if (isset($file['hotlink'])) {
 
             $newHotlinkFile = (false === strpos($newDir, $file['extension'])) ? $newDir . (empty($file['extension']) ? '' : '.' . $file['extension']) : $newDir;
             serendipity_updateImageInDatabase(array('realname' => $newHotlinkFile, 'name' => $newDir), $item_id);
