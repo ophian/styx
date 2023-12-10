@@ -20,7 +20,7 @@ class serendipity_event_changelog extends serendipity_event
         $propbag->add('description',    PLUGIN_CHANGELOG_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.40');
+        $propbag->add('version',       '1.41');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.2',
             'php'         => '5.3.0'
@@ -75,8 +75,8 @@ class serendipity_event_changelog extends serendipity_event
 
                         header('Content-language: en');
                         header('Content-type: text/html; charset=UTF-8');
-                        $files = glob($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/logs/*.txt');
-                        $files = array_combine($files, array_map("filemtime", $files));
+                        $files = glob($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/logs/*.txt'); // this is well sorted by ASC
+                        $sizes = array_map('filesize', $files); // map additional info to give out
                         $x = count($files);
                         // Whow, this took long to debug ...
                         // Since Firefox & Chromium encase the $file content with a DOM added <pre> tag,
@@ -93,13 +93,13 @@ class serendipity_event_changelog extends serendipity_event
                         echo sprintf(PLUGIN_CHANGELOG_LOGGER_HAS_LOGS, $x) . "\n";
                         echo PLUGIN_CHANGELOG_LOGGER_NUKE_WARNING . "\n\n";
                         echo $separator;
-                        print_r(array_keys($files));
-                        echo $separator;
+                        foreach($files AS $key => $file) echo $file . ' - ' . @round($sizes[$key]/1024, 0) . " KB\n";
+                        echo "\n" . $separator;
                         arsort($files);
-                        $latest_file = key($files);
-                        $content = file_get_contents($latest_file);
+                        $lfk = key($files); // last file key
+                        $content = file_get_contents($files[$lfk]);
                         $file  = PLUGIN_CHANGELOG_LOGGER_BACKBLAH . "\n\n$separator";
-                        $file .= empty($content) ? '<<< File: '. str_replace($serendipity['serendipityPath'], '', $latest_file) . ' - ' .NO_ENTRIES_TO_PRINT . ' >>>' : $content;
+                        $file .= empty($content) ? '<<< File: '. str_replace($serendipity['serendipityPath'], '', $files[$lfk]) . ' - ' .NO_ENTRIES_TO_PRINT . ' >>>' : $content;
                         unset($content);
                         echo $file;
                         echo '</xmp>';
