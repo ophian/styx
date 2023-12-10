@@ -487,7 +487,7 @@ switch ($serendipity['GET']['adminAction']) {
 
                             $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . FILE_FETCHED . "</span>\n", $_imageurl , $tfile . '');
 
-                            // last chance to lower the upload file extension part
+                            // Prep for full file Variations
                             $info = pathinfo($tfile);
                             if (!isset($info['extension'])) {
                                 $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> File extension missing or failed!</span>';
