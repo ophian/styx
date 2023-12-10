@@ -704,7 +704,7 @@ function serendipity_insertImageInDatabase($filename, $directory, $authorid = 0,
     $thumbnail = (file_exists($thumbpath) ? $serendipity['thumbSuffix'] : '');
 
     $fdim   = @serendipity_getImageSize($filepath, '', $extension);
-    $width  = $fdim[0] ?? 0; // this check is temporary getimagesize() hotfix related since uploaded avif images have no sizes yet by default
+    $width  = $fdim[0] ?? 0; // this check is temporary getimagesize() hotfix related since uploaded avif images have no sizes yet by default with PHP 8.1
     $height = $fdim[1] ?? 0; // ditto
     $mime   = $fdim['mime'];
 
