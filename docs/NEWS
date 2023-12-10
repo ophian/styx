@@ -1,6 +1,11 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Fixes for (imported) hotlink images
+      - fixes several warning for not strictly matching conditionals
+      - fixes a wrong file name variable for message output
+      - adds the missing full file Variations
+
   * Improved the Styx backend theme
 
   * Fix remote ticker DISTINCT SELECT for SQLite and PostgreSQL DB layers
