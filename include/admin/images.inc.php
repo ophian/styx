@@ -441,13 +441,15 @@ switch ($serendipity['GET']['adminAction']) {
             // Check ML DB realfiles for naming doubles
             $cnum = serendipity_fetchImagesByName($filebase.'%', true);
 
-            // Simplified serendipity_imageAppend() approach to avoid having duplicate filenames regardless where located in the physical ML
-            if ($cnum[0] > 20) {
-                $target = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $serendipity['POST']['target_directory'][$tindex] . $filebase . md5(time() . $filebase) . (empty($ext) ? '' : '.' . $ext);
-                $tfile = $filebase . md5(time() . $filebase) . (empty($ext) ? '' : '.' . $ext); // build new tfile and realname reference
-            } else if ($cnum[0] > 0) {
-                $target = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $serendipity['POST']['target_directory'][$tindex] . $filebase . $cnum[0] . (empty($ext) ? '' : '.' . $ext);
-                $tfile = $filebase . $cnum[0] . (empty($ext) ? '' : '.' . $ext); // build new tfile and realname reference
+            if ($cnum !== false) {
+                // Simplified serendipity_imageAppend() approach to avoid having duplicate filenames regardless where located in the physical ML
+                if ($cnum[0] > 20) {
+                    $target = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $serendipity['POST']['target_directory'][$tindex] . $filebase . md5(time() . $filebase) . (empty($ext) ? '' : '.' . $ext);
+                    $tfile = $filebase . md5(time() . $filebase) . (empty($ext) ? '' : '.' . $ext); // build new tfile and realname reference
+                } else if ($cnum[0] > 0) {
+                    $target = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $serendipity['POST']['target_directory'][$tindex] . $filebase . $cnum[0] . (empty($ext) ? '' : '.' . $ext);
+                    $tfile = $filebase . $cnum[0] . (empty($ext) ? '' : '.' . $ext); // build new tfile and realname reference
+                }
             }
 
             $realname = $tfile;
@@ -485,6 +487,18 @@ switch ($serendipity['GET']['adminAction']) {
 
                             $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . FILE_FETCHED . "</span>\n", $_imageurl , $tfile . '');
 
+                            // last chance to lower the upload file extension part
+                            $info = pathinfo($tfile);
+                            if (!isset($info['extension'])) {
+                                $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> File extension missing or failed!</span>';
+                                $info['extension'] = '';
+                            }
+                            // Create ORIGIN TARGET full file Variations, if file is supported to have Variations!
+                            if (in_array(strtoupper(explode('/', serendipity_guessMime($info['extension']))[1]), serendipity_getSupportedFormats())) {
+                                $msgs_cFFV = serendipity_createFullFileVariations($target, $info, $messages);
+                                $messages  = array_unique(array_merge($messages, $msgs_cFFV)); // merge the array and remove duplicate messages
+                            }
+
                             if (serendipity_checkMediaSize($target)) {
                                 $thumbs = array(array(
                                     'thumbSize' => $serendipity['thumbSize'],
@@ -496,7 +510,7 @@ switch ($serendipity['GET']['adminAction']) {
                                 foreach($thumbs AS $thumb) {
                                     // Create thumbnail
                                     if ($created_thumbnail = serendipity_makeThumbnail($tfile, $serendipity['POST']['target_directory'][$tindex], $thumb['thumbSize'], $thumb['thumb'])) {
-                                        $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . THUMB_CREATED_DONE . "</span>\n", "<b>{$thumb['thumb']}</b> &#8660; <b>$uploadfile</b>");
+                                        $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . THUMB_CREATED_DONE . "</span>\n", "<b>{$thumb['thumb']}</b> &#8660; <b>$tfile</b>");
                                     }
                                 }
 
