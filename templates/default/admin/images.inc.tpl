@@ -445,12 +445,13 @@
     </form>
 
     <div id="serendipityScaleImg" data-imgwidth="{$scaleOriginSize.width}" data-imgheight="{$scaleOriginSize.height}" title="{$scaleFileName}, {$CONST.ORIGINAL_SIZE|sprintf:$scaleOriginSize.width:$scaleOriginSize.height|strip_tags}, scaled for browser preview">
-        <picture>{if NOT empty($file_avif)}
-
-            <source type="image/avif" srcset="{$file_avif|default:''}">{/if}{if NOT empty($file_webp)}
-
-            <source type="image/webp" srcset="{$file_webp|default:''}">{/if}
-
+        <picture>
+{if NOT empty($file_avif)}
+            <source type="image/avif" srcset="{$file_avif|default:''}">
+{/if}
+{if NOT empty($file_webp)}
+            <source type="image/webp" srcset="{$file_webp|default:''}">
+{/if}
             <img src="{$file}" class="ml_preview_img" name="serendipityScaleImg" alt="{$CONST.PREVIEW}">
         </picture>
     </div>
