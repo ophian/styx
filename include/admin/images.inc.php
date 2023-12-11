@@ -490,13 +490,12 @@ switch ($serendipity['GET']['adminAction']) {
                             // Prep for full file Variations
                             $info = pathinfo($tfile);
                             if (!isset($info['extension'])) {
-                                $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> File extension missing or failed!</span>';
+                                $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> File extension missing or failed!</span>'."\n";
                                 $info['extension'] = '';
                             }
                             // Create ORIGIN TARGET full file Variations, if file is supported to have Variations!
                             if (in_array(strtoupper(explode('/', serendipity_guessMime($info['extension']))[1]), serendipity_getSupportedFormats())) {
-                                $msgs_cFFV = serendipity_createFullFileVariations($target, $info, $messages);
-                                $messages  = array_unique(array_merge($messages, $msgs_cFFV)); // merge the array and remove duplicate messages
+                                $messages = serendipity_createFullFileVariations($target, $info, $messages);
                             }
 
                             if (serendipity_checkMediaSize($target)) {
