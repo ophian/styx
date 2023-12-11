@@ -535,7 +535,8 @@
 @define('DELETE_FILE_FAIL', 'Gat ekki eytt skrá <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Eyddi sýnishorni myndar nefnt <b>%s</b>');
 @define('DELETE_FILE', 'Eyddi skrá nenfdri <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Þú ert að far aað eyða <b>%s</b><br>Ef þú ert að nota þessa skrá í einhverri af færslunum þínum, mun það valda dauðum hlekkjum eða óvirkum myndum<br>Ertu viss um að þú viljir halda áfram?<br><br>');
+@define('ABOUT_TO_DELETE_FILE', 'Þú ert að far aað eyða <b>%s</b><br>Ef þú ert að nota þessa skrá í einhverri af færslunum þínum, mun það valda dauðum hlekkjum eða óvirkum myndum<br>Ertu viss um að þú viljir halda áfram?');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Sendi tilvísun á URI slóð %s...');
 @define('TRACKBACK_SENT', 'Tilvísun tókst');
 @define('TRACKBACK_FAILED', 'Tilvísun tókst ekki: %s');
@@ -1016,7 +1017,6 @@
 @define('NO_COMMENT_SUBSCRIPTION', 'Not subscribed');
 @define('SUMMARY', 'Summary');
 
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable. Default sort is ascending.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

@@ -536,7 +536,8 @@ $i18n_unknown = 'tw';
 @define('DELETE_FILE_FAIL', '無法刪除檔案 <b>%s</b>');
 @define('DELETE_THUMBNAIL', '刪除了圖片縮圖 <b>%s</b>');
 @define('DELETE_FILE', '刪除了檔案 <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', '您將刪除檔案 <b>%s</b><br>如果您有在其他的文章內使用這個檔案, 那個連結或圖片將會無效<br>確定要繼續嗎?<br><br>');
+@define('ABOUT_TO_DELETE_FILE', '您將刪除檔案 <b>%s</b><br>如果您有在其他的文章內使用這個檔案, 那個連結或圖片將會無效<br>確定要繼續嗎?');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', '傳送引用到 URI %s...');
 @define('TRACKBACK_SENT', '引用完成');
 @define('TRACKBACK_FAILED', '引用錯誤: %s');
@@ -1018,7 +1019,6 @@ $i18n_unknown = 'tw';
 @define('NO_COMMENT_SUBSCRIPTION', 'Not subscribed');
 @define('SUMMARY', 'Summary');
 
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable. Default sort is ascending.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

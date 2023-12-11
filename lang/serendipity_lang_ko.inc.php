@@ -537,7 +537,8 @@
 @define('DELETE_FILE_FAIL', '파일 <b>%s</b> 삭제 실패');
 @define('DELETE_THUMBNAIL', '작은 그림 <b>%s</b> 삭제됨');
 @define('DELETE_FILE', '파일 <b>%s</b> 삭제됨');
-@define('ABOUT_TO_DELETE_FILE', '<b>%s</b> 삭제를 하려고 합니다.<br>작성한 글에서 이 파일을 사용하고 있을 경우 링크나 그림이 깨질 수 있습니다.<br>계속 하겠습니까?<br><br>');
+@define('ABOUT_TO_DELETE_FILE', '<b>%s</b> 삭제를 하려고 합니다.<br>작성한 글에서 이 파일을 사용하고 있을 경우 링크나 그림이 깨질 수 있습니다.<br>계속 하겠습니까?');
+@define('ABOUT_TO_DELETE_FILES', '여러 개의 파일을 한꺼번에 지우려고 하고 있습니다.<br>만약 작성했던 글에 이들 중 일부를 사용하고 있다면 깨진 링크나 그림으로 나타날 것입니다.<br>그래도 계속 진행하겠습니까?');
 @define('TRACKBACK_SENDING', '트랙백을 URI %s(으)로 보내는 중...');
 @define('TRACKBACK_SENT', '트랙백 성공');
 @define('TRACKBACK_FAILED', '트랙백 실패: %s');
@@ -1016,7 +1017,6 @@
 @define('NO_COMMENT_SUBSCRIPTION', '구독되지 않음');
 @define('SUMMARY', '요약');
 
-@define('ABOUT_TO_DELETE_FILES', '여러 개의 파일을 한꺼번에 지우려고 하고 있습니다.<br>만약 작성했던 글에 이들 중 일부를 사용하고 있다면 깨진 링크나 그림으로 나타날 것입니다.<br>그래도 계속 진행하겠습니까?<br><br>');
 @define('ARCHIVE_SORT_STABLE', '안정적인 글 목록');
 @define('ARCHIVE_SORT_STABLE_DESC', '글 목록 페이지를 내림차순으로 정렬하여 안정적인 상태를 유지함으로서 검색엔진 봇이 다시 색인하지 않아도 되도록 합니다.');//rephrase
 @define('PLAIN_ASCII_NAMES', '(특수 문자나 변이부호 등을 쓰지 마십시오)');

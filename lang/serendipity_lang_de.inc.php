@@ -519,7 +519,8 @@
 @define('DELETE_FILE_FAIL', 'Kann die Datei namens <b>%s</b> nicht löschen');
 @define('DELETE_THUMBNAIL', 'Vorschaubild: <b>%s</b> gelöscht');
 @define('DELETE_FILE', 'Datei namens <b>%s</b> gelöscht');
-@define('ABOUT_TO_DELETE_FILE', 'Sie beabsichtigen, die Datei <b>%s</b> zu löschen.<br>Wenn Sie die Datei bereits in einem Ihrer Einträge verwenden, wird das Löschen Lücken erzeugen.<br>Soll trotzdem fortgefahren werden?<br><br>');
+@define('ABOUT_TO_DELETE_FILE', 'Sie beabsichtigen, die Datei <b>%s</b> zu löschen.<br>Wenn Sie die Datei bereits in einem Ihrer Einträge verwenden, wird das Löschen Lücken erzeugen.<br>Soll trotzdem fortgefahren werden?');
+@define('ABOUT_TO_DELETE_FILES', 'Sie beabsichtigen mehrere Dateien auf einmal zu löschen.<br>Wenn Sie diese bereits in ihren Einträgen verwenden, wird das Löschen Lücken erzeugen.<br>Soll trotzdem fortgefahren werden?');
 @define('A_NEW_TRACKBACK_BLAHBLAH', 'Ein neues Trackback für den Blog-Eintrag namens "%s" wurde empfangen.');
 @define('TRACKBACK_SENDING', 'Sende Trackback zu URI %s ...');
 @define('TRACKBACK_SENT', 'Trackback erfolgreich!');
@@ -1014,7 +1015,6 @@
 @define('NO_COMMENT_SUBSCRIPTION', 'Nicht abonniert');
 @define('SUMMARY', 'Zusammenfassung');
 
-@define('ABOUT_TO_DELETE_FILES', 'Sie beabsichtigen mehrere Dateien auf einmal zu löschen.<br>Wenn Sie diese bereits in ihren Einträgen verwenden, wird das Löschen Lücken erzeugen.<br>Soll trotzdem fortgefahren werden?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stabile Archive');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sortiert die Archiv-Seiten absteigend, so dass sie auf einer festen Seite bleiben. Voreingestellt ist die fortlaufende Sortierung.');
 @define('PLAIN_ASCII_NAMES', '(keine Sonderzeichen, Umlaute)');

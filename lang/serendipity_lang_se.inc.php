@@ -535,7 +535,8 @@
 @define('DELETE_FILE_FAIL', 'Kan inte ta bort filen <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Ta bort miniatyren <b>%s</b>');
 @define('DELETE_FILE', 'Ta bort filen <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Du håller p ta bort <b>%s</b><br>Om du använder den här filen i någon av dina artiklar får du länk-/bildfel<br>Vill du fortfarande ta bort den?<br><br>');
+@define('ABOUT_TO_DELETE_FILE', 'Du håller p ta bort <b>%s</b><br>Om du använder den här filen i någon av dina artiklar får du länk-/bildfel<br>Vill du fortfarande ta bort den?');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Skickar trackback till URI %s...');
 @define('TRACKBACK_SENT', 'Trackback fungerade');
 @define('TRACKBACK_FAILED', 'Trackback misslyckades: %s');
@@ -1015,7 +1016,6 @@
 @define('NO_COMMENT_SUBSCRIPTION', 'Not subscribed');
 @define('SUMMARY', 'Summary');
 
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable. Default sort is ascending.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

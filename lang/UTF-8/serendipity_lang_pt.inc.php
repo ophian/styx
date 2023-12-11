@@ -520,7 +520,8 @@
 @define('DELETE_FILE_FAIL', 'NNão foi possível deletar o arquivo <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Excluir a miniatura da imagem intitulada <b>%s</b>');
 @define('DELETE_FILE', 'Excluir o campo entitulado <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Você está prestes a excluir <b>%s</b><br>Se estiver utilizando esse arquivo em algum dos seus artigos, vai resultar em links ou imagens perdidas<br>Deseja realmente prosseguir com a exclusão?<br><br>');
+@define('ABOUT_TO_DELETE_FILE', 'Você está prestes a excluir <b>%s</b><br>Se estiver utilizando esse arquivo em algum dos seus artigos, vai resultar em links ou imagens perdidas<br>Deseja realmente prosseguir com a exclusão?');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Enviando trackback para a URI %s...');
 @define('TRACKBACK_SENT', 'Trackback enviada com sucesso');
 @define('TRACKBACK_FAILED', 'Trackback falhou: %s');
@@ -1018,7 +1019,6 @@
 @define('NO_COMMENT_SUBSCRIPTION', 'Not subscribed');
 @define('SUMMARY', 'Summary');
 
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable. Default sort is ascending.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

@@ -537,7 +537,8 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('DELETE_FILE_FAIL', 'Не удалось удалить файл <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Удалён файл с тамбнэйлом <b>%s</b>');
 @define('DELETE_FILE', 'Удалён файл <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Вы собираетесь удалить <b>%s</b><br>Если вы используете этот файл в каких-то ваших записях, это действие сделает ссылки или изображения в них недоступными.<br>Вы уверены, что хотите продолжить?<br><br>');
+@define('ABOUT_TO_DELETE_FILE', 'Вы собираетесь удалить <b>%s</b><br>Если вы используете этот файл в каких-то ваших записях, это действие сделает ссылки или изображения в них недоступными.<br>Вы уверены, что хотите продолжить?');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Отправка обратной ссылки на URI %s...');
 @define('TRACKBACK_SENT', 'Отправка обратной ссылки прошла успешно');
 @define('TRACKBACK_FAILED', 'Отправка обратной ссылки не удалась: %s');
@@ -1018,7 +1019,6 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('NO_COMMENT_SUBSCRIPTION', 'Not subscribed');
 @define('SUMMARY', 'Summary');
 
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable. Default sort is ascending.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

@@ -535,7 +535,8 @@
 @define('DELETE_FILE_FAIL', 'Nem sikerült a fájl törlése: <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'A következõ elõnézeti kép törlése: <b>%s</b>');
 @define('DELETE_FILE', 'A következõ fájlt töröltem: <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'A következõ fájl törlésére készülsz: <b>%s</b><br>Ha van olyan bejegyzés ahol ezt használod, akkor így törött hivatkozások vagy hiányzó képek lesznek<br>Biztosan folytatod?<br><br>');
+@define('ABOUT_TO_DELETE_FILE', 'A következõ fájl törlésére készülsz: <b>%s</b><br>Ha van olyan bejegyzés ahol ezt használod, akkor így törött hivatkozások vagy hiányzó képek lesznek<br>Biztosan folytatod?');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Visszahivatkozás küldése URI-ide: %s...');
 @define('TRACKBACK_SENT', 'A visszahivatkozás sikeres');
 @define('TRACKBACK_FAILED', 'A visszahivatkozás nem sikerült: %s');
@@ -1015,7 +1016,6 @@
 @define('NO_COMMENT_SUBSCRIPTION', 'Not subscribed');
 @define('SUMMARY', 'Summary');
 
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable. Default sort is ascending.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

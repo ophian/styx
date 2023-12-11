@@ -549,7 +549,8 @@ $i18n_filename_to = array (
 @define('DELETE_FILE_FAIL', 'Nezdařilo se vymazat soubor <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Vymazán náhled obrázku s názvem <b>%s</b>');
 @define('DELETE_FILE', 'Vymazat soubor s názvem <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Chcete vymazat <b>%s</b><br>Jestliže používáte tento soubor v nějakých záznamech, způsobí to nepřístupnost odkazů nebo obrázků.<br>Chcete přesto pokračovat?<br><br>');
+@define('ABOUT_TO_DELETE_FILE', 'Chcete vymazat <b>%s</b><br>Jestliže používáte tento soubor v nějakých záznamech, způsobí to nepřístupnost odkazů nebo obrázků.<br>Chcete přesto pokračovat?');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Odeslání odezvy na URI %s...');
 @define('TRACKBACK_SENT', 'Odezva úspěšná');
 @define('TRACKBACK_FAILED', 'Odezva neúspěšná: %s');
@@ -1028,8 +1029,6 @@ $i18n_filename_to = array (
 @define('ACTIVE_COMMENT_SUBSCRIPTION', 'Odebíráno');
 @define('PENDING_COMMENT_SUBSCRIPTION', 'Čeká na potvrzení');
 @define('NO_COMMENT_SUBSCRIPTION', 'Neodebíráno');
-
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 
 @define('SUMMARY', 'Souhrn');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');

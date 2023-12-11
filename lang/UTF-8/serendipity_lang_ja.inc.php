@@ -535,7 +535,8 @@
 @define('DELETE_FILE_FAIL', 'ファイル <b>%s</b> を削除できませんでした。');
 @define('DELETE_THUMBNAIL', '<b>%s</b> という名前の画像サムネイルを削除しました。');
 @define('DELETE_FILE', '<b>%s</b> という名前のファイルを削除しました。');
-@define('ABOUT_TO_DELETE_FILE', '<b>%s</b>を削除します。<br>もしこのファイルをエントリーで使用していた場合、リンク切れや表示できない画像の原因になるでしょう。<br>本当に進めますか?<br><br>');
+@define('ABOUT_TO_DELETE_FILE', '<b>%s</b>を削除します。<br>もしこのファイルをエントリーで使用していた場合、リンク切れや表示できない画像の原因になるでしょう。<br>本当に進めますか?');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'URI %s にトラックバックを送信中...');
 @define('TRACKBACK_SENT', 'トラックバック成功');
 @define('TRACKBACK_FAILED', 'トラックバック失敗: %s');
@@ -1016,7 +1017,6 @@
 @define('NO_COMMENT_SUBSCRIPTION', 'Not subscribed');
 @define('SUMMARY', 'Summary');
 
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable. Default sort is ascending.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

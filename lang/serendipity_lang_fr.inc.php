@@ -522,7 +522,8 @@
 @define('DELETE_FILE_FAIL', 'Impossible de supprimer le fichier <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Suppression de la miniature de l\'image intitulée <b>%s</b>');
 @define('DELETE_FILE', 'Suppression du fichier intitulé <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Vous êtes sur le point d\'effacer <b>%s</b>.<br>Si vous avez utilisé ce fichier dans un de vos billets, les liens vers celui-ci seront invalides<br>Êtes-vous sûr de vouloir continuer ?<br><br>');
+@define('ABOUT_TO_DELETE_FILE', 'Vous êtes sur le point d\'effacer <b>%s</b>.<br>Si vous avez utilisé ce fichier dans un de vos billets, les liens vers celui-ci seront invalides<br>Êtes-vous sûr de vouloir continuer ?');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Envoie le rétrolien à l\'adresse %s...');
 @define('TRACKBACK_SENT', 'Rétrolien effectué');
 @define('TRACKBACK_FAILED', 'Rétrolien échoué : %s');
@@ -1020,7 +1021,6 @@
 @define('NO_COMMENT_SUBSCRIPTION', 'Not subscribed');
 @define('SUMMARY', 'Summary');
 
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable. Default sort is ascending.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

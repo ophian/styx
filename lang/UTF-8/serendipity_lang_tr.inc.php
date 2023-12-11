@@ -537,7 +537,8 @@
 @define('DELETE_FILE_FAIL', 'Dosya silinemiyor: <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Şu başlıklı küçükresim silindi: <b>%s</b>');
 @define('DELETE_FILE', 'Şu başlıklı dosya silindi: <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Şu dosyayı silmekten bahsediyorsunuz <b>%s</b><br>Eğer bu dosyayı bazı yazılarınızda kullandıysanız, bu yazılarda bu dosyayla ilgili linkler ve resimler çalışmayacaktır.<br>İşlem devam etsin mi?<br><br>');
+@define('ABOUT_TO_DELETE_FILE', 'Şu dosyayı silmekten bahsediyorsunuz <b>%s</b><br>Eğer bu dosyayı bazı yazılarınızda kullandıysanız, bu yazılarda bu dosyayla ilgili linkler ve resimler çalışmayacaktır.<br>İşlem devam etsin mi?');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', ' URI %s adresine iz bırakılıyor');
 @define('TRACKBACK_SENT', 'İz bırakıldı');
 @define('TRACKBACK_FAILED', 'Bırakılan iz kayıp: %s');
@@ -1018,7 +1019,6 @@
 @define('NO_COMMENT_SUBSCRIPTION', 'Not subscribed');
 @define('SUMMARY', 'Summary');
 
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable. Default sort is ascending.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

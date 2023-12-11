@@ -536,7 +536,8 @@
 @define('DELETE_FILE_FAIL', 'Nu pot şterge fişierul <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Am şters miniatura cu numele <b>%s</b>');
 @define('DELETE_FILE', 'Am şters fişierul cu numele <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Eşti pe cale să ştergi <b>%s</b><br>Dacă foloseşti acest fişier în însemnările tale, legătura către ele nu va funcţiona iar imaginile nu vor fi afişate<br>Eşti sigur că vrei să continui?<br><br>');
+@define('ABOUT_TO_DELETE_FILE', 'Eşti pe cale să ştergi <b>%s</b><br>Dacă foloseşti acest fişier în însemnările tale, legătura către ele nu va funcţiona iar imaginile nu vor fi afişate<br>Eşti sigur că vrei să continui?');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Trimit URI de referinţa la %s...');
 @define('TRACKBACK_SENT', 'Referit cu succes');
 @define('TRACKBACK_FAILED', 'Eroare referire: %s');
@@ -1016,7 +1017,6 @@
 @define('NO_COMMENT_SUBSCRIPTION', 'Not subscribed');
 @define('SUMMARY', 'Summary');
 
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable. Default sort is ascending.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

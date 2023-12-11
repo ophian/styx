@@ -536,7 +536,8 @@
 @define('DELETE_FILE_FAIL', 'توانایی حذف فایل <b>%s</b> وجود ندارد');
 @define('DELETE_THUMBNAIL', 'عکس کوچک با نام <b>%s</b> حذف شد');
 @define('DELETE_FILE', 'فایل با تیتر <b>%s</b> حذف شد');
-@define('ABOUT_TO_DELETE_FILE', 'شما می خواهید <b>%s</b> را حذف کنید<br>اگر شما از این فایل در ارسال هایتان استفاده کردید، دیگر قابل مشاهده شدن یا لینک دادن نیست<br>آیا از انجام این عمل اطمینان دارید؟<br><br>');
+@define('ABOUT_TO_DELETE_FILE', 'شما می خواهید <b>%s</b> را حذف کنید<br>اگر شما از این فایل در ارسال هایتان استفاده کردید، دیگر قابل مشاهده شدن یا لینک دادن نیست<br>آیا از انجام این عمل اطمینان دارید؟');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'ارسال دنبالک به آدرس %s...');
 @define('TRACKBACK_SENT', 'موفقیت در دنبالک');
 @define('TRACKBACK_FAILED', 'خطا در دنبالک: %s');
@@ -1017,7 +1018,6 @@
 @define('NO_COMMENT_SUBSCRIPTION', 'Not subscribed');
 @define('SUMMARY', 'Summary');
 
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable. Default sort is ascending.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

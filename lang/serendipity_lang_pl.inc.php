@@ -537,7 +537,8 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('DELETE_FILE_FAIL', 'Usuwanie pliku <b>%s</b> nie powiod³o siê');
 @define('DELETE_THUMBNAIL', 'Usuniêto minturkê o nazwie <b>%s</b>');
 @define('DELETE_FILE', 'Usuniêto plik o nazwie <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Masz zamiar usun±c plik <b>%s</b><br>Je¶li w którym¶ z wpisów zosta³o zdefiniowane odwo³anie do pliku, plik ten nie bêdzie wiêcej dla tego odwa³ania dostêpny (link nie bêdzie dzia³a³ prawid³owo).<br>Czy chcesz kontynuowaæ?<br><br>');
+@define('ABOUT_TO_DELETE_FILE', 'Masz zamiar usun±c plik <b>%s</b><br>Je¶li w którym¶ z wpisów zosta³o zdefiniowane odwo³anie do pliku, plik ten nie bêdzie wiêcej dla tego odwa³ania dostêpny (link nie bêdzie dzia³a³ prawid³owo).<br>Czy chcesz kontynuowaæ?');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Wysy³anie ¶ladu do URI %s...');
 @define('TRACKBACK_SENT', 'Pozostawienie ¶ladu zakoñczone sukcesem');
 @define('TRACKBACK_FAILED', 'Pozostawienie ¶ladu nie powiod³o siê: %s');
@@ -1016,7 +1017,6 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('NO_COMMENT_SUBSCRIPTION', 'Not subscribed');
 @define('SUMMARY', 'Summary');
 
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable. Default sort is ascending.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

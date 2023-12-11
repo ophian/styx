@@ -537,7 +537,8 @@
 @define('DELETE_FILE_FAIL', '·« Ì„ﬂ‰ Õ–› «·„·› <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Õ–› «·’Ê—… Ê«·’Ê—… «·„’€—Â »⁄‰Ê«‰Â« <b>%s</b>');
 @define('DELETE_FILE', 'Õ–› ⁄‰Ê«‰ «·„·› <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', '«‰  ⁄·Ï Ê‘ﬂ √‰  Õ–› <b>%s</b><br>≈–« ﬂ‰   ” Œœ„ Â–« «·„·› ›Ì »⁄÷ „Ê«÷Ì⁄ﬂ ° ”Ê› ·‰  ŸÂ— «·’Ê— √Ê «·—«»ÿ ·‰ ÌﬂÊ‰ ‘€«·<br> Â· √‰  „ √ﬂœ „‰ √‰ﬂ  —Ìœ «·Õ–›ø<br><br>');
+@define('ABOUT_TO_DELETE_FILE', '«‰  ⁄·Ï Ê‘ﬂ √‰  Õ–› <b>%s</b><br>≈–« ﬂ‰   ” Œœ„ Â–« «·„·› ›Ì »⁄÷ „Ê«÷Ì⁄ﬂ ° ”Ê› ·‰  ŸÂ— «·’Ê— √Ê «·—«»ÿ ·‰ ÌﬂÊ‰ ‘€«·<br> Â· √‰  „ √ﬂœ „‰ √‰ﬂ  —Ìœ «·Õ–›ø');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', '«—”«·  ﬁ’Ì ··—«»ÿ %s...');
 @define('TRACKBACK_SENT', '‰ÃÕ ›Ì  ⁄ﬁ» «·„Ê÷Ê⁄');
 @define('TRACKBACK_FAILED', '›‘· ›Ì  ⁄ﬁ» %s');
@@ -1016,7 +1017,6 @@
 @define('NO_COMMENT_SUBSCRIPTION', 'Not subscribed');
 @define('SUMMARY', 'Summary');
 
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable. Default sort is ascending.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

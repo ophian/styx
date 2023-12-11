@@ -547,7 +547,8 @@ $i18n_filename_to = array (
 @define('DELETE_FILE_FAIL', 'Súbor <b>%s</b> sa nepodarilo zmaza»');
 @define('DELETE_THUMBNAIL', 'Zmazaný náhľad obrázku s názvom <b>%s</b>');
 @define('DELETE_FILE', 'Vymazať súbor s názvom <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Chcete zmazať <b>%s</b><br>Ak používate tento súbor v článkoch, spôsobí to neprítomnosť odkazov alebo obrázkov.<br>Napriek tomu pokračovať?<br><br>');
+@define('ABOUT_TO_DELETE_FILE', 'Chcete zmazať <b>%s</b><br>Ak používate tento súbor v článkoch, spôsobí to neprítomnosť odkazov alebo obrázkov.<br>Napriek tomu pokračovať?');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Odoslanie odozvy na URI %s...');
 @define('TRACKBACK_SENT', 'Odozva úspešná');
 @define('TRACKBACK_FAILED', 'Odozva neúspešná: %s');
@@ -1025,7 +1026,6 @@ $i18n_filename_to = array (
 @define('NO_COMMENT_SUBSCRIPTION', 'Not subscribed');
 @define('SUMMARY', 'Summary');
 
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable. Default sort is ascending.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');
