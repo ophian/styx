@@ -101,8 +101,9 @@
 {/if}
             <h3 title="{$file.diskname}">{if $media.manage}{$file.diskname|truncate:38:"&hellip;":true}{else}{$file.diskname}{/if}{if NOT empty($file.orderkey)}: {$file.orderkey|escape}{/if}
 {if $file.hotlink}<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-share-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <title id="title">External hotlink</title><path fill-rule="evenodd" d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
-</svg>{/if}</h3>
+              <title id="title">External hotlink</title><path fill-rule="evenodd" d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/></svg>
+{/if}
+            </h3>
 {if $file.authorid != 0}
             <span class="author block_level">{$file.authorname}</span>
 {/if}
@@ -120,11 +121,10 @@
 
                 <div id="media_imagelink_waitingspin_{$file.id}" class="pulsator" style="display: none"><div></div><div></div></div>
                 <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{if isset($file.sizeAVIF) AND $file.sizeAVIF > 252 AND $file.sizeAVIF != 34165 AND $file.sizeAVIF != 3389 AND isset($file.sizeWebp) AND $file.sizeAVIF < $file.sizeWebp}{$link_avif|default:$link}{else if isset($file.sizeWebp) AND $file.sizeWebp > 0 AND $file.sizeWebp < $file.size}{$link_webp|default:$link}{else}{$link}{/if}" data-fallback="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}{if isset($file.sizeAVIF) AND $file.sizeAVIF > 252 AND isset($file.sizeWebp) AND $file.sizeAVIF < $file.sizeWebp}{if !empty($img_src_avif)} (AVIF){/if}{else}{if !empty($img_src_webp) AND isset($file.sizeWebp) AND $file.sizeWebp > 0 AND $file.sizeWebp < $file.size} (WepP){/if}{/if}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
-                    <picture>{if isset($file.thumbSizeAVIF) AND $file.thumbSizeAVIF > 252 AND $file.thumbSizeAVIF != 34165 AND $file.thumbSizeAVIF != 3389 AND ( isset($file.thumbSizeWebp) AND ( $file.thumbSizeWebp == 0 OR $file.thumbSizeAVIF < $file.thumbSizeWebp ))}
-
+                    <picture>
+{if isset($file.thumbSizeAVIF) AND $file.thumbSizeAVIF > 252 AND $file.thumbSizeAVIF != 34165 AND $file.thumbSizeAVIF != 3389 AND ( isset($file.thumbSizeWebp) AND ( $file.thumbSizeWebp == 0 OR $file.thumbSizeAVIF < $file.thumbSizeWebp ))}
                         <source type="image/avif" srcset="{$img_src_avif|default:''}">
 {/if}
-
                         <source type="image/webp" srcset="{if NOT isset($file.thumbSizeWebp) OR $file.thumbSizeWebp > 0}{$img_src_webp|default:''}{/if}">
                         <img src="{$img_src}" class="ml_preview_img" title="{$img_title}" alt="{$img_alt}"><!-- media/manage -->
                     </picture>
@@ -147,14 +147,15 @@
 {else}
 {if $file.is_image}{if NOT $media.enclose}
 
-                <div id="media_image_waitingspin_{$file.id}" class="pulsator format_image" style="display: none"><div></div><div></div></div>{/if}
-
-                <picture>{if isset($file.thumbSizeAVIF) AND $file.thumbSizeAVIF > 252 AND $file.thumbSizeAVIF != 34165 AND $file.thumbSizeAVIF != 3389 AND ($file.thumbSizeWebp == 0 OR $file.thumbSizeAVIF < $file.thumbSizeWebp)}
-
-                    <source type="image/avif" srcset="{$img_src_avif|default:''}">{/if}{if isset($file.sizeWebp) AND $file.sizeWebp > 0 AND $file.sizeWebp < $file.size}
-
-                    <source type="image/webp" srcset="{if NOT isset($file.thumbSizeWebp) OR $file.thumbSizeWebp > 0}{$img_src_webp|default:''}{/if}">{/if}
-
+                <div id="media_image_waitingspin_{$file.id}" class="pulsator format_image" style="display: none"><div></div><div></div></div>
+{/if}
+                <picture>
+{if isset($file.thumbSizeAVIF) AND $file.thumbSizeAVIF > 252 AND $file.thumbSizeAVIF != 34165 AND $file.thumbSizeAVIF != 3389 AND ($file.thumbSizeWebp == 0 OR $file.thumbSizeAVIF < $file.thumbSizeWebp)}
+                    <source type="image/avif" srcset="{$img_src_avif|default:''}">
+{/if}
+{if isset($file.sizeWebp) AND $file.sizeWebp > 0 AND $file.sizeWebp < $file.size}
+                    <source type="image/webp" srcset="{if NOT isset($file.thumbSizeWebp) OR $file.thumbSizeWebp > 0}{$img_src_webp|default:''}{/if}">
+{/if}
                     <img src="{$img_src}" class="ml_preview_img" title="{if NOT $media.enclose}{$CONST.THUMBNAIL_SHORT}: {/if}{$img_title}" alt="{$img_alt}"><!-- media/properties -->
                 </picture>
 {if $file.mime|truncate:6:'' == 'image/' AND ($file.extension|count_characters > $CONST.PATHINFO_EXTENSION)}
