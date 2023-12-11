@@ -145,8 +145,9 @@
                 </div>
 {/if}
 {else}
-{if $file.is_image}{if NOT $media.enclose}
+{if $file.is_image}
 
+{if NOT $media.enclose}
                 <div id="media_image_waitingspin_{$file.id}" class="pulsator format_image" style="display: none"><div></div><div></div></div>
 {/if}
                 <picture>
