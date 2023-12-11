@@ -157,7 +157,7 @@
 {if isset($file.sizeWebp) AND $file.sizeWebp > 0 AND $file.sizeWebp < $file.size}
                     <source type="image/webp" srcset="{if NOT isset($file.thumbSizeWebp) OR $file.thumbSizeWebp > 0}{$img_src_webp|default:''}{/if}">
 {/if}
-                    <img src="{$img_src}" class="ml_preview_img" title="{if NOT $media.enclose}{$CONST.THUMBNAIL_SHORT}: {/if}{$img_title}" alt="{$img_alt}"><!-- media/properties -->
+                    <img src="{$img_src}" class="ml_preview_img" title="{if NOT $media.enclose AND NOT $file.hotlink}{$CONST.THUMBNAIL_SHORT}: {/if}{$img_title}" alt="{$img_alt}"><!-- media/properties -->
                 </picture>
 {if $file.mime|truncate:6:'' == 'image/' AND ($file.extension|count_characters > $CONST.PATHINFO_EXTENSION)}
 
