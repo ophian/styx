@@ -1,6 +1,9 @@
 Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve some message case constants, some files linefeed consistency
+    and some more backend media template indents.
+
   * Improve the changelog plugin for debug logs, adding the file size
 
   * Fixes for (imported) hotlink images
