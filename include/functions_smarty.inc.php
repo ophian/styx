@@ -114,8 +114,12 @@ function &serendipity_smarty_fetch($block, $file, $echo = false) {
     global $serendipity;
 
     $output = $serendipity['smarty']->fetch('file:'. serendipity_getTemplateFile($file, 'serendipityPath'), null, null, null, ($echo === true && $serendipity['smarty_raw_mode']));
-    $output = $block == 'CONTENT' ? ltrim($output) : $output; // ltrim here for the frontend only!
-    $output = $block == 'MEDIA_ITEMS' ? '    '.trim($output) : $output; // trim here for the backend media_items logic head spaces only and then set the first indent !
+    if ($block == 'CONTENT') {
+        $output = ltrim($output); // ltrim here for the frontend only!
+    }
+    if ($block == 'MEDIA_ITEMS') {
+        $output = '    ' . trim($output); // trim here for the backend media_items logic head spaces only and then set the first indent !
+    }
 
     $serendipity['smarty']->assignByRef($block, $output);
 
