@@ -18,4 +18,5 @@
         <input name="submit" type="submit" value="{$CONST.SAVE}">
     </div>
 </form>
+
 {/if}
