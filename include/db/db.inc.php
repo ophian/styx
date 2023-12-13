@@ -186,14 +186,19 @@ function serendipity_db_implode($string, &$array, $type = 'int') {
  * @access public
  * @param   string Optional (joined) field name to work on (resulting to eg. '2021-12-05')
  *          - CURRENT or NOW by default
+ * @param   boolean Cast to string (cts) for strictly typed operator comparisons with PostGreSQL against string/text fields
  * @return  string String command by dbType to include to a query
  */
-function serendipity_db_get_unixTimestamp(string $field = '') : string {
+function serendipity_db_get_unixTimestamp(string $field = '', bool $cts = false) : string {
     global $serendipity;
 
     if ($serendipity['dbType'] == 'postgres' || $serendipity['dbType'] == 'pdo-postgres') {
         $field = empty($field) ? 'NOW()' : $field;
-        return "EXTRACT(EPOCH FROM $field)";
+        if ($cts) {
+            return "'EXTRACT(EPOCH FROM $field)'";
+        } else {
+            return "EXTRACT(EPOCH FROM $field)";
+        }
     } elseif ($serendipity['dbType'] == 'sqlite' || $serendipity['dbType'] == 'sqlite3' || $serendipity['dbType'] == 'pdo-sqlite' || $serendipity['dbType'] == 'sqlite3oo') {
         $field = empty($field) ? "'now'" : $field; // OK
         return "STRFTIME('%s', $field)"; // change to UNIXEPOCH($field) w/ Styx 5 for SQLite >= 3.38.0 (2022-02-22) only
