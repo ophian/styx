@@ -2,7 +2,7 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Fix remote ticker DISTINCT SELECT hide query for the PostgreSQL DB layer
+  * Fix remote ticker DISTINCT SELECT hide query for PostgreSQL database
 
   * Improve serendipity_db_get_unixTimestamp() function for strictly typed by
     operator comparisons with PostGreSQL
