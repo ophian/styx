@@ -2377,7 +2377,7 @@ function serendipity_setFormToken($type = 'form') {
  *
  * @param bool      The return type to store or show
  * @param string    The Serendipity user identifier
- * @param string    Have read XML item notification hash
+ * @param array     Have read XML item notification hash(es)
  *
  * @return mixed    The cashed string or bool false
  */
