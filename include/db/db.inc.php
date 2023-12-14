@@ -187,6 +187,7 @@ function serendipity_db_implode($string, &$array, $type = 'int') {
  * @param   string Optional (joined) field name to work on (resulting to eg. '2021-12-05')
  *          - CURRENT or NOW by default
  * @param   boolean Cast to string (cts) for strictly typed operator comparisons with PostGreSQL against string/text fields
+ *
  * @return  string String command by dbType to include to a query
  */
 function serendipity_db_get_unixTimestamp(string $field = '', bool $cts = false) : string {
