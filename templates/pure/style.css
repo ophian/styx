@@ -1484,14 +1484,12 @@ ul.staticpage_result li {
     margin-bottom: .5em;
 }
 .serendipity_Entry_Date.freetag_cloud {
-    background-color: transparent;
     border: 1px solid #4D618A;
     padding: .5em;
     border-radius: .5rem;
     box-shadow: 1px 2px 3px #555;
 }
 .freetag_cloud .serendipity_freetag_taglist {
-    background-color: #f4f8fc;
     display: inline-flex;
     width: 100%; }
     .serendipity_freetag_taglist {
