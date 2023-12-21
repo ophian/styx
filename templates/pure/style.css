@@ -1489,6 +1489,10 @@ ul.staticpage_result li {
     border-radius: .5rem;
     box-shadow: 1px 2px 3px #555;
 }
+#serendipity_banner .freetag_current,
+.serendipity_Entry_Date.freetag_cloud .freetag_current {
+    color: #20c997;
+}
 .freetag_cloud .serendipity_freetag_taglist {
     display: inline-flex;
     width: 100%; }
