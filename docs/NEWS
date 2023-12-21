@@ -2,6 +2,11 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve output indentation markup strictly based to the [ pure ] standard
+    theme in 2-sidebar structures indent mode. This helps to better understand
+    the general inheritance tree, find issues more easily and always send clean
+    code.
+
   * Fix remote ticker DISTINCT SELECT hide query for PostgreSQL database
 
   * Improve serendipity_db_get_unixTimestamp() function for strictly typed by
