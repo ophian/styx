@@ -3,7 +3,7 @@ Version 4.x-DEV ()
 
 
   * Add missing toTop footer implementation for summary entrypagings to the
-   [pure ] theme.
+   [ pure ] theme.
 
   * Improve output indentation markup strictly based to the [ pure ] standard
     theme in 2-sidebar structures indent mode. This helps to better understand
