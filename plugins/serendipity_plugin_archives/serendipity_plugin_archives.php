@@ -14,7 +14,7 @@ class serendipity_plugin_archives extends serendipity_plugin
         $propbag->add('description',   BROWSE_ARCHIVES);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team, Ian Styx');
-        $propbag->add('version',       '1.8');
+        $propbag->add('version',       '1.9');
         $propbag->add('configuration', array('title', 'frequency', 'count', 'show_count', 'hide_zero_count'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -193,31 +193,31 @@ class serendipity_plugin_archives extends serendipity_plugin
             }
 
             if (!$hidden_by_zero_count) {
-                echo '    <li><a href="' . $link . '" title="' . $ts_title . '">' . $ts_title . $html_count . "</a></li>\n";
+                echo '                        <li><a href="' . $link . '" title="' . $ts_title . '">' . $ts_title . $html_count . "</a></li>\n";
             }
         }
         // Category views are either "archives/C%ID%.html" OR "categories/%ID%-name"
         // find category archive
         if (isset($args[0]) && $args[0] == PATH_ARCHIVE && isset($args[1][0]) && $args[1][0] == 'C' && isset($serendipity['GET']['subpage'])) {
-            echo '    <li><a href="' . str_replace(PATH_ARCHIVE, PATH_ARCHIVES, $serendipity['GET']['subpage']) . '.html">' . RECENT. "</a></li>\n";
+            echo '                        <li><a href="' . str_replace(PATH_ARCHIVE, PATH_ARCHIVES, $serendipity['GET']['subpage']) . '.html">' . RECENT. "</a></li>\n";
         } else
             // find categories path
             if (isset($args[0]) && $args[0] == PATH_CATEGORIES && isset($args[1])) {
-                echo '    <li><a href="' . ($serendipity['GET']['subpage'] ?? '') . '">' . RECENT. "</a></li>\n";
+                echo '                        <li><a href="' . ($serendipity['GET']['subpage'] ?? '') . '">' . RECENT. "</a></li>\n";
         } else
             // find category startpage
             if (isset($args[1]) && isset($serendipity['GET']['subpage']) && $serendipity['GET']['subpage'] == $serendipity['serendipityHTTPPath'] . PATH_ARCHIVES . '/' . $args[1] . '.html') {
-                echo '    <li><a href="' . $serendipity['GET']['subpage'] . '">' . RECENT. "</a></li>\n";
+                echo '                        <li><a href="' . $serendipity['GET']['subpage'] . '">' . RECENT. "</a></li>\n";
         } else
             // find category sub (month) view
             if (!empty($args) && isset($base_query) && $base_query == $args[count($args)-1]) {
-                echo '    <li><a href="' . serendipity_rewriteURL(PATH_ARCHIVES . '/' . $base_query . '.html') . '">' . RECENT. "</a></li>\n";
+                echo '                        <li><a href="' . serendipity_rewriteURL(PATH_ARCHIVES . '/' . $base_query . '.html') . '">' . RECENT. "</a></li>\n";
         } else {
             // set blogs frontpage
-            echo '    <li><a href="'. $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?frontpage">' . RECENT . "</a></li>\n";
+            echo '                        <li><a href="'. $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?frontpage">' . RECENT . "</a></li>\n";
         }
-        echo '    <li><a href="'. serendipity_rewriteURL(PATH_ARCHIVE . $add_query) .'">' . OLDER . "</a></li>\n";
-        echo "</ul>\n";
+        echo '                        <li><a href="'. serendipity_rewriteURL(PATH_ARCHIVE . $add_query) .'">' . OLDER . "</a></li>\n";
+        echo "                    </ul>\n";
     }
 
 }
