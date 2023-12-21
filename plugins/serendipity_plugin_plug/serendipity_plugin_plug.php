@@ -14,7 +14,7 @@ class serendipity_plugin_plug extends serendipity_plugin
         $propbag->add('description',   ADVERTISES_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.5.1');
+        $propbag->add('version',       '1.5.2');
         $propbag->add('configuration', array(
                                         'image',
                                         'image2',
@@ -82,24 +82,24 @@ class serendipity_plugin_plug extends serendipity_plugin
 ?>
 <div class="serendipityPlug">
 <?php if (serendipity_db_bool($this->get_config('image', 'true'))) { ?>
-    <a title="<?php echo $title ?> <?=$edition?>" href="<?=$url?>">
-        <picture>
-            <source type="image/webp" srcset="<?=$serendipity['serendipityHTTPPath'] . $serendipity['templatePath']?>styx_logo_150.webp">
-            <img src="<?php echo $serendipity['serendipityHTTPPath'] . $serendipity['templatePath'] . 'styx_logo_150.png'; ?>" title="&copy; Serendipity Styx Edition" alt="<?=$edition?> PHP Weblog">
-        </picture>
-    </a>
+                        <a title="<?php echo $title ?> <?=$edition?>" href="<?=$url?>">
+                            <picture>
+                                <source type="image/webp" srcset="<?=$serendipity['serendipityHTTPPath'] . $serendipity['templatePath']?>styx_logo_150.webp">
+                                <img src="<?php echo $serendipity['serendipityHTTPPath'] . $serendipity['templatePath'] . 'styx_logo_150.png'; ?>" title="&copy; Serendipity Styx Edition" alt="<?=$edition?> PHP Weblog">
+                            </picture>
+                        </a>
 <?php } ?>
 <?php if (serendipity_db_bool($this->get_config('image2', 'false'))) { ?>
-    <a title="<?php echo $title ?> <?=$edition?>" href="<?=$url?>">
-        <img src="<?php echo $serendipity['serendipityHTTPPath'] . $serendipity['templatePath'] . 's9y_banner_small.png'; ?>" alt="<?=$edition?> PHP Weblog" />
-    </a>
+                        <a title="<?php echo $title ?> <?=$edition?>" href="<?=$url?>">
+                            <img src="<?php echo $serendipity['serendipityHTTPPath'] . $serendipity['templatePath'] . 's9y_banner_small.png'; ?>" alt="<?=$edition?> PHP Weblog">
+                        </a>
 <?php } ?>
 <?php if (serendipity_db_bool($this->get_config('text', 'true'))) { ?>
-    <div>
-        <a title="<?php echo $title ?> Serendipity Styx" href="<?=$url?>"><?=$edition?> PHP Weblog</a>
-    </div>
+                        <div>
+                            <a title="<?php echo $title ?> Serendipity Styx" href="<?=$url?>"><?=$edition?> PHP Weblog</a>
+                        </div>
 <?php } ?>
-</div>
+                    </div>
 <?php
     }
 
