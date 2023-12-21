@@ -2,6 +2,9 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve the [ pure ] theme for next freetag plugin update tag & cloud
+    improvements and some search result stylings.
+
   * Add missing toTop footer implementation for summary entrypagings to the
    [ pure ] theme.
 
