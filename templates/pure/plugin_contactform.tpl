@@ -3,20 +3,20 @@
 
     <div class="page_content page_preface">
 
-    {$plugin_contactform_preface}
+{$plugin_contactform_preface}
     </div>
 {if NOT empty($is_contactform_sent)}
 
     <p class="msg_notice">{$plugin_contactform_sent}</p>
 {else}
-    {if NOT empty($is_contactform_error)}
+{if NOT empty($is_contactform_error)}
 
     <p class="msg_important">{$plugin_contactform_error}</p>
-    {foreach $comments_messagestack AS $message}
+{foreach $comments_messagestack AS $message}
 
     <p class="msg_important">{$message}</p>
-    {/foreach}
-    {/if}
+{/foreach}
+{/if}
 
     <div class="serendipity_commentForm">
         <a id="serendipity_CommentForm"></a>
@@ -43,7 +43,7 @@
                 <label for="serendipity_commentform_comment">{$CONST.COMMENT} <span class="text-hint" title="{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}">&#8727;</span></label>
                 <textarea id="serendipity_commentform_comment" rows="10" name="serendipity[comment]" required>{$commentform_data}</textarea>
             </div>
-            {serendipity_hookPlugin hook="frontend_comment" data=$commentform_entry}
+{serendipity_hookPlugin hook="frontend_comment" data=$commentform_entry}
             <div class="form_buttons">
                 <input id="serendipity_submit" type="submit" name="serendipity[submit]" value="{$CONST.SUBMIT_COMMENT}">
             </div>
