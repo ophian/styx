@@ -14,7 +14,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
         $propbag->add('description',   SHOWS_RSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.13');
+        $propbag->add('version',       '2.14');
         $propbag->add('configuration', array(
                                         'title',
                                         'big_img',
@@ -219,7 +219,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
             $onclick = $this->getOnclick($mainFeed);
         }
 
-        echo "\n".'<ul id="serendipity_syndication_list" class="plainList">'."\n";
+        echo '<ul id="serendipity_syndication_list" class="plainList">'."\n";
         // case main entries feed either/or
         echo $this->generateFeedButton( $mainFeed,
                                         ($useRss ? "RSS $FEED" : "Atom $FEED"),
@@ -269,13 +269,13 @@ class serendipity_plugin_syndication extends serendipity_plugin
                 }
             }
         }
-        echo "</ul>\n";
+        echo "                     </ul>\n";
     }
 
     function generateFeedButton($feed, $label, $onclick, $icon, $small = false)
     {
         $link = 'href="'.$feed.'"'. $onclick;
-        $output = '<li>';
+        $output = "                        <li>\n";
         $class = '';
         if ($onclick != '') {   # this might be not a good solution, but right now works to add the subtome-class only when subtome is on
             $class = "subtome";
@@ -284,12 +284,12 @@ class serendipity_plugin_syndication extends serendipity_plugin
             $class .= (!empty($class) ? ' ' : '') . 'serendipity_xml_icon';
         }
         if ($icon) {
-            $output .= '<a class="'. $class .'" ' . $link . '><img src="' . $icon . '" alt="XML" /></a>'."\n";
+            $output .= '                            <a class="'. $class .'" ' . $link . '><img src="' . $icon . '" alt="XML"></a>'."\n";
         }
         if (!empty($label)) {
-            $output .= " <a $link>$label</a>\n";
+            $output .= "                            <a $link>$label</a>\n";
         }
-        return $output .= "</li>\n";
+        return $output .= "                        </li>\n";
     }
 
     function getOnclick($url)
