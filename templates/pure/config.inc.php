@@ -6,7 +6,10 @@ if (IN_serendipity !== true) { die ("Don't hack!"); }
 $serendipity['smarty']->assign(array('currpage'  => "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
                                      'currpage2' => $_SERVER['REQUEST_URI']));
 
+// don't use the no-conflict jquery mode
 $serendipity['capabilities']['jquery-noconflict'] = false;
+
+// PURE template options
 $template_config = array(
     array(
         'var' => 'use_highlight',
@@ -40,6 +43,7 @@ $template_config = array(
     )
 );
 
+// Globals and bindings
 $top = $serendipity['smarty_vars']['template_option'] ?? '';
 $template_config_groups = NULL;
 $template_global_config = array('navigation' => true);
