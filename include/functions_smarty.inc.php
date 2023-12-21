@@ -107,7 +107,7 @@ function serendipity_smarty_html5time(int $timestamp): string {
  * @access public
  * @param   string      The name of the block to parse data into ("COMMENTS" - virtual variable like {$COMMENTS})
  * @param   string      The name of the template file to fetch. Only filename, the path is auto-detected
- * @param   boolean     If true, the output of the smarty parser will be echoed instead of invisibly treated
+ * @param   boolean     If true, the output of the Smarty parser will be echoed instead of invisibly treated
  * @return  string      The parsed HTML code
  */
 function &serendipity_smarty_fetch($block, $file, $echo = false) {
@@ -115,10 +115,10 @@ function &serendipity_smarty_fetch($block, $file, $echo = false) {
 
     $output = $serendipity['smarty']->fetch('file:'. serendipity_getTemplateFile($file, 'serendipityPath'), null, null, null, ($echo === true && $serendipity['smarty_raw_mode']));
     if ($block == 'CONTENT') {
-        $output = ltrim($output); // ltrim here for the frontend only!
+        $output = trim($output); // trim here for the FRONTEND only!
     }
     if ($block == 'MEDIA_ITEMS') {
-        $output = '    ' . trim($output); // trim here for the backend media_items logic head spaces only and then set the first indent !
+        $output = '    ' . trim($output); // trim here for the BACKEND media_items logic head spaces only and then set the first indent !
     }
 
     $serendipity['smarty']->assignByRef($block, $output);
