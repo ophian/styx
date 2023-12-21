@@ -16,7 +16,7 @@ class serendipity_plugin_authors extends serendipity_plugin
         $propbag->add('description', AUTHOR_PLUGIN_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.4.2');
+        $propbag->add('version',       '2.4.3');
         $propbag->add('configuration', array('image', 'allow_select', 'title', 'showartcount', 'mincount'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -92,7 +92,7 @@ class serendipity_plugin_authors extends serendipity_plugin
         $image = $this->get_config('image', serendipity_getTemplateFile('img/xml.gif', 'serendipityHTTPPath', true));
         $image = (($image == "'none'" || $image == 'none') ? '' : $image);
 
-        $html .= '<ul class="plainList">' . "\n";
+        $html .= '                        <ul class="plainList">' . "\n";
 
         if (is_array($authors) && count($authors)) {
             foreach ($authors AS $auth) {
@@ -106,36 +106,35 @@ class serendipity_plugin_authors extends serendipity_plugin
                     $entrycount = "";
                 }
 
-                $html .= "  <li>\n";
+                $html .= "                            <li>\n";
 
                 if ($is_form) {
-                    $html .= '    <input style="width: 15px" type="checkbox" name="serendipity[multiAuth][]" value="' . $auth['authorid'] . '" />' . "\n";
+                    $html .= '                                <input style="width: 15px" type="checkbox" name="serendipity[multiAuth][]" value="' . $auth['authorid'] . '">' . "\n";
                 }
 
                 if ( !empty($image) ) {
-                    $html .= '    <a class="serendipity_xml_icon" href="'. serendipity_feedAuthorURL($auth, 'serendipityHTTPPath') .'"><img src="'. $image .'" alt="XML" /></a> ' . "\n";
+                    $html .= '                                <a class="serendipity_xml_icon" href="'. serendipity_feedAuthorURL($auth, 'serendipityHTTPPath') .'"><img src="'. $image .'" alt="XML"></a> ' . "\n";
                 }
-                $html .= '    <a href="'. serendipity_authorURL($auth, 'serendipityHTTPPath') .'" title="'. serendipity_specialchars($auth['realname']) .'">'. serendipity_specialchars($auth['realname']) . $entrycount . '</a>' . "\n";
-                $html .= "  </li>\n";
+                $html .= '                                <a href="'. serendipity_authorURL($auth, 'serendipityHTTPPath') .'" title="'. serendipity_specialchars($auth['realname']) .'">'. serendipity_specialchars($auth['realname']) . $entrycount . '</a>' . "\n";
+                $html .= "                            </li>\n";
             }
         }
 
-        $html .= '</ul>' . "\n";
+        $html .= '                        </ul>' . "\n";
 
         if ($is_form) {
-            $html .= '<div><input type="submit" name="serendipity[isMultiAuth]" value="' . GO . '" /></div>'."\n";
+            $html .= '                        <div><input type="submit" name="serendipity[isMultiAuth]" value="' . GO . '"></div>'."\n";
         }
 
         $html .= sprintf(
-            '<div><a href="%s" title="%s">%s</a></div>'."\n",
-
+            '                        <div><a href="%s" title="%s">%s</a></div>'."\n",
             $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'],
             ALL_AUTHORS,
             ALL_AUTHORS
         );
 
         if ($is_form) {
-            $html .= "</form>\n";
+            $html .= "                    </form>\n";
         }
         print $html;
     }
