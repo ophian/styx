@@ -28,6 +28,7 @@ serendipity_smarty_init($serendipity['plugindata']['smartyvars']);
 
 $leftSidebarElements  = serendipity_plugin_api::count_plugins('left');
 $rightSidebarElements = serendipity_plugin_api::count_plugins('right');
+$serendipity['smarty']->assign('tripleViewIndent', ($leftSidebarElements > 0 && $rightSidebarElements > 0) ? true : false);
 $serendipity['smarty']->assignByRef('leftSidebarElements', $leftSidebarElements);
 $serendipity['smarty']->assignByRef('rightSidebarElements', $rightSidebarElements);
 
