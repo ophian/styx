@@ -1365,6 +1365,8 @@ img.serendipity_entryIcon {
 
 /** Event Plugins **/
 
+.search-results li,
+.pages_found dd,
 li.post_category, li.post_comments, li.post_tags, li.post_reltags {
     margin-bottom: .5em;
 }
