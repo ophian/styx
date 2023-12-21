@@ -464,17 +464,19 @@ function serendipity_generateCommentList($id, $comments = NULL, $selected = 0, $
         }
     }
 
-    $retval = $parent ? '' : '<select id="serendipity_replyTo" onchange="' . (!empty($serendipity['plugindata']['onchange']) ? $serendipity['plugindata']['onchange'] : '') . '" name="serendipity[replyTo]">'."\n".'<option value="0">[ ' . TOP_LEVEL . ' ]</option>'."\n";
+    $onchange = !empty($serendipity['plugindata']['onchange']) ? ' onchange="' . $serendipity['plugindata']['onchange'] . '"' : '';
+    $retval = $parent ? '' : '<select id="serendipity_replyTo"' . $onchange . ' name="serendipity[replyTo]">'."\n"
+    .'                                        <option value="0">[ ' . TOP_LEVEL . ' ]</option>'."\n";
 
     $i = 0;
     foreach($comments AS $comment) {
         if ($comment['parent_id'] == $parent) {
             $i++;
-            $retval .= '<option value="' . $comment['id'] . '"'. ($selected == $comment['id'] || (isset($serendipity['POST']['replyTo']) && $comment['id'] == $serendipity['POST']['replyTo']) ? ' selected="selected"' : '') .'>' . str_repeat('&#160;', $level * 2) . '#' . $indent . $i . ': ' . (empty($comment['author']) ? ANONYMOUS : htmlspecialchars($comment['author'], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, true)) . ' ' . ON . ' ' . serendipity_mb('ucfirst', serendipity_strftime(DATE_FORMAT_SHORT, $comment['timestamp'])) . "</option>\n";
+            $retval .= '                                        <option value="' . $comment['id'] . '"'. ($selected == $comment['id'] || (isset($serendipity['POST']['replyTo']) && $comment['id'] == $serendipity['POST']['replyTo']) ? ' selected="selected"' : '') .'>' . str_repeat('&#160;', $level * 2) . '#' . $indent . $i . ': ' . (empty($comment['author']) ? ANONYMOUS : htmlspecialchars($comment['author'], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, true)) . ' ' . ON . ' ' . serendipity_mb('ucfirst', serendipity_strftime(DATE_FORMAT_SHORT, $comment['timestamp'])) . "</option>\n";
             $retval .= serendipity_generateCommentList($id, $comments, $selected, $comment['id'], $level + 1, $indent . $i . '.');
         }
     }
-    $retval .= $parent ? '' : '</select>';
+    $retval .= $parent ? '' : '                                    </select>';
 
     return $retval;
 }
@@ -612,13 +614,13 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
                 // these pop-up in the edit preview of Backend comments for logged-in users
                 if (isset($comment['subscribed']) && $comment['subscribed'] == 'true') {
                     if ($comment['status'] == 'approved') {
-                        $comment['preview_editstatus'] = '<div class="msg_notice serendipity_subscription_on"><em>' . ACTIVE_COMMENT_SUBSCRIPTION . "</em></div>\n";
+                        $comment['preview_editstatus'] = '<div class="msg_notice serendipity_subscription_on"><em>' . ACTIVE_COMMENT_SUBSCRIPTION . '</em></div>';
                     } else {
-                        $comment['preview_editstatus'] = '<div class="msg_notice serendipity_subscription_pending"><em>' . PENDING_COMMENT_SUBSCRIPTION . "</em></div>\n";
+                        $comment['preview_editstatus'] = '<div class="msg_notice serendipity_subscription_pending"><em>' . PENDING_COMMENT_SUBSCRIPTION . '</em></div>';
                     }
                 } else {
                     // why not ... :)
-                    $comment['preview_editstatus'] = '<div class="msg_notice serendipity_subscription_off"><em>' . NO_COMMENT_SUBSCRIPTION . "</em></div>\n";
+                    $comment['preview_editstatus'] = '<div class="msg_notice serendipity_subscription_off"><em>' . NO_COMMENT_SUBSCRIPTION . '</em></div>';
                 }
             }
             $comment['preview_editstatus'] = $comment['preview_editstatus'] ?? null;
