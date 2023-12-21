@@ -1997,6 +1997,7 @@ section.sidebar_widget {
 #serendipity_categories_list img {
     vertical-align: middle;
 }
+
 /* calendar */
 table.serendipity_calendar {
     border-collapse: separate;
@@ -2057,6 +2058,7 @@ td.Today {
 .calendar-nav span {
     display: none;
 }
+
 /* Own category template */
 .category_depth1 .cdp1 {
     padding-left: 6px;
