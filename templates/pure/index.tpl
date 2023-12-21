@@ -14,7 +14,7 @@
 {if $view == 'entry' AND isset($entry)}
     <link rel="canonical" href="{$entry.rdf_ident}">
 {/if}
-{if in_array($view, ['start', 'entries'])}{* 'archives' *}
+{if in_array($view, ['start', 'entries'])}
     <link rel="canonical" href="{$serendipityBaseURL}">
 {/if}
     <link rel="stylesheet" href="{$head_link_stylesheet}" type="text/css">
@@ -42,7 +42,10 @@
 {if $template_option.use_corenav === true}
 
         <nav id="navbar">
-            <ul>{foreach $navlinks AS $navlink}{if $navlink.title != "" AND $navlink.href != ""}<li{if $navlink@last} class="last"{/if}>{if $currpage == $navlink.href OR $currpage2 == $navlink.href}<span>{else}<a href="{$navlink.href}">{/if}{$navlink.title}{if $currpage == $navlink.href OR $currpage2 == $navlink.href}</span>{else}</a>{/if}</li>{/if}{/foreach}
+            <ul>
+{foreach $navlinks AS $navlink}{if $navlink.title != "" AND $navlink.href != ""}
+                <li{if $navlink@last} class="last"{/if}>{if $currpage == $navlink.href OR $currpage2 == $navlink.href}<span>{else}<a href="{$navlink.href}">{/if}{$navlink.title}{if $currpage == $navlink.href OR $currpage2 == $navlink.href}</span>{else}</a>{/if}</li>
+{/if}{/foreach}
                 <li class="navsearch">
                     <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">
                     <div>
@@ -52,7 +55,7 @@
                         <input id="searchsend" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
                     </div>
                     </form>
-                    {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
+{serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
                 </li>
             </ul>
         </nav>
@@ -67,47 +70,71 @@
                 <input id="searchsend" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
             </div>
             </form>
-            {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
+{serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
         </nav>
 {/if}
 
     </header>
-{if $leftSidebarElements > 0 AND $rightSidebarElements > 0}
+{*
+ NOTE: serendipity_printSidebar content spawned for tripleViewIndents per default
+ CONTENT aligned left by default
+*}
+{if $tripleViewIndent}
 
     <section class="grid">
-{/if}
 
         <main id="content">
-        {if NOT empty($CONTENT)}
+{if NOT empty($CONTENT)}
 
             {$CONTENT}
-        {else if $view == '404'}
+{else if $view == '404'}
 
             <p class="msg_notice"><span class="ico icon-info" aria-hidden="true"></span> {$CONST.NO_ENTRIES_TO_PRINT}</p>
-        {/if}
+{/if}
 
         </main>
-    {if $leftSidebarElements > 0}
+{if $leftSidebarElements > 0}
 
         <aside id="serendipityLeftSideBar">
-            {serendipity_printSidebar side="left"}
+{serendipity_printSidebar side="left"}
         </aside>
-    {/if}
-    {if $rightSidebarElements > 0}
+{/if}
+{if $rightSidebarElements > 0}
 
         <aside id="serendipityRightSideBar">
-            {serendipity_printSidebar side="right"}
+{serendipity_printSidebar side="right"}
         </aside>
-    {/if}
-{if $leftSidebarElements > 0 AND $rightSidebarElements > 0}
+{/if}
 
     </section>
+{else}
+
+    <main id="content">
+{if NOT empty($CONTENT)}
+
+        {$CONTENT}
+{else if $view == '404'}
+
+        <p class="msg_notice"><span class="ico icon-info" aria-hidden="true"></span> {$CONST.NO_ENTRIES_TO_PRINT}</p>
+{/if}
+
+    </main>
+{if $leftSidebarElements > 0}
+
+    <aside id="serendipityLeftSideBar">
+        {serendipity_printSidebar side="left"}
+    </aside>
+{/if}
+{if $rightSidebarElements > 0}
+    <aside id="serendipityRightSideBar">
+        {serendipity_printSidebar side="right"}
+    </aside>
+{/if}
 {/if}
 
     <footer id="footer">
         <p lang="en">{$CONST.POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a> <abbr title="and">&amp;</abbr> the <i>{$template}</i> theme.</p>
     </footer>
-
 {if $template_option.use_corenav === true || $template_option.use_corenav == ''}
 
     <footer id="menubar_mobile">
@@ -137,6 +164,7 @@
     {assign var="hljsload" value=true}
 {/if}
 {if (in_array($view, ['start', 'entries', 'entry', 'comments', 'categories']) AND $template_option.use_highlight === true) OR isset($hljsload) && $hljsload === true}
+
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}_assets/highlight/github-pure.min.css" type="text/css">
     <script src="{$serendipityHTTPPath}{$templatePath}_assets/highlight/highlight.min.js"></script>
     <script>
@@ -147,7 +175,6 @@
         hljs.highlightAll();
     </script>
 {/if}
-
 {/if}
 {$raw_data}
 {serendipity_hookPlugin hook="frontend_footer"}
