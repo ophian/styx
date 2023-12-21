@@ -420,14 +420,12 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     background-color: #20242b;
     border: 1px solid #444c56;
     padding: .5em; }
+  [data-dark-theme="dark"] .serendipity_Entry_Date.freetag_cloud {
+    background-color: linear-gradient(#323941, #22272e); }
   [data-dark-theme="dark"] .freetag_cloud .serendipity_freetag_taglist {
     margin-top: .25rem;
-    background-color: #222a31;
-    border: 1px solid #1c2128;
+    border: 1px solid transparent;
     color: #cdd9e5; }
-    [data-dark-theme="dark"] .freetag_cloud .serendipity_freetag_taglist .freetag_wordcloud, [data-dark-theme="dark"] .freetag_cloud .serendipity_freetag_taglist .rotaCanvas {
-      background-color: #cdd9e5;
-      color: #22272e; }
   [data-dark-theme="dark"] .static-entries-list.odd {
     background-color: #2f353e; }
   [data-dark-theme="dark"] #staticpage_nav {
