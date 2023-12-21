@@ -1306,6 +1306,7 @@ nav.pager + .serendipity_blogpdf {
     font-variant: all-petite-caps;
     font-size: 18px;
     font-size: 1.125rem;
+    font-weight: normal;/* for tagcloud h2 header */
     color: #333;
     margin: 0;
     text-align: right;
