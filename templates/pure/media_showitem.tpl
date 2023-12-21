@@ -40,13 +40,13 @@
                         <input id="searchsend" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
                     </div>
                     </form>
-                    {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
+{serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
                 </li>
             </ul>
         </nav>
 {else}
-
 {* ENABLE TO USE any plugin hooked assets - see footer
+
         <nav id="headsearch">
             <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">
             <div>
@@ -56,11 +56,10 @@
                 <input id="searchsend" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
             </div>
             </form>
-            {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
+{serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
         </nav>
 *}
 {/if}
-
     </header>
 
     <main id="content" class="mediaItemMain">
@@ -71,122 +70,111 @@
 
             <div class="serendipity_entry">
                 <div class="serendipity_entry_body">
-                {if NOT empty($perm_denied)}
+{if NOT empty($perm_denied)}
                     {$CONST.PERM_DENIED}
-                {else}
-                    {if $media.file.is_image}
+{else}
+{if $media.file.is_image}
 
                     <div>
                         <!-- s9ymdb:{$media.file.id} -->
                         <picture>
-{if isset($media.file.full_file_avif)}                            <source srcset="{$media.file.full_file_avif}" type="image/avif" />{/if}
+{if isset($media.file.full_file_avif)}
+                            <source srcset="{$media.file.full_file_avif}" type="image/avif" />
+{/if}
                             <source srcset="{$media.file.full_file_webp|default:''}" type="image/webp" />
                             <img alt="" class="serendipity_image_center" loading="lazy" src="{$media.file.full_file}" width="{$media.file.dimensions_width}" />
                         </picture>
                     </div>
-                    {else}
+{else}
 
                     <div class="serendipity_center">
                         <a href="{$media.file.full_file}">{$media.file.realname} ({$media.file.displaymime})</a>
                     </div>
-                    {/if}
+{/if}
 
                     <div class="serendipity_entryFooter mediaItemFooter">
                         <a href="{$media.from|escape}" title="{$CONST.BACK_TO_BLOG}">{$CONST.BACK_TO_BLOG}</a>
                     </div>
-                {/if}
-
+{/if}
                 </div>
             </div>
         </div>
 
         <div class="mediaItemProperties">
-        {if $media.file.base_property}
+{if $media.file.base_property}
 
             <div class="mediaItem mediaItemProp">
                 <h3 class="mediaItemTitle">{$CONST.MEDIA_PROP}</h3>
 
                 <div class="mediaItemContent">
                     <dl>
-                    {foreach $media.file.base_property AS $prop_fieldname => $prop_content}
-                    {if isset($prop_content.val)}
-
+{foreach $media.file.base_property AS $prop_fieldname => $prop_content}
+{if isset($prop_content.val)}
                         <dt>{$prop_content.label}</dt>
                         <dd>{$prop_content.val|escape}</dd>
-                    {/if}
-                    {/foreach}
+{/if}
+{/foreach}
 
                     </dl>
                 </div>
             </div>
-        {/if}
-        {if NOT empty($media.file.props.base_keyword)}
+{/if}
+{if NOT empty($media.file.props.base_keyword)}
 
             <div class="mediaItem mediaItemKeyword">
                 <h3 class="mediaItemTitle">{$CONST.MEDIA_KEYWORDS}</h3>
 
                 <div class="mediaItemContent">
-
-                {foreach $media.file.props.base_keyword AS $prop_fieldname => $prop_content}
-
+{foreach $media.file.props.base_keyword AS $prop_fieldname => $prop_content}
                     {$prop_fieldname|escape}&nbsp;
-                {/foreach}
-
+{/foreach}
                 </div>
             </div>
-        {/if}
-        {if $media.file.props.base_metadata}
+{/if}
+{if $media.file.props.base_metadata}
 
             <div class="mediaItem mediaItemMeta">
                 <h3 class="mediaItemTitle">EXIF/IPTC/XMP</h3>
 
                 <div class="mediaItemContent">
                     <dl>
-                    {foreach $media.file.props.base_metadata AS $meta_type => $meta_data}
-
+{foreach $media.file.props.base_metadata AS $meta_type => $meta_data}
                         <dt><strong>{$meta_type}</strong></dt>
                         <dd>
-                        {if is_array($meta_data)}
+{if is_array($meta_data)}
 
                         <table>
-                        {foreach $meta_data AS $meta_name => $meta_value}
-
+{foreach $meta_data AS $meta_name => $meta_value}
                             <tr>
                                 <td><em>{$meta_name}!</em></th>
                                 <td>{if is_array($meta_value)}<pre>{$meta_value|print_r}</pre>{else}{$meta_value|formatTime:DATE_FORMAT_SHORT:false:$meta_name}{/if}</td>
                             </tr>
-                        {/foreach}
-
+{/foreach}
                         </table>
-                        {else}
+{else}
 
-                        {$meta_data|formatTime:DATE_FORMAT_SHORT:false:$meta_type}
-                        {/if}
-
+{$meta_data|formatTime:DATE_FORMAT_SHORT:false:$meta_type}
+{/if}
                         </dd>
-                    {/foreach}
-
+{/foreach}
                     </dl>
                 </div>
             </div>
-        {/if}
-        {if $media.file.references}
+{/if}
+{if $media.file.references}
 
             <div class="mediaItem mediaItemRef">
                 <h3 class="mediaItemTitle">{$CONST.REFERER}</h3>
 
                 <div class="mediaItemContent">
                     <ul class="plainList">
-                    {foreach $media.file.references AS $ref}
-
+{foreach $media.file.references AS $ref}
                         <li>({$ref.name|escape}) <a rel="nofollow" href="{$ref.link|escape}">{$ref.link|default:$CONST.NONE|escape}</a></li>
-                    {/foreach}
-
+{/foreach}
                     </ul>
                 </div>
             </div>
-        {/if}
-
+{/if}
         </div>
     </main>
 
