@@ -21,7 +21,7 @@ class serendipity_plugin_recententries extends serendipity_plugin
         $propbag->add('description',   PLUGIN_RECENTENTRIES_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Christian Machmeier, Christian Brabandt, Judebert, Don Chambers, Ian Styx');
-        $propbag->add('version',       '2.9');
+        $propbag->add('version',       '2.9.1');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1',
@@ -227,8 +227,8 @@ class serendipity_plugin_recententries extends serendipity_plugin
         $entries = serendipity_db_query($entries_query);
 
         if (is_string($entries)) {
-            echo $entries . "<br />\n";
-            echo $entries_query . "<br />\n";
+            echo $entries . "<br>\n";
+            echo $entries_query . "<br>\n";
         }
 
         if (isset($entries) && is_array($entries)) {
@@ -249,12 +249,12 @@ class serendipity_plugin_recententries extends serendipity_plugin
                     $entry['title'] = '#' . $entry['id'];
                 }
 
-                echo '<dt class="serendipity_recententries_entrylink"><a href="' . $entryLink . '" title="' . serendipity_specialchars($entry['title']) . '">' . serendipity_specialchars($entry['title']) . '</a></dt>' . "\n"
-                     . '<dd class="serendipity_recententries_entrydate serendipitySideBarDate">'
-                     . serendipity_specialchars(serendipity_strftime($dateformat, $entry['timestamp']))
-                     . '</dd>' . "\n";
+                echo '                        <dt class="serendipity_recententries_entrylink"><a href="' . $entryLink . '" title="' . serendipity_specialchars($entry['title']) . '">' . serendipity_specialchars($entry['title']) . "</a></dt>\n"
+                   . '                        <dd class="serendipity_recententries_entrydate serendipitySideBarDate">'
+                   . serendipity_specialchars(serendipity_strftime($dateformat, $entry['timestamp']))
+                   . "</dd>\n";
             }
-            echo '</dl>' . "\n\n";
+            echo "                    </dl>\n";
         }
     }
 
