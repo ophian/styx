@@ -418,11 +418,11 @@
 @define('INSTALL_THUMBSUFFIX_DESC', 'Vorschaubilder werden nach dem Schema originalname.Suffix.erweiterung (ext) benannt.');
 @define('INSTALL_THUMBWIDTH', 'Vorschaubildgröße');
 @define('INSTALL_THUMBWIDTH_DESC', 'Maximale Breite/Höhe der automatisch erzeugten Vorschaubildes');
-@define('INSTALL_THUMBDIM', 'Bestimmung der maximalen Vorschaubildgröße');
+@define('INSTALL_THUMBDIM', 'Bestimmung der maximal erlaubten Bildgröße');
 @define('INSTALL_THUMBDIM_LARGEST', 'Längste Seite');
 @define('INSTALL_THUMBDIM_WIDTH', 'Breite');
 @define('INSTALL_THUMBDIM_HEIGHT', 'Höhe');
-@define('INSTALL_THUMBDIM_DESC', 'Legt fest, wie die Größe der Thumbnails angepasst werden soll. Der Standard
+@define('INSTALL_THUMBDIM_DESC', 'Legt fest, <b><u>wie</u></b> die Größe des Bildes beim Upload angepasst werden soll. Der Standard
     "' . INSTALL_THUMBDIM_LARGEST .  '" nutzt die größte Seite als Beschränkung, so dass weder Breite noch Höhe die festgelegte Zahl überschreiten dürfen.
     "' . INSTALL_THUMBDIM_WIDTH . '" und "' .  INSTALL_THUMBDIM_HEIGHT . '"
     legen lediglich die Höhe bzw. Breite als größte Seite fest, so dass die jeweils andere Angabe auch größer als die festgelegte Zahl sein darf.');
@@ -909,9 +909,9 @@
 @define('MEDIA_UPLOAD_SIZE_DESC', 'Geben Sie die maximale Dateigröße für hochgeladene Dateien in Bytes an. Diese Option kann jedoch auch durch serverseitige Optionen der PHP.ini beschränkt sein. PHP.ini: upload_max_filesize, post_max_size, max_input_time. Wenn Sie diese Option leer lassen, werden nur die serverseitigen Einschränkungen angewandt.');
 @define('MEDIA_UPLOAD_SIZEERROR', 'Fehler: Sie können keine Datei größer als %s Bytes hochladen!');
 @define('MEDIA_UPLOAD_MAXWIDTH', 'Maximale Breite eines hochgeladenen Bildes');
-@define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Geben sie die maximale Breite eines hochgeladenen Bildes in Pixeln an.');
+@define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Geben Sie die maximale Breite eines hochgeladenen Bildes in Pixeln an.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', 'Maximale Höhe eines hochgeladenen Bildes');
-@define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'Geben sie die maximale Höhe eines hochgeladenen Bildes in Pixeln an.');
+@define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'Geben Sie die maximale Höhe eines hochgeladenen Bildes in Pixeln an.');
 @define('MEDIA_UPLOAD_DIMERROR', 'Fehler: Eine Einstellung verhindert, Bilder größer als %s x %s Pixel hochzuladen! Untersuchen Sie ihre Konfigurations-Sektion: "%s". Vielleicht wollen Sie zusätzlich die "%s" Option aktivieren.');
 
 @define('MEDIA_TARGET', 'Ziel dieses Links');
@@ -1086,8 +1086,8 @@ Sie sollten damit kein sicherheitsrelevantes Zugangssystem betreiben wollen!');
 @define('UPDATE_NOTIFICATION_DESC', 'Sollen Update-Checks auf der Backend Startseite angezeigt werden, und wenn ja für welche Versionen? Beta beinhaltet Stable Releases.');
 @define('FRONTEND', 'Frontend');
 @define('BACKEND', 'Backend');
-@define('MEDIA_UPLOAD_RESIZE', 'Vor dem Upload Größe anpassen');
-@define('MEDIA_UPLOAD_RESIZE_DESC', 'Mittels Javascript werden Bilder vor dem Upload an die gewählte Maximalgröße angepasst. Wenn aktiv, wird Ajax für den Bildupload verwendet, was auch zur Entfernung des "Eigenschaften angeben"-Buttons führt. Dieses muss dann separat geschehen.<br>ACHTUNG: Diese Einstellung verhindert andere Optionen, insbesondere dann, wenn das imageselectorplus event Plugin genutzt wird!');
+@define('MEDIA_UPLOAD_RESIZE', 'Größe für Upload automatisch anpassen');
+@define('MEDIA_UPLOAD_RESIZE_DESC', 'Mittels Javascript werden Bilder beim Upload an die gewählte Maximalgröße angepasst. Wenn aktiv, wird Ajax für den Bildupload verwendet, was auch zur Entfernung des "Eigenschaften angeben"-Buttons führt. Dieses muss dann separat geschehen.<br>ACHTUNG: Diese Einstellung kann andere, erweiterte Optionen verhindern, insbesondere dann, wenn das imageselectorplus event Plugin genutzt wird!');
 @define('LOG_LEVEL', 'Log Level');
 @define('LOG_LEVEL_DESC', 'An einigen Stellen im Serendipity-Code wurden Debugging-Ausgaben platziert. Wenn diese Option auf "Debug" gesetzt wird, werden jene Ausgaben nach templates_c/logs/ geschrieben. Diese Option sollte nur aktiviert werden, wenn Probleme in der Funktionsausführung bestehen. Wird die Option auf "Fehler" gesetzt, werden PHP-Fehler in jenes Logfile geschrieben, hierbei wird die PHP error_log Option überschrieben.');
 @define('DEBUG', 'Debug');
