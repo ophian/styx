@@ -965,6 +965,28 @@ function serendipity_purgeTemplatesCache($themes=false) {
 }
 
 /**
+ * Rename a Serendipity global variable
+ *
+ * @param old       The old name to search for
+ * @param new       The new name to SET to
+ * @param authorid  The authorid as optional strict parameter search
+ */
+function serendipity_renameConfigVar($old = '', $new = '', $authorid = null) {
+    global $serendipity;
+
+    if (!is_null($authorid)) {
+        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}config
+                                 SET name     = '$new'
+                               WHERE name     = '$old'
+                                 AND authorid = '$authorid'");
+    } else {
+        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}config
+                                 SET name     = '$new'
+                               WHERE name     = '$old'");
+    }
+}
+
+/**
  * Delete old config Plugin Variables that have completely been removed.
  */
 function serendipity_cleanupConfigVars($name='') {
