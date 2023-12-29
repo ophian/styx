@@ -448,11 +448,11 @@ $i18n_filename_to = array (
 @define('INSTALL_THUMBSUFFIX_DESC', 'Náhµady budú pomenované následovne: originál.[prípona].typ');
 @define('INSTALL_THUMBWIDTH', 'Maximálna veµkos» náhµadu');
 @define('INSTALL_THUMBWIDTH_DESC', 'Maximálna veµkos» náhµadu v obmedzujúcom rozmere');
-@define('INSTALL_THUMBDIM', 'Obmedzujúci rozmer pre náhµady');
-@define('INSTALL_THUMBDIM_LARGEST', 'najdlh¹ia hrana');
-@define('INSTALL_THUMBDIM_WIDTH', '¹írka');
-@define('INSTALL_THUMBDIM_HEIGHT', 'vý¹ka');
-@define('INSTALL_THUMBDIM_DESC', 'Rozmer , ktorý urèuje maximálnu veµkos» náhµadu. ©tandardné nastavenie "' . INSTALL_THUMBDIM_LARGEST .  '" obmedzuje obidva rozmery, tak¾e ani jeden z nich nemô¾e by» väè¹í ako maximálna veµkos»; "' . INSTALL_THUMBDIM_WIDTH . '" a "' .  INSTALL_THUMBDIM_HEIGHT . '" obmedzujú iba jeden rozmer, tak¾e druhý rozmer mô¾e by» väè¹í ako maximálna veµkos».');
+@define('INSTALL_IMAGEDIM', 'Obmedzujúci rozmer pre náhµady');
+@define('INSTALL_IMAGEDIM_LARGEST', 'najdlh¹ia hrana');
+@define('INSTALL_IMAGEDIM_WIDTH', '¹írka');
+@define('INSTALL_IMAGEDIM_HEIGHT', 'vý¹ka');
+@define('INSTALL_IMAGEDIM_DESC', 'Rozmer , ktorý urèuje maximálnu veµkos» náhµadu. ©tandardné nastavenie "' . INSTALL_IMAGEDIM_LARGEST .  '" obmedzuje obidva rozmery, tak¾e ani jeden z nich nemô¾e by» väè¹í ako maximálna veµkos»; "' . INSTALL_IMAGEDIM_WIDTH . '" a "' .  INSTALL_IMAGEDIM_HEIGHT . '" obmedzujú iba jeden rozmer, tak¾e druhý rozmer mô¾e by» väè¹í ako maximálna veµkos».');
 
 /* PERSONAL DETAILS */
 @define('USERCONF_CAT_PERSONAL', 'Osobné nastavenia');

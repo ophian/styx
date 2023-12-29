@@ -448,11 +448,11 @@ $i18n_filename_to = array (
 @define('INSTALL_THUMBSUFFIX_DESC', 'Náhľady budú pomenované následovne: originál.[prípona].typ');
 @define('INSTALL_THUMBWIDTH', 'Maximálna veľkosť náhľadu');
 @define('INSTALL_THUMBWIDTH_DESC', 'Maximálna veľkosť náhľadu v obmedzujúcom rozmere');
-@define('INSTALL_THUMBDIM', 'Obmedzujúci rozmer pre náhľady');
-@define('INSTALL_THUMBDIM_LARGEST', 'najdlhšia hrana');
-@define('INSTALL_THUMBDIM_WIDTH', 'šírka');
-@define('INSTALL_THUMBDIM_HEIGHT', 'výška');
-@define('INSTALL_THUMBDIM_DESC', 'Rozmer , ktorý určuje maximálnu veľkosť náhľadu. Štandardné nastavenie "' . INSTALL_THUMBDIM_LARGEST .  '" obmedzuje obidva rozmery, takže ani jeden z nich nemôže byť väčší ako maximálna veľkosť; "' . INSTALL_THUMBDIM_WIDTH . '" a "' .  INSTALL_THUMBDIM_HEIGHT . '" obmedzujú iba jeden rozmer, takže druhý rozmer môže byť väčší ako maximálna veľkosť.');
+@define('INSTALL_IMAGEDIM', 'Obmedzujúci rozmer pre náhľady');
+@define('INSTALL_IMAGEDIM_LARGEST', 'najdlhšia hrana');
+@define('INSTALL_IMAGEDIM_WIDTH', 'šírka');
+@define('INSTALL_IMAGEDIM_HEIGHT', 'výška');
+@define('INSTALL_IMAGEDIM_DESC', 'Rozmer , ktorý určuje maximálnu veľkosť náhľadu. Štandardné nastavenie "' . INSTALL_IMAGEDIM_LARGEST .  '" obmedzuje obidva rozmery, takže ani jeden z nich nemôže byť väčší ako maximálna veľkosť; "' . INSTALL_IMAGEDIM_WIDTH . '" a "' .  INSTALL_IMAGEDIM_HEIGHT . '" obmedzujú iba jeden rozmer, takže druhý rozmer môže byť väčší ako maximálna veľkosť.');
 
 /* PERSONAL DETAILS */
 @define('USERCONF_CAT_PERSONAL', 'Osobné nastavenia');

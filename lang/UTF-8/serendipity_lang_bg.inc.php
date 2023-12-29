@@ -467,13 +467,13 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_THUMBSUFFIX_DESC', 'Миниатюрите ще бъдат именувани по следния начин: оригинал.[наставка].разширение');
 @define('INSTALL_THUMBWIDTH', 'Размер на миниатюрите');
 @define('INSTALL_THUMBWIDTH_DESC', 'Статична максимална ширина на автоматично генерираните миниатюри');
-@define('INSTALL_THUMBDIM', 'Ограничен размер на миниатюрата');
-@define('INSTALL_THUMBDIM_LARGEST', 'Най-голям');
-@define('INSTALL_THUMBDIM_WIDTH', 'Ширина');
-@define('INSTALL_THUMBDIM_HEIGHT', 'Височина');
-@define('INSTALL_THUMBDIM_DESC', 'Размерите, до които да бъдат ограничени миниатюрите. По подразбиране "' .
-    INSTALL_THUMBDIM_LARGEST .  '" ограничава и двата размера, така че нито един от двата да не бъде по-голям от максималната стойност; "' .
-    INSTALL_THUMBDIM_WIDTH . '" и "' .  INSTALL_THUMBDIM_HEIGHT .
+@define('INSTALL_IMAGEDIM', 'Ограничен размер на миниатюрата');
+@define('INSTALL_IMAGEDIM_LARGEST', 'Най-голям');
+@define('INSTALL_IMAGEDIM_WIDTH', 'Ширина');
+@define('INSTALL_IMAGEDIM_HEIGHT', 'Височина');
+@define('INSTALL_IMAGEDIM_DESC', 'Размерите, до които да бъдат ограничени миниатюрите. По подразбиране "' .
+    INSTALL_IMAGEDIM_LARGEST .  '" ограничава и двата размера, така че нито един от двата да не бъде по-голям от максималната стойност; "' .
+    INSTALL_IMAGEDIM_WIDTH . '" и "' .  INSTALL_IMAGEDIM_HEIGHT .
     '" ограничават само избрания размер, но другият може да бъде по-голям от максималната стойност.');
 
 /* PERSONAL DETAILS */

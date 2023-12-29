@@ -435,13 +435,13 @@
 @define('INSTALL_THUMBSUFFIX_DESC', '작은 그림은 원래이름.[접두사].확장자 식의 이름으로 생성됩니다');
 @define('INSTALL_THUMBWIDTH', '작은 그림의 최대 크기');
 @define('INSTALL_THUMBWIDTH_DESC', '자동 생성되는 작은 그림의 최대 크기');
-@define('INSTALL_THUMBDIM', '작은 그림의 최대 크기 제약 기준');
-@define('INSTALL_THUMBDIM_LARGEST', '양방향 모두');
-@define('INSTALL_THUMBDIM_WIDTH', '폭');
-@define('INSTALL_THUMBDIM_HEIGHT', '높이');
-@define('INSTALL_THUMBDIM_DESC', '작은 그림의 최대 크기를 정하기 위한 제약의 기준. 기본값인 "' .
-    INSTALL_THUMBDIM_LARGEST .  '" 선택 시 폭과 높이를 모두 제한하므로 어느 쪽도 최대 크기를 초과할 수 없으며 "' .
-    INSTALL_THUMBDIM_WIDTH . '"과 "' .  INSTALL_THUMBDIM_HEIGHT .
+@define('INSTALL_IMAGEDIM', '작은 그림의 최대 크기 제약 기준');
+@define('INSTALL_IMAGEDIM_LARGEST', '양방향 모두');
+@define('INSTALL_IMAGEDIM_WIDTH', '폭');
+@define('INSTALL_IMAGEDIM_HEIGHT', '높이');
+@define('INSTALL_IMAGEDIM_DESC', '작은 그림의 최대 크기를 정하기 위한 제약의 기준. 기본값인 "' .
+    INSTALL_IMAGEDIM_LARGEST .  '" 선택 시 폭과 높이를 모두 제한하므로 어느 쪽도 최대 크기를 초과할 수 없으며 "' .
+    INSTALL_IMAGEDIM_WIDTH . '"과 "' .  INSTALL_IMAGEDIM_HEIGHT .
     '"는 선택된 방향으로만 제한하므로 다른 한 방향은 최대 크기보다 클 수 있습니다.');
 
 /* PERSONAL DETAILS */

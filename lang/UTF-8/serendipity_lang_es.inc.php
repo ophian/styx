@@ -415,13 +415,13 @@
 @define('INSTALL_THUMBSUFFIX_DESC', 'Las miniaturas se crearán con el siguiente formato: original.[sufijo].ext');
 @define('INSTALL_THUMBWIDTH', 'Dimensiones de las miniaturas');
 @define('INSTALL_THUMBWIDTH_DESC', 'Anchura máxima estática de las miniaturas auto-generadas');
-@define('INSTALL_THUMBDIM', 'Image constrained dimension');
-@define('INSTALL_THUMBDIM_LARGEST', 'Largest');
-@define('INSTALL_THUMBDIM_WIDTH', 'Width');
-@define('INSTALL_THUMBDIM_HEIGHT', 'Height');
-@define('INSTALL_THUMBDIM_DESC', 'Dimension to be constrained to the image max size. The default "' .
-    INSTALL_THUMBDIM_LARGEST .  '" limits both dimensions, so neither can be greater than the max size; "' .
-    INSTALL_THUMBDIM_WIDTH . '" and "' .  INSTALL_THUMBDIM_HEIGHT .
+@define('INSTALL_IMAGEDIM', 'Image constrained dimension');
+@define('INSTALL_IMAGEDIM_LARGEST', 'Largest');
+@define('INSTALL_IMAGEDIM_WIDTH', 'Width');
+@define('INSTALL_IMAGEDIM_HEIGHT', 'Height');
+@define('INSTALL_IMAGEDIM_DESC', 'Dimension to be constrained to the image max size. The default "' .
+    INSTALL_IMAGEDIM_LARGEST .  '" limits both dimensions, so neither can be greater than the max size; "' .
+    INSTALL_IMAGEDIM_WIDTH . '" and "' .  INSTALL_IMAGEDIM_HEIGHT .
     '" only limit the chosen dimension, so the other could be larger than the max size.');
 
 /* PERSONAL DETAILS */

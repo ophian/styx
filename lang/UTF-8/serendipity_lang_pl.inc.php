@@ -435,13 +435,13 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('INSTALL_THUMBSUFFIX_DESC', 'Miniaturki będą nazywane według następującego formatu: nazwaoryginalna.[sufiks].rozszerzenie');
 @define('INSTALL_THUMBWIDTH', 'Szerokość miniaturki');
 @define('INSTALL_THUMBWIDTH_DESC', 'Ustal szerokość tworzonych automatycznie miniatur');
-@define('INSTALL_THUMBDIM', 'Image constrained dimension');
-@define('INSTALL_THUMBDIM_LARGEST', 'Largest');
-@define('INSTALL_THUMBDIM_WIDTH', 'Width');
-@define('INSTALL_THUMBDIM_HEIGHT', 'Height');
-@define('INSTALL_THUMBDIM_DESC', 'Dimension to be constrained to the image max size. The default "' .
-    INSTALL_THUMBDIM_LARGEST .  '" limits both dimensions, so neither can be greater than the max size; "' .
-    INSTALL_THUMBDIM_WIDTH . '" and "' .  INSTALL_THUMBDIM_HEIGHT .
+@define('INSTALL_IMAGEDIM', 'Image constrained dimension');
+@define('INSTALL_IMAGEDIM_LARGEST', 'Largest');
+@define('INSTALL_IMAGEDIM_WIDTH', 'Width');
+@define('INSTALL_IMAGEDIM_HEIGHT', 'Height');
+@define('INSTALL_IMAGEDIM_DESC', 'Dimension to be constrained to the image max size. The default "' .
+    INSTALL_IMAGEDIM_LARGEST .  '" limits both dimensions, so neither can be greater than the max size; "' .
+    INSTALL_IMAGEDIM_WIDTH . '" and "' .  INSTALL_IMAGEDIM_HEIGHT .
     '" only limit the chosen dimension, so the other could be larger than the max size.');
 
 /* PERSONAL DETAILS */

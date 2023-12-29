@@ -433,13 +433,13 @@
 @define('INSTALL_THUMBSUFFIX_DESC', 'サムネイルは次の書式で指定されるでしょう: オリジナル.[接尾辞].拡張子');
 @define('INSTALL_THUMBWIDTH', 'サムネイルの大きさ');
 @define('INSTALL_THUMBWIDTH_DESC', '自動生成するサムネイルの不変の最大幅');
-@define('INSTALL_THUMBDIM', 'Image constrained dimension');
-@define('INSTALL_THUMBDIM_LARGEST', 'Largest');
-@define('INSTALL_THUMBDIM_WIDTH', '幅');
-@define('INSTALL_THUMBDIM_HEIGHT', '高さ');
-@define('INSTALL_THUMBDIM_DESC', 'Dimension to be constrained to the image max size. The default "' .
-    INSTALL_THUMBDIM_LARGEST .  '" limits both dimensions, so neither can be greater than the max size; "' .
-    INSTALL_THUMBDIM_WIDTH . '" and "' .  INSTALL_THUMBDIM_HEIGHT .
+@define('INSTALL_IMAGEDIM', 'Image constrained dimension');
+@define('INSTALL_IMAGEDIM_LARGEST', 'Largest');
+@define('INSTALL_IMAGEDIM_WIDTH', '幅');
+@define('INSTALL_IMAGEDIM_HEIGHT', '高さ');
+@define('INSTALL_IMAGEDIM_DESC', 'Dimension to be constrained to the image max size. The default "' .
+    INSTALL_IMAGEDIM_LARGEST .  '" limits both dimensions, so neither can be greater than the max size; "' .
+    INSTALL_IMAGEDIM_WIDTH . '" and "' .  INSTALL_IMAGEDIM_HEIGHT .
     '" only limit the chosen dimension, so the other could be larger than the max size.');
 
 /* PERSONAL DETAILS */

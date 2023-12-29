@@ -418,13 +418,13 @@
 @define('INSTALL_THUMBSUFFIX_DESC', 'Vorschaubilder werden nach dem Schema originalname.Suffix.erweiterung (ext) benannt.');
 @define('INSTALL_THUMBWIDTH', 'Vorschaubildgröße');
 @define('INSTALL_THUMBWIDTH_DESC', 'Maximale Breite/Höhe der automatisch erzeugten Vorschaubildes');
-@define('INSTALL_THUMBDIM', 'Bestimmung der maximal erlaubten Bildgröße');
-@define('INSTALL_THUMBDIM_LARGEST', 'Längste Seite');
-@define('INSTALL_THUMBDIM_WIDTH', 'Breite');
-@define('INSTALL_THUMBDIM_HEIGHT', 'Höhe');
-@define('INSTALL_THUMBDIM_DESC', 'Legt fest, <b><u>wie</u></b> die Größe des Bildes beim Upload angepasst werden soll. Der Standard
-    "' . INSTALL_THUMBDIM_LARGEST .  '" nutzt die größte Seite als Beschränkung, so dass weder Breite noch Höhe die festgelegte Zahl überschreiten dürfen.
-    "' . INSTALL_THUMBDIM_WIDTH . '" und "' .  INSTALL_THUMBDIM_HEIGHT . '"
+@define('INSTALL_IMAGEDIM', 'Bestimmung der maximal erlaubten Bildgröße');
+@define('INSTALL_IMAGEDIM_LARGEST', 'Längste Seite');
+@define('INSTALL_IMAGEDIM_WIDTH', 'Breite');
+@define('INSTALL_IMAGEDIM_HEIGHT', 'Höhe');
+@define('INSTALL_IMAGEDIM_DESC', 'Legt fest, <b><u>wie</u></b> die Größe des Bildes beim Upload angepasst werden soll. Der Standard
+    "' . INSTALL_IMAGEDIM_LARGEST .  '" nutzt die größte Seite als Beschränkung, so dass weder Breite noch Höhe die festgelegte Zahl überschreiten dürfen.
+    "' . INSTALL_IMAGEDIM_WIDTH . '" und "' .  INSTALL_IMAGEDIM_HEIGHT . '"
     legen lediglich die Höhe bzw. Breite als größte Seite fest, so dass die jeweils andere Angabe auch größer als die festgelegte Zahl sein darf.');
 
 /* PERSONAL DETAILS */

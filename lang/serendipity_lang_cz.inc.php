@@ -450,11 +450,11 @@ $i18n_filename_to = array (
 @define('INSTALL_THUMBSUFFIX_DESC', 'Náhledy budou pojmenovány original.sufix.ext');
 @define('INSTALL_THUMBWIDTH', 'Rozmìry náhledù');
 @define('INSTALL_THUMBWIDTH_DESC', 'Pevná ¹íøka automaticky generovaných náhledù');
-@define('INSTALL_THUMBDIM', 'Omezující rozmìr pro náhledy');
-@define('INSTALL_THUMBDIM_LARGEST', 'Del¹í hrana');
-@define('INSTALL_THUMBDIM_WIDTH', '©íøka');
-@define('INSTALL_THUMBDIM_HEIGHT', 'Vý¹ka');
-@define('INSTALL_THUMBDIM_DESC', 'Dimension to be constrained to the image max size. The default "' . INSTALL_THUMBDIM_LARGEST .  '" limits both dimensions, so neither can be greater than the max size; "' . INSTALL_THUMBDIM_WIDTH . '" and "' .  INSTALL_THUMBDIM_HEIGHT . '" only limit the chosen dimension, so the other could be larger than the max size.');
+@define('INSTALL_IMAGEDIM', 'Omezující rozmìr pro náhledy');
+@define('INSTALL_IMAGEDIM_LARGEST', 'Del¹í hrana');
+@define('INSTALL_IMAGEDIM_WIDTH', '©íøka');
+@define('INSTALL_IMAGEDIM_HEIGHT', 'Vý¹ka');
+@define('INSTALL_IMAGEDIM_DESC', 'Dimension to be constrained to the image max size. The default "' . INSTALL_IMAGEDIM_LARGEST .  '" limits both dimensions, so neither can be greater than the max size; "' . INSTALL_IMAGEDIM_WIDTH . '" and "' .  INSTALL_IMAGEDIM_HEIGHT . '" only limit the chosen dimension, so the other could be larger than the max size.');
 
 /* PERSONAL DETAILS */
 @define('USERCONF_CAT_PERSONAL', 'Osobní nastavení');

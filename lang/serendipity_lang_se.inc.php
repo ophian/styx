@@ -433,13 +433,13 @@
 @define('INSTALL_THUMBSUFFIX_DESC', 'Miniatyrer kommer att döpas enligt följande format: original.[suffix].ext');
 @define('INSTALL_THUMBWIDTH', 'Miniatyrbildsdimensioner');
 @define('INSTALL_THUMBWIDTH_DESC', 'Statisk max-bredd för auto-genererade miniatyrbilder');
-@define('INSTALL_THUMBDIM', 'Begränsad miniatyrbildsdimension');
-@define('INSTALL_THUMBDIM_LARGEST', 'Störst');
-@define('INSTALL_THUMBDIM_WIDTH', 'Bredd');
-@define('INSTALL_THUMBDIM_HEIGHT', 'Höjd');
-@define('INSTALL_THUMBDIM_DESC', 'Dimension att begränsa till miniatyrbildens maxstorlek. Ursprungsvärdet "' .
-    INSTALL_THUMBDIM_LARGEST .  '" begränsar båda dimensionerna, så att ingen av dem kan vara större än maxstorleken; "' .
-    INSTALL_THUMBDIM_WIDTH . '" och "' .  INSTALL_THUMBDIM_HEIGHT .
+@define('INSTALL_IMAGEDIM', 'Begränsad miniatyrbildsdimension');
+@define('INSTALL_IMAGEDIM_LARGEST', 'Störst');
+@define('INSTALL_IMAGEDIM_WIDTH', 'Bredd');
+@define('INSTALL_IMAGEDIM_HEIGHT', 'Höjd');
+@define('INSTALL_IMAGEDIM_DESC', 'Dimension att begränsa till miniatyrbildens maxstorlek. Ursprungsvärdet "' .
+    INSTALL_IMAGEDIM_LARGEST .  '" begränsar båda dimensionerna, så att ingen av dem kan vara större än maxstorleken; "' .
+    INSTALL_IMAGEDIM_WIDTH . '" och "' .  INSTALL_IMAGEDIM_HEIGHT .
     '" begränsa endast den valda dimensionen, så att den andra kan vara större än maxstorleken.');
 
 /* PERSONAL DETAILS */
