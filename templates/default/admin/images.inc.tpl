@@ -418,12 +418,12 @@
             <span class="wrap_legend"><legend>{$CONST.NEWSIZE}</legend></span>
 
             <div class="form_field">
-                <label for="resize_width">{$CONST.INSTALL_THUMBDIM_WIDTH}</label>
+                <label for="resize_width">{$CONST.INSTALL_IMAGEDIM_WIDTH}</label>
                 <input id="resize_width" name="serendipity[width]" type="text" value="{$scaleOriginSize.width}">
             </div>
 
             <div class="form_field">
-                <label for="resize_height">{$CONST.INSTALL_THUMBDIM_HEIGHT}</label>
+                <label for="resize_height">{$CONST.INSTALL_IMAGEDIM_HEIGHT}</label>
                 <input id="resize_height" name="serendipity[height]" type="text" value="{$scaleOriginSize.height}">
             </div>
         </fieldset>
