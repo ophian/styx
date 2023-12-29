@@ -435,11 +435,11 @@
 @define('INSTALL_THUMBSUFFIX_DESC', '”Ê› Ì⁄ÿÏ ··’Ê— «·„’€—… ««·√”„ Ê«·’Ì€… «· «·Ì…: original.[suffix].ext');
 @define('INSTALL_THUMBWIDTH', 'ﬁÌ«”«  «·’Ê—… «·„’€—…');
 @define('INSTALL_THUMBWIDTH_DESC', '«·⁄—÷ «·À«»  ·’Ê— «·„’€—… «·„‰‘∆… √ „« ÌﬂÌ«');
-@define('INSTALL_THUMBDIM', 'Thumbnail constrained dimension');
+@define('INSTALL_THUMBDIM', 'Image constrained dimension');
 @define('INSTALL_THUMBDIM_LARGEST', 'Largest');
 @define('INSTALL_THUMBDIM_WIDTH', 'Width');
 @define('INSTALL_THUMBDIM_HEIGHT', 'Height');
-@define('INSTALL_THUMBDIM_DESC', 'Dimension to be constrained to the thumbnail max size. The default "' .
+@define('INSTALL_THUMBDIM_DESC', 'Dimension to be constrained to the image max size. The default "' .
     INSTALL_THUMBDIM_LARGEST .  '" limits both dimensions, so neither can be greater than the max size; "' .
     INSTALL_THUMBDIM_WIDTH . '" and "' .  INSTALL_THUMBDIM_HEIGHT .
     '" only limit the chosen dimension, so the other could be larger than the max size.');

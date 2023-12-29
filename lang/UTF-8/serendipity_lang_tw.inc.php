@@ -435,11 +435,11 @@ $i18n_unknown = 'tw';
 @define('INSTALL_THUMBSUFFIX_DESC', '縮圖會以下面的格式重新命名: 原檔名.[後置字元].ext');
 @define('INSTALL_THUMBWIDTH', '縮圖尺度');
 @define('INSTALL_THUMBWIDTH_DESC', '自動建立縮圖的最大寬度');
-@define('INSTALL_THUMBDIM', 'Thumbnail constrained dimension');
+@define('INSTALL_THUMBDIM', 'Image constrained dimension');
 @define('INSTALL_THUMBDIM_LARGEST', 'Largest');
 @define('INSTALL_THUMBDIM_WIDTH', 'Width');
 @define('INSTALL_THUMBDIM_HEIGHT', 'Height');
-@define('INSTALL_THUMBDIM_DESC', 'Dimension to be constrained to the thumbnail max size. The default "' .
+@define('INSTALL_THUMBDIM_DESC', 'Dimension to be constrained to the image max size. The default "' .
     INSTALL_THUMBDIM_LARGEST .  '" limits both dimensions, so neither can be greater than the max size; "' .
     INSTALL_THUMBDIM_WIDTH . '" and "' .  INSTALL_THUMBDIM_HEIGHT .
     '" only limit the chosen dimension, so the other could be larger than the max size.');
