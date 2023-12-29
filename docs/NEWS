@@ -2,6 +2,10 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve image configuration options by naming semantic, order and descript-
+    ions, to insist that upload maximum width and height options do affect the
+    full image dimensions and not the thumb.
+
   * Improve the [ pure ] theme for next freetag plugin update tag & cloud
     improvements and some search result stylings.
 
