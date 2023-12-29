@@ -695,14 +695,14 @@
                                           'default'     => 400),
 
                                     array('var'         => 'thumbConstraint',
-                                          'title'       => INSTALL_THUMBDIM,
-                                          'description' => INSTALL_THUMBDIM_DESC,
+                                          'title'       => INSTALL_IMAGEDIM,
+                                          'description' => INSTALL_IMAGEDIM_DESC,
                                           'type'        => 'list',
                                           'permission'  => 'siteConfiguration',
                                           'default'     => array(
-                                              'largest' => INSTALL_THUMBDIM_LARGEST,
-                                              'width'   => INSTALL_THUMBDIM_WIDTH,
-                                              'height'  => INSTALL_THUMBDIM_HEIGHT)),
+                                              'largest' => INSTALL_IMAGEDIM_LARGEST,
+                                              'width'   => INSTALL_IMAGEDIM_WIDTH,
+                                              'height'  => INSTALL_IMAGEDIM_HEIGHT)),
 
                                     array('var'         => 'maxImgWidth',
                                           'title'       => MEDIA_UPLOAD_MAXWIDTH,
