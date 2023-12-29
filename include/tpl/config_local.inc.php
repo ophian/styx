@@ -704,13 +704,6 @@
                                               'width'   => INSTALL_THUMBDIM_WIDTH,
                                               'height'  => INSTALL_THUMBDIM_HEIGHT)),
 
-                                    array('var'         => 'maxFileSize',
-                                          'title'       => MEDIA_UPLOAD_SIZE,
-                                          'description' => MEDIA_UPLOAD_SIZE_DESC,
-                                          'type'        => 'int',
-                                          'permission'  => 'blogConfiguration',
-                                          'default'     => ''),
-
                                     array('var'         => 'maxImgWidth',
                                           'title'       => MEDIA_UPLOAD_MAXWIDTH,
                                           'description' => MEDIA_UPLOAD_MAXWIDTH_DESC,
@@ -731,6 +724,13 @@
                                           'type'        => 'bool',
                                           'permission'  => 'siteConfiguration',
                                           'default'     => false),
+
+                                    array('var'         => 'maxFileSize',
+                                          'title'       => MEDIA_UPLOAD_SIZE,
+                                          'description' => MEDIA_UPLOAD_SIZE_DESC,
+                                          'type'        => 'int',
+                                          'permission'  => 'blogConfiguration',
+                                          'default'     => ''),
 
                                     array('var'         => 'enableAVIF',
                                           'title'       => ENABLEAVIF,
