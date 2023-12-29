@@ -694,7 +694,7 @@
                                           'permission'  => 'siteConfiguration',
                                           'default'     => 400),
 
-                                    array('var'         => 'thumbConstraint',
+                                    array('var'         => 'imageConstraint',
                                           'title'       => INSTALL_IMAGEDIM,
                                           'description' => INSTALL_IMAGEDIM_DESC,
                                           'type'        => 'list',
