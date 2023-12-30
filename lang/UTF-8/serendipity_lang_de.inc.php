@@ -417,7 +417,7 @@
 @define('INSTALL_THUMBSUFFIX', 'Vorschaubild-Endung');
 @define('INSTALL_THUMBSUFFIX_DESC', 'Vorschaubilder werden nach dem Schema originalname.Suffix.erweiterung (ext) benannt.');
 @define('INSTALL_THUMBWIDTH', 'Vorschaubildgröße');
-@define('INSTALL_THUMBWIDTH_DESC', 'Maximale Breite/Höhe der automatisch erzeugten Vorschaubildes');
+@define('INSTALL_THUMBWIDTH_DESC', 'Maximale Breite/Höhe des automatisch erzeugten Vorschaubildes');
 @define('INSTALL_IMAGEDIM', 'Bestimmung der maximal erlaubten Bildgröße');
 @define('INSTALL_IMAGEDIM_LARGEST', 'Längste Seite');
 @define('INSTALL_IMAGEDIM_WIDTH', 'Breite');
