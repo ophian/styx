@@ -415,14 +415,14 @@
 @define('INSTALL_IMAGEMAGICKPATH', 'Pfad zur "convert" ImageMagick-Datei');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'Voller Pfad und Name zur Image-Magick Datei');
 @define('INSTALL_THUMBSUFFIX', 'Vorschaubild-Suffix');
-@define('INSTALL_THUMBSUFFIX_DESC', 'Vorschaubilder werden nach dem Schema originalname.Suffix.Typ (ext) benannt.');
+@define('INSTALL_THUMBSUFFIX_DESC', 'Vorschaubilder werden nach dem Schema Originalname.Suffix.Typ (ext) benannt.');
 @define('INSTALL_THUMBWIDTH', 'Vorschaubildgröße');
 @define('INSTALL_THUMBWIDTH_DESC', 'Maximale Breite/Höhe des automatisch erzeugten Vorschaubildes');
 @define('INSTALL_IMAGEDIM', 'Bestimmung der maximal erlaubten Bildgröße');
 @define('INSTALL_IMAGEDIM_LARGEST', 'Längste Seite');
 @define('INSTALL_IMAGEDIM_WIDTH', 'Breite');
 @define('INSTALL_IMAGEDIM_HEIGHT', 'Höhe');
-@define('INSTALL_IMAGEDIM_DESC', 'Legt fest, <b><u>wie</u></b> die Größe des Bildes beim Upload angepasst werden soll. Der Standard
+@define('INSTALL_IMAGEDIM_DESC', 'Legt fest, <b>wie</b> die Größe des Bildes beim Upload angepasst werden soll. Der Standard
     "' . INSTALL_IMAGEDIM_LARGEST .  '" nutzt die größte Seite als Beschränkung, so dass weder Breite noch Höhe die festgelegte Zahl überschreiten dürfen.
     "' . INSTALL_IMAGEDIM_WIDTH . '" und "' .  INSTALL_IMAGEDIM_HEIGHT . '"
     legen lediglich die Höhe bzw. Breite als größte Seite fest, so dass die jeweils andere Angabe auch größer als die festgelegte Zahl sein darf.');
