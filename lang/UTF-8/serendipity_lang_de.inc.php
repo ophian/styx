@@ -908,10 +908,10 @@
 @define('MEDIA_UPLOAD_SIZE', 'Maximal erlaubte Dateigröße für den Upload');
 @define('MEDIA_UPLOAD_SIZE_DESC', 'Geben Sie die maximal erlaubte Dateigröße für hochzuladene Dateien in Bytes an. Diese Option kann durch serverseitige Optionen der PHP.ini [<i>upload_max_filesize</i>, <i>post_max_size</i>, <i>max_input_time</i>] beschränkt sein. Wenn Sie diese Option leer lassen, werden nur die serverseitigen Einschränkungen angewandt.');
 @define('MEDIA_UPLOAD_SIZEERROR', 'Fehler: Sie können keine Datei größer als %s Bytes hochladen!');
-@define('MEDIA_UPLOAD_MAXWIDTH', 'Maximale Breite eines hochzuladenen Bildes');
-@define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Geben Sie die maximal erlaubte Breite eines hochzuladenen Bildes in Pixeln an.');
-@define('MEDIA_UPLOAD_MAXHEIGHT', 'Maximale Höhe eines hochzuladenen Bildes');
-@define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'Geben Sie die maximal erlaubte Höhe eines hochzuladenen Bildes in Pixeln an.');
+@define('MEDIA_UPLOAD_MAXWIDTH', 'Maximale Breite eines hochzuladenden Bildes');
+@define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Geben Sie die maximal erlaubte Breite eines hochzuladenden Bildes in Pixeln an.');
+@define('MEDIA_UPLOAD_MAXHEIGHT', 'Maximale Höhe eines hochzuladenden Bildes');
+@define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'Geben Sie die maximal erlaubte Höhe eines hochzuladenden Bildes in Pixeln an.');
 @define('MEDIA_UPLOAD_DIMERROR', 'Fehler: Eine Einstellung verhindert, Bilder größer als %s x %s Pixel hochzuladen! Untersuchen Sie ihre Konfigurations-Sektion: "%s". Vielleicht wollen Sie zusätzlich die "%s" Option aktivieren.');
 
 @define('MEDIA_TARGET', 'Ziel dieses Links');
