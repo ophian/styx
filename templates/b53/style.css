@@ -199,7 +199,8 @@ td, th {
 
 ::-moz-selection, ::selection {
   background: #b3d4fc;
-  text-shadow: none; }
+  text-shadow: none;
+  color: #212529; }
 
 dt {
   font-weight: bold; }
