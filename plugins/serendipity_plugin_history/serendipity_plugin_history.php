@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.38');
+        $propbag->add('version',       '1.39');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1',
@@ -291,19 +291,35 @@ class serendipity_plugin_history extends serendipity_plugin
                 #    return false;
                 #}
 
+                $today  = date('Y-m-d', $nowts);
+                $xyears = $xyears+1; // adds one search year plus into the array - because we are counting yeardays backward
+
                 $cy  = date('Y', $nowts);
                 $sy  = ($cy-$xyears);
-                $sc  = (date('md', $nowts) >= '0301'); // special case from 1st of March
+                if (date('L', strtotime($today)) == '1') {
+                    $sc  = date('md', $nowts) >= '0301'; // special case from 1st of March, add one day plus
+                } else {
+                    $sc  = false;
+                }
+
                 $age = 0;
                 $leap = []; // incrementing array to use as leap true check
                 $multiage = [];
+
+                // create leap years array sibling for xyears looped
                 for($i = $cy; $i > $sy; $i--) {
                     $leap[] = date('L', strtotime("$i-01-01"));
                 }
-                for($y=0; $y < $xyears; $y++) {
-                    $age += ($leap[$y] == 1 ? 366 : ($y == 0 ? 0 : 365));
-                    // check special cased leap year from 1st of March, which is leap years $age w/ 1 day off!
-                    $multiage[] = ($leap[$y] == 1 && $sc) ? $age-1 : $age;
+                // loop xyears backward days by leap year (cases)
+                for($y=1; $y < $xyears; $y++) {
+                    if ($y == 0 && !$sc) {
+                        $adddays = 365; // don't count the top current leap year + day in case it is January and February
+                    } else {
+                        $adddays = (isset($leap[$y]) && $leap[$y] == 1) ? 366 : 365;
+                    }
+
+                    $age += $adddays;
+                    $multiage[] = $age;
                 }
 
                 ob_start();
