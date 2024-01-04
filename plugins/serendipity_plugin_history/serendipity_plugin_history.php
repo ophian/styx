@@ -311,6 +311,7 @@ class serendipity_plugin_history extends serendipity_plugin
 
                 // create leap years array sibling for xyears looped
                 for($i = $cy; $i > $sy; $i--) {
+                    #$leap[] = !in_array($i, [1900, 2100]) ? date('L', strtotime("$i-01-01")) : false; // ;-)
                     $leap[] = date('L', strtotime("$i-01-01"));
                 }
                 // loop xyears backward days by leap year (cases)
