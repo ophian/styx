@@ -192,7 +192,7 @@ class serendipity_plugin_history extends serendipity_plugin
             return false;
         }
 
-        $elday = (date('md', serendipity_serverOffsetHour()) == '0229') ? true : false; // is current day the explicit leap day ?
+        $elday = date('md', serendipity_serverOffsetHour()) == '0229'; // is the current day the explicit leap day ?
 
         echo empty($intro) ? '' : '<div class="serendipity_history_intro">' . $intro . "</div>\n";
 
