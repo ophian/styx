@@ -2,6 +2,9 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix the history plugins specialage years option for leap year calculation
+    and be strict to not support Persian calenders yet.
+
   * Improve image configuration options by naming semantic, order and descript-
     ions, to insist that upload maximum width and height options do affect the
     full image dimensions and not the thumb.
