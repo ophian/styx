@@ -22,7 +22,7 @@
 @define('PLUGIN_HISTORY_MAXLENGTH', '제목 길이');
 @define('PLUGIN_HISTORY_MAXLENGTH_DESC', '몇 글자 후 제목을 생략하겠습니까(0을 입력하면 모두 출력)?');
 @define('PLUGIN_HISTORY_SPECIALAGE', '기간 설정');
-@define('PLUGIN_HISTORY_SPECIALAGE_DESC', '미리 정해진 기간 대신 직접 기간을 정하고 싶을 경우 \'기간을 직접 입력\'을 선택하고 두 개의 설정을 조절하십시오.');
+@define('PLUGIN_HISTORY_SPECIALAGE_DESC', '미리 정해진 기간 대신 직접 기간을 정하고 싶을 경우 \'기간을 직접 입력\'을 선택하고 두 개의 설정을 조절하십시오. (This will not work with Persian calendars yet.)');
 @define('PLUGIN_HISTORY_SPECIALAGE_YEAR', '정확하게 1년 전 글을 보여줌');
 @define('PLUGIN_HISTORY_CUSTOMAGE', '기간을 직접 정합니다');
 @define('PLUGIN_HISTORY_OYA', '1년 전');

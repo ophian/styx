@@ -32,7 +32,7 @@
 @define('PLUGIN_HISTORY_MAXLENGTH', 'Longueur du titre');
 @define('PLUGIN_HISTORY_MAXLENGTH_DESC', 'Couper les titres après X caractères? (Entrez un 0 pour les titres complets)');
 @define('PLUGIN_HISTORY_SPECIALAGE', 'Âge prédéfini?');
-@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'Vous pouvez choisir un âge prédéfini, ou en spécifier un. Pour en spécifier un vous-même, sélectionnez \'Je veux le définir moi-même\' et complétez les deux champs ci-dessous.');
+@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'Vous pouvez choisir un âge prédéfini, ou en spécifier un. Pour en spécifier un vous-même, sélectionnez \'Je veux le définir moi-même\' et complétez les deux champs ci-dessous. (This will not work with Persian calendars yet.)');
 @define('PLUGIN_HISTORY_SPECIALAGE_YEAR', 'Afficher les billets d\'il y a exactement 1 an');
 @define('PLUGIN_HISTORY_CUSTOMAGE', 'Je veux le définir moi-même');
 @define('PLUGIN_HISTORY_OYA', 'Il y a un an');

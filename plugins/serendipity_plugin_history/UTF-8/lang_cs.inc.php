@@ -26,7 +26,7 @@
 @define('PLUGIN_HISTORY_MAXLENGTH',         'Délka nadpisu');
 @define('PLUGIN_HISTORY_MAXLENGTH_DESC',    'Po kolika znacích má být nadpis oříznut (0 pro zobrazování celých nadpisů)?');
 @define('PLUGIN_HISTORY_SPECIALAGE',        'Přednastavené stáří?');
-@define('PLUGIN_HISTORY_SPECIALAGE_DESC',   'Pokud chcete nastavit vlastní rozpětí pro zobrazování příspěvků místo přednastavených, vyberte "Sám nastavím" a upravte následující dva řádky.');
+@define('PLUGIN_HISTORY_SPECIALAGE_DESC',   'Pokud chcete nastavit vlastní rozpětí pro zobrazování příspěvků místo přednastavených, vyberte "Sám nastavím" a upravte následující dva řádky. (This will not work with Persian calendars yet.)');
 @define('PLUGIN_HISTORY_SPECIALAGE_YEAR',   'Zobrazí příspěvky, které byly zveřejněny přesně před rokem');
 @define('PLUGIN_HISTORY_CUSTOMAGE',         'Nech mě nastavit vlastní stáří');
 @define('PLUGIN_HISTORY_OYA',               'Před rokem');

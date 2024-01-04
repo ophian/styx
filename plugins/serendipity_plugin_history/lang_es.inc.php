@@ -25,7 +25,7 @@
 @define('PLUGIN_HISTORY_MAXLENGTH', 'Longitud-título');
 @define('PLUGIN_HISTORY_MAXLENGTH_DESC', '¿Cuantos caracteres debe tener el título (0 para títulos completos)?');
 @define('PLUGIN_HISTORY_SPECIALAGE', '¿Edad predefinida?');
-@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'Si quieres definir tu propio rango en vez de utilizar uno predefinido, selecciona \'Yo definiré uno\' aquí y ajusta las dos opciones más abajo.');
+@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'Si quieres definir tu propio rango en vez de utilizar uno predefinido, selecciona \'Yo definiré uno\' aquí y ajusta las dos opciones más abajo. (This will not work with Persian calendars yet.)');
 @define('PLUGIN_HISTORY_SPECIALAGE_YEAR', 'Mostrar items de hace exactamente un año');
 @define('PLUGIN_HISTORY_CUSTOMAGE', 'Déjame definir la edad');
 @define('PLUGIN_HISTORY_OYA', 'Hace un año');

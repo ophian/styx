@@ -31,7 +31,7 @@
 @define('PLUGIN_HISTORY_MAXLENGTH', 'Comprimento do título');
 @define('PLUGIN_HISTORY_MAXLENGTH_DESC', 'Cortar os títulos após quantos caracteres? (Introduza 0 para títulos completos)');
 @define('PLUGIN_HISTORY_SPECIALAGE', 'período pré definido?');
-@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'Se quiser escolher um período em vez de usar um pré definido, seleccione \'Defini-lo-ei eu próprio\'  e complete os dois campos abaixo.');
+@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'Se quiser escolher um período em vez de usar um pré definido, seleccione \'Defini-lo-ei eu próprio\'  e complete os dois campos abaixo. (This will not work with Persian calendars yet.)');
 @define('PLUGIN_HISTORY_SPECIALAGE_YEAR', 'Mostrar as entradas de há exactemente 1 ano.');
 @define('PLUGIN_HISTORY_CUSTOMAGE', 'Deixe-me definir a idade');
 @define('PLUGIN_HISTORY_OYA', 'Há um ano');

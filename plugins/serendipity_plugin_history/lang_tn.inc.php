@@ -31,7 +31,7 @@
 @define('PLUGIN_HISTORY_MAXLENGTH', '標題長度');
 @define('PLUGIN_HISTORY_MAXLENGTH_DESC', '允許多少個標題的文字後切斷？(0 如果不切斷)');
 @define('PLUGIN_HISTORY_SPECIALAGE', '預定日期？');
-@define('PLUGIN_HISTORY_SPECIALAGE_DESC', '如果你不用預定的日期，要用自訂的日期，請選擇 \'自訂\' 然後提供下面的兩個設定。');
+@define('PLUGIN_HISTORY_SPECIALAGE_DESC', '如果你不用預定的日期，要用自訂的日期，請選擇 \'自訂\' 然後提供下面的兩個設定。 (This will not work with Persian calendars yet.)');
 @define('PLUGIN_HISTORY_SPECIALAGE_YEAR', '顯示滿一年的文章');
 @define('PLUGIN_HISTORY_CUSTOMAGE', '自己設定日期');
 @define('PLUGIN_HISTORY_OYA', '一年前');

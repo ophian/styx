@@ -24,7 +24,7 @@
 @define('PLUGIN_HISTORY_MAXLENGTH', 'Дължина на заглавието');
 @define('PLUGIN_HISTORY_MAXLENGTH_DESC', 'След колко символа да се отреже заглавието (нула за целите заглавия) ?');
 @define('PLUGIN_HISTORY_SPECIALAGE', 'Период');
-@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'Ако искате да дефинирате период вместо да използвате период по подразбиране, изберете \'По избор\' и настройте двете стойности по-долу');
+@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'Ако искате да дефинирате период вместо да използвате период по подразбиране, изберете \'По избор\' и настройте двете стойности по-долу. (This will not work with Persian calendars yet.)');
 @define('PLUGIN_HISTORY_SPECIALAGE_YEAR', 'Показва статии на възраст точно една година.');
 @define('PLUGIN_HISTORY_CUSTOMAGE', 'Дефиниране на възрастта');
 @define('PLUGIN_HISTORY_OYA', 'Една година назад');

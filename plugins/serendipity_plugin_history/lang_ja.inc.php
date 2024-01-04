@@ -25,7 +25,7 @@
 @define('PLUGIN_HISTORY_MAXLENGTH', '題名の長さ');
 @define('PLUGIN_HISTORY_MAXLENGTH_DESC', '題名を切る文字数は (0 で完全な題名)?');
 @define('PLUGIN_HISTORY_SPECIALAGE', 'Ready-made age?');
-@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'If you want to define your own timerange instead of a ready-made, select \'I\'ll define one\' here and adjust the two settings below.');
+@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'If you want to define your own timerange instead of a ready-made, select \'I\'ll define one\' here and adjust the two settings below. (This will not work with Persian calendars yet.)');
 @define('PLUGIN_HISTORY_SPECIALAGE_YEAR', 'Display items of exactly one year ago');
 @define('PLUGIN_HISTORY_CUSTOMAGE', 'Let me define the age');
 @define('PLUGIN_HISTORY_OYA', '1 年前');

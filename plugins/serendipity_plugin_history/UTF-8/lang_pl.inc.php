@@ -25,7 +25,7 @@
 @define('PLUGIN_HISTORY_MAXLENGTH', 'Długość tytułu');
 @define('PLUGIN_HISTORY_MAXLENGTH_DESC', 'Po jak wielu znakach ucinać tytuły (wpisz 0 aby zachować pełne tytuły)?');
 @define('PLUGIN_HISTORY_SPECIALAGE', 'Domyślne ustawienie wieku?');
-@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'Jeśli chcesz zdefiniować swój własny czasokres pokazywanych starszych wpisów zmiast używać ustawień predefiniowanych, zaznacz opcję "Zdefiniuje samodzielnie" i zdefiniuj żądany czasokres poniżej');
+@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'Jeśli chcesz zdefiniować swój własny czasokres pokazywanych starszych wpisów zmiast używać ustawień predefiniowanych, zaznacz opcję "Zdefiniuje samodzielnie" i zdefiniuj żądany czasokres poniżej. (This will not work with Persian calendars yet.)');
 @define('PLUGIN_HISTORY_SPECIALAGE_YEAR', 'Wyświetl wpisy dokładnie sprzed roku');
 @define('PLUGIN_HISTORY_CUSTOMAGE', 'Zdefiniuję czasokres samodzielnie');
 @define('PLUGIN_HISTORY_OYA', 'Sprzed roku');

@@ -18,13 +18,13 @@
 @define('PLUGIN_HISTORY_INTRO', 'Intro');
 @define('PLUGIN_HISTORY_INTRO_DESC', 'Kurzes Vorwort, wie: \'Ein Jahr vorher sagte ich:\'');
 @define('PLUGIN_HISTORY_OUTRO', 'Outro');
-@define('PLUGIN_HISTORY_OUTRO_DESC', 'Kurzes Sclusswort, wie: \'Schön, nicht wahr..?\'');
+@define('PLUGIN_HISTORY_OUTRO_DESC', 'Kurzes Schlusswort, wie: \'Schön, nicht wahr..?\'');
 @define('PLUGIN_HISTORY_DISPLAYDATE', 'Datum anzeigen');
 @define('PLUGIN_HISTORY_DISPLAYDATE_DESC', 'Vor jedem Eintrag das Datum anzeigen?');
-@define('PLUGIN_HISTORY_MAXLENGTH', 'Überschriftenlänge');
-@define('PLUGIN_HISTORY_MAXLENGTH_DESC', 'Nach wievielen Zeichen sollen die Überschriften abgeschnitten werden (0 für gar nicht)?');
+@define('PLUGIN_HISTORY_MAXLENGTH', 'Länge der Überschriften');
+@define('PLUGIN_HISTORY_MAXLENGTH_DESC', 'Nach wie vielen Zeichen sollen die Überschriften abgeschnitten werden (0 für gar nicht)?');
 @define('PLUGIN_HISTORY_SPECIALAGE', 'Vorgefertigter Zeitrahmen');
-@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'Wenn Sie statt einem vorgefertigten lieber einen eigenen Zeitraum einstellen möchten, wählen Sie \'Anderer\' und füllen die unteren beiden Felder aus.');
+@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'Wenn Sie statt einem vorgefertigten lieber einen eigenen Zeitraum einstellen möchten, wählen Sie \'Anderer\' und füllen die unteren beiden Felder aus. (Persische Kalender ausgenommen.)');
 @define('PLUGIN_HISTORY_SPECIALAGE_YEAR', 'Zeigt Einträge vom selben Datum des letzten Jahres an.');
 @define('PLUGIN_HISTORY_CUSTOMAGE', 'Zeitrahmen selbst einstellen');
 @define('PLUGIN_HISTORY_OYA', 'Heute vor einem Jahr');

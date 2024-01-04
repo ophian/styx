@@ -25,7 +25,7 @@
 @define('PLUGIN_HISTORY_MAXLENGTH',         'Dĺžka nadpisu');
 @define('PLUGIN_HISTORY_MAXLENGTH_DESC',    'Po koľkých znakoch má býť nadpis orezaný (0 pre zobrazovanie celých nadpisov)?');
 @define('PLUGIN_HISTORY_SPECIALAGE',        'Prednastavený vek?');
-@define('PLUGIN_HISTORY_SPECIALAGE_DESC',   'Ak chcete nastaviť vlastné rozpätie pre zobrazovanie článkov mimo prednastavených, vyberte "Nastavím sám" a upravte nasledujúce dva riadky.');
+@define('PLUGIN_HISTORY_SPECIALAGE_DESC',   'Ak chcete nastaviť vlastné rozpätie pre zobrazovanie článkov mimo prednastavených, vyberte "Nastavím sám" a upravte nasledujúce dva riadky. (This will not work with Persian calendars yet.)');
 @define('PLUGIN_HISTORY_SPECIALAGE_YEAR',   'Zobrazí články, ktoré boli zverejnené presne pred rokom');
 @define('PLUGIN_HISTORY_CUSTOMAGE',         'Chcem nastaviť vlastný vek');
 @define('PLUGIN_HISTORY_OYA',               'Pred rokom');

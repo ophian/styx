@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.37');
+        $propbag->add('version',       '1.38');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1',
@@ -272,7 +272,7 @@ class serendipity_plugin_history extends serendipity_plugin
             $dateformat = '%a, %d.%m.%Y %H:%M';
         }
 
-        if ((int)$xyears > 1 && $specialage == 'year') {
+        if ((int)$xyears > 1 && $specialage == 'year' && (empty($serendipity['calendar']) || $serendipity['calendar'] == 'gregorian')) {
             $timeout = ($maxts - $nowts); // the rest of the day
             $cached  = (($timeout >= 0) && ($maxts > $nowts));
             $date    = file_exists($cachefile) ? date('d-m-Y', $nowts) == date('d-m-Y', serendipity_serverOffsetHour(filemtime($cachefile))) : false; // filemtime is Servers timezone or UTC/GMT
