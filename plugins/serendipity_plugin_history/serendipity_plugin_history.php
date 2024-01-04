@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.39');
+        $propbag->add('version',       '1.40');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1',
@@ -292,7 +292,7 @@ class serendipity_plugin_history extends serendipity_plugin
                 #}
 
                 $today  = date('Y-m-d', $nowts);
-                $xyears = $xyears+1; // adds one search year plus into the array - because we are counting yeardays backward
+                $xyears = $xyears+1; // adds one additional search year plus into the array - because we are counting yeardays backward
 
                 $cy  = date('Y', $nowts);
                 $sy  = ($cy-$xyears);
@@ -311,7 +311,8 @@ class serendipity_plugin_history extends serendipity_plugin
                     $leap[] = date('L', strtotime("$i-01-01"));
                 }
                 // loop xyears backward days by leap year (cases)
-                for($y=1; $y < $xyears; $y++) {
+                $skey = $sc ? 0 : 1; // the $startkey
+                for($y=$skey; $y < $xyears; $y++) {
                     if ($y == 0 && !$sc) {
                         $adddays = 365; // don't count the top current leap year + day in case it is January and February
                     } else {
