@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.40');
+        $propbag->add('version',       '1.41');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1',
@@ -192,9 +192,12 @@ class serendipity_plugin_history extends serendipity_plugin
             return false;
         }
 
+        $elday = (date('md', serendipity_serverOffsetHour()) == '0229') ? true : false; // is current day the explicit leap day ?
+
         echo empty($intro) ? '' : '<div class="serendipity_history_intro">' . $intro . "</div>\n";
 
         for($x=0; $x < $ect; $x++) {
+            if ($elday && date('md', $e[$x]['timestamp']) == '0301') continue;
             $url = serendipity_archiveURL($e[$x]['id'],
                                           $e[$x]['title'],
                                           'serendipityHTTPPath',
