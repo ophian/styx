@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.41');
+        $propbag->add('version',       '1.42');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1',
@@ -192,12 +192,15 @@ class serendipity_plugin_history extends serendipity_plugin
             return false;
         }
 
-        $elday = date('md', serendipity_serverOffsetHour()) == '0229'; // is the current day the explicit leap day ?
+        $nowts = serendipity_serverOffsetHour();
+        $elday = date('md', $nowts) == '0229'; // is the current day the explicit leap day ?
+        $fmrch = date('md', $nowts) == '0301'; // 1st of march day ? true : false, which is the first day of "static" year rest days
 
         echo empty($intro) ? '' : '<div class="serendipity_history_intro">' . $intro . "</div>\n";
 
         for($x=0; $x < $ect; $x++) {
-            if ($elday && date('md', $e[$x]['timestamp']) == '0301') continue;
+            // in leap years exclude 1st of March entries, in normal years exclude leap day entries
+            if (($elday && date('md', $e[$x]['timestamp']) == '0301') || ($fmrch && date('md', $e[$x]['timestamp']) == '0229')) continue;
             $url = serendipity_archiveURL($e[$x]['id'],
                                           $e[$x]['title'],
                                           'serendipityHTTPPath',
