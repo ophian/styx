@@ -341,8 +341,8 @@ class serendipity_plugin_history extends serendipity_plugin
                 $skey = $sc ? 0 : 1; // the $startkey
                 for($y=$skey; $y < $xyears; $y++) {
                     $adddays    = (isset($leap[$y]) && $leap[$y] == 1) ? 366 : 365;
-                    $age       += $adddays; // increment
-                    $multiage[] = $age;
+                    $age       += $adddays; // increment, since we need all year adddays for the decrementing backward counter
+                    $multiage[] = $age; // When finalized we can sort out eg. March 1st entries on February 29th. See getHistoryEntries()
                 }
 
                 ob_start();
