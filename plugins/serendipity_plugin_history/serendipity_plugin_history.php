@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.43');
+        $propbag->add('version',       '1.45');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1',
@@ -153,10 +153,15 @@ class serendipity_plugin_history extends serendipity_plugin
         return true;
     }
 
-    function getHistoryEntries($maxts, $mints, $max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor)
+    function getHistoryEntries($maxts, $mints, $max_age, $min_age = null, $intro = null, $outro = null)
     {
         global $serendipity;
 
+        $max_entries = $this->get_config('max_entries');
+        if (!is_numeric($max_entries) || $max_entries < 1) {
+            $max_entries = 5;
+        }
+        $full   = serendipity_db_bool($this->get_config('full', 'false'));
         $oldLim = $serendipity['fetchLimit'];
 
         if (!is_array($max_age) && $min_age !== null) {
@@ -190,6 +195,17 @@ class serendipity_plugin_history extends serendipity_plugin
         $ect = count($e);
         if ($ect == 0) {
             return false;
+        }
+
+        $maxlength   = $this->get_config('maxlength');
+        $displaydate = serendipity_db_bool($this->get_config('displaydate', 'true'));
+        $dateformat  = $this->get_config('dateformat');
+        $displayauthor = serendipity_db_bool($this->get_config('displayauthor', 'false'));
+        if (!is_numeric($maxlength) || $maxlength < 0) {
+            $maxlength = 30;
+        }
+        if (strlen($dateformat) < 1) {
+            $dateformat = '%a, %d.%m.%Y %H:%M';
         }
 
         $nowts = serendipity_serverOffsetHour();
@@ -251,18 +267,12 @@ class serendipity_plugin_history extends serendipity_plugin
         $title       = $this->get_config('title', $this->title);
         $intro       = $this->get_config('intro');
         $outro       = $this->get_config('outro');
-        $maxlength   = $this->get_config('maxlength');
-        $max_entries = $this->get_config('max_entries');
         $min_age     = $this->get_config('min_age');
         $max_age     = $this->get_config('max_age');
         $specialage  = $this->get_config('specialage');
         $xyears      = $this->get_config('multiyears', '1');
         $xyempty     = $this->get_config('isempty');
         $empty_ct    = $this->get_config('empty_ct', 0);
-        $displaydate = serendipity_db_bool($this->get_config('displaydate', 'true'));
-        $dateformat  = $this->get_config('dateformat');
-        $full        = serendipity_db_bool($this->get_config('full', 'false'));
-        $displayauthor = serendipity_db_bool($this->get_config('displayauthor', 'false'));
 
         $nowts = serendipity_serverOffsetHour();
         $maxts = mktime(23, 59, 59,  (int) date('m', $nowts), (int) date('d', $nowts), (int) date('Y', $nowts)); // this is todays timestamp at last minute of day
@@ -274,18 +284,6 @@ class serendipity_plugin_history extends serendipity_plugin
 
         if (!is_numeric($max_age) || $max_age < 1 || $specialage == 'year') {
             $max_age = 365 + date('L', serendipity_serverOffsetHour());
-        }
-
-        if (!is_numeric($max_entries) || $max_entries < 1) {
-            $max_entries = 5;
-        }
-
-        if (!is_numeric($maxlength) || $maxlength < 0) {
-            $maxlength = 30;
-        }
-
-        if (strlen($dateformat) < 1) {
-            $dateformat = '%a, %d.%m.%Y %H:%M';
         }
 
         if ((int)$xyears > 1 && $specialage == 'year' && (empty($serendipity['calendar']) || $serendipity['calendar'] == 'gregorian')) {
@@ -345,7 +343,7 @@ class serendipity_plugin_history extends serendipity_plugin
                     if (!empty($intro)) {
                         echo '<div class="serendipity_history_intro">' . $intro . "</div>\n";
                     }
-                    if (false === $this->getHistoryEntries($maxts, $mints, $multiage, null, $full, $max_entries, $maxlength, null, null, $displaydate, $dateformat, $displayauthor)) {
+                    if (false === $this->getHistoryEntries($maxts, $mints, $multiage)) {
                         $fallback = true;
                     }
                     if (!empty($outro)) {
@@ -382,7 +380,7 @@ class serendipity_plugin_history extends serendipity_plugin
                 }
             }
         } else {
-            if (empty($this->getHistoryEntries($maxts, $mints, $max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor))) {
+            if (empty($this->getHistoryEntries($maxts, $mints, $max_age, $min_age, $intro, $outro))) {
                 if (!empty($xyempty)) {
                     echo '<div class="serendipity_history_outro history_empty">' . $xyempty . "</div>\n";
                 }
