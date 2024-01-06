@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.46');
+        $propbag->add('version',       '1.47');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1',
@@ -338,13 +338,8 @@ class serendipity_plugin_history extends serendipity_plugin
                 // loop xyears backward days by leap year (cases)
                 $skey = $sc ? 0 : 1; // the $startkey
                 for($y=$skey; $y < $xyears; $y++) {
-                    if ($y == 0 && !$sc) {
-                        $adddays = 365; // don't count the top current leap year + day in case it is January and February
-                    } else {
-                        $adddays = (isset($leap[$y]) && $leap[$y] == 1) ? 366 : 365;
-                    }
-
-                    $age += $adddays;
+                    $adddays    = (isset($leap[$y]) && $leap[$y] == 1) ? 366 : 365;
+                    $age       += $adddays; // increment
                     $multiage[] = $age;
                 }
 
