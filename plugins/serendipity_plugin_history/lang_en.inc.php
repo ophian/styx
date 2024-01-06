@@ -16,6 +16,8 @@
 @define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', 'Number of entries to display. In case of a defined time range with "Number of looped years" greater 1, this really limits the total maximum of Entries to display.');
 @define('PLUGIN_HISTORY_SHOWFULL', 'Full entries');
 @define('PLUGIN_HISTORY_SHOWFULL_DESC', 'Display full entries instead of linked headlines.');
+@define('PLUGIN_HISTORY_MAXFULLLENGTH', 'Full Text-Length');
+@define('PLUGIN_HISTORY_MAXFULLLENGTH_DESC', 'After how many characters to cut the body entry text? (0 for full text)');
 @define('PLUGIN_HISTORY_INTRO', 'Intro');
 @define('PLUGIN_HISTORY_INTRO_DESC', 'A short intro like \'One year ago I said:\'.');
 @define('PLUGIN_HISTORY_OUTRO', 'Outro');
@@ -23,7 +25,7 @@
 @define('PLUGIN_HISTORY_DISPLAYDATE', 'Display date');
 @define('PLUGIN_HISTORY_DISPLAYDATE_DESC', 'Display the date of each entry?');
 @define('PLUGIN_HISTORY_MAXLENGTH', 'Title-Length');
-@define('PLUGIN_HISTORY_MAXLENGTH_DESC', 'After how many characters to cut the titles (0 for full titles)?');
+@define('PLUGIN_HISTORY_MAXLENGTH_DESC', 'After how many characters to cut the titles? (0 for full titles)');
 @define('PLUGIN_HISTORY_SPECIALAGE', 'Ready-made age?');
 @define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'If you want to define your own time range instead of a ready-made, select \'I\'ll define one\' here and adjust the two settings below. (This will not work with Persian calendars yet.)');
 @define('PLUGIN_HISTORY_SPECIALAGE_YEAR', 'Display items of exactly one year ago');

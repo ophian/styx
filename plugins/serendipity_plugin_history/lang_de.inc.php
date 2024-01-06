@@ -15,6 +15,8 @@
 @define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', 'Wieviele Einträge sollen maximal angezeigt werden? Im Falle eines definierten Zeitraumes mit "Anzahl der durchlaufenden Jahre" größer 1, beschränkt dies die tatsächlich dargestellte Maximal-Zahl der Einträge.');
 @define('PLUGIN_HISTORY_SHOWFULL', 'Ganze Einträge');
 @define('PLUGIN_HISTORY_SHOWFULL_DESC', 'Nicht nur Überschriften, sondern ganze Einträge anzeigen.');
+@define('PLUGIN_HISTORY_MAXFULLLENGTH', 'Länge der Einträge');
+@define('PLUGIN_HISTORY_MAXFULLLENGTH_DESC', 'Nach wie vielen Zeichen soll der Text abgeschnitten werden? (0 für Volltext)');
 @define('PLUGIN_HISTORY_INTRO', 'Intro');
 @define('PLUGIN_HISTORY_INTRO_DESC', 'Kurzes Vorwort, wie: \'Ein Jahr vorher sagte ich:\'');
 @define('PLUGIN_HISTORY_OUTRO', 'Outro');
@@ -22,7 +24,7 @@
 @define('PLUGIN_HISTORY_DISPLAYDATE', 'Datum anzeigen');
 @define('PLUGIN_HISTORY_DISPLAYDATE_DESC', 'Vor jedem Eintrag das Datum anzeigen?');
 @define('PLUGIN_HISTORY_MAXLENGTH', 'Länge der Überschriften');
-@define('PLUGIN_HISTORY_MAXLENGTH_DESC', 'Nach wie vielen Zeichen sollen die Überschriften abgeschnitten werden (0 für gar nicht)?');
+@define('PLUGIN_HISTORY_MAXLENGTH_DESC', 'Nach wie vielen Zeichen sollen die Überschriften abgeschnitten werden? (0 für gar nicht)');
 @define('PLUGIN_HISTORY_SPECIALAGE', 'Vorgefertigter Zeitrahmen');
 @define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'Wenn Sie statt einem vorgefertigten lieber einen eigenen Zeitraum einstellen möchten, wählen Sie \'Anderer\' und füllen die unteren beiden Felder aus. (Persische Kalender ausgenommen.)');
 @define('PLUGIN_HISTORY_SPECIALAGE_YEAR', 'Zeigt Einträge vom selben Datum des letzten Jahres an.');

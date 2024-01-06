@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.45');
+        $propbag->add('version',       '1.46');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1',
@@ -38,6 +38,7 @@ class serendipity_plugin_history extends serendipity_plugin
                                              'max_entries',
                                              'isempty',
                                              'full',
+                                             'entrycut',
                                              'amount',
                                              'displaydate',
                                              'displayauthor',
@@ -133,6 +134,13 @@ class serendipity_plugin_history extends serendipity_plugin
                 $propbag->add('default',     'false');
                 break;
 
+            case 'entrycut':
+                $propbag->add('type', 'string');
+                $propbag->add('name', PLUGIN_HISTORY_MAXFULLLENGTH);
+                $propbag->add('description', PLUGIN_HISTORY_MAXFULLLENGTH_DESC);
+                $propbag->add('default', 106);
+                break;
+
             case 'displaydate':
                 $propbag->add('type',         'boolean');
                 $propbag->add('name',         PLUGIN_HISTORY_DISPLAYDATE);
@@ -200,6 +208,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $maxlength   = $this->get_config('maxlength');
         $displaydate = serendipity_db_bool($this->get_config('displaydate', 'true'));
         $dateformat  = $this->get_config('dateformat');
+        $entrycut    = $this->get_config('entrycut', 106, LANG_CHARSET);
         $displayauthor = serendipity_db_bool($this->get_config('displayauthor', 'false'));
         if (!is_numeric($maxlength) || $maxlength < 0) {
             $maxlength = 30;
@@ -250,7 +259,8 @@ class serendipity_plugin_history extends serendipity_plugin
             echo "</div>\n";
             if ($full) {
                 echo "</div>\n";
-                echo '<div class="serendipity_history_body">' . strip_tags($e[$x]['body']) . "</div>\n";
+                $body = preg_replace("{2,}", ' ',str_replace(["\r\n", "\r", "\n", "\t"], [' '], strip_tags($e[$x]['body'])));
+                echo '<div class="serendipity_history_body">' . ($entrycut > 0 ? mb_substr($body, 0, $entrycut)."&hellip;" : $body) . "</div>\n";
             } else {
                 echo "</li>\n";
             }
