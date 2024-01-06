@@ -256,7 +256,6 @@ class serendipity_plugin_history extends serendipity_plugin
                     ? $e[$x]['title']
                     : trim(serendipity_mb('substr', $e[$x]['title'], 0, $maxlength-3)).' [...]';
             echo '    <a href="' . $url . '" title="' . str_replace("'", "`", serendipity_specialchars($e[$x]['title'])) . '">' . serendipity_specialchars($t) . "</a>\n";
-            echo "</div>\n";
             if ($full) {
                 echo "</div>\n";
                 $body = preg_replace("{2,}", ' ',str_replace(["\r\n", "\r", "\n", "\t"], [' '], strip_tags($e[$x]['body'])));
@@ -264,6 +263,9 @@ class serendipity_plugin_history extends serendipity_plugin
             } else {
                 echo "</li>\n";
             }
+        }
+        if (!$full) {
+            echo "</ul>\n";
         }
 
         echo empty($outro) ? '' : '<div class="serendipity_history_outro">' . $outro . "</div>\n";
