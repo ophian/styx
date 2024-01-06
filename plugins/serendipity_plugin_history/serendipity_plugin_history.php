@@ -127,7 +127,7 @@ class serendipity_plugin_history extends serendipity_plugin
                 $propbag->add('default', '%a, %d.%m.%Y %H:%M');
                 break;
 
-           case 'full':
+            case 'full':
                 $propbag->add('type',         'boolean');
                 $propbag->add('name',         PLUGIN_HISTORY_SHOWFULL);
                 $propbag->add('description',  PLUGIN_HISTORY_SHOWFULL_DESC);
