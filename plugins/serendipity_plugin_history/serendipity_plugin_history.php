@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.42');
+        $propbag->add('version',       '1.43');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1',
@@ -197,6 +197,9 @@ class serendipity_plugin_history extends serendipity_plugin
         $fmrch = date('md', $nowts) == '0301'; // 1st of march day ? true : false, which is the first day of "static" year rest days
 
         echo empty($intro) ? '' : '<div class="serendipity_history_intro">' . $intro . "</div>\n";
+        if (!$full) {
+            echo '<ul class="plainList">'."\n";
+        }
 
         for($x=0; $x < $ect; $x++) {
             // in leap years exclude 1st of March entries, in normal years exclude leap day entries
@@ -212,13 +215,17 @@ class serendipity_plugin_history extends serendipity_plugin
             $date   = !$displaydate ? '' : serendipity_strftime($dateformat, $e[$x]['timestamp']);
             $author = $displayauthor ? $e[$x]['author'] . ': ' : '';
 
-            echo '<div class="serendipity_history_info">'."\n";
-
+            if ($full) {
+                echo '<div class="serendipity_history_info">'."\n";
+            }
             if ($displayauthor) {
-                echo '    <span class="serendipity_history_author">' . $author . "</span> ";
+                echo '    <span class="serendipity_history_author">' . $author . "</span>\n";
+            }
+            if (!$full) {
+                echo "<li>\n";
             }
             if ($displaydate) {
-                echo '    <span class="serendipity_history_date">' . $date . "</span> ";
+                echo '    <span class="serendipity_history_date">' . $date . "</span>\n";
             }
             $t = ($maxlength == 0 || (strlen($e[$x]['title']) <= $maxlength))
                     ? $e[$x]['title']
@@ -226,7 +233,10 @@ class serendipity_plugin_history extends serendipity_plugin
             echo '    <a href="' . $url . '" title="' . str_replace("'", "`", serendipity_specialchars($e[$x]['title'])) . '">' . serendipity_specialchars($t) . "</a>\n";
             echo "</div>\n";
             if ($full) {
+                echo "</div>\n";
                 echo '<div class="serendipity_history_body">' . strip_tags($e[$x]['body']) . "</div>\n";
+            } else {
+                echo "</li>\n";
             }
         }
 
