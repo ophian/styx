@@ -226,7 +226,7 @@ class serendipity_plugin_history extends serendipity_plugin
         }
 
         for($x=0; $x < $ect; $x++) {
-            // in leap years on leap day exclude both possible siblings, in normal years exclude explicit leap day entries (by the counter days)
+            // in leap years on leap day exclude both possible sibling days, in normal years exclude explicit leap day entries (by the counter days)
             if (($elday && (date('md', $e[$x]['timestamp']) == '0228' || date('md', $e[$x]['timestamp']) == '0301'))
              || ($fmrch && date('md', $e[$x]['timestamp']) == '0229')) continue; // do not show
 
@@ -259,7 +259,7 @@ class serendipity_plugin_history extends serendipity_plugin
             echo '    <a href="' . $url . '" title="' . str_replace("'", "`", serendipity_specialchars($e[$x]['title'])) . '">' . serendipity_specialchars($t) . "</a>\n";
             if ($full) {
                 echo "</div>\n";
-                $body = preg_replace("{2,}", ' ',str_replace(["\r\n", "\r", "\n", "\t"], [' '], strip_tags($e[$x]['body'])));
+                $body = preg_replace("{2,}", ' ', str_replace(["\r\n", "\r", "\n", "\t"], [' '], strip_tags($e[$x]['body'])));
                 echo '<div class="serendipity_history_body">' . ($entrycut > 0 ? mb_substr($body, 0, $entrycut, LANG_CHARSET)."&hellip;" : $body) . "</div>\n";
             } else {
                 echo "  </li>\n";
