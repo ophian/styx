@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.48');
+        $propbag->add('version',       '1.49');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1',
@@ -161,7 +161,7 @@ class serendipity_plugin_history extends serendipity_plugin
         return true;
     }
 
-    function getHistoryEntries($maxts, $mints, $max_age, $min_age = null, $intro = null, $outro = null)
+    function getHistoryEntries($maxts, $mints, $max_age, $nowts, $min_age = null, $intro = null, $outro = null)
     {
         global $serendipity;
 
@@ -217,9 +217,8 @@ class serendipity_plugin_history extends serendipity_plugin
             $dateformat = '%a, %d.%m.%Y %H:%M';
         }
 
-        $nowts = serendipity_serverOffsetHour();
-        $elday = date('md', $nowts) == '0229'; // is the current day the explicit leap day ?
-        $fmrch = date('md', $nowts) == '0301'; // 1st of march day ? true : false, which is the first day of "static" year rest days
+        $elday = date('md', $nowts) == '0229'; // (bool) is the current day the explicit leap day ?
+        $fmrch = date('md', $nowts) == '0301'; // (bool) is the current day the explicit 1st of March day ?
 
         echo empty($intro) ? '' : '<div class="serendipity_history_intro">' . $intro . "</div>\n";
         if (!$full) {
@@ -227,8 +226,10 @@ class serendipity_plugin_history extends serendipity_plugin
         }
 
         for($x=0; $x < $ect; $x++) {
-            // in leap years exclude 1st of March entries, in normal years exclude leap day entries
-            if (($elday && date('md', $e[$x]['timestamp']) == '0301') || ($fmrch && date('md', $e[$x]['timestamp']) == '0229')) continue;
+            // in leap years on leap day exclude both possible siblings, in normal years exclude explicit leap day entries (by the counter days)
+            if (($elday && (date('md', $e[$x]['timestamp']) == '0228' || date('md', $e[$x]['timestamp']) == '0301'))
+             || ($fmrch && date('md', $e[$x]['timestamp']) == '0229')) continue; // do not show
+
             $url = serendipity_archiveURL($e[$x]['id'],
                                           $e[$x]['title'],
                                           'serendipityHTTPPath',
@@ -247,7 +248,7 @@ class serendipity_plugin_history extends serendipity_plugin
                 echo '    <span class="serendipity_history_author">' . $author . "</span>\n";
             }
             if (!$full) {
-                echo "<li>\n";
+                echo "  <li>\n";
             }
             if ($displaydate) {
                 echo '    <span class="serendipity_history_date">' . $date . "</span>\n";
@@ -261,7 +262,7 @@ class serendipity_plugin_history extends serendipity_plugin
                 $body = preg_replace("{2,}", ' ',str_replace(["\r\n", "\r", "\n", "\t"], [' '], strip_tags($e[$x]['body'])));
                 echo '<div class="serendipity_history_body">' . ($entrycut > 0 ? mb_substr($body, 0, $entrycut, LANG_CHARSET)."&hellip;" : $body) . "</div>\n";
             } else {
-                echo "</li>\n";
+                echo "  </li>\n";
             }
         }
         if (!$full) {
@@ -293,7 +294,6 @@ class serendipity_plugin_history extends serendipity_plugin
         if (!is_numeric($min_age) || $min_age < 0 || $specialage == 'year') {
             $min_age = 365 + date('L', serendipity_serverOffsetHour());
         }
-
         if (!is_numeric($max_age) || $max_age < 1 || $specialage == 'year') {
             $max_age = 365 + date('L', serendipity_serverOffsetHour());
         }
@@ -317,16 +317,12 @@ class serendipity_plugin_history extends serendipity_plugin
                 #    return false;
                 #}
 
-                $today  = date('Y-m-d', $nowts);
-                $xyears = $xyears+1; // adds one additional search year plus into the array - because we are counting yeardays backward
-
-                $cy  = date('Y', $nowts);
-                $sy  = ($cy-$xyears);
-                if (date('L', strtotime($today)) == '1') {
-                    $sc  = date('md', $nowts) >= '0301'; // special case from 1st of March, add one day plus
-                } else {
-                    $sc  = false;
+                $sc = (date('L', $nowts) == '1') ? date('md', $nowts) > '0228' : false; // if to add the leap day to counter
+                if (false === $sc) {
+                    $xyears += 1; // adds one additional loop year into the array - because we are counting year days backward, starting by key 1
                 }
+                $cy = date('Y', $nowts);
+                $sy = ($cy-$xyears);
 
                 $age = 0;
                 $leap = []; // incrementing array to use as leap true check
@@ -337,12 +333,15 @@ class serendipity_plugin_history extends serendipity_plugin
                     #$leap[] = !in_array($i, [1900, 2100]) ? date('L', strtotime("$i-01-01")) : false; // ;-)
                     $leap[] = date('L', strtotime("$i-01-01"));
                 }
-                // loop xyears backward days by leap year (cases)
-                $skey = $sc ? 0 : 1; // the $startkey
+                // Loops xyears backward days by leap year (cases)
+                $skey = $sc ? 0 : 1; // Set the startkey depending on being [the leap day and + in LY] OR not
+                // The interwoven conditional leap year array checkup makes it necessary that,
+                // if the current year is a leap year and the (current year) counted day is greater February 28th,
+                // the start key must start with 0, otherwise 1, so that the leap year days age counter matches the back-looped year.
                 for($y=$skey; $y < $xyears; $y++) {
-                    $adddays    = (isset($leap[$y]) && $leap[$y] == 1) ? 366 : 365;
-                    $age       += $adddays; // increment, since we need all year adddays for the decrementing backward counter
-                    $multiage[] = $age; // When finalized we can sort out eg. March 1st entries on February 29th. See getHistoryEntries()
+                    $days       = (isset($leap[$y]) && $leap[$y] == 1) ? 366 : 365; // days is the counter for building the back years
+                    $age       += $days; // increment, since we need all years added days for the decrementing backward day age counter
+                    $multiage[] = $age; // When finalized we can sort out entries on special day February 29th and so. See getHistoryEntries().
                 }
 
                 ob_start();
@@ -350,7 +349,7 @@ class serendipity_plugin_history extends serendipity_plugin
                     if (!empty($intro)) {
                         echo '<div class="serendipity_history_intro">' . $intro . "</div>\n";
                     }
-                    if (false === $this->getHistoryEntries($maxts, $mints, $multiage)) {
+                    if (false === $this->getHistoryEntries($maxts, $mints, $multiage, $nowts)) {
                         $fallback = true;
                     }
                     if (!empty($outro)) {
@@ -387,7 +386,7 @@ class serendipity_plugin_history extends serendipity_plugin
                 }
             }
         } else {
-            if (empty($this->getHistoryEntries($maxts, $mints, $max_age, $min_age, $intro, $outro))) {
+            if (empty($this->getHistoryEntries($maxts, $mints, $max_age, $nowts, $min_age, $intro, $outro))) {
                 if (!empty($xyempty)) {
                     echo '<div class="serendipity_history_outro history_empty">' . $xyempty . "</div>\n";
                 }
