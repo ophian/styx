@@ -2,6 +2,8 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve theme color mode javascript of [ b53 ] theme
+
   * Refactor the history plugin to use HTML list in link cases and to truncate
     the full entry text by option.
 
