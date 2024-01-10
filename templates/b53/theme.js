@@ -71,9 +71,11 @@ const MATCH_LOCALSTORAGE = true;
 (() => {
   'use strict'
 
-  const storedTheme = localStorage.getItem('theme')
+  const getStoredTheme = () => localStorage.getItem('theme')
+  const setStoredTheme = theme => localStorage.setItem('theme', theme)
 
   const getPreferredTheme = () => {
+    const storedTheme = getStoredTheme()
     if (storedTheme) {
       return storedTheme
     }
@@ -81,9 +83,9 @@ const MATCH_LOCALSTORAGE = true;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   }
 
-  const setTheme = function (theme) {
-    if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.setAttribute('data-bs-theme', 'dark')
+  const setTheme = theme => {
+    if (theme === 'auto') {
+      document.documentElement.setAttribute('data-bs-theme', (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'))
       $("#cke_1_contents iframe").contents().find('html').attr('data-dark-mode', 'dark') // only jQuery seems able to do that to the iframe
     } else {
       document.documentElement.setAttribute('data-bs-theme', theme)
@@ -122,7 +124,8 @@ const MATCH_LOCALSTORAGE = true;
   }
 
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-    if (storedTheme !== 'light' || storedTheme !== 'dark') {
+    const storedTheme = getStoredTheme()
+    if (storedTheme !== 'light' && storedTheme !== 'dark') {
       setTheme(getPreferredTheme())
     }
   })
@@ -134,7 +137,7 @@ const MATCH_LOCALSTORAGE = true;
       .forEach(toggle => {
         toggle.addEventListener('click', () => {
           const theme = toggle.getAttribute('data-bs-theme-value')
-          localStorage.setItem('theme', theme)
+          setStoredTheme(theme)
           sessionStorage.removeItem('dark_mode'); /* remove possible [ pure ] theme toggler to not get in conflict within HTML comment RichTextEditor */
           setTheme(theme)
           if (theme === 'auto') {
