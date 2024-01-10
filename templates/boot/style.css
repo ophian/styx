@@ -835,6 +835,14 @@ article.post li .pc-owner {
 .form-select {
   padding-top: 0; }
 
+.staticpage_plugin_contactform .form-group legend {
+  font-size: 1.125rem; }
+
+.staticpage_plugin_contactform .form-group.txtarea legend {
+  margin-bottom: 0;
+  padding-bottom: .5em;
+  background: #f8f9fa; }
+
 /* Firefox up from v.89 starts to activate annoying blue color for active input sets
    just like chromium did before.
    Thus we keep the white background and style the checked fields to grayscale - and adjust the size. */
