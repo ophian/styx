@@ -43,242 +43,223 @@
   </div>
 </div>
 <header class="navbar navbar-expand-lg bd-navbar py-2 mb-3 sticky-top">
-  <nav class="container-xxl flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+    <nav class="container-xxl flex-wrap flex-lg-nowrap" aria-label="Main navigation">
 
-    <a class="navbar-brand p-0 me-0 me-lg-2" href="{$serendipityHTTPPath}" aria-label="B53 Home">
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="d-block my-1" viewBox="0 0 118 94" role="img"><title>{$blogTitle}{if $template_option.use_corenav} - {$blogDescription}{/if}</title><path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg>
-    </a>
+        <a class="navbar-brand p-0 me-0 me-lg-2" href="{$serendipityHTTPPath}" aria-label="B53 Home">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="d-block my-1" viewBox="0 0 118 94" role="img"><title>{$blogTitle}{if $template_option.use_corenav} - {$blogDescription}{/if}</title><path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg>
+        </a>
 
-    <h1 class="d-none"><a class="blog-header-logo text-dark" href="{$serendipityBaseURL}">{$blogTitle}</a></h1>
+        <h1 class="d-none"><a class="blog-header-logo text-dark" href="{$serendipityBaseURL}">{$blogTitle}</a></h1>
 {if NOT $template_option.use_corenav}
 
-    <div class="col-auto d-block my-1 text-truncate">
-      <span>{$blogDescription}</span>
-    </div>
+        <div class="col-auto d-block my-1 text-truncate">
+          <span>{$blogDescription}</span>
+        </div>
 {/if}
 
-    <div class="d-flex">
-      <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-label="Toggle navigation">
-        <svg class="bi" aria-hidden="true"><use xlink:href="#three-dots"></use></svg>
-      </button>
-    </div>
+        <div class="d-flex">
+          <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-label="Toggle navigation">
+            <svg class="bi" aria-hidden="true"><use xlink:href="#three-dots"></use></svg>
+          </button>
+        </div>
 
-    <div class="offcanvas-lg offcanvas-end flex-grow-1" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel" data-bs-scroll="true">
-      <div class="offcanvas-header px-4 pb-0">
-        <h5 class="offcanvas-title text-body-emphasis" id="bdNavbarOffcanvasLabel">{$blogTitle}</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
-      </div>
+        <div class="offcanvas-lg offcanvas-end flex-grow-1" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel" data-bs-scroll="true">
+          <div class="offcanvas-header px-4 pb-0">
+            <h5 class="offcanvas-title text-body-emphasis" id="bdNavbarOffcanvasLabel">{$blogTitle}</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
+          </div>
 
-      <div class="offcanvas-body p-4 pt-0 p-lg-0{if NOT $template_option.use_corenav} cn-none{/if}">
-        <hr class="d-lg-none text-white-50">
-        <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <div class="offcanvas-body p-4 pt-0 p-lg-0{if NOT $template_option.use_corenav} cn-none{/if}">
+            <hr class="d-lg-none text-white-50">
+            <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 {if $template_option.use_corenav}
-    {foreach $navlinks AS $navlink}
-        {if $navlink.title != "" AND $navlink.href != ""}
-
-            <li class="nav-item col-6 col-lg-auto{if $currpage == $navlink.href OR $currpage2 == $navlink.href} active{/if}">
-                <a class="nav-link py-2 px-0 px-lg-2" href="{$navlink.href}">{$navlink.title}{if $currpage == $navlink.href OR $currpage2 == $navlink.href} <span class="sr-only">(current)</span>{/if}</a>
-            </li>
-        {/if}
-    {/foreach}
+{foreach $navlinks AS $navlink}
+{if $navlink.title != "" AND $navlink.href != ""}
+                <li class="nav-item col-6 col-lg-auto{if $currpage == $navlink.href OR $currpage2 == $navlink.href} active{/if}">
+                    <a class="nav-link py-2 px-0 px-lg-2" href="{$navlink.href}">{$navlink.title}{if $currpage == $navlink.href OR $currpage2 == $navlink.href} <span class="sr-only">(current)</span>{/if}</a>
+                </li>
 {/if}
+{/foreach}
+{/if}
+            </ul>
 
-        </ul>
+            <hr class="d-lg-none text-white-50">
 
-        <hr class="d-lg-none text-white-50">
+            <form class="col-12 col-lg-auto mt-1 mb-3 mb-lg-0 me-lg-2" method="get" role="search">
+              <input type="hidden" name="serendipity[action]" value="search">
+              <input type="search" class="form-control" name="serendipity[searchTerm]" placeholder="{$CONST.BS_PLACEHOLDER_QUICKSEARCH}" value="" aria-label="{$CONST.QUICKSEARCH}">
+            </form>
 
-        <form class="col-12 col-lg-auto mt-1 mb-3 mb-lg-0 me-lg-2" method="get" role="search">
-          <input type="hidden" name="serendipity[action]" value="search">
-          <input type="search" class="form-control" name="serendipity[searchTerm]" placeholder="{$CONST.BS_PLACEHOLDER_QUICKSEARCH}" value="" aria-label="{$CONST.QUICKSEARCH}">
-        </form>
-
-        <ul class="navbar-nav flex-row flex-wrap">
-          <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
-            <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-body-emphasis"></div>
-            <hr class="d-lg-none my-2 text-white-50">
-          </li>
-
-          <li class="nav-item dropdown">
-            <button id="bd-theme" class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle mode (dark)">
-              <svg class="bi my-1 theme-icon-active"><use href="#moon-stars-fill"></use></svg>
-              <span class="d-lg-none ms-2" id="bd-theme-text">Toggle mode</span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text">
-              <li>
-                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-                  <svg class="bi me-2 opacity-50 theme-icon"><use href="#sun-fill"></use></svg>
-                  Light
-                  <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
-                </button>
+            <ul class="navbar-nav flex-row flex-wrap">
+              <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+                <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-body-emphasis"></div>
+                <hr class="d-lg-none my-2 text-white-50">
               </li>
-              <li>
-                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="dark" aria-pressed="true">
-                  <svg class="bi me-2 opacity-50 theme-icon"><use href="#moon-stars-fill"></use></svg>
-                  Dark
-                  <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+
+              <li class="nav-item dropdown">
+                <button id="bd-theme" class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle mode (dark)">
+                  <svg class="bi my-1 theme-icon-active"><use href="#moon-stars-fill"></use></svg>
+                  <span class="d-lg-none ms-2" id="bd-theme-text">Toggle mode</span>
                 </button>
-              </li>
-              <li>
-                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
-                  <svg class="bi me-2 opacity-50 theme-icon"><use href="#circle-half"></use></svg>
-                  Auto
-                  <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
-                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text">
+                  <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                      <svg class="bi me-2 opacity-50 theme-icon"><use href="#sun-fill"></use></svg>
+                      Light
+                      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="dark" aria-pressed="true">
+                      <svg class="bi me-2 opacity-50 theme-icon"><use href="#moon-stars-fill"></use></svg>
+                      Dark
+                      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+                      <svg class="bi me-2 opacity-50 theme-icon"><use href="#circle-half"></use></svg>
+                      Auto
+                      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+                    </button>
+                  </li>
+                </ul>
               </li>
             </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
-
-<div class="container-fluid content">
-
-  <div class="container bg-light">
-    <main class="col-md-{if ($leftSidebarElements > 0 AND $rightSidebarElements > 0)}6{else if (($leftSidebarElements > 0 AND $rightSidebarElements == 0) OR ($rightSidebarElements > 0 AND $leftSidebarElements == 0))}9{else}12{/if}">
-
-        <section id="entries_dategroup" class="serendipity_Entry_Date">
-            <article class="post post_single">
-                <header>
-                    <h2><a href="#">{$media.file.realname}</a></h2>
-
-                    <p class="post_byline"><a href="#">{if isset($media.file.props.base_property.ALL.TITLE)}{$media.file.props.base_property.ALL.TITLE|default:''}{/if}</a></p>
-                </header>
-
-                <div class="post_content">
-                {if NOT empty($perm_denied)}
-                    {$CONST.PERM_DENIED}
-                {else}
-                    {if $media.file.is_image}
-
-                    <div>
-                        <!-- s9ymdb:{$media.file.id} -->
-                        <picture>
-{if isset($media.file.full_file_avif)}                            <source srcset="{$media.file.full_file_avif}" type="image/avif" />{/if}
-                            <source srcset="{$media.file.full_file_webp|default:''}" type="image/webp" />
-                            <img alt="" class="serendipity_image_center" loading="lazy" src="{$media.file.full_file}" width="{$media.file.dimensions_width}" />
-                        </picture>
-                    </div>
-                    {else}
-
-                    <div class="serendipity_center">
-                        <a href="{$media.file.full_file}">{$media.file.realname} ({$media.file.displaymime})</a>
-                    </div>
-                    {/if}
-
-                    <div class="serendipity_entryFooter mediaItemFooter">
-                        <a href="{$media.from|escape}" title="{$CONST.BACK_TO_BLOG}">{$CONST.BACK_TO_BLOG}</a>
-                    </div>
-                {/if}
-
-                </div>
-            </article>
-        </section>
-
-        <div class="mediaItemProperties">
-        {if $media.file.base_property}
-
-            <div class="mediaItem mediaItemProp">
-                <h3 class="mediaItemTitle">{$CONST.MEDIA_PROP}</h3>
-
-                <div class="mediaItemContent">
-                    <dl>
-                    {foreach $media.file.base_property AS $prop_fieldname => $prop_content}
-                    {if isset($prop_content.val)}
-
-                        <dt>{$prop_content.label}</dt>
-                        <dd>{$prop_content.val|escape}</dd>
-                    {/if}
-                    {/foreach}
-
-                    </dl>
-                </div>
-            </div>
-        {/if}
-
-        {if NOT empty($media.file.props.base_keyword)}
-
-            <div class="mediaItem mediaItemKeyword">
-                <h3 class="mediaItemTitle">{$CONST.MEDIA_KEYWORDS}</h3>
-
-                <div class="mediaItemContent">
-
-                {foreach $media.file.props.base_keyword AS $prop_fieldname => $prop_content}
-
-                    {$prop_fieldname|escape}&nbsp;
-                {/foreach}
-
-                </div>
-            </div>
-        {/if}
-
-        {if $media.file.props.base_metadata}
-
-            <div class="mediaItem mediaItemMeta">
-                <h3 class="mediaItemTitle">EXIF/IPTC/XMP</h3>
-
-                <div class="mediaItemContent">
-                    <dl>
-                    {foreach $media.file.props.base_metadata AS $meta_type => $meta_data}
-
-                        <dt><strong>{$meta_type}</strong></dt>
-                        <dd>
-                        {if is_array($meta_data)}
-
-                        <table>
-                        {foreach $meta_data AS $meta_name => $meta_value}
-
-                            <tr>
-                                <td><em>{$meta_name}!</em></th>
-                                <td>{if is_array($meta_value)}<pre>{$meta_value|print_r}</pre>{else}{$meta_value|formatTime:DATE_FORMAT_SHORT:false:$meta_name}{/if}</td>
-                            </tr>
-                        {/foreach}
-
-                        </table>
-                        {else}
-
-                        {$meta_data|formatTime:DATE_FORMAT_SHORT:false:$meta_type}
-                        {/if}
-
-                        </dd>
-                    {/foreach}
-
-                    </dl>
-                </div>
-            </div>
-        {/if}
-
-        {if $media.file.references}
-
-            <div class="mediaItem mediaItemRef">
-                <h3 class="mediaItemTitle">{$CONST.REFERER}</h3>
-
-                <div class="mediaItemContent">
-                    <ul class="plainList">
-                    {foreach $media.file.references AS $ref}
-
-                        <li>({$ref.name|escape}) <a rel="nofollow" href="{$ref.link|escape}">{$ref.link|default:$CONST.NONE|escape}</a></li>
-                    {/foreach}
-
-                    </ul>
-                </div>
-            </div>
-        {/if}
-
+          </div>
         </div>
-    </main>
+      </nav>
+    </header>
 
-  </div><!-- //container bg-light end -->
+    <div class="container-fluid content">
 
-  <footer class="text-body-secondary py-5">
-    <div class="container">
-      <p class="float-end mb-1">
-        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="d-block my-1" viewBox="0 0 118 94" role="img"><title>Back to top</title><path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg></a>
-      </p>
-      <p class="mb-1" lang="en">{$CONST.POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a> <abbr title="and">&amp;</abbr> the <i>{$template}</i> theme.</p>
-    </div>
-  </footer>
+      <div class="container bg-light">
+        <main class="col-md-{if ($leftSidebarElements > 0 AND $rightSidebarElements > 0)}6{else if (($leftSidebarElements > 0 AND $rightSidebarElements == 0) OR ($rightSidebarElements > 0 AND $leftSidebarElements == 0))}9{else}12{/if}">
+
+            <section id="entries_dategroup" class="serendipity_Entry_Date">
+                <article class="post post_single">
+                    <header>
+                        <h2><a href="#">{$media.file.realname}</a></h2>
+
+                        <p class="post_byline"><a href="#">{if isset($media.file.props.base_property.ALL.TITLE)}{$media.file.props.base_property.ALL.TITLE|default:''}{/if}</a></p>
+                    </header>
+
+                    <div class="post_content">
+{if NOT empty($perm_denied)}
+                        {$CONST.PERM_DENIED}
+{else}
+{if $media.file.is_image}
+
+                        <div>
+                            <!-- s9ymdb:{$media.file.id} -->
+                            <picture>
+{if isset($media.file.full_file_avif)}                                <source srcset="{$media.file.full_file_avif}" type="image/avif" />{/if}
+                                <source srcset="{$media.file.full_file_webp|default:''}" type="image/webp" />
+                                <img alt="" class="serendipity_image_center" loading="lazy" src="{$media.file.full_file}" width="{$media.file.dimensions_width}" />
+                            </picture>
+                        </div>
+{else}
+
+                        <div class="serendipity_center">
+                            <a href="{$media.file.full_file}">{$media.file.realname} ({$media.file.displaymime})</a>
+                        </div>
+{/if}
+
+                        <div class="serendipity_entryFooter mediaItemFooter">
+                            <a href="{$media.from|escape}" title="{$CONST.BACK_TO_BLOG}">{$CONST.BACK_TO_BLOG}</a>
+                        </div>
+{/if}
+
+                    </div>
+                </article>
+            </section>
+
+            <div class="mediaItemProperties">
+{if $media.file.base_property}
+
+                <div class="mediaItem mediaItemProp">
+                    <h3 class="mediaItemTitle">{$CONST.MEDIA_PROP}</h3>
+
+                    <div class="mediaItemContent">
+                        <dl>
+{foreach $media.file.base_property AS $prop_fieldname => $prop_content}
+{if isset($prop_content.val)}
+                            <dt>{$prop_content.label}</dt>
+                            <dd>{$prop_content.val|escape}</dd>
+{/if}
+{/foreach}
+                        </dl>
+                    </div>
+                </div>
+{/if}
+{if NOT empty($media.file.props.base_keyword)}
+
+                <div class="mediaItem mediaItemKeyword">
+                    <h3 class="mediaItemTitle">{$CONST.MEDIA_KEYWORDS}</h3>
+
+                    <div class="mediaItemContent">
+{foreach $media.file.props.base_keyword AS $prop_fieldname => $prop_content}
+                        {$prop_fieldname|escape}&nbsp;
+{/foreach}
+                    </div>
+                </div>
+{/if}
+{if $media.file.props.base_metadata}
+
+                <div class="mediaItem mediaItemMeta">
+                    <h3 class="mediaItemTitle">EXIF/IPTC/XMP</h3>
+
+                    <div class="mediaItemContent">
+                        <dl>
+{foreach $media.file.props.base_metadata AS $meta_type => $meta_data}
+                            <dt><strong>{$meta_type}</strong></dt>
+                            <dd>
+{if is_array($meta_data)}
+                            <table>
+{foreach $meta_data AS $meta_name => $meta_value}
+                                <tr>
+                                    <td><em>{$meta_name}!</em></th>
+                                    <td>{if is_array($meta_value)}<pre>{$meta_value|print_r}</pre>{else}{$meta_value|formatTime:DATE_FORMAT_SHORT:false:$meta_name}{/if}</td>
+                                </tr>
+{/foreach}
+                            </table>
+{else}
+                            {$meta_data|formatTime:DATE_FORMAT_SHORT:false:$meta_type}
+{/if}
+                            </dd>
+{/foreach}
+                        </dl>
+                    </div>
+                </div>
+{/if}
+{if $media.file.references}
+
+                <div class="mediaItem mediaItemRef">
+                    <h3 class="mediaItemTitle">{$CONST.REFERER}</h3>
+
+                    <div class="mediaItemContent">
+                        <ul class="plainList">
+{foreach $media.file.references AS $ref}
+                            <li>({$ref.name|escape}) <a rel="nofollow" href="{$ref.link|escape}">{$ref.link|default:$CONST.NONE|escape}</a></li>
+{/foreach}
+                        </ul>
+                    </div>
+                </div>
+{/if}
+
+            </div>
+        </main>
+
+    </div><!-- //container bg-light end -->
+
+    <footer class="text-body-secondary py-5">
+        <div class="container">
+            <p class="float-end mb-1">
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="d-block my-1" viewBox="0 0 118 94" role="img"><title>Back to top</title><path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg></a>
+            </p>
+            <p class="mb-1" lang="en">{$CONST.POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a> <abbr title="and">&amp;</abbr> the <i>{$template}</i> theme.</p>
+        </div>
+    </footer>
 
 </div><!-- //container-fluid end -->
 
