@@ -2,6 +2,9 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Follow [ pure ] output indentation markup cleanup in [ B53 ] and the [ boot ]
+    fallback engine themes.
+
   * Improve theme color mode javascript of [ b53 ] theme
 
   * Refactor the history plugin to use HTML list in link cases and to truncate
