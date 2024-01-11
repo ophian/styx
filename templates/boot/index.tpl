@@ -79,13 +79,13 @@
             <li><a href="#" class="text-white">Like on Facebook</a></li>
             <li><a href="#" class="text-white">Email me</a></li>
 {if $template_option.use_corenav}
-    {foreach $navlinks AS $navlink}
-        {if $navlink.title != "" AND $navlink.href != ""}
+{foreach $navlinks AS $navlink}
+{if $navlink.title != "" AND $navlink.href != ""}
             <li class="nav-item{if $currpage == $navlink.href OR $currpage2 == $navlink.href} active{/if}">
                 <a class="text-white" href="{$navlink.href}">{$navlink.title}{if $currpage == $navlink.href OR $currpage2 == $navlink.href} <span class="sr-only">(current)</span>{/if}</a>
             </li>
-        {/if}
-    {/foreach}
+{/if}
+{/foreach}
 {/if}
             <li class="link-secondary" href="#" data-bs-toggle="modal" data-bs-target="#quicksearch" aria-label="Search">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="px-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
@@ -184,19 +184,19 @@
 {if $leftSidebarElements > 0}
 
         <aside id="serendipityLeftSideBar" class="clearfix col-md-3">
-        {serendipity_printSidebar side="left"}
+{serendipity_printSidebar side="left"}
         </aside>
 {/if}
 
         <main class="col-md-6">
 
-        {$CONTENT}
+{$CONTENT}
 
         </main>
 {if $rightSidebarElements > 0}
 
          <aside id="{if $leftSidebarElements > 0}serendipityRightSideBar{else}serendipityLeftSideBar{/if}" class="clearfix col-md-3">
-        {serendipity_printSidebar side="right"}
+{serendipity_printSidebar side="right"}
          </aside>
 {/if}
 

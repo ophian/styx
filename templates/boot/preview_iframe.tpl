@@ -34,30 +34,32 @@
 <body class="{$mode}_preview_body">
     <div id="main" class="clearfix {$mode}_preview_container">
         <main id="content" class="{$mode}_preview_content">
-        {if $mode == 'preview'}
+{if $mode == 'preview'}
             <div class="preview_entry">
-                {$preview}
+{$preview}
             </div>
-        {elseif $mode == 'save'}
+{elseif $mode == 'save'}
             <div class="{$mode}_preview_sizing"></div>
-            {if !empty($updertHooks)}<div class="{$mode}_updertH">{$updertHooks}</div>{/if}
-            {if $res}
+{if !empty($updertHooks)}
+            <div class="{$mode}_updertH">{$updertHooks}</div>
+{/if}
+{if $res}
             <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <b>{$CONST.ERROR}:</b><br> {$res}</span>
-            {else}
-                {* PLEASE NOTE: This is for case new entry first save only! *}
-                {if isset($lastSavedEntry) AND (int)$lastSavedEntry}
+    {else}
+    {* PLEASE NOTE: This is for case new entry first save only! *}
+    {if isset($lastSavedEntry) AND (int)$lastSavedEntry}
 
             <script type="text/javascript">
                 window.onload = function() {
                     parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
                 };
             </script>
-                {/if}
+{/if}
 
             <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.ENTRY_SAVED}</span>
             <a href="{$entrylink}" target="_blank" rel="noopener">{$CONST.VIEW}</a>
-            {/if}
-        {/if}
+{/if}
+{/if}
         </main>
     </div>
 
