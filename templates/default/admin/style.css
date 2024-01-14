@@ -1857,7 +1857,7 @@ ul.edit_actions li > .user_level {
     position: relative;
 }
 
-#edit_entry_submit {
+#edit_entry_submit, #advanced_options .jump_to_edit_entry_submit {
     position: absolute;
     top: -.75em;
     right: 0;
@@ -2045,7 +2045,6 @@ ul.edit_actions li > .user_level {
     float: right;
     margin-top: -2em;
 }
-#edit_entry_submit .button_up,
 #category_filter .svg-button_up {
     padding: .15em .25em;
 }
@@ -4202,7 +4201,7 @@ img.mfp-img {
         margin-top: .75em;
     }
 
-    #edit_entry_submit {
+    #edit_entry_submit, #advanced_options .jump_to_edit_entry_submit {
         top: -3.25em;
     }
 
