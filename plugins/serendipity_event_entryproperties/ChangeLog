@@ -1,3 +1,8 @@
+1.91:
+-----
+    * Refactor HTML element ID selector usage in entry edit fieldset for uniqueness
+      regarding #edit_entry_submit submitter box and the freetag fieldset.
+
 1.90:
 -----
     * Improve entryproperties v.1.88 and in addition an old Serendipity 2.0 development
