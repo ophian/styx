@@ -549,13 +549,13 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                                    WHERE name='" . serendipity_db_escape_string($plugin['id']) . "'");
 
             serendipity_plugin_api::update_plugin_placement(
-                addslashes($plugin['id']),
+                addslashes((string)$plugin['id']),
                 addslashes($plugin['placement'])
             );
 
             serendipity_plugin_api::update_plugin_owner(
-                addslashes($plugin['id']),
-                addslashes($plugin['authorid'])
+                addslashes((string)$plugin['id']),
+                addslashes((string)$plugin['authorid'])
             );
             $pos++;
         }
