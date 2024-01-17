@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC . (isset($serendipity['GET']['plugin_to_conf']) ? ' ' . PLUGIN_EVENT_ENTRYPROPERTIES_DESC_PLUS : ''));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.91');
+        $propbag->add('version',       '1.92');
         $propbag->add('requirements',  array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -584,8 +584,10 @@ class serendipity_event_entryproperties extends serendipity_event
                 }
                 if (is_array($fields) && count($fields) > 0) { ?>
 
-                    <span class="wrap_legend"><legend><?php echo PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS; ?>: <span class="msg_hint"><?php echo PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1 . sprintf(PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3, 'serendipity_admin.php?serendipity[adminModule]=plugins&amp;serendipity[plugin_to_conf]=' . $this->instance); ?></span></legend></span>
-
+                    <span class="wrap_legend"><legend><?php echo PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS; ?>: <button class="toggle_info button_link" type="button" data-href="#ep_customfields_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button></legend></span>
+                    <div id="ep_customfields_info" class="additional_info">
+                        <span class="msg_hint"><?php echo PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1 . sprintf(PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3, 'serendipity_admin.php?serendipity[adminModule]=plugins&amp;serendipity[plugin_to_conf]=' . $this->instance); ?></span>
+                    </div>
                     <div id="serendipity_customfields" class="clearfix">
 <?php
                 foreach($fields AS $fieldname) {
@@ -754,6 +756,12 @@ class serendipity_event_entryproperties extends serendipity_event
 #edit_entry_entryproperties legend {
     margin-top: 1em;
     margin-bottom: 1em;
+}
+#ep_customfields legend {
+    margin-bottom: 0;
+}
+#ep_customfields .msg_hint {
+    margin: .25em 0 0 0;
 }
 #edit_entry_entryproperties .ep_entry_submit {
     top: initial;
