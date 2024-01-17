@@ -544,17 +544,18 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             if (!isset($plugin['authorid'])) {
                 $plugin['authorid'] = 0;
             }
+            // 'id' == name + instance ID string
             serendipity_db_query("UPDATE {$serendipity['dbPrefix']}plugins
                                      SET sort_order = " .  $pos . "
                                    WHERE name='" . serendipity_db_escape_string($plugin['id']) . "'");
 
             serendipity_plugin_api::update_plugin_placement(
-                addslashes((string)$plugin['id']),
+                addslashes($plugin['id']),
                 addslashes($plugin['placement'])
             );
 
             serendipity_plugin_api::update_plugin_owner(
-                addslashes((string)$plugin['id']),
+                addslashes($plugin['id']),
                 addslashes((string)$plugin['authorid'])
             );
             $pos++;
