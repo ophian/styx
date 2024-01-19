@@ -234,10 +234,16 @@ class Serendipity_Smarty extends Smarty
         $this->config_overwrite = true; // $this->setConfigOverwrite(true);
 
         // S9y set production == debug extends from s9y version information (alpha|beta|rc) is always debug | USE ===
-        if ($serendipity['production'] === 'debug') {
-            $this->force_compile = true;   // $this->setForceCompile(true);
+        if ($serendipity['production'] === 'debug' || $serendipity['production'] === 'forcecompile' || $serendipity['production'] === 'smartydebug') {
+            // Setting this TRUE can significant slow down configuration option builds like plugin config options !! while recompiling everything related too !!
+            if ($serendipity['production'] === 'forcecompile') {
+                $this->force_compile = true;   // $this->setForceCompile(true); // override compile_check (default:false)
+            }
             $this->caching       = false;  // $this->setCaching(false);
-            $this->debugging     = true;   // $this->setDebugging(true);
+            // Opens Smarty 4.3.4-dev-4 Debug Console on every compile
+            if ($serendipity['production'] === 'smartydebug') {
+                $this->debugging = true;   // $this->setDebugging(true); // override debugging (default:false)
+            }
         }
 
         // Set Smarty error reporting. General error_reporting is set in serendipity/serendipity_config.inc.php
