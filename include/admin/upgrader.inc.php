@@ -612,10 +612,10 @@ $tasks = array(
                     'title'     => 'Removal of old remote sysinfo_ticker storage for 4.3.0',
                     'desc'      => 'An automatic cleanup for the Styx 4.3.1 refactoring.'),
 
-            array(  'version'   => '4.3.3',
+            array(  'version'   => '4.4.0',
                     'function'  => 'serendipity_renameConfigVar',
                     'arguments' => array('thumbConstraint', 'imageConstraint'),
-                    'title'     => 'Rename a global serendipity variable for minimum version 4.3.3',
+                    'title'     => 'Rename a global serendipity variable for minimum version 4.4.0',
                     'desc'      => 'An automatic upgrade conversion for changed semantics \'thumbConstraint\' to \'imageConstraint\'.'),
 
             array(  'version'   => '4.4.0',
