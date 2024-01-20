@@ -25,15 +25,15 @@
 {if $notes}
     <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.IMPORT_NOTES} {$notes}</span>
 {/if}
-{* root 0 indent for guessedInput returns *}
-<dl class="importer_data">
+{* root + 1 indent for guessedInput returns *}
+    <dl class="importer_data">
 {foreach $fields AS $field}
-    <dt>{$field.text}</dt>
-    <dd class="clearfix">
-    {$field.guessedInput}
-    </dd>
+        <dt>{$field.text}</dt>
+        <dd class="clearfix">
+        {$field.guessedInput}
+        </dd>
 {/foreach}
-</dl>
+    </dl>
 
     <div class="form_buttons">
         <button type="submit" class="button_link state_import">{$CONST.IMPORT_NOW}</button>
