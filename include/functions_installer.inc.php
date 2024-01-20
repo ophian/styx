@@ -429,6 +429,109 @@ function serendipity_replaceEmbeddedConfigVars($s) {
 }
 
 /**
+ * Prepares form data elements for configuration arrays by guess_input markup
+ *          without using Smarty, since we need this as quick as possible
+ *
+ * @access public
+ * @param   string    The field type to parse
+ * @param   string    The field name to set
+ * @param   mixed     (string|boolean) How to handle the default string
+ * @param   mixed     (string|array) If array, create select loops
+ * @param   array     If item selected, set as selected
+ * @param   null|int  The indent to perform (serendipity configuration|personal preferences have an indent of 5 * 4 spaces)
+ * @return string
+ */
+function serendipity_build_form_data_elements($type, $name, $value, $default, $selected, $indent) {
+    $html = '';
+    // configuration and personal preferences
+    if ($indent == 5) {
+        if ($type == 'bool') {
+        // radio indent is 1 plus for grouped div container
+            $html .= '                        <div class="form_radio">
+                            <input id="radio_cfg_' . $name . '_yes" type="radio" name="' . $name . '" value="true"'.($value == true ? ' checked="checked"' : '') . '>
+                            <label for="radio_cfg_' . $name . '_yes">' . YES . '</label>
+                        </div>
+
+                        <div class="form_radio">
+                            <input id="radio_cfg_' . $name . '_no" type="radio" name="' . $name . '" value="false"'.($value !== true ? ' checked="checked"' : '') . '>
+                            <label for="radio_cfg_' . $name . '_no">' . NO . '</label>
+                        </div>';
+        } elseif ($type == 'fullprotected') {
+            $html .= '                    <input id="' . $name . '" type="password" name="' . $name . '" data-type="{$type}" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+        } elseif ($type == 'protected') {
+            $html .= '                    <input id="' . $name . '" type="password" name="' . $name . '" data-type="{$type}" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+        } elseif ($type == 'multilist') {
+            $html .= '
+                    <select id="' . $name . '" name="' . $name . '[]" multiple="multiple" size="5">';
+            foreach ($default AS $k => $v) {
+                $html .= '
+                        <option value="' . $v['confkey'] . '"'.(!empty($selected[$name][$k]['selected']) ? ' selected="selected"' : '') . '>' . $v['confvalue'] . '</option>';
+            }
+            $html .= '
+                    </select>';
+        } elseif ($type == 'list') {
+            $html .= '
+                    <select id="' . $name . '" name="' . $name . '">';
+            foreach ($default AS $k => $v) {
+                $html .= '
+                        <option value="' . $k . '"'.(!empty($selected[$name][$k]['selected']) ? ' selected="selected"' : '') . '>' . $v . '</option>';
+            }
+            $html .= '
+                    </select>';
+        } elseif ($type == 'file') {
+            $html .= '                    <input id="' . $name . '" type="file" name="' . $name . '">';
+        } elseif ($type == 'textarea') {
+            $html .= '                    <textarea id="' . $name . '" rows="5" name="' . $name . '">' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '</textarea>';
+        } else {
+            $html .= '                    <input id="' . $name . '" type="text" name="' . $name . '" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '"' . ($name == 'username' ? ' autocomplete="new-password"' : '') . '>';
+        }
+    } else {
+        // importer form builds
+        if ($type == 'bool') {
+            // radio indent is 1 plus for grouped div container
+            $html .= '    <div class="form_radio">
+                <input id="radio_cfg_' . $name . '_yes" type="radio" name="' . $name . '" value="true"'.($value == true ? ' checked="checked"' : '') . '>
+                <label for="radio_cfg_' . $name . '_yes">'.YES . '</label>
+            </div>
+
+            <div class="form_radio">
+                <input id="radio_cfg_' . $name . '_no" type="radio" name="' . $name . '" value="false"'.($value !== true ? ' checked="checked"' : '') . '>
+                <label for="radio_cfg_' . $name . '_no">'.NO . '</label>
+            </div>';
+        } elseif ($type == 'fullprotected') {
+            $html .= '    <input id="' . $name . '" type="password" name="' . $name . '" data-type="{$type}" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+        } elseif ($type == 'protected') {
+            $html .= '    <input id="' . $name . '" type="password" name="' . $name . '" data-type="{$type}" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+        } elseif ($type == 'multilist') {
+            $html .= '
+            <select id="' . $name . '" name="' . $name . '[]" multiple="multiple" size="5">';
+            foreach ($default AS $k => $v) {
+                $html .= '
+                <option value="' . $v['confkey'] . '"'.(!empty($selected[$name][$k]['selected']) ? ' selected="selected"' : '') . '>' . $v['confvalue'] . '</option>';
+            }
+            $html .= '
+            </select>';
+        } elseif ($type == 'list') {
+            $html .= '
+            <select id="' . $name . '" name="' . $name . '">';
+            foreach ($default AS $k => $v) {
+                $html .= '
+                <option value="' . $k . '"'.(!empty($selected[$name][$k]['selected']) ? ' selected="selected"' : '') . '>' . $v . '</option>';
+            }
+            $html .= '
+            </select>';
+        } elseif ($type == 'file') {
+            $html .= '    <input id="' . $name . '" type="file" name="' . $name . '">';
+        } elseif ($type == 'textarea') {
+            $html .= '    <textarea id="' . $name . '" rows="5" name="' . $name . '">' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '</textarea>';
+        } else {
+            $html .= '    <input id="' . $name . '" type="text" name="' . $name . '" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '"' . ($name == 'username' ? ' autocomplete="new-password"' : '') . '>';
+        }
+    }
+    return $html;
+}
+
+/**
  * Pre-process the configuration value and put it into a HTML output field (radio, password, text, select, ...)
  *
  * @access public
@@ -436,10 +539,10 @@ function serendipity_replaceEmbeddedConfigVars($s) {
  * @param   string  The name of the configuration item
  * @param   string  The current value of the configuration item
  * @param   string  The default value of the configuration item
+ * @param   null|int The indent default for the configuration item [configuration and personal preferences form have an indent of 5]
  * @return null
  */
-function serendipity_guessInput($type, $name, $value = '', $default = '') {
-    $data = array();
+function serendipity_guessInput($type, $name, $value = '', $default = '', $indent = null) {
     $curOptions = array();
 
     switch ($type) {
@@ -486,13 +589,7 @@ function serendipity_guessInput($type, $name, $value = '', $default = '') {
             break;
     }
 
-    $data['type'] = $type;
-    $data['name'] = $name;
-    $data['value'] = $value;
-    $data['default'] = $default;
-    $data['selected'] = $curOptions;
-
-    return serendipity_smarty_showTemplate('admin/guess_input.tpl', $data);
+    return serendipity_build_form_data_elements($type ,$name, $value, $default, $curOptions, $indent);
 }
 
 /**
@@ -552,7 +649,7 @@ function serendipity_printConfigTemplate($config, $from = false, $noForm = false
                 $value = serendipity_query_default($item['var'], $item['default']);
             }
 
-            $item['guessedInput'] = serendipity_guessInput($item['type'], $item['var'], $value, $item['default']);
+            $item['guessedInput'] = serendipity_guessInput($item['type'], $item['var'], $value, $item['default'], 5); // indent default 5 * 4 spaces
         }
     }
     $data['config'] = $config;
