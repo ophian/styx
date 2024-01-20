@@ -30,7 +30,7 @@ Version 4.x-DEV ()
     full image dimensions and not the thumb.
 
   * Improve the [ pure ] theme for next freetag plugin update tag & cloud
-    improvements and some search result stylings.
+    improvements and some search result styling.
 
   * Add missing toTop footer implementation for summary entrypagings to the
    [ pure ] theme.
