@@ -532,6 +532,11 @@ $dead_files_420 = array(
     'templates/next/oldie.css'
 );
 
+/* A list of Styx files, to be removed or renamed by 4.4.0 */
+$dead_files_440 = array(
+    'templates/default/admin/guess_input.tpl'
+);
+
 /**
  * recursive directory call to purge files and directories
  *
