@@ -1195,8 +1195,11 @@ function serendipity_checkWebPSupport($set = false, $msg = false) {
 
 /**
  * Check image libraries for PHP AV-Image-File (avif) support by used library
- * Basically, AVIF is far more expensive to encode than WebP. It is an extremely taxing process with respect to both CPU and memory.
- * Both image libraries (IM/GD) show a huge performance lack building bigger avif images, so we hope the best for the future!
+ *  Basically, AVIF is far more expensive to encode than WebP. It is an extremely taxing process with respect to both CPU and memory.
+ *  Both image libraries (IM/GD) show a huge performance lack building bigger avif images, so we hope the best for the future!
+ *
+ * @param  bool     Future Styx revision upgrade set to default true
+ * @param  bool     Allow message returns (Currently a future possibility only)
  * @return bool
  */
 function serendipity_checkAvifSupport($set = false, $msg = false) {
