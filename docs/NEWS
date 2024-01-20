@@ -4,7 +4,7 @@ Version 4.x-DEV ()
 
   * Removed the Smarty "guess_input" template file to build form data elements
     for the performance-wise better new *_build_form_data_elements() function,
-    to not having to run through 2 template engines (PHP/Smarty) without real
+    to not having to run through 2 template engines (PHP & Smarty) without real
     need. This changed installer functions and improved the possible indents.
 
   * Reduced core production 'debug' workload effecting some Smarty template
