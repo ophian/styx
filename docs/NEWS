@@ -2,11 +2,12 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Improved the cores production 'debug' sessions, since this slowed down some
-    Smarty processing significantly. For rare development cases you can enable
-    the Smarty force_compile OR debug console setting by these two new internal
+  * Reduced core production 'debug' workload effecting some Smarty template
+    compilations significantly, which slowed down the whole process too much.
+    NOTE: For rare development debug cases you can now enable the Smarty
+    force_compile OR debug (popup) console setting by these two new internal
         $serendipity['production'] = 'forcecompile'; OR 'smartydebug';
-    variables in your config_local file.
+    variables in your *_config_local.inc file.
 
   * Follow [ pure ] output indentation markup cleanup in [ B53 ] and the [ boot ]
     fallback engine themes.
