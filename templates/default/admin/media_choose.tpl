@@ -9,7 +9,7 @@
 
     <div class="clearfix">
 {if isset($media.file) && is_array($media.file)}
-    {if $media.file.is_image}
+{if $media.file.is_image}
         {serendipity_hookPlugin hook="frontend_image_selector" data=$media.file hookAll=true}
         <h1 id="media_selection_title">{$CONST.YOU_CHOSE|sprintf:$media.file.realname}</h1>
 
