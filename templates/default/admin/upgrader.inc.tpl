@@ -43,7 +43,7 @@
     <main class="clearfix serendipityAdminContent installer">
         <div id="content" class="clearfix">
 {* include of previous plain upgrader here *}
-{if ($get.action == 'ignore')}
+{if $get.action == 'ignore'}
 {* TODO: do not know what to put here? *}
 {elseif ($get.action == 'upgrade')}
 {foreach $call_tasks AS $ctask}
@@ -115,14 +115,14 @@
 {if $showWritableNote}
             <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.PROBLEM_PERMISSIONS_HOWTO|sprintf:'chmod 1777'}</span>
 {/if}
-{if ($errorCount > 0)}
+{if $errorCount > 0}
             <span class="msg_error"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.PROBLEM_DIAGNOSTIC}</span>
 
             <a class="icon_link block_level" href="serendipity_admin.php"><span class="icon-help-circled" aria-hidden="true"></span> {$CONST.RECHECK_INSTALLATION}</a>
 {/if}
         </div>
-{if ($errorCount < 1)}
-{if isset($sqlfiles) AND (count($sqlfiles) > 0)}
+{if $errorCount < 1}
+{if isset($sqlfiles) AND count($sqlfiles) > 0}
                 <h3>{$database_update_types}:</h3>
 
                 <p>{$CONST.SERENDIPITY_UPGRADER_FOUND_SQL_FILES}:</p>
@@ -146,7 +146,7 @@
 {if ($taskCount == 0)}
                 <p>{$CONST.SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC}</p>
 {/if}
-{if $taskCount > 0 OR (isset($sqlfiles) AND (count($sqlfiles) > 0))}
+{if $taskCount > 0 OR (isset($sqlfiles) AND count($sqlfiles) > 0)}
                 <h3>{$CONST.SERENDIPITY_UPGRADER_PROCEED_QUESTION} ({$CONST.RECOMMENDED})</h3>
                 <p><em>{$CONST.SERENDIPITY_UPGRADER_PROCEED_WITH_TASK}</em></p>
 
