@@ -1196,11 +1196,13 @@ h4,
 .no-js #mediaupload_tabs h3:first-child {
     margin-top: 0;
 }
-
+/* Table PHP-Installation Key Value pairs mobile portrait */
+#diagnose table:first-of-type th:first-of-type {
+    width: 100%;
+}
 #diagnose tr {
     border-bottom: 1px solid #aaa;
 }
-
 #diagnose td h5 {
     margin: .5em 0;
 }
@@ -3113,6 +3115,11 @@ img.mfp-img {
 
     .popuplayer_showUpload {
         margin: 1em .4rem 0 0;
+    }
+
+    /* Table PHP-Installation Key Value pairs */
+    #diagnose table:first-of-type th:first-of-type {
+        width: 44%;
     }
 }
 
