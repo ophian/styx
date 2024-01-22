@@ -104,7 +104,7 @@ if (sizeof($_POST) > 1 && $serendipity['GET']['step'] == '3') {
 
 $serendipity['template'] = $serendipity['template'] ?? '';
 $serendipity['GET']['step'] = $serendipity['GET']['step'] ?? 0;
-$data['s9yGETstep'] = $serendipity['GET']['step'];
+$data['s9yGETstep'] = $serendipity['GET']['step']; // its a mixed type
 $data['install_blank'] = false;
 $data['getstepint0'] = null;
 
@@ -143,7 +143,6 @@ if ((int)$serendipity['GET']['step'] !== 0 && !$data['install_token_pass']) {
     // Do not allow user to proceed to any action step unless token matches
     $data['s9yGETstep'] = $serendipity['GET']['step'] = 0;
     $data['install_token_fail'] = true;
-    unset($serendipity['GET']['step']);
 }
 
 if ((int)$serendipity['GET']['step'] == 0) {
