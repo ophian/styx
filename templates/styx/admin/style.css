@@ -3331,10 +3331,12 @@ input.pinpoint {
     color: #3e5f81;
     cursor: help;
 }
-.newrex .icon-info-circled,
 .upw_field .icon-info-circled,
 .entry_info .status_timestamp .icon-info-circled {
     color: #718395;
+}
+.newrex .icon-info-circled {
+    color: currentColor;
 }
 .alertinfo {
     cursor: help;
