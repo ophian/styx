@@ -603,7 +603,6 @@ form > button,
 #diagnose caption {
     font-weight: bold;
 }
-
 .hilite_i {
     font-style: italic;
 }
@@ -1196,7 +1195,7 @@ h4,
 .no-js #mediaupload_tabs h3:first-child {
     margin-top: 0;
 }
-/* Table PHP-Installation Key Value pairs mobile portrait */
+/* Table PHP-Installation Key Value pairs mobiles portrait mode */
 #diagnose table:first-of-type th:first-of-type {
     width: 100%;
 }
