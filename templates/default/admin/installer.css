@@ -1264,6 +1264,35 @@ summary {
     color: #777;
 }
 
+.upgrader_tasks {
+    background: #fcf8e3;
+    padding: .5em .25em 0;
+}
+
+.upgrader_tasks dt b {
+    font-weight: bolder;
+    color: #3e5f81;
+    border: 1px solid;
+    padding: 2px 5px;
+    background-color: #EEE;
+}
+
+.upgrader_perms dd,
+.upgrader_tasks dd {
+    margin-bottom: 1em;
+}
+.upgrader_tasks dd {
+    display: inline-block;
+    border: 1px solid #fbeed5;
+    color: #c09853;
+    padding: 2px 5px;
+}
+
+.upgrader_perms dd pre,
+.upgrader_tasks dd pre {
+    margin: 1em 0;
+}
+
 
 /* LAYOUT */
 #top > div,
