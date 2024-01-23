@@ -591,11 +591,11 @@ $tasks = array(
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_420, array('internals'), true),
                     'title'     => 'Removal of old dead files for 4.2.0',
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_420) . '</pre>'),
-
+/* Keep titles short and concise up from 4.3.0 for upgrading in dark mode */
             array(  'version'   => '4.3.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> It occurred that the Maintenance task for the local plugin zombies comparison checkup',
-                    'desc'      => 'did not fully select all remaining plugins and caused incompatibilities on elder systems by this regression. Please run the task again at least ONCE to avoid running into (future) conflicts with non-updated local plugin zombies and remaining old data.'),
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Bugfix for Plugin zombies task applied! ',
+                    'desc'      => 'It occurred that the Maintenance task for the local plugin zombies comparison checkup did not fully select all remaining plugins and caused incompatibilities on elder systems by this regression. Please run the task again at least ONCE to avoid running into (future) conflicts with non-updated local plugin zombies and remaining old data.'),
 
             array(  'version'   => '4.3.0',
                     'type'      => 'REQUIREMENT_NOTICE',
@@ -604,8 +604,8 @@ $tasks = array(
 
             array(  'version'   => '4.3.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> To avoid conflicts with development (versions) of next major Styx 5 series with new system requirements within the next few months,',
-                    'desc'      => 'some logical changes have already been applied to divide series 4 and 5 versions apart. This also was necessary for Spartacus access to "additional plugins", which for the current series moved to another branch on GitHub, called "legacy". Please watch out for eventually raised related "Remote System Notification" issues in your blogs backend or at the Serendipity Styx <a href="https://ophian.github.io/blog/" rel="external noopener" target="_blank">website blog</a>.'),
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> New Styx remote messaging regarding next major UP release.',
+                    'desc'      => 'To avoid conflicts with development (versions) of next major Styx 5 series with new system requirements within the next few months, some logical changes have already been applied to divide series 4 and 5 versions apart. This also was necessary for Spartacus access to "additional plugins", which for the current series moved to another branch on GitHub, called "legacy". Please watch out for eventually raised related "Remote System Notification" issues in your blogs backend or at the Serendipity Styx <a href="https://ophian.github.io/blog/" rel="external noopener" target="_blank">website blog</a>.'),
 
             array(  'version'   => '4.3.1',
                     'function'  => 'serendipity_nuke_okey_sys_tick_items',
