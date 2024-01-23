@@ -5,11 +5,7 @@
     <title>{if isset($admin_vars.title)}{$admin_vars.title} | {/if}{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{$head_link_stylesheet}" type="text/css">
-    <script src="{serendipity_getFile file='admin/js/modernizr.min.js'}"></script>
 {if isset($admin_vars.admin_installed)}{serendipity_hookPlugin hook="backend_header" hookAll="true"}{/if}
-    <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
-    <script src="{serendipity_getFile file="admin/js/plugins.js"}"></script>
-    <script src="{serendipity_getFile file='admin/serendipity_styx.js'}"></script>
 </head>
 <body id="serendipity_admin_page">
 {if empty($admin_vars.no_banner)}
