@@ -2,6 +2,10 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Added dark mode (*) support to the [ styx ] backend theme for installer.inc
+    and upgrader,inc template files, which also removes unneeded assets loading.
+    [*] currently uses auto dark mode by browsers prefers-color-scheme.
+
   * Removed the Smarty "guess_input" template file to build form data elements
     for the performance-wise better new *_build_form_data_elements() function,
     to not having to run through 2 template engines (PHP & Smarty) without real
