@@ -609,19 +609,19 @@ $tasks = array(
 
             array(  'version'   => '4.3.1',
                     'function'  => 'serendipity_nuke_okey_sys_tick_items',
-                    'title'     => 'Removal of old remote sysinfo_ticker storage for 4.3.0',
+                    'title'     => 'Removal of old remote sysinfo_ticker storage for 4.3.0.',
                     'desc'      => 'An automatic cleanup task for the Styx 4.3.1 ticker refactoring.'),
 
             array(  'version'   => '4.4.0',
                     'function'  => 'serendipity_renameConfigVar',
                     'arguments' => array('thumbConstraint', 'imageConstraint'),
-                    'title'     => 'Rename a global serendipity variable for minimum version 4.4.0',
+                    'title'     => 'Rename a global serendipity variable for minimum version 4.4.0.',
                     'desc'      => 'An automatic upgrade conversion for changed semantics \'thumbConstraint\' to \'imageConstraint\'.'),
 
             array(  'version'   => '4.4.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_440, array('internals'), true),
-                    'title'     => 'Removal of old dead files for 4.4.0',
+                    'title'     => 'Removal of old dead files for 4.4.0.',
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_440) . '</pre>'),
 
 );
