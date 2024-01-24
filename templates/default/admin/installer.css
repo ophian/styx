@@ -3306,6 +3306,10 @@ img.mfp-img {
     #adv_opts > fieldset > span > legend {
         width: 90%;
     }
+
+    .upgrader_perms {
+        margin-left: 1.5em;
+    }
 }
 
 
