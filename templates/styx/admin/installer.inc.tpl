@@ -5,6 +5,13 @@
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{serendipity_getFile file='admin/installer.css'}" type="text/css">
+    <script>
+        document.documentElement.className = 'js';
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-color-mode', 'dark');
+            document.write('    <link rel="stylesheet" href="{serendipity_getFile file='admin/styx_dark.min.css'}" type="text/css">');
+        }
+    </script>
 </head>
 <body id="serendipity_admin_page">
     <header id="top">
