@@ -298,7 +298,7 @@
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity has detected that your currently installed version is %s. It seems you are attempting to upgrade to version %s, so you need to <a href="%s">click here</a> to continue the upgrade process.');
 @define('SERENDIPITY_UPGRADER_WELCOME', 'Hi, and welcome to the Serendipity upgrade agent.');
 @define('SERENDIPITY_UPGRADER_PURPOSE', 'I am here to help you upgrade your Serendipity %s installation.');
-@define('SERENDIPITY_UPGRADER_WHY', 'You are seeing this message because you have just installed Serendipity %s, but have not yet upgraded your database installation to fit this version');
+@define('SERENDIPITY_UPGRADER_WHY', 'You are seeing this message because you have just installed Serendipity %s, but have not yet upgraded your database installation to fit this version.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Database updates (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'I have found the following .sql files which needs to be run before you can continue normal operation of Serendipity');
 @define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Version specific tasks');
