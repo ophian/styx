@@ -610,7 +610,7 @@ $tasks = array(
             array(  'version'   => '4.3.1',
                     'function'  => 'serendipity_nuke_okey_sys_tick_items',
                     'title'     => 'Removal of old remote sysinfo_ticker storage for 4.3.0',
-                    'desc'      => 'An automatic cleanup for the Styx 4.3.1 refactoring.'),
+                    'desc'      => 'An automatic cleanup task for the Styx 4.3.1 ticker refactoring.'),
 
             array(  'version'   => '4.4.0',
                     'function'  => 'serendipity_renameConfigVar',
