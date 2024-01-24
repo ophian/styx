@@ -307,7 +307,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Нет, я произведу их самостоятельно и вручную');
 @define('SERENDIPITY_UPGRADER_PROCEED_DOIT', 'Да, пожалуйста');
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'Похоже на то, что вам не нужно производить никаких обновлений');
-@define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even though no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
+@define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even when no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Считайте ваш движок Serendipity обновлённым');
 @define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Вы проигнорировали этап автоматического обновления Serendipity, пожалуйста проследите чтбы ваша база данных была корректно обновлена и указанные действия произведены вручную');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'Ваш движок Serendipity теперь обновлён до версии %s');

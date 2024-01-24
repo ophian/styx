@@ -307,7 +307,7 @@ $i18n_unknown = 'tw';
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', '我自己執行');
 @define('SERENDIPITY_UPGRADER_PROCEED_DOIT', '請幫我執行');
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', '您不需要進行任何更新');
-@define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even though no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
+@define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even when no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', '假裝 Serendipity 更新完成吧');
 @define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', '您略過了更新任務, 請確定資料庫已安裝完成, 和其他的任務安裝無誤');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', '您的 Serendipity 以更新至版本 %s');

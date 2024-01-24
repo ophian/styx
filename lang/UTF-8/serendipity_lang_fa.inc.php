@@ -306,7 +306,7 @@
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'خیر');
 @define('SERENDIPITY_UPGRADER_PROCEED_DOIT', 'بله');
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'در ظاهر نیازمند به روز رسانی نمی باشید');
-@define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even though no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
+@define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even when no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'رسیدگی کردن به روز رسانی سرندیپیتی');
 @define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'شما توانایی به روز رسانی سرندیپیتی را ندارید، لطفا از درست ایجاد شدن پایگاه داده اطمینان پیدا کنید');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'سرندیپیتی به نسخه %s به روز رسانی شد');

@@ -307,7 +307,7 @@
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', '아니오 - 수동으로 수행하겠습니다');
 @define('SERENDIPITY_UPGRADER_PROCEED_DOIT', '예 - 수행하십시오');
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', '업그레이드할 사항이 없습니다');
-@define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even though no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
+@define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even when no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', '세렌디피티가 업그레이드 되었습니다');
 @define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', '세렌디피티의 업그레이드 단계를 건너뛰었습니다. 데이터베이스가 제대로 설치되었고 스케줄된 기능이 수행되는지 반드시 확인하십시오');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', '세렌디피티가 버전 %s로 업그레이드 되었습니다');

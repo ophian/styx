@@ -308,7 +308,7 @@
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Nee, ik voer ze zelf uit');
 @define('SERENDIPITY_UPGRADER_PROCEED_DOIT', 'Ja, graag');
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'U hoeft niets bij te werken');
-@define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even though no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
+@define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even when no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Serendipity is bijgewerkt');
 @define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'U heeft ervoor gekozen om niets bij te werken. Zorg ervoor dat uw databank goed geïnstalleerd is en geplande taken uitgevoerd worden');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'Uw Serendipity-installatie is nu bijgewerkt naar versie %s');
