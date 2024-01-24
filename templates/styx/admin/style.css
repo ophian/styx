@@ -1375,7 +1375,7 @@ h3.additional_properties {
     padding: .75em 0;
 }
 .configuration_group.plug {
-  padding: .5em .4em;
+    padding: .5em .4em;
 }
 
 .configure_plugin .configuration_group > h3 + fieldset {
