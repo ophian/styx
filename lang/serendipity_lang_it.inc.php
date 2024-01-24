@@ -282,7 +282,7 @@
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity ha rilevato che la configurazione si riferisce alla versione %s, mentre Serendipity è installato nella versione %s, è necessario fare l\'upgrade! <a href="%s">Clicka qui</a>');
 @define('SERENDIPITY_UPGRADER_WELCOME', 'Salve, e benvenuti alla procedura di upgrade di Serendipity.');
 @define('SERENDIPITY_UPGRADER_PURPOSE', 'Sono qui per aiutarti a fare l\'upgrade della tua installazione di Serendipity %s .');
-@define('SERENDIPITY_UPGRADER_WHY', 'Vedi questo messaggio perché hai appena installato Serendipity %s, ma non hai ancora aggiornato l\'installazione del database per questa versione');
+@define('SERENDIPITY_UPGRADER_WHY', 'Vedi questo messaggio perché hai appena installato Serendipity %s, ma non hai ancora aggiornato l\'installazione del database per questa versione.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Database update (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Ho trovato questi file .sql che hanno bisogno di essere caricati prima di continuare col funzionamento di Serendipity');
 @define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Procedure specifiche di versione');

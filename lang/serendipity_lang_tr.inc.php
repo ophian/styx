@@ -298,7 +298,7 @@
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity başka bir Serendipity sürümünün kurulu olduğunu belirledi %s. Yazılımı güncellemeniz yeterli görünüyor %s, <a href="%s">Buraya</a> tıklayarak günceleyebilirsiniz.');
 @define('SERENDIPITY_UPGRADER_WELCOME', 'Merhaba, ve Hoşgeldiniz, burası Serendipity Güncelleme Noktası.');
 @define('SERENDIPITY_UPGRADER_PURPOSE', 'Serendipity Kurulumunuzu güncellemek %s için buradayız.');
-@define('SERENDIPITY_UPGRADER_WHY', 'Bu iletiyi görüyorsunuz çünkü Serendipity kurulumu yapmışsınız %s, Ama veritabanı sürümünüz yazılımı güncellemeniz için yeterli değil');
+@define('SERENDIPITY_UPGRADER_WHY', 'Bu iletiyi görüyorsunuz çünkü Serendipity kurulumu yapmışsınız %s, Ama veritabanı sürümünüz yazılımı güncellemeniz için yeterli değil.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Veritabanı güncelleniyor (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Bu .sql dosyalarını bulduk. Serendipity Güncellemesi için');
 @define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Sürüme özel görevler');

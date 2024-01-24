@@ -297,7 +297,7 @@
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity a detectat din baza de date că ai instalată versiunea %s, dar serendipity e instalat ca versiunea %s, deci trebuie să faci upgrade! <a href="%s">Click aici</a>');
 @define('SERENDIPITY_UPGRADER_WELCOME', 'Salut, şi bun venit la agentul de actualizare pentru Serendipity.');
 @define('SERENDIPITY_UPGRADER_PURPOSE', 'Sunt aici ca să te ajut să actualizezi instalarea ta de Serendipity %s.');
-@define('SERENDIPITY_UPGRADER_WHY', 'Vezi acest mesaj pentru că tocmai ai instalat Serendipity %s, dar nu ai actualizat baza de date pentru a fi compatibilă cu această versiune');
+@define('SERENDIPITY_UPGRADER_WHY', 'Vezi acest mesaj pentru că tocmai ai instalat Serendipity %s, dar nu ai actualizat baza de date pentru a fi compatibilă cu această versiune.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Actualizări baze de date (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Am găsit următoarele fişiere .sql care trebuie rulate pentru a folosi Serendipity');
 @define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Operaţii specifice versiunii');

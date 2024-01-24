@@ -278,7 +278,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity откри, че сегашната инсталирана версия на Serendipity е %s. Изглежда се опитвате да се надграждане към версия %s, така че <a href="%s">натиснете тук</a>, за да продължите с процеса на надграждане');
 @define('SERENDIPITY_UPGRADER_WELCOME', 'Здравейте, и добре дошли в помощника за надграждане на Serendipity.');
 @define('SERENDIPITY_UPGRADER_PURPOSE', 'Тук съм, за да помогна в надграждането на Serendipity %s.');
-@define('SERENDIPITY_UPGRADER_WHY', 'Вие виждате това съобщение, защото току-що инсталирахте Serendipity %s, но още не сте надградили базата данни към новата версия');
+@define('SERENDIPITY_UPGRADER_WHY', 'Вие виждате това съобщение, защото току-що инсталирахте Serendipity %s, но още не сте надградили базата данни към новата версия.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Обновяване на базата данни (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Намерени са следните .sql файлове, който трябва да бъдат изпълнени, преди да продължите с нормалната употреба на Serendipity');
 @define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Специфични задачи за тази версия');

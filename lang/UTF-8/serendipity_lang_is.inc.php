@@ -296,7 +296,7 @@
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity hefur tekið eftir að stillingarnar þínar eru uppsettar fyrir útgáfu %s, en núverandi útgáfa er %s. Þú þarft því að uppfæra! <a href="%s">Smelltu hér</a>');
 @define('SERENDIPITY_UPGRADER_WELCOME', 'Góðan dag, og velkomin í uppfærsluforrit Serendipity.');
 @define('SERENDIPITY_UPGRADER_PURPOSE', 'Ég er hér til að hjálpa þér að uppfæra Serendipity %s uppsetninguna þína.');
-@define('SERENDIPITY_UPGRADER_WHY', 'Þú sérð þessi skilaboð vegna þess að þú hefur sett upp Serendipity %s, en þú hefur ekki uppfært gagnagrunnsuppsetninguna til að passa við þessa útgáfu');
+@define('SERENDIPITY_UPGRADER_WHY', 'Þú sérð þessi skilaboð vegna þess að þú hefur sett upp Serendipity %s, en þú hefur ekki uppfært gagnagrunnsuppsetninguna til að passa við þessa útgáfu.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Uppfærslur gagnagrunns (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Ég fann eftirfarandi .sql skrár sem þarf að keyra áður en þú getur haldið áfram með venjulega keyrslu á Serendipity');
 @define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Aðgerðir bundar við þessa útgáfu');

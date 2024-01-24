@@ -313,7 +313,7 @@ $i18n_filename_to = array (
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity detekoval, ¾e va¹e konfigurace je ulo¾ena ve verzi %s, ale serendipity je instalován jako verze %s, je potøeba upgrade! <a href="%s">Kliknìte zde</a>');
 @define('SERENDIPITY_UPGRADER_WELCOME', 'Vítá vás mana¾er upgrade Serendipity.');
 @define('SERENDIPITY_UPGRADER_PURPOSE', 'Pomohu vám s upgrade va¹í instalace Serendipity %s.');
-@define('SERENDIPITY_UPGRADER_WHY', 'Tato zpráva je zobrazena proto, ¾e va¹e instalace je Serendipity %s, ale je¹tì nebyla updatována databáze pro tuto verzi');
+@define('SERENDIPITY_UPGRADER_WHY', 'Tato zpráva je zobrazena proto, ¾e va¹e instalace je Serendipity %s, ale je¹tì nebyla updatována databáze pro tuto verzi.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Update databáze (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Zde jsou .sql soubory, která musíte spustit pøed pokraèováním práce se Serendipity');
 @define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Úlohy specifické pro tuto verzi');

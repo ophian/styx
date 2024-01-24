@@ -299,7 +299,7 @@
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity heeft ontdekt dat u uw configuratie wilt bijwerken van versie %s naar versie %s. <a href="%s">Klik hier</a> om dat proces te voltooien.');
 @define('SERENDIPITY_UPGRADER_WELCOME', 'Hallo en welkom bij de Serendipity bijwerkassistent.');
 @define('SERENDIPITY_UPGRADER_PURPOSE', 'Ik zal u helpen uw Serendipity %s-installatie bij te werken.');
-@define('SERENDIPITY_UPGRADER_WHY', 'U krijgt deze melding te zien omdat u zojuist Serendipity %s geïnstalleerd heeft, maar uw databank nog niet bijgewerkt is naar deze versie');
+@define('SERENDIPITY_UPGRADER_WHY', 'U krijgt deze melding te zien omdat u zojuist Serendipity %s geïnstalleerd heeft, maar uw databank nog niet bijgewerkt is naar deze versie.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Databankupdates (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'De volgende .sql-bestanden moeten uitgevoerd worden voordat Serendipity normaal verder kan functioneren');
 @define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Taken specifiek voor deze versie');

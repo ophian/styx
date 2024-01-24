@@ -298,7 +298,7 @@ $i18n_unknown = 'tw';
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity 偵測到您的配置版本是 %s, 但是 Serendipity 本身的安裝版本是 %s, 請更新您的程式版本! <a href="%s">更新</a>');
 @define('SERENDIPITY_UPGRADER_WELCOME', '您好, 歡迎來到 Serendipity 的更新系統.');
 @define('SERENDIPITY_UPGRADER_PURPOSE', '更新系統會幫您更新到 Serendipity 版本 %s.');
-@define('SERENDIPITY_UPGRADER_WHY', '您看到這個訊息是因為您安裝了 Serendipity 版本 %s, 但是您沒有更新資料庫');
+@define('SERENDIPITY_UPGRADER_WHY', '您看到這個訊息是因為您安裝了 Serendipity 版本 %s, 但是您沒有更新資料庫.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', '資料庫更新 (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', '系統找到以下的 .sql 檔, 那些檔案必須先執行才能繼續安裝 Serendipity');
 @define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', '特定的版本任務');

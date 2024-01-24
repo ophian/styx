@@ -298,7 +298,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity обнаружил, что ваша конфигурация установлена для версии %s, в то время как сами файлы движка Serendipity соответствуют версии %s, вам нужен апгрейд! <a href="%s">Нажмите здесь чтобы продолжить</a>');
 @define('SERENDIPITY_UPGRADER_WELCOME', 'Привет, и добро пожаловать в агента обновления Serendipity.');
 @define('SERENDIPITY_UPGRADER_PURPOSE', 'Я был создан чтобы помочь вам обновить ваш веблог Serendipity %s.');
-@define('SERENDIPITY_UPGRADER_WHY', 'Вы видите это сообщение потому что вы только что установили Serendipity %s, но не обновили вашу базу данных чтобы соответствовать этой версии');
+@define('SERENDIPITY_UPGRADER_WHY', 'Вы видите это сообщение потому что вы только что установили Serendipity %s, но не обновили вашу базу данных чтобы соответствовать этой версии.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Обновления базы данных (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Я нашёл следующие .sql файлы, которые должны быть выполнены перед тем, как вы сможете продолжить работу с Serendipity');
 @define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Специфичные для этой версии действия');

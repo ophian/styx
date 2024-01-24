@@ -296,7 +296,7 @@
 @define('SERENDIPITY_NEEDS_UPGRADE', 'A Serendipity telepített verziója %s. Úgy tûnik, hogy az alábbi verzióra szeretnél frissíteni: %s, ha így van <a href="%s">kattints ide</a> a folytatáshoz.');
 @define('SERENDIPITY_UPGRADER_WELCOME', 'Szia, üdvözöllek a Serendipity frissítõ-ügynökénél.');
 @define('SERENDIPITY_UPGRADER_PURPOSE', 'Az a feladatom, hogy segédkezzek a Serendipity %s frissítésében.');
-@define('SERENDIPITY_UPGRADER_WHY', 'Ez az üzenet azért jelent meg, meg nemrég telepítetted a Serendipity %s, de az adatbázis migrációja még nem történt meg');
+@define('SERENDIPITY_UPGRADER_WHY', 'Ez az üzenet azért jelent meg, meg nemrég telepítetted a Serendipity %s, de az adatbázis migrációja még nem történt meg.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Adatbázis frissítések(%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Úgy találtam, hogy az alábbi .sql fájlokat le kell futtatni mielõtt folytatódna a Serendipity normál futása');
 @define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Verziófüggõ feladatok');
