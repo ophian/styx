@@ -2325,6 +2325,7 @@ fieldset p,
 }
 
 .upgrader_tasks dt b {
+    font-size: small;
     font-weight: bolder;
     color: #3e5f81;
     border: 1px solid;
