@@ -329,6 +329,7 @@
 {else}
             <span class="msg_error">{$CONST.ERROR_DETECTED_IN_INSTALL}</span>
 {/if}
+{* end of step 3 *}
 {/if}
         </div>
     </main>
@@ -336,5 +337,21 @@
     <footer id="meta">
         <p>{$CONST.ADMIN_FOOTER_POWERED_BY|sprintf:$styxversion:$phpversion}</p>
     </footer>
+{if $s9yGETstep != 0 AND NOT $s9y_installed}
+    <script>
+        // toggle info containers
+        var hasinfo = document.querySelectorAll(".has_info");
+        for (i=0; i < hasinfo.length; i++) {
+          const btns = hasinfo[i].querySelector('.toggle_info.button_link')
+          const href = btns.dataset.href;
+          btns.addEventListener('click', (e) => ((target) => {
+            //console.log(e, target);
+            btns.classList.toggle('active');
+            const toggler = document.querySelector(target);
+            toggler.classList.toggle('additional_info');
+          })(href));
+        }
+    </script>
+{/if}
 </body>
 </html>
