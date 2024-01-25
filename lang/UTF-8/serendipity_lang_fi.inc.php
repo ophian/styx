@@ -298,7 +298,7 @@
 @define('SERENDIPITY_UPGRADER_PURPOSE', 'Olen agenttisi ja autan sinua päivittämään Serendipity %s asennuksesi.');
 @define('SERENDIPITY_UPGRADER_WHY', 'Olet juuri asentanut Serendipity version %s, mutta kanta on jäänyt päivittämättä.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Tietokantapäivitykset (%s)');
-@define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Seuraavat .sql-tiedostot pitäisi suorittaa ennen  Serendipityn käyttöä');
+@define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Seuraavat .sql-tiedostot pitäisi suorittaa ennen Serendipityn käyttöä');
 @define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Versiokohtaiset tehtävät');
 @define('SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC', 'Ei versiokohtaisia tehtäviä');
 @define('SERENDIPITY_UPGRADER_PROCEED_QUESTION', 'Haluatko minun tekevän ne puolestasi?');
