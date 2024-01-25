@@ -51,7 +51,7 @@
 {elseif $get.action == 'upgrade'}
 {foreach $call_tasks AS $ctask}
 {if $is_callable_task}
-                <span class="msg_hint upgrade_task"><span class="icon-ok-circled" aria-hidden="true"></span> {$ctask|default:''}</span>
+            <span class="msg_hint upgrade_task"><span class="icon-ok-circled" aria-hidden="true"></span> {$ctask|default:''}</span>
 {/if}
 {/foreach}
 {if !empty($errors)}
