@@ -294,7 +294,7 @@
 @define('APPLY_MARKUP_TO', 'Applicera textdekoration på %s');
 @define('CALENDAR_BEGINNING_OF_WEEK', 'Början av veckan');
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Din nuvarande version av Serendipity är %s. Det verkar som om du försöker uppgradera till %s, så du behöver <a href="%s">klicka här</a> för att fortsätta uppgraderingsprocessen.');
-@define('SERENDIPITY_UPGRADER_WELCOME', 'Hej, och välkommen till Serendipitys uppgraderings-agent.');
+@define('SERENDIPITY_UPGRADER_WELCOME', 'Hej, och välkommen till Serendipity uppgraderings-agent.');
 @define('SERENDIPITY_UPGRADER_PURPOSE', 'Jag är här för att hjälpa dig uppgradera din installation av Serendipity %s.');
 @define('SERENDIPITY_UPGRADER_WHY', 'Du ser det här meddelandet för att du just har installerat Serendipity %s men ännu inte uppgraderat din databas för att passa den här versionen.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Databasuppdateringar (%s)');

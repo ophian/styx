@@ -294,7 +294,7 @@
 @define('APPLY_MARKUP_TO', 'Käytä notaatiota kohdassa %s');
 @define('CALENDAR_BEGINNING_OF_WEEK', 'Viikon alusta');
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipityn mielestä asenuksesi versio on %s, mutta serendipityn versio on %s, tarvitaan päivitys! <a href="%s">Napsauta</a>');
-@define('SERENDIPITY_UPGRADER_WELCOME', 'Hei, tervetuloa Serendipityn päivitykseen.');
+@define('SERENDIPITY_UPGRADER_WELCOME', 'Hei, tervetuloa Serendipity päivitykseen.');
 @define('SERENDIPITY_UPGRADER_PURPOSE', 'Olen agenttisi ja autan sinua päivittämään Serendipity %s asennuksesi.');
 @define('SERENDIPITY_UPGRADER_WHY', 'Olet juuri asentanut Serendipity version %s, mutta kanta on jäänyt päivittämättä.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Tietokantapäivitykset (%s)');

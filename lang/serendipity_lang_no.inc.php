@@ -274,7 +274,7 @@
 @define('APPLY_MARKUP_TO', 'Formater %s');
 @define('CALENDAR_BEGINNING_OF_WEEK', 'Starten på uken');
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity har opdaget at din nåværende konfigurasjon passer til versjon %s. Serendipity selv er installert som version %s, Det er nødvendig å oppgradere! <a href="%s">Klikk her!</a>');
-@define('SERENDIPITY_UPGRADER_WELCOME', 'Velkommen til Serendipitys oppgraderingsscript.');
+@define('SERENDIPITY_UPGRADER_WELCOME', 'Velkommen til Serendipity oppgraderingsscript.');
 @define('SERENDIPITY_UPGRADER_PURPOSE', 'Scriptet vil hjelpe deg med å oppgradere Serendipity %s.');
 @define('SERENDIPITY_UPGRADER_WHY', 'Denne meldingen vises fordi Serendipity versjon %s er installert, men databasen er ennå ikke opgradert til denne versjonen.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Databasen oppdateringer (%s)');
