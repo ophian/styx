@@ -307,7 +307,7 @@
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'アップグレードの実行を必要としないように見えます。');
 @define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even when no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', '改良された Serendipity にアップグレードしました');
-@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Serendipity のアップグレード ステージを無視しました。正しいデータベースが確実にインストールされ、スケジュール機能を実行します。');
+@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Serendipity のアップグレード ステージを無視しました。正しいデータベースが確実にインストールされ、スケジュール機能を実行します。 After having finished your reasoned work for hold-back, this can be done automatically by just resetting the version in your serendipity_config_local.inc (only) file and run this upgrade page again via your backend page.');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'あなたの Serendipity は今バージョン %s にアップグレードしました。');
 @define('SERENDIPITY_UPGRADER_RETURN_HERE', '%sここ%s をクリックするとブログに戻ることができます。');
 @define('MANAGE_USERS', 'ユーザー管理');

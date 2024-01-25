@@ -287,7 +287,7 @@
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'Det ser ut til at oppgradering ikke er nødvendig.');
 @define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even when no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Serendipity er oppgradert');
-@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Du har ignorert en del av oppgraderingen. Vennligst undersøk hvorvidt databasen er korrekt opdatert, og planlagte opgaver utført');
+@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Du har ignorert en del av oppgraderingen. Vennligst undersøk hvorvidt databasen er korrekt opdatert, og planlagte opgaver utført. After having finished your reasoned work for hold-back, this can be done automatically by just resetting the version in your serendipity_config_local.inc (only) file and run this upgrade page again via your backend page.');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'Din Serendipity-installation er nå oppgradert til version %s');
 @define('SERENDIPITY_UPGRADER_RETURN_HERE', 'Du kan vende tilbake til din blog ved å klikke %sher%s');
 @define('MANAGE_USERS', 'Håndter brukere');

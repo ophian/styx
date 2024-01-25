@@ -309,7 +309,7 @@
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', '不需要进行任何更新');
 @define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even when no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Serendipity 更新完成');
-@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', '你跳过了更新任务, 请确定数据库已安装完成, 和其它的任务安装无误！');
+@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', '你跳过了更新任务, 请确定数据库已安装完成, 和其它的任务安装无误！ After having finished your reasoned work for hold-back, this can be done automatically by just resetting the version in your serendipity_config_local.inc (only) file and run this upgrade page again via your backend page.');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', '你的 Serendipity 已经更新版本为 %s');
 @define('SERENDIPITY_UPGRADER_RETURN_HERE', '你可以点 %s这里%s 返回网站首页');
 @define('MANAGE_USERS', '管理作者');
