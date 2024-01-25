@@ -76,7 +76,7 @@
 {* could also be used as:   {$CONST.SERENDIPITY_UPGRADER_RETURN_HERE|sprintf:"<a href='$serendipityHTTPPath'>":'</a>'} *}
 {/if}
 {else}
-{* hey - this replace does not work for [da], [fa], [fi], [ko], [no], [se] languages - but since not an absolute need it might be bearable. *}
+{* hey - this replace does not work for [fa], [ko] languages while translated - but since not an absolute need it might be bearable. *}
             <h2>{$CONST.SERENDIPITY_UPGRADER_WELCOME|replace:'Serendipity':'Serendipity Styx'}</h2>
 
             <p>{$CONST.SERENDIPITY_UPGRADER_PURPOSE|sprintf:$s9y_version_installed}</p>
