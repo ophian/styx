@@ -78,7 +78,7 @@
 
             <p>{$CONST.SERENDIPITY_UPGRADER_PURPOSE|sprintf:$s9y_version_installed}</p>
 
-            <p>{$CONST.SERENDIPITY_UPGRADER_WHY|sprintf:$s9y_version}</p>
+            <p>{$CONST.SERENDIPITY_UPGRADER_WHY|sprintf:"<b>Styx $s9y_version</b>"}</p>
 
             <h3>{$CONST.FIRST_WE_TAKE_A_LOOK}</h3>
 
