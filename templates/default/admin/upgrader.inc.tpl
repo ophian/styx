@@ -20,10 +20,7 @@
     </header>
     <main class="clearfix serendipityAdminContent installer">
         <div id="content" class="clearfix">
-{* include of previous plain upgrader here *}
-{if $get.action == 'ignore'}
-{* TODO: do not know what to put here? *}
-{elseif $get.action == 'upgrade'}
+{if $get.action == 'upgrade'}
 {foreach $call_tasks AS $ctask}
 {if $is_callable_task}
             <span class="msg_hint upgrade_task"><span class="icon-ok-circled" aria-hidden="true"></span> {$ctask|default:''}</span>
@@ -147,7 +144,6 @@
 {/if}
 {/if}
 {/if}
-{* end include upgrader *}
         </div>
     </main>
 </body>
