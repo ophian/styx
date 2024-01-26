@@ -2,10 +2,9 @@
 <html class="no-js" lang="{$lang}">
 <head>
     <meta charset="{$CONST.LANG_CHARSET}">
-    <title>{if isset($admin_vars.title)}{$admin_vars.title} | {/if}{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
+    <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{serendipity_getFile file='admin/installer.css'}" type="text/css">
-{if isset($admin_vars.admin_installed)}{serendipity_hookPlugin hook="backend_header" hookAll="true"}{/if}
     <script>
         document.documentElement.className = 'js';
         if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -15,34 +14,13 @@
     </script>
 </head>
 <body id="serendipity_admin_page">
-{if empty($admin_vars.no_banner)}
     <header id="top">
         <div class="clearfix">
-            <div id="banner{if empty($admin_vars.is_logged_in)}_install{/if}">
-{if isset($admin_vars.admin_installed)}
-                <h1><a href="serendipity_admin.php"><span class="visuallyhidden">{$CONST.SERENDIPITY_ADMIN_SUITE}: </span>{$blogTitle}</a></h1>
-{else}
+            <div id="banner_install">
                 <h1>{$CONST.SERENDIPITY_INSTALLATION}</h1>
-{/if}
             </div>
-{if isset($admin_vars.is_logged_in)}
-            <nav id="user_menu">
-                <h2 class="visuallyhidden">{$CONST.MENU_PERSONAL}</h2>
-
-                <ul>
-                    <li class="logged_in"><span>{$admin_vars.self_info}</span></li>
-                    <li><a class="button_link" href="serendipity_admin.php" title="{$CONST.MENU_DASHBOARD}"><span class="icon-home" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MENU_DASHBOARD}</span></a></li>
-{if 'personalConfiguration'|checkPermission}
-                    <li><a class="button_link" href="serendipity_admin.php?serendipity[adminModule]=personal" title="{$CONST.PERSONAL_SETTINGS}"><span class="icon-cog-alt" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.PERSONAL_SETTINGS}</span></a></li>
-{/if}
-                    <li><a class="button_link" href="{$serendipityBaseURL}" title="{$CONST.BACK_TO_BLOG}"><span class="icon-globe" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.BACK_TO_BLOG}</span></a></li>
-                    <li><a class="button_link" href="serendipity_admin.php?serendipity[adminModule]=logout" title="{$CONST.LOGOUT}"><span class="icon-logout" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.LOGOUT}</span></a></li>
-                </ul>
-            </nav>
-{/if}
         </div>
     </header>
-{/if}
     <main class="clearfix serendipityAdminContent installer">
         <div id="content" class="clearfix">
 {* include of previous plain upgrader here *}
@@ -175,12 +153,5 @@
 {* end include upgrader *}
         </div>
     </main>
-{if empty($admin_vars.no_footer)}
-{if NOT empty($admin_vars.version_info)}
-    <footer id="meta">
-        <p>{$admin_vars.version_info}</p>
-    </footer>
-{/if}
-{/if}
 </body>
 </html>
