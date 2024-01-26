@@ -652,10 +652,7 @@ if (!empty($tmpFiles)) {
 
 @uksort($sqlfiles, 'strnatcasecmp');
 
-if ($serendipity['GET']['action'] == 'ignore') {
-    /* Todo: Don't know what to put here? */
-
-} elseif ($serendipity['GET']['action'] == 'upgrade') {
+if ($serendipity['GET']['action'] == 'upgrade') {
     serendipity_smarty_purge();
 
     $errors = array();
