@@ -3,7 +3,7 @@ Version 4.x-DEV ()
 
 
   * Add a visual icon expression to the non-login-remember not-available mode
-    of modemaintain, so the helper button has a companion.
+    of modemaintain, so the helper toggle button has a companion.
 
   * Added dark mode (*) support to the [ styx ] backend theme for installer.inc
     and upgrader.inc template files, which also removes unneeded assets loading.
