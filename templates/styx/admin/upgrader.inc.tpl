@@ -141,6 +141,7 @@
 
             <h3>{$CONST.SERENDIPITY_UPGRADER_VERSION_SPECIFIC}:</h3>
 {if is_array($tasks) AND !empty($tasks)}
+
             <dl class="upgrader_tasks">
 {foreach $tasks AS $task}
                 <dt>{$task.version} - {$task.title}</dt>
@@ -149,11 +150,13 @@
             </dl>
 {/if}
 {if ($taskCount == 0)}
+
             <p>{$CONST.SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC}</p>
 {/if}
 {if $taskCount > 0 OR (isset($sqlfiles) AND count($sqlfiles) > 0)}
 
             <h3>{$CONST.SERENDIPITY_UPGRADER_PROCEED_QUESTION} ({$CONST.RECOMMENDED})</h3>
+
             <p><em>{$CONST.SERENDIPITY_UPGRADER_PROCEED_WITH_TASK}</em></p>
 
             <a class="button_link state_submit" href="{$upgradeLoc}">{$CONST.SERENDIPITY_UPGRADER_PROCEED_DOIT}</a>
@@ -161,6 +164,7 @@
             <a class="button_link state_cancel" href="{$abortLoc}">{$CONST.SERENDIPITY_UPGRADER_PROCEED_ABORT}</a>
 {/if}
 {else}
+
             <p>{$CONST.SERENDIPITY_UPGRADER_NO_UPGRADES}</p>
 
             <div class="msg_success"><span class="icon-ok-circled"></span> {$CONST.SERENDIPITY_UPGRADER_CONSIDER_DONE}</div>
