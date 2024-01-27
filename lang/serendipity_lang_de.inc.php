@@ -1184,6 +1184,8 @@ Wenn Sie den letztgenannten Cache verwenden, müssen eventuell <sup>[1]</sup> dur
 @define('INSTALLER_TOKEN_MISMATCH', 'Sie sind nicht autorisiert die Installation auszuführen, da Ihr Install-Token (%s) nicht demjenigen aus der Datei "%s" entspricht. Stellen Sie sicher, dass Sie die Datei mit dem korrekten Inhalt erstellt haben. Sie können einen neuen Token erstellen in dem Sie die Datei löschen.');
 @define('INSTALLER_TOKEN_MATCH', 'Ihr sicherer Install-Token ist gültig.');
 
+@define('INSTALLER_COMPLETE', 'Installation abgeschlossen.');
+
 @define('DASHBOARD_INFO_HEADER', 'Auf einen Blick');
 @define('DASHBOARD_INFO_CONTENT', 'Abkürzungen');
 @define('DASHBOARD_INFO_EMPTY', 'Wir haben nicht genug Daten, um etwas Nützliches zu zeigen. Es sind keine anhängigen Kommentare, Zukunfts- oder Entwurfseinträge vorhanden.');
