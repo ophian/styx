@@ -368,6 +368,13 @@
         }
     </script>
 {/if}
+{if $s9yGETstep == 0}
+
+    <script>
+        var firstsuccess = document.querySelector('div#diagnose > ul.plainList > li:first-of-type > span.msg_success');
+        firstsuccess.innerHTML = '<svg class="bi bi-check-circle-fill" width="16" height="16" role="img" aria-label="OK:"><title>{$CONST.DONE}</title><use xlink:href="#check-circle-fill"></use></svg> ' + firstsuccess.textContent;
+    </script>
+{/if}
 
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="info-circle" fill="currentColor" viewBox="0 0 16 16">
