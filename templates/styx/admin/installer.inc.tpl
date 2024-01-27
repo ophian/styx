@@ -221,7 +221,7 @@
                     </tbody>
                 </table>
 {if $showWritableNote}
-                    <span class="msg_notice">{$CONST.PROBLEM_PERMISSIONS_HOWTO|sprintf:'chmod 1777'}</span>
+                <span class="msg_notice">{$CONST.PROBLEM_PERMISSIONS_HOWTO|sprintf:'chmod 1777'}</span>
 {/if}
 
                 <table>
