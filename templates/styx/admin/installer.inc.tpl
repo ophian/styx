@@ -241,14 +241,15 @@
 
                     </tbody>
                 </table>
-
 {if $errorCount > 0}
+
                 <hr />
                 <span class="msg_error"><svg class="bi bi-exclamation-triangle-fill" width="16" height="16" role="img" aria-label="Error:"><title>{$CONST.ERROR}</title><use xlink:href="#exclamation-triangle-fill"></use></svg> {$CONST.PROBLEM_DIAGNOSTIC}</span>
                 <div class="form_buttons">
                     <a class="block_level" href="serendipity_admin.php">{$CONST.RECHECK_INSTALLATION}</a>
                 </div>
 {elseif $install_token_pass}
+
                 <table>
                     <caption>{$CONST.SECURITY}</caption>
                     <thead>
@@ -262,7 +263,6 @@
                             <td>{$CONST.INSTALLER_TOKEN_CHECK}</td>
                             <td><span class="msg_success">{$CONST.INSTALLER_TOKEN_MATCH}</span></td>
                         </tr>
-
                     </tbody>
                 </table>
 
@@ -273,6 +273,7 @@
                     <a class="button_link state_submit" href="?serendipity[step]=2b">{$CONST.EXPERT_INSTALLATION}</a>
                 </div>
 {/if}
+{* Step: 0 - Diagnose end *}
             </div>
 {elseif $s9yGETstep == '2a' AND $install_token_pass}
 
@@ -349,6 +350,7 @@
         <p>{$CONST.ADMIN_FOOTER_POWERED_BY|sprintf:$styxversion:$phpversion}</p>
     </footer>
 {if $s9yGETstep != 0 AND NOT isset($s9y_installed)}
+
     <script>
         // toggle info containers
         var hasinfo = document.querySelectorAll(".has_info");
