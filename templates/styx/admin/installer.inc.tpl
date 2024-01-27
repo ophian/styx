@@ -259,7 +259,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><h5>{$CONST.INSTALLER_TOKEN_CHECK}</h5></td>
+                            <td>{$CONST.INSTALLER_TOKEN_CHECK}</td>
                             <td><span class="msg_success">{$CONST.INSTALLER_TOKEN_MATCH}</span></td>
                         </tr>
 
