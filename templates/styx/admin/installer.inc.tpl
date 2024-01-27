@@ -27,7 +27,7 @@
 {if $is_errors AND is_array($errors)}
             <ul class="plainList">
 {foreach $errors AS $error}
-                <li><span class="msg_error">{$error}</span></li>
+                <li><span class="msg_error list"><svg class="bi bi-exclamation-triangle-fill" width="16" height="16" role="img" aria-label="Error:"><title>{$CONST.ERROR}</title><use xlink:href="#exclamation-triangle-fill"></use></svg> {$error}</span></li>
 {/foreach}
             </ul>
 {if NOT empty($prevstep)}
@@ -44,7 +44,7 @@
             </div>
 {elseif $install_token_fail}
             <h3>{$CONST.ERROR}:</h3>
-            <p class="msg_error">{$CONST.INSTALLER_TOKEN_MISMATCH|sprintf:$install_token:$install_token_file}</p>
+            <p class="msg_error"><svg class="bi bi-exclamation-triangle-fill" width="16" height="16" role="img" aria-label="Error:"><title>{$CONST.ERROR}</title><use xlink:href="#exclamation-triangle-fill"></use></svg> {$CONST.INSTALLER_TOKEN_MISMATCH|sprintf:$install_token:$install_token_file}</p>
             <div>
                 <a class="block_level" href="index.php">{$CONST.RECHECK_INSTALLATION}</a>
             </div>
@@ -222,7 +222,7 @@
                 </table>
 {if $showWritableNote}
 
-                <span class="msg_notice">{$CONST.PROBLEM_PERMISSIONS_HOWTO|sprintf:'chmod 1777'}</span>
+                <span class="msg_notice"><svg class="bi bi-info-circle" width="16" height="16" role="img" aria-label="Info: {$CONST.PERMISSIONS}"><title>{$CONST.DESCRIPTION}</title><use xlink:href="#info-circle"></use></svg> {$CONST.PROBLEM_PERMISSIONS_HOWTO|sprintf:'chmod 1777'}</span>
 {/if}
 
                 <table>
@@ -244,7 +244,7 @@
 
 {if $errorCount > 0}
                 <hr />
-                <span class="msg_error">{$CONST.PROBLEM_DIAGNOSTIC}</span>
+                <span class="msg_error"><svg class="bi bi-exclamation-triangle-fill" width="16" height="16" role="img" aria-label="Error:"><title>{$CONST.ERROR}</title><use xlink:href="#exclamation-triangle-fill"></use></svg> {$CONST.PROBLEM_DIAGNOSTIC}</span>
                 <div class="form_buttons">
                     <a class="block_level" href="serendipity_admin.php">{$CONST.RECHECK_INSTALLATION}</a>
                 </div>
@@ -304,9 +304,9 @@
 
             <h3>{$CONST.CHECK_DATABASE_EXISTS}</h3>
 {if is_array($authors_query)}
-            <span class="msg_success"><strong>{$CONST.THEY_DO}</strong>, {$CONST.WONT_INSTALL_DB_AGAIN}</span>
+            <span class="msg_success"><svg class="bi bi-check-circle-fill" width="16" height="16" role="img" aria-label="OK:"><title>{$CONST.DONE}</title><use xlink:href="#check-circle-fill"></use></svg> <strong>{$CONST.THEY_DO}</strong>, {$CONST.WONT_INSTALL_DB_AGAIN}</span>
 {else}
-            <span class="msg_success"><strong>{$CONST.THEY_DONT}</strong></span>
+            <span class="msg_success"><svg class="bi bi-check-circle-fill" width="16" height="16" role="img" aria-label="OK:"><title>{$CONST.DONE}</title><use xlink:href="#check-circle-fill"></use></svg> <strong>{$CONST.THEY_DONT}</strong></span>
 
             <ol>
                 <li>{$CONST.CREATE_DATABASE}{if $install_DB} <strong>{$CONST.DONE}</strong>{/if}</li>
@@ -317,13 +317,13 @@
 {/if}
             <h3>{$CONST.ATTEMPT_WRITE_FILE|sprintf:'.htaccess'}</h3>
 {if $errors_sif === true}
-            <span class="msg_success">{$CONST.DONE}</span>
+            <span class="msg_success"><svg class="bi bi-check-circle-fill" width="16" height="16" role="img" aria-label="OK:"><title>{$CONST.DONE}</title><use xlink:href="#check-circle-fill"></use></svg> {$CONST.DONE}</span>
 {else}
             <h4>{$CONST.FAILED}</h4>
 
             <ul class="plainList">
 {foreach $errors_sif AS $error_f}
-                <li><span class="msg_error">{$error_f}</span></li>
+                <li><span class="msg_error list"><svg class="bi bi-exclamation-triangle-fill" width="16" height="16" role="img" aria-label="Error:"><title>{$CONST.ERROR}</title><use xlink:href="#exclamation-triangle-fill"></use></svg> {$error_f}</span></li>
 {/foreach}
             </ul>
             <div>
@@ -332,13 +332,13 @@
 {/if}
 {if $s9y_installed}
             <h3>{$CONST.INSTALLER_COMPLETE}</h3>
-            <span class="msg_success">{$CONST.SERENDIPITY_INSTALLED}</span>
+            <span class="msg_success"><svg class="bi bi-check-circle-fill" width="16" height="16" role="img" aria-label="OK:"><title>{$CONST.DONE}</title><use xlink:href="#check-circle-fill"></use></svg> {$CONST.SERENDIPITY_INSTALLED}</span>
 
             <p><strong>{$CONST.THANK_YOU_FOR_CHOOSING}</strong></p>
 
             <a class="button_link state_submit" href="{$smarty.post.serendipityHTTPPath}">{$CONST.VISIT_BLOG_HERE}</a>
 {else}
-            <span class="msg_error">{$CONST.ERROR_DETECTED_IN_INSTALL}</span>
+            <span class="msg_error"><svg class="bi bi-exclamation-triangle-fill" width="16" height="16" role="img" aria-label="Error:"><title>{$CONST.ERROR}</title><use xlink:href="#exclamation-triangle-fill"></use></svg> {$CONST.ERROR_DETECTED_IN_INSTALL}</span>
 {/if}
 {* end of step 3 *}
 {/if}
@@ -364,5 +364,21 @@
         }
     </script>
 {/if}
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="info-circle" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+      </symbol>
+      <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+      </symbol>
+      <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+      </symbol>
+      <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+      </symbol>
+    </svg>
 </body>
 </html>
