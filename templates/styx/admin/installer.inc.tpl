@@ -235,7 +235,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><h5>Execute Imagemagick binary</h5></td>
+                            <td>Execute Imagemagick binary</td>
                             <td>{$installerResultDiagnose_IMB}</td>
                         </tr>
 
