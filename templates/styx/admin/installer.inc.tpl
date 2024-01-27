@@ -353,13 +353,15 @@
         // toggle info containers
         var hasinfo = document.querySelectorAll(".has_info");
         for (i=0; i < hasinfo.length; i++) {
-          const btns = hasinfo[i].querySelector('.toggle_info.button_link')
+          const xpnd = hasinfo[i];
+          const btns = xpnd.querySelector('.toggle_info.button_link');
+          btns.innerHTML = '<svg class="bi bi-info-circle" width="16" height="16" role="img" aria-label="Info:"><title>{$CONST.MORE}</title><use xlink:href="#info-circle"/></svg>';
           const href = btns.dataset.href;
           btns.addEventListener('click', (e) => ((target) => {
-            //console.log(e, target);
+            xpnd.classList.toggle('info_expanded');
             btns.classList.toggle('active');
-            const toggler = document.querySelector(target);
-            toggler.classList.toggle('additional_info');
+            let it_toggle = document.querySelector(target);
+                it_toggle.classList.toggle('additional_info');
           })(href));
         }
     </script>
