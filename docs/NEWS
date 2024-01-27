@@ -2,6 +2,8 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improved [ styx ] backend theme installation and upgrade pages
+
   * Add a visual icon expression to the non-login-remember not-available mode
     of modemaintain, so the helper toggle button has a companion.
 
