@@ -169,9 +169,7 @@
 {if 'siteConfiguration'|checkPermission OR 'siteAutoUpgrades'|checkPermission}
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=maintenance">{$CONST.MENU_MAINTENANCE}</a></li>
 {/if}
-{if $admin_vars.no_create !== true}
-                        {serendipity_hookPlugin hook="backend_sidebar_admin" hookAll="true"}
-{/if}
+{if $admin_vars.no_create !== true}{serendipity_hookPlugin hook="backend_sidebar_admin" hookAll="true"}{/if}
                     </ul>
                 </li>
 {/if}
