@@ -328,6 +328,7 @@
             </div>
 {/if}
 {if $s9y_installed}
+            <h3>{$CONST.INSTALLER_COMPLETE}</h3>
             <span class="msg_success">{$CONST.SERENDIPITY_INSTALLED}</span>
 
             <p><strong>{$CONST.THANK_YOU_FOR_CHOOSING}</strong></p>
