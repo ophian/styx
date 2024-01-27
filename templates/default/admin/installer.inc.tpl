@@ -27,9 +27,11 @@
                 <li><span class="msg_error">{$error}</span></li>
 {/foreach}
             </ul>
+{if NOT empty($prevstep)}
             <div>
                 <a class="button_link" href="serendipity_admin.php?serendipity[step]={$prevstep}">{$CONST.PREVIOUS_PAGE}</a>
             </div>
+{/if}
 {/if}
 {if $install_blank}
             <h3>{$CONST.SERENDIPITY_ADMIN_SUITE}:</h3>
