@@ -348,7 +348,7 @@
     <footer id="meta">
         <p>{$CONST.ADMIN_FOOTER_POWERED_BY|sprintf:$styxversion:$phpversion}</p>
     </footer>
-{if $s9yGETstep != 0 AND NOT $s9y_installed}
+{if $s9yGETstep != 0 AND NOT isset($s9y_installed)}
     <script>
         // toggle info containers
         var hasinfo = document.querySelectorAll(".has_info");
