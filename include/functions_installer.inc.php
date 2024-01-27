@@ -457,9 +457,9 @@ function serendipity_build_form_data_elements($type, $name, $value, $default, $s
                             <label for="radio_cfg_' . $name . '_no">' . NO . '</label>
                         </div>';
         } elseif ($type == 'fullprotected') {
-            $html .= '                    <input id="' . $name . '" type="password" name="' . $name . '" data-type="{$type}" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+            $html .= '                    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
         } elseif ($type == 'protected') {
-            $html .= '                    <input id="' . $name . '" type="password" name="' . $name . '" data-type="{$type}" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+            $html .= '                    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
         } elseif ($type == 'multilist') {
             $html .= '
                     <select id="' . $name . '" name="' . $name . '[]" multiple="multiple" size="5">';
@@ -499,9 +499,9 @@ function serendipity_build_form_data_elements($type, $name, $value, $default, $s
                 <label for="radio_cfg_' . $name . '_no">'.NO . '</label>
             </div>';
         } elseif ($type == 'fullprotected') {
-            $html .= '    <input id="' . $name . '" type="password" name="' . $name . '" data-type="{$type}" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+            $html .= '    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
         } elseif ($type == 'protected') {
-            $html .= '    <input id="' . $name . '" type="password" name="' . $name . '" data-type="{$type}" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+            $html .= '    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
         } elseif ($type == 'multilist') {
             $html .= '
             <select id="' . $name . '" name="' . $name . '[]" multiple="multiple" size="5">';
