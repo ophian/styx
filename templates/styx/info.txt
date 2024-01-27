@@ -1,6 +1,6 @@
 Name: Styx [ Standard ]
 Author: Ian Styx
-Date: 2023-12-09
+Date: 2024-01-27
 Require Serendipity: 3.0
 Backend: Yes
 Modul: backend
