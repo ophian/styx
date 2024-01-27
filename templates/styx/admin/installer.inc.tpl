@@ -334,7 +334,7 @@
             <h3>{$CONST.INSTALLER_COMPLETE}</h3>
             <span class="msg_success"><svg class="bi bi-check-circle-fill" width="16" height="16" role="img" aria-label="OK:"><title>{$CONST.DONE}</title><use xlink:href="#check-circle-fill"></use></svg> {$CONST.SERENDIPITY_INSTALLED}</span>
 
-            <p><strong>{$CONST.THANK_YOU_FOR_CHOOSING}</strong></p>
+            <p><strong>{$CONST.THANK_YOU_FOR_CHOOSING}</strong>{if $CONST.LANG_CHARSET == 'UTF-8'} <span class="happy">🤗</span>{/if}</p>
 
             <a class="button_link state_submit" href="{$smarty.post.serendipityHTTPPath}">{$CONST.VISIT_BLOG_HERE}</a>
 {else}
