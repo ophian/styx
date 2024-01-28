@@ -89,9 +89,12 @@
         {if isset($admin_vars.out.footer)}{$admin_vars.out.footer|default:''}{/if}
 
         <script>
-            if ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) || localStorage.getItem('data-login-color-mode') === 'dark') {
-                document.documentElement.setAttribute('data-login-color-mode', 'dark');
-            }
+          if ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) || localStorage.getItem('data-login-color-mode') === 'dark') {
+            document.documentElement.setAttribute('data-login-color-mode', 'dark');
+            document.head.insertAdjacentHTML('beforeend', '<link id="dark-scheme-icon" rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}styx/sty.xd.png" type="image/x-icon">')
+          } else {
+            document.head.insertAdjacentHTML('beforeend', '<link id="light-scheme-icon" rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}styx/sty.x.png" type="image/x-icon">')
+          }
         </script>
 {else}
 {if NOT $admin_vars.no_sidebar}
