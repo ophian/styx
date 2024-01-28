@@ -243,7 +243,7 @@
         }
 
         // Styx backend option loader
-        let dark_mode = localStorage.getItem('dark_mode');
+        let dark_mode = localStorage.getItem('data-login-color-mode');
         if (typeof STYX_DARKMODE !== 'undefined' && dark_mode == null && STYX_DARKMODE === true) {
             localStorage.setItem('data-login-color-mode', 'dark');
         }
