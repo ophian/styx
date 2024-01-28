@@ -21,7 +21,30 @@
     <script src="{serendipity_getFile file='admin/js/modernizr.min.js'}"></script>
 {if $admin_vars.is_logged_in}
 {if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_header" hookAll="true"}{/if}
-    <script> const STYX_DARKMODE = {if $admin_vars.darkmode}true{else}false{/if}; </script>
+    <script>
+{if $admin_vars.darkmode}
+      var STYX_DARKMODE = true;
+      if (localStorage.getItem('data-login-color-mode') == null) {
+        localStorage.setItem('data-login-color-mode', 'dark');
+      }
+{else}
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-color-mode', 'dark');
+        var STYX_DARKMODE = true;
+      } else {
+        var STYX_DARKMODE = false;
+      }
+      const dark_mode = localStorage.getItem('data-login-color-mode');
+      if (typeof(STYX_DARKMODE) != null && STYX_DARKMODE === true && dark_mode == null) {
+        localStorage.setItem('data-login-color-mode', 'dark');
+      }
+{/if}
+      if (typeof(STYX_DARKMODE) !== 'undefined' && STYX_DARKMODE === true) {
+        document.currentScript.insertAdjacentHTML('afterend', '<link id="dark-scheme-icon" rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}styx/sty.xd.png" type="image/x-icon">')
+      } else {
+        document.currentScript.insertAdjacentHTML('afterend', '<link id="light-scheme-icon" rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}styx/sty.x.png" type="image/x-icon">')
+      }
+    </script>
     <script src="{serendipity_getFile file='admin/js/plugins.js'}"></script>
     <script src="{serendipity_getFile file='admin/serendipity_styx.js'}"></script>
     <script src="{$head_link_script}"></script>
