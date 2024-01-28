@@ -234,31 +234,5 @@
 {/if}
 {if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_footer" hookAll="true"}{/if}
 
-    <script>
-        // favicon loader
-        lightSchemeIcon = document.querySelector('link#light-scheme-icon');
-        darkSchemeIcon = document.querySelector('link#dark-scheme-icon');
-
-        function onUpdate() {
-          if (matcher.matches) {
-            lightSchemeIcon.remove();
-            document.head.append(darkSchemeIcon);
-          } else {
-            document.head.append(lightSchemeIcon);
-            darkSchemeIcon.remove();
-          }
-        }
-
-        // Styx backend option loader
-        let dark_mode = localStorage.getItem('data-login-color-mode');
-        if (typeof STYX_DARKMODE !== 'undefined' && dark_mode == null && STYX_DARKMODE === true) {
-            localStorage.setItem('data-login-color-mode', 'dark');
-        }
-        // favicon loader listener
-        matcher = window.matchMedia('(prefers-color-scheme: dark)');
-        matcher.addListener(onUpdate);
-        onUpdate();
-    </script>
-
 </body>
 </html>
