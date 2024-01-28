@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="{$head_link_stylesheet}" type="text/css">
 {if $admin_vars.darkmode}
     <link rel="stylesheet" href="{serendipity_getFile file='admin/styx_dark.min.css'}" type="text/css">
+{else}
+    <script>
+      if ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) || localStorage.getItem('data-login-color-mode') === 'dark') {
+        document.currentScript.insertAdjacentHTML('beforebegin', '<link rel="stylesheet" href="{serendipity_getFile file='admin/styx_dark.min.css'}" type="text/css">');
+      }
+    </script>
 {/if}
     <link id="light-scheme-icon" rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}styx/sty.x.png" type="image/x-icon">
     <link id="dark-scheme-icon" rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}styx/sty.xd.png" type="image/x-icon">
