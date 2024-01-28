@@ -2,6 +2,11 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improved [ styx ] backend theme dark mode conditioning to match browser
+    preferences OR storage sets, backend user preferences and (non-) login
+    states for asset loads, icon-schemes, virgin arrivals, Smarty vars and
+    scope. NO JS, NO FUN ! ;-)
+
   * Improved [ styx ] backend theme installation and upgrade pages
 
   * Add a visual icon expression to the non-login-remember not-available mode
