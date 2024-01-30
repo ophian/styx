@@ -2,6 +2,10 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Sync-fixed bug in *_toDateTimeMapper() wrapper for better consistency with
+    old strftime behavior, eg. adding dots to abbreviations to de_DE alike
+    languages.
+
   * Improved [ styx ] backend theme dark mode conditioning to match browser
     preferences OR previously added storage sets, backend user preferences and
     (non-) login states for asset loads, icon-schemes, virgin arrivals, Smarty
