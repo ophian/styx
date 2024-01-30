@@ -396,9 +396,9 @@ function serendipity_toDateTimeMapper(string $format, $timestamp = null, ?string
 	$locale = substr((string) $locale, 0, 5);
 
 	$intl_formats = [
-		'%a' => 'EEE',	// An abbreviated textual representation of the day	Sun through Sat (sadly adding ,. in [de] see below)
+		'%a' => 'ccc',	// An abbreviated textual representation of the day	Sun through Sat
 		'%A' => 'EEEE',	// A full textual representation of the day	Sunday through Saturday
-		'%b' => 'MMM',	// Abbreviated month name, based on the locale	Jan through Dec
+		'%b' => 'LLL',	// Abbreviated month name, based on the locale	Jan through Dec
 		'%B' => 'MMMM',	// Full month name, based on the locale	January through December
 		'%h' => 'MMM',	// Abbreviated month name, based on the locale (an alias of %b)	Jan through Dec
 	];
