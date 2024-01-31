@@ -356,7 +356,9 @@ function serendipity_validateDate($date, $format = 'Y-m-d') {
 }
 
 /**
- * Convert input entry strftime() dates to use DateTime Interface successor
+ * Convert input entry strftime() dates to use DateTime Interface successor.
+ * strftime is deprecated with PHP 8.1 + and will be removed by PHP 9.
+ * This function is for converting old strftime date data only. Please use the DateTime successor for newer approaches.
  *
  * Locale-formatted strftime using \IntlDateFormatter (PHP 8.1 ++ compatible)
  * This provides a cross-platform alternative to strftime() for when it will be removed from PHP.
