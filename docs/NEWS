@@ -3,7 +3,7 @@ Version 4.x-DEV ()
 
 
   * Improved [ styx ] backend theme to implement expandable hooked plugins into
-    the backend sidebar, to collapse/expand non-core plugins on demand, since
+    the backend sidebar, to expand/collapse non-core plugins on demand, since
     they just blow up the sidebars height and are not that often used.
     Currently this works on "entry" and "activity" sidebar sections only.
     All additional plugins have been made ready to support this already.
