@@ -48,6 +48,8 @@ $i18n_unknown = 'tw';
 @define('PLACEMENT', '位址');
 @define('DELETE', '刪除');
 @define('SAVE', '儲存');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', '上');
 @define('DOWN', '下');
 @define('ENTRIES', '文章');

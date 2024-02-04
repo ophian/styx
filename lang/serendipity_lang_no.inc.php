@@ -43,6 +43,8 @@
 @define('DESCRIPTION', 'Beskrivelse');
 @define('PLACEMENT', 'Plassering');
 @define('DELETE', 'Slett');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', 'OPP');
 @define('DOWN', 'NED');
 @define('ENTRIES', 'artikler');

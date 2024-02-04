@@ -45,6 +45,8 @@
 @define('PLACEMENT', 'தெரியுமிடம்');
 @define('DELETE', 'அகற்றுக');
 @define('SAVE', 'சேமிக்க');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', 'மேல்செல்க');
 @define('DOWN', 'கீழ்செல்க');
 @define('ENTRIES', 'குறிப்புகள்');

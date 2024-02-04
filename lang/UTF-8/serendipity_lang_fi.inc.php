@@ -46,6 +46,8 @@
 @define('PLACEMENT', 'Sijainti');
 @define('DELETE', 'Poista');
 @define('SAVE', 'Talleta');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', 'YLÖS');
 @define('DOWN', 'ALAS');
 @define('ENTRIES', 'Merkinnät');

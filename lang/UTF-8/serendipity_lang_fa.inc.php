@@ -47,6 +47,8 @@
 @define('PLACEMENT', 'گماشتن');
 @define('DELETE', 'حذف');
 @define('SAVE', 'ذخیره');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', 'بالا');
 @define('DOWN', 'پایین');
 @define('ENTRIES', 'ارسال');

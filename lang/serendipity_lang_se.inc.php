@@ -46,6 +46,8 @@
 @define('PLACEMENT', 'Placering');
 @define('DELETE', 'Ta bort');
 @define('SAVE', 'Spara');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', 'UPP');
 @define('DOWN', 'NER');
 @define('ENTRIES', 'Artiklar');

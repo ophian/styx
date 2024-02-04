@@ -47,6 +47,8 @@
 @define('PLACEMENT', 'Yerleştir');
 @define('DELETE', 'Sil');
 @define('SAVE', 'Kaydet');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', 'Yukarı');
 @define('DOWN', 'Aşağı');
 @define('ENTRIES', 'Kayıtlar');

@@ -46,6 +46,8 @@
 @define('PLACEMENT', 'Elhelyezés');
 @define('DELETE', 'Töröl');
 @define('SAVE', 'Mentés');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', 'FEL');
 @define('DOWN', 'LE');
 @define('ENTRIES', 'bejegyzések');

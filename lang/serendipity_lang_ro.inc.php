@@ -47,6 +47,8 @@
 @define('PLACEMENT', 'Plasare');
 @define('DELETE', 'Şterge');
 @define('SAVE', 'Salvează');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', 'SUS');
 @define('DOWN', 'JOS');
 @define('ENTRIES', 'însemnări');

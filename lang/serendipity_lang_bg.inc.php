@@ -47,6 +47,8 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('PLACEMENT', 'Разположение');
 @define('DELETE', 'Изтриване');
 @define('SAVE', 'Запис');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', 'Нагоре');
 @define('DOWN', 'Надолу');
 @define('ENTRIES', 'Статии:');

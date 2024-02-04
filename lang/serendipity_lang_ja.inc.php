@@ -46,6 +46,8 @@
 @define('PLACEMENT', '配置');
 @define('DELETE', '削除');
 @define('SAVE', '保存する');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', '上へ');
 @define('DOWN', '下へ');
 @define('ENTRIES', 'エントリー');

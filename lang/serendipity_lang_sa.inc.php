@@ -46,6 +46,8 @@
 @define('PLACEMENT', 'ÊÚííä');
 @define('DELETE', 'ÍĞİ');
 @define('SAVE', 'ÍİÙ');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', 'ÃÚáì');
 @define('DOWN', 'ÃÓİá');
 @define('ENTRIES', 'ÇáãæÖæÚ');

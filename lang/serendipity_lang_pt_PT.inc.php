@@ -49,6 +49,8 @@
 @define('PLACEMENT', 'Localização');
 @define('DELETE', 'Apagar');
 @define('SAVE', 'Guardar');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', 'Para cima');
 @define('DOWN', 'Para baixo');
 @define('ENTRIES', 'Artigos:');

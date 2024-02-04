@@ -60,6 +60,8 @@ $i18n_filename_to = array (
 @define('PLACEMENT', 'Umístění');
 @define('DELETE', 'Vymazat');
 @define('SAVE', 'Uložit');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', 'Nahoru');
 @define('DOWN', 'Dolů');
 @define('ENTRIES', 'záznamy');

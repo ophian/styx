@@ -48,6 +48,8 @@
 @define('PLACEMENT', '地址');
 @define('DELETE', '删除');
 @define('SAVE', '保存');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', '上');
 @define('DOWN', '下');
 @define('ENTRIES', '文章管理');

@@ -47,6 +47,8 @@
 @define('PLACEMENT', '위치');
 @define('DELETE', '삭제');
 @define('SAVE', '저장');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', '위로');
 @define('DOWN', '아래로');
 @define('ENTRIES', '블로그 글');

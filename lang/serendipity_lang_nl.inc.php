@@ -49,6 +49,8 @@
 @define('DESCRIPTION', 'Beschrijving');
 @define('PLACEMENT', 'Placement');
 @define('DELETE', 'Verwijderen');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', 'OP');
 @define('DOWN', 'NEER');
 @define('ENTRIES', 'artikelen');

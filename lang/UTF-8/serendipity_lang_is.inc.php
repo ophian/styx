@@ -46,6 +46,8 @@
 @define('PLACEMENT', 'Staðsetning');
 @define('DELETE', 'Eyða');
 @define('SAVE', 'Vista');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', 'Upp');
 @define('DOWN', 'Niður');
 @define('ENTRIES', 'færslur');

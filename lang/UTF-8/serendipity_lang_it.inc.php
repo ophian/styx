@@ -47,6 +47,8 @@
 @define('PLACEMENT', 'Posizionamento');
 @define('DELETE', 'Cancella');
 @define('SAVE', 'Salva');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', 'SU');
 @define('DOWN', 'GIU`');
 @define('ENTRIES', 'notizie');

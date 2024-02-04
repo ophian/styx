@@ -49,6 +49,8 @@
 @define('PLACEMENT', 'Emplacement');
 @define('DELETE', 'Supprimer');
 @define('SAVE', 'Enregistrer');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', '+HAUT');
 @define('DOWN', '+BAS');
 @define('ENTRIES', 'billets');

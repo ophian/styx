@@ -46,6 +46,8 @@
 @define('PLACEMENT', 'تعيين');
 @define('DELETE', 'حذف');
 @define('SAVE', 'حفظ');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', 'أعلى');
 @define('DOWN', 'أسفل');
 @define('ENTRIES', 'الموضوع');

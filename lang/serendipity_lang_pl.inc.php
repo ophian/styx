@@ -47,6 +47,8 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('PLACEMENT', 'Strona');
 @define('DELETE', 'Usuñ');
 @define('SAVE', 'Zapis');
+@define('OPEN', 'Open');
+@define('CLOSE', 'Close');
 @define('UP', 'Góra');
 @define('DOWN', 'Dó³');
 @define('ENTRIES', 'wpisy');
