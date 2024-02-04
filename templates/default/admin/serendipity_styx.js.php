@@ -2206,3 +2206,57 @@ $(function() {
         $('#plugin_options div.plugin_info.tgroup_info').toggleClass('additional_info');
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const bool=(v)=>v=='true' ? true : false;
+
+    const clickhandler=function(e){
+        this.setAttribute('aria-expanded', !bool(this.ariaExpanded));
+
+        let pnode = this.closest('ul'); // = get this.parentNode.parentNode.parentNode;
+        let lex = document.querySelectorAll('#'+pnode.id+' .list-flex');
+        let first = this.firstElementChild;
+        let next = this.lastElementChild;
+
+        if (first.className == 'open') {
+            first.className = 'hide';
+            // working on multi li.list-flex elements
+            for (i=0; i < lex.length; i++) {
+                lex[i].classList.remove('ease-out');
+                lex[i].classList.add('ease-in');
+                lex[i].removeAttribute('style');
+            }
+        } else {
+            first.className = 'open';
+            // working on multi li.list-flex elements
+            for (i=0; i < lex.length; i++) {
+                lex[i].classList.remove('ease-in');
+                lex[i].classList.add('ease-out');
+            }
+        }
+
+        if (next.className == 'open') {
+            next.className = 'hide';
+        } else {
+            next.className = 'open';
+        }
+
+        if (pnode.id == 'entry_hooks' || pnode.id == 'activity_hooks') {
+            let anim_in = document.querySelectorAll('#'+pnode.id+' .list-flex.ease-in');
+            let anim_out = document.querySelectorAll('#'+pnode.id+' .list-flex.ease-out');
+
+            for (i=0; i < anim_in.length; i++) {
+                anim_in[i].classList.remove('ao')
+                anim_in[i].offsetWidth
+                anim_in[i].classList.add('ai')
+            }
+            for (i=0; i < anim_out.length; i++) {
+                anim_out[i].classList.remove('ai')
+                anim_out[i].offsetWidth
+                anim_out[i].classList.add('ao')
+            }
+        }
+    }
+    document.querySelectorAll('#entry_hooks .expandable-group > .ex > button').forEach(btn=>btn.addEventListener('click',clickhandler));
+    document.querySelectorAll('#activity_hooks .expandable-group > .ex > button').forEach(btn=>btn.addEventListener('click',clickhandler));
+});
