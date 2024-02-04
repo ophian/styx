@@ -2257,6 +2257,23 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     }
-    document.querySelectorAll('#entry_hooks .expandable-group > .ex > button').forEach(btn=>btn.addEventListener('click',clickhandler));
-    document.querySelectorAll('#activity_hooks .expandable-group > .ex > button').forEach(btn=>btn.addEventListener('click',clickhandler));
+
+    // count delivered elements
+    const ct_eh = document.querySelectorAll('#entry_hooks .list-flex').length;
+    const ct_ah = document.querySelectorAll('#activity_hooks .list-flex').length;
+
+    if (ct_eh > 1) {
+        document.querySelectorAll('#entry_hooks .expandable-group > .ex > button').forEach(btn=>btn.addEventListener('click',clickhandler));
+    } else {
+        // reset the hidden sets and the toggle
+        document.querySelectorAll('#entry_hooks .list-flex:not(.ease-in,.ease-out)').forEach(lst=>lst.className = 'remain-flex');
+        document.querySelector('#entry_hooks .expandable-group').remove();
+    }
+    if (ct_ah > 1) {
+        document.querySelectorAll('#activity_hooks .expandable-group > .ex > button').forEach(btn=>btn.addEventListener('click',clickhandler));
+    } else {
+        // reset the hidden sets and the toggle
+        document.querySelectorAll('#activity_hooks .list-flex:not(.ease-in,.ease-out)').forEach(lst=>lst.className = 'remain-flex');
+        document.querySelector('#activity_hooks .expandable-group').remove();
+    }
 });
