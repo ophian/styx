@@ -2125,6 +2125,12 @@ html[data-login-color-mode="dark"], [data-login-color-mode="dark"] button, [data
     width: auto;
 }
 
+/* default setting for mobiles until 1024px width regarding expandable hooked plugins */
+#main_menu li > .flex-inside, #main_menu li.expandable-group{
+  display: none;
+  visibility: hidden;
+}
+
 /* CONTENT */
 #content {
     padding-bottom: 1.5em;
@@ -5468,6 +5474,87 @@ img.mfp-img {
         position: static;
         left: 0;
         width: 23%;
+    }
+
+    /* hooked plugins expandable */
+    .js #main_menu li.expandable-group {
+      width: 50%;
+      margin-left: auto;
+      margin-right: 0;
+      display: list-item;
+      visibility: visible;
+    }
+    .js #main_menu li > .flex-inside {
+      margin-top: -1.75em;
+      margin-right: -.75em;
+      margin-bottom: .5em;
+      justify-content: space-between;
+      align-items: baseline;
+      display: flex;
+      visibility: visible;
+      background: linear-gradient(#fcfcfc, #fcfcfc) padding-box,
+                  linear-gradient(to right, #fcfcfc, #d7d7d7) border-box;
+      border-bottom: 1px solid transparent;
+    }
+    .js #main_menu .expandable {
+      display: inline-block;
+      overflow: visible;
+      vertical-align: text-bottom;
+    }
+    .js #main_menu div.flex-inside > button.btn-expander {
+      background: none;
+      border: 0 none;
+      margin-left: auto;
+      margin-right: 0;
+      border-radius: unset;
+      padding: 0;
+    }
+    .js #main_menu div.flex-inside > button.btn-expander:active, .js #main_menu div.flex-inside > button.btn-expander:focus,
+    .js #main_menu div.flex-inside > button.btn-expander > span:active, .js #main_menu div.flex-inside > button.btn-expander > span:focus {
+      box-shadow: none;
+      text-shadow: unset;
+      outline: 0;
+      background-image: none;
+    }
+    /* default: not expanded on startup */
+    .js #main_menu .list-flex:not(.ease-in,.ease-out) {
+      display: none;
+    }
+    .js #main_menu .list-flex.ease.in {
+      display: flex;
+    }
+    .js #main_menu .flex-column-1 {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .js #main_menu [aria-expanded="false"] span.hide, .js #main_menu span.hide {
+      display:none;
+    }
+    .js #main_menu [aria-expanded="true"] span.open {
+      display:block;
+    }
+    .js #main_menu .list-flex.ease-out { display: none; }
+    .js #main_menu #entry_hooks .list-flex.ease-out.ao { animation: ease-in 1500ms ease-out both; }
+    .js #main_menu #entry_hooks .list-flex.ease-in.ai { animation: ease-out 600ms ease-in both; }
+    .js #main_menu #activity_hooks .list-flex.ease-out.ao { animation: ease-in 1500ms ease-out both; }
+    .js #main_menu #activity_hooks .list-flex.ease-in.ai { animation: ease-out 600ms ease-in both; }
+    @-webkit-keyframes ease-in {
+      0% { -webkit-transform: scale(0) rotate(12deg); opacity: 0; visibility: hidden; }
+      100% { -webkit-transform: scale(1) rotate(0); opacity: 1; visibility: visible; }
+    }
+    @keyframes ease-in {
+      0% { transform: scale(0) rotate(12deg); opacity: 0; visibility: hidden;  }
+      100% { transform: scale(1) rotate(0); opacity: 1; visibility: visible; }
+    }
+    @-webkit-keyframes ease-out {
+      0% { -webkit-transform: scale(1) rotate(0); opacity: 1; visibility: visible; }
+      100% { -webkit-transform: scale(0) rotate(-12deg); opacity: 0; visibility: hidden; }
+    }
+    @keyframes ease-out {
+      0% { transform: scale(1) rotate(0); opacity: 1; visibility: visible }
+      100% { transform: scale(0) rotate(-12deg); opacity: 0; visibility: hidden; }
     }
 
     #nav-toggle {
