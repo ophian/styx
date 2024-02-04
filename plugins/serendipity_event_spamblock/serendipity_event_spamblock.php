@@ -1602,8 +1602,8 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                     $eventData['action_referer'] = $eventData['action_referer'] ?? null;
                     break;
 /*
-                case 'backend_sidebar_admin': // this is section: settings - append
-                    echo '<li><a href="serendipity_admin.php?serendipity[adminModule]=plugins&amp;serendipity[plugin_to_conf]=' . $this->instance . '">' . PLUGIN_EVENT_SPAMBLOCK_TITLE . "</a></li>\n";
+                case 'backend_sidebar_admin': // this is section: settings - append [ disabled ,for the move into comments ]
+                    echo '<li><a href="serendipity_admin.php?serendipity[adminModule]=plugins&amp;serendipity[plugin_to_conf]=' . $this->instance . '">' . PLUGIN_EVENT_SPAMBLOCK_TITLE . "</a></div></li>\n";
                     break;
 */
                 default:
