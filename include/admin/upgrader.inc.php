@@ -727,8 +727,6 @@ if (($showAbort && $serendipity['GET']['action'] == 'ignore') || $serendipity['G
 
     if ($serendipity['GET']['action'] == 'ignore') {
         $data['ignore'] = true;
-    } elseif ($serendipity['GET']['action'] == 'upgrade') {
-        // void
     }
     $data['return_here'] = true;
     $data['print_UPGRADER_RETURN_HERE'] = sprintf(SERENDIPITY_UPGRADER_RETURN_HERE, '<a href="'. $serendipity['serendipityHTTPPath'] .'">', '</a>');
