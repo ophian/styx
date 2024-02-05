@@ -99,7 +99,7 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
                     $hide_hashes[] = $hash;
                     $aha = md5("{$author}{$hash}");
                     if ($hash != '0') {
-                        // delete the sysinfo_ticker hash message item from database. It will be renewed in the fnc serendipity_sysinfo_ticker() unless being marked as read checked and stored hashes.
+                        // delete the sysinfo_ticker hash message item from database. It will be renewed in the fnc serendipity_sysInfoTicker() unless being marked as read checked and stored hashes.
                         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE name = 'sysinfo_ticker' AND okey = 'l_sysinfo_{$aha}' AND value = '$hash'");
                         $store_message = true;
                     }
@@ -150,7 +150,7 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
         }
 
         // read the ticker for new - but if already having been stored send previously-stored-hash-values to xml readout to exclude
-        $data['sysinfo'] = serendipity_sysinfo_ticker(true, $author, $pshv); // yes check-it !
+        $data['sysinfo'] = serendipity_sysInfoTicker(true, $author, $pshv); // yes check-it !
     }
 }
 
