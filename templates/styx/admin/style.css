@@ -2061,6 +2061,9 @@ html[data-login-color-mode="dark"], [data-login-color-mode="dark"] button, [data
 [data-login-color-mode="dark"] #meta {
     border-top-color: var(--color-border-primary);
 }
+[data-login-color-mode="dark"] #meta p {
+    color: var(--color-text-placeholder);
+}
 
 
 /* NAVIGATION */
