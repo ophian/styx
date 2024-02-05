@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC . (isset($serendipity['GET']['plugin_to_conf']) ? ' ' . PLUGIN_EVENT_ENTRYPROPERTIES_DESC_PLUS : ''));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.93');
+        $propbag->add('version',       '1.92');
         $propbag->add('requirements',  array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -332,7 +332,7 @@ class serendipity_event_entryproperties extends serendipity_event
         <form action="'.$url.'" method="post" id="entrypasswordform">
             <div>
                 <span><label for="entrypassword">' . PASSWORD . ':</label> <input class="input_textbox" id="entrypassword" type="password" name="serendipity[entrypassword]" autocomplete="off" value="" /></span>
-                <span><input class="input_button" type="submit" name="login" value="'.LOGIN.'" /></span>
+                <span><input class="serendipityPrettyButton input_button" type="submit" name="login" value="'.LOGIN.'" /></span>
             </div>
         </form>';
 
