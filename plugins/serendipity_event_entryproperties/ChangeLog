@@ -1,3 +1,7 @@
+1.93:
+-----
+    * Remove an outdated selector usage
+
 1.92:
 -----
     * Move customfield info to additional button box
