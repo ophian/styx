@@ -1,3 +1,7 @@
+1.92:
+-----
+    * Move customfield info to additional button box
+
 1.91:
 -----
     * Refactor HTML element ID selector usage in entry edit fieldset for uniqueness
