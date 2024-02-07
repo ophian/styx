@@ -436,7 +436,7 @@ if (is_array($sql)) {
             // When summary is not the full body, strip any HTML tags from summary, as it might break and leave unclosed HTML.
             if ($serendipity['allowHtmlComment']) {
                 $_summary = htmlspecialchars(str_replace('  ', ' ', strip_tags($comment['summary'])), ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, LANG_CHARSET, false);
-                $stripped = ($comment['summary'] != $_summary) ? true : false;
+                #$stripped = ($comment['summary'] != $_summary) ? true : false;
                 $comment['summary']  = $_summary;
                 $comment['fullBody'] = $is_html ? $comment['fullBody'] : nl2br($comment['fullBody']);
             } else {
