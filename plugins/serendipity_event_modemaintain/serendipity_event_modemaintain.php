@@ -328,7 +328,7 @@ class serendipity_event_modemaintain extends serendipity_event
     height: 3.25rem;
     vertical-align: middle;
     padding: .75rem 0;
-    fill: #8c8c8c;
+    fill: #a8a8a8;
 }
 ';
                     break;
