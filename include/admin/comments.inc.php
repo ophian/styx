@@ -7,7 +7,7 @@ if (IN_serendipity !== true) {
 $data = array();
 
 $commentsPerPage = (int)(!empty($serendipity['GET']['filter']['perpage']) ? $serendipity['GET']['filter']['perpage'] : 10);
-$summaryLength = 118;
+$summaryLength = 112;
 
 $errormsg = '';
 $msg = '';
