@@ -2,6 +2,9 @@ Version 4.x-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Trying to fix *_sysInfoTicker() hidden stored notifications suddenly
+    reappearing on some servers after time.
+
   * Improved [ styx ] backend theme to implement expandable hooked plugins into
     the backend sidebar, to expand/collapse non-core plugins on demand, since
     they just blow up the sidebars height and are not that often used.
