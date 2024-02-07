@@ -2411,13 +2411,6 @@ function serendipity_sysInfoTicker(bool $check = false, string $whoami = '', arr
                 trigger_error('Error: The URL for the remote ticker could not be opened (' . $t->getMessage() . '), nor has a callback file been created yet. There may be server or network problems.', E_USER_ERROR);
             }
         }
-        // add fallback
-        if (is_string($xmlstr) && !empty($xmlstr)) {
-            if (! file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/sysnotes')) {
-                mkdir($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/sysnotes');
-            }
-            file_put_contents($target, $xmlstr, LOCK_EX);
-        }
 
         // check the remote file string
         if (is_string($xmlstr) && !empty($xmlstr)) {
@@ -2443,6 +2436,13 @@ function serendipity_sysInfoTicker(bool $check = false, string $whoami = '', arr
                 }
             }
             if (!empty($xml)) {
+                // add fallback target
+                if (is_string($xmlstr) && !empty($xmlstr)) {
+                    if (! file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/sysnotes')) {
+                        mkdir($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/sysnotes');
+                    }
+                    file_put_contents($target, $xmlstr, LOCK_EX);
+                }
                 return $xml; // escape is done in template
             }
         }
