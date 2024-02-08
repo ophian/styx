@@ -1,7 +1,8 @@
-Version 4.x-DEV ()
+Version 4.4-DEV ()
  ------------------------------------------------------------------------
 
 
+  [ 4.4-beta1 ]
   * Trying to fix *_sysInfoTicker() hidden stored notifications suddenly
     reappearing on some servers after time.
 
