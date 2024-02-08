@@ -9,6 +9,9 @@
         document.documentElement.className = 'js';
         if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.setAttribute('data-color-mode', 'dark');
+            document.currentScript.insertAdjacentHTML('afterend', '<link id="dark-scheme-icon" rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}styx/sty.xd.png" type="image/x-icon">')
+        } else {
+            document.currentScript.insertAdjacentHTML('afterend', '<link id="light-scheme-icon" rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}styx/sty.x.png" type="image/x-icon">')
         }
     </script>
 </head>
