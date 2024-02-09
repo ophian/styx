@@ -54,9 +54,7 @@
 {if $cdesc != ''}
                             <span id="nuggets{$elcount}_info" class="field_info additional_info">{$cdesc}</span>
 {/if}
-                            <textarea id="nuggets{$elcount}" class="direction_{$lang_direction} nuggtype_{$ctype}" name="serendipity[{$postKey}][{$config_item}]" rows="{$text_rows}">
-{$hvalue}
-                            </textarea>
+                            <textarea id="nuggets{$elcount}" class="direction_{$lang_direction} nuggtype_{$ctype}" name="serendipity[{$postKey}][{$config_item}]" rows="{$text_rows}">{$hvalue}</textarea>
                         </div>
 {elseif $ctype == 'content'}
 
