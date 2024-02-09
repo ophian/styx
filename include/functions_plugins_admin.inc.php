@@ -307,7 +307,7 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
         $data['ctype']           = $ctype = $cbag->get('type');
 
         $data['elcount']     = $elcount;
-        $data['hvalue']      = $hvalue;
+        $data['hvalue']      = trim($hvalue);
         $data['postKey']     = $_postKey;
         $data['config_item'] = $config_item;
         // implement double tab (8 space) indent for configuration group items for the plugin_config_item.tpl file
