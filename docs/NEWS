@@ -22,6 +22,13 @@ Version 4.4-DEV ()
     preferences OR previously added storage sets, backend user preferences and
     (non-) login states for asset loads, icon-schemes, virgin arrivals, Smarty
     vars and scope. NO JS, NO FUN ! ;-)
+    NOTE: Fresh Styx installs with browser matching "prefers-color-scheme"
+          preferences turning the backend dark by default, must still set the
+          $serendipity['dark_mode'] configuration option in their personal
+          preferences to set certain depending backend conditions true, like
+          the spamblock plugin dark captchas example, and other additional
+          plugin conditions which need this option. This extended listener on
+          browser-preferences is just for convenient experience on edge cases.
 
   * Improved [ styx ] backend theme installation and upgrade pages
 
