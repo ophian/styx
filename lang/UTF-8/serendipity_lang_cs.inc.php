@@ -103,7 +103,8 @@ $i18n_filename_to = array (
 @define('ERROR_FILE_EXISTS_ALREADY', 'Chyba: Soubor už ve vašem počítači existuje!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Neznámá chyba, soubor nebyl nahrán. Je možné, že délka souboru překračuje maximum, povolené serverem. Spojte se s vaším ISP nebo editujte soubor php.ini a povolte větší velikost.');
 @define('NOT_AVAILABLE', 'N/A'); // short!
-@define('MANDATORY', '[ Mandatory ]');
+@define('MANDATORY', '[ mandatory ]');
+@define('OPTIONAL', '[ optional ]');
 @define('GO', 'Provést!');
 @define('NEWSIZE', 'Nový rozměr: ');
 @define('RESIZE_BLAHBLAH', 'Změnit rozměr %s');

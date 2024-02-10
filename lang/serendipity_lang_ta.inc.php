@@ -88,7 +88,8 @@
 @define('ERROR_FILE_EXISTS_ALREADY', 'Error: File already exists on your machine!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Unknown error occurred, file not uploaded. Maybe your filesize is larger than the maximum size allowed by your server installation. Check with your ISP or edit your php.ini file to allow larger file size uploads.');
 @define('NOT_AVAILABLE', 'N/A'); // short!
-@define('MANDATORY', '[ Mandatory ]');
+@define('MANDATORY', '[ mandatory ]');
+@define('OPTIONAL', '[ optional ]');
 @define('GO', 'செயல்படுத்துக!');
 @define('NEWSIZE', 'New size: ');
 @define('RESIZE_BLAHBLAH', 'Resize %s');

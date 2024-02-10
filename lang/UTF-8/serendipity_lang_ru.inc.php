@@ -90,7 +90,8 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('ERROR_FILE_EXISTS_ALREADY', 'Ошибка: Файл уже существует на вашем компьютере!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Произошла неизвестная ошибка, файл не был загружен. Возможно, размер вашего файл превысил допустивый максимальный размер, разрешённый на вашем сервере. Сверьтесь с вашим провайдером, или отредактируйте ваш файл php.ini чтобы позволить загрузку на сервер файлов большего размера.');
 @define('NOT_AVAILABLE', 'N/A'); // short!
-@define('MANDATORY', '[ Mandatory ]');
+@define('MANDATORY', '[ mandatory ]');
+@define('OPTIONAL', '[ optional ]');
 @define('GO', 'Давай!');
 @define('NEWSIZE', 'Новый размер: ');
 @define('RESIZE_BLAHBLAH', 'Изменить размеры %s');
