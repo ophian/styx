@@ -1836,6 +1836,10 @@ ul.edit_actions li > .user_level {
     visibility: hidden;
 }
 
+.user_action_state {
+    display: initial;
+}
+
 #image_directory_create_form .form_field input,
 #image_directory_create_form .form_select select {
     min-width: 12em;
