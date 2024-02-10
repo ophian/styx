@@ -142,7 +142,7 @@
     {$formtoken}
     <div class="form_check">
         <input id="diredit_delete" name="serendipity[nuke]" type="checkbox" value="true">
-        <label for="diredit_delete"><b>{$basename_dir}</b> - {$CONST.FORCE_DELETE}</label>
+        <label for="diredit_delete"><b>{$basename_dir}</b> - {$CONST.FORCE_DELETE} <span class="user_action_state" title="{$CONST.USER_ACTION} {$CONST.OPTIONAL}"><span class="icon-info-circled" aria-hidden="true"></span></span></label>
     </div>
 
 {* I think this is redundant: <p>{$CONST.CONFIRM_DELETE_DIRECTORY|sprintf:$dir|escape}</p> *}
