@@ -88,6 +88,7 @@
 @define('ERROR_FILE_EXISTS_ALREADY', 'Villa: Skráin er þegar til á vélinni!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Óþekkt villa hefur komið upp, skrá ekki vistuð. Kannski var stærð skráarinnar meiri heldur en hámarksstærðin sem netjónninn skilgreinir. Hafðu samband við þjónustuaðilann þinn eða breytti php.ini skránni til að leyfa stærri skráarflutninga.');
 @define('NOT_AVAILABLE', 'N/A'); // short!
+@define('MANDATORY', '[ Mandatory ]');
 @define('GO', 'Go!');
 @define('NEWSIZE', 'Ný stærð: ');
 @define('RESIZE_BLAHBLAH', 'Breyta stærð %s');

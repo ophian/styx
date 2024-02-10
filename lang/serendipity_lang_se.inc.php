@@ -88,6 +88,7 @@
 @define('ERROR_FILE_EXISTS_ALREADY', 'Fel: Filen finns redan i din dator!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Ett okänt fel inträffade och filen laddades inte upp. Filstorleken är kanske större än vad som tillåts av din serverinstallation. Kolla med din tjänsteleverantör eller ändra i filen php.ini för att tillåta uppladdning av större filer.');
 @define('NOT_AVAILABLE', 'N/A'); // short!
+@define('MANDATORY', '[ Mandatory ]');
 @define('GO', 'Kör!');
 @define('NEWSIZE', 'Ny storlek: ');
 @define('RESIZE_BLAHBLAH', 'Ändra storlek på %s');

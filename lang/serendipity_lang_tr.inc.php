@@ -90,6 +90,7 @@
 @define('ERROR_FILE_EXISTS_ALREADY', 'Hata: Dosya bilgisayarınızda zaten mevcut!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Bilinmeyen hata oluştu, dosya yüklenemedi.Dosyanız sunucunuzda izin verilen boyuttan daha büyük olabilir.Servis sağlayıcınızdan araştırın ya da php.ini dosyanızı daha büyük boyutta dosya yüklenmesine izin verecek şekilde ayarlayın.');
 @define('NOT_AVAILABLE', 'N/A'); // short!
+@define('MANDATORY', '[ Mandatory ]');
 @define('GO', 'Git!');
 @define('NEWSIZE', 'Yeni boyut: ');
 @define('RESIZE_BLAHBLAH', 'Yeniden boyutlandır %s');

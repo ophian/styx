@@ -90,6 +90,7 @@
 @define('THUMB_CREATED_DONE', 'Miniature %s créee.<br>Terminé.'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', 'Erreur : le fichier existe déjà sur votre machine.');
 @define('NOT_AVAILABLE', 'N/A'); // short!
+@define('MANDATORY', '[ Mandatory ]');
 @define('GO', 'Go!');
 @define('NEWSIZE', 'Nouvelle taille : ');
 @define('RESIZE_BLAHBLAH', 'Redimensionner %s');
