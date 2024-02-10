@@ -336,7 +336,6 @@
 @define('MANAGE_DIRECTORIES', '디렉토리 관리');
 @define('DIRECTORY_CREATED', '디렉토리 <strong>%s</strong>(이)가 생성되었습니다.');
 @define('PARENT_DIRECTORY', '상위 디렉토리');
-@define('CONFIRM_DELETE_DIRECTORY', '디렉토리 %s에 포함된 모든 내용을 삭제하겠습니까?');
 @define('ERROR_NO_DIRECTORY', '오류: 디렉토리 %s(이)가 존재하지 않습니다');
 @define('CHECKING_DIRECTORY', '디렉토리 %s 내의 파일 점검 중');
 @define('DELETING_FILE', '파일 %s 삭제 중...');

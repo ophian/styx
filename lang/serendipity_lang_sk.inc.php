@@ -349,7 +349,6 @@ $i18n_filename_to = array (
 @define('MANAGE_DIRECTORIES', 'Spravova» prieèinky');
 @define('DIRECTORY_CREATED', 'Prieèinok <strong>%s</strong> bol vytvorený.');
 @define('PARENT_DIRECTORY', 'Nadradený prieèinok');
-@define('CONFIRM_DELETE_DIRECTORY', 'Naozaj chcete odstráni» v¹etok obsah prieèinka <strong>%s</strong>?');
 @define('ERROR_NO_DIRECTORY', 'Chyba: prieèinok <strong>%s</strong> neexistuje.');
 @define('CHECKING_DIRECTORY', 'Kontrola súborov v prieèinku \'%s\'');
 @define('DELETING_FILE', 'Zmazanie súboru \'%s\'...');

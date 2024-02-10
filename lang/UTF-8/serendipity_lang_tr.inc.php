@@ -336,7 +336,6 @@
 @define('MANAGE_DIRECTORIES', 'Dizinleri Yönet');
 @define('DIRECTORY_CREATED', 'Dizin <strong>%s</strong> oluşturuldu.');
 @define('PARENT_DIRECTORY', 'Alt dizin');
-@define('CONFIRM_DELETE_DIRECTORY', 'Dizini tüm içeriğiyle kaldırmak istediğinizden emin misiniz %s?');
 @define('ERROR_NO_DIRECTORY', 'Hata: Dizin %s mevcut değil');
 @define('CHECKING_DIRECTORY', 'Dizindeki dosyaları kontrol edin %s');
 @define('DELETING_FILE', 'Dosya siliniyor %s...');

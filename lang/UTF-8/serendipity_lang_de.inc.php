@@ -317,7 +317,6 @@
 @define('MANAGE_DIRECTORIES', 'Verzeichnisse verwalten');
 @define('DIRECTORY_CREATED', 'Verzeichnis <strong>%s</strong> wurde angelegt.');
 @define('PARENT_DIRECTORY', 'Stammverzeichnis');
-@define('CONFIRM_DELETE_DIRECTORY', 'Wirklich alle Inhalte von Verzeichnis <strong>%s</strong> löschen?');
 @define('ERROR_NO_DIRECTORY', 'Fehler: Verzeichnis <strong>%s</strong> existiert nicht.');
 @define('CHECKING_DIRECTORY', 'Prüfe Dateien im Verzeichnis \'%s\' ...');
 @define('DELETING_FILE', 'Lösche Datei \'%s\' ...');

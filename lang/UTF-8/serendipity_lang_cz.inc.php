@@ -351,7 +351,6 @@ $i18n_filename_to = array (
 @define('MANAGE_DIRECTORIES', 'Práce s adresáři');
 @define('DIRECTORY_CREATED', 'Adresář <strong>%s</strong> byl vytvořen.');
 @define('PARENT_DIRECTORY', 'Základní adresář');
-@define('CONFIRM_DELETE_DIRECTORY', 'Jste si jist, že chcete odstranit všechen obsah adresáře %s?');
 @define('ERROR_NO_DIRECTORY', 'Chyba: Adresář %s neexistuje');
 @define('CHECKING_DIRECTORY', 'Kontrola souborů v adresáři %s');
 @define('DELETING_FILE', 'Vymazání souboru %s...');

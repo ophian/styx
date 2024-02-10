@@ -334,7 +334,6 @@
 @define('MANAGE_DIRECTORIES', 'Sýsla með möppur');
 @define('DIRECTORY_CREATED', 'Mappan <strong>%s</strong> hefur verið búin til.');
 @define('PARENT_DIRECTORY', 'Yfirmappa');
-@define('CONFIRM_DELETE_DIRECTORY', 'Ertu viss um að þú viljir fjarlægja allt innihald möppunnar %s?');
 @define('ERROR_NO_DIRECTORY', 'Villa: Mappan %s er ekki til');
 @define('CHECKING_DIRECTORY', 'Athuga skrár í möppu %s');
 @define('DELETING_FILE', 'Eyði skrá %s...');

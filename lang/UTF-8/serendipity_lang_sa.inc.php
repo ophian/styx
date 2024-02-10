@@ -336,7 +336,6 @@
 @define('MANAGE_DIRECTORIES', 'إدارة المجلدات');
 @define('DIRECTORY_CREATED', 'المجلد <strong>%s</strong> تم انشاءة');
 @define('PARENT_DIRECTORY', 'المجلد الرئيسي أو الاب');
-@define('CONFIRM_DELETE_DIRECTORY', 'هل انت متأكد من نقل جميع محتويات المجلد  %s?');
 @define('ERROR_NO_DIRECTORY', 'خطأ: لم يتم إدخال المجلد %s ');
 @define('CHECKING_DIRECTORY', 'تفحص الملفات في المجلد %s ');
 @define('DELETING_FILE', 'حذف الملف %s ...');

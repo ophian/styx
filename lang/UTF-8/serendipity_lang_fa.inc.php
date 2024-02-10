@@ -335,7 +335,6 @@
 @define('MANAGE_DIRECTORIES', 'مدیریت شاخه ها');
 @define('DIRECTORY_CREATED', 'شاخه <strong>%s</strong> ساخته شد.');
 @define('PARENT_DIRECTORY', 'شاخه پدر');
-@define('CONFIRM_DELETE_DIRECTORY', 'آیا مایلید تمام محتویات شاخه %s را حذف کنید؟');
 @define('ERROR_NO_DIRECTORY', 'خطا: شاخه %s وجود ندارد');
 @define('CHECKING_DIRECTORY', 'بررسی فایل های داخل شاخه %s');
 @define('DELETING_FILE', 'حذف فایل %s...');

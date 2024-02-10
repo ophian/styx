@@ -336,7 +336,6 @@ $i18n_unknown = 'tw';
 @define('MANAGE_DIRECTORIES', '管理目錄');
 @define('DIRECTORY_CREATED', '目錄 <strong>%s</strong> 已經新增.');
 @define('PARENT_DIRECTORY', '母目錄');
-@define('CONFIRM_DELETE_DIRECTORY', '確定要刪除這個目錄內的全部內容嗎 %s?');
 @define('ERROR_NO_DIRECTORY', '錯誤: 目錄 %s 不存在');
 @define('CHECKING_DIRECTORY', '檢查此目錄的檔案 %s');
 @define('DELETING_FILE', '刪除檔案 %s...');

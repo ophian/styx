@@ -336,7 +336,6 @@
 @define('MANAGE_DIRECTORIES', '管理目录');
 @define('DIRECTORY_CREATED', '目录 <strong>%s</strong> 已经新增');
 @define('PARENT_DIRECTORY', '主目录');
-@define('CONFIRM_DELETE_DIRECTORY', '确定要删除这个目录内的全部内容 %s');
 @define('ERROR_NO_DIRECTORY', '错误: 目录 %s 不存在');
 @define('CHECKING_DIRECTORY', '检查此目录的文件 %s');
 @define('DELETING_FILE', '删除文件 %s...');

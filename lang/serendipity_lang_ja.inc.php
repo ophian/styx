@@ -334,7 +334,6 @@
 @define('MANAGE_DIRECTORIES', 'ディレクトリー管理');
 @define('DIRECTORY_CREATED', 'ディレクトリー <strong>%s</strong> を作成しました。');
 @define('PARENT_DIRECTORY', '親ディレクトリー');
-@define('CONFIRM_DELETE_DIRECTORY', '本当にディレクトリー %s の内容をすべて削除しますか?');
 @define('ERROR_NO_DIRECTORY', 'エラー: ディレクトリー %s がありません');
 @define('CHECKING_DIRECTORY', 'ディレクトリー %s 内のファイルを調べています');
 @define('DELETING_FILE', 'ファイル %s を削除中...');

@@ -321,7 +321,6 @@
 @define('MANAGE_DIRECTORIES', 'Gerir directorias');
 @define('DIRECTORY_CREATED', 'Directoria <strong>%s</strong> foi criada.');
 @define('PARENT_DIRECTORY', 'Directoria superior');
-@define('CONFIRM_DELETE_DIRECTORY', 'Tem a certeza que quer apagar todo o conteúdo da directoria %s?');
 @define('ERROR_NO_DIRECTORY', 'Erro: A Directoria %s não existe');
 @define('CHECKING_DIRECTORY', 'Verificando arquivos na directoria %s');
 @define('DELETING_FILE', 'Apagando ficheiro %s...');

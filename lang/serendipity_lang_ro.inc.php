@@ -335,7 +335,6 @@
 @define('MANAGE_DIRECTORIES', 'Administrează directoare');
 @define('DIRECTORY_CREATED', 'Am creat directorul <strong>%s</strong>.');
 @define('PARENT_DIRECTORY', 'Director părinte');
-@define('CONFIRM_DELETE_DIRECTORY', 'Eşti sigur că vrei să elimini întregul conţinut al directorului %s?');
 @define('ERROR_NO_DIRECTORY', 'Eroare: Directorul %s nu există');
 @define('CHECKING_DIRECTORY', 'Verific fişierele din directorul %s');
 @define('DELETING_FILE', 'Şterg fişierul %s...');

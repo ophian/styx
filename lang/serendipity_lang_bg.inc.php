@@ -368,7 +368,6 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('MANAGE_DIRECTORIES', 'Управление на директории');
 @define('DIRECTORY_CREATED', 'Създадена е директория <strong>%s</strong>.');
 @define('PARENT_DIRECTORY', 'По-горна директория');
-@define('CONFIRM_DELETE_DIRECTORY', 'Сигурни ли сте, че искате да изтриете цялото съдържание на директорията %s?');
 @define('ERROR_NO_DIRECTORY', 'Грешка: Директорията %s не съществува');
 @define('CHECKING_DIRECTORY', 'Проверка на файловете в директорията %s');
 @define('DELETING_FILE', 'Изтриване на файла %s...');

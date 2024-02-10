@@ -333,7 +333,6 @@
 @define('MANAGE_DIRECTORIES', 'Ylläpidä hakemistoja');
 @define('DIRECTORY_CREATED', 'Hakemisto <strong>%s</strong> on luotu.');
 @define('PARENT_DIRECTORY', 'Hakemistovanhempi');
-@define('CONFIRM_DELETE_DIRECTORY', 'Haluatko todella poistaa hakemiston %s sisältöineen?');
 @define('ERROR_NO_DIRECTORY', 'Virhe: Hakemistoa %s ei ole');
 @define('CHECKING_DIRECTORY', 'Tarkistetaan tiedostoja hakemistossa %s');
 @define('DELETING_FILE', 'Poistetaan tiedostoa %s...');

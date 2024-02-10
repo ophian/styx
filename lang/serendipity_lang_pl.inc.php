@@ -336,7 +336,6 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('MANAGE_DIRECTORIES', 'Katalogi');
 @define('DIRECTORY_CREATED', 'Katalog <strong>%s</strong> zosta³ utworzony.');
 @define('PARENT_DIRECTORY', 'Nadrzêdny katalog');
-@define('CONFIRM_DELETE_DIRECTORY', 'Na pewno usun±æ ca³± zawarto¶æ katalogu %s?');
 @define('ERROR_NO_DIRECTORY', 'B³±d: Katalog %s nie istnieje');
 @define('CHECKING_DIRECTORY', 'Sprawdzanie plików w katalogu %s');
 @define('DELETING_FILE', 'Usuwanie plików %s...');

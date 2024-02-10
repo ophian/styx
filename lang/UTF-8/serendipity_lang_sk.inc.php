@@ -349,7 +349,6 @@ $i18n_filename_to = array (
 @define('MANAGE_DIRECTORIES', 'Spravovať priečinky');
 @define('DIRECTORY_CREATED', 'Priečinok <strong>%s</strong> bol vytvorený.');
 @define('PARENT_DIRECTORY', 'Nadradený priečinok');
-@define('CONFIRM_DELETE_DIRECTORY', 'Naozaj chcete odstrániť všetok obsah priečinka <strong>%s</strong>?');
 @define('ERROR_NO_DIRECTORY', 'Chyba: priečinok <strong>%s</strong> neexistuje.');
 @define('CHECKING_DIRECTORY', 'Kontrola súborov v priečinku \'%s\'');
 @define('DELETING_FILE', 'Zmazanie súboru \'%s\'...');

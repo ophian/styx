@@ -334,7 +334,6 @@
 @define('MANAGE_DIRECTORIES', 'Manage directories');
 @define('DIRECTORY_CREATED', 'Directory <strong>%s</strong> has been created.');
 @define('PARENT_DIRECTORY', 'Parent directory');
-@define('CONFIRM_DELETE_DIRECTORY', 'Are you sure you want to remove all the contents of directory %s?');
 @define('ERROR_NO_DIRECTORY', 'Error: Directory %s does not exist');
 @define('CHECKING_DIRECTORY', 'Checking files in directory %s');
 @define('DELETING_FILE', 'Deleting file %s...');

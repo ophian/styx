@@ -337,7 +337,6 @@
 @define('MANAGE_DIRECTORIES', 'Beheer mappen');
 @define('DIRECTORY_CREATED', 'Map <strong>%s</strong> is aangemaakt.');
 @define('PARENT_DIRECTORY', 'Bovenliggende map');
-@define('CONFIRM_DELETE_DIRECTORY', 'Weet u zeker dat u de volledige inhoud van map %s wilt verwijderen?');
 @define('ERROR_NO_DIRECTORY', 'Fout: Map %s bestaat niet');
 @define('CHECKING_DIRECTORY', 'Bestanden in map %s aan het controleren');
 @define('DELETING_FILE', 'Bestand %s aan het verwijderen...');

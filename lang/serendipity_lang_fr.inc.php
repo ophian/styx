@@ -320,7 +320,6 @@
 @define('MANAGE_DIRECTORIES', 'Administrer les dossiers');
 @define('DIRECTORY_CREATED', 'Le dossier <strong>%s</strong> a été créé.');
 @define('PARENT_DIRECTORY', 'Dossier parent');
-@define('CONFIRM_DELETE_DIRECTORY', 'Êtes-vous sûr de vouloir supprimer tous les contenus du dossier %s ?');
 @define('ERROR_NO_DIRECTORY', 'Erreur : le dossier %s n\'existe pas');
 @define('CHECKING_DIRECTORY', 'Vérification des fichiers dans le dossier %s');
 @define('DELETING_FILE', 'Suppression du fichier %s...');

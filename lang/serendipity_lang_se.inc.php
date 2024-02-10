@@ -334,7 +334,6 @@
 @define('MANAGE_DIRECTORIES', 'Alla kataloger');
 @define('DIRECTORY_CREATED', 'Katalogen <strong>%s</strong> har skapats.');
 @define('PARENT_DIRECTORY', 'Överliggande katalog');
-@define('CONFIRM_DELETE_DIRECTORY', 'Är du säker på att du vill ta bort hela innehållet i katalogen %s?');
 @define('ERROR_NO_DIRECTORY', 'Fel: Katalogen %s finns inte');
 @define('CHECKING_DIRECTORY', 'Kollar filer i katalogen %s');
 @define('DELETING_FILE', 'Tar bort filen %s...');

@@ -334,7 +334,6 @@
 @define('MANAGE_DIRECTORIES', 'Könyvtárak kezelése');
 @define('DIRECTORY_CREATED', 'A következő könyvtárat létrehoztuk: <strong>%s</strong>.');
 @define('PARENT_DIRECTORY', 'Szülő könyvtár');
-@define('CONFIRM_DELETE_DIRECTORY', 'Biztosan törlöd ennek a könyvtárnak minden tartalmát: %s?');
 @define('ERROR_NO_DIRECTORY', 'Hiba: A könyvtár nem létezik: %s');
 @define('CHECKING_DIRECTORY', 'Fájlok ellenőrzése a könyvtárban %s');
 @define('DELETING_FILE', 'Fájlok törlése %s...');

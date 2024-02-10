@@ -317,7 +317,6 @@
 @define('MANAGE_DIRECTORIES', 'Gestión de directorios');
 @define('DIRECTORY_CREATED', 'Directorio <strong>%s</strong> creado.');
 @define('PARENT_DIRECTORY', 'Directorio superior');
-@define('CONFIRM_DELETE_DIRECTORY', '¿Estás seguro de que quieres eliminar todos los contenidos del directorio %s?');
 @define('ERROR_NO_DIRECTORY', 'Error: Directorio %s no existe');
 @define('CHECKING_DIRECTORY', 'Verificar ficheros en directorio %s');
 @define('DELETING_FILE', 'Borrando fichero %s...');

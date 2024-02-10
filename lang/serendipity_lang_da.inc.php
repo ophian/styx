@@ -428,7 +428,6 @@
 @define('MANAGE_DIRECTORIES', 'Håndtér mapper');
 @define('DIRECTORY_CREATED', 'Mappen <strong>%s</strong> er blevet oprettet.');
 @define('PARENT_DIRECTORY', 'Hovedmappe');
-@define('CONFIRM_DELETE_DIRECTORY', 'Er du sikker på du vil slette al indholdet af mappen %s?');
 @define('ERROR_NO_DIRECTORY', 'Fejl: Mappen %s eksistere ikke');
 @define('CHECKING_DIRECTORY', 'Checker filer i mappen %s');
 @define('DELETING_FILE', 'Sletter fil %s...');

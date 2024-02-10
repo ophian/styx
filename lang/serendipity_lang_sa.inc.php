@@ -336,7 +336,6 @@
 @define('MANAGE_DIRECTORIES', '≈œ«—… «·„Ã·œ« ');
 @define('DIRECTORY_CREATED', '«·„Ã·œ <strong>%s</strong>  „ «‰‘«¡…');
 @define('PARENT_DIRECTORY', '«·„Ã·œ «·—∆Ì”Ì √Ê «·«»');
-@define('CONFIRM_DELETE_DIRECTORY', 'Â· «‰  „ √ﬂœ „‰ ‰ﬁ· Ã„Ì⁄ „Õ ÊÌ«  «·„Ã·œ  %s?');
 @define('ERROR_NO_DIRECTORY', 'Œÿ√: ·„ Ì „ ≈œŒ«· «·„Ã·œ %s ');
 @define('CHECKING_DIRECTORY', ' ›Õ’ «·„·›«  ›Ì «·„Ã·œ %s ');
 @define('DELETING_FILE', 'Õ–› «·„·› %s ...');
