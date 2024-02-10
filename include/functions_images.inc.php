@@ -3577,7 +3577,7 @@ function serendipity_isImage(&$file, $strict = false, $allowed = 'image/') {
  * @access public
  * @param   string      The originating directory
  * @param   string      The subdirectory
- * @param   boolean     Force deleting an directory even if there are files left in it?
+ * @param   boolean     Force deleting a directory even if there are files left in it?
  * @return true
  */
 function serendipity_killPath($basedir, $directory = '', $forceDelete = false) {
