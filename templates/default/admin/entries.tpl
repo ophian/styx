@@ -52,7 +52,9 @@
             <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity[body]"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
             <button class="wrap_insurl" type="button" name="insURL" data-tarea="serendipity[body]">URL</button>
             {serendipity_hookPlugin hook="backend_entry_toolbar_body" data=$entry_data.entry|default:'' hookAll="true"}
-            {if isset($entry_vars.markupeditortype)}[ {$entry_vars.markupeditortype} ]{/if}
+{if isset($entry_vars.markupeditortype)}
+            [ {$entry_vars.markupeditortype} ]
+{/if}
 {/if}
         </div>
 {else}
@@ -88,7 +90,9 @@
             <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity[extended]"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
             <button class="wrap_insurl" type="button" name="insURL" data-tarea="serendipity[extended]">URL</button>
             {serendipity_hookPlugin hook="backend_entry_toolbar_extended" data=$entry_data.entry|default:'' hookAll="true"}
-            {if isset($entry_vars.markupeditortype)}[ {$entry_vars.markupeditortype} ]{/if}
+{if isset($entry_vars.markupeditortype)}
+            [ {$entry_vars.markupeditortype} ]
+{/if}
 {/if}
         </div>
 {else}
@@ -190,7 +194,7 @@
     <div id="advanced_options">
         <button id="toggle_advanced" class="icon_link" type="button"><span class="icon-right-dir" aria-hidden="true"></span> {$CONST.ADVANCED_OPTIONS}</button>
         <div id="adv_opts" class="additional_info">
-            {$smarty.capture.advanced_options}
+{$smarty.capture.advanced_options}
         </div>
     </div>
 {/if}
