@@ -136,7 +136,7 @@
 {if $case_directoryDelete}
 <h2>{$CONST.DELETE_DIRECTORY}</h2>
 
-<p>{$CONST.DELETE_DIRECTORY_DESC}</p>
+<p class="msg_notice">{$CONST.DELETE_DIRECTORY_DESC}</p>
 
 <form id="image_directory_delete_form" method="POST" action="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDoDelete&amp;serendipity[dir]={$dir|escape}">
     {$formtoken}
