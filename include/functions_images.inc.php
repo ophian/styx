@@ -6080,7 +6080,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $file, $pick=
                 FROM {$serendipity['dbPrefix']}entries
                WHERE body LIKE '%<!--quickblog:%" . serendipity_db_escape_String($ispOldFile) . "-->%'
                   OR (body || extended LIKE '%" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "%')
-                  OR (body || extended LIKE '%" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "%')" . $entry_joinThumbs . "";
+                  OR (body || extended LIKE '%" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "%')" . ($entry_joinThumbs ?? '') . "";
     }
     $entries = serendipity_db_query($q, false, 'assoc');
 
