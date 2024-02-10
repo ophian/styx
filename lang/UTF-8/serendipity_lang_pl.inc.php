@@ -90,6 +90,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('ERROR_FILE_EXISTS_ALREADY', 'Błąd: Plik znajduje się już na Twoim serwerze!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Wystąpił nieznany błąd, plik nie został załadowany. Być może konfiguracja serwera nie zezwala na przesyłanie tak dużych plików. Sprawdź to u swojego ISP lub wyedytuj odpowiednio plik php.ini (jeśli masz dostęp do konfiguracji serwera) by zezwolić na przesyłanie większych plików.');
 @define('NOT_AVAILABLE', 'N/A'); // short!
+@define('USER_ACTION', 'User action');
 @define('MANDATORY', '[ mandatory ]');
 @define('OPTIONAL', '[ optional ]');
 @define('GO', 'Start!');

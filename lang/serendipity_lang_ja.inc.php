@@ -88,6 +88,7 @@
 @define('ERROR_FILE_EXISTS_ALREADY', 'エラー: ファイルはマシン上に既に存在します!');
 @define('ERROR_UNKNOWN_NOUPLOAD', '未知のエラーが生じました。ファイルはアップロードしませんでした。おそらくファイルサイズがサーバーのインストールで許可された最大サイズを超えたと思われます。ISP に確認するか、php.ini ファイルで許可されたアップロード可能な最大ファイルサイズを編集してください。');
 @define('NOT_AVAILABLE', 'N/A'); // short!
+@define('USER_ACTION', 'User action');
 @define('MANDATORY', '[ mandatory ]');
 @define('OPTIONAL', '[ optional ]');
 @define('GO', 'Go!');

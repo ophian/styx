@@ -86,6 +86,7 @@
 @define('THUMB_CREATED_DONE', 'Vorschau %s und aller Variationen erstellt.<br>Fertig.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Fehler: Diese Datei existiert schon auf dem Server!');
 @define('NOT_AVAILABLE', 'Unbekannt'); // short!
+@define('USER_ACTION', 'User action');
 @define('MANDATORY', '[ mandatory ]');
 @define('OPTIONAL', '[ optional ]');
 @define('GO', 'Los!');
