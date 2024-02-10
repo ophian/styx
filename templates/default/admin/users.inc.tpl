@@ -72,41 +72,40 @@
 {/if}
 {if isset($show_form) AND $show_form}
 
-    <form{if $adminAction == 'edit'} id="editform"{/if} action="?serendipity[adminModule]=users#editform" method="post">
-        {$formToken}
+<form{if $adminAction == 'edit'} id="editform"{/if} action="?serendipity[adminModule]=users#editform" method="post">
+    {$formToken}
 {if $adminAction == 'edit'}{if isset($create_permission) AND $create_permission}
-        <input name="serendipity[user]" type="hidden" value="{$from.authorid}">
+    <input name="serendipity[user]" type="hidden" value="{$from.authorid}">
 {/if}{/if}
-        <h2>{if $adminAction == 'edit'}{if isset($no_create_permission) AND $no_create_permission}{$CONST.CREATE_NOT_AUTHORIZED}: {$CONST.EDIT}{else}{if $create_permission}{$CONST.EDIT}{else}{$CONST.CREATE_NOT_AUTHORIZED}: {$CONST.EDIT}{/if}{/if}{else}{$CONST.CREATE}{/if}</h2>
-        {$CONFIG}
+    <h2>{if $adminAction == 'edit'}{if isset($no_create_permission) AND $no_create_permission}{$CONST.CREATE_NOT_AUTHORIZED}: {$CONST.EDIT}{else}{if $create_permission}{$CONST.EDIT}{else}{$CONST.CREATE_NOT_AUTHORIZED}: {$CONST.EDIT}{/if}{/if}{else}{$CONST.CREATE}{/if}</h2>
+    {$CONFIG}
 {if $adminAction == 'new'}
-        <div id="rpex" class="field_info upw_field" title="{$CONST.USERCONF_PASSWORD_RANDOM}"><span class="icon-info-circled" aria-hidden="true"></span>{$random_pw}</div>
-        <script> let rex = document.getElementById('rpex'); let field = document.getElementById('password_info'); field.parentNode.insertBefore(rex, field.nextSibling); </script>
+    <div id="rpex" class="field_info upw_field" title="{$CONST.USERCONF_PASSWORD_RANDOM}"><span class="icon-info-circled" aria-hidden="true"></span>{$random_pw}</div>
+    <script> let rex = document.getElementById('rpex'); let field = document.getElementById('password_info'); field.parentNode.insertBefore(rex, field.nextSibling); </script>
 {/if}
-
-        <div class="form_buttons">
+    <div class="form_buttons">
 {if $adminAction == 'edit'}
-            <input name="SAVE_EDIT" type="submit" value="{$CONST.SAVE}">{else}<input name="SAVE_NEW" type="submit" value="{$CONST.CREATE_NEW_USER}">
+        <input name="SAVE_EDIT" type="submit" value="{$CONST.SAVE}">{else}<input name="SAVE_NEW" type="submit" value="{$CONST.CREATE_NEW_USER}">
 {/if}
-        </div>
-    </form>
+    </div>
+</form>
 {else}
 {if isset($delete) AND $delete}
 
-    <form action="?serendipity[adminModule]=users" method="post">
-        {$formToken}
-        <input name="serendipity[user]" type="hidden" value="{$userid}">
+<form action="?serendipity[adminModule]=users" method="post">
+    {$formToken}
+    <input name="serendipity[user]" type="hidden" value="{$userid}">
 
-        <div class="users_delete_action">
-            <h2>{$CONST.MANAGE_USERS}</h2>
+    <div class="users_delete_action">
+        <h2>{$CONST.MANAGE_USERS}</h2>
 
-            <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.DELETE_USER|sprintf:"{$userid}":"{$realname|escape}"}</span>
+        <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.DELETE_USER|sprintf:"{$userid}":"{$realname|escape}"}</span>
 
-            <div class="form_buttons">
-                <input class="state_cancel" name="NO" type="submit" value="{$CONST.NOT_REALLY}">
-                <input name="DELETE_YES" type="submit" value="{$CONST.DUMP_IT}">
-            </div>
+        <div class="form_buttons">
+            <input class="state_cancel" name="NO" type="submit" value="{$CONST.NOT_REALLY}">
+            <input name="DELETE_YES" type="submit" value="{$CONST.DUMP_IT}">
         </div>
-    </form>
+    </div>
+</form>
 {/if}
 {/if}
