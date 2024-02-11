@@ -692,24 +692,24 @@ switch ($serendipity['GET']['adminAction']) {
         }
 
         $data['case_directoryDoDelete'] = true;
-        $new_dir = serendipity_uploadSecure($serendipity['GET']['dir'], true);
-        $nd      = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $new_dir;
-        if (is_dir($nd)) {
-            if (!is_writable($nd)) {
-                $data['print_DIRECTORY_WRITE_ERROR'] = sprintf(DIRECTORY_WRITE_ERROR, $new_dir);
+        $vlddir = serendipity_uploadSecure($serendipity['GET']['dir'], true); // returns a valid directory name
+        $vdpath = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $vlddir;
+        if (is_dir($vdpath)) {
+            if (!is_writable($vdpath)) {
+                $data['print_DIRECTORY_WRITE_ERROR'] = sprintf(DIRECTORY_WRITE_ERROR, "<span class=\"msg-spot\">$vlddir</span>");
             } else {
                 ob_start();
-                // Directory exists and is writable. Now dive within subdirectories and kill 'em all.
-                serendipity_killPath($serendipity['serendipityPath'] . $serendipity['uploadPath'], $new_dir, (isset($serendipity['POST']['nuke']) ? true : false));
+                // Directory exists and is writable. Now dive within subdirectories and nuke them all
+                serendipity_killPath($serendipity['serendipityPath'] . $serendipity['uploadPath'], $vlddir, (isset($serendipity['POST']['nuke']) ? true : false));
                 $data['ob_serendipity_killPath'] = ob_get_contents();
                 ob_end_clean();
                 serendipity_cleanCache();
            }
         } else {
-            $data['print_ERROR_NO_DIRECTORY'] = sprintf(ERROR_NO_DIRECTORY, $new_dir);
+            $data['print_ERROR_NO_DIRECTORY'] = sprintf(ERROR_NO_DIRECTORY, "<span class=\"msg-spot\">$vlddir</span>");
         }
 
-        serendipity_plugin_api::hook_event('backend_directory_delete', $new_dir);
+        serendipity_plugin_api::hook_event('backend_directory_delete', $vlddir);
         break;
 
     case 'directoryEdit':
