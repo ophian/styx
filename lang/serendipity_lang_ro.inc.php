@@ -674,7 +674,7 @@
 @define('UPGRADE', 'Actualizare');
 @define('UPGRADE_TO_VERSION', '<b>Actualizare la versiunea:</b> %s');
 @define('DELETE_DIRECTORY', 'Şterge director');
-@define('DELETE_DIRECTORY_DESC', 'Eşti pe cale să ştergi un director care conţine fişiere media care e posibil să fie folosite în unele însemnări.');
+@define('DELETE_DIRECTORY_DESC', 'Sunteți pe cale să ștergeți un director care poate conține fișiere media și elemente deja utilizate în intrările dumneavoastră. Asigurați-vă!');
 @define('FORCE_DELETE', 'Şterge TOATE fişierele din acest director, inclusiv cele necunoscute de Serendipity');
 @define('CREATE_DIRECTORY', 'Creare director');
 @define('CREATE_NEW_DIRECTORY', 'Crează un nou director');

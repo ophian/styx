@@ -675,7 +675,7 @@
 @define('UPGRADE', 'تحديث');
 @define('UPGRADE_TO_VERSION', '<b>تحديث للأصدار:</b> %s');
 @define('DELETE_DIRECTORY', 'حذف المجلد');
-@define('DELETE_DIRECTORY_DESC', 'أنت على وشك حذف مجلد  بمحتوياته من ملفات ميديا وصور وغيرها! ! ! من الممكن أن بعض هذه الملفات مستخدمة في احد مواضيعك. تأكد ! ! !');
+@define('DELETE_DIRECTORY_DESC', 'أنت على وشك حذف دليل قد يحتوي على ملفات وسائط وعناصر مستخدمة بالفعل في إدخالاتك. تأكد من ذلك!');
 @define('FORCE_DELETE', 'أحذف جميع محتويات هذا المجلد بما فيها الملفات التي ليست للمدونة! ! !');
 @define('CREATE_DIRECTORY', 'أنشاء مجلد');
 @define('CREATE_NEW_DIRECTORY', 'انشاء مجلد جديد');

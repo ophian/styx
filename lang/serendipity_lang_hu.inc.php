@@ -673,7 +673,7 @@
 @define('UPGRADE', 'Frissítés');
 @define('UPGRADE_TO_VERSION', '<b>Frissítés erre a verzióra:</b> %s');
 @define('DELETE_DIRECTORY', 'Könyvtár törlése');
-@define('DELETE_DIRECTORY_DESC', 'Törölni készül egy könyvtárat, amelyben média fájlok vannak. Lehetséges hogy ezekre hivatkozik bejegyzésekbõl is.');
+@define('DELETE_DIRECTORY_DESC', 'Egy olyan könyvtárat készül törölni, amely médiafájlokat és a bejegyzésekben már használt elemeket tartalmazhat. Legyen biztos benne!');
 @define('FORCE_DELETE', 'Az ÖSSZES fájl törlése a könyvtárból, azokat is amelyeket a Serendipity nem ismer');
 @define('CREATE_DIRECTORY', 'Könyvtár létrehozása');
 @define('CREATE_NEW_DIRECTORY', 'Új könyvtár létrehozása');

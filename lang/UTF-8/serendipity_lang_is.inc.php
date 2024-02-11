@@ -673,7 +673,7 @@
 @define('UPGRADE', 'Uppfæra');
 @define('UPGRADE_TO_VERSION', '<b>Uppfæra í útgáfu:</b> %s');
 @define('DELETE_DIRECTORY', 'Eyða þessari möppu');
-@define('DELETE_DIRECTORY_DESC', 'Þú ert að fara að eyða innihaldi möppu sem er með margmiðlunargögn, sem eru mögulega í notkun í sumum færsla þinna.');
+@define('DELETE_DIRECTORY_DESC', 'Þú ert að fara að eyða möppu sem gæti innihaldið miðlunarskrár og hluti sem þegar eru notaðir í færslunum þínum. Vera viss!');
 @define('FORCE_DELETE', 'Neyða eyðslu skráa sem eru ekki inni í miðlunargagnagrunninum');
 @define('CREATE_DIRECTORY', 'Búa til möppu');
 @define('CREATE_NEW_DIRECTORY', 'Búa til nýja möppu');

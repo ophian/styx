@@ -675,7 +675,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('UPGRADE', 'Uaktualnienie');
 @define('UPGRADE_TO_VERSION', '<b>Uaktualnienie do wersji:</b> %s');
 @define('DELETE_DIRECTORY', 'Usuń katalog');
-@define('DELETE_DIRECTORY_DESC', 'Zamierzasz usunąć zawartość katalogu, w którym znajdują się pliki mediów prawdopodobnie użytych w Twoich wpisach.');
+@define('DELETE_DIRECTORY_DESC', 'Zamierzasz usunąć katalog, który może zawierać pliki multimedialne i elementy już używane we wpisach. Upewnij się!');
 @define('FORCE_DELETE', 'Usuń WSZYSTKIE pliki w tym katalogu, także te nie znane Serendipity i nie wyświetlane w Bibliotece mediów');
 @define('CREATE_DIRECTORY', 'Stwórz nowy katalog');
 @define('CREATE_NEW_DIRECTORY', 'Stwórz nowy katalog');

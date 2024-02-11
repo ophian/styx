@@ -673,7 +673,7 @@
 @define('UPGRADE', 'アップグレード');
 @define('UPGRADE_TO_VERSION', 'バージョン %s へアップグレード'); // check style
 @define('DELETE_DIRECTORY', 'ディレクトリーの削除');
-@define('DELETE_DIRECTORY_DESC', 'メディア ファイル(恐らくあなたのエントリーのうちのいくつかの中で使用されるファイル)を含むディレクトリーの内容を削除をします。');
+@define('DELETE_DIRECTORY_DESC', 'あなたが削除しようとしているディレクトリには、メディアファイルやエントリーで既に使用されているアイテムが含まれている可能性があります。確認してください！');
 @define('FORCE_DELETE', 'Serendipity でこのディレクトリー中の未知のものを含むファイルをすべて削除します。');
 @define('CREATE_DIRECTORY', 'ディレクトリーの作成');
 @define('CREATE_NEW_DIRECTORY', '新規ディレクトリーの作成');

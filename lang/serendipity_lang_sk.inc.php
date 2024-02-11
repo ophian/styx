@@ -685,7 +685,7 @@ $i18n_filename_to = array (
 @define('UPGRADE', 'Aktualizácia');
 @define('UPGRADE_TO_VERSION', '<b>Aktualizácia na verziu:</b> %s');
 @define('DELETE_DIRECTORY', 'Zmaza» prieèinok');
-@define('DELETE_DIRECTORY_DESC', 'Chcete zmaza» obsah prieèinka obsahujúceho mediálne súbory, ktoré mô¾u by» pou¾ité vo Va¹ich existujúcich èlánkoch.');
+@define('DELETE_DIRECTORY_DESC', 'Chystáte sa odstránit adresár, ktorý môže obsahovat mediálne súbory a položky, ktoré už boli použité vo vašich záznamoch. Budte si istí!');
 @define('FORCE_DELETE', 'Zmaza» V©ETKY súbory v prieèinku vrátane súborov, ktoré neboli vytvorené pomocou Serendipity');
 @define('CREATE_DIRECTORY', 'Vytvori» prieèinok');
 @define('CREATE_NEW_DIRECTORY', 'Vytvori» nový prieèinok');

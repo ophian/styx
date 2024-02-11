@@ -673,7 +673,7 @@
 @define('UPGRADE', 'Upgrade');
 @define('UPGRADE_TO_VERSION', '<b>Upgrade to version:</b> %s');
 @define('DELETE_DIRECTORY', 'Delete directory');
-@define('DELETE_DIRECTORY_DESC', 'You are about to delete a directory that may contain media files and items already used in your entries.');
+@define('DELETE_DIRECTORY_DESC', 'You are about to delete a directory that may contain media files and items already used in your entries. Be sure!');
 @define('FORCE_DELETE', 'Delete ALL files in this directory, including those not known by Serendipity');
 @define('CREATE_DIRECTORY', 'Create directory');
 @define('CREATE_NEW_DIRECTORY', 'Create new directory');

@@ -677,7 +677,7 @@
 @define('UPGRADE', 'Mise à jour');
 @define('UPGRADE_TO_VERSION', '<b>Mise à jour vers la version:</b> %s');
 @define('DELETE_DIRECTORY', 'Supprimer le répertoire');
-@define('DELETE_DIRECTORY_DESC', 'Vous êtes sur le point de supprimer le contenu d\'un répertoire contenant des fichiers média qui peuvent être utilisés par certains de vos billets.');
+@define('DELETE_DIRECTORY_DESC', 'Vous êtes sur le point de supprimer un répertoire qui peut contenir des fichiers multimédias et des éléments déjà utilisés dans vos entrées. Attention !');
 @define('FORCE_DELETE', 'Suprimer TOUS les fichiers de ce répertoire, y compris ceux inconnus de Serendipity');
 @define('CREATE_DIRECTORY', 'Créer un répertoire');
 @define('CREATE_NEW_DIRECTORY', 'Créer un nouveau répertoire');

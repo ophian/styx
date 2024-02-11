@@ -675,7 +675,7 @@
 @define('UPGRADE', 'Güncelle');
 @define('UPGRADE_TO_VERSION', '<b>Sürümü güncelle:</b> %s');
 @define('DELETE_DIRECTORY', 'Dizini sil');
-@define('DELETE_DIRECTORY_DESC', 'Olasılıkla bazı yazılarınızda kullanmış olabileceğiniz medya dosyalarının da bulunduğu bir dizini silmek istiyorsunuz.Emin misiniz?');
+@define('DELETE_DIRECTORY_DESC', 'Medya dosyaları ve girişlerinizde halihazırda kullanılan öğeleri içerebilecek bir dizini silmek üzeresiniz. Emin olun!');
 @define('FORCE_DELETE', 'Bu dizindeki tüm dosyaları sil, Serendipity tarafından bilinmeyenler de dahil olmak üzere');
 @define('CREATE_DIRECTORY', 'Dizin oluştur');
 @define('CREATE_NEW_DIRECTORY', 'Yeni dizin oluştur');

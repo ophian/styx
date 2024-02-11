@@ -677,7 +677,7 @@
 @define('UPGRADE', '更新');
 @define('UPGRADE_TO_VERSION', '更新至新版本 %s');
 @define('DELETE_DIRECTORY', '删除目录');
-@define('DELETE_DIRECTORY_DESC', '删除目录内的媒体文件，注意文件也许出现在其它文章内。');
+@define('DELETE_DIRECTORY_DESC', '您将要删除的目录可能包含媒体文件和已在您的条目中使用过的项目。请确保');
 @define('FORCE_DELETE', '删除此目录内的文件，包括无法识别的文件');
 @define('CREATE_DIRECTORY', '建立目录');
 @define('CREATE_NEW_DIRECTORY', '建立新目录');

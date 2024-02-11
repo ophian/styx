@@ -675,7 +675,7 @@
 @define('UPGRADE', 'Bijwerken');
 @define('UPGRADE_TO_VERSION', '<b>Bijwerken naar versie:</b> %s');
 @define('DELETE_DIRECTORY', 'Verwijder map');
-@define('DELETE_DIRECTORY_DESC', 'U staat op het punt om een map te verwijderen met mediabestanden die mogelijk gebruikt worden in uw artikelen.');
+@define('DELETE_DIRECTORY_DESC', 'Je staat op het punt om een map te verwijderen die mediabestanden en items kan bevatten die al gebruikt zijn in je inzendingen. Wees er zeker van!');
 @define('FORCE_DELETE', ' Verwijder ALLE bestanden in deze map, inclusief diegenen die niet bekend zijn bij Serendipity');
 @define('CREATE_DIRECTORY', 'Maak map');
 @define('CREATE_NEW_DIRECTORY', 'Maak nieuwe map');

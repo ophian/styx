@@ -677,7 +677,7 @@
 @define('UPGRADE', 'Actualizar');
 @define('UPGRADE_TO_VERSION', '<b>Actualizar para a versão:</b> %s');
 @define('DELETE_DIRECTORY', 'Apagar directoria');
-@define('DELETE_DIRECTORY_DESC', 'Está prestes a apagar o conteúdo duma directoria que contém ficheiros de multimédia que podem ser usados por outras das suas entradas.'); // Verify
+@define('DELETE_DIRECTORY_DESC', 'Está prestes a apagar um diretório que pode conter ficheiros multimédia e itens já utilizados nas suas entradas. Não se esqueça!');
 @define('FORCE_DELETE', 'Apagar TODOS os ficheiros nesta directoria, incluindo os desconhecidos pelo Serendipity');
 @define('CREATE_DIRECTORY', 'Criar directoria');
 @define('CREATE_NEW_DIRECTORY', 'Criar nova directoria');

@@ -674,7 +674,7 @@
 @define('UPGRADE', 'Aggiorna');
 @define('UPGRADE_TO_VERSION', '<b>Aggiorna alla versione:</b> %s');
 @define('DELETE_DIRECTORY', 'Cancella la directory');
-@define('DELETE_DIRECTORY_DESC', 'Stai per cancellare il contenuto di una directory che contiene files media, possibilmente utilizzati in alcune delle tue notizie.');
+@define('DELETE_DIRECTORY_DESC', 'Si sta per eliminare una directory che potrebbe contenere file multimediali e elementi già utilizzati nelle voci. Assicuratevi che sia così!');
 @define('FORCE_DELETE', 'Cancella TUTTI i files in questa directory, inclusi quelli non conosciuti a Serendipity');
 @define('CREATE_DIRECTORY', 'Crea la directory');
 @define('CREATE_NEW_DIRECTORY', 'Crea una nuoav directory');

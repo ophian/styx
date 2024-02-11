@@ -675,7 +675,7 @@
 @define('UPGRADE', 'Upgrade'); // Translate
 @define('UPGRADE_TO_VERSION', '<b>Upgrade to version:</b> %s'); // Translate
 @define('DELETE_DIRECTORY', 'Delete directory'); // Translate
-@define('DELETE_DIRECTORY_DESC', 'You are about to delete a directory that may contain media files and items already used in your entries.'); // Translate
+@define('DELETE_DIRECTORY_DESC', 'Du er i ferd med å slette en katalog som kan inneholde mediefiler og elementer som allerede er brukt i oppføringene dine. Vær sikker!');
 @define('FORCE_DELETE', 'Delete ALL files in this directory, including those not known by Serendipity'); // Translate
 @define('CREATE_DIRECTORY', 'Create directory'); // Translate
 @define('CREATE_NEW_DIRECTORY', 'Create new directory'); // Translate
