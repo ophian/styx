@@ -3575,34 +3575,34 @@ function serendipity_isImage(&$file, $strict = false, $allowed = 'image/') {
  * Recursively delete a directory tree
  *
  * @access public
- * @param   string      The originating directory
- * @param   string      The subdirectory
+ * @param   string      The originating directory path name, full path into uploads/
+ * @param   string      The relative in-uploads/ directory name
  * @param   boolean     Force deleting a directory even if there are files left in it?
  * @return true
  */
-function serendipity_killPath($basedir, $directory = '', $forceDelete = false) {
+function serendipity_killPath($basedir, $udir = '', $forceDelete = false) {
     static $serious = true;
 
-    if ($handle = @opendir($basedir . $directory)) {
+    if ($handle = @opendir($basedir . $udir)) {
         $filestack = [];
         while (false !== ($file = @readdir($handle))) {
             if ($file != '.' && $file != '..') {
-                if (is_dir($basedir . $directory . $file)) {
-                    serendipity_killPath($basedir, $directory . $file . '/', $forceDelete);
+                if (is_dir($basedir . $udir . $file)) {
+                    serendipity_killPath($basedir, $udir . $file . '/', $forceDelete);
                 } else {
-                    $filestack[$file] = $directory . $file;
+                    $filestack[$file] = $udir . $file;
                 }
             }
         }
         @closedir($handle);
 
-        echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . sprintf(CHECKING_DIRECTORY, $directory) . "</span>\n";
+        echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . sprintf(CHECKING_DIRECTORY, "<span class=\"msg-spot\">$udir</span>") . "</span>\n";
 
         // No, we just don't kill files the easy way. We sort them out properly from the database
         // and preserve files not entered therein.
-        $files = serendipity_fetchImagesFromDatabase(0, 0, $total, false, false, $directory);
+        $files = serendipity_fetchImagesFromDatabase(0, 0, $total, false, false, $udir);
         if (is_array($files)) {
-            echo '<ul class="plainList">'."\n";
+            if (!empty($files)) echo '<ul class="plainList">'."\n";
             foreach($files AS $f => $file) {
                 echo "    <li>\n";
                 if ($serious) {
@@ -3615,7 +3615,7 @@ function serendipity_killPath($basedir, $directory = '', $forceDelete = false) {
                 unset($filestack[$file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension'])]);
                 unset($filestack[$file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . (empty($file['extension']) ? '' : '.' . $file['extension'])]);
             }
-            echo "</ul>\n";
+            if (!empty($files)) echo "</ul>\n";
         }
 
         if (count($filestack) > 0) {
@@ -3623,9 +3623,9 @@ function serendipity_killPath($basedir, $directory = '', $forceDelete = false) {
                 echo '<ul class="plainList">'."\n";
                 foreach($filestack AS $f => $file) {
                     if ($serious && unlink($basedir . $file)) {
-                        printf('    <li><span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETING_FILE . ' ' . DONE . "</span></li>\n", $file);
+                        printf('    <li><span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETING_FILE . ' ' . DONE . "</span></li>\n", "<span class=\"msg-spot\">$file</span>");
                     } else {
-                        printf('    <li><span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . DELETING_FILE . ' ' . ERROR . "</span></li>\n", $file);
+                        printf('    <li><span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . DELETING_FILE . ' ' . ERROR . "</span></li>\n", "<span class=\"msg-spot\">$file</span>");
                     }
                 }
                 echo "</ul>\n";
@@ -3639,10 +3639,11 @@ function serendipity_killPath($basedir, $directory = '', $forceDelete = false) {
             }
         }
 
-        if ($serious && !empty($directory) && !preg_match('@^.?/?$@', $directory) && @rmdir($basedir . $directory)) {
-            echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . sprintf(DIRECTORY_DELETE_SUCCESS, $directory) . "</span>\n";
+        // Now be serious AND check directory name NOT empty for 0 or false === matching regex subdir contents return => then quietly remove directory
+        if ($serious && !empty($udir) && !preg_match('@^(\w+\.?\/?)*\w+$@', $udir) && @rmdir($basedir . $udir)) {
+            echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . sprintf(DIRECTORY_DELETE_SUCCESS, "<span class=\"msg-spot\">$udir</span>") . "</span>\n";
         } else {
-            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(DIRECTORY_DELETE_FAILED, $directory) . "</span>\n";
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(DIRECTORY_DELETE_FAILED, "<span class=\"msg-spot\">$udir</span>") . "</span>\n";
         }
     }
 
