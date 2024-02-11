@@ -350,6 +350,7 @@
 <a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreate">{$CONST.CREATE_NEW_DIRECTORY}</a>
 {/if}
 
+<script> document.querySelectorAll('.emptydim.imgctlabel').forEach((item)=>{ item.setAttribute('title', '[i] may contain unregistered media !'); });</script>
 {* TODO: obsolete? *}
 {if isset($case_addSelect) AND $case_addSelect}
 {** smarty display 'admin/media_upload.tpl' **}
