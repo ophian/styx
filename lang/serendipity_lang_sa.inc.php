@@ -676,7 +676,7 @@
 @define('UPGRADE_TO_VERSION', '<b>ÊÍÏםË בבÃÕÏÇÑ:</b> %s');
 @define('DELETE_DIRECTORY', 'ÍÐÝ ÇבדÌבÏ');
 @define('DELETE_DIRECTORY_DESC', 'ÃהÊ Úבל זÔ‗ ÍÐÝ Ïבםב ÞÏ םÍÊזם Úבל דבÝÇÊ זÓÇÆØ זÚהÇÕÑ דÓÊÎÏדÉ ÈÇבÝÚב Ýם ÅÏÎÇבÇÊ‗. ÊÃ‗Ï דה Ðב‗!');
-@define('FORCE_DELETE', 'ÃÍÐÝ ÌדםÚ דÍÊזםÇÊ וÐÇ ÇבדÌבÏ ÈדÇ ÝםוÇ ÇבדבÝÇÊ ÇבÊם בםÓÊ בבדÏזהÉ! ! !');
+@define('FORCE_DELETE', 'ÇÍÐÝ ÌדםÚ ÇבדבÝÇÊ ÇבדזÌזÏÉ Ýם וÐÇ ÇבÏבםב¡ ÈדÇ Ýם Ðב‗ ÇבÃÏÑÇÌ ÇבÝÑÚםÉ זÇבדבÝÇÊ ÛםÑ ÇבדÚÑזÝÉ (ÍÊל ÇבÂה) דה ÞÈב ד‗ÊÈÉ ÇבזÓÇÆØ');
 @define('CREATE_DIRECTORY', 'ÃהÔÇÁ דÌבÏ');
 @define('CREATE_NEW_DIRECTORY', 'ÇהÔÇÁ דÌבÏ ÌÏםÏ');
 @define('CREATE_DIRECTORY_DESC', 'והÇ םד‗ה ÃהÔÇÁ דÌבÏ בזÖזÚ ÇבדבÝÇÊ ÇבדÎÊבÝו (דםÏםÇ) Ýםו. ÃÎÊÑ ÃÓד בבדÌבÏ ÇבÌÏםÏ ז‗Ðב‗ ÃÎÊÑ ÇבדÌבÏ ÇבÇÈ בו בזÖזÚו Ýםו');

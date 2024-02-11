@@ -673,7 +673,7 @@
 @define('UPGRADE_TO_VERSION', '<b>Päivitä versioon:</b> %s');
 @define('DELETE_DIRECTORY', 'Tuhoa hakemisto');
 @define('DELETE_DIRECTORY_DESC', 'Olet poistamassa hakemistoa, joka saattaa sisältää mediatiedostoja ja kohteita, joita on jo käytetty merkinnöissäsi. Ole varma!');
-@define('FORCE_DELETE', 'Tuhoa hakemisto kaikkine tiedostoineen, mukaan lukien tiedostot, jotka eivät Serendipityn mielestä liity blogiisi');
+@define('FORCE_DELETE', 'Poista KAIKKI tiedostot tästä hakemistosta, mukaan lukien alihakemistot ja ne tiedostot, joita MediaLibrary ei (vielä) tunne.');
 @define('CREATE_DIRECTORY', 'Luo hakemisto');
 @define('CREATE_NEW_DIRECTORY', 'Luo uusi hakemisto');
 @define('CREATE_DIRECTORY_DESC', 'Uusien media-tiedostohakemistojen luominen. Valitse nimi uudelle hakemistolle ja halutessasi sille päähakemisto.');

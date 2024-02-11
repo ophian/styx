@@ -687,7 +687,7 @@
 @define('UPGRADE_TO_VERSION', '<b>Actualizar a la versión:</b> %s');
 @define('DELETE_DIRECTORY', 'Borrar directorio');
 @define('DELETE_DIRECTORY_DESC', 'Está a punto de borrar un directorio que puede contener archivos multimedia y elementos ya utilizados en sus entradas. Asegúrese.');
-@define('FORCE_DELETE', 'Borrar TODOS los ficheros de este directorio, incluyendo aquellos desconocidos para Serendipity');
+@define('FORCE_DELETE', 'Elimina TODOS los archivos de este directorio, incluidos los subdirectorios y los archivos (aún) no conocidos por la Mediateca.');
 @define('CREATE_DIRECTORY', 'Crear directorio');
 @define('CREATE_NEW_DIRECTORY', 'Crear nuevo directorio');
 @define('CREATE_DIRECTORY_DESC', 'Aquí puedes crear un nuevo directorio para almacenar ficheros de medios. Escoge el nombre del nuevo directorio y selecciona un directorio superior (opcional) donde ponerlo.');

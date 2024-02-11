@@ -674,7 +674,7 @@
 @define('UPGRADE_TO_VERSION', '<b>Uppgradera till version:</b> %s');
 @define('DELETE_DIRECTORY', 'Ta bort katalog');
 @define('DELETE_DIRECTORY_DESC', 'Du håller på att radera en katalog som kan innehålla mediefiler och objekt som redan används i dina poster. Var försiktig!');
-@define('FORCE_DELETE', 'Ta bort ALLA filer i denna katalog, inklusive dem som inte är kända av Serendipity');
+@define('FORCE_DELETE', 'Radera ALLA filer i den här katalogen, inklusive underkataloger och filer som MediaLibrary (ännu) inte känner tilly');
 @define('CREATE_DIRECTORY', 'Skapa katalog');
 @define('CREATE_NEW_DIRECTORY', 'Skapa ny katalog');
 @define('CREATE_DIRECTORY_DESC', 'Här kan du skapa en ny katalog att lägga mediafiler i. Välj ett namn för din nya katalog och ange en eventuell katalog att placera den i.');

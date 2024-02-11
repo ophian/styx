@@ -676,7 +676,7 @@
 @define('UPGRADE_TO_VERSION', '<b>Atualização para a versão:</b> %s');
 @define('DELETE_DIRECTORY', 'Apagar pasta');
 @define('DELETE_DIRECTORY_DESC', 'Você está prestes a excluir um diretório que pode conter arquivos de mídia e itens já usados em suas entradas. Tenha certeza!');
-@define('FORCE_DELETE', 'Apagar TODOS os arquivos no diretório, incluindo os não conhecidos pelo Serendipity');
+@define('FORCE_DELETE', 'Exclua TODOS os arquivos desse diretório, inclusive os sub-diretórios e os arquivos que (ainda) não são conhecidos pela MediaLibrary');
 @define('CREATE_DIRECTORY', 'Criar diretório');
 @define('CREATE_NEW_DIRECTORY', 'Criar novo diretório');
 @define('CREATE_DIRECTORY_DESC', 'Aqui você pode criar um novo diretório para armazenar arquivos multimídia. Escolha o nome da pasta e se preferir, escolha um diretório de nível superior para salvar sua pasta dentro.');

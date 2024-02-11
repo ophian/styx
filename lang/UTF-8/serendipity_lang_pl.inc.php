@@ -676,7 +676,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('UPGRADE_TO_VERSION', '<b>Uaktualnienie do wersji:</b> %s');
 @define('DELETE_DIRECTORY', 'Usuń katalog');
 @define('DELETE_DIRECTORY_DESC', 'Zamierzasz usunąć katalog, który może zawierać pliki multimedialne i elementy już używane we wpisach. Upewnij się!');
-@define('FORCE_DELETE', 'Usuń WSZYSTKIE pliki w tym katalogu, także te nie znane Serendipity i nie wyświetlane w Bibliotece mediów');
+@define('FORCE_DELETE', 'Usuwa WSZYSTKIE pliki w tym katalogu, w tym podkatalogi i pliki, które nie są (jeszcze) znane przez MediaLibrary.');
 @define('CREATE_DIRECTORY', 'Stwórz nowy katalog');
 @define('CREATE_NEW_DIRECTORY', 'Stwórz nowy katalog');
 @define('CREATE_DIRECTORY_DESC', 'Możesz tu stworzyć nowy katalog, w którym będą przechowywane pliki mediów. Wpisz nazwę nowego katalogu i wybierz ewentualny katalog nadrzędny, w którym zostanie utworzony Twój podkatalog.');

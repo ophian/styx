@@ -671,7 +671,7 @@
 @define('UPGRADE_TO_VERSION', '<b>Update zu Version:</b> %s');
 @define('DELETE_DIRECTORY', 'Verzeichnis löschen');
 @define('DELETE_DIRECTORY_DESC', 'Sie sind dabei, ein Verzeichnis zu löschen, das möglicherweise Mediendateien und Elemente enthält, die bereits in Ihren Einträgen verwendet werden. Seien Sie sich sicher!');
-@define('FORCE_DELETE', 'ALLE Dateien dieses Verzeichnisses löschen, inklusive der Dateien, die Serendipity nicht katalogisiert hat');
+@define('FORCE_DELETE', 'ALLE Dateien dieses Verzeichnisses löschen, inklusive Sub-Verzeichnisse und aller Dateien, die (noch) nicht in der Mediathek katalogisiert sind');
 @define('CREATE_DIRECTORY', 'Verzeichnis anlegen');
 @define('CREATE_NEW_DIRECTORY', 'Neues Verzeichnis anlegen');
 @define('CREATE_DIRECTORY_DESC', 'Hier kann ein neues Verzeichnis angelegt werden, in welchem Mediendaten gespeichert werden können. Bitte den Namen des neuen Verzeichnisses angeben und optional ein übergeordnetes Verzeichnis auswählen.');

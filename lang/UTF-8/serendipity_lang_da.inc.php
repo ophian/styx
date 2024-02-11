@@ -675,7 +675,7 @@
 @define('UPGRADE_TO_VERSION', '<b>Opgrader til v:</b>%s');
 @define('DELETE_DIRECTORY', 'Slet mappe');
 @define('DELETE_DIRECTORY_DESC', 'Du er ved at slette en mappe, som kan indeholde mediefiler og elementer, der allerede er brugt i dine poster. Vær sikker!');
-@define('FORCE_DELETE', 'Slet ALLE filer i denne mappe, inklusiv dem ikke kendt af Serendipity');
+@define('FORCE_DELETE', 'Slet ALLE filer i denne mappe, inklusive undermapper og de filer, som MediaLibrary ikke kender (endnu).');
 @define('CREATE_DIRECTORY', 'Opret mappe');
 @define('CREATE_NEW_DIRECTORY', 'Opret ny mappe');
 @define('CREATE_DIRECTORY_DESC', 'Her kan du oprette en ny mappe til at placere dine multimedia filer i. Vælg navnet på din nye mappe, og vælg en passende mappe at oprette den i.');

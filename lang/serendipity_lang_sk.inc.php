@@ -686,7 +686,7 @@ $i18n_filename_to = array (
 @define('UPGRADE_TO_VERSION', '<b>Aktualizácia na verziu:</b> %s');
 @define('DELETE_DIRECTORY', 'Zmaza» prieèinok');
 @define('DELETE_DIRECTORY_DESC', 'Chystáte sa odstránit adresár, ktorý môže obsahovat mediálne súbory a položky, ktoré už boli použité vo vašich záznamoch. Budte si istí!');
-@define('FORCE_DELETE', 'Zmaza» V©ETKY súbory v prieèinku vrátane súborov, ktoré neboli vytvorené pomocou Serendipity');
+@define('FORCE_DELETE', 'Odstránenie VŠETKÝCH súborov v tomto adresári vrátane podadresárov a súborov, ktoré knižnica MediaLibrary (zatial) nepozná');
 @define('CREATE_DIRECTORY', 'Vytvori» prieèinok');
 @define('CREATE_NEW_DIRECTORY', 'Vytvori» nový prieèinok');
 @define('CREATE_DIRECTORY_DESC', 'Tu mô¾ete vytvori» prieèinok pre ukladanie mediálných súborov. Vyberte názov prieèinka název a prípadný nadradený prieèinok.');

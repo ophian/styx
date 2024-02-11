@@ -678,7 +678,7 @@
 @define('UPGRADE_TO_VERSION', '更新至新版本 %s');
 @define('DELETE_DIRECTORY', '删除目录');
 @define('DELETE_DIRECTORY_DESC', '您将要删除的目录可能包含媒体文件和已在您的条目中使用过的项目。请确保');
-@define('FORCE_DELETE', '删除此目录内的文件，包括无法识别的文件');
+@define('FORCE_DELETE', '删除该目录中的所有文件，包括子目录和媒体库尚未知道的文件');
 @define('CREATE_DIRECTORY', '建立目录');
 @define('CREATE_NEW_DIRECTORY', '建立新目录');
 @define('CREATE_DIRECTORY_DESC', '在这里你可以建立新的目录来存放媒体文件。输入目录名称后你可以选择是否将它放到主目录内。');

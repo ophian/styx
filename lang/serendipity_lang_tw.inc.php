@@ -677,7 +677,7 @@ $i18n_unknown = 'tw';
 @define('UPGRADE_TO_VERSION', '<b>更新至版本:</b> %s');
 @define('DELETE_DIRECTORY', '刪除目錄');
 @define('DELETE_DIRECTORY_DESC', '您將要刪除目錄，該目錄可能包含您的條目中已使用的媒體檔案和項目。 確定！');
-@define('FORCE_DELETE', '刪除此目錄內的檔案，包括 Serendipity 無法識別的檔案');
+@define('FORCE_DELETE', '刪除此目錄中的所有文件，包括子目錄和 MediaLibrary 尚未識別的文件');
 @define('CREATE_DIRECTORY', '建立目錄');
 @define('CREATE_NEW_DIRECTORY', '建立新目錄');
 @define('CREATE_DIRECTORY_DESC', '在這裡您可以建立新的目錄來存放媒體檔案。輸入目錄名稱然後您可以選擇是否將它放到母目錄內。');

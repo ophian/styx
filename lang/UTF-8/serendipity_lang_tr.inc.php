@@ -676,7 +676,7 @@
 @define('UPGRADE_TO_VERSION', '<b>Sürümü güncelle:</b> %s');
 @define('DELETE_DIRECTORY', 'Dizini sil');
 @define('DELETE_DIRECTORY_DESC', 'Medya dosyaları ve girişlerinizde halihazırda kullanılan öğeleri içerebilecek bir dizini silmek üzeresiniz. Emin olun!');
-@define('FORCE_DELETE', 'Bu dizindeki tüm dosyaları sil, Serendipity tarafından bilinmeyenler de dahil olmak üzere');
+@define('FORCE_DELETE', 'Alt dizinler ve MediaLibrary tarafından (henüz) bilinmeyen dosyalar da dahil olmak üzere bu dizindeki TÜM dosyaları sil');
 @define('CREATE_DIRECTORY', 'Dizin oluştur');
 @define('CREATE_NEW_DIRECTORY', 'Yeni dizin oluştur');
 @define('CREATE_DIRECTORY_DESC', 'Burada medya dosyalarınızı yerleştirebileceğiniz yeni bir dizin oluşturabilirsiniz. Yeni dizininiz için bir ad belirleyin ya da seçimlik olarak bir alt dizin adı da belirleyebilirsiniz.');

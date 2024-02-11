@@ -674,7 +674,7 @@
 @define('UPGRADE_TO_VERSION', '<b>Upgrade to version:</b> %s');
 @define('DELETE_DIRECTORY', 'Delete directory');
 @define('DELETE_DIRECTORY_DESC', 'You are about to delete a directory that may contain media files and items already used in your entries. Be sure!');
-@define('FORCE_DELETE', 'Delete ALL files in this directory, including those not known by Serendipity');
+@define('FORCE_DELETE', 'Delete ALL files in this directory, including sub-dirs and those files not (yet) known by the MediaLibrary');
 @define('CREATE_DIRECTORY', 'Create directory');
 @define('CREATE_NEW_DIRECTORY', 'Create new directory');
 @define('CREATE_DIRECTORY_DESC', 'Here you can create a new directory to place media files in. Choose the name for your new directory and select an optional parent directory to place it in.');
