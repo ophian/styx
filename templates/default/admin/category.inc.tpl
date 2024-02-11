@@ -178,7 +178,7 @@
             </div>
 
             <ul class="plainList clearfix edit_actions">
-                <li>{if $entriesnocat.0 > 0}<a class="button_link" href="?serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&serendipity[filter][category]=nocat&serendipity[catref]=1" title="{$CONST.ENTRIES} {$CONST.CATEGORY} {$CONST.NO_CATEGORY}"><span class="catctlabel">{$entriesnocat.0}{else}<span class="emptydim catctlabel">0{/if} {$CONST.ENTRIES}</span></a> <span class="catctlabel groupbyauthor">({$entriesbyauthor})</span></li>
+                <li>{if $entriesnocat.0 > 0}<a class="button_link" href="?serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&serendipity[filter][category]=nocat&serendipity[catref]=1" title="{$CONST.ENTRIES} {$CONST.NO_CATEGORY}"><span class="catctlabel">{$entriesnocat.0}{else}<span class="emptydim catctlabel">0{/if} {$CONST.ENTRIES}</span></a> <span class="catctlabel groupbyauthor">({$entriesbyauthor})</span></li>
             </ul>
         </div>
     </li><!-- close root item no cat -->
