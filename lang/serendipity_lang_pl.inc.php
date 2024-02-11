@@ -676,7 +676,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('UPGRADE_TO_VERSION', '<b>Uaktualnienie do wersji:</b> %s');
 @define('DELETE_DIRECTORY', 'Usuñ katalog');
 @define('DELETE_DIRECTORY_DESC', 'Zamierzasz usunac katalog, który moze zawierac pliki multimedialne i elementy juz uzywane we wpisach. Upewnij sie!');
-@define('FORCE_DELETE', 'Usuwa WSZYSTKIE pliki w tym katalogu, w tym podkatalogi i pliki, które nie sa (jeszcze) znane przez MediaLibrary.');
+@define('FORCE_DELETE', 'Usuwa WSZYSTKIE pliki w tym katalogu, w tym podkatalogi i pliki, które nie sa (jeszcze) znane przez MediaLibrary');
 @define('CREATE_DIRECTORY', 'Stwórz nowy katalog');
 @define('CREATE_NEW_DIRECTORY', 'Stwórz nowy katalog');
 @define('CREATE_DIRECTORY_DESC', 'Mo¿esz tu stworzyæ nowy katalog, w którym bêd± przechowywane pliki mediów. Wpisz nazwê nowego katalogu i wybierz ewentualny katalog nadrzêdny, w którym zostanie utworzony Twój podkatalog.');

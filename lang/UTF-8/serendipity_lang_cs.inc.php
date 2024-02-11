@@ -686,7 +686,7 @@ $i18n_filename_to = array (
 @define('UPGRADE_TO_VERSION', '<b>Aktualizace na verzi:</b> %s');
 @define('DELETE_DIRECTORY', 'Vymazat adresář');
 @define('DELETE_DIRECTORY_DESC', 'Chystáte se odstranit adresář, který může obsahovat mediální soubory a položky již použité v položkách. Buďte si jisti!');
-@define('FORCE_DELETE', 'Odstranění VŠECH souborů v tomto adresáři, včetně podadresářů a souborů, které (zatím) nejsou známy knihovně MediaLibrary.');
+@define('FORCE_DELETE', 'Odstranění VŠECH souborů v tomto adresáři, včetně podadresářů a souborů, které (zatím) nejsou známy knihovně MediaLibrary');
 @define('CREATE_DIRECTORY', 'Vytvořit adresář');
 @define('CREATE_NEW_DIRECTORY', 'Vytvořit nový adresář');
 @define('CREATE_DIRECTORY_DESC', 'Zde můžete vytvořit adresář pro ukládání mediálních souborů. Zvolte název adresáře a případný nadřízený adresář.');

@@ -674,7 +674,7 @@
 @define('UPGRADE_TO_VERSION', 'バージョン %s へアップグレード'); // check style
 @define('DELETE_DIRECTORY', 'ディレクトリーの削除');
 @define('DELETE_DIRECTORY_DESC', 'あなたが削除しようとしているディレクトリには、メディアファイルやエントリーで既に使用されているアイテムが含まれている可能性があります。確認してください！');
-@define('FORCE_DELETE', 'サブディレクトリやMediaLibraryがまだ知らないファイルも含めて、このディレクトリ内のすべてのファイルを削除する。');
+@define('FORCE_DELETE', 'サブディレクトリやMediaLibraryがまだ知らないファイルも含めて、このディレクトリ内のすべてのファイルを削除する');
 @define('CREATE_DIRECTORY', 'ディレクトリーの作成');
 @define('CREATE_NEW_DIRECTORY', '新規ディレクトリーの作成');
 @define('CREATE_DIRECTORY_DESC', 'ここで、メディア ファイルを中へ保存めに新しいディレクトリーを作成することができます。新しいディレクトリーの名前を選び、それを保存するオプションと親ディレクトリーを選択します。');

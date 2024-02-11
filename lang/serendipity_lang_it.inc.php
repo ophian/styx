@@ -675,7 +675,7 @@
 @define('UPGRADE_TO_VERSION', '<b>Aggiorna alla versione:</b> %s');
 @define('DELETE_DIRECTORY', 'Cancella la directory');
 @define('DELETE_DIRECTORY_DESC', 'Si sta per eliminare una directory che potrebbe contenere file multimediali e elementi già utilizzati nelle voci. Assicuratevi che sia così!');
-@define('FORCE_DELETE', 'Elimina TUTTI i file di questa directory, comprese le sottodirectory e i file non (ancora) conosciuti da MediaLibrary.');
+@define('FORCE_DELETE', 'Elimina TUTTI i file di questa directory, comprese le sottodirectory e i file non (ancora) conosciuti da MediaLibrary');
 @define('CREATE_DIRECTORY', 'Crea la directory');
 @define('CREATE_NEW_DIRECTORY', 'Crea una nuoav directory');
 @define('CREATE_DIRECTORY_DESC', 'Qui puoi creare una nuova directory per nuovi files media. Scegli il nome per la tua nuova directory e facoltativamente seleziona una directory padre in cui posizionarla.');

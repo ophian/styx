@@ -674,7 +674,7 @@
 @define('UPGRADE_TO_VERSION', '<b>Frissítés erre a verzióra:</b> %s');
 @define('DELETE_DIRECTORY', 'Könyvtár törlése');
 @define('DELETE_DIRECTORY_DESC', 'Egy olyan könyvtárat készül törölni, amely médiafájlokat és a bejegyzésekben már használt elemeket tartalmazhat. Legyen biztos benne!');
-@define('FORCE_DELETE', 'A könyvtárban lévo MINDEN fájl törlése, beleértve az alkönyvtárakat és a MediaLibrary által (még) nem ismert fájlokat is.');
+@define('FORCE_DELETE', 'A könyvtárban lévo MINDEN fájl törlése, beleértve az alkönyvtárakat és a MediaLibrary által (még) nem ismert fájlokat is');
 @define('CREATE_DIRECTORY', 'Könyvtár létrehozása');
 @define('CREATE_NEW_DIRECTORY', 'Új könyvtár létrehozása');
 @define('CREATE_DIRECTORY_DESC', 'Új könyvtárat hozhat létre a média fájlok számára. Írj be egy nevet, és ha kell válassz szülõkönyvtárat.');

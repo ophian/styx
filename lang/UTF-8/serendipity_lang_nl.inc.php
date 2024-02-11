@@ -676,7 +676,7 @@
 @define('UPGRADE_TO_VERSION', '<b>Bijwerken naar versie:</b> %s');
 @define('DELETE_DIRECTORY', 'Verwijder map');
 @define('DELETE_DIRECTORY_DESC', 'Je staat op het punt om een map te verwijderen die mediabestanden en items kan bevatten die al gebruikt zijn in je inzendingen. Wees er zeker van!');
-@define('FORCE_DELETE', 'Verwijder ALLE bestanden in deze map, inclusief submappen en bestanden die (nog) niet bekend zijn bij de MediaLibrary.');
+@define('FORCE_DELETE', 'Verwijder ALLE bestanden in deze map, inclusief submappen en bestanden die (nog) niet bekend zijn bij de MediaLibrary');
 @define('CREATE_DIRECTORY', 'Maak map');
 @define('CREATE_NEW_DIRECTORY', 'Maak nieuwe map');
 @define('CREATE_DIRECTORY_DESC', 'Hier kun je een nieuwe map aanmaken om mediabestanden in te plaatsen. Bedenk een naam voor de nieuwe map en kies een optionele bovenliggende map waarin deze geplaatst moet worden.');

@@ -676,7 +676,7 @@
 @define('UPGRADE_TO_VERSION', '<b>Upgrade to version:</b> %s'); // Translate
 @define('DELETE_DIRECTORY', 'Delete directory'); // Translate
 @define('DELETE_DIRECTORY_DESC', 'Du er i ferd med å slette en katalog som kan inneholde mediefiler og elementer som allerede er brukt i oppføringene dine. Vær sikker!');
-@define('FORCE_DELETE', 'Slett ALLE filer i denne katalogen, inkludert underkataloger og filer som MediaLibrary (ennå) ikke kjenner til.');
+@define('FORCE_DELETE', 'Slett ALLE filer i denne katalogen, inkludert underkataloger og filer som MediaLibrary (ennå) ikke kjenner til');
 @define('CREATE_DIRECTORY', 'Create directory'); // Translate
 @define('CREATE_NEW_DIRECTORY', 'Create new directory'); // Translate
 @define('CREATE_DIRECTORY_DESC', 'Here you can create a new directory to place media files in. Choose the name for your new directory and select an optional parent directory to place it in.'); // Translate

@@ -676,7 +676,7 @@
 @define('UPGRADE_TO_VERSION', '버전 %s(으)로 업그레이드'); // check style
 @define('DELETE_DIRECTORY', '디렉토리 삭제');
 @define('DELETE_DIRECTORY_DESC', '항목에 이미 사용된 미디어 파일과 항목이 포함되어 있을 수 있는 디렉터리를 삭제하려고 합니다. 꼭 삭제하세요!');
-@define('FORCE_DELETE', '하위 디렉터리와 미디어 라이브러리에서 (아직) 알 수 없는 파일을 포함하여 이 디렉터리의 모든 파일을 삭제합니다.');
+@define('FORCE_DELETE', '하위 디렉터리와 미디어 라이브러리에서 (아직) 알 수 없는 파일을 포함하여 이 디렉터리의 모든 파일을 삭제합니다');
 @define('CREATE_DIRECTORY', '디렉토리 생성');
 @define('CREATE_NEW_DIRECTORY', '새 디렉토리 생성');
 @define('CREATE_DIRECTORY_DESC', '미디어 파일을 담을 새 디렉토리를 여기서 생성할 수 있습니다. 새 디렉토리의 이름을 정한 다음 디렉토리가 들어갈 상위 디렉토리를 고릅니다.');

@@ -675,7 +675,7 @@
 @define('UPGRADE_TO_VERSION', '<b>Actualizare la versiunea:</b> %s');
 @define('DELETE_DIRECTORY', 'Şterge director');
 @define('DELETE_DIRECTORY_DESC', 'Sunteți pe cale să ștergeți un director care poate conține fișiere media și elemente deja utilizate în intrările dumneavoastră. Asigurați-vă!');
-@define('FORCE_DELETE', 'Ștergeți TOATE fișierele din acest director, inclusiv subdirectoarele și acele fișiere care nu sunt (încă) cunoscute de MediaLibrary.y');
+@define('FORCE_DELETE', 'Ștergeți TOATE fișierele din acest director, inclusiv subdirectoarele și acele fișiere care nu sunt (încă) cunoscute de MediaLibrary');
 @define('CREATE_DIRECTORY', 'Creare director');
 @define('CREATE_NEW_DIRECTORY', 'Crează un nou director');
 @define('CREATE_DIRECTORY_DESC', 'Aici poţi crea un nou director în care să stochezi fişierele tale media. Alege un nume pentru noul director. Opţional poţi selecta un director părinte pentru el.');
