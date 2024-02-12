@@ -314,7 +314,7 @@
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'Herhangi bir güncellemeye ihtiyacınız yok gibi görünüyor');
 @define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even when no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', ' Serendipity güncellemesi hesaplandığı gibi başarıldı');
-@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Serendipity güncellemesini gözardı edebilirsiniz, sadece veritabanınızın doğru kurulduğundan emin olun, ve işlevleri otomatik çalışacak şekilde ayarlayın. After having finished your reasoned work for hold-back, this can be done automatically by just resetting the version in your serendipity_config_local.inc (only) file and run this upgrade page again via your backend page.');
+@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Serendipity güncellemesini gözardı edebilirsiniz, sadece veritabanınızın doğru kurulduğundan emin olun, ve işlevleri otomatik çalışacak şekilde ayarlayın. Bekletme için gerekçeli çalışmanızı tamamladıktan sonra, serendipity_config_local.inc dosyanızdaki sürümü sıfırlayarak ve bu yükseltme sayfasını arka uç sayfanız üzerinden tekrar çalıştırarak bu işlem otomatik olarak yapılabilir.');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', ' Serendipity kurulumunuz şimdi şu sürüme gncellenecek %s');
 @define('SERENDIPITY_UPGRADER_RETURN_HERE', 'Siteye dönmek için %sburaya%s tıklayın');
 @define('MANAGE_USERS', 'Kullanıcı Yönetimi');

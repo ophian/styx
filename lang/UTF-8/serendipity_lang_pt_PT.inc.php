@@ -298,7 +298,7 @@
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'Parece que que você não precisa executar nenhuma actualização');
 @define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even when no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Considere a actualização do Serendipity');
-@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Você ignorou a fase de actualização do Serendipity, certifique-se de que a base de dados está instalada correctamente e que as funções necessárias foram executadas. After having finished your reasoned work for hold-back, this can be done automatically by just resetting the version in your serendipity_config_local.inc (only) file and run this upgrade page again via your backend page.');
+@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Você ignorou a fase de actualização do Serendipity, certifique-se de que a base de dados está instalada correctamente e que as funções necessárias foram executadas. Depois de ter terminado o seu trabalho fundamentado para o hold-back, isto pode ser feito automaticamente, bastando repor a versão no seu ficheiro serendipity_config_local.inc e executar novamente esta página de atualização através da sua página backend.');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'A sua instalação do Serendipity foi actualizada para a versão %s');
 @define('SERENDIPITY_UPGRADER_RETURN_HERE', 'Pode retornar ao seu Blogue clicando %saqui%s');
 

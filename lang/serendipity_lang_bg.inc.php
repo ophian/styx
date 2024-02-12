@@ -294,7 +294,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'Изглежда няма нужда от действия по надграждане');
 @define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even when no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Считайте Serendipity за надграден');
-@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Вие пренебрегнахте надграждането на Serendipity. Моля, уверете се, че базата данни е правилно инсталирана и планираните функции са изпълнени. After having finished your reasoned work for hold-back, this can be done automatically by just resetting the version in your serendipity_config_local.inc (only) file and run this upgrade page again via your backend page.');
+@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Вие пренебрегнахте надграждането на Serendipity. Моля, уверете се, че базата данни е правилно инсталирана и планираните функции са изпълнени. След като приключите с аргументираната си работа за задържане, това може да стане автоматично, като просто нулирате версията във файла serendipity_config_local.inc и стартирате тази страница за обновяване отново чрез страницата си за бекенд.');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'Вашата инсталация на Serendipity вече е надградена до версия %s');
 @define('SERENDIPITY_UPGRADER_RETURN_HERE', 'Можете да се върнете към блога Ви като щракнете %sтук%s');
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Не е изпратено проследяване: Не може да бъде установена връзка с %s на порт %d');

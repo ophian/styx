@@ -329,7 +329,7 @@ $i18n_filename_to = array (
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'Není tøeba ¾ádný upgrade');
 @define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even when no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Serendipity je upgradován');
-@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Vynechal jste stupeò upgrade Serendipity, ujistìte se, ¾e databáze je správnì nainstalována a plánované funkce jsou spu¹tìny. After having finished your reasoned work for hold-back, this can be done automatically by just resetting the version in your serendipity_config_local.inc (only) file and run this upgrade page again via your backend page.');
+@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Vynechal jste stupeò upgrade Serendipity, ujistìte se, ¾e databáze je správnì nainstalována a plánované funkce jsou spu¹tìny. Poté, co jste dokoncili zduvodnenou práci pro zadržení, lze toto provést automaticky pouhým resetováním verze v souboru serendipity_config_local.inc a opetovným spuštením této aktualizacní stránky prostrednictvím vaší backendové stránky.');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'Va¹e instalace Serendipity je upgradována na %s');
 @define('SERENDIPITY_UPGRADER_RETURN_HERE', 'Kliknutím %ssem%s se vrátíte do va¹eho weblogu');
 @define('MANAGE_USERS', 'Správa u¾ivatelù');

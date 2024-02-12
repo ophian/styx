@@ -312,7 +312,7 @@
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'Það virðist sem svo að þú þurfir ekki að keyra neinar uppfærslur');
 @define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even when no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Uppfærslu lokið');
-@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Þú hefur hundsað uppfærslustig Serendipity. Vinsamlegast gakktu úr skugga um að gagnagrunnurinn sé rétt uppsettur, og fyrirætluð virkni sé í gangi. After having finished your reasoned work for hold-back, this can be done automatically by just resetting the version in your serendipity_config_local.inc (only) file and run this upgrade page again via your backend page.');
+@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Þú hefur hundsað uppfærslustig Serendipity. Vinsamlegast gakktu úr skugga um að gagnagrunnurinn sé rétt uppsettur, og fyrirætluð virkni sé í gangi. Eftir að hafa lokið rökstuddu verki þínu til að halda aftur, er hægt að gera þetta sjálfkrafa með því að endurstilla útgáfuna í serendipity_config_local.inc skránni þinni og keyra þessa uppfærslusíðu aftur í gegnum bakendasíðuna þína.');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'Serendipity uppsetningin þín hefur nú verið uppfærð í útgáfu %s');
 @define('SERENDIPITY_UPGRADER_RETURN_HERE', 'Þú getur farið aftur á bloggið þitt með því að smella %shér%s');
 @define('MANAGE_USERS', 'Sýsla með notendur');

@@ -312,7 +312,7 @@
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'Úgy látom, nem kell a frissítést elvégezni');
 @define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even when no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Serendipity frissítésének előkészítése kész');
-@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'A Serendipity frissítésének fázisát figyelmen kívül hagytad, ellenőrizd hogy az adatbázis megfelelően van installálva, és az időzített feladatok futnak. After having finished your reasoned work for hold-back, this can be done automatically by just resetting the version in your serendipity_config_local.inc (only) file and run this upgrade page again via your backend page.');
+@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'A Serendipity frissítésének fázisát figyelmen kívül hagytad, ellenőrizd hogy az adatbázis megfelelően van installálva, és az időzített feladatok futnak. Miután befejezte a visszatartásra vonatkozó indokolt munkáját, ez automatikusan elvégezhető, ha csak visszaállítja a verziót a serendipity_config_local.inc fájlban, és újra lefuttatja ezt a frissítési oldalt a backend oldalon keresztül.');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'A Serendipity rendszer frissítése megtörtént a következő verzióra: %s');
 @define('SERENDIPITY_UPGRADER_RETURN_HERE', 'Visszatérhetsz a blog-hoz %side%s kattintva');
 @define('MANAGE_USERS', 'Felhasználók kezelése');

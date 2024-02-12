@@ -314,7 +314,7 @@ $i18n_unknown = 'tw';
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', '您不需要進行任何更新');
 @define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even when no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', '假裝 Serendipity 更新完成吧');
-@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', '您略過了更新任務, 請確定資料庫已安裝完成, 和其他的任務安裝無誤. After having finished your reasoned work for hold-back, this can be done automatically by just resetting the version in your serendipity_config_local.inc (only) file and run this upgrade page again via your backend page.');
+@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', '您略過了更新任務, 請確定資料庫已安裝完成, 和其他的任務安裝無誤. 完成合理的保留工作後，只需重置 serendipity_config_local.inc 檔案中的版本並透過後端頁面再次執行此升級頁面即可自動完成此操作。');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', '您的 Serendipity 以更新至版本 %s');
 @define('SERENDIPITY_UPGRADER_RETURN_HERE', '您可以點 %s這裡%s 返回日記首頁');
 @define('MANAGE_USERS', '管理作者');

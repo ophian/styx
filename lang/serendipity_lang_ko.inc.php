@@ -314,7 +314,7 @@
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', '업그레이드할 사항이 없습니다');
 @define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even when no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', '세렌디피티가 업그레이드 되었습니다');
-@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', '세렌디피티의 업그레이드 단계를 건너뛰었습니다. 데이터베이스가 제대로 설치되었고 스케줄된 기능이 수행되는지 반드시 확인하십시오. After having finished your reasoned work for hold-back, this can be done automatically by just resetting the version in your serendipity_config_local.inc (only) file and run this upgrade page again via your backend page.');
+@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', '세렌디피티의 업그레이드 단계를 건너뛰었습니다. 데이터베이스가 제대로 설치되었고 스케줄된 기능이 수행되는지 반드시 확인하십시오. 보류에 대한 추론 작업을 완료한 후에는 serendipity_config_local.inc 파일에서 버전을 재설정하고 백엔드 페이지를 통해 이 업그레이드 페이지를 다시 실행하면 자동으로 이 작업을 수행할 수 있습니다.');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', '세렌디피티가 버전 %s로 업그레이드 되었습니다');
 @define('SERENDIPITY_UPGRADER_RETURN_HERE', '%s여기%s를 눌러 블로그로 돌아갈 수 있습니다');
 @define('MANAGE_USERS', '사용자 관리');

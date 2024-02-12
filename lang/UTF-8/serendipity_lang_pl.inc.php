@@ -314,7 +314,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'Wygląda na to, że nie musisz aktualizować swojej instalacji');
 @define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even when no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Serendipity zostało zaktualizowane');
-@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Zignorowałeś(aś) etap uaktualnienia Serendipity. Proszę, upewnij się, że Twoja baza danych jest prawidłowo zainstalowana a zaplanowane zadania zostaną uruchomione. After having finished your reasoned work for hold-back, this can be done automatically by just resetting the version in your serendipity_config_local.inc (only) file and run this upgrade page again via your backend page.');
+@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Zignorowałeś(aś) etap uaktualnienia Serendipity. Proszę, upewnij się, że Twoja baza danych jest prawidłowo zainstalowana a zaplanowane zadania zostaną uruchomione. Po zakończeniu uzasadnionej pracy nad wstrzymaniem można to zrobić automatycznie, po prostu resetując wersję w pliku serendipity_config_local.inc i ponownie uruchamiając tę stronę aktualizacji za pośrednictwem strony zaplecza.');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'Twoja instalacja Serendipity została uaktualniona do wersji %s');
 @define('SERENDIPITY_UPGRADER_RETURN_HERE', 'Możesz powrócić do swojego bloga klikając %stutaj%s');
 @define('MANAGE_USERS', 'Użytkownicy');
