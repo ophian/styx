@@ -3,7 +3,7 @@ Version 4.4-DEV ()
 
 
   * Refactor Media directory nuke handlers for semantic naming, new regex match,
-    fixing a "whitehaired" Methusalem bug w/ single letter names like 'B' and
+    fixing a "whitehaired" Methusalem bug w/ single letter names like 'X' and
     for overall related messaging and language constants.
 
   [ 4.4-beta1 ]
