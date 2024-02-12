@@ -3639,7 +3639,7 @@ function serendipity_killPath($basedir, $udir = '', $forceDelete = false) {
             }
         }
 
-        // Now be serious AND check directory name NOT empty for 0 or false === matching regex subdir contents return => then quietly remove directory
+        // Now be serious AND check directory name NOT empty for 0 or false === matching regex subdir (nesting) name return => then quietly remove directory, or fail on false
         if ($serious && !empty($udir) && !preg_match('@^(\w+\.?\/?)*\w+$@', $udir) && @rmdir($basedir . $udir)) {
             echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . sprintf(DIRECTORY_DELETE_SUCCESS, "<span class=\"msg-spot\">$udir</span>") . "</span>\n";
         } else {
