@@ -17,7 +17,7 @@
 
 @define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Styx Verwaltungsoberfläche');
 @define('HAVE_TO_BE_LOGGED_ON', 'Sie müssen angemeldet sein, um diese Seite zu sehen');
-@define('WRONG_USERNAME_OR_PASSWORD', 'Das Passwort oder der Username war falsch. Bitte wiederholen Sie die Eingabe.');
+@define('WRONG_USERNAME_OR_PASSWORD', 'Das Passwort oder der Benutzername war falsch. Bitte wiederholen Sie die Eingabe.');
 @define('APPEARANCE', 'Aussehen');
 @define('MANAGE_STYLES', 'Themes verwalten');
 @define('CONFIGURE_PLUGINS', 'Plugins verwalten');
@@ -342,17 +342,17 @@
 @define('SETTINGS_SAVED_AT', 'Die neuen Einstellungen wurden um %s gespeichert.');
 
 /* DATABASE SETTINGS */
-@define('INSTALL_CAT_DB', 'Datenbankeinstellungen');
-@define('INSTALL_CAT_DB_DESC', 'Konfigurieren Sie hier die Datenbank. Serendipity benötigt die Daten, um lauffähig zu sein.');
+@define('INSTALL_CAT_DB', 'Datenbank Einstellungen');
+@define('INSTALL_CAT_DB_DESC', 'Konfigurieren Sie hier die Datenbank. Serendipity benötigt diese, um funktionsfähig arbeiten zu können.');
 @define('INSTALL_DBTYPE', 'Datenbanktyp');
 @define('INSTALL_DBTYPE_DESC', 'Datenbanktyp');
 @define('INSTALL_DBHOST', 'Datenbank Servername');
-@define('INSTALL_DBHOST_DESC', 'Datenbank Servername. Bei pgsql kann ein abweichender Port mittels "localhost port=4711" angegeben werden; bei MySQL mit "localhost:4711".');
-@define('INSTALL_DBUSER', 'Datenbank Username');
-@define('INSTALL_DBUSER_DESC', 'Datenbank Username');
+@define('INSTALL_DBHOST_DESC', 'Der Hostname für Ihren Datenbankserver. Bei pgsql kann ein abweichender Port mittels "localhost port=4711" angegeben werden; bei MySQL mit "localhost:4711". Wenn Sie den Standardport verwenden, brauchen Sie diese Erklärung nicht zu beachten.');
+@define('INSTALL_DBUSER', 'Datenbank Benutzer');
+@define('INSTALL_DBUSER_DESC', 'Der Benutzername, der für die Verbindung zu Ihrer Datenbank verwendet wird');
 @define('INSTALL_DBPASS', 'Datenbank Passwort');
-@define('INSTALL_DBPASS_DESC', 'Datenbank Passwort');
-@define('INSTALL_DBNAME', 'Datenbankname');
+@define('INSTALL_DBPASS_DESC', 'Das Passwort, das dem oben genannten Benutzernamen entspricht');
+@define('INSTALL_DBNAME', 'Datenbank Name');
 @define('INSTALL_DBNAME_DESC', 'Name der Datenbank');
 @define('INSTALL_DBPREFIX', 'Datenbank-Präfix');
 @define('INSTALL_DBPREFIX_DESC', 'Präfix für Tabellennamen, z.B. styx_');
