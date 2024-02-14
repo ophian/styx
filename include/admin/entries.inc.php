@@ -520,7 +520,7 @@ switch($serendipity['GET']['adminAction']) {
             return; // blank content page, but default token check parameter is presenting a XSRF message when false
         }
         if (!isset($serendipity['POST']['multiDelete']) || !is_array($serendipity['POST']['multiDelete'])) {
-            echo '<div class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(MULTICHECK_NO_ITEM, serendipity_specialchars($_SERVER['HTTP_REFERER'], ENT_QUOTES | ENT_HTML401)) . '</div>'."\n";
+            echo '<div class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(MULTICHECK_NO_ITEM, serendipity_specialchars(($_SERVER['HTTP_REFERER'] ?? ''), ENT_QUOTES | ENT_HTML401)) . '</div>'."\n";
             break;
         }
 
