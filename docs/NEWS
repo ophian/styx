@@ -2,7 +2,7 @@ Version 4.4-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Minor Smarty lib tag-4.3.5 catchup
+  * Minor Smarty lib v.4.3.5 (tag) catch-up
 
   * Refactor Media directory nuke handlers for semantic naming, new regex match,
     fixing a "whitehaired" Methusalem bug w/ single letter names like 'X' and
