@@ -395,9 +395,9 @@ function serendipity_deleteImage($id) {
                     if (unlink($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile)) {
                         // Silently delete an already generated .v/origin.[webp|avif] variation file too
                         serendipity_syncUnlinkVariation($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile);
-                        $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_FILE . "</span>\n", $dFile);
+                        $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_FILE . "</span>\n", serendipity_spotify($dFile));
                     } else {
-                        $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . DELETE_FILE_FAIL . "</span>\n", $dFile);
+                        $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . DELETE_FILE_FAIL . "</span>\n", serendipity_spotify($dFile));
                     }
 
                     serendipity_plugin_api::hook_event('backend_media_delete', $dThumb);
@@ -408,14 +408,14 @@ function serendipity_deleteImage($id) {
                         if (file_exists($dfThumb) && unlink($dfThumb)) {
                             // Silently delete an already generated .v/originthumb.[webp|avif] variation file too
                             serendipity_syncUnlinkVariation($dfThumb);
-                            $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_THUMBNAIL . "</span>\n", $dfnThumb);
+                            $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_THUMBNAIL . "</span>\n", serendipity_spotify($dfnThumb));
                         }
                     }
                 } else {
-                    $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . FILE_NOT_FOUND . "</span>\n", $dFile);
+                    $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . FILE_NOT_FOUND . "</span>\n", serendipity_spotify($dFile));
                 }
             } else {
-                $messages .= sprintf('<span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> ' . DELETE_HOTLINK_FILE . "</span>\n", $file['name']);
+                $messages .= sprintf('<span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> ' . DELETE_HOTLINK_FILE . "</span>\n", serendipity_spotify($file['name']));
             }
 
             serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}images WHERE id = ". (int)$id);
@@ -472,7 +472,7 @@ function serendipity_deleteImageVariations($id) {
             if (!isset($file['hotlink'])) {
                 $v = serendipity_syncUnlinkVariation($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile, false);
                 foreach ($v AS $mv) {
-                    $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_FILE . "</span>\n", str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $mv));
+                    $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_FILE . "</span>\n", serendipity_spotify(str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $mv)))
                 }
 
                 foreach($dThumb AS $thumb) {
@@ -481,11 +481,11 @@ function serendipity_deleteImageVariations($id) {
 
                     $th = serendipity_syncUnlinkVariation($dfThumb, false);
                     foreach ($th AS $mth) {
-                        $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_THUMBNAIL . "</span>\n", str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $mth));
+                        $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_THUMBNAIL . "</span>\n", serendipity_spotify(str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $mth)));
                     }
                 }
             } else {
-                $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . DELETE_FILE_FAIL . "</span>\n", $file['name']);
+            $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . DELETE_FILE_FAIL . "</span>\n", serendipity_spotify($file['name']));
             }
         }
     }
@@ -3596,7 +3596,7 @@ function serendipity_killPath($basedir, $udir = '', $forceDelete = false) {
         }
         @closedir($handle);
 
-        echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . sprintf(CHECKING_DIRECTORY, "<span class=\"msg-spot\">$udir</span>") . "</span>\n";
+        echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . sprintf(CHECKING_DIRECTORY, serendipity_spotify($udir)) . "</span>\n";
 
         // No, we just don't kill files the easy way. We sort them out properly from the database
         // and preserve files not entered therein.
@@ -3623,9 +3623,9 @@ function serendipity_killPath($basedir, $udir = '', $forceDelete = false) {
                 echo '<ul class="plainList">'."\n";
                 foreach($filestack AS $f => $file) {
                     if ($serious && unlink($basedir . $file)) {
-                        printf('    <li><span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETING_FILE . ' ' . DONE . "</span></li>\n", "<span class=\"msg-spot\">$file</span>");
+                        printf('    <li><span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETING_FILE . ' ' . DONE . "</span></li>\n", serendipity_spotify($file));
                     } else {
-                        printf('    <li><span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . DELETING_FILE . ' ' . ERROR . "</span></li>\n", "<span class=\"msg-spot\">$file</span>");
+                        printf('    <li><span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . DELETING_FILE . ' ' . ERROR . "</span></li>\n", serendipity_spotify($file));
                     }
                 }
                 echo "</ul>\n";
@@ -3641,9 +3641,9 @@ function serendipity_killPath($basedir, $udir = '', $forceDelete = false) {
 
         // Now be serious AND check directory name NOT empty for 0 or false === matching regex subdir (nesting) name return => then quietly remove directory, or fail on false
         if ($serious && !empty($udir) && !preg_match('@^(\w+\.?\/?)*\w+$@', $udir) && @rmdir($basedir . $udir)) {
-            echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . sprintf(DIRECTORY_DELETE_SUCCESS, "<span class=\"msg-spot\">$udir</span>") . "</span>\n";
+            echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . sprintf(DIRECTORY_DELETE_SUCCESS, serendipity_spotify($udir)) . "</span>\n";
         } else {
-            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(DIRECTORY_DELETE_FAILED, "<span class=\"msg-spot\">$udir</span>") . "</span>\n";
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(DIRECTORY_DELETE_FAILED, serendipity_spotify($udir)) . "</span>\n";
         }
     }
 
