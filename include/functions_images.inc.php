@@ -2698,13 +2698,13 @@ function serendipity_syncThumbs($deleteThumbs = false) {
         if (!empty($_list)) {
             $_list .= '<div class="media_sync_list">' . "\n";
         }
-        // If we're supposed to delete thumbs, this is the easiest place. Leave messages plain unstiled.
+        // If we're supposed to delete thumbs, this is the easiest place. Leave messages plain un-styled for the list.
         if (is_readable($fthumb)) {
             if ($deleteThumbs === true) {
                 if (unlink($fthumb)) {
                     // Silently delete an already generated .v/fthumb.[webp|avif] variation file too
                     serendipity_syncUnlinkVariation($fthumb);
-                    $_list .= sprintf(DELETE_THUMBNAIL, $sThumb);
+                    $_list .= sprintf(DELETE_THUMBNAIL, "<b>$sThumb</b>");
                     $_br = "<br>\n";
                     $i++;
                 }
@@ -2716,7 +2716,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                     if (unlink($fthumb)) {
                         // Silently delete an already generated .v/fthumb.[webp|avif] variation file too
                         serendipity_syncUnlinkVariation($fthumb);
-                        $_list .= sprintf(DELETE_THUMBNAIL, $sThumb);
+                        $_list .= sprintf(DELETE_THUMBNAIL, "<b>$sThumb</b>");
                         $_br = "<br>\n";
                         $i++;
                     }
@@ -2730,7 +2730,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                         if (unlink($fthumb)) {
                             // Silently delete an already generated .v/fthumb.[webp|avif] variation file too
                             serendipity_syncUnlinkVariation($fthumb);
-                            $_list .= sprintf(DELETE_THUMBNAIL, $sThumb);
+                            $_list .= sprintf(DELETE_THUMBNAIL, "<b>$sThumb</b>");
                             $_br = "<br>\n";
                             $i++;
                         }
