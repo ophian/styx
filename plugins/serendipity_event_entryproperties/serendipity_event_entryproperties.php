@@ -882,7 +882,7 @@ class serendipity_event_entryproperties extends serendipity_event
                         );
 
                         $total = serendipity_getTotalEntries();
-                        printf(PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_TOTAL  . '</h2>', $total);
+                        printf(PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_TOTAL . "</h2>\n", $total);
 
                         if (is_array($entries)) {
                             echo '<ul class="plainList">';
@@ -1011,17 +1011,17 @@ class serendipity_event_entryproperties extends serendipity_event
 
                     foreach($properties AS $idx => $row) {
                         if ($row['property'] == "ep_multi_authors") {
-                           $tmp = explode(";", $row['value']);
-                           $counter = 0;
-                           unset($eventData[$addData[$row['entryid']]]['properties'][$row['property']]);
-                           foreach($tmp AS $key => $value) {
-                               if (empty($value)) continue;
-                               $tmp_author_array = serendipity_fetchAuthor($value);
-                               $eventData[$addData[$row['entryid']]]['properties'][$row['property']][$counter]['author_id'] = $value;
-                               $eventData[$addData[$row['entryid']]]['properties'][$row['property']][$counter]['author_name'] = $tmp_author_array[0]['realname'];
-                               $eventData[$addData[$row['entryid']]]['properties'][$row['property']][$counter]['author_url'] = serendipity_authorURL($tmp_author_array[0]);
-                               $counter++;
-                           }
+                            $tmp = explode(";", $row['value']);
+                            $counter = 0;
+                            unset($eventData[$addData[$row['entryid']]]['properties'][$row['property']]);
+                            foreach($tmp AS $key => $value) {
+                                if (empty($value)) continue;
+                                $tmp_author_array = serendipity_fetchAuthor($value);
+                                $eventData[$addData[$row['entryid']]]['properties'][$row['property']][$counter]['author_id'] = $value;
+                                $eventData[$addData[$row['entryid']]]['properties'][$row['property']][$counter]['author_name'] = $tmp_author_array[0]['realname'];
+                                $eventData[$addData[$row['entryid']]]['properties'][$row['property']][$counter]['author_url'] = serendipity_authorURL($tmp_author_array[0]);
+                                $counter++;
+                            }
                         } else {
                             $eventData[$addData[$row['entryid']]]['properties'][$row['property']] = $row['value'];
                         }
@@ -1029,7 +1029,7 @@ class serendipity_event_entryproperties extends serendipity_event
                     break;
 
                 case 'entry_display':
-                    // PH: This is done after Garvins suggestion to patchup $eventData in case an entry
+                    // PH: This is done after Garvins suggestion to patch-up $eventData in case an entry
                     //     is in the process of being created. This must be done for the extended properties
                     //     to be applied in the preview.
 
