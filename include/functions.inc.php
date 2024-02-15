@@ -1711,6 +1711,17 @@ if (!function_exists('microtime_float')) {
 }
 
 /**
+ * Returns variable message items for sprintf parameter data for spot msg highlights
+ *
+ * @access public
+ * @param   string  The string variable
+ * @return  string  The highlight span'ed string
+ */
+function serendipity_spotify($var) {
+    return "<span class=\"msg-spot\">$var</span>";
+}
+
+/**
  * Converts Array data to be used as a GET string
  *
  * @access public
