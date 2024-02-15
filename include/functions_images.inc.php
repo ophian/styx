@@ -3606,7 +3606,7 @@ function serendipity_killPath($basedir, $udir = '', $forceDelete = false) {
             foreach($files AS $f => $file) {
                 echo "    <li>\n";
                 if ($serious) {
-                    echo serendipity_deleteImage($file['id']);
+                    echo serendipity_deleteImage($file['id']); // this also nukes .v/ dir based direct dependency variation files, so we later on also remove the .v/ directory w/o further action
                 } else {
                     echo $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
                 }
@@ -3619,7 +3619,7 @@ function serendipity_killPath($basedir, $udir = '', $forceDelete = false) {
         }
 
         if (count($filestack) > 0) {
-            if ($forceDelete) {
+            if ($forceDelete || (preg_match('@\.v\/@', $udir) && !preg_match('@^(\w+\.?\/?)*\w+$@', $udir) && !empty($basedir . $udir))) {
                 echo '<ul class="plainList">'."\n";
                 foreach($filestack AS $f => $file) {
                     if ($serious && unlink($basedir . $file)) {
