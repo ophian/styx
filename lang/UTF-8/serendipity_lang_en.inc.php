@@ -222,7 +222,7 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Done (Synchronized %s images).');
-@define('FILE_NOT_FOUND', 'Unable to locate the file entitled <b>%s</b>, maybe it has already been deleted?');
+@define('FILE_NOT_FOUND', 'Unable to locate the file entitled %s, maybe it has already been deleted?');
 @define('ABORT_NOW', 'Abort now');
 @define('REMOTE_FILE_NOT_FOUND', 'File was not located on the remote server, are you sure the URL: <b>%s</b> is correct?');
 @define('FILE_FETCHED', '%s fetched as %s');
@@ -536,9 +536,9 @@
 @define('DELETE_SELECTED_COMMENTS', 'Delete selected comments');
 @define('VIEW_COMMENT', 'View comment');
 @define('VIEW_ENTRY', 'View entry');
-@define('DELETE_FILE_FAIL', 'Unable to delete file <b>%s</b>');
-@define('DELETE_THUMBNAIL', 'Deleted the image thumbnail entitled <b>%s</b>');
-@define('DELETE_FILE', 'Deleted the file entitled <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'Unable to delete file %s');
+@define('DELETE_THUMBNAIL', 'Deleted the image thumbnail entitled %s');
+@define('DELETE_FILE', 'Deleted the file entitled %s');
 @define('ABOUT_TO_DELETE_FILE', 'You are about to delete <b>%s</b><br>If you are using this file in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Sending trackback to URI %s...');
