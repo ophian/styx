@@ -472,7 +472,7 @@ function serendipity_deleteImageVariations($id) {
             if (!isset($file['hotlink'])) {
                 $v = serendipity_syncUnlinkVariation($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile, false);
                 foreach ($v AS $mv) {
-                    $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_FILE . "</span>\n", serendipity_spotify(str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $mv)))
+                    $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_FILE . "</span>\n", serendipity_spotify(str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $mv)));
                 }
 
                 foreach($dThumb AS $thumb) {
@@ -485,7 +485,7 @@ function serendipity_deleteImageVariations($id) {
                     }
                 }
             } else {
-            $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . DELETE_FILE_FAIL . "</span>\n", serendipity_spotify($file['name']));
+                $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . DELETE_FILE_FAIL . "</span>\n", serendipity_spotify($file['name']));
             }
         }
     }
