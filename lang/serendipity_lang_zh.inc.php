@@ -677,7 +677,7 @@
 @define('UPGRADE', '更新');
 @define('UPGRADE_TO_VERSION', '更新至新版本 %s');
 @define('DELETE_DIRECTORY', '删除目录');
-@define('DELETE_DIRECTORY_DESC', '您将要删除的目录可能包含媒体文件和已在您的条目中使用过的项目。请确保');
+@define('DELETE_DIRECTORY_DESC', '您将删除一个目录<sup>(1)</sup>，其中可能包含媒体文件和已在您的条目中使用的项目。请务必！<sup>[1]</sup> 包括包含 (WebP/AVIF) 变体文件的隐藏子目录。');
 @define('FORCE_DELETE', '删除该目录中的所有文件，包括子目录和媒体库尚未知道的文件');
 @define('CREATE_DIRECTORY', '建立目录');
 @define('CREATE_NEW_DIRECTORY', '建立新目录');

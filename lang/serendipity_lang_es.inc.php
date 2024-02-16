@@ -686,7 +686,7 @@
 @define('UPGRADE', 'Actualizar');
 @define('UPGRADE_TO_VERSION', '<b>Actualizar a la versión:</b> %s');
 @define('DELETE_DIRECTORY', 'Borrar directorio');
-@define('DELETE_DIRECTORY_DESC', 'Está a punto de borrar un directorio que puede contener archivos multimedia y elementos ya utilizados en sus entradas. Asegúrese.');
+@define('DELETE_DIRECTORY_DESC', 'Está a punto de eliminar un directorio<sup>(¹)</sup> que puede contener archivos multimedia y elementos ya utilizados en sus entradas. Asegúrese!<sup>[¹]</sup> Incluyendo el subdirectorio oculto con archivos de variación (WebP/AVIF).');
 @define('FORCE_DELETE', 'Elimina TODOS los archivos de este directorio, incluidos los subdirectorios y los archivos (aún) no conocidos por la Mediateca');
 @define('CREATE_DIRECTORY', 'Crear directorio');
 @define('CREATE_NEW_DIRECTORY', 'Crear nuevo directorio');

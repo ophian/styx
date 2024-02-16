@@ -674,7 +674,7 @@
 @define('UPGRADE', 'Opgrader');
 @define('UPGRADE_TO_VERSION', '<b>Opgrader til v:</b>%s');
 @define('DELETE_DIRECTORY', 'Slet mappe');
-@define('DELETE_DIRECTORY_DESC', 'Du er ved at slette en mappe, som kan indeholde mediefiler og elementer, der allerede er brugt i dine poster. Vær sikker!');
+@define('DELETE_DIRECTORY_DESC', 'Du er ved at slette en mappe<sup>(¹)</sup>, der kan indeholde mediefiler og elementer, der allerede er brugt i dine poster. Vær sikker!<sup>[¹]</sup> Inklusive den skjulte undermappe med (WebP/AVIF) variationsfiler.');
 @define('FORCE_DELETE', 'Slet ALLE filer i denne mappe, inklusive undermapper og de filer, som MediaLibrary ikke kender (endnu)');
 @define('CREATE_DIRECTORY', 'Opret mappe');
 @define('CREATE_NEW_DIRECTORY', 'Opret ny mappe');

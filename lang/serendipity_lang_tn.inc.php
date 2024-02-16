@@ -676,7 +676,7 @@ $i18n_unknown = 'tw';
 @define('UPGRADE', '更新');
 @define('UPGRADE_TO_VERSION', '<b>更新至版本:</b> %s');
 @define('DELETE_DIRECTORY', '刪除目錄');
-@define('DELETE_DIRECTORY_DESC', '您將要刪除目錄，該目錄可能包含您的條目中已使用的媒體檔案和項目。 確定！');
+@define('DELETE_DIRECTORY_DESC', '您將要刪除目錄<sup>(¹)</sup>，該目錄可能包含您的條目中已使用的媒體檔案和項目。 請務必！<sup>[¹]</sup> 包括帶有 (WebP/AVIF) 變體檔案的隱藏子目錄。');
 @define('FORCE_DELETE', '刪除此目錄中的所有文件，包括子目錄和 MediaLibrary 尚未識別的文件');
 @define('CREATE_DIRECTORY', '建立目錄');
 @define('CREATE_NEW_DIRECTORY', '建立新目錄');

@@ -675,7 +675,7 @@
 @define('UPGRADE', '업그레이드');
 @define('UPGRADE_TO_VERSION', '버전 %s(으)로 업그레이드'); // check style
 @define('DELETE_DIRECTORY', '디렉토리 삭제');
-@define('DELETE_DIRECTORY_DESC', '항목에 이미 사용된 미디어 파일과 항목이 포함되어 있을 수 있는 디렉터리를 삭제하려고 합니다. 꼭 삭제하세요!');
+@define('DELETE_DIRECTORY_DESC', '응모작에 이미 사용된 미디어 파일과 항목이 포함되어 있을 수 있는 디렉토리<sup>(¹)</sup>를 삭제하려고 합니다. 반드시!<sup>[¹]</sup> 숨겨진 하위 디렉터리에 (WebP/AVIF) 변형 파일이 포함되어 있는지 확인하세요.');
 @define('FORCE_DELETE', '하위 디렉터리와 미디어 라이브러리에서 (아직) 알 수 없는 파일을 포함하여 이 디렉터리의 모든 파일을 삭제합니다');
 @define('CREATE_DIRECTORY', '디렉토리 생성');
 @define('CREATE_NEW_DIRECTORY', '새 디렉토리 생성');

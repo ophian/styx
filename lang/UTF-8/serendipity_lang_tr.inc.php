@@ -675,7 +675,7 @@
 @define('UPGRADE', 'Güncelle');
 @define('UPGRADE_TO_VERSION', '<b>Sürümü güncelle:</b> %s');
 @define('DELETE_DIRECTORY', 'Dizini sil');
-@define('DELETE_DIRECTORY_DESC', 'Medya dosyaları ve girişlerinizde halihazırda kullanılan öğeleri içerebilecek bir dizini silmek üzeresiniz. Emin olun!');
+@define('DELETE_DIRECTORY_DESC', 'Medya dosyaları ve girişlerinizde zaten kullanılan öğeleri içerebilecek bir dizini<sup>(¹)</sup> silmek üzeresiniz. Emin olun!<sup>[¹]</sup> (WebP/AVIF) varyasyon dosyalarının bulunduğu gizli alt dizini dahil edin.');
 @define('FORCE_DELETE', 'Alt dizinler ve MediaLibrary tarafından (henüz) bilinmeyen dosyalar da dahil olmak üzere bu dizindeki TÜM dosyaları sil');
 @define('CREATE_DIRECTORY', 'Dizin oluştur');
 @define('CREATE_NEW_DIRECTORY', 'Yeni dizin oluştur');

@@ -674,7 +674,7 @@
 @define('UPGRADE', 'Actualizare');
 @define('UPGRADE_TO_VERSION', '<b>Actualizare la versiunea:</b> %s');
 @define('DELETE_DIRECTORY', 'Şterge director');
-@define('DELETE_DIRECTORY_DESC', 'Sunteți pe cale să ștergeți un director care poate conține fișiere media și elemente deja utilizate în intrările dumneavoastră. Asigurați-vă!');
+@define('DELETE_DIRECTORY_DESC', 'Sunteți pe cale să ștergeți un director<sup>(¹)</sup> care poate conține fișiere media și elemente deja utilizate în înregistrările dumneavoastră. Asigurați-vă!<sup>[¹]</sup> Inclusiv subdirectorul ascuns cu fișiere de variație (WebP/AVIF).');
 @define('FORCE_DELETE', 'Ștergeți TOATE fișierele din acest director, inclusiv subdirectoarele și acele fișiere care nu sunt (încă) cunoscute de MediaLibrary');
 @define('CREATE_DIRECTORY', 'Creare director');
 @define('CREATE_NEW_DIRECTORY', 'Crează un nou director');

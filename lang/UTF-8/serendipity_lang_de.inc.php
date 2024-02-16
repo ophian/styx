@@ -670,7 +670,7 @@
 @define('UPGRADE', 'Aktualisieren');
 @define('UPGRADE_TO_VERSION', '<b>Update zu Version:</b> %s');
 @define('DELETE_DIRECTORY', 'Verzeichnis löschen');
-@define('DELETE_DIRECTORY_DESC', 'Sie sind dabei, ein Verzeichnis zu löschen, das möglicherweise Mediendateien und Elemente enthält, die bereits in Ihren Einträgen verwendet werden. Seien Sie sich sicher!');
+@define('DELETE_DIRECTORY_DESC', 'Sie sind dabei, ein Verzeichnis<sup>(¹)</sup> zu löschen, das möglicherweise Mediendateien und Elemente enthält, die bereits in Ihren Einträgen verwendet werden. Seien Sie sich sicher!<br><sup>[¹]</sup>Einschließlich des versteckten Unterverzeichnisses mit (WebP/AVIF) Variationsdateien.');
 @define('FORCE_DELETE', 'ALLE Dateien dieses Verzeichnisses löschen, inklusive Sub-Verzeichnisse und aller Dateien, die (noch) nicht in der Mediathek katalogisiert sind');
 @define('CREATE_DIRECTORY', 'Verzeichnis anlegen');
 @define('CREATE_NEW_DIRECTORY', 'Neues Verzeichnis anlegen');
