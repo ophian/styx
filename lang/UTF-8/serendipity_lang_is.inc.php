@@ -222,7 +222,7 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Búin (Samhæfði %s myndir).');
-@define('FILE_NOT_FOUND', 'Fann ekki skrána <b>%s</b>, kannski er þegar búið að eyða henni?');
+@define('FILE_NOT_FOUND', 'Fann ekki skrána %s, kannski er þegar búið að eyða henni?');
 @define('ABORT_NOW', 'Hætta við núna');
 @define('REMOTE_FILE_NOT_FOUND', 'Skráin fannst ekki á endaþjóninum. Ertu viss um að slóðin: <b>%s</b> sé rétt?');
 @define('FILE_FETCHED', '%s sótt sem %s');
@@ -536,9 +536,9 @@
 @define('DELETE_SELECTED_COMMENTS', 'Eyða völdum athugasemdum');
 @define('VIEW_COMMENT', 'Skoða athugasemd');
 @define('VIEW_ENTRY', 'Skoða færslu');
-@define('DELETE_FILE_FAIL', 'Gat ekki eytt skrá <b>%s</b>');
-@define('DELETE_THUMBNAIL', 'Eyddi sýnishorni myndar nefnt <b>%s</b>');
-@define('DELETE_FILE', 'Eyddi skrá nenfdri <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'Gat ekki eytt skrá %s');
+@define('DELETE_THUMBNAIL', 'Eyddi sýnishorni myndar nefnt %s');
+@define('DELETE_FILE', 'Eyddi skrá nenfdri %s');
 @define('ABOUT_TO_DELETE_FILE', 'Þú ert að far aað eyða <b>%s</b><br>Ef þú ert að nota þessa skrá í einhverri af færslunum þínum, mun það valda dauðum hlekkjum eða óvirkum myndum<br>Ertu viss um að þú viljir halda áfram?');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Sendi tilvísun á URI slóð %s...');
@@ -709,7 +709,7 @@
 @define('MEDIA_HOTLINKED', 'hotlinkað');
 @define('FETCH_METHOD_IMAGE', 'Sækja mynd á þjóninn þinn');
 @define('FETCH_METHOD_HOTLINK', 'Hotlinka á þjón');
-@define('DELETE_HOTLINK_FILE', 'Eyddi hotlinkaðri skrá, nefnd <b>%s</b>');
+@define('DELETE_HOTLINK_FILE', 'Eyddi hotlinkaðri skrá, nefnd %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Sýna netföng?');
 @define('IMAGE_MORE_INPUT', 'Bæta við fleiri myndum');
 @define('BACKEND_TITLE', 'Frekari upplýsingar í viðbótastillingavalmyndinni');

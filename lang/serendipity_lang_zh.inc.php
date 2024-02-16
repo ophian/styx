@@ -224,7 +224,7 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', '完成 (同步了 %s 个图片)');
-@define('FILE_NOT_FOUND', '找不到文件 <b>%s</b>, 可能已被删除');
+@define('FILE_NOT_FOUND', '找不到文件 %s, 可能已被删除');
 @define('ABORT_NOW', '放弃');
 @define('REMOTE_FILE_NOT_FOUND', '文件不在远程主机内, 你确定这个网址: <b>%s</b> 是正确的。');
 @define('FILE_FETCHED', '%s 取回为 %s');
@@ -537,9 +537,9 @@
 @define('DELETE_SELECTED_COMMENTS', '删除勾选的回复');
 @define('VIEW_COMMENT', '浏览回复');
 @define('VIEW_ENTRY', '浏览文章');
-@define('DELETE_FILE_FAIL', '无法删除文件 <b>%s</b>');
-@define('DELETE_THUMBNAIL', '删除图片缩图 <b>%s</b>');
-@define('DELETE_FILE', '删除文件 <b>%s</b>');
+@define('DELETE_FILE_FAIL', '无法删除文件 %s');
+@define('DELETE_THUMBNAIL', '删除图片缩图 %s');
+@define('DELETE_FILE', '删除文件 %s');
 @define('ABOUT_TO_DELETE_FILE', '你将删除文件 <b>%s</b><br>如果你有在其它的文章内使用这个文件, 那个连接或图片将会无效<br>确定要继续吗？');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', '传送引用到 URI %s...');
@@ -712,7 +712,7 @@
 @define('MEDIA_HOTLINKED', '外部连接图片');
 @define('FETCH_METHOD_IMAGE', '下载图片到主机');
 @define('FETCH_METHOD_HOTLINK', '外部连接到主机');
-@define('DELETE_HOTLINK_FILE', '删除外部连接的文件 <b>%s</b>');
+@define('DELETE_HOTLINK_FILE', '删除外部连接的文件 %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', '显示电子邮件');
 @define('IMAGE_MORE_INPUT', '新增图片');
 @define('BACKEND_TITLE', '外挂配置页面的额外信息');

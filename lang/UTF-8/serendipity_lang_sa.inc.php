@@ -224,7 +224,7 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Done (ضبط %s الصور).');
-@define('FILE_NOT_FOUND', 'لم يتم إيجاد الملف <b>%s</b>, من الممكن أن يكون قد حذف؟');
+@define('FILE_NOT_FOUND', 'لم يتم إيجاد الملف %s, من الممكن أن يكون قد حذف؟');
 @define('ABORT_NOW', 'توقف الآن');
 @define('REMOTE_FILE_NOT_FOUND', 'File was not located on the remote server, are you sure the URL: <b>%s</b> is correct?');
 @define('FILE_FETCHED', '%s fetched as %s');
@@ -538,9 +538,9 @@
 @define('DELETE_SELECTED_COMMENTS', 'احذف التعليقات المختارة');
 @define('VIEW_COMMENT', 'اعرض التعليق');
 @define('VIEW_ENTRY', 'أعرض الموضوع');
-@define('DELETE_FILE_FAIL', 'لا يمكن حذف الملف <b>%s</b>');
-@define('DELETE_THUMBNAIL', 'حذف الصورة والصورة المصغره بعنوانها <b>%s</b>');
-@define('DELETE_FILE', 'حذف عنوان الملف <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'لا يمكن حذف الملف %s');
+@define('DELETE_THUMBNAIL', 'حذف الصورة والصورة المصغره بعنوانها %s');
+@define('DELETE_FILE', 'حذف عنوان الملف %s');
 @define('ABOUT_TO_DELETE_FILE', 'انت على وشك أن تحذف <b>%s</b><br>إذا كنت تستخدم هذا الملف في بعض مواضيعك ، سوف لن تظهر الصور أو الرابط لن يكون شغال<br> هل أنت متأكد من أنك تريد الحذف؟');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'ارسال تقصي للرابط %s...');
@@ -711,7 +711,7 @@
 @define('MEDIA_HOTLINKED', 'من رابط');
 @define('FETCH_METHOD_IMAGE', 'رفع الصورة إلى موقعك');
 @define('FETCH_METHOD_HOTLINK', 'رابط صورة إلى موقع');
-@define('DELETE_HOTLINK_FILE', 'تم حذف الرابط النشط والملف <b>%s</b>');
+@define('DELETE_HOTLINK_FILE', 'تم حذف الرابط النشط والملف %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'أعرض البريد الالكتروني؟');
 @define('IMAGE_MORE_INPUT', 'أضف صور أكثر');
 @define('BACKEND_TITLE', 'معلومات إضافية عن وظيفة هذا الاجراء');

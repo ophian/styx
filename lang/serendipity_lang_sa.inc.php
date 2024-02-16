@@ -224,7 +224,7 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Done (÷»ÿ %s «·’Ê—).');
-@define('FILE_NOT_FOUND', '·„ Ì „ ≈ÌÃ«œ «·„·› <b>%s</b>, „‰ «·„„ﬂ‰ √‰ ÌﬂÊ‰ ﬁœ Õ–›ø');
+@define('FILE_NOT_FOUND', '·„ Ì „ ≈ÌÃ«œ «·„·› %s, „‰ «·„„ﬂ‰ √‰ ÌﬂÊ‰ ﬁœ Õ–›ø');
 @define('ABORT_NOW', ' Êﬁ› «·¬‰');
 @define('REMOTE_FILE_NOT_FOUND', 'File was not located on the remote server, are you sure the URL: <b>%s</b> is correct?');
 @define('FILE_FETCHED', '%s fetched as %s');
@@ -538,9 +538,9 @@
 @define('DELETE_SELECTED_COMMENTS', '«Õ–› «· ⁄·Ìﬁ«  «·„Œ «—…');
 @define('VIEW_COMMENT', '«⁄—÷ «· ⁄·Ìﬁ');
 @define('VIEW_ENTRY', '√⁄—÷ «·„Ê÷Ê⁄');
-@define('DELETE_FILE_FAIL', '·« Ì„ﬂ‰ Õ–› «·„·› <b>%s</b>');
-@define('DELETE_THUMBNAIL', 'Õ–› «·’Ê—… Ê«·’Ê—… «·„’€—Â »⁄‰Ê«‰Â« <b>%s</b>');
-@define('DELETE_FILE', 'Õ–› ⁄‰Ê«‰ «·„·› <b>%s</b>');
+@define('DELETE_FILE_FAIL', '·« Ì„ﬂ‰ Õ–› «·„·› %s');
+@define('DELETE_THUMBNAIL', 'Õ–› «·’Ê—… Ê«·’Ê—… «·„’€—Â »⁄‰Ê«‰Â« %s');
+@define('DELETE_FILE', 'Õ–› ⁄‰Ê«‰ «·„·› %s');
 @define('ABOUT_TO_DELETE_FILE', '«‰  ⁄·Ï Ê‘ﬂ √‰  Õ–› <b>%s</b><br>≈–« ﬂ‰   ” Œœ„ Â–« «·„·› ›Ì »⁄÷ „Ê«÷Ì⁄ﬂ ° ”Ê› ·‰  ŸÂ— «·’Ê— √Ê «·—«»ÿ ·‰ ÌﬂÊ‰ ‘€«·<br> Â· √‰  „ √ﬂœ „‰ √‰ﬂ  —Ìœ «·Õ–›ø');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', '«—”«·  ﬁ’Ì ··—«»ÿ %s...');
@@ -711,7 +711,7 @@
 @define('MEDIA_HOTLINKED', '„‰ —«»ÿ');
 @define('FETCH_METHOD_IMAGE', '—›⁄ «·’Ê—… ≈·Ï „Êﬁ⁄ﬂ');
 @define('FETCH_METHOD_HOTLINK', '—«»ÿ ’Ê—… ≈·Ï „Êﬁ⁄');
-@define('DELETE_HOTLINK_FILE', ' „ Õ–› «·—«»ÿ «·‰‘ÿ Ê«·„·› <b>%s</b>');
+@define('DELETE_HOTLINK_FILE', ' „ Õ–› «·—«»ÿ «·‰‘ÿ Ê«·„·› %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', '√⁄—÷ «·»—Ìœ «·«·ﬂ —Ê‰Ìø');
 @define('IMAGE_MORE_INPUT', '√÷› ’Ê— √ﬂÀ—');
 @define('BACKEND_TITLE', '„⁄·Ê„«  ≈÷«›Ì… ⁄‰ ÊŸÌ›… Â–« «·«Ã—«¡');

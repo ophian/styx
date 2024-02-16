@@ -208,7 +208,7 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Terminé (%s images synchronisées).');
-@define('FILE_NOT_FOUND', 'Impossible de trouver le fichier intitulé <b>%s</b>, peut-être a-t-il déjà été supprimé ?');
+@define('FILE_NOT_FOUND', 'Impossible de trouver le fichier intitulé %s, peut-être a-t-il déjà été supprimé ?');
 @define('ABORT_NOW', 'Annuler maintenant');
 @define('REMOTE_FILE_NOT_FOUND', 'Le fichier n\'a pas été trouvé sur le serveur distant, êtes-vous sûr que l\'URL <b>%s</b> est correcte ?');
 @define('FILE_FETCHED', '%s téléchargé et sauvegardé sous %s');
@@ -523,9 +523,9 @@
 @define('DELETE_SELECTED_COMMENTS', 'Supprimer les commentaires sélectionnés');
 @define('VIEW_COMMENT', 'Afficher le commentaire');
 @define('VIEW_ENTRY', 'Afficher le billet');
-@define('DELETE_FILE_FAIL', 'Impossible de supprimer le fichier <b>%s</b>');
-@define('DELETE_THUMBNAIL', 'Suppression de la miniature de l\'image intitulée <b>%s</b>');
-@define('DELETE_FILE', 'Suppression du fichier intitulé <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'Impossible de supprimer le fichier %s');
+@define('DELETE_THUMBNAIL', 'Suppression de la miniature de l\'image intitulée %s');
+@define('DELETE_FILE', 'Suppression du fichier intitulé %s');
 @define('ABOUT_TO_DELETE_FILE', 'Vous êtes sur le point d\'effacer <b>%s</b>.<br>Si vous avez utilisé ce fichier dans un de vos billets, les liens vers celui-ci seront invalides<br>Êtes-vous sûr de vouloir continuer ?');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Envoie le rétrolien à l\'adresse %s...');
@@ -712,7 +712,7 @@
 @define('MEDIA_HOTLINKED', 'Lié');
 @define('FETCH_METHOD_IMAGE', 'Téléchargement de l\'image vers votre serveur');
 @define('FETCH_METHOD_HOTLINK', 'Lien vers le serveur');
-@define('DELETE_HOTLINK_FILE', 'Suppression du fichier lié nommé <b>%s</b>');
+@define('DELETE_HOTLINK_FILE', 'Suppression du fichier lié nommé %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Montrer l\'adresse E-Mail ?');
 @define('IMAGE_MORE_INPUT', 'Ajouter plusieurs images');
 @define('BACKEND_TITLE', 'Informations complémentaires dans le plugin de l\'écran de configuration');

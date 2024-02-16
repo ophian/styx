@@ -222,7 +222,7 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Kész (%s képet szinkronizáltam).');
-@define('FILE_NOT_FOUND', 'Nem találom a <b>%s</b> fájlt, lehet, hogy már törölve lett?');
+@define('FILE_NOT_FOUND', 'Nem találom a %s fájlt, lehet, hogy már törölve lett?');
 @define('ABORT_NOW', 'Azonnali megszakítás');
 @define('REMOTE_FILE_NOT_FOUND', 'Nem találtam ilyen fájlt a távoli szerveren, biztos, hogy a: <b>%s</b> URL helyes?');
 @define('FILE_FETCHED', '%s leszedve, mint %s');
@@ -536,9 +536,9 @@
 @define('DELETE_SELECTED_COMMENTS', 'Kijelölt hozzászólások törlése');
 @define('VIEW_COMMENT', 'Hozzászólás megtekintése');
 @define('VIEW_ENTRY', 'Bejegyzés megtekintése');
-@define('DELETE_FILE_FAIL', 'Nem sikerült a fájl törlése: <b>%s</b>');
-@define('DELETE_THUMBNAIL', 'A következõ elõnézeti kép törlése: <b>%s</b>');
-@define('DELETE_FILE', 'A következõ fájlt töröltem: <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'Nem sikerült a fájl törlése: %s');
+@define('DELETE_THUMBNAIL', 'A következõ elõnézeti kép törlése: %s');
+@define('DELETE_FILE', 'A következõ fájlt töröltem: %s');
 @define('ABOUT_TO_DELETE_FILE', 'A következõ fájl törlésére készülsz: <b>%s</b><br>Ha van olyan bejegyzés ahol ezt használod, akkor így törött hivatkozások vagy hiányzó képek lesznek<br>Biztosan folytatod?');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Visszahivatkozás küldése URI-ide: %s...');
@@ -708,7 +708,7 @@
 @define('MEDIA_HOTLINKED', 'közvetlenül hivatkozva');
 @define('FETCH_METHOD_IMAGE', 'Kép letöltése a szerveredre');
 @define('FETCH_METHOD_HOTLINK', 'Közvetlen hivatkozás szerverre');
-@define('DELETE_HOTLINK_FILE', 'Ezt a közvetlen hivatkozást használó fájlt töröltük <b>%s</b>');
+@define('DELETE_HOTLINK_FILE', 'Ezt a közvetlen hivatkozást használó fájlt töröltük %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'E-mail címek mutatása?');
 @define('IMAGE_MORE_INPUT', 'További képek hozzáadása');
 @define('BACKEND_TITLE', 'További információ a modul beállításainál');

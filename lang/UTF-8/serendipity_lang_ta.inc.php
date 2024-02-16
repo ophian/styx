@@ -222,7 +222,7 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', '%s வலைபொருள் இருப்பிடங்கள் உறுதிப்படுத்தப்படுத்தப்பட்டுவிட்டன.');
-@define('FILE_NOT_FOUND', 'நீங்கள் தேடிய கணிபொறிக்ககோப்பு <b>%s</b> காணவில்லை. ஒருவேளை அது முன்பே நீக்கப்பட்டுவிட்டதோ?');
+@define('FILE_NOT_FOUND', 'நீங்கள் தேடிய கணிபொறிக்ககோப்பு %s காணவில்லை. ஒருவேளை அது முன்பே நீக்கப்பட்டுவிட்டதோ?');
 @define('ABORT_NOW', 'இக்கணமே நிறுத்து!');
 @define('REMOTE_FILE_NOT_FOUND', 'கணிபொறிக்ககோப்பு இவ்வலை முகவரியில் காணவில்லை. முகவரி <b>%s</b> சரிதானா?');
 @define('FILE_FETCHED', '%s பெறப்பட்டது %s');
@@ -536,9 +536,9 @@
 @define('DELETE_SELECTED_COMMENTS', 'தேர்ந்தெடுக்கப்பட்ட கருத்துகளை நீக்குக');
 @define('VIEW_COMMENT', 'அன்பர் கருத்தை காண்க');
 @define('VIEW_ENTRY', 'குறிப்பைக் காண்க');
-@define('DELETE_FILE_FAIL', 'Unable to delete file <b>%s</b>');
-@define('DELETE_THUMBNAIL', 'Deleted the image thumbnail entitled <b>%s</b>');
-@define('DELETE_FILE', 'Deleted the file entitled <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'Unable to delete file %s');
+@define('DELETE_THUMBNAIL', 'Deleted the image thumbnail entitled %s');
+@define('DELETE_FILE', 'Deleted the file entitled %s');
 @define('ABOUT_TO_DELETE_FILE', 'You are about to delete <b>%s</b><br>If you are using this file in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Sending trackback to URI %s...');
@@ -709,7 +709,7 @@
 @define('MEDIA_HOTLINKED', 'hotlinked'); // Translate
 @define('FETCH_METHOD_IMAGE', 'Download image to your server'); // Translate
 @define('FETCH_METHOD_HOTLINK', 'Hotlink to server'); // Translate
-@define('DELETE_HOTLINK_FILE', 'Deleted the hotlinked file entitled <b>%s</b>'); // Translate
+@define('DELETE_HOTLINK_FILE', 'Deleted the hotlinked file entitled %s'); // Translate
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Show E-Mail addresses?');
 @define('IMAGE_MORE_INPUT', 'Add more images');
 @define('BACKEND_TITLE', 'Additional information in Plugin Configuration screen'); // Translate

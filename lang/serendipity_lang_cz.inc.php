@@ -237,7 +237,7 @@ $i18n_filename_to = array (
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Hotovo (synchronizováno %s obrázkù).');
-@define('FILE_NOT_FOUND', 'Nelze nalézt soubor s názvem <b>%s</b>, mo¾ná je opravdu vymazán?');
+@define('FILE_NOT_FOUND', 'Nelze nalézt soubor s názvem %s, mo¾ná je opravdu vymazán?');
 @define('ABORT_NOW', 'Zru¹it');
 @define('REMOTE_FILE_NOT_FOUND', 'Soubor nebyl na vzdáleném serveru nalezen, jste si jist ¾e URL: <b>%s</b> je správné?');
 @define('FILE_FETCHED', '%s nalezen: %s');
@@ -550,9 +550,9 @@ $i18n_filename_to = array (
 @define('DELETE_SELECTED_COMMENTS', 'Vymazat vybrané komentáøe');
 @define('VIEW_COMMENT', 'Ukázat komentáø');
 @define('VIEW_ENTRY', 'Ukázat záznam');
-@define('DELETE_FILE_FAIL', 'Nezdaøilo se vymazat soubor <b>%s</b>');
-@define('DELETE_THUMBNAIL', 'Vymazán náhled obrázku s názvem <b>%s</b>');
-@define('DELETE_FILE', 'Vymazat soubor s názvem <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'Nezdaøilo se vymazat soubor %s');
+@define('DELETE_THUMBNAIL', 'Vymazán náhled obrázku s názvem %s');
+@define('DELETE_FILE', 'Vymazat soubor s názvem %s');
 @define('ABOUT_TO_DELETE_FILE', 'Chcete vymazat <b>%s</b><br>Jestli¾e pou¾íváte tento soubor v nìjakých záznamech, zpùsobí to nepøístupnost odkazù nebo obrázkù.<br>Chcete pøesto pokraèovat?');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Odeslání odezvy na URI %s...');
@@ -720,7 +720,7 @@ $i18n_filename_to = array (
 @define('MEDIA_HOTLINKED', 'odkazován');
 @define('FETCH_METHOD_IMAGE', 'Nahrání na server');
 @define('FETCH_METHOD_HOTLINK', 'Odkaz na server');
-@define('DELETE_HOTLINK_FILE', 'Vymazán odkazovaný soubor <b>%s</b>');
+@define('DELETE_HOTLINK_FILE', 'Vymazán odkazovaný soubor %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Zobrazovat e-mailové adresy?');
 @define('IMAGE_MORE_INPUT', 'Pøidat více obrázkù');
 @define('BACKEND_TITLE', 'Dal¹í informace v konfiguraèní obrazovce pluginu');

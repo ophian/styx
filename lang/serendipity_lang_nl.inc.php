@@ -225,7 +225,7 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Gereed (%s afbeeldingen gesynchroniseerd).');
-@define('FILE_NOT_FOUND', 'Kan bestand <b>%s</b> niet vinden, mogelijk is deze reeds verwijderd.');
+@define('FILE_NOT_FOUND', 'Kan bestand %s niet vinden, mogelijk is deze reeds verwijderd.');
 @define('ABORT_NOW', 'Annuleren');
 @define('REMOTE_FILE_NOT_FOUND', 'Het bestand is niet gevonden, weet u zeker dat de URL <b>%s</b> correct is?');
 @define('FILE_FETCHED', '%s opgehaald als %s');
@@ -539,9 +539,9 @@
 @define('DELETE_SELECTED_COMMENTS', 'Verwijder geselecteerde reacties');
 @define('VIEW_COMMENT', 'Bekijk reactie');
 @define('VIEW_ENTRY', 'Bekijk artikel');
-@define('DELETE_FILE_FAIL', 'Kan bestand <b>%s</b> niet verwijderen');
-@define('DELETE_THUMBNAIL', 'Verwijder miniatuur <b>%s</b>');
-@define('DELETE_FILE', 'Verwijder bestand genaamd <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'Kan bestand %s niet verwijderen');
+@define('DELETE_THUMBNAIL', 'Verwijder miniatuur %s');
+@define('DELETE_FILE', 'Verwijder bestand genaamd %s');
 @define('ABOUT_TO_DELETE_FILE', 'U staat op het punt om bestand <b>%s</b></p><br> te verwijderen. Als u dit bestand in een van uw artikelen gebruikt, zal dit leiden tot niet werkende hyperlinks of vermiste afbeeldingen.<br>Weet u zeker dat u door wilt gaan?');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Trackback aan het versturen naar %s...');
@@ -710,7 +710,7 @@
 @define('MEDIA_HOTLINKED', 'gehotlinkt');
 @define('FETCH_METHOD_IMAGE', 'Download illustratie naar uw server');
 @define('FETCH_METHOD_HOTLINK', 'Hotlink naar server');
-@define('DELETE_HOTLINK_FILE', 'Verwijder het gehotlinkte bestand met de naam <b>%s</b>');
+@define('DELETE_HOTLINK_FILE', 'Verwijder het gehotlinkte bestand met de naam %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'E-mailadres laten zien?');
 @define('IMAGE_MORE_INPUT', 'Meer afbeeldingen toevoegen');
 @define('BACKEND_TITLE', 'Extra informatie in pluginconfiguratiescherm');

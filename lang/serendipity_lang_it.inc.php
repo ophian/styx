@@ -208,7 +208,7 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Fatto (Sincronizzate %s immagini).');
-@define('FILE_NOT_FOUND', 'Impossibile trovare il file <b>%s</b>, forse è già stato cancellato?');
+@define('FILE_NOT_FOUND', 'Impossibile trovare il file %s, forse è già stato cancellato?');
 @define('ABORT_NOW', 'Interrompi subito');
 @define('REMOTE_FILE_NOT_FOUND', 'File non trovato sul server remoto, sei sicuro che l\'URL: <b>%s</b> sia correttoi?');
 @define('FILE_FETCHED', '%s scaricato come %s');
@@ -522,9 +522,9 @@
 @define('DELETE_SELECTED_COMMENTS', 'Cancella i commenti selezionati');
 @define('VIEW_COMMENT', 'Vedi commento');
 @define('VIEW_ENTRY', 'Vedi notizia');
-@define('DELETE_FILE_FAIL', 'Impossibile cancellare il file <b>%s</b>');
-@define('DELETE_THUMBNAIL', 'Cancellata miniatura dell\'immagine <b>%s</b>');
-@define('DELETE_FILE', 'Cancellato il file <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'Impossibile cancellare il file %s');
+@define('DELETE_THUMBNAIL', 'Cancellata miniatura dell\'immagine %s');
+@define('DELETE_FILE', 'Cancellato il file %s');
 @define('ABOUT_TO_DELETE_FILE', 'Stai per cancellare <b>%s</b><br>Se stai usando questo file in altre notizie, questo causerà link o immagini "morti"<br>Sei sicuro di voler procedere?');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Invio del trackback all\'URI %s...');
@@ -709,7 +709,7 @@
 @define('MEDIA_HOTLINKED', 'hot-linkato');
 @define('FETCH_METHOD_IMAGE', 'Scarica l\'immagine sul tuo server');
 @define('FETCH_METHOD_HOTLINK', 'Hot-link al server');
-@define('DELETE_HOTLINK_FILE', 'Cancellato il file hot-linkato intitolato <b>%s</b>');
+@define('DELETE_HOTLINK_FILE', 'Cancellato il file hot-linkato intitolato %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Mostra gli inirizzi E-Mail?');
 @define('IMAGE_MORE_INPUT', 'Aggiungi altre immagini');
 @define('BACKEND_TITLE', 'Informazioni ulteriori nella pagina di Configurazione Plugin');

@@ -224,7 +224,7 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', '완료 (%s개의 그림을 동기화함).');
-@define('FILE_NOT_FOUND', '<b>%s</b>(이)라는 이름의 파일을 찾지 못했습니다. 이미 삭제되었을 수 있습니다.');
+@define('FILE_NOT_FOUND', '%s(이)라는 이름의 파일을 찾지 못했습니다. 이미 삭제되었을 수 있습니다.');
 @define('ABORT_NOW', '지금 중지');
 @define('REMOTE_FILE_NOT_FOUND', '원격 서버에서 파일을 찾지 못했습니다. <b>%s</b>(이)라는 주소가 정확합니까?');
 @define('FILE_FETCHED', '%s(을)를 %s(으)로 가져옴');
@@ -538,9 +538,9 @@
 @define('DELETE_SELECTED_COMMENTS', '선택한 덧글 삭제');
 @define('VIEW_COMMENT', '덧글 보기');
 @define('VIEW_ENTRY', '본문 보기');
-@define('DELETE_FILE_FAIL', '파일 <b>%s</b> 삭제 실패');
-@define('DELETE_THUMBNAIL', '작은 그림 <b>%s</b> 삭제됨');
-@define('DELETE_FILE', '파일 <b>%s</b> 삭제됨');
+@define('DELETE_FILE_FAIL', '파일 %s 삭제 실패');
+@define('DELETE_THUMBNAIL', '작은 그림 %s 삭제됨');
+@define('DELETE_FILE', '파일 %s 삭제됨');
 @define('ABOUT_TO_DELETE_FILE', '<b>%s</b> 삭제를 하려고 합니다.<br>작성한 글에서 이 파일을 사용하고 있을 경우 링크나 그림이 깨질 수 있습니다.<br>계속 하겠습니까?');
 @define('ABOUT_TO_DELETE_FILES', '여러 개의 파일을 한꺼번에 지우려고 하고 있습니다.<br>만약 작성했던 글에 이들 중 일부를 사용하고 있다면 깨진 링크나 그림으로 나타날 것입니다.<br>그래도 계속 진행하겠습니까?');
 @define('TRACKBACK_SENDING', '트랙백을 URI %s(으)로 보내는 중...');
@@ -710,7 +710,7 @@
 @define('MEDIA_HOTLINKED', '핫링크 됨');
 @define('FETCH_METHOD_IMAGE', '이쪽 서버로 그림을 다운로드하기');
 @define('FETCH_METHOD_HOTLINK', '서버로 핫링크 걸기');
-@define('DELETE_HOTLINK_FILE', '<b>%s</b>(이)라는 핫링크 파일 삭제됨');
+@define('DELETE_HOTLINK_FILE', '%s(이)라는 핫링크 파일 삭제됨');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', '이메일 주소를 표시합니까?');
 @define('IMAGE_MORE_INPUT', '그림 추가');
 @define('BACKEND_TITLE', '플러그인 설정 화면에 추가 정보 표시');

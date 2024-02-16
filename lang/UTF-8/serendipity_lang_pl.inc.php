@@ -224,7 +224,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Zrobione (%s obrazków zsynchronizowanych).');
-@define('FILE_NOT_FOUND', 'Nie można odnalzeźć pliku <b>%s</b>. Być może został już usunięty?');
+@define('FILE_NOT_FOUND', 'Nie można odnalzeźć pliku %s. Być może został już usunięty?');
 @define('ABORT_NOW', 'Przerwij teraz');
 @define('REMOTE_FILE_NOT_FOUND', 'Nie odnaleziono pliku na zdalnym serwerze, czy na pewno ścieżka <b>%s</b> jest poprawna?');
 @define('FILE_FETCHED', '%s pobrano jako %s');
@@ -538,9 +538,9 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('DELETE_SELECTED_COMMENTS', 'Usuń zaznaczone komentarze');
 @define('VIEW_COMMENT', 'Zobacz komentarz');
 @define('VIEW_ENTRY', 'Zobacz wpis');
-@define('DELETE_FILE_FAIL', 'Usuwanie pliku <b>%s</b> nie powiodło się');
-@define('DELETE_THUMBNAIL', 'Usunięto minturkę o nazwie <b>%s</b>');
-@define('DELETE_FILE', 'Usunięto plik o nazwie <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'Usuwanie pliku %s nie powiodło się');
+@define('DELETE_THUMBNAIL', 'Usunięto minturkę o nazwie %s');
+@define('DELETE_FILE', 'Usunięto plik o nazwie %s');
 @define('ABOUT_TO_DELETE_FILE', 'Masz zamiar usunąc plik <b>%s</b><br>Jeśli w którymś z wpisów zostało zdefiniowane odwołanie do pliku, plik ten nie będzie więcej dla tego odwałania dostępny (link nie będzie działał prawidłowo).<br>Czy chcesz kontynuować?');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Wysyłanie śladu do URI %s...');
@@ -710,7 +710,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('MEDIA_HOTLINKED', 'podlinkowane');
 @define('FETCH_METHOD_IMAGE', 'Pobierz obrazek na serwer');
 @define('FETCH_METHOD_HOTLINK', 'Linkowanie do serwera');
-@define('DELETE_HOTLINK_FILE', 'Skasuj podlinkowany plik o nazwie <b>%s</b>');
+@define('DELETE_HOTLINK_FILE', 'Skasuj podlinkowany plik o nazwie %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Pokazywać adresy e-mail?');
 @define('IMAGE_MORE_INPUT', 'Dodaj więcej obrazków');
 @define('BACKEND_TITLE', 'Dodatkowe informacje na stonie Konfiguracja wtyczek');

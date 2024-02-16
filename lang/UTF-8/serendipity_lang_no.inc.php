@@ -203,7 +203,7 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Ferdig (Synkroniserte %s bilder).');
-@define('FILE_NOT_FOUND', 'Kunne ikke finne filen ved navn <b>%s</b>, den er kanskje allerede slettet?');
+@define('FILE_NOT_FOUND', 'Kunne ikke finne filen ved navn %s, den er kanskje allerede slettet?');
 @define('ABORT_NOW', 'Avbryt nå');
 @define('REMOTE_FILE_NOT_FOUND', 'Filen kunne ikke finnes på serveren, er du sikker på at URL-en: <b>%s</b> er korrekt?');
 @define('FILE_FETCHED', '%s hentet: %s');
@@ -520,9 +520,9 @@
 @define('DELETE_SELECTED_COMMENTS', 'Slett valgte kommentarer');
 @define('VIEW_COMMENT', 'Se kommentar');
 @define('VIEW_ENTRY', 'Se posting');
-@define('DELETE_FILE_FAIL', 'Kan ikke slette filen <b>%s</b>');
-@define('DELETE_THUMBNAIL', 'Slettet bildet med navn <b>%s</b>');
-@define('DELETE_FILE', 'Slettet filen kalt <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'Kan ikke slette filen %s');
+@define('DELETE_THUMBNAIL', 'Slettet bildet med navn %s');
+@define('DELETE_FILE', 'Slettet filen kalt %s');
 @define('ABOUT_TO_DELETE_FILE', 'Du er i ferd med å slette <b>%s</b><br>Hvis du bruker denne filen i noen av postene dine vil dette forårsake døde lenker eller bilder<br>Er du sikker på at du vil gå videre?');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Sender trackback til URI %s...');
@@ -710,7 +710,7 @@
 @define('MEDIA_HOTLINKED', 'hotlinked'); // Translate
 @define('FETCH_METHOD_IMAGE', 'Download image to your server'); // Translate
 @define('FETCH_METHOD_HOTLINK', 'Hotlink to server'); // Translate
-@define('DELETE_HOTLINK_FILE', 'Deleted the hotlinked file entitled <b>%s</b>'); // Translate
+@define('DELETE_HOTLINK_FILE', 'Deleted the hotlinked file entitled %s'); // Translate
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Show E-Mail addresses?');
 @define('IMAGE_MORE_INPUT', 'Add more images'); // Translate
 @define('BACKEND_TITLE', 'Additional information in Plugin Configuration screen'); // Translate

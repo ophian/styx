@@ -200,7 +200,7 @@
 @define('ENTER_NEW_NAME', 'Bitte einen neuen Namen eingeben für: ');
 @define('RESIZING', 'Anpassen der Bildgröße');
 @define('RESIZE_DONE', 'Fertig (%s Bildgrößen angepaßt).');
-@define('FILE_NOT_FOUND', 'Die Datei namens <b>%s</b> kann nicht gefunden werden, vielleicht wurde diese schon gelöscht?');
+@define('FILE_NOT_FOUND', 'Die Datei namens %s kann nicht gefunden werden, vielleicht wurde diese schon gelöscht?');
 @define('ABORT_NOW', 'Abbrechen');
 @define('REMOTE_FILE_NOT_FOUND', 'Die Datei konnte auf dem Server nicht gefunden werden. Sind Sie sicher, dass die URL <b>%s</b> korrekt ist?');
 @define('FILE_FETCHED', '\'%s\' geladen als \'%s\'');
@@ -520,9 +520,9 @@
 @define('DELETE_SELECTED_COMMENTS', 'Markierte Kommentare löschen');
 @define('VIEW_COMMENT', 'Kommentar ansehen');
 @define('VIEW_ENTRY', 'Eintrag ansehen');
-@define('DELETE_FILE_FAIL', 'Kann die Datei namens <b>%s</b> nicht löschen');
-@define('DELETE_THUMBNAIL', 'Vorschaubild: <b>%s</b> gelöscht');
-@define('DELETE_FILE', 'Datei namens <b>%s</b> gelöscht');
+@define('DELETE_FILE_FAIL', 'Kann die Datei namens %s nicht löschen');
+@define('DELETE_THUMBNAIL', 'Vorschaubild: %s gelöscht');
+@define('DELETE_FILE', 'Datei namens %s gelöscht');
 @define('ABOUT_TO_DELETE_FILE', 'Sie beabsichtigen, die Datei <b>%s</b> zu löschen.<br>Wenn Sie die Datei bereits in einem Ihrer Einträge verwenden, wird das Löschen Lücken erzeugen.<br>Soll trotzdem fortgefahren werden?');
 @define('ABOUT_TO_DELETE_FILES', 'Sie beabsichtigen mehrere Dateien auf einmal zu löschen.<br>Wenn Sie diese bereits in ihren Einträgen verwenden, wird das Löschen Lücken erzeugen.<br>Soll trotzdem fortgefahren werden?');
 @define('A_NEW_TRACKBACK_BLAHBLAH', 'Ein neues Trackback für den Blog-Eintrag namens "%s" wurde empfangen.');
@@ -705,7 +705,7 @@
 @define('MEDIA_HOTLINKED', 'Link');
 @define('FETCH_METHOD_IMAGE', 'Bild auf diesem Server speichern');
 @define('FETCH_METHOD_HOTLINK', 'Nur zum Quellserver linken');
-@define('DELETE_HOTLINK_FILE', 'Link zur Datei namens <b>%s</b> löschen?');
+@define('DELETE_HOTLINK_FILE', 'Link zur Datei namens %s löschen?');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'E-Mail-Adressen einbinden?');
 @define('IMAGE_MORE_INPUT', 'Mehr Bilder hinzufügen');
 

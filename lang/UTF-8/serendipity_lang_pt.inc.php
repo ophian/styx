@@ -206,7 +206,7 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Pronto (%s imagens sincronizadas).');
-@define('FILE_NOT_FOUND', 'Não foi possível localizar o arquivo intitulado <b>%s</b>, será que foi excluído?');
+@define('FILE_NOT_FOUND', 'Não foi possível localizar o arquivo intitulado %s, será que foi excluído?');
 @define('ABORT_NOW', 'Cancelar agora');
 @define('REMOTE_FILE_NOT_FOUND', 'O arquivo não foi localizado no servidor, tem certeza sobre a URL: <b>%s</b> está correta?');
 @define('FILE_FETCHED', '%s buscado como %s');
@@ -521,9 +521,9 @@
 @define('DELETE_SELECTED_COMMENTS', 'Excluir comentários selecionados');
 @define('VIEW_COMMENT', 'Exibir comentário');
 @define('VIEW_ENTRY', 'Exibir artigo');
-@define('DELETE_FILE_FAIL', 'NNão foi possível deletar o arquivo <b>%s</b>');
-@define('DELETE_THUMBNAIL', 'Excluir a miniatura da imagem intitulada <b>%s</b>');
-@define('DELETE_FILE', 'Excluir o campo entitulado <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'NNão foi possível deletar o arquivo %s');
+@define('DELETE_THUMBNAIL', 'Excluir a miniatura da imagem intitulada %s');
+@define('DELETE_FILE', 'Excluir o campo entitulado %s');
 @define('ABOUT_TO_DELETE_FILE', 'Você está prestes a excluir <b>%s</b><br>Se estiver utilizando esse arquivo em algum dos seus artigos, vai resultar em links ou imagens perdidas<br>Deseja realmente prosseguir com a exclusão?');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Enviando trackback para a URI %s...');
@@ -710,7 +710,7 @@
 @define('MEDIA_HOTLINKED', 'entrelaçado');
 @define('FETCH_METHOD_IMAGE', 'Baixar imagem para o servidor');
 @define('FETCH_METHOD_HOTLINK', 'entrelaçar externo ao servidor');
-@define('DELETE_HOTLINK_FILE', 'Apagar o entrelaçamento do arquivo de nome <b>%s</b>');
+@define('DELETE_HOTLINK_FILE', 'Apagar o entrelaçamento do arquivo de nome %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Mostrar o endereço de e-mail?');
 @define('IMAGE_MORE_INPUT', 'Adicionar mais imagens');
 @define('BACKEND_TITLE', 'Informações adicionais da tela de configuração de plugins');

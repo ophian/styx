@@ -205,7 +205,7 @@
 @define('ENTER_NEW_NAME', 'Introduzca el nuevo nombre para: ');
 @define('RESIZING', 'Cambiando el tamaño');
 @define('RESIZE_DONE', 'Terminado (las imágenes %s cambiaron de tamaño).');
-@define('FILE_NOT_FOUND', 'No es posible encontrar el fichero con nombre <b>%s</b>, ¿es posible que lo haya borrado ya?');
+@define('FILE_NOT_FOUND', 'No es posible encontrar el fichero con nombre %s, ¿es posible que lo haya borrado ya?');
 @define('ABORT_NOW', 'Salir ahora');
 @define('REMOTE_FILE_NOT_FOUND', 'El fichero no fue localizado en el servidor remoto, ¿estás seguro de que la URL: <b>%s</b> es correcta?');
 @define('FILE_FETCHED', '%s enlazado como: %s');
@@ -527,9 +527,9 @@
 @define('DELETE_SELECTED_COMMENTS', 'Borrar comentarios seleccionados');
 @define('VIEW_COMMENT', 'Ver comentario');
 @define('VIEW_ENTRY', 'Ver entrada');
-@define('DELETE_FILE_FAIL', 'No se pudo borrar el archivo <b>%s</b>');
-@define('DELETE_THUMBNAIL', 'Eliminada la imagen miniatura llamada <b>%s</b>');
-@define('DELETE_FILE', 'Borrado el fichero llamado <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'No se pudo borrar el archivo %s');
+@define('DELETE_THUMBNAIL', 'Eliminada la imagen miniatura llamada %s');
+@define('DELETE_FILE', 'Borrado el fichero llamado %s');
 @define('ABOUT_TO_DELETE_FILE', 'Estás a punto de borrar <b>%s</b><br>Si estás usando este fichero en alguna de tus entradas, esto causará enlaces o imágenes rotos<br>¿Estás seguro de que quieres seguir?');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Enviando referencia a la URI %s...');
@@ -721,7 +721,7 @@
 @define('MEDIA_HOTLINKED', 'enlazado externamente');
 @define('FETCH_METHOD_IMAGE', 'Descargar imagen a tu servidor');
 @define('FETCH_METHOD_HOTLINK', 'Enlazar externamente al servidor');
-@define('DELETE_HOTLINK_FILE', 'Borrado el recurso enlazado externamente con el nombre <b>%s</b>');
+@define('DELETE_HOTLINK_FILE', 'Borrado el recurso enlazado externamente con el nombre %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', '¿Mostrar la dirección de correo?');
 @define('IMAGE_MORE_INPUT', 'Añadir más imágenes');
 @define('BACKEND_TITLE', 'Información adicional en la pantalla de configuración de extensiones');

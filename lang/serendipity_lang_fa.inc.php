@@ -223,7 +223,7 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'انجام شد (تعداد %s تصویر هماهنگ شد).');
-@define('FILE_NOT_FOUND', 'توانایی تشخیص محل تصویر <b>%s</b> نیست، احتمالا قبلا حذف شده است؟');
+@define('FILE_NOT_FOUND', 'توانایی تشخیص محل تصویر %s نیست، احتمالا قبلا حذف شده است؟');
 @define('ABORT_NOW', 'بازگشت');
 @define('REMOTE_FILE_NOT_FOUND', 'فایل بر روی سرور دور موجود نمی باشد، آیا از صحت آدرس: <b>%s</b> اطمینان دارید؟');
 @define('FILE_FETCHED', '%s با نام %s دریافت شد');
@@ -537,9 +537,9 @@
 @define('DELETE_SELECTED_COMMENTS', 'نظرات انتخاب شده حذف شدند');
 @define('VIEW_COMMENT', 'نمایش نظر');
 @define('VIEW_ENTRY', 'نمایش ارسال');
-@define('DELETE_FILE_FAIL', 'توانایی حذف فایل <b>%s</b> وجود ندارد');
-@define('DELETE_THUMBNAIL', 'عکس کوچک با نام <b>%s</b> حذف شد');
-@define('DELETE_FILE', 'فایل با تیتر <b>%s</b> حذف شد');
+@define('DELETE_FILE_FAIL', 'توانایی حذف فایل %s وجود ندارد');
+@define('DELETE_THUMBNAIL', 'عکس کوچک با نام %s حذف شد');
+@define('DELETE_FILE', 'فایل با تیتر %s حذف شد');
 @define('ABOUT_TO_DELETE_FILE', 'شما می خواهید <b>%s</b> را حذف کنید<br>اگر شما از این فایل در ارسال هایتان استفاده کردید، دیگر قابل مشاهده شدن یا لینک دادن نیست<br>آیا از انجام این عمل اطمینان دارید؟');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'ارسال دنبالک به آدرس %s...');
@@ -710,7 +710,7 @@
 @define('MEDIA_HOTLINKED', 'لینک داده شد');
 @define('FETCH_METHOD_IMAGE', 'عکس را روی سرور پایین گذاری کن');
 @define('FETCH_METHOD_HOTLINK', 'لینک دادن به سرور');
-@define('DELETE_HOTLINK_FILE', 'لینک فایل <b>%s</b> حذف شد');
+@define('DELETE_HOTLINK_FILE', 'لینک فایل %s حذف شد');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'آیا آدرس ایمیل ها دیده شود؟');
 @define('IMAGE_MORE_INPUT', 'افزودن عکس');
 @define('BACKEND_TITLE', 'اطلاعات بیشتر را در قسمت تنظیمات افزونه وجود دارد');

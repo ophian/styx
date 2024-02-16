@@ -224,7 +224,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Готово! (Синхронизировано изображений: %s).');
-@define('FILE_NOT_FOUND', 'Невозможно найти файл <b>%s</b>, может быть он уже был удалён?');
+@define('FILE_NOT_FOUND', 'Невозможно найти файл %s, может быть он уже был удалён?');
 @define('ABORT_NOW', 'Отмена');
 @define('REMOTE_FILE_NOT_FOUND', 'Файл не был найден на удалённом сервере. Вы уверены, что эта ссылка верна? URL: <b>%s</b>');
 @define('FILE_FETCHED', '%s скачан и сохранён как %s');
@@ -538,9 +538,9 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('DELETE_SELECTED_COMMENTS', 'Удалить отмеченные комментарии');
 @define('VIEW_COMMENT', 'Просмотреть комментарий');
 @define('VIEW_ENTRY', 'Просмотреть запись');
-@define('DELETE_FILE_FAIL', 'Не удалось удалить файл <b>%s</b>');
-@define('DELETE_THUMBNAIL', 'Удалён файл с тамбнэйлом <b>%s</b>');
-@define('DELETE_FILE', 'Удалён файл <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'Не удалось удалить файл %s');
+@define('DELETE_THUMBNAIL', 'Удалён файл с тамбнэйлом %s');
+@define('DELETE_FILE', 'Удалён файл %s');
 @define('ABOUT_TO_DELETE_FILE', 'Вы собираетесь удалить <b>%s</b><br>Если вы используете этот файл в каких-то ваших записях, это действие сделает ссылки или изображения в них недоступными.<br>Вы уверены, что хотите продолжить?');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Отправка обратной ссылки на URI %s...');
@@ -711,7 +711,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('MEDIA_HOTLINKED', 'Привязанные изображение');
 @define('FETCH_METHOD_IMAGE', 'Закачать изображение на ваш сервер');
 @define('FETCH_METHOD_HOTLINK', 'Привязать к серверу');
-@define('DELETE_HOTLINK_FILE', 'Удален привязанный файл с именем <b>%s</b>');
+@define('DELETE_HOTLINK_FILE', 'Удален привязанный файл с именем %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Показывать E-Mail адреса?');
 @define('IMAGE_MORE_INPUT', 'Добавить ещё изображение');
 @define('BACKEND_TITLE', 'Дополнительная информация в меню Настройки Плагинов');

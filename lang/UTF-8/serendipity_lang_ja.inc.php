@@ -222,7 +222,7 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', '終了しました (%s 個の画像を同期しました)');
-@define('FILE_NOT_FOUND', '<b>%s</b> と言う名前のファイルは既に削除されたため、恐らく見つけることができません。');
+@define('FILE_NOT_FOUND', '%s と言う名前のファイルは既に削除されたため、恐らく見つけることができません。');
 @define('ABORT_NOW', '今中断する');
 @define('REMOTE_FILE_NOT_FOUND', 'ファイルはリモートのサーバーにありませんでした。URL を確認しましたか: <b>%s</b> は正しいですか?');
 @define('FILE_FETCHED', '%s を %s として取得しました。');
@@ -536,9 +536,9 @@
 @define('DELETE_SELECTED_COMMENTS', '選択したコメントを削除する');
 @define('VIEW_COMMENT', 'コメントを閲覧する');
 @define('VIEW_ENTRY', 'エントリーを閲覧する');
-@define('DELETE_FILE_FAIL', 'ファイル <b>%s</b> を削除できませんでした。');
-@define('DELETE_THUMBNAIL', '<b>%s</b> という名前の画像サムネイルを削除しました。');
-@define('DELETE_FILE', '<b>%s</b> という名前のファイルを削除しました。');
+@define('DELETE_FILE_FAIL', 'ファイル %s を削除できませんでした。');
+@define('DELETE_THUMBNAIL', '%s という名前の画像サムネイルを削除しました。');
+@define('DELETE_FILE', '%s という名前のファイルを削除しました。');
 @define('ABOUT_TO_DELETE_FILE', '<b>%s</b>を削除します。<br>もしこのファイルをエントリーで使用していた場合、リンク切れや表示できない画像の原因になるでしょう。<br>本当に進めますか?');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'URI %s にトラックバックを送信中...');
@@ -708,7 +708,7 @@
 @define('MEDIA_HOTLINKED', 'ホットリンク済み');
 @define('FETCH_METHOD_IMAGE', 'サーバーへ画像をダウンロード');
 @define('FETCH_METHOD_HOTLINK', 'サーバーにホットリンクする');
-@define('DELETE_HOTLINK_FILE', '<b>%s</b> というファイ名のホットリンクを削除する');
+@define('DELETE_HOTLINK_FILE', '%s というファイ名のホットリンクを削除する');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', '電子メールアドレスを表示しますか?');
 @define('IMAGE_MORE_INPUT', '画像を追加する');
 @define('BACKEND_TITLE', 'プラグイン設定画面の追加情報');

@@ -223,7 +223,7 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Gata (am sincronizat %s imagini).');
-@define('FILE_NOT_FOUND', 'Nu pot localiza fişierul denumit <b>%s</b>, poate că a fost şters deja ?');
+@define('FILE_NOT_FOUND', 'Nu pot localiza fişierul denumit %s, poate că a fost şters deja ?');
 @define('ABORT_NOW', 'Abandonează acum');
 @define('REMOTE_FILE_NOT_FOUND', 'Fişierul nu a fost găsit pe serverul de la distanţă, eşti sigur că adresa: <b>%s</b> este corectă?');
 @define('FILE_FETCHED', '%s luat ca %s');
@@ -537,9 +537,9 @@
 @define('DELETE_SELECTED_COMMENTS', 'Şterge comentariile selectate');
 @define('VIEW_COMMENT', 'Vezi comentariu');
 @define('VIEW_ENTRY', 'Vezi însemnare');
-@define('DELETE_FILE_FAIL', 'Nu pot şterge fişierul <b>%s</b>');
-@define('DELETE_THUMBNAIL', 'Am şters miniatura cu numele <b>%s</b>');
-@define('DELETE_FILE', 'Am şters fişierul cu numele <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'Nu pot şterge fişierul %s');
+@define('DELETE_THUMBNAIL', 'Am şters miniatura cu numele %s');
+@define('DELETE_FILE', 'Am şters fişierul cu numele %s');
 @define('ABOUT_TO_DELETE_FILE', 'Eşti pe cale să ştergi <b>%s</b><br>Dacă foloseşti acest fişier în însemnările tale, legătura către ele nu va funcţiona iar imaginile nu vor fi afişate<br>Eşti sigur că vrei să continui?');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Trimit URI de referinţa la %s...');
@@ -709,7 +709,7 @@
 @define('MEDIA_HOTLINKED', 'legat direct');
 @define('FETCH_METHOD_IMAGE', 'Descarcă imaginea pe server');
 @define('FETCH_METHOD_HOTLINK', 'Leagă direct către server');
-@define('DELETE_HOTLINK_FILE', 'Am şters fişierul legat direct cu numele <b>%s</b>');
+@define('DELETE_HOTLINK_FILE', 'Am şters fişierul legat direct cu numele %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Arată adresele de email?');
 @define('IMAGE_MORE_INPUT', 'Add more images'); // Translate
 @define('BACKEND_TITLE', 'Additional information in Plugin Configuration screen'); // Translate

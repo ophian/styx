@@ -222,7 +222,7 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Klar (synkroniserade %s bilder).');
-@define('FILE_NOT_FOUND', 'Kunde inte hitta filen <b>%s</b>, kanske är den redan borttagen?');
+@define('FILE_NOT_FOUND', 'Kunde inte hitta filen %s, kanske är den redan borttagen?');
 @define('ABORT_NOW', 'Avbryt nu');
 @define('REMOTE_FILE_NOT_FOUND', 'Kunde inte hitta filen på den externa servern, är du säker på att URL: <b>%s</b> är helt korrekt?');
 @define('FILE_FETCHED', '%s hämtad som %s');
@@ -536,9 +536,9 @@
 @define('DELETE_SELECTED_COMMENTS', 'Ta bort valda kommmentarer');
 @define('VIEW_COMMENT', 'Visa kommentar');
 @define('VIEW_ENTRY', 'Visa artikel');
-@define('DELETE_FILE_FAIL', 'Kan inte ta bort filen <b>%s</b>');
-@define('DELETE_THUMBNAIL', 'Ta bort miniatyren <b>%s</b>');
-@define('DELETE_FILE', 'Ta bort filen <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'Kan inte ta bort filen %s');
+@define('DELETE_THUMBNAIL', 'Ta bort miniatyren %s');
+@define('DELETE_FILE', 'Ta bort filen %s');
 @define('ABOUT_TO_DELETE_FILE', 'Du håller p ta bort <b>%s</b><br>Om du använder den här filen i någon av dina artiklar får du länk-/bildfel<br>Vill du fortfarande ta bort den?');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Skickar trackback till URI %s...');
@@ -708,7 +708,7 @@
 @define('MEDIA_HOTLINKED', 'länkad');
 @define('FETCH_METHOD_IMAGE', 'Ladda ner bild till servern');
 @define('FETCH_METHOD_HOTLINK', 'Länka till server');
-@define('DELETE_HOTLINK_FILE', 'Ta bort den länkade filen <b>%s</b>');
+@define('DELETE_HOTLINK_FILE', 'Ta bort den länkade filen %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Visa e-postadresser?');
 @define('IMAGE_MORE_INPUT', 'Lägg till fler bilder');
 @define('BACKEND_TITLE', 'Mer information på inställningsidan för insticksmoduler');

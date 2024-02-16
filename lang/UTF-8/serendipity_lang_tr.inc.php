@@ -224,7 +224,7 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Tamamlandı (Eşlendi %s resimler).');
-@define('FILE_NOT_FOUND', 'Başlıklı dosyaya erişilemedi <b>%s</b>, silinmiş olabilir');
+@define('FILE_NOT_FOUND', 'Başlıklı dosyaya erişilemedi %s, silinmiş olabilir');
 @define('ABORT_NOW', 'İptal et');
 @define('REMOTE_FILE_NOT_FOUND', 'Dosya uzaktaki sunucuda bulunamadı, URL adresinin doğruluğuna eminmisiniz: <b>%s</b> bu adres mi?');
 @define('FILE_FETCHED', '%s dosya alındı %s');
@@ -538,9 +538,9 @@
 @define('DELETE_SELECTED_COMMENTS', 'Seçili yorumları sil');
 @define('VIEW_COMMENT', 'Yorumlara bak');
 @define('VIEW_ENTRY', 'Yazılara bak');
-@define('DELETE_FILE_FAIL', 'Dosya silinemiyor: <b>%s</b>');
-@define('DELETE_THUMBNAIL', 'Şu başlıklı küçükresim silindi: <b>%s</b>');
-@define('DELETE_FILE', 'Şu başlıklı dosya silindi: <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'Dosya silinemiyor: %s');
+@define('DELETE_THUMBNAIL', 'Şu başlıklı küçükresim silindi: %s');
+@define('DELETE_FILE', 'Şu başlıklı dosya silindi: %s');
 @define('ABOUT_TO_DELETE_FILE', 'Şu dosyayı silmekten bahsediyorsunuz <b>%s</b><br>Eğer bu dosyayı bazı yazılarınızda kullandıysanız, bu yazılarda bu dosyayla ilgili linkler ve resimler çalışmayacaktır.<br>İşlem devam etsin mi?');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', ' URI %s adresine iz bırakılıyor');
@@ -710,7 +710,7 @@
 @define('MEDIA_HOTLINKED', 'Sıcak Medya Bağlantıları');
 @define('FETCH_METHOD_IMAGE', 'Sunucudan resmi indir');
 @define('FETCH_METHOD_HOTLINK', 'Sunucudaki sıcak linkler');
-@define('DELETE_HOTLINK_FILE', ' <b>%s</b> başlıklı dosyanın sıcak linklerini sil');
+@define('DELETE_HOTLINK_FILE', ' %s başlıklı dosyanın sıcak linklerini sil');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'E-Posta adresi gösterilsin mi?');
 @define('IMAGE_MORE_INPUT', 'Daha fazla resim ekle');
 @define('BACKEND_TITLE', 'Eklenti yapılandırma ekranı hakkında daha fazla bilgi');

@@ -222,7 +222,7 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Valmis (Päivitetty %s kuvaa).');
-@define('FILE_NOT_FOUND', 'Tiedostoa <b>%s</b> ei löydy, ehkäpä se on jo poistettu?');
+@define('FILE_NOT_FOUND', 'Tiedostoa %s ei löydy, ehkäpä se on jo poistettu?');
 @define('ABORT_NOW', 'Peruuta');
 @define('REMOTE_FILE_NOT_FOUND', 'Tiedostoa ei löytynyt kohdepalvelimelta, onhan  URL: <b>%s</b> oikein?');
 @define('FILE_FETCHED', '%s haettu nimelle %s');
@@ -535,9 +535,9 @@
 @define('DELETE_SELECTED_COMMENTS', 'Poista valitut kommentit');
 @define('VIEW_COMMENT', 'Näytä kommentti');
 @define('VIEW_ENTRY', 'Näytä merkintä');
-@define('DELETE_FILE_FAIL', 'Tiedoston <b>%s</b> poisto epäonnistui');
-@define('DELETE_THUMBNAIL', 'Poistettu pienoiskuva: <b>%s</b>');
-@define('DELETE_FILE', 'Tuhottu tiedosto <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'Tiedoston %s poisto epäonnistui');
+@define('DELETE_THUMBNAIL', 'Poistettu pienoiskuva: %s');
+@define('DELETE_FILE', 'Tuhottu tiedosto %s');
 @define('ABOUT_TO_DELETE_FILE', 'Olet aikeissa poistaa <b>%s</b>:n<br>Jos se on käytössä merkinnöissä syntyy ongelmia<br>Oletko varma?');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
 @define('TRACKBACK_SENDING', 'Lähetetään paluuviite URI %s...');
@@ -707,7 +707,7 @@
 @define('MEDIA_HOTLINKED', 'Linkitetty palvelimelta');
 @define('FETCH_METHOD_IMAGE', 'Hae kuva palvelimellesi');
 @define('FETCH_METHOD_HOTLINK', 'Linkitä kohdepalvelimelta');
-@define('DELETE_HOTLINK_FILE', 'Poistettu linkitetty tiedosto nimeltä <b>%s</b>');
+@define('DELETE_HOTLINK_FILE', 'Poistettu linkitetty tiedosto nimeltä %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Näytä sähköpostiosoitteet?');
 @define('IMAGE_MORE_INPUT', 'Lisää lisää kuvia');
 @define('BACKEND_TITLE', 'Lisätietoja laajennoksen omissa asetuksissa');
