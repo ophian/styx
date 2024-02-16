@@ -675,7 +675,7 @@
 @define('UPGRADE', 'Atualização');
 @define('UPGRADE_TO_VERSION', '<b>Atualização para a versão:</b> %s');
 @define('DELETE_DIRECTORY', 'Apagar pasta');
-@define('DELETE_DIRECTORY_DESC', 'Você está prestes a excluir um diretório<sup>(¹)</sup> que pode conter arquivos de mídia e itens já usados em suas entradas. Certifique-se!<br><sup>[¹]</sup>Incluir o subdiretório oculto com arquivos de variação (WebP/AVIF).');
+@define('DELETE_DIRECTORY_DESC', 'Você está prestes a excluir um diretório<sup>(¹)</sup> que pode conter arquivos de mídia e itens já usados em suas entradas. Certifique-se!<br><sup>[¹]</sup> Incluir o subdiretório oculto com arquivos de variação (WebP/AVIF).');
 @define('FORCE_DELETE', 'Exclua TODOS os arquivos desse diretório, inclusive os sub-diretórios e os arquivos que (ainda) não são conhecidos pela MediaLibrary');
 @define('CREATE_DIRECTORY', 'Criar diretório');
 @define('CREATE_NEW_DIRECTORY', 'Criar novo diretório');
