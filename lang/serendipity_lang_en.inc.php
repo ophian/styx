@@ -708,7 +708,7 @@
 @define('MEDIA_HOTLINKED', 'hotlinked');
 @define('FETCH_METHOD_IMAGE', 'Download image to your server');
 @define('FETCH_METHOD_HOTLINK', 'Hotlink to server');
-@define('DELETE_HOTLINK_FILE', 'Deleted the hotlinked file entitled <b>%s</b>');
+@define('DELETE_HOTLINK_FILE', 'Deleted the hotlinked file entitled %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Show E-Mail addresses?');
 @define('IMAGE_MORE_INPUT', 'Add more images');
 @define('BACKEND_TITLE', 'Additional information in Plugin Configuration screen');
