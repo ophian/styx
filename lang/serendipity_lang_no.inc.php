@@ -675,7 +675,7 @@
 @define('UPGRADE', 'Upgrade'); // Translate
 @define('UPGRADE_TO_VERSION', '<b>Upgrade to version:</b> %s'); // Translate
 @define('DELETE_DIRECTORY', 'Delete directory'); // Translate
-@define('DELETE_DIRECTORY_DESC', 'Du er i ferd med å slette en katalog<sup>(¹)</sup> som kan inneholde mediefiler og elementer som allerede er brukt i oppføringene dine. Husk å inkludere den skjulte underkatalogen med (WebP/AVIF)-variasjonsfiler.');
+@define('DELETE_DIRECTORY_DESC', 'Du er i ferd med å slette en katalog<sup>(¹)</sup> som kan inneholde mediefiler og elementer som allerede er brukt i oppføringene dine. Vær forsiktig!<br><sup>[¹]</sup> Inkludert den skjulte underkatalogen med (WebP/AVIF)-variantfiler.');
 @define('FORCE_DELETE', 'Slett ALLE filer i denne katalogen, inkludert underkataloger og filer som MediaLibrary (ennå) ikke kjenner til');
 @define('CREATE_DIRECTORY', 'Create directory'); // Translate
 @define('CREATE_NEW_DIRECTORY', 'Create new directory'); // Translate

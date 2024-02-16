@@ -675,7 +675,7 @@
 @define('UPGRADE', 'Bijwerken');
 @define('UPGRADE_TO_VERSION', '<b>Bijwerken naar versie:</b> %s');
 @define('DELETE_DIRECTORY', 'Verwijder map');
-@define('DELETE_DIRECTORY_DESC', 'Je staat op het punt een directory<sup>(¹)</sup> te verwijderen die mediabestanden en items kan bevatten die al gebruikt zijn in je inzendingen. Let op! Inclusief de verborgen subdirectory met (WebP/AVIF) variatiebestanden.');
+@define('DELETE_DIRECTORY_DESC', 'Je staat op het punt een directory<sup>(¹)</sup> te verwijderen die mediabestanden en items kan bevatten die al gebruikt zijn in je inzendingen. Let op!<br><sup>[¹]</sup> Inclusief de verborgen subdirectory met (WebP/AVIF) variatiebestanden.');
 @define('FORCE_DELETE', 'Verwijder ALLE bestanden in deze map, inclusief submappen en bestanden die (nog) niet bekend zijn bij de MediaLibrary');
 @define('CREATE_DIRECTORY', 'Maak map');
 @define('CREATE_NEW_DIRECTORY', 'Maak nieuwe map');

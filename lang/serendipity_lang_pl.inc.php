@@ -675,7 +675,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('UPGRADE', 'Uaktualnienie');
 @define('UPGRADE_TO_VERSION', '<b>Uaktualnienie do wersji:</b> %s');
 @define('DELETE_DIRECTORY', 'Usuñ katalog');
-@define('DELETE_DIRECTORY_DESC', 'Zamierzasz usunac katalog<sup>(¹)</sup>, który moze zawierac pliki multimedialne i elementy juz uzywane we wpisach. Upewnij sie!<sup>[¹]</sup> Lacznie z ukrytym podkatalogiem z plikami odmian (WebP/AVIF).');
+@define('DELETE_DIRECTORY_DESC', 'Zamierzasz usunac katalog<sup>(¹)</sup>, który moze zawierac pliki multimedialne i elementy juz uzywane we wpisach. Upewnij sie!<br><sup>[¹]</sup> Lacznie z ukrytym podkatalogiem z plikami odmian (WebP/AVIF).');
 @define('FORCE_DELETE', 'Usuwa WSZYSTKIE pliki w tym katalogu, w tym podkatalogi i pliki, które nie sa (jeszcze) znane przez MediaLibrary');
 @define('CREATE_DIRECTORY', 'Stwórz nowy katalog');
 @define('CREATE_NEW_DIRECTORY', 'Stwórz nowy katalog');

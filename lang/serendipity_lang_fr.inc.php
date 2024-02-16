@@ -677,7 +677,7 @@
 @define('UPGRADE', 'Mise à jour');
 @define('UPGRADE_TO_VERSION', '<b>Mise à jour vers la version:</b> %s');
 @define('DELETE_DIRECTORY', 'Supprimer le répertoire');
-@define('DELETE_DIRECTORY_DESC', 'Vous êtes sur le point de supprimer un répertoire<sup>(¹)</sup> qui peut contenir des fichiers multimédias et des éléments déjà utilisés dans vos entrées. Attention !<sup>[¹]</sup> Y compris le sous-répertoire caché contenant les fichiers de variation (WebP/AVIF).');
+@define('DELETE_DIRECTORY_DESC', 'Vous êtes sur le point de supprimer un répertoire<sup>(¹)</sup> qui peut contenir des fichiers multimédias et des éléments déjà utilisés dans vos entrées. Attention !<br><sup>[¹]</sup> Y compris le sous-répertoire caché contenant les fichiers de variation (WebP/AVIF).');
 @define('FORCE_DELETE', 'Supprimer TOUS les fichiers de ce répertoire, y compris les sous-répertoires et les fichiers qui ne sont pas (encore) connus de la médiathèque');
 @define('CREATE_DIRECTORY', 'Créer un répertoire');
 @define('CREATE_NEW_DIRECTORY', 'Créer un nouveau répertoire');

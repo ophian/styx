@@ -673,7 +673,7 @@
 @define('UPGRADE', 'Uppfæra');
 @define('UPGRADE_TO_VERSION', '<b>Uppfæra í útgáfu:</b> %s');
 @define('DELETE_DIRECTORY', 'Eyða þessari möppu');
-@define('DELETE_DIRECTORY_DESC', 'Þú ert að fara að eyða möppu <sup>(¹)</sup> sem gæti innihaldið miðlunarskrár og hluti sem þegar eru notaðir í færslunum þínum. Vertu viss!<sup>[¹]</sup> Þar á meðal falinn undirskrá með (WebP/AVIF) afbrigðisskrám.');
+@define('DELETE_DIRECTORY_DESC', 'Þú ert að fara að eyða möppu <sup>(¹)</sup> sem gæti innihaldið miðlunarskrár og hluti sem þegar eru notaðir í færslunum þínum. Vertu viss!<br><sup>[¹]</sup> Þar á meðal falinn undirskrá með (WebP/AVIF) afbrigðisskrám.');
 @define('FORCE_DELETE', 'Eyða ÖLLUM skrám í þessari möppu, þar á meðal undirskrám og þeim skrám sem MediaLibrary hefur ekki (enn) þekktm');
 @define('CREATE_DIRECTORY', 'Búa til möppu');
 @define('CREATE_NEW_DIRECTORY', 'Búa til nýja möppu');

@@ -674,7 +674,7 @@
 @define('UPGRADE', 'Aggiorna');
 @define('UPGRADE_TO_VERSION', '<b>Aggiorna alla versione:</b> %s');
 @define('DELETE_DIRECTORY', 'Cancella la directory');
-@define('DELETE_DIRECTORY_DESC', 'Si sta per eliminare una directory<sup>(¹)</sup> che potrebbe contenere file multimediali e elementi già utilizzati nelle voci. Assicurarsi!<sup>[¹]</sup> Includere la sottodirectory nascosta con i file di variazione (WebP/AVIF).');
+@define('DELETE_DIRECTORY_DESC', 'Si sta per eliminare una directory<sup>(¹)</sup> che potrebbe contenere file multimediali e elementi già utilizzati nelle voci. Assicurarsi!<br><sup>[¹]</sup> Includere la sottodirectory nascosta con i file di variazione (WebP/AVIF).');
 @define('FORCE_DELETE', 'Elimina TUTTI i file di questa directory, comprese le sottodirectory e i file non (ancora) conosciuti da MediaLibrary');
 @define('CREATE_DIRECTORY', 'Crea la directory');
 @define('CREATE_NEW_DIRECTORY', 'Crea una nuoav directory');

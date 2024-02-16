@@ -673,7 +673,7 @@
 @define('UPGRADE', 'アップグレード');
 @define('UPGRADE_TO_VERSION', 'バージョン %s へアップグレード'); // check style
 @define('DELETE_DIRECTORY', 'ディレクトリーの削除');
-@define('DELETE_DIRECTORY_DESC', '既にエントリーで使用されているメディアファイルやアイテムを含むディレクトリ<sup>(¹)</sup>を削除しようとしています。必ず！<sup>[¹]</sup> (WebP/AVIF)バリエーションファイルのある隠しサブディレクトリを含みます。');
+@define('DELETE_DIRECTORY_DESC', '既にエントリーで使用されているメディアファイルやアイテムを含むディレクトリ<sup>(¹)</sup>を削除しようとしています。必ず！<br><sup>[¹]</sup> (WebP/AVIF)バリエーションファイルのある隠しサブディレクトリを含みます。');
 @define('FORCE_DELETE', 'サブディレクトリやMediaLibraryがまだ知らないファイルも含めて、このディレクトリ内のすべてのファイルを削除する');
 @define('CREATE_DIRECTORY', 'ディレクトリーの作成');
 @define('CREATE_NEW_DIRECTORY', '新規ディレクトリーの作成');

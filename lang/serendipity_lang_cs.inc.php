@@ -685,7 +685,7 @@ $i18n_filename_to = array (
 @define('UPGRADE', 'Aktualizace');
 @define('UPGRADE_TO_VERSION', '<b>Aktualizace na verzi:</b> %s');
 @define('DELETE_DIRECTORY', 'Vymazat adresáø');
-@define('DELETE_DIRECTORY_DESC', 'Chystáte se odstranit adresár<sup>(¹)</sup>, který muže obsahovat mediální soubory a položky již použité v položkách. Ujistete se!<sup>[¹]</sup> Vcetne skrytého podadresáre se soubory (WebP/AVIF) variací.');
+@define('DELETE_DIRECTORY_DESC', 'Chystáte se odstranit adresár<sup>(¹)</sup>, který muže obsahovat mediální soubory a položky již použité v položkách. Ujistete se!<br><sup>[¹]</sup> Vcetne skrytého podadresáre se soubory (WebP/AVIF) variací.');
 @define('FORCE_DELETE', 'Odstranení VŠECH souboru v tomto adresári, vcetne podadresáru a souboru, které (zatím) nejsou známy knihovne MediaLibrary');
 @define('CREATE_DIRECTORY', 'Vytvoøit adresáø');
 @define('CREATE_NEW_DIRECTORY', 'Vytvoøit nový adresáø');

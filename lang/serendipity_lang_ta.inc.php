@@ -673,7 +673,7 @@
 @define('UPGRADE', 'Upgrade');
 @define('UPGRADE_TO_VERSION', '<b>Upgrade to version:</b> %s');
 @define('DELETE_DIRECTORY', 'Delete directory');
-@define('DELETE_DIRECTORY_DESC', 'உங்கள் உள்ளீடுகளில் ஏற்கனவே பயன்படுத்தப்பட்ட மீடியா கோப்புகள் மற்றும் உருப்படிகளைக் கொண்ட கோப்பகத்தை<sup>(¹)</sup> நீக்க உள்ளீர்கள். உறுதியாக இருங்கள்!<sup>[¹]</sup> (WebP/AVIF) மாறுபாடு கோப்புகளுடன் மறைக்கப்பட்ட துணை-இயக்குனர் உட்பட.');
+@define('DELETE_DIRECTORY_DESC', 'உங்கள் உள்ளீடுகளில் ஏற்கனவே பயன்படுத்தப்பட்ட மீடியா கோப்புகள் மற்றும் உருப்படிகளைக் கொண்ட கோப்பகத்தை<sup>(¹)</sup> நீக்க உள்ளீர்கள். உறுதியாக இருங்கள்!<br><sup>[¹]</sup> (WebP/AVIF) மாறுபாடு கோப்புகளுடன் மறைக்கப்பட்ட துணை-இயக்குனர் உட்பட.');
 @define('FORCE_DELETE', 'Delete ALL files in this directory, including sub-dirs and those files not (yet) known by the MediaLibrary');
 @define('CREATE_DIRECTORY', 'Create directory');
 @define('CREATE_NEW_DIRECTORY', 'Create new directory');
