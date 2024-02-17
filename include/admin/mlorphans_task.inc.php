@@ -271,7 +271,7 @@ if (empty($serendipity['POST']['multiCheck']) && empty($serendipity['POST']['orp
     echo '<span class="msg_notice no-margin"><span class="icon-attention-circled" aria-hidden="true"></span> ' . MLORPHAN_MTASK_LAST_ACTION_NOTE . "</span>\n";
 
     echo '  <div id="serendipity_orphaned_images">
-            <form id="#formMultiSelect" name="formMultiSelect" action="?" method="POST">
+            <form id="formMultiSelect" name="formMultiSelect" action="?" method="POST">
                 '.serendipity_setFormToken().'
                 <input type="hidden" name="serendipity[adminModule]" value="maintenance">
                 <input type="hidden" name="serendipity[adminAction]" value="imageorphans">
