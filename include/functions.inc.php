@@ -377,6 +377,7 @@ function serendipity_validateDate($date, $format = 'Y-m-d') {
  * @see https://gist.github.com/bohwaz/42fc223031e2b2dd2585aab159a20f30
  */
 function serendipity_toDateTimeMapper(string $format, $timestamp = null, ?string $locale = null): string {
+
     if (null === $timestamp) {
         $timestamp = new \DateTime;
     }
