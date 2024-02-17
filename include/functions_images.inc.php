@@ -3582,6 +3582,7 @@ function serendipity_isImage(&$file, $strict = false, $allowed = 'image/') {
  */
 function serendipity_killPath($basedir, $udir = '', $forceDelete = false) {
     static $serious = true;
+    static $sdir = $udir; // keep the 1st call directory for 1st .v/ dir nuke usage
 
     if ($handle = @opendir($basedir . $udir)) {
         $filestack = [];
@@ -3619,7 +3620,7 @@ function serendipity_killPath($basedir, $udir = '', $forceDelete = false) {
         }
 
         if (count($filestack) > 0) {
-            if ($forceDelete || (preg_match('@\.v\/@', $udir) && !preg_match('@^(\w+\.?\/?)*\w+$@', $udir) && !empty($basedir . $udir))) {
+            if ($forceDelete || (preg_match('@\.v\/@', $udir) && ($sdir . '.v/' === $udir) && !preg_match('@^(\w+\.?\/?)*\w+$@', $udir) && !empty($basedir . $udir))) {
                 echo '<ul class="plainList">'."\n";
                 foreach($filestack AS $f => $file) {
                     if ($serious && unlink($basedir . $file)) {
