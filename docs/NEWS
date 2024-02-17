@@ -7,8 +7,8 @@ Version 4.4-DEV ()
   * Refactor Media directory nuke handlers for semantic naming, new regex match,
     fixing a "whitehaired" Methusalem bug w/ single letter names like 'X' and
     for overall related messaging and language constants.
-    Also the current directory ".v/" image variation subdir is now nuked too w/o
-    having to check the ALL checkbox for ALL childs.
+    Also the current directory ".v/" image variations subdir is now nuked too
+    without having to check the ALL checkbox for ALL childs.
 
   [ 4.4-beta1 ]
   * Trying to fix *_sysInfoTicker() hidden stored notifications suddenly
