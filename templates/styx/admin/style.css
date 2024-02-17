@@ -1614,6 +1614,7 @@ summary {
 .msg-spot {
     color: #222;
     font-family: Georgia, 'Times New Roman', serif;
+    word-wrap: break-word;
 }
 
 .installer .msg_error,
