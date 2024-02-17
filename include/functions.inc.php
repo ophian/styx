@@ -1718,7 +1718,7 @@ if (!function_exists('microtime_float')) {
  * @param   string  The string variable
  * @return  string  The highlight span'ed string
  */
-function serendipity_spotify($var) {
+function serendipity_spotify(string $var): string {
     return "<span class=\"msg-spot\">$var</span>";
 }
 
