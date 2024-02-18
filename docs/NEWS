@@ -2,6 +2,8 @@ Version 4.4-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Refactor serendipity_syncThumbs() list task(s) messaging
+
   [ 4.4-beta2 ]
   * Minor Smarty lib v.4.3.5 (tag) catch-up
 
