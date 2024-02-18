@@ -301,6 +301,10 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     border-color: #535; }
   [data-dark-theme="dark"] .card {
     border-color: #444c56; }
+  [data-dark-theme="dark"] kbd {
+      color: #dadada;
+      background-color: #22272e;
+      border-color: #484848; }
   [data-dark-theme="dark"] hr {
     color: #444c56;
     border-color: inherit;
@@ -566,6 +570,14 @@ dd {
 pre, code, samp, kbd {
   font-size: 14px;
   font-size: 0.875rem;
+}
+
+kbd {
+  padding: .25rem .5rem;
+  color: #000;
+  background-color: #fdfdfd;
+  border-radius: .25rem;
+  border: 1px solid #d0d0d0;
 }
 
 hr {
