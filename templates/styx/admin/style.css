@@ -2303,6 +2303,13 @@ fieldset p,
     margin-bottom: .15rem;
 }
 
+.media_sync_list .ml_action {
+    padding: .25em 0;
+}
+.media_sync_list .ml_action em {
+    color: darkgray;
+}
+
 .importer_data dd > div {
     margin-top: 0;
     margin-bottom: 0;
