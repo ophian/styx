@@ -2676,7 +2676,6 @@ function serendipity_syncThumbs($deleteThumbs = false) {
     $files  = serendipity_fetchImages();
     $fcount = count($files);
     $_list  = '';
-    $_br    = '';
 
     echo "\n";
     echo '<section class="media_sync_thumbs">' . "\n";
@@ -2718,7 +2717,6 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                     // Silently delete an already generated .v/fthumb.[webp|avif] variation file too
                     serendipity_syncUnlinkVariation($fthumb);
                     $_list .= sprintf(DELETE_THUMBNAIL, "<b>$sThumb</b>");
-                    $_br = "<br>\n";
                     $i++;
                 }
             } else if ($deleteThumbs == 'checksize') {
@@ -2730,7 +2728,6 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                         // Silently delete an already generated .v/fthumb.[webp|avif] variation file too
                         serendipity_syncUnlinkVariation($fthumb);
                         $_list .= sprintf(DELETE_THUMBNAIL, "<b>$sThumb</b>");
-                        $_br = "<br>\n";
                         $i++;
                     }
                 } else {
@@ -2744,7 +2741,6 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                             // Silently delete an already generated .v/fthumb.[webp|avif] variation file too
                             serendipity_syncUnlinkVariation($fthumb);
                             $_list .= sprintf(DELETE_THUMBNAIL, "<b>$sThumb</b>");
-                            $_br = "<br>\n";
                             $i++;
                         }
                     }
@@ -2767,7 +2763,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                                       FROM {$serendipity['dbPrefix']}images AS i
                                            {$cond['joins']}
                                            {$cond['and']}", true, 'assoc');
-        // Leave messages plain unstiled
+        // Leave messages plain un-styled
         if (is_array($rs)) {
 
             // This image is in the database. Check our calculated data against the database data.
@@ -2795,14 +2791,14 @@ function serendipity_syncThumbs($deleteThumbs = false) {
 
             // Do the database update, if needed
             if (sizeof($update) != 0 && !preg_match('@/.v/@', $files[$x])) {
-                $_list .= $_br . sprintf(FOUND_FILE . " (<em>Update in database</em>)", $files[$x]);
+                $_list .= '<span class="ml_action">' . sprintf(FOUND_FILE . " (<em>Update in database</em>)", $files[$x]) . '</span>';
                 serendipity_updateImageInDatabase($update, $rs['id']);
                 $i++;
             }
 
         } else {
             if (!preg_match('@.v/@', $fdir)) {
-                $_list .= $_br . sprintf(FOUND_FILE . " (<em>Insert in Database</em>)", $files[$x]);
+                $_list .= '<span class="ml_action">' . sprintf(FOUND_FILE . " (<em>Insert in Database</em>)", $files[$x]) . '</span>';
                 serendipity_insertImageInDatabase($fbase . '.' . $f[1], $fdir, 0, (int)@filemtime($ffull));
                 $i++;
             }
