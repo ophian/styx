@@ -362,7 +362,7 @@ function serendipity_deleteImage($id) {
 
     $_file = serendipity_fetchImageFromDatabase($id);
 
-    if ($serendipity['useWebPFormat'] || $serendipity['useAvifFormat']) {
+    if (isset($_file['name']) && ($serendipity['useWebPFormat'] || $serendipity['useAvifFormat'])) {
         // get a possible image variations id (should only be if that was development or somethings has went wrong)
         $fname = serendipity_db_escape_string($_file['name']);
         $vfile = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}images AS i WHERE path = '.v/' AND name = '$fname' AND (extension = 'webp' OR extension = 'avif')", true, 'assoc');
@@ -375,6 +375,11 @@ function serendipity_deleteImage($id) {
         $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . FILE_NOT_FOUND . "</span>\n", "<b>$id</b>");
         //return false;
     } else {
+        // check a user reload when delete somehow failed
+        if (empty($files[0])) {
+            $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . FILE_NOT_FOUND . "</span>\n", serendipity_spotify("ID: $id"));
+            return $messages;
+        }
         foreach ($files AS $file) {
             $dFile = $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
 
