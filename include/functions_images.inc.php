@@ -5402,7 +5402,7 @@ function serendipity_renameDirAccess($oldDir, $newDir, $debug=false) {
     }
 
     echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' .
-            sprintf(MEDIA_DIRECTORY_MOVED, $newDir) . "</span>\n";
+            sprintf(MEDIA_DIRECTORY_MOVED, serendipity_spotify($newDir)) . "</span>\n";
 
     // hook into staticpage for the renaming regex replacements (no need to special care about thumb name, since this is simple dir renaming!)
     // we cannot give anything here which couldn't be done there too - about variations dir path settings
