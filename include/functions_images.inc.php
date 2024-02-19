@@ -2803,7 +2803,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
             }
 
         } else {
-            if (!preg_match('@.v/@', $fdir)) {
+            if (!preg_match('@\.v/@', $fdir)) {
                 $_list .= '<span class="ml_action">' . sprintf(FOUND_FILE . " (<em>Insert in Database</em>)", $files[$x]) . '</span>';
                 serendipity_insertImageInDatabase($fbase . '.' . $f[1], $fdir, 0, (int)@filemtime($ffull));
                 $i++;
@@ -3198,12 +3198,12 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
             if ($sFile['directory']) {
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag {$sFile['relpath']} is a directory."); }
                 // remove the hidden .v/ directory from media.path select lists, since we need it for handlers but not for user directory select lists
-                if (!preg_match('@.v/@', $sFile['relpath'])) {
+                if (!preg_match('@\.v/@', $sFile['relpath'])) {
                     array_push($paths, $sFile);
                 }
             } else {
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag {$sFile['relpath']} is a file."); }
-                if ($sFile['relpath'] == '.empty' || false !== strpos($sFile['relpath'], '.quickblog.') || ( preg_match('@.v/@', $sFile['relpath']) && preg_match('@[.webp|.avif]$@', $sFile['relpath']) )) {
+                if ($sFile['relpath'] == '.empty' || false !== strpos($sFile['relpath'], '.quickblog.') || ( preg_match('@\.v/@', $sFile['relpath']) && preg_match('@[.webp|.avif]$@', $sFile['relpath']) )) {
                     if ($sFile['relpath'] != '.empty' && (!isset($serendipity['aFilesNoSync']) || !in_array($sFile['relpath'], (array)$serendipity['aFilesNoSync']))) {
                         if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Found aFilesNoSync = {$sFile['relpath']}."); }
                         $path_parts = pathinfo($sFile['relpath']);
@@ -3326,7 +3326,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
 
             $nCount = 0;
             foreach($aUnmatchedOnDisk AS $sFile) {
-                if (preg_match('@.' . $serendipity['thumbSuffix'] . '.@', $sFile) || preg_match('@.v/@', $sFile)) {
+                if (preg_match('@.' . $serendipity['thumbSuffix'] . '.@', $sFile) || preg_match('@\.v/@', $sFile)) {
                     // this means from now on these image variations are not added to the database any more!
                     if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Skipping special cased hidden directory AND/OR thumbnail file $sFile"); }
                     continue;
@@ -5514,10 +5514,10 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
     $file_rel_path = ($newDir == $file_new_variation) ? $file['path'] : $newDir; // distinguish between rename and re-move actions. covering newDir variable changes
 
     // check if the hidden dir path part is not already applied
-    if (!preg_match('@.v/@', $file_new_variation)) {
+    if (!preg_match('@\.v/@', $file_new_variation)) {
         $file_new_variation = $file_rel_path . '.v/' . $file_new_variation;
     }
-    if (!preg_match('@.v/@', $file_old_variation)) {
+    if (!preg_match('@\.v/@', $file_old_variation)) {
         $file_old_variation = $file_rel_path . '.v/' . $file_old_variation;
     }
     $relnewfilevariation = $file_new_variation;
