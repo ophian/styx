@@ -2,6 +2,9 @@ Version 4.4-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve nuke/move media success/error messages to shed some item spot-light
+    for readability.
+
   * Refactor serendipity_syncThumbs() list task(s) messaging
 
   [ 4.4-beta2 ]
