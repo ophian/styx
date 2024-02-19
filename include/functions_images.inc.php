@@ -5843,7 +5843,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
 
     if (file_exists($newfile)) {
         echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' .
-                sprintf(MEDIA_DIRECTORY_MOVED, $thisnew . $thisExt) . "</span>\n";
+                sprintf(MEDIA_DIRECTORY_MOVED, serendipity_spotify($thisnew . $thisExt)) . "</span>\n";
     }
     return $_file;
 }
