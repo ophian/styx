@@ -2,6 +2,9 @@ Version 4.4-DEV ()
  ------------------------------------------------------------------------
 
 
+  * b53: Upgrade to Bootstrap v5.3.3 assets
+         https://github.com/twbs/bootstrap/releases/tag/v5.3.3
+
   * Improve nuke/move media success/error messages to shed some item spot-light
     for readability.
 
