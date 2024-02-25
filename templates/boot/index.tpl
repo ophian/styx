@@ -210,7 +210,7 @@
     </div>
   </footer>
 
-  <script src="{serendipity_getFile file="b5/js/bootstrap.min.js"}"></script>
+  <script src="{serendipity_getFile file="b5/js/bootstrap.bundle.min.js"}"></script>
   <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
   <script src="{serendipity_getFile file="theme.js"}"></script>
 {/if}
