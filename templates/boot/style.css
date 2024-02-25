@@ -345,6 +345,10 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 #sun-fill.scrolled {
   fill: initial; }
 
+.rss_link img {
+  background: var(--bs-purple);
+}
+
 .post table, .page table {
   display: inherit;
   width: auto;
