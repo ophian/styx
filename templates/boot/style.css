@@ -453,6 +453,10 @@ a:not(.btn, .navbar-brand, .nav-link, .cke_dialog_ui_button_cancel):not(.link-bo
   color: #b0b0b0; }
   aside a, .bi.bi-rss-fill {
     color: #e5e5e5; }*/
+.serendipity_recententries_entrydate.serendipitySideBarDate {
+  margin-bottom: .25rem; }
+.serendipity_plugin_authors form div {
+  margin-bottom: .25rem; }
 
 @media only screen and (min-width: 992px) {
   .serendipity_entrypaging {
