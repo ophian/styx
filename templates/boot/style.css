@@ -428,6 +428,10 @@ a:not(.btn, .navbar-brand, .nav-link, .cke_dialog_ui_button_cancel):not(.link-bo
   -webkit-text-decoration-color: rgba(var(--bs-emphasis-color-rgb),var(--bs-link-underline-opacity,1));
   text-decoration-color: rgba(var(--bs-emphasis-color-rgb),var(--bs-link-underline-opacity,1)); }
 
+/*  do not overflow expand content over 100% so better break words - i.e. long URIs */
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  overflow-wrap: break-word; }
+
 /* extends the body top padding for non-blog (.post) headings */
 .serendipity_Entry_Date h2, .page  h2,
 .serendipity_Entry_Date h3, .page  h3 {
