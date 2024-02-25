@@ -1,4 +1,4 @@
-<table class="calendar table table-striped table-light">
+<table class="calendar table table-striped table-auto">
                         <thead>
                             <tr>
 {foreach $plugin_calendar_dow AS $dow}
