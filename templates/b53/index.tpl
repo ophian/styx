@@ -18,7 +18,7 @@
 {if in_array($view, ['start', 'entries'])}
     <link rel="canonical" href="{$serendipityBaseURL}">
 {/if}
-    <link rel="stylesheet" href="{serendipity_getFile file="css/bootstrap.min.css"}" type="text/css">
+    <link rel="stylesheet" href="{serendipity_getFile file="b5/css/bootstrap.min.css"}" type="text/css">
     <link rel="stylesheet" href="{$head_link_stylesheet}" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="{$blogTitle} RSS feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2">
     <link rel="alternate" type="application/x.atom+xml" title="{$blogTitle} Atom feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml">
@@ -173,7 +173,7 @@
         </div>
     </footer>
 
-    <script src="{serendipity_getFile file="js/bootstrap.bundle.min.js"}"></script>
+    <script src="{serendipity_getFile file="b5/js/bootstrap.bundle.min.js"}"></script>
     <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
     <script> const themePath = '{$serendipityHTTPPath}{$templatePath}{$template}';</script>
     <script src="{serendipity_getFile file="theme.js"}"></script>
