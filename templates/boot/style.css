@@ -416,6 +416,18 @@ main.col-xs-12.col-lg-12 .save_updertH {
 main.col-xs-12.col-lg-12 .save_updertH hr {
   margin: .5em 0; }
 
+/* global theme mode settings */
+html[data-bs-theme="dark"] .bg-light {
+  --bs-bg-opacity: 0;
+  background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity)) !important; }
+html, body, table, .cke_emoji-outer_emoji_block {
+  scrollbar-width: thin;
+  scrollbar-color: #8899b1 #1e2127; }
+a:not(.btn, .navbar-brand, .nav-link, .cke_dialog_ui_button_cancel):not(.link-body-emphasis) {
+  color: rgba(var(--bs-emphasis-color-rgb),var(--bs-link-opacity,1));
+  -webkit-text-decoration-color: rgba(var(--bs-emphasis-color-rgb),var(--bs-link-underline-opacity,1));
+  text-decoration-color: rgba(var(--bs-emphasis-color-rgb),var(--bs-link-underline-opacity,1)); }
+
 /* extends the body top padding for non-blog (.post) headings */
 .serendipity_Entry_Date h2, .page  h2,
 .serendipity_Entry_Date h3, .page  h3 {
