@@ -445,8 +445,7 @@ a:not(.btn, .navbar-brand, .nav-link, .cke_dialog_ui_button_cancel):not(.link-bo
 .page {
   width: 100%; }
 #staticpage_nav .pagenav_center {
-    min-width: 4.75rem;
-}
+  min-width: 4.75rem; }
 
 /* sidebars start */
 /*aside {
