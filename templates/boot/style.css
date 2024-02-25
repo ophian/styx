@@ -337,6 +337,14 @@ summary {
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   text-decoration: none; }
 
+.top-tiny {
+  margin-right: 4rem !important;
+  top: .25rem; }
+#sun-fill {
+  fill: #fff; }
+#sun-fill.scrolled {
+  fill: initial; }
+
 .post table, .page table {
   display: inherit;
   width: auto;
@@ -1310,6 +1318,11 @@ p > img.serendipity_image_center {
   #archives > section {
     float: left;
     width: 49%; }
+}
+
+@media only screen and (min-width: 586px) {
+  .top-tiny {
+    margin-right: 1rem !important; }
 }
 
 @media screen and (min-width: 768px) {
