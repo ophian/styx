@@ -181,6 +181,7 @@
   </main>
 
   <footer>
+    <p class="float-end mb-1"><a href="#" title="back to top"><svg class="bi ms-auto" width="1em" height="1em"><use href="#back-to-top"></use></svg></a></p>
     <p class="text-center" lang="en">{$CONST.POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a> <abbr title="and">&amp;</abbr> the <i>{$template}</i> theme.</p>
   </footer>
 
