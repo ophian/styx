@@ -258,3 +258,11 @@ document.addEventListener("DOMContentLoaded", function() {
         );
     }
 });
+
+/* allow to pimp the sun-fill light-theme svg fill color when over the black navbar */
+$(function () {
+  $(document).scroll(function () {
+    var $nav = $("#sun-fill");
+    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+  });
+});
