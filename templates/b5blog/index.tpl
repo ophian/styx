@@ -1,6 +1,6 @@
 {if $is_embedded != true}
 <!DOCTYPE html>
-<html lang="{$lang}">
+<html lang="{$lang}" data-bs-theme="auto">
 <head>
     <meta charset="{$head_charset}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -95,7 +95,7 @@
 </div>
 <!-- Blog Container -->
 <div class="container-fluid">
-  <header class="container-xl blog-header lh-1 py-3">
+  <header class="container-xl blog-header lh-1 py-3 border-bottom">
     <div class="row flex-nowrap justify-content-start align-items-center">
       <div class="col-3 d-flex pt-1">
         <a class="link-secondary" href="{$serendipityBaseURL}feeds/index.rss2" title="{$CONST.SUBSCRIBE_TO_BLOG}"><svg class="bi m-0" width="36" height="36" role="img" aria-labelledby="title"><title id="sycrss">XML</title><use xlink:href="#rss-fill"></use></svg></a>
@@ -115,9 +115,9 @@
   </header>
 {if $template_option.use_corenav}
 
-  <div class="container-xl nav-scroller py-1 mb-2">
-    <nav class="nav d-flex justify-content-between">
-      {foreach $navlinks AS $navlink}{if $navlink.title != "" AND $navlink.href != ""}{if $currpage == $navlink.href OR $currpage2 == $navlink.href}<span>{else}<a href="{$navlink.href}">{/if}{$navlink.title}{if $currpage == $navlink.href OR $currpage2 == $navlink.href}</span>{else}</a>{/if}{/if}{/foreach}
+  <div class="container-xl nav-scroller py-1 mb-2 border-bottom">
+    <nav class="nav nav-underline d-flex justify-content-between">
+      {foreach $navlinks AS $navlink}{if $navlink.title != "" AND $navlink.href != ""}{if $currpage == $navlink.href OR $currpage2 == $navlink.href}<span>{else}<a class="nav-item nav-link link-body-emphasis" href="{$navlink.href}">{/if}{$navlink.title}{if $currpage == $navlink.href OR $currpage2 == $navlink.href}</span>{else}</a>{/if}{/if}{/foreach}
     </nav>
   </div>
 {/if}
@@ -187,15 +187,16 @@
           {$template_option.title|default:'From the Styx Firehose'|escape}
         </h3>
 {/if}
+
         {$CONTENT}
 
       </div><!-- col content end -->
 
       <div class="col-md-4 pe-0">
-        <div class="position-sticky">
+        <div class="position-flex">
 {* SIDEBAR ABOUT BOX container *}
 {if $template_option.about}
-          <div class="p-4 mb-3 bg-light rounded">
+          <div class="p-4 mb-3 bg-body-tertiary rounded">
             <h4 class="fst-italic">{$template_option.abouttitle|default:''|escape}</h4>
             <p class="mb-0">{$template_option.abouttext|default:''|escape}</p>
           </div>
@@ -211,12 +212,16 @@
   </main>
 
   <footer>
-    <p class="float-end mb-1"><a href="#" title="back to top"><svg class="bi ms-auto" width="1em" height="1em"><use href="#back-to-top"></use></svg></a></p>
-    <p class="text-center" lang="en">{$CONST.POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a> <abbr title="and">&amp;</abbr> the <i>{$template}</i> theme.</p>
+    <div class="container">
+      <p class="float-end mb-1"><a href="#" title="back to top"><svg class="bi ms-auto" width="1em" height="1em"><use href="#back-to-top"></use></svg></a></p>
+      <p class="text-center" lang="en">{$CONST.POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a> <abbr title="and">&amp;</abbr> the <i>{$template}</i> theme.</p>
+    </div>
   </footer>
 
   <script src="{serendipity_getFile file="b5/js/bootstrap.bundle.min.js"}"></script>{* bootstrap 5 does not need jquery lib any more *}
-  <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
+  <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>{* The bad, others like lightbox etc do need it though ! *}
+
+  <script> const themePath = '{$serendipityHTTPPath}{$templatePath}{$template}';</script>
   <script src="{serendipity_getFile file="theme.js"}"></script>
 {/if}
 {$raw_data}
@@ -238,7 +243,7 @@
 {/if}
 {if (in_array($view, ['start', 'entries', 'entry', 'comments', 'categories']) AND $wysiwyg_comment) OR isset($hljsload) && $hljsload === true}
 
-  <link rel="stylesheet" href="{serendipity_getFile file="highlight/github.min.css"}" type="text/css">
+  <link rel="stylesheet" href="{serendipity_getFile file="highlight/github-boot.min.css"}" type="text/css">
   <script src="{serendipity_getFile file="highlight/highlight.min.js"}"></script>
   <script>
     // launch the codesnippet highlight
