@@ -222,7 +222,7 @@ a:active, a:hover {
 
 /* @see body color - default black a and rss icon color analogue to the blue [a] (rule) in _reboot.scss */
 a, .bi.bi-rss-fill {
-    color: #222; }
+  color: currentColor; }
 
 b, strong {
   font-weight: bold; }
