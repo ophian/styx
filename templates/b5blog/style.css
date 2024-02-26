@@ -110,11 +110,6 @@ audio:not([controls]) {
 
 /* stylelint-disable selector-list-comma-newline-after */
 
-.blog-header {
-  line-height: 1;
-  border-bottom: 1px solid #e5e5e5;
-}
-
 .blog-header-logo {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
   font-size: 2.25rem;
@@ -153,10 +148,6 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
-}
-
-.nav-scroller .nav span, .nav-scroller .nav a {
-  padding-right: .5rem;
 }
 
 .nav-scroller .nav-link {
@@ -981,26 +972,6 @@ article.post li .pc-owner {
 #trackbacks details > div {
   margin-left: 1.2rem; }
 
-#comments .comment > footer {
-  text-align: center;
-  border: 1px solid #dfdfdf;
-  background: #f7f7f7;
-  border-radius: 4px 4px 4px 4px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin-top: 1rem; }
-
-#comments .comment > footer .meta {
-  margin: .25rem 0; }
-.comments_for_entry .comment.odd > footer .meta {
-  border: 1px solid #ddd;
-  background-color: #fdfdfd;
-  box-shadow: 1px 1px 2px #ededed; }
-.comments_for_entry .comment.even > footer .meta {
-  border: 1px solid #ddd;
-  background-color: #fefefe;
-  box-shadow: 1px 1px 2px #eee; }
-
 .comment_avatar {
   background-color: #ddd;
   border: 2px solid #acacac;
@@ -1098,24 +1069,6 @@ details summary {
 .widget h3 {
   color: #666;
   font-weight: normal; }
-
-#footer {
-  font-size: 14px;
-  font-size: .8125rem;
-  padding: 0 13.5px;
-  padding: 0 .75rem;
-  box-sizing: border-box;
-  color: #666;
-  text-align: center; }
-  #footer > p {
-    padding-top: 16.875px;
-    padding-top: .9375rem;
-    text-align: center;
-    border-top: 1px solid #ddd; }
-  #footer abbr[title] {
-    border: 0; }
-  #footer i {
-    font-style: normal; }
 
 .emoticon {
   vertical-align: baseline !important; }
@@ -1444,10 +1397,6 @@ p > img.serendipity_image_center {
 }
 
 @media screen and (min-width: 768px) {
-  html {
-    padding: 0;
-    background-color: #fcfcfc; }
-
 /*jumbotron type
   h1 {
     font-size: 36px;
