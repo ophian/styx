@@ -60,9 +60,9 @@ td, th {
   padding: 0; }
 
 ::-moz-selection, ::selection {
-  background: #b3d4fc;
+  background: var(--bs-highlight-bg);
   text-shadow: none;
-  color: #212529; }
+  color: var(--bs-highlight-color); }
 
 dt {
   font-weight: bold; }
