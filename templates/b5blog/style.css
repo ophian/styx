@@ -272,8 +272,9 @@ td, th {
   padding: 0; }
 
 ::-moz-selection, ::selection {
-  background: #b3d4fc;
-  text-shadow: none; }
+  background: var(--bs-highlight-bg);
+  text-shadow: none;
+  color: var(--bs-highlight-color); }
 
 dt {
   font-weight: bold; }
