@@ -3,7 +3,7 @@
 {/if}
 {foreach $plugindata AS $item}
 {if $item.class != "serendipity_plugin_quicksearch" AND NOT empty($item.content)}
-    <section class="serendipitySideBarItem sidebar_widget {$item.class} p-4 mb-3 bg-light rounded">
+    <section class="serendipitySideBarItem sidebar_widget {$item.class} p-4 mb-3 bg-body-tertiary rounded">
     {if $item.title != ""}
         <h4 class="fst-italic serendipitySideBarTitle">{$item.title}</h4>
     {/if}
