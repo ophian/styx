@@ -253,6 +253,15 @@
     hljs.highlightAll();
   </script>
 {/if}
+  <script>
+    /* allows to treat the theme mode SVGs placement top on height */
+    $(function () {
+      $(document).scroll(function () {
+        var $nav = $(".top-2");
+        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+      });
+    });
+  </script>
 </div>
 {* Bootstrap [theme switch icons: circle*, moon*, sun*, check2]
            - [global icons: grip, info*, pencil*, rss*, *top]
