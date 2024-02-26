@@ -849,7 +849,7 @@ article.post li .pc-owner {
 .staticpage_plugin_contactform .form-group.txtarea legend {
   margin-bottom: 0;
   padding-bottom: .5em;
-  background: #f8f9fa; }
+  background: var(--bs-bg-opacity); }
 
 /* Firefox up from v.89 starts to activate annoying blue color for active input sets
    just like chromium did before.
@@ -1080,7 +1080,7 @@ p > img.serendipity_image_center {
   display: inline-block;
   padding: 18px;
   padding: 1rem;
-  background: #eee;
+  background: var(--bs-body-bg);
   border: 1px solid #aaa; }
   .serendipity_freetag_taglist ul {
     border: 1px outset #f0ffff;
