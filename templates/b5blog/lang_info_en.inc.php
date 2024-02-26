@@ -7,5 +7,5 @@
 
 $info['theme_info_summary'] = 'A "Bootstrap 5" based CSS HTML5 Framework Theme by Mark Otto, Jacob Thornton, and Bootstrap contributors.';
 
-$info['theme_info_desc'] = 'This is a basic interpretation of the official Bootstrap 5 Blog example theme.
+$info['theme_info_desc'] = 'This is a basic Styx interpretation of the official Bootstrap 5 Blog example theme.
 An example for right-to-left (RTL) language styles is added in "blog.rtl.css".';
