@@ -555,6 +555,10 @@ summary {
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   text-decoration: none; }
 
+/* do not move the theme switcher on mobiles */
+.position-fixed {
+  position: absolute !important; }
+
 .post table, .page table {
   display: inherit;
   width: auto;
@@ -1398,6 +1402,9 @@ p > img.serendipity_image_center {
 }
 
 @media screen and (min-width: 768px) {
+  .position-fixed {
+    position: fixed !important; }
+
 /*jumbotron type
   h1 {
     font-size: 36px;
@@ -1573,6 +1580,14 @@ p > img.serendipity_image_center {
     padding: 0 2rem;
     clear: both;
     text-align: left; }
+}
+
+@media screen and (min-width: 1250px) {
+  .top-2 {
+    top: 2.25rem; }
+  .top-2.scrolled {
+    top: 0;
+  }
 }
 
 @media screen and (min-width: 1400px) {
