@@ -1215,6 +1215,21 @@ p > img.serendipity_image_center {
   padding: .125rem;
   text-align: center; }
 
+.serendipity_plugin_remoterss .rss_link img {
+  background: var(--bs-purple);
+}
+.serendipity_recententries_entrydate.serendipitySideBarDate {
+  margin-bottom: .5rem;
+}
+.serendipity_plugin_authors form div {
+  margin-bottom: .25rem;
+}
+.serendipity_entrypaging a.btn.iconize {
+  display: none; }
+
+.staticpage_plugin_contactform #serendipity_submit {
+  margin: .5em 0; }
+
 .plugin_comment_body {
   overflow-wrap: break-word; }
 
