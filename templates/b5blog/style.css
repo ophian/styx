@@ -490,29 +490,24 @@ nav ul, nav ol {
 
 html {
   scroll-behavior: smooth;
-  background-color: #fcfcfc; }
+  background-color: var(--bs-body-bg); }
 
-/*body {
-  font-family: 'Red Hat Text', sans-serif;
-  background-color: #fcfcfc;
-  padding-top: 2.675rem;
-  color: #222; }
-*/
 ins {
-  background: #eee;
+  background: var(--bs-body-bg);
   text-decoration: none; }
 
 del {
-  color: #aaa; }
+  color: var(--bs-tertiary-color); }
 
 mark {
-  background-color: #ccdee7; }
+  background-color: var(--bs-gray-300);
+  /*background-color: var(--bs-yellow);*/ }
 
 kbd {
   padding: 0 2.25px;
   padding: 0 .125rem;
-  background: #eee;
-  border: 1px solid #aaa; }
+  background: var(--bs-body-color);
+  border: 1px solid var(--bs-border-color); }
 
 blockquote {
   margin: 18px 0;
