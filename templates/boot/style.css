@@ -420,6 +420,8 @@ main.col-xs-12.col-lg-12 .save_updertH hr {
 html[data-bs-theme="dark"] .bg-light {
   --bs-bg-opacity: 0;
   background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity)) !important; }
+html[data-bs-theme="dark"] .btn-dark {
+  background-color: var(--bs-btn-active-bg); }
 html, body, table, .cke_emoji-outer_emoji_block {
   scrollbar-width: thin;
   scrollbar-color: #8899b1 #1e2127; }
