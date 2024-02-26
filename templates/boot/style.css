@@ -923,24 +923,6 @@ details summary {
   color: #666;
   font-weight: normal; }
 
-#footer {
-  font-size: 14px;
-  font-size: .8125rem;
-  padding: 0 13.5px;
-  padding: 0 .75rem;
-  box-sizing: border-box;
-  color: #666;
-  text-align: center; }
-  #footer > p {
-    padding-top: 16.875px;
-    padding-top: .9375rem;
-    text-align: center;
-    border-top: 1px solid #ddd; }
-  #footer abbr[title] {
-    border: 0; }
-  #footer i {
-    font-style: normal; }
-
 .emoticon {
   vertical-align: baseline !important; }
 
