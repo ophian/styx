@@ -628,8 +628,8 @@ ul.pagination {
   font-size: .875rem;
   padding: 9px;
   padding: .5rem;
-  background: #eee;
-  border: 1px solid #aaa;
+  background: var(--bs-body-bg);
+  border: 1px solid var(--bs-border-color-translucent);
   font-size: .875em; }
 
 pre {
