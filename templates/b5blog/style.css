@@ -110,6 +110,9 @@ audio:not([controls]) {
 
 /* stylelint-disable selector-list-comma-newline-after */
 
+.container-fluid {
+  overflow: auto; }
+
 .blog-header-logo {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
   font-size: 2.25rem;
@@ -625,6 +628,10 @@ main.col-xs-12.col-lg-12 .save_updertH {
   padding-left: .5em; }
 main.col-xs-12.col-lg-12 .save_updertH hr {
   margin: .5em 0; }
+
+/*  do not overflow expand content over 100% so better break words - i.e. long URIs */
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  overflow-wrap: break-word; }
 
 /* extends the body top padding for non-blog (.post) headings */
 .serendipity_Entry_Date h2, .page  h2,
