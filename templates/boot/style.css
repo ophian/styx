@@ -353,9 +353,9 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   display: inherit;
   width: auto;
   overflow: auto;
-  border-bottom: 1px solid #aaa; }
+  border-bottom: 1px solid var(--bs-border-color); }
   .post table tr, .page table tr {
-    border-top: 1px solid #aaa; }
+    border-top: 1px solid var(--bs-border-color); }
 
 /* Example styles for external/local loaded font families */
 .osans, .osans button, .osans input, .osans select, .osans optgroup, .osans textarea {
