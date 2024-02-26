@@ -282,10 +282,11 @@ ins {
   text-decoration: none; }
 
 del {
-  color: #aaa; }
+  color: var(--bs-tertiary-color); }
 
 mark {
-  background-color: #ccdee7; }
+  background-color: var(--bs-gray-300);
+  /*background-color: var(--bs-yellow);*/ }
 
 kbd {
   padding: 0 2.25px;
