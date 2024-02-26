@@ -851,6 +851,9 @@ article.post li .pc-owner {
   padding-bottom: .5em;
   background: var(--bs-bg-opacity); }
 
+.staticpage_plugin_contactform #serendipity_submit {
+  margin: .5em 0; }
+
 /* Firefox up from v.89 starts to activate annoying blue color for active input sets
    just like chromium did before.
    Thus we keep the white background and style the checked fields to grayscale - and adjust the size. */
