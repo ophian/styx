@@ -278,7 +278,7 @@ html {
   background-color: #fcfcfc; }
 
 ins {
-  background: #eee;
+  background: var(--bs-body-bg);
   text-decoration: none; }
 
 del {
@@ -290,8 +290,8 @@ mark {
 kbd {
   padding: 0 2.25px;
   padding: 0 .125rem;
-  background: #eee;
-  border: 1px solid #aaa; }
+  background: var(--bs-body-color);
+  border: 1px solid var(--bs-border-color); }
 
 blockquote {
   margin: 18px 0;
