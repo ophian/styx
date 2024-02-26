@@ -275,7 +275,7 @@ nav ul, nav ol {
 
 html {
   scroll-behavior: smooth;
-  background-color: #fcfcfc; }
+  background-color: var(--bs-body-bg); }
 
 ins {
   background: var(--bs-body-bg);
