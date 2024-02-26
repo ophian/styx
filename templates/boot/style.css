@@ -815,26 +815,6 @@ article.post li .pc-owner {
 #trackbacks details > div {
   margin-left: 1.2rem; }
 
-#comments .comment > footer {
-  text-align: center;
-  border: 1px solid #dfdfdf;
-  background: #f7f7f7;
-  border-radius: 4px 4px 4px 4px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin-top: 1rem; }
-
-#comments .comment > footer .meta {
-  margin: .25rem 0; }
-.comments_for_entry .comment.odd > footer .meta {
-  border: 1px solid #ddd;
-  background-color: #fdfdfd;
-  box-shadow: 1px 1px 2px #ededed; }
-.comments_for_entry .comment.even > footer .meta {
-  border: 1px solid #ddd;
-  background-color: #fefefe;
-  box-shadow: 1px 1px 2px #eee; }
-
 .comment_avatar {
   background-color: #ddd;
   border: 2px solid #acacac;
