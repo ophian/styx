@@ -1124,7 +1124,7 @@ details summary {
 .serendipity_image_block.row > .serendipity_image_link {
   margin: 5px 6px; }
 .serendipity_image_left, .serendipity_image_right, .serendipity_image_center, .serendipity_imageComment_img {
-  border: 1px solid #aaa;
+  border: 1px solid var(--bs-border-color);
   box-sizing: border-box;
   display: -webkit-box;
   display: flex; }
