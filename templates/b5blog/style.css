@@ -115,20 +115,17 @@ audio:not([controls]) {
 
 .blog-header-logo {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
-  font-size: 2.25rem;
-}
+  font-size: 2.25rem; }
 
 .blog-header-logo:hover {
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
 }
 
 .display-4 {
-  font-size: 2.5rem;
-}
+  font-size: 2.5rem; }
 @media (min-width: 768px) {
   .display-4 {
     font-size: 3rem; }
@@ -169,8 +166,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Pagination */
 .blog-pagination {
-  margin-bottom: 4rem;
-}
+  margin-bottom: 4rem; }
 /* rounded buttons
 .blog-pagination .btn {
   border-radius: 2rem; }
