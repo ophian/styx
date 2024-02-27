@@ -131,16 +131,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (min-width: 768px) {
   .display-4 {
-    font-size: 3rem;
-  }
+    font-size: 3rem; }
 }
 
 .nav-scroller {
   position: relative;
   z-index: 2;
   height: 2.75rem;
-  overflow-y: hidden;
-}
+  overflow-y: hidden; }
 
 .nav-scroller .nav {
   display: flex;
@@ -150,23 +148,19 @@ h1, h2, h3, h4, h5, h6 {
   overflow-x: auto;
   text-align: center;
   white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-}
+  -webkit-overflow-scrolling: touch; }
 
 .nav-scroller .nav-link {
   padding-top: .75rem;
   padding-bottom: .75rem;
-  font-size: .875rem;
-}
+  font-size: .875rem; }
 
 .card-img-right {
   height: 100%;
-  border-radius: 0 3px 3px 0;
-}
+  border-radius: 0 3px 3px 0; }
 
 .flex-auto {
-  flex: 0 0 auto;
-}
+  flex: 0 0 auto; }
 
 .h-250 { height: 250px; }
 @media (min-width: 768px) {
@@ -186,16 +180,13 @@ h1, h2, h3, h4, h5, h6 {
  * Blog posts
  */
 .blog-post {
-  margin-bottom: 4rem;
-}
+  margin-bottom: 4rem; }
 .blog-post-title {
   margin-bottom: .25rem;
-  font-size: 2.5rem;
-}
+  font-size: 2.5rem; }
 .blog-post-meta {
   margin-bottom: 1.25rem;
-  color: #727272;
-}
+  color: #727272; }
 
 /*
  * Footer
@@ -205,11 +196,9 @@ h1, h2, h3, h4, h5, h6 {
   color: #727272;
   text-align: center;
   background-color: #f9f9f9;
-  border-top: .05rem solid #e5e5e5;
-}
+  border-top: .05rem solid #e5e5e5; }
 .blog-footer p:last-child {
-  margin-bottom: 0;
-}
+  margin-bottom: 0; }
 
 /* Bootstrap 5 blog example styles end */
 
@@ -889,8 +878,7 @@ pre {
   text-align: right; }
 
 .link-home {
-    color: var(--bs-gray-dark);
-}
+  color: var(--bs-gray-dark); }
 
 .serendipity_edit_nugget {
   display: block;
@@ -1020,12 +1008,10 @@ article.post li .pc-owner {
    just like chromium did before.
    Thus we keep the white background and style the checked fields to grayscale - and adjust the size. */
 input[type="checkbox"],input[type="radio"] {
-    filter: grayscale(1);
-}
+  filter: grayscale(1); }
 input[type="checkbox"] {
-    width: .875rem;
-    height: .875rem;
-}
+  width: .875rem;
+  height: .875rem; }
 
 .serendipity_plugin_calendar .Active a,
 .serendipity_plugin_calendar tfoot a,
@@ -1039,9 +1025,9 @@ input[type="checkbox"] {
 .serendipity_plugin_calendar .Today { color: tomato }
 
 .staticpage_sbJsList {
-    overflow: hidden;
-    white-space: nowrap;
-    padding-bottom: 1rem; }
+  overflow: hidden;
+  white-space: nowrap;
+  padding-bottom: 1rem; }
 
 #serendipity_categories_list input[type="checkbox"] {
   vertical-align: middle;
@@ -1125,18 +1111,17 @@ details summary {
 
 .serendipity_image_block.col .serendipity_imageComment_left,
 .serendipity_image_block.col .serendipity_imageComment_right {
-    display: flex;
-    flex-wrap: wrap; }
+  display: flex;
+  flex-wrap: wrap; }
 
 .serendipity_image_block.row .serendipity_imageComment_left {
-    margin-top: 5px; }
+  margin-top: 5px; }
 @media only screen and (min-width: 901px) {
   .serendipity_image_block.row .serendipity_image_left {
     margin: 5px auto auto; }
 }
 .serendipity_image_block.row > .serendipity_image_link {
-    margin: 5px 6px;
-}
+  margin: 5px 6px; }
 .serendipity_image_left, .serendipity_image_right, .serendipity_image_center, .serendipity_imageComment_img {
   border: 1px solid #aaa;
   box-sizing: border-box;
@@ -1146,10 +1131,10 @@ details summary {
     display: inline-table; }
 
 p > img.serendipity_image_center {
-    margin: .5rem auto; }
+  margin: .5rem auto; }
 
 .serendipity_image_block > div:not([class]) {
-    margin: 5px .425em 0; }
+  margin: 5px .425em 0; }
 
 .serendipity_imageComment_center, .serendipity_imageComment_left, .serendipity_imageComment_right {
   height: auto;
@@ -1372,14 +1357,14 @@ p > img.serendipity_image_center {
 .serendipity_entrypaging_right { float: right; }
 .serendipity_entrypaging_left,
 .serendipity_entrypaging_right {
-    display: block;
-    white-space: nowrap;
-    width: 50%;
-    overflow: hidden; }
-    .serendipity_entrypaging_left {
-      text-overflow: ellipsis; }
-    .serendipity_entrypaging_right {
-      text-overflow: "… ?"; }
+  display: block;
+  white-space: nowrap;
+  width: 50%;
+  overflow: hidden; }
+  .serendipity_entrypaging_left {
+    text-overflow: ellipsis; }
+  .serendipity_entrypaging_right {
+    text-overflow: "… ?"; }
 @media only screen and (min-width: 480px) {
   .serendipity_entrypaging_left:only-child,
   .serendipity_entrypaging_right:only-child {
