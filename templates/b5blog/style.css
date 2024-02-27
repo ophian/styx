@@ -731,7 +731,7 @@ ul.pagination {
 
 /* bbar end */
 
-/* revert _spacing.scss since we need some padding space for sudden ends, i.e. freetag aricles w/o paging */
+/* revert _spacing.scss since we need some padding space for sudden ends, i.e. freetag articles w/o paging */
 .post.mb-4 {
   padding-bottom: 27px;
   padding-bottom: 1.5rem;
