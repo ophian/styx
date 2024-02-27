@@ -561,9 +561,9 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   display: inherit;
   width: auto;
   overflow: auto;
-  border-bottom: 1px solid #aaa; }
+  border-bottom: 1px solid var(--bs-border-color); }
   .post table tr, .page table tr {
-    border-top: 1px solid #aaa; }
+    border-top: 1px solid var(--bs-border-color); }
 
 /* Example styles for external/local loaded font families */
 .osans, .osans button, .osans input, .osans select, .osans optgroup, .osans textarea {
@@ -822,8 +822,8 @@ ul.pagination {
   font-size: .875rem;
   padding: 9px;
   padding: .5rem;
-  background: #eee;
-  border: 1px solid #aaa;
+  background: var(--bs-body-bg);
+  border: 1px solid var(--bs-border-color-translucent);
   font-size: .875em; }
 
 pre {
