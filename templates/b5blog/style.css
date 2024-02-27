@@ -897,8 +897,8 @@ pre {
 /* comments styling add start */
 /* blog/comments/ shortcuts */
 .comment_info.plainList {
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  border-right: 1px solid var(--bs-border-color);
+  border-bottom: 1px solid var(--bs-border-color);
   padding: 0 9px 4px 9px;
   padding: 0 .5rem .222222rem .5rem;
   float: right;
@@ -906,10 +906,12 @@ pre {
   font-size: .9125rem; }
   .comment.odd .comment_info.plainList,
   .comments_for_entry .comment.even .comment_info.plainList {
-    background-color: #eee; }
+    background-image: var(--bs-gradient);
+    background-color: var(--bs-tertiary-bg); }
   .comment.even .comment_info.plainList,
   .comments_for_entry .comment.odd .comment_info.plainList {
-    background-color: #dfdfdf; }
+    background-image: var(--bs-gradient);
+    background-color: var(--bs-light-bg-subtle); }
   .comment_info .d-inline-block {
     vertical-align: middle; }
   .comment_info .d-inline-block:not(.pc-owner) {
@@ -925,10 +927,9 @@ pre {
     margin-top: 0; }
 article.post li.commentlevel_0 {
   margin-bottom: .25em; }
-article.post li.comment .d-inline-block:not(.pc-owner) .bi.bi-file-person {
-  background: #f1f1f1; }
-  article.post li.comment.even .d-inline-block:not(.pc-owner) .bi.bi-file-person {
-    background: #e1e1e1; }
+[data-bs-theme="dark"] article.post li .pc-owner {
+  background-color: var(--bs-body-color);
+  border-color: var(--bs-border-color); }
 article.post li .pc-owner {
   display: inline;
   background: #7fffd4;/*aquamarine*/
@@ -955,7 +956,7 @@ article.post li .pc-owner {
 #trackbacks ol {
   margin: .5rem 1.25rem; }
   #trackbacks ol > li:nth-of-type(2n) {
-    background-color: #eee; }
+    background-color: var(--bs-light-bg-subtle); }
   #trackbacks .trackbacks-delete {
     font-size: small; }
 
@@ -963,11 +964,11 @@ article.post li .pc-owner {
 .trackback.tb-odd, .trackback.tb-even {
   box-sizing: border-box;
   padding: 0 .4rem .4rem;
-  border: 1px solid #ddd; }
+  border: 1px solid var(--bs-border-color); }
 
 #comments ol > li:nth-of-type(2n),
 .comments_for_entry .comment.odd {
-  background: #eee; }
+  background-color: var(--bs-light-bg-subtle); }
   #comments .plainList.meta li {
     background: initial; }
   #comments ol li .d-inline-block:nth-of-type(2n) {
