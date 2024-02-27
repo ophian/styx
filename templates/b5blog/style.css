@@ -1245,11 +1245,11 @@ p > img.serendipity_image_center {
   display: inline-block;
   padding: 18px;
   padding: 1rem;
-  background: #eee;
-  border: 1px solid #aaa; }
+  background: var(--bs-body-bg);
+  border: 1px solid var(--bs-border-color); }
   .serendipity_freetag_taglist ul {
-    border: 1px outset #f0ffff;
-    background: #f0f8ff; }
+    border: 1px outset var(--bs-border-color-translucent);
+    background: var(--bs-dark-bg-subtle); }
   .freetag_wordcloud canvas {
     z-index: 1028 !important; }
 
