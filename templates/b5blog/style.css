@@ -925,6 +925,8 @@ pre {
     background-color: #dfdfdf; }
   .comment_info .d-inline-block {
     vertical-align: middle; }
+  .comment_info .d-inline-block:not(.pc-owner) {
+    padding-right: .25em; }
   .alert.alert-warning.serendipity_subscription_off {
     display: inline;
     margin: 0;
