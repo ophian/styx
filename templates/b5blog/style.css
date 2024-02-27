@@ -633,9 +633,9 @@ html, body, table, .cke_emoji-outer_emoji_block {
 
 @media only screen and (max-width: 500px) {
   .featured-art h1 {
-    font-size: 1.75rem;}
+    font-size: 1.75rem; }
   .featured-art p {
-    font-size: 1rem;}
+    font-size: 1rem; }
 }
 
 .bi.bi-grip-horizontal {
@@ -647,8 +647,7 @@ html, body, table, .cke_emoji-outer_emoji_block {
   .page header h2 {
     font-style: italic; }/*.fst-italic*/
 #staticpage_nav .pagenav_center {
-    min-width: 4.75rem;
-}
+  min-width: 4.75rem; }
 
 @media only screen and (min-width: 992px) {
   .serendipity_entrypaging {
@@ -696,7 +695,7 @@ ul.pagination {
   .navbar-nav {
     line-height: initial; }
 .navbar-expand-md > .container {
-    padding: 0; }
+  padding: 0; }
 
 .bg-dark {
   background: #1b1b1b !important; }
@@ -710,8 +709,8 @@ ul.pagination {
   text-shadow: 0 -1px 0 rgba(0,0,0,0.25); }
 
 #searchform {
-    visibility: hidden;
-    display: none; }
+  visibility: hidden;
+  display: none; }
 @media only screen and (min-width: 640px) {
   #searchform {
     visibility: initial;
@@ -795,8 +794,8 @@ ul.pagination {
   padding: 0; }
 
 .meta li {
-    display: -webkit-inline-box;
-    display: inline-block; }
+  display: -webkit-inline-box;
+  display: inline-block; }
 
 /* extra small bootstrap btn-sm overwrite */
 .editentrylink .btn-admin {
