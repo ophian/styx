@@ -511,6 +511,10 @@ nav ul, nav ol {
   margin: 0;
   padding: 0; }
 
+html, body, table, .cke_emoji-outer_emoji_block {
+  scrollbar-width: thin;
+  scrollbar-color: #8899b1 #1e2127; }
+
 html {
   scroll-behavior: smooth;
   background-color: var(--bs-body-bg); }
