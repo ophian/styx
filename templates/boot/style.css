@@ -806,6 +806,9 @@ article.post li .pc-owner {
   padding: 0 .4rem .4rem;
   border: 1px solid var(--bs-border-color); }
 
+[data-bs-theme="dark"] #comments ol > li:nth-of-type(2n),
+[data-bs-theme="dark"] .comments_for_entry .comment.odd {
+  background: var(--bs-tertiary-bg); }
 #comments ol > li:nth-of-type(2n),
 .comments_for_entry .comment.odd {
   background: var(--bs-light-bg-subtle); }
