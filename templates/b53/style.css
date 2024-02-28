@@ -327,7 +327,7 @@ input[type="date"], input[type="datetime"], input[type="datetime-local"], input[
   padding: 2px 3px;
   text-align: left; }
   input[type="date"][disabled], input[type="datetime"][disabled], input[type="datetime-local"][disabled], input[type="month"][disabled], input[type="number"][disabled], input[type="password"][disabled], input[type="time"][disabled], input[type="week"][disabled], input[type="email"][disabled], input[type="search"][disabled], input[type="tel"][disabled], input[type="url"][disabled], select[disabled], textarea[disabled], input[type="text"][disabled] {
-    background-color: #eee; }
+    background-color: var(--bs-dark-bg-subtle); }
 
 /*.form-control {padding: 2px 3px;}*/
 html[data-bs-theme="dark"] input[type="date"], html[data-bs-theme="dark"] input[type="datetime"], html[data-bs-theme="dark"] input[type="datetime-local"], html[data-bs-theme="dark"] input[type="month"],
@@ -531,7 +531,6 @@ kbd {
   background: var(--bs-body-color);
   border: 1px solid var(--bs-border-color); }
 
-
 blockquote {
   margin: 18px 0;
   margin: 1rem 0; }
@@ -617,8 +616,7 @@ table.expand td .serendipity_image_center {
 
 /* required attribute labeled */
 input:invalid, textarea:invalid {
-    background-color: #eee;
-}
+  background-color: var(--bs-dark-bg-subtle); }
 
 /* unsets */
 #searchsend { display: none; }
@@ -866,7 +864,7 @@ html[data-bs-theme="dark"] .serendipity_entryIcon {
   font-size: .875rem;
   padding: 9px;
   padding: .5rem;
-  background: #eee;
+  background: var(--bs-dark-bg-subtle);
   border: 1px solid #aaa;
   font-size: .875em; }
 
@@ -987,8 +985,8 @@ html[data-bs-theme="dark"] .hljs-keyword, html[data-bs-theme="dark"] .hljs-selec
 /* comments styling add start */
 /* blog/comments/ shortcuts */
 .comment_info.plainList {
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  border-right: 1px solid var(--bs-border-color);
+  border-bottom: 1px solid var(--bs-border-color);
   padding: 0 9px 4px 9px;
   padding: 0 .5rem .222222rem .5rem;
   float: right;
@@ -1004,10 +1002,12 @@ html[data-bs-theme="dark"] .hljs-keyword, html[data-bs-theme="dark"] .hljs-selec
   }
   .comment.odd .comment_info.plainList,
   .comments_for_entry .comment.even .comment_info.plainList {
-    background-color: #eee; }
+    background-image: var(--bs-gradient);
+    background-color: var(--bs-tertiary-bg); }
   .comment.even .comment_info.plainList,
   .comments_for_entry .comment.odd .comment_info.plainList {
-    background-color: #dfdfdf; }
+    background-image: var(--bs-gradient);
+    background-color: var(--bs-light-bg-subtle); }
   .comment_info .d-inline-block {
     vertical-align: middle; }
   .alert.alert-warning.serendipity_subscription_off {
@@ -1053,7 +1053,7 @@ article.post li .pc-owner {
 #trackbacks ol {
   margin: .5rem 1.25rem; }
   #trackbacks ol > li:nth-of-type(2n) {
-    background-color: #eee; }
+    background-color: var(--bs-light-bg-subtle); }
   #trackbacks .trackbacks-delete {
     font-size: small; }
 
@@ -1061,7 +1061,7 @@ article.post li .pc-owner {
 .trackback.tb-odd, .trackback.tb-even {
   box-sizing: border-box;
   padding: 0 .4rem .4rem;
-  border: 1px solid #ddd; }
+  border: 1px solid var(--bs-border-color); }
   #serendipity_commentlist .co-short time {
     width: auto;
     white-space: nowrap;
@@ -1117,11 +1117,11 @@ article.post li .pc-owner {
 #comments .comment > footer .meta {
   margin: .25rem 0; }
 .comments_for_entry .comment.odd > footer .meta {
-  border: 1px solid #ddd;
+  border: 1px solid var(--bs-border-color);
   background-color: #fdfdfd;
   box-shadow: 1px 1px 2px #ededed; }
 .comments_for_entry .comment.even > footer .meta {
-  border: 1px solid #ddd;
+  border: 1px solid var(--bs-border-color);
   background-color: #fefefe;
   box-shadow: 1px 1px 2px #eee; }
 
@@ -1294,7 +1294,7 @@ details summary {
     padding-top: 16.875px;
     padding-top: .9375rem;
     text-align: center;
-    border-top: 1px solid #ddd; }
+    border-top: 1px solid var(--bs-border-color); }
   #footer abbr[title] {
     border: 0; }
   #footer i {
@@ -1482,7 +1482,7 @@ header.navbar.sticky-top {
   display: inline-block;
   padding: 18px;
   padding: 1rem;
-  background: #eee;
+  background: var(--bs-light-bg-subtle);
   border: 1px solid #aaa; }
   .serendipity_freetag_taglist ul {
     border: 1px outset #f0ffff;
