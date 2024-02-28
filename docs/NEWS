@@ -4,6 +4,8 @@ Version 4.4-DEV ()
 
   * Fix [ pure, psg, dude, boot, b5blog, b46, b53 ] themes conditioning for RT
     Editor asset loads when the contactform form submit fails.
+    COPY / CHILD THEMERS:
+        Please follow the index.tpl file change of your parent.
 
     [WIP]
   * Convert and rebuild the [ boot ] theme (catchall) fallback template and
