@@ -266,7 +266,7 @@
 {/if}
 {if (in_array($view, ['start', 'entries', 'entry', 'comments', 'categories']) AND $wysiwyg_comment) OR isset($hljsload) && $hljsload === true}
 
-<link rel="stylesheet" href="{serendipity_getFile file="highlight/github.min.css"}" type="text/css">
+<link rel="stylesheet" href="{serendipity_getFile file="highlight/github-boot.min.css"}" type="text/css">
 <script src="{serendipity_getFile file="highlight/highlight.min.js"}"></script>
 <script>
     // launch the codesnippet highlight
@@ -276,6 +276,7 @@
     hljs.highlightAll();
 </script>
 {/if}
+
 {* Bootstrap [theme switch icons: circle*, moon*, sun*, check2]
            - [global icons: grip, info*, pencil*, rss*, *top]
            - [header icons: start]
