@@ -2,6 +2,10 @@ Version 4.4-DEV ()
  ------------------------------------------------------------------------
 
 
+    [WIP]
+  * Convert and rebuild the [ boot ] theme (catchall) fallback template and
+    the [ b5blog ] child theme to now support [light|dark] mode straight away.
+
   * Minor Smarty lib v.4.4.1 (tag) catch-up
 
   * Convert [ b53 ] theme to fetch assets from new location
