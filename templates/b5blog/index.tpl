@@ -118,6 +118,7 @@
   <div class="container-xl nav-scroller py-1 mb-2 border-bottom">
     <nav class="nav nav-underline d-flex justify-content-between">
       {foreach $navlinks AS $navlink}{if $navlink.title != "" AND $navlink.href != ""}{if $currpage == $navlink.href OR $currpage2 == $navlink.href}<span>{else}<a class="nav-item nav-link link-body-emphasis" href="{$navlink.href}">{/if}{$navlink.title}{if $currpage == $navlink.href OR $currpage2 == $navlink.href}</span>{else}</a>{/if}{/if}{/foreach}
+
     </nav>
   </div>
 {/if}
@@ -263,6 +264,7 @@
     });
   </script>
 </div>
+
 {* Bootstrap [theme switch icons: circle*, moon*, sun*, check2]
            - [global icons: grip, info*, pencil*, rss*, *top]
            - [header icons: start]
