@@ -1093,7 +1093,7 @@ article.post li .pc-owner {
 
 #comments ol > li:nth-of-type(2n),
 .comments_for_entry .comment.odd {
-  background: #eee; }
+  background-color: var(--bs-light-bg-subtle); }
   #comments .plainList.meta li {
     background: initial; }
   #comments ol li .d-inline-block:nth-of-type(2n) {
@@ -1137,7 +1137,7 @@ article.post li .pc-owner {
   width: 30px; }
 
 html[data-bs-theme="dark"] #comments ol > li:nth-of-type(2n), html[data-bs-theme="dark"] .comments_for_entry .comment.odd {
-  background: transparent; }
+  background: var(--bs-tertiary-bg); }
 html[data-bs-theme="dark"] .comment.odd .comment_info.plainList, html[data-bs-theme="dark"] .comments_for_entry .comment.even .comment_info.plainList,
 html[data-bs-theme="dark"] .hljs {
   background-color: transparent;
