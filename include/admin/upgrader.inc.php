@@ -624,6 +624,12 @@ $tasks = array(
                     'title'     => 'Removal of old dead files for 4.4.0.',
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_440) . '</pre>'),
 
+            array(  'version'   => '4.4.0',
+                    'function'  => 'recursive_directory_iterator',
+                    'arguments' => array($dead_dirs_440),
+                    'title'     => 'Styx (re-)moved the bootstrap 5.3 series revisions to the template assets directory.',
+                    'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_440) . '</pre>'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
