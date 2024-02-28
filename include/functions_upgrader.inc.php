@@ -537,6 +537,12 @@ $dead_files_440 = array(
     'templates/default/admin/guess_input.tpl'
 );
 
+/* A list of old or removed directories for 4.4.0 */
+$dead_dirs_440 = array(
+    $serendipity['serendipityPath'] . 'templates/b53/css',
+    $serendipity['serendipityPath'] . 'templates/b53/js'
+);
+
 /**
  * recursive directory call to purge files and directories
  *
