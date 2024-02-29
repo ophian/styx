@@ -4,8 +4,7 @@
 #
 # Description:
 # This file is only used for developers to create a Serendipity release file
-# with all the proper file permissions. CVS doesn't track the rightly, so we
-# need to fix it before releasing.
+# with all the proper file permissions.
 #
 # Usage:
 # As security precaution for any other users just executing this script, there
@@ -18,14 +17,14 @@ echo "-[serendipity create_release.sh START]---------------------------------"
 if [ "x$1" = "x" ] || [ "x$2" = "x" ] || [ "x$3" = "x" ] || [ "x$4" = "x" ];
 then
     echo "usage: ./create_release.sh
-            [tar.xz dump filename]
+            [versioned dump filename]
             [serendipity installation dirname, without paths]
             [username, i.e. nobody]
             [group, i.e. nogroup]"
     echo ""
     echo "example:"
     echo " $> cd serendipity/bundled-libs/"
-    echo " $> ./create_release.sh serendipity-3.1.0.tar.xz serendipity nobody nogroup"
+    echo " $> ./create_release.sh serendipity-3.1.0 serendipity nobody nogroup"
     echo ""
     echo "WARNING: Running this script in a productive blog environment will do"
     echo "         serious harm!"
@@ -107,27 +106,34 @@ else
                 fi
             fi
             echo ""
-        echo "7. Altering CVS to be useful for anonymous users..."
-            echo "   - Removing CVS branch tag, so that a user can upgrade to latest CVS"
-            find "$2" -type f -name Tag -exec rm {} \;
-            echo "       [DONE]"
 
-            echo "   - Inserting ANONYMOUS user instead of Developer account"
-            for i in `find $2 -type f -name Root` ; do
-                echo ':pserver:anonymous@cvs.sf.net:/cvsroot/php-blog' > $i;
-            done
-            echo "       [DONE]"
-            echo ""
-
-        echo "8. Creating .txz file $1"
+        echo "7. Creating .txz file $1"
             #tar --owner=$3 --group=$4 -czf "$1" "$2"
-            tar --owner=nobody --group=nobody -cf - "$1" "$2"  | xz -z - > $2.tar.xz
+            tar --owner=$3 --group=$4 -cf - "$1.tar" $2  | xz -z - > "$1.tar.xz"
             echo "    [DONE]"
             echo ""
 
-        echo "9. All Done. Bye-Bye."
+        echo "8. Creating .zip file $1"
+            zip -r --owner=$3 --group=$4 "$1.zip" "$2"
+            #7z a -r "$1.zip" "$2"
+            echo "    [DONE]"
+            echo ""
+
+        echo "9. CRC sha256sum $1.tar.xz"
+            echo ""
+            sha256sum -b "$1.tar.xz"
+            echo "    [DONE]"
+            echo ""
+
+        echo "10. CRC sha1sum $1.zip"
+            echo ""
+            sha1sum -b "$1.zip"
+            echo "    [DONE]"
+            echo ""
+
+        echo "11. All Done. Bye-Bye."
     else
-        echo "Basedirectory ../../$2 not found. Check parameters"
+        echo "Base directory ../../$2 not found. Check parameters"
     fi
     echo "-[serendipity create_release.sh END]----------------------------------"
     echo ""
