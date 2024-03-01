@@ -651,6 +651,9 @@ main.col-xs-12.col-lg-12 .save_updertH {
   padding-left: .5em; }
 main.col-xs-12.col-lg-12 .save_updertH hr {
   margin: .5em 0; }
+html[data-bs-theme="dark"] body.preview_preview_body,html[data-bs-theme="dark"] body.save_preview_body {
+  background-color: #343a40; }
+
 
 /* extends the body top padding for non-blog (.post) headings */
 .serendipity_Entry_Date h2, .page  h2,
