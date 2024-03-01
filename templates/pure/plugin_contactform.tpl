@@ -42,6 +42,7 @@
             <div class="form_tarea">
                 <label for="serendipity_commentform_comment">{$CONST.COMMENT} <span class="text-hint" title="{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}">&#8727;</span></label>
                 <textarea id="serendipity_commentform_comment" rows="10" name="serendipity[comment]" required>{$commentform_data}</textarea>
+{* If you do NOT need AND run the emoticonchooser plugin, or have the RT Editor enabled, but do NOT want it to apply here, you can as well just use id="serendipity_contactform_{$field.id}" here! *}
             </div>
 {serendipity_hookPlugin hook="frontend_comment" data=$commentform_entry}
             <div class="form_buttons">

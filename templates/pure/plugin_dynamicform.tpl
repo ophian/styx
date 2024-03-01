@@ -42,10 +42,10 @@
                         <legend>{$field.name}{if $field.required} <span class="text-hint" title="{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}">&#8727;&nbsp;</span>{/if}</legend>
                         <div class="form-radio">
 {foreach $field.options AS $option}
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default|default:''}>
-                                        {$option.name}
-                                </label>
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default|default:''}>
+                                    {$option.name}
+                            </label>
 {/foreach}
                         </div>
                     </fieldset>
@@ -70,7 +70,7 @@
                     <fieldset class="form-group{if NOT empty($is_contactform_error) AND $field.required AND empty($field.default)} has-error{/if}">
                         <legend>{$field.name}{if $field.required} <span class="text-hint" title="{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}">&#8727;&nbsp;</span>{/if}</legend>
                         <textarea id="{if $field.name == $CONST.PLUGIN_CONTACTFORM_MESSAGE}serendipity_commentform_comment{else}serendipity_contactform_{$field.id}{/if}" class="form-control" name="serendipity[{$field.id}]" rows="{if $field.name == $CONST.PLUGIN_CONTACTFORM_MESSAGE}10{else}4{/if}" placeholder="{$field.name}">{$field.default}</textarea>
-{* If you do NOT need AND run the emoticonchooser plugin, you can as well just use serendipity_contactform_{$field.id} here! *}
+{* If you do NOT need AND run the emoticonchooser plugin, or have the RT Editor enabled, but do NOT want it to apply here, you can as well just use id="serendipity_contactform_{$field.id}" here! *}
                     </fieldset>
 {elseif $field.type == "email"}
 
