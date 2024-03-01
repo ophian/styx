@@ -5,7 +5,7 @@
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 {if $mode == 'preview'}
-    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}_assets/b5/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="{serendipity_getFile file="b5/css/bootstrap.min.css"}" type="text/css">
 {/if}
 {if $head_link_stylesheet_frontend}
     <link rel="stylesheet" href="{$head_link_stylesheet_frontend}" type="text/css">
