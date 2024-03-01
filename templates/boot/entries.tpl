@@ -30,12 +30,14 @@
 {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
                         <a class="post_more d-block mb-2 text-end" href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a>
 {/if}
+
                     </div>
 {if $entry.is_extended}
 
                     <div id="extended" class="post_content">
 
 {$entry.extended}
+
                     </div>
 {/if}
 {if NOT $is_preview}
