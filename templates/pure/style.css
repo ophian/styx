@@ -1126,10 +1126,16 @@ nav.pager + .serendipity_blogpdf {
 #content.save_preview_content .msg_success {
     font-size: 1rem;
 }
+[data-dark-theme="dark"] #content.save_preview_content {
+    background-color: #2d333b;
+}
 #content.save_preview_content {
     background: #FFF;
     border-radius: 0;
     width: 100%;
+}
+[data-dark-theme="dark"] #content.preview_preview_content {
+    background-color: #2d333b;
 }
 #content.preview_preview_content {
     width: 100%;
