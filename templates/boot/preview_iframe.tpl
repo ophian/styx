@@ -62,10 +62,17 @@
 {/if}
         </main>
     </div>
-
-{if $mode == 'preview'}
-    <script src="{serendipity_getFile file="theme.js"}"></script>
-{/if}
-
+    <script type="text/javascript">
+        let theme =  localStorage.getItem('theme');
+        if (theme === null || theme === 'auto') {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches || theme == "dark") {
+                document.documentElement.setAttribute('data-bs-theme', 'dark');
+            }
+        } else if (theme === 'dark') {
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-bs-theme');
+        }
+    </script>
 </body>
 </html>
