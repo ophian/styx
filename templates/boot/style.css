@@ -415,6 +415,13 @@ main.col-xs-12.col-lg-12 .save_updertH {
   padding-left: .5em; }
 main.col-xs-12.col-lg-12 .save_updertH hr {
   margin: .5em 0; }
+html[data-bs-theme="dark"] #main.preview_preview_container,
+html[data-bs-theme="dark"] #main.save_preview_container {
+  color: #dee2e6;
+  background-color: #343a40; }
+html[data-bs-theme="dark"] #main.preview_preview_container a,
+html[data-bs-theme="dark"] #main.save_preview_container a {
+  color: #f8f9fa; }
 
 /* global theme mode settings */
 html[data-bs-theme="dark"] .bg-light {
