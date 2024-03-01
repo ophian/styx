@@ -2,6 +2,8 @@ Version 4.4-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Allow [ pure ] theme dark mode preference in backend iframe views
+
   * Fix [ pure, psg, dude, boot, b5blog, b46, b53 ] themes conditioning for RT
     Editor asset loads when the contactform form submit fails.
     COPY / CHILD THEMERS:
