@@ -52,7 +52,7 @@
                 <legend>{$field.name}{if $field.required} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$field.type}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="#required-field-asterisk"/></svg>{/if}</legend>
                 <select name="{$field.id}" class="form-select form-control">
 {foreach $field.options AS $option}
-                        <option name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default|default:''}>{$option.name}</option>
+                    <option name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default|default:''}>{$option.name}</option>
 {/foreach}
                 </select>
             </fieldset>
@@ -65,7 +65,7 @@
             <fieldset class="form-group{if NOT empty($is_contactform_error) AND $field.required AND empty($field.default)} has-error{/if} txtarea">
                 <legend>{$field.name}{if $field.required} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$field.type}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="#required-field-asterisk"/></svg>{/if}</legend>
                 <textarea id="{if $field.name == $CONST.PLUGIN_CONTACTFORM_MESSAGE}serendipity_commentform_comment{else}serendipity_contactform_{$field.id}{/if}" class="form-control" name="serendipity[{$field.id}]" rows="{if $field.name == $CONST.PLUGIN_CONTACTFORM_MESSAGE}10{else}4{/if}" placeholder="{$field.name}">{$field.default}</textarea>
-{* If you do NOT need AND run the emoticonchooser plugin, you can as well just use serendipity_contactform_{$field.id} here! *}
+{* If you do NOT need AND run the emoticonchooser plugin, or have the RT Editor enabled, but do NOT want it to apply here, you can as well just use id="serendipity_contactform_{$field.id}" here! *}
             </fieldset>
 {elseif $field.type == "email"}
             <fieldset class="form-group{if NOT empty($is_contactform_error) AND $field.required AND empty($field.default)} has-error{/if}">
