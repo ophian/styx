@@ -57,10 +57,18 @@
 {/if}
 {/if}
     </main>
+    <script type="text/javascript">
+        let dark_mode = sessionStorage.getItem('dark_mode');
 
-{* if $mode == 'preview'}
-    <script src="{serendipity_getFile file="theme.js"}"></script>
-{/if *}
-
+        if (dark_mode == null) {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches || dark_mode == "dark") {
+                document.documentElement.setAttribute('data-dark-theme', 'dark');
+            }
+        } else if (dark_mode == 'dark') {
+            document.documentElement.setAttribute('data-dark-theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-dark-theme');
+        }
+    </script>
 </body>
 </html>
