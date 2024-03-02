@@ -73,7 +73,7 @@
 
                                     array('var'         => 'dark_mode',
                                           'title'       => USERCONF_DARKMODE,
-                                          'description' => '',
+                                          'description' => USERCONF_DARKMODE_DESC,
                                           'type'        => 'bool',
                                           'default'     => false,
                                           'permission'  => 'personalConfiguration',
