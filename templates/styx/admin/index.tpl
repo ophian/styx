@@ -12,16 +12,19 @@
 {if $admin_vars.darkmode}
     <link rel="stylesheet" href="{serendipity_getFile file='admin/styx_dark.min.css'}" type="text/css">
 {else}
+{if NOT isset($forceLightMode)}
     <script>
       if ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) || localStorage.getItem('data-login-color-mode') === 'dark') {
         document.currentScript.insertAdjacentHTML('beforebegin', '<link rel="stylesheet" href="{serendipity_getFile file='admin/styx_dark.min.css'}" type="text/css">');
       }
     </script>
 {/if}
+{/if}
     <script src="{serendipity_getFile file='admin/js/modernizr.min.js'}"></script>
 {if $admin_vars.is_logged_in}
 {if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_header" hookAll="true"}{/if}
     <script>
+{if NOT isset($forceLightMode)}
 {if $admin_vars.darkmode}
       var STYX_DARKMODE = true;
       if (localStorage.getItem('data-login-color-mode') == null) {
@@ -38,6 +41,9 @@
       if (typeof(STYX_DARKMODE) != null && STYX_DARKMODE === true && dark_mode == null) {
         localStorage.setItem('data-login-color-mode', 'dark');
       }
+{/if}
+{else}
+      var STYX_DARKMODE = false;
 {/if}
       if (typeof(STYX_DARKMODE) !== 'undefined' && STYX_DARKMODE === true) {
         document.currentScript.insertAdjacentHTML('afterend', '<link id="dark-scheme-icon" rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}styx/sty.xd.png" type="image/x-icon">')
@@ -116,12 +122,16 @@
         {if isset($admin_vars.out.footer)}{$admin_vars.out.footer|default:''}{/if}
 
         <script>
+{if NOT isset($forceLightMode)}
           if ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) || localStorage.getItem('data-login-color-mode') === 'dark') {
             document.documentElement.setAttribute('data-login-color-mode', 'dark');
             document.head.insertAdjacentHTML('beforeend', '<link id="dark-scheme-icon" rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}styx/sty.xd.png" type="image/x-icon">')
           } else {
             document.head.insertAdjacentHTML('beforeend', '<link id="light-scheme-icon" rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}styx/sty.x.png" type="image/x-icon">')
           }
+{else}
+          document.head.insertAdjacentHTML('beforeend', '<link id="light-scheme-icon" rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}styx/sty.x.png" type="image/x-icon">')
+{/if}
         </script>
 {else}
 {if NOT $admin_vars.no_sidebar}
