@@ -62,6 +62,8 @@ Version 4.4-DEV ()
           the spamblock plugin dark captchas example, and other additional
           plugin conditions which need this option. This extended listener on
           browser-preferences is just for convenient experience on edge cases.
+    Please also read the new personal preferences dark mode option description
+    to avoid irritations and what to do for forced case resets.
 
   * Improved [ styx ] backend theme installation and upgrade pages
 
