@@ -42,6 +42,10 @@ if (isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModul
     }
 }
 
+// Check private variable to force back to light mode
+if (isset($serendipity['forceLightMode']) && $serendipity['forceLightMode'] === true) {
+    $serendipity['smarty']->assign('forceLightMode', true);
+}
 // avoid posting general configuration when in maintenance mode (!)
 if (isset($serendipity['POST']['adminModule']) && $serendipity['POST']['adminModule'] == 'installer' && isset($serendipity['maintenance']) && serendipity_db_bool($serendipity['maintenance'])) {
     $offmesg = sprintf(PLUGIN_MODEMAINTAIN_WARNGLOBALCONFIGFORM, 'serendipity_admin.php?serendipity[adminModule]=maintenance');
