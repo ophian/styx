@@ -477,6 +477,7 @@ $i18n_filename_to = array (
 @define('USERCONF_ALLOWPUBLISH', 'Právo publikovat záznamy?');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Umo¾nit u¾ivateli publikovat záznamy');
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
+@define('USERCONF_DARKMODE_DESC', 'Select the "Light / Dark" mode for your backend. This setting also affects various parts of installed plugins. Regardless of this, the essential dark mode is also executed automatically if your own browser settings are set to "Automatic" or "Dark". Despite this, it is necessary to explicitly set the dark mode here in order to take the "edge cases" (plugins, upgrade routines, etc.) into account. So if you absolutely want to return to the light mode without generally adapting your browser (with auto/dark preferences), in addition to this relevant reset, you must set the private "<code>$serendipity[\'forceLightMode\'] = true;</code>" auxiliary variable in the private areas of your "serendipity_config_local.inc.php" file.');
 @define('SUCCESS', 'Úspìch');
 @define('POWERED_BY_SHOW_TEXT', 'Zobrazit "%s" jako text');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Vytvoøeno v "Serendipity Styx" se zobrazí jako text');

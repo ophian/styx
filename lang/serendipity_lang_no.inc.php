@@ -422,6 +422,7 @@
 @define('USERCONF_ALLOWPUBLISH', 'Tillatelse: Publisere artikler?');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Kan denne brukeren publisere artikler?');
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
+@define('USERCONF_DARKMODE_DESC', 'Select the "Light / Dark" mode for your backend. This setting also affects various parts of installed plugins. Regardless of this, the essential dark mode is also executed automatically if your own browser settings are set to "Automatic" or "Dark". Despite this, it is necessary to explicitly set the dark mode here in order to take the "edge cases" (plugins, upgrade routines, etc.) into account. So if you absolutely want to return to the light mode without generally adapting your browser (with auto/dark preferences), in addition to this relevant reset, you must set the private "<code>$serendipity[\'forceLightMode\'] = true;</code>" auxiliary variable in the private areas of your "serendipity_config_local.inc.php" file.');
 
 @define('DIRECTORIES_AVAILABLE', 'I listen over tilgjengelige undermapper, kan du klikke på en ny mappe for å oprette en ny mappe innenfor den stukturen.');
 @define('ALL_DIRECTORIES', 'alle mapper');

@@ -445,6 +445,7 @@
 @define('USERCONF_ALLOWPUBLISH', 'Derechos: ¿Publicar entradas?');
 @define('USERCONF_ALLOWPUBLISH_DESC', '¿El usuario puede publicar entradas?');
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
+@define('USERCONF_DARKMODE_DESC', 'Select the "Light / Dark" mode for your backend. This setting also affects various parts of installed plugins. Regardless of this, the essential dark mode is also executed automatically if your own browser settings are set to "Automatic" or "Dark". Despite this, it is necessary to explicitly set the dark mode here in order to take the "edge cases" (plugins, upgrade routines, etc.) into account. So if you absolutely want to return to the light mode without generally adapting your browser (with auto/dark preferences), in addition to this relevant reset, you must set the private "<code>$serendipity[\'forceLightMode\'] = true;</code>" auxiliary variable in the private areas of your "serendipity_config_local.inc.php" file.');
 @define('XML_IMAGE_TO_DISPLAY', 'Botón XML');
 @define('XML_IMAGE_TO_DISPLAY_DESC', 'Enlaces a feeds XML se mostrarán con esta imagen. Déjalo vacío para el valor predeterminado, introduce \'none\' para desactivar.');
 @define('ENTRY_SAVED', 'Tu entrada ha sido guardada');

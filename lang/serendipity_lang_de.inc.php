@@ -448,6 +448,7 @@
 @define('USERCONF_ALLOWPUBLISH', 'Rechte: Einträge veröffentlichen?');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Darf Einträge veröffentlichen?');
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
+@define('USERCONF_DARKMODE_DESC', 'Wählen Sie den "Light / Dark" Modus für ihr Backend. Diese Einstellung beeinflusst diverse Teile auch von eingehängten Plugins. Unabhängig davon wird der wesentliche Dark Modus aber auch dann automatisch ausgeführt, wenn die eigenen Browser Einstellungen auf "Automatisch" oder "Dark" gestellt sind. Trotz dessen ist es nötig den Dark Modus hier explizit zu setzen, um die "Edge-cases" (Plugins, Upgrade Routinen, etc.) zu berücksichtigen. Sollten Sie also unbedingt zurück in den Light Modus wollen, ohne ihren Browser (mit auto/dark Präferenzen) generell anzupassen, müssen Sie, zusätzlich zur diesbezüglichen Rücksetzung, die private "<code>$serendipity[\'forceLightMode\'] = true;</code>" Hilfs-Variable in die privaten Bereiche ihrer "serendipity_config_local.inc.php" Datei schreiben.');
 @define('SUCCESS', 'Erfolgreich beendet');
 @define('POWERED_BY_SHOW_TEXT', 'Zeige "%s" als Text');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Zeigt den Text "Serendipity Styx Blog" an');
