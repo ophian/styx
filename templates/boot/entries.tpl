@@ -236,10 +236,10 @@
 {/if}
             </nav>
 {/if}
-{if $view == 'archives' AND empty($entries)}
+{if NOT $is_preview AND $view == 'archives' AND empty($entries)}
             <div class="empty_head">
 {/if}
 {serendipity_hookPlugin hook="entries_footer"}
-{if $view == 'archives' AND empty($entries)}
+{if NOT $is_preview AND $view == 'archives' AND empty($entries)}
             </div>
 {/if}
