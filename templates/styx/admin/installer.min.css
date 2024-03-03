@@ -69,7 +69,7 @@ h4,#diagnose caption{font-size:1.14286em;line-height:1.3125em;margin:1.3125em 0p
 .upgrader_tasks{background:rgb(252,248,227);padding:0.5em 0.25em 0px}
 .upgrader_tasks dt b{font-size:small;font-weight:bolder;color:rgb(62,95,129);border:1px solid;padding:2px 5px;background-color:rgb(238,238,238)}
 .upgrader_perms dd,.upgrader_tasks dd{margin-bottom:1em}
-.upgrader_tasks dd{display:inline list-item;border:1px solid rgb(251,238,213);color:rgb(192,152,83);padding:2px 5px}
+.upgrader_tasks dd{display:inline-block;border:1px solid rgb(251,238,213);color:rgb(192,152,83);padding:0 .5rem}
 .upgrader_tasks dd pre{white-space: pre-wrap;word-break: break-all}
 #top > div,#main_menu,#content{margin:0px;padding-left:2.5%;padding-right:2.5%;width:95%}
 #top > div{box-sizing:border-box}
