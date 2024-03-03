@@ -198,7 +198,7 @@ class serendipity_plugin_categories extends serendipity_plugin
             $html .= '<form action="' . $serendipity['baseURL'] . $serendipity['indexFile'] . '?frontpage" method="post">'."\n";
         }
         if (!$smarty) {
-            $html .= '<ul id="serendipity_categories_list" class="plainList">'."\n";
+            $html .= '<ul id="serendipity_categories_list" class="plainList">'; // do NOT \n here for better concatenation until end
         }
 
         $image = $this->get_config('image', serendipity_getTemplateFile('img/xml.gif', 'serendipityHTTPPath', true));
@@ -282,7 +282,7 @@ class serendipity_plugin_categories extends serendipity_plugin
                         $html .= '<a class="serendipity_xml_icon" href="'. $categories[$cid]['feedCategoryURL'] .'"><img src="'. $image .'" alt="XML" /></a> ';
                     }
                     $html .= '<a href="'. $categories[$cid]['categoryURL'] .'" title="'. serendipity_specialchars($cat['category_description']) .'" style="padding-left: '. $categories[$cid]['paddingPx'] .'px">'. serendipity_specialchars($categories[$cid]['category_name']) .'</a>';
-                    $html .= '</li>' . "\n";
+                    $html .= '</li>';
                 }
             }
         }
