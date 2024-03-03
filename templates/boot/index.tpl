@@ -226,9 +226,9 @@
         </main>
 {if $rightSidebarElements > 0}
 
-         <aside id="{if $leftSidebarElements > 0}serendipityRightSideBar{else}serendipityLeftSideBar{/if}" class="clearfix col-md-3">
+        <aside id="{if $leftSidebarElements > 0}serendipityRightSideBar{else}serendipityLeftSideBar{/if}" class="clearfix col-md-3">
 {serendipity_printSidebar side="right"}
-         </aside>
+        </aside>
 {/if}
 
     </div>
