@@ -2164,7 +2164,7 @@ fieldset p,
     background: #fcf8e3;
     border: 1px solid #fbeed5;
     color: #c09853;
-    padding: 2px 5px;
+    padding: 0 .5rem;
 }
 
 .upgrader_perms dd pre,
