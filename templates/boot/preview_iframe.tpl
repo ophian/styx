@@ -45,9 +45,9 @@
 {/if}
 {if $res}
             <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <b>{$CONST.ERROR}:</b><br> {$res}</span>
-    {else}
-    {* PLEASE NOTE: This is for case new entry first save only! *}
-    {if isset($lastSavedEntry) AND (int)$lastSavedEntry}
+{else}
+{* PLEASE NOTE: This is for case new entry first save only! *}
+{if isset($lastSavedEntry) AND (int)$lastSavedEntry}
 
             <script type="text/javascript">
                 window.onload = function() {
