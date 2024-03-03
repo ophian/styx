@@ -1,4 +1,4 @@
-Version 4.4.1-DEV ()
+Version 4.4.1 (March, 3rd 2024)
  ------------------------------------------------------------------------
 
   * Fix media nuke handler improvement for first ".v/" image variations subdir
