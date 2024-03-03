@@ -1,4 +1,4 @@
-{if $is_form}{* <pre>{$categories|print_r}</pre> style="padding:{$plugin_category.paddingPx}px"-{$smarty.get.serendipity.category}-*}
+{if $is_form}
 <form id="serendipity_category_form" action="{$form_url}" method="post">
 {/if}
                         <ul class="plainList">
