@@ -3597,7 +3597,11 @@ function serendipity_isImage(&$file, $strict = false, $allowed = 'image/') {
  */
 function serendipity_killPath($basedir, $udir = '', $forceDelete = false) {
     static $serious = true;
-    static $sdir = $udir; // keep the 1st call directory for 1st .v/ dir nuke usage
+    static $sdir = null;
+
+    if ($sdir === null) {
+        $sdir = $udir; // keep the 1st call directory for 1st .v/ dir nuke usage
+    }
 
     if ($handle = @opendir($basedir . $udir)) {
         $filestack = [];
