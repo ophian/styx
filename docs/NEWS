@@ -1,6 +1,5 @@
-Version 4.4-DEV ()
+Version 4.4.0 (March, 3rd 2024)
  ------------------------------------------------------------------------
-
 
   * Allow [ pure, boot, b5blog, b53 ] themes dark mode preference in backend
     preview_iframe views.
