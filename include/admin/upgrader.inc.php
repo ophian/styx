@@ -90,13 +90,13 @@ $tasks = array(
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_200, array('internals'), true),
                     'title'     => 'Removal of obsolete and still resting files in 2.0',
-                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_200) . '</pre>'),
+                    'desc'      => 'The following old dead files will be removed from your system.<pre>' . implode(', ', $dead_files_200) . '</pre>'),
 
             array(  'version'   => '2.0.2',
                     'function'  => 'recursive_directory_iterator',
                     'arguments' => array($dead_dirs_200),
                     'title'     => 'Removal of obsolete and dead directories',
-                    'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_200) . '</pre>'),
+                    'desc'      => 'The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_200) . '</pre>'),
 
             array(  'version'   => '2.0.2',
                     'function'  => 'serendipity_upgrader_rewriteFeedIcon',
@@ -107,13 +107,13 @@ $tasks = array(
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_202, array('internals'), true),
                     'title'     => 'Removal of old dead files in v.2.0.2',
-                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_202) . '</pre>'),
+                    'desc'      => 'The following old dead files will be removed from your system.<pre>' . implode(', ', $dead_files_202) . '</pre>'),
 
             array(  'version'   => '2.1.0',
                     'function'  => 'recursive_directory_iterator',
                     'arguments' => array($dead_dirs_202),
                     'title'     => 'Removal of obsolete and dead directories',
-                    'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_202) . '</pre>'),
+                    'desc'      => 'The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_202) . '</pre>'),
 
             array(  'version'   => '2.1.0',
                     'type'      => 'TEMPLATE_NOTICE',
@@ -179,7 +179,7 @@ $tasks = array(
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_220, array('internals'), true),
                     'title'     => 'Removal of old dead files in v.2.2.0',
-                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_220) . '</pre>'),
+                    'desc'      => 'The following old dead files will be removed from your system.<pre>' . implode(', ', $dead_files_220) . '</pre>'),
 
             array(  'version'   => '2.2.0',
                     'type'      => 'PLUGIN_NOTICE',
@@ -206,13 +206,13 @@ $tasks = array(
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_240, array('internals'), true),
                     'title'     => 'Removal of old dead files in v.2.4.0',
-                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_240) . '</pre>'),
+                    'desc'      => 'The following old dead files will be removed from your system.<pre>' . implode(', ', $dead_files_240) . '</pre>'),
 
             array(  'version'   => '2.4.0',
                     'function'  => 'recursive_directory_iterator',
                     'arguments' => array($dead_dirs_240),
                     'title'     => 'Removal of obsolete and dead directories',
-                    'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_240) . '</pre>'),
+                    'desc'      => 'The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_240) . '</pre>'),
 
             array(  'version'   => '2.4.0',
                     'function'  => 'serendipity_fixPlugins',
@@ -240,13 +240,13 @@ $tasks = array(
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_250, array('internals'), true),
                     'title'     => 'Removal of old dead files in v.2.5.0',
-                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_250) . '</pre>'),
+                    'desc'      => 'The following old dead files will be removed from your system.<pre>' . implode(', ', $dead_files_250) . '</pre>'),
 
             array(  'version'   => '2.5.0',
                     'function'  => 'recursive_directory_iterator',
                     'arguments' => array($dead_dirs_250),
                     'title'     => 'Removal of obsolete and dead directories',
-                    'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_250) . '</pre>'),
+                    'desc'      => 'The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_250) . '</pre>'),
 
             array(  'version'   => '2.5.0',
                     'type'      => 'TEMPLATE_NOTICE',
@@ -257,7 +257,7 @@ $tasks = array(
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_260, array('internals'), true),
                     'title'     => 'Removal of old dead files in v.2.6.0',
-                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_260) . '</pre>'),
+                    'desc'      => 'The following old dead files will be removed from your system.<pre>' . implode(', ', $dead_files_260) . '</pre>'),
 
             array(  'version'   => '2.6-beta1',
                     'function'  => 'serendipity_fixPlugins',
@@ -286,7 +286,7 @@ $tasks = array(
                     'function'  => 'recursive_directory_iterator',
                     'arguments' => array($dead_dirs_260),
                     'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Styx moved the Smarty Backend templates to the "default" theme',
-                    'desc'      => 'If you have any custom or developer files in the "templates/2k11/admin" directory, make a backup copy before proceeding. Do not try to keep this directory, since further file development already went to the new location! The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_260) . '</pre>'),
+                    'desc'      => 'If you have any custom or developer files in the "templates/2k11/admin" directory, make a backup copy before proceeding. Do not try to keep this directory, since further file development already went to the new location! The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_260) . '</pre>'),
 
             array(  'version'   => '2.6.2',
                     'type'      => 'TEMPLATE_NOTICE',
@@ -302,7 +302,7 @@ $tasks = array(
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_270, array('internals'), true),
                     'title'     => 'Removal of old dead files in v.2.7.0',
-                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_270) . '</pre>'),
+                    'desc'      => 'The following old dead files will be removed from your system.<pre>' . implode(', ', $dead_files_270) . '</pre>'),
 
             array(  'version'   => '2.7.0',
                     'function'  => 'serendipity_fixPlugins',
@@ -366,7 +366,7 @@ $tasks = array(
                     'function'  => 'recursive_directory_iterator',
                     'arguments' => array($dead_dirs_300),
                     'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Styx removed the PHP5 random_bytes polyfill, which is now part of PHP7.',
-                    'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_300) . '</pre>'),
+                    'desc'      => 'The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_300) . '</pre>'),
 
             array(  'version'   => '3.0-alpha3',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
@@ -391,13 +391,13 @@ $tasks = array(
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_300, array('internals'), true),
                     'title'     => 'Removal of old dead files in v.3.0.0',
-                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_300) . '</pre>'),
+                    'desc'      => 'The following old dead files will be removed from your system.<pre>' . implode(', ', $dead_files_300) . '</pre>'),
 
             array(  'version'   => '3.0-beta1',
                     'function'  => 'recursive_directory_iterator',
                     'arguments' => array($dead_dirs_300),
                     'title'     => 'Styx removed the Zend DB framework.',
-                    'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_300) . '</pre>'),
+                    'desc'      => 'The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_300) . '</pre>'),
 
             array(  'version'   => '3.0.1',
                     'function'  => 'serendipity_upgrader_move_syndication_config',
@@ -420,19 +420,19 @@ $tasks = array(
                     'function'  => 'recursive_directory_iterator',
                     'arguments' => array($dead_dirs_310),
                     'title'     => 'Styx moved the Smarty (real) cache directory into archives.',
-                    'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_310) . '</pre>'),
+                    'desc'      => 'The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_310) . '</pre>'),
 
             array(  'version'   => '3.1.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_310, array('internals'), true),
                     'title'     => 'Removal of old dead files in v.3.1.0',
-                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_310) . '</pre>'),
+                    'desc'      => 'The following old dead files will be removed from your system.<pre>' . implode(', ', $dead_files_310) . '</pre>'),
 
             array(  'version'   => '3.2.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_320, array('internals'), true),
                     'title'     => 'Removal of old dead files in v.3.2.0',
-                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_320) . '</pre>'),
+                    'desc'      => 'The following old dead files will be removed from your system.<pre>' . implode(', ', $dead_files_320) . '</pre>'),
 
             array(  'version'   => '3.2.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
@@ -453,13 +453,13 @@ $tasks = array(
                     'function'  => 'recursive_directory_iterator',
                     'arguments' => array($dead_dirs_330),
                     'title'     => 'Styx removed some obsolete core themes. "Bulletproof" further-on lives in Spartacus::additional_themes.',
-                    'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_330) . '</pre>'),
+                    'desc'      => 'The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_330) . '</pre>'),
 
             array(  'version'   => '3.3.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_330, array('internals'), true),
                     'title'     => 'Removal of old dead files in v.3.3.0',
-                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_330) . '</pre>'),
+                    'desc'      => 'The following old dead files will be removed from your system.<pre>' . implode(', ', $dead_files_330) . '</pre>'),
 
             array(  'version'   => '3.3.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
@@ -481,13 +481,13 @@ $tasks = array(
                     'function'  => 'recursive_directory_iterator',
                     'arguments' => array($dead_dirs_340),
                     'title'     => 'Styx improved/removed some themes framework assets.',
-                    'desc'      => '"B46" further-on loads these bootstrap assets from "templates/_assets/b4" path. If you have copy themes with own index.tpl or preview_iframe.tpl template files, please adapt to use {serendipity_getFile file="b4/js/bootstrap.min.js"} and {serendipity_getFile file="b4/css/bootstrap.min.css"} calls. For "Clean-blog" and "Timeline" themes both CDN calls were changed to load this local path too. Please care for your COPY or CHILD themes. The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_340) . '</pre>'),
+                    'desc'      => '"B46" further-on loads these bootstrap assets from "templates/_assets/b4" path. If you have copy themes with own index.tpl or preview_iframe.tpl template files, please adapt to use {serendipity_getFile file="b4/js/bootstrap.min.js"} and {serendipity_getFile file="b4/css/bootstrap.min.css"} calls. For "Clean-blog" and "Timeline" themes both CDN calls were changed to load this local path too. Please care for your COPY or CHILD themes. The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_340) . '</pre>'),
 
             array(  'version'   => '3.4.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_340, array('internals'), true),
                     'title'     => 'Removal of old dead files in v.3.4.0 (see also previous bootstrap assets note)',
-                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_340) . '</pre>'),
+                    'desc'      => 'The following old dead files will be removed from your system.<pre>' . implode(', ', $dead_files_340) . '</pre>'),
 
             array(  'version'   => '3.5-alpha2',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
@@ -538,7 +538,7 @@ $tasks = array(
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_400, array('internals'), true),
                     'title'     => 'Removal of old dead files for 3.10.0 / 4.0.0',
-                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_400) . '</pre>'),
+                    'desc'      => 'The following old dead files will be removed from your system.<pre>' . implode(', ', $dead_files_400) . '</pre>'),
 
             array(  'version'   => '3.9.9',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
@@ -549,7 +549,7 @@ $tasks = array(
                     'function'  => 'recursive_directory_iterator',
                     'arguments' => array($dead_dirs_400),
                     'title'     => 'Styx removed the multi file implementation of bundled-libs SimplePie XML Parser on upgrade to v.1.7.0 to a single monolithic file.',
-                    'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_400) . '</pre>'),
+                    'desc'      => 'The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_400) . '</pre>'),
 
             array(  'version'   => '3.9.9',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
@@ -590,7 +590,7 @@ $tasks = array(
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_420, array('internals'), true),
                     'title'     => 'Removal of old dead files for 4.2.0',
-                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_420) . '</pre>'),
+                    'desc'      => 'The following old dead files will be removed from your system.<pre>' . implode(', ', $dead_files_420) . '</pre>'),
 /* Keep titles short and concise up from 4.3.0 for upgrading in dark mode */
             array(  'version'   => '4.3.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
@@ -622,13 +622,13 @@ $tasks = array(
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_440, array('internals'), true),
                     'title'     => 'Removal of old dead files for 4.4.0.',
-                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_440) . '</pre>'),
+                    'desc'      => 'The following old dead files will be removed from your system.<pre>' . implode(', ', $dead_files_440) . '</pre>'),
 
             array(  'version'   => '4.4.0',
                     'function'  => 'recursive_directory_iterator',
                     'arguments' => array($dead_dirs_440),
                     'title'     => 'Styx (re-)moved the bootstrap 5.3 series revisions to the template assets directory.',
-                    'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_440) . '</pre>'),
+                    'desc'      => 'The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_440) . '</pre>'),
 
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
