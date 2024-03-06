@@ -815,7 +815,7 @@ function serendipity_imageCreateFromAny($filepath) {
             break;
     }
     // if imagecreatefrom*** returns bool for error, i.e. imagecreatefrompng(): gd-png: fatal libpng error: IDAT or imagecreatefrompng(): gd-png error: setjmp returns error condition 3 etc
-    if (false === check_image_resource_vs_instance($im) || $im === false) {
+    if (false === ($im instanceof \GdImage) || $im === false) {
         return false;
     }
     // Check if image is a true color image or not
@@ -872,25 +872,6 @@ function serendipity_convertImageFormat($file, $oldMime, $newMime) {
 }
 
 /**
- * Temporary function until we are PHP 8 only
- */
-function check_image_resource_vs_instance($im) {
-    if (PHP_VERSION_ID >= 80000) {
-        if ($im instanceof \GdImage) {
-            return true;
-        } else {
-            return false;
-        }
-    } else {
-        if (is_resource($im)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-}
-
-/**
  * Convert JPG, PNG, GIF, BMP formatted images to the WebP image format with PHP build-in GD image library
  *
  * @param string $infile    The fullpath file format from string
@@ -900,7 +881,7 @@ function check_image_resource_vs_instance($im) {
  */
 function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
     $im = serendipity_imageCreateFromAny($infile);
-    if (false === check_image_resource_vs_instance($im) || $im === false) {
+    if (false === ($im instanceof \GdImage) || $im === false) {
         return false;
     }
     @ini_set('memory_limit', '1024M');
@@ -908,7 +889,7 @@ function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
         imagewebp($im, $outfile, $quality);
     } catch (\Throwable $t) {
         echo 'Could not create WebP image with GD: ',  $t->getMessage(), "\n";
-        if (true === check_image_resource_vs_instance($im)) {
+        if (true === ($im instanceof \GdImage)) {
             imagedestroy($im);
         }
         return false;
@@ -930,7 +911,7 @@ function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
  */
 function serendipity_imageGDAvifConversion($infile, $outfile, $quality = -1) {
     $im = serendipity_imageCreateFromAny($infile);
-    if (false === check_image_resource_vs_instance($im) || $im === false) {
+    if (false === ($im instanceof \GdImage) || $im === false) {
         return false;
     }
     $mlimit = round(filesize($infile)/1024, 0); // Image example 14210367 b filesize = 13877 KB
