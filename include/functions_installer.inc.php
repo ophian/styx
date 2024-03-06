@@ -1205,10 +1205,6 @@ function serendipity_checkWebPSupport($set = false, $msg = false) {
 function serendipity_checkAvifSupport($set = false, $msg = false) {
     global $serendipity;
 
-    if (PHP_VERSION_ID < 80100) {
-        return false;
-    }
-
     if (!isset($serendipity['magick']) || $serendipity['magick'] !== true) {
         if (!function_exists('gd_info')) return false;
         $gd = gd_info();
