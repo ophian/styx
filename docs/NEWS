@@ -2,6 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Removed workaround and PHP_VERSION handlers for all versions below PHP 8.2
+
   * Configure 5.0 revision up from PHP 8.2
 
 
