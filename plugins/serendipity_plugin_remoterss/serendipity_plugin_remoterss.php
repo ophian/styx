@@ -279,11 +279,11 @@ class serendipity_plugin_remoterss extends serendipity_plugin
         $propbag->add('description',   PLUGIN_REMOTERSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Udo Gerhards, Richard Thomas Harrison, Ian Styx');
-        $propbag->add('version',       '1.35');
+        $propbag->add('version',       '1.36');
         $propbag->add('requirements',  array(
-            'serendipity' => '3.1',
-            'smarty'      => '3.1',
-            'php'         => '7.3'
+            'serendipity' => '5.0',
+            'smarty'      => '4.0',
+            'php'         => '8.2'
         ));
         $propbag->add('configuration', array('sidebartitle', 'feedtype', 'template', 'rssuri', 'show_rss_element', 'smarty', 'number', 'use_rss_link', 'escape_rss', 'displaydate', 'dateformat', 'charset', 'target', 'cachetime', 'bulletimg', 'markup'));
         $propbag->add('groups',        array('FRONTEND_EXTERNAL_SERVICES'));
@@ -573,144 +573,73 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                     $content = '';
                     $smarty_items = array();
 
-                    if (PHP_VERSION_ID < 80000) {
-                        require_once S9Y_PEAR_PATH . 'Onyx/RSS.php';
-                        $c = new Onyx_RSS($charset);
-                        $c->parse($rssuri);
-                        $this->encoding = $c->rss['encoding'];
-                        $this->debug('Running Onyx Parser');
-                        while (($showAll || ($i < $number)) && ($item = $c->getNextItem())) {
-                            if (empty($item['title'])) {
-                                continue;
-                            }
-                            if (!$smarty) $content .= '<div class="rss_item">';
+                    // PHP 8+
+                    $xml = file_get_contents($rssuri);
+                    $c   = new SimpleXMLElement($xml);
+                    $x   = $this->xmlToArray($c);
+                    foreach($x['rss']['channel']['item'] AS $item) {
+                        if (empty($item['title'])) {
+                            continue;
+                        }
+                        if (!$smarty) $content .= '<div class="rss_item">';
 
-                            if ($use_rss_link) {
-                                if (!$smarty) $content .= '<div class="rss_link"><a href="' . serendipity_specialchars($this->decode($item['link'])) . '" ' . (!empty($target) ? 'target="'.$target.'"' : '') . '>';
-                            }
+                        if ($use_rss_link) {
+                            if (!$smarty) $content .= '<div class="rss_link"><a href="' . serendipity_specialchars($this->decode($item['link'])) . '" ' . (!empty($target) ? 'target="'.$target.'"' : '') . '>';
+                        }
 
-                            if (!empty($bulletimg)) {
-                                if (!$smarty) $content .= '<img src="' . $bulletimg . '" border="0" alt="*" /> ';
-                            }
+                        if (!empty($bulletimg)) {
+                            if (!$smarty) $content .= '<img src="' . $bulletimg . '" border="0" alt="*" /> ';
+                        }
 
-                            $is_first = true;
-                            foreach($rss_elements AS $rss_element) {
-                                $rss_element = trim($rss_element);
+                        $is_first = true;
+                        foreach($rss_elements AS $rss_element) {
+                            $rss_element = trim($rss_element);
 
-                                if (!$is_first) {
-                                    if (!$smarty) $content .= '<span class="rss_' . preg_replace('@[^a-z0-9]@imsU', '', $rss_element) . '">';
-                                }
-
-                                if ($escape_rss) {
-                                    if (!$smarty) $content .= $this->decode($item[$rss_element]);
-                                } else {
-                                    if (!$smarty) $content .= serendipity_specialchars($this->decode($item[$rss_element]));
-                                }
-
-                                if ($smarty) {
-                                    $item['display_elements'][preg_replace('@[^a-z0-9]@imsU', '', $rss_element)] = $this->decode($item[$rss_element]);
-                                }
-
-                                if (!$is_first) {
-                                    if (!$smarty) $content .= '</span>';
-                                }
-
-                                if ($is_first && $use_rss_link) {
-                                    if (!$smarty) $content .= '</a></div>'; // end of first linked element
-                                }
-                                $is_first = false;
-                            }
-                            if ($is_first && $use_rss_link) {
-                                // No XML element has been configured.
-                                if (!$smarty) $content .= '</a></div>';
+                            if (!$is_first) {
+                                if (!$smarty) $content .= '<span class="rss_' . preg_replace('@[^a-z0-9]@imsU', '', $rss_element) . '">';
                             }
 
-                            $item['timestamp'] = strtotime((string)($item['pubdate'] ?? $item['dc:date']));
-                            if (false !== $item['timestamp'] AND $displaydate) {
-                                if (!$smarty) $content .= '<div class="serendipitySideBarDate">'
-                                          . serendipity_specialchars(serendipity_formatTime($dateformat, $item['timestamp'], false))
-                                          . '</div>';
+                            if ($escape_rss) {
+                                if (!$smarty) $content .= $this->decode($item[$rss_element]);
+                            } else {
+                                if (!$smarty) $content .= serendipity_specialchars($this->decode($item[$rss_element]));
                             }
 
                             if ($smarty) {
-                                $smarty_items['items'][$i] = $item;
-                                $smarty_items['items'][$i]['css_class'] = preg_replace('@[^a-z0-9]@imsU', '', $rss_element);
-                                foreach($item AS $key => $val) {
-                                    $smarty_items['items'][$i]['decoded_' . str_replace(':', '_', $key)] = $this->decode($key);
-                                }
-                            }
-                            if (!$smarty) $content .= "</div>\n"; // end of rss_item
-                            ++$i;
-                        }
-                    } else {
-                        // PHP 8+
-                        $xml = file_get_contents($rssuri);
-                        $c   = new SimpleXMLElement($xml);
-                        $x   = $this->xmlToArray($c);
-                        foreach($x['rss']['channel']['item'] AS $item) {
-                            if (empty($item['title'])) {
-                                continue;
-                            }
-                            if (!$smarty) $content .= '<div class="rss_item">';
-
-                            if ($use_rss_link) {
-                                if (!$smarty) $content .= '<div class="rss_link"><a href="' . serendipity_specialchars($this->decode($item['link'])) . '" ' . (!empty($target) ? 'target="'.$target.'"' : '') . '>';
+                                $item['display_elements'][preg_replace('@[^a-z0-9]@imsU', '', $rss_element)] = $this->decode($item[$rss_element]);
                             }
 
-                            if (!empty($bulletimg)) {
-                                if (!$smarty) $content .= '<img src="' . $bulletimg . '" border="0" alt="*" /> ';
-                            }
-
-                            $is_first = true;
-                            foreach($rss_elements AS $rss_element) {
-                                $rss_element = trim($rss_element);
-
-                                if (!$is_first) {
-                                    if (!$smarty) $content .= '<span class="rss_' . preg_replace('@[^a-z0-9]@imsU', '', $rss_element) . '">';
-                                }
-
-                                if ($escape_rss) {
-                                    if (!$smarty) $content .= $this->decode($item[$rss_element]);
-                                } else {
-                                    if (!$smarty) $content .= serendipity_specialchars($this->decode($item[$rss_element]));
-                                }
-
-                                if ($smarty) {
-                                    $item['display_elements'][preg_replace('@[^a-z0-9]@imsU', '', $rss_element)] = $this->decode($item[$rss_element]);
-                                }
-
-                                if (!$is_first) {
-                                    if (!$smarty) $content .= '</span>';
-                                }
-
-                                if ($is_first && $use_rss_link) {
-                                    if (!$smarty) $content .= '</a></div>'; // end of first linked element
-                                }
-                                $is_first = false;
+                            if (!$is_first) {
+                                if (!$smarty) $content .= '</span>';
                             }
 
                             if ($is_first && $use_rss_link) {
-                                // No XML element has been configured.
-                                if (!$smarty) $content .= '</a></div>';
+                                if (!$smarty) $content .= '</a></div>'; // end of first linked element
                             }
-
-                            $item['timestamp'] = strtotime(($item['pubDate'] ?? $item['dc:date']));
-                            if (false !== $item['timestamp'] AND $displaydate) {
-                                if (!$smarty) $content .= '<div class="serendipitySideBarDate">'
-                                          . serendipity_specialchars(serendipity_formatTime($dateformat, $item['timestamp'], false))
-                                          . '</div>';
-                            }
-
-                            if ($smarty) {
-                                $smarty_items['items'][$i] = $item;
-                                $smarty_items['items'][$i]['css_class'] = preg_replace('@[^a-z0-9]@imsU', '', $rss_element);
-                                foreach($item AS $key => $val) {
-                                    $smarty_items['items'][$i]['decoded_' . str_replace(':', '_', $key)] = $this->decode($key);
-                                }
-                            }
-                            if (!$smarty) $content .= "</div>\n"; // end of rss_item
-                            ++$i;
+                            $is_first = false;
                         }
+
+                        if ($is_first && $use_rss_link) {
+                            // No XML element has been configured.
+                            if (!$smarty) $content .= '</a></div>';
+                        }
+
+                        $item['timestamp'] = strtotime(($item['pubDate'] ?? $item['dc:date']));
+                        if (false !== $item['timestamp'] AND $displaydate) {
+                            if (!$smarty) $content .= '<div class="serendipitySideBarDate">'
+                                      . serendipity_specialchars(serendipity_formatTime($dateformat, $item['timestamp'], false))
+                                      . '</div>';
+                        }
+
+                        if ($smarty) {
+                            $smarty_items['items'][$i] = $item;
+                            $smarty_items['items'][$i]['css_class'] = preg_replace('@[^a-z0-9]@imsU', '', $rss_element);
+                            foreach($item AS $key => $val) {
+                                $smarty_items['items'][$i]['decoded_' . str_replace(':', '_', $key)] = $this->decode($key);
+                            }
+                        }
+                        if (!$smarty) $content .= "</div>\n"; // end of rss_item
+                        ++$i;
                     }
 
                     if ($smarty) {
@@ -731,12 +660,8 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                         // Template specifics go here
                         switch($tpl) {
                             case 'plugin_remoterss_nasaiotd.tpl':
-                                if (PHP_VERSION_ID < 80000) {
-                                    $smarty_items['nasa_image'] = $c->getData('image');
-                                } else {
-                                    $smarty_items['nasa_image'] = $x['rss']['channel']['image'] ?? ['url' => ''];
-                                }
-                            break;
+                                $smarty_items['nasa_image'] = $x['rss']['channel']['image'] ?? ['url' => ''];
+                                break;
                         }
                         $content = $this->parseTemplate($tpl);
                     }
@@ -877,12 +802,8 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                         // Template specifics go here
                         switch($tpl) {
                             case 'plugin_remoterss_nasaiotd.tpl':
-                                if (PHP_VERSION_ID < 80000) {
-                                    $smarty_items['nasa_image'] = $c->getData('image');
-                                } else {
-                                    $smarty_items['nasa_image'] = $x['rss']['channel']['image'] ?? ['url' => ''];
-                                }
-                            break;
+                                $smarty_items['nasa_image'] = $x['rss']['channel']['image'] ?? ['url' => ''];
+                                break;
                         }
                         $content = $this->parseTemplate($tpl);
                     }
