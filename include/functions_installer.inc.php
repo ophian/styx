@@ -776,7 +776,7 @@ function serendipity_checkInstallation() {
     if ($_POST['dbType'] == 'sqlite' || $_POST['dbType'] == 'sqlite3' || $_POST['dbType'] == 'pdo-sqlite' || $_POST['dbType'] == 'sqlite3oo') {
         // We don't want that our SQLite db file can be guessed from other applications on a server
         // and have access to ours. So we randomize the SQLite dbname.
-        $_POST['sqlitedbName'] = $_POST['dbName'] . '_' . md5((string) time());
+        $_POST['sqlitedbName'] = $_POST['dbName'] . '_' . hash('XXH128', (string) time());
     }
 
     if (empty($_POST['dbPrefix']) && empty($serendipity['dbPrefix'])) {
@@ -1402,7 +1402,7 @@ function serendipity_FTPChecksum($filename, $type = null) {
     }
 
     // Calculate the checksum
-    $md5 = false;
+    $hash = false;
     if (stristr($type, 'text')) {
         // This is a text-type file.  We need to remove linefeeds before
         // calculating a checksum, to account for possible FTP conversions
@@ -1411,13 +1411,13 @@ function serendipity_FTPChecksum($filename, $type = null) {
         $newlines = array("#\r\n#", "#\r#", "#\n#");
         $file = file_get_contents($filename);
         $file = preg_replace($newlines, ' ', $file);
-        $md5 = md5($file);
+        $hash = hash('XXH128', ($file);
     } else {
-        // Just get its md5sum
-        $md5 = md5_file($filename);
+        // Just get its xxHash
+        $hash = hash_file('XXH128', $filename);
     }
 
-    return $md5;
+    return $hash;
 }
 
 /**
