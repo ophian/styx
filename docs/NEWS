@@ -2,6 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Use PHP 8.2 - Combined named arguments with positional arguments
+
   * Add PHP 8.2 - Sensitive Parameter value redaction support
 
   * Removed workaround and PHP_VERSION handlers for all versions below PHP 8.2
