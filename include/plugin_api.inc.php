@@ -607,7 +607,7 @@ class serendipity_plugin_api
             if (empty($filename) && !empty($instance_id)) {
                 // $serendipity['debug']['pluginload'][] = "No valid path/filename found.";
                 $sql = "SELECT path FROM {$serendipity['dbPrefix']}plugins WHERE name = '" . serendipity_db_escape_string($instance_id) . "'";
-                $plugdata = serendipity_db_query($sql, true, 'both', false, false, false, true);
+                $plugdata = serendipity_db_query($sql, single: true, expectError: true);
                 if (is_array($plugdata) && isset($plugdata[0])) {
                     $pluginPath = $plugdata[0];
                 }
