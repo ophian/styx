@@ -19,11 +19,11 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC . (isset($serendipity['GET']['plugin_to_conf']) ? ' ' . PLUGIN_EVENT_ENTRYPROPERTIES_DESC_PLUS : ''));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.92');
+        $propbag->add('version',       '1.93');
         $propbag->add('requirements',  array(
-            'serendipity' => '2.7.0',
-            'smarty'      => '3.1.0',
-            'php'         => '7.0.0'
+            'serendipity' => '5.0',
+            'smarty'      => '4.1',
+            'php'         => '8.2.0'
         ));
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
@@ -339,7 +339,7 @@ class serendipity_event_entryproperties extends serendipity_event
         return $out;
     }
 
-    function showBackend($element, $eventData, $is_sticky, $no_frontpage, $hiderss, $access_values, $access, $password, $use_groups, $access_groups, $use_users, $access_users, $more = array())
+    function showBackend($element, $eventData, $is_sticky, $no_frontpage, $hiderss, $access_values, $access, #[\SensitiveParameter] string $password, $use_groups, $access_groups, $use_users, $access_users, $more = array())
     {
         global $serendipity;
 
