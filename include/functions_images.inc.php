@@ -3231,7 +3231,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
         usort($paths, 'serendipity_sortPath');
 
         if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Got real disc files: " . print_r($aFilesOnDisk, true)); }
-        $serendipity['current_image_hash'] = md5(serialize($aFilesOnDisk));
+        $serendipity['current_image_hash'] = hash('XXH128', serialize($aFilesOnDisk));
         $serendipity['last_image_hash'] = $serendipity['last_image_hash'] ?? ''; // avoid a non-isset by a relatively new image database which had never run setting the $serendipity['last_image_hash'] before
 
         // ML Cleanup START - is part of SYNC
@@ -5233,7 +5233,7 @@ function serendipity_imageAppend(&$tfile, &$target, $dir, $echo = true) {
 
     // Check if the file STILL exists and append a MD5 if that's the case. That should be unique enough.
     if (file_exists($dir . $filebase . $cnum . (empty($extension) ? '' : '.' . $extension))) {
-        $cnum = md5(time() . $filebase);
+        $cnum = hash('xxh3', time() . $filebase);
     }
 
     // Those variables are passed by reference!
