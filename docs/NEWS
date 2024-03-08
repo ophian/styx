@@ -4,7 +4,7 @@ Version 5.0-DEV ()
 
   * USE PHP 8.1 - Change to use fastest xxHash algorithm
 
-  * Use PHP 8 - Combined named arguments with positional arguments
+  * Use PHP 8.0 - Combined named arguments with positional arguments
 
   * Add PHP 8.2 - Sensitive Parameter value redaction support
 
