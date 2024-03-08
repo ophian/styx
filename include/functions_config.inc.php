@@ -2336,8 +2336,8 @@ function serendipity_checkFormToken($output = true) {
         return false;
     }
 
-    if ($token != md5(session_id()) &&
-        $token != md5($serendipity['COOKIE']['old_session'])) {
+    if ($token != hash('xxh3', session_id()) &&
+        $token != hash('xxh3', $serendipity['COOKIE']['old_session'])) {
         if ($output) echo serendipity_reportXSRF('token', false);
         return false;
     }
@@ -2364,11 +2364,11 @@ function serendipity_checkFormToken($output = true) {
  */
 function serendipity_setFormToken($type = 'form') {
     if ($type == 'form') {
-        return '<input type="hidden" name="serendipity[token]" value="' . md5(session_id()) . '">';
+        return '<input type="hidden" name="serendipity[token]" value="' . hash('xxh3', session_id()) . '">';
     } elseif ($type == 'url') {
-        return 'serendipity[token]=' . md5(session_id());
+        return 'serendipity[token]=' . hash('xxh3', session_id());
     } else {
-        return md5(session_id());
+        return hash('xxh3', session_id());
     }
 }
 
@@ -2417,8 +2417,8 @@ function serendipity_sysInfoTicker(bool $check = false, string $whoami = '', arr
             $syscall = new SimpleXMLElement($xmlstr);
 
             foreach ($syscall->notification AS $n) {
-                $hash = md5((string) $n->note); // hash-it
-                $comb = md5("{$whoami}-{$hash}"); // new hash combo of user and the 32 length note hash
+                $hash = hash('xxh128', (string) $n->note); // hash-it
+                $comb = hash('xxh128', "{$whoami}-{$hash}"); // new hash combo of user and the 32 length note hash
                 if (!in_array($hash, $exclude_hashes)) {
                     $xml[] = array('author' => $n->author, 'title' => $n->title, 'msg' => $n->note, 'hash' => $hash, 'ts' => $n->timestamp, 'priority' => (int)$n->priority);
                     // store each hash to options table - checked against is stored already
