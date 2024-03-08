@@ -372,7 +372,7 @@ if ((int)$serendipity['GET']['step'] == 0) {
     if (!function_exists('serendipity_db_query') && trim($serendipity['dbPrefix']) == '') {
         serendipity_die('<p class="msg_error">' . ERROR_SOMETHING . '..</p><p>' . SERENDIPITY_INSTALLATION . ': ' . sprintf(SERENDIPITY_NOT_INSTALLED, 'index.php') ." [!]</p>\n");
     }
-    $t = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}authors", false, 'both', false, false, false, true);
+    $t = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}authors", expectError: true);
     $data['authors_query'] = $t;
 
     if (is_array($t)) {
