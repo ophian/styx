@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
         $propbag->add('author',        'Garvin Hicking, Sebastian Nohn, Grischa Brockhaus, Ian Styx');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
-            'smarty'      => '5.0',
+            'smarty'      => '4.1',
             'php'         => '8.2'
         ));
         $propbag->add('version',       '2.75');
