@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC . (isset($serendipity['GET']['plugin_to_conf']) ? ' ' . PLUGIN_EVENT_ENTRYPROPERTIES_DESC_PLUS : ''));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.93');
+        $propbag->add('version',       '1.94');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
@@ -1035,9 +1035,11 @@ class serendipity_event_entryproperties extends serendipity_event
 
                     if (isset($serendipity['GET']['id']) && isset($eventData[0]['properties']['ep_entrypassword'])) {
 
-                        if (isset($_SESSION['entrypassword_unlocked']) && $_SESSION['entrypassword_unlocked'][$serendipity['GET']['id']] == md5($eventData[0]['properties']['ep_entrypassword']) || isset($serendipity['POST']['entrypassword']) && $eventData[0]['properties']['ep_entrypassword'] == $serendipity['POST']['entrypassword']) {
+                        if (isset($_SESSION['entrypassword_unlocked']) && $_SESSION['entrypassword_unlocked'][$serendipity['GET']['id']] == hash('XXH128', $eventData[0]['properties']['ep_entrypassword'])
+                        || isset($serendipity['POST']['entrypassword']) && $eventData[0]['properties']['ep_entrypassword'] == $serendipity['POST']['entrypassword'])
+                        {
                             // Do not show login form again, once we have first enabled it.
-                            $_SESSION['entrypassword_unlocked'][$serendipity['GET']['id']] = md5($eventData[0]['properties']['ep_entrypassword']);
+                            $_SESSION['entrypassword_unlocked'][$serendipity['GET']['id']] = hash('XXH128', $eventData[0]['properties']['ep_entrypassword']);
                         } else {
                             // Adding eventData makes no real sense for excluding eventData items like in 'entries_footer',
                             // apart from the preview, the entries list and 'external_plugin' hook which all play after,
