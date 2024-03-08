@@ -17,10 +17,10 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.23');
+        $propbag->add('version',       '3.24');
         $propbag->add('requirements',  array(
-            'serendipity' => '3.1',
-            'php'         => '7.3'
+            'serendipity' => '5.0',
+            'php'         => '8.2'
         ));
         $propbag->add('event_hooks',    array(
             'backend_plugins_fetchlist'         => true,
@@ -646,7 +646,7 @@ class serendipity_event_spartacus extends serendipity_event
             $xml = $this->fetchfile($url, $target, $cacheTimeout, true);
         }
 
-        $new_crc  = md5($xml);
+        $new_crc  = hash('xxh3', $xml);
         $last_crc = $this->get_config('last_crc_' . $url_type);
 
         if (!$no_cache && !$this->purgeCache && $last_crc == $new_crc) {
