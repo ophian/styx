@@ -344,7 +344,7 @@ function serendipity_searchPermalink($struct, $url, $default, $type = 'entry') {
                 LIMIT 1";
 // echo $pq; // DEBUG
 // die($pq); // DEBUG
-        $permalink = serendipity_db_query($pq, true, 'both', false, false, false, true);
+        $permalink = serendipity_db_query($pq, single: true, expectError: true);
 
         if (is_array($permalink)) {
             return $permalink['entry_id'];
