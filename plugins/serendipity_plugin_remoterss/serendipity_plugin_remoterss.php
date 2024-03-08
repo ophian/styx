@@ -279,10 +279,10 @@ class serendipity_plugin_remoterss extends serendipity_plugin
         $propbag->add('description',   PLUGIN_REMOTERSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Udo Gerhards, Richard Thomas Harrison, Ian Styx');
-        $propbag->add('version',       '1.36');
+        $propbag->add('version',       '1.37');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
-            'smarty'      => '4.0',
+            'smarty'      => '4.1',
             'php'         => '8.2'
         ));
         $propbag->add('configuration', array('sidebartitle', 'feedtype', 'template', 'rssuri', 'show_rss_element', 'smarty', 'number', 'use_rss_link', 'escape_rss', 'displaydate', 'dateformat', 'charset', 'target', 'cachetime', 'bulletimg', 'markup'));
@@ -555,7 +555,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
         }
 
         if (trim($rssuri)) {
-            $feedcache = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/remoterss_cache_' . md5(preg_replace('@[^a-z0-9]*@i', '', $rssuri) . $this->get_config('template')) . '.dat';
+            $feedcache = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/remoterss_cache_' . hash('xxh3', preg_replace('@[^a-z0-9]*@i', '', $rssuri) . $this->get_config('template')) . '.dat';
             if (!file_exists($feedcache) || filesize($feedcache) == 0 || filemtime($feedcache) < (time() - $cachetime)) {
                 $this->debug('Cachefile does not existing.');
                 if (!$this->urlcheck($rssuri)) {
