@@ -18,7 +18,7 @@ if (!headers_sent() && php_sapi_name() !== 'cli') {
         // Remember: 'lifetime' param in session_set_cookie_params() is, what 'expires' is in setcookie()
         #session_set_cookie_params($cookieParams['lifetime'], $cookieParams['path'], $cookieParams['domain'], $cookieParams['secure'], $cookieParams['httponly']);
         session_set_cookie_params($cookieParams); // use as $options array to support 6th param sameSite ! Requires PHP 7.3.0 ++ !!
-        session_name('s9y_' . md5(dirname(__FILE__)));
+        session_name('s9y_' . hash('xxh3', dirname(__FILE__)));
         session_start();
     }
 
