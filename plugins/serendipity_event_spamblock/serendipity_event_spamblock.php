@@ -28,7 +28,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '4.1',
             'php'         => '8.2'
         ));
-        $propbag->add('version',       '2.75');
+        $propbag->add('version',       '2.76');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -878,7 +878,7 @@ class serendipity_event_spamblock extends serendipity_event
 
         if ($use_gd) {
             return sprintf('<img src="%s" onclick="this.src=this.src + \'1\'" title="%s" alt="CAPTCHA" class="captcha" />',
-                $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . "plugin/{$x}captcha_" . md5((string) time()),
+                $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . "plugin/{$x}captcha_" . hash('XXH128', (string) time()),
                 serendipity_specialchars(PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2)
             );
         } else {
@@ -888,7 +888,7 @@ class serendipity_event_spamblock extends serendipity_event
             $output = '<div class="serendipity_comment_captcha_image" style="background-color: ' . $hexval . '">';
             for ($i = 1; $i <= $max_char; $i++) {
                 $output .= sprintf('<img src="%s" title="%s" alt="CAPTCHA ' . $i . '" class="captcha" />',
-                    $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . "plugin/{$x}captcha_" . $i . '_' . md5((string) time()),
+                    $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . "plugin/{$x}captcha_" . $i . '_' . hash('XXH128', (string) time()),
                     serendipity_specialchars(PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2)
                 );
             }
@@ -1572,9 +1572,9 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                 case 'backend_view_comment':
                     $author_is_filtered = $this->checkFilter('authors', $eventData['author']);
                     $clink = 'comment_' . $eventData['id'];
-                    $randomString = '&amp;random=' . substr(sha1((string) rand()), 0, 10);    # the random string will force browser to reload the page,
-                                                                                     # so the server knows who to block/unblock when clicking again on the same link,
-                                                                                     # see http://stackoverflow.com/a/2573986/2508518, http://stackoverflow.com/a/14043346/2508518
+                    $randomString = '&amp;random=' . hash('xxh3', $clink);  # the random string will force browser to reload the page,
+                                                                            # so the server knows who to block/unblock when clicking again on the same link,
+                                                                            # see http://stackoverflow.com/a/2573986/2508518, http://stackoverflow.com/a/14043346/2508518
                     $akismet_apikey = $this->get_config('akismet');
                     $akismet        = $this->get_config('akismet_filter');
                     if (!empty($akismet_apikey)) {
