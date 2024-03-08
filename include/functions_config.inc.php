@@ -20,7 +20,7 @@ if (IN_serendipity !== true) {
  *                                and at all replacing the very old md5() routine
  * @return  int     The new user ID of the added author
  */
-function serendipity_addAuthor($username, $password, $realname, $email, $userlevel=0, $hashtype=2) {
+function serendipity_addAuthor($username, #[\SensitiveParameter] string $password, $realname, $email, $userlevel=0, $hashtype=2) {
     global $serendipity;
 
     $password = serendipity_hash($password);
@@ -726,7 +726,7 @@ function serendipity_setAuthorToken() {
  * @param   boolean     Indicates whether to query external plugins for authentication
  * @return  boolean     True on success, False on error
  */
-function serendipity_authenticate_author($username = '', $password = '', $is_hashed = false, $use_external = true) {
+function serendipity_authenticate_author($username = '', #[\SensitiveParameter] $password = '', $is_hashed = false, $use_external = true) {
     global $serendipity;
     static $debug = false;
     static $debugc = 0;
@@ -2633,7 +2633,7 @@ function serendipity_sha1_hash($string) {
  * @param string The string to hash
  * @param string  Either SHA1 or MD5 hash, depending on value
  */
-function serendipity_passwordhash($cleartext_password) {
+function serendipity_passwordhash(#[\SensitiveParameter] string $cleartext_password) {
     global $serendipity;
 
     if ($_SESSION['serendipityHashType'] > 0) {
