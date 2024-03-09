@@ -432,7 +432,7 @@ class serendipity_event_spartacus extends serendipity_event
             $options = array('follow_redirects' => true, 'max_redirects' => 5);
             serendipity_plugin_api::hook_event('backend_http_request', $options, 'spartacus');
             // ping for main xml check
-            $fContent = serendipity_request_url($url, 'GET', null, null, $options);
+            $fContent = serendipity_request_url($url, extra_options: $options);
 
             try {
                 if ($serendipity['last_http_request']['responseCode'] != '200') {
