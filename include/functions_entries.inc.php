@@ -708,10 +708,12 @@ function &serendipity_fetchEntryProperties($id) {
  * Fetch a list of available categories for an author
  *
  * @access public
- * @param   mixed   If set, the list of categories will be fetched according to the author id. If not set, all categories will be fetched. If set to "all", then all categories will be fetched.
+ * @param   mixed   If set, the list of categories will be fetched according to the author id.
+ *                  If not set, all categories will be fetched. If set to "all", then all categories will be fetched.
  * @param   string  Restrict the list to be returned to a specific category NAME.
  * @param   string  The SQL query part for ORDER BY of the categories
- * @param   string  The ACL artifact condition. If set to "write" only categories will be shown that the author can write to. If set to "read", only categories will be show that the author can read or write to.
+ * @param   string  The ACL artifact condition. If set to "write" only categories will be shown that the author can write to.
+ *                  If set to "read", only categories will be show that the author can read or write to.
  * @param   boolean Allows to set a default category by author
  * @return  array   Returns the array of categories
  */
