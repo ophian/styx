@@ -465,7 +465,7 @@ switch ($serendipity['GET']['adminAction']) {
             } else {
                 // Try to get the URL
                 try {
-                    $fContent = serendipity_request_url($_imageurl, 'GET', null, null, null, 'image');
+                    $fContent = serendipity_request_url($_imageurl, addData: 'image');
                     if (!isset($serendipity['last_http_request']) || $serendipity['last_http_request']['responseCode'] != '200') {
                         throw new Exception("Something wrong with responseCode: {$serendipity['last_http_request']['responseCode']}?");
                     } else {
