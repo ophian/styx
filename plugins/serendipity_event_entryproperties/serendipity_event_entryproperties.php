@@ -1083,7 +1083,7 @@ class serendipity_event_entryproperties extends serendipity_event
                         ) ";
 
                         if ($use_groups) {
-                            $mygroups  = serendipity_checkPermission(null, null, true);
+                            $mygroups  = serendipity_checkPermission(returnMyGroups: true);
                             $groupcond = array();
                             foreach((array)$mygroups AS $mygroup) {
                                 $groupcond[] .= "ep_access_groups.value LIKE '%;$mygroup;%'";
