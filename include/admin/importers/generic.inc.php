@@ -150,7 +150,7 @@ class Serendipity_Import_Generic extends Serendipity_Import
         $uri = $this->data['url'];
         $options = array('follow_redirects' => true, 'max_redirects' => 5);
 
-        $fContent = serendipity_request_url($uri, 'GET', null, null, $options);
+        $fContent = serendipity_request_url($uri, extra_options: $options);
 
         try {
             if ($serendipity['last_http_request']['responseCode'] != '200') {
