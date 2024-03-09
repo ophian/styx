@@ -6573,7 +6573,7 @@ function serendipity_checkDirUpload($dir) {
     */
 
     $allowed  = serendipity_ACLGet(0, 'directory', 'write', $dir);
-    $mygroups = serendipity_checkPermission(null, null, true);
+    $mygroups = serendipity_checkPermission(returnMyGroups: true);
 
     // Usergroup "0" always means that access is granted. If no array exists, no ACL restrictions have been set and all is fine.
     if (!is_array($allowed) || isset($allowed[0])) {

@@ -2577,7 +2577,7 @@ function serendipity_hasPluginPermissions($plugin, $groupid = null) {
         $forbidden = array();
 
         if ($groupid === null) {
-            $groups = serendipity_checkPermission(null, null, 'all');
+            $groups = serendipity_checkPermission(returnMyGroups: 'all');
         } else {
             $groups = array($groupid => serendipity_fetchGroup($groupid));
         }
