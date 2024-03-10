@@ -540,7 +540,8 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             }
             $comment['url'] = strip_tags((string)$comment['url']); // via serendipity_smarty_printComments() to not error strip sanitizers
             if ($_SESSION['serendipityAuthedUser'] === true && isset($comment['id'])) {
-                $comment['link_delete'] = $serendipity['baseURL'] . 'comment.php?serendipity[delete]=' . $comment['id'] . '&amp;serendipity[entry]=' . $comment['entry_id'] . '&amp;serendipity[type]=comments&amp;' . serendipity_setFormToken('url');
+                $rel_referer = htmlspecialchars( str_replace($serendipity['serendipityHTTPPath'], '', $_SERVER['REQUEST_URI']), ENT_QUOTES, LANG_CHARSET );
+                $comment['link_delete'] = $serendipity['baseURL'] . 'comment.php?serendipity[delete]=' . $comment['id'] . '&amp;serendipity[entry]=' . $comment['entry_id'] . '&amp;serendipity[type]=comments&amp;serendipity[rel_referer]='.$rel_referer.'&amp;' . serendipity_setFormToken('url');
             }
 
             /* Fix invalid cases in protocol part */
