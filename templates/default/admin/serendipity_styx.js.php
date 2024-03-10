@@ -2267,13 +2267,15 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         // reset the hidden sets and the toggle
         document.querySelectorAll('#entry_hooks .list-flex:not(.ease-in,.ease-out)').forEach(lst=>lst.className = 'remain-flex');
-        document.querySelector('#entry_hooks .expandable-group').remove();
+        let eh_tgrp = document.querySelector('#entry_hooks .expandable-group');
+        if (eh_tgrp !== null) { eh_tgrp.remove(); }
     }
     if (ct_ah > 1) {
         document.querySelectorAll('#activity_hooks .expandable-group > .ex > button').forEach(btn=>btn.addEventListener('click',clickhandler));
     } else {
         // reset the hidden sets and the toggle
         document.querySelectorAll('#activity_hooks .list-flex:not(.ease-in,.ease-out)').forEach(lst=>lst.className = 'remain-flex');
-        document.querySelector('#activity_hooks .expandable-group').remove();
+        let ah_tgrp = document.querySelector('#activity_hooks .expandable-group');
+        if (ah_tgrp !== null) { ah_tgrp.remove(); }
     }
 });
