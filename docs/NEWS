@@ -1,6 +1,8 @@
 Version 4.4.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve backend comment messaging with "last_insert_comment_id" Smarty var
+
   * Fix comment related Smarty variable typo error in [ 2k11, b46, b5blog,
     boot, bootstrap4, clean-blog, default, default-php, next, pure, skeleton,
     sliver, timeline ] themes entries.tpl / commentpopup.tpl templates.
