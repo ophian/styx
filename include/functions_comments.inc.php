@@ -1068,7 +1068,7 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
     $parentid      = (isset($commentInfo['parent_id']) && is_numeric($commentInfo['parent_id'])) ? $commentInfo['parent_id'] : 0;
     $status        = serendipity_db_escape_string(($commentInfo['status'] ?? ($_setTo_moderation ? 'pending' : 'approved')));
     $t             = serendipity_db_escape_string((!empty($commentInfo['time']) ? $commentInfo['time'] : time())); // may come by as returncode false via plugin
-    $referer       = substr(serendipity_db_escape_string(($_SESSION['HTTP_REFERER'] ?? '')), 0, 200);
+    $referer       = !empty($_SESSION['HTTP_REFERER']) ? substr(serendipity_db_escape_string($_SESSION['HTTP_REFERER']), 0, 200) : '';
 
     $query = "SELECT a.email, e.title, a.mail_comments, a.mail_trackbacks
                 FROM {$serendipity['dbPrefix']}entries AS e
