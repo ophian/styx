@@ -82,6 +82,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
 
     if (!empty($comment['comment'])) {
         if (serendipity_saveComment((int)$serendipity['POST']['entry_id'], $comment, 'NORMAL')) {
+            $data['last_insert_id'] = $serendipity['last_insert_comment_id'] ?? '';
             $data['commentReplied'] = true;
             echo serendipity_smarty_showTemplate('admin/comments.inc.tpl', $data);
             return true;
