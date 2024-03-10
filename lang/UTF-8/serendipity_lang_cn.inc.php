@@ -205,6 +205,7 @@
 @define('WWW_USER', '请改变 www 到使用者的 Apache (i.e. nobody)！');
 @define('BROWSER_RELOAD', '完成之后, 重新刷新你的浏览器.');
 @define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
+@define('RELOAD_COMMENTS_PAGE', 'Please reload the comments page to view the new data.');
 @define('DIAGNOSTIC_ERROR', '系统检测到一些错误:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity 还没安装完成. 请按 <a href="%s">安装</a>.');
 @define('INCLUDE_ERROR', 'Serendipity 错误: 无法包括 %s - 退出！');

@@ -205,6 +205,7 @@
 @define('WWW_USER', 'Change www to the user apache runs as (e.g. nobody).');
 @define('BROWSER_RELOAD', 'Once you have done this, hit your browser\'s "reload" button.');
 @define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
+@define('RELOAD_COMMENTS_PAGE', 'Please reload the comments page to view the new data.');
 @define('DIAGNOSTIC_ERROR', ' „ √ﬂ ‘«› »⁄÷ «·«Œÿ«¡ Œ·«· ⁄„·Ì…  ›Õ’ «·»Ì«‰«  «·„œŒ·…:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity is not yet installed. Please <a href="%s">install</a> it now.');
 @define('INCLUDE_ERROR', 'Serendipity error: could not include %s - exiting.');

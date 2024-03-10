@@ -205,6 +205,7 @@
 @define('WWW_USER', 'Change www to the user apache runs as (e.g. nobody).');
 @define('BROWSER_RELOAD', 'Öncelikle şu işlemi yapın, Tarayıcınızın\'s "yenile" düğmesine tıklayın.');
 @define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
+@define('RELOAD_COMMENTS_PAGE', 'Please reload the comments page to view the new data.');
 @define('DIAGNOSTIC_ERROR', 'Girdiğiniz bilgilerde bazı hatalar tespit ettik:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity henüz kurulmadı. Lütfen <a href="%s">buradan kurun</a> .');
 @define('INCLUDE_ERROR', 'Serendipity hata: dosya eklenemedi %s - bu dosya.');

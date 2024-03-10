@@ -203,6 +203,7 @@
 @define('WWW_USER', 'apache を実行しているユーザーに www を変更します(例えば nobody)');
 @define('BROWSER_RELOAD', '一度これを実行してにはブラウザーの「再読み込み」ボタンをクリックします。');
 @define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
+@define('RELOAD_COMMENTS_PAGE', 'Please reload the comments page to view the new data.');
 @define('DIAGNOSTIC_ERROR', 'あなたの入力した情報の診断を実行する間にいくつかのエラーを検知しました:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity はまだインストールされていません。今から<a href="%s">インストール</a> してください。');
 @define('INCLUDE_ERROR', 'Serendipity エラー: %s を含むことをできません - 終了します。');

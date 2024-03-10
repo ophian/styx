@@ -204,6 +204,7 @@
 @define('WWW_USER', 'Schimbă www cu numele utilizatorului sub care rulează apache (ex. nobody).');
 @define('BROWSER_RELOAD', 'După ce ai făcuta asta, reîmprospătează pagina cu butonul Reload sau Refresh.');
 @define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
+@define('RELOAD_COMMENTS_PAGE', 'Please reload the comments page to view the new data.');
 @define('DIAGNOSTIC_ERROR', 'Am găsit nişte erori în timp ce rulam nişte teste cu informaţiile introduse de tine:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity nu e instalat încă. Îl poţi <a href="%s">instala</a> acum.');
 @define('INCLUDE_ERROR', 'Eroare Serendipity: nu am putut include %s - ies.');
