@@ -1,7 +1,8 @@
 Version 4.4.2-DEV ()
  ------------------------------------------------------------------------
 
-
+  * Fix pre-release builds comments query w/ useCommentTokens true for
+    postgreSQL varying typed error issue. Thanks to [@HQJaTu]
 
 
 Version 4.4.1 (March, 3rd 2024)
