@@ -485,7 +485,7 @@ class serendipity_event_spartacus extends serendipity_event
                 $health_options = $options;
                 serendipity_plugin_api::hook_event('backend_http_request', $health_options, 'spartacus_health');
                 // ping for health
-                $fContent = serendipity_request_url($health_url, 'GET', null, null, $health_options);
+                $fContent = serendipity_request_url($health_url, extra_options: $health_options);
 
                 try {
                     if ($serendipity['last_http_request']['responseCode'] != '200') {
