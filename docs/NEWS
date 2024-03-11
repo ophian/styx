@@ -1,7 +1,8 @@
 Version 4.4.2-DEV ()
  ------------------------------------------------------------------------
 
-  * Fix frontend (admin) comment delete link for missing HTTP_REFERER location
+  * Fix frontend comment administration delete link for possible missing
+    HTTP_REFERER location redirect.
 
   * Improve backend new comment messaging with returned ID link
 
