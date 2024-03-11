@@ -7,9 +7,9 @@ Version 4.4.2-DEV ()
 
   * Fix comment related Smarty variable typo error in [ 2k11, b46, b5blog,
     boot, bootstrap4, clean-blog, default, default-php, next, pure, skeleton,
-    sliver, timeline ] themes entries.tpl / commentpopup.tpl templates.
+    sliver, timeline ] themes "entries.tpl" / "commentpopup.tpl" templates.
     Full COPY THEMERS:
-        Please follow you parent theme changes.
+        Please follow your parent theme changes.
 
   * Fix pre-release builds comments query with useCommentTokens (enabled) for
     postgreSQL ~"varying typed" error issue. Thanks to [Jari Turkia]
