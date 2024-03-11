@@ -19,6 +19,7 @@ function serendipity_checkCommentToken($token, $cid) {
 
     $goodtoken = false;
     if ($serendipity['useCommentTokens']) {
+
         if (stristr($serendipity['dbType'], 'sqlite')) {
             $cast = "name";
         } elseif (stristr($serendipity['dbType'], 'postgres')) {
@@ -28,12 +29,15 @@ function serendipity_checkCommentToken($token, $cid) {
             // and all others eg. mysql(i), zend-db, ...
             $cast = "cast(name AS UNSIGNED)";
         }
+
         // Delete any comment tokens older than 1 week.
         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
                                WHERE okey LIKE 'comment_%' AND $cast < " . (time() - 604800) );
+
         // Get the token for this comment id
         $tokencheck = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}options
                                              WHERE okey = 'comment_" . (int)$cid . "' LIMIT 1", true, 'assoc');
+
         // Verify it against the passed key
         if (is_array($tokencheck)) {
             if ($tokencheck['value'] == $token) {
@@ -1233,17 +1237,17 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
 function serendipity_commentSubscriptionConfirm($hash) {
     global $serendipity;
 
-    // Delete possible current cookie. Also delete any confirmation hashes that smell like 3-week-old, dead fish.
     if (stristr($serendipity['dbType'], 'sqlite')) {
         $cast = "name";
     } elseif (stristr($serendipity['dbType'], 'postgres')) {
-        // Adds explicits casting for postgresql.
+        // Adds explicit casting for postgresql.
         $cast = "cast(name AS integer)";
     } else {
         // and all others eg. mysql(i), zend-db, ...
         $cast = "cast(name AS UNSIGNED)";
     }
 
+    // Delete possible current cookie. Also delete any confirmation hashes that smell like 3-week-old, dead fish.
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
                            WHERE okey LIKE 'commentsub_%' AND $cast < " . (time() - 1814400));
 
