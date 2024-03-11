@@ -11,8 +11,8 @@ Version 4.4.2-DEV ()
     Full COPY THEMERS:
         Please follow you parent theme changes.
 
-  * Fix pre-release builds comments query w/ useCommentTokens true for
-    postgreSQL varying typed error issue. Thanks to [@HQJaTu]
+  * Fix pre-release builds comments query with useCommentTokens (enabled) for
+    postgreSQL ~"varying typed" error issue. Thanks to [Jari Turkia]
 
 
 Version 4.4.1 (March, 3rd 2024)
