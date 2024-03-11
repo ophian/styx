@@ -130,7 +130,7 @@ if ($type == 'trackback') {
         report_pingback_failure();
     }
 } else {
-    $id = (int)(!empty($serendipity['POST']['entry_id']) ? $serendipity['POST']['entry_id'] : $serendipity['GET']['entry_id']);
+    $id = (int)(!empty($serendipity['POST']['entry_id']) ? $serendipity['POST']['entry_id'] : ($serendipity['GET']['entry_id'] ?? 0));
     $serendipity['head_subtitle'] = COMMENTS;
     $serendipity['smarty_file'] = 'commentpopup.tpl';
     serendipity_smarty_init();
