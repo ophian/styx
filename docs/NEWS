@@ -3,7 +3,7 @@ Version 4.4.2-DEV ()
 
   * Fix frontend (admin) comment delete link for missing HTTP_REFERER location
 
-  * Improve backend comment messaging with "last_insert_comment_id" Smarty var
+  * Improve backend new comment messaging with returned ID link
 
   * Fix comment related Smarty variable typo error in [ 2k11, b46, b5blog,
     boot, bootstrap4, clean-blog, default, default-php, next, pure, skeleton,
