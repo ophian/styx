@@ -1,6 +1,9 @@
 Version 4.4.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Extend [ styx ] backend theme expand/collapse [4.4.0] plugin tasker with
+    "user" implemented sidebar section. [ - Future purpose only, currently.]
+
   * Fix frontend comment administration delete link for possible missing
     HTTP_REFERER location redirect.
 
