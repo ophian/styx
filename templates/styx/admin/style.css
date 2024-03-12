@@ -5559,6 +5559,8 @@ img.mfp-img {
     .js #main_menu #entry_hooks .list-flex.ease-in.ai { animation: ease-out 600ms ease-in both; }
     .js #main_menu #activity_hooks .list-flex.ease-out.ao { animation: ease-in 1500ms ease-out both; }
     .js #main_menu #activity_hooks .list-flex.ease-in.ai { animation: ease-out 600ms ease-in both; }
+    .js #main_menu #user_hooks .list-flex.ease-out.ao { animation: ease-in 1500ms ease-out both; }
+    .js #main_menu #user_hooks .list-flex.ease-in.ai { animation: ease-out 600ms ease-in both; }
     @-webkit-keyframes ease-in {
       0% { -webkit-transform: scale(0) rotate(12deg); opacity: 0; visibility: hidden; }
       100% { -webkit-transform: scale(1) rotate(0); opacity: 1; visibility: visible; }
