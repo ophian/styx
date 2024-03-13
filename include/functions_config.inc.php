@@ -674,7 +674,7 @@ function serendipity_checkAutologin($ident, $iv) {
     $cdata  = $autologin['value'];
     $cookie = serendipity_cryptor($cdata, true, $iv); // decrypt OK with old mcrypt! and the intermediate cryptor class using aes-256-crt or class-less with PHP 70301 plus using strong aes-256-gcm algo
     if ($cookie === false) {
-        $cookie = unserialize(base64_decode($autologin['value']));
+        $cookie = @unserialize(base64_decode($autologin['value']));
     } else {
         $cookie = !is_array($cookie) ? unserialize($cookie) : $cookie;
     }
