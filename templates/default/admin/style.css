@@ -2124,6 +2124,7 @@ fieldset p,
 }
 
 #login .form_buttons,
+#auth_fpwd .form_buttons,
 #entries_list .actions,
 .msg_hint > p:last-of-type {
     margin-bottom: 0;
@@ -3258,7 +3259,8 @@ label .perm_name,
 .pluginmanager_move,
 .pagination .next,
 .pagination .last,
-#login .form_buttons {
+#login .form_buttons,
+#auth_fpwd .form_buttons {
     text-align: right;
 }
 
