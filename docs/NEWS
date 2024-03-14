@@ -1,7 +1,8 @@
 Version 4.4.2-DEV ()
  ------------------------------------------------------------------------
 
-  * Fix PHP 8.0+ plugins_admin API type error bug disclosed by string method
+  * Fix PHP 8.0+ plugins_admin API type error warning bug, disclosed by added
+    string polishing cleanups.
 
   * Extend [ styx ] backend theme expand/collapse [4.4.0] plugin tasker with
     "user" implemented sidebar section. [ - Future purpose only, currently.]
