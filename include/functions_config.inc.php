@@ -643,10 +643,11 @@ function serendipity_issueAutologin($array) {
         $cast = 'cast(name AS UNSIGNED)';
     }
 
+    // Delete possible current cookie. Also delete any autologin keys that smell like 3-week-old, dead fish. Be explicit for postgreSQL casts to exclude sysinfo tickers!
     if (isset($serendipity['COOKIE']['author_information'])) {
         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
-                                WHERE okey = 'l_" . serendipity_db_escape_string($serendipity['COOKIE']['author_information']) . "'
-                                   OR (okey LIKE 'l_%' AND $cast < " . (time() - 1814400) . ")");
+                                WHERE okey = 'l_" . serendipity_db_escape_string($serendipity['COOKIE']['author_information']) . "' AND name != 'sysinfo_ticker'
+                                   OR (name != 'sysinfo_ticker' AND okey LIKE 'l_%' AND $cast < " . (time() - 1814400) . ")");
     }
 
     // Issue new autologin cookie
