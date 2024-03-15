@@ -1,6 +1,9 @@
 Version 4.4.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix postgreSQL (cast) error issues auto-nuking login cookie data from
+    database which collided with stored remote sysinfo_ticker data.
+
   * Fix PHP 8.0+ plugins_admin API type error warning bug, disclosed by added
     string polishing cleanups.
 
