@@ -1,4 +1,4 @@
-Version 4.4.2-DEV ()
+Version 4.4.2 (March, 15th 2024)
  ------------------------------------------------------------------------
 
   * Fix postgreSQL (cast) error issues auto-nuking login cookie data from
