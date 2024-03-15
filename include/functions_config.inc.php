@@ -1472,7 +1472,7 @@ function serendipity_getPermissionNames() {
  *                          since those variables are only available within this function.
  * @return  mixed       Either returns true if a permission check is performed or false if not, or returns an array of group memberships. This depends on the $returnMyGroups variable.
  */
-function serendipity_checkPermission($permName, $authorid = null, $returnMyGroups = false) {
+function serendipity_checkPermission($permName = null, $authorid = null, $returnMyGroups = false) {
     global $serendipity;
     // Define old serendipity permissions
     static $permissions = null;
