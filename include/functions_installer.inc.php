@@ -1411,7 +1411,7 @@ function serendipity_FTPChecksum($filename, $type = null) {
         $newlines = array("#\r\n#", "#\r#", "#\n#");
         $file = file_get_contents($filename);
         $file = preg_replace($newlines, ' ', $file);
-        $hash = hash('XXH128', ($file);
+        $hash = hash('XXH128', $file);
     } else {
         // Just get its xxHash
         $hash = hash_file('XXH128', $filename);
