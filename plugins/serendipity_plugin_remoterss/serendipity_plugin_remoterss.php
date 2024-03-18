@@ -279,7 +279,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
         $propbag->add('description',   PLUGIN_REMOTERSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Udo Gerhards, Richard Thomas Harrison, Ian Styx');
-        $propbag->add('version',       '1.37');
+        $propbag->add('version',       '1.38');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
@@ -932,11 +932,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                 } elseif (function_exists('recode')) {
                     $out = recode('iso-8859-1..' . LANG_CHARSET, $string);
                 } elseif (LANG_CHARSET == 'UTF-8') {
-                    if (!function_exists('mb_convert_encoding')) {
-                        return @utf8_encode($string); // Deprecation in PHP 8.2, removal in PHP 9.0
-                    } else {
-                        return mb_convert_encoding($string, 'UTF-8', 'ISO-8859-1'); // string, to, from
-                    }
+                    return mb_convert_encoding($string, 'UTF-8', 'ISO-8859-1'); // string, to, from
                 } else {
                     return $string;
                 }
@@ -944,11 +940,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
 
             case 'UTF-8':
             default:
-                if (!function_exists('mb_convert_encoding')) {
-                    $out = @utf8_decode($string); // Deprecation in PHP 8.2, removal in PHP 9.0
-                } else {
-                    $out = mb_convert_encoding($string, 'ISO-8859-1', 'UTF-8'); // string, to, from
-                }
+                $out = mb_convert_encoding($string, 'ISO-8859-1', 'UTF-8'); // string, to, from
                 return $out;
         }
     }

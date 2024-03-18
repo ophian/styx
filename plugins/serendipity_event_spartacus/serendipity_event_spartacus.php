@@ -17,7 +17,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.24');
+        $propbag->add('version',       '3.25');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'php'         => '8.2'
@@ -563,11 +563,7 @@ class serendipity_event_spartacus extends serendipity_event
                 break;
 
             case 'iso-8859-1':
-                if (!function_exists('mb_convert_encoding')) {
-                    $data = @utf8_decode($data); // Deprecation in PHP 8.2, removal in PHP 9.0
-                } else {
-                    $data = mb_convert_encoding($data, 'ISO-8859-1', 'UTF-8'); // string, to, from
-                }
+                $data = mb_convert_encoding($data, 'ISO-8859-1', 'UTF-8'); // string, to, from
                 break;
 
             default:
