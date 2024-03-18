@@ -1152,16 +1152,10 @@ function serendipity_utf8_encode($string) {
             if ($new !== false) {
                 return $new;
             } else {
-                if (!function_exists('mb_convert_encoding')) {
-                    return @utf8_encode($string); // Deprecation in PHP 8.2, removal in PHP 9.0
-                } else {
-                    return mb_convert_encoding($string, 'UTF-8', LANG_CHARSET); // string, to, from
-                }
+                return mb_convert_encoding($string, 'UTF-8', LANG_CHARSET); // string, to, from
             }
-        } else if (function_exists('mb_convert_encoding')) {
-            return mb_convert_encoding($string, 'UTF-8', LANG_CHARSET); // string, to, from
         } else {
-            return @utf8_encode($string); // Deprecation in PHP 8.2, removal in PHP 9.0
+            return mb_convert_encoding($string, 'UTF-8', LANG_CHARSET); // string, to, from
         }
     } else {
         return $string;
