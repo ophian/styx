@@ -71,7 +71,7 @@ function serendipity_printStylesheet($file, $dir = '', $root = '') {
 
 // Actually we want the CSS file(s) to immediate be recognized as a new file when changes have happened. Changing themes, adding plugins with CSS injection, configuring theme configurations that have color styles, etc.
 // This is done by checking and setting the ETag hash in serendipity_setNotModifiedHeader(). We don't do query string timestamps any more!
-if ($serendipity['CacheControl'] && !empty($_SERVER['SERVER_SOFTWARE']) && strstr($_SERVER['SERVER_SOFTWARE'], 'LiteSpeed')) {
+if ($serendipity['CacheControl'] && !empty($_SERVER['SERVER_SOFTWARE']) && str_contains($_SERVER['SERVER_SOFTWARE'], 'LiteSpeed')) {
     // LiteSpeed servers (on Hostinger) that use a "high speed proxy caching" - which isn't the LiteSpeed Caching itself (I think) and LiteSpeed check announces itself as not set ON -
     // have the issue of expiring after default of 30 min, but not renewing the BROWSER stored CSS file cache on Chromium / Safari based browsers (Firefox does not have this issue)
     // which then also seems expired but not totally cleared and so the page is shown without styles until the USER forces a hard page reload that causes an overwrite of cached files (sadly for all of them)

@@ -557,7 +557,7 @@ function serendipity_makePermalink($format, $data, $type = 'entry') {
             if (isset($data['categoryid'])) {
                 $parent_path = array();
                 // This is expensive. Only lookup if required.
-                if (strstr($format, '%parentname%')) {
+                if (str_contains($format, '%parentname%')) {
                     $parents = serendipity_getCategoryRoot($data['categoryid']);
                     if (is_array($parents)) {
                         foreach($parents AS $parent) {

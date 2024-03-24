@@ -89,7 +89,7 @@ function serendipity_plugin_api_core_event_hook($event, &$bag, &$eventData, &$ad
                 if ($serendipity['CacheControl']) {
                     // Note that no-cache does not mean "don't cache". no-cache allows caches to store a response but requires them to revalidate it before reuse.
                     // If the sense of "don't cache" that you want is actually "don't store", then no-store is the directive to use.
-                    if (!empty($_SERVER['SERVER_SOFTWARE']) && strstr($_SERVER['SERVER_SOFTWARE'], 'LiteSpeed')) {
+                    if (!empty($_SERVER['SERVER_SOFTWARE']) && str_contains($_SERVER['SERVER_SOFTWARE'], 'LiteSpeed')) {
                         header('Cache-Control: private, max-age=3600, must-revalidate'); // for Hostinger Cache on LiteSpeed
                         header('Pragma:'); // for Hostinger Cache on LiteSpeed
                     } else {
@@ -1040,7 +1040,7 @@ class serendipity_plugin_api
      */
     static function is_event_plugin($name)
     {
-        return strstr($name, '_event_');
+        return str_contains($name, '_event_');
     }
 
     /**
@@ -1195,7 +1195,7 @@ class serendipity_plugin_api
     {
         global $serendipity;
 
-        if (!strstr($instance_id, ':')) {
+        if (!str_contains($instance_id, ':')) {
             $instance_id .= ':';
         }
 

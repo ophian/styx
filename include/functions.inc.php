@@ -1286,12 +1286,12 @@ function serendipity_track_referrer($entry = 0) {
         $url_parts  = parse_url($_SERVER['HTTP_REFERER']);
         $host_parts = explode('.', $url_parts['host']);
         if (!$url_parts['host'] ||
-            strstr($url_parts['host'], $_SERVER['SERVER_NAME'])) {
+            str_contains($url_parts['host'], $_SERVER['SERVER_NAME'])) {
             return;
         }
 
         foreach($serendipity['_blockReferer'] AS $idx => $hostname) {
-            if (@strstr($url_parts['host'], $hostname)) {
+            if (@str_contains($url_parts['host'], $hostname)) {
                 return;
             }
         }

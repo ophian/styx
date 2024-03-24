@@ -473,7 +473,7 @@ if (is_array($sql)) {
         if ($comment['status'] == 'pending') {
             $class .= ' serendipity_admin_comment_pending';
             $header_class = 'serendipityAdminMsgNote serendipity_admin_comment_pending_header';
-        } elseif (strstr($comment['status'], 'confirm')) {
+        } elseif (str_contains($comment['status'], 'confirm')) {
             $class .= ' serendipity_admin_comment_pending serendipity_admin_comment_confirm';
             $header_class = 'serendipityAdminMsgNote serendipity_admin_comment_pending_header serendipity_admin_comment_confirm_header';
         } else {

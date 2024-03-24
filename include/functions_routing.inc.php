@@ -162,7 +162,7 @@ function serveJS($js_mode) {
     if ($serendipity['CacheControl']) {
         // Note that no-cache does not mean "don't cache". no-cache allows caches to store a response but requires them to revalidate it before reuse.
         // If the sense of "don't cache" that you want is actually "don't store", then no-store is the directive to use.
-        if (!empty($_SERVER['SERVER_SOFTWARE']) && strstr($_SERVER['SERVER_SOFTWARE'], 'LiteSpeed')) {
+        if (!empty($_SERVER['SERVER_SOFTWARE']) && str_contains($_SERVER['SERVER_SOFTWARE'], 'LiteSpeed')) {
             header('Cache-Control: private, max-age=3600, must-revalidate'); // for Hostinger Cache on LiteSpeed
             header('Pragma:'); // for Hostinger Cache on LiteSpeed
         } else {
@@ -451,7 +451,7 @@ function serveEntry($matches) {
         if (!empty($comment['comment'])) {
             if (serendipity_saveComment($serendipity['POST']['entry_id'], $comment, 'NORMAL')) {
                 // $serendipity['last_insert_comment_id'] used for for comment added messaging
-                $sc_url = ($_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . (strstr($_SERVER['REQUEST_URI'], '?') ? '&' : '?') . 'serendipity[csuccess]=' . ($serendipity['csuccess'] ?? 'true') . '&last_insert_cid=' . ($serendipity['last_insert_comment_id'] ?? '') . '#feedback';
+                $sc_url = ($_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . (str_contains($_SERVER['REQUEST_URI'], '?') ? '&' : '?') . 'serendipity[csuccess]=' . ($serendipity['csuccess'] ?? 'true') . '&last_insert_cid=' . ($serendipity['last_insert_comment_id'] ?? '') . '#feedback';
                 unset($serendipity['last_insert_comment_id']); // remove the temporary global, set in function serendipity_saveComment
                 if (serendipity_isResponseClean($sc_url)) {
                     header('Status: 302 Found');

@@ -55,7 +55,7 @@ function serendipity_db_connect() {
 
     $host = $port = '';
     if (strlen($serendipity['dbHost'])) {
-        if (false !== strstr($serendipity['dbHost'], ':')) {
+        if (str_contains($serendipity['dbHost'], ':')) {
             $tmp = explode(':', $serendipity['dbHost']);
             $host = "host={$tmp[0]} ";
             $port = "port={$tmp[1]} ";
