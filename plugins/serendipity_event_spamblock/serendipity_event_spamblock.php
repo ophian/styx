@@ -28,7 +28,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '4.1',
             'php'         => '8.2'
         ));
-        $propbag->add('version',       '2.76');
+        $propbag->add('version',       '2.77');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1357,7 +1357,7 @@ class serendipity_event_spamblock extends serendipity_event
 
                         // Check invalid email
                         if ($addData['type'] == 'NORMAL' && serendipity_db_bool($this->get_config('checkmail', 'false'))) {
-                            if (!empty($addData['email']) && strstr($addData['email'], '@') === false) {
+                            if (!empty($addData['email']) && !str_contains($addData['email'], '@')) {
                                 $this->log($logfile, $eventData['id'], 'REJECTED', PLUGIN_EVENT_SPAMBLOCK_REASON_CHECKMAIL, $addData);
                                 $eventData = array('allow_comments' => false);
                                 $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_SPAMBLOCK_REASON_CHECKMAIL;
