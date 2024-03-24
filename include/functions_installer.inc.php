@@ -1268,7 +1268,7 @@ function serendipity_check_rewrite($default) {
             $default = 'rewrite';
             return $default;
         }
-    } elseif (function_exists('phpinfo' ) && false === strpos(ini_get('disable_functions'), 'phpinfo')) {
+    } elseif (function_exists('phpinfo' ) && !str_contains(ini_get('disable_functions'), 'phpinfo')) {
         ob_start();
             phpinfo(INFO_MODULES);
         $phpinfo = ob_get_clean();

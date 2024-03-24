@@ -4726,11 +4726,11 @@ function serendipity_prepareMedia(&$file, $url = '') {
 
     if ($file['is_image']) {
         $file['mediatype'] = 'image';
-    } elseif (0 === strpos(strtolower($file['displaymime']), 'video/') || 0 === strpos(strtolower($file['displaymime']), 'application/x-shockwave')) {
+    } elseif (!str_contains(strtolower($file['displaymime']), 'video/') || !str_contains(strtolower($file['displaymime']), 'application/x-shockwave')) {
         $file['mediatype'] = 'video';
-    } elseif (0 === strpos(strtolower($file['displaymime']), 'audio/') || 0 === strpos(strtolower($file['displaymime']), 'application/vnd.rn-') || 0 === strpos(strtolower($file['displaymime']), 'application/ogg')) {
+    } elseif (!str_contains(strtolower($file['displaymime']), 'audio/') || !str_contains(strtolower($file['displaymime']), 'application/vnd.rn-') || !str_contains(strtolower($file['displaymime']), 'application/ogg')) {
         $file['mediatype'] = 'audio';
-    } elseif (0 === strpos(strtolower($file['displaymime']), 'text/')) {
+    } elseif (!str_contains(strtolower($file['displaymime']), 'text/')) {
         $file['mediatype'] = 'document';
     } elseif (preg_match('@application/(pdf|rtf|msword|msexcel|excel|x-excel|mspowerpoint|postscript|vnd\.ms*|powerpoint)@i', $file['displaymime'])) {
         $file['mediatype'] = 'document';
@@ -5640,7 +5640,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
 
             // do we still need this? YES, it is definitely false, so we would not need the ternary - should already be done, maybe just paranoid :g
             // Rename newDir + file name in case it is called by the Bulk Move and not by rename
-            $newDirFile = (false === strpos($newDir, $file['name'])) ? $newDir . $file['name'] : $newDir;
+            $newDirFile = !str_contains($newDir, $file['name']) ? $newDir . $file['name'] : $newDir;
 
             foreach($renameValues AS $renameData) {
                 // build full thumb file names
@@ -6124,7 +6124,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $file, $pick=
         if ($type == 'filedir' || $type == 'file') {
             // newDir + file name in case it is a 'filedir' path OR a file called by the Bulk Move, BUT NOT by rename
             if ($type == 'filedir' || ($type == 'file' && $oldDir !== null)) {
-                $newDirFile = (false === strpos($newDir, $_file['name'])) ? $newDir . $_file['name'] : $newDir;
+                $newDirFile = !str_contains($newDir, $_file['name']) ? $newDir . $_file['name'] : $newDir;
             }
             #if (isset($newDirFile)) $newDirFile = ($newDirFile == 'uploadRoot/'.$_file['name']) ? str_replace('uploadRoot/', '', $newDirFile) : $newDirFile; //@see better $newDir fix above
             if ($type == 'file' && $oldDir === null) {
@@ -6445,7 +6445,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
 
         if (isset($file['hotlink'])) {
 
-            $newHotlinkFile = (false === strpos($newDir, $file['extension'])) ? $newDir . (empty($file['extension']) ? '' : '.' . $file['extension']) : $newDir;
+            $newHotlinkFile = !str_contains($newDir, $file['extension']) ? $newDir . (empty($file['extension']) ? '' : '.' . $file['extension']) : $newDir;
             serendipity_updateImageInDatabase(array('realname' => $newHotlinkFile, 'name' => $newDir), $item_id);
 
         } else {

@@ -237,7 +237,7 @@ if (isset($serendipity['GET']['adminAction'])
             $codata['email']      = $comment[0]['email'];
             $codata['url']        = $comment[0]['url'];
             $codata['replyTo']    = $comment[0]['parent_id'];
-            $codata['comment']    = (($serendipity['allowHtmlComment'] && $serendipity['wysiwyg']) && false === strpos($comment[0]['body'], '</p>'))
+            $codata['comment']    = (($serendipity['allowHtmlComment'] && $serendipity['wysiwyg']) && !str_contains($comment[0]['body'], '</p>'))
                                         ? nl2br($comment[0]['body'])
                                         : $comment[0]['body'];
 

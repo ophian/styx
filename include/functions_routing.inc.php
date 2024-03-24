@@ -10,7 +10,7 @@ if (IN_serendipity !== true) {
 function serveIndex() {
     global $serendipity;
 
-    $serendipity['view'] = (false === strpos($_SERVER['QUERY_STRING'], 'frontpage')) ? 'start' : 'entries';
+    $serendipity['view'] = !str_contains($_SERVER['QUERY_STRING'], 'frontpage') ? 'start' : 'entries';
 
     if ($serendipity['GET']['action'] == 'search') {
         $serendipity['view'] = 'search';

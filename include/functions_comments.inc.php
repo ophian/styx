@@ -220,7 +220,7 @@ function serendipity_sanitizeHtmlComments($str) {
  */
 function serendipity_prepCommentNewline($string, $parsed=false) {
     // check for simple p-tag first - do not if true. This is/was a comment by ISOBR default.
-    if (false === strpos($string, '</p>')) {
+    if (!str_contains($string, '</p>')) {
         $parsed = true;
     }
     // then check code parts within pre tags for nl2br plugin comment(true) option

@@ -1023,7 +1023,7 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
 
     // If * wasn't already appended and if there are none or not enough
     // results, search again for entries containing the searchterm as a part [MySQL only]
-    if (false === strpos($term, '*') && $serendipity['dbType'] == 'mysqli') {
+    if (!str_contains($term, '*') && $serendipity['dbType'] == 'mysqli') {
         if (!is_array($search)) {
             return serendipity_searchEntries($term.'*', $orig_limit);
         } else {

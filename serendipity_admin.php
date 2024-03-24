@@ -165,7 +165,7 @@ if (!$use_installer && $is_logged_in) {
 
             include S9Y_INCLUDE_PATH . 'include/admin/plugins.inc.php';
             // check for special case plugin_to conf - do we have more of this kind?
-            $admin_section = (!isset($serendipity['GET']['plugin_to_conf']) || FALSE === strpos($serendipity['GET']['plugin_to_conf'], 'serendipity_event_spamblock')) ? MENU_PLUGINS : 'Spamblock Plugin Config';
+            $admin_section = (!isset($serendipity['GET']['plugin_to_conf']) || !str_contains($serendipity['GET']['plugin_to_conf'], 'serendipity_event_spamblock')) ? MENU_PLUGINS : 'Spamblock Plugin Config';
             break;
 
         case 'users':

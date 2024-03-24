@@ -61,7 +61,7 @@ function image_inuse($iid, $eid, $im, $entry, $field, $path, $name) {
         // Now (check the ID to match the image DB media ID OR having an unmatching src path against the db path/name value) OR
         //     (check the image name against the basename source name AND to comply with the blogs path (i.e. in cases you have a bunch/block of image(s) with a different path copied by another (local) blog))
         $_image = check_by_image_db($o['s9ymdb']);
-        if ((!empty($o['s9ymdb']) && $iid != $o['s9ymdb'] || false === strpos($o['src'], $_image[0]['path'].$_image[0]['name'])) || (!empty($o['src']) && $name != $o['bsename'] && str_contains($o['src'], $path))) {
+        if ((!empty($o['s9ymdb']) && $iid != $o['s9ymdb'] || !str_contains($o['src'], $_image[0]['path'].$_image[0]['name'])) || (!empty($o['src']) && $name != $o['bsename'] && str_contains($o['src'], $path))) {
             if (!isset($_loop)) {
                 echo '<span class="msg_hint"><span class="icon-attention-circled" aria-hidden="true"></span> ' . MLORPHAN_MTASK_MAIN_PATTERN_NAME_WARNING . "</span>\n";
             }
@@ -196,7 +196,7 @@ foreach($_images AS $go) {
         $e = serendipity_db_query("SELECT id, title, body, extended FROM `{$serendipity['dbPrefix']}entries` WHERE body LIKE '%<!-- s9ymdb:{$go['id']} -->%' OR extended LIKE '%<!-- s9ymdb:{$go['id']} -->%'", false, 'assoc');
         if (!empty($e[0])) {
             $expath = img_path($go['id'], [$e[0]['body'], $e[0]['extended']]);
-            if (!empty($expath[2]) && false === strpos($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'], $expath[2])) {
+            if (!empty($expath[2]) && !str_contains($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'], $expath[2])) {
                 $alerts[] = '<b>'.$go['name'] .'</b> '.MLORPHAN_MTASK_RESPECTIVELY.' ( <b>s9ymdb: '.$go['id'].'</b> ) in Entry ID: ' . $e[0]['id'].' - "<em>'. $e[0]['title'] . '</em>". ' . sprintf(MLORPHANS_MTASK_EXPATH, $expath[2]);
                 $pckeys[] = $go['id'];
                 $exclude .= $go['id'].', ';
@@ -218,7 +218,7 @@ foreach($_images AS $go) {
         $s = serendipity_db_query("SELECT id, pagetitle, content, pre_content FROM `{$serendipity['dbPrefix']}staticpages` WHERE content LIKE '%<!-- s9ymdb:{$go['id']} -->%' OR pre_content LIKE '%<!-- s9ymdb:{$go['id']} -->%'", false, 'assoc');
         if (!empty($s[0])) {
             $expath = img_path($go['id'], [$s[0]['content'], $s[0]['pre_content']]);
-            if (!empty($expath[2]) && false === strpos($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'], $expath[2])) {
+            if (!empty($expath[2]) && !str_contains($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'], $expath[2])) {
                 $alerts[] = '<span style="color:blue"><b>'.$go['name'] .'</b> ( s9ymdb: '.$go['id'].' ) in Staticpage ID: ' . $s[0]['id'].' - "<em>'. $s[0]['pagetitle'] . '</em>". ' . sprintf(MLORPHANS_MTASK_EXPATH, $expath[2]).'</span>';
                 $pckeys[] = $go['id'];
                 $exclude .= $go['id'].', ';

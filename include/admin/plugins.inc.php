@@ -421,7 +421,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         foreach ($locals AS $removed) {
             // Check up physically purged sidebar plugins - we don't want to have them in our db list
             // But do we actually care about bundled plugins or plugin dependencies? No, not really, since purging is an expressed user action! ( But we better check the first, though! ;-) )
-            if (!file_exists($removed['plugin_file']) && false === strpos($removed['plugin_file'], 'serendipity_event_')) {
+            if (!file_exists($removed['plugin_file']) && !str_contains($removed['plugin_file'], 'serendipity_event_')) {
                 serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}pluginlist
                                        WHERE plugin_file = '" . serendipity_db_escape_string($removed['plugin_file']) . "'
                                          AND pluginlocation  = 'local'");
