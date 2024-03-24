@@ -22,7 +22,7 @@ class serendipity_plugin_html_nugget extends serendipity_plugin
         $propbag->add('description',   $desc);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team, Ian Styx');
-        $propbag->add('version',       '1.6');
+        $propbag->add('version',       '1.7');
         $propbag->add('configuration', array(
                                         'title',
                                         'backend_title',
@@ -96,7 +96,7 @@ class serendipity_plugin_html_nugget extends serendipity_plugin
             return false;
         } else if ($show_where == 'overview' && isset($serendipity['GET']['id']) && is_numeric($serendipity['GET']['id'])) {
             return false;
-        } else if ($show_where == 'nostart' && $serendipity['view'] == 'start' && false === strpos($_SERVER['REQUEST_URI'], '?frontpage')) {
+        } else if ($show_where == 'nostart' && $serendipity['view'] == 'start' && !str_contains($_SERVER['REQUEST_URI'], '?frontpage')) {
             return false;
         }
 
