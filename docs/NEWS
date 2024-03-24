@@ -2,6 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Use PHP 8.0 - Change to str_contains() [ case-sensitive ]
+
   * Remove old compat mb_convert_encoding() checks below PHP 8.2
 
   * USE PHP 8.1 - Change to use fastest xxHash algorithm
