@@ -2,7 +2,7 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Use PHP 8.0 - Change to str_contains() [ case-sensitive ]
+  * Use PHP 8.0 - Change strpos() & strstr() to str_contains() [ case-sensitive ]
 
   * Remove old compat mb_convert_encoding() checks below PHP 8.2
 
