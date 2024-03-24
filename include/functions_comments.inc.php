@@ -557,7 +557,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             }
 
             // Check the origin [body] field entry, to HTML display each comment - OR using NL2P in Backend and/or Frontend - AND in shortcut /comments/ pages
-            if ($serendipity['allowHtmlComment'] && false !== strpos($comment['body'], '</p>')) {
+            if ($serendipity['allowHtmlComment'] && str_contains($comment['body'], '</p>')) {
                 // disable NL2BR plugin parsing, for the NL2BR newline to p-tag option
                 $serendipity['POST']['properties']['disable_markups'] = array(true);
                 // Set a temporary runtime var to know this has run for this comment item. This is more strict than checking disable_markups only (see above)
@@ -582,7 +582,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             //          ... since it is only preparing/removing exuberant line breaks for output on the first hand
             //          ... and independently setting the flag when DB comment body has <br /> tags)
             // Generally it seems to me that this check AT ALL is now completely obsolete... and we should disable/remove it and/or place the preg into nl2br...
-            if (empty($_comment_dismarkup_temp) && false !== strpos($comment['body'], '<br />')) {
+            if (empty($_comment_dismarkup_temp) && str_contains($comment['body'], '<br />')) {
                 $comment['comment'] = preg_replace('{(<br[^>]*>\s*){3,}+}i', "<br/>\n", $comment['comment']); // leaves "paragraph alike" double br
                 $_comment_dismarkup_temp = true;
             }

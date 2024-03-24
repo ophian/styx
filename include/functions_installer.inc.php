@@ -830,7 +830,7 @@ function serendipity_installFiles($serendipity_core = '') {
         }
     }
 
-    if (php_sapi_name() == 'cgi' || php_sapi_name() == 'cgi-fcgi' || php_sapi_name() == 'fpm-fcgi' || (php_sapi_name() === 'cli' OR defined('STDIN')) || false !== strpos(php_sapi_name(), 'cgi')) {
+    if (php_sapi_name() == 'cgi' || php_sapi_name() == 'cgi-fcgi' || php_sapi_name() == 'fpm-fcgi' || (php_sapi_name() === 'cli' OR defined('STDIN')) || str_contains(php_sapi_name(), 'cgi')) {
         $htaccess_cgi = '_cgi';
     } else {
         $htaccess_cgi = '';
@@ -1273,7 +1273,7 @@ function serendipity_check_rewrite($default) {
             phpinfo(INFO_MODULES);
         $phpinfo = ob_get_clean();
 
-        if (false !== strpos($phpinfo, 'mod_rewrite')) {
+        if (str_contains($phpinfo, 'mod_rewrite')) {
             $default = 'rewrite';
             return $default;
         }
@@ -1485,7 +1485,7 @@ function serendipity_getCurrentVersion() {
     // https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE
     $config_rv = serendipity_get_config_var('updateReleaseFileUrl', 'https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE');
 
-    $serendipity['updateVersionName'] = (false !== strpos((string)$config_rv, 'styx')) ? 'Styx' : 'Serendipity';
+    $serendipity['updateVersionName'] = str_contains((string)$config_rv, 'styx') ? 'Styx' : 'Serendipity';
 
     // Perform update check once a day. We use a suffix of the configured channel, so when
     // the user switches channels, it has its own timer.

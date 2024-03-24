@@ -962,7 +962,7 @@ function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $mu
         if (!is_dir($_tmppath)) {
             @mkdir($_tmppath);
         }
-        $thumb = (false !== strpos($outfile, $serendipity['thumbSuffix'])) ? "{$serendipity['thumbSuffix']} " : ' ';
+        $thumb = str_contains($outfile, $serendipity['thumbSuffix']) ? "{$serendipity['thumbSuffix']} " : ' ';
         $_outfile = $_tmppath . '/' . $outfile; // store in a ("preserved key .v") current dir/.v directory!
         if (!file_exists($_outfile)) {
             // make a distinction switch between IM / GD libraries
@@ -1020,7 +1020,7 @@ function serendipity_convertToAvifFormat($infile, $outpath, $outfile, $mime, $mu
         if (!is_dir($_tmppath)) {
             @mkdir($_tmppath);
         }
-        $thumb = (false !== strpos($outfile, $serendipity['thumbSuffix'])) ? "{$serendipity['thumbSuffix']} " : ' ';
+        $thumb = str_contains($outfile, $serendipity['thumbSuffix']) ? "{$serendipity['thumbSuffix']} " : ' ';
         $_outfile = $_tmppath . '/' . $outfile; // store in a ("preserved key .v") current dir/.v directory!
         if (!file_exists($_outfile)) {
             // make a distinction switch between IM / GD libraries
@@ -1410,11 +1410,11 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                 $_imtp = !empty($serendipity['imagemagick_thumb_parameters']) ? ' '. $serendipity['imagemagick_thumb_parameters'] : '';
 
                 // check a special case for the fullpath WebP file to thumbnail resizing
-                if (false !== strpos($outfile, '.' . $serendipity['thumbSuffix'] . '.webp')) {
+                if (str_contains($outfile, '.' . $serendipity['thumbSuffix'] . '.webp')) {
                     $fdim['mime'] = 'image/webp';
                 }
                 // check a special case for the fullpath AVIF file to thumbnail resizing
-                if (false !== strpos($outfile, '.' . $serendipity['thumbSuffix'] . '.avif')) {
+                if (str_contains($outfile, '.' . $serendipity['thumbSuffix'] . '.avif')) {
                     $fdim['mime'] = 'image/avif';
                 }
 
@@ -3184,7 +3184,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
                 }
             } else {
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag {$sFile['relpath']} is a file."); }
-                if ($sFile['relpath'] == '.empty' || false !== strpos($sFile['relpath'], '.quickblog.') || ( preg_match('@\.v/@', $sFile['relpath']) && preg_match('@[.webp|.avif]$@', $sFile['relpath']) )) {
+                if ($sFile['relpath'] == '.empty' || str_contains($sFile['relpath'], '.quickblog.') || ( preg_match('@\.v/@', $sFile['relpath']) && preg_match('@[.webp|.avif]$@', $sFile['relpath']) )) {
                     if ($sFile['relpath'] != '.empty' && (!isset($serendipity['aFilesNoSync']) || !in_array($sFile['relpath'], (array)$serendipity['aFilesNoSync']))) {
                         if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Found aFilesNoSync = {$sFile['relpath']}."); }
                         $path_parts = pathinfo($sFile['relpath']);

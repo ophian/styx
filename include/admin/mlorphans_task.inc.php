@@ -53,7 +53,7 @@ function image_inuse($iid, $eid, $im, $entry, $field, $path, $name) {
 #DEBUG    if (!empty($matches)) print_r($matches);
 
     // Only care about the full s9ymdb ID plus the image src string and check if the path matches to the blog (to avoid possible others from same machine)
-    if (!empty($matches[0]) && false !== strpos($matches[0], $path)) {
+    if (!empty($matches[0]) && str_contains($matches[0], $path)) {
         $o = strip_to_array($matches[0], $path);
         $o['dbiname'] = $name;
         $o['bsename'] = strtok(basename($o['src']), '.');
@@ -61,7 +61,7 @@ function image_inuse($iid, $eid, $im, $entry, $field, $path, $name) {
         // Now (check the ID to match the image DB media ID OR having an unmatching src path against the db path/name value) OR
         //     (check the image name against the basename source name AND to comply with the blogs path (i.e. in cases you have a bunch/block of image(s) with a different path copied by another (local) blog))
         $_image = check_by_image_db($o['s9ymdb']);
-        if ((!empty($o['s9ymdb']) && $iid != $o['s9ymdb'] || false === strpos($o['src'], $_image[0]['path'].$_image[0]['name'])) || (!empty($o['src']) && $name != $o['bsename'] && false !== strpos($o['src'], $path))) {
+        if ((!empty($o['s9ymdb']) && $iid != $o['s9ymdb'] || false === strpos($o['src'], $_image[0]['path'].$_image[0]['name'])) || (!empty($o['src']) && $name != $o['bsename'] && str_contains($o['src'], $path))) {
             if (!isset($_loop)) {
                 echo '<span class="msg_hint"><span class="icon-attention-circled" aria-hidden="true"></span> ' . MLORPHAN_MTASK_MAIN_PATTERN_NAME_WARNING . "</span>\n";
             }

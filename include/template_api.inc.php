@@ -309,7 +309,7 @@ class serendipity_smarty_emulator
         // remove noop 'DIRECTORY_SEPARATOR DIRECTORY_SEPARATOR' and 'DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR' patterns
         $path = preg_replace('#([\\\\/]([.]?[\\\\/])+)#', $this->ds, $path);
         // resolve '..DIRECTORY_SEPARATOR' pattern, smallest first
-        if (false !== strpos($path, '..' . $this->ds) &&
+        if (str_contains($path, '..' . $this->ds) &&
             preg_match_all('#(([.]?[\\\\/])*([.][.])[\\\\/]([.]?[\\\\/])*)+#', $path, $match)
         ) {
             $counts = array();

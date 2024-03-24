@@ -223,7 +223,7 @@ if (!function_exists('errorToExceptionHandler')) {
             if (!isset($serendipity['dbConn']) || !$serendipity['dbConn'] || $exit) {
                 echo '<p>'.$head.'</p><p><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ' on line ' . $errLine . '.' . $debug_note . "</p>\n";
             } else {
-                if (!empty($debug_note) && false !== strpos($errStr, $debug_note)) echo $head . $debug_note."\n\n";
+                if (!empty($debug_note) && str_contains($errStr, $debug_note)) echo $head . $debug_note."\n\n";
                 // die into Exception, else echo to page top (if not caught within a HTML element like select) and resume
                 if (!in_array($type, ['Warning', 'Notice', 'Catchable'])) {
                     echo '<pre style="white-space: pre-line;">'."\n\n";
