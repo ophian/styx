@@ -20,7 +20,7 @@ class serendipity_event_changelog extends serendipity_event
         $propbag->add('description',    PLUGIN_CHANGELOG_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.41');
+        $propbag->add('version',       '1.42');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.2',
             'php'         => '5.3.0'
@@ -130,7 +130,7 @@ class serendipity_event_changelog extends serendipity_event
                         // do it again, Sam :)
                         $files = glob($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/logs/*.txt');
                         $files = array_combine($files, array_map("filemtime", $files));
-                        if (null !== array_key_last($files) && false !== strpos(array_key_last($files), 'log_'.date("Y-m-d").'.txt')) {
+                        if (null !== array_key_last($files) && str_contains(array_key_last($files), 'log_'.date("Y-m-d").'.txt')) {
                             array_pop($files);
                         }
                         #if (!empty($files)) print_r(array_keys($files));
