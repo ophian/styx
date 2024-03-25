@@ -550,8 +550,8 @@ function serveArchives() {
 
             if (isset($week)) {
                 $tm = strtotime('+ '. ($week-2) .' WEEKS monday', mktime(0, 0, 0, 1, 1, (int) $year));
-                $ts = mktime(0, 0, 1, date('m', $tm), date('j', $tm), (int) $year);
-                $te = mktime(23, 59, 59, date('m', $tm), date('j', $tm)+7, (int) $year);
+                $ts = mktime(0, 0, 1, (int) date('m', $tm), (int) date('j', $tm), (int) $year);
+                $te = mktime(23, 59, 59, (int) date('m', $tm), (int) date('j', $tm)+7, (int) $year);
                 $date = serendipity_formatTime(WEEK .' '. $week .', %Y', $ts, false);
             } else {
                 // all entry summary order only
