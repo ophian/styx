@@ -329,7 +329,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
         }
     }
 
-    if (isset($serendipity['GET']['viewAuthor'])) {
+    if (isset($serendipity['GET']['viewAuthor']) && is_string($serendipity['GET']['viewAuthor'])) {
         $multiauthors = explode(';', $serendipity['GET']['viewAuthor']);
         $multiauthors_sql = array();
         foreach($multiauthors AS $multiauthor) {
