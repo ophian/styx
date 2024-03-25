@@ -54,7 +54,7 @@ function locateHiddenVariables($_args) {
             continue;
         }
 
-        if (isset($v[0]) && $v[0] == 'P') { /* Page */
+        if (isset($v[0]) && str_starts_with($v, 'P')) { /* Page */
             $page = substr($v, 1);
             // check for someone is willingly trying to break Serendipity by adding page orders > P2500.., which could result in breaking db limits - so we set a hard page limit
             if ($page > $serendipity['max_page_limit']) {
@@ -65,7 +65,7 @@ function locateHiddenVariables($_args) {
                 unset($_args[$k]);
                 unset($serendipity['uriArguments'][$k]);
             }
-        } elseif (isset($v[0]) && $v[0] == 'A') { /* Author */
+        } elseif (isset($v[0]) && str_starts_with($v, 'A')) { /* Author */
             $url_author = substr($v, 1);
             if (is_numeric($url_author)) {
                 $serendipity['GET']['viewAuthor'] = $_GET['viewAuthor'] = (int)$url_author;
@@ -75,7 +75,7 @@ function locateHiddenVariables($_args) {
             $serendipity['short_archives'] = true;
             $serendipity['head_subtitle'] .= SUMMARY . ' - ';
             unset($_args[$k]);
-        } elseif (isset($v[0]) && $v[0] == 'C') { /* C.ategory in "/categories/" and "/archives/" like URIs */
+        } elseif (isset($v[0]) && str_starts_with($v, 'C')) { /* C.ategory in "/categories/" and "/archives/" like URIs */
             $cat = substr($v, 1);
             if (is_numeric($cat)) {
                 $serendipity['GET']['category'] = $cat;
