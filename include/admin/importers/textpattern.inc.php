@@ -11,6 +11,8 @@
  *  up from 'Textpattern 1.0rc1' is abandoned.
  * ****************************************************************/
 
+declare(strict_types=1);
+
 class Serendipity_Import_textpattern extends Serendipity_Import
 {
     var $info        = array('software' => 'Textpattern 4.2.0');

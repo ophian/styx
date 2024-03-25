@@ -12,6 +12,8 @@
  *  MT is abandoned. Better start from scratch or take this template as a base if you need an importer for a commercial MT version 7+.
  *****************************************************************/
 
+declare(strict_types=1);
+
 switch ($serendipity['lang']) {
     case 'de':
         @define('IMPORTER_MT_WARN_PLUGIN', 'Bitte installieren Sie das Plugin "%s"');

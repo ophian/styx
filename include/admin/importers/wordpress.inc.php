@@ -6,6 +6,8 @@
  *                WordPress Importer, by Evan Nemerson           *
  *****************************************************************/
 
+declare(strict_types=1);
+
 class Serendipity_Import_WordPress extends Serendipity_Import
 {
     var $info        = array('software' => 'WordPress');
