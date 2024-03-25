@@ -1,5 +1,7 @@
 <?php
-// serendipity_smarty_class.inc.php lm 2023-02-12 Ian Styx
+// serendipity_smarty_class.inc.php lm 2024-03-24 Ian Styx
+
+declare(strict_types=1);
 
 // define secure_dir and trusted_dirs for Serendipity_Smarty_Security_Policy class.
 @define('S9Y_TEMPLATE_FALLBACK',    $serendipity['serendipityPath'] . $serendipity['templatePath'] . 'default');

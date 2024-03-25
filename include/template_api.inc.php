@@ -56,6 +56,8 @@
  Know your PHP before you think about using this. :-)
 */
 
+declare(strict_types=1);
+
 /* wrapper fake class */
 class Smarty
 {
