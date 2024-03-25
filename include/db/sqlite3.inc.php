@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 // SQLite3 only fetches by assoc, we will emulate the other result types
 define(SQLITE3_ASSOC, 0);
 define(SQLITE3_NUM, 1);

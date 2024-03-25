@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 function serendipity_db_logmsg($msgstr) {
     $fp = @fopen('sqlite.log', 'a');
     fwrite($fp, '[' . date('d.m.Y H:i') . '] ' . $msgstr . "\n\n");
