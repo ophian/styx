@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 /* This is a small hack to allow CSS display during installations and upgrades */
 define('IN_installer', true);
 define('IN_upgrader', true);
