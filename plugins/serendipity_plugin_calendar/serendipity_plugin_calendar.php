@@ -17,7 +17,7 @@ class serendipity_plugin_calendar extends serendipity_plugin
         $propbag->add('configuration', array('beginningOfWeek', 'enableExtEvents', 'category'));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team, Ian Styx');
-        $propbag->add('version',       '1.8');
+        $propbag->add('version',       '1.9');
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
 
@@ -93,8 +93,8 @@ class serendipity_plugin_calendar extends serendipity_plugin
             }
         }
 
-        $month = date('m', serendipity_serverOffsetHour($serendipity['GET']['calendarZoom'], true));
-        $year  = date('Y', serendipity_serverOffsetHour($serendipity['GET']['calendarZoom'], true));
+        $month = (int)date('m', serendipity_serverOffsetHour($serendipity['GET']['calendarZoom'], true));
+        $year  = (int)date('Y', serendipity_serverOffsetHour($serendipity['GET']['calendarZoom'], true));
 
         $bow = (int)$this->get_config('beginningOfWeek', 1);
         // Check for faulty input, is so - run the default
@@ -103,7 +103,6 @@ class serendipity_plugin_calendar extends serendipity_plugin
         }
 
         // Catch faulty month
-        $month = (int)$month;
         if ($month < 1) {
             $month = 1;
         }
@@ -237,7 +236,7 @@ class serendipity_plugin_calendar extends serendipity_plugin
                                    {$cond['and']}
                                AND e.id          = ec.entryid
                                AND c.categoryid  = ec.categoryid
-                               AND (" . serendipity_getMultiCategoriesSQL($catid) . ")";
+                               AND (" . serendipity_getMultiCategoriesSQL((string) $catid) . ")";
         }
 
         if (!isset($querystring)) {
