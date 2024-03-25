@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 // This line makes sure that plugins can only be called from the Serendipity Framework.
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -20,10 +22,10 @@ class serendipity_event_changelog extends serendipity_event
         $propbag->add('description',    PLUGIN_CHANGELOG_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.42');
+        $propbag->add('version',       '1.43');
         $propbag->add('requirements',  array(
-            'serendipity' => '2.0.2',
-            'php'         => '5.3.0'
+            'serendipity' => '5.0',
+            'php'         => '8.2'
         ));
         $propbag->add('event_hooks',    array(
             'css_backend'         => true,

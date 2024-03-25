@@ -1,7 +1,8 @@
 <?php
-
 // Contributed by Christian Machmeier <cm@redsplash.de>
 // Randomizing contributed by Christian Brabandt <cb@256bit.org>
+
+declare(strict_types=1);
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -21,11 +22,11 @@ class serendipity_plugin_recententries extends serendipity_plugin
         $propbag->add('description',   PLUGIN_RECENTENTRIES_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Christian Machmeier, Christian Brabandt, Judebert, Don Chambers, Ian Styx');
-        $propbag->add('version',       '2.9.1');
+        $propbag->add('version',       '3.0.0');
         $propbag->add('requirements',  array(
-            'serendipity' => '2.0',
-            'smarty'      => '3.1',
-            'php'         => '7.4'
+            'serendipity' => '5.0',
+            'smarty'      => '4.1',
+            'php'         => '8.2'
         ));
         $propbag->add('configuration', array('title', 'number', 'number_from', 'dateformat', 'category', 'randomize', 'show_where'));
         $propbag->add('groups', array('FRONTEND_VIEWS'));
