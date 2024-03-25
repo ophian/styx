@@ -66,7 +66,7 @@ function serendipity_printStylesheet($file, $dir = '', $root = '') {
                LANG_DIRECTION
             ),
 
-            file_get_contents($file, 1));
+            file_get_contents($file, true));
 }
 
 // Actually we want the CSS file(s) to immediate be recognized as a new file when changes have happened. Changing themes, adding plugins with CSS injection, configuring theme configurations that have color styles, etc.
