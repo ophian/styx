@@ -614,7 +614,7 @@ function serendipity_strftime($format, $timestamp = null, $useOffset = true, $us
 
     if ($is_win_utf === null) {
         // Windows does not have UTF-8 locales.
-        $is_win_utf = (LANG_CHARSET == 'UTF-8' && (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false));
+        $is_win_utf = (LANG_CHARSET === 'UTF-8' && str_starts_with(strtoupper(PHP_OS), 'WIN'));
     }
 
     if ($useDate) {
@@ -677,7 +677,7 @@ function serendipity_formatTime($format, $time, $useOffset = true, $useDate = fa
 
     if (!isset($cache[$format])) {
         $cache[$format] = $format;
-        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+        if (str_starts_with(strtoupper(PHP_OS), 'WIN')) {
             $cache[$format] = str_replace('%e', '%d', $cache[$format]);
         }
     }
@@ -1104,7 +1104,7 @@ function serendipity_sendMail($to, $subject, $message, $fromMail, $headers = NUL
         if (LANG_CHARSET == 'UTF-8') {
             if (function_exists('imap_8bit') && !$serendipity['forceBase64']) {
                 $maildata['headers'][] = 'Content-Transfer-Encoding: quoted-printable';
-                $maildata['message']   = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') ? imap_8bit($maildata['message']) : str_replace("\r\n", "\n", imap_8bit($maildata['message']));
+                $maildata['message']   = str_starts_with(strtoupper(PHP_OS), 'WIN') ? imap_8bit($maildata['message']) : str_replace("\r\n", "\n", imap_8bit($maildata['message']));
             } else {
                 $maildata['headers'][] = 'Content-Transfer-Encoding: base64';
                 $maildata['message']   = chunk_split(base64_encode($maildata['message']));
