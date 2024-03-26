@@ -149,7 +149,7 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
                 $fval['to']   = serendipity_convertToTimestamp(trim($fval['to']));
             }
 
-            if (substr($f, 0, 3) === 'bp.') {
+            if (str_starts_with($f, 'bp.')) {
                 $realf = substr($f, 3);
                 $cond['parts']['filter'] .= " AND (bp2.property = '$realf' AND bp2.value >= " . (int)$fval['from'] . ' AND bp2.value <= ' . (int)$fval['to'] . ")\n";
             } else {
@@ -163,7 +163,7 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
                                 )\n";
             $cond['joinparts']['hiddenproperties'] = true;
         } elseif (isset($orderfields[$f]) && isset($orderfields[$f]['type']) && $orderfields[$f]['type'] == 'int') {
-            if (substr($f, 0, 3) === 'bp.') {
+            if (str_starts_with($f, 'bp.')) {
                 $realf = substr($f, 3);
                 $cond['parts']['filter'] .= " AND (bp2.property = '$realf' AND bp2.value = '" . serendipity_db_escape_string(trim($fval)) . "')\n";
             } else {
@@ -179,7 +179,7 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
                     break;
             }
         } else {
-            if (substr($f, 0, 3) === 'bp.') {
+            if (str_starts_with($f, 'bp.')) {
                 $realf = substr($f, 3);
                 $cond['parts']['filter'] .= " AND (bp2.property = '$realf' AND bp2.value LIKE '%" . serendipity_db_escape_string(trim($fval)) . "%')\n";
             } else {
@@ -206,7 +206,7 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
                                         ON (mk.mediaid = i.id AND mk.property_group = 'base_keyword')\n";
     }
 
-    if (substr($order, 0, 3) === 'bp.') {
+    if (str_starts_with($order, 'bp.')) {
         $cond['orderproperty'] = substr($order, 3);
         $cond['orderkey']   = 'bp.value';
         $order              = 'bp.value';
@@ -3958,7 +3958,7 @@ function serendipity_dirSlash($type, $dir) {
     }
 
     if ($type == 'start' || $type == 'both') {
-        if (substr($dir, 0, 1) != '/') {
+        if (!str_starts_with($dir, '/')) {
             $dir = '/' . $dir;
         }
     }
@@ -5003,7 +5003,7 @@ function serendipity_getMediaRaw($filename) {
             if (ord($filedata[1]) == 225) {
                 $content  = fread($f, $int['size'] - 2);
 
-                if (substr($content, 0, 24) == 'http://ns.adobe.com/xap/') {
+                if (str_starts_with($content, 'http://ns.adobe.com/xap/')) {
                     $ret[] = array(
                         'ord'      => ord($filedata[1]),
                         'ordstart' => $ordstart,
