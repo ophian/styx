@@ -11,7 +11,7 @@ if (IN_serendipity !== true) {
 $serendipity = array();
 
 if (!defined('PATH_SEPARATOR')) {
-    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+    if (str_starts_with(strtoupper(PHP_OS), 'WIN')) {
         define('PATH_SEPARATOR', ';');
     } else {
         define('PATH_SEPARATOR', ':');
@@ -19,7 +19,7 @@ if (!defined('PATH_SEPARATOR')) {
 }
 
 if (!defined('DIRECTORY_SEPARATOR')) {
-    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+    if (str_starts_with(strtoupper(PHP_OS), 'WIN')) {
         define('DIRECTORY_SEPARATOR', '\\');
     } else {
         define('DIRECTORY_SEPARATOR', '/');
