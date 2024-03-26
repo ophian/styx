@@ -156,7 +156,7 @@ function serendipity_installDatabase($type = '') {
         // Print the MySQL version
         $serendipity['db_server_info'] = mysqli_get_server_info($serendipity['dbConn']); // eg.  == 5.5.5-10.4.11-MariaDB
         // be a little paranoid...
-        if (substr($serendipity['db_server_info'], 0, 6) === '5.5.5-') {
+        if (str_starts_with($serendipity['db_server_info'], '5.5.5-')) {
             // strip any possible added prefix having this 5.5.5 version string (which was never released). PHP up from 8.0.16 now strips it correctly.
             $serendipity['db_server_info'] = str_replace('5.5.5-', '', $serendipity['db_server_info']);
         }
@@ -1095,7 +1095,7 @@ function serendipity_updateConfiguration() {
  * @return  string      The root directory of Serendipity
  */
 function serendipity_httpCoreDir() {
-    if (!empty($_SERVER['SCRIPT_FILENAME']) && substr(php_sapi_name(), 0, 3) != 'cgi') {
+    if (!empty($_SERVER['SCRIPT_FILENAME']) && !str_starts_with(php_sapi_name(), 'cgi')) {
         return dirname($_SERVER['SCRIPT_FILENAME']) . '/';
     }
 
