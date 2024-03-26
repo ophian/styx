@@ -1601,7 +1601,7 @@ function &serendipity_getAllGroups($apply_ACL_user = false) {
 
         foreach($groups AS $k => $v) {
             // build the USERLEVEL_constant names
-            if ('USERLEVEL_' == substr($v['confvalue'], 0, 10)) {
+            if (str_starts_with($v['confvalue'], 'USERLEVEL_')) {
                 $groups[$k]['confvalue'] = $groups[$k]['name'] = constant($v['confvalue']);
             }
             if (in_array($v['confvalue'], ['USERLEVEL_ADMIN_DESC', 'USERLEVEL_CHIEF_DESC', 'USERLEVEL_EDITOR_DESC'])) {
@@ -1892,7 +1892,7 @@ function serendipity_updateGroupConfig($groupid, &$perms, &$values, $isNewPriv =
 
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}groupconfig WHERE id = " . (int)$groupid);
     foreach($perms AS $perm => $userlevels) {
-        if (substr($perm, 0, 2) == 'f_') {
+        if (str_starts_with($perm, 'f_')) {
             continue;
         }
 
@@ -2589,7 +2589,7 @@ function serendipity_hasPluginPermissions($plugin, $groupid = null) {
                 continue;
             }
             foreach($group AS $key => $val) {
-                if (substr($key, 0, 2) == 'f_') {
+                if (str_starts_with($key, 'f_')) {
                     $forbidden[$groupid][$key] = true;
                 }
             }
