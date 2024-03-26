@@ -268,7 +268,7 @@ if (isset($serendipity['GET']['adminAction'])
         }
     }
 
-    if (!empty($codata['url']) && substr($codata['url'], 0, 7) != 'http://' && substr($codata['url'], 0, 8) != 'https://') {
+    if (!empty($codata['url']) && !str_starts_with($codata['url'], 'http://') && !str_starts_with($codata['url'], 'https://')) {
         $codata['url'] = 'http://' . $codata['url'];
     }
 
@@ -485,7 +485,7 @@ if (is_array($sql)) {
         $comment['class'] = $class;
         $comment['header_class'] = $header_class;
 
-        if (!empty($comment['url']) && substr($comment['url'], 0, 7) != 'http://' && substr($comment['url'], 0, 8) != 'https://') {
+        if (!empty($comment['url']) && !str_starts_with($comment['url'], 'http://') && !str_starts_with($comment['url'], 'https://')) {
             $comment['url'] = 'http://' . $comment['url'];
         }
         // include all comment vars back into upper array to assign to Smarty
