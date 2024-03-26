@@ -542,7 +542,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
                 $comment['url'] = preg_replace('@^https://@i', 'https://', $comment['url']);
             }
             /* Fix fucked links */
-            if (!empty($comment['url']) && substr($comment['url'], 0, 7) != 'http://' && substr($comment['url'], 0, 8) != 'https://') {
+            if (!empty($comment['url']) && !str_starts_with($comment['url'], 'http://') && !str_starts_with($comment['url'], 'https://')) {
                 $comment['url'] = 'http://' . $comment['url'];
             }
 
