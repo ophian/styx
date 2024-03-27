@@ -437,13 +437,13 @@ if (is_array($sql)) {
             $comment['excerpt'] = true;
             // When summary is not the full body, strip any HTML tags from summary, as it might break and leave unclosed HTML.
             if ($serendipity['allowHtmlComment']) {
-                $_summary = htmlspecialchars(str_replace('  ', ' ', strip_tags($comment['summary'])), ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, LANG_CHARSET, false);
+                $_summary = htmlspecialchars(str_replace('  ', ' ', strip_tags($comment['summary'])), encoding: LANG_CHARSET, double_encode: false);
                 $stripped = ($comment['summary'] != $_summary) ? true : false;
                 $comment['summary']  = $stripped ? $_summary : $comment['summary']."&hellip;";
                 $comment['fullBody'] = $is_html ? $comment['fullBody'] : nl2br($comment['fullBody']);
             } else {
                 $comment['summary']  = str_replace(array('\r\n','\n\r','\n','\r','  '), ' ', trim(strip_tags($comment['summary']))); // keep in mind: for "newline" search pattern are single, for replace double quotes!
-                $comment['fullBody'] = nl2br(htmlspecialchars($comment['fullBody'], ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, LANG_CHARSET, false));
+                $comment['fullBody'] = nl2br(htmlspecialchars($comment['fullBody'], encoding: LANG_CHARSET, double_encode: false));
             }
 
         } else {
@@ -455,8 +455,8 @@ if (is_array($sql)) {
                 $comment['summary'] = str_replace('  ', ' ', trim(strip_tags(str_replace('<', ' <', $comment['summary']))));
             } else {
                 $comment['excerpt']  = (strlen($comment['summary']) < strlen(nl2br(strip_tags($comment['summary'])))) ? true : false; // allows to open up a non stripped fullBody box, if summary was stripped before!
-                $comment['summary']  = htmlspecialchars(strip_tags($comment['summary']), ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, LANG_CHARSET, false);
-                $comment['fullBody'] = nl2br(htmlspecialchars($comment['fullBody'], ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, LANG_CHARSET, false));
+                $comment['summary']  = htmlspecialchars(strip_tags($comment['summary']), encoding: LANG_CHARSET, double_encode: false);
+                $comment['fullBody'] = nl2br(htmlspecialchars($comment['fullBody'], encoding: LANG_CHARSET, double_encode: false));
             }
         }
 
