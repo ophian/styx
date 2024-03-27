@@ -2,6 +2,10 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Deprecate htmlspecialchars, htmlentities, html_entity_decode mapper functions.
+    - Use default flags up from PHP 8.1.0
+    - Convert core usage
+
   * Use PHP 8.0 - Convert substr() to str_starts_with() where appropriate
 
   * Declare strict_types on per file basis
