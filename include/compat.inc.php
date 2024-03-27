@@ -489,10 +489,10 @@ if (function_exists('date_default_timezone_get')) {
 
 /**
  * Serendipity htmlspecialchars mapper
- * ... not yet using PHP 8.1.0 default flags ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401 - convert for Styx 5.0
+ * Deprecated with Styx 5.0. Use htmlspecialchars() like such with named arguments ($string, encoding: LANG_CHARSET, double_encode: false)
  */
 function serendipity_specialchars($string, $flags = null, $encoding = LANG_CHARSET, $double_encode = true) {
-    $flags = ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE;
+    $flags = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401; // default since PHP 8.1.0
     if (!$encoding || $encoding == 'LANG_CHARSET') {
         // if called before LANG_CHARSET is set, we need to set a fallback encoding to not throw a PHP warning that
         // would kill s9y blogs sometimes (https://github.com/s9y/Serendipity/issues/236)
@@ -507,7 +507,7 @@ function serendipity_specialchars($string, $flags = null, $encoding = LANG_CHARS
  * @see serendipity_specialchars()
  */
 function serendipity_entities($string, $flags = null, $encoding = LANG_CHARSET, $double_encode = true) {
-    $flags = ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE;
+    $flags = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401; // default since PHP 8.1.0
     if (!$encoding || $encoding == 'LANG_CHARSET') {
         $encoding = 'UTF-8';
     }
@@ -519,7 +519,7 @@ function serendipity_entities($string, $flags = null, $encoding = LANG_CHARSET, 
  * @see serendipity_specialchars()
  */
 function serendipity_entity_decode($string, $flags = null, $encoding = LANG_CHARSET) {
-    $flags = ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE;
+    $flags = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401; // default since PHP 8.1.0
     if (!$encoding || $encoding == 'LANG_CHARSET') {
         $encoding = 'UTF-8';
     }
