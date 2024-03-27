@@ -128,19 +128,19 @@ if (!isset($serendipity['expose_s9y'])) {
 }
 
 // muteExpectedErrors undefined index "global" pre-check sets
-// functions_config.inc.php:273
+// functions_config.inc.php:295
 if (!isset($serendipity['smarty_preview'])) {
     $serendipity['smarty_preview'] = false;
 }
-// functions_smarty.inc.php:1144
+// functions_smarty.inc.php:1139
 if (!isset($serendipity['head_title'])) {
     $serendipity['head_title'] = '';
 }
-// functions_smarty.inc.php:1145
+// functions_smarty.inc.php:1140
 if (!isset($serendipity['head_subtitle'])) {
     $serendipity['head_subtitle'] = '';
 }
-// functions_smarty.inc.php:1155
+// functions_smarty.inc.php:1149
 if (!isset($serendipity['smarty_raw_mode'])) {
     $serendipity['smarty_raw_mode'] = false;
 }
@@ -161,10 +161,10 @@ $serendipity['use_iframe'] = true;
 // Default language for autodetection
 $serendipity['autolang'] = 'en';
 
-// Name of folder for the default theme, which is called the Standard Theme
+// Name of folder for the default theme, which is called the "Standard Theme"
 $serendipity['defaultTemplate'] = 'pure';
 
-// Default backend theme
+// Default backend theme - Extending child of "default"
 if (!isset($serendipity['template_backend'])) {
     $serendipity['template_backend'] = 'styx';
 }
