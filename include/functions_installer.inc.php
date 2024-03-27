@@ -459,9 +459,9 @@ function serendipity_build_form_data_elements($type, $name, $value, $default, $s
                             <label for="radio_cfg_' . $name . '_no">' . NO . '</label>
                         </div>';
         } elseif ($type == 'fullprotected') {
-            $html .= '                    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+            $html .= '                    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '" autocomplete="new-password">';
         } elseif ($type == 'protected') {
-            $html .= '                    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+            $html .= '                    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '" autocomplete="new-password">';
         } elseif ($type == 'multilist') {
             $html .= '
                     <select id="' . $name . '" name="' . $name . '[]" multiple="multiple" size="5">';
@@ -483,9 +483,9 @@ function serendipity_build_form_data_elements($type, $name, $value, $default, $s
         } elseif ($type == 'file') {
             $html .= '                    <input id="' . $name . '" type="file" name="' . $name . '">';
         } elseif ($type == 'textarea') {
-            $html .= '                    <textarea id="' . $name . '" rows="5" name="' . $name . '">' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '</textarea>';
+            $html .= '                    <textarea id="' . $name . '" rows="5" name="' . $name . '">' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '</textarea>';
         } else {
-            $html .= '                    <input id="' . $name . '" type="text" name="' . $name . '" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '"' . ($name == 'username' ? ' autocomplete="new-password"' : '') . '>';
+            $html .= '                    <input id="' . $name . '" type="text" name="' . $name . '" value="' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '"' . ($name == 'username' ? ' autocomplete="new-password"' : '') . '>';
         }
     } else {
         // importer form builds
@@ -501,9 +501,9 @@ function serendipity_build_form_data_elements($type, $name, $value, $default, $s
                 <label for="radio_cfg_' . $name . '_no">'.NO . '</label>
             </div>';
         } elseif ($type == 'fullprotected') {
-            $html .= '    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+            $html .= '    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '" autocomplete="new-password">';
         } elseif ($type == 'protected') {
-            $html .= '    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+            $html .= '    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '" autocomplete="new-password">';
         } elseif ($type == 'multilist') {
             $html .= '
             <select id="' . $name . '" name="' . $name . '[]" multiple="multiple" size="5">';
@@ -525,9 +525,9 @@ function serendipity_build_form_data_elements($type, $name, $value, $default, $s
         } elseif ($type == 'file') {
             $html .= '    <input id="' . $name . '" type="file" name="' . $name . '">';
         } elseif ($type == 'textarea') {
-            $html .= '    <textarea id="' . $name . '" rows="5" name="' . $name . '">' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '</textarea>';
+            $html .= '    <textarea id="' . $name . '" rows="5" name="' . $name . '">' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '</textarea>';
         } else {
-            $html .= '    <input id="' . $name . '" type="text" name="' . $name . '" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '"' . ($name == 'username' ? ' autocomplete="new-password"' : '') . '>';
+            $html .= '    <input id="' . $name . '" type="text" name="' . $name . '" value="' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '"' . ($name == 'username' ? ' autocomplete="new-password"' : '') . '>';
         }
     }
     return $html;
