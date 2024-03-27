@@ -32,8 +32,8 @@ if (isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModul
 } else {
     if (IS_installed === true) {
         /* Check author token to insure session not hijacked */
-        if (!isset($_SESSION['author_token']) || !isset($serendipity['COOKIE']['author_token']) ||
-            ($_SESSION['author_token'] !== $serendipity['COOKIE']['author_token'])) {
+        if (!isset($_SESSION['author_token']) || !isset($serendipity['COOKIE']['author_token'])
+        || ($_SESSION['author_token'] !== $serendipity['COOKIE']['author_token'])) {
             $_SESSION['serendipityAuthedUser'] = false;
             serendipity_session_destroy();
         }
@@ -114,7 +114,9 @@ if (!$use_installer && $is_logged_in) {
         if (preg_match('/^entrylist_pin_entry_(\d+)$/', $cokey, $m)) {
             $pinids .= $m[1].',';
             if (!isset($serendipity['matched_entry_pin'])) $serendipity['matched_entry_pin'] = $m[1]; // keep the first, for later Cookie check
-        } else unset($serendipity['matched_entry_pin']);
+        } else {
+            unset($serendipity['matched_entry_pin']);
+        }
     }
     if (is_object($serendipity['smarty'])) {
         $serendipity['smarty']->assign('pin_entries', $pinids);
@@ -139,11 +141,11 @@ if (!$use_installer && $is_logged_in) {
             if (!serendipity_checkPermission('adminImages')) {
                 break;
             }
-            // temporary dev variable for non-used WebP support
+            // temporary DEV variable for non-used WebP support
             if (empty($serendipity['useWebPFormat'])) {
                 $serendipity['useWebPFormat'] = false;
             }
-            // temporary dev variable for non-used AVIF support
+            // temporary DEV variable for non-used AVIF support
             if (empty($serendipity['useAvifFormat'])) {
                 $serendipity['useAvifFormat'] = false;
             }
