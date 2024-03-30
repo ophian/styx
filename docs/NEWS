@@ -2,7 +2,8 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
-
+  * Fix PostgreSQL "character varying" type error in plugins cleanup after
+    UPDATE_ALL.
 
 
 Version 4.4.2 (March, 15th 2024)
