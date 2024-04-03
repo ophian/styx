@@ -155,7 +155,7 @@ function serendipity_db_get_interval($val, $ival = 900) {
 }
 
 /**
- * Operates on an array to prepare it for SQL usage.
+ * Operates on an array to prepare it for SQL usage
  *
  * @access public
  * @param   string Concatenation character
@@ -203,8 +203,7 @@ function serendipity_db_get_unixTimestamp(string $field = '', bool $cts = false)
             return "EXTRACT(EPOCH FROM $field)";
         }
     } elseif ($serendipity['dbType'] == 'sqlite' || $serendipity['dbType'] == 'sqlite3' || $serendipity['dbType'] == 'pdo-sqlite' || $serendipity['dbType'] == 'sqlite3oo') {
-        $field = empty($field) ? "'now'" : $field; // OK
-        return "STRFTIME('%s', $field)"; // change to UNIXEPOCH($field) w/ Styx 5 for SQLite >= 3.38.0 (2022-02-22) only
+        return "UNIXEPOCH($field)"; // for SQLite >= 3.38.0 (2022-02-22)
     } else {
         return "UNIX_TIMESTAMP($field)";
     }
