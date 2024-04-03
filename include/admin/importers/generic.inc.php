@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 require_once S9Y_PEAR_PATH . 'Onyx/RSS.php';
 
 class Serendipity_Import_Generic extends Serendipity_Import

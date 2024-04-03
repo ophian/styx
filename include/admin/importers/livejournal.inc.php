@@ -3,6 +3,8 @@
 # Copyright (c) 2009, Matthew Weigel
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 require_once S9Y_PEAR_PATH . 'Onyx/RSS.php';
 
 class Serendipity_Import_LiveJournalXML extends Serendipity_Import
