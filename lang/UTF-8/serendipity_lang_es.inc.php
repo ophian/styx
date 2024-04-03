@@ -194,6 +194,7 @@
 @define('WWW_USER', 'Cambia www por el usuario que está ejecutando el servidor web (p. ej. nobody).');
 @define('BROWSER_RELOAD', 'Una vez hecho esto, pulsa en tu navegador el botón "Recargar".');
 @define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
+@define('RELOAD_COMMENTS_PAGE', 'Please reload the comments page to view the new data.');
 @define('DIAGNOSTIC_ERROR', 'Hemos detectado algunos errores mientras se ejecutaban varias comprobaciones en la información que has introducido:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity no está instalado todavía. Por favor <a href="%s">instálalo</a> ahora.');
 @define('INCLUDE_ERROR', 'Error de Serendipity: no se puede incluir %s - saliendo.');

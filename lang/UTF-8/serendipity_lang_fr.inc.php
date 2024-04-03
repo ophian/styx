@@ -189,6 +189,7 @@
 @define('WWW_USER', 'Changez www dans le nom d\'utilisateur sous lequel fonctionne le serveur apache (nobody, par ex).');
 @define('BROWSER_RELOAD', 'Une fois ceci effectué, rechargez la page avec la touche "F5".');
 @define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
+@define('RELOAD_COMMENTS_PAGE', 'Please reload the comments page to view the new data.');
 @define('DIAGNOSTIC_ERROR', 'J\'ai touvé quelques erreurs en vérifiant vos données :');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity n\'est pas encore installé. Vous pouvez <a href="%s">l\'installer maintenant</a>.');
 @define('INCLUDE_ERROR', 'Erreur Serendipity : impossible d\'inclure le fichier %s.');

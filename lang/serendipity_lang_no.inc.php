@@ -184,6 +184,7 @@
 @define('WWW_USER', 'Endre www til den bruker som apache kører som (fx. nobody).');
 @define('BROWSER_RELOAD', 'Når du har gjort dette, så tryk på browserens "oppdater"-knapp');
 @define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
+@define('RELOAD_COMMENTS_PAGE', 'Please reload the comments page to view the new data.');
 @define('DIAGNOSTIC_ERROR', 'Vi har opdaget noen feil mens vi kørte noen diagnostikker på dine oppgitte informasjoner:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity er ennå ikke installert. Klikk <a href="%s">her for å installere</a> nå.');
 @define('INCLUDE_ERROR', 'Serendipity feil: Kunne ikke inkludere %s - Avbryter.');

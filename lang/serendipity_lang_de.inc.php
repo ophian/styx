@@ -189,6 +189,7 @@
 @define('WWW_USER', 'Ersetzen Sie \'www\' durch den User, als der der Webserver läuft. (z.B. \'nobody\')');
 @define('BROWSER_RELOAD', 'Danach aktualisieren Sie bitte diese Seite in Ihrem Browser.');
 @define('RELOAD_THIS_PAGE', 'Achtung! Laden Sie vor weiteren Änderungen diese <a href="%s">%s</a> Seite neu, um die geänderten Werte abzurufen.');
+@define('RELOAD_COMMENTS_PAGE', 'Bitte laden Sie die Kommentarseite neu, um die neuen Daten zu sehen.');
 @define('DIAGNOSTIC_ERROR', 'Bei der Einrichtung der Installation traten einige Fehler auf:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity ist noch nicht eingerichtet. Bitte jetzt <a href="%s">installieren</a>.');
 @define('INCLUDE_ERROR', 'Serendipity Fehler: Kann Datei \'%s\' nicht einbinden - wird beendet.');

@@ -216,6 +216,7 @@ $i18n_filename_to = array (
 @define('WWW_USER', 'Zmeòte "www" na pou¾ívateµa, pod ktorým be¾í webserver (napr. nobody).');
 @define('BROWSER_RELOAD', 'Po dokonèení stlaète tlaèidlo obnovenia stránky vo va¹om prehliadaèi.');
 @define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
+@define('RELOAD_COMMENTS_PAGE', 'Please reload the comments page to view the new data.');
 @define('DIAGNOSTIC_ERROR', 'Diagnostika na¹la chyby vo vkladaných údajoch:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity e¹te nie je nain¹talované. Prosím <a href="%s">nain¹talujte</a> ho teraz.');
 @define('INCLUDE_ERROR', 'Chyba Serendipity: súbor "%s" sa nepodarilo vlo¾i» - ukonèené.');

@@ -698,6 +698,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     if ($data['updateAllMsg']) {
         $xmlcache = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/package_event_'.$serendipity['lang'].'.xml';
         $xmlts = file_exists($xmlcache) ? serendipity_serverOffsetHour(filemtime($xmlcache)) : (time() - 43201); // filemtime is Servers timezone or UTC/GMT :: 12h + 1sec = max cache time
+        $xmlts = (string) $xmlts; // strict type for PostgreSQL character varying < integer
         $exclude = '';
         if (!empty($_SESSION['foreignPlugins_remoteRequirements'])) {
             $exkeys = '';

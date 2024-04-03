@@ -645,10 +645,11 @@ function serendipity_issueAutologin($array) {
         $cast = 'cast(name AS UNSIGNED)';
     }
 
+    // Delete possible current cookie. Also delete any autologin keys that smell like 3-week-old, dead fish. Be explicit for postgreSQL casts to exclude sysinfo tickers!
     if (isset($serendipity['COOKIE']['author_information'])) {
         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
-                                WHERE okey = 'l_" . serendipity_db_escape_string($serendipity['COOKIE']['author_information']) . "'
-                                   OR (okey LIKE 'l_%' AND $cast < " . (time() - 1814400) . ")");
+                                WHERE okey = 'l_" . serendipity_db_escape_string($serendipity['COOKIE']['author_information']) . "' AND name != 'sysinfo_ticker'
+                                   OR (name != 'sysinfo_ticker' AND okey LIKE 'l_%' AND $cast < " . (time() - 1814400) . ")");
     }
 
     // Issue new autologin cookie
@@ -676,7 +677,7 @@ function serendipity_checkAutologin($ident, $iv) {
     $cdata  = $autologin['value'];
     $cookie = serendipity_cryptor($cdata, true, $iv); // decrypt OK with old mcrypt! and the intermediate cryptor class using aes-256-crt or class-less with PHP 70301 plus using strong aes-256-gcm algo
     if ($cookie === false) {
-        $cookie = unserialize(base64_decode($autologin['value']));
+        $cookie = @unserialize(base64_decode($autologin['value']));
     } else {
         $cookie = !is_array($cookie) ? unserialize($cookie) : $cookie;
     }

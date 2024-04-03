@@ -593,6 +593,7 @@ form > button,
 .actions li,
 .actions_extra,
 #login .form_field label,
+#auth_fpwd .form_field label,
 #filter_comments label,
 #serendipity_comment label,
 .pluginmanager_plugin .form_check,
@@ -1867,6 +1868,7 @@ a.media_show_info.button_link,
 #uploadform .form_select select,
 #uploadform .form_field input,
 #login .form_field input,
+#auth_fpwd .form_field input,
 #diagnose > table,
 #advanced_options .form_multiselect select,
 .serendipity_statistics table {
@@ -2019,16 +2021,16 @@ html[data-login-color-mode="dark"], [data-login-color-mode="dark"] button, [data
     text-shadow: 1px 1px 1px rgba(0,0,0,.8);
     border: 0 none;
 }
-[data-login-color-mode="dark"] #login {
+[data-login-color-mode="dark"] #login, [data-login-color-mode="dark"] #auth_fpwd {
     border-color: var(--color-border-primary);
     box-shadow: 1px 2px 3px #222;
 }
-[data-login-color-mode="dark"] #login fieldset>span, [data-login-color-mode="dark"] .button_link {
+[data-login-color-mode="dark"] #login fieldset>span, [data-login-color-mode="dark"] #auth_fpwd fieldset>span, [data-login-color-mode="dark"] .button_link {
     background: var(--color-bg-overlay);
     background-image: -webkit-linear-gradient(var(--color-scale-gray-5),var(--color-bg-overlay));
     background-image: linear-gradient(var(--color-scale-gray-5),var(--color-bg-overlay));
 }
-[data-login-color-mode="dark"] #login fieldset>span {
+[data-login-color-mode="dark"] #login fieldset>span, [data-login-color-mode="dark"] #auth_fpwd fieldset>span {
     color: var(--color-text-primary);
     border-bottom-color: var(--color-border-tertiary);
 }
@@ -2324,6 +2326,7 @@ fieldset p,
 }
 
 #login .form_buttons,
+#auth_fpwd .form_buttons,
 #entries_list .actions,
 .msg_hint > p:last-of-type {
     margin-bottom: 0;
@@ -2619,7 +2622,8 @@ h3 .media_file_actions {
 #dashboard > section,
 #maintenance > section,
 .serendipity_statistics > section,
-#login {
+#login,
+#auth_fpwd {
     border: 1px solid #aaa;
 }
 
@@ -2844,7 +2848,8 @@ h3 .media_file_actions {
 #dashboard > section > h3,
 #maintenance > section > h3,
 .serendipity_statistics > section > h3,
-#login fieldset > span {
+#login fieldset > span,
+#auth_fpwd fieldset > span {
     background: #ddd;
     background-image: -webkit-linear-gradient(#fff, #ddd);
     background-image: linear-gradient(#fff, #ddd);
@@ -2855,7 +2860,8 @@ h3 .media_file_actions {
     padding: .5em 1em;
 }
 
-#login fieldset > span {
+#login fieldset > span,
+#auth_fpwd fieldset > span {
     display: block;
     font-weight: bold;
 }
@@ -2863,7 +2869,8 @@ h3 .media_file_actions {
 #dashboard > section,
 #maintenance > section,
 .serendipity_statistics > section,
-#login {
+#login,
+#auth_fpwd {
     border-radius: 2px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -3404,12 +3411,13 @@ label .perm_name,
 
 
 /* LOGIN FORM */
-#login {
+#login, #auth_fpwd {
     margin: 2em auto 4em;
     max-width: 22em;
 }
 
-#login .form_field label {
+#login .form_field label,
+#auth_fpwd .form_field label {
     min-width: 8em;
 }
 
@@ -3489,7 +3497,8 @@ label .perm_name,
 .pluginmanager_move,
 .pagination .next,
 .pagination .last,
-#login .form_buttons {
+#login .form_buttons,
+#auth_fpwd .form_buttons {
     text-align: right;
 }
 
@@ -4538,7 +4547,7 @@ img.mfp-img {
 }
 
 @media only screen and (min-width: 481px) {
-    #login {
+    #login, #auth_fpwd {
         max-width: 25em;
     }
 
@@ -5435,7 +5444,8 @@ img.mfp-img {
 }
 
 @media only screen and (min-width: 1024px) {
-    #login .form_field input {
+    #login .form_field input,
+    #auth_fpwd .form_field input {
         width: auto;
     }
 
@@ -5559,6 +5569,8 @@ img.mfp-img {
     .js #main_menu #entry_hooks .list-flex.ease-in.ai { animation: ease-out 600ms ease-in both; }
     .js #main_menu #activity_hooks .list-flex.ease-out.ao { animation: ease-in 1500ms ease-out both; }
     .js #main_menu #activity_hooks .list-flex.ease-in.ai { animation: ease-out 600ms ease-in both; }
+    .js #main_menu #user_hooks .list-flex.ease-out.ao { animation: ease-in 1500ms ease-out both; }
+    .js #main_menu #user_hooks .list-flex.ease-in.ai { animation: ease-out 600ms ease-in both; }
     @-webkit-keyframes ease-in {
       0% { -webkit-transform: scale(0) rotate(12deg); opacity: 0; visibility: hidden; }
       100% { -webkit-transform: scale(1) rotate(0); opacity: 1; visibility: visible; }
@@ -5680,6 +5692,9 @@ img.mfp-img {
 
     #login {
         margin: 4em auto 8em;
+    }
+    #auth_fpwd {
+        margin: auto auto 4em;
     }
 
     .media_pane > .media_file.mlMidCol ul.media_file_actions.plainList,

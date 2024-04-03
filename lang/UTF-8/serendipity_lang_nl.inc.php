@@ -206,6 +206,7 @@
 @define('WWW_USER', 'Verander gebruiker \'www\' in de gebruiker die de apache-server draait (bijvoorbeeld nobody).');
 @define('BROWSER_RELOAD', 'Herlaad daarna de pagina.');
 @define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
+@define('RELOAD_COMMENTS_PAGE', 'Please reload the comments page to view the new data.');
 @define('DIAGNOSTIC_ERROR', 'Serendipity heeft fouten gevonden in de door u opgegeven informatie tijdens het uitvoeren van een diagnostisch programma:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity is nog niet geïnstalleerd. <a href="%s">Installeer</a> het nu alstublieft.');
 @define('INCLUDE_ERROR', 'Serendipity Fout: Kan %s niet invoegen - wordt afgesloten.');

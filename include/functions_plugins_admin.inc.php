@@ -292,6 +292,11 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
             if (is_array($_POST['serendipity'][$_postKey][$config_item])) {
                 $hvalue = $_POST['serendipity'][$_postKey][$config_item];
                 array_walk($hvalue, 'serendipity_specialchars');
+                if (is_array($hvalue)) {
+                    $hvalue = $hvalue[0]; // use the 0 key as explicite string type for trim() !!
+                } else {
+                    $hvalue = (string) $hvalue;
+                }
             } else {
                 $hvalue = serendipity_specialchars($_POST['serendipity'][$_postKey][$config_item]);
             }

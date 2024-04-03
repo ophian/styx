@@ -2243,7 +2243,7 @@ document.addEventListener("DOMContentLoaded", function() {
             next.className = 'open';
         }
 
-        if (pnode.id == 'entry_hooks' || pnode.id == 'activity_hooks') {
+        if (pnode.id == 'entry_hooks' || pnode.id == 'activity_hooks' || pnode.id == 'user_hooks') {
             let anim_in = document.querySelectorAll('#'+pnode.id+' .list-flex.ease-in');
             let anim_out = document.querySelectorAll('#'+pnode.id+' .list-flex.ease-out');
 
@@ -2263,19 +2263,30 @@ document.addEventListener("DOMContentLoaded", function() {
     // count delivered elements
     const ct_eh = document.querySelectorAll('#entry_hooks .list-flex').length;
     const ct_ah = document.querySelectorAll('#activity_hooks .list-flex').length;
+    const ct_uh = document.querySelectorAll('#user_hooks .list-flex').length;
 
     if (ct_eh > 1) {
         document.querySelectorAll('#entry_hooks .expandable-group > .ex > button').forEach(btn=>btn.addEventListener('click',clickhandler));
     } else {
         // reset the hidden sets and the toggle
         document.querySelectorAll('#entry_hooks .list-flex:not(.ease-in,.ease-out)').forEach(lst=>lst.className = 'remain-flex');
-        document.querySelector('#entry_hooks .expandable-group').remove();
+        let eh_tgrp = document.querySelector('#entry_hooks .expandable-group');
+        if (eh_tgrp !== null) { eh_tgrp.remove(); }
     }
     if (ct_ah > 1) {
         document.querySelectorAll('#activity_hooks .expandable-group > .ex > button').forEach(btn=>btn.addEventListener('click',clickhandler));
     } else {
         // reset the hidden sets and the toggle
         document.querySelectorAll('#activity_hooks .list-flex:not(.ease-in,.ease-out)').forEach(lst=>lst.className = 'remain-flex');
-        document.querySelector('#activity_hooks .expandable-group').remove();
+        let ah_tgrp = document.querySelector('#activity_hooks .expandable-group');
+        if (ah_tgrp !== null) { ah_tgrp.remove(); }
+    }
+    if (ct_uh > 1) {
+        document.querySelectorAll('#user_hooks .expandable-group > .ex > button').forEach(btn=>btn.addEventListener('click',clickhandler));
+    } else {
+        // reset the hidden sets and the toggle
+        document.querySelectorAll('#user_hooks .list-flex:not(.ease-in,.ease-out)').forEach(lst=>lst.className = 'remain-flex');
+        let uh_tgrp = document.querySelector('#user_hooks .expandable-group');
+        if (uh_tgrp !== null) { uh_tgrp.remove(); }
     }
 });

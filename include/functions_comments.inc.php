@@ -21,12 +21,25 @@ function serendipity_checkCommentToken($token, $cid) {
 
     $goodtoken = false;
     if ($serendipity['useCommentTokens']) {
+
+        if (stristr($serendipity['dbType'], 'sqlite')) {
+            $cast = "name";
+        } elseif (stristr($serendipity['dbType'], 'postgres')) {
+            // Adds explicit casting for postgresql.
+            $cast = "cast(name AS integer)";
+        } else {
+            // and all others eg. mysql(i), zend-db, ...
+            $cast = "cast(name AS UNSIGNED)";
+        }
+
         // Delete any comment tokens older than 1 week.
         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
-                               WHERE okey LIKE 'comment_%' AND name < " . (time() - 604800) );
+                               WHERE okey LIKE 'comment_%' AND $cast < " . (time() - 604800) );
+
         // Get the token for this comment id
         $tokencheck = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}options
                                              WHERE okey = 'comment_" . (int)$cid . "' LIMIT 1", true, 'assoc');
+
         // Verify it against the passed key
         if (is_array($tokencheck)) {
             if ($tokencheck['value'] == $token) {
@@ -533,7 +546,8 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             }
             $comment['url'] = strip_tags((string)$comment['url']); // via serendipity_smarty_printComments() to not error strip sanitizers
             if ($_SESSION['serendipityAuthedUser'] === true && isset($comment['id'])) {
-                $comment['link_delete'] = $serendipity['baseURL'] . 'comment.php?serendipity[delete]=' . $comment['id'] . '&amp;serendipity[entry]=' . $comment['entry_id'] . '&amp;serendipity[type]=comments&amp;' . serendipity_setFormToken('url');
+                $rel_referer = htmlspecialchars( str_replace($serendipity['serendipityHTTPPath'], '', $_SERVER['REQUEST_URI']), ENT_QUOTES, LANG_CHARSET );
+                $comment['link_delete'] = $serendipity['baseURL'] . 'comment.php?serendipity[delete]=' . $comment['id'] . '&amp;serendipity[entry]=' . $comment['entry_id'] . '&amp;serendipity[type]=comments&amp;serendipity[rel_referer]='.$rel_referer.'&amp;' . serendipity_setFormToken('url');
             }
 
             /* Fix invalid cases in protocol part */
@@ -1061,7 +1075,7 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
     $parentid      = (isset($commentInfo['parent_id']) && is_numeric($commentInfo['parent_id'])) ? $commentInfo['parent_id'] : 0;
     $status        = serendipity_db_escape_string(($commentInfo['status'] ?? ($_setTo_moderation ? 'pending' : 'approved')));
     $t             = serendipity_db_escape_string((!empty($commentInfo['time']) ? $commentInfo['time'] : time())); // may come by as returncode false via plugin
-    $referer       = substr(serendipity_db_escape_string(($_SESSION['HTTP_REFERER'] ?? '')), 0, 200);
+    $referer       = !empty($_SESSION['HTTP_REFERER']) ? substr(serendipity_db_escape_string($_SESSION['HTTP_REFERER']), 0, 200) : '';
 
     $query = "SELECT a.email, e.title, a.mail_comments, a.mail_trackbacks
                 FROM {$serendipity['dbPrefix']}entries AS e
@@ -1225,17 +1239,17 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
 function serendipity_commentSubscriptionConfirm($hash) {
     global $serendipity;
 
-    // Delete possible current cookie. Also delete any confirmation hashes that smell like 3-week-old, dead fish.
     if (stristr($serendipity['dbType'], 'sqlite')) {
         $cast = "name";
     } elseif (stristr($serendipity['dbType'], 'postgres')) {
-        // Adds explicits casting for postgresql.
+        // Adds explicit casting for postgresql.
         $cast = "cast(name AS integer)";
     } else {
         // and all others eg. mysql(i), zend-db, ...
         $cast = "cast(name AS UNSIGNED)";
     }
 
+    // Delete possible current cookie. Also delete any confirmation hashes that smell like 3-week-old, dead fish.
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
                            WHERE okey LIKE 'commentsub_%' AND $cast < " . (time() - 1814400));
 
