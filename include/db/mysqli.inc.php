@@ -204,8 +204,8 @@ function serendipity_db_matched_rows() {
 function serendipity_db_escape_string($string) {
     global $serendipity;
 
-    if ($string == null) {
-        return;
+    if ($string === null) {
+        return null;
     }
     return mysqli_escape_string($serendipity['dbConn'], (string) $string);
 }
