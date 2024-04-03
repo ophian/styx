@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -154,7 +156,7 @@ function serendipity_installDatabase($type = '') {
         // Print the MySQL version
         $serendipity['db_server_info'] = mysqli_get_server_info($serendipity['dbConn']); // eg.  == 5.5.5-10.4.11-MariaDB
         // be a little paranoid...
-        if (substr($serendipity['db_server_info'], 0, 6) === '5.5.5-') {
+        if (str_starts_with($serendipity['db_server_info'], '5.5.5-')) {
             // strip any possible added prefix having this 5.5.5 version string (which was never released). PHP up from 8.0.16 now strips it correctly.
             $serendipity['db_server_info'] = str_replace('5.5.5-', '', $serendipity['db_server_info']);
         }
@@ -457,9 +459,9 @@ function serendipity_build_form_data_elements($type, $name, $value, $default, $s
                             <label for="radio_cfg_' . $name . '_no">' . NO . '</label>
                         </div>';
         } elseif ($type == 'fullprotected') {
-            $html .= '                    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+            $html .= '                    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '" autocomplete="new-password">';
         } elseif ($type == 'protected') {
-            $html .= '                    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+            $html .= '                    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '" autocomplete="new-password">';
         } elseif ($type == 'multilist') {
             $html .= '
                     <select id="' . $name . '" name="' . $name . '[]" multiple="multiple" size="5">';
@@ -481,9 +483,9 @@ function serendipity_build_form_data_elements($type, $name, $value, $default, $s
         } elseif ($type == 'file') {
             $html .= '                    <input id="' . $name . '" type="file" name="' . $name . '">';
         } elseif ($type == 'textarea') {
-            $html .= '                    <textarea id="' . $name . '" rows="5" name="' . $name . '">' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '</textarea>';
+            $html .= '                    <textarea id="' . $name . '" rows="5" name="' . $name . '">' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '</textarea>';
         } else {
-            $html .= '                    <input id="' . $name . '" type="text" name="' . $name . '" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '"' . ($name == 'username' ? ' autocomplete="new-password"' : '') . '>';
+            $html .= '                    <input id="' . $name . '" type="text" name="' . $name . '" value="' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '"' . ($name == 'username' ? ' autocomplete="new-password"' : '') . '>';
         }
     } else {
         // importer form builds
@@ -499,9 +501,9 @@ function serendipity_build_form_data_elements($type, $name, $value, $default, $s
                 <label for="radio_cfg_' . $name . '_no">'.NO . '</label>
             </div>';
         } elseif ($type == 'fullprotected') {
-            $html .= '    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+            $html .= '    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '" autocomplete="new-password">';
         } elseif ($type == 'protected') {
-            $html .= '    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+            $html .= '    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '" autocomplete="new-password">';
         } elseif ($type == 'multilist') {
             $html .= '
             <select id="' . $name . '" name="' . $name . '[]" multiple="multiple" size="5">';
@@ -523,9 +525,9 @@ function serendipity_build_form_data_elements($type, $name, $value, $default, $s
         } elseif ($type == 'file') {
             $html .= '    <input id="' . $name . '" type="file" name="' . $name . '">';
         } elseif ($type == 'textarea') {
-            $html .= '    <textarea id="' . $name . '" rows="5" name="' . $name . '">' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '</textarea>';
+            $html .= '    <textarea id="' . $name . '" rows="5" name="' . $name . '">' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '</textarea>';
         } else {
-            $html .= '    <input id="' . $name . '" type="text" name="' . $name . '" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '"' . ($name == 'username' ? ' autocomplete="new-password"' : '') . '>';
+            $html .= '    <input id="' . $name . '" type="text" name="' . $name . '" value="' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '"' . ($name == 'username' ? ' autocomplete="new-password"' : '') . '>';
         }
     }
     return $html;
@@ -776,7 +778,7 @@ function serendipity_checkInstallation() {
     if ($_POST['dbType'] == 'sqlite' || $_POST['dbType'] == 'sqlite3' || $_POST['dbType'] == 'pdo-sqlite' || $_POST['dbType'] == 'sqlite3oo') {
         // We don't want that our SQLite db file can be guessed from other applications on a server
         // and have access to ours. So we randomize the SQLite dbname.
-        $_POST['sqlitedbName'] = $_POST['dbName'] . '_' . md5((string) time());
+        $_POST['sqlitedbName'] = $_POST['dbName'] . '_' . hash('XXH128', (string) time());
     }
 
     if (empty($_POST['dbPrefix']) && empty($serendipity['dbPrefix'])) {
@@ -830,7 +832,7 @@ function serendipity_installFiles($serendipity_core = '') {
         }
     }
 
-    if (php_sapi_name() == 'cgi' || php_sapi_name() == 'cgi-fcgi' || php_sapi_name() == 'fpm-fcgi' || (php_sapi_name() === 'cli' OR defined('STDIN')) || false !== strpos(php_sapi_name(), 'cgi')) {
+    if (php_sapi_name() == 'cgi' || php_sapi_name() == 'cgi-fcgi' || php_sapi_name() == 'fpm-fcgi' || (php_sapi_name() === 'cli' OR defined('STDIN')) || str_contains(php_sapi_name(), 'cgi')) {
         $htaccess_cgi = '_cgi';
     } else {
         $htaccess_cgi = '';
@@ -1093,7 +1095,7 @@ function serendipity_updateConfiguration() {
  * @return  string      The root directory of Serendipity
  */
 function serendipity_httpCoreDir() {
-    if (!empty($_SERVER['SCRIPT_FILENAME']) && substr(php_sapi_name(), 0, 3) != 'cgi') {
+    if (!empty($_SERVER['SCRIPT_FILENAME']) && !str_starts_with(php_sapi_name(), 'cgi')) {
         return dirname($_SERVER['SCRIPT_FILENAME']) . '/';
     }
 
@@ -1205,10 +1207,6 @@ function serendipity_checkWebPSupport($set = false, $msg = false) {
 function serendipity_checkAvifSupport($set = false, $msg = false) {
     global $serendipity;
 
-    if (PHP_VERSION_ID < 80100) {
-        return false;
-    }
-
     if (!isset($serendipity['magick']) || $serendipity['magick'] !== true) {
         if (!function_exists('gd_info')) return false;
         $gd = gd_info();
@@ -1272,12 +1270,12 @@ function serendipity_check_rewrite($default) {
             $default = 'rewrite';
             return $default;
         }
-    } elseif (function_exists('phpinfo' ) && false === strpos(ini_get('disable_functions'), 'phpinfo')) {
+    } elseif (function_exists('phpinfo' ) && !str_contains(ini_get('disable_functions'), 'phpinfo')) {
         ob_start();
             phpinfo(INFO_MODULES);
         $phpinfo = ob_get_clean();
 
-        if (false !== strpos($phpinfo, 'mod_rewrite')) {
+        if (str_contains($phpinfo, 'mod_rewrite')) {
             $default = 'rewrite';
             return $default;
         }
@@ -1406,7 +1404,7 @@ function serendipity_FTPChecksum($filename, $type = null) {
     }
 
     // Calculate the checksum
-    $md5 = false;
+    $hash = false;
     if (stristr($type, 'text')) {
         // This is a text-type file.  We need to remove linefeeds before
         // calculating a checksum, to account for possible FTP conversions
@@ -1415,13 +1413,13 @@ function serendipity_FTPChecksum($filename, $type = null) {
         $newlines = array("#\r\n#", "#\r#", "#\n#");
         $file = file_get_contents($filename);
         $file = preg_replace($newlines, ' ', $file);
-        $md5 = md5($file);
+        $hash = hash('XXH128', $file);
     } else {
-        // Just get its md5sum
-        $md5 = md5_file($filename);
+        // Just get its xxHash
+        $hash = hash_file('XXH128', $filename);
     }
 
-    return $md5;
+    return $hash;
 }
 
 /**
@@ -1489,7 +1487,7 @@ function serendipity_getCurrentVersion() {
     // https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE
     $config_rv = serendipity_get_config_var('updateReleaseFileUrl', 'https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE');
 
-    $serendipity['updateVersionName'] = (false !== strpos((string)$config_rv, 'styx')) ? 'Styx' : 'Serendipity';
+    $serendipity['updateVersionName'] = str_contains((string)$config_rv, 'styx') ? 'Styx' : 'Serendipity';
 
     // Perform update check once a day. We use a suffix of the configured channel, so when
     // the user switches channels, it has its own timer.

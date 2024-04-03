@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 if (!empty($serendipity['dbType']) && include(S9Y_INCLUDE_PATH . "include/db/{$serendipity['dbType']}.inc.php")) {
     define('S9Y_DB_INCLUDED', true);
 }

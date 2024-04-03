@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -171,7 +173,7 @@ if ((int)$serendipity['GET']['step'] == 0) {
     $data['php_uname']     = php_uname('s') .' '. php_uname('r') .', '. php_uname('m');
     $data['php_sapi_name'] = php_sapi_name();
 
-    if (version_compare(PHP_VERSION, '7.4.0', '>=')) {
+    if (version_compare(PHP_VERSION, '8.2.0', '>=')) {
         $data['installerResultDiagnose_VERSION'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES .', '. PHP_VERSION);
     } else {
         $data['installerResultDiagnose_VERSION'] = serendipity_installerResultDiagnose(S9Y_I_ERROR, NO);
@@ -372,7 +374,7 @@ if ((int)$serendipity['GET']['step'] == 0) {
     if (!function_exists('serendipity_db_query') && trim($serendipity['dbPrefix']) == '') {
         serendipity_die('<p class="msg_error">' . ERROR_SOMETHING . '..</p><p>' . SERENDIPITY_INSTALLATION . ': ' . sprintf(SERENDIPITY_NOT_INSTALLED, 'index.php') ." [!]</p>\n");
     }
-    $t = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}authors", false, 'both', false, false, false, true);
+    $t = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}authors", expectError: true);
     $data['authors_query'] = $t;
 
     if (is_array($t)) {

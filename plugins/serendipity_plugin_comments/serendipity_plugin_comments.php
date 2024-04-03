@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -20,11 +22,11 @@ class serendipity_plugin_comments extends serendipity_plugin
         $propbag->add('description',   PLUGIN_COMMENTS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Garvin Hicking, Tadashi Jokagi, Judebert, G. Brockhaus, Ian Styx');
-        $propbag->add('version',       '1.26');
+        $propbag->add('version',       '1.27');
         $propbag->add('requirements',  array(
-            'serendipity' => '2.0',
-            'smarty'      => '3.1',
-            'php'         => '7.4'
+            'serendipity' => '5.0',
+            'smarty'      => '4.1',
+            'php'         => '8.2'
         ));
         $propbag->add('groups', array('FRONTEND_VIEWS'));
         $propbag->add('configuration', array(

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -14,7 +16,7 @@ class serendipity_plugin_quicksearch extends serendipity_plugin
         $propbag->add('description',   SEARCH_FOR_ENTRY);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.3');
+        $propbag->add('version',       '1.4');
         $propbag->add('configuration', array('fullentry', 'smartify'));
         $propbag->add('groups',        array('FRONTEND_ENTRY_RELATED'));
     }

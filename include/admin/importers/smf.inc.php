@@ -6,6 +6,8 @@
  *  SMF  Importer,     by Garvin Hicking *
  * ****************************************************************/
 
+declare(strict_types=1);
+
 class Serendipity_Import_smf extends Serendipity_Import
 {
     var $info        = array('software' => 'SMF 2.1.x');

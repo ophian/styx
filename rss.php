@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 if (!headers_sent() && session_status() != PHP_SESSION_ACTIVE) {
     session_cache_limiter('public');
 }

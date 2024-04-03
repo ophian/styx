@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -680,7 +682,7 @@ function serendipity_fixPlugins($case) {
 function update_table_authorgroups() {
     global $serendipity;
 
-    return serendipity_db_query("CREATE UNIQUE INDEX authorgroup_idx ON {$serendipity['dbPrefix']}authorgroups (groupid, authorid)", true, 'both', false, false, false, true); // set single true and last expectError true, since table is known to fail when unique key is a duplicate on error resumes for example
+    return serendipity_db_query("CREATE UNIQUE INDEX authorgroup_idx ON {$serendipity['dbPrefix']}authorgroups (groupid, authorid)", single: true, expectError: true); // table is known to fail when unique key is a duplicate on error resumes for example
 }
 
 /**

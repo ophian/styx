@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 /**
  * Tells the DB Layer to start a DB transaction.
  *
@@ -331,9 +333,10 @@ function serendipity_db_schema_import($query) {
     }
 
     $query = trim(str_replace($search, $replace, $query));
-    if ($query[0] == '@') {
+
+    if (str_starts_with($query, '@')) {
         // Errors are expected to happen (like duplicate index creation)
-        return serendipity_db_query(substr($query, 1), false, 'both', false, false, false, true);
+        return serendipity_db_query(substr($query, 1), expectError: true);
     } else {
         return serendipity_db_query($query);
     }

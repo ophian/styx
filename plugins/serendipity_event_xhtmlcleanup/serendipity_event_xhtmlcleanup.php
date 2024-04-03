@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -19,11 +21,11 @@ class serendipity_event_xhtmlcleanup extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_XHTMLCLEANUP_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.13');
+        $propbag->add('version',       '1.14');
         $propbag->add('requirements',  array(
-            'serendipity' => '3.1',
-            'smarty'      => '3.1.6',
-            'php'         => '7.3.0'
+            'serendipity' => '5.0',
+            'smarty'      => '4.1',
+            'php'         => '8.2'
         ));
         $propbag->add('groups', array('BACKEND_TEMPLATES'));
         $propbag->add('cachable_events', array('frontend_display' => true));

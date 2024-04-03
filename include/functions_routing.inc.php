@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -10,7 +12,7 @@ if (IN_serendipity !== true) {
 function serveIndex() {
     global $serendipity;
 
-    $serendipity['view'] = (false === strpos($_SERVER['QUERY_STRING'], 'frontpage')) ? 'start' : 'entries';
+    $serendipity['view'] = !str_contains($_SERVER['QUERY_STRING'], 'frontpage') ? 'start' : 'entries';
 
     if ($serendipity['GET']['action'] == 'search') {
         $serendipity['view'] = 'search';
@@ -52,7 +54,7 @@ function locateHiddenVariables($_args) {
             continue;
         }
 
-        if (isset($v[0]) && $v[0] == 'P') { /* Page */
+        if (isset($v[0]) && str_starts_with($v, 'P')) { /* Page */
             $page = substr($v, 1);
             // check for someone is willingly trying to break Serendipity by adding page orders > P2500.., which could result in breaking db limits - so we set a hard page limit
             if ($page > $serendipity['max_page_limit']) {
@@ -63,7 +65,7 @@ function locateHiddenVariables($_args) {
                 unset($_args[$k]);
                 unset($serendipity['uriArguments'][$k]);
             }
-        } elseif (isset($v[0]) && $v[0] == 'A') { /* Author */
+        } elseif (isset($v[0]) && str_starts_with($v, 'A')) { /* Author */
             $url_author = substr($v, 1);
             if (is_numeric($url_author)) {
                 $serendipity['GET']['viewAuthor'] = $_GET['viewAuthor'] = (int)$url_author;
@@ -73,7 +75,7 @@ function locateHiddenVariables($_args) {
             $serendipity['short_archives'] = true;
             $serendipity['head_subtitle'] .= SUMMARY . ' - ';
             unset($_args[$k]);
-        } elseif (isset($v[0]) && $v[0] == 'C') { /* C.ategory in "/categories/" and "/archives/" like URIs */
+        } elseif (isset($v[0]) && str_starts_with($v, 'C')) { /* C.ategory in "/categories/" and "/archives/" like URIs */
             $cat = substr($v, 1);
             if (is_numeric($cat)) {
                 $serendipity['GET']['category'] = $cat;
@@ -162,7 +164,7 @@ function serveJS($js_mode) {
     if ($serendipity['CacheControl']) {
         // Note that no-cache does not mean "don't cache". no-cache allows caches to store a response but requires them to revalidate it before reuse.
         // If the sense of "don't cache" that you want is actually "don't store", then no-store is the directive to use.
-        if (!empty($_SERVER['SERVER_SOFTWARE']) && strstr($_SERVER['SERVER_SOFTWARE'], 'LiteSpeed')) {
+        if (!empty($_SERVER['SERVER_SOFTWARE']) && str_contains($_SERVER['SERVER_SOFTWARE'], 'LiteSpeed')) {
             header('Cache-Control: private, max-age=3600, must-revalidate'); // for Hostinger Cache on LiteSpeed
             header('Pragma:'); // for Hostinger Cache on LiteSpeed
         } else {
@@ -451,7 +453,7 @@ function serveEntry($matches) {
         if (!empty($comment['comment'])) {
             if (serendipity_saveComment($serendipity['POST']['entry_id'], $comment, 'NORMAL')) {
                 // $serendipity['last_insert_comment_id'] used for for comment added messaging
-                $sc_url = ($_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . (strstr($_SERVER['REQUEST_URI'], '?') ? '&' : '?') . 'serendipity[csuccess]=' . ($serendipity['csuccess'] ?? 'true') . '&last_insert_cid=' . ($serendipity['last_insert_comment_id'] ?? '') . '#feedback';
+                $sc_url = ($_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . (str_contains($_SERVER['REQUEST_URI'], '?') ? '&' : '?') . 'serendipity[csuccess]=' . ($serendipity['csuccess'] ?? 'true') . '&last_insert_cid=' . ($serendipity['last_insert_comment_id'] ?? '') . '#feedback';
                 unset($serendipity['last_insert_comment_id']); // remove the temporary global, set in function serendipity_saveComment
                 if (serendipity_isResponseClean($sc_url)) {
                     header('Status: 302 Found');
@@ -548,8 +550,8 @@ function serveArchives() {
 
             if (isset($week)) {
                 $tm = strtotime('+ '. ($week-2) .' WEEKS monday', mktime(0, 0, 0, 1, 1, (int) $year));
-                $ts = mktime(0, 0, 1, date('m', $tm), date('j', $tm), (int) $year);
-                $te = mktime(23, 59, 59, date('m', $tm), date('j', $tm)+7, (int) $year);
+                $ts = mktime(0, 0, 1, (int) date('m', $tm), (int) date('j', $tm), (int) $year);
+                $te = mktime(23, 59, 59, (int) date('m', $tm), (int) date('j', $tm)+7, (int) $year);
                 $date = serendipity_formatTime(WEEK .' '. $week .', %Y', $ts, false);
             } else {
                 // all entry summary order only

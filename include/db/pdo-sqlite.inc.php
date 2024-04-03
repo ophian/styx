@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 function serendipity_db_logmsg($msgstr) {
     $fp = @fopen('sqlite.log', 'a');
     fwrite($fp, '[' . date('d.m.Y H:i') . '] ' . $msgstr . "\n\n");
@@ -321,9 +323,10 @@ function serendipity_db_schema_import($query) {
 
     $query = trim(str_replace($search, $replace, $query));
     $query = str_replace('INTEGER AUTOINCREMENT PRIMARY KEY', 'INTEGER PRIMARY KEY AUTOINCREMENT', $query);
-    if ($query[0] == '@') {
+
+    if (str_starts_with($query, '@')) {
         // Errors are expected to happen (like duplicate index creation)
-        return serendipity_db_query(substr($query, 1), false, 'both', false, false, false, true);
+        return serendipity_db_query(substr($query, 1), expectError: true);
     } else {
         return serendipity_db_query($query);
     }

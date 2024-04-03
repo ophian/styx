@@ -6,6 +6,8 @@
  *  b2evolution  Importer,   by Garvin Hicking *
  * ****************************************************************/
 
+declare(strict_types=1);
+
 class Serendipity_Import_b2evolution extends Serendipity_Import
 {
     var $info        = array('software' => 'b2Evolution 4.1 +');

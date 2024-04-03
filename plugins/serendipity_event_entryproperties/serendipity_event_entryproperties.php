@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -19,11 +21,11 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC . (isset($serendipity['GET']['plugin_to_conf']) ? ' ' . PLUGIN_EVENT_ENTRYPROPERTIES_DESC_PLUS : ''));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.92');
+        $propbag->add('version',       '1.95');
         $propbag->add('requirements',  array(
-            'serendipity' => '2.7.0',
-            'smarty'      => '3.1.0',
-            'php'         => '7.0.0'
+            'serendipity' => '5.0',
+            'smarty'      => '4.1',
+            'php'         => '8.2.0'
         ));
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
@@ -339,7 +341,7 @@ class serendipity_event_entryproperties extends serendipity_event
         return $out;
     }
 
-    function showBackend($element, $eventData, $is_sticky, $no_frontpage, $hiderss, $access_values, $access, $password, $use_groups, $access_groups, $use_users, $access_users, $more = array())
+    function showBackend($element, $eventData, $is_sticky, $no_frontpage, $hiderss, $access_values, $access, #[\SensitiveParameter] string $password, $use_groups, $access_groups, $use_users, $access_users, $more = array())
     {
         global $serendipity;
 
@@ -1035,9 +1037,11 @@ class serendipity_event_entryproperties extends serendipity_event
 
                     if (isset($serendipity['GET']['id']) && isset($eventData[0]['properties']['ep_entrypassword'])) {
 
-                        if (isset($_SESSION['entrypassword_unlocked']) && $_SESSION['entrypassword_unlocked'][$serendipity['GET']['id']] == md5($eventData[0]['properties']['ep_entrypassword']) || isset($serendipity['POST']['entrypassword']) && $eventData[0]['properties']['ep_entrypassword'] == $serendipity['POST']['entrypassword']) {
+                        if (isset($_SESSION['entrypassword_unlocked']) && $_SESSION['entrypassword_unlocked'][$serendipity['GET']['id']] == hash('XXH128', $eventData[0]['properties']['ep_entrypassword'])
+                        || isset($serendipity['POST']['entrypassword']) && $eventData[0]['properties']['ep_entrypassword'] == $serendipity['POST']['entrypassword'])
+                        {
                             // Do not show login form again, once we have first enabled it.
-                            $_SESSION['entrypassword_unlocked'][$serendipity['GET']['id']] = md5($eventData[0]['properties']['ep_entrypassword']);
+                            $_SESSION['entrypassword_unlocked'][$serendipity['GET']['id']] = hash('XXH128', $eventData[0]['properties']['ep_entrypassword']);
                         } else {
                             // Adding eventData makes no real sense for excluding eventData items like in 'entries_footer',
                             // apart from the preview, the entries list and 'external_plugin' hook which all play after,
@@ -1081,7 +1085,7 @@ class serendipity_event_entryproperties extends serendipity_event
                         ) ";
 
                         if ($use_groups) {
-                            $mygroups  = serendipity_checkPermission(null, null, true);
+                            $mygroups  = serendipity_checkPermission(returnMyGroups: true);
                             $groupcond = array();
                             foreach((array)$mygroups AS $mygroup) {
                                 $groupcond[] .= "ep_access_groups.value LIKE '%;$mygroup;%'";

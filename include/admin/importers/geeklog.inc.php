@@ -6,6 +6,8 @@
  *  geeklog  Importer,    by Garvin Hicking and Ian Styx         *
  * ***************************************************************/
 
+declare(strict_types=1);
+
 class Serendipity_Import_geeklog extends Serendipity_Import
 {
     var $info        = array('software' => 'Geeklog 1.4.1');

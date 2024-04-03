@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -327,7 +329,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
         }
     }
 
-    if (isset($serendipity['GET']['viewAuthor'])) {
+    if (isset($serendipity['GET']['viewAuthor']) && is_string($serendipity['GET']['viewAuthor'])) {
         $multiauthors = explode(';', $serendipity['GET']['viewAuthor']);
         $multiauthors_sql = array();
         foreach($multiauthors AS $multiauthor) {
@@ -452,7 +454,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
     // DEBUG:
     // die($serendipity['fullCountQuery']);
     if (!empty($limit)) {
-        if (isset($serendipity['GET']['page']) && ($serendipity['GET']['page'] > 1 || serendipity_db_bool($serendipity['archiveSortStable'])) && !strstr((string) $limit, ',')) {
+        if (isset($serendipity['GET']['page']) && ($serendipity['GET']['page'] > 1 || serendipity_db_bool($serendipity['archiveSortStable'])) && !str_contains((string) $limit, ',')) {
             if (serendipity_db_bool($serendipity['archiveSortStable'])) {
                 $totalEntries = serendipity_getTotalEntries();
 
@@ -708,10 +710,12 @@ function &serendipity_fetchEntryProperties($id) {
  * Fetch a list of available categories for an author
  *
  * @access public
- * @param   mixed   If set, the list of categories will be fetched according to the author id. If not set, all categories will be fetched. If set to "all", then all categories will be fetched.
+ * @param   mixed   If set, the list of categories will be fetched according to the author id.
+ *                  If not set, all categories will be fetched. If set to "all", then all categories will be fetched.
  * @param   string  Restrict the list to be returned to a specific category NAME.
  * @param   string  The SQL query part for ORDER BY of the categories
- * @param   string  The ACL artifact condition. If set to "write" only categories will be shown that the author can write to. If set to "read", only categories will be show that the author can read or write to.
+ * @param   string  The ACL artifact condition. If set to "write" only categories will be shown that the author can write to.
+ *                  If set to "read", only categories will be show that the author can read or write to.
  * @param   boolean Allows to set a default category by author
  * @return  array   Returns the array of categories
  */
@@ -886,7 +890,7 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
         $limit = $serendipity['fetchLimit'];
     }
 
-    if (isset($serendipity['GET']['page']) && $serendipity['GET']['page'] > 1 && !strstr((string) $limit, ',')) {
+    if (isset($serendipity['GET']['page']) && $serendipity['GET']['page'] > 1 && !str_contains((string) $limit, ',')) {
         $limit = serendipity_db_limit(($serendipity['GET']['page']-1) * $limit, $limit);
     }
 
@@ -1021,7 +1025,7 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
 
     // If * wasn't already appended and if there are none or not enough
     // results, search again for entries containing the searchterm as a part [MySQL only]
-    if (false === strpos($term, '*') && $serendipity['dbType'] == 'mysqli') {
+    if (!str_contains($term, '*') && $serendipity['dbType'] == 'mysqli') {
         if (!is_array($search)) {
             return serendipity_searchEntries($term.'*', $orig_limit);
         } else {

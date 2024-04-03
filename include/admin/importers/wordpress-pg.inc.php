@@ -6,6 +6,8 @@
  *      WordPress PostgreSQL Importer, by Devrim GUNDUZ          *
  *****************************************************************/
 
+declare(strict_types=1);
+
 class Serendipity_Import_WordPress_PG extends Serendipity_Import
 {
     var $info        = array('software' => 'WordPress PostgreSQL');

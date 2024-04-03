@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 // SQLite3 only fetches by assoc, we will emulate the other result types
 define(SQLITE3_ASSOC, 0);
 define(SQLITE3_NUM, 1);
@@ -340,9 +342,10 @@ function serendipity_db_schema_import($query) {
 
     $query = trim(str_replace($search, $replace, $query));
     $query = str_replace('INTEGER AUTOINCREMENT PRIMARY KEY', 'INTEGER PRIMARY KEY AUTOINCREMENT', $query);
-    if ($query[0] == '@') {
+
+    if (str_starts_with($query, '@')) {
         // Errors are expected to happen (like duplicate index creation)
-        return serendipity_db_query(substr($query, 1), false, 'both', false, false, false, true);
+        return serendipity_db_query(substr($query, 1), expectError: true);
     } else {
         return serendipity_db_query($query);
     }

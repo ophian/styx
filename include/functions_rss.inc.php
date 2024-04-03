@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -91,7 +93,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
 
             // avoid parsing html comments through NL2BR
             if ($options['comments'] === true && $version == 'atom1.0') {
-                if ($serendipity['allowHtmlComment'] || false !== strpos($entry['body'], '</p>')) {
+                if ($serendipity['allowHtmlComment'] || str_contains($entry['body'], '</p>')) {
                     $entry['properties']['ep_no_nl2br'] = true;
                 }
             }

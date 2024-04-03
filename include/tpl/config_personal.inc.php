@@ -184,7 +184,7 @@
                                           'title'       => CATEGORY,
                                           'description' => '',
                                           'type'        => 'list',
-                                          'default'     => serendipity_fetchCategories(null, null, null, 'write', true),
+                                          'default'     => serendipity_fetchCategories(flat: true),
                                           'permission'  => 'personalConfiguration',
                                           'flags'       => array('config')),
 
