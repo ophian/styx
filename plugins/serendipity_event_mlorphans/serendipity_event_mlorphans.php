@@ -20,7 +20,7 @@ class serendipity_event_mlorphans extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_MLORPHANS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.05');
+        $propbag->add('version',       '1.06');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
@@ -66,7 +66,7 @@ class serendipity_event_mlorphans extends serendipity_event
 
     <section id="maintenance_orphanmanager" class="quick_list">
         <h3><?=MEDIA_LIBRARY?>: <?=PLUGIN_EVENT_MLORPHANS_NAME?></h3>
-        <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=imageorphans" title="<?=strtolower(PLUGIN_EVENT_MLORPHANS_SUBMIT)?>"><span><?=PLUGIN_EVENT_MLORPHANS_SUBMIT?></span></a>
+        <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=imageorphans" title="<?=serendipity_mb('strtolower', PLUGIN_EVENT_MLORPHANS_SUBMIT)?>"><span><?=PLUGIN_EVENT_MLORPHANS_SUBMIT?></span></a>
     </section>
 
 <?php
