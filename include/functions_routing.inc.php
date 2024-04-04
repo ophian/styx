@@ -106,7 +106,7 @@ function serveComments() {
             continue;
         }
 
-        if (preg_match('@^(last|f|t|from|to)[\s_\-]*([\d\-/ ]+)$@', strtolower(urldecode($v)), $m)) {
+        if (preg_match('@^(last|f|t|from|to)[\s_\-]*([\d\-/ ]+)$@', serendipity_mb('strtolower', urldecode($v)), $m)) {
             if ($m[1] == 'last') {
                 $usetime = time() - ($m[2]*86400); // this means in the last x days, eg /last_5/ = time() - 432000, NOT equally last x comments ! Oh Oh, Garv!
                 $serendipity['GET']['commentStartTime'] = $usetime;

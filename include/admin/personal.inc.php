@@ -14,7 +14,7 @@ if (!serendipity_checkPermission('personalConfiguration')) {
     return;
 }
 
-define('USERCONF_NEW_PASSWDEX_TOOLTIP_INFO', ' - ' . strtolower(WORD_OR) . " -<br>\n" . sprintf('<span class="newrex" title="' . USERCONF_PASSWORD_RANDOM . '"><span class="icon-info-circled" aria-hidden="true"></span>%s</span>', serendipity_generate_password(20)));// no space with %s !
+define('USERCONF_NEW_PASSWDEX_TOOLTIP_INFO', ' - ' . serendipity_mb('strtolower', WORD_OR) . " -<br>\n" . sprintf('<span class="newrex" title="' . USERCONF_PASSWORD_RANDOM . '"><span class="icon-info-circled" aria-hidden="true"></span>%s</span>', serendipity_generate_password(20)));// no space with %s !
 
 $from = array();
 

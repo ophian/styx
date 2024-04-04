@@ -529,7 +529,7 @@ function serendipity_makePermalink($format, $data, $type = 'entry') {
             $ts = serendipity_serverOffsetHour($data['entry']['timestamp']);
 
             $ftitle  = serendipity_makeFilename($data['title']);
-            $fltitle = strtolower($ftitle);
+            $fltitle = serendipity_mb('strtolower', $ftitle);
 
             $replacements =
                 array(
