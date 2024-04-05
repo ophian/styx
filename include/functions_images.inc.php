@@ -3578,7 +3578,7 @@ function serendipity_isImage(&$file, $strict = false, $allowed = 'image/') {
  * @param   boolean     Force deleting a directory even if there are files left in it?
  * @return true
  */
-function serendipity_killPath($basedir, $udir = '', $forceDelete = false) {
+function serendipity_nukePath($basedir, $udir = '', $forceDelete = false) {
     static $serious = true;
     static $sdir = null;
 
@@ -3591,7 +3591,7 @@ function serendipity_killPath($basedir, $udir = '', $forceDelete = false) {
         while (false !== ($file = @readdir($handle))) {
             if ($file != '.' && $file != '..') {
                 if (is_dir($basedir . $udir . $file)) {
-                    serendipity_killPath($basedir, $udir . $file . '/', $forceDelete);
+                    serendipity_nukePath($basedir, $udir . $file . '/', $forceDelete);
                 } else {
                     $filestack[$file] = $udir . $file;
                 }
