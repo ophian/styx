@@ -700,8 +700,8 @@ switch ($serendipity['GET']['adminAction']) {
             } else {
                 ob_start();
                 // Directory exists and is writable. Now dive within subdirectories and nuke them all
-                serendipity_killPath($serendipity['serendipityPath'] . $serendipity['uploadPath'], $vlddir, (isset($serendipity['POST']['nuke']) ? true : false));
-                $data['ob_serendipity_killPath'] = ob_get_contents();
+                serendipity_nukePath($serendipity['serendipityPath'] . $serendipity['uploadPath'], $vlddir, (isset($serendipity['POST']['nuke']) ? true : false));
+                $data['ob_serendipity_nukePath'] = ob_get_contents();
                 ob_end_clean();
                 serendipity_cleanCache();
            }
