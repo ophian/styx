@@ -1071,6 +1071,16 @@ function serendipity_smarty_init($vars = array()) {
             $serendipity['smarty']->registerPlugin('modifier', 'rewriteURL', 'serendipity_rewriteURL');
             $serendipity['smarty']->registerPlugin('modifier', 'cleanChars', 'serendipity_cleanChars');
 
+            // Fixing deprecation notices up from Smarty 4.5.2.
+            // Real PHP methods as custom registered modifiers up from Smarty v.4.5.2
+            $serendipity['smarty']->registerPlugin('modifier', 'count', 'count');
+            $serendipity['smarty']->registerPlugin('modifier', 'nl2br', 'nl2br');
+            $serendipity['smarty']->registerPlugin('modifier', 'str_repeat', 'str_repeat');
+            $serendipity['smarty']->registerPlugin('modifier', 'print_r', 'print_r');
+            $serendipity['smarty']->registerPlugin('modifier', 'sprintf', 'sprintf');
+            // Real PHP methods as custom registered functions up from Smarty v.4.5.2
+            $serendipity['smarty']->registerPlugin('function', 'class_exists', 'class_exists');
+
             $serendipity['smarty']->registerPlugin('function', 'serendipity_printSidebar', 'serendipity_smarty_printSidebar');
             $serendipity['smarty']->registerPlugin('function', 'serendipity_hookPlugin', 'serendipity_smarty_hookPlugin');
             $serendipity['smarty']->registerPlugin('function', 'serendipity_showPlugin', 'serendipity_smarty_showPlugin');
