@@ -2,6 +2,8 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix rss PHP 8+ gmdate(... 2cd argument) timestamp has to be of type int
+
   * Fix PostgreSQL "character varying" type error in plugins cleanup after
     UPDATE_ALL.
 
