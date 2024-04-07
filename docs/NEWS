@@ -2,6 +2,9 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Register some native PHP methods AS Smarty custom modifiers/functions to
+    avoid running into deprecation notices on 1st compile.
+
   * Update to Smarty v.4.5.2 release named 4.5.2-dev-4 for Styx custom mods
 
   * Deprecate htmlspecialchars, htmlentities, html_entity_decode mapper functions.
