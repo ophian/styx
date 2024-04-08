@@ -610,12 +610,6 @@ function &serendipity_convertToTimestamp($in) {
  */
 function serendipity_strftime($format, $timestamp = null, $useOffset = true, $useDate = false) {
     global $serendipity;
-    static $is_win_utf = null;
-
-    if ($is_win_utf === null) {
-        // Windows does not have UTF-8 locales.
-        $is_win_utf = (LANG_CHARSET === 'UTF-8' && str_starts_with(strtoupper(PHP_OS), 'WIN'));
-    }
 
     if ($useDate) {
         $out = date($format, $timestamp);
@@ -648,10 +642,6 @@ function serendipity_strftime($format, $timestamp = null, $useOffset = true, $us
                 $out = persian_strftime_utf($format, $timestamp);
                 break;
         }
-    }
-
-    if ($is_win_utf && (empty($serendipity['calendar']) || $serendipity['calendar'] == 'gregorian')) {
-        mb_convert_encoding($out, 'UTF-8', 'ISO-8859-1'); // string, to, from
     }
 
     return $out;
