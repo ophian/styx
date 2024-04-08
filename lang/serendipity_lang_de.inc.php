@@ -893,7 +893,7 @@
 @define('DIALOG_DELETE_VARIATIONS', 'Variationen löschen');
 
 @define('GO_ADD_PROPERTIES', 'Los & Eigenschaften angeben');
-@define('MEDIA_PROP_MULTIUPLOAD_LAST_ONLY', 'Bitte beachten Sie, dass bei mehrfach hochgeladenen Bildern mit dem "Eigenschaften angeben"-Submit aus Gründen der Codeverwendung hier nur die Eigenschaften des letzten Bildes wirklich geändert werden können.');
+@define('MEDIA_PROP_MULTIUPLOAD_LAST_ONLY', 'Bitte beachten Sie, dass bei multiple-hochgeladenen Bildern über das "Eigenschaften angeben"-Submit aus Gründen der internen Codeverwendung hier nur die Eigenschaften des letzten Bildes wirklich geändert werden können.');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Copyright');
 @define('MEDIA_PROPERTY_COMMENT1', 'Öffentl. Kommentar');
