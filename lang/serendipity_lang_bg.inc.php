@@ -899,6 +899,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('DIALOG_DELETE_VARIATIONS', 'Delete Variations');
 
 @define('GO_ADD_PROPERTIES', 'Продължаване за въвеждане на свойства');
+@define('MEDIA_PROP_MULTIUPLOAD_LAST_ONLY', 'Please note that for multiple uploaded images with the enterProperties-Submit, only the properties of the last image can really be changed here for reasons of code usage.');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Copyright');
 @define('MEDIA_PROPERTY_COMMENT1', 'Публичен коментар');
