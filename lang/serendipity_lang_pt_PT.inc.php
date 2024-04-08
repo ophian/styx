@@ -900,6 +900,7 @@
 @define('DIALOG_DELETE_VARIATIONS', 'Delete Variations');
 
 @define('GO_ADD_PROPERTIES', 'Ir & introduzir propriedades');
+@define('MEDIA_PROP_MULTIUPLOAD_LAST_ONLY', 'Please note that for multiple uploaded images with the enterProperties-Submit, only the properties of the last image can really be changed here for reasons of code usage.');
 @define('MEDIA_PROPERTY_DPI', 'DPI (PPP)');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Direitos de Autor');
 @define('MEDIA_PROPERTY_COMMENT1', 'Comentário Público');
