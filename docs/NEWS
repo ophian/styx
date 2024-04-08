@@ -2,6 +2,9 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add new helper notice in media_items on multi-uploads via enterProperties
+    submit, explaining that only the last will be able to change.
+
   * Fix rss PHP 8+ gmdate(... 2cd argument) timestamp has to be of type int
 
   * Fix PostgreSQL "character varying" type error in plugins cleanup after
