@@ -1,3 +1,7 @@
+{if NOT $media.enclose AND $media.files|count > 1}
+    <span class="msg_notice"><span class="icon-info-circled"></span> {$CONST.MEDIA_PROP_MULTIUPLOAD_LAST_ONLY}</span>
+
+{/if}
 {foreach $media.files AS $file}
     {if NOT $media.manage}
         {* ML got called for inserting media *}
