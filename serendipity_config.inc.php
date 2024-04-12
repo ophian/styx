@@ -177,7 +177,6 @@ if (!isset($serendipity['languages'])) {
                                   'es' => 'Spanish',
                                   'fr' => 'French',
                                   'fi' => 'Finnish',
-                                  'cs' => 'Czech (Win-1250)',
                                   'cz' => 'Czech (ISO-8859-2)',
                                   'sk' => 'Slovak',
                                   'nl' => 'Dutch',
