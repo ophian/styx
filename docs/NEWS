@@ -2,6 +2,9 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Revert Spartacus additional_plugins "master" to "legacy" branch division
+    for Styx 4.x Series.
+
   * Remove ISO-8859-2 reference of [cz] language names
 
   * Remove former [cs] lang files and references, from the early nineties...!
