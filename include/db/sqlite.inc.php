@@ -153,7 +153,7 @@ function serendipity_db_sqlite_fetch_array($res, $type = SQLITE_BOTH) {
         //       To fix that, we use a preg-regex; but that is quite performance costy.
         //       Either we always need to use 'SELECT a.id AS id, b.text AS text' in query,
         //       or the sqlite extension may get fixed. :-)
-        $row[preg_replace('@^.+\.(.*)@', '\1', $i)] = str_replace($search, $replace, $v);
+        $row[preg_replace('@^.+\.(.*)@', '\1', (string) $i)] = str_replace($search, $replace, (string) $v);
     }
 
     return $row;
