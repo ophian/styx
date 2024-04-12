@@ -777,56 +777,19 @@ function serendipity_authenticate_author($username = '', #[\SensitiveParameter] 
                 if (isset($is_valid_user) && $is_valid_user === true) {
                     continue;
                 }
-                $is_valid_user = false;
+                $is_valid_user = false; // init
 
-                if (empty($row['hashtype']) || $row['hashtype'] == 0) {
-                    if (isset($serendipity['hashkey']) && (time() - $serendipity['hashkey']) >= 15768000) {
-                        die('You can no longer login with an old-style MD5 hash to prevent MD5-Hostage abuse.
-                             Please ask the Administrator to set you a new password.');
-                    }
+                if ( ($is_hashed === false && password_verify((string)$password, $row['password'])) ||
+                     ($is_hashed !== false && (string)$row['password'] === (string)$password) ) {
 
-                    // Old MD5 hashing routine. Will convert user.
-                    if ( ($is_hashed === false && (string)$row['password'] === (string)md5($password)) ||
-                         ($is_hashed !== false && (string)$row['password'] === (string)$password) ) {
-
-                        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}authors
-                                                 SET password = '" . ($is_hashed === false ? serendipity_hash($password) : $password) . "',
-                                                     hashtype = 2
-                                               WHERE authorid = '" . $row['authorid'] . "'");
-                        if ($debug) fwrite($fp, date('Y-m-d H:i') . ' - Migrated user:' . $row['username'] . "\n");
-                        $is_valid_user = true;
-                        $row['hashtype'] = 2;
-                    } else {
-                        continue;
-                    }
-                } elseif ($row['hashtype'] == 1) {
-                    // Old SHA1 hashing routine. Will convert user.
-                    if ( ($is_hashed === false && (string)$row['password'] === (string)serendipity_sha1_hash($password)) ||
-                         ($is_hashed !== false && (string)$row['password'] === (string)$password) ) {
-
-                        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}authors
-                                                 SET password = '" . ($is_hashed === false ? serendipity_hash($password) : $password) . "',
-                                                     hashtype = 2
-                                               WHERE authorid = '" . $row['authorid'] . "'");
-                        if ($debug) fwrite($fp, date('Y-m-d H:i') . ' - Migrated user:' . $row['username'] . "\n");
-                        $is_valid_user = true;
-                        $row['hashtype'] = 2;
-                    } else {
-                        continue;
-                    }
+                    $is_valid_user = true;
+                    if ($debug) fwrite($fp, date('Y-m-d H:i') . ' - Validated ' . $row['password'] . ' == ' . ($is_hashed === false ? 'unhash:' . serendipity_hash($password) : 'hash:' . $password) . "\n");
                 } else {
-                    if ( ($is_hashed === false && password_verify((string)$password, $row['password'])) ||
-                         ($is_hashed !== false && (string)$row['password'] === (string)$password) ) {
-
-                        $is_valid_user = true;
-                        if ($debug) fwrite($fp, date('Y-m-d H:i') . ' - Validated ' . $row['password'] . ' == ' . ($is_hashed === false ? 'unhash:' . serendipity_hash($password) : 'hash:' . $password) . "\n");
-                    } else {
-                        if ($debug) fwrite($fp, date('Y-m-d H:i') . ' - INValidated ' . $row['password'] . ' == ' . ($is_hashed === false ? 'unhash:' . serendipity_hash($password) : 'hash:' . $password) . "\n");
-                        continue;
-                    }
+                    if ($debug) fwrite($fp, date('Y-m-d H:i') . ' - INValidated ' . $row['password'] . ' == ' . ($is_hashed === false ? 'unhash:' . serendipity_hash($password) : 'hash:' . $password) . "\n");
+                    continue;
                 }
 
-                // This code is only reached, if the password before is valid.
+                // This code is only reached, if the password before is found valid.
                 if ($is_valid_user) {
                     if ($debug) fwrite($fp, date('Y-m-d H:i') . ' [sid:' . session_id() . '] - Success.' . "\n");
                     serendipity_setCookie('old_session', session_id(), false);
