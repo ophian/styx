@@ -2,6 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Remove old MD5/SHA1 hashing upgrade routines... Will convert user...
+
   * Register some native PHP methods AS Smarty custom modifiers/functions to
     avoid running into deprecation notices on 1st compile.
 
