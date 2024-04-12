@@ -2,6 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Remove ISO-8859-2 reference of [cz] language names
+
   * Remove former [cs] lang files and references, from the early nineties...!
 
   * Remove old MD5/SHA1 hashing upgrade routines... Will convert user...
