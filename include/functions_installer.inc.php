@@ -285,7 +285,7 @@ function serendipity_query_default($optname, $default, $usertemplate = false, $t
                 $path = array_merge($path, explode(PATH_SEPARATOR, $_SERVER['PATH']));
                 // remove unwanted empty or system32 path parts, so that wrong system32/convert.exe is prevented.
                 foreach($path AS $pk => $pv) {
-                    if (stripos($pv, 'system32') !== false || empty($pv)) {
+                    if (stripos((string) $pv, 'system32') !== false || empty($pv)) {
                         unset($path[$pk]);
                     }
                 }
