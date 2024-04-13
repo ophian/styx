@@ -14,7 +14,7 @@ declare(strict_types=1);
 class Serendipity_Smarty_Security_Policy extends Smarty_Security
 {
     // These are the allowed functions only. - Default as is
-    public $php_functions = array('isset', 'empty', 'count', 'in_array', 'is_array', 'time', 'nl2br', 'class_exists');
+    public $php_functions = array('isset', 'empty', 'count', 'in_array', 'is_array', 'time', 'nl2br');
     // To disable all PHP functions use
     #public $php_functions = null;
 
