@@ -1,5 +1,5 @@
 <?php
-// serendipity_smarty_class.inc.php lm 2024-03-24 Ian Styx
+// serendipity_smarty_class.inc.php lm 2024-04-13 Ian Styx
 
 declare(strict_types=1);
 
