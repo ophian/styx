@@ -1078,9 +1078,8 @@ function serendipity_smarty_init($vars = array()) {
             $serendipity['smarty']->registerPlugin('modifier', 'str_repeat', 'str_repeat');
             $serendipity['smarty']->registerPlugin('modifier', 'print_r', 'print_r');
             $serendipity['smarty']->registerPlugin('modifier', 'sprintf', 'sprintf');
-            // Real PHP methods as custom registered functions up from Smarty v.4.5.2
-            $serendipity['smarty']->registerPlugin('function', 'class_exists', 'class_exists');
 
+            // Register Serendipity Smarty functions
             $serendipity['smarty']->registerPlugin('function', 'serendipity_printSidebar', 'serendipity_smarty_printSidebar');
             $serendipity['smarty']->registerPlugin('function', 'serendipity_hookPlugin', 'serendipity_smarty_hookPlugin');
             $serendipity['smarty']->registerPlugin('function', 'serendipity_showPlugin', 'serendipity_smarty_showPlugin');
