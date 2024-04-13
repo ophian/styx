@@ -2,6 +2,10 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Remove Smarty allowed php_functions 'class_exists' allowance, due to an
+    issue with backends freetag plugin exists checkup and the new Smarty 4.5.2.
+        FUTURES: Use isset() with defined constant checkup instead.
+
   * Revert Spartacus additional_plugins "master" to "legacy" branch division
     for Styx 4.x Series.
 
