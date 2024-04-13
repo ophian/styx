@@ -672,7 +672,7 @@ function serendipity_parse_sql_tables($filename) {
     $in_table = 0;
     $queries = array();
 
-    $fp = fopen($filename, 'r', 1);
+    $fp = fopen($filename, 'r', true);
     if ($fp) {
         while (!@feof($fp)) {
             $line = trim((string) fgets($fp, 4096));
