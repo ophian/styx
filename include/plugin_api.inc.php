@@ -217,8 +217,8 @@ class serendipity_plugin_api
         $key = serendipity_db_escape_string($key);
 
         // Secure Plugin path. No leading slashes, no backslashes, no "up" directories
-        $pluginPath = preg_replace('@^(/)@', '', $pluginPath);
-        $pluginPath = str_replace(array('..', "\\"), array('', '/'), serendipity_db_escape_string($pluginPath));
+        $pluginPath = preg_replace('@^(/)@', '', (string) $pluginPath);
+        $pluginPath = str_replace(array('..', "\\"), array('', '/'), (string) serendipity_db_escape_string($pluginPath));
 
         if ($pluginPath == 'online_repository') {
             $pluginPath = $key;
