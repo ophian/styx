@@ -4851,7 +4851,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $enc
         'keywords_selected' => $serendipity['GET']['keywords'] ?? '',
         'filter'            => $serendipity['GET']['filter'] ?? null,/* NIL or array() (media_toolbar.tpl) */
         'sort_order'        => $order_fields,
-        'simpleFilters'     => $displayGallery ? false : ($serendipity['simpleFilters'] ?? true),
+        'simpleFilters'     => $displayGallery ? false : ($serendipity['simpleFilters'] ?? false),
         'metaActionBar'     => ($serendipity['GET']['adminAction'] != 'properties' && empty($serendipity['GET']['fid'])),
         'hideSubdirFiles'   => empty($serendipity['GET']['hideSubdirFiles']) ? 'yes' : $serendipity['GET']['hideSubdirFiles'],
         'authors'           => serendipity_fetchUsers(),
