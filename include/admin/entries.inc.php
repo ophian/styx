@@ -409,7 +409,7 @@ switch($serendipity['GET']['adminAction']) {
         $data['page']       = $page;
 
         $data['totalEntries']  = serendipity_getTotalEntries();
-        $data['simpleFilters'] = $serendipity['simpleFilters'] ?? true;
+        $data['simpleFilters'] = $serendipity['simpleFilters'] ?? false;
 
         if (!empty($pinned_entries)) {
             // both are regular arrays with num keys in the 1st dimension
