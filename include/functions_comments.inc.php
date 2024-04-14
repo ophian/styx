@@ -542,11 +542,11 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             } else {
                 // Since being stripped out, do not double_encode twice already encoded data from database for output.
                 // (Is this vulnerable with old payload data by using HTML ENTITIES? I don't know !!)
-                $comment['comment'] = htmlspecialchars(strip_tags((string)$comment['body']), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET, false); // cast as strings (for PREVIEW mode only)
+                $comment['comment'] = htmlspecialchars(strip_tags((string)$comment['body']), encoding: LANG_CHARSET, double_encode: false); // cast as strings (for PREVIEW mode only)
             }
             $comment['url'] = strip_tags((string)$comment['url']); // via serendipity_smarty_printComments() to not error strip sanitizers
             if ($_SESSION['serendipityAuthedUser'] === true && isset($comment['id'])) {
-                $rel_referer = htmlspecialchars( str_replace($serendipity['serendipityHTTPPath'], '', $_SERVER['REQUEST_URI']), ENT_QUOTES, LANG_CHARSET );
+                $rel_referer = htmlspecialchars( str_replace($serendipity['serendipityHTTPPath'], '', $_SERVER['REQUEST_URI']), encoding: LANG_CHARSET );
                 $comment['link_delete'] = $serendipity['baseURL'] . 'comment.php?serendipity[delete]=' . $comment['id'] . '&amp;serendipity[entry]=' . $comment['entry_id'] . '&amp;serendipity[type]=comments&amp;serendipity[rel_referer]='.$rel_referer.'&amp;' . serendipity_setFormToken('url');
             }
 
