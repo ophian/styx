@@ -187,13 +187,13 @@ function serendipity_forgetCommentDetails($keys) {
  */
 function serendipity_entityCommentCodeTagBlocks($str) {
     $code_callback = function($matches) {
-        return '<code' . $matches[1] . '>' . serendipity_entities($matches[2], null, LANG_CHARSET, false) . '</code>';
+        return '<code' . $matches[1] . '>' . htmlentities($matches[2], encoding: LANG_CHARSET, double_encode: false) . '</code>';
     };
     $code_callback_pre = function($matches) {
-        return '<pre><code' . $matches[1] . '>' . serendipity_entities($matches[2], null, LANG_CHARSET, false) . '</code></pre>';
+        return '<pre><code' . $matches[1] . '>' . htmlentities($matches[2], encoding: LANG_CHARSET, double_encode: false) . '</code></pre>';
     };
     $pre_callback = function($matches) {
-        return '<pre' . $matches[1] . '><code>' . serendipity_entities($matches[2], null, LANG_CHARSET, false) . '</code></pre>';
+        return '<pre' . $matches[1] . '><code>' . htmlentities($matches[2], encoding: LANG_CHARSET, double_encode: false) . '</code></pre>';
     };
     if (false === stripos($str, '<code')) {
         return preg_replace_callback('#<pre(.*?)>(.*?)</pre>#', $pre_callback, $str);
