@@ -922,7 +922,7 @@ function serendipity_setCookie($name, $value, $securebyprot = true, $custom_time
  * @return  null
  */
 function serendipity_JSsetCookie($name, $value) {
-    $name  = serendipity_entities($name);
+    $name  = htmlentities($name);
     $value = urlencode($value);
 
     echo '    <script type="text/javascript">serendipity.SetCookie("' . $name . '", unescape("' . $value . '"))</script>';
