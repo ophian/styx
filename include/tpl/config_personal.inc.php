@@ -123,7 +123,7 @@
                                           'description' => SIMPLE_FILTERS_DESC,
                                           'type'        => 'bool',
                                           'permission'  => 'personalConfiguration',
-                                          'default'     => true,
+                                          'default'     => false,
                                           'flags'       => array('config')),
 
                                     array('var'         => 'enableBackendPopup',
