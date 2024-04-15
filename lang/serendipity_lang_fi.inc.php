@@ -600,7 +600,7 @@
 @define('IMPORT_STATUS', 'Tuonnin jälkeinen tilanne');
 @define('IMPORT_GENERIC_RSS', 'Yleinen RSS tuonti');
 @define('ACTIVATE_AUTODISCOVERY', 'Lähetä paluuviitteet merkintöjen paluuviestiosoitteisiin.');
-@define('WELCOME_TO_ADMIN', 'Tervetuloa Serendipityn Styx ylläpitoon.');
+@define('WELCOME_TO_ADMIN', 'Tervetuloa Serendipity Styx ylläpitoon.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Kirjoita tunnistustietosi allaoleviin laatikoihin.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Ohjelmistona Serendipity %s ja PHP %s');
 @define('INSTALL_USEGZIP', 'Käytä gzip pakattuja sivuja');
