@@ -267,6 +267,12 @@ function serendipity_db_connect() {
     return $serendipity['dbConn'];
 }
 
+/**
+ * Re-Connect to the configured Database to set dbCharset for utf8mb4 parameters
+ * MySQL databases specifics!
+ *
+ * @access public
+ */
 function serendipity_db_reconnect() {
     global $serendipity;
 
