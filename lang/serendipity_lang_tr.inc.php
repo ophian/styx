@@ -753,7 +753,7 @@
 @define('MANAGE_GROUPS', 'Grupları Yönet');
 @define('DELETED_GROUP', 'Grup #%d \'%s\' silindi.');
 @define('CREATED_GROUP', 'Yeni bir grup: #%d \'%s\' oluşturuldu');
-@define('MODIFIED_GROUP', 'Şu kullanıcı grubunun özellikleri değiştirildi: \'%s\' ');
+@define('MODIFIED_GROUP', 'Şu kullanıcı grubunun özellikleri değiştirildi: \'%s\'');
 @define('GROUP', 'Kullanıcı Grubu');
 @define('CREATE_NEW_GROUP', 'Yeni Grup oluştur');
 @define('DELETE_GROUP', 'Silmek istediğiniz kullanıcı grubu: #%d \'%s\'. Silinsin mi?');

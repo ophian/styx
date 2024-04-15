@@ -181,7 +181,7 @@
 @define('CREATE_AUTHOR', 'Yazar ekle \'%s\'.');
 @define('CREATE_CATEGORY', 'Konu başlığı ekle \'%s\'.');
 @define('MYSQL_REQUIRED', 'Bu eylemi gerçekleştirebilmeniz için MySQL eklentisine sahip olmalısınız.');
-@define('PGSQL_REQUIRED', 'Nepodarilo sa spojiť s databázou PostgreSQL eklentisine sahip olmalısınız.');
+@define('PGSQL_REQUIRED', 'Bu eylemi gerçekleştirebilmeniz için PostgreSQL eklentisine sahip olmalısınız.');
 @define('COULDNT_CONNECT', 'MySQL Veritabanına bağlanılamadı: %s.');
 @define('PGSQL_COULDNT_CONNECT', 'PostgreSQL Veritabanına bağlanılamadı: %s.');
 @define('COULDNT_SELECT_DB', 'Veritabanı seçilemedi: %s.');
@@ -278,7 +278,7 @@
 @define('NEXT_PAGE', 'sonraki sayfa');
 @define('ALL_CATEGORIES', 'Tüm konu başlıkları');
 @define('DO_MARKUP', 'Etiketleme dili dönüşümü gerçekleştir');
-@define('DO_MARKUP_DESCRIPTION', ' Metne (eklenti) biçimlendirme dönüşümleri uygulayın (smilies, bbcode, s9y kısayol işaretlemeleri, markdown, vb.) Devre dışı bırakılırsa, içerik 1:1 olarak işlenir ve tüm HTML biçimlendirmeleri korunur. Bu seçenek etkinleştirilirse, diğer eklentiler nugget\'ın içeriğini değiştirebilir.');
+@define('DO_MARKUP_DESCRIPTION', 'Metne (eklenti) biçimlendirme dönüşümleri uygulayın (smilies, bbcode, s9y kısayol işaretlemeleri, markdown, vb.) Devre dışı bırakılırsa, içerik 1:1 olarak işlenir ve tüm HTML biçimlendirmeleri korunur. Bu seçenek etkinleştirilirse, diğer eklentiler nugget\'ın içeriğini değiştirebilir.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'tarih biçimleme');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Yazının biçimi\'s gerçek tarihi için,  PHPs strftime() değişkenlerini kullan. (Öntanımlı: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Şablon dosyası açılamıyor, Lütfen yazılımınızı güncelleyin!');
