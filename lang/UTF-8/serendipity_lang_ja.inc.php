@@ -381,7 +381,7 @@
 @define('INSTALL_UPLOADPATH', 'アップロードパス');
 @define('INSTALL_UPLOADPATH_DESC', 'すべてのアップロードはここに来ます。「フルパス」への相対パス - 通常「uploads/」です。');
 @define('INSTALL_RELPATH', '相対パス');
-@define('INSTALL_RELPATH_DESC', 'ブラウザーで使用する serendipity のパスです。通常「/serendipity/」 です。');
+@define('INSTALL_RELPATH_DESC', 'ブラウザーで使用する Serendipity のパスです。通常「/serendipity/」 です。');
 @define('INSTALL_RELTEMPLPATH', '相対テンプレートパス');
 @define('INSTALL_RELTEMPLPATH_DESC', 'テンプレートが含まれるフォルダーへのパスです - 「相対パス」への相対です。');
 @define('INSTALL_RELUPLOADPATH', '相対アップロードパス');
