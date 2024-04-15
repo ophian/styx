@@ -604,7 +604,7 @@
 @define('IMPORT_STATUS', '导出后的状态');
 @define('IMPORT_GENERIC_RSS', '一般 RSS 导入');
 @define('ACTIVATE_AUTODISCOVERY', '传送文章内引用的连接');
-@define('WELCOME_TO_ADMIN', '欢迎登陆 Serendipity Styx  智能博客系统');
+@define('WELCOME_TO_ADMIN', '欢迎登陆 Serendipity Styx 智能博客系统');
 @define('PLEASE_ENTER_CREDENTIALS', '请输入正确的登陆帐号');
 @define('ADMIN_FOOTER_POWERED_BY', 'Powered by Serendipity %s and PHP %s'); // Translate
 @define('INSTALL_USEGZIP', '使用 gzip 压缩网页');
