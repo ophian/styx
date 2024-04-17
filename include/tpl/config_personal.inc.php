@@ -123,7 +123,7 @@
                                           'description' => SIMPLE_FILTERS_DESC,
                                           'type'        => 'bool',
                                           'permission'  => 'personalConfiguration',
-                                          'default'     => false,
+                                          'default'     => (defined('IN_installer') && IS_installed === false) ? false : true,
                                           'flags'       => array('config')),
 
                                     array('var'         => 'enableBackendPopup',
