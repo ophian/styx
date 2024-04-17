@@ -2,7 +2,7 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Make personal config simpleFilters option default to false
+  * Make personal config simpleFilters option default to false on install
 
   * Remove Smarty allowed php_functions 'class_exists' allowance, due to an
     issue with backends freetag plugin exists checkup and the new Smarty 4.5.2.
