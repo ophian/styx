@@ -14,23 +14,20 @@ if (!defined('serendipity_LANG_LOADED') || serendipity_LANG_LOADED !== true) {
     $charset = serendipity_getCharset();
 
     // The following variable can be set in serendipity_config_local.inc.php to force your templates being able to use language override includes
-    if (isset($serendipity['useTemplateLanguage']) && $serendipity['useTemplateLanguage'] === true) {
+    // An un-promoted private variable set, to first serve template based serendipity lang constants that have higher priority.
+    // We do not allow this for backend constants and both, the fallback "default" and the standard theme (currently "pure") !
+    if (isset($serendipity['useTemplateLanguage']) && $serendipity['useTemplateLanguage'] === true && !empty($serendipity['template'])
+    && !defined('IN_serendipity_admin') && !in_array($serendipity['template'], ['default', 'default-php', $serendipity['defaultTemplate']])) {
         if (defined('S9Y_DATA_PATH')) {
             @include_once (S9Y_DATA_PATH . 'templates/' . $serendipity['template'] . '/' . $charset .  'lang_' . $serendipity['lang'] . '.inc.php');
             @include_once (S9Y_DATA_PATH . 'templates/' . $serendipity['template'] . '/lang_en.inc.php');
-
-            @include_once (S9Y_DATA_PATH . 'templates/' . $serendipity['template_backend'] . '/' . $charset .  'lang_' . $serendipity['lang'] . '.inc.php');
-            @include_once (S9Y_DATA_PATH . 'templates/' . $serendipity['template_backend'] . '/lang_en.inc.php');
         } else {
             @include_once (S9Y_INCLUDE_PATH . 'templates/' . $serendipity['template'] . '/' . $charset .  'lang_' . $serendipity['lang'] . '.inc.php');
             @include_once (S9Y_INCLUDE_PATH . 'templates/' . $serendipity['template'] . '/lang_en.inc.php');
-
-            @include_once (S9Y_INCLUDE_PATH . 'templates/' . $serendipity['template_backend'] . '/' . $charset .  'lang_' . $serendipity['lang'] . '.inc.php');
-            @include_once (S9Y_INCLUDE_PATH . 'templates/' . $serendipity['template_backend'] . '/lang_en.inc.php');
         }
     }
 
-    // Try and include preferred language from the configurated setting
+    // Try and include preferred language from the configured setting
 
     if (@include(S9Y_INCLUDE_PATH . 'lang/' . $charset . 'serendipity_lang_'. $serendipity['lang'] .'.inc.php') ) {
         // Only here can we truly say the language is loaded
@@ -42,9 +39,9 @@ if (!defined('serendipity_LANG_LOADED') || serendipity_LANG_LOADED !== true) {
         // If no config file is loaded, language includes are not available.
         // Now include one. Try to auto-guess the language by looking up the HTTP_ACCEPT_LANGUAGE.
         serendipity_detectLang(true);
-    }  //endif
+    }
 
-    // Do fallback to english
+    // Do fall back to english
     if (IS_installed === false || (defined('IS_up2date') && IS_up2date === false)) {
         @include_once(S9Y_INCLUDE_PATH . 'lang/' . $charset . 'serendipity_lang_en.inc.php');
     }
