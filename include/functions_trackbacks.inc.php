@@ -513,7 +513,7 @@ function fetchPingbackData(&$comment) {
 
     // Get a title
     if (preg_match('@<head[^>]*>.*?<title[^>]*>(.*?)</title>.*?</head>@is', $fContent, $matches)) {
-        $comment['title'] = serendipity_entity_decode(strip_tags($matches[1]), ENT_COMPAT, LANG_CHARSET);
+        $comment['title'] = html_entity_decode(strip_tags($matches[1]), ENT_COMPAT, LANG_CHARSET);
     }
 
     // Try to get content from first <p> tag on:
@@ -549,7 +549,7 @@ function trackback_body_strip($body) {
     $body = str_replace('&nbsp;', ' ', $body);
 
     // strip html entities and tags.
-    $body = serendipity_entity_decode(strip_tags($body), ENT_COMPAT, LANG_CHARSET);
+    $body = html_entity_decode(strip_tags($body), ENT_COMPAT, LANG_CHARSET);
 
     // replace whitespace with single space
     $body = preg_replace('@\s+@s', ' ', $body);

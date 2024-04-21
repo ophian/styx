@@ -325,7 +325,7 @@ class Serendipity_Import_smf extends Serendipity_Import
                         break;
                     }
                 }
-                $a['post_text'] = serendipity_entity_decode($a['post_text']);
+                $a['post_text'] = html_entity_decode($a['post_text']);
 
                 $comment = array('entry_id'   => $entries[$x]['entryid'],
                                  'parent_id'  => 0,
