@@ -42,7 +42,7 @@ $is_search_empty = false;
 if (empty($serendipity['GET']['searchTerm']) && !empty($serendipity['POST']['searchTerm'])) {
     $serendipity['GET']['action'] = 'search';
     $serendipity['GET']['searchTerm'] = $serendipity['POST']['searchTerm'];
-    $serendipity['uriArguments'][] = serendipity_specialchars($serendipity['POST']['searchTerm']);
+    $serendipity['uriArguments'][] = htmlspecialchars($serendipity['POST']['searchTerm']);
 }
 */
 
@@ -56,7 +56,7 @@ switch (@$serendipity['GET']['action']) {
             if (!is_array($entry) || count($entry) < 1 || !is_array($entry[0])) {
                 unset($serendipity['GET']['id']);
                 $entry = array(array());
-                $serendipity['head_title'] = serendipity_specialchars($serendipity['blogTitle']);
+                $serendipity['head_title'] = htmlspecialchars($serendipity['blogTitle']);
                 $serendipity['head_subtitle'] = '';
                 $serendipity['smarty']->assign('head_title', $serendipity['head_title']);
                 $serendipity['smarty']->assign('head_subtitle', $serendipity['head_subtitle']);

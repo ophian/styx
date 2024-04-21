@@ -1492,15 +1492,15 @@ function serendipity_displayTopUrlList($list, $limit, $use_links = true, $interv
             if ($use_links) {
                 $output .= sprintf(
                     '<span class="block_level"><a href="%1$s://%2$s" title="%2$s" >%2$s</a> (%3$s) </span>',
-                    serendipity_specialchars($row['scheme']),
-                    serendipity_specialchars($row['host']),
-                    serendipity_specialchars($row['total'])
+                    htmlspecialchars($row['scheme']),
+                    htmlspecialchars($row['host']),
+                    htmlspecialchars($row['total'])
                 );
             } else {
                 $output .= sprintf(
                     '<span class="block_level">%1$s (%2$s) </span>',
-                    serendipity_specialchars($row['host']),
-                    serendipity_specialchars($row['total'])
+                    htmlspecialchars($row['host']),
+                    htmlspecialchars($row['total'])
                 );
             }
         }

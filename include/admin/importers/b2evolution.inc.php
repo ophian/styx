@@ -101,7 +101,7 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
         }
 
         if (!$b2db || mysqli_connect_error()) {
-            return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
+            return sprintf(COULDNT_CONNECT, htmlspecialchars($this->data['host']));
         }
 
         if (!@mysqli_select_db($b2db, $this->data['name'])) {

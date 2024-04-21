@@ -3153,7 +3153,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
 
     $serendipity['GET']['only_path'] = serendipity_uploadSecure($limit_path . $serendipity['GET']['only_path'], true);
     if (isset($serendipity['GET']['filter']['i.name'])) {
-        $serendipity['GET']['filter']['i.name'] = serendipity_specialchars(str_replace(array('*', '?'), array('%', '_'), $serendipity['GET']['filter']['i.name']));
+        $serendipity['GET']['filter']['i.name'] = htmlspecialchars(str_replace(array('*', '?'), array('%', '_'), $serendipity['GET']['filter']['i.name']));
     }
 
     $perPage = (!empty($serendipity['GET']['sortorder']['perpage']) ? (int)$serendipity['GET']['sortorder']['perpage'] : 8);
@@ -3534,9 +3534,9 @@ function serendipity_generateImageSelectorParems($format = 'url') {
     foreach($parems AS $param => $value) {
         if (is_null($value) || empty(trim($value))) continue;
         if ($format == 'form') {
-            $extraParems .= '<input type="hidden" name="'. $param .'" value="'. serendipity_specialchars($value) .'">'."\n";
+            $extraParems .= '<input type="hidden" name="'. $param .'" value="'. htmlspecialchars($value) .'">'."\n";
         } else {
-            $extraParems .= $param.'='. serendipity_specialchars($value) .'&amp;';
+            $extraParems .= $param.'='. htmlspecialchars($value) .'&amp;';
         }
     }
 
@@ -3916,7 +3916,7 @@ function serendipity_getImageFields() {
         foreach($addProp AS $prop) {
             $parts = explode(':', $prop);
             $name  = $parts[0];
-            $x['bp.' . $name] = array('desc' => (defined('MEDIA_PROPERTY_' . $name) ? constant('MEDIA_PROPERTY_' . $name) : serendipity_specialchars($name)));
+            $x['bp.' . $name] = array('desc' => (defined('MEDIA_PROPERTY_' . $name) ? constant('MEDIA_PROPERTY_' . $name) : htmlspecialchars($name)));
             if (preg_match('@date@i', $name)) {
                 $x['bp.' . $name]['type'] = 'date';
             }
@@ -4172,7 +4172,7 @@ function serendipity_showPropertyForm(&$new_media, $keywordsPerBlock = 3, $is_ed
     if (isset($GLOBALS['image_selector_addvars']) && is_array($GLOBALS['image_selector_addvars'])) {
         // These variables may come from serendipity_admin_image_selector.php to show embedded upload form
         foreach($GLOBALS['image_selector_addvars'] AS $imgsel_key => $imgsel_val) {
-            $editform_hidden .= '          <input type="hidden" name="serendipity[' . serendipity_specialchars($imgsel_key) . ']" value="' . serendipity_specialchars($imgsel_val) . '">' . "\n";
+            $editform_hidden .= '          <input type="hidden" name="serendipity[' . htmlspecialchars($imgsel_key) . ']" value="' . htmlspecialchars($imgsel_val) . '">' . "\n";
         }
     }
 
@@ -4291,13 +4291,13 @@ function serendipity_parseMediaProperties(&$dprops, &$keywords, &$media, &$props
         }
         $val = serendipity_mediaTypeCast($parts[0], ($props['base_property']['ALL'][$parts[0]] ?? 0), true);
 
-        $propkey = serendipity_specialchars($parts[0]) . $idx; // Well, this was added in S9y history for securing key uniqueness and fixed by Styx 32ada49c. Although we don't have possible duplicates.
+        $propkey = htmlspecialchars($parts[0]) . $idx; // Well, this was added in S9y history for securing key uniqueness and fixed by Styx 32ada49c. Although we don't have possible duplicates.
 
         $media['base_property'][$propkey] = array(
-            'label' => serendipity_specialchars((defined('MEDIA_PROPERTY_' . strtoupper($parts[0])) ? constant('MEDIA_PROPERTY_' . strtoupper($parts[0])) : $parts[0])),
+            'label' => htmlspecialchars((defined('MEDIA_PROPERTY_' . strtoupper($parts[0])) ? constant('MEDIA_PROPERTY_' . strtoupper($parts[0])) : $parts[0])),
             'type'  => $type,
             'val'   => $val,
-            'title' => serendipity_specialchars($parts[0])
+            'title' => htmlspecialchars($parts[0])
         );
 
         if (!isset($GLOBALS['IPTC']) || !is_array($GLOBALS['IPTC'])) {
@@ -4392,7 +4392,7 @@ function serendipity_parseMediaProperties(&$dprops, &$keywords, &$media, &$props
                 $kidx = ($i*$keywordsPerBlock) + $j;
                 if (isset($keywords[$kidx])) {
                     $media['base_keywords'][$i][$j] = array(
-                        'name'      => serendipity_specialchars($keywords[$kidx]),
+                        'name'      => htmlspecialchars($keywords[$kidx]),
                         'selected'  => isset($props['base_keyword'][$keywords[$kidx]]) ? true : false
                     );
                 } else {
@@ -4821,7 +4821,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $enc
         foreach($serendipity['GET'] AS $g_key => $g_val) {
             // do not add token, since this is assigned separately to properties and list forms
             if (!is_array($g_val) && $g_key != 'page' && $g_key != 'token') {
-                $form_hidden .= '        <input type="hidden" name="serendipity[' . $g_key . ']" value="' . serendipity_specialchars($g_val) . '">'."\n";
+                $form_hidden .= '        <input type="hidden" name="serendipity[' . $g_key . ']" value="' . htmlspecialchars($g_val) . '">'."\n";
             }
         }
     }
@@ -5244,7 +5244,7 @@ function serendipity_imageAppend(&$tfile, &$target, $dir, $echo = true) {
 
     if ($echo) {
         echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> <b>' .
-                sprintf(FILENAME_REASSIGNED . "<br>\n", serendipity_specialchars($tfile)) . "</b></span>\n";
+                sprintf(FILENAME_REASSIGNED . "<br>\n", htmlspecialchars($tfile)) . "</b></span>\n";
     }
     return $realname;
 }
@@ -6441,7 +6441,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
         // active in mean of eval or executable
         if (serendipity_isActiveFile(basename($newDir))) {
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' .
-                    sprintf(ERROR_FILE_FORBIDDEN, serendipity_specialchars($newDir)) . "</span>\n";
+                    sprintf(ERROR_FILE_FORBIDDEN, htmlspecialchars($newDir)) . "</span>\n";
             return false;
         }
 

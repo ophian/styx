@@ -123,7 +123,7 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
 
     if (!empty($serendipity['GET']['url'])) {
         if (!isset($entry['body'])) $entry['body'] = '';
-        $entry['body'] .= "\n" . '<a class="block_level" href="' . serendipity_specialchars(mb_convert_encoding(urldecode($serendipity['GET']['url']), 'ISO-8859-1', 'UTF-8')) . '">' . $entry['title'] . '</a>'; // string, to, from
+        $entry['body'] .= "\n" . '<a class="block_level" href="' . htmlspecialchars(mb_convert_encoding(urldecode($serendipity['GET']['url']), 'ISO-8859-1', 'UTF-8')) . '">' . $entry['title'] . '</a>'; // string, to, from
     }
 
     $template_vars['formToken'] = serendipity_setFormToken();

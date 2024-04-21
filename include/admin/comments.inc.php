@@ -289,7 +289,7 @@ $and = $searchString = ''; // init default
 /* Compress the filters into an "AND" SQL query, and a querystring */
 foreach($filters AS $filter) {
     $and          .= (!empty($serendipity['GET']['filter'][$filter]) ? "AND c.". $filter ." LIKE '%". serendipity_db_escape_string($serendipity['GET']['filter'][$filter]) ."%'" : "");
-    $searchString .= (!empty($serendipity['GET']['filter'][$filter]) ? "&amp;serendipity[filter][". $filter ."]=". serendipity_specialchars($serendipity['GET']['filter'][$filter]) : "");
+    $searchString .= (!empty($serendipity['GET']['filter'][$filter]) ? "&amp;serendipity[filter][". $filter ."]=". htmlspecialchars($serendipity['GET']['filter'][$filter]) : "");
 }
 
 // init default

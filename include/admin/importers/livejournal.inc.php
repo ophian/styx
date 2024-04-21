@@ -223,7 +223,7 @@ class Serendipity_Import_LiveJournalXML extends Serendipity_Import
         global $serendipity;
 
         if (!file_exists($this->data['url'])) {
-            printf(FILE_NOT_FOUND, serendipity_specialchars($this->data['url']));
+            printf(FILE_NOT_FOUND, htmlspecialchars($this->data['url']));
             return false;
         }
 
@@ -275,7 +275,7 @@ class Serendipity_Import_LiveJournalXML extends Serendipity_Import
                 }
             }
             $id = serendipity_updertEntry($new_entry);
-            echo '<span class="msg_notice">Inserted entry #' . $id . ', "' . serendipity_specialchars($new_entry['title']) . '"</span>';
+            echo '<span class="msg_notice">Inserted entry #' . $id . ', "' . htmlspecialchars($new_entry['title']) . '"</span>';
             if (is_array($new_entry['comments'])) {
                 $cid_map = array();
                 $jids = array();

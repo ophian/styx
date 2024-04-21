@@ -475,7 +475,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
         }
 
         if (!$s9ydb || mysqli_connect_error()) {
-            return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
+            return sprintf(COULDNT_CONNECT, htmlspecialchars($this->data['host']));
         }
 
         if (!@mysqli_select_db($s9ydb, $this->data['name'])) {

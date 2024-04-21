@@ -245,7 +245,7 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
     if (!$res) {
         if (!$expectError && !$serendipity['production']) {
             var_dump($res);
-            var_dump(serendipity_specialchars($sql));
+            var_dump(htmlspecialchars($sql));
             $msg = "problem with query";
             return $msg;
         }
@@ -262,7 +262,7 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
         // Everything that is not SELECT will not return rows.
         // SQLite3 OO will always return an object though.
         if ($serendipity['dbConn']->lastErrorCode() > 0) {
-            echo "SQLITE-ERROR: " . serendipity_specialchars($serendipity['dbConn']->lastErrorMsg()) . "<br />\n";
+            echo "SQLITE-ERROR: " . htmlspecialchars($serendipity['dbConn']->lastErrorMsg()) . "<br />\n";
             return $type_map['false'];
         } else {
             return $type_map['true'];

@@ -80,13 +80,13 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
 
     if (!$expectError && mysqli_error($serendipity['dbConn']) != '' && $serendipity['production']) {
         $msg = mysqli_error($serendipity['dbConn']);
-        $msg = serendipity_specialchars($msg); // avoid Notice: Only variable references should be returned by reference
+        $msg = htmlspecialchars($msg); // avoid Notice: Only variable references should be returned by reference
         return $msg; // watch out, this is just the simplified error message, alike "Unknown column 'bug' in 'where clause'" and not the full SQL query. You need to catch it though!
     }
 
     if (!$c) {
         if (!$expectError && !$serendipity['production']) {
-            $tsql = serendipity_specialchars($sql);
+            $tsql = htmlspecialchars($sql);
             print "<span class=\"msg_error\">Error in $tsql</span>\n";
             print '<span class="msg_error">' . mysqli_error($serendipity['dbConn']) . "</span>\n";
             if (function_exists('debug_backtrace') && $reportErr == true) {
@@ -616,7 +616,7 @@ function serendipity_db_probe($hash, &$errs) {
 
     if (!isset($c) && isset($t)) {
         $errs[] = 'Could not connect to database; check your settings.';
-        $errs[] = 'The mySQL error was: ' . serendipity_specialchars(mysqli_connect_error());
+        $errs[] = 'The mySQL error was: ' . htmlspecialchars(mysqli_connect_error());
         return false;
     }
 
@@ -624,7 +624,7 @@ function serendipity_db_probe($hash, &$errs) {
 
     if (!@mysqli_select_db($c, $hash['dbName'])) {
         $errs[] = 'The database you specified does not exist.';
-        $errs[] = 'The mySQL error was: ' . serendipity_specialchars(mysqli_error($c));
+        $errs[] = 'The mySQL error was: ' . htmlspecialchars(mysqli_error($c));
         return false;
     }
 

@@ -159,7 +159,7 @@ class Serendipity_Import_Generic extends Serendipity_Import
                 throw new HTTP_Request2_Exception('Could not fetch URL: Status != 200');
             }
         } catch (HTTP_Request2_Exception $e) {
-            echo '<span class="block_level">' . IMPORT_FAILED . ': ' . serendipity_specialchars($uri) . "</span>\n";
+            echo '<span class="block_level">' . IMPORT_FAILED . ': ' . htmlspecialchars($uri) . "</span>\n";
             return false;
         }
 
@@ -202,7 +202,7 @@ class Serendipity_Import_Generic extends Serendipity_Import
                              'category_left'        => 0,
                              'category_right'       => 0);
                 echo '<span class="block_level">';
-                printf(CREATE_CATEGORY, serendipity_specialchars($cat_name));
+                printf(CREATE_CATEGORY, htmlspecialchars($cat_name));
                 echo "</span>";
                 if ($dry_run) {
                     $s9y_cat[$cat_name] = time();
@@ -266,7 +266,7 @@ class Serendipity_Import_Generic extends Serendipity_Import
                 $ulist[$idx] = [ 'username' => $wp_user, 'authorid' => $s9y_users[$wp_user]['authorid'], 'email' => '', 'user_level' => USERLEVEL_EDITOR, 'new_plain_password' => $npwd ];
 
                 echo '<span class="block_level">';
-                printf(CREATE_AUTHOR, serendipity_specialchars($wp_user));
+                printf(CREATE_AUTHOR, htmlspecialchars($wp_user));
                 echo "</span>";
             }
 
@@ -322,7 +322,7 @@ class Serendipity_Import_Generic extends Serendipity_Import
                 $s9y_cid[$c_id] = $cid;
             }
 
-            echo '<span class="msg_notice">Entry \'' . serendipity_specialchars($entry['title']) . "' ($c_i comments) imported.</span>\n";
+            echo '<span class="msg_notice">Entry \'' . htmlspecialchars($entry['title']) . "' ($c_i comments) imported.</span>\n";
         }
 
         if (!empty($ulist)) {

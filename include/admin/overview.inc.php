@@ -29,7 +29,7 @@ if (isset($serendipity['POST']['adminAction'])) {
                 break;
             }
             $success = serendipity_updertEntry(array(
-                'id' => serendipity_specialchars($serendipity['POST']['id']),
+                'id' => htmlspecialchars($serendipity['POST']['id']),
                 'timestamp' => time(),
                 'isdraft' => 0
             ));

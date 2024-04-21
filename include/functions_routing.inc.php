@@ -134,7 +134,7 @@ function serveComments() {
         }
     }
 
-    $serendipity['head_title'] = COMMENTS_FROM . ' ' . serendipity_specialchars(($serendipity['GET']['viewCommentAuthor'] ?? ''));
+    $serendipity['head_title'] = COMMENTS_FROM . ' ' . htmlspecialchars(($serendipity['GET']['viewCommentAuthor'] ?? ''));
     if (isset($timedesc['start']) && isset($timedesc['end'])) {
         $serendipity['head_title'] .= ' (' . $timedesc['start'] . ' - ' . $timedesc['end'] . ')';
     } elseif (isset($timedesc['start'])) {
@@ -246,7 +246,7 @@ function serveSearch() {
     }
 
     $serendipity['GET']['action']     = 'search';
-    $serendipity['GET']['searchTerm'] = urldecode(serendipity_specialchars(strip_tags(implode(' ', $search))));
+    $serendipity['GET']['searchTerm'] = urldecode(htmlspecialchars(strip_tags(implode(' ', $search))));
 
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
 }
@@ -261,7 +261,7 @@ function serveAuthorPage($matches, $is_multiauth=false) {
     unset($serendipity['uInfo']); // see below
 
     if ($is_multiauth) {
-        $serendipity['GET']['viewAuthor'] = serendipity_specialchars(implode(';', $serendipity['POST']['multiAuth']));
+        $serendipity['GET']['viewAuthor'] = htmlspecialchars(implode(';', $serendipity['POST']['multiAuth']));
         $serendipity['uriArguments'][]    = PATH_AUTHORS;
         $serendipity['uriArguments'][]    = serendipity_db_escape_string($serendipity['GET']['viewAuthor']) . '-multi';
     } elseif (empty($matches[1]) && preg_match('@'.PATH_AUTHORS.'/([0-9;]+)@', $uri, $multimatch)) {
@@ -309,7 +309,7 @@ function serveCategory($matches, $is_multicat=false) {
 
     if ($is_multicat) {
         if (isset($serendipity['POST']['isMultiCat']) && $serendipity['POST']['isMultiCat'] != RESET_FILTERS) {
-            $serendipity['GET']['category'] = serendipity_specialchars(implode(';', $serendipity['POST']['multiCat']));
+            $serendipity['GET']['category'] = htmlspecialchars(implode(';', $serendipity['POST']['multiCat']));
         } else {
             $serendipity['GET']['category'] = '';
         }
@@ -343,7 +343,7 @@ function serveCategory($matches, $is_multicat=false) {
     } else {
         $serendipity['head_title'] = $cInfo['category_name'];
         if (isset($serendipity['GET']['page'])) {
-            $serendipity['head_title'] .= ' - ' . serendipity_specialchars($serendipity['GET']['page']);
+            $serendipity['head_title'] .= ' - ' . htmlspecialchars($serendipity['GET']['page']);
         }
         $serendipity['head_subtitle'] = $serendipity['blogTitle'];
     }
@@ -475,8 +475,8 @@ function serveEntry($matches) {
 
     $title = serendipity_db_query("SELECT title FROM {$serendipity['dbPrefix']}entries WHERE id=$id AND isdraft = 'false'" . (!serendipity_db_bool($serendipity['showFutureEntries']) ? ' AND timestamp <= ' . serendipity_db_time() : ''), true);
     if (is_array($title)) {
-        $serendipity['head_title']    = serendipity_specialchars($title[0]);
-        $serendipity['head_subtitle'] = serendipity_specialchars($serendipity['blogTitle']);
+        $serendipity['head_title']    = htmlspecialchars($title[0]);
+        $serendipity['head_subtitle'] = htmlspecialchars($serendipity['blogTitle']);
     } else {
         $serendipity['view'] = '404';
         $serendipity['viewtype'] = '404_1';

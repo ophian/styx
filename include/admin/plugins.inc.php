@@ -103,9 +103,9 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         $plugin->performConfig($bag);
     }
 
-    $name    = serendipity_specialchars($bag->get('name'));
-    $desc    = serendipity_specialchars($bag->get('description'));
-    $license = serendipity_specialchars($bag->get('license'));
+    $name    = htmlspecialchars($bag->get('name'));
+    $desc    = htmlspecialchars($bag->get('description'));
+    $license = htmlspecialchars($bag->get('license'));
 
     $documentation = $bag->get('website');
     $config_names  = $bag->get('configuration');
@@ -609,11 +609,11 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             /* Load the new plugin */
             $plugin = &serendipity_plugin_api::load_plugin($inst);
             if (!is_object($plugin)) {
-                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <strong>DEBUG:</strong> Plugin ' . serendipity_specialchars($inst) . ' not an object: ' . serendipity_specialchars(print_r($plugin, true))
-                    . '.<br>Input: ' . serendipity_specialchars(print_r($serendipity['GET'], true)) . ".<br><br>\n\n
+                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <strong>DEBUG:</strong> Plugin ' . htmlspecialchars($inst) . ' not an object: ' . htmlspecialchars(print_r($plugin, true))
+                    . '.<br>Input: ' . htmlspecialchars(print_r($serendipity['GET'], true)) . ".<br><br>\n\n
                     This error can happen if a plugin was not properly downloaded (check your plugins directory if the requested plugin
                     was downloaded) or the inclusion of a file failed (permissions?)<br>\n";
-                echo "Backtrace:<br>\n" . nl2br(serendipity_specialchars(implode("\n", $serendipity['debug']['pluginload']))) . "<br></span>\n";
+                echo "Backtrace:<br>\n" . nl2br(htmlspecialchars(implode("\n", $serendipity['debug']['pluginload']))) . "<br></span>\n";
             }
             $bag = new serendipity_property_bag;
             $plugin->introspect($bag);

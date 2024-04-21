@@ -137,7 +137,7 @@ function &serendipity_smarty_fetch($block, $file, $echo = false) {
  * @return  string  The return string
  */
 function serendipity_emptyPrefix($string, $prefix = ': ') {
-    return (!empty($string) ? $prefix . serendipity_specialchars($string) : '');
+    return (!empty($string) ? $prefix . htmlspecialchars($string) : '');
 }
 
 /**
@@ -1337,9 +1337,9 @@ function serendipity_smarty_showTemplate($tplfile, $data = null, $debugtype = nu
 
     if ($debug !== null) {
         if ($debugtype == 'HTML') {
-            $debug = '<!-- Dynamically fetched ' . serendipity_specialchars(str_replace($serendipity['serendipityPath'], '', $tfile)) . ' on ' . date('Y-m-d H:i') . ', called from: ' . $debug . " -->\n";
+            $debug = '<!-- Dynamically fetched ' . htmlspecialchars(str_replace($serendipity['serendipityPath'], '', $tfile)) . ' on ' . date('Y-m-d H:i') . ', called from: ' . $debug . " -->\n";
         } else {
-            $debug = '/* Dynamically fetched ' . serendipity_specialchars(str_replace($serendipity['serendipityPath'], '', $tfile)) . ' on ' . date('Y-m-d H:i') . ', called from: ' . $debug . " */\n";
+            $debug = '/* Dynamically fetched ' . htmlspecialchars(str_replace($serendipity['serendipityPath'], '', $tfile)) . ' on ' . date('Y-m-d H:i') . ', called from: ' . $debug . " */\n";
         }
     }
 

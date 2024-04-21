@@ -737,8 +737,8 @@ function serendipity_checkInstallation() {
 
     serendipity_initPermalinks();
 
-    $ipath = serendipity_specialchars($_POST['serendipityPath']);
-    $upath = serendipity_specialchars($_POST['uploadPath']);
+    $ipath = htmlspecialchars($_POST['serendipityPath']);
+    $upath = htmlspecialchars($_POST['uploadPath']);
 
     // Check dirs
     if (!is_dir($_POST['serendipityPath'])) {
@@ -963,7 +963,7 @@ function serendipity_installFiles($serendipity_core = '') {
     $fp = @fopen($serendipity_core . '.htaccess', 'w');
     if (!$fp) {
         $errs[] = sprintf(FILE_WRITE_ERROR, $serendipity_core . '.htaccess') . ' ' . FILE_CREATE_YOURSELF;
-        $errs[] = sprintf(COPY_CODE_BELOW , $serendipity_core . '.htaccess', 'serendipity', serendipity_specialchars($content));
+        $errs[] = sprintf(COPY_CODE_BELOW , $serendipity_core . '.htaccess', 'serendipity', htmlspecialchars($content));
         return $errs;
     } else {
         // Check if an old htaccess file existed and try to preserve its contents. Otherwise completely wipe the file.
@@ -1506,7 +1506,7 @@ function serendipity_getCurrentVersion() {
 
     serendipity_set_config_var('last_update_check_' . $serendipity['updateCheck'], time());
 
-    $updateURL = serendipity_specialchars(strip_tags((string)$config_rv));
+    $updateURL = htmlspecialchars(strip_tags((string)$config_rv));
     $context   = stream_context_create(array('http' => array('timeout' => 5.0)));
     $file      = @file_get_contents($updateURL, false, $context);
     // Some servers return a " Warning: file_get_contents(): https:// wrapper is disabled in the server configuration by allow_url_fopen=0 " so we use Curl instead
@@ -1521,7 +1521,7 @@ function serendipity_getCurrentVersion() {
     }
 
     if ($file) {
-        $file = serendipity_specialchars(strip_tags($file));
+        $file = htmlspecialchars(strip_tags($file));
         if ($serendipity['updateCheck'] == 'stable') {
             if (preg_match('/^stable:(.+)\b/m', $file, $match)) {
                 serendipity_set_config_var('last_update_version_' . $serendipity['updateCheck'], $match[1]);

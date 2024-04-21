@@ -235,7 +235,7 @@ class serendipity_plugin_api
         $serendipity['debug']['pluginload'][] = 'Installing plugin: ' . print_r(func_get_args(), true);
 
         $iq = "INSERT INTO {$serendipity['dbPrefix']}plugins (name, sort_order, placement, authorid, path)
-                    VALUES ('" . serendipity_specialchars($key) . "', $nextidx, '$default_placement', '$authorid', '" . serendipity_specialchars($pluginPath) . "')";
+                    VALUES ('" . htmlspecialchars($key) . "', $nextidx, '$default_placement', '$authorid', '" . htmlspecialchars($pluginPath) . "')";
         $serendipity['debug']['pluginload'][] = $iq;
         serendipity_db_query($iq);
         serendipity_plugin_api::hook_event('backend_plugins_new_instance', $key, array('default_placement' => $default_placement));
@@ -250,7 +250,7 @@ class serendipity_plugin_api
             $plugin->install();
         } else {
             $serendipity['debug']['pluginload'][] = 'Loading plugin failed painfully. File not found?';
-            echo '<span class="msg_error">' . ERROR . ': ' . serendipity_specialchars($key) . ' (' . serendipity_specialchars($pluginPath) . ')</span>';
+            echo '<span class="msg_error">' . ERROR . ': ' . htmlspecialchars($key) . ' (' . htmlspecialchars($pluginPath) . ')</span>';
         }
 
         return $key;

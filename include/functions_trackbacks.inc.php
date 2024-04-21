@@ -92,7 +92,7 @@ function serendipity_pingback_autodiscover($loc, $body, $url=null) {
   </params>
 </methodCall>";
 
-    echo '<div>&#8226; ' . sprintf(PINGBACK_SENDING, serendipity_specialchars($pingback)) . '</div>';
+    echo '<div>&#8226; ' . sprintf(PINGBACK_SENDING, htmlspecialchars($pingback)) . '</div>';
     flush();
 
     $response =  serendipity_send($pingback, $query, 'text/html');
@@ -205,7 +205,7 @@ function serendipity_trackback_autodiscover($res, $loc, $url, $author, $title, $
           . '&blog_name=' . rawurlencode($author)
           . '&excerpt='   . rawurlencode(strip_tags($text));
 
-    printf(TRACKBACK_SENDING, serendipity_specialchars($trackURI));
+    printf(TRACKBACK_SENDING, htmlspecialchars($trackURI));
     flush();
 
     $response = serendipity_trackback_is_success(serendipity_send($trackURI, $data));

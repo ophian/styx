@@ -69,7 +69,7 @@ if (isset($_POST['SAVE']) && serendipity_checkFormToken()) {
             if (is_array($r)) {
                 $r = serendipity_db_query("SELECT category_name FROM {$serendipity['dbPrefix']}category
                                             WHERE categoryid = ". (int)$parentid);
-                $data['subcat'] = sprintf(ALREADY_SUBCATEGORY, serendipity_specialchars($r[0]['category_name']), serendipity_specialchars($name));
+                $data['subcat'] = sprintf(ALREADY_SUBCATEGORY, htmlspecialchars($r[0]['category_name']), htmlspecialchars($name));
             } else {
                 $_sort_order = $serendipity['POST']['cat']['sort_order'] ?? 0;
                 $_hide_sub   = $serendipity['POST']['cat']['hide_sub']   ?? 0;
@@ -236,7 +236,7 @@ if ($serendipity['GET']['adminAction'] == 'view') {
                                     : (
                                         (serendipity_checkPermission('adminEntriesMaintainOthers') && serendipity_checkPermission('adminCategoriesMaintainOthers'))
                                         ? GROUP . ': <span class="icon-users chief" title="' . USERLEVEL_CHIEF_DESC . '" aria-hidden="true"></span> +'
-                                        : AUTHOR . ': ' .serendipity_specialchars($serendipity['serendipityUser'])
+                                        : AUTHOR . ': ' .htmlspecialchars($serendipity['serendipityUser'])
                                     );
     }
 }

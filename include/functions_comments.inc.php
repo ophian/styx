@@ -564,7 +564,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
                 if (!@parse_url($comment['url'])) {
                     $comment['url'] = '';
                 }
-                $comment['url'] = serendipity_specialchars($comment['url'], ENT_QUOTES);
+                $comment['url'] = htmlspecialchars($comment['url'], ENT_QUOTES);
             }
 
             // Since this is a looped setting, destroy vars for the hook and follow-up comments
@@ -607,7 +607,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             if (isset($comment['no_email']) && $comment['no_email']) {
                 $comment['email'] = false;
             } elseif (!empty($comment['email'])) {
-                $comment['email'] = serendipity_specialchars(str_replace('@', '[at]', $comment['email']));
+                $comment['email'] = htmlspecialchars(str_replace('@', '[at]', $comment['email']));
             }
 
             // Frontend entry comments - do for both else add ($serendipity['allowHtmlComment'] && )

@@ -485,7 +485,7 @@ if (!isset($serendipity['GET']['adminAction'])) {
 
 // Make sure this variable is always properly sanitized, though it should have gone through routing taking care before. Previously in compat.inc.php, but there LANG_CHARSET was not defined.
 if (isset($serendipity['GET']['searchTerm'])) {
-    $serendipity['GET']['searchTerm'] = serendipity_specialchars(strip_tags((string)$serendipity['GET']['searchTerm']), null, LANG_CHARSET, false);
+    $serendipity['GET']['searchTerm'] = htmlspecialchars(strip_tags((string)$serendipity['GET']['searchTerm']), null, LANG_CHARSET, false);
 }
 
 // Some default inits...

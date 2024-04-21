@@ -255,7 +255,7 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
 
     if (!$serendipity['dbSth']) {
         if (!$expectError && !$serendipity['production']) {
-            $tsql = serendipity_specialchars($sql);
+            $tsql = htmlspecialchars($sql);
             print "<span class=\"msg_error\">Error in $tsql</span>\n";
             print '<span class="msg_error">' . $serendipity['dbConn']->errorInfo() . "</span>\n";
             if (function_exists('debug_backtrace') && $reportErr == true) {
