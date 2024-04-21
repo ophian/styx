@@ -584,7 +584,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                         if (!$smarty) $content .= '<div class="rss_item">';
 
                         if ($use_rss_link) {
-                            if (!$smarty) $content .= '<div class="rss_link"><a href="' . serendipity_specialchars($this->decode($item['link'])) . '" ' . (!empty($target) ? 'target="'.$target.'"' : '') . '>';
+                            if (!$smarty) $content .= '<div class="rss_link"><a href="' . htmlspecialchars($this->decode($item['link'])) . '" ' . (!empty($target) ? 'target="'.$target.'"' : '') . '>';
                         }
 
                         if (!empty($bulletimg)) {
@@ -602,7 +602,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                             if ($escape_rss) {
                                 if (!$smarty) $content .= $this->decode($item[$rss_element]);
                             } else {
-                                if (!$smarty) $content .= serendipity_specialchars($this->decode($item[$rss_element]));
+                                if (!$smarty) $content .= htmlspecialchars($this->decode($item[$rss_element]));
                             }
 
                             if ($smarty) {
@@ -627,7 +627,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                         $item['timestamp'] = strtotime(($item['pubDate'] ?? $item['dc:date']));
                         if (false !== $item['timestamp'] AND $displaydate) {
                             if (!$smarty) $content .= '<div class="serendipitySideBarDate">'
-                                      . serendipity_specialchars(serendipity_formatTime($dateformat, $item['timestamp'], false))
+                                      . htmlspecialchars(serendipity_formatTime($dateformat, $item['timestamp'], false))
                                       . '</div>';
                         }
 
@@ -727,7 +727,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                         if (!$smarty) $content .= '<div class="rss_item">'."\n";
 
                         if ($use_rss_link) {
-                            if (!$smarty) $content .= '<div class="rss_link"><a href="' . serendipity_specialchars($this->decode($item['link'])) . '" ' . (!empty($target) ? 'target="'.$target.'"' : '') . '>';
+                            if (!$smarty) $content .= '<div class="rss_link"><a href="' . htmlspecialchars($this->decode($item['link'])) . '" ' . (!empty($target) ? 'target="'.$target.'"' : '') . '>';
                         }
 
                         if (!empty($bulletimg)) {
@@ -745,7 +745,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                             if ($escape_rss) {
                                 if (!$smarty) $content .= $this->decode($item[$rss_element]);
                             } else {
-                                if (!$smarty) $content .= serendipity_specialchars($this->decode($item[$rss_element]));
+                                if (!$smarty) $content .= htmlspecialchars($this->decode($item[$rss_element]));
                             }
 
                             if ($smarty) {
@@ -770,7 +770,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                         $item['timestamp'] = strtotime((string)($item['pubdate'] ?? $item['dc:date']));
                         if (false !== $item['timestamp'] AND $displaydate) {
                             if (!$smarty) $content .= '<div class="serendipitySideBarDate">'
-                                      . serendipity_specialchars(serendipity_formatTime($dateformat, $item['timestamp'], false))
+                                      . htmlspecialchars(serendipity_formatTime($dateformat, $item['timestamp'], false))
                                       . '</div>';
                         }
 
@@ -857,23 +857,23 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                             }
 
                             if (!empty($item['text'])) {
-                                $text = serendipity_specialchars($this->decode($item['text']));
+                                $text = htmlspecialchars($this->decode($item['text']));
                             } elseif (!empty($item['title'])) {
-                                $text = serendipity_specialchars($this->decode($item['title']));
+                                $text = htmlspecialchars($this->decode($item['title']));
                             } elseif (!empty($item['description'])) {
-                                $text = serendipity_specialchars($this->decode($item['description']));
+                                $text = htmlspecialchars($this->decode($item['description']));
                             } else {
                                 $text = '';
                             }
 
                             if ($blogrolling === true && (!empty($text) || !empty($url))) {
-                                $content .= '&bull; <a href="' . serendipity_specialchars($url) . '" ' . (!empty($target) ? 'target="'.$target.'"' : '') . ' title="' . $text . '">' . $text . "</a>";
+                                $content .= '&bull; <a href="' . htmlspecialchars($url) . '" ' . (!empty($target) ? 'target="'.$target.'"' : '') . ' title="' . $text . '">' . $text . "</a>";
                                 if (isset($item['isRecent'])) {
                                     $content .= ' <span style="color: Red; ">*</span>';
                                 }
                                 $content .= "<br />\n";
                             } elseif ((isset($item['type']) && $item['type'] == 'url') || !empty($url)) {
-                                $content .= '&bull; <a href="' . serendipity_specialchars($url) . '" ' . (!empty($target) ? 'target="'.$target.'"' : '') . ' title="' . $text . '">' . $text . "</a>";
+                                $content .= '&bull; <a href="' . htmlspecialchars($url) . '" ' . (!empty($target) ? 'target="'.$target.'"' : '') . ' title="' . $text . '">' . $text . "</a>";
                                 $content .= "<br />\n";
                             }
                             ++$i;

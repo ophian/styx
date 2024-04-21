@@ -244,9 +244,9 @@ class serendipity_plugin_comments extends serendipity_plugin
                         substr($row['comment_url'], 0, 8) != 'https://') {
                         $row['comment_url'] = 'http://' . $row['comment_url'];
                     }
-                    $user = '<a class="highlight" href="' . serendipity_specialchars(strip_tags($row['comment_url'])) . '" title="' . serendipity_specialchars(strip_tags($row['comment_title'])) . '">' . serendipity_specialchars(strip_tags($row['user'])) . '</a>';
+                    $user = '<a class="highlight" href="' . htmlspecialchars(strip_tags($row['comment_url'])) . '" title="' . htmlspecialchars(strip_tags($row['comment_title'])) . '">' . htmlspecialchars(strip_tags($row['user'])) . '</a>';
                 } else {
-                    $user = serendipity_specialchars(strip_tags($row['user']));
+                    $user = htmlspecialchars(strip_tags($row['user']));
                 }
 
                 $user = trim($user);
@@ -304,13 +304,13 @@ class serendipity_plugin_comments extends serendipity_plugin
 
                 $spawn = sprintf(PLUGIN_COMMENTS_ABOUT,
                     '<div class="plugin_comment_subject"><span class="plugin_comment_author">' . $user . '</span>',
-                    ' <a class="highlight" href="' . serendipity_archiveURL($row['entry_id'], $row['subject'], 'baseURL', true, array('timestamp' => $row['entrystamp'])) .'#c' . $row['comment_id'] . '" title="' . serendipity_specialchars($row['subject']) . '">' . serendipity_specialchars($row['subject']) . "</a></div>\n"
+                    ' <a class="highlight" href="' . serendipity_archiveURL($row['entry_id'], $row['subject'], 'baseURL', true, array('timestamp' => $row['entrystamp'])) .'#c' . $row['comment_id'] . '" title="' . htmlspecialchars($row['subject']) . '">' . htmlspecialchars($row['subject']) . "</a></div>\n"
                 );
 ?>
 
                     <div class="plugin_comment_wrap">
                         <?=$spawn ?>
-                        <div class="plugin_comment_date"><?php echo serendipity_specialchars(serendipity_strftime($dateformat, $row['stamp'])) . str_replace('[clone]', ' <span class="trackback_clone" title="Duplicate trackback summary of [@'.serendipity_specialchars($row['cloneof']).']"><svg aria-hidden="true" focusable="false" data-icon="clone" role="img" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512" class="svg-inline fa-clone"><path fill="currentColor" d="M464 0H144c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h320c26.51 0 48-21.49 48-48v-48h48c26.51 0 48-21.49 48-48V48c0-26.51-21.49-48-48-48zm-80 464c0 8.82-7.18 16-16 16H48c-8.82 0-16-7.18-16-16V144c0-8.82 7.18-16 16-16h48v240c0 26.51 21.49 48 48 48h240v48zm96-96c0 8.82-7.18 16-16 16H144c-8.82 0-16-7.18-16-16V48c0-8.82 7.18-16 16-16h320c8.82 0 16 7.18 16 16v320z" class=""></path></svg></span>', $row['clone']);?></div>
+                        <div class="plugin_comment_date"><?php echo htmlspecialchars(serendipity_strftime($dateformat, $row['stamp'])) . str_replace('[clone]', ' <span class="trackback_clone" title="Duplicate trackback summary of [@'.htmlspecialchars($row['cloneof']).']"><svg aria-hidden="true" focusable="false" data-icon="clone" role="img" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512" class="svg-inline fa-clone"><path fill="currentColor" d="M464 0H144c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h320c26.51 0 48-21.49 48-48v-48h48c26.51 0 48-21.49 48-48V48c0-26.51-21.49-48-48-48zm-80 464c0 8.82-7.18 16-16 16H48c-8.82 0-16-7.18-16-16V144c0-8.82 7.18-16 16-16h48v240c0 26.51 21.49 48 48 48h240v48zm96-96c0 8.82-7.18 16-16 16H144c-8.82 0-16-7.18-16-16V48c0-8.82 7.18-16 16-16h320c8.82 0 16 7.18 16 16v320z" class=""></path></svg></span>', $row['clone']);?></div>
                         <div class="plugin_comment_body"><?= strip_tags($entry['comment'], '<img>') ?></div>
                     </div>
 <?php

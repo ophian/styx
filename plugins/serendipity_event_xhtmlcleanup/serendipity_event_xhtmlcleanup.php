@@ -263,7 +263,7 @@ class serendipity_event_xhtmlcleanup extends serendipity_event
             // Reconstruct XHTML tag.
             $atts = ' ';
             foreach($vals[0]['attributes'] AS $att => $att_con) {
-                $atts .= strtolower($att) . '="' . ($this->cleanup_parse ? serendipity_specialchars($att_con) : $att_con) . '" ';
+                $atts .= strtolower($att) . '="' . ($this->cleanup_parse ? htmlspecialchars($att_con) : $att_con) . '" ';
             }
 
             return '<' . strtolower($tag) . $atts . ' />';
@@ -274,7 +274,7 @@ class serendipity_event_xhtmlcleanup extends serendipity_event
 
     function clean_htmlspecialchars($given, $quote_style = ENT_QUOTES)
     {
-        return '<' . $given[1] . $given[2] . $given[3] . '=' . $given[4] . serendipity_specialchars(serendipity_entity_decode($given[5], $quote_style), $quote_style) . $given[6];
+        return '<' . $given[1] . $given[2] . $given[3] . '=' . $given[4] . htmlspecialchars(serendipity_entity_decode($given[5], $quote_style), $quote_style) . $given[6];
     }
 
 }

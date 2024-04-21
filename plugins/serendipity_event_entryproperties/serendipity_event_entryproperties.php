@@ -368,7 +368,7 @@ class serendipity_event_entryproperties extends serendipity_event
 ?>
                 <div id="ep_frontpage" class="entryproperties_frontpage adv_opts_box form_check">
                     <input id="properties_no_frontpage" name="serendipity[properties][no_frontpage]" type="checkbox" value="true" <?php echo $no_frontpage; ?>>
-                    <label for="properties_no_frontpage"><?php echo PLUGIN_EVENT_ENTRYPROPERTIES_NO_FRONTPAGE; ?> <i class="icon-info-circled" aria-hidden="true" title="<?php echo serendipity_specialchars(PLUGIN_EVENT_ENTRYPROPERTIES_RECOMMENDED_SET); ?>"></i></label>
+                    <label for="properties_no_frontpage"><?php echo PLUGIN_EVENT_ENTRYPROPERTIES_NO_FRONTPAGE; ?> <i class="icon-info-circled" aria-hidden="true" title="<?php echo htmlspecialchars(PLUGIN_EVENT_ENTRYPROPERTIES_RECOMMENDED_SET); ?>"></i></label>
                 </div>
 <?php
                 break;
@@ -420,8 +420,8 @@ class serendipity_event_entryproperties extends serendipity_event
                 <div id="ep_access_pw" class="entryproperties_access_pw adv_opts_box form_field">
                     <label for="properties_access_pw"><?php echo PASSWORD; ?>:</label>
                     <input type="text" name="ignore_password" value="" style="visibility: hidden; width: 1px">
-                    <input id="properties_access_pw" name="serendipity[properties][entrypassword]" type="password" autocomplete="new-password" value="<?php echo serendipity_specialchars($password); ?>">
-                    <i class="icon-info-circled" aria-hidden="true" title="<?php echo serendipity_specialchars(ENTRY_PAGE_PASSWORD_INFO_SET); ?>"></i>
+                    <input id="properties_access_pw" name="serendipity[properties][entrypassword]" type="password" autocomplete="new-password" value="<?php echo htmlspecialchars($password); ?>">
+                    <i class="icon-info-circled" aria-hidden="true" title="<?php echo htmlspecialchars(ENTRY_PAGE_PASSWORD_INFO_SET); ?>"></i>
                 </div>
 <?php
                 break;
@@ -431,7 +431,7 @@ class serendipity_event_entryproperties extends serendipity_event
                     $my_groups = serendipity_getGroups($serendipity['authorid']);
 ?>
                 <div id="ep_access_groups" class="entryproperties_access_groups adv_opts_box form_multiselect">
-                    <label for="properties_access_groups"><?php echo PERM_READ . ': ' . GROUP; ?> <i class="icon-info-circled" aria-hidden="true" title="<?php echo serendipity_specialchars(PERMISSION_READ_WRITE_ACL_DESC); ?>"></i></label>
+                    <label for="properties_access_groups"><?php echo PERM_READ . ': ' . GROUP; ?> <i class="icon-info-circled" aria-hidden="true" title="<?php echo htmlspecialchars(PERMISSION_READ_WRITE_ACL_DESC); ?>"></i></label>
 
                     <select id="properties_access_groups" name="serendipity[properties][access_groups][]" multiple="multiple" size="4" onchange="document.getElementById('properties_access_member').checked = true;">
 <?php
@@ -440,7 +440,7 @@ class serendipity_event_entryproperties extends serendipity_event
                             $group['name'] = constant($group['confvalue']);
                         }
 ?>
-                        <option value="<?php echo $group['id']; ?>"<?php echo (in_array($group['id'], $access_groups) ? ' selected="selected"' : ''); ?>><?php echo serendipity_specialchars($group['name']); ?></option>
+                        <option value="<?php echo $group['id']; ?>"<?php echo (in_array($group['id'], $access_groups) ? ' selected="selected"' : ''); ?>><?php echo htmlspecialchars($group['name']); ?></option>
 <?php
                     }
 ?>
@@ -454,13 +454,13 @@ class serendipity_event_entryproperties extends serendipity_event
                 if ($use_users) {
 ?>
                 <div id="ep_access_users" class="entryproperties_access_users adv_opts_box form_multiselect">
-                    <label for="properties_access_users"><?php echo PERM_READ . ': '. AUTHOR; ?> <i class="icon-info-circled" aria-hidden="true" title="<?php echo serendipity_specialchars(PERMISSION_READ_WRITE_ACL_DESC); ?>"></i></label>
+                    <label for="properties_access_users"><?php echo PERM_READ . ': '. AUTHOR; ?> <i class="icon-info-circled" aria-hidden="true" title="<?php echo htmlspecialchars(PERMISSION_READ_WRITE_ACL_DESC); ?>"></i></label>
 
                     <select id="properties_access_users" name="serendipity[properties][access_users][]" multiple="multiple" size="4" onchange="document.getElementById('properties_access_member').checked = true;">
 <?php
                     $users = serendipity_fetchUsers('', 'hidden');
                     foreach($users AS $user) {
-                        $_realname = !empty($user['realname']) ? serendipity_specialchars($user['realname']) : 'no realname';
+                        $_realname = !empty($user['realname']) ? htmlspecialchars($user['realname']) : 'no realname';
 ?>
                         <option value="<?php echo $user['authorid']; ?>"<?php echo (in_array($user['authorid'], $access_users) ? ' selected="selected"' : ''); ?>><?php echo $_realname; ?></option>
 <?php
@@ -524,7 +524,7 @@ class serendipity_event_entryproperties extends serendipity_event
                 $avail_users =& $this->getValidAuthors();
                 if (is_array($avail_users) && !empty($avail_users)) {
                     foreach($avail_users AS $user) {
-                        $_realname = !empty($user['realname']) ? serendipity_specialchars($user['realname']) : 'no realname';
+                        $_realname = !empty($user['realname']) ? htmlspecialchars($user['realname']) : 'no realname';
                         echo '                        <option value="' . $user['authorid'] . '"' . ($selected_user == $user['authorid'] ? ' selected="selected"' : '') . '>' . $_realname . '</option>' . "\n";
                     }
                 }
@@ -561,7 +561,7 @@ class serendipity_event_entryproperties extends serendipity_event
                         if (!$selected && isset($serendipity['wysiwyg']) && $serendipity['wysiwyg'] && $plugin_data['p']->act_pluginPath == 'serendipity_event_nl2br') {
                             $selected = true;
                         }
-                        echo '                        <option' . ($selected ? ' selected="selected"' : '') . ' value="' . $plugin_data['p']->instance . '">' . serendipity_specialchars($plugin_data['t']) . '</option>' . "\n";
+                        echo '                        <option' . ($selected ? ' selected="selected"' : '') . ' value="' . $plugin_data['p']->instance . '">' . htmlspecialchars($plugin_data['t']) . '</option>' . "\n";
                     }
                 }
 ?>
@@ -595,7 +595,7 @@ class serendipity_event_entryproperties extends serendipity_event
                 foreach($fields AS $fieldname) {
                     $fieldparts = explode(':', $fieldname);
                     $fieldname  = $fieldparts[0];
-                    $_fieldname = serendipity_specialchars(trim($fieldname));
+                    $_fieldname = htmlspecialchars(trim($fieldname));
 
                     if (isset($serendipity['POST']['properties'][$_fieldname])) {
                         $value = $serendipity['POST']['properties'][$_fieldname];
@@ -609,7 +609,7 @@ class serendipity_event_entryproperties extends serendipity_event
 ?>
                         <div id="ep_column_<?php echo $_fieldname; ?>" class="clearfix form_area media_choose">
                             <label for="prop<?php echo $_fieldname; ?>"><?php echo $_fieldname; ?></label>
-                            <textarea id="prop<?php echo $_fieldname; ?>" class="change_preview" name="serendipity[properties][<?php echo $_fieldname; ?>]" data-configitem="prop<?php echo $_fieldname; ?>"><?php echo serendipity_specialchars($value); ?></textarea>
+                            <textarea id="prop<?php echo $_fieldname; ?>" class="change_preview" name="serendipity[properties][<?php echo $_fieldname; ?>]" data-configitem="prop<?php echo $_fieldname; ?>"><?php echo htmlspecialchars($value); ?></textarea>
                             <button class="customfieldMedia" type="button" name="insImage" title="<?php echo MEDIA ; ?>"><span class="icon-picture" aria-hidden="true"></span><span class="visuallyhidden"><?php echo MEDIA ; ?></span></button>
 <?php if (preg_match('/(\.jpg|\.png|\.bmp)$/', $value)) { ?>
                             <figure id="prop<?php echo $_fieldname; ?>_preview">
@@ -889,7 +889,7 @@ class serendipity_event_entryproperties extends serendipity_event
                         if (is_array($entries)) {
                             echo '<ul class="plainList">';
                             foreach($entries AS $idx => $entry) {
-                                printf('<li>' . PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_BUILDING, $entry['id'], serendipity_specialchars($entry['title']));
+                                printf('<li>' . PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_BUILDING, $entry['id'], htmlspecialchars($entry['title']));
                                 $this->updateCache($entry);
                                 echo ' ' . PLUGIN_EVENT_ENTRYPROPERTIES_CACHED . '</li>';
                             }
@@ -901,20 +901,20 @@ class serendipity_event_entryproperties extends serendipity_event
                                 sleep(3);
 ?>
                         <script>
-                            if (window.setTimeout(function() { confirm("<?php echo serendipity_specialchars(PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT); ?>"); }, 1)) {
+                            if (window.setTimeout(function() { confirm("<?php echo htmlspecialchars(PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT); ?>"); }, 1)) {
                                 location.href = "?serendipity[adminModule]=event_display&serendipity[adminAction]=buildcache&serendipity[page]=<?php echo ($page+1); ?>";
                             } else {
-                                alert("<?php echo serendipity_specialchars(PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_ABORTED); ?>");
+                                alert("<?php echo htmlspecialchars(PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_ABORTED); ?>");
                             }
                         </script>
 <?php
                             } else {
 ?>
                         <script>
-                            if (confirm("<?php echo serendipity_specialchars(PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT); ?>")) {
+                            if (confirm("<?php echo htmlspecialchars(PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT); ?>")) {
                                 location.href = "?serendipity[adminModule]=event_display&serendipity[adminAction]=buildcache&serendipity[page]=<?php echo ($page+1); ?>";
                             } else {
-                                alert("<?php echo serendipity_specialchars(PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_ABORTED); ?>");
+                                alert("<?php echo htmlspecialchars(PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_ABORTED); ?>");
                             }
                         </script>
 <?php

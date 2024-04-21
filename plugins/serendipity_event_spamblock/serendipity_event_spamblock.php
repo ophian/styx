@@ -881,7 +881,7 @@ class serendipity_event_spamblock extends serendipity_event
         if ($use_gd) {
             return sprintf('<img src="%s" onclick="this.src=this.src + \'1\'" title="%s" alt="CAPTCHA" class="captcha" />',
                 $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . "plugin/{$x}captcha_" . hash('XXH128', (string) time()),
-                serendipity_specialchars(PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2)
+                htmlspecialchars(PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2)
             );
         } else {
             $bgcolors = explode(',', $this->get_config('captcha_color', '255,0,255'));
@@ -891,7 +891,7 @@ class serendipity_event_spamblock extends serendipity_event
             for ($i = 1; $i <= $max_char; $i++) {
                 $output .= sprintf('<img src="%s" title="%s" alt="CAPTCHA ' . $i . '" class="captcha" />',
                     $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . "plugin/{$x}captcha_" . $i . '_' . hash('XXH128', (string) time()),
-                    serendipity_specialchars(PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2)
+                    htmlspecialchars(PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2)
                 );
             }
             $output .= '</div>';
@@ -1402,7 +1402,7 @@ class serendipity_event_spamblock extends serendipity_event
                             echo '<br /><label for="captcha">'. PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3 . '</label>';
                             echo '<input id="captcha" class="input_textbox" type="text" size="5" name="serendipity[captcha]" value="" />';
                         } elseif (isset($serendipity['POST']['captcha'])) {
-                            echo '<input type="hidden" name="serendipity[captcha]" value="' . serendipity_specialchars($serendipity['POST']['captcha']) . '" />';
+                            echo '<input type="hidden" name="serendipity[captcha]" value="' . htmlspecialchars($serendipity['POST']['captcha']) . '" />';
                         }
                         echo "\n</div>\n";
                     }
