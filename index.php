@@ -16,7 +16,7 @@ header('Status: 200 OK');
 include('serendipity_config.inc.php');
 include('include/functions_routing.inc.php');
 
-header('Content-Type: text/html; charset='. LANG_CHARSET);
+header('Content-Type: text/html; charset=' . LANG_CHARSET);
 
 if ($serendipity['CacheControl']) {
     if (!empty($_SERVER['SERVER_SOFTWARE']) && str_contains($_SERVER['SERVER_SOFTWARE'], 'Apache/2')) {
