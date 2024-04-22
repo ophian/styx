@@ -2,6 +2,9 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Refactor core language system to remove legacy native language sets and to
+    run UTF-8 only.
+
   * Make personal config simpleFilters option default to false on install
 
   * Remove Smarty allowed php_functions 'class_exists' allowance, due to an
