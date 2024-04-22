@@ -212,11 +212,6 @@ $serendipity['calendars'] = array('gregorian'   => 'Gregorian',
 // Load main language file
 include($serendipity['serendipityPath'] . 'include/lang.inc.php');
 
-$serendipity['charsets'] = array(
-    'UTF-8/' => 'UTF-8',
-    ''        => (defined('CHARSET_NATIVE') ? CHARSET_NATIVE : 'CHARSET_NATIVE')
-);
-
 @define('PATH_SMARTY_COMPILE', 'templates_c');
 @define('USERLEVEL_ADMIN', 255);
 @define('USERLEVEL_CHIEF', 1);
@@ -416,12 +411,6 @@ serendipity_permalinkPatterns();
 
 // Load main language file again, because now we have the preferred language
 include(S9Y_INCLUDE_PATH . 'include/lang.inc.php');
-
-// Reset charset definition now that final language is known
-$serendipity['charsets'] = array(
-    'UTF-8/' => 'UTF-8',
-    ''        => CHARSET_NATIVE
-);
 
 // Set current locale, if any has been defined
 if (defined('DATE_LOCALES')) {
