@@ -351,33 +351,6 @@ function serendipity_get_bool($item) {
 }
 
 /**
- * Get the current charset
- *
- * @return  string      Empty string or "UTF-8/".
- */
-function serendipity_getCharset() {
-    global $serendipity;
-
-    $charset = $serendipity['charset'] ?? 'UTF-8/';
-    if (!empty($_POST['charset'])) {
-        if ($_POST['charset'] == 'UTF-8/') {
-            $charset = 'UTF-8/';
-        } else {
-            $charset = '';
-        }
-    }
-
-    if (!empty($serendipity['POST']['charset'])) {
-        if ($serendipity['POST']['charset'] == 'UTF-8/') {
-            $charset = 'UTF-8/';
-        } else {
-            $charset = '';
-        }
-    }
-    return $charset;
-}
-
-/**
  * Detect the language of the User Agent/Visitor
  *
  * This function needs to be included at this point so that it is globally available, also
