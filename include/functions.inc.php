@@ -752,6 +752,7 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
         }
     }
 
+    // Split language charset path for themes
     $charsetpath  = (LANG_CHARSET == 'UTF-8') ? '/UTF-8' : '';
     $info_default = S9Y_INCLUDE_PATH . $serendipity['templatePath'] . $theme . '/lang_info_en.inc.php';
     if ((isset($data['summary']) || isset($data['description']) || isset($data['backenddesc'])) && @is_file($info_default)) {
