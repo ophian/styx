@@ -393,13 +393,12 @@ function serendipity_detectLang($use_include = false) {
     $supported_languages = array_keys($serendipity['languages']);
     $possible_languages  = explode(',', ($_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? ''));
     if (is_array($possible_languages)) {
-        $charset = serendipity_getCharset();
 
         foreach($possible_languages AS $index => $lang) {
             $preferred_language = strtolower(preg_replace('@^([^\-_;]*)_?.*$@', '\1', $lang));
             if (in_array($preferred_language, $supported_languages)) {
                 if ($use_include) {
-                    @include_once(S9Y_INCLUDE_PATH . 'lang/' . $charset . 'serendipity_lang_' . $preferred_language . '.inc.php');
+                    @include_once(S9Y_INCLUDE_PATH . 'lang/serendipity_lang_' . $preferred_language . '.inc.php');
                     $serendipity['autolang'] = $preferred_language;
                 }
                 return $preferred_language;
