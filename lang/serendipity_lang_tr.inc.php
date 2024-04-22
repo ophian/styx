@@ -471,7 +471,7 @@
 @define('POWERED_BY_SHOW_TEXT', ' "%s" sitesini düzmetin olarak göster');
 @define('POWERED_BY_SHOW_TEXT_DESC', '"Serendipity Styx" sitesini düzmetin olarak gösterme seçeneği açık');
 @define('POWERED_BY_SHOW_IMAGE', ' "%s" logosuyla göster');
-@define('POWERED_BY_SHOW_IMAGE_DESC', '%s-logosunu göster');
+@define('POWERED_BY_SHOW_IMAGE_DESC', '%s logosunu göster');
 @define('PLUGIN_ITEM_DISPLAY', 'Yazıların ne kadarı gösterilecek?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'Sadece genişletilmiş yazı');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'Sadece önizleme sayfası');

@@ -410,7 +410,7 @@
 @define('INSTALL_LANG', 'Kieli');
 @define('INSTALL_LANG_DESC', 'Valitse blogisi käyttöliittymän kieli');
 
-/* APPEARANCE AND OPTIONS */
+/* Ulkoasu and options */
 @define('INSTALL_CAT_DISPLAY', 'Ulkoasuvalinnat');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Ulkoasuun vaikuttavat valinnat');
 @define('INSTALL_WYSIWYG', 'Käytä WYSIWYG muokkainta');

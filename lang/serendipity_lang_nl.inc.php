@@ -6,9 +6,9 @@
 # (c) 2007 Sam Geeraerts <samgee@elmundolibre.be>
 /* vim: set sts=4 ts=4 expandtab : */
 
-@define('LANG_CHARSET', 'ISO-8859-1');
-@define('SQL_CHARSET', 'latin1');
-@define('DATE_LOCALES', 'nl_NL.ISO-8859-1, nl_BE.ISO-8859-1, dutch, nl_NL, nl_BE, nl, nl-be');
+@define('LANG_CHARSET', 'UTF-8');
+@define('SQL_CHARSET', 'utf8');
+@define('DATE_LOCALES', 'nl_NL.UTF-8, nl_BE.UTF-8, dutch, nl_NL, nl_BE, nl, nl-be');
 @define('DATE_FORMAT_ENTRY', '%A, %e %B %Y');
 @define('DATE_FORMAT_SHORT', '%d-%m-%Y %H:%M');
 @define('WYSIWYG_LANG', 'nl_NL');
@@ -56,7 +56,7 @@
 @define('ENTRIES', 'artikelen');
 @define('NEW_ENTRY', 'Nieuw artikel');
 @define('EDIT_ENTRIES', 'Bewerk artikelen');
-@define('CATEGORIES', 'Categorieën');
+@define('CATEGORIES', 'CategorieÃ«n');
 @define('IMAGESYNC_WARNING', 'WAARSCHUWING:<br>Dit kan veel tijd in beslag nemen als er veel grote afbeeldingen zijn zonder miniatuur. Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', 'Heropbouw van miniaturen');
 @define('MANAGE_IMAGES', 'Beheer afbeeldingen');
@@ -98,7 +98,7 @@
 @define('NEWSIZE', 'Nieuwe grootte: ');
 @define('RESIZE_BLAHBLAH', 'Vergroten/Verkleinen %s');
 @define('ORIGINAL_SIZE', 'Originele grootte: <i>%sx%s</i> pixels');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Hier kunt u de grootte van de afbeelding aanpassen. Als u de afbeeldingsverhoudingen wilt behouden, voer dan in één van de velden een waarde in en druk op de TAB-toets -- Het programma zal dan zelf de andere grootte berekenen zodat de verhoudingen hetzelfde blijven.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the origin input file. And this increases with each further scaling!<br><b>VARIATION:</b> Since we assume you <b>keep</b> the files proportion, a scaled image "format" variation ["image.avif" and/or "image.webp"] change will be applied to the Origin files variation only and <b>NOT</b> to the variation thumbnail, which - by certain image property conditions - would probably blow up its filesize. If you really need an image scale with an <b>other</b> proportion <b>and</b> an additional changed variation thumb dimension size, activate the "<em>..thumb variation</em>" checkbox.');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Hier kunt u de grootte van de afbeelding aanpassen. Als u de afbeeldingsverhoudingen wilt behouden, voer dan in Ã©Ã©n van de velden een waarde in en druk op de TAB-toets -- Het programma zal dan zelf de andere grootte berekenen zodat de verhoudingen hetzelfde blijven.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the origin input file. And this increases with each further scaling!<br><b>VARIATION:</b> Since we assume you <b>keep</b> the files proportion, a scaled image "format" variation ["image.avif" and/or "image.webp"] change will be applied to the Origin files variation only and <b>NOT</b> to the variation thumbnail, which - by certain image property conditions - would probably blow up its filesize. If you really need an image scale with an <b>other</b> proportion <b>and</b> an additional changed variation thumb dimension size, activate the "<em>..thumb variation</em>" checkbox.');
 @define('SCALE_THUMB_VARIATION', 'Force scaled thumb variation changes');
 @define('QUICKJUMP_CALENDAR', 'Quickjump Kalender');
 @define('QUICKSEARCH', 'Zoeken');
@@ -184,7 +184,7 @@
 @define('MYSQL_REQUIRED', 'U moet een MySQL-verbinding hebben om deze actie te voltooien.');
 @define('PGSQL_REQUIRED', 'U moet een PostgreSQL-verbinding hebben om deze actie te voltooien.');
 @define('COULDNT_CONNECT', 'Kan geen verbinding maken met de volgende MySQL-databank: %s.');
-@define('PGSQL_COULDNT_CONNECT', 'Kan geen verbinding maken met de volgende PostgreSQL databank: %s.');
+@define('PGSQL_COULDNT_CONNECT', 'Kan geen verbinding maken met de volgende PostgreSQL-databank: %s.');
 @define('COULDNT_SELECT_DB', 'Kan de volgende databank niet selecteren: %s.');
 @define('COULDNT_SELECT_USER_INFO', 'Kan de volgende gebruikersinformatie niet selecteren: %s.');
 @define('COULDNT_SELECT_CATEGORY_INFO', 'Kan de volgende categorie niet selecteren: %s.');
@@ -208,7 +208,7 @@
 @define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
 @define('RELOAD_COMMENTS_PAGE', 'Please reload the comments page to view the new data.');
 @define('DIAGNOSTIC_ERROR', 'Serendipity heeft fouten gevonden in de door u opgegeven informatie tijdens het uitvoeren van een diagnostisch programma:');
-@define('SERENDIPITY_NOT_INSTALLED', 'Serendipity is nog niet geïnstalleerd. <a href="%s">Installeer</a> het nu alstublieft.');
+@define('SERENDIPITY_NOT_INSTALLED', 'Serendipity is nog niet geÃ¯nstalleerd. <a href="%s">Installeer</a> het nu alstublieft.');
 @define('INCLUDE_ERROR', 'Serendipity Fout: Kan %s niet invoegen - wordt afgesloten.');
 @define('DATABASE_ERROR', 'Serendipity Fout: Kan geen verbinding maken met de databank - wordt afgesloten.');
 @define('CREATE_DATABASE', 'Standaarddatabank aanmaken...');
@@ -230,7 +230,7 @@
 @define('ABORT_NOW', 'Annuleren');
 @define('REMOTE_FILE_NOT_FOUND', 'Het bestand is niet gevonden, weet u zeker dat de URL <b>%s</b> correct is?');
 @define('FILE_FETCHED', '%s opgehaald als %s');
-@define('FILE_UPLOADED', 'Het bestand %s is succesvol geüpload als %s');
+@define('FILE_UPLOADED', 'Het bestand %s is succesvol geÃ¼pload als %s');
 @define('WORD_OR', 'Of');
 @define('SCALING_IMAGE', 'Grootte aanpassen van %s naar %s x %s px');
 @define('FORCE_RELOAD', 'With certain image characteristics it can occasionally happen that the old image is still present in the browser cache. If so, check into the MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
@@ -243,7 +243,7 @@
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Nieuwe reactie op geabonneerd artikel "%s"');
 @define('SUBSCRIPTION_MAIL', "Geachte %s,\n\nEen nieuwe reactie is geplaatst op \"%s\", op artikel \"%s\"\nDe persoon die gereageerd heeft is: %s\n\nU kunt de reactie hier vinden: %s\n\nU kunt zich uitschrijven door op deze hyperlink te klikken: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Geachte %s,\n\nEen nieuwe trackback is toegevoegd op\"%s\", op artikel \"%s\"\nDe persoon die gereageerd heeft is: %s\n\nU kunt het artikel hier vinden: %s\n\nU kunt zich uitschrijven door op deze hyperlink te klikken: %s\n");
-@define('SIGNATURE', "\n-- \n%s wordt aangedreven door %s, één van de beste weblogs.\nU kunt het ook gebruiken: ga naar <%s> om te ontdekken hoe.");
+@define('SIGNATURE', "\n-- \n%s wordt aangedreven door %s, Ã©Ã©n van de beste weblogs.\nU kunt het ook gebruiken: ga naar <%s> om te ontdekken hoe.");
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0-toevoer');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0-toevoer reacties');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Veld "managingEditor"');
@@ -259,7 +259,7 @@
 @define('SYNDICATION_PLUGIN_TTL', 'Veld "ttl" (time-to-live)');
 @define('SYNDICATION_PLUGIN_TTL_DESC', 'Aantal minuten waarna uw weblog niet meer gecached mag worden door externe websites/applicaties (leeg: verborgen) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_PUBDATE', 'Veld "pubDate"');
-@define('SYNDICATION_PLUGIN_PUBDATE_DESC', 'Moet het "pubDate"-veld worden geïntegreerd in uw RSS-toevoer, om zo de dag van de laatste artikel te tonen?');
+@define('SYNDICATION_PLUGIN_PUBDATE_DESC', 'Moet het "pubDate"-veld worden geÃ¯ntegreerd in uw RSS-toevoer, om zo de dag van de laatste artikel te tonen?');
 @define('CONTENT', 'Inhoud');
 @define('TYPE', 'Type');
 @define('DRAFT', 'Concept');
@@ -269,15 +269,15 @@
 @define('DATE', 'Datum');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
 @define('DATE_INVALID', 'Opgelet: De door u ingevoerde datum is niet correct. Het moet opgegeven worden in het volgende formaat JJJJ-MM-DD hh:mm. Bijvoorbeeld 1970-12-31 14:39');
-@define('CATEGORY_PLUGIN_DESC', 'Toont de lijst met categorieën.');
+@define('CATEGORY_PLUGIN_DESC', 'Toont de lijst met categorieÃ«n.');
 @define('ALL_AUTHORS', 'Alle auteurs');
-@define('CATEGORIES_TO_FETCH', 'Op te halen categorieën');
-@define('CATEGORIES_TO_FETCH_DESC', 'Categorieën op van welke auteur ophalen?');
+@define('CATEGORIES_TO_FETCH', 'Op te halen categorieÃ«n');
+@define('CATEGORIES_TO_FETCH_DESC', 'CategorieÃ«n op van welke auteur ophalen?');
 @define('PAGE_BROWSE_ENTRIES', 'Pagina %s van %s, totaal %s artikelen');
 @define('PAGE', 'Page');
 @define('PREVIOUS_PAGE', 'vorige pagina');
 @define('NEXT_PAGE', 'volgende pagina');
-@define('ALL_CATEGORIES', 'Alle categorieën');
+@define('ALL_CATEGORIES', 'Alle categorieÃ«n');
 @define('DO_MARKUP', 'Voer tekstopmaakveranderingen uit');
 @define('DO_MARKUP_DESCRIPTION', 'Pas (plugin) markup transformaties toe op de tekst (smilies, bbcode, s9y verkort opmaak, markdown, etc.). Indien uitgeschakeld, wordt de inhoud 1:1 weergegeven en blijft eventuele HTML-opmaak behouden. Als deze optie is geactiveerd, kunnen andere plugins de inhoud van de nugget wijzigen.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Datumformaat');
@@ -305,7 +305,7 @@
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity heeft ontdekt dat u uw configuratie wilt bijwerken van versie %s naar versie %s. <a href="%s">Klik hier</a> om dat proces te voltooien.');
 @define('SERENDIPITY_UPGRADER_WELCOME', 'Hallo en welkom bij de Serendipity bijwerkassistent.');
 @define('SERENDIPITY_UPGRADER_PURPOSE', 'Ik zal u helpen uw Serendipity %s-installatie bij te werken.');
-@define('SERENDIPITY_UPGRADER_WHY', 'U krijgt deze melding te zien omdat u zojuist Serendipity %s geïnstalleerd heeft, maar uw databank nog niet bijgewerkt is naar deze versie.');
+@define('SERENDIPITY_UPGRADER_WHY', 'U krijgt deze melding te zien omdat u zojuist Serendipity %s geÃ¯nstalleerd heeft, maar uw databank nog niet bijgewerkt is naar deze versie.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Databankupdates (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'De volgende .sql-bestanden moeten uitgevoerd worden voordat Serendipity normaal verder kan functioneren');
 @define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Taken specifiek voor deze versie');
@@ -316,7 +316,7 @@
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'U hoeft niets bij te werken');
 @define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even when no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Serendipity is bijgewerkt');
-@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'U heeft ervoor gekozen om niets bij te werken. Zorg ervoor dat uw databank goed geïnstalleerd is en geplande taken uitgevoerd worden. Als je klaar bent met je beredeneerde werk voor hold-back, kan dit automatisch gedaan worden door gewoon de versie te resetten in je serendipity_config_local.inc bestand en deze upgrade pagina opnieuw uit te voeren via je backend pagina.');
+@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'U heeft ervoor gekozen om niets bij te werken. Zorg ervoor dat uw databank goed geÃ¯nstalleerd is en geplande taken uitgevoerd worden. Als je klaar bent met je beredeneerde werk voor hold-back, kan dit automatisch gedaan worden door gewoon de versie te resetten in je serendipity_config_local.inc bestand en deze upgrade pagina opnieuw uit te voeren via je backend pagina.');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'Uw Serendipity-installatie is nu bijgewerkt naar versie %s');
 @define('SERENDIPITY_UPGRADER_RETURN_HERE', 'U kunt terugkeren naar uw weblog door %shier%s te klikken');
 @define('MANAGE_USERS', 'Beheer gebruikers');
@@ -378,7 +378,7 @@
 
 /* PATHS */
 @define('INSTALL_CAT_PATHS', 'Paden');
-@define('INSTALL_CAT_PATHS_DESC', 'Diverse paden naar essentiële mappen en bestanden. Paden naar mappen moeten eindigen met een slash!');
+@define('INSTALL_CAT_PATHS_DESC', 'Diverse paden naar essentiÃ«le mappen en bestanden. Paden naar mappen moeten eindigen met een slash!');
 @define('INSTALL_FULLPATH', 'Volledig pad');
 @define('INSTALL_FULLPATH_DESC', 'Het volledige absolute pad naar uw Serendipity-installatie');
 @define('INSTALL_UPLOADPATH', 'Uploadpad');
@@ -421,7 +421,7 @@
 @define('INSTALL_WYSIWYG_DESC', 'Wilt u de WYSIWYG editor gebruiken?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
 @define('INSTALL_POPUP', 'Gebruikmaken van pop-ups');
 @define('INSTALL_POPUP_DESC', 'Wilt u gebruikmaken van pop-ups voor reacties, trackbacks e.d.?');
-@define('INSTALL_EMBED', 'Is Serendipity geïntegreerd in een andere pagina?');
+@define('INSTALL_EMBED', 'Is Serendipity geÃ¯ntegreerd in een andere pagina?');
 @define('INSTALL_EMBED_DESC', 'Als u Serendipity wilt integreren in een bestaande pagina, zet deze optie dan op ja om de headers weg laten en gewoon de inhoud weer te geven. Met behulp van de indexbestandoptie kunt u een wikkelklasse gebruiken waarin u de normale webpagina-headers kunt zetten. Bekijk het README-bestand voor meer informatie!');
 @define('INSTALL_TOP_AS_LINKS', 'Top Uitgaande Hyperlinks/-verwijzers weergeven als hyperlinks?');
 @define('INSTALL_TOP_AS_LINKS_DESC', '"nee": Uitgaande Hyperlinks en Verwijzers worden als gewone tekst weergeven om het spammen door zoekmachines te voorkomen. "ja": Uitgaande Hyperlinks en Verwijzers worden getoond als hyperlinks. "standaard": Gebruik de instellingen vanuit uw algemene instellingen (aanbevolen).');
@@ -434,7 +434,7 @@
 @define('INSTALL_CAT_IMAGECONV', 'Afbeeldingsinstellingen');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Hier kunt u aangeven hoe Serendipity met afbeeldingen moet omgaan');
 @define('INSTALL_IMAGEMAGICK', 'Gebruik Imagemagick');
-@define('INSTALL_IMAGEMAGICK_DESC', 'Heeft u Imagemagick geïnstalleerd en wilt u het gebruiken om het formaat van de afbeeldingen aan te passen?');
+@define('INSTALL_IMAGEMAGICK_DESC', 'Heeft u Imagemagick geÃ¯nstalleerd en wilt u het gebruiken om het formaat van de afbeeldingen aan te passen?');
 @define('INSTALL_IMAGEMAGICKPATH', 'Pad naar het conversieprogramma');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'Volledig pad en naam van uw Imagemagick-programma convert');
 @define('INSTALL_THUMBSUFFIX', 'Achtervoegsel miniaturen');
@@ -565,7 +565,7 @@
 @define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Wachtend op goedkeuring');
 @define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
-@define('RSS_IMPORT_BODYONLY', 'Voeg alle geïmporteerde teksten in de "Artikeltekst"-sectie en splits deze niet op naar de "Uitgebreide tekst"-sectie.');
+@define('RSS_IMPORT_BODYONLY', 'Voeg alle geÃ¯mporteerde teksten in de "Artikeltekst"-sectie en splits deze niet op naar de "Uitgebreide tekst"-sectie.');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'Geef volledige artikelen weer in de verzamelpublicatie');
 @define('WEEK', 'Week');
 @define('WEEKS', 'Weken');
@@ -575,13 +575,13 @@
 @define('ARCHIVE_FREQUENCY_DESC', 'Het interval waarin artikelen gegroepeerd worden');
 @define('ARCHIVE_COUNT', 'Aantal items in de lijst');
 @define('ARCHIVE_COUNT_DESC', 'Het totaal aantal intervallen dat weergegeven moet worden');
-@define('BELOW_IS_A_LIST_OF_INSTALLED_PLUGINS', 'Hieronder staat een lijst met geïnstalleerde plugins');
+@define('BELOW_IS_A_LIST_OF_INSTALLED_PLUGINS', 'Hieronder staat een lijst met geÃ¯nstalleerde plugins');
 @define('SIDEBAR_PLUGIN', 'zijbalkplugin');
 @define('EVENT_PLUGIN', 'evenementenplugin');
 @define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Klik hier om een nieuwe %s te installeren');
 @define('VERSION', 'Versie');
 @define('INSTALL', 'Installeren');
-@define('ALREADY_INSTALLED', 'Reeds geïnstalleerd');
+@define('ALREADY_INSTALLED', 'Reeds geÃ¯nstalleerd');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Selecteer welke plugin u wenst te installeren');
 @define('INSTALL_OFFSET', 'Verschil met servertijd');
 @define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
@@ -642,7 +642,7 @@
 @define('CREATING_PRIMARY_AUTHOR', 'Hoofdauteur \'%s\' aan het aanmaken');
 @define('SETTING_DEFAULT_TEMPLATE', 'Standaardtemplate aan het instellen');
 @define('INSTALLING_DEFAULT_PLUGINS', 'Standaardplugins aan het installeren');
-@define('SERENDIPITY_INSTALLED', 'Serendipity Styx is met succes geïnstalleerd');
+@define('SERENDIPITY_INSTALLED', 'Serendipity Styx is met succes geÃ¯nstalleerd');
 @define('VISIT_BLOG_HERE', 'Bezoek uw weblog hier');
 @define('THANK_YOU_FOR_CHOOSING', 'Dank u voor het gebruiken van Serendipity Styx');
 @define('ERROR_DETECTED_IN_INSTALL', 'Een fout is aangetroffen in de installatie');
@@ -651,8 +651,8 @@
 @define('TEMPLATE_SET', '\'%s\' is ingesteld als uw huidige template');
 @define('SEARCH_ERROR', 'De zoekfunctie werkte niet naar verwachting. Waarschuwing voor de beheerder van dit weblog: dit komt mogelijk door het ontbreken van indexsleutels in de databank. Op MySQL-systemen moet uw databankgebruikersaccount deze bewerking kunnen uitvoeren: <pre>CREATE FULLTEXT INDEX entry_idx on %sentries (title,body,extended)</pre> De foutmelding van de databank is: <pre>%s</pre>');
 @define('CATEGORY_REMAINING', ' Verwijder deze categorie en verplaatst de artikelen naar de volgende categorie ');
-@define('CATEGORY_INDEX', 'Dit is een lijst met categorieën beschikbaar voor uw artikelen');
-@define('NO_CATEGORIES', 'Geen categorieën');
+@define('CATEGORY_INDEX', 'Dit is een lijst met categorieÃ«n beschikbaar voor uw artikelen');
+@define('NO_CATEGORIES', 'Geen categorieÃ«n');
 @define('RESET_DATE', 'Datum terugstellen');
 @define('RESET_DATE_DESC', 'Klik hier om de datum en tijd terug te stellen naar de huidige datum en tijd');
 @define('PROBLEM_PERMISSIONS_HOWTO', 'Toegangsrechten kunnen gezet worden met het volgende commando: `<em>%s</em>` op de mislukte map, of via een FTP-programma');
@@ -677,7 +677,7 @@
 @define('UPGRADE', 'Bijwerken');
 @define('UPGRADE_TO_VERSION', '<b>Bijwerken naar versie:</b> %s');
 @define('DELETE_DIRECTORY', 'Verwijder map');
-@define('DELETE_DIRECTORY_DESC', 'Je staat op het punt een directory<sup>(¹)</sup> te verwijderen die mediabestanden en items kan bevatten die al gebruikt zijn in je inzendingen. Let op!<br><sup>[¹]</sup> Inclusief de verborgen subdirectory met (WebP/AVIF) variatiebestanden.');
+@define('DELETE_DIRECTORY_DESC', 'Je staat op het punt een directory<sup>(Â¹)</sup> te verwijderen die mediabestanden en items kan bevatten die al gebruikt zijn in je inzendingen. Let op!<br><sup>[Â¹]</sup> Inclusief de verborgen subdirectory met (WebP/AVIF) variatiebestanden.');
 @define('FORCE_DELETE', 'Verwijder ALLE bestanden in deze map, inclusief submappen en bestanden die (nog) niet bekend zijn bij de MediaLibrary');
 @define('CREATE_DIRECTORY', 'Maak map');
 @define('CREATE_NEW_DIRECTORY', 'Maak nieuwe map');
@@ -716,8 +716,8 @@
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'E-mailadres laten zien?');
 @define('IMAGE_MORE_INPUT', 'Meer afbeeldingen toevoegen');
 @define('BACKEND_TITLE', 'Extra informatie in pluginconfiguratiescherm');
-@define('BACKEND_TITLE_FOR_NUGGET', 'Hier kunt u een aangepaste tekst definiëren die zal worden weergegeven in het pluginconfiguratiescherm samen met de beschrijving van het plugin. Als u meerdere stacked plugins / HTML-blokjes heeft met een lege titel, dan helpt dit om ze van elkaar te onderscheiden.');
-@define('CATEGORIES_ALLOW_SELECT', 'Bezoekers toestaan om meerdere categorieën tegelijkertijd weer te geven?');
+@define('BACKEND_TITLE_FOR_NUGGET', 'Hier kunt u een aangepaste tekst definiÃ«ren die zal worden weergegeven in het pluginconfiguratiescherm samen met de beschrijving van het plugin. Als u meerdere stacked plugins / HTML-blokjes heeft met een lege titel, dan helpt dit om ze van elkaar te onderscheiden.');
+@define('CATEGORIES_ALLOW_SELECT', 'Bezoekers toestaan om meerdere categorieÃ«n tegelijkertijd weer te geven?');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'Als dit is geactiveerd, dan zal er een aanvinkhokje naast elke categorie geplaatst worden. Gebruikers kunnen deze hokjes aanvinken om zo de artikelen van hun keuze te zien.');
 @define('PAGE_BROWSE_PLUGINS', 'Pagina %s van %s, totaal %s plugins.');
 @define('INSTALL_CAT_PERMALINKS', 'Permanente hyperlinks');
@@ -727,13 +727,13 @@
 @define('INSTALL_PERMALINK_AUTHOR', 'Permanente hyperlink Auteur URL-structuur');
 @define('INSTALL_PERMALINK_AUTHOR_DESC', 'Hier kunt u de relatieve URL-structuur bepalen, startend van je basis-URL tot artikelen van bepaalde auteurs beschikbaar worden. U kunt gebruikmaken van de variabelen %id%, %realname%, %username%, %email% en andere karakters.');
 @define('INSTALL_PERMALINK_CATEGORY', 'Permanente hyperlink Categorie URL-structuur');
-@define('INSTALL_PERMALINK_CATEGORY_DESC', 'Hier kunt u de relatieve URL-structuur bepalen, startend van je basis-URL tot de artikelen van bepaalde categorieën beschikbaar worden. U kunt gebruikmaken van de variabelen %id%, %name%, %parentname%, %description% en andere karakters.');
+@define('INSTALL_PERMALINK_CATEGORY_DESC', 'Hier kunt u de relatieve URL-structuur bepalen, startend van je basis-URL tot de artikelen van bepaalde categorieÃ«n beschikbaar worden. U kunt gebruikmaken van de variabelen %id%, %name%, %parentname%, %description% en andere karakters.');
 @define('INSTALL_PERMALINK_FEEDCATEGORY', 'Permanente hyperlink Verzamelpublicatie Categorie URL-structuur');
-@define('INSTALL_PERMALINK_FEEDCATEGORY_DESC', 'Hier kunt u de relatieve URL-structuur bepalen, startend van je basis-URL tot waar de verzamelpublicaties van bepaalde categorieën vrijkomen. U kunt gebruikmaken van de variabelen %id%, %name%, %description% en andere karakters.');
+@define('INSTALL_PERMALINK_FEEDCATEGORY_DESC', 'Hier kunt u de relatieve URL-structuur bepalen, startend van je basis-URL tot waar de verzamelpublicaties van bepaalde categorieÃ«n vrijkomen. U kunt gebruikmaken van de variabelen %id%, %name%, %description% en andere karakters.');
 @define('INSTALL_PERMALINK_ID_WARNING', 'If you remove the essential %id% variable, Serendipity can not create an exact relationship. This has effects on various accesses and subsequent processes and is not recommended without taking your own responsibility!');
 @define('INSTALL_PERMALINK_ARCHIVESPATH', 'Pad naar archieven');
 @define('INSTALL_PERMALINK_ARCHIVEPATH', 'Pad naar archief');
-@define('INSTALL_PERMALINK_CATEGORIESPATH', 'Pad naar categorieën');
+@define('INSTALL_PERMALINK_CATEGORIESPATH', 'Pad naar categorieÃ«n');
 @define('INSTALL_PERMALINK_UNSUBSCRIBEPATH', 'Pad naar stopzetten abonnement reacties');
 @define('INSTALL_PERMALINK_DELETEPATH', 'Pad naar verwijderen reacties');
 @define('INSTALL_PERMALINK_APPROVEPATH', 'Pad naar goedkeuren reacties');
@@ -752,7 +752,7 @@
 @define('CREATED_GROUP', 'Nieuwe groep #%d \'%s\' is aangemaakt');
 @define('MODIFIED_GROUP', 'De eigenschappen van groep \'%s\' zijn veranderd');
 @define('GROUP', 'Groep');
-@define('CREATE_NEW_GROUP', 'Creëer een nieuwe groep');
+@define('CREATE_NEW_GROUP', 'CreÃ«er een nieuwe groep');
 @define('DELETE_GROUP', 'U staat op het punt om groep #%d \'%s\' te verwijderen. Weet u zeker dat u deze groep wilt verwijderen?');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner-ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'Het ID van de toevoer die u wilt publiceren');
@@ -794,9 +794,9 @@
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: Artikelen beheren');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: Artikelen van anderen beheren');
 @define('PERMISSION_ADMINIMPORT', 'adminImport: Artikelen importeren');
-@define('PERMISSION_ADMINCATEGORIES', 'adminCategories: Categorieën beheren');
-@define('PERMISSION_ADMINCATEGORIESMAINTAINOTHERS', 'adminCategoriesMaintainOthers: Categorieën van anderen beheren');
-@define('PERMISSION_ADMINCATEGORIESDELETE', 'adminCategoriesDelete: Categorieën verwijderen');
+@define('PERMISSION_ADMINCATEGORIES', 'adminCategories: CategorieÃ«n beheren');
+@define('PERMISSION_ADMINCATEGORIESMAINTAINOTHERS', 'adminCategoriesMaintainOthers: CategorieÃ«n van anderen beheren');
+@define('PERMISSION_ADMINCATEGORIESDELETE', 'adminCategoriesDelete: CategorieÃ«n verwijderen');
 @define('PERMISSION_ADMINUSERS', 'adminUsers: Gebruikers beheren');
 @define('PERMISSION_ADMINUSERSDELETE', 'adminUsersDelete: Gebruikers verwijderen');
 @define('PERMISSION_ADMINUSERSEDITUSERLEVEL', 'adminUsersEditUserlevel: Gebruikersniveau veranderen');
@@ -822,21 +822,21 @@
 
 @define('INSTALL_BLOG_EMAIL', 'E-mailadres van het weblog');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Dit is het e-mailadres dat wordt gebruikt als afzender in uitgaande e-mails. Zorg ervoor dat het herkend wordt door de mail server - veel mail servers verwerpen berichten van een afzender die ze niet kennen.');
-@define('CATEGORIES_PARENT_BASE', 'Laat alleen categorieën zien onder...');
-@define('CATEGORIES_PARENT_BASE_DESC', 'Kies een categorie waarvan alleen de onderliggende categorieën getoond moeten worden.');
-@define('CATEGORIES_HIDE_PARALLEL', 'Verberg categorieën die geen deel uitmaken van de categorieënboom');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Zet deze optie aan als u categorieën wilt verbergen die deel uitmaken van een andere categorieënboom. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin, i.e if you choose multi categories by the categories checkbox selection.');
+@define('CATEGORIES_PARENT_BASE', 'Laat alleen categorieÃ«n zien onder...');
+@define('CATEGORIES_PARENT_BASE_DESC', 'Kies een categorie waarvan alleen de onderliggende categorieÃ«n getoond moeten worden.');
+@define('CATEGORIES_HIDE_PARALLEL', 'Verberg categorieÃ«n die geen deel uitmaken van de categorieÃ«nboom');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Zet deze optie aan als u categorieÃ«n wilt verbergen die deel uitmaken van een andere categorieÃ«nboom. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin, i.e if you choose multi categories by the categories checkbox selection.');
 @define('CHARSET_NATIVE', 'Taalafhankelijk');
 @define('INSTALL_CHARSET', 'Tekensetselectie');
 @define('INSTALL_CHARSET_DESC', 'Hier kunt u kiezen tussen UTF-8 en taalafhankelijke (ISO, EUC, ...) tekensets. Sommige talen hebben alleen een UTF-8-vertaling, dus kiezen voor "Taalafhankelijk" heeft dan geen effect. UTF-8 wordt aangeraden voor een nieuwe installatie. Verander deze instelling niet als u al artikelen gemaakt heeft met speciale tekens, dit kan leiden tot corrupte tekens. Lees meer hierover op https://ophian.github.io/hc/en/i18n.html.');
 @define('CALENDAR_ENABLE_EXTERNAL_EVENTS', 'Zet plugin-API-interface aan');
-@define('CALENDAR_EXTEVENT_DESC', 'Als deze optie aan staat, kunnen plugins de kalender gebruiken om hun eigen gebeurtenissen te laten zien. Zet dit alleen aan als u plugins geïnstalleerd heeft die dit gebruiken, anders vermindert het gewoon de performantie.');
-@define('XMLRPC_NO_LONGER_BUNDLED', 'De XML-RPC API-interface naar Serendipity wordt niet meer meegeleverd vanwege veiligheidsproblemen en omdat maar weinig mensen het gebruikten. Om hier gebruik van te maken moet u de XML-RPC-plugin installeren. De URL voor uw programma\'s verandert NIET. Zodra de plugin geïnstalleerd is, kunt u de API terug gebruiken.');
+@define('CALENDAR_EXTEVENT_DESC', 'Als deze optie aan staat, kunnen plugins de kalender gebruiken om hun eigen gebeurtenissen te laten zien. Zet dit alleen aan als u plugins geÃ¯nstalleerd heeft die dit gebruiken, anders vermindert het gewoon de performantie.');
+@define('XMLRPC_NO_LONGER_BUNDLED', 'De XML-RPC API-interface naar Serendipity wordt niet meer meegeleverd vanwege veiligheidsproblemen en omdat maar weinig mensen het gebruikten. Om hier gebruik van te maken moet u de XML-RPC-plugin installeren. De URL voor uw programma\'s verandert NIET. Zodra de plugin geÃ¯nstalleerd is, kunt u de API terug gebruiken.');
 @define('PERM_READ', 'Leesrechten');
 @define('PERM_WRITE', 'Schrijfrechten');
 @define('PERM_DENIED', 'Toegang geweigerd.');
-@define('INSTALL_ACL', 'Leesrechten voor categorieën toepassen');
-@define('INSTALL_ACL_DESC', 'Als dit aan staat, zijn de gebruikersrechten voor categorieën van kracht als ingelogde gebruikers uw weblog bekijken. In het andere geval is de autorisatie niet van toepassing en wordt uw weblog iets sneller. Dus als u geen aparte leesrechten voor meerdere gebruikers nodig heeft, laat u deze optie best uit.');
+@define('INSTALL_ACL', 'Leesrechten voor categorieÃ«n toepassen');
+@define('INSTALL_ACL_DESC', 'Als dit aan staat, zijn de gebruikersrechten voor categorieÃ«n van kracht als ingelogde gebruikers uw weblog bekijken. In het andere geval is de autorisatie niet van toepassing en wordt uw weblog iets sneller. Dus als u geen aparte leesrechten voor meerdere gebruikers nodig heeft, laat u deze optie best uit.');
 @define('PLUGIN_API_VALIDATE_ERROR', 'Configuratiesyntaxis fout voor optie "%s". Heeft inhoud van het type "%s" nodig.');
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Oud wachtwoord');
@@ -862,7 +862,7 @@
 @define('INSTALL_TRACKREF', 'Verwijzingen onthouden?');
 @define('INSTALL_TRACKREF_DESC', 'Door het onthouden van verwijzingen kunt u zien welke websites naar uw artikelen verwijzen. Dit wordt dikwijls misbruikt voor spam, dus u kunt het best uit zetten als u er last van heeft.');
 @define('CATEGORIES_HIDE_PARENT', 'De geselecteerde bovenliggende categorie verbergen?');
-@define('CATEGORIES_HIDE_PARENT_DESC', 'Als u de lijst van categorieën beperkt tot een bepaalde hoofdcategorie, dan zal standaard die categorie in de lijst getoond worden. Zet deze optie af om de naam van deze categorie niet te tonen.');
+@define('CATEGORIES_HIDE_PARENT_DESC', 'Als u de lijst van categorieÃ«n beperkt tot een bepaalde hoofdcategorie, dan zal standaard die categorie in de lijst getoond worden. Zet deze optie af om de naam van deze categorie niet te tonen.');
 @define('WARNING_NO_GROUPS_SELECTED', 'Waarschuwing: u heeft geen enkel groepslidmaatschap geselecteerd. Dit zou u uitloggen uit het groepsbeheer, dus werden uw groepslidmaatschappen niet gewijzigd.');
 @define('INSTALL_RSSFETCHLIMIT', 'Artikelen per toevoer');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Aantal artikelen die getoond worden per pagina van de verzamelpublicatietoevoer.');
@@ -904,10 +904,10 @@
 @define('MEDIA_PROPERTY_COMMENT1', 'Publiek Commentaar');
 @define('MEDIA_PROPERTY_COMMENT2', 'Intern Commentaar');
 @define('MEDIA_PROPERTY_TITLE', 'Titel');
-@define('MEDIA_PROP_DESC', 'Geef een lijst met eigenschapsvelden, gescheiden door een ";", die u wilt definiëren voor elk mediabestand');
+@define('MEDIA_PROP_DESC', 'Geef een lijst met eigenschapsvelden, gescheiden door een ";", die u wilt definiÃ«ren voor elk mediabestand');
 @define('MEDIA_PROP_MULTIDESC', '(U kunt ":MULTI" aan een item toevoegen om aan te geven dat het een lange tekst zal bevatten in plaats van slechts enkele tekens)');
 
-@define('STYLE_OPTIONS_NONE', 'Deze template heeft geen specifieke opties. Als u wilt weten hoe u opties kunt definiëren voor uw sjabloon, lees dan in de technische documentatie op "https://ophian.github.io/hc/en/templating.html#docs-theme-options" het artikel "Configuration of Theme options".');
+@define('STYLE_OPTIONS_NONE', 'Deze template heeft geen specifieke opties. Als u wilt weten hoe u opties kunt definiÃ«ren voor uw sjabloon, lees dan in de technische documentatie op "https://ophian.github.io/hc/en/templating.html#docs-theme-options" het artikel "Configuration of Theme options".');
 @define('STYLE_OPTIONS', 'Template-opties');
 
 @define('PLUGIN_AVAILABLE_COUNT', 'Totaal: %d plugins.');

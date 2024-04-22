@@ -416,7 +416,7 @@
 @define('INSTALL_CAT_DISPLAY', 'ظاهر و تنظیمات');
 @define('INSTALL_CAT_DISPLAY_DESC', 'تنظیم چگونگی نمایش سرندیپیتی');
 @define('INSTALL_WYSIWYG', 'استفاده از ویرایشگر WYSIWYG');
-@define('INSTALL_WYSIWYG_DESC', 'آیا می خواهید از ویراشگر WYSIWYG استف<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG_DESC', 'آیا می خواهید از ویراشگر WYSIWYG استفا<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
 @define('INSTALL_POPUP', 'توانایی استفاده از پنجره های بازشونده');
 @define('INSTALL_POPUP_DESC', 'آیا تمایل دارید که برای نظرات و دنبالک ها از پنجره های بازشونده استفاده شود؟');
 @define('INSTALL_EMBED', 'آیا سرندیپیتی جاسازی شده است؟');
@@ -716,7 +716,7 @@
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'آیا آدرس ایمیل ها دیده شود؟');
 @define('IMAGE_MORE_INPUT', 'افزودن عکس');
 @define('BACKEND_TITLE', 'اطلاعات بیشتر را در قسمت تنظیمات افزونه وجود دارد');
-@define('BACKEND_TITLE_FOR_NUGGET', 'در اینجا می توانید یک رشته جدید انتخاب کنید، رشته ای که در صفحه تنظیمات افزونه ها در کنار توضیحات افزونه "تکه کد HTML" نمایش داده می شود. اگر شما از تعدادی تکه کد stacked plugins / HTML با تیتر های خالی استفاده می کنید، این مورد، کمک می کند که بتوانید این افزونه ها را از هم تمیز دهید.');
+@define('BACKEND_TITLE_FOR_NUGGET', 'در اینجا می توانید یک رشته جدید انتخاب کنید، رشته ای که در صفحه تنظیمات افزونه ها در کنار توضیحات افزونه نمایش داده می شود. اگر شما از تعدادی تکه کد stacked plugins / HTML با تیتر های خالی استفاده می کنید، این مورد، کمک می کند که بتوانید این افزونه ها را از هم تمیز دهید.');
 @define('CATEGORIES_ALLOW_SELECT', 'به کاربران اجازه نمایش همزمان چندین موضوع را اعطا کن؟');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'اگر این گزینه فعال باشد، قسمتی برای انتخاب، در کنار هر موضوع در نوار افزونه های کناری اضافه خواهد شد. کاربران می توانند موضوعات مورد نظر را انتخاب کرده تا مطالب ارسالی در موضوعات مشخص شده را مشاهده کنند.');
 @define('PAGE_BROWSE_PLUGINS', 'صفحه %s از %s، در کل %s صفحه.');
