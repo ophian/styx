@@ -442,7 +442,7 @@ function serendipity_die($html, $error = true) {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="text/html; charset=' . $charset . '" http-equiv="Content-Type">
-    <meta name="robots" content="noindex,nofollow" />
+    <meta name="robots" content="noindex,nofollow">
 
     <title>' . $title . '</title>
     <style>
