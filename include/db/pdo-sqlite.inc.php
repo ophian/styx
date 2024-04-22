@@ -242,11 +242,11 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
 
     //serendipity_db_logmsg('SQLQUERY: ' . $sql);
     if (!$expectError && ($reportErr || !$serendipity['production'])) {
-        $serendipity['dbConn']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Backport to PHP 8.0+ behaviour
+        $serendipity['dbConn']->setAttribute( \PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION ); // Backport to PHP 8.0+ behaviour
         $serendipity['dbSth'] = $serendipity['dbConn']->prepare($sql);
     } else {
         try {
-            $serendipity['dbConn']->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT ); // PHP 8.0: PDO: Default error mode set to exceptions. Previously used silent.
+            $serendipity['dbConn']->setAttribute( \PDO::ATTR_ERRMODE, \PDO::ERRMODE_SILENT ); // PHP 8.0: PDO: Default error mode set to exceptions. Previously used silent.
             $serendipity['dbSth'] = $serendipity['dbConn']->prepare($sql);
         } catch(\Throwable $e) {
             return $type_map['false'];
