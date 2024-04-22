@@ -268,9 +268,9 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
         $plugin->introspect_config_item($config_item, $cbag);
 
         $data['cname']  = $cname = htmlspecialchars($cbag->get('name'));
-        $data['cdesc']  = $cdesc = htmlspecialchars($cbag->get('description'));
+        $data['cdesc']  = $cdesc = htmlspecialchars($cbag->get('description') ?? '');
         $value          = $plugin->get_config($config_item, 'unset');
-        $lang_direction = htmlspecialchars($cbag->get('lang_direction'));
+        $lang_direction = htmlspecialchars($cbag->get('lang_direction') ?? '');
 
         if (empty($lang_direction)) {
             $lang_direction = LANG_DIRECTION;
@@ -301,7 +301,7 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 $hvalue = htmlspecialchars($_POST['serendipity'][$_postKey][$config_item]);
             }
         } else {
-            $hvalue = htmlspecialchars($value);
+            $hvalue = is_string($value) ? htmlspecialchars($value) : '';
         }
 
         $radio      = array();
