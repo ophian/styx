@@ -825,9 +825,6 @@
 @define('CATEGORIES_PARENT_BASE_DESC', '하나의 상위 범주를 골라서 그 아래에 있는 범주만 보이도록 할 수 있습니다.');
 @define('CATEGORIES_HIDE_PARALLEL', '범주 트리에 속하지 않는 범주 숨기기');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', '다른 범주 트리에 속해 있는 범주를 보이지 않게 하려면 이것을 사용하십시오. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin, i.e if you choose multi categories by the categories checkbox selection.');
-@define('CHARSET_NATIVE', '지역 전용');
-@define('INSTALL_CHARSET', '문자열 종류 선택');
-@define('INSTALL_CHARSET_DESC', '여기서 문자열을 UTF-8로 할 것인지 지역 전용 (ISO, EUC 등)으로 할 것인지 정할 수 있습니다. 일부 언어는 UTF-8 버전만 제공되므로 "지역 전용"을 설정해도 변화가 없습니다. 새로 설치한 경우 UTF-8을 권장합니다. 이미 특별 문자를 사용하여 글을 작성했을 경우 이 설정을 변경하지 마십시오. 글자가 깨질 수 있습니다. 이 설정에 대해서는 https://ophian.github.io/hc/en/i18n.html 에 더 자세하게 소개가 되어 있습니다.');
 @define('CALENDAR_ENABLE_EXTERNAL_EVENTS', '플러그인 API 훅 사용');
 @define('CALENDAR_EXTEVENT_DESC', '사용할 경우, 플러그인은 달력에 훅을 걸어서 자체적인 이벤트를 강조 표시할 수 있게 됩니다. 이 기능이 필요한 플러그인을 설치했을 때만 사용하십시오. 그냥 켜놓게 되면 성능만 떨어뜨립니다.');
 @define('XMLRPC_NO_LONGER_BUNDLED', '세렌디피티에 대한 XML-RPC API 인터페이스는 지속적으로 보안 상의 문제가 지적되고 있고 사용자 수가 적은 관계로 더 이상 기본적으로 포함되어 있지 않습니다. 그러므로 XML-RPC API를 사용하기 위해서는 XML-RPC 플러그인을 설치해야 합니다. 기존 어플리케이션에 사용하던 주소에는 변함이 없습니다. 플러그인을 설치하게 되면 곧바로 API를 사용할 수 있게 됩니다.');

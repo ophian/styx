@@ -828,9 +828,6 @@
 @define('CATEGORIES_PARENT_BASE_DESC', '你可以选择一个主类别，只显示它下面的子类别。');
 @define('CATEGORIES_HIDE_PARALLEL', '隐藏不在类别结构的类别');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'If you want to hide categories that are part of a different category tree, you need to enable this. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin, i.e if you choose multi categories by the categories checkbox selection.');
-@define('CHARSET_NATIVE', '预设');
-@define('INSTALL_CHARSET', '语言选项');
-@define('INSTALL_CHARSET_DESC', '这里可以让你转换 UTF-8 或预设编码 (ISO, UTF-8, ...)有些语言包只有 UTF-8 编码，所以换成预设语言有不会任何改变。新安装的日志建议使用 UTF-8 编码。记得不要改变这个设定如果你已经发布了文章。详情参阅 https://ophian.github.io/hc/en/i18n.html');
 @define('CALENDAR_ENABLE_EXTERNAL_EVENTS', 'External Events');
 @define('CALENDAR_EXTEVENT_DESC', '如果开启，外挂可以在日历内以颜色显示它的事件。如果没有使用这些特殊的外挂，建议不要使用。');
 @define('XMLRPC_NO_LONGER_BUNDLED', 'XML-RPC API 功能不会添加在 s9y 的安装里，因为漏洞和不多人使用的关系。所以必须安装 XML-RPC 的外挂如果使用 XML-RPC API。所有的 URL 不会因此改变，安装这个外挂后马上使用。');
