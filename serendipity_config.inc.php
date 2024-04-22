@@ -53,6 +53,9 @@ if (defined('USE_MEMSNAP')) {
     echo memSnap('Framework init');
 }
 
+// Set this early enough, right after global init in compat
+$serendipity['charset'] ??= 'UTF-8/'; // Path part setting for themes and plugins. The LANG_CHARSET constant is defined in the lang files
+
 // The version string
 $serendipity['version'] = '5.0-alpha1';
 $serendipity['edition'] = 'Styx';
@@ -438,7 +441,7 @@ if (function_exists('date_default_timezone_set')) {
 
 // Fallback charset, if none is defined in the language files
 if (!defined('LANG_CHARSET')) {
-    @define('LANG_CHARSET', 'ISO-8859-1');
+    @define('LANG_CHARSET', 'UTF-8');
 }
 
 // Create array of permission levels, with descriptions
