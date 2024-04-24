@@ -4489,6 +4489,9 @@ img.mfp-img {
     #serendipity_comments_list .pingback.actions {
         margin-top: 1.5em;
     }
+    #media_pane_sort .hideSubDirLabel {
+        white-space: pre;
+    }
     .js .media_controls video {
         max-width: 24em;
     }
@@ -5679,10 +5682,6 @@ img.mfp-img {
         margin: 0 auto 2em;
         max-width: 60em;
         width: 100%;
-    }
-
-    #media_pane_sort .hideSubDirLabel {
-        white-space: pre;
     }
 
     .actions li,
