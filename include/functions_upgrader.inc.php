@@ -545,6 +545,20 @@ $dead_dirs_440 = array(
     $serendipity['serendipityPath'] . 'templates/b53/js'
 );
 
+/* A list of Styx files, to be removed or renamed by 5.0.0 */
+$dead_files_500 = array(
+    'lang/serendipity_lang_cs.inc.php'
+);
+
+/* A list of old or removed directories for 5.0.0 */
+$dead_dirs_500 = array(
+    $serendipity['serendipityPath'] . 'lang/UTF-8'/*,
+    $serendipity['serendipityPath'] . 'plugins/serendipity_event_todooooo/UTF-8',
+    $serendipity['serendipityPath'] . 'plugins/serendipity_event_todooooo/UTF-8',
+    $serendipity['serendipityPath'] . 'plugins/serendipity_plugin_todooooo/UTF-8',
+    $serendipity['serendipityPath'] . 'plugins/serendipity_plugin_todooooo/UTF-8'*/
+);
+
 /**
  * recursive directory call to purge files and directories
  *
