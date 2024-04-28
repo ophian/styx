@@ -569,7 +569,7 @@
             }
         }
         if (setCookie) {
-            document.cookie = 'serendipity[toggle_extended]=' + (($('#extended_entry_editor:hidden').length == 0) ? "true" : "") + ';';
+            document.cookie = 'serendipity[toggle_extended]=' + (($('#extended_entry_editor:hidden').length == 0) ? "true" : "") + ';SameSite=Lax;';
         }
     }
 
