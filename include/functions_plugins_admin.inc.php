@@ -267,10 +267,10 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
         $cbag = new serendipity_property_bag;
         $plugin->introspect_config_item($config_item, $cbag);
 
-        $data['cname']  = $cname = htmlspecialchars($cbag->get('name'));
-        $data['cdesc']  = $cdesc = htmlspecialchars($cbag->get('description') ?? '');
+        $data['cname']  = $cname = htmlspecialchars($cbag->get('name') ?? ''); // might be a non set, so check string type
+        $data['cdesc']  = $cdesc = htmlspecialchars($cbag->get('description') ?? ''); // Ditto
         $value          = $plugin->get_config($config_item, 'unset');
-        $lang_direction = htmlspecialchars($cbag->get('lang_direction') ?? '');
+        $lang_direction = htmlspecialchars($cbag->get('lang_direction') ?? ''); // Ditto
 
         if (empty($lang_direction)) {
             $lang_direction = LANG_DIRECTION;
