@@ -2,6 +2,9 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add plugin_staticblock.tpl template file for the includeentry event plugin
+    to the standard "pure" theme.
+
   * Add new helper notice in media_items on multi-uploads via enterProperties
     submit, explaining that only the last will be able to change.
 
