@@ -155,12 +155,12 @@ function show_plugins($event_only = false, $sidebars = null) {
                 $bag = new serendipity_property_bag;
                 $plugin->introspect($bag);
 
-                $name  = htmlspecialchars($bag->get('name'));
-                $kname = str_replace(array('serendipity_event_', 'serendipity_plugin_'), '', $cname[0]);
+                $name  = htmlspecialchars($bag->get('name') ?? '');
+                $kname = str_replace(array('serendipity_event_', 'serendipity_plugin_'), '', ($cname[0] ?? ''));
 
                 $desc  = '<details id="details_'.$crc32.'" class="plugin_data">';
                 $desc .= '<summary><var class="perm_name" title="'.$cname[0].'">' . $kname . ' <span class="icon-info-circled" aria-hidden="true"></span></var></summary>';
-                $desc .= '<div class="plugin_desc clearfix">' . htmlspecialchars($bag->get('description')) . '</div>';
+                $desc .= '<div class="plugin_desc clearfix">' . htmlspecialchars($bag->get('description') ?? '') . '</div>';
                 $desc .= '<span class="block_level">' . VERSION  . ': ' . $bag->get('version') . '</span>';
                 $desc .= '</details>';
 
