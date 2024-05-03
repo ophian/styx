@@ -103,8 +103,8 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         $plugin->performConfig($bag);
     }
 
-    $name    = htmlspecialchars($bag->get('name'));
-    $desc    = htmlspecialchars($bag->get('description'));
+    $name    = htmlspecialchars($bag->get('name') ?? '');
+    $desc    = htmlspecialchars($bag->get('description') ?? '');
     $license = htmlspecialchars($bag->get('license') ?? ''); // might be a non set, so check string type
 
     $documentation = $bag->get('website');
