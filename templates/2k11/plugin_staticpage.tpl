@@ -6,8 +6,8 @@
         {if $staticpage_shownavi}
             <ul class="staticpage_navigation">
                 <li class="staticpage_navigation_left">{if NOT empty($staticpage_navigation.prev.link)}<a href="{$staticpage_navigation.prev.link}" title="prev">{$staticpage_navigation.prev.name|escape}</a>{else}<span class="staticpage_navigation_dummy">{$CONST.PREVIOUS}</span>{/if}</li>
-                <li class="staticpage_navigation_center">{if NOT empty($staticpage_navigation.top.topp_name)}<a href="{$staticpage_navigation.top.topp_link}" title="top">{$staticpage_navigation.top.topp_name|escape}</a> | {/if}&#171 {$staticpage_navigation.top.curr_name|escape} &#187; {if NOT empty($staticpage_navigation.top.exit_name)}| <a href="{$staticpage_navigation.top.exit_link}" title="exit">{$staticpage_navigation.top.exit_name|escape}</a>{/if}</li>{* remove the a to show as plain text *}{*
-                <li class="staticpage_navigation_center">&#171 <a href="{$staticpage_navigation.top.link}" title="current">{$staticpage_navigation.top.name|escape}</a> &#187;</li> *}{* remove the a to show as plain text *}
+                <li class="staticpage_navigation_center">{if NOT empty($staticpage_navigation.top.topp_name)}<a href="{$staticpage_navigation.top.topp_link}" title="top">{$staticpage_navigation.top.topp_name|escape}</a> | {/if}&#171 {$staticpage_navigation.top.curr_name|escape} &#187; {if NOT empty($staticpage_navigation.top.exit_name)}| <a href="{$staticpage_navigation.top.exit_link}" title="exit">{$staticpage_navigation.top.exit_name|escape}</a>{/if}</li>{* remove the a:link to show as plain text *}{*
+                <li class="staticpage_navigation_center">&#171 <a href="{$staticpage_navigation.top.link}" title="current">{$staticpage_navigation.top.name|escape}</a> &#187;</li> *}{* remove the a:link to show as plain text *}
                 <li class="staticpage_navigation_right">{if NOT empty($staticpage_navigation.next.link)}<a href="{$staticpage_navigation.next.link}" title="next">{$staticpage_navigation.next.name|escape}</a>{else}<span class="staticpage_navigation_dummy">{$CONST.NEXT}</span>{/if}</li>
             </ul>{* 'top' is just a synonym for current page, or top parent, or exit navigation *}
         {/if}
@@ -26,7 +26,7 @@
     <form class="staticpage_password_form" action="{$staticpage_form_url}" method="post">
     <fieldset>
         <legend>{$CONST.STATICPAGE_PASSWORD_NOTICE}</legend>
-        <input name="serendipity[pass]" type="password" value="">
+        <input name="serendipity[pass]" type="password" autocomplete="new-password" value="">
         <input name="submit" type="submit" value="{$CONST.GO}" >
     </fieldset>
     </form>
