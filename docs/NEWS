@@ -2,6 +2,8 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add versionCheck false CKEDITOR configuration to all place where used
+
   * Improve staticpage template(s) password field for (DEV) autocomplete cases
     in [ 2k11, b46, boot, bootstrap4, pure, skeleton ] themes.
 
