@@ -193,7 +193,8 @@ if (isset($serendipity['GET']['adminAction'])
                     htmlEncodeOutput: false,
                     skin: (STYX_DARKMODE === true && HAS_CKEDITOR_PLUGPATH !== false) ? 'moonodark,' + CKEDITOR_PLUGPATH + 'serendipity_event_ckeditor/moonodark/' : (STYX_DARKMODE === true ? 'moono-dark' : 'moono-lisa'),
                     extraAllowedContent: 'div(*);p(*);ul(*);pre;code{*}(*)',
-                    extraPlugins: plugIN
+                    extraPlugins: plugIN,
+                    versionCheck: false
                 });
             }
         </script>";

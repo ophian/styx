@@ -52,6 +52,12 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Clear [ pure ] standard theme styles .post_content end/start floats for the
+    body/extended field expression, when the first ends and the second starts
+    with a floating container, i.e. "_image_", to keep them separated.
+
+  * Add versionCheck false CKEDITOR configuration to all place where used
+
   * Improve staticpage template(s) password field for (DEV) autocomplete cases
     in [ 2k11, b46, boot, bootstrap4, pure, skeleton ] themes.
 

@@ -1243,6 +1243,7 @@ nav.pager + .serendipity_blogpdf {
     word-break: break-word;
 }
 .post_content {
+    clear: both;
     line-height: 1.6;
     width: 100%; }
     .post_content blockquote {

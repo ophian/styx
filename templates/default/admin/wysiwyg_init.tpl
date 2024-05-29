@@ -61,6 +61,7 @@
 
         CKEDITOR.replace($('#'+serendipity.escapeBrackets('{$item}')).get(0), {
             extraPlugins : styxplugins,
+            versionCheck : false,
 {if $use_autosave == 'true'}
 
             on: {

@@ -258,7 +258,7 @@
     window.onload = function() {
         var cfmco = document.getElementById('serendipity_commentform_comment');
         if (typeof(cfmco) != 'undefined' && cfmco != null) {
-            CKEDITOR.replace( cfmco, { toolbar : [['Bold','Italic','Underline','-','NumberedList','BulletedList','Blockquote'],['CodeSnippet'],['EmojiPanel']] });
+            CKEDITOR.replace( cfmco, { toolbar : [['Bold','Italic','Underline','-','NumberedList','BulletedList','Blockquote'],['CodeSnippet'],['EmojiPanel']], versionCheck: false });
         }
     }
 </script>
