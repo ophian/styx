@@ -22,7 +22,7 @@
 
         <ul class="plainList"></ul>
     </div>
-{if class_exists('serendipity_event_freetag')}
+{if isset($CONST.FREETAG_MANAGE_URL)}
 
     <div id="tags_list" class="clearfix taxonomy">
         <h3>{$CONST.EDITOR_TAGS}</h3>
@@ -108,7 +108,7 @@
     <div id="edit_entry_submit">
         <button id="reset_timestamp" class="button_link" type="button" href="#serendipityNewTimestamp" data-currtime="{$entry_vars.reset_timestamp|formatTime:'Y-m-d\TH:i':true:false:true}" title="{$CONST.RESET_DATE_DESC}"><span class="icon-clock" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.RESET_DATE}</span></button>
         <a id="select_category" class="button_link icon_link" href="#edit_entry_category" title="{$CONST.CATEGORY}"><span class="icon-list-bullet" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.CATEGORIES}</span></a>
-{if class_exists('serendipity_event_freetag')}
+{if isset($CONST.FREETAG_MANAGE_URL)}
         <a id="select_tags" class="button_link icon_link" href="#edit_entry_freetags" title="{$CONST.PLUGIN_EVENT_FREETAG_MANAGETAGS}"><span class="icon-tag" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.PLUGIN_EVENT_FREETAG_MANAGETAGS}</span></a>
 {/if}
         <button id="switch_entry_status" class="button_link" type="button" href="#edit_entry_status" title="{if $entry_vars.draft_mode == 'publish'}{$CONST.PUBLISH}{else}{$CONST.DRAFT}{/if}" data-title-alt="{if $entry_vars.draft_mode == 'publish'}{$CONST.DRAFT}{else}{$CONST.PUBLISH}{/if}">{if $entry_vars.draft_mode == 'publish'}<span class="icon-toggle-on" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.PUBLISH}</span>{else}<span class="icon-toggle-off" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DRAFT}</span>{/if}</button>

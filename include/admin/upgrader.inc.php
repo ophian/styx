@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -629,6 +631,23 @@ $tasks = array(
                     'arguments' => array($dead_dirs_440),
                     'title'     => 'Styx (re-)moved the bootstrap 5.3 series revisions to the template assets directory.',
                     'desc'      => 'The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_440) . '</pre>'),
+
+            array(  'version'   => '5.0-beta1',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Styx 5 refactored the language file system to remove native charset files.',
+                    'desc'      => 'This moved all UTF-8/* lang files one level up into the parent lang/* directory. To avoid conflicts with open document file encodings please delete all having opened language files in your editor before making any personal changes.'),
+
+            array(  'version'   => '5.0-beta1',
+                    'function'  => 'serendipity_removeDeadFiles_SPL',
+                    'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_500, array('internals'), true),
+                    'title'     => 'Removal of old dead files for 5.0.0',
+                    'desc'      => 'The following old dead files will be removed from your system.<pre>' . implode(', ', $dead_files_500) . '</pre>'),
+
+            array(  'version'   => '5.0-beta1',
+                    'function'  => 'recursive_directory_iterator',
+                    'arguments' => array($dead_dirs_500),
+                    'title'     => 'Styx 5 refactored the language file system.',
+                    'desc'      => 'The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_500) . '</pre>'),
 
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!

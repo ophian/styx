@@ -410,7 +410,7 @@
 @define('INSTALL_LANG', 'Kieli');
 @define('INSTALL_LANG_DESC', 'Valitse blogisi käyttöliittymän kieli');
 
-/* APPEARANCE AND OPTIONS */
+/* Ulkoasu and options */
 @define('INSTALL_CAT_DISPLAY', 'Ulkoasuvalinnat');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Ulkoasuun vaikuttavat valinnat');
 @define('INSTALL_WYSIWYG', 'Käytä WYSIWYG muokkainta');
@@ -600,7 +600,7 @@
 @define('IMPORT_STATUS', 'Tuonnin jälkeinen tilanne');
 @define('IMPORT_GENERIC_RSS', 'Yleinen RSS tuonti');
 @define('ACTIVATE_AUTODISCOVERY', 'Lähetä paluuviitteet merkintöjen paluuviestiosoitteisiin.');
-@define('WELCOME_TO_ADMIN', 'Tervetuloa Serendipityn Styx ylläpitoon.');
+@define('WELCOME_TO_ADMIN', 'Tervetuloa Serendipity Styx ylläpitoon.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Kirjoita tunnistustietosi allaoleviin laatikoihin.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Ohjelmistona Serendipity %s ja PHP %s');
 @define('INSTALL_USEGZIP', 'Käytä gzip pakattuja sivuja');
@@ -823,9 +823,6 @@
 @define('CATEGORIES_PARENT_BASE_DESC', 'Voit valita kategoriavanhemman, jolloin vain alikategoriat näytetään.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Piilota kategoriat, jotka eivät kuulu kategoriapuuhun');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Jos haluat piilottaa kategoriat, jotka eivät kuulu tähän puuhun, valitse tämä. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin, i.e if you choose multi categories by the categories checkbox selection.');
-@define('CHARSET_NATIVE', 'Kansallinen');
-@define('INSTALL_CHARSET', 'Merkistövalinta');
-@define('INSTALL_CHARSET_DESC', 'Voit valita UTF-8 tai kansallisen merkistön (ISO, EUC, ...). Joillekin kielille on olemassa vain UTF-8 käännös, jolloin "Kansallinen" valinta ei ole käytössä. UTF-8 merkistöä suositellaan uusille asennuksille. Älä vaihda merkistöä, jos olet jo tehnyt logimerkintöjä erityiskirjaimilla, vaihtaminen saattaa hajoittaa merkinnät. Lisätietoja https://ophian.github.io/hc/en/i18n.html aiheesta.');
 @define('CALENDAR_ENABLE_EXTERNAL_EVENTS', 'Ota käyttöön laajennoksen laajennos-API');
 @define('CALENDAR_EXTEVENT_DESC', 'Jos käytössä, voivat muut laajennokset korostaa omia merkintöjään kalenterissa. Ota käyttöön vain, jos olet asentanut laajennoksia, jotka tarvitsevat tätä, muutoin blogisi hidastuu tarpeettomasti.');
 @define('XMLRPC_NO_LONGER_BUNDLED', 'Serendipityn XML-RPC API liittymä ei ole käytössä tietoturvaongelmien ja pienen käyttäjäkunnan takia. Joten käyttääksesi XML-RPC liittymää tarvitset XML-RPC-laajennoksen. URL, jota sovelluksesi käyttävät ei ole muuttunut. Saat liittymän takaisin käyttöösi, kun asennat laajennoksen.');
@@ -1284,8 +1281,8 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('ERROR_DONT_CUT_YOUR_WHINEYARD', 'You should never delete the highest GROUP LEVEL you are in: %s: %s.');
 
 @define('MEDIA_SERVE_INFO', 'Serve media buttons description info');
-@define('PICTURE_FORMAT_BUTTON_DESC', 'Simple img element - <b>vs</b> - The modern & recommended & containerized form of delivering images including Variations! Normally called "responsive images" container, but here used for responsive Variation formats!');
+@define('PICTURE_FORMAT_BUTTON_DESC', 'Simple img element - <b>vs</b> - The modern, recommended & containerized form of delivering images including Variations! Normally called "responsive images" container, but here used for responsive Variation formats!');
 
-@define('ENABLEAVIF', 'Enable use of AVIF Variations up from PHP 8.1');
-@define('ENABLEAVIF_DESC', 'Image AVIF variations can be very demanding on resources, since a lot of Ram and CPU/GPU cores are needed to encode images into the AV1 format. Mass uploads and mass conversions (see "Maintenance") are therefore not recommended. Learn to handle on some examples before you generally allow to keep it enabled. PHP 8.1 still lacks a crucial build-in feature to read size information from AVIF files using the usual methods. For the time being, this also means that the image functions of the MediaLibrary "Resize this image" and "Rotate image 90 degrees" cannot be used for all formats when using AVIF, since each of these actions affects the original image as well as its variations. PHP 8.2 solves this issue by adding the missing feature.');
+@define('ENABLEAVIF', 'Enable use of AVIF Variations');
+@define('ENABLEAVIF_DESC', 'The AVIF image format is a new compression format for the web that is supported by all major browser manufacturers. However, the calculation of AVIF variations can be resource-intensive and takes time to encode images into the AV1 format. For example, an image of 6 MB takes around 20 seconds - but with compression to around 10% of the original size without any visible loss. Mass uploads or mass conversions (see "Maintenance") are therefore not recommended. Single image uploads should not be larger than 12-13 MB in the original, so that the time required and susceptibility to errors are kept within limits. It is best to learn how to handle them using a few examples before you generally allow them to be used.');
 

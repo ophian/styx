@@ -6,6 +6,8 @@
  *  SMF  Importer,     by Garvin Hicking *
  * ****************************************************************/
 
+declare(strict_types=1);
+
 class Serendipity_Import_smf extends Serendipity_Import
 {
     var $info        = array('software' => 'SMF 2.1.x');
@@ -100,7 +102,7 @@ class Serendipity_Import_smf extends Serendipity_Import
         }
 
         if (!$smfdb || mysqli_connect_error()) {
-            return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
+            return sprintf(COULDNT_CONNECT, htmlspecialchars($this->data['host']));
         }
 
         if (!@mysqli_select_db($smfdb, $this->data['name'])) {
@@ -323,7 +325,7 @@ class Serendipity_Import_smf extends Serendipity_Import
                         break;
                     }
                 }
-                $a['post_text'] = serendipity_entity_decode($a['post_text']);
+                $a['post_text'] = html_entity_decode($a['post_text']);
 
                 $comment = array('entry_id'   => $entries[$x]['entryid'],
                                  'parent_id'  => 0,

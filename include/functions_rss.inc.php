@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -91,7 +93,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
 
             // avoid parsing html comments through NL2BR
             if ($options['comments'] === true && $version == 'atom1.0') {
-                if ($serendipity['allowHtmlComment'] || false !== strpos($entry['body'], '</p>')) {
+                if ($serendipity['allowHtmlComment'] || str_contains($entry['body'], '</p>')) {
                     $entry['properties']['ep_no_nl2br'] = true;
                 }
             }
@@ -130,7 +132,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
                         }
                         $entry['body'] .= $v; // this is a HTML tag…
                     } else {
-                        $entry['body'] .= !$x ? serendipity_specialchars($v) : $v; // process or skip…
+                        $entry['body'] .= !$x ? htmlspecialchars($v) : $v; // process or skip…
                     }
                 }
                 $entry['body'] = str_replace('&amp;#39;', '&#39;', $entry['body']); // fix it up
@@ -148,24 +150,24 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
             if (!isset($entry['categories']) || !is_array($entry['categories'])) {
                 $entry['categories'] = array(0 => array(
                     'category_name'      => $entry['category_name'] ?? '',
-                    'feed_category_name' => serendipity_utf8_encode(serendipity_specialchars(($entry['category_name'] ?? ''))),
+                    'feed_category_name' => serendipity_utf8_encode(htmlspecialchars(($entry['category_name'] ?? ''))),
                     'categoryURL'        => serendipity_categoryURL($entry, 'baseURL')
                 ));
             } else {
                 foreach($entry['categories'] AS $cid => $_cat) {
                     $cat = &$entry['categories'][$cid];
                     $cat['categoryURL']        = serendipity_categoryURL($cat, 'baseURL');
-                    $cat['feed_category_name'] = serendipity_utf8_encode(serendipity_specialchars($cat['category_name']));
+                    $cat['feed_category_name'] = serendipity_utf8_encode(htmlspecialchars($cat['category_name']));
                 }
             }
 
             // Prepare variables
-            // 1. UTF8 encoding + serendipity_specialchars.
-            $entry['feed_title']     = serendipity_utf8_encode(serendipity_specialchars($entry['title']));
-            $entry['feed_blogTitle'] = serendipity_utf8_encode(serendipity_specialchars($serendipity['blogTitle']));
-            $entry['feed_title']     = serendipity_utf8_encode(serendipity_specialchars($entry['title']));
-            $entry['feed_author']    = serendipity_utf8_encode(serendipity_specialchars($entry['author']));
-            $entry['feed_email']     = serendipity_utf8_encode(serendipity_specialchars($entry['email']));
+            // 1. UTF8 encoding + htmlspecialchars.
+            $entry['feed_title']     = serendipity_utf8_encode(htmlspecialchars($entry['title']));
+            $entry['feed_blogTitle'] = serendipity_utf8_encode(htmlspecialchars($serendipity['blogTitle']));
+            $entry['feed_title']     = serendipity_utf8_encode(htmlspecialchars($entry['title']));
+            $entry['feed_author']    = serendipity_utf8_encode(htmlspecialchars($entry['author']));
+            $entry['feed_email']     = serendipity_utf8_encode(htmlspecialchars($entry['email']));
 
             // 2. gmdate
             $entry['feed_timestamp']     = gmdate('Y-m-d\TH:i:s\Z', serendipity_serverOffsetHour($entry['timestamp']));

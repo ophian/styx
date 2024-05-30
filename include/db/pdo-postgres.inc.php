@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 /**
  * Tells the DB Layer to start a DB transaction.
  *
@@ -51,7 +53,7 @@ function serendipity_db_connect() {
 
     $host = $port = '';
     if (strlen($serendipity['dbHost'])) {
-        if (false !== strstr($serendipity['dbHost'], ':')) {
+        if (str_contains($serendipity['dbHost'], ':')) {
             $tmp = explode(':', $serendipity['dbHost']);
             $host = "host={$tmp[0]};";
             $port = "port={$tmp[1]};";
@@ -116,7 +118,7 @@ function serendipity_db_limit($start, $offset) {
  * @return  SQL string containing a full LIMIT statement
  */
 function serendipity_db_limit_sql($limitstring) {
-    $limit_split = explode(',', $limitstring);
+    $limit_split = explode(',', (string) $limitstring);
     if ($limit_split[0] > 0 && count($limit_split) > 1) {
         $limit = ' LIMIT ' . $limit_split[0] . ' OFFSET ' . $limit_split[1];
     } else {
@@ -230,7 +232,7 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
 
     if (!$serendipity['dbSth']) {
         if (!$expectError && !$serendipity['production']) {
-            $tsql = serendipity_specialchars($sql);
+            $tsql = htmlspecialchars($sql);
             print "<span class=\"msg_error\">Error in $tsql</span>\n";
             print '<span class="msg_error">' . $serendipity['dbConn']->errorInfo() . "</span>\n";
             if (function_exists('debug_backtrace') && $reportErr == true) {
@@ -297,9 +299,10 @@ function serendipity_db_schema_import($query) {
     }
 
     $query = trim(str_replace($search, $replace, $query));
-    if ($query[0] == '@') {
+
+    if (str_starts_with($query, '@')) {
         // Errors are expected to happen (like duplicate index creation)
-        return serendipity_db_query(substr($query, 1), false, 'both', false, false, false, true);
+        return serendipity_db_query(substr($query, 1), expectError: true);
     } else {
         return serendipity_db_query($query);
     }

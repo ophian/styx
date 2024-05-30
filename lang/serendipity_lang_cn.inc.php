@@ -604,7 +604,7 @@
 @define('IMPORT_STATUS', '导出后的状态');
 @define('IMPORT_GENERIC_RSS', '一般 RSS 导入');
 @define('ACTIVATE_AUTODISCOVERY', '传送文章内引用的连接');
-@define('WELCOME_TO_ADMIN', '欢迎登陆 Serendipity Styx  智能博客系统');
+@define('WELCOME_TO_ADMIN', '欢迎登陆 Serendipity Styx 智能博客系统');
 @define('PLEASE_ENTER_CREDENTIALS', '请输入正确的登陆帐号');
 @define('ADMIN_FOOTER_POWERED_BY', 'Powered by Serendipity %s and PHP %s'); // Translate
 @define('INSTALL_USEGZIP', '使用 gzip 压缩网页');
@@ -828,9 +828,6 @@
 @define('CATEGORIES_PARENT_BASE_DESC', '你可以选择一个主类别，只显示它下面的子类别。');
 @define('CATEGORIES_HIDE_PARALLEL', '隐藏不在类别结构的类别');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'If you want to hide categories that are part of a different category tree, you need to enable this. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin, i.e if you choose multi categories by the categories checkbox selection.');
-@define('CHARSET_NATIVE', '预设');
-@define('INSTALL_CHARSET', '语言选项');
-@define('INSTALL_CHARSET_DESC', '这里可以让你转换 UTF-8 或预设编码 (ISO, GB2312, ...)有些语言包只有 UTF-8 编码，所以换成预设语言有不会任何改变。新安装的日志建议使用 UTF-8 编码。记得不要改变这个设定如果你已经发布了文章。详情参阅 https://ophian.github.io/hc/en/i18n.html');
 @define('CALENDAR_ENABLE_EXTERNAL_EVENTS', '开启外掛 API');
 @define('CALENDAR_EXTEVENT_DESC', '如果开启，外挂可以在日历内以颜色显示它的事件。如果没有使用这些特殊的外挂，建议不要使用。');
 @define('XMLRPC_NO_LONGER_BUNDLED', 'XML-RPC API 功能不会添加在 s9y 的安装里，因为漏洞和不多人使用的关系。所以必须安装 XML-RPC 的外挂如果使用 XML-RPC API。所有的 URL 不会因此改变，安装这个外挂后马上使用。');
@@ -1289,8 +1286,8 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('ERROR_DONT_CUT_YOUR_WHINEYARD', 'You should never delete the highest GROUP LEVEL you are in: %s: %s.');
 
 @define('MEDIA_SERVE_INFO', 'Serve media buttons description info');
-@define('PICTURE_FORMAT_BUTTON_DESC', 'Simple img element - <b>vs</b> - The modern & recommended & containerized form of delivering images including Variations! Normally called "responsive images" container, but here used for responsive Variation formats!');
+@define('PICTURE_FORMAT_BUTTON_DESC', 'Simple img element - <b>vs</b> - The modern, recommended & containerized form of delivering images including Variations! Normally called "responsive images" container, but here used for responsive Variation formats!');
 
-@define('ENABLEAVIF', 'Enable use of AVIF Variations up from PHP 8.1');
-@define('ENABLEAVIF_DESC', 'Image AVIF variations can be very demanding on resources, since a lot of Ram and CPU/GPU cores are needed to encode images into the AV1 format. Mass uploads and mass conversions (see "Maintenance") are therefore not recommended. Learn to handle on some examples before you generally allow to keep it enabled. PHP 8.1 still lacks a crucial build-in feature to read size information from AVIF files using the usual methods. For the time being, this also means that the image functions of the MediaLibrary "Resize this image" and "Rotate image 90 degrees" cannot be used for all formats when using AVIF, since each of these actions affects the original image as well as its variations. PHP 8.2 solves this issue by adding the missing feature.');
+@define('ENABLEAVIF', 'Enable use of AVIF Variations');
+@define('ENABLEAVIF_DESC', 'The AVIF image format is a new compression format for the web that is supported by all major browser manufacturers. However, the calculation of AVIF variations can be resource-intensive and takes time to encode images into the AV1 format. For example, an image of 6 MB takes around 20 seconds - but with compression to around 10% of the original size without any visible loss. Mass uploads or mass conversions (see "Maintenance") are therefore not recommended. Single image uploads should not be larger than 12-13 MB in the original, so that the time required and susceptibility to errors are kept within limits. It is best to learn how to handle them using a few examples before you generally allow them to be used.');
 

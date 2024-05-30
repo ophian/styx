@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -278,8 +280,7 @@ function serendipity_setNotModifiedHeader() {
         // specific styles.
 
         // Send ETag header using the hash value of the CSS code
-        #$hashValue = hash('xxh3', $ob_buffer); // md5() is going to be replaced with hash('xxh3', ...); 64 bit hashing up from PHP 8.1
-        $hashValue = md5($ob_buffer);
+        $hashValue = hash('xxh3', $ob_buffer);
         header('ETag: "' . $hashValue . '"');
 
         // Compare value of If-None-Match header (if available) to hash value
@@ -609,12 +610,6 @@ function &serendipity_convertToTimestamp($in) {
  */
 function serendipity_strftime($format, $timestamp = null, $useOffset = true, $useDate = false) {
     global $serendipity;
-    static $is_win_utf = null;
-
-    if ($is_win_utf === null) {
-        // Windows does not have UTF-8 locales.
-        $is_win_utf = (LANG_CHARSET == 'UTF-8' && (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false));
-    }
 
     if ($useDate) {
         $out = date($format, $timestamp);
@@ -631,15 +626,9 @@ function serendipity_strftime($format, $timestamp = null, $useOffset = true, $us
                   strftime is infected by thread unsafe locales, which is plenty of reason to deprecate it, with additional pro reasons for doing so being its disparate functionality among different os-es and libc's.
                   Deprecation also doesn't mean removal, which won't happen until PHP 9, giving developers plenty of time to move to a saner threadsafe locale API based on intl/icu.
                   cheers Derick
+                  done!
                 */
-                if (PHP_VERSION_ID >= 80100 && PHP_VERSION_ICU === false) {
-                    $out = @strftime($format, $timestamp); // temporary disable deprecation notice with PHP 8.1 until found better solution with %A, %d. %B %Y alike formats, on frontend calls. Using date() replacement is doing well with generic formats like "%Y-%m-%d %H:%M:%S".
-                } elseif (PHP_VERSION_ICU === true) {
-                    // ICU71 is fixed up from PHP 8.2
-                    $out = serendipity_toDateTimeMapper($format, $timestamp, WYSIWYG_LANG);
-                } else {
-                    $out = strftime($format, $timestamp); // legacy default
-                }
+                $out = serendipity_toDateTimeMapper($format, $timestamp, WYSIWYG_LANG);
                 break;
 
             case 'persian-utf8':
@@ -652,14 +641,6 @@ function serendipity_strftime($format, $timestamp = null, $useOffset = true, $us
                 require_once S9Y_INCLUDE_PATH . 'include/functions_calendars.inc.php';
                 $out = persian_strftime_utf($format, $timestamp);
                 break;
-        }
-    }
-
-    if ($is_win_utf && PHP_VERSION_ICU === false && (empty($serendipity['calendar']) || $serendipity['calendar'] == 'gregorian')) {
-        if (!function_exists('mb_convert_encoding')) {
-            $out = @utf8_encode($out); // Deprecation in PHP 8.2, removal in PHP 9.0
-        } else {
-            $out = mb_convert_encoding($out, 'UTF-8', 'ISO-8859-1'); // string, to, from
         }
     }
 
@@ -686,7 +667,7 @@ function serendipity_formatTime($format, $time, $useOffset = true, $useDate = fa
 
     if (!isset($cache[$format])) {
         $cache[$format] = $format;
-        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+        if (str_starts_with(strtoupper(PHP_OS), 'WIN')) {
             $cache[$format] = str_replace('%e', '%d', $cache[$format]);
         }
     }
@@ -771,6 +752,7 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
         }
     }
 
+    // Split language charset path for themes
     $charsetpath  = (LANG_CHARSET == 'UTF-8') ? '/UTF-8' : '';
     $info_default = S9Y_INCLUDE_PATH . $serendipity['templatePath'] . $theme . '/lang_info_en.inc.php';
     if ((isset($data['summary']) || isset($data['description']) || isset($data['backenddesc'])) && @is_file($info_default)) {
@@ -1113,7 +1095,7 @@ function serendipity_sendMail($to, $subject, $message, $fromMail, $headers = NUL
         if (LANG_CHARSET == 'UTF-8') {
             if (function_exists('imap_8bit') && !$serendipity['forceBase64']) {
                 $maildata['headers'][] = 'Content-Transfer-Encoding: quoted-printable';
-                $maildata['message']   = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') ? imap_8bit($maildata['message']) : str_replace("\r\n", "\n", imap_8bit($maildata['message']));
+                $maildata['message']   = str_starts_with(strtoupper(PHP_OS), 'WIN') ? imap_8bit($maildata['message']) : str_replace("\r\n", "\n", imap_8bit($maildata['message']));
             } else {
                 $maildata['headers'][] = 'Content-Transfer-Encoding: base64';
                 $maildata['message']   = chunk_split(base64_encode($maildata['message']));
@@ -1163,16 +1145,10 @@ function serendipity_utf8_encode($string) {
             if ($new !== false) {
                 return $new;
             } else {
-                if (!function_exists('mb_convert_encoding')) {
-                    return @utf8_encode($string); // Deprecation in PHP 8.2, removal in PHP 9.0
-                } else {
-                    return mb_convert_encoding($string, 'UTF-8', LANG_CHARSET); // string, to, from
-                }
+                return mb_convert_encoding($string, 'UTF-8', LANG_CHARSET); // string, to, from
             }
-        } else if (function_exists('mb_convert_encoding')) {
-            return mb_convert_encoding($string, 'UTF-8', LANG_CHARSET); // string, to, from
         } else {
-            return @utf8_encode($string); // Deprecation in PHP 8.2, removal in PHP 9.0
+            return mb_convert_encoding($string, 'UTF-8', LANG_CHARSET); // string, to, from
         }
     } else {
         return $string;
@@ -1303,12 +1279,12 @@ function serendipity_track_referrer($entry = 0) {
         $url_parts  = parse_url($_SERVER['HTTP_REFERER']);
         $host_parts = explode('.', $url_parts['host']);
         if (!$url_parts['host'] ||
-            strstr($url_parts['host'], $_SERVER['SERVER_NAME'])) {
+            str_contains($url_parts['host'], $_SERVER['SERVER_NAME'])) {
             return;
         }
 
         foreach($serendipity['_blockReferer'] AS $idx => $hostname) {
-            if (@strstr($url_parts['host'], $hostname)) {
+            if (@str_contains($url_parts['host'], $hostname)) {
                 return;
             }
         }
@@ -1517,15 +1493,15 @@ function serendipity_displayTopUrlList($list, $limit, $use_links = true, $interv
             if ($use_links) {
                 $output .= sprintf(
                     '<span class="block_level"><a href="%1$s://%2$s" title="%2$s" >%2$s</a> (%3$s) </span>',
-                    serendipity_specialchars($row['scheme']),
-                    serendipity_specialchars($row['host']),
-                    serendipity_specialchars($row['total'])
+                    htmlspecialchars($row['scheme']),
+                    htmlspecialchars($row['host']),
+                    htmlspecialchars($row['total'])
                 );
             } else {
                 $output .= sprintf(
                     '<span class="block_level">%1$s (%2$s) </span>',
-                    serendipity_specialchars($row['host']),
-                    serendipity_specialchars($row['total'])
+                    htmlspecialchars($row['host']),
+                    htmlspecialchars($row['total'])
                 );
             }
         }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -14,7 +16,7 @@ class serendipity_plugin_superuser extends serendipity_plugin
         $propbag->add('description',   ALLOWS_YOU_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.2');
+        $propbag->add('version',       '1.3');
         $propbag->add('configuration', array('https'));
         $propbag->add('groups',        array('FRONTEND_FEATURES'));
     }

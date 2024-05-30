@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 /*****************************************************************
  *  Serendipity Importer,   by Garvin Hicking *
  * ****************************************************************/
@@ -473,7 +475,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
         }
 
         if (!$s9ydb || mysqli_connect_error()) {
-            return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
+            return sprintf(COULDNT_CONNECT, htmlspecialchars($this->data['host']));
         }
 
         if (!@mysqli_select_db($s9ydb, $this->data['name'])) {
