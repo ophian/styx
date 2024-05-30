@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.4.1-dev-5] - 2024-05-28
+- Fixed a code injection vulnerability in extends-tag. This addresses CVE-2024-35226.
+  (Tagged as v.4.5.3)
+
 ## [4.4.1-Styx-dev-4] - 2024-02-26
 - see [Custom Styx features]
 
