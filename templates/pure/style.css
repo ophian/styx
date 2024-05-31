@@ -2256,6 +2256,10 @@ div.serendipityPlug a {
     margin-bottom: .5em;
   }
 }
+/* adds a default margin bottom that mimics the size of the line-height - to prevent a margin less space issue - ie., when (l/r) floated text does not expand the height of the image and which has a following div figure block */
+.serendipity_image_left,
+.serendipity_image_right {
+    margin-bottom: .5em; }
 .serendipity_image_left,
 .post p > .serendipity_image_left {
     margin-left: 0;
