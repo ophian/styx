@@ -2,6 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Merge Smarty security update v.4.5.3 to custom Styx v.4.5.3-dev4
+
   * Refactor core language system to remove legacy native language sets and to
     run UTF-8 only.
 
