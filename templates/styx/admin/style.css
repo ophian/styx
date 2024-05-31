@@ -4492,6 +4492,9 @@ img.mfp-img {
     #media_pane_sort .hideSubDirLabel {
         white-space: pre;
     }
+    #select_image_target + label {
+        margin-inline-start: .5em;
+    }
     .js .media_controls video {
         max-width: 24em;
     }
