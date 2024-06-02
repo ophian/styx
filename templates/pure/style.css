@@ -1333,6 +1333,7 @@ nav.pager + .serendipity_blogpdf {
     text-align: right;
 }
 .post_more {
+    clear: both;
     font-size: 14px;
     font-size: .875rem;
     text-align: right;
