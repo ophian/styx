@@ -65,6 +65,8 @@ ol,ul,dl
 	*margin-right: 0px;
 	/* Preserved spaces for list items with text direction different than the list. (#6249,#8049)*/
 	padding: 0 40px;
+    /* this allows correct list indentation in floats */
+    display: flow-root;
 }
 
 h1,h2,h3,h4,h5,h6
