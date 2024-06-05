@@ -56,6 +56,11 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Change [ default, dude, and pure ] theme styles to follow last mentioned
+    list style display behaviour in floated environments. Other themes should
+    follow and generally add "ol,ul,dl { display: flow-root }" as a consistent
+    behaviour.
+
   * Improve CKEditor displayed content lists in floated environments, to remain
     as a block box content that establishes a new block formatting context,
     defining where the formatting root lies.
