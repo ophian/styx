@@ -55,6 +55,9 @@ Version 5.0-DEV ()
 Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
+
+  * Backport: Extend [ pure ] theme .post_more behaviour CSS for a rare case
+
   * Backport: Improve CSS style issue for backend image_target select label
 
   * Backport: Smarty security changes from upcoming Styx 5 development commits
