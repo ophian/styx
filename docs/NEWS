@@ -2,6 +2,8 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Backport: Improve CSS style issue for backend image_target select label
+
   * Backport: Smarty security changes from upcoming Styx 5 development commits
 
   * Clear [ pure ] standard theme styles .post_content end/start floats for the
