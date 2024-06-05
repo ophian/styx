@@ -2,6 +2,10 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve CKEditor displayed content lists in floated environments, to remain
+    as a block box content that establishes a new block formatting context,
+    defining where the formatting root lies.
+
   * Backport: Extend [ pure ] theme .post_more behaviour CSS for a rare case
 
   * Backport: Improve CSS style issue for backend image_target select label
