@@ -7,6 +7,27 @@ code {white-space:pre-wrap;}
 a.button.read_more,a.button.trackback_url {display:inline-table;white-space:normal;}
 hr {width: 100%;}
 
+/* Render Browser default styles */
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box }
+ul,ol { list-style-position: inside; }
+ol, ul, dl { display: flow-root } /* this allows correct list indentation in floats */
+
+table { border-collapse: collapse; border-spacing: 0; }
+table td { display: table-cell; vertical-align: top; }
+
+[type="checkbox"],
+[type="radio"] {
+    vertical-align: middle;
+    margin-right: 2px; }
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  width: auto !important; }
+
 /* THEME-/S9Y-SPECIFIC STYLES */
 /* -------------------------- */
 audio,
@@ -16,6 +37,13 @@ img,
 svg,
 video {
     vertical-align: middle;
+}
+
+button, button, li {
+  margin-bottom: initial;
+}
+input[type="checkbox"], input[type="radio"] {
+  vertical-align: baseline;
 }
 
 .clearfix:before,
@@ -31,7 +59,7 @@ video {
 pre {
     width: auto;
     min-width: 20em;
-    display: initial;
+    display: grid;
 }
 /* Links */
 a {
@@ -149,6 +177,9 @@ h2.comments_permalink {
 
 
 /* asides */
+.sidebar_widget .sidebar_content p {
+    margin-bottom: revert;
+}
 .faq-searchresults, page_results, comment_results {
     clear: both;
 }
