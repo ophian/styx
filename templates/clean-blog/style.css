@@ -1,3 +1,24 @@
+/* Render Browser default styles */
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box }
+ul,ol { list-style-position: inside; }
+ol, ul, dl { display: flow-root } /* this allows correct list indentation in floats */
+
+table { border-collapse: collapse; border-spacing: 0; }
+table td { display: table-cell; vertical-align: top; }
+
+[type="checkbox"],
+[type="radio"] {
+    vertical-align: middle;
+    margin-right: 2px; }
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  width: auto !important; }
+
 /* CSS crunched with Crunch - http://crunchapp.net/ */
 /*!
  * Clean Blog v1.0.0 (http://startbootstrap.com)
