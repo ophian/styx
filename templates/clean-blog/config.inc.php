@@ -349,7 +349,7 @@ if (!function_exists('serendipity_plugin_api_pre_event_hook')) {
                 $entry_header_image_key = 'entry_specific_header_image';
 
                 // Check what our special key is set to (checks both POST data as well as the actual data)
-                $is_entry_subtitle = htmlspecialchars(entry_option_get_value($entry_subtitle_key, $eventData));
+                $is_entry_subtitle = serendipity_specialchars(entry_option_get_value($entry_subtitle_key, $eventData));
                 $entry_header_image = entry_option_get_value($entry_header_image_key, $eventData);
 
                 // prep [ webp | avif ]image and path

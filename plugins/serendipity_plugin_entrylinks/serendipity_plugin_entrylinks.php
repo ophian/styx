@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -22,11 +20,11 @@ class serendipity_plugin_entrylinks extends serendipity_plugin
         $propbag->add('description',   PLUGIN_ENTRYLINKS_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.08');
+        $propbag->add('version',       '1.07');
         $propbag->add('requirements',  array(
-            'serendipity' => '5.0',
-            'smarty'      => '4.1',
-            'php'         => '8.2'
+            'serendipity' => '2.0',
+            'smarty'      => '3.1',
+            'php'         => '7.4'
         ));
         $propbag->add('groups', array('FRONTEND_ENTRY_RELATED'));
         $propbag->add('configuration', array('title', 'newwin', 'markup', 'wordwrap', 'show_exits', 'show_referers', 'maxref', 'orderby'));

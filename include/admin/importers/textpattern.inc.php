@@ -11,8 +11,6 @@
  *  up from 'Textpattern 1.0rc1' is abandoned.
  * ****************************************************************/
 
-declare(strict_types=1);
-
 class Serendipity_Import_textpattern extends Serendipity_Import
 {
     var $info        = array('software' => 'Textpattern 4.2.0');
@@ -107,7 +105,7 @@ class Serendipity_Import_textpattern extends Serendipity_Import
         }
 
         if (!$txpdb || mysqli_connect_error()) {
-            return sprintf(COULDNT_CONNECT, htmlspecialchars($this->data['host']));
+            return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
         }
 
         if (!@mysqli_select_db($txpdb, $this->data['name'])) {

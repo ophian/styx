@@ -56,8 +56,6 @@
  Know your PHP before you think about using this. :-)
 */
 
-declare(strict_types=1);
-
 /* wrapper fake class */
 class Smarty
 {
@@ -195,7 +193,7 @@ class serendipity_smarty_emulator
         } elseif (function_exists($funcname)) {
             return call_user_func($funcname, $params, $this);
         } else {
-            return '<span class="msg_error">ERROR: ' . htmlspecialchars($funcname) . " NOT FOUND.</span>\n";
+            return '<span class="msg_error">ERROR: ' . serendipity_specialchars($funcname) . " NOT FOUND.</span>\n";
         }
     }
 
@@ -311,7 +309,7 @@ class serendipity_smarty_emulator
         // remove noop 'DIRECTORY_SEPARATOR DIRECTORY_SEPARATOR' and 'DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR' patterns
         $path = preg_replace('#([\\\\/]([.]?[\\\\/])+)#', $this->ds, $path);
         // resolve '..DIRECTORY_SEPARATOR' pattern, smallest first
-        if (str_contains($path, '..' . $this->ds) &&
+        if (strpos($path, '..' . $this->ds) != false &&
             preg_match_all('#(([.]?[\\\\/])*([.][.])[\\\\/]([.]?[\\\\/])*)+#', $path, $match)
         ) {
             $counts = array();
@@ -658,7 +656,7 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
             $this->assign($val, null, $level + 1);
             echo str_repeat("\t", $level) . "</$closekey>\n";
         } else {
-            echo str_repeat("\t", $level) . "<$openkey>" . htmlspecialchars($val) . "</$closekey>\n";
+            echo str_repeat("\t", $level) . "<$openkey>" . serendipity_specialchars($val) . "</$closekey>\n";
         }
     }
 

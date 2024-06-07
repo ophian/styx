@@ -37,8 +37,6 @@
  *
  */
 
-declare(strict_types=1);
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -137,7 +135,7 @@ function &serendipity_smarty_fetch($block, $file, $echo = false) {
  * @return  string  The return string
  */
 function serendipity_emptyPrefix($string, $prefix = ': ') {
-    return (!empty($string) ? $prefix . htmlspecialchars($string) : '');
+    return (!empty($string) ? $prefix . serendipity_specialchars($string) : '');
 }
 
 /**
@@ -962,7 +960,7 @@ function serendipity_smarty_getImageSize($params, Smarty_Internal_Template $temp
 
     // If no file, trigger an error
     if (!file_exists($file)) {
-        trigger_error('Smarty Error: ' . __FUNCTION__ . ': file "' . $params['file'] . '" ' . serendipity_mb('strtolower', NOT_FOUND) . ' ', E_USER_WARNING);
+        trigger_error('Smarty Error: ' . __FUNCTION__ . ': file "' . $params['file'] . '" ' . strtolower(NOT_FOUND) . ' ', E_USER_WARNING);
         return;
     }
     $template->assign($params['assign'], @serendipity_getImageSize($file));
@@ -1071,15 +1069,6 @@ function serendipity_smarty_init($vars = array()) {
             $serendipity['smarty']->registerPlugin('modifier', 'rewriteURL', 'serendipity_rewriteURL');
             $serendipity['smarty']->registerPlugin('modifier', 'cleanChars', 'serendipity_cleanChars');
 
-            // Fixing deprecation notices up from Smarty 4.5.2.
-            // Real PHP methods as custom registered modifiers up from Smarty v.4.5.2
-            $serendipity['smarty']->registerPlugin('modifier', 'count', 'count');
-            $serendipity['smarty']->registerPlugin('modifier', 'nl2br', 'nl2br');
-            $serendipity['smarty']->registerPlugin('modifier', 'str_repeat', 'str_repeat');
-            $serendipity['smarty']->registerPlugin('modifier', 'print_r', 'print_r');
-            $serendipity['smarty']->registerPlugin('modifier', 'sprintf', 'sprintf');
-
-            // Register Serendipity Smarty functions
             $serendipity['smarty']->registerPlugin('function', 'serendipity_printSidebar', 'serendipity_smarty_printSidebar');
             $serendipity['smarty']->registerPlugin('function', 'serendipity_hookPlugin', 'serendipity_smarty_hookPlugin');
             $serendipity['smarty']->registerPlugin('function', 'serendipity_showPlugin', 'serendipity_smarty_showPlugin');
@@ -1337,9 +1326,9 @@ function serendipity_smarty_showTemplate($tplfile, $data = null, $debugtype = nu
 
     if ($debug !== null) {
         if ($debugtype == 'HTML') {
-            $debug = '<!-- Dynamically fetched ' . htmlspecialchars(str_replace($serendipity['serendipityPath'], '', $tfile)) . ' on ' . date('Y-m-d H:i') . ', called from: ' . $debug . " -->\n";
+            $debug = '<!-- Dynamically fetched ' . serendipity_specialchars(str_replace($serendipity['serendipityPath'], '', $tfile)) . ' on ' . date('Y-m-d H:i') . ', called from: ' . $debug . " -->\n";
         } else {
-            $debug = '/* Dynamically fetched ' . htmlspecialchars(str_replace($serendipity['serendipityPath'], '', $tfile)) . ' on ' . date('Y-m-d H:i') . ', called from: ' . $debug . " */\n";
+            $debug = '/* Dynamically fetched ' . serendipity_specialchars(str_replace($serendipity['serendipityPath'], '', $tfile)) . ' on ' . date('Y-m-d H:i') . ', called from: ' . $debug . " */\n";
         }
     }
 

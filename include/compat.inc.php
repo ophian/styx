@@ -2,8 +2,6 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
-declare(strict_types=1);
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -11,7 +9,7 @@ if (IN_serendipity !== true) {
 $serendipity = array();
 
 if (!defined('PATH_SEPARATOR')) {
-    if (str_starts_with(strtoupper(PHP_OS), 'WIN')) {
+    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
         define('PATH_SEPARATOR', ';');
     } else {
         define('PATH_SEPARATOR', ':');
@@ -19,7 +17,7 @@ if (!defined('PATH_SEPARATOR')) {
 }
 
 if (!defined('DIRECTORY_SEPARATOR')) {
-    if (str_starts_with(strtoupper(PHP_OS), 'WIN')) {
+    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
         define('DIRECTORY_SEPARATOR', '\\');
     } else {
         define('DIRECTORY_SEPARATOR', '/');
@@ -225,7 +223,7 @@ if (!function_exists('errorToExceptionHandler')) {
             if (!isset($serendipity['dbConn']) || !$serendipity['dbConn'] || $exit) {
                 echo '<p>'.$head.'</p><p><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ' on line ' . $errLine . '.' . $debug_note . "</p>\n";
             } else {
-                if (!empty($debug_note) && str_contains($errStr, $debug_note)) echo $head . $debug_note."\n\n";
+                if (!empty($debug_note) && false !== strpos($errStr, $debug_note)) echo $head . $debug_note."\n\n";
                 // die into Exception, else echo to page top (if not caught within a HTML element like select) and resume
                 if (!in_array($type, ['Warning', 'Notice', 'Catchable'])) {
                     echo '<pre style="white-space: pre-line;">'."\n\n";
@@ -351,6 +349,33 @@ function serendipity_get_bool($item) {
 }
 
 /**
+ * Get the current charset
+ *
+ * @return  string      Empty string or "UTF-8/".
+ */
+function serendipity_getCharset() {
+    global $serendipity;
+
+    $charset = $serendipity['charset'] ?? 'UTF-8/';
+    if (!empty($_POST['charset'])) {
+        if ($_POST['charset'] == 'UTF-8/') {
+            $charset = 'UTF-8/';
+        } else {
+            $charset = '';
+        }
+    }
+
+    if (!empty($serendipity['POST']['charset'])) {
+        if ($serendipity['POST']['charset'] == 'UTF-8/') {
+            $charset = 'UTF-8/';
+        } else {
+            $charset = '';
+        }
+    }
+    return $charset;
+}
+
+/**
  * Detect the language of the User Agent/Visitor
  *
  * This function needs to be included at this point so that it is globally available, also
@@ -366,12 +391,13 @@ function serendipity_detectLang($use_include = false) {
     $supported_languages = array_keys($serendipity['languages']);
     $possible_languages  = explode(',', ($_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? ''));
     if (is_array($possible_languages)) {
+        $charset = serendipity_getCharset();
 
         foreach($possible_languages AS $index => $lang) {
             $preferred_language = strtolower(preg_replace('@^([^\-_;]*)_?.*$@', '\1', $lang));
             if (in_array($preferred_language, $supported_languages)) {
                 if ($use_include) {
-                    @include_once(S9Y_INCLUDE_PATH . 'lang/serendipity_lang_' . $preferred_language . '.inc.php');
+                    @include_once(S9Y_INCLUDE_PATH . 'lang/' . $charset . 'serendipity_lang_' . $preferred_language . '.inc.php');
                     $serendipity['autolang'] = $preferred_language;
                 }
                 return $preferred_language;
@@ -414,7 +440,7 @@ function serendipity_die($html, $error = true) {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="text/html; charset=' . $charset . '" http-equiv="Content-Type">
-    <meta name="robots" content="noindex,nofollow">
+    <meta name="robots" content="noindex,nofollow" />
 
     <title>' . $title . '</title>
     <style>
@@ -461,10 +487,10 @@ if (function_exists('date_default_timezone_get')) {
 
 /**
  * Serendipity htmlspecialchars mapper
- * Deprecated with Styx 5.0. Use htmlspecialchars() like such with named arguments ($string, encoding: LANG_CHARSET, double_encode: false)
+ * ... not yet using PHP 8.1.0 default flags ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401 - convert for Styx 5.0
  */
 function serendipity_specialchars($string, $flags = null, $encoding = LANG_CHARSET, $double_encode = true) {
-    $flags = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401; // default since PHP 8.1.0
+    $flags = ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE;
     if (!$encoding || $encoding == 'LANG_CHARSET') {
         // if called before LANG_CHARSET is set, we need to set a fallback encoding to not throw a PHP warning that
         // would kill s9y blogs sometimes (https://github.com/s9y/Serendipity/issues/236)
@@ -479,7 +505,7 @@ function serendipity_specialchars($string, $flags = null, $encoding = LANG_CHARS
  * @see serendipity_specialchars()
  */
 function serendipity_entities($string, $flags = null, $encoding = LANG_CHARSET, $double_encode = true) {
-    $flags = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401; // default since PHP 8.1.0
+    $flags = ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE;
     if (!$encoding || $encoding == 'LANG_CHARSET') {
         $encoding = 'UTF-8';
     }
@@ -491,7 +517,7 @@ function serendipity_entities($string, $flags = null, $encoding = LANG_CHARSET, 
  * @see serendipity_specialchars()
  */
 function serendipity_entity_decode($string, $flags = null, $encoding = LANG_CHARSET) {
-    $flags = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401; // default since PHP 8.1.0
+    $flags = ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE;
     if (!$encoding || $encoding == 'LANG_CHARSET') {
         $encoding = 'UTF-8';
     }

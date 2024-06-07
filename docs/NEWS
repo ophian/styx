@@ -2742,7 +2742,7 @@ Version 3.0.0 (May, 28th 2020)
   * PHP and JavaScript set Sessions and Cookies DO now SET the "sameSite"
     attribute. Inbound JS Libraries were changed or replaced to support this.
     This regards upcoming Browser changes [ Mozilla 76+, Chromium 80+, ..]
-    internally handling and changing the default Â“sameSiteÂ” attribute.
+    internally handling and changing the default “sameSite” attribute.
     To avoid future Browser Revisions to reject old Cookies without, this for
     now was hard set wherever possible.
     This raises the PHP requirement to PHP >= 7.3.0.
@@ -2871,7 +2871,7 @@ Version 3.0.0 (May, 28th 2020)
     To focus on details for utf8mb4_unicode_ci/utf8mb4_unicode_520_ci,
     there are problems with sorting/comparing certain letters which have
     a stroke for example. (This and other examples apply to languages like
-    polish, czech, greek, turkish, german (i.e. ÃŸ=ss), etc., just to name few.)
+    polish, czech, greek, turkish, german (i.e. ß=ss), etc., just to name few.)
     For these cases and languages, the sorting Algorithm does return different
     ordered resultsets, depending the collation used, appending sort results
     before, after, or at the same place as the normal letter.
@@ -5863,7 +5863,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
             see here, this is NOT trivial to change and error prone, to
             be that robust as it has ever been.
 
-     2. To set the connectionÂ’s COLLATION to "unicode" instead of
+     2. To set the connection’s COLLATION to "unicode" instead of
         "general" you have to convert these tables by using "SET NAMES
         ... COLLATE ...".
         You only need to use this better "utf8_unicode_ci" collation
@@ -5879,7 +5879,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
         By default a new Serendipity (UTF-8) installation should already
         be set to use the "utf8_unicode_ci" collation.
 
-        (*) Likewise ÃŸ=ss; utf8_unicode_ci uses the Unicode Collation
+        (*) Likewise ß=ss; utf8_unicode_ci uses the Unicode Collation
             Algorithm as defined in the Unicode standards, whereas
             utf8_general_ci is a more simple sort order which results
             in "less accurate" sorting results.
@@ -5903,7 +5903,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
         The unset Serendipity option, NOT to use SET NAMES, enables a
         better automated, modern handshake between server and database.
         At this point, these characters and symbols are actually stored
-        in native UTF-8, eg. 'Ãƒ'+'Â¼' for "Ã¼".
+        in native UTF-8, eg. 'Ã'+'¼' for "ü".
         But since there are way too much possible settings/issues
         around, which may play a role, and not have been mentioned
         here, please see this approach as "EXPERIMENTAL" and at your

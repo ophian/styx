@@ -471,7 +471,7 @@
 @define('POWERED_BY_SHOW_TEXT', ' "%s" sitesini düzmetin olarak göster');
 @define('POWERED_BY_SHOW_TEXT_DESC', '"Serendipity Styx" sitesini düzmetin olarak gösterme seçeneği açık');
 @define('POWERED_BY_SHOW_IMAGE', ' "%s" logosuyla göster');
-@define('POWERED_BY_SHOW_IMAGE_DESC', '%s logosunu göster');
+@define('POWERED_BY_SHOW_IMAGE_DESC', '%s-logosunu göster');
 @define('PLUGIN_ITEM_DISPLAY', 'Yazıların ne kadarı gösterilecek?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'Sadece genişletilmiş yazı');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'Sadece önizleme sayfası');
@@ -753,7 +753,7 @@
 @define('MANAGE_GROUPS', 'Grupları Yönet');
 @define('DELETED_GROUP', 'Grup #%d \'%s\' silindi.');
 @define('CREATED_GROUP', 'Yeni bir grup: #%d \'%s\' oluşturuldu');
-@define('MODIFIED_GROUP', 'Şu kullanıcı grubunun özellikleri değiştirildi: \'%s\'');
+@define('MODIFIED_GROUP', 'Şu kullanıcı grubunun özellikleri değiştirildi: \'%s\' ');
 @define('GROUP', 'Kullanıcı Grubu');
 @define('CREATE_NEW_GROUP', 'Yeni Grup oluştur');
 @define('DELETE_GROUP', 'Silmek istediğiniz kullanıcı grubu: #%d \'%s\'. Silinsin mi?');
@@ -828,6 +828,9 @@
 @define('CATEGORIES_PARENT_BASE_DESC', 'Sadece alt konu başlıklarını seçebilirsiniz, sitede de sadece seçtiğiniz konu başlıkları gösterilir.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Konu başlıkları ağaç yapısının parçası olmayan konu başlıklarını gizle');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Başka bir konu başlığı ağacı altında gösterilen konu başlığını gizlemek istiyorsanız, bu seçenek açık olsun. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin, i.e if you choose multi categories by the categories checkbox selection.');
+@define('CHARSET_NATIVE', 'Doğal');
+@define('INSTALL_CHARSET', 'Karakter Seçimi');
+@define('INSTALL_CHARSET_DESC', 'Burada UTF-8 ya da doğal (ISO, EUC, ...) karakter seti seçimi yapabilirsiniz. Bazı diller sadece UTF-8 olarak çevrildiklerinden  "Doğal" karakterseti seçimi hiç bir etki yapmayabilir. UTF-8 yeni kurulumlar için önerilir".Bu seçeneğe eğer özel karakterleri çok kullanıyorsanız hiç dokunmayın.Daha fazla bilgi için https://ophian.github.io/hc/en/i18n.html bu adrese başvurun.');
 @define('CALENDAR_ENABLE_EXTERNAL_EVENTS', 'Eklenti APIsi açık olsun');
 @define('CALENDAR_EXTEVENT_DESC', 'Bu seçenek açık olursa eklentiler ajanda içinde mevcut kendi olayları işaretlenmiş şekilde gösterilebilecek. Sadece buna ihtiyaç duyan bir eklenti kurduysanız açık olmalı, diğer durumda sadece performansı düşürür.');
 @define('XMLRPC_NO_LONGER_BUNDLED', ' XML-RPC API Arayüzü  Serendipity ile beraber verilmedi. Çünkü bu API güvenlik sorunları süren bir durumda ve çok fazla insan kullanmıyor. Bu nedenle sadece ihtiyacınız varsa  XML-RPC Eklentisini kurarak XML-RPC API sini kullanabilirsiniz.Uygulamanızda kullanılan URL adresi değişmeyecektir- eklentiyi kurarsanız bu API yi kullanabilirsiniz.');
@@ -1285,8 +1288,8 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('ERROR_DONT_CUT_YOUR_WHINEYARD', 'You should never delete the highest GROUP LEVEL you are in: %s: %s.');
 
 @define('MEDIA_SERVE_INFO', 'Serve media buttons description info');
-@define('PICTURE_FORMAT_BUTTON_DESC', 'Simple img element - <b>vs</b> - The modern, recommended & containerized form of delivering images including Variations! Normally called "responsive images" container, but here used for responsive Variation formats!');
+@define('PICTURE_FORMAT_BUTTON_DESC', 'Simple img element - <b>vs</b> - The modern & recommended & containerized form of delivering images including Variations! Normally called "responsive images" container, but here used for responsive Variation formats!');
 
-@define('ENABLEAVIF', 'Enable use of AVIF Variations');
-@define('ENABLEAVIF_DESC', 'The AVIF image format is a new compression format for the web that is supported by all major browser manufacturers. However, the calculation of AVIF variations can be resource-intensive and takes time to encode images into the AV1 format. For example, an image of 6 MB takes around 20 seconds - but with compression to around 10% of the original size without any visible loss. Mass uploads or mass conversions (see "Maintenance") are therefore not recommended. Single image uploads should not be larger than 12-13 MB in the original, so that the time required and susceptibility to errors are kept within limits. It is best to learn how to handle them using a few examples before you generally allow them to be used.');
+@define('ENABLEAVIF', 'Enable use of AVIF Variations up from PHP 8.1');
+@define('ENABLEAVIF_DESC', 'Image AVIF variations can be very demanding on resources, since a lot of Ram and CPU/GPU cores are needed to encode images into the AV1 format. Mass uploads and mass conversions (see "Maintenance") are therefore not recommended. Learn to handle on some examples before you generally allow to keep it enabled. PHP 8.1 still lacks a crucial build-in feature to read size information from AVIF files using the usual methods. For the time being, this also means that the image functions of the MediaLibrary "Resize this image" and "Rotate image 90 degrees" cannot be used for all formats when using AVIF, since each of these actions affects the original image as well as its variations. PHP 8.2 solves this issue by adding the missing feature.');
 

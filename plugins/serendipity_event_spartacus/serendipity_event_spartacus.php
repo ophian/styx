@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -19,10 +17,10 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.27');
+        $propbag->add('version',       '3.23');
         $propbag->add('requirements',  array(
-            'serendipity' => '5.0',
-            'php'         => '8.2'
+            'serendipity' => '3.1',
+            'php'         => '7.3'
         ));
         $propbag->add('event_hooks',    array(
             'backend_plugins_fetchlist'         => true,
@@ -112,7 +110,7 @@ class serendipity_event_spartacus extends serendipity_event
 
         static $http = array(
             'xml' => array(
-                'https://raw.githubusercontent.com/ophian/additional_plugins/master/'
+                'https://raw.githubusercontent.com/ophian/additional_plugins/legacy/'
             ),
 
             'files' => array(
@@ -434,7 +432,7 @@ class serendipity_event_spartacus extends serendipity_event
             $options = array('follow_redirects' => true, 'max_redirects' => 5);
             serendipity_plugin_api::hook_event('backend_http_request', $options, 'spartacus');
             // ping for main xml check
-            $fContent = serendipity_request_url($url, extra_options: $options);
+            $fContent = serendipity_request_url($url, 'GET', null, null, $options);
 
             try {
                 if ($serendipity['last_http_request']['responseCode'] != '200') {
@@ -487,7 +485,7 @@ class serendipity_event_spartacus extends serendipity_event
                 $health_options = $options;
                 serendipity_plugin_api::hook_event('backend_http_request', $health_options, 'spartacus_health');
                 // ping for health
-                $fContent = serendipity_request_url($health_url, extra_options: $health_options);
+                $fContent = serendipity_request_url($health_url, 'GET', null, null, $health_options);
 
                 try {
                     if ($serendipity['last_http_request']['responseCode'] != '200') {
@@ -565,7 +563,11 @@ class serendipity_event_spartacus extends serendipity_event
                 break;
 
             case 'iso-8859-1':
-                $data = mb_convert_encoding($data, 'ISO-8859-1', 'UTF-8'); // string, to, from
+                if (!function_exists('mb_convert_encoding')) {
+                    $data = @utf8_decode($data); // Deprecation in PHP 8.2, removal in PHP 9.0
+                } else {
+                    $data = mb_convert_encoding($data, 'ISO-8859-1', 'UTF-8'); // string, to, from
+                }
                 break;
 
             default:
@@ -644,7 +646,7 @@ class serendipity_event_spartacus extends serendipity_event
             $xml = $this->fetchfile($url, $target, $cacheTimeout, true);
         }
 
-        $new_crc  = hash('xxh3', $xml);
+        $new_crc  = md5($xml);
         $last_crc = $this->get_config('last_crc_' . $url_type);
 
         if (!$no_cache && !$this->purgeCache && $last_crc == $new_crc) {
@@ -1118,7 +1120,7 @@ class serendipity_event_spartacus extends serendipity_event
 
         if (stristr($mirror, 'githubusercontent.com')) {
             if ($sub == 'plugins') {
-                $gitloc = 'master/';
+                $gitloc = 'legacy/';
             } else {
                 $gitloc = 'master/';
             }

@@ -2,8 +2,6 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved. See LICENSE file for licensing details
 
-declare(strict_types=1);
-
 if (defined('S9Y_FRAMEWORK')) {
     return;
 }
@@ -20,7 +18,7 @@ if (!headers_sent() && php_sapi_name() !== 'cli') {
         // Remember: 'lifetime' param in session_set_cookie_params() is, what 'expires' is in setcookie()
         #session_set_cookie_params($cookieParams['lifetime'], $cookieParams['path'], $cookieParams['domain'], $cookieParams['secure'], $cookieParams['httponly']);
         session_set_cookie_params($cookieParams); // use as $options array to support 6th param sameSite ! Requires PHP 7.3.0 ++ !!
-        session_name('s9y_' . hash('xxh3', dirname(__FILE__)));
+        session_name('s9y_' . md5(dirname(__FILE__)));
         session_start();
     }
 
@@ -53,11 +51,8 @@ if (defined('USE_MEMSNAP')) {
     echo memSnap('Framework init');
 }
 
-// Set this early enough, right after global init in compat
-$serendipity['charset'] ??= 'UTF-8/'; // Path part setting for themes and plugins. The LANG_CHARSET constant is defined in the lang files
-
 // The version string
-$serendipity['version'] = '5.0-alpha1';
+$serendipity['version'] = '4.4.2';
 $serendipity['edition'] = 'Styx';
 
 // Setting this to 'false' will enable debugging output.
@@ -131,19 +126,19 @@ if (!isset($serendipity['expose_s9y'])) {
 }
 
 // muteExpectedErrors undefined index "global" pre-check sets
-// functions_config.inc.php:295
+// functions_config.inc.php:273
 if (!isset($serendipity['smarty_preview'])) {
     $serendipity['smarty_preview'] = false;
 }
-// functions_smarty.inc.php:1139
+// functions_smarty.inc.php:1144
 if (!isset($serendipity['head_title'])) {
     $serendipity['head_title'] = '';
 }
-// functions_smarty.inc.php:1140
+// functions_smarty.inc.php:1145
 if (!isset($serendipity['head_subtitle'])) {
     $serendipity['head_subtitle'] = '';
 }
-// functions_smarty.inc.php:1149
+// functions_smarty.inc.php:1155
 if (!isset($serendipity['smarty_raw_mode'])) {
     $serendipity['smarty_raw_mode'] = false;
 }
@@ -164,10 +159,10 @@ $serendipity['use_iframe'] = true;
 // Default language for autodetection
 $serendipity['autolang'] = 'en';
 
-// Name of folder for the default theme, which is called the "Standard Theme"
+// Name of folder for the default theme, which is called the Standard Theme
 $serendipity['defaultTemplate'] = 'pure';
 
-// Default backend theme - Extending child of "default"
+// Default backend theme
 if (!isset($serendipity['template_backend'])) {
     $serendipity['template_backend'] = 'styx';
 }
@@ -180,7 +175,8 @@ if (!isset($serendipity['languages'])) {
                                   'es' => 'Spanish',
                                   'fr' => 'French',
                                   'fi' => 'Finnish',
-                                  'cz' => 'Czech',
+                                  'cs' => 'Czech (Win-1250)',
+                                  'cz' => 'Czech (ISO-8859-2)',
                                   'sk' => 'Slovak',
                                   'nl' => 'Dutch',
                                   'is' => 'Icelandic',
@@ -212,6 +208,11 @@ $serendipity['calendars'] = array('gregorian'   => 'Gregorian',
 // Load main language file
 include($serendipity['serendipityPath'] . 'include/lang.inc.php');
 
+$serendipity['charsets'] = array(
+    'UTF-8/' => 'UTF-8',
+    ''        => (defined('CHARSET_NATIVE') ? CHARSET_NATIVE : 'CHARSET_NATIVE')
+);
+
 @define('PATH_SMARTY_COMPILE', 'templates_c');
 @define('USERLEVEL_ADMIN', 255);
 @define('USERLEVEL_CHIEF', 1);
@@ -220,10 +221,10 @@ include($serendipity['serendipityPath'] . 'include/lang.inc.php');
 @define('VIEWMODE_THREADED', 'threaded'); // static
 @define('VIEWMODE_LINEAR', 'linear'); // static
 
-if (!version_compare(PHP_VERSION, '8.2.0', '>=')) {
+if (!version_compare(PHP_VERSION, '7.4.0', '>=')) {
     $serendipity['lang'] = 'en';
     include(S9Y_INCLUDE_PATH . 'include/lang.inc.php');
-    serendipity_die(sprintf(SERENDIPITY_PHPVERSION_FAIL, PHP_VERSION, '8.2.0'));
+    serendipity_die(sprintf(SERENDIPITY_PHPVERSION_FAIL, PHP_VERSION, '7.4.0'));
 }
 
 // Kill the script if we are not installed, and not inside the installer
@@ -364,7 +365,7 @@ serendipity_initLog();
 
 if ( (isset($serendipity['autodetect_baseURL']) && serendipity_db_bool($serendipity['autodetect_baseURL'])) ||
      (isset($serendipity['embed']) && serendipity_db_bool($serendipity['embed'])) ) {
-    $serendipity['baseURL'] = 'http' . (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on' ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . (!str_contains($_SERVER['HTTP_HOST'], ':') && !empty($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] != '80' && $_SERVER['SERVER_PORT'] != '443' ? ':' . $_SERVER['SERVER_PORT'] : '') . $serendipity['serendipityHTTPPath'];
+    $serendipity['baseURL'] = 'http' . (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on' ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . (!strstr($_SERVER['HTTP_HOST'], ':') && !empty($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] != '80' && $_SERVER['SERVER_PORT'] != '443' ? ':' . $_SERVER['SERVER_PORT'] : '') . $serendipity['serendipityHTTPPath'];
 }
 
 // If a user is logged in, fetch his preferences. He probably wants to have a different language
@@ -412,6 +413,12 @@ serendipity_permalinkPatterns();
 // Load main language file again, because now we have the preferred language
 include(S9Y_INCLUDE_PATH . 'include/lang.inc.php');
 
+// Reset charset definition now that final language is known
+$serendipity['charsets'] = array(
+    'UTF-8/' => 'UTF-8',
+    ''        => CHARSET_NATIVE
+);
+
 // Set current locale, if any has been defined
 if (defined('DATE_LOCALES')) {
     $locales = explode(',', DATE_LOCALES);
@@ -430,8 +437,11 @@ if (function_exists('date_default_timezone_set')) {
 
 // Fallback charset, if none is defined in the language files
 if (!defined('LANG_CHARSET')) {
-    @define('LANG_CHARSET', 'UTF-8');
+    @define('LANG_CHARSET', 'ISO-8859-1');
 }
+
+// define a global constant for localized dateTime usage
+@define('PHP_VERSION_ICU', (PHP_VERSION_ID >= 80200 && extension_loaded('intl')));
 
 // Create array of permission levels, with descriptions
 $serendipity['permissionLevels'] = array(USERLEVEL_EDITOR => USERLEVEL_EDITOR_DESC,
@@ -477,7 +487,7 @@ if (!isset($serendipity['GET']['adminAction'])) {
 
 // Make sure this variable is always properly sanitized, though it should have gone through routing taking care before. Previously in compat.inc.php, but there LANG_CHARSET was not defined.
 if (isset($serendipity['GET']['searchTerm'])) {
-    $serendipity['GET']['searchTerm'] = htmlspecialchars(strip_tags((string)$serendipity['GET']['searchTerm']), double_encode: false);
+    $serendipity['GET']['searchTerm'] = serendipity_specialchars(strip_tags((string)$serendipity['GET']['searchTerm']), null, LANG_CHARSET, false);
 }
 
 // Some default inits...

@@ -2,8 +2,6 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
-declare(strict_types=1);
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -92,7 +90,7 @@ function serendipity_pingback_autodiscover($loc, $body, $url=null) {
   </params>
 </methodCall>";
 
-    echo '<div>&#8226; ' . sprintf(PINGBACK_SENDING, htmlspecialchars($pingback)) . '</div>';
+    echo '<div>&#8226; ' . sprintf(PINGBACK_SENDING, serendipity_specialchars($pingback)) . '</div>';
     flush();
 
     $response =  serendipity_send($pingback, $query, 'text/html');
@@ -205,7 +203,7 @@ function serendipity_trackback_autodiscover($res, $loc, $url, $author, $title, $
           . '&blog_name=' . rawurlencode($author)
           . '&excerpt='   . rawurlencode(strip_tags($text));
 
-    printf(TRACKBACK_SENDING, htmlspecialchars($trackURI));
+    printf(TRACKBACK_SENDING, serendipity_specialchars($trackURI));
     flush();
 
     $response = serendipity_trackback_is_success(serendipity_send($trackURI, $data));
@@ -272,7 +270,7 @@ function serendipity_reference_autodiscover($loc, $url, $author, $title, $text) 
     $options = array('follow_redirects' => true, 'max_redirects' => 5);
     serendipity_plugin_api::hook_event('backend_http_request', $options, 'trackback_detect');
 
-    $fContent = serendipity_request_url($parsed_loc, extra_options: $options, addData: 'trackback_detect');
+    $fContent = serendipity_request_url($parsed_loc, 'GET', null, null, $options, 'trackback_detect');
     #echo '<pre>serendipity_reference_autodiscover() '.print_r($serendipity['last_http_request'], true).'</pre>';
 
     if (false === $fContent) {
@@ -339,13 +337,21 @@ function add_trackback($id, $title, $url, $name, $excerpt) {
             // Trackback is in UTF-8. Check if our blog also is UTF-8.
             if (!$is_utf8) {
                 log_trackback('[' . date('d.m.Y H:i') . '] Transcoding ' . $idx . ' from UTF-8 to ISO');
-                $comment[$idx] = mb_convert_encoding($field, 'ISO-8859-1', 'UTF-8'); // string, to, from
+                if (!function_exists('mb_convert_encoding')) {
+                    $comment[$idx] = @utf8_decode($field); // Deprecation in PHP 8.2, removal in PHP 9.0
+                } else {
+                    $comment[$idx] = mb_convert_encoding($field, 'ISO-8859-1', 'UTF-8'); // string, to, from
+                }
             }
         } else {
             // Trackback is in some native format. We assume ISO-8859-1. Check if our blog is also ISO.
             if ($is_utf8) {
                 log_trackback('[' . date('d.m.Y H:i') . '] Transcoding ' . $idx . ' from ISO to UTF-8');
-                $comment[$idx] = mb_convert_encoding($field, 'UTF-8', 'ISO-8859-1'); // string, to, from
+                if (!function_exists('mb_convert_encoding')) {
+                    $comment[$idx] = @utf8_encode($field); // Deprecation in PHP 8.2, removal in PHP 9.0
+                } else {
+                    $comment[$idx] = mb_convert_encoding($field, 'UTF-8', 'ISO-8859-1'); // string, to, from
+                }
             }
         }
     }
@@ -508,12 +514,12 @@ function fetchPingbackData(&$comment) {
     // Request the page
     $options = array('follow_redirects' => true, 'max_redirects' => 5, 'timeout' => 20);
 
-    $fContent = serendipity_request_url($url, extra_options: $options);
+    $fContent = serendipity_request_url($url, 'GET', null, null, $options);
     #echo '<pre>fetchPingbackData() '.print_r($serendipity['last_http_request'], true).'</pre>';
 
     // Get a title
     if (preg_match('@<head[^>]*>.*?<title[^>]*>(.*?)</title>.*?</head>@is', $fContent, $matches)) {
-        $comment['title'] = html_entity_decode(strip_tags($matches[1]), ENT_COMPAT, LANG_CHARSET);
+        $comment['title'] = serendipity_entity_decode(strip_tags($matches[1]), ENT_COMPAT, LANG_CHARSET);
     }
 
     // Try to get content from first <p> tag on:
@@ -549,7 +555,7 @@ function trackback_body_strip($body) {
     $body = str_replace('&nbsp;', ' ', $body);
 
     // strip html entities and tags.
-    $body = html_entity_decode(strip_tags($body), ENT_COMPAT, LANG_CHARSET);
+    $body = serendipity_entity_decode(strip_tags($body), ENT_COMPAT, LANG_CHARSET);
 
     // replace whitespace with single space
     $body = preg_replace('@\s+@s', ' ', $body);

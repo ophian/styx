@@ -6,8 +6,6 @@
  *  geeklog  Importer,    by Garvin Hicking and Ian Styx         *
  * ***************************************************************/
 
-declare(strict_types=1);
-
 class Serendipity_Import_geeklog extends Serendipity_Import
 {
     var $info        = array('software' => 'Geeklog 1.4.1');
@@ -103,7 +101,7 @@ class Serendipity_Import_geeklog extends Serendipity_Import
         }
 
         if (!$gdb || mysqli_connect_error()) {
-            return sprintf(COULDNT_CONNECT, htmlspecialchars($this->data['host']));
+            return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
         }
 
         if (!@mysqli_select_db($gdb, $this->data['name'])) {

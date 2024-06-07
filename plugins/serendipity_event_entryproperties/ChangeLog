@@ -1,11 +1,3 @@
-1.94:
------
-    * Convert MD5 to faster xxHash algorithm
-
-1.93:
------
-    * Add PHP 8.2 - Sensitive Parameter value redaction support
-
 1.92:
 -----
     * Move customfield info to additional button box

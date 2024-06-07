@@ -2,8 +2,6 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
-declare(strict_types=1);
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -545,20 +543,6 @@ $dead_dirs_440 = array(
     $serendipity['serendipityPath'] . 'templates/b53/js'
 );
 
-/* A list of Styx files, to be removed or renamed by 5.0.0 */
-$dead_files_500 = array(
-    'lang/serendipity_lang_cs.inc.php'
-);
-
-/* A list of old or removed directories for 5.0.0 */
-$dead_dirs_500 = array(
-    $serendipity['serendipityPath'] . 'lang/UTF-8'/*,
-    $serendipity['serendipityPath'] . 'plugins/serendipity_event_todooooo/UTF-8',
-    $serendipity['serendipityPath'] . 'plugins/serendipity_event_todooooo/UTF-8',
-    $serendipity['serendipityPath'] . 'plugins/serendipity_plugin_todooooo/UTF-8',
-    $serendipity['serendipityPath'] . 'plugins/serendipity_plugin_todooooo/UTF-8'*/
-);
-
 /**
  * recursive directory call to purge files and directories
  *
@@ -696,7 +680,7 @@ function serendipity_fixPlugins($case) {
 function update_table_authorgroups() {
     global $serendipity;
 
-    return serendipity_db_query("CREATE UNIQUE INDEX authorgroup_idx ON {$serendipity['dbPrefix']}authorgroups (groupid, authorid)", single: true, expectError: true); // table is known to fail when unique key is a duplicate on error resumes for example
+    return serendipity_db_query("CREATE UNIQUE INDEX authorgroup_idx ON {$serendipity['dbPrefix']}authorgroups (groupid, authorid)", true, 'both', false, false, false, true); // set single true and last expectError true, since table is known to fail when unique key is a duplicate on error resumes for example
 }
 
 /**
@@ -882,7 +866,7 @@ function serendipity_upgrader_rename_plugins() {
 #            $plugin['name'] = str_replace('serendipity_plugin_topreferers', 'serendipity_plugin_topreferrers', $plugin['name']); // ditto old plugin now lives as topreferrers plugin
             $pluginparts = explode(':', $plugin['name']);
 
-            #echo "<!-- " . htmlspecialchars($origname) . " &gt;&gt; " . htmlspecialchars($plugin['name']) . "-->\n";
+            #echo "<!-- " . serendipity_specialchars($origname) . " &gt;&gt; " . serendipity_specialchars($plugin['name']) . "-->\n";
             serendipity_db_query("UPDATE {$serendipity['dbPrefix']}plugins SET name = '" . serendipity_db_escape_string($plugin['name']) . "', path = '" . serendipity_db_escape_string($pluginparts[0]) . "' WHERE name = '" . serendipity_db_escape_string($origname) . "'");
         }
     }
@@ -897,7 +881,7 @@ function serendipity_upgrader_rename_plugins() {
             $config['name'] = str_replace('serendipity_html_nugget_plugin', 'serendipity_plugin_html_nugget', $config['name']);
             #$configparts = explode(':', $config['name']);
 
-            #echo "<!--[C] " . htmlspecialchars($origname) . " &gt;&gt; " . htmlspecialchars($config['name']) . "-->\n";
+            #echo "<!--[C] " . serendipity_specialchars($origname) . " &gt;&gt; " . serendipity_specialchars($config['name']) . "-->\n";
             serendipity_db_query("UPDATE {$serendipity['dbPrefix']}config SET name = '" . serendipity_db_escape_string($config['name']) . "' WHERE name = '" . serendipity_db_escape_string($origname) . "'");
         }
     }

@@ -2,8 +2,6 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
-declare(strict_types=1);
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -119,14 +117,22 @@ function serendipity_makeFilename($str, $stripDots = false) {
             if (LANG_CHARSET == 'UTF-8') {
                 // URLs need to be 7bit - since this function takes care of the most common ISO-8859-1
                 // characters, try to UTF8-decode the string first.
-                $str = mb_convert_encoding($str, 'ISO-8859-1', 'UTF-8'); // string, to, from
+                if (!function_exists('mb_convert_encoding')) {
+                    $str = @utf8_decode($str); // Deprecation in PHP 8.2, removal in PHP 9.0
+                } else {
+                    $str = mb_convert_encoding($str, 'ISO-8859-1', 'UTF-8'); // string, to, from
+                }
             }
         } else {
             // Replace international chars not detected by every locale
             if (LANG_CHARSET == 'UTF-8') {
                 // URLs need to be 7bit - since this function takes care of the most common ISO-8859-1
                 // characters, try to UTF8-decode the string first.
-                $str = mb_convert_encoding($str, 'ISO-8859-1', 'UTF-8'); // string, to, from
+                if (!function_exists('mb_convert_encoding')) {
+                    $str = @utf8_decode($str); // Deprecation in PHP 8.2, removal in PHP 9.0
+                } else {
+                    $str = mb_convert_encoding($str, 'ISO-8859-1', 'UTF-8'); // string, to, from
+                }
             }
 
             $str = str_replace($from, $to, $str);
@@ -338,7 +344,7 @@ function serendipity_searchPermalink($struct, $url, $default, $type = 'entry') {
                 LIMIT 1";
 // echo $pq; // DEBUG
 // die($pq); // DEBUG
-        $permalink = serendipity_db_query($pq, single: true, expectError: true);
+        $permalink = serendipity_db_query($pq, true, 'both', false, false, false, true);
 
         if (is_array($permalink)) {
             return $permalink['entry_id'];
@@ -529,7 +535,7 @@ function serendipity_makePermalink($format, $data, $type = 'entry') {
             $ts = serendipity_serverOffsetHour($data['entry']['timestamp']);
 
             $ftitle  = serendipity_makeFilename($data['title']);
-            $fltitle = serendipity_mb('strtolower', $ftitle);
+            $fltitle = strtolower($ftitle);
 
             $replacements =
                 array(
@@ -559,7 +565,7 @@ function serendipity_makePermalink($format, $data, $type = 'entry') {
             if (isset($data['categoryid'])) {
                 $parent_path = array();
                 // This is expensive. Only lookup if required.
-                if (str_contains($format, '%parentname%')) {
+                if (strstr($format, '%parentname%')) {
                     $parents = serendipity_getCategoryRoot($data['categoryid']);
                     if (is_array($parents)) {
                         foreach($parents AS $parent) {

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -20,11 +18,11 @@ class serendipity_event_mlorphans extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_MLORPHANS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.06');
+        $propbag->add('version',       '1.04');
         $propbag->add('requirements',  array(
-            'serendipity' => '5.0',
-            'smarty'      => '4.1',
-            'php'         => '8.2'
+            'serendipity' => '3.0',
+            'smarty'      => '3.1.0',
+            'php'         => '7.1.0'
         ));
         $propbag->add('event_hooks',    array(
             'css_backend'         => true,
@@ -66,7 +64,7 @@ class serendipity_event_mlorphans extends serendipity_event
 
     <section id="maintenance_orphanmanager" class="quick_list">
         <h3><?=MEDIA_LIBRARY?>: <?=PLUGIN_EVENT_MLORPHANS_NAME?></h3>
-        <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=imageorphans" title="<?=serendipity_mb('strtolower', PLUGIN_EVENT_MLORPHANS_SUBMIT)?>"><span><?=PLUGIN_EVENT_MLORPHANS_SUBMIT?></span></a>
+        <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=imageorphans" title="<?=strtolower(PLUGIN_EVENT_MLORPHANS_SUBMIT)?>"><span><?=PLUGIN_EVENT_MLORPHANS_SUBMIT?></span></a>
     </section>
 
 <?php

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -18,7 +16,7 @@ class serendipity_plugin_authors extends serendipity_plugin
         $propbag->add('description', AUTHOR_PLUGIN_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.5.0');
+        $propbag->add('version',       '2.4.3');
         $propbag->add('configuration', array('image', 'allow_select', 'title', 'showartcount', 'mincount'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -117,7 +115,7 @@ class serendipity_plugin_authors extends serendipity_plugin
                 if ( !empty($image) ) {
                     $html .= '                                <a class="serendipity_xml_icon" href="'. serendipity_feedAuthorURL($auth, 'serendipityHTTPPath') .'"><img src="'. $image .'" alt="XML"></a> ' . "\n";
                 }
-                $html .= '                                <a href="'. serendipity_authorURL($auth, 'serendipityHTTPPath') .'" title="'. htmlspecialchars($auth['realname']) .'">'. htmlspecialchars($auth['realname']) . $entrycount . '</a>' . "\n";
+                $html .= '                                <a href="'. serendipity_authorURL($auth, 'serendipityHTTPPath') .'" title="'. serendipity_specialchars($auth['realname']) .'">'. serendipity_specialchars($auth['realname']) . $entrycount . '</a>' . "\n";
                 $html .= "                            </li>\n";
             }
         }

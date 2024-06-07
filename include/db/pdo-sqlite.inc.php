@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 function serendipity_db_logmsg($msgstr) {
     $fp = @fopen('sqlite.log', 'a');
     fwrite($fp, '[' . date('d.m.Y H:i') . '] ' . $msgstr . "\n\n");
@@ -39,7 +37,7 @@ function serendipity_db_sqlite_fetch_array($row, $type = PDO::FETCH_ASSOC)
         //       Either we always need to use 'SELECT a.id AS id, b.text AS text' in query,
         //       or the sqlite extension may get fixed. :-)
         if (isset($v)) {
-            $newrow[preg_replace('@^.+\.(.*)@', '\1', (string) $i)] = str_replace($search, $replace, (string) $v);
+            $newrow[preg_replace('@^.+\.(.*)@', '\1', $i)] = str_replace($search, $replace, $v);
         }
     }
 
@@ -242,11 +240,11 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
 
     //serendipity_db_logmsg('SQLQUERY: ' . $sql);
     if (!$expectError && ($reportErr || !$serendipity['production'])) {
-        $serendipity['dbConn']->setAttribute( \PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION ); // Backport to PHP 8.0+ behaviour
+        $serendipity['dbConn']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Backport to PHP 8.0+ behaviour
         $serendipity['dbSth'] = $serendipity['dbConn']->prepare($sql);
     } else {
         try {
-            $serendipity['dbConn']->setAttribute( \PDO::ATTR_ERRMODE, \PDO::ERRMODE_SILENT ); // PHP 8.0: PDO: Default error mode set to exceptions. Previously used silent.
+            $serendipity['dbConn']->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT ); // PHP 8.0: PDO: Default error mode set to exceptions. Previously used silent.
             $serendipity['dbSth'] = $serendipity['dbConn']->prepare($sql);
         } catch(\Throwable $e) {
             return $type_map['false'];
@@ -255,7 +253,7 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
 
     if (!$serendipity['dbSth']) {
         if (!$expectError && !$serendipity['production']) {
-            $tsql = htmlspecialchars($sql);
+            $tsql = serendipity_specialchars($sql);
             print "<span class=\"msg_error\">Error in $tsql</span>\n";
             print '<span class="msg_error">' . $serendipity['dbConn']->errorInfo() . "</span>\n";
             if (function_exists('debug_backtrace') && $reportErr == true) {
@@ -323,10 +321,9 @@ function serendipity_db_schema_import($query) {
 
     $query = trim(str_replace($search, $replace, $query));
     $query = str_replace('INTEGER AUTOINCREMENT PRIMARY KEY', 'INTEGER PRIMARY KEY AUTOINCREMENT', $query);
-
-    if (str_starts_with($query, '@')) {
+    if ($query[0] == '@') {
         // Errors are expected to happen (like duplicate index creation)
-        return serendipity_db_query(substr($query, 1), expectError: true);
+        return serendipity_db_query(substr($query, 1), false, 'both', false, false, false, true);
     } else {
         return serendipity_db_query($query);
     }

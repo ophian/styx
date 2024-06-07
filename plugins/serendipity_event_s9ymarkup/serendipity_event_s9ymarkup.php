@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -20,11 +18,11 @@ class serendipity_event_s9ymarkup extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_S9YMARKUP_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team, Ian Styx');
-        $propbag->add('version',       '1.16');
+        $propbag->add('version',       '1.14');
         $propbag->add('requirements',  array(
-            'serendipity' => '5.0',
-            'smarty'      => '4.1',
-            'php'         => '8.2'
+            'serendipity' => '2.0',
+            'smarty'      => '3.1',
+            'php'         => '7.4'
         ));
         $propbag->add('cachable_events', array('frontend_display' => true));
         $propbag->add('event_hooks',     array('frontend_display' => true, 'frontend_comment' => true));
@@ -97,7 +95,7 @@ class serendipity_event_s9ymarkup extends serendipity_event
                         &&  (!isset($eventData['properties']['ep_disable_markup_' . $this->instance]) || !$eventData['properties']['ep_disable_markup_' . $this->instance])
                         &&  !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                             $element = $temp['element'];
-                            if (!str_contains($eventData[$element], '</p>') && !str_contains($eventData[$element], '<br />') && !str_contains($eventData[$element], '<code>')) {
+                            if (false === strpos($eventData[$element], '</p>') && false === strpos($eventData[$element], '<br />') && false === strpos($eventData[$element], '<code>')) {
                                 if ($temp['element'] == 'comment') {
                                     $_comment = $eventData[$temp['element']];
                                 }

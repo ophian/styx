@@ -2,8 +2,6 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
-declare(strict_types=1);
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -22,7 +20,7 @@ if (IN_serendipity !== true) {
  *                                and at all replacing the very old md5() routine
  * @return  int     The new user ID of the added author
  */
-function serendipity_addAuthor($username, #[\SensitiveParameter] string $password, $realname, $email, $userlevel=0, $hashtype=2) {
+function serendipity_addAuthor($username, $password, $realname, $email, $userlevel=0, $hashtype=2) {
     global $serendipity;
 
     $password = serendipity_hash($password);
@@ -335,7 +333,7 @@ function serendipity_getTemplateFile($file, $key = 'serendipityHTTPPath', $force
     if (!empty($directories)) {
         foreach($directories AS $directory) {
             $templateFile = $serendipity['templatePath'] . $directory . $file; // includes .ext(ension) !
-            if (str_contains($templateFile, 'serendipity_styx.js') && file_exists($serendipity['serendipityPath'] . $templateFile . '.tpl')) {
+            if (false !== strpos($templateFile, 'serendipity_styx.js') && file_exists($serendipity['serendipityPath'] . $templateFile . '.tpl')) {
                 // catch *.tpl files, used by the backend for serendipity_styx.js.tpl
                 return $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/' . $file;
             }
@@ -729,7 +727,7 @@ function serendipity_setAuthorToken() {
  * @param   boolean     Indicates whether to query external plugins for authentication
  * @return  boolean     True on success, False on error
  */
-function serendipity_authenticate_author($username = '', #[\SensitiveParameter] $password = '', $is_hashed = false, $use_external = true) {
+function serendipity_authenticate_author($username = '', $password = '', $is_hashed = false, $use_external = true) {
     global $serendipity;
     static $debug = false;
     static $debugc = 0;
@@ -777,19 +775,56 @@ function serendipity_authenticate_author($username = '', #[\SensitiveParameter] 
                 if (isset($is_valid_user) && $is_valid_user === true) {
                     continue;
                 }
-                $is_valid_user = false; // init
+                $is_valid_user = false;
 
-                if ( ($is_hashed === false && password_verify((string)$password, $row['password'])) ||
-                     ($is_hashed !== false && (string)$row['password'] === (string)$password) ) {
+                if (empty($row['hashtype']) || $row['hashtype'] == 0) {
+                    if (isset($serendipity['hashkey']) && (time() - $serendipity['hashkey']) >= 15768000) {
+                        die('You can no longer login with an old-style MD5 hash to prevent MD5-Hostage abuse.
+                             Please ask the Administrator to set you a new password.');
+                    }
 
-                    $is_valid_user = true;
-                    if ($debug) fwrite($fp, date('Y-m-d H:i') . ' - Validated ' . $row['password'] . ' == ' . ($is_hashed === false ? 'unhash:' . serendipity_hash($password) : 'hash:' . $password) . "\n");
+                    // Old MD5 hashing routine. Will convert user.
+                    if ( ($is_hashed === false && (string)$row['password'] === (string)md5($password)) ||
+                         ($is_hashed !== false && (string)$row['password'] === (string)$password) ) {
+
+                        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}authors
+                                                 SET password = '" . ($is_hashed === false ? serendipity_hash($password) : $password) . "',
+                                                     hashtype = 2
+                                               WHERE authorid = '" . $row['authorid'] . "'");
+                        if ($debug) fwrite($fp, date('Y-m-d H:i') . ' - Migrated user:' . $row['username'] . "\n");
+                        $is_valid_user = true;
+                        $row['hashtype'] = 2;
+                    } else {
+                        continue;
+                    }
+                } elseif ($row['hashtype'] == 1) {
+                    // Old SHA1 hashing routine. Will convert user.
+                    if ( ($is_hashed === false && (string)$row['password'] === (string)serendipity_sha1_hash($password)) ||
+                         ($is_hashed !== false && (string)$row['password'] === (string)$password) ) {
+
+                        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}authors
+                                                 SET password = '" . ($is_hashed === false ? serendipity_hash($password) : $password) . "',
+                                                     hashtype = 2
+                                               WHERE authorid = '" . $row['authorid'] . "'");
+                        if ($debug) fwrite($fp, date('Y-m-d H:i') . ' - Migrated user:' . $row['username'] . "\n");
+                        $is_valid_user = true;
+                        $row['hashtype'] = 2;
+                    } else {
+                        continue;
+                    }
                 } else {
-                    if ($debug) fwrite($fp, date('Y-m-d H:i') . ' - INValidated ' . $row['password'] . ' == ' . ($is_hashed === false ? 'unhash:' . serendipity_hash($password) : 'hash:' . $password) . "\n");
-                    continue;
+                    if ( ($is_hashed === false && password_verify((string)$password, $row['password'])) ||
+                         ($is_hashed !== false && (string)$row['password'] === (string)$password) ) {
+
+                        $is_valid_user = true;
+                        if ($debug) fwrite($fp, date('Y-m-d H:i') . ' - Validated ' . $row['password'] . ' == ' . ($is_hashed === false ? 'unhash:' . serendipity_hash($password) : 'hash:' . $password) . "\n");
+                    } else {
+                        if ($debug) fwrite($fp, date('Y-m-d H:i') . ' - INValidated ' . $row['password'] . ' == ' . ($is_hashed === false ? 'unhash:' . serendipity_hash($password) : 'hash:' . $password) . "\n");
+                        continue;
+                    }
                 }
 
-                // This code is only reached, if the password before is found valid.
+                // This code is only reached, if the password before is valid.
                 if ($is_valid_user) {
                     if ($debug) fwrite($fp, date('Y-m-d H:i') . ' [sid:' . session_id() . '] - Success.' . "\n");
                     serendipity_setCookie('old_session', session_id(), false);
@@ -922,7 +957,7 @@ function serendipity_setCookie($name, $value, $securebyprot = true, $custom_time
  * @return  null
  */
 function serendipity_JSsetCookie($name, $value) {
-    $name  = htmlentities($name);
+    $name  = serendipity_entities($name);
     $value = urlencode($value);
 
     echo '    <script type="text/javascript">serendipity.SetCookie("' . $name . '", unescape("' . $value . '"))</script>';
@@ -1438,7 +1473,7 @@ function serendipity_getPermissionNames() {
  *                          since those variables are only available within this function.
  * @return  mixed       Either returns true if a permission check is performed or false if not, or returns an array of group memberships. This depends on the $returnMyGroups variable.
  */
-function serendipity_checkPermission($permName = null, $authorid = null, $returnMyGroups = false) {
+function serendipity_checkPermission($permName, $authorid = null, $returnMyGroups = false) {
     global $serendipity;
     // Define old serendipity permissions
     static $permissions = null;
@@ -1565,7 +1600,7 @@ function &serendipity_getAllGroups($apply_ACL_user = false) {
 
         foreach($groups AS $k => $v) {
             // build the USERLEVEL_constant names
-            if (str_starts_with($v['confvalue'], 'USERLEVEL_')) {
+            if ('USERLEVEL_' == substr($v['confvalue'], 0, 10)) {
                 $groups[$k]['confvalue'] = $groups[$k]['name'] = constant($v['confvalue']);
             }
             if (in_array($v['confvalue'], ['USERLEVEL_ADMIN_DESC', 'USERLEVEL_CHIEF_DESC', 'USERLEVEL_EDITOR_DESC'])) {
@@ -1856,7 +1891,7 @@ function serendipity_updateGroupConfig($groupid, &$perms, &$values, $isNewPriv =
 
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}groupconfig WHERE id = " . (int)$groupid);
     foreach($perms AS $perm => $userlevels) {
-        if (str_starts_with($perm, 'f_')) {
+        if (substr($perm, 0, 2) == 'f_') {
             continue;
         }
 
@@ -2302,8 +2337,8 @@ function serendipity_checkFormToken($output = true) {
         return false;
     }
 
-    if ($token != hash('xxh3', session_id()) &&
-        $token != hash('xxh3', $serendipity['COOKIE']['old_session'])) {
+    if ($token != md5(session_id()) &&
+        $token != md5($serendipity['COOKIE']['old_session'])) {
         if ($output) echo serendipity_reportXSRF('token', false);
         return false;
     }
@@ -2330,11 +2365,11 @@ function serendipity_checkFormToken($output = true) {
  */
 function serendipity_setFormToken($type = 'form') {
     if ($type == 'form') {
-        return '<input type="hidden" name="serendipity[token]" value="' . hash('xxh3', session_id()) . '">';
+        return '<input type="hidden" name="serendipity[token]" value="' . md5(session_id()) . '">';
     } elseif ($type == 'url') {
-        return 'serendipity[token]=' . hash('xxh3', session_id());
+        return 'serendipity[token]=' . md5(session_id());
     } else {
-        return hash('xxh3', session_id());
+        return md5(session_id());
     }
 }
 
@@ -2383,8 +2418,8 @@ function serendipity_sysInfoTicker(bool $check = false, string $whoami = '', arr
             $syscall = new SimpleXMLElement($xmlstr);
 
             foreach ($syscall->notification AS $n) {
-                $hash = hash('xxh128', (string) $n->note); // hash-it
-                $comb = hash('xxh128', "{$whoami}-{$hash}"); // new hash combo of user and the 32 length note hash
+                $hash = md5((string) $n->note); // hash-it
+                $comb = md5("{$whoami}-{$hash}"); // new hash combo of user and the 32 length note hash
                 if (!in_array($hash, $exclude_hashes)) {
                     $xml[] = array('author' => $n->author, 'title' => $n->title, 'msg' => $n->note, 'hash' => $hash, 'ts' => $n->timestamp, 'priority' => (int)$n->priority);
                     // store each hash to options table - checked against is stored already
@@ -2543,7 +2578,7 @@ function serendipity_hasPluginPermissions($plugin, $groupid = null) {
         $forbidden = array();
 
         if ($groupid === null) {
-            $groups = serendipity_checkPermission(returnMyGroups: 'all');
+            $groups = serendipity_checkPermission(null, null, 'all');
         } else {
             $groups = array($groupid => serendipity_fetchGroup($groupid));
         }
@@ -2553,7 +2588,7 @@ function serendipity_hasPluginPermissions($plugin, $groupid = null) {
                 continue;
             }
             foreach($group AS $key => $val) {
-                if (str_starts_with($key, 'f_')) {
+                if (substr($key, 0, 2) == 'f_') {
                     $forbidden[$groupid][$key] = true;
                 }
             }
@@ -2599,7 +2634,7 @@ function serendipity_sha1_hash($string) {
  * @param string The string to hash
  * @param string  Either SHA1 or MD5 hash, depending on value
  */
-function serendipity_passwordhash(#[\SensitiveParameter] string $cleartext_password) {
+function serendipity_passwordhash($cleartext_password) {
     global $serendipity;
 
     if ($_SESSION['serendipityHashType'] > 0) {

@@ -2,8 +2,6 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
-declare(strict_types=1);
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -329,7 +327,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
         }
     }
 
-    if (isset($serendipity['GET']['viewAuthor']) && is_string($serendipity['GET']['viewAuthor'])) {
+    if (isset($serendipity['GET']['viewAuthor'])) {
         $multiauthors = explode(';', $serendipity['GET']['viewAuthor']);
         $multiauthors_sql = array();
         foreach($multiauthors AS $multiauthor) {
@@ -454,7 +452,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
     // DEBUG:
     // die($serendipity['fullCountQuery']);
     if (!empty($limit)) {
-        if (isset($serendipity['GET']['page']) && ($serendipity['GET']['page'] > 1 || serendipity_db_bool($serendipity['archiveSortStable'])) && !str_contains((string) $limit, ',')) {
+        if (isset($serendipity['GET']['page']) && ($serendipity['GET']['page'] > 1 || serendipity_db_bool($serendipity['archiveSortStable'])) && !strstr((string) $limit, ',')) {
             if (serendipity_db_bool($serendipity['archiveSortStable'])) {
                 $totalEntries = serendipity_getTotalEntries();
 
@@ -710,12 +708,10 @@ function &serendipity_fetchEntryProperties($id) {
  * Fetch a list of available categories for an author
  *
  * @access public
- * @param   mixed   If set, the list of categories will be fetched according to the author id.
- *                  If not set, all categories will be fetched. If set to "all", then all categories will be fetched.
+ * @param   mixed   If set, the list of categories will be fetched according to the author id. If not set, all categories will be fetched. If set to "all", then all categories will be fetched.
  * @param   string  Restrict the list to be returned to a specific category NAME.
  * @param   string  The SQL query part for ORDER BY of the categories
- * @param   string  The ACL artifact condition. If set to "write" only categories will be shown that the author can write to.
- *                  If set to "read", only categories will be show that the author can read or write to.
+ * @param   string  The ACL artifact condition. If set to "write" only categories will be shown that the author can write to. If set to "read", only categories will be show that the author can read or write to.
  * @param   boolean Allows to set a default category by author
  * @return  array   Returns the array of categories
  */
@@ -826,7 +822,7 @@ function &serendipity_fetchCategories($authorid = null, $name = null, $order = n
             $flat_cats = array();
             $flat_cats[0] = NO_CATEGORY;
             foreach($cats AS $catidx => $catdata) {
-                $flat_cats[$catdata['categoryid']] = str_repeat('&nbsp;', $catdata['depth']*2) . htmlspecialchars($catdata['category_name']);
+                $flat_cats[$catdata['categoryid']] = str_repeat('&nbsp;', $catdata['depth']*2) . serendipity_specialchars($catdata['category_name']);
             }
             return $flat_cats;
         }
@@ -890,7 +886,7 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
         $limit = $serendipity['fetchLimit'];
     }
 
-    if (isset($serendipity['GET']['page']) && $serendipity['GET']['page'] > 1 && !str_contains((string) $limit, ',')) {
+    if (isset($serendipity['GET']['page']) && $serendipity['GET']['page'] > 1 && !strstr((string) $limit, ',')) {
         $limit = serendipity_db_limit(($serendipity['GET']['page']-1) * $limit, $limit);
     }
 
@@ -1025,7 +1021,7 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
 
     // If * wasn't already appended and if there are none or not enough
     // results, search again for entries containing the searchterm as a part [MySQL only]
-    if (!str_contains($term, '*') && $serendipity['dbType'] == 'mysqli') {
+    if (false === strpos($term, '*') && $serendipity['dbType'] == 'mysqli') {
         if (!is_array($search)) {
             return serendipity_searchEntries($term.'*', $orig_limit);
         } else {
@@ -1318,7 +1314,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
                 $entry['authorid'] = $serendipity['authorid'];
             }
 
-            $entry['author'] = htmlspecialchars($entry['author']);
+            $entry['author'] = serendipity_specialchars($entry['author']);
 
             $authorData = array(
                             'authorid' =>  $entry['authorid'],
@@ -1330,12 +1326,12 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
             $entry['link']       = serendipity_archiveURL($entry['id'], $entry['title'], 'serendipityHTTPPath', true, array('timestamp' => $entry['timestamp']));
             $entry['commURL']    = serendipity_archiveURL($entry['id'], $entry['title'], 'baseURL', false, array('timestamp' => $entry['timestamp']));
             $entry['html_title'] = $entry['title'];
-            $entry['title']      = htmlspecialchars($entry['title']);
+            $entry['title']      = serendipity_specialchars($entry['title']);
 
             $entry['title_rdf']  = preg_replace('@-{2,}@', '-', $entry['html_title']);
             $entry['rdf_ident']  = serendipity_archiveURL($entry['id'], $entry['title_rdf'], 'baseURL', true, array('timestamp' => $entry['timestamp']));
             $entry['link_rdf']   = serendipity_rewriteURL(PATH_FEEDS . '/ei_'. $entry['id'] .'.rdf');
-            $entry['title_rdf']  = htmlspecialchars($entry['title_rdf']);
+            $entry['title_rdf']  = serendipity_specialchars($entry['title_rdf']);
 
             $entry['link_allow_comments']    = $serendipity['baseURL'] . 'comment.php?serendipity[switch]=enable&amp;serendipity[entry]=' . $entry['id'] . '&amp;' . $urltoken;
             $entry['link_deny_comments']     = $serendipity['baseURL'] . 'comment.php?serendipity[switch]=disable&amp;serendipity[entry]=' . $entry['id'] . '&amp;' . $urltoken;
@@ -1757,12 +1753,12 @@ function serendipity_generateCategoryList($cats, $select = array(0), $type = 0, 
         if ($cat['parentid'] == $id) {
             switch ($type) {
                 case 0:
-                    $ret .= str_repeat('&nbsp;', $level * 2).'&bull;&nbsp;<span class="block_level" id="catItem_' . $cat['categoryid'] . '"' . (($cat['categoryid'] && in_array($cat['categoryid'], $select)) ? ' selected="selected"' : '') . '><a href="?serendipity[adminModule]=category&amp;serendipity[cat][catid]=' . $cat['categoryid'] . '">' . (!empty($cat['category_icon']) ? '<img style="vertical-align: middle;" src="' . $cat['category_icon'] . '" border="0" alt="' . $cat['category_name'] . '"/> ' : '') . htmlspecialchars($cat['category_name']) . (!empty($cat['category_description']) ? ' - ' . htmlspecialchars($cat['category_description']) : '') . '</a></span>';
+                    $ret .= str_repeat('&nbsp;', $level * 2).'&bull;&nbsp;<span class="block_level" id="catItem_' . $cat['categoryid'] . '"' . (($cat['categoryid'] && in_array($cat['categoryid'], $select)) ? ' selected="selected"' : '') . '><a href="?serendipity[adminModule]=category&amp;serendipity[cat][catid]=' . $cat['categoryid'] . '">' . (!empty($cat['category_icon']) ? '<img style="vertical-align: middle;" src="' . $cat['category_icon'] . '" border="0" alt="' . $cat['category_name'] . '"/> ' : '') . serendipity_specialchars($cat['category_name']) . (!empty($cat['category_description']) ? ' - ' . serendipity_specialchars($cat['category_description']) : '') . '</a></span>';
                     break;
                 case 1:
                 case 2:
                    $ret .= '<option value="' . $cat['categoryid'] . '"' . (($cat['categoryid'] && in_array($cat['categoryid'], $select)) ? ' selected="selected"' : '') . '>';
-                   $ret .= str_repeat('&nbsp;', $level * 2) . htmlspecialchars($cat['category_name']) . ($type == 1 && !empty($cat['category_description']) ? (' - ' . htmlspecialchars($cat['category_description'])) : '');
+                   $ret .= str_repeat('&nbsp;', $level * 2) . serendipity_specialchars($cat['category_name']) . ($type == 1 && !empty($cat['category_description']) ? (' - ' . serendipity_specialchars($cat['category_description'])) : '');
                    $ret .= '</option>';
                    break;
                 case 3:
@@ -1774,19 +1770,19 @@ function serendipity_generateCategoryList($cats, $select = array(0), $type = 0, 
                           '<a href="%s" title="%s">%s</a>' .
                           '</div>',
                           $serendipity['serendipityHTTPPath'] . 'rss.php?category=' . $cat['categoryid'] . '_' . $category_id,
-                          htmlspecialchars($cat['category_description']),
+                          serendipity_specialchars($cat['category_description']),
                           $xmlImg,
                           str_repeat('&#160;', $level * 3),
                           serendipity_categoryURL($cat, 'serendipityHTTPPath'),
-                          htmlspecialchars($cat['category_description']),
-                          htmlspecialchars($cat['category_name']));
+                          serendipity_specialchars($cat['category_description']),
+                          serendipity_specialchars($cat['category_name']));
                     } else {
                         $ret .= sprintf(
                           '<span class="block_level">%s<a href="%s" title="%s">%s</a></span>',
                           str_repeat('&#160;', $level * 3),
                           serendipity_categoryURL($cat, 'serendipityHTTPPath'),
-                          htmlspecialchars($cat['category_description']),
-                          htmlspecialchars($cat['category_name']));
+                          serendipity_specialchars($cat['category_description']),
+                          serendipity_specialchars($cat['category_name']));
                     }
                     break;
                 case 4:

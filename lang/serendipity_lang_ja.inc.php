@@ -824,6 +824,9 @@
 @define('CATEGORIES_PARENT_BASE_DESC', '子カテゴリーだけが表示されるように、親カテゴリーを選ぶことができます。');
 @define('CATEGORIES_HIDE_PARALLEL', 'カテゴリツリーの一部ではないカテゴリを隠す');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'If you want to hide categories that are part of a different category tree, you need to enable this. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin, i.e if you choose multi categories by the categories checkbox selection.');
+@define('CHARSET_NATIVE', 'ネイティブ');
+@define('INSTALL_CHARSET', '文字コード選択');
+@define('INSTALL_CHARSET_DESC', 'ここは  UTF-8 かネイティブ(ISO・EUC など)の文字コードを切り替えることができます。「ネイティブ」に文字エンコード設定することに変化がないように、いくつかの言語は UTF-8 のみ翻訳を持っています。UTF-8 は新規インストールで提案されます。特殊文字で既にエントリーを作っている場合は、この設定を変更しないでください - これは不正な文字を導くかもしれません。必ずこの問題に関すしては https://ophian.github.io/hc/en/i18n.html をさらに読んでください。 訳注: 日本語は文字エンコードは UTF-8 のみ用意されています。');
 @define('CALENDAR_ENABLE_EXTERNAL_EVENTS', 'プラグインの API フックを有効にする');
 @define('CALENDAR_EXTEVENT_DESC', 'If enabled, plugins can hook into the calendar to display their own events highlighted. Only enable if you have installed plugins that need this, otherwise it just decreases performance.');
 @define('XMLRPC_NO_LONGER_BUNDLED', 's9y への XML-RPC API インタフェースは、もはやそれを使用して、この API を含めた進行中のセキュリティ問題および多くでない人々のためにバンドルされません。Serendipity の XML-RPC API インターフェースは、ずっと継続するセキュリティの問題と、この API を多くの人が使用していないため、もはやバンドルされていません。したがって、XML-RPC API を使用するために XML-RPC プラグインをインストールする必要があります。アプリケーション中で使用する URL は変わりません。プラグインをインストールしたらすぐに、再び API を使用することができるでしょう。');
@@ -1283,8 +1286,8 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('ERROR_DONT_CUT_YOUR_WHINEYARD', 'You should never delete the highest GROUP LEVEL you are in: %s: %s.');
 
 @define('MEDIA_SERVE_INFO', 'Serve media buttons description info');
-@define('PICTURE_FORMAT_BUTTON_DESC', 'Simple img element - <b>vs</b> - The modern, recommended & containerized form of delivering images including Variations! Normally called "responsive images" container, but here used for responsive Variation formats!');
+@define('PICTURE_FORMAT_BUTTON_DESC', 'Simple img element - <b>vs</b> - The modern & recommended & containerized form of delivering images including Variations! Normally called "responsive images" container, but here used for responsive Variation formats!');
 
-@define('ENABLEAVIF', 'Enable use of AVIF Variations');
-@define('ENABLEAVIF_DESC', 'The AVIF image format is a new compression format for the web that is supported by all major browser manufacturers. However, the calculation of AVIF variations can be resource-intensive and takes time to encode images into the AV1 format. For example, an image of 6 MB takes around 20 seconds - but with compression to around 10% of the original size without any visible loss. Mass uploads or mass conversions (see "Maintenance") are therefore not recommended. Single image uploads should not be larger than 12-13 MB in the original, so that the time required and susceptibility to errors are kept within limits. It is best to learn how to handle them using a few examples before you generally allow them to be used.');
+@define('ENABLEAVIF', 'Enable use of AVIF Variations up from PHP 8.1');
+@define('ENABLEAVIF_DESC', 'Image AVIF variations can be very demanding on resources, since a lot of Ram and CPU/GPU cores are needed to encode images into the AV1 format. Mass uploads and mass conversions (see "Maintenance") are therefore not recommended. Learn to handle on some examples before you generally allow to keep it enabled. PHP 8.1 still lacks a crucial build-in feature to read size information from AVIF files using the usual methods. For the time being, this also means that the image functions of the MediaLibrary "Resize this image" and "Rotate image 90 degrees" cannot be used for all formats when using AVIF, since each of these actions affects the original image as well as its variations. PHP 8.2 solves this issue by adding the missing feature.');
 

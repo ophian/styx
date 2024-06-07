@@ -1,8 +1,7 @@
 <?php
+
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
-
-declare(strict_types=1);
 
 if (IN_serendipity !== true) {
     die ('Don\'t hack!');
@@ -90,7 +89,7 @@ function serendipity_plugin_api_core_event_hook($event, &$bag, &$eventData, &$ad
                 if ($serendipity['CacheControl']) {
                     // Note that no-cache does not mean "don't cache". no-cache allows caches to store a response but requires them to revalidate it before reuse.
                     // If the sense of "don't cache" that you want is actually "don't store", then no-store is the directive to use.
-                    if (!empty($_SERVER['SERVER_SOFTWARE']) && str_contains($_SERVER['SERVER_SOFTWARE'], 'LiteSpeed')) {
+                    if (!empty($_SERVER['SERVER_SOFTWARE']) && strstr($_SERVER['SERVER_SOFTWARE'], 'LiteSpeed')) {
                         header('Cache-Control: private, max-age=3600, must-revalidate'); // for Hostinger Cache on LiteSpeed
                         header('Pragma:'); // for Hostinger Cache on LiteSpeed
                     } else {
@@ -217,8 +216,8 @@ class serendipity_plugin_api
         $key = serendipity_db_escape_string($key);
 
         // Secure Plugin path. No leading slashes, no backslashes, no "up" directories
-        $pluginPath = preg_replace('@^(/)@', '', (string) $pluginPath);
-        $pluginPath = str_replace(array('..', "\\"), array('', '/'), (string) serendipity_db_escape_string($pluginPath));
+        $pluginPath = preg_replace('@^(/)@', '', $pluginPath);
+        $pluginPath = str_replace(array('..', "\\"), array('', '/'), serendipity_db_escape_string($pluginPath));
 
         if ($pluginPath == 'online_repository') {
             $pluginPath = $key;
@@ -235,7 +234,7 @@ class serendipity_plugin_api
         $serendipity['debug']['pluginload'][] = 'Installing plugin: ' . print_r(func_get_args(), true);
 
         $iq = "INSERT INTO {$serendipity['dbPrefix']}plugins (name, sort_order, placement, authorid, path)
-                    VALUES ('" . htmlspecialchars($key) . "', $nextidx, '$default_placement', '$authorid', '" . htmlspecialchars($pluginPath) . "')";
+                    VALUES ('" . serendipity_specialchars($key) . "', $nextidx, '$default_placement', '$authorid', '" . serendipity_specialchars($pluginPath) . "')";
         $serendipity['debug']['pluginload'][] = $iq;
         serendipity_db_query($iq);
         serendipity_plugin_api::hook_event('backend_plugins_new_instance', $key, array('default_placement' => $default_placement));
@@ -250,7 +249,7 @@ class serendipity_plugin_api
             $plugin->install();
         } else {
             $serendipity['debug']['pluginload'][] = 'Loading plugin failed painfully. File not found?';
-            echo '<span class="msg_error">' . ERROR . ': ' . htmlspecialchars($key) . ' (' . htmlspecialchars($pluginPath) . ')</span>';
+            echo '<span class="msg_error">' . ERROR . ': ' . serendipity_specialchars($key) . ' (' . serendipity_specialchars($pluginPath) . ')</span>';
         }
 
         return $key;
@@ -608,7 +607,7 @@ class serendipity_plugin_api
             if (empty($filename) && !empty($instance_id)) {
                 // $serendipity['debug']['pluginload'][] = "No valid path/filename found.";
                 $sql = "SELECT path FROM {$serendipity['dbPrefix']}plugins WHERE name = '" . serendipity_db_escape_string($instance_id) . "'";
-                $plugdata = serendipity_db_query($sql, single: true, expectError: true);
+                $plugdata = serendipity_db_query($sql, true, 'both', false, false, false, true);
                 if (is_array($plugdata) && isset($plugdata[0])) {
                     $pluginPath = $plugdata[0];
                 }
@@ -966,7 +965,7 @@ class serendipity_plugin_api
                 }
 
                 if ($loggedin) {
-                    $content .= '                    <div class="serendipity_edit_nugget"><a href="' . $serendipity['serendipityHTTPPath'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&amp;serendipity[plugin_to_conf]=' . htmlentities($plugin->instance) . '">' . EDIT . '</a></div>';
+                    $content .= '                    <div class="serendipity_edit_nugget"><a href="' . $serendipity['serendipityHTTPPath'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&amp;serendipity[plugin_to_conf]=' . serendipity_entities($plugin->instance) . '">' . EDIT . '</a></div>';
                 }
 
                 if ($show_plugin !== false) {
@@ -1041,7 +1040,7 @@ class serendipity_plugin_api
      */
     static function is_event_plugin($name)
     {
-        return str_contains($name, '_event_');
+        return strstr($name, '_event_');
     }
 
     /**
@@ -1196,7 +1195,7 @@ class serendipity_plugin_api
     {
         global $serendipity;
 
-        if (!str_contains($instance_id, ':')) {
+        if (!strstr($instance_id, ':')) {
             $instance_id .= ':';
         }
 

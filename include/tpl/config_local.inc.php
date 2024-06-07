@@ -386,6 +386,13 @@
                                           'permission'  => 'siteConfiguration',
                                           'flags'       => array('simpleInstall')),
 
+                                    array('var'         => 'charset',
+                                          'title'       => INSTALL_CHARSET,
+                                          'description' => INSTALL_CHARSET_DESC,
+                                          'type'        => 'list',
+                                          'default'     => $serendipity['charsets'],
+                                          'permission'  => 'siteConfiguration'),
+
                                     array('var'         => 'calendar',
                                           'title'       => INSTALL_CAL,
                                           'description' => INSTALL_CAL_DESC,

@@ -2,8 +2,6 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
-declare(strict_types=1);
-
 if (!headers_sent() && session_status() != PHP_SESSION_ACTIVE) {
     session_cache_limiter('public');
 }
@@ -132,15 +130,15 @@ if (isset($serendipity['serendipityRealname'])) {
 
 if (!empty($serendipity['GET']['category'])) {
     $cInfo       = serendipity_fetchCategoryInfo((int)$serendipity['GET']['category']);
-    $title       = serendipity_utf8_encode(htmlspecialchars($title . ' - '. $cInfo['category_name']));
+    $title       = serendipity_utf8_encode(serendipity_specialchars($title . ' - '. $cInfo['category_name']));
 } elseif (!empty($serendipity['GET']['viewAuthor'])) {
     list($aInfo) = serendipity_fetchAuthor((int)$serendipity['GET']['viewAuthor']);
-    $title       = serendipity_utf8_encode(htmlspecialchars($aInfo['realname'] . ' - '. $title ));
+    $title       = serendipity_utf8_encode(serendipity_specialchars($aInfo['realname'] . ' - '. $title ));
 } else {
-    $title       = serendipity_utf8_encode(htmlspecialchars($title));
+    $title       = serendipity_utf8_encode(serendipity_specialchars($title));
 }
 
-$description = serendipity_utf8_encode(htmlspecialchars($description));
+$description = serendipity_utf8_encode(serendipity_specialchars($description));
 
 $metadata = array(
     'title'             => $title,
@@ -261,7 +259,7 @@ if (!$metadata['template_file'] || $metadata['template_file'] == 'feed_' . $file
     die("Invalid RSS version specified or RSS-template file not found\n");
 }
 
-$self_url = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . htmlspecialchars($_SERVER['REQUEST_URI']);
+$self_url = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . serendipity_specialchars($_SERVER['REQUEST_URI']);
 if (!is_array($entries)) {
     $entries = array();
 }

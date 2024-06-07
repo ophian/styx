@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -22,11 +20,11 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.50');
+        $propbag->add('version',       '1.49');
         $propbag->add('requirements',  array(
-            'serendipity' => '5.0',
-            'smarty'      => '4.1',
-            'php'         => '8.2'
+            'serendipity' => '2.0',
+            'smarty'      => '3.1',
+            'php'         => '7.4'
         ));
         $propbag->add('groups', array('FRONTEND_VIEWS'));
         $propbag->add('configuration', array('title',
@@ -258,7 +256,7 @@ class serendipity_plugin_history extends serendipity_plugin
             $t = ($maxlength == 0 || (strlen($e[$x]['title']) <= $maxlength))
                     ? $e[$x]['title']
                     : trim(serendipity_mb('substr', $e[$x]['title'], 0, $maxlength-3)).' [...]';
-            echo '    <a href="' . $url . '" title="' . str_replace("'", "`", htmlspecialchars($e[$x]['title'])) . '">' . htmlspecialchars($t) . "</a>\n";
+            echo '    <a href="' . $url . '" title="' . str_replace("'", "`", serendipity_specialchars($e[$x]['title'])) . '">' . serendipity_specialchars($t) . "</a>\n";
             if ($full) {
                 echo "</div>\n";
                 $body = preg_replace("{2,}", ' ', str_replace(["\r\n", "\r", "\n", "\t"], [' '], strip_tags($e[$x]['body'])));

@@ -2,8 +2,6 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
-declare(strict_types=1);
-
 /**
  * Tells the DB Layer to start a DB transaction.
  *
@@ -80,13 +78,13 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
 
     if (!$expectError && mysqli_error($serendipity['dbConn']) != '' && $serendipity['production']) {
         $msg = mysqli_error($serendipity['dbConn']);
-        $msg = htmlspecialchars($msg); // avoid Notice: Only variable references should be returned by reference
+        $msg = serendipity_specialchars($msg); // avoid Notice: Only variable references should be returned by reference
         return $msg; // watch out, this is just the simplified error message, alike "Unknown column 'bug' in 'where clause'" and not the full SQL query. You need to catch it though!
     }
 
     if (!$c) {
         if (!$expectError && !$serendipity['production']) {
-            $tsql = htmlspecialchars($sql);
+            $tsql = serendipity_specialchars($sql);
             print "<span class=\"msg_error\">Error in $tsql</span>\n";
             print '<span class="msg_error">' . mysqli_error($serendipity['dbConn']) . "</span>\n";
             if (function_exists('debug_backtrace') && $reportErr == true) {
@@ -204,8 +202,8 @@ function serendipity_db_matched_rows() {
 function serendipity_db_escape_string($string) {
     global $serendipity;
 
-    if ($string === null) {
-        return null;
+    if ($string == null) {
+        return;
     }
     return mysqli_escape_string($serendipity['dbConn'], (string) $string);
 }
@@ -267,12 +265,6 @@ function serendipity_db_connect() {
     return $serendipity['dbConn'];
 }
 
-/**
- * Re-Connect to the configured Database to set dbCharset for utf8mb4 parameters
- * MySQL databases specifics!
- *
- * @access public
- */
 function serendipity_db_reconnect() {
     global $serendipity;
 
@@ -548,7 +540,7 @@ function serendipity_db_schema_import($query) {
 
     if ($is_utf8 === null) {
         $search[7] = '{UTF_8}'; // IT is Key ID 7 for both and this since being static, else it increments
-        if ((isset($serendipity['charset']) && $serendipity['charset'] == 'UTF-8/') || (defined('LANG_CHARSET') && LANG_CHARSET == 'UTF-8')) {
+        if ((isset($_POST['charset']) && $_POST['charset'] == 'UTF-8/') || (isset($serendipity['charset']) && $serendipity['charset'] == 'UTF-8/') || (isset($serendipity['POST']['charset']) && $serendipity['POST']['charset'] == 'UTF-8/') || (defined('LANG_CHARSET') && LANG_CHARSET == 'UTF-8')) {
             if ($serendipity['dbUtf8mb4']) {
                 // SET table COLLATION against SERVER Version
                 $replace[7] = '/*!50503 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci */'; // The difference to "utf8mb4_general_ci" is in the used UCA version and the sorting behaviour. Using _general_ is slightly faster, BUT measurable only on huge databases. So generally nothing we talk about here.
@@ -580,9 +572,9 @@ function serendipity_db_schema_import($query) {
 
     $query = trim(str_replace($search, $replace, $query));
 
-    if (str_starts_with($query, '@')) {
+    if ($query[0] == '@') {
         // Errors are expected to happen (like duplicate index creation)
-        return serendipity_db_query(substr($query, 1), expectError: true);
+        return serendipity_db_query(substr($query, 1), false, 'both', false, false, false, true);
     } else {
         return serendipity_db_query($query);
     }
@@ -616,7 +608,7 @@ function serendipity_db_probe($hash, &$errs) {
 
     if (!isset($c) && isset($t)) {
         $errs[] = 'Could not connect to database; check your settings.';
-        $errs[] = 'The mySQL error was: ' . htmlspecialchars(mysqli_connect_error());
+        $errs[] = 'The mySQL error was: ' . serendipity_specialchars(mysqli_connect_error());
         return false;
     }
 
@@ -624,7 +616,7 @@ function serendipity_db_probe($hash, &$errs) {
 
     if (!@mysqli_select_db($c, $hash['dbName'])) {
         $errs[] = 'The database you specified does not exist.';
-        $errs[] = 'The mySQL error was: ' . htmlspecialchars(mysqli_error($c));
+        $errs[] = 'The mySQL error was: ' . serendipity_specialchars(mysqli_error($c));
         return false;
     }
 
