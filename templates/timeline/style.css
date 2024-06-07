@@ -1,10 +1,31 @@
 /*
  Theme: Timeline
- Last revised April 10, 2021 by Ian Styx
+ Last revised June 07, 2024 by Ian Styx
  Theme developed for Serendipity by Don Chambers (www.optional-necessity.com)
  Inspired by Unify/htmlstream
  Font Awesome by Dave Gandy - http://fontawesome.io
 */
+
+/* Render Browser default styles */
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box }
+ul,ol { list-style-position: inside; }
+ol, ul, dl { display: flow-root } /* this allows correct list indentation in floats */
+
+table { border-collapse: collapse; border-spacing: 0; }
+table td { display: table-cell; vertical-align: top; }
+
+[type="checkbox"],
+[type="radio"] {
+    vertical-align: middle;
+    margin-right: 2px; }
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  width: auto !important; }
 
 /*
 Optional skinsets are loaded after style.css and before colorsets
