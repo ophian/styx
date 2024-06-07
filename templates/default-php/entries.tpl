@@ -160,8 +160,8 @@ if (! empty($GLOBALS['tpl']['entries'])):
                 <?php endif; ?>
 
                 <?php if ($GLOBALS['tpl']['is_comment_moderate']): ?>
-
-                <div class="serendipity_center serendipity_msg_success"><?= sprintf(COMMENT_ADDED, "<a href=\"<?php if ($GLOBALS['tpl']['is_logged_in'] && isset($commentform_action)): ?><?= $GLOBALS['tpl']['commentform_action'] ?><?php endif; ?>#c<?= $_GET['last_insert_cid'] ?? '' ?>\">#<?= $_GET['last_insert_cid'] ?? '' ?></a> "); ?><br><?= THIS_COMMENT_NEEDS_REVIEW ?></div>
+                <?php $comment_added_link = '<a href="' . (($GLOBALS['tpl']['is_logged_in'] && isset($commentform_action)) ? $GLOBALS['tpl']['commentform_action'] : '') . '#c' . $_GET['last_insert_cid'] ?? '' . '">#' . $_GET['last_insert_cid'] ?? '' .'</a> '; ?>
+                <div class="serendipity_center serendipity_msg_success"><?= sprintf(COMMENT_ADDED, $_comment_added_link); ?><br><?= THIS_COMMENT_NEEDS_REVIEW ?></div>
 
                 <?php elseif ($GLOBALS['tpl']['is_comment_added']): ?>
 
