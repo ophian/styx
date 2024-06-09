@@ -4182,7 +4182,7 @@ button::-moz-focus-inner {
   padding: 0;
   width: 90px;
   height: 110px;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
   .mfp-arrow:active {
     margin-top: -54px; }
   .mfp-arrow:hover,
