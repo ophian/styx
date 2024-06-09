@@ -7,6 +7,8 @@
  *  Tried to up-port to phpBB 3.x .... Not easy! Be really careful!
  * ****************************************************************/
 
+declare(strict_types=1);
+
 class Serendipity_Import_phpbb extends Serendipity_Import
 {
     var $info        = array('software' => 'phpBB 3.x');
@@ -101,7 +103,7 @@ class Serendipity_Import_phpbb extends Serendipity_Import
         }
 
         if (!$phbbdb || mysqli_connect_error()) {
-            return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
+            return sprintf(COULDNT_CONNECT, htmlspecialchars($this->data['host']));
         }
 
         if (!@mysqli_select_db($phbbdb, $this->data['name'])) {

@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 $protocol = $_SERVER['SERVER_PROTOCOL'] ?? '';
 if ( ! in_array( $protocol, [ 'HTTP/1.1', 'HTTP/2', 'HTTP/2.0', 'HTTP/3' ], true ) ) {
     $protocol = 'HTTP/1.1';
@@ -14,10 +16,10 @@ header('Status: 200 OK');
 include('serendipity_config.inc.php');
 include('include/functions_routing.inc.php');
 
-header('Content-Type: text/html; charset='. LANG_CHARSET);
+header('Content-Type: text/html; charset=' . LANG_CHARSET);
 
 if ($serendipity['CacheControl']) {
-    if (!empty($_SERVER['SERVER_SOFTWARE']) && strstr($_SERVER['SERVER_SOFTWARE'], 'Apache/2')) {
+    if (!empty($_SERVER['SERVER_SOFTWARE']) && str_contains($_SERVER['SERVER_SOFTWARE'], 'Apache/2')) {
         header('Cache-Control: no-cache, pre-check=0, post-check=0');
     } else {
         header('Cache-Control: private, pre-check=0, post-check=0, max-age=0');

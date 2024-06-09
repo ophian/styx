@@ -6,12 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [4.4.1-dev-5] - 2024-05-28
-- Fixed a code injection vulnerability in extends-tag. This addresses CVE-2024-35226.
-  (Tagged as v.4.5.3)
-
-## [4.4.1-Styx-dev-4] - 2024-02-26
+## [4.5.2-Styx-dev-4] - 2024-04-07
 - see [Custom Styx features]
+
+- Fixed argument must be passed by reference error introduced in v4.5.1 [#964](https://github.com/smarty-php/smarty/issues/964)
+
+## [4.5.1] - 2024-03-18
+
+
+## [4.5.0] - 2024-03-18
+
+
+### Changed
+- Using unregistered static class methods in expressions now also triggers a deprecation notice because we will drop support for this in the next major release [#813](https://github.com/smarty-php/smarty/issues/813)
 
 ## [4.4.1] - 2024-02-26
 - Fixed internal release-tooling

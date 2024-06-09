@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -24,11 +26,11 @@ class serendipity_event_spamblock extends serendipity_event
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Sebastian Nohn, Grischa Brockhaus, Ian Styx');
         $propbag->add('requirements',  array(
-            'serendipity' => '2.3.1',
-            'smarty'      => '3.1.0',
-            'php'         => '7.1.0'
+            'serendipity' => '5.0',
+            'smarty'      => '4.1',
+            'php'         => '8.2'
         ));
-        $propbag->add('version',       '2.74');
+        $propbag->add('version',       '2.79');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -878,8 +880,8 @@ class serendipity_event_spamblock extends serendipity_event
 
         if ($use_gd) {
             return sprintf('<img src="%s" onclick="this.src=this.src + \'1\'" title="%s" alt="CAPTCHA" class="captcha" />',
-                $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . "plugin/{$x}captcha_" . md5((string) time()),
-                serendipity_specialchars(PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2)
+                $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . "plugin/{$x}captcha_" . hash('XXH128', (string) time()),
+                htmlspecialchars(PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2)
             );
         } else {
             $bgcolors = explode(',', $this->get_config('captcha_color', '255,0,255'));
@@ -888,8 +890,8 @@ class serendipity_event_spamblock extends serendipity_event
             $output = '<div class="serendipity_comment_captcha_image" style="background-color: ' . $hexval . '">';
             for ($i = 1; $i <= $max_char; $i++) {
                 $output .= sprintf('<img src="%s" title="%s" alt="CAPTCHA ' . $i . '" class="captcha" />',
-                    $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . "plugin/{$x}captcha_" . $i . '_' . md5((string) time()),
-                    serendipity_specialchars(PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2)
+                    $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . "plugin/{$x}captcha_" . $i . '_' . hash('XXH128', (string) time()),
+                    htmlspecialchars(PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2)
                 );
             }
             $output .= '</div>';
@@ -1235,8 +1237,8 @@ class serendipity_event_spamblock extends serendipity_event
                         }
 
                         // Check for maximum number of links before rejecting
-                        $link_count = substr_count(strtolower($addData['comment']), 'http://');
-                        $add2_count = substr_count(strtolower($addData['comment']), 'https://');
+                        $link_count = substr_count(serendipity_mb('strtolower', $addData['comment']), 'http://');
+                        $add2_count = substr_count(serendipity_mb('strtolower', $addData['comment']), 'https://');
                         $link_count = $link_count + $add2_count;
                         if ($links_reject > 0 && $link_count > $links_reject) {
                             $this->log($logfile, $eventData['id'], 'REJECTED', PLUGIN_EVENT_SPAMBLOCK_REASON_LINKS_REJECT, $addData);
@@ -1357,7 +1359,7 @@ class serendipity_event_spamblock extends serendipity_event
 
                         // Check invalid email
                         if ($addData['type'] == 'NORMAL' && serendipity_db_bool($this->get_config('checkmail', 'false'))) {
-                            if (!empty($addData['email']) && strstr($addData['email'], '@') === false) {
+                            if (!empty($addData['email']) && !str_contains($addData['email'], '@')) {
                                 $this->log($logfile, $eventData['id'], 'REJECTED', PLUGIN_EVENT_SPAMBLOCK_REASON_CHECKMAIL, $addData);
                                 $eventData = array('allow_comments' => false);
                                 $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_SPAMBLOCK_REASON_CHECKMAIL;
@@ -1400,7 +1402,7 @@ class serendipity_event_spamblock extends serendipity_event
                             echo '<br /><label for="captcha">'. PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3 . '</label>';
                             echo '<input id="captcha" class="input_textbox" type="text" size="5" name="serendipity[captcha]" value="" />';
                         } elseif (isset($serendipity['POST']['captcha'])) {
-                            echo '<input type="hidden" name="serendipity[captcha]" value="' . serendipity_specialchars($serendipity['POST']['captcha']) . '" />';
+                            echo '<input type="hidden" name="serendipity[captcha]" value="' . htmlspecialchars($serendipity['POST']['captcha']) . '" />';
                         }
                         echo "\n</div>\n";
                     }
@@ -1572,9 +1574,9 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                 case 'backend_view_comment':
                     $author_is_filtered = $this->checkFilter('authors', $eventData['author']);
                     $clink = 'comment_' . $eventData['id'];
-                    $randomString = '&amp;random=' . substr(sha1((string) rand()), 0, 10);    # the random string will force browser to reload the page,
-                                                                                     # so the server knows who to block/unblock when clicking again on the same link,
-                                                                                     # see http://stackoverflow.com/a/2573986/2508518, http://stackoverflow.com/a/14043346/2508518
+                    $randomString = '&amp;random=' . hash('xxh3', $clink);  # the random string will force browser to reload the page,
+                                                                            # so the server knows who to block/unblock when clicking again on the same link,
+                                                                            # see http://stackoverflow.com/a/2573986/2508518, http://stackoverflow.com/a/14043346/2508518
                     $akismet_apikey = $this->get_config('akismet');
                     $akismet        = $this->get_config('akismet_filter');
                     if (!empty($akismet_apikey)) {
@@ -1729,8 +1731,8 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
 
         if ($ftc) {
             // Check for maximum number of links before rejecting
-            $link_count = substr_count(strtolower($addData['comment']), 'http://');
-            $add2_count = substr_count(strtolower($addData['comment']), 'https://');
+            $link_count = substr_count(serendipity_mb('strtolower', $addData['comment']), 'http://');
+            $add2_count = substr_count(serendipity_mb('strtolower', $addData['comment']), 'https://');
             $link_count = $link_count + $add2_count;
             $links_reject = $this->get_config('links_reject', 20);
             if ($links_reject > 0 && $link_count > $links_reject) {
@@ -1821,15 +1823,9 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                       strftime is infected by thread unsafe locales, which is plenty of reason to deprecate it, with additional pro reasons for doing so being its disparate functionality among different os-es and libc's.
                       Deprecation also doesn't mean removal, which won't happen until PHP 9, giving developers plenty of time to move to a saner threadsafe locale API based on intl/icu.
                       cheers Derick
+                      done !
                     */
-                    if (PHP_VERSION_ID >= 80100 && PHP_VERSION_ICU === false) {
-                        $logfile = @strftime($logfile); // temporary disable deprecation notice with PHP 8.1 until found better solution with %A, %d. %B %Y alike formats, on frontend calls. Using date() replacement is doing well with generic formats like "%Y-%m-%d %H:%M:%S".
-                    } elseif (PHP_VERSION_ICU === true) {
-                        // ICU71 is fixed up from PHP 8.2
-                        $logfile = serendipity_toDateTimeMapper($logfile);
-                    } else {
-                        $logfile = strftime($logfile); // legacy default
-                    }
+                    $logfile = serendipity_toDateTimeMapper($logfile);
                 }
 
                 $fp = @fopen($logfile, 'a+');

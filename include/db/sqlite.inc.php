@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 /**
  * Tells the DB Layer to start a DB transaction.
  *
@@ -151,7 +153,7 @@ function serendipity_db_sqlite_fetch_array($res, $type = SQLITE_BOTH) {
         //       To fix that, we use a preg-regex; but that is quite performance costy.
         //       Either we always need to use 'SELECT a.id AS id, b.text AS text' in query,
         //       or the sqlite extension may get fixed. :-)
-        $row[preg_replace('@^.+\.(.*)@', '\1', $i)] = str_replace($search, $replace, $v);
+        $row[preg_replace('@^.+\.(.*)@', '\1', (string) $i)] = str_replace($search, $replace, (string) $v);
     }
 
     return $row;
@@ -228,7 +230,7 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
     if (!$res) {
         if (!$expectError && !$serendipity['production']) {
             var_dump($res);
-            var_dump(serendipity_specialchars($sql));
+            var_dump(htmlspecialchars($sql));
             $msg = "problem with query";
             return $msg;
         }
@@ -331,9 +333,10 @@ function serendipity_db_schema_import($query) {
     }
 
     $query = trim(str_replace($search, $replace, $query));
-    if ($query[0] == '@') {
+
+    if (str_starts_with($query, '@')) {
         // Errors are expected to happen (like duplicate index creation)
-        return serendipity_db_query(substr($query, 1), false, 'both', false, false, false, true);
+        return serendipity_db_query(substr($query, 1), expectError: true);
     } else {
         return serendipity_db_query($query);
     }
