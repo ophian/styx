@@ -4821,7 +4821,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $enc
         foreach($serendipity['GET'] AS $g_key => $g_val) {
             // do not add token, since this is assigned separately to properties and list forms
             if (!is_array($g_val) && $g_key != 'page' && $g_key != 'token') {
-                $form_hidden .= '        <input type="hidden" name="serendipity[' . $g_key . ']" value="' . htmlspecialchars($g_val) . '">'."\n";
+                $form_hidden .= '        <input type="hidden" name="serendipity[' . $g_key . ']" value="' . htmlspecialchars((string) $g_val) . '">'."\n";
             }
         }
     }
