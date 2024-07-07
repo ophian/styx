@@ -357,7 +357,7 @@ class serendipity_event_entryproperties extends serendipity_event
             case 'spacer':
 ?>
                 <div id="ep_spacer" class="entryproperties_spacer adv_opts_box form_check">
-                    <label for="properties_is_spacer"><em>spacebox</em></label>
+                    <span><em>spacebox</em></span>
                 </div>
 <?php
                 break;
