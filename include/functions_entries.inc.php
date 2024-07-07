@@ -1303,7 +1303,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
             }
 
             if ($preview) {
-                $entry['author']   = $entry['realname'];
+                $entry['author']   = $entry['realname'] ?? '';
                 $entry['authorid'] = $serendipity['authorid'];
             }
 
@@ -1314,7 +1314,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
             serendipity_plugin_api::hook_event('frontend_display', $entry, $addData);
 
             if ($preview) {
-                $entry['author']   = $entry['realname'];
+                $entry['author']   = $entry['realname'] ?? '';
                 $entry['authorid'] = $serendipity['authorid'];
             }
 
@@ -1352,6 +1352,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
 
             if (isset($entry['categories']) && is_array($entry['categories'])) {
                 foreach($entry['categories'] AS $k => $v) {
+                    if (!is_array($entry['categories'][$k])) $entry['categories'][$k] = [];
                     if (!isset($entry['categories'][$k]['category_link'])) {
                         $entry['categories'][$k]['category_link'] = serendipity_categoryURL($entry['categories'][$k]);
                     }
@@ -1382,14 +1383,14 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
 
             if (serendipity_db_bool($entry['allow_comments']) || !isset($entry['allow_comments']) || $entry['comments'] > 0) {
                 $entry['has_comments']   = true;
-                $entry['label_comments'] = $entry['comments'] == 1 ? COMMENT : COMMENTS;
+                $entry['label_comments'] = ($entry['comments'] ?? null) == 1 ? COMMENT : COMMENTS;
             } else {
                 $entry['has_comments'] = false;
             }
 
             if (serendipity_db_bool($entry['allow_comments']) || !isset($entry['allow_comments']) || $entry['trackbacks'] > 0) {
                 $entry['has_trackbacks']   = true;
-                $entry['label_trackbacks'] = $entry['trackbacks'] == 1 ? TRACKBACK : TRACKBACKS;
+                $entry['label_trackbacks'] = ($entry['trackbacks'] ?? null) == 1 ? TRACKBACK : TRACKBACKS;
             } else {
                 $entry['has_trackbacks'] = false;
             }
