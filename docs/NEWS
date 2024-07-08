@@ -57,6 +57,8 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve label for entry entryproperties empty spacebox field
+
   * Update core asset Magnific Popup v1.2.0
 
   * Fix [ default-php ] theme for [ "..comment related ... variable typo .." ]
