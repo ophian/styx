@@ -57,6 +57,8 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix a image-from-MediaLibrary Methusalem bug with isolated page option
+
   * Improve label for entry entryproperties empty spacebox field
 
   * Update core asset Magnific Popup v1.2.0
