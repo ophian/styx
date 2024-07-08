@@ -487,32 +487,33 @@
             // wrap the img in a link to the image
             var targetval = $('#select_image_target').val();
             var fallback  = (pictureSubmit && imgVariFullHref != '') ? ' data-fallback="'+ f['serendipity[url]'].value +'"' : '';
+            var hasTitle  = title != '' ? ' title="' + title + '"' : '';
+            var sLink     = '<a class="serendipity_image_link"';
 
-            var prepend   = '';
             // including check as-link usage targeting elsewhere
             var ilink     = (pictureSubmit && imgVariFullHref != '' && f['imgName'].value == f['serendipity[url]'].value) ? imgVariFullHref : f['serendipity[url]'].value;
             var itarget = '';
 
             switch (targetval) {
                 case 'js':
-                    var itarget = ' onclick="F1 = window.open(\'' + f['serendipity[url]'].value + '\',\'Zoom\',\''
+                    itarget = ' onclick="F1 = window.open(\'' + f['serendipity[url]'].value + '\',\'Zoom\',\''
                             + 'height=' + (parseInt(f['imgHeight'].value) + 15) + ','
                             + 'width='  + (parseInt(f['imgWidth'].value)  + 15) + ','
-                            + 'top='    + (screen.height - f['imgHeight'].value) /2 + ','
-                            + 'left='   + (screen.width  - f['imgWidth'].value)  /2 + ','
+                            + 'top='    + (screen.height - f['imgHeight'].value) / 2 + ','
+                            + 'left='   + (screen.width  - f['imgWidth'].value)  / 2 + ','
                             + 'toolbar=no,menubar=no,location=no,resize=1,resizable=1,scrollbars=yes\'); return false;"';
                     break;
                 case '_blank':
-                    var itarget = ' rel="noopener" target="_blank"';
+                    itarget = ' rel="noopener" target="_blank"';
                     break;
                 case 'plugin':
-                    var itarget = ' id="s9yisphref' + imgID + '" onclick="javascript:this.href = this.href + \'&amp;serendipity[from]=\' + self.location.href;"';
-                    prepend = '<a title="' + ilink + '" id="s9yisp' + imgID + '"></a>';
+                    itarget = ' onclick="javascript:this.href = this.href + \'&amp;serendipity[from]=\' + self.location.href;"';
+                    sLink   = sLink + ' id="s9yisphref' + imgID + '"';
                     ilink   = f['baseURL'].value + 'serendipity_admin_image_selector.php?serendipity[step]=showItem&amp;serendipity[image]=' + imgID;
                     break;
             }
 
-            var img = prepend + "<a class=\"serendipity_image_link\"" + (title != '' ? ' title="' + title + '"' : '') + " href=\"" + ilink + "\"" + itarget + fallback +">" + img + "</a>";
+            var img = sLink + hasTitle + ' href="' + ilink + '"' + itarget + fallback + '>' + img + '</a>';
         }
 
         if ($('#serendipity_imagecomment').val() != '') {
