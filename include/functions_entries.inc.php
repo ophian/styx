@@ -1460,7 +1460,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
                 $serendipity['smarty']->assign($comment_add_data);
                 if ($comments_open) {
                     serendipity_displayCommentForm(
-                        $entry['id'],
+                        (int) $entry['id'],
                         $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?url=' . $entry['commURL'],
                         true,
                         $userData,
