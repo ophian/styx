@@ -431,7 +431,7 @@ if (is_array($sql)) {
 
         if ($serendipity['allowHtmlComment']) {
             // this replaces stripping tags OR the serendipity_htmlspecialchars() usage
-            $comment['fullBody'] = serendipity_sanitizeHtmlComments($comment['fullBody']);
+            $comment['fullBody'] = serendipity_sanitizeEditorHtml(serendipity_sanitizeHtmlComments($comment['fullBody']));
             $is_html = ($comment['fullBody'] != strip_tags($comment['fullBody'])) ? true : false;
         }
 
