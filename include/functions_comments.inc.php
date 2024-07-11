@@ -228,7 +228,8 @@ function serendipity_sanitizeHtmlComments($str) {
 }
 
 /**
- * Sanitize RichText Editor removal leftovers, eg. when RT Editor removes image containers bundled in a div, the div may remain. See serendipity_sanitizeHtmlComments() return ! UTF-8 only.
+ * Sanitize RichText Editor removal leftovers, eg. when RT Editor removes image containers bundled in a div, the div may remain. UTF-8 only.
+ * @see serendipity_sanitizeHtmlComments() return !
  */
 function serendipity_sanitizeEditorHtml(string $html) : string {
     libxml_use_internal_errors(true); // silence errors to internal
