@@ -1281,7 +1281,7 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um d
 @define('ERROR_DONT_CUT_YOUR_WHINEYARD', 'Sie sollten niemals die ranghöchste GRUPPENSTUFE löschen, in der Sie sich befinden: %s: %s.');
 
 @define('MEDIA_SERVE_INFO', 'Media-Buttons Beschreibungs Info');
-@define('PICTURE_FORMAT_BUTTON_DESC', 'Einfaches img-Element - <b>vs</b> - Die beste, empfohlene & containerisierte Form der Auslieferung von Bildern inklusive Variationen! Normalerweise "responsive images"-Container genannt, aber hier für responsive Variationsformate verwendet!');
+@define('PICTURE_FORMAT_BUTTON_DESC', 'Einfaches img-Element ['.ADD_MEDIA.'] - <b>vs</b> - Die empfohlene, vielseitigere & containerisierte Form der Auslieferung von Bildern inklusive Variationen! Normalerweise "responsive images"-Container genannt, aber hier für responsive Variationsformate verwendet!');
 
 @define('ENABLEAVIF', 'Nutzung von AVIF Variationen aktivieren');
 @define('ENABLEAVIF_DESC', 'Das AVIF Bildformat ist ein neues Kompressionsformat für das Web, das inzwischen alle bekannten Browserhersteller unterstützen. Die Berechnung von AVIF Variationen kann aber ressourcenfordernd sein, und beansprucht Zeit um Bilder in das AV1 Format zu kodieren. Ein Bild von 6 MB benötigt beispielsweise um die 20 Sekunden - dies aber bei einer Kompression auf etwa 10% der Originalgröße ohne sichtbare Verluste. Massenuploads oder Massenkonvertierungen (siehe "Wartung") sind daher nicht zu empfehlen. Einzelne Bilderuploads sollten im Original nicht über 12-13 MB groß sein, damit sich Zeitaufwand und Fehleranfälligkeit in Grenzen halten. Erlernen Sie den Umgang am Besten an ein paar Beispielen, bevor Sie die Nutzung verbleibend erlauben.');
