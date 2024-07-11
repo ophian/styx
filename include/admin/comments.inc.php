@@ -432,7 +432,7 @@ if (is_array($sql)) {
         if ($serendipity['allowHtmlComment']) {
             // this replaces stripping tags OR the serendipity_htmlspecialchars() usage
             $comment['fullBody'] = serendipity_sanitizeEditorHtml(serendipity_sanitizeHtmlComments($comment['fullBody']));
-            $is_html = ($comment['fullBody'] != strip_tags($comment['fullBody'])) ? true : false;
+            $is_html = $comment['fullBody'] !== strip_tags($comment['fullBody']);
         }
 
         if (strlen($comment['fullBody']) > strlen($comment['summary']) ) {
@@ -440,7 +440,7 @@ if (is_array($sql)) {
             // When summary is not the full body, strip any HTML tags from summary, as it might break and leave unclosed HTML.
             if ($serendipity['allowHtmlComment']) {
                 $_summary = htmlspecialchars(str_replace('  ', ' ', strip_tags($comment['summary'])), encoding: LANG_CHARSET, double_encode: false);
-                $stripped = ($comment['summary'] != $_summary) ? true : false;
+                $stripped = $comment['summary'] !== $_summary;
                 $comment['summary']  = $stripped ? $_summary : $comment['summary']."&hellip;";
                 $comment['fullBody'] = $is_html ? $comment['fullBody'] : nl2br($comment['fullBody']);
             } else {
@@ -451,12 +451,12 @@ if (is_array($sql)) {
         } else {
             if ($serendipity['allowHtmlComment']) {
                 // excerpt allows to open up a non-stripped fullBody box, if summary was stripped before!
-                $comment['excerpt']  = ($comment['summary'] < strip_tags($comment['summary'])) ? true : false;
+                $comment['excerpt']  = $comment['summary'] < strip_tags($comment['summary']);
                 $comment['fullBody'] = $is_html ? $comment['fullBody'] : nl2br($comment['fullBody']);
                 // Strip any HTML tags from summary, as it might break and leave unclosed HTML. But we want a space where previously was a tag following a tagged newline, like for "<p>xxx</p>\n<p>xxx</p>".
                 $comment['summary'] = str_replace('  ', ' ', trim(strip_tags(str_replace('<', ' <', $comment['summary']))));
             } else {
-                $comment['excerpt']  = (strlen($comment['summary']) < strlen(nl2br(strip_tags($comment['summary'])))) ? true : false; // allows to open up a non stripped fullBody box, if summary was stripped before!
+                $comment['excerpt']  = strlen($comment['summary']) < strlen(nl2br(strip_tags($comment['summary']))); // allows to open up a non stripped fullBody box, if summary was stripped before!
                 $comment['summary']  = htmlspecialchars(strip_tags($comment['summary']), encoding: LANG_CHARSET, double_encode: false);
                 $comment['fullBody'] = nl2br(htmlspecialchars($comment['fullBody'], encoding: LANG_CHARSET, double_encode: false));
             }
