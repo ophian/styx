@@ -228,6 +228,34 @@ function serendipity_sanitizeHtmlComments($str) {
 }
 
 /**
+ * Sanitize RichText Editor removal leftovers, eg. when RT Editor removes image containers bundled in a div, the div may remain. See serendipity_sanitizeHtmlComments() return ! UTF-8 only.
+ */
+function serendipity_sanitizeEditorHtml(string $html) : string {
+    libxml_use_internal_errors(true); // silence errors to internal
+
+    $dom = new DOMDocument();
+    $dom->loadHTML(
+        '<html><meta charset="utf-8">' . $html . '</html>',
+        LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD
+    );
+
+    $xpath = new DOMXPath($dom);
+    $nodes = $xpath->query('//node()');
+
+    $voids = array('area', 'base', 'br', 'col', 'command', 'embed', 'hr', 'img', 'input', 'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr');
+
+    foreach ($nodes as $node) {
+      if (!in_array($node->nodeName, $voids) && !strlen($node->textContent)) {
+        $node->parentNode->removeChild($node);
+      }
+    }
+
+    libxml_use_internal_errors(false); // reset
+
+    return str_replace(['<html><meta charset="utf-8">', '</html>'], '', $dom->saveHTML($dom->documentElement));
+}
+
+/**
  * Prepare a comment for output under different conditions using plain text nl2nr or nl2p option
  * and handle code parts in string (in case again). This does not care about using WYSIWYG or not,
  * since it is used for comment archives (summary) views.
