@@ -21,7 +21,7 @@ if (!headers_sent() && php_sapi_name() !== 'cli') {
         #session_set_cookie_params($cookieParams['lifetime'], $cookieParams['path'], $cookieParams['domain'], $cookieParams['secure'], $cookieParams['httponly']);
         session_set_cookie_params($cookieParams); // use as $options array to support 6th param sameSite ! Requires PHP 7.3.0 ++ !!
         session_name('s9y_' . hash('xxh3', dirname(__FILE__)));
-        session_start();
+        @session_start(); // fail hidden to prevent perm denied errors on empty session_save_path() string(0) "" when autologin has expired
     }
 
     // Prevent session fixation by only allowing sessions that have been sent by the server.
@@ -29,7 +29,7 @@ if (!headers_sent() && php_sapi_name() !== 'cli') {
     // and be regenerated with a system-generated SID.
     // Patch by David Vieira-Kurz of majorsecurity.de
     if (!isset($_SESSION['SERVER_GENERATED_SID'])) {
-        session_regenerate_id(true);
+        @session_regenerate_id(true); // fail hidden to prevent perm denied errors on empty session_save_path() string(0) "" when autologin has expired
         @session_start();
         header('X-Session-Reinit: true');
         $_SESSION['SERVER_GENERATED_SID'] = $_SERVER['REMOTE_ADDR'] . $_SERVER['QUERY_STRING'];
