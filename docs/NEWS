@@ -57,6 +57,8 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix RSS atom1.0 comment sanitizer using wrong str_replace(...replace syntax
+
   * Fix a image-from-MediaLibrary Methusalem bug with isolated page option
 
   * Improve label for entry entryproperties empty spacebox field
