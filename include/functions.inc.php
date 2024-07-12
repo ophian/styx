@@ -1042,7 +1042,7 @@ function serendipity_sendMail($to, $subject, $message, $fromMail, $headers = NUL
 
     // Fix special characters
     $fromName = str_replace(array('"', "\r", "\n"), array("'", '', ''), $fromName);
-    $fromMail = str_replace(array("\r","\n"), array('', ''), $fromMail);
+    $fromMail = str_replace(array("\r","\n"), '', $fromMail);
 
     // Prefix all mail with weblog title
     $subject = '['. $serendipity['blogTitle'] . '] '.  $subject;
@@ -1072,8 +1072,8 @@ function serendipity_sendMail($to, $subject, $message, $fromMail, $headers = NUL
             // Usually this is according to spec, but for us it caused more trouble than
             // it prevented.
             // Regards to Mark Kronsbein for finding this issue!
-            $maildata['subject'] = str_replace(array("\n", "\r"), array('', ''), mb_encode_mimeheader($maildata['subject'], LANG_CHARSET));
-            $maildata['fromName'] = str_replace(array("\n", "\r"), array('', ''), mb_encode_mimeheader($maildata['fromName'], LANG_CHARSET));
+            $maildata['subject'] = str_replace(array("\n", "\r"), '', mb_encode_mimeheader($maildata['subject'], LANG_CHARSET));
+            $maildata['fromName'] = str_replace(array("\n", "\r"), '', mb_encode_mimeheader($maildata['fromName'], LANG_CHARSET));
         }
 
 
