@@ -1132,7 +1132,7 @@ function serendipity_passToCMD($type = null, $source = '', $target = '', $args =
         $do = implode(' ', $args[1]) . ' ' . implode(' ', $args[3]); // else [2] is just an arguments (sizing) string for settings/operators
     }
 
-    $do = str_replace(array('  '), array(' '), $do);
+    $do = str_replace('  ', ' ', $do);
 
     $quality = ($args[4] != -1) ? "-quality {$args[4]}" : '';
 
@@ -1196,7 +1196,7 @@ function serendipity_passToCMD($type = null, $source = '', $target = '', $args =
     if (is_null($cmd)) {
         return false;
     } else {
-        $cmd = str_replace(array('  '), array(' '), $cmd);
+        $cmd = str_replace('  ', ' ', $cmd);
         if ($type == 'format-avif' || (defined('IMAGETYPE_AVIF') && image_type_to_mime_type(IMAGETYPE_AVIF) == $type)) {
             // yeah AVIF takes it all - yammi, gimme more! ;-) 2 Gigs plus the filesize at least
             $mlimit = round(filesize($source)/1024, 0); // in KB
