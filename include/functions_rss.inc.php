@@ -62,7 +62,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
                     $entry['author'] .= ' - ' . ($options['version'] == 'atom1.0' ? htmlspecialchars($entry['ctitle'], ENT_XHTML, LANG_CHARSET, false) : $entry['ctitle']);
                 }
                 if ($options['version'] == 'atom1.0') {
-                    $entry['title'] = str_replace(['&nbsp;', '&#160;', '  '], [' '], $entry['title']);
+                    $entry['title'] = str_replace(['&nbsp;', '&#160;', '  '], ' ', $entry['title']);
                     $entry['title'] = str_replace(' & ', ' + ', $entry['title']); // this weird hotfix is necessary to avoid broken entities (?wherever?) breaking the xml! An entry title is not stored by htmlspecialchars().
                 }
                 $entry['title'] = (!empty($entry['author']) ? $entry['author'] : ANONYMOUS) . ': ' . ($options['version'] == 'atom1.0' ? htmlspecialchars($entry['title'], ENT_XHTML, LANG_CHARSET, false) : $entry['title']);
