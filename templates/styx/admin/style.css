@@ -1637,6 +1637,9 @@ summary {
     border-radius: .5em;
     padding: .5em .25em;
 }
+.plugin_status.installed > .unmet_requirements.msg_error {
+    margin: .25em;
+}
 .theme_file .unmet_requirements.msg_error {
     display: inline;
     margin: initial;
