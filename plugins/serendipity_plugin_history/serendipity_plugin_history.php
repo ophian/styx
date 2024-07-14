@@ -22,7 +22,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.50');
+        $propbag->add('version',       '1.51');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
@@ -240,7 +240,7 @@ class serendipity_plugin_history extends serendipity_plugin
             );
             $e[$x]['title'] = !empty($e[$x]['title']) ? $e[$x]['title'] : 'unknown'; // fixes empty titles for the link
 
-            $date   = !$displaydate ? '' : serendipity_strftime($dateformat, $e[$x]['timestamp']);
+            $date   = !$displaydate ? '' : serendipity_strftime($dateformat, (int) $e[$x]['timestamp']);
             $author = $displayauthor ? $e[$x]['author'] . ': ' : '';
 
             if ($full) {
