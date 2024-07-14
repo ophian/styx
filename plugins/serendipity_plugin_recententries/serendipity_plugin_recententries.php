@@ -22,7 +22,7 @@ class serendipity_plugin_recententries extends serendipity_plugin
         $propbag->add('description',   PLUGIN_RECENTENTRIES_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Christian Machmeier, Christian Brabandt, Judebert, Don Chambers, Ian Styx');
-        $propbag->add('version',       '3.0.0');
+        $propbag->add('version',       '3.0.1');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
@@ -252,7 +252,7 @@ class serendipity_plugin_recententries extends serendipity_plugin
 
                 echo '                        <dt class="serendipity_recententries_entrylink"><a href="' . $entryLink . '" title="' . htmlspecialchars($entry['title']) . '">' . htmlspecialchars($entry['title']) . "</a></dt>\n"
                    . '                        <dd class="serendipity_recententries_entrydate serendipitySideBarDate">'
-                   . htmlspecialchars(serendipity_strftime($dateformat, $entry['timestamp']))
+                   . htmlspecialchars(serendipity_strftime($dateformat, (int) $entry['timestamp']))
                    . "</dd>\n";
             }
             echo "                    </dl>\n";
