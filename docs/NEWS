@@ -57,6 +57,9 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix serendipity_smarty_showCommentForm() error check conditioning for
+    missing ('id' or 'entry') parameter.
+
   * Fix RSS atom1.0 comment sanitizer using wrong str_replace(...replace syntax
 
   * Fix a image-from-MediaLibrary Methusalem bug with isolated page option
