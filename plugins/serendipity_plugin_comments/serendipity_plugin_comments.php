@@ -22,7 +22,7 @@ class serendipity_plugin_comments extends serendipity_plugin
         $propbag->add('description',   PLUGIN_COMMENTS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Garvin Hicking, Tadashi Jokagi, Judebert, G. Brockhaus, Ian Styx');
-        $propbag->add('version',       '1.27');
+        $propbag->add('version',       '1.28');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
@@ -310,7 +310,7 @@ class serendipity_plugin_comments extends serendipity_plugin
 
                     <div class="plugin_comment_wrap">
                         <?=$spawn ?>
-                        <div class="plugin_comment_date"><?php echo htmlspecialchars(serendipity_strftime($dateformat, $row['stamp'])) . str_replace('[clone]', ' <span class="trackback_clone" title="Duplicate trackback summary of [@'.htmlspecialchars($row['cloneof']).']"><svg aria-hidden="true" focusable="false" data-icon="clone" role="img" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512" class="svg-inline fa-clone"><path fill="currentColor" d="M464 0H144c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h320c26.51 0 48-21.49 48-48v-48h48c26.51 0 48-21.49 48-48V48c0-26.51-21.49-48-48-48zm-80 464c0 8.82-7.18 16-16 16H48c-8.82 0-16-7.18-16-16V144c0-8.82 7.18-16 16-16h48v240c0 26.51 21.49 48 48 48h240v48zm96-96c0 8.82-7.18 16-16 16H144c-8.82 0-16-7.18-16-16V48c0-8.82 7.18-16 16-16h320c8.82 0 16 7.18 16 16v320z" class=""></path></svg></span>', $row['clone']);?></div>
+                        <div class="plugin_comment_date"><?php echo htmlspecialchars(serendipity_strftime($dateformat, (int) $row['stamp'])) . str_replace('[clone]', ' <span class="trackback_clone" title="Duplicate trackback summary of [@'.htmlspecialchars($row['cloneof']).']"><svg aria-hidden="true" focusable="false" data-icon="clone" role="img" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512" class="svg-inline fa-clone"><path fill="currentColor" d="M464 0H144c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h320c26.51 0 48-21.49 48-48v-48h48c26.51 0 48-21.49 48-48V48c0-26.51-21.49-48-48-48zm-80 464c0 8.82-7.18 16-16 16H48c-8.82 0-16-7.18-16-16V144c0-8.82 7.18-16 16-16h48v240c0 26.51 21.49 48 48 48h240v48zm96-96c0 8.82-7.18 16-16 16H144c-8.82 0-16-7.18-16-16V48c0-8.82 7.18-16 16-16h320c8.82 0 16 7.18 16 16v320z" class=""></path></svg></span>', $row['clone']);?></div>
                         <div class="plugin_comment_body"><?= strip_tags($entry['comment'], '<img>') ?></div>
                     </div>
 <?php
