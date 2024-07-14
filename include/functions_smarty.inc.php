@@ -474,7 +474,7 @@ function serendipity_smarty_fetchPrintEntries($params, $template) {
 function serendipity_smarty_showCommentForm($params, Smarty_Internal_Template $template) {
     global $serendipity;
 
-    if (empty($params['id']) || empty($params['entry'])) {
+    if (empty($params['id']) && empty($params['entry'])) {
         trigger_error('Smarty Error: ' . __FUNCTION__ . ": missing 'id' or 'entry' parameter", E_USER_WARNING);
         return;
     }
