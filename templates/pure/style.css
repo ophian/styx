@@ -1249,7 +1249,15 @@ nav.pager + .serendipity_blogpdf {
     width: 100%; }
     .post_content blockquote {
       border-left: 5px solid #ccc;
-      padding-left: 1em; }
+      padding-left: 1em;
+      display: block; }
+    /* this element now behaves again like a block element (the pre defined inline-grid is for other cases like comments etc),
+       expands to its max-content width only and
+       starts from left w/o having to style .hljs width fill-available */
+    .post_content pre {
+      display: block;
+      width: fit-content;
+      margin-left: 0; }
     .post_content iframe {
       width: 100%; }
     .post_content table tr {
