@@ -475,8 +475,9 @@ if (!isset($serendipity['GET']['adminAction'])) {
     $serendipity['GET']['adminAction'] = $serendipity['POST']['adminAction'] ?? '';
 }
 
+// NO, NOT on MYSQL alike databases for use of fulltext extended search operators !!!
 // Make sure this variable is always properly sanitized, though it should have gone through routing taking care before. Previously in compat.inc.php, but there LANG_CHARSET was not defined.
-if (isset($serendipity['GET']['searchTerm'])) {
+if (isset($serendipity['GET']['searchTerm']) && $serendipity['dbType'] !== 'mysqli') {
     $serendipity['GET']['searchTerm'] = htmlspecialchars(strip_tags((string)$serendipity['GET']['searchTerm']), double_encode: false);
 }
 
