@@ -2,6 +2,10 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix/improve [ pure ] Standard theme for some media query auto image scale
+    issues and blockquote/pre formatted text blocks element block behavior on
+    Chromium browsers.
+
   * Fix serendipity_admin_image_selector serendipity_build_query(...#2
                             $array_prefix = null expecting array or null type
 
