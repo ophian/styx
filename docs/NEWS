@@ -2,6 +2,8 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix searchTerm filter preparations against MySQLi fulltext operators
+
   * Fix/improve [ pure ] Standard theme for some media query auto image scale
     issues and blockquote/pre formatted text blocks element block behavior on
     Chromium browsers.
