@@ -920,7 +920,7 @@ function serendipity_allowCommentsToggle($entry_id, $switch = 'disable') {
  * @param  string      The 32 character token [if using token based moderation]
  * @return boolean     Success or failure
  */
-function serendipity_approveComment($cid, $entry_id, $force = false, $moderate = false, $token = false) {
+function serendipity_approveComment($cid, $entry_id, $force = false, $moderate = false, $token = null) {
     global $serendipity;
 
     $goodtoken = serendipity_checkCommentToken($token, $cid);
