@@ -216,7 +216,7 @@ function serendipity_sanitizeHtmlComments($str) {
     global $serendipity;
 
     // sanitize and break code blocks which is done per CKEplus plugin independently or by manual inserts for PLAIN EDITORs. (Disable nl2br::comment parsing!)
-    // Do not switch the Editor and save a comment using code examples again, since that my lead to hidden code parts due to the nature of processing the codesnippet CKE plugin
+    // Do not switch the Editor and save a comment using code examples again, since that may lead to hidden code parts due to the nature of processing the codesnippet CKE plugin
     if (empty($serendipity['wysiwyg']) && (strpos($str, '<code') !== false || strpos($str, '<pre') !== false)) {
         $str = serendipity_entityCommentCodeTagBlocks($str);
     }
@@ -806,7 +806,7 @@ function serendipity_printCommentsByAuthor() {
  * @param   string  The 32 character token [if using token based moderation]
  * @return  boolean Return whether the action was successful)
  */
-function serendipity_deleteComment($id, $entry_id, $type='comments', $token=false) {
+function serendipity_deleteComment($id, $entry_id, $type = 'comments', $token = null) {
     global $serendipity;
 
     $id       = (int)$id;
