@@ -57,6 +57,9 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix serendipity_admin_image_selector serendipity_build_query(...#2
+                            $array_prefix = null expecting array or null type
+
   * Fix serendipity_smarty_showCommentForm() error check conditioning for
     missing ('id' or 'entry') parameter.
 
