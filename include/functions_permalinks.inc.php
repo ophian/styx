@@ -631,6 +631,7 @@ function serendipity_archiveURL($id, $title, $key = 'baseURL', $checkrewrite = t
     global $serendipity;
 
     $path = serendipity_makePermalink($serendipity['permalinkStructure'], array('id' => $id, 'title' => $title, 'entry' => $entryData));
+    if (false === $path) return '';
     if ($checkrewrite) {
         $path = serendipity_rewriteURL($path, $key);
     }
@@ -650,6 +651,7 @@ function serendipity_authorURL(&$data, $key = 'baseURL', $checkrewrite = true) {
     global $serendipity;
 
     $path = serendipity_makePermalink($serendipity['permalinkAuthorStructure'], $data, 'author');
+    if (false === $path) return '';
     if ($checkrewrite) {
         $path = serendipity_rewriteURL($path, $key);
     }
@@ -669,6 +671,7 @@ function serendipity_categoryURL(&$data, $key = 'baseURL', $checkrewrite = true)
     global $serendipity;
 
     $path = serendipity_makePermalink($serendipity['permalinkCategoryStructure'], $data, 'category');
+    if (false === $path) return '';
     if ($checkrewrite) {
         $path = serendipity_rewriteURL($path, $key);
     }
@@ -688,6 +691,7 @@ function serendipity_feedCategoryURL(&$data, $key = 'baseURL', $checkrewrite = t
     global $serendipity;
 
     $path = serendipity_makePermalink($serendipity['permalinkFeedCategoryStructure'], $data, 'category');
+    if (false === $path) return '';
     if ($checkrewrite) {
         $path = serendipity_rewriteURL($path, $key);
     }
@@ -707,6 +711,7 @@ function serendipity_feedAuthorURL(&$data, $key = 'baseURL', $checkrewrite = tru
     global $serendipity;
 
     $path = serendipity_makePermalink($serendipity['permalinkFeedAuthorStructure'], $data, 'author');
+    if (false === $path) return '';
     if ($checkrewrite) {
         $path = serendipity_rewriteURL($path, $key);
     }
