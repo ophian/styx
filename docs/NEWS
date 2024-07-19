@@ -57,6 +57,9 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve /comment/ summary pages "code" pre format and other nested styles
+    in [ boot, b5blog, b53, b46 ] themes, following the [ pure ] standards.
+
   * Fix searchTerm filter preparations against MySQLi fulltext operators
 
   * Fix/improve [ pure ] Standard theme for some media query auto image scale
