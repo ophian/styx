@@ -159,7 +159,7 @@ html *::-webkit-scrollbar-thumb {
   border-radius: 20px;
   border: 3px solid #f5f5f5; }
 /* Others Browsers */
-html, body, ol, ul, select, textarea {
+html, body, ol, ul, select, textarea, pre {
   scrollbar-width: thin;
   scrollbar-color: #1c2128 #f5f5f5; }
 
@@ -230,7 +230,7 @@ html[data-dark-theme="dark"] *::-webkit-scrollbar-thumb {
 [data-dark-theme="dark"] *::-webkit-scrollbar-corner {
    background-color: #22272f; }
 /* Others Browsers */
-html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="dark"] ol, [data-dark-theme="dark"] ul, [data-dark-theme="dark"] select, [data-dark-theme="dark"] textarea {
+html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="dark"] ol, [data-dark-theme="dark"] ul, [data-dark-theme="dark"] select, [data-dark-theme="dark"] textarea, [data-dark-theme="dark"] pre {
   scrollbar-color: #8899b1 #1c2128; }
 
 /* more or less sectioned dark-theme styles */
@@ -1251,12 +1251,15 @@ nav.pager + .serendipity_blogpdf {
       border-left: 5px solid #ccc;
       padding-left: 1em;
       display: block; }
-    /* this element now behaves again like a block element (the pre defined inline-grid is for other cases like comments etc),
-       expands to its max-content width only and
+    /* this element now behaves again like a block element,
+       expands to its auto width only,
+       heights to a max viewport height before scroll and
        starts from left w/o having to style .hljs width fill-available */
-    .post_content pre {
+    .post_content pre,
+    .comment_content pre {
       display: block;
-      width: fit-content;
+      width: auto;
+      max-height: 100vh;
       margin-left: 0; }
     .post_content iframe {
       width: 100%; }
@@ -1783,10 +1786,6 @@ ol.plainList > .comment.commentlevel-16 {
 .comment_content pre code {
     font-size: 14px;
     font-size: .875rem;
-}
-.comment_content pre {
-    width: 100%;
-    min-width: auto;
 }
 .comment.commentlevel-maxpart pre:after {
     content: '.. c o d e ';
