@@ -52,7 +52,7 @@ switch ($_GET['type']) {
     case 'comments_and_trackbacks':
     case 'trackbacks':
     case 'comments':
-        $latest_entry = serendipity_fetchComments($_GET['cid'], 1, 'co.id desc', false, $_GET['type']);
+        $latest_entry = serendipity_fetchComments((int) $_GET['cid'], '1', 'co.id desc', false, $_GET['type']);
         break;
     case 'content':
     default:
@@ -105,7 +105,7 @@ switch ($_GET['type']) {
     case 'comments_and_trackbacks':
     case 'trackbacks':
     case 'comments':
-        $entries     = serendipity_fetchComments($_GET['cid'], (int)$serendipity['RSSfetchLimit'], 'co.id desc', false, $_GET['type']);
+        $entries     = serendipity_fetchComments((int) $_GET['cid'], $serendipity['RSSfetchLimit'], 'co.id desc', false, $_GET['type']);
         $description = $title . ' - ' . $description;
         if (isset($_GET['cid'])) {
             $title   = $title . ' - ' . COMMENTS_FROM . ' "' . $latest_entry[0]['title'] . '"';
