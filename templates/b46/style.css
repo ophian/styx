@@ -765,7 +765,10 @@ ul.pagination {
   font-size: .875em; }
 
 pre {
+  width: auto;
   min-width: 20em;
+  height: auto;
+  max-height: 100vH;
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word; }
@@ -889,6 +892,10 @@ article.post li .pc-owner {
   .comment_content .alert {
     display: -webkit-inline-box;
     display: inline-block; }
+  .comment_content ul {
+    margin-bottom: 1em; }
+  .comment_content blockquote ul {
+    clear: both; }
 #trackback_url {
   font-weight: bold;
   padding-top: .5rem;
