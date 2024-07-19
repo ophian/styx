@@ -532,7 +532,7 @@ nav ul, nav ol {
   margin: 0;
   padding: 0; }
 
-html, body, table, .cke_emoji-outer_emoji_block {
+html, body, table, pre, .cke_emoji-outer_emoji_block {
   scrollbar-width: thin;
   scrollbar-color: #8899b1 #1e2127; }
 
@@ -897,7 +897,10 @@ html[data-bs-theme="dark"] .serendipity_entryIcon {
   font-size: .875em; }
 
 pre {
+  width: auto;
   min-width: 20em;
+  height: auto;
+  max-height: 100vH;
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word; }
@@ -1071,6 +1074,10 @@ article.post li .pc-owner {
   .comment_content .alert {
     display: -webkit-inline-box;
     display: inline-block; }
+  .comment_content ul {
+    margin-bottom: 1em; }
+  .comment_content blockquote ul {
+    clear: both; }
 #trackback_url {
   font-weight: bold;
   padding-top: .5rem;
