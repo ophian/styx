@@ -854,7 +854,7 @@ function &serendipity_smarty_printComments($params, $template) {
         $params['order'] = 'ASC';
     }
 
-    $params['limit'] = isset($params['limit']) ? (int)$params['limit'] : null;
+    $params['limit'] = isset($params['limit']) ? (string) $params['limit'] : null;
     $params['order'] = $params['order'] ?? '';
 
     $comments = serendipity_fetchComments((int) $params['entry'], $params['limit'], 'co.id ' . $params['order']);
