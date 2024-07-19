@@ -202,7 +202,7 @@ if (isset($serendipity['GET']['adminAction'])
     }
 
     if ($_id > 0 && $_entry_id > 0 && ($serendipity['GET']['adminAction'] == 'reply' || $serendipity['GET']['adminAction'] == 'doReply')) {
-        $c = serendipity_fetchComments($_entry_id, 1, 'co.id', false, 'NORMAL', ' AND co.id=' . $_id);
+        $c = serendipity_fetchComments($_entry_id, '1', 'co.id', false, 'NORMAL', ' AND co.id=' . $_id);
         $p = $c[0]['parent_id'] = 0; // copy comments parent_id, since we also want to get a previewed reply view for multidepth comments
         if (isset($serendipity['POST']['preview'])) {
             $c[] = array(
