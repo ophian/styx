@@ -57,6 +57,8 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Update templates Highlight.js asset to v11.9.0 (git: b7ec4bfafc)
+
   * Improve /comment/ summary pages "code" pre format and other nested styles
     in [ boot, b5blog, b53, b46 ] themes, following the [ pure ] standards.
 
