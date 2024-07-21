@@ -58,7 +58,7 @@ $media = array(
     'token_url'  => serendipity_setFormToken('url'),
     'imgID'      => $serendipity['GET']['image'] ?? 0,
     'from'       => empty($serendipity['GET']['from']) ? $serendipity['baseURL'] : $serendipity['GET']['from'],/* see media_showitems.tpl back to blog anchors */
-    'GET_STRING' => serendipity_build_query($import_vars, ['serendipity'], '&'),
+    'GET_STRING' => serendipity_build_query($import_vars, 'serendipity', '&'),
     'paths'      => serendipity_getMediaPaths()
 );
 
