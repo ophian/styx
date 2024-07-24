@@ -1794,7 +1794,7 @@ function serendipity_generateCategoryList($cats, $select = array(0), $type = 0, 
                     $ret .= $cat['categoryid'] . '|||' . str_repeat($blank_char, $level * 2) . $cat['category_name'] . '@@@';
                     break;
             }
-            $ret .= serendipity_generateCategoryList($cats, $select, $type, $cat['categoryid'], $level + 1, $xmlImg, $blank_char);
+            $ret .= serendipity_generateCategoryList($cats, $select, $type, (int) $cat['categoryid'], (int) $level + 1, $xmlImg, $blank_char);
         }
     }
     return $ret;
