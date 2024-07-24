@@ -251,7 +251,7 @@ class serendipity_event_entryproperties extends serendipity_event
         global $serendipity;
 
         // Get existing data
-        $property = serendipity_fetchEntryProperties($eventData['id']);
+        $property = serendipity_fetchEntryProperties((int) $eventData['id']);
         $supported_properties = serendipity_event_entryproperties::getSupportedProperties();
 
         // Cleanup properties first, if none disable_markups plugins were set like in PLAIN TEXT Editor, or a previous selected one was re-set
