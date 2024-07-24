@@ -19,7 +19,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.27');
+        $propbag->add('version',       '3.28');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'php'         => '8.2'
@@ -437,14 +437,14 @@ class serendipity_event_spartacus extends serendipity_event
             $fContent = serendipity_request_url($url, extra_options: $options);
 
             try {
-                if ($serendipity['last_http_request']['responseCode'] != '200') {
+                if (isset($serendipity['last_http_request']['responseCode']) && $serendipity['last_http_request']['responseCode'] != '200') {
                     throw new HTTP_Request2_Exception('Statuscode not 200, Akismet HTTP verification request failed.');
                 }
             } catch (HTTP_Request2_Exception $e) {
                 $resolved_url = $url . ' (IP ' . $url_ip . ')';
                 $this->outputMSG('error', sprintf(PLUGIN_EVENT_SPARTACUS_FETCHERROR, $resolved_url));
                 //--JAM: START FIREWALL DETECTION
-                if ($serendipity['last_http_request']['responseCode']) {
+                if (isset($serendipity['last_http_request']['responseCode'])) {
                     $this->outputMSG('error', sprintf(PLUGIN_EVENT_SPARTACUS_REPOSITORY_ERROR, $serendipity['last_http_request']['responseCode']));
                 }
                 $check_health = true;
@@ -490,7 +490,7 @@ class serendipity_event_spartacus extends serendipity_event
                 $fContent = serendipity_request_url($health_url, extra_options: $health_options);
 
                 try {
-                    if ($serendipity['last_http_request']['responseCode'] != '200') {
+                    if (isset($serendipity['last_http_request']['responseCode']) && $serendipity['last_http_request']['responseCode'] != '200') {
                         $this->outputMSG('error', sprintf(PLUGIN_EVENT_SPARTACUS_HEALTHERROR, $serendipity['last_http_request']['responseCode']));
                         $this->outputMSG('notice', sprintf(PLUGIN_EVENT_SPARTACUS_HEALTHLINK, $health_url));
                     } else {
@@ -515,6 +515,10 @@ class serendipity_event_spartacus extends serendipity_event
                 // Fetch file
                 if (empty($data)) {
                     $data = $fContent;
+                }
+
+                if (false === $data) {
+                    return $data;
                 }
 
                 if ($debug) {
@@ -642,6 +646,10 @@ class serendipity_event_spartacus extends serendipity_event
             $serendipity['spartacus_rawPluginPath'] = $mirror; // add a global var for plugin upgrade remote path documentaries usage
 
             $xml = $this->fetchfile($url, $target, $cacheTimeout, true);
+        }
+
+        if (false === $xml) {
+            return $xml;
         }
 
         $new_crc  = hash('xxh3', $xml);
@@ -887,6 +895,10 @@ class serendipity_event_spartacus extends serendipity_event
 
     function &buildTemplateList(&$tree)
     {
+        if (false === $tree) {
+            return $tree;
+        }
+
         global $serendipity;
 
         $pluginstack = array();
