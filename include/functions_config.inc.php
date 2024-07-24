@@ -1623,11 +1623,13 @@ function &serendipity_fetchGroup($groupid) {
         }
     }
 
-    // The following are unique
-    $conf['name']      = $groups[0]['name'];
-    $conf['id']        = $groups[0]['id'];
-    $conf['confkey']   = $groups[0]['confkey'];
-    $conf['confvalue'] = $groups[0]['confvalue'];
+    if (!empty($conf) && !empty($groups[0])) {
+        // The following are unique
+        $conf['name']      = $groups[0]['name'] ?? null;
+        $conf['id']        = $groups[0]['id'] ?? null;
+        $conf['confkey']   = $groups[0]['confkey'] ?? null;
+        $conf['confvalue'] = $groups[0]['confvalue'] ?? null;
+    }
 
     return $conf;
 }
