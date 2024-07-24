@@ -77,9 +77,9 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
     $data['releaseFUrl']  = serendipity_get_config_var('updateReleaseFileUrl', 'https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE');
     $data['isCustom']     = $data['releaseFUrl'] != 'https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE' ? true : false;
     $data['curVersName']  = $serendipity['updateVersionName'] ?? null;
-    $data['update']       = version_compare($data['usedVersion'], $data['curVersion'], '<');
-    $is_major             = ($data['curVersion'][0] > 4 && PHP_VERSION_ID >= 80200);
-    if ($is_major === true || $data['curVersion'][0] < 5) {
+    $data['update']       = $data['curVersion'] !== -1 ? version_compare($data['usedVersion'], $data['curVersion'], '<') : false;
+    $is_major             = $data['curVersion'] !== -1 ? ($data['curVersion'][0] > 4 && PHP_VERSION_ID >= 80200) : false;
+    if ($is_major === true || ($data['curVersion'] !== -1 && $data['curVersion'][0] < 5)) {
         serendipity_plugin_api::hook_event('plugin_dashboard_updater', $output, $data['curVersion']);
     } else {
         $data['update'] = true; // Announce available upgrade todo
