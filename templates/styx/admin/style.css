@@ -1702,6 +1702,8 @@ summary {
 .serendipity_statistics > .wide_box {
     min-height: .01%;
     overflow-x: auto;
+    display: inline-grid;
+    width: 100%;
 }
 
 .serendipity_statistics > .wide_box table {
