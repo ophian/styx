@@ -57,6 +57,9 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve staticpage searchresult template for empty headline list link
+    cases in [ pure, boot ] themes.
+
   * Better catch networking connect return errors in spartacus and refer data
 
   * Update templates Highlight.js asset to v11.9.0 (git: b7ec4bfafc)
