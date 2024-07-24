@@ -666,8 +666,8 @@ function &serendipity_fetchEntry($key, $val, $full = true, $fetchDrafts = 'false
     $ret =& serendipity_db_query($querystring, true, 'assoc');
 
     if (is_array($ret)) {
-        $ret['categories'] =& serendipity_fetchEntryCategories($ret['id']);
-        $ret['properties'] =& serendipity_fetchEntryProperties($ret['id']);
+        $ret['categories'] =& serendipity_fetchEntryCategories((int) $ret['id']);
+        $ret['properties'] =& serendipity_fetchEntryProperties((int) $ret['id']);
         $stack     = array();
         $stack[0]  = &$ret;
         $assoc_ids = array($ret['id'] => 0);
@@ -1676,7 +1676,7 @@ function serendipity_updertEntry($entry) {
         // shall only be send at the end of the execution flow. However, certain plugins depend on
         // the existence of handled references. Thus we store the current references at this point,
         // execute the plugins and then reset the found references to the original state.
-        serendipity_handle_references($entry['id'], $serendipity['blogTitle'], $drafted_entry['title'], $drafted_entry['body'] . @$drafted_entry['extended'], true);
+        serendipity_handle_references((int) $entry['id'], $serendipity['blogTitle'], $drafted_entry['title'], $drafted_entry['body'] . @$drafted_entry['extended'], true);
     }
 
     // Send publish tags if either a new article has been inserted from scratch, or if the entry was previously
@@ -1691,7 +1691,7 @@ function serendipity_updertEntry($entry) {
     if (!serendipity_db_bool($entry['isdraft']) && $entry['timestamp'] <= serendipity_serverOffsetHour()) {
         // Now that plugins are executed, we go ahead into the Temple of Doom and send possibly failing trackbacks.
         // First, original list of references is restored (inside the function call)
-        serendipity_handle_references($entry['id'], $serendipity['blogTitle'], $drafted_entry['title'], $drafted_entry['body'] . @$drafted_entry['extended'], false);
+        serendipity_handle_references((int) $entry['id'], $serendipity['blogTitle'], $drafted_entry['title'], $drafted_entry['body'] . @$drafted_entry['extended'], false);
     }
 
     serendipity_cleanCache();
