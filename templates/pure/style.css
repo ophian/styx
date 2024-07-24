@@ -2510,6 +2510,7 @@ div.serendipityPlug a {
      width: max-content; }
   .archive_year {
     width: 46%;
+    margin: auto 1.5% 1.5% auto;
     vertical-align: top; }
 }
 
@@ -2525,6 +2526,9 @@ div.serendipityPlug a {
   html {
     font-size: calc(.45rem + 1vw); /* sizes SMALLER SCREENS text responsively from ~14px to 15.7833px; */
   }
+}
+@media screen and (min-width: 860px) and (max-width: 1023px) {
+  .archive_year { width: 47.875%; }
 }
 
 /* For MIDDLE SCREENS above */
@@ -2671,4 +2675,7 @@ div.serendipityPlug a {
     max-width: initial; }
   #navbar ul li.navsearch {
     margin-right: 1em; }
+}
+@media screen and (min-width: 1490px) {
+  .archive_year { width: 47.875%; }
 }
