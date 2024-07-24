@@ -425,14 +425,14 @@ function serendipity_smarty_fetchPrintEntries($params, $template) {
     }
 
     serendipity_printEntries(
-        $entry,                                 // Entry data
-        (!empty($params['id']) ? true : false), // Extended data?
-        $params['preview'],                     // Entry preview?
+        $entry,                         // Entry data
+        !empty($params['id']),          // Extended data?
+        $params['preview'],             // Entry preview?
         'ENTRIES',
-        false,                                  // Prevent Smarty parsing
+        false,                          // Prevent Smarty parsing
         $params['use_hooks'],
         $params['use_footer'],
-        ($params['groupmode'] == 'date' ? false : true) // Grouping of $entry
+        $params['groupmode'] === 'date' // Grouping of $entry?
     );
 
     // Restore the $serendipity array after our modifications.
