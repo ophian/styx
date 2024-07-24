@@ -66,7 +66,7 @@ switch (@$serendipity['GET']['action']) {
                 serendipity_header('Status: 404 Not found'); // overwrite Status 200
             }
 
-            serendipity_printEntries($entry, 1);
+            serendipity_printEntries($entry, true);
         } else {
             $range = $serendipity['range'] ?? null;
             // reset summaryFetchLimit on year month ie. '/archives/2018/07.html' cases
