@@ -2332,8 +2332,28 @@ div.serendipityPlug a {
 .post p .serendipity_image_right,
 .post div .serendipity_image_left,
 .post div .serendipity_image_right {
+    min-width: 100%;
     max-width: 46.75%; }
 
+/* fake a min-width overwrite that has the most chance not to underflow the image size
+   and still be big enough to fit the max-width scales
+   - see default serendipity_image_block.row style_fallback.css which normally has 260px max width
+     but here having example with div class="serendipity_imageComment_left" style="width:138px;" - border 10px = 128px min-width */
+@media screen and (min-width: 768px) {
+    .page .serendipity_imageComment_left,
+    .page .serendipity_imageComment_right,
+    .page p .serendipity_image_left,
+    .page p .serendipity_image_right,
+    .post .serendipity_imageComment_left,
+    .post .serendipity_imageComment_right,
+    .post p .serendipity_image_left,
+    .post p .serendipity_image_right,
+    .grid-col .post div .serendipity_image_left:not([srcset*=".400W."]),
+    .grid-col .post div .serendipity_image_right:not([srcset*=".400W."]),
+    .post div.serendipity_image_block.row .serendipity_image_left,
+    .post div.serendipity_image_block.row .serendipity_image_right {
+        min-width: 128px; }
+}
 @media screen and (min-width: 640px) {
     .page .serendipity_imageComment_left,
     .page .serendipity_imageComment_right,
@@ -2446,6 +2466,19 @@ div.serendipityPlug a {
     .post div .serendipity_image_right:not([srcset*=".800W."]) {
         max-width: 100%; }
 }
+
+/* re-spawn max-width scales for some legacy poor man galleries mostly in comment boxes */
+.grid-col .post div.serendipity_image_block.row .serendipity_image_left,
+.grid-col .post div.serendipity_image_block.row .serendipity_image_right,
+.grid-col .post .serendipity_image_block > div > div .serendipity_image_left:not([srcset*=".400W."]),
+.grid-col .post .serendipity_image_block > div > div .serendipity_image_right:not([srcset*=".400W."]),
+.grid-col .post .serendipity_image_block > div > div .serendipity_image_left:not([srcset*=".800W."]),
+.grid-col .post .serendipity_image_block > div > div .serendipity_image_right:not([srcset*=".800W."]),
+.grid-col .post figure div .serendipity_image_left:not([srcset*=".400W."]),
+.grid-col .post figure div .serendipity_image_right:not([srcset*=".400W."]),
+.grid-col .post figure div .serendipity_image_left:not([srcset*=".800W."]),
+.grid-col .post figure div .serendipity_image_right:not([srcset*=".800W."]) {
+  max-width: 100%; }
 
 /* overwrite fallback plain image padding */
 .serendipity_image_center {
