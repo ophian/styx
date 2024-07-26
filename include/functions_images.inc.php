@@ -88,7 +88,7 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
     // Normally in MediaLibrary views only!
     // Set filters have to avoid using hideSubDirFiles - so we need to check for something unique in filters and check every values state to find out - otherwise be consistent for category
     if (!empty($serendipity['GET']['filter'])) {
-        $sfilters = array_filter($serendipity['GET']['filter']);
+        $sfilters = array_filter($serendipity['GET']['filter']); // filter out empty values in the PRIMARY dimension
         // reset for empty value iteration
         if (!empty($sfilters['fileCategory'])) {
             if ($sfilters['fileCategory'] == 'all') {
@@ -4414,6 +4414,7 @@ function serendipity_parseMediaProperties(&$dprops, &$keywords, &$media, &$props
 function serendipity_mediaTypeCast($key, $val, $invert = false) {
     if (stristr($key, 'date') !== FALSE) {
         if ($invert && is_numeric($val)) {
+            if ($val === '0') $val = null;
             return serendipity_strftime(DATE_FORMAT_SHORT, $val, false);
         } elseif ($invert === false) {
             $tmp = strtotime($val);
@@ -6513,10 +6514,10 @@ function showMediaLibrary($addvar_check = false, $smarty_vars = array()) {
     );
 
     $output .= serendipity_displayImageList(
-        $serendipity['GET']['page'] ?? 1,
+        (int) ($serendipity['GET']['page'] ?? 1),
         serendipity_db_bool(($serendipity['GET']['showMediaToolbar'] ?? true)),
         NULL,
-        $serendipity['GET']['showUpload'] ?? false,
+        serendipity_db_bool(($serendipity['GET']['showUpload'] ?? false)),
         NULL,
         $smarty_vars
     );
