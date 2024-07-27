@@ -2334,6 +2334,8 @@ div.serendipityPlug a {
 .post .serendipity_imageComment_right,
 .post p .serendipity_image_left,
 .post p .serendipity_image_right,
+.grid-col .post div .serendipity_image_left:not([srcset*=".400W."]),
+.grid-col .post div .serendipity_image_right:not([srcset*=".400W."]),
 .post div .serendipity_image_left,
 .post div .serendipity_image_right {
     min-width: 100%;
@@ -2342,7 +2344,9 @@ div.serendipityPlug a {
 /* fake a min-width overwrite that has the most chance not to underflow the image size
    and still be big enough to fit the max-width scales
    - see default serendipity_image_block.row style_fallback.css which normally has 260px max width
-     but here having example with div class="serendipity_imageComment_left" style="width:138px;" - border 10px = 128px min-width */
+     but here having example with div class="serendipity_imageComment_left" style="width:138px;"
+     (normally border 10px = 128px) min-width now works with 100% and -moz/-webkit-fill-available in
+     .serendipity_image_block.xxx gallery cases. Yee-haw! */
 @media screen and (min-width: 768px) {
     .page .serendipity_imageComment_left,
     .page .serendipity_imageComment_right,
@@ -2352,11 +2356,17 @@ div.serendipityPlug a {
     .post .serendipity_imageComment_right,
     .post p .serendipity_image_left,
     .post p .serendipity_image_right,
-    .grid-col .post div .serendipity_image_left:not([srcset*=".400W."]),
-    .grid-col .post div .serendipity_image_right:not([srcset*=".400W."]),
+    .grid-col .post div:not(.serendipity_image_block.col,.serendipity_image_block.row) .serendipity_image_left:not([srcset*=".400W."]),
+    .grid-col .post div:not(.serendipity_image_block.col,.serendipity_image_block.row) .serendipity_image_right:not([srcset*=".400W."]),
     .post div.serendipity_image_block.row .serendipity_image_left,
     .post div.serendipity_image_block.row .serendipity_image_right {
-        min-width: 128px; }
+        min-width: auto; }
+    .grid-col .post div.serendipity_image_block.col .serendipity_image_left:not([srcset*=".400W."]),
+    .grid-col .post div.serendipity_image_block.col .serendipity_image_right:not([srcset*=".400W."]),
+    .grid-col .post div.serendipity_image_block.row .serendipity_image_left:not([srcset*=".400W."]),
+    .grid-col .post div.serendipity_image_block.row .serendipity_image_right:not([srcset*=".400W."]) {
+        min-width: -moz-available;
+        min-width: -webkit-fill-available; }
 }
 @media screen and (min-width: 640px) {
     .page .serendipity_imageComment_left,
