@@ -815,7 +815,7 @@ function serendipity_smarty_rss_getguid($params, $template) {
  * @return
  */
 function serendipity_smarty_formatTime($timestamp, $format, $useOffset = true, $detectTimestamp = false, $useDate = false) {
-    if ($detectTimestamp !== false && stristr($detectTimestamp, 'date') === false) {
+    if ($detectTimestamp !== false && ($detectTimestamp === 'DigitalDateCreated' || stristr($detectTimestamp, 'date') === false)) {
         return $timestamp;
     }
 
