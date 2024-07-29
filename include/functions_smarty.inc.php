@@ -823,7 +823,7 @@ function serendipity_smarty_formatTime($timestamp, $format, $useOffset = true, $
         try {
             $dateTime = \DateTime::createFromFormat('Ymd|', $timestamp);
             $timestamp = $dateTime->getTimestamp();
-        } catch (Exception $e) {
+        } catch (\Throwable $t) {
             return $timestamp;
         }
     }
