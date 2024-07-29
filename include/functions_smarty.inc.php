@@ -822,8 +822,12 @@ function serendipity_smarty_formatTime($timestamp, $format, $useOffset = true, $
     }
     // Here we either have valid timestamps or datetime strings since they can happen in 'DigitalDateCreated', 'ExpirationDate' and ...?
     if (is_string($timestamp) && strlen($timestamp) === 8) {
-        $dateTime = \DateTime::createFromFormat('Ymd|', $timestamp);
-        $timestamp = $dateTime->getTimestamp();
+        try {
+            $dateTime = \DateTime::createFromFormat('Ymd|', $timestamp);
+            $timestamp = $dateTime->getTimestamp();
+        } catch (Exception $e) {
+            return $timestamp;
+        }
     }
 
     if (defined($format)) {
