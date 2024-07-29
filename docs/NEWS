@@ -2,8 +2,8 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Fix long standing issue with some media IPTC meta field data values to not
-    use a timestamp conversion for 'YYYYmmdd' alike formatted digit strings.
+  * Fix long standing issue with some media IPTC meta field data values to a
+    better timestamp conversion for 'YYYYmmdd' alike formatted digit strings.
 
   * Improve staticpage searchresult template for empty headline list link
     cases in [ pure, boot ] themes.
