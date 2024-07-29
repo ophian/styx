@@ -817,8 +817,13 @@ function serendipity_smarty_rss_getguid($params, $template) {
  * @return
  */
 function serendipity_smarty_formatTime($timestamp, $format, $useOffset = true, $detectTimestamp = false, $useDate = false) {
-    if ($detectTimestamp !== false && (($detectTimestamp === 'DigitalDateCreated' && strlen($timestamp) === 8) || stristr($detectTimestamp, 'date') === false)) {
+    if ($detectTimestamp !== false && stristr($detectTimestamp, 'date') === false) {
         return $timestamp;
+    }
+    // Here we either have valid timestamps or datetime strings since they can happen in 'DigitalDateCreated', 'ExpirationDate' and ...?
+    if (is_string($timestamp) && strlen($timestamp) === 8) {
+        $dateTime = \DateTime::createFromFormat('Ymd|', $timestamp);
+        $timestamp = $dateTime->getTimestamp();
     }
 
     if (defined($format)) {
