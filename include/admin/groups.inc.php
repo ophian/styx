@@ -13,7 +13,7 @@ $data = array();
 /* Delete a group */
 if (isset($_POST['DELETE_YES']) && serendipity_checkFormToken()) {
     $group = serendipity_fetchGroup($serendipity['POST']['group']);
-    if (serendipity_deleteGroup($serendipity['POST']['group'])) {
+    if (serendipity_deleteGroup((int) $serendipity['POST']['group'])) {
         $data['delete_yes'] = true;
     } else {
         $data['delete_yes'] = false;
