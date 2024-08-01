@@ -1731,21 +1731,21 @@ function serendipity_deleteEntry($id) {
 }
 
 /**
-* Return HTML containing a list of categories
-*
-* Prints a list of categories for use in forms, the sidebar, or wherever...
-*
-* @access public
-* @param array  An array of categories, typically gathered by serendipity_fetchCategories()
-* @param array  An array which holds IDs which are meant to be selected within a HTML SELECT form field [used for recursion]
-* @param int    The type of category list (0: HTML span list, 1/2: <option>s, 3: HTML Div list, 4: CSV data) to return
-* @param int    The parent ID of a category [for recursion]
-* @param int    The current nesting level [for recursion]
-* @param string Tells the function, whether or not to display the XML button for each category.
-*               If empty, no links to the XML feeds will be displayed; If you want to, you can
-*               pass an image here (this setting is only used, when type==3).
-* @param string The character to use for blank indenting
-* @see serendipity_fetchCategories()
+ * Return HTML containing a list of categories
+ *
+ * Prints a list of categories for use in forms, the sidebar, or wherever...
+ *
+ * @access public
+ * @param array  An array of categories, typically gathered by serendipity_fetchCategories()
+ * @param array  An array which holds IDs which are meant to be selected within a HTML SELECT form field [used for recursion]
+ * @param int    The type of category list (0: HTML span list, 1/2: <option>s, 3: HTML Div list, 4: CSV data) to return
+ * @param int    The parent ID of a category [for recursion]
+ * @param int    The current nesting level [for recursion]
+ * @param string Tells the function, whether or not to display the XML button for each category.
+ *               If empty, no links to the XML feeds will be displayed; If you want to, you can
+ *               pass an image here (this setting is only used, when type==3).
+ * @param string The character to use for blank indenting
+ * @see serendipity_fetchCategories()
 */
 function serendipity_generateCategoryList($cats, $select = array(0), $type = 0, $id = 0, $level = 0, $xmlImg = '', $blank_char = ' ') {
     global $serendipity;
