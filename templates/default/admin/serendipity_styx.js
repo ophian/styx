@@ -1049,6 +1049,14 @@
         }
     }
 
+    serendipity.deSelect = function(id) {
+        var elements = document.getElementById(id).options;
+
+        for(var i = 0; i < elements.length; i++){
+          elements[i].selected = false;
+        }
+    }
+
     serendipity.tagsList = function() {
         var $source = $('#properties_freetag_tagList').val();
         var $target = $('#tags_list > ul');
