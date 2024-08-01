@@ -2,6 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Allow to programmatically deSelect (reset) multi-select field in group form
+
   * Fix a [ pure ] theme space issue between cased image container components
 
   * Merge Smarty security update v.4.5.3 to custom Styx v.4.5.3-dev4
