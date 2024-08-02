@@ -402,11 +402,13 @@ $i = 0;
 $comments = array();
 $cofakets = time();
 
+$_searchCFTB = $serendipity['GET']['filter']['body'] ??= null;
+
 if (is_array($sql)) {
     foreach($sql AS $rs) {
         $i++;
         $comment = array(
-            'fullBody'  => $rs['body'],
+            'fullBody'  => serendipity_commentSearchHighlight($_searchCFTB, $rs['body']),
             'summary'   => serendipity_mb('substr', $rs['body'], 0, $summaryLength),
             'status'    => $rs['status'],
             'type'      => $rs['type'],
