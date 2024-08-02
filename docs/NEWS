@@ -2,6 +2,9 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Implement comment search term highlight used for comment full body data
+    in comment list.
+
   * Allow to programmatically deSelect (reset) multi-select field in group form
 
   * Fix a [ pure ] theme space issue between cased image container components
