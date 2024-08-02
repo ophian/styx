@@ -180,6 +180,31 @@ function serendipity_forgetCommentDetails($keys) {
 }
 
 /**
+ * Replace comment search term with a highlight pattern tag
+ * Used for comment full body data in comment list
+ *
+ * Args:
+ *      - The search term that has run the SQL
+ *      - The comment result full body text data string
+ * Returns:
+ *      - The modified string if match
+ */
+function serendipity_commentSearchHighlight(?string $search, string $string) : string {
+    if (null === $search) return $string;
+
+    $words = explode(' ', urldecode($search));
+    $escaped_words = array_map(function ($word) {
+        return preg_quote($word, '/');
+    }, $words);
+
+    $pattern = '\b(?:' . implode('|', $escaped_words) . ')\b';
+    $clone = $string;
+    $clone = preg_replace('/'.$pattern.'(?: '.$pattern.')*/is', '<span class="cofu_hlg" title="'.QUICKSEARCH.'">$0</span>', $clone);
+
+    return is_string($clone) ? $clone : $string;
+}
+
+/**
  * Sanitize the comments body to use entities inside <code>|<pre> tags for PLAIN EDITORs
  *
  * @param   string
