@@ -4419,7 +4419,7 @@ function serendipity_mediaTypeCast($key, $val, $invert = false) {
         } elseif ($invert === false) {
             $tmp = strtotime($val);
             if ($tmp !== FALSE && $tmp > 1) {
-                return $tmp;
+                return (string) $tmp;
             }
         }
     } elseif ($invert && stristr($key, 'length') !== FALSE) {
@@ -4503,7 +4503,7 @@ function serendipity_insertMediaProperty($property_group, $property_subgroup, $i
 
             foreach($use_val AS $insert_key => $insert_val) {
                 if ($use_cast) {
-                    $insert_val = serendipity_mediaTypeCast($insert_key, ($insert_val ?? ''));
+                    $insert_val = serendipity_mediaTypeCast($insert_key, (string) ($insert_val ?? ''));
                 }
                 $q = sprintf("INSERT INTO {$serendipity['dbPrefix']}mediaproperties
                                           (mediaid, property_group, property_subgroup, property, value)
@@ -4535,18 +4535,18 @@ function serendipity_parsePropertyForm() {
     serendipity_checkPropertyAccess($serendipity['POST']['mediaProperties'], $serendipity['POST']['mediaKeywords'], 'write');
 
     foreach($serendipity['POST']['mediaProperties'] AS $id => $media) {
-        serendipity_insertMediaProperty('base_property', 'ALL', $media['image_id'], $media);
+        serendipity_insertMediaProperty('base_property', 'ALL', (int) $media['image_id'], $media);
 
         $s9y_img = $media['internal'];
         $s9y_img['image_id'] = $media['image_id'];
         serendipity_prepareMedia($s9y_img);
         $s9y_img['metadata'] =& serendipity_getMetaData($s9y_img['realfile'], $s9y_img['header']);
-        serendipity_insertMediaProperty('base_metadata', 'ALL', $media['image_id'], $s9y_img['metadata']);
+        serendipity_insertMediaProperty('base_metadata', 'ALL', (int) $media['image_id'], $s9y_img['metadata']);
         $s9y_img['hidden'] = array(
             'author'   => $serendipity['serendipityUser'],
             'authorid' => $serendipity['authorid']
         );
-        serendipity_insertMediaProperty('base_hidden', '', $media['image_id'], $s9y_img['hidden']);
+        serendipity_insertMediaProperty('base_hidden', '', (int) $media['image_id'], $s9y_img['hidden']);
 
     }
 
@@ -4564,7 +4564,7 @@ function serendipity_parsePropertyForm() {
     // check media properties form sub case changing the media keywords
     if (is_array($serendipity['POST']['mediaKeywords'])) {
         foreach($serendipity['POST']['mediaKeywords'] AS $id => $keywords) {
-            serendipity_insertMediaProperty('base_keyword', '', $serendipity['POST']['mediaProperties'][$id]['image_id'], $keywords);
+            serendipity_insertMediaProperty('base_keyword', '', (int) $serendipity['POST']['mediaProperties'][$id]['image_id'], $keywords);
         }
     }
 

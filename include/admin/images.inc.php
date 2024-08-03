@@ -678,7 +678,7 @@ switch ($serendipity['GET']['adminAction']) {
             );
 
             foreach($new_media AS $nm) {
-                serendipity_insertMediaProperty('base_hidden', '', $nm['image_id'], $hidden);
+                serendipity_insertMediaProperty('base_hidden', '', (int) $nm['image_id'], $hidden);
             }
             $data['showML'] = showMediaLibrary(true);
         }
