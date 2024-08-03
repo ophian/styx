@@ -62,6 +62,9 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix/Refactor images from database (SQL) order parameter from Styx v.2.8.1
+    for Syncs. Reset type back to string for multiple order fields.
+
   * Fix long standing issue with some media IPTC meta field data values to a
     better timestamp conversion for 'YYYYmmdd' alike formatted digit strings.
 
