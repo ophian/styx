@@ -40,7 +40,7 @@ function serendipity_isActiveFile($file) {
  * @param   int     The offset to start fetching media files
  * @param   int     How many items to fetch
  * @param   int     The number (referenced variable) of fetched items
- * @param   mixed   The "ORDER BY" SQL part when fetching items. As a simple 0-key array, eg. array('x, y') for matching database field orders
+ * @param   string  The "ORDER BY" SQL part when fetching items.
  * @param   string  Order by DESC or ASC
  * @param   string  Only fetch files from a specific directory
  * @param   string  Only fetch specific filenames (including check for realname match) - deprecated, since now in filters
@@ -71,10 +71,6 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
 
     if (empty($ordermode) || ($ordermode != 'DESC' && $ordermode != 'ASC')) {
         $ordermode = 'DESC';
-    }
-
-    if (is_array($order)) {
-        $order = $order[0];
     }
 
     if ($order == 'name') {
@@ -1878,7 +1874,7 @@ function serendipity_generateVariations($id = null) {
     foreach($parts AS $part) {
         echo "    <li>" . sprintf(SYNC_IMAGE_LIST_ITERATION_RANGE_PART, $iteration, ($count[0]-$part)) . "</li>\n";
         // we use and set a filter extension for webp to get same results for the part range
-        $files = serendipity_fetchImagesFromDatabase($part, 25, $total, array('path, name'), 'ASC', '', '', '', array('by.extension' => array(0 => 'jpg', 1 => 'jpeg', 2 => 'png')));
+        $files = serendipity_fetchImagesFromDatabase($part, 25, $total, 'path, name', 'ASC', '', '', '', array('by.extension' => array(0 => 'jpg', 1 => 'jpeg', 2 => 'png')));
         if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag FETCH PART $iteration DB FILES: ".print_r($files,true)); }
         if (is_array($files) && !empty($files)) {
             foreach($files AS $f => $file) {
@@ -2025,7 +2021,7 @@ function serendipity_generateThumbs() {
     global $serendipity;
 
     $i = 0;
-    $serendipity['imageList'] = serendipity_fetchImagesFromDatabase(0, 0, $total, array('path, name'), 'ASC');
+    $serendipity['imageList'] = serendipity_fetchImagesFromDatabase(0, 0, $total, 'path, name', 'ASC');
     $_list = '';
     $m = []; // message array for full file sync
 
