@@ -101,11 +101,11 @@ if (isset($_POST['SAVE_NEW']) && serendipity_checkFormToken()) {
 
                     if (serendipity_checkConfigItemFlags($item, 'local')) {
                         $_isSelf = (isset($serendipity['POST']['authorid']) && $serendipity['authorid'] == $serendipity['POST']['authorid']) ? true : false;
-                        serendipity_set_user_var($item['var'], $_POST[$item['var']], $serendipity['POST']['user'], $_isSelf);
+                        serendipity_set_user_var($item['var'], $_POST[$item['var']], (int) $serendipity['POST']['user'], $_isSelf);
                     }
 
                     if (serendipity_checkConfigItemFlags($item, 'configuration')) {
-                        serendipity_set_config_var($item['var'], $_POST[$item['var']], $serendipity['POST']['user']);
+                        serendipity_set_config_var($item['var'], $_POST[$item['var']], (int) $serendipity['POST']['user']);
                     }
                 }
             }
