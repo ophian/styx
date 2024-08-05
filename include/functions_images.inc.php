@@ -65,7 +65,7 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
 
     $orderfields = serendipity_getImageFields();
 
-    if (empty($order) || (!is_array($order)) && !isset($orderfields[$order])) {
+    if (empty($order) || !isset($orderfields[$order])) {
         $order = 'i.date';
     }
 
@@ -1551,7 +1551,7 @@ function serendipity_scaleImg($id, $width, $height, $scaleThumbVariation=false) 
                     if ($debug) { $serendipity['logger']->debug("GD Library Scale WebP File command: {$owebp}, with {$rws[0]}x{$rws[1]} via serendipity_resizeImageGD()."); }
                     if ($scaleThumbVariation && file_exists($owebpTH)) {
                         // if particularly wished, (silently) force scale Thumb Variation too
-                        $nz = serendipity_calculateAspectSize($width, $height, $serendipity['thumbSize'], $serendipity['imageConstraint']);
+                        $nz = serendipity_calculateAspectSize($width, $height, (int) $serendipity['thumbSize'], $serendipity['imageConstraint']);
                         $rs = serendipity_resizeImageGD($owebpTH, $owebpTH, $nz[0], $nz[1]);
                         if (false !== $rs && is_array($rs) && $debug) {
                             $serendipity['logger']->debug("GD Library Scale WebP Thumb File command: {$owebpTH}, with {$rs[0]}x{$rs[1]} via serendipity_resizeImageGD().");
@@ -1569,7 +1569,7 @@ function serendipity_scaleImg($id, $width, $height, $scaleThumbVariation=false) 
                     if ($debug) { $serendipity['logger']->debug("GD Library Scale AVIF File command: {$oavif}, with {$rws[0]}x{$rws[1]} via serendipity_resizeImageGD()."); }
                     if ($scaleThumbVariation && file_exists($oavifTH)) {
                         // if particularly wished, (silently) force scale Thumb Variation too
-                        $nz = serendipity_calculateAspectSize($width, $height, $serendipity['thumbSize'], $serendipity['imageConstraint']);
+                        $nz = serendipity_calculateAspectSize($width, $height, (int) $serendipity['thumbSize'], $serendipity['imageConstraint']);
                         $rs = serendipity_resizeImageGD($oavifTH, $oavifTH, $nz[0], $nz[1]);
                         if (false !== $rs && is_array($rs) && $debug) {
                             $serendipity['logger']->debug("GD Library Scale AVIF Thumb File command: {$oavifTH}, with {$rs[0]}x{$rs[1]} via serendipity_resizeImageGD().");
@@ -1603,7 +1603,7 @@ function serendipity_scaleImg($id, $width, $height, $scaleThumbVariation=false) 
                     if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Scale WebP File command: {$reswebp[2]}, with {$width}x{$height}."); }
                     if ($scaleThumbVariation && file_exists($owebpTH)) {
                         // if particularly wished, (silently) force scale Thumb Variation too
-                        $nz    = serendipity_calculateAspectSize($width, $height, $serendipity['thumbSize'], $serendipity['imageConstraint']);
+                        $nz    = serendipity_calculateAspectSize($width, $height, (int) $serendipity['thumbSize'], $serendipity['imageConstraint']);
                         $pass  = [ $serendipity['convert'], ['-scale'], [], ["\"{$nz[0]}x{$nz[1]}\""], 75, -1 ];
                         $resTH = serendipity_passToCMD('image/webp', $owebpTH, $owebpTH, $pass);
                         if (is_array($resTH) && $resTH[0] == 0 && $debug) {
@@ -1622,7 +1622,7 @@ function serendipity_scaleImg($id, $width, $height, $scaleThumbVariation=false) 
                     if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Scale AVIF File command: {$resavif[2]}, with {$width}x{$height}."); }
                     if ($scaleThumbVariation && file_exists($oavifTH)) {
                         // if particularly wished, (silently) force scale Thumb Variation too
-                        $nz    = serendipity_calculateAspectSize($width, $height, $serendipity['thumbSize'], $serendipity['imageConstraint']);
+                        $nz    = serendipity_calculateAspectSize($width, $height, (int) $serendipity['thumbSize'], $serendipity['imageConstraint']);
                         $pass  = [ $serendipity['convert'], ['-scale'], [], ["\"{$nz[0]}x{$nz[1]}\""], 75, -1 ];
                         $resTH = serendipity_passToCMD('image/avif', $oavifTH, $oavifTH, $pass);
                         if (is_array($resTH) && $resTH[0] == 0 && $debug) {
@@ -2717,7 +2717,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                     }
                 } else {
                     // Calculate correct thumbnail size from original image
-                    $expect = serendipity_calculateAspectSize($fdim[0], $fdim[1], $serendipity['thumbSize'], $serendipity['imageConstraint']);
+                    $expect = serendipity_calculateAspectSize($fdim[0], $fdim[1], (int) $serendipity['thumbSize'], $serendipity['imageConstraint']);
                     // Check actual thumbnail size
                     if ($tdim[0] != $expect[0] || $tdim[1] != $expect[1]) {
                         // This thumbnail is incorrect; delete it so
@@ -4755,7 +4755,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
         $file['thumbHeight'] = $file['dim'][1] ?? null;
         $file['thumbSize']   = isset($file['full_path_thumb']) ? filesize($file['full_path_thumb']) : null;
     } elseif ($file['is_image'] && isset($file['hotlink'])) {
-        $sizes = serendipity_calculateAspectSize($file['dimensions_width'], $file['dimensions_height'], $serendipity['thumbSize'], $serendipity['imageConstraint']);
+        $sizes = serendipity_calculateAspectSize((int) $file['dimensions_width'], (int) $file['dimensions_height'], (int) $serendipity['thumbSize'], $serendipity['imageConstraint']);
         $file['thumbWidth']  = $sizes[0];
         $file['thumbHeight'] = $sizes[1];
         $file['thumbSize']   = 0;
