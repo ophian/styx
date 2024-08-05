@@ -87,11 +87,11 @@ if ($serendipity['GET']['adminAction'] == 'save' && serendipity_checkFormToken()
                 if (isset($item['view']) && $item['view'] == 'dangerous') continue;
 
                 if (serendipity_checkConfigItemFlags($item, 'local')) {
-                    serendipity_set_user_var($item['var'], $_POST[$item['var']], $serendipity['authorid'], true);
+                    serendipity_set_user_var($item['var'], $_POST[$item['var']], (int) $serendipity['authorid'], true);
                 }
 
                 if (serendipity_checkConfigItemFlags($item, 'configuration')) {
-                    serendipity_set_config_var($item['var'], $_POST[$item['var']], $serendipity['authorid']);
+                    serendipity_set_config_var($item['var'], $_POST[$item['var']], (int) $serendipity['authorid']);
                 }
             }
 
