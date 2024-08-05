@@ -171,7 +171,7 @@ switch ($serendipity['GET']['adminAction']) {
         break;
 
     case 'delete':
-        $file = serendipity_fetchImageFromDatabase($serendipity['GET']['fid']);
+        $file = serendipity_fetchImageFromDatabase((int) $serendipity['GET']['fid']);
 
         if (!is_array($file) || !serendipity_checkPermission('adminImagesDelete')
         || (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid'])) {
@@ -200,9 +200,9 @@ switch ($serendipity['GET']['adminAction']) {
         $_multiSelectImages = $serendipity['POST']['multiSelect'];
         unset($serendipity['POST']['multiSelect']);
         foreach($_multiSelectImages AS $media_id) {
-            $file = serendipity_fetchImageFromDatabase((int)$media_id);
+            $file = serendipity_fetchImageFromDatabase((int) $media_id);
             serendipity_prepareMedia($file);
-            $file['props'] =& serendipity_fetchMediaProperties((int)$media_id);
+            $file['props'] =& serendipity_fetchMediaProperties((int) $media_id);
             #if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_SELECTMULTIGALLERYITEMS: Images MediaProperties: " . print_r($file['props'],true)); }
             serendipity_plugin_api::hook_event('media_getproperties_cached', $file['props']['base_metadata'], $file['realfile']);
             // serendipity_fetchMediaProperties() returns either with subgroup key properties or without, by case having saved the media items properties page before. Do not trust viewed items, since they may be copy-placed EXIF data of the image itself not having been saved.
@@ -262,7 +262,7 @@ switch ($serendipity['GET']['adminAction']) {
             if ($serendipity['POST']['oldDir'] != $nDir) {
                 $i = 0;
                 foreach($multiMoveImages AS $mkey => $move_id) {
-                    $file = serendipity_fetchImageFromDatabase((int)$move_id);
+                    $file = serendipity_fetchImageFromDatabase((int) $move_id);
                     $oDir = $file['path']; // this now is the exact oldDir path of this ID
                     $mMDr = serendipity_moveMediaDirectory($oDir, $nDir, 'file', (int)$move_id, $file);
                     ++$i;
@@ -289,7 +289,7 @@ switch ($serendipity['GET']['adminAction']) {
         $data['rip_image']        = array();
         $data['case_multidelete'] = true;
         foreach($serendipity['POST']['multiCheck'] AS $idx => $id) {
-            $ids .= (int)$id . ',';
+            $ids .= (int) $id . ',';
             $image = serendipity_fetchImageFromDatabase($id);
             $data['rip_image'][] = sprintf(DELETE_SURE, $image['id'] . ' - ' . serendipity_specialchars($image['realname']));
         }
@@ -304,7 +304,7 @@ switch ($serendipity['GET']['adminAction']) {
         break;
 
     case 'rename':
-        $file = serendipity_fetchImageFromDatabase($serendipity['GET']['fid']);
+        $file = serendipity_fetchImageFromDatabase((int) $serendipity['GET']['fid']);
 
         if (LANG_CHARSET == 'UTF-8') {
             // yeah, turn on content to be a real utf-8 string, which it isn't at this point! Else serendipity_makeFilename() can not work!
@@ -353,7 +353,7 @@ switch ($serendipity['GET']['adminAction']) {
             if ($serendipity['POST']['mediaFormat'][0]['oldMime'] != $serendipity['POST']['mediaFormat'][0]['newMime']
             && serendipity_checkPermission('adminImagesDelete') && serendipity_checkPermission('adminImagesMaintainOthers')) {
                 // fetch file
-                $file = serendipity_fetchImageFromDatabase((int)$serendipity['POST']['mediaProperties'][0]['image_id']);
+                $file = serendipity_fetchImageFromDatabase((int) $serendipity['POST']['mediaProperties'][0]['image_id']);
                 // convert file format and all relevant follow-up actions, which are real file change, real file thumb change, database changes, entry changes, ep cache changes, staticpage changes
                 serendipity_convertImageFormat($file, $serendipity['POST']['mediaFormat'][0]['oldMime'], $serendipity['POST']['mediaFormat'][0]['newMime']);
             }
@@ -510,7 +510,7 @@ switch ($serendipity['GET']['adminAction']) {
                                 // is one run only
                                 foreach($thumbs AS $thumb) {
                                     // Create thumbnail
-                                    if ($created_thumbnail = serendipity_makeThumbnail($tfile, $serendipity['POST']['target_directory'][$tindex], $thumb['thumbSize'], $thumb['thumb'])) {
+                                    if ($created_thumbnail = serendipity_makeThumbnail($tfile, $serendipity['POST']['target_directory'][$tindex], (int) $thumb['thumbSize'], $thumb['thumb'])) {
                                         $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . THUMB_CREATED_DONE . "</span>\n", "<b>{$thumb['thumb']}</b> &#8660; <b>$tfile</b>");
                                     }
                                 }
@@ -647,7 +647,7 @@ switch ($serendipity['GET']['adminAction']) {
                         // is one run only
                         foreach($thumbs AS $thumb) {
                             // Create thumbnail
-                            if ($created_thumbnail = serendipity_makeThumbnail($tfile, $serendipity['POST']['target_directory'][$idx], $thumb['thumbSize'], $thumb['thumb'])) {
+                            if ($created_thumbnail = serendipity_makeThumbnail($tfile, $serendipity['POST']['target_directory'][$idx], (int) $thumb['thumbSize'], $thumb['thumb'])) {
                                 $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . THUMB_CREATED_DONE . "</span>\n", "<b>{$thumb['thumb']}</b> &#8660; <b>$uploadfile</b>");
                             }
                         }
@@ -926,7 +926,7 @@ switch ($serendipity['GET']['adminAction']) {
         break;
 
     case 'rotateCW':
-        $file = serendipity_fetchImageFromDatabase($serendipity['GET']['fid']);
+        $file = serendipity_fetchImageFromDatabase((int) $serendipity['GET']['fid']);
 
         if (!is_array($file) || !serendipity_checkPermission('adminImagesDelete')
         || (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid'])) {
@@ -945,7 +945,7 @@ switch ($serendipity['GET']['adminAction']) {
         break;
 
     case 'rotateCCW':
-        $file = serendipity_fetchImageFromDatabase($serendipity['GET']['fid']);
+        $file = serendipity_fetchImageFromDatabase((int) $serendipity['GET']['fid']);
 
         if (!is_array($file) || !serendipity_checkPermission('adminImagesDelete')
         || (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid'])) {
@@ -964,7 +964,7 @@ switch ($serendipity['GET']['adminAction']) {
         break;
 
     case 'scale':
-        $file = serendipity_fetchImageFromDatabase($serendipity['GET']['fid']);
+        $file = serendipity_fetchImageFromDatabase((int) $serendipity['GET']['fid']);
 
         if (!is_array($file) || !serendipity_checkFormToken() || !serendipity_checkPermission('adminImagesDelete')
         || (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid'])) {
@@ -993,7 +993,7 @@ switch ($serendipity['GET']['adminAction']) {
         break;
 
     case 'scaleSelect':
-        $file = serendipity_fetchImageFromDatabase($serendipity['GET']['fid']);
+        $file = serendipity_fetchImageFromDatabase((int) $serendipity['GET']['fid']);
         $_file['is_image'] = serendipity_isImage($file);
 
         if (!is_array($file) || !$_file['is_image'] || !serendipity_checkPermission('adminImagesDelete')
@@ -1034,7 +1034,7 @@ switch ($serendipity['GET']['adminAction']) {
         break;
 
     case 'choose':
-        $file          = serendipity_fetchImageFromDatabase($serendipity['GET']['fid']);
+        $file          = serendipity_fetchImageFromDatabase((int) $serendipity['GET']['fid']);
         $media['file'] = &$file;
         if (!is_array($file)) {
             $media['perm_denied'] = true;
