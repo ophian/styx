@@ -161,7 +161,7 @@ switch($serendipity['GET']['adminAction']) {
                     if ($catid == 0 || empty($catid)) {
                         continue; // empty avoids incomplete category items (checkups)
                     }
-                    $entry['categories'][] = serendipity_fetchCategoryInfo($catid);
+                    $entry['categories'][] = serendipity_fetchCategoryInfo((int) $catid);
                 }
 
                 if (count($entry['categories']) < 1) {

@@ -70,7 +70,7 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
         $categories = (array)$entry['categories'];
         $entry['categories'] = array();
         foreach($categories AS $catid) {
-            $entry['categories'][] = serendipity_fetchCategoryInfo($catid);
+            $entry['categories'][] = serendipity_fetchCategoryInfo((int) $catid);
         }
     }
 
