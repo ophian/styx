@@ -174,7 +174,7 @@ switch ($serendipity['GET']['step']) {
             break;
         }
         $media['file'] = &$file;
-        $keywords = $dprops = '';
+        $keywords = $dprops = [];
 
         serendipity_prepareMedia($file);
 
@@ -254,10 +254,10 @@ switch ($serendipity['GET']['step']) {
             exit;
         }
 
-        $media['file']['props'] =& serendipity_fetchMediaProperties((int)$serendipity['GET']['image']);
+        $media['file']['props'] =& serendipity_fetchMediaProperties((int) $serendipity['GET']['image']);
         serendipity_plugin_api::hook_event('media_getproperties_cached', $media['file']['props']['base_metadata'], $media['file']['realfile']);
 
-        serendipity_parseMediaProperties($keywords, $dprops, $media['file'], $media['file']['props'], 0, false);
+        serendipity_parseMediaProperties($dprops, $keywords, $media['file'], $media['file']['props'], 0, false);
         serendipity_plugin_api::hook_event('frontend_media_showitem', $media);
         if (!empty($media['perm_denied'])) {
             unset($media['file']);
