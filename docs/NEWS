@@ -2,6 +2,8 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix [ default-php ] theme media_showitems.tpl conditionals
+
   * Fix/Refactor images from database (SQL) order parameter from Styx v.2.8.1
     for Syncs. Reset type back to string for multiple order fields.
 
