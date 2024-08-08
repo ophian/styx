@@ -4,7 +4,8 @@ Version 4.4.3-DEV ()
 
   * Fix some buggy serendipity_admin_image_selector.php parameters
 
-  * Fix [ default-php ] theme media_showitems.tpl conditionals
+  * Fix [ default-php ] theme media_showitems.tpl conditionals and a rare case
+    of used staticpage-entries-listing.tpl template.
 
   * Fix/Refactor images from database (SQL) order parameter from Styx v.2.8.1
     for Syncs. Reset type back to string for multiple order fields.
