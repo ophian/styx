@@ -6,15 +6,15 @@
     <title><?= (!empty($GLOBALS['tpl']['media']['file']['props']['base_property']['ALL']['TITLE']) ? $GLOBALS['tpl']['media']['file']['props']['base_property']['ALL']['TITLE'] : $GLOBALS['tpl']['media']['file']['realname']) ?></title>
     <meta name="generator" content="Serendipity Styx Edition v.<?= $GLOBALS['tpl']['serendipityVersion'] ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<?php if (in_array($GLOBALS['tpl']['view'], ['start', 'entries', 'entry', 'feed', 'plugin']) || !empty($GLOBALS['tpl']['staticpage_pagetitle']) || (isset($GLOBALS['tpl']['robots_index']) && $GLOBALS['tpl']['robots_index'] == 'index')): ?>
+<?php if (isset($GLOBALS['tpl']['view']) && in_array($GLOBALS['tpl']['view'], ['start', 'entries', 'entry', 'feed', 'plugin']) || !empty($GLOBALS['tpl']['staticpage_pagetitle']) || (isset($GLOBALS['tpl']['robots_index']) && $GLOBALS['tpl']['robots_index'] == 'index')): ?>
     <meta name="robots" content="index,follow">
 <?php else: ?>
     <meta name="robots" content="noindex,follow">
 <?php endif; ?>
-<?php if ($GLOBALS['tpl']['view'] == 'entry' && isset($GLOBALS['tpl']['entry'])): ?>
+<?php if (isset($GLOBALS['tpl']['view']) && $GLOBALS['tpl']['view'] == 'entry' && isset($GLOBALS['tpl']['entry'])): ?>
     <link rel="canonical" href="{$entry.rdf_ident}">
 <?php endif; ?>
-<?php if (in_array($GLOBALS['tpl']['view'], ['start', 'entries'])): ?>
+<?php if (isset($GLOBALS['tpl']['view']) && in_array($GLOBALS['tpl']['view'], ['start', 'entries'])): ?>
     <link rel="canonical" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?>">
 <?php endif; ?>
     <link rel="stylesheet" href="<?= $GLOBALS['tpl']['head_link_stylesheet'] ?>" type="text/css">
@@ -33,7 +33,7 @@
 </div>
 
 <div id="mainpane">
-    <main id="content" <?php if ($GLOBALS['tpl']['template_option']['imgstyle'] != 'none'): ?> class="<?= $GLOBALS['tpl']['template_option']['imgstyle'] ?>"<?php endif; ?>>
+    <main id="content" <?php if (isset($GLOBALS['tpl']['template_option']['imgstyle']) && $GLOBALS['tpl']['template_option']['imgstyle'] != 'none'): ?> class="<?= $GLOBALS['tpl']['template_option']['imgstyle'] ?>"<?php endif; ?>>
         <article class="clearfix serendipity_entry">
             <h2><?= (!empty($GLOBALS['tpl']['media']['file']['props']['base_property']['ALL']['TITLE']) ? $GLOBALS['tpl']['media']['file']['props']['base_property']['ALL']['TITLE'] : '') ?></h2>
         <?php if (!empty($GLOBALS['tpl']['perm_denied'])): ?>
@@ -52,7 +52,7 @@
     </main>
 
     <aside id="serendipityRightSideBar" valign="top">
-    <?php if ($GLOBALS['tpl']['media']['file']['base_property']): ?>
+    <?php if (isset($GLOBALS['tpl']['media']['file']['base_property'])): ?>
         <section class="media_props_base sidebar_plugin clearfix">
             <h3><?= MEDIA_PROP ?></h3>
 
@@ -117,7 +117,7 @@
 </div>
 
 <?php endif; ?>
-<?php if (!empty($GLOBALS['tpl']['raw_data'])) ?><?= $GLOBALS['tpl']['raw_data'] ?><?php endif; ?>
+<?php if (!empty($GLOBALS['tpl']['raw_data'])): ?><?= $GLOBALS['tpl']['raw_data'] ?><?php endif; ?>
 <?php /*serendipity_plugin_api::hook_event('frontend_footer', $GLOBALS['tpl']) *//* ENABLE TO USE any plugin hooked assets which often need an active jQuery lib */ ?>
 <?php if ($GLOBALS['tpl']['is_embedded'] != true): ?>
 </body>
