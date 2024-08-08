@@ -1265,6 +1265,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
     $urltoken = serendipity_setFormToken('url');
 
     foreach($dategroup AS $dategroup_idx => $properties) {
+        $properties['entries'] ??= []; // non-isset ($properties['entries']) empty case on some staticpages (staticpage with related category -> staticpage-entries.listing.tpl)
         foreach($properties['entries'] AS $x => $_entry) {
             if ($smarty_fetch === 'return') {
                 $entry = &$dategroup[$dategroup_idx]['entries'][$x]; // PHP4 Compat
@@ -1468,6 +1469,8 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
             } // END FULL ENTRY LOGIC
         } // end foreach-loop (entries)
     } // end foreach-loop (dates)
+
+    $num_entries ??= 0; // see default-php staticpage case which alerts to have no entries (which btw is true in this case, since being a static page entries-listing.tpl with no further entries content)
 
     if (!isset($serendipity['GET']['id']) &&
             (!isset($serendipity['hidefooter']) || $serendipity['hidefooter'] == false) &&
