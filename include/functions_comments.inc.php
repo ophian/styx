@@ -11,12 +11,14 @@ if (IN_serendipity !== true) {
 /**
  * Check if a comment token (ie. from comment notification email) is valid for a given comment id.
  *
- * @param string    The Token
- * @param int       The comment id
+ * Args:
+ *      - The comment token string OR NULL
+ *      - The comment ID
+ * Returns:
+ *      - Boolean success or fail
  * @access public
- * @return bool
  */
-function serendipity_checkCommentToken($token, $cid) {
+function serendipity_checkCommentToken(?string $token, int $cid) : bool {
     global $serendipity;
 
     $goodtoken = false;
@@ -34,11 +36,11 @@ function serendipity_checkCommentToken($token, $cid) {
 
         // Delete any comment tokens older than 1 week.
         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
-                               WHERE okey LIKE 'comment_%' AND $cast < " . (time() - 604800) );
+                               WHERE okey LIKE 'comment_%' AND {$cast} < " . (time() - 604800) );
 
         // Get the token for this comment id
         $tokencheck = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}options
-                                             WHERE okey = 'comment_" . (int)$cid . "' LIMIT 1", true, 'assoc');
+                                             WHERE okey = 'comment_{$cid}' LIMIT 1", true, 'assoc');
 
         // Verify it against the passed key
         if (is_array($tokencheck)) {
@@ -46,7 +48,7 @@ function serendipity_checkCommentToken($token, $cid) {
                 $goodtoken = true;  // use this to bypass security checks later
                 // if using tokens, delete this comment from that list no matter how we got here
                 serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
-                                       WHERE okey = 'comment_" . (int)$cid . "'");
+                                       WHERE okey = 'comment_{$cid}'");
             }
         }
     }
@@ -58,11 +60,13 @@ function serendipity_checkCommentToken($token, $cid) {
  * Check if a comment token was submitted to the serendipity main framework.
  * This function can kill the workflow completely, if moderation was wanted.
  *
- * @param  string   The current base URI
+ * Args:
+ *      - The URI string
+ * Returns:
+ *      - void
  * @access public
- * @return null
  */
-function serendipity_checkCommentTokenModeration($uri) {
+function serendipity_checkCommentTokenModeration(string $uri) : void {
     global $serendipity;
 
     // token based comment moderation starts here
@@ -123,10 +127,13 @@ function serendipity_checkCommentTokenModeration($uri) {
 /**
  * Store the personal details of a commenting user in a cookie (or delete that cookie)
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
  * @access public
- * @return null
  */
-function serendipity_rememberComment() {
+function serendipity_rememberComment() : void {
     global $serendipity;
 
     if (isset($serendipity['POST']['remember'])) {
@@ -146,12 +153,13 @@ function serendipity_rememberComment() {
 /**
  * Store all options of an array within a permanent cookie
  *
+ * Args:
+ *      - Permanent Cookie details array
+ * Returns:
+ *      - void
  * @access public
- * @param   array   input array
- * @return null
  */
-function serendipity_rememberCommentDetails($details) {
-    global $serendipity;
+function serendipity_rememberCommentDetails(iterable $details) : void {
 
     foreach($details AS $n => $v) {
         serendipity_setCookie($n, $v);
@@ -160,14 +168,15 @@ function serendipity_rememberCommentDetails($details) {
 
 /**
  * Purge stored options from a permanent cookie
+ * Array of key names that shall be deleted inside cookies
  *
- * LONG
- *
+ * Args:
+ *      - Permanent Cookie key names array
+ * Returns:
+ *      - void
  * @access public
- * @param   array   Array of key names that shall be deleted inside cookies
- * @return null
  */
-function serendipity_forgetCommentDetails($keys) {
+function serendipity_forgetCommentDetails(iterable $keys) : void {
     global $serendipity;
 
     if (!$serendipity['COOKIE']) {
@@ -206,11 +215,13 @@ function serendipity_commentSearchHighlight(?string $search, string $string) : s
 
 /**
  * Sanitize the comments body to use entities inside <code>|<pre> tags for PLAIN EDITORs
- *
- * @param   string
- * @return  string  The sanitized string
+ * Args:
+ *      - The comment body string
+ * Returns:
+ *      - The sanitized comment body string
+ * @access private
  */
-function serendipity_entityCommentCodeTagBlocks($str) {
+function serendipity_entityCommentCodeTagBlocks(string $str) : string {
     $code_callback = function($matches) {
         return '<code' . $matches[1] . '>' . htmlentities($matches[2], encoding: LANG_CHARSET, double_encode: false) . '</code>';
     };
@@ -234,10 +245,13 @@ function serendipity_entityCommentCodeTagBlocks($str) {
 
 /**
  * Sanitize (strips) the comments body for non-allowed HTML only
- * @param   string  The comments body string
- * @return  string  The sanitized string
+ * Args:
+ *      - HTML comment string
+ * Returns:
+ *      - The stripped string
+ * @access private
  */
-function serendipity_sanitizeHtmlComments($str) {
+function serendipity_sanitizeHtmlComments(string $str) : string {
     global $serendipity;
 
     // sanitize and break code blocks which is done per CKEplus plugin independently or by manual inserts for PLAIN EDITORs. (Disable nl2br::comment parsing!)
@@ -255,6 +269,12 @@ function serendipity_sanitizeHtmlComments($str) {
 /**
  * Sanitize RichText Editor removal leftovers, eg. when RT Editor removes image containers bundled in a div, the div may remain. UTF-8 only.
  * @see serendipity_sanitizeHtmlComments() return !
+ *
+ * Args:
+ *      - The html string
+ * Returns:
+ *      - Removed leftovers string
+ * @access private
  */
 function serendipity_sanitizeEditorHtml(string $html) : string {
     libxml_use_internal_errors(true); // silence errors to internal
@@ -286,8 +306,15 @@ function serendipity_sanitizeEditorHtml(string $html) : string {
  * and handle code parts in string (in case again). This does not care about using WYSIWYG or not,
  * since it is used for comment archives (summary) views.
  * This is plain fetch data from database w/o having passed via NL2BR
+ *
+ * Args:
+ *      - Comment data string from database including certain HTML tags
+ *      - Parse or not
+ * Returns:
+ *      - String
+ * @access private
  */
-function serendipity_prepCommentNewline($string, $parsed=false) {
+function serendipity_prepCommentNewline(string $string, bool $parsed = false) : string {
     // check for simple p-tag first - do not if true. This is/was a comment by ISOBR default.
     if (!str_contains($string, '</p>')) {
         $parsed = true;
@@ -303,8 +330,15 @@ function serendipity_prepCommentNewline($string, $parsed=false) {
 
 /**
  * Check a comment being stripped for output under different conditions
+ *
+ * Args:
+ *      - The comment string
+ *      - Boolean stripped or not
+ * Returns:
+ *      - Boolean
+ * @access private
  */
-function serendipity_isCommentStripped($string, $stripped=false) {
+function serendipity_isCommentStripped(string $string, bool $stripped = false) : bool {
     if (empty(trim($string))) {
         return true;
     } else {
@@ -315,17 +349,19 @@ function serendipity_isCommentStripped($string, $stripped=false) {
 /**
  * Display the Comment form for entries
  *
+ * Args:
+ *      - The EntryID to show the commentform for
+ *      - The URL that acts as the target of the HTML Form
+ *      - Array of existing comments to this entry
+ *      - Array of personal details data (i.e. from Cookie or POST input)
+ *      - Toggle whether to show extended options of the comment form
+ *      - Toggle whether comments to this entry are allowed
+ *      - The data of the entry that the comment is referring to
+ * Returns:
+ *      - void
  * @access public
- * @param   int     The EntryID to show the commentform for
- * @param   string  The URL that acts as the target of the HTML Form
- * @param   array   Array of existing comments to this entry
- * @param   array   Array of personal details data (i.e. from Cookie or POST input)
- * @param   boolean Toggle whether to show extended options of the comment form
- * @param   boolean Toggle whether comments to this entry are allowed
- * @param   array   The data of the entry that the comment is referring to
- * @return null
  */
-function serendipity_displayCommentForm($id, $url = '', $comments = NULL, $data = NULL, $showToolbar = true, $moderate_comments = true, $entry = null) {
+function serendipity_displayCommentForm(int $id, string $url, ?iterable $comments, ?iterable $data, bool $showToolbar = true, bool $moderate_comments = true, ?iterable $entry = null) : void {
     global $serendipity;
 
     if ($comments === NULL) {
@@ -344,7 +380,7 @@ function serendipity_displayCommentForm($id, $url = '', $comments = NULL, $data 
     // Using FALSE is insecure in principle and borks editor forms having pre code codesnippets when an entry is a review from database. They MUST stay converted
     // in both (PLAIN/RT) mode cases; BUT IN SPECIAL for the RT-Editor with auto switch mode Advanced-Content-Filter (ACF) cleanups; AND for ACF on SAVE submits.
     // See 'commentform_data' assignment.
-    // These (saved) ACF cleanups (for the decoded snippet tags) could break out the PRE CODE tag element gutter and destroy the page HTML, producing access issues,
+    // These (saved) ACF cleanups (for the decoded snippet "<>" tags) could break out the PRE CODE tag element gutter and destroy the page HTML, producing access issues,
     // i.e. when the snippet had unclosed tags, etc.
 
     // So generally I think it is better to be strict and clean here and therefore accept (elder) other HTML ENTITIES outside the code blocks being not decoded
@@ -364,7 +400,7 @@ function serendipity_displayCommentForm($id, $url = '', $comments = NULL, $data 
         }
         if (isset($entry_comment_parents)) {
             $entry_comment_parents[] = 0; // add a parent 0 ID
-            sort($entry_comment_parents);
+            sort($entry_comment_parents); // sort them all
         }
     }
 
@@ -402,15 +438,18 @@ function serendipity_displayCommentForm($id, $url = '', $comments = NULL, $data 
 /**
  * Fetch an array of comments to a specific entry id
  *
+ * Args:
+ *      - The Entry ID to fetch comments for OR NULL
+ *      - How many comments to fetch (empty: all) OR NULL
+ *      - How shall comments be ordered (ASC|DESC) OR NULL
+ *      - Shall non-approved comments be displayed?
+ *      - Comment type to fetch
+ *      - Added WHERE SQL PART to join
+ * Returns:
+ *      - The SQL result of comments
  * @access public
- * @param   int     The Entry ID to fetch comments for
- * @param   int     How many comments to fetch (empty: all)
- * @param   string  How shall comments be ordered (ASC|DESC)
- * @param   boolean Shall non-approved comments be displayed?
- * @param   string  Comment type to fetch
- * @return  array   The SQL result of comments
  */
-function serendipity_fetchComments($id, $limit = null, $order = '', $showAll = false, $type = 'NORMAL', $where = '') {
+function serendipity_fetchComments(?int $id = null, ?string $limit = null, ?string $order = null, bool $showAll = false, string $type = 'NORMAL', string $where = '') : iterable|false {
     global $serendipity;
 
     $and = '';
@@ -513,16 +552,18 @@ function serendipity_fetchComments($id, $limit = null, $order = '', $showAll = f
 /**
  * Create a HTML SELECT dropdown field which represents all hierarchical comments
  *
+ * Args:
+ *      - The entry ID to show comments for
+ *      - The existing comments for this entry
+ *      - The ID of the comment that is being referred to (last selection)
+ *      - The parent ID of the last comment [for recursive usage]
+ *      - The current nesting/hierarchy level [for recursive usage]
+ *      - The HTML indention string that gets preceded to a comment [for recursive usage]
+ * Returns:
+ *      - The HTML SELECT code
  * @access public
- * @param   int     The entry ID to show comments for
- * @param   array   The existing comments for this entry
- * @param   int     The ID of the comment that is being referred to (last selection)
- * @param   int     The parent ID of the last comment [for recursive usage]
- * @param   int     The current nesting/hierarchy level [for recursive usage]
- * @param   string  The HTML indention string that gets preceded to a comment [for recursive usage]
- * @return  string  The HTML SELECT code
  */
-function serendipity_generateCommentList($id, $comments = NULL, $selected = 0, $parent = 0, $level = 0, $indent = '') {
+function serendipity_generateCommentList(int $id, iterable $comments, int $selected = 0, int $parent = 0, int $level = 0, string $indent = '') : string {
     global $serendipity;
 
     if (!is_array($comments)) {
@@ -541,8 +582,8 @@ function serendipity_generateCommentList($id, $comments = NULL, $selected = 0, $
     foreach($comments AS $comment) {
         if ($comment['parent_id'] == $parent) {
             $i++;
-            $retval .= '                                        <option value="' . $comment['id'] . '"'. ($selected == $comment['id'] || (isset($serendipity['POST']['replyTo']) && $comment['id'] == $serendipity['POST']['replyTo']) ? ' selected="selected"' : '') .'>' . str_repeat('&#160;', $level * 2) . '#' . $indent . $i . ': ' . (empty($comment['author']) ? ANONYMOUS : htmlspecialchars($comment['author'], encoding: LANG_CHARSET)) . ' ' . ON . ' ' . serendipity_mb('ucfirst', serendipity_strftime(DATE_FORMAT_SHORT, $comment['timestamp'])) . "</option>\n";
-            $retval .= serendipity_generateCommentList($id, $comments, $selected, $comment['id'], $level + 1, $indent . $i . '.');
+            $retval .= '                                        <option value="' . $comment['id'] . '"'. ($selected == $comment['id'] || (isset($serendipity['POST']['replyTo']) && $comment['id'] == $serendipity['POST']['replyTo']) ? ' selected="selected"' : '') .'>' . str_repeat('&#160;', $level * 2) . '#' . $indent . $i . ': ' . (empty($comment['author']) ? ANONYMOUS : htmlspecialchars($comment['author'], encoding: LANG_CHARSET)) . ' ' . ON . ' ' . serendipity_mb('ucfirst', serendipity_strftime(DATE_FORMAT_SHORT, (int) $comment['timestamp'])) . "</option>\n";
+            $retval .= serendipity_generateCommentList($id, $comments, $selected, (int) $comment['id'], $level + 1, $indent . $i . '.');
         }
     }
     $retval .= $parent ? '' : '                                    </select>';
@@ -553,16 +594,18 @@ function serendipity_generateCommentList($id, $comments = NULL, $selected = 0, $
 /**
  * Print a list of comments to an entry
  *
+ * Args:
+ *      - The list of comments to display
+ *      - The parentID of a comment to show. Can contain the constant for VIEWMODE_THREADED/LINEAR. [recursive usage]
+ *      - The current nesting depth of a comment [recursive usage]
+ *      - A string representing the actual comment (1.1.2.1) traversal OR NULL
+ *      - A string representing the Smarty block - default: COMMENTS || empty: trackbacks || NULL no smarty_file load
+ *      - A string representing the frontend template file to fetch
+ * Returns:
+ *      - Returns the HTML construct of all comments
  * @access public
- * @param   array       The list of comments to display
- * @param   int         The parentID of a comment to show. Can contain the constant for VIEWMODE_THREADED/LINEAR. [recursive usage]
- * @param   int         The current nesting depth of a comment [recursive usage]
- * @param   string      A string representing the actual comment (1.1.2.1)
- * @param   string      A string representing the Smarty block - default: COMMENTS | empty: trackbacks | NULL no smarty_file load
- * @param   string      A string representing the frontend template file to fetch
- * @return  string      The HTML construct of all comments
  */
-function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace = null, $smarty_block = 'COMMENTS', $smarty_file = 'comments.tpl') {
+function serendipity_printComments(iterable $comments, int|string $parentid = 0, int $depth = 0, ?string $trace = null, ?string $smarty_block = 'COMMENTS', string $smarty_file = 'comments.tpl') : string|bool|null {
     global $serendipity;
     static $_smartyComments;
 
@@ -714,15 +757,21 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
 
     // Backend preview
     if (is_null($smarty_block)) {
-        return;
+        return null;
     }
     return serendipity_smarty_fetch($smarty_block, $smarty_file);
 }
 
 /**
  * Fetches and prints a listing of comments by author
+ *
+ * Args:
+ *      -
+ * Returns:
+ *      - Success or failure
+ * @access private
  */
-function serendipity_printCommentsByAuthor() {
+function serendipity_printCommentsByAuthor() : bool {
     global $serendipity;
 
     $type = serendipity_db_escape_string($serendipity['GET']['commentMode']);
@@ -824,14 +873,16 @@ function serendipity_printCommentsByAuthor() {
 /**
  * Delete a specific comment
  *
+ * Args:
+ *      - The ID of the comment to delete
+ *      - The ID of the entry the comment belongs to [safety]
+ *      - The type of a comment (comments/trackback)
+ *      - The 32 character token [if using token based moderation] OR NULL
+ * Returns:
+ *      - Return whether the action was successful
  * @access public
- * @param   int     The ID of the comment to delete
- * @param   int     The ID of the entry the comment belongs to [safety]
- * @param   string  The type of a comment (comments/trackback)
- * @param   string  The 32 character token [if using token based moderation]
- * @return  boolean Return whether the action was successful)
  */
-function serendipity_deleteComment($id, $entry_id, $type = 'comments', $token = null) {
+function serendipity_deleteComment(int $id, int $entry_id, string $type='comments', ?string $token = null) : bool {
     global $serendipity;
 
     $id       = (int)$id;
@@ -905,12 +956,14 @@ function serendipity_deleteComment($id, $entry_id, $type = 'comments', $token = 
 /**
  * Toggle whether an entry allows comments
  *
+ * Args:
+ *      - The ID of the entry where the switch shall be toggled
+ *      - Whether the entry shall be opened or closed for comments
+ * Returns:
+ *      - Never. Dies OR exit
  * @access public
- * @param   int     The ID of the entry where the switch shall be toggled
- * @param   string  Whether the entry shall be opened or closed for comments
- * @return null
  */
-function serendipity_allowCommentsToggle($entry_id, $switch = 'disable') {
+function serendipity_allowCommentsToggle(int $entry_id, string $switch = 'disable') : never {
     global $serendipity;
 
     // toggle comments by authorized staff only
@@ -920,7 +973,7 @@ function serendipity_allowCommentsToggle($entry_id, $switch = 'disable') {
             $admin = " AND authorid = " . (int)$_SESSION['serendipityAuthorid'];
         }
 
-        $query = "UPDATE {$serendipity['dbPrefix']}entries SET allow_comments = '" . ($switch == 'disable' ? 'false' : 'true') . "' WHERE id = '". (int)$entry_id ."' $admin";
+        $query = "UPDATE {$serendipity['dbPrefix']}entries SET allow_comments = '" . ($switch == 'disable' ? 'false' : 'true') . "' WHERE id = '". $entry_id ."' $admin";
         serendipity_db_query($query);
         if (serendipity_isResponseClean($_SERVER['HTTP_REFERER'])) {
             header('Status: 302 Found');
@@ -935,17 +988,17 @@ function serendipity_allowCommentsToggle($entry_id, $switch = 'disable') {
 /**
  * Approve a comment
  *
- * LONG
- *
+ * Args:
+ *      - The ID of the comment to approve
+ *      - The ID of the entry a comment belongs to
+ *      - Whether to force approving a comment despite of its current status
+ *      - If set to true, a comment will be moderated instead of approved.
+ *      - The 32 character token [if using token based moderation]
+ * Returns:
+ *      - Returns Success or failure bool OR INT
  * @access public
- * @param  int         The ID of the comment to approve
- * @param  int         The ID of the entry a comment belongs to
- * @param  boolean     Whether to force approving a comment despite of its current status
- * @param  boolean     If set to true, a comment will be moderated instead of approved.
- * @param  string      The 32 character token [if using token based moderation]
- * @return boolean     Success or failure
  */
-function serendipity_approveComment($cid, $entry_id, $force = false, $moderate = false, $token = null) {
+function serendipity_approveComment(int $cid, int $entry_id, bool $force = false, bool $moderate = false, ?string $token = null) : bool|int {
     global $serendipity;
 
     $goodtoken = serendipity_checkCommentToken($token, $cid);
@@ -956,7 +1009,7 @@ function serendipity_approveComment($cid, $entry_id, $force = false, $moderate =
                 FROM {$serendipity['dbPrefix']}comments c
                 LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
                 LEFT JOIN {$serendipity['dbPrefix']}authors a ON (e.authorid = a.authorid)
-                WHERE c.id = '". (int)$cid ."'
+                WHERE c.id = '". $cid ."'
                     ". ((!serendipity_checkPermission('adminEntriesMaintainOthers') && $force !== true && !$goodtoken) ? "AND e.authorid = '". (int)$serendipity['authorid'] ."'" : '') ."
                     ". (($force === true) ? "" : "AND status = 'pending'");
     $rs  = serendipity_db_query($sql, true);
@@ -975,16 +1028,16 @@ function serendipity_approveComment($cid, $entry_id, $force = false, $moderate =
         $flip = true;
 
         if ($rs['status'] == 'pending') {
-            $sql = "UPDATE {$serendipity['dbPrefix']}comments SET status = 'approved' WHERE id = ". (int)$cid;
+            $sql = "UPDATE {$serendipity['dbPrefix']}comments SET status = 'approved' WHERE id = ". $cid;
             $moderate = false;
         } else {
-            $sql = "UPDATE {$serendipity['dbPrefix']}comments SET status = 'pending' WHERE id = ". (int)$cid;
+            $sql = "UPDATE {$serendipity['dbPrefix']}comments SET status = 'pending' WHERE id = ". $cid;
             $moderate = true;
         }
     } elseif ($moderate) {
-        $sql = "UPDATE {$serendipity['dbPrefix']}comments SET status = 'pending' WHERE id = ". (int)$cid;
+        $sql = "UPDATE {$serendipity['dbPrefix']}comments SET status = 'pending' WHERE id = ". $cid;
     } else {
-        $sql = "UPDATE {$serendipity['dbPrefix']}comments SET status = 'approved' WHERE id = ". (int)$cid;
+        $sql = "UPDATE {$serendipity['dbPrefix']}comments SET status = 'approved' WHERE id = ". $cid;
     }
     serendipity_db_query($sql);
 
@@ -1002,14 +1055,14 @@ function serendipity_approveComment($cid, $entry_id, $force = false, $moderate =
                                                 FROM {$serendipity['dbPrefix']}comments
                                                WHERE status = 'approved'
                                                  AND type   = 'NORMAL'
-                                                 AND entry_id = " . (int)$entry_id . "
+                                                 AND entry_id = " . $entry_id . "
                                             GROUP BY entry_id", true);
 
     $counter_tb = serendipity_db_query("SELECT count(id) AS counter
                                           FROM {$serendipity['dbPrefix']}comments
                                          WHERE status = 'approved'
                                            AND (type = 'TRACKBACK' or type = 'PINGBACK')
-                                           AND entry_id = " . (int)$entry_id . "
+                                           AND entry_id = " . $entry_id . "
                                       GROUP BY entry_id", true);
 
     $counter_co = $counter_comments['counter'] ?? 0;
@@ -1049,12 +1102,14 @@ function serendipity_approveComment($cid, $entry_id, $force = false, $moderate =
 /**
  * Confirm a mail authentication request
  *
+ * Args:
+ *      - The ID of a comment
+ *      - The confirmation hash
+ * Returns:
+ *      - false on fail OR comment array on approval
  * @access public
- * @param   int     The ID of a comment
- * @param   string  The confirmation hash
- * @return  boolean
  */
-function serendipity_confirmMail($cid, $hash) {
+function serendipity_confirmMail(int $cid, string $hash) : bool|iterable {
     global $serendipity;
 
     $q = "SELECT c.entry_id, e.title, e.timestamp, e.id
@@ -1062,7 +1117,7 @@ function serendipity_confirmMail($cid, $hash) {
             JOIN {$serendipity['dbPrefix']}entries AS e
               ON (e.id = c.entry_id)
            WHERE c.status = 'confirm" . serendipity_db_escape_string($hash) . "'
-             AND c.id     = '" . (int)$cid . "'";
+             AND c.id     = '" . $cid . "'";
     $confirm = serendipity_db_query($q, true);
 
     if ($confirm['entry_id'] > 0) {
@@ -1073,7 +1128,7 @@ function serendipity_confirmMail($cid, $hash) {
         serendipity_db_query("UPDATE {$serendipity['dbPrefix']}comments
                                  SET status = 'pending'
                                WHERE status = 'confirm" . serendipity_db_escape_string($hash) . "'
-                                 AND id     = '" . (int)$cid . "'");
+                                 AND id     = '" . $cid . "'");
 
         // TODO?
         /* if (serendipity_db_bool($confirm['mail_comments'])) {
@@ -1091,15 +1146,17 @@ function serendipity_confirmMail($cid, $hash) {
 /**
  * Store the comment made by a visitor in the database
  *
+ * Args:
+ *      - The ID of an entry
+ *      - An array that holds the input data from the visitor
+ *      - The type of a comment (normal/trackback)
+ *      - Where did a comment come from? (internal|trackback|plugin) [currently consistent informative only]
+ *      - Normally entry specific handle data. May change by Additional plugin data (spamblock plugin etc.)
+ * Returns:
+ *      - Returns true if the comment could be added OR the comment ID
  * @access public
- * @param   int     The ID of an entry
- * @param   array   An array that holds the input data from the visitor
- * @param   string  The type of a comment (normal/trackback)
- * @param   string  Where did a comment come from? (internal|trackback|plugin) [currently consistent informative only]
- * @param   string  Normally entry specific handle data. May change by Additional plugin data (spamblock plugin etc.)
- * @return  boolean Returns true if the comment could be added
  */
-function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source = 'internal', $ca = array()) {
+function serendipity_insertComment(int $id, iterable $commentInfo, string $type = 'NORMAL', string $source = 'internal', iterable $ca = array()) : bool|int {
     global $serendipity;
 
     if (!empty($ca['status'])) {
@@ -1286,11 +1343,13 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
 /**
  * Confirm a comment subscription
  *
+ * Args:
+ *      - The confirmation hash
+ * Returns:
+ *      - The hash ID OR NULL
  * @access public
- * @param   string  The confirmation hash
- * @return  boolean
  */
-function serendipity_commentSubscriptionConfirm($hash) {
+function serendipity_commentSubscriptionConfirm(string $hash) : ?int {
     global $serendipity;
 
     if (stristr($serendipity['dbType'], 'sqlite')) {
@@ -1327,14 +1386,16 @@ function serendipity_commentSubscriptionConfirm($hash) {
 /**
  * Save a comment made by a visitor
  *
+ * Args:
+ *      - The ID of an entry
+ *      - An array that holds the input data from the visitor
+ *      - The type of a comment (normal/trackback)
+ *      - Where did a comment come from? (internal|trackback|plugin)
+ * Returns:
+ *      - Returns true if the comment could be added
  * @access public
- * @param   int     The ID of an entry
- * @param   array   An array that holds the input data from the visitor
- * @param   string  The type of a comment (normal/trackback)
- * @param   string  Where did a comment come from? (internal|trackback|plugin)
- * @return  boolean Returns true if the comment could be added
  */
-function serendipity_saveComment($id, $commentInfo, $type = 'NORMAL', $source = 'internal') {
+function serendipity_saveComment(int $id, iterable $commentInfo, string $type = 'NORMAL', string $source = 'internal') : bool {
     global $serendipity;
 
     $query = "SELECT id, allow_comments, moderate_comments, last_modified, timestamp, title FROM {$serendipity['dbPrefix']}entries WHERE id = '". (int)$id ."'";
@@ -1385,17 +1446,19 @@ function serendipity_saveComment($id, $commentInfo, $type = 'NORMAL', $source = 
 /**
  * Send a mail to all subscribers of an entry about a new comment
  *
+ * Args:
+ *      - The ID of the entry where a new comment has been made
+ *      - The name of the latest poster to an entry
+ *      - The email address of the latest poster to an entry
+ *      - The title of the entry
+ *      - The mail address used to send emails from
+ *      - The ID of the comment that has been made OR NULL
+ *      - The body of the comment that has been made OR NULL
+ * Returns:
+ *      - void
  * @access public
- * @param   int     The ID of the entry where a new comment has been made
- * @param   string  The name of the latest poster to an entry
- * @param   string  The email address of the latest poster to an entry
- * @param   string  The title of the entry
- * @param   string  The mail address used to send emails from
- * @param   int     The ID of the comment that has been made
- * @param   string  The body of the comment that has been made
- * @return null
  */
-function serendipity_mailSubscribers($entry_id, $poster, $posterMail, $title, $fromEmail = 'none@example.com', $cid = null, $body = null) {
+function serendipity_mailSubscribers(int $entry_id, string $poster, string $posterMail, string $title, string $fromEmail = 'none@example.com', ?int $cid = null, ?string $body = null) : void {
     global $serendipity;
 
     $entryURI = serendipity_archiveURL($entry_id, $title, 'baseURL', true, array('timestamp' => time())) . ($cid > 0 ? '#c' . $cid : '');
@@ -1453,12 +1516,14 @@ function serendipity_mailSubscribers($entry_id, $poster, $posterMail, $title, $f
 /**
  * Cancel a subscription to an entry
  *
+ * Args:
+ *      - E-Mail address to cancel subscription
+ *      - The entry ID to unsubscribe from
+ * Returns:
+ *      - Return number of unsubscriptions
  * @access public
- * @param   string      E-Mail address to cancel subscription
- * @param   int         The entry ID to unsubscribe from
- * @return  int         Return number of unsubscriptions
  */
-function serendipity_cancelSubscription($email, $entry_id) {
+function serendipity_cancelSubscription(string $email, int $entry_id) : int {
     global $serendipity;
 
     $sql = "UPDATE {$serendipity['dbPrefix']}comments
@@ -1473,19 +1538,21 @@ function serendipity_cancelSubscription($email, $entry_id) {
 /**
  * Send a comment notice to the admin/author of an entry
  *
+ * Args:
+ *      - ID of the comment that has been made
+ *      - Author's email address to send the mail to
+ *      - The name of the sender
+ *      - The URL of the sender
+ *      - The ID of the entry that has been commented
+ *      - The title of the entry that has been commented
+ *      - The text of the comment
+ *      - The type of the comment (normal|trackback)
+ *      - Toggle Whether comments to this entry need approval
+ * Returns:
+ *      - Return success of sending the mails
  * @access public
- * @param  int      ID of the comment that has been made
- * @param  string   Author's email address to send the mail to
- * @param  string   The name of the sender
- * @param  string   The URL of the sender
- * @param  int      The ID of the entry that has been commented
- * @param  string   The title of the entry that has been commented
- * @param  string   The text of the comment
- * @param  string   The type of the comment (normal|trackback)
- * @param  boolean  Toggle Whether comments to this entry need approval
- * @return boolean  Return success of sending the mails
  */
-function serendipity_sendComment($comment_id, $to, $fromName, $fromEmail, $fromUrl, $id, $title, $comment, $type = 'NORMAL', $moderate_comment = false, $referer = '') {
+function serendipity_sendComment(int $comment_id, string $to, string $fromName, string $fromEmail, string $fromUrl, int $id, string $title, string $comment, string $type = 'NORMAL', bool $moderate_comment = false, string $referer = '') : bool {
     global $serendipity;
 
     if (empty($fromName)) {
