@@ -16,14 +16,17 @@ include_once(S9Y_INCLUDE_PATH . 'include/functions_trackbacks.inc.php');
  *
  * This is the core file where your edit form appears. The Heart Of Gold, so to say.
  *
+ * Args:
+ *      - The URL where the entry form is submitted to
+ *      - An array of hidden input fields that should be passed on to the HTML FORM
+ *      - The entry superarray with your entry's contents
+ *      - Any error messages that might have occurred on the last run
+ * Returns:
+ *      - The Smarty parsed admin/entries.tpl template
  * @access public
- * @param   string      The URL where the entry form is submitted to
- * @param   array       An array of hidden input fields that should be passed on to the HTML FORM
- * @param   array       The entry superarray with your entry's contents
- * @param   string      Any error messages that might have occurred on the last run
  * @return null
  */
-function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = array(), $errMsg = '') {
+function serendipity_printEntryForm(string $targetURL, iterable $hiddens = array(), iterable $entry = array(), ?string $errMsg = '') : string {
     global $serendipity;
 
     $draftD = '';
@@ -170,13 +173,15 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
 /**
  * Prints the Rich Text Editor WYSIWYG javascript modifier initialization
  *
+ * Args:
+ *      - The item name
+ *      - The javascript name
+ *      - Multi nuggets emit spawning
+ * Returns:
+ *      - void
  * @access public
- * @param   string      The item name
- * @param   string      The javascript name
- * @param   bool        Multi nuggets emit spawning
- * @return  mixed       template string | null
  */
-function serendipity_emit_htmlarea_code($item, $jsname, $spawnMulti = false) {
+function serendipity_emit_htmlarea_code(string $item, string $jsname, bool $spawnMulti = false) : void {
     # init == true when editor was already initialized
     static $init = false;
     global $serendipity;
