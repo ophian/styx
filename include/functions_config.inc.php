@@ -574,7 +574,7 @@ function aesDebugFile(string $file, string $str = '') : void {
  *      - The output data OR FALSE
  * @access private
  */
-function serendipity_cryptor(string $data, bool $decrypt = false, ?string $iv = null) : string|bool  {
+function serendipity_cryptor(#[\SensitiveParameter] string $data, bool $decrypt = false, #[\SensitiveParameter] ?string $iv = null) : string|bool  {
     global $serendipity;
 
     // DEBUG NOTE: Use locally only OR set the blog into maintenance mode, since decryption logs may contain valid credential data or data that is easy decryptable!
@@ -704,7 +704,7 @@ function serendipity_issueAutologin(iterable $array) : void {
  *      - The output data as artray Or string OR FALSE
  * @access private
  */
-function serendipity_checkAutologin(string $ident, string $iv) : string|bool|iterable  {
+function serendipity_checkAutologin(#[\SensitiveParameter] string $ident, #[\SensitiveParameter] string $iv) : string|bool|iterable  {
     global $serendipity;
 
     // DEBUG NOTE: Use locally only OR set the blog into maintenance mode, since decryption logs may contain valid credential data or data that is easy decryptable!
@@ -2722,7 +2722,7 @@ function serendipity_hasPluginPermissions(string $plugin, ?int $groupid = null) 
  *      - The hashed string
  * @access private
  */
-function serendipity_hash(string $string) : string {
+function serendipity_hash(#[\SensitiveParameter] string $string) : string {
     return password_hash($string, PASSWORD_BCRYPT); // we have a varchar(64) field here, thus we cannot use PASSWORD_DEFAULT
 }
 
