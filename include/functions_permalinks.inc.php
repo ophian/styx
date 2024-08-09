@@ -533,7 +533,7 @@ function serendipity_makePermalink($format, $data, $type = 'entry') {
 
             $replacements =
                 array(
-                    (int)$data['id'],
+                    (int) $data['id'],
                     $fltitle,
                     $ftitle,
                     date('d', $ts),
@@ -546,7 +546,7 @@ function serendipity_makePermalink($format, $data, $type = 'entry') {
         case 'author':
             $replacements =
                 array(
-                    (int)$data['authorid'],
+                    (int) $data['authorid'],
                     serendipity_makeFilename($data['username'], true),
                     serendipity_makeFilename($data['realname'], true),
                     serendipity_makeFilename($data['email'], true)
@@ -560,7 +560,7 @@ function serendipity_makePermalink($format, $data, $type = 'entry') {
                 $parent_path = array();
                 // This is expensive. Only lookup if required.
                 if (str_contains($format, '%parentname%')) {
-                    $parents = serendipity_getCategoryRoot($data['categoryid']);
+                    $parents = serendipity_getCategoryRoot((int) $data['categoryid']);
                     if (is_array($parents)) {
                         foreach($parents AS $parent) {
                             $parent_path[] = serendipity_makeFilename($parent['category_name'], true);
@@ -570,7 +570,7 @@ function serendipity_makePermalink($format, $data, $type = 'entry') {
 
                 $replacements =
                     array(
-                        (int)$data['categoryid'],
+                        (int) $data['categoryid'],
                         serendipity_makeFilename($data['category_name'], true),
                         implode('/', $parent_path),
                         serendipity_makeFilename($data['category_description'], true)
