@@ -12,11 +12,13 @@ if (IN_serendipity !== true) {
 /**
  * Check if an uploaded file is "evil"
  *
+ * Args:
+ *      - Input filename
+ * Returns:
+ *      - True on eval, False on allowed
  * @access public
- * @param   string  Input filename
- * @return boolean
  */
-function serendipity_isActiveFile($file) {
+function serendipity_isActiveFile(string $file) : bool {
     if (preg_match('@^\.@', $file)) {
         return true;
     }
@@ -28,6 +30,7 @@ function serendipity_isActiveFile($file) {
 
     $eventData = false;
     serendipity_plugin_api::hook_event('backend_media_check', $eventData, $file);
+
     return $eventData;
 }
 
@@ -36,20 +39,22 @@ function serendipity_isActiveFile($file) {
  *
  * LONG
  *
+ * Args:
+ *      - The offset to start fetching media files
+ *      - How many items to fetch
+ *      - The number (referenced variable) of fetched items
+ *      - The "ORDER BY" SQL part when fetching items.
+ *      - Order by DESC or ASC
+ *      - Only fetch files from a specific directory
+ *      - Only fetch specific filenames (including check for realname match) - deprecated, since now in filters
+ *      - Only fetch media with specific keyword
+ *      - An array of restricting filter sets
+ *      - boolean Apply strict directory checks, or include subdirectories?
+ * Returns:
+ *      - Result-set of images
  * @access public
- * @param   int     The offset to start fetching media files
- * @param   int     How many items to fetch
- * @param   int     The number (referenced variable) of fetched items
- * @param   string  The "ORDER BY" SQL part when fetching items.
- * @param   string  Order by DESC or ASC
- * @param   string  Only fetch files from a specific directory
- * @param   string  Only fetch specific filenames (including check for realname match) - deprecated, since now in filters
- * @param   string  Only fetch media with specific keyword
- * @param   array   An array of restricting filter sets
- * @param   boolean Apply strict directory checks, or include subdirectories?
- * @return  array   Result-set of images
  */
-function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $order = false, $ordermode = false, $directory = '', $filename = '', $keywords = '', $filter = array(), $hideSubdirFiles = false) {
+function serendipity_fetchImagesFromDatabase(int $start = 0, int $limit = 0, ?int &$total = null, string|bool $order = false, string|bool $ordermode = false, string $directory = '', ?string $filename = '', string $keywords = '', iterable $filter = array(), bool $hideSubdirFiles = false) : iterable {
     global $serendipity;
 
     $cond = array(
@@ -271,11 +276,13 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
 /**
  * Fetch a specific media item from the media database
  *
+ * Args:
+ *      - The ID of an media item
+ * Returns:
+ *      - The media info data
  * @access public
- * @param   int     The ID of an media item
- * @return  array   The media info data
  */
-function serendipity_fetchImageFromDatabase($id, $mode = 'read') {
+function serendipity_fetchImageFromDatabase(int|iterable $id, string $mode = 'read') : iterable|bool {
     global $serendipity;
 
     if (is_array($id)) {
@@ -315,18 +322,21 @@ function serendipity_fetchImageFromDatabase($id, $mode = 'read') {
                                        {$cond['joins']}
                                        {$cond['and']}
                                        {$cond['group']}", $single, 'assoc', false, $assocKey, $assocVal);
+
     return $rs;
 }
 
 /**
  * Update a media item
  *
+ * Args:
+ *      - An array of columns to update
+ *      - The ID of an media item to update
+ * Returns:
+ *      - integer how many UPDATES have run
  * @access public
- * @param   array       An array of columns to update
- * @param   int         The ID of an media item to update
- * @return  boolean
  */
-function serendipity_updateImageInDatabase($updates, $id) {
+function serendipity_updateImageInDatabase(iterable $updates, int $id) : int {
     global $serendipity;
 
     $admin = '';
@@ -342,17 +352,20 @@ function serendipity_updateImageInDatabase($updates, $id) {
         serendipity_db_query("UPDATE {$serendipity['dbPrefix']}images SET ". implode(',', $q) .' WHERE id = ' . (int)$id . " $admin");
         $i++;
     }
+
     return $i;
 }
 
 /**
  * Delete a media item
  *
+ * Args:
+ *      - The ID of a media item to delete
+ * Returns:
+ *      - message string or NULL
  * @access public
- * @param   int     The ID of a media item to delete
- * @return
  */
-function serendipity_deleteImage($id) {
+function serendipity_deleteImage(int $id) : ?string {
     global $serendipity;
 
     $dThumb   = array();
@@ -386,12 +399,12 @@ function serendipity_deleteImage($id) {
             ));
 
             if (!serendipity_checkPermission('adminImagesDelete')) {
-                return;
+                return null;
             }
 
             if (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid']) {
                 // A non-admin user SHALL NOT be able to delete private files from other users.
-                return;
+                return null;
             }
 
             if (!isset($file['hotlink'])) {
@@ -433,11 +446,13 @@ function serendipity_deleteImage($id) {
 /**
  * Delete a media items Variation files only
  *
+ * Args:
+ *      - The ID of a media item
+ * Returns:
+ *      - message string or NULL
  * @access public
- * @param   int     The ID of a media item
- * @return
  */
-function serendipity_deleteImageVariations($id) {
+function serendipity_deleteImageVariations(int $id) : ?string {
     global $serendipity;
 
     $dThumb   = array();
@@ -471,12 +486,12 @@ function serendipity_deleteImageVariations($id) {
             ));
 
             if (!serendipity_checkPermission('adminImagesDelete')) {
-                return;
+                return null;
             }
 
             if (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid']) {
                 // A non-admin user SHALL NOT be able to delete private files from other users.
-                return;
+                return null;
             }
 
             if (!isset($file['hotlink'])) {
@@ -506,18 +521,20 @@ function serendipity_deleteImageVariations($id) {
 /**
  * Open a directory and fetch all existing media items
  *
+ * Args:
+ *      - Reverse the exclude type listing
+ *      - List of found items - only given by self recursion
+ *      - The sub-directory to investigate [recursive use]
+ * Returns:
+ *      - List of media items without Thumbs
  * @access public
- * @param   boolean     Reverse the exclude type listing
- * @param   array       Array list of found items
- * @param   string      sub-directory to investigate [recursive use]
- * @return  array       List of media items without Thumbs
  */
-function serendipity_fetchImages($reverse = false, $images = '', $odir = '') {
+function serendipity_fetchImages(bool $reverse = false, iterable $images = [], string $odir = '') : iterable {
     global $serendipity;
 
     // Open directory
     $basedir = $serendipity['serendipityPath'] . $serendipity['uploadPath'];
-    $images = array();
+    $images  = []; // always reset to start fresh again, else endless loop
 
     if (empty($serendipity['uniqueThumbSuffixes'])) {
         $usedSuffixes    = serendipity_db_query("SELECT DISTINCT(thumbnail_name) AS thumbSuffix FROM {$serendipity['dbPrefix']}images WHERE thumbnail_name != ''", false, 'num');
@@ -579,6 +596,7 @@ function serendipity_fetchImages($reverse = false, $images = '', $odir = '') {
 
     /* BC */
     $serendipity['imageList'] = $images;
+
     return $images;
 }
 
@@ -586,11 +604,14 @@ function serendipity_fetchImages($reverse = false, $images = '', $odir = '') {
  * Checks the image database by image name
  * OR count by wildcard for possible "upcounted" naming doubles e.g. "name3.png" to avoid having non-singularities
  *
- * @param  string   The files name - in 2cd case push 'name%' wildcard
- * @param  boolean  Use sum counter
- * @return mixed    Result-set of images or Sum
+ * Args:
+ *      - The files name - in 2cd case push 'name%' wildcard
+ *      - Use sum counter
+ * Returns:
+ *      - Result-set of images or Sum
+ * @access private
  */
-function serendipity_fetchImagesByName($file, $sum = false) {
+function serendipity_fetchImagesByName(string $file, bool $sum = false) : iterable|bool {
     global $serendipity;
 
     $field = $sum ? 'count(*)' : '*';
@@ -606,15 +627,17 @@ function serendipity_fetchImagesByName($file, $sum = false) {
  *
  * hotlinks are files that are only linked in your database, and not really stored on your server
  *
+ * Args:
+ *      - The filename to hotlink
+ *      - The URL to hotlink with
+ *      - The owner of the hotlinked media item
+ *      - The timestamp of insertion (UNIX second)
+ *      - A temporary filename for fetching the file to investigate it
+ * Returns:
+ *      - The ID of the inserted media item
  * @access public
- * @param   string      The filename to hotlink
- * @param   string      The URL to hotlink with
- * @param   int         The owner of the hotlinked media item
- * @param   int         The timestamp of insertion (UNIX second)
- * @param   string      A temporary filename for fetching the file to investigate it
- * @return  int         The ID of the inserted media item
  */
-function serendipity_insertHotlinkedImageInDatabase($filename, $url, $authorid = 0, $time = NULL, $tempfile = NULL) {
+function serendipity_insertHotlinkedImageInDatabase(string $filename, string $url, int $authorid = 0, ?int $time = NULL, ?string $tempfile = NULL) : int {
     global $serendipity;
 
     if (is_null($time)) {
@@ -660,7 +683,7 @@ function serendipity_insertHotlinkedImageInDatabase($filename, $url, $authorid =
                    )",
       serendipity_db_escape_string($filebase),
       (int)$time,
-      (int)$authorid,
+      $authorid,
       serendipity_db_escape_string($extension),
       serendipity_db_escape_string($mime),
       (int)$filesize,
@@ -687,14 +710,17 @@ function serendipity_insertHotlinkedImageInDatabase($filename, $url, $authorid =
 /**
  * Insert a media item in the database
  *
+ * Args:
+ *      - The filename of the media item
+ *      - The path to the media item
+ *      - The owner author of the item
+ *      - The timestamp of when the media item was inserted
+ *      - The file realname
+ * Returns:
+ *      - The new media ID
  * @access public
- * @param   string      The filename of the media item
- * @param   string      The path to the media item
- * @param   int         The owner author of the item
- * @param   int         The timestamp of when the media item was inserted
- * @return  int         The new media ID
  */
-function serendipity_insertImageInDatabase($filename, $directory, $authorid = 0, $time = NULL, $realname = NULL) {
+function serendipity_insertImageInDatabase(string $filename, string $directory, int $authorid = 0, ?int $time = NULL, ?string $realname = NULL) : int {
     global $serendipity;
 
     if (is_null($time)) {
@@ -775,10 +801,13 @@ function serendipity_insertImageInDatabase($filename, $directory, $authorid = 0,
  * Helper function for creating WebP formatted images with the PHP GD library
  * @see serendipity_imageGDWebPConversion()
  *
- * @param string $infile   The fullpath file format from string
- * @return typed image
+ * Args:
+ *      - The fullpath file format from string
+ * Returns:
+ *      - object or false
+ * @access private
  */
-function serendipity_imageCreateFromAny($filepath) {
+function serendipity_imageCreateFromAny(string $filepath) : GdImage|false {
     if (function_exists("exif_imagetype")) {
         $type = exif_imagetype($filepath); // normally this
     } else {
@@ -800,7 +829,7 @@ function serendipity_imageCreateFromAny($filepath) {
     }
     switch ($type) {
         case 1:
-            $im = imagecreatefromgif($filepath);
+            $im = imagecreatefromgif($filepath); // palette possible
             break;
         case 2:
             $im = imagecreatefromjpeg($filepath);
@@ -833,12 +862,15 @@ function serendipity_imageCreateFromAny($filepath) {
  *  4. database ep cache changes,
  *  5. database staticpage changes
  *
- * @param array  $file      The files current database properties
- * @param string $oldMime   The files current mime format
- * @param string $newMime   The files new mime format
- * @return bool
+ * Args:
+ *      - The files current database properties
+ *      - The files current mime format
+ *      - The files new mime format
+ * Returns:
+ *      - bool
+ * @access private
  */
-function serendipity_convertImageFormat($file, $oldMime, $newMime) {
+function serendipity_convertImageFormat(iterable $file, string $oldMime, string $newMime) : bool {
     switch ($newMime) {
         case 'image/jpg':
         case 'image/jpeg':
@@ -871,13 +903,17 @@ function serendipity_convertImageFormat($file, $oldMime, $newMime) {
 
 /**
  * Convert JPG, PNG, GIF, BMP formatted images to the WebP image format with PHP build-in GD image library
+ * @thanks to https://gauntface.com/blog/2014/09/02/webp-support-with-imagemagick-and-php
  *
- * @param string $infile    The fullpath file format from string
- * @param string $outfile   The fullpath file format to string
- * @param int    $quality   The quality of sizing/formatting
- * @return mixed            bool false or string converted outfile
+ * Args:
+ *      - The fullpath file format from string
+ *      - The fullpath file format to string
+ *      - The quality of sizing/formatting
+ * Returns:
+ *      - bool false or string converted outfile
+ * @access private
  */
-function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
+function serendipity_imageGDWebPConversion(string $infile, string $outfile, int $quality = 75) : string|bool {
     $im = serendipity_imageCreateFromAny($infile);
     if (false === ($im instanceof \GdImage) || $im === false) {
         return false;
@@ -902,12 +938,15 @@ function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
  * Copy of serendipity_imageGDWebPConversion()
  * AVIF encoding takes around 1GB of memory (!)
  *
- * @param string $infile    The fullpath file format from string
- * @param string $outfile   The fullpath file format to string
- * @param int    $quality   The quality of sizing/formatting. A quality -1 is not 100%. It is better! It is the optimized default!
- * @return mixed            bool false or string converted outfile
+ * Args:
+ *      - The fullpath file format from string
+ *      - The fullpath file format to string
+ *      - The quality of sizing/formatting. A quality -1 is not 100%. It is better! It is the optimized default!
+ * Returns:
+ *      - bool false or string converted outfile
+ * @access private
  */
-function serendipity_imageGDAvifConversion($infile, $outfile, $quality = -1) {
+function serendipity_imageGDAvifConversion(string $infile, string $outfile, int $quality = -1) : string|bool {
     $im = serendipity_imageCreateFromAny($infile);
     if (false === ($im instanceof \GdImage) || $im === false) {
         return false;
@@ -943,15 +982,18 @@ function serendipity_imageGDAvifConversion($infile, $outfile, $quality = -1) {
  *          Media scaled images for the source-sets live in ML since they are variations, but NOT in the database NOR in the display images build list.
  *          So we have core files: Origin, Thumb and WebP and possible other sub variations of origin, which are media scaled images and special plugin images, eg. quickblog.
  *
- * @param string $source    Source file fullpath
- * @param string $outpath   Target file path
- * @param string $outfile   Target file name
- * @param string $mime      Output of mime_content_type($target)
- * @param bool   $mute      To message OR not. Is default false for a single request, true for bulk like synchronization traversals
- * @param int    $quality   Held for ImageMagick purposes, quality ranges from 0 to 100, while -1 is auto default (known as best working for compression and quality)
- * @return mixed
+ * Args:
+ *      - Source file fullpath
+ *      - Target file path
+ *      - Target file name
+ *      - Output of mime_content_type($target)
+ *      - To message OR not. Is default false for a single request, true for bulk like synchronization traversals
+ *      - Held for ImageMagick purposes, quality ranges from 0 to 100, while -1 is auto default (known as best working for compression and quality)
+ * Returns:
+ *      - mixed
+ * @access private
  */
-function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $mute = false, $quality = -1) {
+function serendipity_convertToWebPFormat(string $infile, string $outpath, string $outfile, string $mime, bool $mute = false, int $quality = -1) : string|iterable|bool {
     global $serendipity;
 
     if (in_array(strtoupper(explode('/', $mime)[1]), serendipity_getSupportedFormats())) {
@@ -980,6 +1022,7 @@ function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $mu
             }
         }
     }
+
     return false;
 }
 
@@ -1001,15 +1044,18 @@ function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $mu
  *          Media scaled images for the source-sets live in ML since they are variations, but NOT in the database NOR in the display images build list.
  *          So we have core files: Origin, Thumb and AVIF and possible other sub variations of origin, which are media scaled images and special plugin images, eg. quickblog.
  *
- * @param string $source    Source file fullpath
- * @param string $outpath   Target file path
- * @param string $outfile   Target file name
- * @param string $mime      Output of mime_content_type($target)
- * @param bool   $mute      To message OR not. Is default false for a single request, true for bulk like synchronization traversals
- * @param int    $quality   Held for future purposes, ranges from 0 to 100. -1 is the internal optimized default, which is better than 100% !
- * @return mixed
+ * Args:
+ *      - Source file fullpath
+ *      - Target file path
+ *      - Target file name
+ *      - Output of mime_content_type($target)
+ *      - To message OR not. Is default false for a single request, true for bulk like synchronization traversals
+ *      - Held for future purposes, ranges from 0 to 100. -1 is the internal optimized default, which is better than 100% !
+ * Returns:
+ *      - mixed
+ * @access private
  */
-function serendipity_convertToAvifFormat($infile, $outpath, $outfile, $mime, $mute = false, $quality = -1) {
+function serendipity_convertToAvifFormat(string $infile, string $outpath, string $outfile, string $mime, bool $mute = false, int $quality = -1) : string|iterable|bool {
     global $serendipity;
 
     if (in_array(strtoupper(explode('/', $mime)[1]), serendipity_getSupportedFormats())) {
@@ -1038,15 +1084,20 @@ function serendipity_convertToAvifFormat($infile, $outpath, $outfile, $mime, $mu
             }
         }
     }
+
     return false;
 }
 
 /**
  * Get valid source image formats
  *
- * @return array
+ * Args:
+ *      - Whether to extend the supported formats
+ * Returns:
+ *      - The current supported format
+ * @access private
  */
-function serendipity_getSupportedFormats($extend = false) {
+function serendipity_getSupportedFormats(bool $extend = false) : iterable {
     if ($extend) {
         return ['BMP', 'PNG', 'JPG', 'JPEG', 'GIF', 'WEBP', 'AVIF'];
     }
@@ -1056,11 +1107,14 @@ function serendipity_getSupportedFormats($extend = false) {
 /**
  * Make image variation storage path for targets. Split the origin file to path and replace the file basename with the new image format name.
  *
- * @param string $file  origin fullpath file
- * @param string $ext   new extension
- * @return array
+ * Args:
+ *      - Origin fullpath file
+ *      - New extension
+ * Returns:
+ *      - Newfile array
+ * @access private
  */
-function serendipity_makeImageVariationPath($orgfile, $ext) {
+function serendipity_makeImageVariationPath(string $orgfile, string $ext) : iterable {
     $newfile = [];
     [ 'basename' => $basename, 'dirname' => $dirname, 'extension' => $extension ] = pathinfo($orgfile);
     $newname = str_replace($extension, $ext, $basename);
@@ -1074,11 +1128,14 @@ function serendipity_makeImageVariationPath($orgfile, $ext) {
  * Build image variation storage path for src targets in themes/plugins.
  * Originally build for WebP variations. Now also used for additional AVIF extension or other futures.
  *
- * @param string $image  origin image file relative path
- * @param string $ext    by extension
- * @return array
+ * Args:
+ *      - Origin image file relative path
+ *      - By extension
+ * Returns:
+ *      - Relative path array
+ * @access private
  */
-function serendipity_generate_webpPathURI($image, $ext = 'webp') {
+function serendipity_generate_webpPathURI(string $image, string $ext = 'webp') : string {
     $bname  = basename($image); // to get base file name w/ ext
     $vpath  = str_replace($bname, '', $image); // get file path
     $fname  = pathinfo($image, PATHINFO_FILENAME); // get file name w/o extension
@@ -1090,10 +1147,11 @@ function serendipity_generate_webpPathURI($image, $ext = 'webp') {
 /**
  * Pass ImageMagick variables to command-CLI-interface [cmd] and process the image resize for a single image file
  *
- * @param string $type      Mime/string type name the image shall be formatted to
- * @param string $source    Source file fullpath
- * @param string $target    Target file fullpath
- * @param array  $args      [0] ImageMagick executor command (remember, "magick" shall be used for IM 7 only, but always a copy named "convert" is created too, so we can stick to convert until this is reverted.)
+ * Args:
+ *      - Mime/string type name the image shall be formatted to
+ *      - Source file fullpath
+ *      - Target file fullpath
+ *      - $args      [0] ImageMagick executor command (remember, "magick" shall be used for IM 7 only, but always a copy named "convert" is created too, so we can stick to convert until this is reverted.)
  *                          [1],[2],[3] Convert setting/operator commands [-antialias, -sharp, -unsharp, -flatten, -scale, -resize, -crop, size adjustments, etc]
  *                          [4] Quality of image operation (normally 100, 75 for thumb downsizing)
  *                          [5] The same color image displayed on two different workstations may look different due to differences in the display monitor.
@@ -1101,10 +1159,13 @@ function serendipity_generate_webpPathURI($image, $ext = 'webp') {
  *                              Gamma less than 1.0 darkens the image and gamma greater than 1.0 lightens it. Gamma argument of image operation: -1 is disabled. 2 use defaults.
  *                              Large adjustments to image gamma may result in the loss of some image information if the pixel quantum size is only eight bits (quantum range 0 to 255).
  *                              Gamma adjusts the image's channel values pixel-by-pixel according to a power law, namely, pow(pixel,1/gamma) or pixel^(1/gamma), where pixel is the
- *                              normalized or 0 to 1 color value.
- * @return mixed            boolean on fail, else array with result and $cmd string (for debug)
+ *                              normalized or 0 to 1 color value.                         XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX IS THIS VALID FOR ALL FORMATS ??
+ *                          [5] AV1 uses this as the SPEED parameter -1 for default, else integers 1 - 9
+ * Returns:
+ *      - boolean on fail, else array with result and $cmd string (for debug)
+ * @access private
  */
-function serendipity_passToCMD($type = null, $source = '', $target = '', $args = array()) {
+function serendipity_passToCMD(?string $type = null, string $source = '', string $target = '', iterable $args = array()) : string|iterable|bool {
 
     if ($type === null
     || (!in_array($type, ['pdfthumb', 'mkthumb', 'format-jpg', 'format-jpeg', 'format-png', 'format-gif', 'format-webp', 'format-avif']) && !in_array(strtoupper(explode('/', $type)[1]), serendipity_getSupportedFormats(true)))
@@ -1216,27 +1277,29 @@ function serendipity_passToCMD($type = null, $source = '', $target = '', $args =
  *
  * LONG
  *
+ * Args:
+ *      - The input image filename
+ *      - The directory to the image file
+ *      - The target size of the thumbnail (2-dimensional array width,height)
+ *      - Name of the thumbnail
+ *      - Store thumbnail in temporary place?
+ *      - Force enlarging of small images?
+ *      - Suppress serendipity_convertToWebPFormat() & serendipity_convertToAvifFormat() message, if it is a bulk (synchronization) traversal request
+ * Returns:
+ *      - The result size of the thumbnail
  * @access public
- * @param   string      The input image filename
- * @param   string      The directory to the image file
- * @param   string      The target size of the thumbnail (2-dimensional array width,height)
- * @param   string      Name of the thumbnail
- * @param   bool        Store thumbnail in temporary place?
- * @param   bool        Force enlarging of small images?
- * @param   bool        Suppress serendipity_convertToWebPFormat() & serendipity_convertToAvifFormat() message, if it is a bulk (synchronization) traversal request
- * @return  array       The result size of the thumbnail
  */
-function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumbname = false, $is_temporary = false, $force_resize = false, $mute = false) {
+function serendipity_makeThumbnail(string $file, string $directory = '', int|bool $size = false, string|bool $thumbname = false, bool $is_temporary = false, bool $force_resize = false, bool $mute = false) : iterable|bool  {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
     $debug = (is_object($serendipity['logger']) && $debug); // ad hoc debug + enabled logger
 
     if ($size === false) {
-        $size = $serendipity['thumbSize'];
+        $size = (int) $serendipity['thumbSize'];
     }
     if ($size < 1) {
-       return array(0,0);
+       return array(0, 0);
     }
 
     if ($thumbname === false) {
@@ -1490,6 +1553,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
             unset($result);
         }
     }
+
     return $r;
 }
 
@@ -1498,16 +1562,18 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
  *
  * LONG
  *
+ * Args:
+ *      - The ID of an image
+ *      - The target width
+ *      - The target height
+ *      - bool    A special set to resize the WepP-Format Thumb variation
+ * Returns:
+ *      - True on success, False on fail, String message on error case, Null on failed privileges
  * @access public
- * @param   int     The ID of an image
- * @param   int     The target width
- * @param   int     The target height
- * @param   bool    A special set to resize the WepP-Format Thumb variation
- * @return true
  */
-function serendipity_scaleImg($id, $width, $height, $scaleThumbVariation=false) {
+function serendipity_scaleImg(int $id, int $width, int $height, bool $scaleThumbVariation = false) : bool|string|null {
     global $serendipity;
-    static $debug = true; // ad hoc, case-by-case debugging
+    static $debug = false; // ad hoc, case-by-case debugging
 
     $debug = (is_object($serendipity['logger']) && $debug); // ad hoc debug + enabled logger
 
@@ -1518,7 +1584,7 @@ function serendipity_scaleImg($id, $width, $height, $scaleThumbVariation=false) 
 
     if (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid']) {
         // A non-admin user SHALL NOT change private files from other users.
-        return;
+        return null;
     }
 
     $infile  = $outfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
@@ -1640,6 +1706,7 @@ function serendipity_scaleImg($id, $width, $height, $scaleThumbVariation=false) 
         serendipity_updateImageInDatabase(array('dimensions_width' => (int)$width, 'dimensions_height' => (int)$height, 'size' => (int)@filesize($outfile)), $id);
         return true;
     }
+
     return false;
 }
 
@@ -1648,12 +1715,14 @@ function serendipity_scaleImg($id, $width, $height, $scaleThumbVariation=false) 
  *
  * LONG
  *
+ * Args:
+ *      - The ID of an image
+ *      - Number of degrees to rotate
+ * Returns:
+ *      - Boolean
  * @access public
- * @param   int     The ID of an image
- * @param   int     Number of degrees to rotate
- * @return boolean
  */
-function serendipity_rotateImg($id, $degrees) {
+function serendipity_rotateImg(int $id, int $degrees) : bool {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
@@ -1789,16 +1858,20 @@ function serendipity_rotateImg($id, $degrees) {
  * Force an image AVIF/WebP Variation file format conversion on all supported files by range
  * OR run-it for a single given image via MediaLibrary image items toolbar button.
  *
- * @return int num $items converted
+ * Args:
+ *      - file id
+ * Returns:
+ *      - num $items converted
+ * @access private
  */
-function serendipity_generateVariations($id = null) {
+function serendipity_generateVariations(?int $id = null) : ?int {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
     $debug = (is_object($serendipity['logger']) && $debug); // ad hoc debug + enabled logger
 
     if (empty($serendipity['useWebPFormat'])) {// also used for avif - bind to
-        return;
+        return null;
     }
     if ($debug) {
         $logtag = 'MAINTENANCE ML IMAGE-SYNC OPT #4 - PART RUN ::';
@@ -1847,11 +1920,13 @@ function serendipity_generateVariations($id = null) {
             }
             // AVIF case
             if ($serendipity['useAvifFormat']) {
+                // Build the path
                 $newfile   = serendipity_makeImageVariationPath($outfile, 'avif');
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE AVIF: ".print_r($newfile,true)); }
                 $newfileTH = serendipity_makeImageVariationPath($outfileTH, 'avif');
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB AVIF: ".print_r($newfileTH,true)); }
 
+                // Convert to
                 $result    = serendipity_convertToAvifFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true);
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO AVIF: ".print_r($result,true)); }
                 if ($result !== false && is_array($result) && $result[0] == 0) {
@@ -1914,11 +1989,13 @@ function serendipity_generateVariations($id = null) {
                 }
                 // AVIF case
                 if ($serendipity['useAvifFormat']) {
+                    // Build the path
                     $newfile   = serendipity_makeImageVariationPath($outfile, 'avif');
                     if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE AVIF: ".print_r($newfile,true)); }
                     $newfileTH = serendipity_makeImageVariationPath($outfileTH, 'avif');
                     if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB AVIF: ".print_r($newfileTH,true)); }
 
+                    // Convert to
                     $result    = serendipity_convertToAvifFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true);
                     if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO AVIF: ".print_r($result,true)); }
                     if ($result !== false && is_array($result) && $result[0] == 0) {
@@ -1944,19 +2021,24 @@ function serendipity_generateVariations($id = null) {
     return $i;
 }
 
-/**
+ /**
  * Delete all image AVIF/WebP Variation files in the physical Media Library
  *
- * @return int num $i(tems) to purge/purged
+ * Args:
+ *      - Path OR NULL
+ *      - Whether to purge or not
+ * Returns:
+ *      - Num $i(tems) to purge/purged OR NULL
+ * @access private
  */
-function serendipity_purgeVariations($path = null, $doPurge = false) {
+function serendipity_purgeVariations(?int $path = null, bool $doPurge = false) : ?int {
     global $serendipity;
 
     if (empty($serendipity['useWebPFormat']) || empty($path)) {// also used for avif - bind to
-        return;
+        return null;
     }
     if ($doPurge && !serendipity_checkPermission('adminImagesDirectories')) {
-        return;
+        return null;
     }
     $path     = rtrim($path, '/');
     $wpurges  = array();
@@ -2014,14 +2096,17 @@ function serendipity_purgeVariations($path = null, $doPurge = false) {
  * Creates thumbnails for all images in the upload dir
  *    includes generating _createFullFileVariations (FTP like added case in manually pushed ImageListSync)
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - Number of created thumbnails
  * @access public
- * @return  int Number of created thumbnails
  */
-function serendipity_generateThumbs() {
+function serendipity_generateThumbs() : int {
     global $serendipity;
 
     $i = 0;
-    $serendipity['imageList'] = serendipity_fetchImagesFromDatabase(0, 0, $total, 'path, name', 'ASC');
+    $serendipity['imageList'] = serendipity_fetchImagesFromDatabase(order: 'path, name', ordermode: 'ASC');
     $_list = '';
     $m = []; // message array for full file sync
 
@@ -2038,7 +2123,7 @@ function serendipity_generateThumbs() {
             $ffuva    = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.webp'; // this is mandatory
 
             if (!file_exists($ffull)) {
-                serendipity_deleteImage($file['id']); // no message output?
+                serendipity_deleteImage((int) $file['id']); // no message output?
                 continue;
             }
 
@@ -2111,11 +2196,13 @@ function serendipity_generateThumbs() {
 /**
  * Guess the MIME type of a file
  *
+ * Args:
+ *      - Filename extension
+ * Returns:
+ *      - Mimetype string
  * @access public
- * @param   string  Filename extension
- * @return  string  Mimetype
  */
-function serendipity_guessMime($extension) {
+function serendipity_guessMime(string $extension) : string {
     $mime = '';
     switch (strtolower($extension)) {
         case 'avif':
@@ -2351,10 +2438,13 @@ function serendipity_guessMime($extension) {
  *          3. entryproperties
  *          4. staticpages,
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - Number of updated thumbnails
  * @access public
- * @return  int     Number of updated thumbnails
  */
-function serendipity_convertThumbs() {
+function serendipity_convertThumbs() : int {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
@@ -2517,14 +2607,15 @@ function serendipity_convertThumbs() {
 /**
  * Create ORIGIN TARGET full file Variations
  *
- * @access protected
- * @param   string      Source Filename to work on
- * @param   array       File pathinfo properties (ext)
- * @param   array       Port already indexed messages
- *
- * @return  array       $messages
+ * Args:
+ *      - Source Filename to work on
+ *      - File pathinfo properties (ext)
+ *      - Port already indexed messages
+ * Returns:
+ *      - $messages array
+ * @access private
  */
-function serendipity_createFullFileVariations($target, $info, $messages) {
+function serendipity_createFullFileVariations(string $target, iterable $info, iterable $messages) : iterable {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
@@ -2618,6 +2709,7 @@ function serendipity_createFullFileVariations($target, $info, $messages) {
             }
         }
     }
+
     return $messages;
 }
 
@@ -2625,12 +2717,14 @@ function serendipity_createFullFileVariations($target, $info, $messages) {
  * Unlink/Delete a (thumb) files variation for ML maintenance synchronization
  * and/or serendipity_deleteImage()
  *
- * @param  string $origin/Thumb/File The fullpath (thumb) file of the image object
- * @param  boolean $silenced to give back success messages on false
+ * Args:
+ *      - The fullpath (thumb) file of the image object
+ *      - @silenced to give back success messages on false
+ * Returns:
+ *      - true for silence OR file message
  * @access private
- * @return void or file message
  */
-function serendipity_syncUnlinkVariation($originThumbFile, $silenced = true) {
+function serendipity_syncUnlinkVariation(string $originThumbFile, bool $silenced = true) : true|iterable {
     $variant = ['avif', 'webp'];
     $varfile = array();
     $msg = [];
@@ -2650,10 +2744,13 @@ function serendipity_syncUnlinkVariation($originThumbFile, $silenced = true) {
  *
  * LONG
  *
+ * Args:
+ *      - Boolean for deleteThumbs ?
+ * Returns:
+ *      - Number of updated thumbnails
  * @access public
- * @return  int     Number of updated thumbnails
  */
-function serendipity_syncThumbs($deleteThumbs = false) {
+function serendipity_syncThumbs(bool $deleteThumbs = false) : int {
     global $serendipity;
 
     $i = 0;
@@ -2806,12 +2903,14 @@ function serendipity_syncThumbs($deleteThumbs = false) {
 /**
  * Wrapper for GDLib functions
  *
+ * Args:
+ *      - Filename to operate on
+ *      - Possible AVIF/WebP format Quality change
+ * Returns:
+ *      - Name of GD function to execute OR false
  * @access public
- * @param  string       Filename to operate on
- * @param  int          Possible AVIF/WebP format Quality change
- * @return string       Name of GD function to execute
  */
-function serendipity_functionsGD($infilename, $q = null) {
+function serendipity_functionsGD(string $infilename, ?int $q = null) : false|iterable {
     if (!function_exists('imagecopyresampled')) {
         return false;
     }
@@ -2876,13 +2975,15 @@ function serendipity_functionsGD($infilename, $q = null) {
 /**
  * Format an image (GDlib) to another image format
  *
+ * Args:
+ *      - Source Filename to format
+ *      - Target file
+ *      - Extension to format to
+ * Returns:
+ *      - Array containing width/height of the new image
  * @access public
- * @param   string      Source Filename to format
- * @param   string      Target file
- * @param   int         Extension to format to
- * @return  array       width/height of the new image
  */
-function serendipity_formatImageGD($infilename, $outfilename, $format) {
+function serendipity_formatImageGD(string $infilename, string $outfilename, string $format) : iterable {
 
     $ifunc = serendipity_functionsGD($infilename, 100);  // Currently this effects WebP formats only, and makes the format to WebP conversion inadvisable, where the infile has already been optimized for the Web.
     $ofunc = serendipity_functionsGD($outfilename, 100); // Ditto
@@ -2927,13 +3028,15 @@ function serendipity_formatImageGD($infilename, $outfilename, $format) {
 /**
  * Rotate an image (GDlib)
  *
+ * Args:
+ *      - Source Filename to rotate
+ *      - Target file
+ *      - Degrees to rotate
+ * Returns:
+ *      - Array containing the new width/height of the image OR false
  * @access public
- * @param   string      Source Filename to rotate
- * @param   string      Target file
- * @param   int         Degrees to rotate
- * @return  array       New width/height of the image
  */
-function serendipity_rotateImageGD($infilename, $outfilename, $degrees) {
+function serendipity_rotateImageGD(string $infilename, string $outfilename, int $degrees) : iterable|false {
 
     $func = serendipity_functionsGD($infilename);
     if (!is_array($func)) {
@@ -2957,14 +3060,15 @@ function serendipity_rotateImageGD($infilename, $outfilename, $degrees) {
 /**
  * Resize an image (GDLib)
  *
+ * Args:
+ *      - Source Filename to resize
+ *      - Target file
+ *      - New width
+ * Returns:
+ *      - Array containing new image size (height can be autodetected)
  * @access public
- * @param   string      Source Filename to resize
- * @param   string      Target file
- * @param   int         New width
- * @return  int         New height (can be autodetected)
- * @return  array       New image size
  */
-function serendipity_resizeImageGD($infilename, $outfilename, $newwidth, $newheight = null) {
+function serendipity_resizeImageGD(string $infilename, string $outfilename, int $newwidth, ?int $newheight = null) : iterable|false {
 
     $func = serendipity_functionsGD($infilename);
     if (!is_array($func)) {
@@ -3003,8 +3107,8 @@ function serendipity_resizeImageGD($infilename, $outfilename, $newwidth, $newhei
 
     /* Attempt to copy transparency information, this really only works for PNG */
     if (function_exists('imagesavealpha') && $func['save'] == 'imagepng') {
-        imagealphablending($out, false);
-        imagesavealpha($out, true);
+        imagealphablending($out, false); // Turn off alpha blending
+        imagesavealpha($out, true); // Set alpha flag
     }
 
     imagecopyresampled($out, $in, 0, 0, 0, 0, (int) $newwidth, (int) $newheight, $width, $height);
@@ -3019,31 +3123,37 @@ function serendipity_resizeImageGD($infilename, $outfilename, $newwidth, $newhei
     $out = null;
     $in  = null;
 
-    return array((float)$newwidth, $newheight);
+    return array((float) $newwidth, $newheight);
 }
 
 /**
  * Deprecation compatibility wrapper for Plugins (imageselectorplus)
  *
+ * Args:
+ *      -
+ * Returns:
+ *      -
  * @access public
  * @return  serendipity_calculateAspectSize()
  */
-function serendipity_calculate_aspect_size($width, $height, $size, $constraint = null) {
+function serendipity_calculate_aspect_size(int $width, int $height, int $size, ?string $constraint = null) : iterable {
     return serendipity_calculateAspectSize($width, $height, $size, $constraint);
 }
 
 /**
  * Calculate new size for an image, considering aspect ratio and constraint
  *
- * @access public
- * @param   int     Image width
- * @param   int     Image height
- * @param   int     Target dimension size
- * @param   string  Dimension to constrain ('width', 'height', 'largest',
+ * Args:
+ *      - Image width
+ *      - Image height
+ *      - Target dimension size
+ *      - Dimension to constrain ('width', 'height', 'largest',
  *                  'smallest'; defaults to original behavior, 'largest')
- * @return  array   An array with the scaled width and height
+ * Returns:
+ *      - An array with the scaled width and height
+ * @access public
  */
-function serendipity_calculateAspectSize($width, $height, $size, $constraint = null) {
+function serendipity_calculateAspectSize(int $width, int $height, int $size, ?string $constraint = null) : iterable {
 
     // Allow for future constraints (idea: 'percent')
     $known_constraints = array('width', 'height', 'largest', 'smallest');
@@ -3113,16 +3223,18 @@ function serendipity_calculateAspectSize($width, $height, $size, $constraint = n
 /**
  * Display the list of images in our database
  *
+ * Args:
+ *      - The current page number
+ *      - Is this the ML-Version for managing everything (true), or is it about selecting one image for the editor? (false)
+ *      - The URL to use for pagination
+ *      - Show the "upload media item" feature?
+ *      - Restrict viewing images to a specific directory
+ *      - Map of Smarty vars transported into all following templates
+ * Returns:
+ *      - Generated HTML string of serendipity_showMedia()
  * @access public
- * @param   int     The current page number
- * @param   boolean Is this the ML-Version for managing everything (true), or is it about selecting one image for the editor? (false)
- * @param   string  The URL to use for pagination
- * @param   boolean Show the "upload media item" feature?
- * @param   boolean Restrict viewing images to a specific directory
- * @param   array   Map of Smarty vars transported into all following templates
- * @return  string  Generated HTML
  */
-function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $show_upload = false, $limit_path = NULL, $smarty_vars = array()) {
+function serendipity_displayImageList(int $page = 0, bool $manage = false, ?string $url = NULL, bool $show_upload = false, ?string $limit_path = NULL, iterable $smarty_vars = []) : string {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
@@ -3153,7 +3265,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
     }
 
     $perPage = (!empty($serendipity['GET']['sortorder']['perpage']) ? (int)$serendipity['GET']['sortorder']['perpage'] : 8);
-    $start = ($page-1) * $perPage;
+    $start   = ($page-1) * $perPage;
 
     if ($serendipity['onTheFlySynch'] && serendipity_checkPermission('adminImagesSync') && $manage && $limit_path === NULL) {
         ## SYNC START ##
@@ -3212,6 +3324,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
 
         // Run a looped filesize comparison for AVIF vs WebP sizes to check this referenced variable for the special Variation URL link in media_items.tpl
         if (isset($aFilesNoSync) && is_array($aFilesNoSync)) {
+            // sign out a looped filesize comparison for AVIF vs WebP sizes to check this referenced variable for the special Variation URL link in media_items.tpl
             foreach ($aFilesNoSync AS $k => &$v) {
                 if ($v['extension'] == 'avif') {
                     $v['linknext'] = false;
@@ -3280,7 +3393,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
                         if (!isset($sFile['hotlink'])) {
                             if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Deleting Image {$sFile['id']}"); }
 
-                            $msgdelfile[] = serendipity_deleteImage($sFile['id']);
+                            $msgdelfile[] = serendipity_deleteImage((int) $sFile['id']);
                             ++$nCount;
                         }
                     }
@@ -3372,6 +3485,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
     $serendipity['aFilesNoSync'] = $aFilesNoSync;
     $serendipity['smarty']->assign('imagesNoSync', $aFilesNoSync); // in sorted order, so the avif full image extension loops first for media_items special assignment (case 1)
 
+    $paths ??= false; //  if not isset $paths, define false
     ## Apply ACL afterwards:
     serendipity_directoryACL($paths, 'read');
 
@@ -3436,7 +3550,7 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
                 continue;
             }
 
-            serendipity_prepareMedia($serendipity['imageList'][$k], $url);
+            serendipity_prepareMedia($serendipity['imageList'][$k], $url); // media_items
 
             if (isset($serendipity['parseMediaOverview']) && $serendipity['parseMediaOverview']) { // see above note
                 $serendipity['imageList'][$k]['props'] =& $allprops[$file['id']];
@@ -3483,9 +3597,13 @@ function serendipity_displayImageList($page = 0, $manage = false, $url = NULL, $
  * Gather the URL-parameters needed when generating the ML to select an image to add to the editor,
  * to store the relevant options (eg. like, which textarea to add it to)
  *
- * @param   string  URL or Form format
+ * Args:
+ *      - URL or Form format
+ * Returns:
+ *      - extraParems string to append
+ * @access private
  */
-function serendipity_generateImageSelectorParems($format = 'url') {
+function serendipity_generateImageSelectorParems(string $format = 'url') : string {
     global $serendipity;
 
     $sortParams   = array('perpage', 'order', 'ordermode');
@@ -3542,18 +3660,20 @@ function serendipity_generateImageSelectorParems($format = 'url') {
 /**
  * Check if a media item is an image
  *
+ * Args:
+ *      - File information
+ *      - boolean     Use a strict check that does not list PDFs as an image?
+ * Returns:
+ *      - True if the file is an image = match 1, no match 0, false on error
  * @access public
- * @param   array       File information
- * @param   boolean     Use a strict check that does not list PDFs as an image?
- * @return  boolean     True if the file is an image
  */
-function serendipity_isImage(&$file, $strict = false, $allowed = 'image/') {
+function serendipity_isImage(iterable &$file, bool $strict = false, string $allowed = 'image/') : int|false {
     global $serendipity;
 
     $file['displaymime'] = $file['mime'];
 
     // Strip HTTP path out of imgsrc
-    $file['location'] = !isset($file['hotlink']) ? $serendipity['serendipityPath'] . preg_replace('@^(' . preg_quote($serendipity['serendipityHTTPPath']) . ')@i', '', ($file['imgsrc'] ?? '')) : '';
+    $file['location'] = (!isset($file['hotlink']) || !$file['hotlink']) ? $serendipity['serendipityPath'] . preg_replace('@^(' . preg_quote($serendipity['serendipityHTTPPath']) . ')@i', '', ($file['imgsrc'] ?? '')) : '';
 
     // File is PDF -> Thumb is PNG
     // Detect PDF thumbs
@@ -3568,13 +3688,15 @@ function serendipity_isImage(&$file, $strict = false, $allowed = 'image/') {
 /**
  * Recursively delete a directory tree
  *
+ * Args:
+ *      - The originating directory path name, full path into uploads/
+ *      - The relative in-uploads/ directory name
+ *      - Force deleting a directory even if there are files left in it?
+ * Returns:
+ *      - true
  * @access public
- * @param   string      The originating directory path name, full path into uploads/
- * @param   string      The relative in-uploads/ directory name
- * @param   boolean     Force deleting a directory even if there are files left in it?
- * @return true
  */
-function serendipity_nukePath($basedir, $udir = '', $forceDelete = false) {
+function serendipity_nukePath(string $basedir, string $udir = '', bool $forceDelete = false) : true {
     static $serious = true;
     static $sdir = null;
 
@@ -3606,7 +3728,7 @@ function serendipity_nukePath($basedir, $udir = '', $forceDelete = false) {
             foreach($files AS $f => $file) {
                 echo "    <li>\n";
                 if ($serious) {
-                    echo serendipity_deleteImage($file['id']); // this also nukes .v/ dir based direct dependency variation files, so we later on also remove the .v/ directory w/o further action
+                    echo serendipity_deleteImage((int) $file['id']); // this also nukes .v/ dir based direct dependency variation files, so we later on also remove the .v/ directory w/o further action
                 } else {
                     echo $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
                 }
@@ -3655,11 +3777,14 @@ function serendipity_nukePath($basedir, $udir = '', $forceDelete = false) {
 /**
  * Checks if a new dir in dirpath needs to be created first in moving situations - then rename()
  *
- * @param  string   The old path
- * @param  string   The new path
- * @return  mixed   rename result (bool/error string)
+ * Args:
+ *      - The old path
+ *      - The new path
+ * Returns:
+ *      - rename result (bool/error string) OR NULL
+ * @access private
  */
-function serendipity_makeDirRename($from, $to) {
+function serendipity_makeDirRename(string $from, string $to) : string|bool|null {
     // check moving a dir to a new mkdir directory location
     if (file_exists($from) && !file_exists($to)) {
         $_tmppath = dirname($to);
@@ -3674,18 +3799,20 @@ function serendipity_makeDirRename($from, $to) {
 /**
  * Recursively walk a directory tree
  *
+ * Args:
+ *      - The core directory
+ *      - The subdirectory
+ *      - boolean     Only return directories instead of files as well?
+ *      - A regexp pattern to include files
+ *      - Level of nesting (recursive use)
+ *      - The maximum level of nesting (recursive use)
+ *      - Toggle whether to apply serendipity_directoryACL (false / 'read' / 'write')
+ *      - An array of directories to skip [passed by plugins, for example]
+ * Returns:
+ *      - Array of files/directories
  * @access public
- * @param   string      The core directory
- * @param   string      The subdirectory
- * @param   boolean     Only return directories instead of files as well?
- * @param   string      A regexp pattern to include files
- * @param   int         Level of nesting (recursive use)
- * @param   int         The maximum level of nesting (recursive use)
- * @param   mixed       Toggle whether to apply serendipity_directoryACL (false / 'read' / 'write')
- * @param   array       An array of directories to skip [passed by plugins, for example]
- * @return  array       Array of files/directories
  */
-function serendipity_traversePath($basedir, $dir='', $onlyDirs = true, $pattern = NULL, $depth = 1, $max_depth = NULL, $apply_ACL = false, $aExcludeDirs = NULL) {
+function serendipity_traversePath(string $basedir, string $dir = '', bool $onlyDirs = true, ?string $pattern = NULL, int $depth = 1, ?int $max_depth = NULL, bool|string $apply_ACL = false, ?iterable $aExcludeDirs = NULL) : iterable {
 
     if ($aExcludeDirs === null) {
         // add possible historic CKEditors .thumb dir to exclude, since no hook
@@ -3738,23 +3865,27 @@ function serendipity_traversePath($basedir, $dir='', $onlyDirs = true, $pattern 
 /**
  * Custom usort() function that properly sorts a path
  *
+ * Args:
+ *      - First array
+ *      - Second array
+ * Returns:
+ *      - Integer -1, 1, 0
  * @access public
- * @param   array      First array
- * @param   array      Second array
- * @return
  */
-function serendipity_sortPath($a, $b) {
+function serendipity_sortPath(iterable $a, iterable $b) : int {
     return strcasecmp($a['relpath'], $b['relpath']);
 }
 
 /**
  * Delete a directory with all its files
  *
+ * Args:
+ *      - The directory to delete
+ * Returns:
+ *      - void
  * @access public
- * @param   string      The directory to delete
- * @return
  */
-function serendipity_deletePath($dir) {
+function serendipity_deletePath(string $dir) : void {
     $d = dir($dir);
     if ($d) {
         while ($f = $d->read()) {
@@ -3777,13 +3908,15 @@ function serendipity_deletePath($dir) {
 /**
  * Transform a filename into a valid upload path
  *
+ * Args:
+ *      - The input filename
+ *      - boolean     Shall all paths be stripped?
+ *      - boolean     Shall a trailing slash be appended?
+ * Returns:
+ *      - The valid filename
  * @access public
- * @param   string      The input filename
- * @param   boolean     Shall all paths be stripped?
- * @param   boolean     Shall a trailing slash be appended?
- * @return  string      The valid filename
  */
-function serendipity_uploadSecure($var, $strip_paths = true, $append_slash = false) {
+function serendipity_uploadSecure(string $var, bool $strip_paths = true, bool $append_slash = false) : string {
 
     $var = str_replace(' ', '_', $var);
     $var = preg_replace('@[^0-9a-z\._/-]@i', '', $var);
@@ -3805,19 +3938,23 @@ function serendipity_uploadSecure($var, $strip_paths = true, $append_slash = fal
 /**
  * Get the image size for a file
  *
+ * Args:
+ *      - The filename of the image
+ *      - The mimetype of an image (can be autodetected)
+ *      - The file extension of an image
+ * Returns:
+ *      - Array containing the width/height of the file
  * @access public
- * @param   string      The filename of the image
- * @param   string      The mimetype of an image (can be autodetected)
- * @param   string      The file extension of an image
- * @return  array       The width/height of the file
  */
-function serendipity_getImageSize($file, $ft_mime = '', $suf = '') {
+function serendipity_getImageSize(string $file,string  $ft_mime = '', string $suf = '') : iterable {
     if (empty($ft_mime) && !empty($suf)) {
         $ft_mime = serendipity_guessMime($suf);
     }
 
     if ($ft_mime == 'application/pdf') {
         $fdim = array(1000,1000,24, '', 'bits'=> 24, 'channels' => '3', 'mime' => 'application/pdf');
+    } else if ($ft_mime == 'text/calendar') { // see compat '@getimagesize.*Error reading from@i' exception for forced debug bypassed error processing because it's @-silenced.
+         $fdim = '';
     } else {
         if (PHP_VERSION_ID >= 80100 && PHP_VERSION_ID < 80200) {
             if ($suf == 'avif') {// temp HOTFIX, see L~2996 aFilesNoSync - PHP 8.1 getimagesize() has no build-in AVIF size measures yet, but people at Google are currently working on implementation
@@ -3862,10 +3999,13 @@ function serendipity_getImageSize($file, $ft_mime = '', $suf = '') {
 /**
  * Get the available fields of the media database
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - Array with available, sortable fields
  * @access public
- * @return array    Array with available, sortable fields
  */
-function serendipity_getImageFields() {
+function serendipity_getImageFields() : iterable {
     global $serendipity;
 
     if (isset($serendipity['simpleFilters']) && $serendipity['simpleFilters'] !== false) {
@@ -3931,23 +4071,27 @@ function serendipity_getImageFields() {
 /**
  * Escape a shell argument for ImageMagick use
  *
+ * Args:
+ *      - Input argument
+ * Returns:
+ *      - Output argument
  * @access public
- * @param   string  Input argument
- * @return  string  Output argument
  */
-function serendipity_escapeshellarg($string) {
+function serendipity_escapeshellarg(string $string) : string {
     return escapeshellarg(str_replace('%', '', $string));
 }
 
 /**
  * Makes sure a directory begins with or ends with a "/"
  *
+ * Args:
+ *      - Type of where to append/prepend slash ('end', 'start', 'both')
+ *      - Directory name
+ * Returns:
+ *      - Output argument
  * @access public
- * @param   string  Type of where to append/prepend slash ('end', 'start', 'both')
- * @param   string  Directory name
- * @return  string  Output argument
  */
-function serendipity_dirSlash($type, $dir) {
+function serendipity_dirSlash(string $type, string $dir) : string {
 
     if ($dir == '') {
         return $dir;
@@ -3971,11 +4115,14 @@ function serendipity_dirSlash($type, $dir) {
 /**
  * Cycle a serendipity_traversePath result-set and apply read/write ACLs.
  *
+ * Args:
+ *      - serendipity_traversePath result array
+ *      - ACL type ('read', 'write')
+ * Returns:
+ *      - True on permissive, false on ACL denied
  * @access public
- * @param   array   serendipity_traversePath result array
- * @param   string  ACL type ('read', 'write')
  */
-function serendipity_directoryACL(&$paths, $type = 'read') {
+function serendipity_directoryACL(iterable|false &$paths, string $type = 'read') : bool {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
@@ -4071,14 +4218,17 @@ function serendipity_directoryACL(&$paths, $type = 'read') {
 /**
  * Build the name of a thumbnail image file.
  *
+ * Args:
+ *      - Relative Path
+ *      - File name
+ *      - File extension
+ *      - Thumbnail suffix
+ * Returns:
+ *      - Thumbnail path
+ * @access private
  * @author MTG
- * @param  string   Relative Path
- * @param  string   File name
- * @param  string   File extension
- * @param  string   Thumbnail suffix
- * @return array    Thumbnail path
  */
-function serendipity_getThumbNailPath($sRelativePath, $sName, $sExtension, $sThumbName) {
+function serendipity_getThumbNailPath(string $sRelativePath, string $sName, string $sExtension, string $sThumbName) : string {
     $aTempArray = array('path'      => $sRelativePath,
                         'name'      => $sName,
                         'extension' => $sExtension);
@@ -4101,11 +4251,14 @@ function serendipity_getThumbNailPath($sRelativePath, $sName, $sExtension, $sThu
  * Given a relative path to an image, construct an array containing all
  * relevant information about that image in the file structure.
  *
+ * Args:
+ *      - Relative Path
+ * Returns:
+ *      - Data array about image
+ * @access private
  * @author MTG
- * @param  string   Relative Path
- * @return array    Data about image
  */
-function &serendipity_getImageData($sRelativePath) {
+function &serendipity_getImageData(string $sRelativePath) : iterable {
     global $serendipity;
 
     // First, peel off the file name from the path
@@ -4149,12 +4302,15 @@ function &serendipity_getImageData($sRelativePath) {
 /**
  * Shows the HTML form to add/edit properties of uploaded media items
  *
- * @param  array    Associative array holding an array('image_id', 'target', 'created_thumbnail') that points to the uploaded media
- * @param  int      How many keyword checkboxes to display next to each other?
- * @param  boolean  Can existing data be modified?
- * @return string   Generated HTML
+ * Args:
+ *      - Associative array holding an array('image_id', 'target', 'created_thumbnail') that points to the uploaded media
+ *      - How many keyword checkboxes to display next to each other?
+ *      - Can existing data be modified?
+ * Returns:
+ *      - Generated HTML per serendipity_showMedia() OR true
+ * @access private
  */
-function serendipity_showPropertyForm(&$new_media, $keywordsPerBlock = 3, $is_edit = true) {
+function serendipity_showPropertyForm(iterable &$new_media, int $keywordsPerBlock = 3, bool $is_edit = true) : string|true {
     global $serendipity;
 
     if (!is_array($new_media) || count($new_media) < 1) {
@@ -4214,15 +4370,18 @@ function serendipity_showPropertyForm(&$new_media, $keywordsPerBlock = 3, $is_ed
 /**
  * Parse/Convert properties
  *
- * @param  array    Holds the property key array
- * @param  array    Holds the keyword key array
- * @param  int      Holds the media metadata
- * @param  int      Holds the media properties
- * @param  int      How many keyword checkboxes to display next to each other?
- * @param  boolean  Can existing data be modified?
- * @return boolean
+ * Args:
+ *      - Holds the property key array
+ *      - Holds the keyword key array
+ *      - Holds the media metadata
+ *      - Holds the media properties
+ *      - How many keyword checkboxes to display next to each other?
+ *      - Can existing data be modified?
+ * Returns:
+ *      - void
+ * @access private
  */
-function serendipity_parseMediaProperties(&$dprops, &$keywords, &$media, &$props, $keywordsPerBlock, $is_edit) {
+function serendipity_parseMediaProperties(iterable &$dprops, iterable &$keywords, iterable &$media, iterable &$props, int $keywordsPerBlock, bool $is_edit) : void {
     global $serendipity;
 
     if (!is_array($dprops)) {
@@ -4285,7 +4444,7 @@ function serendipity_parseMediaProperties(&$dprops, &$keywords, &$media, &$props
         if (!$is_edit) {
             $type = 'readonly';
         }
-        $val = serendipity_mediaTypeCast($parts[0], ($props['base_property']['ALL'][$parts[0]] ?? 0), true);
+        $val = serendipity_mediaTypeCast($parts[0], ($props['base_property']['ALL'][$parts[0]] ?? '0'), true);
 
         $propkey = htmlspecialchars($parts[0]) . $idx; // Well, this was added in S9y history for securing key uniqueness and fixed by Styx 32ada49c. Although we don't have possible duplicates.
 
@@ -4355,7 +4514,7 @@ function serendipity_parseMediaProperties(&$dprops, &$keywords, &$media, &$props
 
                     $media['base_property'][$propkey]['val'] = serendipity_pickKey($media['metadata'], 'Keywords', '');
 
-                    $new_iptc_val     = false;
+                    $new_iptc_val = false;
                     foreach($GLOBALS['IPTC'][$parts[0]] AS $iptc_key) {
                         if (empty($new_iptc_val)) {
                             $new_iptc_val = serendipity_pickKey($media['metadata'], $iptc_key, '');
@@ -4402,12 +4561,15 @@ function serendipity_parseMediaProperties(&$dprops, &$keywords, &$media, &$props
 /**
  * Tries to auto-convert specific fields into DB-storable values
  *
- * @param  string   The keyname
- * @param  string   The value
- * @param  string   Invert?
- * @return array    array('image_id') holding the last created thumbnail for immediate processing
+ * Args:
+ *      - The keyname
+ *      - The value
+ *      - Invert?
+ * Returns:
+ *      - Insert_val string
+ * @access private
  */
-function serendipity_mediaTypeCast($key, $val, $invert = false) {
+function serendipity_mediaTypeCast(string $key, string $val, bool $invert = false) : string {
     if (stristr($key, 'date') !== FALSE) {
         if ($invert && is_numeric($val)) {
             if ($val === '0') $val = null;
@@ -4446,11 +4608,15 @@ function serendipity_mediaTypeCast($key, $val, $invert = false) {
 /**
  * Update single media properties. Mainly used for renaming media filenames.
  *
- * @param   int     Media ID
- * @param   string  Property_fields to check for
- * @param   string  The SET value
+ * Args:
+ *      - Media ID
+ *      - Property_fields to check for
+ *      - The SET value
+ * Returns:
+ *      - void
+ * @access private
  */
-function serendipity_updateSingleMediaProperty($image_id, $property_fields, $setval) {
+function serendipity_updateSingleMediaProperty(int $image_id, string $property_fields, string $setval) : void {
     global $serendipity;
 
     $AND = '';
@@ -4463,25 +4629,29 @@ function serendipity_updateSingleMediaProperty($image_id, $property_fields, $set
     }
     $q = "UPDATE {$serendipity['dbPrefix']}mediaproperties
              SET value = '" . serendipity_db_escape_string($setval) . "'
-           WHERE mediaid = " . (int)$image_id . $AND;
+           WHERE mediaid = " . $image_id . $AND;
     serendipity_db_query($q, single: true, expectError: true); // table is known to fail when field(s) do(es) not exist (yet)
 }
 
 /**
  * Inserts or updates media properties
  *
- * @param   string  Property_group
- * @param   string  Property_Subgroup
- * @param   int     Image ID
- * @param   array   Referenced Media properties
- * @param   bool    Media Type Cast
- * @param   string  Property_group
+ * Args:
+ *      - Property_group
+ *      - Property_Subgroup
+ *      - Image ID
+ *      - Referenced Media properties
+ *      - Media Type Cast data array
+ *      - Property_group
+ * Returns:
+ *      - void
+ * @access private
  */
-function serendipity_insertMediaProperty($property_group, $property_subgroup, $image_id, &$media, $use_cast = true) {
+function serendipity_insertMediaProperty(string $property_group, string $property_subgroup, int $image_id, iterable &$media, bool $use_cast = true) : void {
     global $serendipity;
 
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}mediaproperties
-                                WHERE mediaid = " . (int)$image_id . "
+                                WHERE mediaid = " . $image_id . "
                                   " . ($property_subgroup != 'ALL' ? "AND property_subgroup = '" . serendipity_db_escape_string($property_subgroup) . "'" : '') . "
                                   AND property_group = '" . serendipity_db_escape_string($property_group) . "'");
 
@@ -4499,7 +4669,7 @@ function serendipity_insertMediaProperty($property_group, $property_subgroup, $i
 
             foreach($use_val AS $insert_key => $insert_val) {
                 if ($use_cast) {
-                    $insert_val = serendipity_mediaTypeCast($insert_key, (string) ($insert_val ?? ''));
+                    $insert_val = serendipity_mediaTypeCast($insert_key, (string) ($insert_val ?? '0'));
                 }
                 $q = sprintf("INSERT INTO {$serendipity['dbPrefix']}mediaproperties
                                           (mediaid, property_group, property_subgroup, property, value)
@@ -4519,9 +4689,13 @@ function serendipity_insertMediaProperty($property_group, $property_subgroup, $i
  * Inserts the submitted properties of uploaded media items
  * Consequently this should only be a single file submit without having to push an array key - but we just keep it prepared to provide a valid structure
  *
- * @return array    array('image_id') holding the last created/changed media (thumbnail) id for immediate processing
+ * Args:
+ *      -
+ * Returns:
+ *      - array('image_id') holding the last created/changed media (thumbnail) id for immediate processing
+ * @access private
  */
-function serendipity_parsePropertyForm() {
+function serendipity_parsePropertyForm() : false|iterable {
     global $serendipity;
 
     if (!is_array($serendipity['POST']['mediaProperties'])) {
@@ -4574,15 +4748,18 @@ function serendipity_parsePropertyForm() {
 /**
  * Fetches existing Media Properties for images
  *
- * @param  int      The media item id
- * @return array    Array of image metadata
+ * Args:
+ *      - The media item id
+ * Returns:
+ *      - Array of image metadata
+ * @access private
  */
-function &serendipity_fetchMediaProperties($id) {
+function &serendipity_fetchMediaProperties(int|array $id) : iterable {
     global $serendipity;
 
     $sql = "SELECT mediaid, property, property_group, property_subgroup, value
               FROM {$serendipity['dbPrefix']}mediaproperties
-             WHERE mediaid IN (" . (is_array($id) ? serendipity_db_implode(',', $id) : (int)$id) . ")";
+             WHERE mediaid IN (" . (is_array($id) ? serendipity_db_implode(',', $id) : (int) $id) . ")";
     $rows  = serendipity_db_query($sql, false, 'assoc');
     $props = array();
     if (is_array($rows)) {
@@ -4602,18 +4779,22 @@ function &serendipity_fetchMediaProperties($id) {
             }
         }
     }
+
     return $props;
 }
 
 /**
  * Checks if properties to a specific image are allowed to be fetched
  *
- * @param  array    Array of image metadata
- * @param  array    Array of additional image metadata
- * @param  string   ACL toggle type ('read', 'write')
- * @return array    Stripped Array of image metadata
+ * Args:
+ *      - Array of image metadata
+ *      - Array of additional image metadata OR NULL
+ *      - ACL toggle type ('read', 'write')
+ * Returns:
+ *      - Stripped reference Array of image metadata by bool true
+ * @access private
  */
-function serendipity_checkPropertyAccess(&$new_media, &$additional, $mode = 'read') {
+function serendipity_checkPropertyAccess(iterable &$new_media, ?iterable &$additional, string $mode = 'read') : true {
     global $serendipity;
 
     // Strip out images we don't have access to
@@ -4638,11 +4819,14 @@ function serendipity_checkPropertyAccess(&$new_media, &$additional, $mode = 'rea
 /**
  * Prepare a media item for showing
  *
- * @param  array    Array of image metadata
- * @param  string   URL for maintenance tasks, set when using the ML for inserting images
- * @return bool
+ * Args:
+ *      - Array of image metadata
+ *      - URL for maintenance tasks, set when using the ML for inserting images
+ * Returns:
+ *      - referenced file array bool true
+ * @access private
  */
-function serendipity_prepareMedia(&$file, $url = '') {
+function serendipity_prepareMedia(iterable &$file, ?string $url = '') : true {
     global $serendipity;
     static $full_perm = null;
 
@@ -4801,15 +4985,18 @@ function serendipity_prepareMedia(&$file, $url = '') {
 /**
  * Prints a media item
  *
- * @param  array    Array of image metadata
- * @param  array    Array of additional image metadata like mediaKeywords or paths
- * @param  string   URL for maintenance tasks
- * @param  boolean  Whether to show maintenance task items
- * @param  boolean  Enclose within a table cell?
- * @param  array    Additional Smarty variables
- * @return string   Generated HTML
+ * Args:
+ *      - Array of image metadata
+ *      - Array of additional image metadata like mediaKeywords or paths
+ *      - URL for maintenance tasks
+ *      - Whether to show maintenance task items
+ *      - Enclose within a table cell?
+ *      - Additional Smarty variables
+ * Returns:
+ *      - Generated HTML via serendipity_smarty_showTemplate()
+ * @access private
  */
-function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $enclose = true, $smarty_vars = array()) {
+function serendipity_showMedia(iterable &$file, iterable|false &$paths, ?string $url = '', bool $manage = false, bool $enclose = true, iterable $smarty_vars = []) : string {
     global $serendipity;
 
     $form_hidden = '';
@@ -4901,11 +5088,13 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $enc
 /**
  * Convert a IPTC/EXIF/XMP item
  *
- * @param  string   The content
- * @param  string   The type of the content
- * @return string   The converted content
+ * Args:
+ *      - The content string
+ *      - The type of the content string
+ * Return:
+ *      - The converted content string by type
  */
-function serendipity_metaFieldConvert(&$item, $type) {
+function serendipity_metaFieldConvert(string|int &$item, string $type) : string|int|float {
     switch($type) {
         case 'math':
             $parts = explode('/', $item);
@@ -4920,18 +5109,18 @@ function serendipity_metaFieldConvert(&$item, $type) {
             }
 
         case 'date':
-            return strtotime($item);
+            return strtotime($item); // returns timestamp
             break;
 
         case 'date2':
             $parts = array_map('intval', preg_split('&[ :]&', $item));
-            return mktime($parts[3], $parts[4], $parts[5], $parts[1], $parts[2], $parts[0]);
+            return serendipity_strftime(DATE_FORMAT_SHORT, mktime($parts[3], $parts[4], $parts[5], $parts[1], $parts[2], $parts[0]));
             break;
 
         case 'IPTCdate':
             preg_match('@(\d{4})(\d{2})(\d{2})@', $item, $parts);
             $parts = array_map('intval', $parts);
-            return mktime(0, 0, 0, $parts[2], $parts[3], $parts[1]);
+            return serendipity_strftime(DATE_FORMAT_SHORT, mktime(0, 0, 0, $parts[2], $parts[3], $parts[1])); // format it 
             break;
 
         case 'IPTCtime':
@@ -4952,7 +5141,7 @@ function serendipity_metaFieldConvert(&$item, $type) {
 
         case 'text':
         default:
-            return trim($item);
+            return (is_string($item) ? trim($item) : $item);
             break;
     }
 
@@ -4962,13 +5151,16 @@ function serendipity_metaFieldConvert(&$item, $type) {
 /**
  * Get the RAW media header data (XMP)
  *
- * @param  string   Filename
- * @return array    The raw media header data
+ * Args:
+ *      - Filename
+ * Returns:
+ *      - The raw media header data
+ * @access public
  *
  * Inspired, but rewritten,  by "PHP JPEG Metadata Toolkit" from http://electronics.ozhiker.com.
  * Code is GPL so sadly we couldn't bundle that GREAT library.
  */
-function serendipity_getMediaRaw($filename) {
+function serendipity_getMediaRaw(string $filename) : iterable {
     $abort = false;
 
     $f = @fopen($filename, 'rb');
@@ -5032,10 +5224,14 @@ function serendipity_getMediaRaw($filename) {
 /**
  * Get the IPTC/EXIF/XMP media metadata
  *
- * @param  string   Filename
- * @return array    The raw media header data
+ * Args:
+ *      - Filename string
+ *      - Meta info array OR NULL
+ * Returns:
+ *      - The raw media header data array
+ * @access public
  */
-function &serendipity_getMetaData($file, &$info) {
+function &serendipity_getMetaData(string $file, ?iterable &$info) : iterable {
     global $serendipity;
 
     # Fields taken from: http://demo.imagefolio.com/demo/ImageFolio31_files/skins/cool_blue/images/iptc.html
@@ -5207,13 +5403,16 @@ function &serendipity_getMetaData($file, &$info) {
 /**
  * Parses an existing filename and increases the filecount.
  *
- * @param  string   The (duplicate) filename
- * @param  string   The full path to the (duplicate) filename
- * @param  string   The directory of the (duplicate) filename
- * @param  boolean  Show new filename?
- * @return string   The new filename
+ * Args:
+ *      - The (duplicate) filename reference to manipulate
+ *      - The full path to the (duplicate) filename reference to manipulate
+ *      - The directory of the (duplicate) filename
+ *      - Show new filename?
+ * Returns:
+ *      - The new filename
+ * @access public
  */
-function serendipity_imageAppend(&$tfile, &$target, $dir, $echo = true) {
+function serendipity_imageAppend(string &$tfile, string &$target, string $dir, bool $echo = true) : string {
     static $safe_bail = 20;
 
     $realname = $tfile;
@@ -5243,16 +5442,20 @@ function serendipity_imageAppend(&$tfile, &$target, $dir, $echo = true) {
         echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> <b>' .
                 sprintf(FILENAME_REASSIGNED . "<br>\n", htmlspecialchars($tfile)) . "</b></span>\n";
     }
+
     return $realname;
 }
 
 /**
  * Checks if an uploaded media item hits any configured limits.
  *
- * @param  string   The filename
- * @return boolean  TRUE when file is okay, FALSE when it is beyond limits
+ * Args:
+ *      - The filename
+ * Returns:
+ *      - TRUE when file is okay, FALSE when it is beyond limits
+ * @access public
  */
-function serendipity_checkMediaSize($file) {
+function serendipity_checkMediaSize(string $file) : bool {
     global $serendipity;
 
     if (!empty($serendipity['maxFileSize'])) {
@@ -5303,14 +5506,16 @@ function serendipity_checkMediaSize($file) {
  *
  * Accessed for existing directory edits by 'directoryEdit'
  *
- * @see SPLIT serendipity_moveMediaDirectory() part 1
- *
+ * Args:
+ *      - Old directory name or empty
+ *      - New directory name with trailing slash or empty
+ *      - boolean Ad hoc debugging, set in wrapper serendipity_moveMediaDirectory()
+ * Returns:
+ *      - TRUE when directory is okay, FALSE when it is beyond limits
  * @access public
- * @param   string  Old directory name or empty
- * @param   string  New directory name with trailing slash or empty
- * @param   boolean Ad hoc debugging, set in wrapper serendipity_moveMediaDirectory()
+ * @see SPLIT serendipity_moveMediaDirectory() part 1
  */
-function serendipity_renameDirAccess($oldDir, $newDir, $debug=false) {
+function serendipity_renameDirAccess(string $oldDir, string $newDir, bool $debug = false) : bool {
     global $serendipity;
 
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
@@ -5407,23 +5612,26 @@ function serendipity_renameDirAccess($oldDir, $newDir, $debug=false) {
     if ($debug) {
         $serendipity['logger']->debug(print_r($renameValues,true));
     }
+
     return true;
 }
 
 /**
  * RENAME a real media file name [not a hotlinked, which is DB referenced only] and forward to staticpages.
- * @see SPLIT serendipity_moveMediaDirectory() part 2
  *
+ * Args:
+ *      - Old directory name or empty
+ *      - New directory name with a trailing slash or empty
+ *      - The type of what to remove (file)
+ *      - An item id of a file
+ *      - Result of serendipity_fetchImageFromDatabase($id) for the previous file properties
+ *      - boolean Ad hoc debugging, set in wrapper serendipity_moveMediaDirectory()
+ * Returns:
+ *      - TRUE when file rename is okay, FALSE when it is beyond limits
+ * @see SPLIT serendipity_moveMediaDirectory() part 2
  * @access public
- * @param   string  Old directory name or empty
- * @param   string  New directory name with a trailing slash or empty
- * @param   string  The type of what to remove (file)
- * @param   string  An item id of a file
- * @param   array   Result of serendipity_fetchImageFromDatabase($id) for the previous file properties
- * @param   boolean Ad hoc debugging, set in wrapper serendipity_moveMediaDirectory()
- * @return  boolean
  */
-function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file, $debug=false) {
+function serendipity_renameRealFileName(string $oldDir, string $newDir, string $type, int $item_id, iterable $file, bool $debug = false) : bool {
     global $serendipity;
 
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
@@ -5705,6 +5913,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         }
         return false;
     }
+
     return true;
 }
 
@@ -5712,17 +5921,18 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
  * RENAME a real media dirfilename [not a hotlinked, which is DB referenced only] and forward to staticpages.
  * Used solely by serendipity_parsePropertyForm() base_properties, when changing the file selected path via the mediaproperties form.
  *
- * @see SPLIT serendipity_moveMediaDirectory() part 3
- *
+ * Args:
+ *      - Old directory name or empty
+ *      - New directory name with a trailing slash or empty
+ *      - The type of what to remove (filedir)
+ *      - An item id of a file
+ *      - Ad hoc debugging, set in wrapper serendipity_moveMediaDirectory()
+ * Returns:
+ *      - file array OR false
  * @access public
- * @param   string  Old directory name or empty
- * @param   string  New directory name with a trailing slash or empty
- * @param   string  The type of what to remove (filedir)
- * @param   string  An item id of a file
- * @param   boolean Ad hoc debugging, set in wrapper serendipity_moveMediaDirectory()
- * @return
+ * @see SPLIT serendipity_moveMediaDirectory() part 3
  */
-function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug=false) {
+function serendipity_renameRealFileDir(string $oldDir, string $newDir, string $type, int $item_id, bool $debug = false) : iterable|false {
     global $serendipity;
 
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
@@ -5743,7 +5953,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
 
     // pick up the file array properties with the newly updated path for against checks
     $_file = serendipity_db_query("SELECT * FROM  {$serendipity['dbPrefix']}images
-                                    WHERE id = " . (int)$item_id, true, 'assoc');
+                                    WHERE id = " . $item_id, true, 'assoc');
 
     // Move thumbs - Rebuild full origin and new file path names by the new picked file array
     $oldfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']);
@@ -5829,6 +6039,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
         echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' .
                 sprintf(MEDIA_DIRECTORY_MOVED, serendipity_spotify($thisnew . $thisExt)) . "</span>\n";
     }
+
     return $_file;
 }
 
@@ -5836,15 +6047,17 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
  * FORMAT a real media file to a convenient supported format and pass changes to related entries
  * NOTE: We use the $oldDir / $newDir notation here to keep some sort of usage consistency and since the dir / file distinction does not exist on Unix..
  *
+ * Args:
+ *      - Old relative directory/file name
+ *      - New relative directory/file name
+ *      - The new extension format name
+ *      - An item ID of the current file
+ *      - Result of serendipity_fetchImageFromDatabase($id) for the current file properties
+ * Returns:
+ *      - True on success, False on fail
  * @access public
- * @param   string  Old relative directory/file name
- * @param   string  New relative directory/file name
- * @param   string  The new extension format name
- * @param   string  An item ID of the current file
- * @param   array   Result of serendipity_fetchImageFromDatabase($id) for the current file properties
- * @return  boolean
  */
-function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) {
+function serendipity_formatRealFile(string $oldDir, string $newDir, string $format, string $item_id, iterable $file) : bool {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
@@ -5997,26 +6210,28 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
         }
         return false;
     }
-    return true;
 
+    return true;
 }
 
 /**
  * RENAME a MEDIA dir or filename in existing entries
- * @see SPLIT serendipity_moveMediaDirectory() part 4
  * @see Special case from outside via serendipity_convertImageFormat() -> serendipity_formatRealFile()
  *
- * @access public
- * @param   string  Old directory name or empty
- * @param   string  New directory name with a trailing slash or empty
- * @param   string  The type of what to remove (dir|file|filedir)
- * @param   array   Result of origin (old) serendipity_fetchImageFromDatabase($id)
- * @param   array   Properties result of new updated query,
+ * Args:
+ *      - Old directory name or empty
+ *      - New directory name with a trailing slash or empty
+ *      - The type of what to remove (dir|file|filedir)
+ *      - Result of origin (old) serendipity_fetchImageFromDatabase($id)
+ *      - Properties result of new updated query,
  *                      @see serendipity_renameRealFileDir() and serendipity_moveMediaDirectory()
- * @param   boolean Ad hoc debugging, set in wrapper serendipity_moveMediaDirectory()
- * @return
+ *      - Ad hoc debugging, set in wrapper serendipity_moveMediaDirectory()
+ * Returns:
+ *      - Null on success, False on fail
+ * @access public
+ * @see SPLIT serendipity_moveMediaDirectory() part 4
  */
-function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $file, $pick=null, $debug=false) {
+function serendipity_moveMediaInEntriesDB(string $oldDir, string $newDir, string $type, iterable $file, ?iterable $pick = null, bool $debug = false) : ?false {
     global $serendipity;
 
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
@@ -6371,6 +6586,8 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $file, $pick=
             echo '<span class="msg_error"><span class="icon-info-attention" aria-hidden="true"></span> DB ERROR: ' . @$entries . "</span>\n";
         }
     }
+
+    return null;
 }
 
 /**
@@ -6384,18 +6601,21 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $file, $pick=
  * 3. case type 'filedir' via this API serendipity_parsePropertyForm() as base_properties only, when changing the file selected path within mediaproperties form:
  *              serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id)
  *
- * and LASTLY to update the entries in the database
+ * and for the last to update the entries in the database
  *              serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $file, $pick)
  *
- * @param  string   The old directory / file.
- *                  This can be NULL or (an empty / a) STRING for re-name/multiCheck move comparison events
- * @param  string   The new directory / file
- * @param  string   The type of what to remove/handle (dir|file|filedir)
- * @param  string   An item ID of a file
- * @param  array    Result of serendipity_fetchImageFromDatabase($id)
- * @return boolean
+ * Args:
+ *      - The old directory / file.
+ *                  This can be NULL (really?? or (an empty / a) STRING for re-name/multiCheck move comparison events
+ *      - The new directory / file
+ *      - The type of what to remove/handle (dir|file|filedir)
+ *      - An item ID of a file
+ *      - Result array of serendipity_fetchImageFromDatabase($id)
+ * Returns:
+ *      - True on success, False on fail
+ * @access public
  */
-function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_id = null, $file = null) {
+function serendipity_moveMediaDirectory(string $oldDir, string $newDir, string $type = 'dir', ?int $item_id = null, ?iterable $file = null) : bool {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
     $pick = null;
@@ -6449,7 +6669,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
 
         } else {
             // check return! A single 'file' rename is oldDir === null
-            if (false === serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file, $debug)) {
+            if (false === serendipity_renameRealFileName($oldDir, $newDir, $type, (int) $item_id, $file, $debug)) {
                 return false;
             }
         }
@@ -6457,7 +6677,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
     // Used solely by this APIs serendipity_parsePropertyForm() base_properties only, when changing the file selected path within mediaproperties form
     } elseif ($type == 'filedir') {
 
-        $pick = serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug);
+        $pick = serendipity_renameRealFileDir($oldDir, $newDir, $type, (int) $item_id, $debug);
         if ($pick === false) {
             return false;
         }
@@ -6484,16 +6704,18 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
 /**
  * Show the Media Library
  *
- * @access  public
- * @param   bool    default false
- * @param   array   $smarty_vars
- * @return  string  Image list
+ * Args:
+ *      - Return to selected directory  (default false)
+ *      - $smarty_vars
+ * Returns:
+ *      - result Image list string of serendipity_displayImageList() OR bool
+ * @access public
  */
-function showMediaLibrary($addvar_check = false, $smarty_vars = array()) {
+function showMediaLibrary(bool $addvar_check = false, iterable $smarty_vars = []) : string|bool {
     global $serendipity;
 
     if (!serendipity_checkPermission('adminImagesView')) {
-        return;
+        return false;
     }
     $output = '';
 
@@ -6524,9 +6746,13 @@ function showMediaLibrary($addvar_check = false, $smarty_vars = array()) {
 /**
  * Gets all available media directories
  *
- * @return array
+ * Args:
+ *      -
+ * Returns:
+ *      - Paths array
+ * @access public
  */
-function &serendipity_getMediaPaths() {
+function &serendipity_getMediaPaths() : iterable {
     global $serendipity;
 
     $aExclude = array('CVS' => true, '.svn' => true, '.git' => true, '.v' => true); // the last is about Variations
@@ -6560,11 +6786,13 @@ function &serendipity_getMediaPaths() {
 /**
  * Checks whether a user has access to write into a directory
  *
+ * Args:
+ *      - Directory to check
+ * Returns:
+ *      - True on granted access, False on fail
  * @access public
- * @param   string Directory to check
- * @return  boolean
  */
-function serendipity_checkDirUpload($dir) {
+function serendipity_checkDirUpload(string $dir) : bool {
     /*
     if (serendipity_checkPermission('adminImagesMaintainOthers')) {
         return true;
