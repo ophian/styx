@@ -1043,7 +1043,7 @@ switch ($serendipity['GET']['adminAction']) {
 
         $media['supportsWebP']  = $serendipity['useWebPFormat'] ?? false;
         $media['supportsAVIF']  = $serendipity['useAvifFormat'] ?? false;
-        $media['file']['props'] =& serendipity_fetchMediaProperties($serendipity['GET']['fid']);
+        $media['file']['props'] =& serendipity_fetchMediaProperties((int) $serendipity['GET']['fid']);
         serendipity_plugin_api::hook_event('media_getproperties_cached', $media['file']['props']['base_metadata'], $media['file']['realfile']);
 
         if ($file['is_image']) {
