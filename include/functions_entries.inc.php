@@ -11,12 +11,14 @@ if (IN_serendipity !== true) {
 /**
  * Delete a category or range of categories
  *
+ * Args:
+ *      - Holds the SQL string to pass to the 'BETWEEN' command. Like '1 5' would delete categories 1-5.
+ *      - Holds the optional SQL string that contains an extra safety check so that only categories can be deleted if the user is an author of the category.
+ * Returns:
+ *      - The DB result
  * @access public
- * @param   string  Holds the SQL string to pass to the 'BETWEEN' command. Like '1 5' would delete categories 1-5.
- * @param   string  Holds the optional SQL string that contains an extra safety check so that only categories can be deleted if the user is an author of the category.
- * @return  array   The DB result
  */
-function serendipity_deleteCategory($category_range, $admin_category) {
+function serendipity_deleteCategory(string $category_range, string $admin_category) : iterable|bool {
     global $serendipity;
 
     if (!serendipity_checkPermission('adminCategoriesDelete')) {
@@ -31,11 +33,13 @@ function serendipity_deleteCategory($category_range, $admin_category) {
 /**
  * Fetch a SQL ID subset of the category tree
  *
+ * Args:
+ *      - The Id of the parent category to fetch category child's from. (0: all)
+ * Returns:
+ *      - An associative array of the left and right category next to the chosen one
  * @access public
- * @param   int     The Id of the parent category to fetch category child's from. (0: all)
- * @return  array   An associative array of the left and right category next to the chosen one
  */
-function serendipity_fetchCategoryRange($categoryid) {
+function serendipity_fetchCategoryRange(int $categoryid) : iterable {
     global $serendipity;
 
     $res =& serendipity_db_query("SELECT category_left, category_right, hide_sub FROM {$serendipity['dbPrefix']}category WHERE categoryid='". (int)$categoryid ."'");
@@ -54,12 +58,14 @@ function serendipity_fetchCategoryRange($categoryid) {
 /**
  * Returns SQL code to use when fetching entries that are contained within multiple categories
  *
+ * Args:
+ *      - A listing of category ids to check, separated by ";"
+ *      - Toggle whether to include or exclude entries of this category
+ * Returns:
+ *      - Returns the SQL code for selecting entries of the calculated categories
  * @access public
- * @param  string   A listing of category ids to check, separated by ";"
- * @param  boolean  Toggle whether to include or exclude entries of this category
- * @return string   Returns the SQL code for selecting entries of the calculated categories
  */
-function serendipity_getMultiCategoriesSQL(string $cats, $invert = false): string {
+function serendipity_getMultiCategoriesSQL(string $cats, bool $invert = false): string {
 
     $mcategories   = explode(';', $cats);
     $cat_sql_array = array();
@@ -84,12 +90,14 @@ function serendipity_getMultiCategoriesSQL(string $cats, $invert = false): strin
  * Either use the first or the second parameter to select a category by ID or name. It's not
  * meant to be used with both parameters specified.
  *
+ * Args:
+ *      - The ID of the category to fetch
+ *      - The Name of a category to fetch
+ * Returns:
+ *      - Returns an array of category properties
  * @access public
- * @param   int     The ID of the category to fetch
- * @param   string  The Name of a category to fetch
- * @return  array   Returns an array of category properties
  */
-function serendipity_fetchCategoryInfo($categoryid, $categoryname = '') {
+function serendipity_fetchCategoryInfo(int $categoryid, string $categoryname = '') : ?iterable {
     global $serendipity;
 
     if (!empty($categoryname)) {
@@ -108,7 +116,7 @@ function serendipity_fetchCategoryInfo($categoryid, $categoryname = '') {
         //$ret[0]['category_icon_webp'] = $ret[0][7] = !empty($ret[0]['category_icon']) ? serendipity_generate_webpPathURI($ret[0]['category_icon']) : ''; // xmlrpc or popfetcher plugins or backend importers
         return $ret[0] ?? null; // No parenthesis in need if not casting the value, since the null-coalesce operator ?? is already right-associative and not affected by PHP 8 changes regarding left-associative ternary operators
     } else {
-        if (empty($categoryid)) return;
+        if (empty($categoryid)) return null;
         $query = "SELECT
                          c.authorid,
                          c.categoryid,
@@ -121,7 +129,7 @@ function serendipity_fetchCategoryInfo($categoryid, $categoryname = '') {
                    WHERE categoryid = " . (int)$categoryid;
 
         $ret =& serendipity_db_query($query);
-        if (is_bool($ret)) return;
+        if (is_bool($ret)) return null;
         $ret[0]['category_icon_webp'] = $ret[0][7] = !empty($ret[0]['category_icon']) ? serendipity_generate_webpPathURI($ret[0]['category_icon']) : '';
         $fpwebp = str_replace($serendipity['serendipityHTTPPath'], $serendipity['serendipityPath'], $ret[0]['category_icon_webp']);
         if (!file_exists($fpwebp)) {
@@ -134,11 +142,13 @@ function serendipity_fetchCategoryInfo($categoryid, $categoryname = '') {
 /**
  * Fetch a list of all category properties to a specific entry ID
  *
+ * Args:
+ *      - The ID of the entry
+ * Returns:
+ *      - The array of associated categories to that entry
  * @access public
- * @param   int     The ID of the entry
- * @return  array   The array of associated categories to that entry
  */
-function &serendipity_fetchEntryCategories($entryid) {
+function &serendipity_fetchEntryCategories(int $entryid) : iterable {
     global $serendipity;
 
     if (is_numeric($entryid)) {
@@ -186,38 +196,40 @@ function &serendipity_fetchEntryCategories($entryid) {
  * Several options perform different commands when different types are passed, like the $range
  * parameter which can either be a string or an array with START/END range.
  *
+ * Args:
+ *      - Restricts fetching entries to a specific timespan. Behaves differently depending on the type:
+ *          Numeric:
+ *              YYYYMMDD - Shows all entries from YYYY-MM-DD.
+ *                  If DD is "00", it will show all entries from that month.
+ *                  If DD is any other number, it will show entries of that specific day.
+ *          2-Dimensional Array:
+ *              Key #0   - Specifies the start timestamp (UNIX seconds)
+ *              Key #1   - Specifies the end timestamp (UNIX seconds)
+ *              Other (null, 3-dimensional Array, ...):
+ *                  Entries newer than $modified_since will be fetched
+ *      - Indicates if the full entry will be fetched (body+extended: TRUE), or only the body (FALSE).
+ *      - Holds a "Y" or "X, Y" string that tells which entries to fetch. X is the first entry offset, Y is number of entries. If not set, the global fetchLimit will be applied (15 entries by default)
+ *      - Indicates whether drafts should be fetched (TRUE) or not
+ *      - Holds a UNIX timestamp to be used in conjunction with $range, to fetch all entries newer than this timestamp
+ *      - Holds the SQL "ORDER BY" statement.
+ *      - Can contain any SQL code to inject into the central SQL statement for fetching the entry
+ *      - If set to TRUE, all entries will be fetched from scratch and any caching is ignored
+ *      - If set to TRUE, all sticky entries will NOT be fetched.
+ *      - Can contain a SQL statement on which keys to select. Plugins can also set this, pay attention!
+ *      - Can contain a SQL statement on how to group the query. Plugins can also set this, pay attention!
+ *      - If set to "array", the array of entries will be returned.
+ *              "flat-array" will only return the articles without their entryproperties.
+ *              "single"     will only return a 1-dimensional array.
+ *              "assign"     will assign this particular entry data to your Smarty template (@see serendipity_smarty_fetchPrintEntries()).
+ *              "query"      will only return the used SQL.
+ *      - Should an SQL-join be made to the AUTHORS DB table?
+ *      - Should an SQL-join be made to the CATEGORIES DB table?
+ *      - SQL-Parts to add to JOIN
+ * Returns:
+ *      - Holds the super-array of all entries with all additional information
  * @access  public
- * @param   mixed       Restricts fetching entries to a specific timespan. Behaves differently depending on the type:
- *                      Numeric:
- *                        YYYYMMDD - Shows all entries from YYYY-MM-DD.
- *                                   If DD is "00", it will show all entries from that month.
- *                                   If DD is any other number, it will show entries of that specific day.
- *                      2-Dimensional Array:
- *                        Key #0   - Specifies the start timestamp (UNIX seconds)
- *                        Key #1   - Specifies the end timestamp (UNIX seconds)
- *                      Other (null, 3-dimensional Array, ...):
- *                        Entries newer than $modified_since will be fetched
- * @param   boolean     Indicates if the full entry will be fetched (body+extended: TRUE), or only the body (FALSE).
- * @param   string      Holds a "Y" or "X, Y" string that tells which entries to fetch. X is the first entry offset, Y is number of entries. If not set, the global fetchLimit will be applied (15 entries by default)
- * @param   boolean     Indicates whether drafts should be fetched (TRUE) or not
- * @param   int         Holds a UNIX timestamp to be used in conjunction with $range, to fetch all entries newer than this timestamp
- * @param   string      Holds the SQL "ORDER BY" statement.
- * @param   string      Can contain any SQL code to inject into the central SQL statement for fetching the entry
- * @param   boolean     If set to TRUE, all entries will be fetched from scratch and any caching is ignored
- * @param   boolean     If set to TRUE, all sticky entries will NOT be fetched.
- * @param   string      Can contain a SQL statement on which keys to select. Plugins can also set this, pay attention!
- * @param   string      Can contain a SQL statement on how to group the query. Plugins can also set this, pay attention!
- * @param   string      If set to "array", the array of entries will be returned.
- *                                "flat-array" will only return the articles without their entryproperties.
- *                                "single" will only return a 1-dimensional array.
- *                                "assign" will assign this particular entry data to your Smarty template (@see serendipity_smarty_fetchPrintEntries()).
- *                                "query" will only return the used SQL.
- * @param   bool        Should an SQL-join be made to the AUTHORS DB table?
- * @param   bool        Should an SQL-join be made to the CATEGORIES DB table?
- * @param   string      SQL-Parts to add to JOIN
- * @return  array       Holds the super-array of all entries with all additional information
  */
-function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fetchDrafts = false, $modified_since = false, $orderby = 'timestamp DESC', $filter_sql = '', $noCache = false, $noSticky = false, $select_key = null, $group_by = null, $returncode = 'array', $joinauthors = true, $joincategories = true, $joinown = null) {
+function &serendipity_fetchEntries(mixed $range = null, bool $full = true, string|int $limit = '', bool $fetchDrafts = false, string|int|bool $modified_since = false, ?string $orderby = 'timestamp DESC', ?string $filter_sql = '', bool $noCache = false, bool $noSticky = false, ?string $select_key = null, ?string $group_by = null, string $returncode = 'array', bool $joinauthors = true, bool $joincategories = true, ?string $joinown = null) : iterable|string|bool  {
     global $serendipity;
 
     $initial_args = array_values(func_get_args());
@@ -551,12 +563,14 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
  *
  * Fetches all additional information like plugins, extended properties, additional categories for each entry.
  *
+ * Args:
+ *      - The array of entries where the output will be merged to (referenced)
+ * Returns:
+ *      - void
  * @access private
  * @see serendipity_fetchEntries()
- * @param   array       The array of entries where the output will be merged to (referenced)
- * @return null
  */
-function serendipity_fetchEntryData(&$ret) {
+function serendipity_fetchEntryData(iterable &$ret) : void {
     global $serendipity;
 
     $search_ids = array(); // An array to hold all ids of the entry we want to fetch.
@@ -595,15 +609,18 @@ function serendipity_fetchEntryData(&$ret) {
 /**
  * Fetch a single entry by a specific condition
  *
+ * Args:
+ *      - The column to compare $val against (like 'id')
+ *      - The value of the column $key to compare with (like '4711')
+ *      - Indicates if the full entry will be fetched (body+extended: TRUE), or only the body (FALSE)
+ *      - Indicates whether drafts should be fetched. Probably uses a string type to avoid confusions with fetchEntries() parameter.
+ *                                                      Int type for compat dummy.
+ *                                                      Default 'false' means entries that are already published . (Keep for compat.)
+ * Returns:
+ *      - The entry array
  * @access public
- * @param   string      The column to compare $val against (like 'id')
- * @param   string      The value of the column $key to compare with (like '4711')
- * @param   boolean     Indicates if the full entry will be fetched (body+extended: TRUE), or only the body (FALSE)
- * @param   string      Indicates whether drafts should be fetched. Probably uses a string type to avoid confusions with fetchEntries() parameter.
- *                                                                  Default 'false' means entries that are already published . (Keep for compat.)
- * @return
  */
-function &serendipity_fetchEntry($key, $val, $full = true, $fetchDrafts = 'false') {
+function &serendipity_fetchEntry(string $key, string|int $val, bool $full = true, string|int $fetchDrafts = 'false') : iterable|bool {
     global $serendipity;
 
     $cond = array();
@@ -680,18 +697,20 @@ function &serendipity_fetchEntry($key, $val, $full = true, $fetchDrafts = 'false
 /**
  * Fetches additional entry properties for a specific entry ID
  *
+ * Args:
+ *      - The ID of the entry to fetch additional data for
+ * Returns:
+ *      - The array of given properties to an entry
  * @access public
- * @param   int     The ID of the entry to fetch additional data for
- * @return  array   The array of given properties to an entry
  */
-function &serendipity_fetchEntryProperties($id) {
+function &serendipity_fetchEntryProperties(int $id) : iterable {
     global $serendipity;
 
     $parts = array();
     serendipity_plugin_api::hook_event('frontend_entryproperties_query', $parts);
     $parts['and'] = $parts['and'] ?? '';
 
-    $_properties =& serendipity_db_query("SELECT property, value FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$id . " " . $parts['and']);
+    $_properties =& serendipity_db_query("SELECT property, value FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . $id . " " . $parts['and']);
     if (!is_array($_properties)) {
         $properties = array();
     } else {
@@ -709,17 +728,19 @@ function &serendipity_fetchEntryProperties($id) {
 /**
  * Fetch a list of available categories for an author
  *
+ * Args:
+ *      - If set, the list of categories will be fetched according to the author id.
+ *          If not set, all categories will be fetched. If set to "all", then all categories will be fetched.
+ *      - Restrict the list to be returned to a specific category NAME.
+ *      - The SQL query part for ORDER BY of the categories
+ *      - The ACL artifact condition. If set to "write" only categories will be shown that the author can write to.
+ *          If set to "read", only categories will be show that the author can read or write to.
+ *      - Allows to set a default category by author
+ * Returns:
+ *      - Returns the array of categories
  * @access public
- * @param   mixed   If set, the list of categories will be fetched according to the author id.
- *                  If not set, all categories will be fetched. If set to "all", then all categories will be fetched.
- * @param   string  Restrict the list to be returned to a specific category NAME.
- * @param   string  The SQL query part for ORDER BY of the categories
- * @param   string  The ACL artifact condition. If set to "write" only categories will be shown that the author can write to.
- *                  If set to "read", only categories will be show that the author can read or write to.
- * @param   boolean Allows to set a default category by author
- * @return  array   Returns the array of categories
  */
-function &serendipity_fetchCategories($authorid = null, $name = null, $order = null, $artifact_mode = 'write', $flat = false) {
+function &serendipity_fetchCategories(?string $authorid = null, ?string $name = null, ?string $order = null, string $artifact_mode = 'write', bool $flat = false) : iterable|bool {
     global $serendipity;
 
     if ($name === null) {
@@ -748,7 +769,7 @@ function &serendipity_fetchCategories($authorid = null, $name = null, $order = n
 
     if ($authorid != 'all' && is_numeric($authorid)) {
         $sql_authorid = $authorid;
-        if (!serendipity_checkPermission('adminCategoriesMaintainOthers', $authorid)) {
+        if (!serendipity_checkPermission('adminCategoriesMaintainOthers', (int) $authorid)) {
             $where = " WHERE (c.authorid = $authorid OR c.authorid = 0) ";
             $where .= "OR (
                           acl.artifact_type = 'category'
@@ -837,13 +858,15 @@ function &serendipity_fetchCategories($authorid = null, $name = null, $order = n
 /**
  * Rebuild the Category Nested Set tree
  *
+ * Args:
+ *      - The ID of the parent category to rebuild
+ *      - The ID of the next left category
+ * Returns:
+ *      - Returns the new ID
  * @access public
  * @see Based on http://www.sitepoint.com/article/hierarchical-data-database/1
- * @param   int     The ID of the parent category to rebuild
- * @param   int     The ID of the next left category
- * @return  int     Returns the new ID
  */
-function serendipity_rebuildCategoryTree($parent = 0, $left = 0) {
+function serendipity_rebuildCategoryTree(int $parent = 0, int $left = 0) : int {
     global $serendipity;
 
     $right = $left + 1;
@@ -865,17 +888,19 @@ function serendipity_rebuildCategoryTree($parent = 0, $left = 0) {
  * Searches the list of entries by a specific term
  *
  * @todo: Allow to show results of staticpage plugins or others
+ * Args:
+ *      - The searchterm (may contain wildcards)
+ *      - Restrict the number of results [also uses $serendipity['GET']['page'] for pagination]
+ *      - Add search Results at the top
+ * Returns:
+ *      - Returns the superarray of entries found
  * @access public
- * @param   string      The searchterm (may contain wildcards)
- * @param   int         Restrict the number of results [also uses $serendipity['GET']['page'] for pagination]
- * @param   array       Add search Results at the top
- * @return  array       Returns the superarray of entries found
  */
-function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
+function &serendipity_searchEntries(string $term, ?string $limit = '', string $searchresults = '') : iterable|bool|null {
     global $serendipity;
     static $log_queries = false;
 
-    if (empty($term)) return;
+    if (empty($term)) return null;
 
     if ($log_queries) {
         $fp = fopen($serendipity['serendipityPath'] . 'archives/queries.csv', 'a');
@@ -932,14 +957,14 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
         $cond['distinct']  = '';
         $term              = str_replace('&quot;', '"', $term);
         $relevance_enabled = true;
-        // FULLTEXT search with an ideographic language such as Chinese, Japanese, and Korean is not possible without a prepared database using N-gram or such.
+        // FULLTEXT search with an ideographic language such as Chinese, Japanese, and Korean is not possible without a prepared database using N-gram parser or such.
         // The built-in MySQL full-text parser determines the beginning and end of words using white space. When it comes to ideographic languages such as Chinese,
         // Japanese, and Korean, the full-text parser has a limitation that these ideographic languages do not use word delimiters.
         // (see https://www.mysqltutorial.org/mysql-ngram-full-text-parser/
         //  OR  https://levelup.gitconnected.com/how-to-make-chinese-full-text-search-dd8b6df801fb?gi=a923d8711895
         //  OR  https://www.taogenjia.com/2022/09/30/MySQL-Full-Text-Index/
         //  OR  https://dev.mysql.com/doc/refman/8.0/en/fulltext-natural-language.html)
-        if (preg_match('@["\+\-\*~<>\(\)]+@', $term)) {
+        if (1 === preg_match('@["\+\-\*~<>\(\)]+@', $term)) {
             #$term = str_replace(' + ', ' +', $term); // be strict for BOOLEAN MODE
             $cond['find_part'] = "MATCH(title,body,extended) AGAINST('$term' IN BOOLEAN MODE)";
         } else {
@@ -1055,13 +1080,16 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
  *
  * The list of total entries is calculated from the serendipity_getTotalEntries() function
  *
- * @param string    suffix for URLs
- * @param int       Amount of total entries
+ * Args:
+ *      - Suffix for URLs
+ *      - Amount of total entries OR NULL
+ *      - the limit OR NULL
+ * Returns:
+ *      - void
  * @access public
  * @see serendipity_getTotalEntries()
- * @return null
  */
-function serendipity_printEntryFooter($suffix = '.html', $totalEntries = null, $fetchLimit = null) {
+function serendipity_printEntryFooter(string $suffix = '.html', ?int $totalEntries = null, ?string  $fetchLimit = null) : void {
     global $serendipity;
 
     if ($totalEntries === null) {
@@ -1147,11 +1175,14 @@ function serendipity_printEntryFooter($suffix = '.html', $totalEntries = null, $
  * This function uses the SQL query portion of the central serendipity_fetchEntries() query
  * and modifies it with different GROUP statements to calculate the number of entries.
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - The number of total entries
  * @access public
  * @see serendipity_fetchEntries()
- * @return int      The number of total entries
  */
-function serendipity_getTotalEntries() {
+function serendipity_getTotalEntries() : int {
     global $serendipity;
 
     if (!isset($serendipity['fullCountQuery'])) {
@@ -1168,9 +1199,9 @@ function serendipity_getTotalEntries() {
 
     if (is_array($query) && isset($query[0])) {
         if ($serendipity['dbType'] == 'sqlite' || $serendipity['dbType'] == 'sqlite3' || $serendipity['dbType'] == 'pdo-sqlite' || $serendipity['dbType'] == 'sqlite3oo') {
-            return count($query);
+            return (int) count($query);
         } else {
-            return $query[0][0];
+            return (int) $query[0][0];
         }
     }
 
@@ -1187,20 +1218,22 @@ function serendipity_getTotalEntries() {
  *
  * @see serendipity_fetchEntries()
  * @see serendipity_searchEntries()
+ * Args:
+ *      - The array of entries with all of its data
+ *      - Toggle whether the extended portion of an entry is requested (via $serendipity['GET']['id'] single entry view)
+ *      - Indicates if this is a preview
+ *      - The name of the SMARTY block that this gets parsed into
+ *      - Indicates whether the assigned Smarty variables should be parsed. When set to "return", no Smarty parsing is done.
+ *      - Indicates whether to apply footer/header event hooks
+ *      - Indicates whether the pagination footer should be displayed
+ *      - Indicates whether the input $entries array is already grouped in preparation for the Smarty $entries output array [TRUE],
+ *                  or if it shall be grouped by date [FALSE] or if a plugin hook shall be executed to modify data ['plugin'].
+ *                  This setting can also be superseded by an 'entry_display' hook.
+ * Returns:
+ *      - mixed
  * @access public
- * @param   array       The array of entries with all of its data
- * @param   boolean     Toggle whether the extended portion of an entry is requested (via $serendipity['GET']['id'] single entry view)
- * @param   boolean     Indicates if this is a preview
- * @param   string      The name of the SMARTY block that this gets parsed into
- * @param   boolean     Indicates whether the assigned Smarty variables should be parsed. When set to "return", no Smarty parsing is done.
- * @param   boolean     Indicates whether to apply footer/header event hooks
- * @param   boolean     Indicates whether the pagination footer should be displayed
- * @param   mixed       Indicates whether the input $entries array is already grouped in preparation for the Smarty $entries output array [TRUE],
- *                      or if it shall be grouped by date [FALSE] or if a plugin hook shall be executed to modify data ['plugin'].
- *                      This setting can also be superseded by an 'entry_display' hook.
- * @return
  */
-function serendipity_printEntries($entries, $extended = 0, $preview = false, $smarty_block = 'ENTRIES', $smarty_fetch = true, $use_hooks = true, $use_footer = true, $use_grouped_array = false) {
+function serendipity_printEntries(iterable|bool|null $entries, bool $extended = false, bool $preview = false, string $smarty_block = 'ENTRIES', bool|string $smarty_fetch = true, bool $use_hooks = true, bool $use_footer = true, bool $use_grouped_array = false) : iterable|string|null {
     global $serendipity;
 
     $comments_open = true;
@@ -1227,7 +1260,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
                 $serendipity['smarty']->assign('is_preview', false); // All themes entries.tpl file check for "NOT $is_preview", which is not set when a staticpage is defined as startpage, or view was defined by a plugin
             }
             serendipity_smarty_fetch($smarty_block, 'entries.tpl', true);
-            return; // no display of this item
+            return null; // no display of this item
         } else {
             $serendipity['smarty']->assign('plugin_clean_page', false);
         }
@@ -1418,10 +1451,11 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
                 $comment_add_data = array(
                     'comments_messagestack' => (array) ($serendipity['messagestack']['comments'] ?? array()),
                     'is_comment_added'      => ( (isset($serendipity['GET']['csuccess']) && $serendipity['GET']['csuccess'] == 'true') ? true : false),
-                    'is_comment_moderate'   => ( (isset($serendipity['GET']['csuccess']) && $serendipity['GET']['csuccess'] == 'moderate') ? true : false)
+                    'is_comment_moderate'   => ( (isset($serendipity['GET']['csuccess']) && $serendipity['GET']['csuccess'] == 'moderate') ? true : false),
+                    'last_int_comment_id'   => $serendipity['GET']['cid'] ?? null
                 );
                 if (isset($entry['required_fields'])) {
-                    $comment_add_data['required_fields'] = $entry['required_fields'];
+                    $comment_add_data['required_fields'] = $entry['required_fields']; // see spamblock hooked
                 }
 
                 $userData = $serendipity['POST'];
@@ -1463,7 +1497,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
                     serendipity_displayCommentForm(
                         (int) $entry['id'],
                         $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?url=' . $entry['commURL'],
-                        true,
+                        NULL,
                         $userData,
                         true,
                         serendipity_db_bool($entry['moderate_comments']),
@@ -1495,7 +1529,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
         $GLOBALS['tpl']['entries'] = $dategroup; // assign to
         ob_start();
         // we seem to be not able to use a true switch in serendipity_smarty_fetch() function though
-        include serendipity_getTemplateFile('entries.tpl', 'serendipityPath', true); // yeah, this needs the forced frontend fallback, since being this "hybrid" like case, inbetween front- and backend
+        include serendipity_getTemplateFile('entries.tpl', 'serendipityPath', true); // yeah, this needs the forced frontend fallback, since being this "hybrid" like case, in between front- and backend
         $entry_out = ob_get_contents();
         ob_end_clean();
         unset ($GLOBALS['tpl']['entries']);
@@ -1513,6 +1547,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
         return serendipity_smarty_fetch($smarty_block, 'entries.tpl', true);
     }
 
+    return null; // default fallback
 } // end function serendipity_printEntries
 
 /**
@@ -1520,11 +1555,13 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
  *
  * Another central function, that parses, prepares and commits changes to an entry
  *
+ * Args:
+ *      - The new/modified entry data.
+ * Returns:
+ *      - Integer with new entry ID if successful, a string or array if error(s)
  * @access public
- * @param   array       The new/modified entry data.
- * @return  mixed       Integer with new entry ID if successful, a string or array if error(s).
  */
-function serendipity_updertEntry($entry) {
+function serendipity_updertEntry(iterable $entry) : mixed {
     global $serendipity;
 
     include_once S9Y_INCLUDE_PATH . 'include/functions_entries_admin.inc.php';
@@ -1623,7 +1660,7 @@ function serendipity_updertEntry($entry) {
 
         if (isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModule'] == 'entries' && $entry['authorid'] != $serendipity['authorid'] && !serendipity_checkPermission('adminEntriesMaintainOthers')) {
             // Only CHIEFS and ADMINS can change other's entry. Else update fails.
-            return;
+            return null;
         }
 
         if (!$_SESSION['serendipityRightPublish']) {
@@ -1698,17 +1735,19 @@ function serendipity_updertEntry($entry) {
     }
 
     serendipity_cleanCache();
-    return (int)$entry['id'];
+    return (int) $entry['id'];
 }
 
 /**
  * Delete an entry and everything that belongs to it (comments)
  *
+ * Args:
+ *      - The Entry ID to delete
+ * Returns:
+ *      - FALSE or NULL on error
  * @access public
- * @param   int     The Entry ID to delete
- * @return  mixed   FALSE or NULL on error
  */
-function serendipity_deleteEntry($id) {
+function serendipity_deleteEntry(int $id) : ?bool {
     global $serendipity;
 
     if (!is_numeric($id)) {
@@ -1716,11 +1755,11 @@ function serendipity_deleteEntry($id) {
     }
 
     // Purge the daily/monthly entries so they can be rebuilt
-    $result = serendipity_db_query("SELECT timestamp, authorid FROM {$serendipity['dbPrefix']}entries WHERE id = '". (int)$id ."'", true);
+    $result = serendipity_db_query("SELECT timestamp, authorid FROM {$serendipity['dbPrefix']}entries WHERE id = '". $id ."'", true);
 
     if ($result[1] != $serendipity['authorid'] && !serendipity_checkPermission('adminEntriesMaintainOthers')) {
         // Only admins and chief users can delete entries which do not belong to the author
-        return;
+        return null;
     }
 
     serendipity_plugin_api::hook_event('backend_delete_entry', $id);
@@ -1738,23 +1777,26 @@ function serendipity_deleteEntry($id) {
  *
  * Prints a list of categories for use in forms, the sidebar, or wherever...
  *
- * @access public
- * @param array  An array of categories, typically gathered by serendipity_fetchCategories()
- * @param array  An array which holds IDs which are meant to be selected within a HTML SELECT form field [used for recursion]
- * @param int    The type of category list (0: HTML span list, 1/2: <option>s, 3: HTML Div list, 4: CSV data) to return
- * @param int    The parent ID of a category [for recursion]
- * @param int    The current nesting level [for recursion]
- * @param string Tells the function, whether or not to display the XML button for each category.
+ * Args:
+ *      - An array of categories, typically gathered by serendipity_fetchCategories()
+ *      - An array which holds IDs which are meant to be selected within a HTML SELECT form field [used for recursion]
+ *      - The type of category list (0: HTML span list, 1/2: <option>s, 3: HTML Div list, 4: CSV data) to return
+ *      - The parent ID of a category [for recursion]
+ *      - The current nesting level [for recursion]
+ *      - Tells the function, whether or not to display the XML button for each category.
  *               If empty, no links to the XML feeds will be displayed; If you want to, you can
  *               pass an image here (this setting is only used, when type==3).
- * @param string The character to use for blank indenting
+ *      - The character to use for blank indenting
+ * Returns:
+ *      - string OR NULL
+ * @access public
  * @see serendipity_fetchCategories()
 */
-function serendipity_generateCategoryList($cats, $select = array(0), $type = 0, $id = 0, $level = 0, $xmlImg = '', $blank_char = ' ') {
+function serendipity_generateCategoryList(iterable $cats, iterable $select = array(0), int $type = 0, int $id = 0, int $level = 0, string $xmlImg = '', string $blank_char = ' ') : ?string {
     global $serendipity;
 
     if (!is_array($cats) || !count($cats)) {
-        return;
+        return null;
     }
     $ret = '';
     foreach($cats AS $cat) {
@@ -1806,19 +1848,21 @@ function serendipity_generateCategoryList($cats, $select = array(0), $type = 0, 
 /**
  * Set category associations of a specific entry
  *
+ * Args:
+ *      - The ID of the entry
+ *      - An array of category IDs that this entry is associated to.
+ * Returns:
+ *      - void
  * @access public
- * @param   int     The ID of the entry
- * @param   array   An array of category IDs that this entry is associated to.
- * @return null
  */
-function serendipity_updateEntryCategories($postid, $categories) {
+function serendipity_updateEntryCategories(int $postid, iterable $categories) : void {
     global $serendipity;
 
     if (!$postid || !$categories) {
         return;
     }
 
-    $query = "DELETE FROM {$serendipity['dbPrefix']}entrycat WHERE entryid = " . (int)$postid;
+    $query = "DELETE FROM {$serendipity['dbPrefix']}entrycat WHERE entryid = " . $postid;
     serendipity_db_query($query);
 
     if (!is_array($categories)) {
@@ -1826,7 +1870,7 @@ function serendipity_updateEntryCategories($postid, $categories) {
     }
 
     foreach($categories AS $idx => $cat) {
-        $query = "INSERT INTO {$serendipity['dbPrefix']}entrycat (categoryid, entryid) VALUES (" . (int)$cat . ", " . (int)$postid . ")";
+        $query = "INSERT INTO {$serendipity['dbPrefix']}entrycat (categoryid, entryid) VALUES (" . (int) $cat . ", " . $postid . ")";
         serendipity_db_query($query);
     }
     serendipity_cleanCache();
@@ -1839,10 +1883,13 @@ function serendipity_updateEntryCategories($postid, $categories) {
  * $serendipity['GET']['category'] is honored like in serendipity_fetchEntries()
  * $serendipity['GET']['viewAuthor'] is honored like in serendipity_fetchEntries()
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
  * @access public
- * @return null
  */
-function serendipity_printArchives() {
+function serendipity_printArchives() : void {
     global $serendipity;
 
     $f = serendipity_db_query("SELECT timestamp FROM {$serendipity['dbPrefix']}entries ORDER BY timestamp ASC LIMIT 1");
@@ -1855,8 +1902,8 @@ function serendipity_printArchives() {
         default:
             $lastYear   = date('Y', serendipity_serverOffsetHour($f[0][0]));
             $lastMonth  = date('m', serendipity_serverOffsetHour($f[0][0]));
-            $thisYear   = date('Y', serendipity_serverOffsetHour());
-            $thisMonth  = date('m', serendipity_serverOffsetHour());
+            $thisYear   = date('Y', serendipity_serverOffsetHour()); // means, time() plus
+            $thisMonth  = date('m', serendipity_serverOffsetHour()); // the offset
             break;
         case 'persian-utf8':
             require_once S9Y_INCLUDE_PATH . 'include/functions_calendars.inc.php';
@@ -2003,11 +2050,13 @@ function serendipity_printArchives() {
 /**
  * Get total count for specific objects
  *
+ * Args:
+ *      - The type of count to show: "entries", "trackbacks", "comments", "...categories", "medias.."
+ * Returns:
+ *      - The counted number, the array or false on fail
  * @access public
- * @param   string      The type of count to show: "entries", "trackbacks", "comments", "...categories", "medias.."
- * @return  string      The counted number
  */
-function serendipity_getTotalCount($what) {
+function serendipity_getTotalCount(string $what) : iterable|string|false {
     global $serendipity;
 
     switch($what) {
@@ -2072,18 +2121,20 @@ function serendipity_getTotalCount($what) {
 /**
  * Get a path of all parent categories to a given category.
  *
+ * Args:
+ *      - The id of the category, whose parents you want to fetch
+ * Returns:
+ *      - An Array with all category information, ordered from root to the ID you supplied
  * @access public
- * @param   string      The id of the category, whose parents you want to fetch
- * @return  array       An Array with all category information, ordered from root to the ID you supplied.
  */
-function serendipity_getCategoryRoot($id) {
+function serendipity_getCategoryRoot(int $id) : iterable|bool {
     global $serendipity;
 
     $r = serendipity_db_query("SELECT p.*
                                  FROM {$serendipity['dbPrefix']}category n,
                                       {$serendipity['dbPrefix']}category p
                                 WHERE n.category_left BETWEEN p.category_left AND p.category_right
-                                  AND n.categoryid = " . (int)$id . "
+                                  AND n.categoryid = " . $id . "
                              ORDER BY n.category_left DESC, p.category_left ASC");
     return $r;
 }
