@@ -11,18 +11,20 @@ if (IN_serendipity !== true) {
 /**
  * Adds a new author account
  *
+ * Args:
+ *      - New username
+ *      - New password
+ *      - The realname of the user
+ *      - The email address of the user
+ *      - The userlevel of a user
+ *      - The hashtype, 1 used for S9y versions 1.5 until Styx 2.5.0 as sha1,
+ *                      2 for the latter with PASSWORD_BCRYPT
+ *                        and at all replacing the very old md5() routine
+ * Returns:
+ *      - The new user ID of the added author
  * @access public
- * @param   string  New username
- * @param   string  New password
- * @param   string  The realname of the user
- * @param   string  The email address of the user
- * @param   int     The userlevel of a user
- * @param   int     The hashtype, 1 used for S9y versions 1.5 until Styx 2.5.0 as sha1,
- *                                2 for the latter with PASSWORD_BCRYPT
- *                                and at all replacing the very old md5() routine
- * @return  int     The new user ID of the added author
  */
-function serendipity_addAuthor($username, #[\SensitiveParameter] string $password, $realname, $email, $userlevel=0, $hashtype=2) {
+function serendipity_addAuthor(string $username, #[\SensitiveParameter] string $password, string $realname, string $email, int $userlevel = 0, int $hashtype = 2) : int {
     global $serendipity;
 
     $password = serendipity_hash($password);
@@ -54,11 +56,13 @@ function serendipity_addAuthor($username, #[\SensitiveParameter] string $passwor
  *
  * (Note, this function does not delete entries by an author)
  *
+ * Args:
+ *      - The author ID to delete
+ * Returns:
+ *      - True on success, false on error or insufficient privileges
  * @access public
- * @param   int         The author ID to delete
- * @return  boolean     True on success, false on error or insufficient privileges
  */
-function serendipity_deleteAuthor($authorid) {
+function serendipity_deleteAuthor(int $authorid) : bool {
     global $serendipity;
 
     if (!serendipity_checkPermission('adminUsersDelete')) {
@@ -70,10 +74,10 @@ function serendipity_deleteAuthor($authorid) {
         return false;
     }
 
-    if (serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}authors WHERE authorid=" . (int)$authorid)) {
-        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE authorid=" . (int)$authorid);
-        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}authorgroups WHERE authorid=" . (int)$authorid);
-        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}permalinks WHERE entry_id=" . (int)$authorid ." and type='author'");
+    if (serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}authors WHERE authorid=" . $authorid)) {
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE authorid=" . $authorid);
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}authorgroups WHERE authorid=" . $authorid);
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}permalinks WHERE entry_id=" . $authorid ." and type='author'");
     }
 
     return true;
@@ -84,15 +88,17 @@ function serendipity_deleteAuthor($authorid) {
  *
  * Global config items have the authorid 0, author-specific configuration items have the corresponding authorid.
  *
+ * Args:
+ *      - The name of the configuration value
+ *      - The ID of the owner of the config value (0: global)
+ * Returns:
+ *      - void
  * @access public
- * @param   string      The name of the configuration value
- * @param   int         The ID of the owner of the config value (0: global)
- * @return null
  */
-function serendipity_remove_config_var($name, $authorid = 0) {
+function serendipity_remove_config_var(string $name, int $authorid = 0) : void {
     global $serendipity;
 
-    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name='" . serendipity_db_escape_string($name) . "' AND authorid = " . (int)$authorid);
+    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name='" . serendipity_db_escape_string($name) . "' AND authorid = " . $authorid);
 }
 
 /**
@@ -100,22 +106,17 @@ function serendipity_remove_config_var($name, $authorid = 0) {
  *
  * Global config items have the authorid 0, author-specific configuration items have the corresponding authorid.
  *
+ * Args:
+ *      - The name of the configuration value
+ *      - The value of the configuration item
+ *      - The ID of the owner of the config value (0: global)
+ * Returns:
+ *      - void
  * @access public
- * @param   string      The name of the configuration value
- * @param   string      The value of the configuration item
- * @param   int         The ID of the owner of the config value (0: global)
  */
-function serendipity_set_config_var($name, $val, $authorid = 0) {
+function serendipity_set_config_var(string $name, string|int $val, int $authorid = 0) : void {
     global $serendipity;
 
-    if (!is_numeric($authorid)) {
-        $authorid = 0; // A db_insert array item CAST to INT works with PHP 8.2, but not in PHP 7/8.0 for the serendipity_db_query(), since it is converted into ''.
-                       // Some PHP versions in combination with MYSQLI_SQL_EXCEPTION MYSQLI_REPORT_* flags throw  Incorrect integer value: '' for column authorid.
-                       // The is_numeric() works as a good enough POST filter and for the empty string array issue here.
-                       // It may be a (known) problem by 64bit vs 32bit systems, which may give back wrong types https://www.php.net/manual/de/function.array-keys.php#105578
-                       // BUT the main issue is that arrays were build for the web as strings and only highly late PHP versions as of PHP 8.2 are able to type cast to INTs.
-                       // So having removed our previous CAST for the authorid in the following insert query, we have to check this in db.inc by fnc serendipity_db_insert()
-    }
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name='" . serendipity_db_escape_string($name) . "' AND authorid = " . $authorid);
 
     if ($name == 'password' || $name == 'check_password') {
@@ -141,16 +142,18 @@ function serendipity_set_config_var($name, $val, $authorid = 0) {
 /**
  * Retrieve a global configuration value for a specific item of the current Serendipity Configuration
  *
+ * Args:
+ *      - The name of the configuration value
+ *      - The default value of a configuration item, if not found in the Database
+ *      - If set to true, the default value of a configuration item will be returned
+ *          if the item is set, but empty. If false, an empty configuration value will
+ *          be returned empty. This is required for getting default values if you do
+ *          not want to store/allow empty config values.
+ * Returns:
+ *      - The configuration value content
  * @access public
- * @param   string      The name of the configuration value
- * @param   string      The default value of a configuration item, if not found in the Database
- * @param   boolean     If set to true, the default value of a configuration item will be returned
- *                          if the item is set, but empty. If false, an empty configuration value will
- *                          be returned empty. This is required for getting default values if you do
- *                          not want to store/allow empty config values.
- * @return  string      The configuration value content
  */
-function serendipity_get_config_var($name, $defval = false, $empty = false) {
+function serendipity_get_config_var(string $name, bool|string|null $defval = false, bool $empty = false) : bool|string|null {
     global $serendipity;
 
     if (isset($serendipity[$name])) {
@@ -169,13 +172,15 @@ function serendipity_get_config_var($name, $defval = false, $empty = false) {
  *
  * Despite the serendipity_get_config_var() function, this will retrieve author-specific values straight from the Database.
  *
+ * Args:
+ *      - The name of the configuration value
+ *      - The ID of the owner of the config value (0: global)
+ *      - The default value of a configuration option, if not set in the DB
+ * Returns:
+ *      - The configuration value content
  * @access public
- * @param   string      The name of the configuration value
- * @param   int         The ID of the owner of the config value (0: global)
- * @param   string      The default value of a configuration option, if not set in the DB
- * @return  string      The configuration value content
  */
-function serendipity_get_user_config_var($name, $authorid, $default = '') {
+function serendipity_get_user_config_var(string $name, ?int $authorid, mixed $default = '') : string|bool {
     global $serendipity;
 
     $author_sql = '';
@@ -199,16 +204,18 @@ function serendipity_get_user_config_var($name, $authorid, $default = '') {
  *
  * This retrieves specific account data from the user configuration, not from the serendipity configuration.
  *
+ * Args:
+ *      - The name of the configuration value
+ *      - The ID of the author to fetch the configuration for
+ *      - The default value of a configuration option, if not set in the DB
+ * Returns:
+ *      - The configuration value content
  * @access public
- * @param   string      The name of the configuration value
- * @param   int         The ID of the author to fetch the configuration for
- * @param   string      The default value of a configuration option, if not set in the DB
- * @return  string      The configuration value content
  */
-function serendipity_get_user_var($name, $authorid, $default) {
+function serendipity_get_user_var(string $name, int $authorid, string $default) : string {
     global $serendipity;
 
-    $r = serendipity_db_query("SELECT $name FROM {$serendipity['dbPrefix']}authors WHERE authorid = " . (int)$authorid, true);
+    $r = serendipity_db_query("SELECT $name FROM {$serendipity['dbPrefix']}authors WHERE authorid = " . $authorid, true);
 
     if (is_array($r)) {
         return $r[0];
@@ -222,15 +229,17 @@ function serendipity_get_user_var($name, $authorid, $default) {
  *
  * This sets the personal account data of a serendipity user within the 'authors' DB table
  *
+ * Args:
+ *      - The name of the configuration value
+ *      - The content of the configuration value
+ *      - The ID of the author to set the configuration for
+ *      - If set to true, the stored config value will be imported to the Session/current config of the user.
+ *          This is applied for example when you change your own user's preferences and want it to be immediately reflected in the interface.
+ * Returns:
+ *      - void
  * @access public
- * @param   string      The name of the configuration value
- * @param   string      The content of the configuration value
- * @param   int         The ID of the author to set the configuration for
- * @param   boolean     If set to true, the stored config value will be imported to the Session/current config of the user.
- *                      This is applied for example when you change your own user's preferences and want it to be immediately reflected in the interface.
- * @return null
  */
-function serendipity_set_user_var($name, $val, $authorid, $copy_to_s9y = true) {
+function serendipity_set_user_var(string $name, string $val, int $authorid, bool $copy_to_s9y = true) : void {
     global $serendipity;
 
     // When inserting a DB value, this array maps the new values to the corresponding s9y variables
@@ -280,14 +289,16 @@ function serendipity_set_user_var($name, $val, $authorid, $copy_to_s9y = true) {
  * The returned full path is depending on the second parameter, where you can either fetch a HTTP path, or a realpath.
  * The file is searched in the current template, and if it is not found there, it is returned from the default template.
  *
+ * Args:
+ *      - The filename to search for in the selected template
+ *      - The path selector that tells whether to return a HTTP or realpath; an empty string or null will return a relative path
+ *      - Enable to include frontend template fallback chaining (used for wysiwyg Editor custom config files, emoticons, etc)
+ *      - Enable to check into $serendipity['template'] or its engine, then fall back to $this->pluginFile dir (used by plugins via parseTemplate() method)
+ * Returns:
+ *      - The full path+filename to the requested file OR false
  * @access public
- * @param   string      The filename to search for in the selected template
- * @param   string      The path selector that tells whether to return a HTTP or realpath; an empty string or null will return a relative path
- * @param   bool        Enable to include frontend template fallback chaining (used for wysiwyg Editor custom config files, emoticons, etc)
- * @param   bool        Enable to check into $serendipity['template'] or its engine, then fall back to $this->pluginFile dir (used by plugins via parseTemplate() method)
- * @return  string      The full path+filename to the requested file
  */
-function serendipity_getTemplateFile($file, $key = 'serendipityHTTPPath', $force_frontend_fallback = false, $simple_plugin_fallback = false) {
+function serendipity_getTemplateFile(string $file, string $key = 'serendipityHTTPPath', bool $force_frontend_fallback = false, bool $simple_plugin_fallback = false) : string|false {
     global $serendipity;
 
     $directories = array();
@@ -362,11 +373,13 @@ function serendipity_getTemplateFile($file, $key = 'serendipityHTTPPath', $force
  * This function may be called twice - once for the global config and once for
  * user-specific config
  *
+ * Args:
+ *      - The authorid to fetch the configuration from (0: global)
+ * Returns:
+ *      - true or null
  * @access public
- * @param   int     The authorid to fetch the configuration from (0: global)
- * @return  null
  */
-function serendipity_load_configuration($author = null) {
+function serendipity_load_configuration(?int $author = null) : ?bool {
     global $serendipity;
     static $config_loaded = array();
 
@@ -378,7 +391,7 @@ function serendipity_load_configuration($author = null) {
         // Replace default configuration directives with user-relevant data
         $rows =& serendipity_db_query("SELECT name,value
                                          FROM {$serendipity['dbPrefix']}config
-                                        WHERE authorid = '". (int)$author ."'");
+                                        WHERE authorid = '". (int) $author ."'");
     } else {
         // Only get default variables, user-independent (frontend)
         $rows =& serendipity_db_query("SELECT name, value
@@ -401,19 +414,23 @@ function serendipity_load_configuration($author = null) {
 
     // Store default language
     $serendipity['default_lang'] = $serendipity['lang'];
+
+    return null;
 }
 
 /**
  * Generates a strong password by length and increased variety
  *
- * @param int       Length of return [Default: 16]
- * @param string    Uppercased and lowercased strong characters - removed i, l, O
- * @param boolean   Whether to include numbers [default: true] - removed 0, 1
- * @param int       1 uses normal special chars, 2 adds extra more may or may not available in every language; Use 0 OR null for none
- *
- * @return string The random password.
+ * Args:
+ *      - Length of return [Default: 16]
+ *      - Uppercased and lowercased strong characters - removed i, l, O
+ *      - Whether to include numbers [default: true] - removed 0, 1
+ *          1 uses normal special chars, 2 adds extra more may or may not available in every language; Use 0 OR null for none
+ * Returns:
+ *      - The random password string
+ * @access private
  */
-function serendipity_generate_password($length = 16, $ints = true, $extend = 1) {
+function serendipity_generate_password(int $length = 16, bool $ints = true, int $extend = 1) : string {
     $chars = 'ABCDEFGHIJKLMNPQRSTUVWXYZabcdefghjkmnopqrstuvwxyz';
     if ($ints) {
         $chars .= '23456789';
@@ -437,10 +454,13 @@ function serendipity_generate_password($length = 16, $ints = true, $extend = 1) 
 /**
  * Perform logout functions (destroys session data)
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
  * @access public
- * @return null
  */
-function serendipity_logout() {
+function serendipity_logout() : void {
     $_SESSION['serendipityAuthedUser'] = false;
     serendipity_session_destroy();
     serendipity_deleteCookie('author_information');
@@ -449,10 +469,13 @@ function serendipity_logout() {
 
 /**
  * Destroys a session, keeps important stuff intact.
+ * Args:
+ *      -
+ * Returns:
+ *      - void
  * @access public
- * @return null
  */
-function serendipity_session_destroy() {
+function serendipity_session_destroy() : void {
     $_no_smarty = $_SESSION['no_smarty'] ?? null;
     @session_destroy();
     session_start();// set regenerate new to avoid of possible (old) session hijacking
@@ -465,11 +488,13 @@ function serendipity_session_destroy() {
 /**
  * Perform login to Serendipity
  *
+ * Args:
+ *      - If set to true, external plugins will be queried for getting a login
+ * Returns:
+ *      - Return true, if the user is logged in. False if not.
  * @access public
- * @param   boolean     If set to true, external plugins will be queried for getting a login
- * @return  boolean     Return true, if the user is logged in. False if not.
  */
-function serendipity_login($use_external = true) {
+function serendipity_login(bool $use_external = true) : bool {
     global $serendipity;
 
     if (serendipity_authenticate_author('', '', false, $use_external)) {
@@ -515,14 +540,21 @@ function serendipity_login($use_external = true) {
 
     $data = array('ext' => $use_external, 'mode' => 2, 'user' => ($serendipity['POST']['user'] ?? null), 'pass' => ($serendipity['POST']['pass'] ?? null));
     serendipity_plugin_api::hook_event('backend_loginfail', $data);
+
+    return false; // default fallback
 }
 
 /**
  * Temporary helper function to debug output to the logger file if the $serendipity['logger'] object is not available (in case of log-off actions)
- * @param string The file and path
- * @param string The message string
+ *
+ * Args:
+ *      - The file and path
+ *      - The message string
+ * Returns:
+ *      - void
+ * @access private
  *//*
-function aesDebugFile($file, $str = '') {
+function aesDebugFile(string $file, string $str = '') : void {
     $fp = fopen($file, 'a');
     flock($fp, LOCK_EX);
     $nowMT = microtime(true);
@@ -534,13 +566,15 @@ function aesDebugFile($file, $str = '') {
 /**
  * Login encrypt/decrypt and set autologin cookie by version and lib
  *
- * @param   array    The input data - already serialize(d)
- * @param   boolean  Sets the encrypt or decrypt
- * @param   string   A non-NULL 12 bytes Initialization Vector
- *
- * @return  array    The output data
+ * Args:
+ *      - The input data - already serialize(d)
+ *      - Sets the encrypt or decrypt
+ *      - A non-NULL 12 bytes Initialization Vector
+ * Returns:
+ *      - The output data OR FALSE
+ * @access private
  */
-function serendipity_cryptor($data, $decrypt = false, $iv = null) {
+function serendipity_cryptor(string $data, bool $decrypt = false, ?string $iv = null) : string|bool  {
     global $serendipity;
 
     // DEBUG NOTE: Use locally only OR set the blog into maintenance mode, since decryption logs may contain valid credential data or data that is easy decryptable!
@@ -620,9 +654,14 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
 
 /**
  * Issue a new auto login cookie
- * @param array The input data
+ *
+ * Args:
+ *      - The input data as array
+ * Returns:
+ *      - void
+ * @access private
  */
-function serendipity_issueAutologin($array) {
+function serendipity_issueAutologin(iterable $array) : void {
     global $serendipity;
 
     $package = serialize($array);
@@ -634,7 +673,6 @@ function serendipity_issueAutologin($array) {
 
     $rnd = md5(uniqid((string)time(), true) . $_SERVER['REMOTE_ADDR']);
 
-    // Delete possible current cookie. Also delete any autologin keys that smell like 3-week-old, dead fish.
     if (stristr($serendipity['dbType'], 'sqlite')) {
         $cast = 'name';
     } elseif (stristr($serendipity['dbType'], 'postgres')) {
@@ -659,9 +697,14 @@ function serendipity_issueAutologin($array) {
 
 /**
  * Checks a new auto login cookie
- * @param array The input data
+ *
+ * Args:
+ *      - The input data as array
+ * Returns:
+ *      - The output data as artray Or string OR FALSE
+ * @access private
  */
-function serendipity_checkAutologin($ident, $iv) {
+function serendipity_checkAutologin(string $ident, string $iv) : string|bool|iterable  {
     global $serendipity;
 
     // DEBUG NOTE: Use locally only OR set the blog into maintenance mode, since decryption logs may contain valid credential data or data that is easy decryptable!
@@ -693,8 +736,14 @@ function serendipity_checkAutologin($ident, $iv) {
 
 /**
  * Set a session cookie which can identify a user across http/https boundaries
+ *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
+ * @access private
  */
-function serendipity_setAuthorToken() {
+function serendipity_setAuthorToken() : void {
     try {
         $string = random_bytes(32);
     } catch (\TypeError $e) {
@@ -722,14 +771,16 @@ function serendipity_setAuthorToken() {
  * After a user has been authenticated, several SESSION variables are set.
  * If the authentication fails, the session is destroyed.
  *
+ * Args:
+ *      - The username to check
+ *      - The password to check (may contain plaintext or MD5 / SHA1 hashes)
+ *      - Indicates whether the input password is already in MD5 format (TRUE) or not (FALSE).
+ *      - Indicates whether to query external plugins for authentication
+ * Returns:
+ *      - True on success, False on error
  * @access public
- * @param   string      The username to check
- * @param   string      The password to check (may contain plaintext or MD5 / SHA1 hashes)
- * @param   boolean     Indicates whether the input password is already in MD5 format (TRUE) or not (FALSE).
- * @param   boolean     Indicates whether to query external plugins for authentication
- * @return  boolean     True on success, False on error
  */
-function serendipity_authenticate_author($username = '', #[\SensitiveParameter] $password = '', $is_hashed = false, $use_external = true) {
+function serendipity_authenticate_author(string $username = '', #[\SensitiveParameter] string $password = '', bool $is_hashed = false, bool $use_external = true) : bool {
     global $serendipity;
     static $debug = false;
     static $debugc = 0;
@@ -807,7 +858,7 @@ function serendipity_authenticate_author($username = '', #[\SensitiveParameter] 
                     $_SESSION['serendipityRightPublish'] = $serendipity['serendipityRightPublish'] = $row['right_publish'];
                     $_SESSION['serendipityHashType']     = $serendipity['serendipityHashType']     = $row['hashtype'];
 
-                    serendipity_load_configuration($serendipity['authorid']);
+                    serendipity_load_configuration((int) $serendipity['authorid']);
                     serendipity_setCookie('userDefLang', $serendipity['lang'], false);
                     return true;
                 }
@@ -832,10 +883,13 @@ function serendipity_authenticate_author($username = '', #[\SensitiveParameter] 
 /**
  * Check if a user is logged in
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - TRUE when logged in, FALSE when not
  * @access public
- * @return boolean  TRUE when logged in, FALSE when not.
  */
-function serendipity_userLoggedIn() {
+function serendipity_userLoggedIn() : bool {
     if (isset($_SESSION['serendipityAuthedUser']) && $_SESSION['serendipityAuthedUser'] === true && IS_installed) {
         return true;
     } else {
@@ -848,12 +902,14 @@ function serendipity_userLoggedIn() {
  *
  * The function sets the contents of $source into the $target variable, but only if $target is not yet set. Eases up some if...else logic or multiple ternary operators
  *
+ * Args:
+ *      - Source variable that should be set into the target variable (reference call!)
+ *      - Target variable, that should get the contents of the source variable (reference call!)
+ * Returns:
+ *      - True, when $target was not yet set and has been altered. False when no changes where made.
  * @access public
- * @param   mixed   Source variable that should be set into the target variable (reference call!)
- * @param   mixed   Target variable, that should get the contents of the source variable (reference call!)
- * @return  boolean True, when $target was not yet set and has been altered. False when no changes where made.
  */
-function serendipity_restoreVar(&$source, &$target) {
+function serendipity_restoreVar(mixed &$source, mixed &$target) : bool {
     if (isset($source) && !isset($target)) {
         $target = $source;
         return true;
@@ -864,15 +920,17 @@ function serendipity_restoreVar(&$source, &$target) {
 /**
  * Set a Cookie via HTTP calls, and update $_COOKIE plus $serendipity['COOKIE'] array.
  *
+ * Args:
+ *      - The name of the cookie variable
+ *      - The contents of the cookie variable
+ *      - Set the Secure flag
+ *      - Cookie validity (unix timestamp) as int
+ *      - Set the “sameSite” HttpOnly flag
+ * Returns:
+ *      - void
  * @access public
- * @param   string      The name of the cookie variable
- * @param   string      The contents of the cookie variable
- * @param   boolean     Set the Secure flag
- * @param   boolean     Cookie validity (unix timestamp) as int
- * @param   boolean     Set the “sameSite” HttpOnly flag
- * @return null
  */
-function serendipity_setCookie($name, $value, $securebyprot = true, $custom_timeout = false, $httpOnly = true) {
+function serendipity_setCookie(string $name, string $value, bool $securebyprot = true, bool $custom_timeout = false, bool $httpOnly = true) : void {
     global $serendipity;
 
     $host = $_SERVER['HTTP_HOST'];
@@ -916,12 +974,14 @@ function serendipity_setCookie($name, $value, $securebyprot = true, $custom_time
  * This function is useful if your HTTP headers were already sent, but you still want to set a cookie
  * Note that contents are echoed, not returned. Can be used by plugins.
  *
+ * Args:
+ *      - The name of the cookie variable
+ *      - The contents of the cookie variable
+ * Returns:
+ *      - void
  * @access public
- * @param   string      The name of the cookie variable
- * @param   string      The contents of the cookie variable
- * @return  null
  */
-function serendipity_JSsetCookie($name, $value) {
+function serendipity_JSsetCookie(string $name, string $value) : void {
     $name  = htmlentities($name);
     $value = urlencode($value);
 
@@ -933,11 +993,13 @@ function serendipity_JSsetCookie($name, $value) {
  *
  * LONG
  *
+ * Args:
+ *      - Name of the cookie to delete
+ * Returns:
+ *      - void
  * @access public
- * @param   string      Name of the cookie to delete
- * @return
  */
-function serendipity_deleteCookie($name) {
+function serendipity_deleteCookie(string $name) : void {
     global $serendipity;
 
     $host = $_SERVER['HTTP_HOST'];
@@ -973,10 +1035,13 @@ function serendipity_deleteCookie($name) {
  * The iframe is used for previewing an entry with the stylesheet of the frontend.
  * It fetches its data from the session input data.
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - True, if iframe was requested, false if not
  * @access private
- * @return boolean  True, if iframe was requested, false if not.
  */
-function serendipity_is_iframe() {
+function serendipity_is_iframe() : bool {
     global $serendipity;
 
     if (isset($serendipity['GET']['is_iframe']) && $serendipity['GET']['is_iframe'] == 'true' && isset($_SESSION['save_entry']) && is_array($_SESSION['save_entry'])) {
@@ -996,14 +1061,16 @@ function serendipity_is_iframe() {
  * An iframe is used so that a single s9y page must not timeout on intensive operations,
  * and so that the frontend stylesheet can be embedded without screwing up the backend.
  *
+ * Args:
+ *      - The entry array (comes from session variable)
+ *      - Indicates whether an entry is previewed or saved. Save performs XML-RPC calls.
+ *      - Use Smarty templating?
+ * Returns:
+ *      - Indicates whether iframe data was printed
  * @access private
  * @see serendipity_is_iframe()
- * @param   mixed   The entry array (comes from session variable)
- * @param   string  Indicates whether an entry is previewed or saved. Save performs XML-RPC calls.
- * @param   boolean Use Smarty templating?
- * @return  boolean Indicates whether iframe data was printed
  */
-function serendipity_iframe(&$entry, $mode = null) {
+function serendipity_iframe(iterable &$entry, ?string $mode = null) : string|bool {
     global $serendipity;
 
     if (empty($mode) || !is_array($entry)) {
@@ -1080,13 +1147,15 @@ function serendipity_iframe(&$entry, $mode = null) {
  *
  * This function emits the actual <iframe> call.
  *
+ * Args:
+ *      - Indicates whether an entry is previewed or saved. Save performs XML-RPC calls.
+ *      - The entry array (comes from HTTP POST request)
+ * Returns:
+ *      - Indicates whether iframe data was stored
  * @access private
  * @see serendipity_is_iframe()
- * @param   string  Indicates whether an entry is previewed or saved. Save performs XML-RPC calls.
- * @param   mixed   The entry array (comes from HTTP POST request)
- * @return  boolean Indicates whether iframe data was stored
  */
-function serendipity_iframe_create($mode, &$entry) {
+function serendipity_iframe_create(string $mode, iterable &$entry) : string|bool {
     global $serendipity;
 
     if (!empty($serendipity['POST']['no_save'])) {
@@ -1119,11 +1188,13 @@ function serendipity_iframe_create($mode, &$entry) {
 /**
  * Pre-Checks certain server environments to indicate available options when installing Serendipity
  *
+ * Args:
+ *      - The name of the configuration option that needs to be checked for environmental data.
+ * Returns:
+ *      - Returns the array of available options for the requested config option
  * @access public
- * @param   string      The name of the configuration option that needs to be checked for environmental data.
- * @return  array       Returns the array of available options for the requested config option
  */
-function serendipity_probeInstallation($item) {
+function serendipity_probeInstallation(string $item) : iterable {
     $res = NULL;
 
     switch ($item) {
@@ -1182,11 +1253,13 @@ function serendipity_probeInstallation($item) {
 /**
  * Sets a HTTP header
  *
+ * Args:
+ *      - The HTTP header to set
+ * Returns:
+ *      - void
  * @access public
- * @param   string      The HTTP header to set
- * @return null
  */
-function serendipity_header($header) {
+function serendipity_header(string $header) : void {
     if (!headers_sent()) {
         header($header);
     }
@@ -1202,10 +1275,13 @@ function serendipity_header($header) {
  * having loaded the right language.
  * Find a way to let plugins hook into that sequence :-)
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - Returns the name of the selected language
  * @access public
- * @return  string      Returns the name of the selected language.
  */
-function serendipity_getSessionLanguage() {
+function serendipity_getSessionLanguage() : string {
     global $serendipity;
 
     // DISABLE THIS!
@@ -1267,10 +1343,13 @@ function serendipity_getSessionLanguage() {
  *
  * This function also sets HTTP Headers and cookies to contain the language for follow-up requests
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - Returns the name of the selected language
  * @access public
- * @return  string      Returns the name of the selected language.
  */
-function serendipity_getPostAuthSessionLanguage() {
+function serendipity_getPostAuthSessionLanguage() : string {
     global $serendipity;
 
     if (! is_null($serendipity['detected_lang'])) {
@@ -1306,11 +1385,13 @@ function serendipity_getPostAuthSessionLanguage() {
  * and stored in a larger array. So both memberships and all applying
  * privileges are returned.
  *
+ * Args:
+ *      - The ID of the author to fetch permissions/group memberships for
+ * Returns:
+ *      - Multi-dimensional associative array which holds a 'membership' and permission name data
  * @access public
- * @param   int     The ID of the author to fetch permissions/group memberships for
- * @return  array   Multi-dimensional associative array which holds a 'membership' and permission name data
  */
-function &serendipity_getPermissions($authorid) {
+function &serendipity_getPermissions(int $authorid) : iterable {
     global $serendipity;
 
     // Get group information
@@ -1320,7 +1401,7 @@ function &serendipity_getPermissions($authorid) {
                                         ON ag.groupid = g.id
                            LEFT OUTER JOIN {$serendipity['dbPrefix']}groupconfig AS gc
                                         ON gc.id = g.id
-                                     WHERE ag.authorid = " . (int)$authorid);
+                                     WHERE ag.authorid = " . $authorid);
     $perm = array('membership' => array());
     if (is_array($groups)) {
         foreach($groups AS $group) {
@@ -1338,10 +1419,13 @@ function &serendipity_getPermissions($authorid) {
  * This function also maps which function was available to which userlevel in older Serendipity versions.
  * Thus if an author does not have a certain privilege he should have because of his userlevel, this can be reverse-mapped.
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - Multi-dimensional associative array which the list of all permission items plus their userlevel associations
  * @access public
- * @return  array   Multi-dimensional associative array which the list of all permission items plus their userlevel associations
  */
-function serendipity_getPermissionNames() {
+function serendipity_getPermissionNames() : iterable {
     return array(
         'personalConfiguration'
             => array(USERLEVEL_ADMIN, USERLEVEL_CHIEF, USERLEVEL_EDITOR),
@@ -1429,16 +1513,14 @@ function serendipity_getPermissionNames() {
  *     the author is a user of, the function returns true.
  * If a privilege is not set, the userlevel of an author is checked to act for backwards-compatibility.
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - Either returns true if a permission check is performed or false if not, or returns an array of group memberships. This depends on the $returnMyGroups variable
  * @access public
  * @see serendipity_getPermissionNames()
- * @param   string      The name of the permission to check
- * @param   int         The authorid for which the permission check should be performed
- * @param   boolean     If set to true, all groups that the requested author is a user of will be returned.
- *                          This bypasses the permission check and mainly acts as a mean to return cached permissions,
- *                          since those variables are only available within this function.
- * @return  mixed       Either returns true if a permission check is performed or false if not, or returns an array of group memberships. This depends on the $returnMyGroups variable.
  */
-function serendipity_checkPermission($permName = null, $authorid = null, $returnMyGroups = false) {
+function serendipity_checkPermission(?string $permName = null, ?int $authorid = null, bool|string $returnMyGroups = false) : bool|iterable {
     global $serendipity;
     // Define old serendipity permissions
     static $permissions = null;
@@ -1457,11 +1539,11 @@ function serendipity_checkPermission($permName = null, $authorid = null, $return
     }
 
     if ($authorid === null) {
-        $authorid = $serendipity['authorid'] ?? null;
+        $authorid = $serendipity['authorid'] ?? 0;
     }
 
     if (!isset($group[$authorid])) {
-        $group[$authorid] = serendipity_getPermissions($authorid);
+        $group[$authorid] = serendipity_getPermissions((int) $authorid);
     }
 
     if ($returnMyGroups) {
@@ -1503,24 +1585,26 @@ function serendipity_checkPermission($permName = null, $authorid = null, $return
 /**
  * Update author group membership(s)
  *
+ * Args:
+ *      - The array of groups the author should be a member of. All memberships that were present before and not contained in this array will be removed.
+ *      - The ID of the author to update
+ *      - If set to true, the groups can only be updated if the user has the adminUsersMaintainOthers privilege.
+ *          If set to false, group memberships will be changeable for any user.
+ * Returns:
+ *      - True on success, False on failed permissions
  * @access public
- * @param   array       The array of groups the author should be a member of. All memberships that were present before and not contained in this array will be removed.
- * @param   int         The ID of the author to update
- * @param   boolean     If set to true, the groups can only be updated if the user has the adminUsersMaintainOthers privilege.
- *                      If set to false, group memberships will be changeable for any user.
- * @return
  */
-function serendipity_updateGroups($groups, $authorid, $apply_acl = true) {
+function serendipity_updateGroups(iterable $groups, int $authorid, bool $apply_acl = true) : bool {
     global $serendipity;
 
     if ($apply_acl && !serendipity_checkPermission('adminUsersMaintainOthers')) {
         return false;
     }
 
-    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}authorgroups WHERE authorid = " . (int)$authorid);
+    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}authorgroups WHERE authorid = " . $authorid);
 
     foreach($groups AS $group) {
-        serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}authorgroups (authorid, groupid) VALUES (" . (int)$authorid . ", " . (int)$group . ")");
+        serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}authorgroups (authorid, groupid) VALUES (" . $authorid . ", " . (int) $group . ")");
     }
 
     return true;
@@ -1533,12 +1617,14 @@ function serendipity_updateGroups($groups, $authorid, $apply_acl = true) {
  * return the name of the group. This allows inserting the special groups Chief Editor, Editor
  * and admin and still being able to use multilingual names for these groups.
  *
+ * Args:
+ *      - If set to an author ID value, only groups are fetched that this author is a member of.
+ *          If set to false, all groups are returned, also those that the current user has no access to.
+ * Returns:
+ *      - An associative array of group names
  * @access public
- * @param   int     If set to an author ID value, only groups are fetched that this author is a member of.
- *                  If set to false, all groups are returned, also those that the current user has no access to.
- * @return  array   An associative array of group names.
  */
-function &serendipity_getAllGroups($apply_ACL_user = false) {
+function &serendipity_getAllGroups(int|string|bool $apply_ACL_user = false) : iterable {
     global $serendipity;
 
     if ($apply_ACL_user) {
@@ -1549,7 +1635,7 @@ function &serendipity_getAllGroups($apply_ACL_user = false) {
                                            FROM {$serendipity['dbPrefix']}authorgroups AS ag
                                 LEFT OUTER JOIN {$serendipity['dbPrefix']}groups AS g
                                              ON g.id = ag.groupid
-                                          WHERE ag.authorid = " . (int)$apply_ACL_user . "
+                                          WHERE ag.authorid = " . (int) $apply_ACL_user . "
                                        ORDER BY g.name", false, 'assoc');
     } else {
         $groups =& serendipity_db_query("SELECT g.id   AS confkey,
@@ -1587,7 +1673,7 @@ function &serendipity_getAllGroups($apply_ACL_user = false) {
         }
         // sort natural by name - start mattering if having additional groups
         usort($groups, function($a, $b) {
-            return strnatcasecmp($a['name'],$b['name']);
+            return strnatcasecmp($a['name'], $b['name']);
         });
     }
 
@@ -1597,12 +1683,16 @@ function &serendipity_getAllGroups($apply_ACL_user = false) {
 /**
  * Fetch the permissions of a certain group
  *
+ * Args:
+ *      - The ID of the group that the permissions are fetched for. KEEP string type for compat since mostly stems from GET POST array data
+ * Returns:
+ *      - The associative array of permissions of a group
  * @access public
- * @param   int     The ID of the group that the permissions are fetched for
- * @return  array   The associative array of permissions of a group.
  */
-function &serendipity_fetchGroup($groupid) {
+function &serendipity_fetchGroup(int|string $groupid) : iterable {
     global $serendipity;
+
+    serendipity_typeCompatCheckID($groupid);
 
     $conf = array();
     $groups =& serendipity_db_query("SELECT g.id        AS confkey,
@@ -1615,7 +1705,7 @@ function &serendipity_fetchGroup($groupid) {
                                       FROM {$serendipity['dbPrefix']}groups AS g
                            LEFT OUTER JOIN {$serendipity['dbPrefix']}groupconfig AS gc
                                         ON g.id = gc.id
-                                     WHERE g.id = " . (int)$groupid, false, 'assoc');
+                                     WHERE g.id = " . (int) $groupid, false, 'assoc');
 
     if (is_array($groups)) {
         foreach($groups AS $group) {
@@ -1637,13 +1727,17 @@ function &serendipity_fetchGroup($groupid) {
 /**
  * Gets all groups a user is a member of
  *
+ * Args:
+ *      - The authorid to fetch groups for .... KEEP string type allowance for compat since most stem from global serendipity array
+ *      - Indicate whether the original multi-dimensional DB result array shall be returned (FALSE) or if the array shall be flattened to be 1-dimensional (TRUE).
+ * Returns:
+ *      - The associative array of groups
  * @access public
- * @param   int         The authorid to fetch groups for
- * @param   boolean     Indicate whether the original multi-dimensional DB result array shall be returned (FALSE) or if the array shall be flattened to be 1-dimensional (TRUE).
- * @return
  */
-function &serendipity_getGroups($authorid, $sequence = false) {
+function &serendipity_getGroups(int|string $authorid, bool $sequence = false) : iterable {
     global $serendipity;
+
+    serendipity_typeCompatCheckID($authorid);
 
     $_groups =& serendipity_db_query("SELECT g.id  AS confkey,
                                             g.name AS confvalue,
@@ -1652,7 +1746,7 @@ function &serendipity_getGroups($authorid, $sequence = false) {
                                       FROM {$serendipity['dbPrefix']}authorgroups AS ag
                            LEFT OUTER JOIN {$serendipity['dbPrefix']}groups AS g
                                         ON g.id = ag.groupid
-                                     WHERE ag.authorid = " . (int)$authorid, false, 'assoc');
+                                     WHERE ag.authorid = " . (int) $authorid, false, 'assoc');
     if (!is_array($_groups)) {
         $groups = array();
     } else {
@@ -1660,7 +1754,7 @@ function &serendipity_getGroups($authorid, $sequence = false) {
     }
 
     if ($sequence) {
-        $rgroups  = array();
+        $rgroups = [];
         foreach($groups AS $grouprow) {
             $rgroups[] = $grouprow['confkey'];
         }
@@ -1674,11 +1768,14 @@ function &serendipity_getGroups($authorid, $sequence = false) {
 /**
  * Gets all author IDs of a specific group
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - The associative array of author IDs and names
  * @access public
- * @param   int     The ID of the group to fetch the authors of
- * @return  array   The associative array of author IDs and names
+ *      - The ID of the group to fetch the authors of
  */
-function &serendipity_getGroupUsers($groupid) {
+function &serendipity_getGroupUsers(int $groupid) : iterable|bool {
     global $serendipity;
 
     $groups =& serendipity_db_query("SELECT g.name     AS name,
@@ -1689,18 +1786,20 @@ function &serendipity_getGroupUsers($groupid) {
                                         ON g.id = ag.groupid
                            LEFT OUTER JOIN {$serendipity['dbPrefix']}authors AS a
                                         ON ag.authorid = a.authorid
-                                     WHERE ag.groupid = " . (int)$groupid, false, 'assoc');
+                                     WHERE ag.groupid = " . $groupid, false, 'assoc');
     return $groups;
 }
 
 /**
  * Deletes a specific author group by ID
  *
+ * Args:
+ *      - The group ID to delete
+ * Returns:
+ *      - Return true if group could be deleted, false if insufficient privileges
  * @access public
- * @param   int     The group ID to delete
- * @return  boolean Return true if group could be deleted, false if insufficient privileges.
  */
-function serendipity_deleteGroup($groupid) {
+function serendipity_deleteGroup(int $groupid) : bool {
     global $serendipity;
 
     if (!serendipity_checkPermission('adminUsersGroups')) {
@@ -1716,14 +1815,14 @@ function serendipity_deleteGroup($groupid) {
     }
 
     // Do not allow to delete the administrators (1) GROUP named USERLEVEL_ADMIN_DESC (3)
-    $self  = serendipity_db_query("SELECT authorid FROM {$serendipity['dbPrefix']}authorgroups WHERE groupid = " . (int)$groupid . " LIMIT 1", true, 'assoc');
-    $group = serendipity_db_query("SELECT name FROM {$serendipity['dbPrefix']}groups WHERE id = " . (int)$groupid . " LIMIT 1", true, 'assoc');
+    $self  = serendipity_db_query("SELECT authorid FROM {$serendipity['dbPrefix']}authorgroups WHERE groupid = " . $groupid . " LIMIT 1", true, 'assoc');
+    $group = serendipity_db_query("SELECT name FROM {$serendipity['dbPrefix']}groups WHERE id = " . $groupid . " LIMIT 1", true, 'assoc');
     if ($serendipity['authorid'] == 1 && $group['name'] == 'USERLEVEL_ADMIN_DESC' && $self['authorid'] == $serendipity['authorid']) {
         return false;
     }
 
-    if (serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}groups WHERE id = " . (int)$groupid)) {
-        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}authorgroups WHERE groupid = " . (int)$groupid);
+    if (serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}groups WHERE id = " . $groupid)) {
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}authorgroups WHERE groupid = " . $groupid);
     }
 
     return true;
@@ -1732,11 +1831,13 @@ function serendipity_deleteGroup($groupid) {
 /**
  * Creates a new author group
  *
+ * Args:
+ *      - The name of the new group
+ * Returns:
+ *      - The id of the created group
  * @access public
- * @param   string      The name of the new group
- * @return  int         The id of the created group
  */
-function serendipity_addGroup($name) {
+function serendipity_addGroup(string $name) : int {
     global $serendipity;
 
     serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}groups (name) VALUES ('" . serendipity_db_escape_string($name) . "')");
@@ -1752,11 +1853,14 @@ function serendipity_addGroup($name) {
  * This call returns an array of all available permission names so that it can be intersected with the list of internal
  * permission names (serendipity_getPermissionNames()) and then be distincted.
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - associative array of all available permission names
  * @access public
  * @see serendipity_getPermissionNames()
- * @return  array   associative array of all available permission names
  */
-function &serendipity_getDBPermissionNames() {
+function &serendipity_getDBPermissionNames() : iterable|bool {
     global $serendipity;
 
     $config =& serendipity_db_query("SELECT property FROM {$serendipity['dbPrefix']}groupconfig GROUP BY property ORDER BY property", false, 'assoc');
@@ -1775,12 +1879,15 @@ function &serendipity_getDBPermissionNames() {
  * TODO Might need further pushing and/or an event hook so that external plugins using the
  * permission system can inject specific information into the array
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - Returns the array with all information about all permission names
  * @access public
  * @see serendipity_getPermissionNames()
  * @see serendipity_getDBPermissionNames()
- * @return  array   Returns the array with all information about all permission names
  */
-function &serendipity_getAllPermissionNames() {
+function &serendipity_getAllPermissionNames() : iterable {
 
     $DBperms =& serendipity_getDBPermissionNames();
     $perms   = serendipity_getPermissionNames();
@@ -1802,12 +1909,14 @@ function &serendipity_getAllPermissionNames() {
  * It can be used for detecting if a different author should be allowed to access your entries,
  * because he's in the same group, for example.
  *
+ * Args:
+ *      - ID of the first author to check group memberships
+ *      - ID of the second author to check group memberships
+ * Returns:
+ *      - True if a membership intersects, false if not
  * @access public
- * @param   int     ID of the first author to check group memberships
- * @param   int     ID of the second author to check group memberships
- * @return  boolean True if a membership intersects, false if not
  */
-function serendipity_intersectGroup($checkuser = null, $myself = null) {
+function serendipity_intersectGroup(?int $checkuser = null, ?int $myself = null) : bool {
     global $serendipity;
 
     if ($myself === null) {
@@ -1830,16 +1939,18 @@ function serendipity_intersectGroup($checkuser = null, $myself = null) {
  * Updates the configuration of permissions of a specific group
  *
  * This function ensures that a group can only be updated from users that have permissions to do so.
+ * Args:
+ *      - The ID of the group to update
+ *      - The associative array of permission names
+ *      - The associative array of new values for the permissions. Needs the same associative keys like the $perms array.
+ *      - Indicates if an all new privilege should be inserted (true) or if an existing privilege is going to be checked
+ *      - The associative array of plugin permission names
+ *      - The associative array of plugin permission hooks
+ * Returns:
+ *      - True on success, False on empty or failed permissions
  * @access public
- * @param   int     The ID of the group to update
- * @param   array   The associative array of permission names
- * @param   array   The associative array of new values for the permissions. Needs the same associative keys like the $perms array.
- * @param   bool    Indicates if an all new privilege should be inserted (true) or if an existing privilege is going to be checked
- * @param   array   The associative array of plugin permission names
- * @param   array   The associative array of plugin permission hooks
- * @return true
  */
-function serendipity_updateGroupConfig($groupid, &$perms, &$values, $isNewPriv = false, $forbidden_plugins = null, $forbidden_hooks = null) {
+function serendipity_updateGroupConfig(int $groupid, iterable &$perms, iterable &$values, bool $isNewPriv = false, ?iterable $forbidden_plugins = null, ?iterable $forbidden_hooks = null) : bool {
     global $serendipity;
 
     if (!serendipity_checkPermission('adminUsersGroups')) {
@@ -1856,7 +1967,7 @@ function serendipity_updateGroupConfig($groupid, &$perms, &$values, $isNewPriv =
 
     $storage =& serendipity_fetchGroup($groupid);
 
-    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}groupconfig WHERE id = " . (int)$groupid);
+    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}groupconfig WHERE id = " . $groupid);
     foreach($perms AS $perm => $userlevels) {
         if (str_starts_with($perm, 'f_')) {
             continue;
@@ -1882,7 +1993,7 @@ function serendipity_updateGroupConfig($groupid, &$perms, &$values, $isNewPriv =
 
         serendipity_db_query(
             sprintf("INSERT INTO {$serendipity['dbPrefix']}groupconfig (id, property, value) VALUES (%d, '%s', '%s')",
-                (int)$groupid,
+                $groupid,
                 serendipity_db_escape_string($perm),
                 serendipity_db_escape_string($value)
             )
@@ -1893,7 +2004,7 @@ function serendipity_updateGroupConfig($groupid, &$perms, &$values, $isNewPriv =
         foreach($forbidden_plugins AS $plugid) {
             serendipity_db_query(
                 sprintf("INSERT INTO {$serendipity['dbPrefix']}groupconfig (id, property, value) VALUES (%d, '%s', 'true')",
-                    (int)$groupid,
+                    $groupid,
                     serendipity_db_escape_string('f_' . urldecode($plugid))
                 )
             );
@@ -1904,22 +2015,22 @@ function serendipity_updateGroupConfig($groupid, &$perms, &$values, $isNewPriv =
         foreach($forbidden_hooks AS $hook) {
             serendipity_db_query(
                 sprintf("INSERT INTO {$serendipity['dbPrefix']}groupconfig (id, property, value) VALUES (%d, '%s', 'true')",
-                    (int)$groupid,
+                    $groupid,
                     serendipity_db_escape_string('f_' . urldecode($hook))
                 )
             );
         }
     }
 
-    serendipity_db_query("UPDATE {$serendipity['dbPrefix']}groups SET name = '" . serendipity_db_escape_string($values['name']) . "' WHERE id = " . (int)$groupid);
+    serendipity_db_query("UPDATE {$serendipity['dbPrefix']}groups SET name = '" . serendipity_db_escape_string($values['name']) . "' WHERE id = " . $groupid);
 
     if (isset($values['members']) && is_array($values['members'])) {
-        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}authorgroups WHERE groupid = " . (int)$groupid);
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}authorgroups WHERE groupid = " . $groupid);
         foreach($values['members'] AS $member) {
             serendipity_db_query(
                 sprintf("INSERT INTO {$serendipity['dbPrefix']}authorgroups (groupid, authorid) VALUES (%d, %d)",
-                    (int)$groupid,
-                    (int)$member
+                    $groupid,
+                    (int) $member
                 )
             );
         }
@@ -1931,12 +2042,14 @@ function serendipity_updateGroupConfig($groupid, &$perms, &$values, $isNewPriv =
 /**
  * Adds a default internal group (Editor, Chief Editor, Admin)
  *
+ * Args:
+ *      - The name of the group to insert
+ *      - The userlevel that represents this group (0|1|255 for Editor/Chief/Admin).
+ * Returns:
+ *      - true
  * @access public
- * @param   string  The name of the group to insert
- * @param   int     The userlevel that represents this group (0|1|255 for Editor/Chief/Admin).
- * @return true
  */
-function serendipity_addDefaultGroup($name, $level) {
+function serendipity_addDefaultGroup(string $name, int $level) : true {
     global $serendipity;
     static $perms = null;
 
@@ -1946,9 +2059,9 @@ function serendipity_addDefaultGroup($name, $level) {
 
     serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}groups (name) VALUES ('" . serendipity_db_escape_string($name) . "')");
     $gid = (int)serendipity_db_insert_id('groups', 'id');
-    serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}groupconfig (id, property, value) VALUES ($gid, 'userlevel', '" . (int)$level . "')");
+    serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}groupconfig (id, property, value) VALUES ($gid, 'userlevel', '" . $level . "')");
 
-    $authors = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}authors WHERE userlevel = " . (int)$level);
+    $authors = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}authors WHERE userlevel = " . $level);
 
     if (is_array($authors)) {
         foreach($authors AS $author) {
@@ -1974,15 +2087,17 @@ function serendipity_addDefaultGroup($name, $level) {
  * An artifact in terms of Serendipity can be either a category or an entry, or anything beyond that for future compatibility.
  * This function sets up the ACLs.
  *
+ * Args:
+ *      - The ID of the artifact to set the access
+ *      - The type of an artifact (category|entry)
+ *      - The type of access to grant (read|write)
+ *      - The ID of the group to grant access to
+ *      - A variable option for an artifact
+ * Returns:
+ *      - True if ACL was applied, false if not
  * @access public
- * @param   int     The ID of the artifact to set the access
- * @param   string  The type of an artifact (category|entry)
- * @param   string  The type of access to grant (read|write)
- * @param   array   The ID of the group to grant access to
- * @param   string  A variable option for an artifact
- * @return  boolean True if ACL was applied, false if not.
  */
-function serendipity_ACLGrant($artifact_id, $artifact_type, $artifact_mode, $groups, $artifact_index = '') {
+function serendipity_ACLGrant(int $artifact_id, string $artifact_type, string $artifact_mode, iterable $groups, string $artifact_index = '') : bool {
     global $serendipity;
 
     if (empty($groups) || !is_array($groups)) {
@@ -1991,13 +2106,13 @@ function serendipity_ACLGrant($artifact_id, $artifact_type, $artifact_mode, $gro
 
     // Delete all old existing relations.
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}access
-                                WHERE artifact_id    = " . (int)$artifact_id . "
+                                WHERE artifact_id    = " . $artifact_id . "
                                   AND artifact_type  = '" . serendipity_db_escape_string($artifact_type) . "'
                                   AND artifact_mode  = '" . serendipity_db_escape_string($artifact_mode) . "'
                                   AND artifact_index = '" . serendipity_db_escape_string($artifact_index) . "'");
 
     $data = array(
-        'artifact_id'    => (string)$artifact_id,
+        'artifact_id'    => $artifact_id,
         'artifact_type'  => $artifact_type,
         'artifact_mode'  => $artifact_mode,
         'artifact_index' => $artifact_index
@@ -2008,7 +2123,7 @@ function serendipity_ACLGrant($artifact_id, $artifact_type, $artifact_mode, $gro
     }
 
     foreach($groups AS $group) {
-        $data['groupid'] = (string)$group; // yeah looks strange, but this is the index key only and needs to be casted to string for PHP 7 with backported PHP 8.1 mysqli_sql_exception
+        $data['groupid'] = $group;
         serendipity_db_insert('access', $data);
     }
 
@@ -2022,19 +2137,21 @@ function serendipity_ACLGrant($artifact_id, $artifact_type, $artifact_mode, $gro
  * An artifact in terms of Serendipity can be either a category or an entry, or anything beyond that for future compatibility.
  * This function retrieves the ACLs.
  *
+ * Args:
+ *      - The ID of the artifact to set the access
+ *      - The type of an artifact (category|entry)
+ *      - The type of access to check for (read|write)
+ *      - A variable option for an artifact
+ * Returns:
+ *      - Returns an array of all groups that are allowed for this kind of access. You can then check if you are the member of any of the groups returned here
  * @access public
- * @param   int     The ID of the artifact to set the access
- * @param   string  The type of an artifact (category|entry)
- * @param   string  The type of access to check for (read|write)
- * @param   string  A variable option for an artifact
- * @return  array   Returns an array of all groups that are allowed for this kind of access. You can then check if you are the member of any of the groups returned here.
  */
-function serendipity_ACLGet($artifact_id, $artifact_type, $artifact_mode, $artifact_index = '') {
+function serendipity_ACLGet(int $artifact_id, string $artifact_type, string $artifact_mode, string $artifact_index = '') : iterable|bool {
     global $serendipity;
 
     $sql = "SELECT groupid, artifact_index FROM {$serendipity['dbPrefix']}access
                     WHERE artifact_type  = '" . serendipity_db_escape_string($artifact_type) . "'
-                      AND artifact_id    = '" . (int)$artifact_id . "'
+                      AND artifact_id    = '" . $artifact_id . "'
                       AND artifact_mode  = '" . serendipity_db_escape_string($artifact_mode) . "'
                       AND artifact_index = '" . serendipity_db_escape_string($artifact_index) . "'";
     $rows =& serendipity_db_query($sql, false, 'assoc');
@@ -2058,14 +2175,16 @@ function serendipity_ACLGet($artifact_id, $artifact_type, $artifact_mode, $artif
  * An artifact in terms of Serendipity can be either a category or an entry, or anything beyond that for future compatibility.
  * This function retrieves the ACLs for a specific user.
  *
+ * Args:
+ *      - The ID of the author to check against.
+ *      - The ID of the artifact to set the access
+ *      - The type of an artifact ('category', more to come)
+ *      - The type of access to check for (read|write)
+ * Returns:
+ *      - Returns true, if the author has access to this artifact. False if not
  * @access public
- * @param   int     The ID of the author to check against.
- * @param   int     The ID of the artifact to set the access
- * @param   string  The type of an artifact ('category', more to come)
- * @param   string  The type of access to check for (read|write)
- * @return  boolean Returns true, if the author has access to this artifact. False if not.
  */
-function serendipity_ACLCheck($authorid, $artifact_id, $artifact_type, $artifact_mode) {
+function serendipity_ACLCheck(int $authorid, int $artifact_id, string $artifact_type, string $artifact_mode) : bool {
     global $serendipity;
 
     $artifact_sql = array();
@@ -2075,20 +2194,20 @@ function serendipity_ACLCheck($authorid, $artifact_id, $artifact_type, $artifact
         default:
         case 'category':
             $artifact_sql['unique']= "atf.categoryid";
-            $artifact_sql['cond']  = "atf.categoryid = " . (int)$artifact_id;
+            $artifact_sql['cond']  = "atf.categoryid = " . $artifact_id;
             $artifact_sql['where'] = "     ag.groupid = a.groupid
                                         OR a.groupid  = 0
-                                        OR (a.artifact_type IS NULL AND (atf.authorid = " . (int)$authorid . " OR atf.authorid = 0 OR atf.authorid IS NULL))";
+                                        OR (a.artifact_type IS NULL AND (atf.authorid = " . $authorid . " OR atf.authorid = 0 OR atf.authorid IS NULL))";
             $artifact_sql['table'] = 'category';
     }
 
     $sql = "SELECT {$artifact_sql['unique']} AS result
               FROM {$serendipity['dbPrefix']}{$artifact_sql['table']} AS atf
    LEFT OUTER JOIN {$serendipity['dbPrefix']}authorgroups AS ag
-                ON ag.authorid = ". (int)$authorid . "
+                ON ag.authorid = ". $authorid . "
    LEFT OUTER JOIN {$serendipity['dbPrefix']}access AS a
                 ON (    a.artifact_type = '" . serendipity_db_escape_string($artifact_type) . "'
-                    AND a.artifact_id   = " . (int)$artifact_id . "
+                    AND a.artifact_id   = " . $artifact_id . "
                     AND a.artifact_mode = '" . serendipity_db_escape_string($artifact_mode) . "'
                    )
 
@@ -2114,14 +2233,16 @@ function serendipity_ACLCheck($authorid, $artifact_id, $artifact_type, $artifact
  * It is currently only written for retrieving Category ACLs.
  * All of the SQL code that will be used in serendipity_fetchEntries will be stored within the referenced $cond array.
  *
+ * Args:
+ *      - Associative array that holds the SQL part array to be used in other functions like serendipity_fetchEntries()
+ *      - Some queries do not need to joins categories. When ACLs need to be applied, this column is required, so if $append_category is set to true it will perform this missing JOIN.
+ *      - The ACL type ('category', 'directory')
+ *      - ACL mode
+ * Returns:
+ *      - True if ACLs were applied, false if not
  * @access private
- * @param   array       Associative array that holds the SQL part array to be used in other functions like serendipity_fetchEntries()
- * @param   boolean     Some queries do not need to joins categories. When ACLs need to be applied, this column is required, so if $append_category is set to true it will perform this missing JOIN.
- * @param   string      The ACL type ('category', 'directory')
- * @param   string      ACL mode
- * @return  true        True if ACLs were applied, false if not.
  */
-function serendipity_ACL_SQL(&$cond, $append_category = false, $type = 'category', $mode = 'read') {
+function serendipity_ACL_SQL(iterable &$cond, bool|string $append_category = false, string $type = 'category', string $mode = 'read') : bool {
     global $serendipity;
 
     // A global configuration item controls whether the blog should apply ACLs or not!
@@ -2200,10 +2321,13 @@ function serendipity_ACL_SQL(&$cond, $append_category = false, $type = 'category
  * https://en.wikipedia.org/wiki/HTTP_referer about the Etymology of the HTTP referer (originally a misspelling of referrer)
  * This function checks the HTTP referer, and if it is part of the current Admin panel.
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - Returns true if XSRF was detected, false if not. The script should abort, if TRUE is returned
  * @access public
- * @return  Returns true if XSRF was detected, false if not. The script should abort, if TRUE is returned.
  */
-function serendipity_checkXSRF() {
+function serendipity_checkXSRF() : bool {
     global $serendipity;
 
     // If no module was requested, the user has just logged in and no action will be performed.
@@ -2251,14 +2375,16 @@ function serendipity_checkXSRF() {
  *
  * LONG
  *
+ * Args:
+ *      - The type of XSRF check that got hit. Used for CSS formatting.
+ *      - If true, the XSRF error should be fatal
+ *      - If true, tell Serendipity to check the $serendipity['referrerXSRF'] config option to decide if an error should be reported or not.
+ * Returns:
+ *      - Returns the HTML error report
  * @access public
  * @see serendipity_checkXSRF()
- * @param   string      The type of XSRF check that got hit. Used for CSS formatting.
- * @param   boolean     If true, the XSRF error should be fatal
- * @param   boolean     If true, tell Serendipity to check the $serendipity['referrerXSRF'] config option to decide if an error should be reported or not.
- * @return  string      Returns the HTML error report
  */
-function serendipity_reportXSRF($type = 0, $reset = true, $use_config = false) {
+function serendipity_reportXSRF(string|int $type = 0, bool $reset = true, bool $use_config = false) : string {
     global $serendipity;
 
     // Set this in your serendipity_config_local.inc.php if you want HTTP Referrer blocking:
@@ -2285,11 +2411,14 @@ function serendipity_reportXSRF($type = 0, $reset = true, $use_config = false) {
  *
  * This function checks, if a valid Form token was posted to the site.
  *
+ * Args:
+ *      - Whether to output or not
+ * Returns:
+ *      - Returns true, if XSRF attempt was found and the token was missing
  * @access public
  * @see serendipity_setFormToken()
- * @return  boolean     Returns true, if XSRF attempt was found and the token was missing
  */
-function serendipity_checkFormToken($output = true) {
+function serendipity_checkFormToken(bool $output = true) : bool {
     global $serendipity;
 
     $token = '';
@@ -2326,13 +2455,15 @@ function serendipity_checkFormToken($output = true) {
  * 'form' type tokens can be embedded within the <form> script.
  * 'url' type token can be embedded within HTTP GET calls.
  *
+ * Args:
+ *      - The type of token to return (form|url|plain)
+ * Returns:
+ *      - Returns the form token to be used in your functions
  * @access public
- * @param   string      The type of token to return (form|url|plain)
- * @return  string      Returns the form token to be used in your functions
  */
-function serendipity_setFormToken($type = 'form') {
+function serendipity_setFormToken(string $type = 'form') : string {
     if ($type == 'form') {
-        return '<input type="hidden" name="serendipity[token]" value="' . hash('xxh3', session_id()) . '">';
+        return '<input name="serendipity[token]" type="hidden" value="' . hash('xxh3', session_id()) . '">';
     } elseif ($type == 'url') {
         return 'serendipity[token]=' . hash('xxh3', session_id());
     } else {
@@ -2343,13 +2474,15 @@ function serendipity_setFormToken($type = 'form') {
 /**
  * Check remote system notification XML for the Backend Dashboard ticker
  *
- * @param bool      The return type to store or show
- * @param string    The Serendipity user identifier
+ * Args:
+ *      - The return type to store or show
+ *      - The Serendipity user identifier
+ * Returns:
+ *      - The cashed string or bool false
+ * @access private
  * @param array     Have read XML item notification hash(es)
- *
- * @return mixed    The cashed string or bool false
  */
-function serendipity_sysInfoTicker(bool $check = false, string $whoami = '', array $exclude_hashes = []): array|bool {
+function serendipity_sysInfoTicker(bool $check = false, string $whoami = '', iterable $exclude_hashes = []) : iterable|bool {
     if ($check === true) {
         global $serendipity;
 
@@ -2415,6 +2548,7 @@ function serendipity_sysInfoTicker(bool $check = false, string $whoami = '', arr
             }
         }
     }
+
     return false;
 }
 
@@ -2422,12 +2556,15 @@ function serendipity_sysInfoTicker(bool $check = false, string $whoami = '', arr
  * Load available/configured options for a specific theme (through config.inc.php of a template directory)
  * into an array.
  *
- * @param   array   Referenced variable coming from the config.inc.php file, where the config values will be stored in
- * @param   string  The stored okey (option key) type
- * @param   boolean Use true boolean mode in array $template_config in the config.inc.php file
- * @return  array   Final return array with default values
+ * Args:
+ *      - Referenced variable coming from the config.inc.php file, where the config values will be stored in
+ *      - The stored okey (option key) type
+ *      - Use true boolean mode in array $template_config in the config.inc.php file
+ * Returns:
+ *      - Final return array with default values
+ * @access private
  */
-function &serendipity_loadThemeOptions(&$template_config, $okey = '', $bc_bool = false) {
+function &serendipity_loadThemeOptions(iterable &$template_config, string $okey = '', bool $bc_bool = false) : iterable {
     global $serendipity;
 
     if (empty($okey)) {
@@ -2467,11 +2604,15 @@ function &serendipity_loadThemeOptions(&$template_config, $okey = '', $bc_bool =
  * Load global available/configured options for a specific theme
  * into an array.
  *
- * @param   array   Referenced variable coming from the config.inc.php file, where the config values will be stored in
- * @param   array   Current template configuration
- * @return  array   Final return array with default values
+ * Args:
+ *      - Referenced variable coming from the config.inc.php file, where the config values will be stored in
+ *      - Current template configuration
+ *      -
+ * Returns:
+ *      - Final return array with default values
+ * @access private
  */
-function serendipity_loadGlobalThemeOptions(&$template_config, &$template_loaded_config, $supported = array()) {
+function serendipity_loadGlobalThemeOptions(iterable &$template_config, iterable &$template_loaded_config, iterable $supported = []) : void {
     global $serendipity;
 
     if ($supported['navigation']) {
@@ -2529,11 +2670,14 @@ function serendipity_loadGlobalThemeOptions(&$template_config, &$template_loaded
 /**
  * Check if a member of a group has permissions to execute a plugin
  *
- * @param string    Pluginname
- * @param int       ID of the group of which the members should be checked
- * @return boolean
+ * Args:
+ *      - Pluginname
+ *      - ID of the group of which the members should be checked OR NULL
+ * Returns:
+ *      - boolean
+ * @access private
  */
-function serendipity_hasPluginPermissions($plugin, $groupid = null) {
+function serendipity_hasPluginPermissions(string $plugin, ?int $groupid = null) : bool {
     global $serendipity;
     static $forbidden = null;
 
@@ -2572,20 +2716,27 @@ function serendipity_hasPluginPermissions($plugin, $groupid = null) {
 /**
  * Return the BCRYPT of a value
  *
- * @param string    The string to hash
- * @return string   The hashed string
+ * Args:
+ *      - The string to hash
+ * Returns:
+ *      - The hashed string
+ * @access private
  */
-function serendipity_hash($string) {
+function serendipity_hash(string $string) : string {
     return password_hash($string, PASSWORD_BCRYPT); // we have a varchar(64) field here, thus we cannot use PASSWORD_DEFAULT
 }
 
 /**
  * Return the SHA1 (with pre-hash) of a value
  *
- * @param string    The string to hash
- * @return string   The hashed string
+ * Args:
+ *      - The string to hash
+ * Returns:
+ *      - The hashed string
+ * @access private
+ * @param string
  */
-function serendipity_sha1_hash($string) {
+function serendipity_sha1_hash(string $string) : string {
     global $serendipity;
 
     if (empty($serendipity['hashkey'])) {
@@ -2598,10 +2749,13 @@ function serendipity_sha1_hash($string) {
 /**
  * Backwards-compatibility to recognize old-style MD5 passwords to allow migration
  *
- * @param string The string to hash
- * @param string  Either SHA1 or MD5 hash, depending on value
+ * Args:
+ *      - The string to hash
+ * Returns:
+ *      - Either SHA1 or MD5 hash, depending on value
+ * @access private
  */
-function serendipity_passwordhash(#[\SensitiveParameter] string $cleartext_password) {
+function serendipity_passwordhash(#[\SensitiveParameter] string $cleartext_password) : string {
     global $serendipity;
 
     if ($_SESSION['serendipityHashType'] > 0) {
