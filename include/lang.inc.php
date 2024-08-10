@@ -73,11 +73,13 @@ if (!defined('serendipity_MB_LOADED') && defined('serendipity_LANG_LOADED')) {
      * Multibyte string functions wrapper:
      * strlen(), strpos(), strrpos(), strtolower(), strtoupper(), substr(), ucfirst()
      *
+     * Args:
+     *      - (over func_get_args()) Any input array, dynamically evaluated for best emulation
+     * Returns:
+     *      - mixed data
      * @access public
-     * @param   mixed       Any input array, dynamically evaluated for best emulation
-     * @return mixed
      */
-    function serendipity_mb() {
+    function serendipity_mb() : mixed {
         static $mbstring = null;
 
         if (is_null($mbstring)) {
