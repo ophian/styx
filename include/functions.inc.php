@@ -392,6 +392,26 @@ function serendipity_validateDate(string $date, string $format = 'Y-m-d') : bool
 }
 
 /**
+ * Check is valid timestamp data from Smarty array where the correct key name for real timestamps is not known
+ * and all values run through formatTime, see EXIF/IPTC/XMP parsed meta data in media_items.tpl
+ * and to NOT convert some digit (time) numbers for IPTCTimeCreated, DigitalTimeCreated  and other number data values.
+ * We don't want digits to end up like 01.01.1970 01:00 by serendipity_smarty_formatTime().
+ * PRE check by !is_string($timestamp) to not even run this helper for resolutions, length, time seconds that are INTs
+ *
+ * Args:
+ *      - String value
+ * Returns:
+ *      - Boolean result
+ * @access public
+ * @see serendipity_smarty_FormatTime() smarty|formatTime::::
+ */
+function serendipity_isValidTimeStamp(string $timestamp) : bool {
+    return ((string) (int) $timestamp === $timestamp)
+        && ($timestamp <= PHP_INT_MAX)
+        && ($timestamp >= ~PHP_INT_MAX);
+}
+
+/**
  * Convert input entry strftime() dates to use DateTime Interface successor.
  * strftime is deprecated with PHP 8.1 + and will be removed by PHP 9.
  * This function is for converting old strftime date data only. Please use the DateTime successor for newer approaches.
