@@ -2310,7 +2310,9 @@ div.serendipityPlug a {
         display: block; /* must be "block" on very big content width again .. to center */
     }
 }
-/* Default to media gallery image comment blocks - else see following auto scales */
+/* Default to media gallery image comment blocks and to (figured) comment image boxes fitting to the ordered "inset" image - div.incidences are old code - else see following auto scales */
+figure.serendipity_imageComment_center, figure.serendipity_imageComment_left, figure.serendipity_imageComment_right,
+div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.serendipity_imageComment_right,
 .grid-col .post .serendipity_image_block.col .serendipity_imageComment_left,
 .grid-col .post .serendipity_image_block.col .serendipity_imageComment_right {
     width: auto !important;
@@ -2338,8 +2340,15 @@ div.serendipityPlug a {
 .grid-col .post div .serendipity_image_right:not([srcset*=".400W."]),
 .post div .serendipity_image_left,
 .post div .serendipity_image_right {
-    min-width: 100%;
-    max-width: 46.75%; }
+    min-width: auto;
+    max-width: 100%; }
+    /* apply for rare cases to overrule the max-width percent behaviour on small screens */
+    .grid-col .post div.serendipity_image_block.col .serendipity_image_left:not([srcset*=".400W."]),
+    .grid-col .post div.serendipity_image_block.col .serendipity_image_right:not([srcset*=".400W."]),
+    .grid-col .post div.serendipity_image_block.row .serendipity_image_left:not([srcset*=".400W."]),
+    .grid-col .post div.serendipity_image_block.row .serendipity_image_right:not([srcset*=".400W."]) {
+        min-width: -moz-available;
+        min-width: -webkit-fill-available; }
 
 /* fake a min-width overwrite that has the most chance not to underflow the image size
    and still be big enough to fit the max-width scales
@@ -2356,17 +2365,18 @@ div.serendipityPlug a {
     .post .serendipity_imageComment_right,
     .post p .serendipity_image_left,
     .post p .serendipity_image_right,
-    .grid-col .post div:not(.serendipity_image_block.col,.serendipity_image_block.row) .serendipity_image_left:not([srcset*=".400W."]),
-    .grid-col .post div:not(.serendipity_image_block.col,.serendipity_image_block.row) .serendipity_image_right:not([srcset*=".400W."]),
+    .grid-col .post div div:not(.serendipity_image_block.col, .serendipity_image_block.row) .serendipity_image_left:not([srcset*=".400W."]),
+    .grid-col .post div div:not(.serendipity_image_block.col, .serendipity_image_block.row) .serendipity_image_right:not([srcset*=".400W."]),
     .post div.serendipity_image_block.row .serendipity_image_left,
     .post div.serendipity_image_block.row .serendipity_image_right {
-        min-width: auto; }
+        min-width: auto;
+        max-width: calc(100vw / 5); }
+    /* apply for rare cases to unset the "**-available" small screen and restore the max-width behaviour (see above) */
     .grid-col .post div.serendipity_image_block.col .serendipity_image_left:not([srcset*=".400W."]),
     .grid-col .post div.serendipity_image_block.col .serendipity_image_right:not([srcset*=".400W."]),
     .grid-col .post div.serendipity_image_block.row .serendipity_image_left:not([srcset*=".400W."]),
     .grid-col .post div.serendipity_image_block.row .serendipity_image_right:not([srcset*=".400W."]) {
-        min-width: -moz-available;
-        min-width: -webkit-fill-available; }
+        min-width: inherit; }
 }
 @media screen and (min-width: 640px) {
     .page .serendipity_imageComment_left,
