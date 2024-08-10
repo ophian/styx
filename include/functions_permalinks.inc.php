@@ -792,24 +792,14 @@ function serendipity_currentURL(bool $strict = false) : string {
     $uri['path'] = preg_replace('@^(&amp;)?' . preg_quote($serendipity['indexFile']) . '(&amp;)@i', '', $uri['path']);
     $url = $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?' . $uri['path'] . $qst;
     $url = str_replace(
-        array(
-            $serendipity['indexFile'] . '&amp;',
-            '"',
-            "'",
-            '<',
-            '>',
-            '`'
-        ),
-
-        array(
-            '',
-            '',
-            '',
-            '',
-            ''
-        ),
-
-        $url); // Kill possible looped repetitions and bad characters which could occur
+                array(
+                    $serendipity['indexFile'] . '&amp;',
+                    '"',
+                    "'",
+                    '<',
+                    '>',
+                    '`'
+                ), '', $url); // Kill possible looped repetitions and bad characters which could occur
 
     if ($strict) {
         $url = preg_replace('@(//+)@', '/', $url);
