@@ -16,11 +16,13 @@ if (defined('S9Y_FRAMEWORK_TRACKBACKS')) {
 /**
  * Check a HTTP response if it is a valid XML trackback response
  *
+ * Args:
+ *      - HTTP Response string
+ * Returns:
+ *      - Boolean or error message
  * @access public
- * @param   string  HTTP Response string
- * @return  mixed   Boolean or error message
  */
-function serendipity_trackback_is_success($resp) {
+function serendipity_trackback_is_success(string $resp) : bool|string {
     if (preg_match('@<error>(\d+)</error>@', $resp, $matches)) {
         if ((int) $matches[1] === 0) {
             return true;
@@ -39,11 +41,13 @@ function serendipity_trackback_is_success($resp) {
 /**
  * Check a HTTP response if it is a valid XML pingback response
  *
+ * Args:
+ *      - HTTP Response string
+ * Returns:
+ *      - Boolean
  * @access public
- * @param   string  HTTP Response string
- * @return  mixed   Boolean or error message
  */
-function serendipity_pingback_is_success($resp) {
+function serendipity_pingback_is_success(string $resp) : bool {
     // This is very rudimentary, but the fault is printed later, so what..
     if (preg_match('@<fault>@', $resp, $matches)) {
         return false;
@@ -54,13 +58,15 @@ function serendipity_pingback_is_success($resp) {
 /**
  * Perform a HTTP query for autodiscovering a pingback URL
  *
+ * Args:
+ *      - The URL to try autodiscovery
+ *      - The HTML of the source URL
+ *      - The URL of our blog article
+ * Returns:
+ *      - boolean
  * @access public
- * @param   string  The URL to try autodiscovery
- * @param   string  The HTML of the source URL
- * @param   string  The URL of our blog article
- * @return
  */
-function serendipity_pingback_autodiscover($loc, $body, $url=null) {
+function serendipity_pingback_autodiscover(string $loc, string $body, ?string $url = null) : bool {
     global $serendipity;
 
     // This is the old way, sending pingbacks, for downward compatibility.
@@ -108,12 +114,14 @@ function serendipity_pingback_autodiscover($loc, $body, $url=null) {
 /**
  * Send a track/pingback ping
  *
+ * Args:
+ *      - The URL to send a trackback to
+ *      - The XML data with the trackback contents
+ * Returns:
+ *      - Response string or false
  * @access public
- * @param   string  The URL to send a trackback to
- * @param   string  The XML data with the trackback contents
- * @return  string  Response
  */
-function serendipity_send($loc, $data, $contenttype = null) {
+function serendipity_send(string $loc, string $data, ?string $contenttype = null) : string|false {
     #global $serendipity;
 
     $target = parse_url($loc);
@@ -142,18 +150,19 @@ function serendipity_send($loc, $data, $contenttype = null) {
 /**
  * Autodiscover a trackback location URL
  *
+ * Args:
+ *      - The HTML of the source URL
+ *      - The source URL
+ *      - The URL of our blog
+ *      - The author of our entry
+ *      - The title of our entry
+ *      - The text of our entry
+ *      - A comparison URL
+ * Returns:
+ *      - Response string OR boolean
  * @access public
- * @param   string  The HTML of the source URL
- * @param   string  The source URL
- * @param   string  The URL of our blog
- * @param   string  The author of our entry
- * @param   string  The title of our entry
- * @param   string  The text of our entry
- * @param   string  A comparison URL
-
- * @return string   Response
  */
-function serendipity_trackback_autodiscover($res, $loc, $url, $author, $title, $text, $loc2 = '') {
+function serendipity_trackback_autodiscover(string $res, string $loc, string $url, string $author, string $title,string  $text, string $loc2 = '') : string|bool {
     $is_wp    = false;
     $wp_check = false;
 
@@ -222,15 +231,17 @@ function serendipity_trackback_autodiscover($res, $loc, $url, $author, $title, $
 /**
  * Open a URL and autodetect contained ping/trackback locations
  *
+ * Args:
+ *      - The URL to autodetect/try
+ *      - The URL to our blog
+ *      - The author of our entry
+ *      - The title of our entry
+ *      - The body of our entry
+ * Returns:
+ *      - void
  * @access public
- * @param   string  The URL to autodetect/try
- * @param   string  The URL to our blog
- * @param   string  The author of our entry
- * @param   string  The title of our entry
- * @param   string  The body of our entry
- * @return null
  */
-function serendipity_reference_autodiscover($loc, $url, $author, $title, $text) {
+function serendipity_reference_autodiscover(string $loc, string $url, string $author, string $title, string $text) : void {
     #global $serendipity;
 
     $timeout = 30;
@@ -294,22 +305,24 @@ function serendipity_reference_autodiscover($loc, $url, $author, $title, $text) 
 /**
  * Receive a trackback
  *
+ * Args:
+ *      - The ID of our entry
+ *      - The title of the foreign blog
+ *      - The URL of the foreign blog
+ *      - The name of the foreign blog
+ *      - The excerpt text of the foreign blog
+ * Returns:
+ *      - boolean
  * @access public
- * @param   int     The ID of our entry
- * @param   string  The title of the foreign blog
- * @param   string  The URL of the foreign blog
- * @param   string  The name of the foreign blog
- * @param   string  The excerpt text of the foreign blog
- * @return true
  */
-function add_trackback($id, $title, $url, $name, $excerpt) {
+function add_trackback(int $id, string $title, string $url, string $name, string $excerpt) : bool {
     log_trackback('[' . date('d.m.Y H:i') . '] add_trackback:' . print_r(func_get_args(), true));
 
     // We can't accept a trackback if we don't get any URL
     // This is a protocol rule.
     if (empty($url)) {
         log_trackback('[' . date('d.m.Y H:i') . '] Empty URL.');
-        return 0;
+        return false;
     }
 
     // If title is not provided, the value for url will be set as the title
@@ -358,25 +371,27 @@ function add_trackback($id, $title, $url, $name, $excerpt) {
         $comments = serendipity_fetchComments($id, '1', 'co.id', true, 'TRACKBACK', " AND co.url='" . serendipity_db_escape_string($url) . "'");
         if (is_array($comments) && sizeof($comments) == 1) {
             log_trackback('We already have that TRACKBACK!');
-            return 0; // We already have it!
+            return false; // We already have it!
         }
         // We don't have it, so save the pingback
         serendipity_saveComment($id, $comment, 'TRACKBACK');
-        return 1;
+        return true;
     } else {
-        return 0;
+        return false;
     }
 }
 
 /**
  * Receive a pingback
  *
+ * Args:
+ *      - The entryid to receive a pingback for
+ *      - The foreign postdata to add
+ * Returns:
+ *      - boolean
  * @access public
- * @param   int     The entryid to receive a pingback for
- * @param   string  The foreign postdata to add
- * @return boolean
  */
-function add_pingback($id, $postdata) {
+function add_pingback(int $id, string $postdata) : bool {
     log_pingback("Reached add_pingback. ID:[$id]");
 
     // XML-RPC Method call without named parameter. This seems to be the default way using XML-RPC
@@ -404,13 +419,13 @@ function add_pingback($id, $postdata) {
             $comments = serendipity_fetchComments($id, '1', 'co.id', true, 'PINGBACK', " AND co.url='" . serendipity_db_escape_string($remote) . "'");
             if (is_array($comments) && sizeof($comments) == 1) {
                 log_pingback('We already have that PINGBACK!');
-                return 0; // We already have it!
+                return false; // We already have it!
             }
             // We don't have it, so save the pingback
             serendipity_saveComment($id, $comment, 'PINGBACK');
-            return 1;
+            return true;
         } else {
-            return 0;
+            return false;
         }
     }
 
@@ -428,33 +443,41 @@ function add_pingback($id, $postdata) {
         fetchPingbackData($comment);
 
         // if no ID parameter was given, try to get one from targetURI
-        if (!isset($id) || $id==0) {
+        if (!isset($id) || $id == 0) {
             log_pingback('ID not found');
             $id = evaluateIdByLocalUrl($local);
             log_pingback("ID set to $id");
         }
-        if ($id>0) {
+        if ($id > 0) {
             serendipity_saveComment($id, $comment, 'PINGBACK');
-            return 1;
+            return true;
         } else {
-            return 0;
+            return false;
         }
     }
 
-    return 0;
+    return false;
 }
 
-function evaluateIdByLocalUrl($localUrl) {
+/**
+ *
+ * Args:
+ *      - The localUrl string
+ * Returns:
+ *      - integer matching
+ * @access public
+ */
+function evaluateIdByLocalUrl(string $localUrl) : int {
     global $serendipity;
 
     // Build an ID searchpattern in configured permaling structure:
     $permalink_article = $serendipity['permalinkStructure'];
     log_pingback("perma: $permalink_article");
-    $permalink_article = str_replace('.','\.',$permalink_article);
-    $permalink_article = str_replace('+','\+',$permalink_article);
-    $permalink_article = str_replace('?','\?',$permalink_article);
-    $permalink_article = str_replace('%id%','(\d+)',$permalink_article);
-    $permalink_article = str_replace('%title%','[^/]*',$permalink_article);
+    $permalink_article = str_replace('.','\.', $permalink_article);
+    $permalink_article = str_replace('+','\+', $permalink_article);
+    $permalink_article = str_replace('?','\?', $permalink_article);
+    $permalink_article = str_replace('%id%','(\d+)', $permalink_article);
+    $permalink_article = str_replace('%title%','[^/]*', $permalink_article);
     $permalink_article_regex = '@' . $permalink_article . '$@';
     log_pingback("regex: $permalink_article_regex");
 
@@ -467,13 +490,17 @@ function evaluateIdByLocalUrl($localUrl) {
 
 /**
  * Gets a XML-RPC pingback.ping value by given parameter name
+ *
+ * Args:
+ *      - Name of the parameter
+ *      - Buffer containing the pingback XML
+ * Returns:
+ *      - parameter match string OR NULL
  * @access private
- * @param string Name of the paramameter
- * @param string Buffer containing the pingback XML
  */
-function getPingbackParam($paramName, $data) {
+function getPingbackParam(string $paramName, string $data) : ?string {
     $pattern = "<methodCall>.*?<methodName>\s*pingback.ping\s*</methodName>.*?<params>.*?<param>\s*((<name>\s*$paramName\s*</name>\s*<value>\s*<string>([^<]*)</string>\s*</value>)|(<value>\s*<string>([^<]*)</string>\s*</value>\s*<name>\s*$paramName\s*</name>))\s*</param>.*?</params>.*?</methodCall>";
-    if (preg_match('@' . $pattern .'@is',$data, $matches)) {
+    if (preg_match('@' . $pattern .'@is', $data, $matches)) {
         return $matches[3];
     } else {
         return null;
@@ -482,10 +509,14 @@ function getPingbackParam($paramName, $data) {
 
 /**
  * Fetches additional comment data from the page that sent the pingback
+ *
+ * Args:
+ *      - Comment array to be filled
+ * Returns:
+ *      - void
  * @access private
- * @param array comment array to be filled
  */
-function fetchPingbackData(&$comment) {
+function fetchPingbackData(iterable &$comment) : void {
     global $serendipity;
 
     // Don't fetch remote page, if not explicitly allowed in serendipity_config_local.php:
@@ -543,8 +574,14 @@ function fetchPingbackData(&$comment) {
 
 /**
  * Strips any unneeded code from trackback / pingback bodies returning pure (UTF8) text.
+ *
+ * Args:
+ *      - The text string
+ * Returns:
+ *      - filtered text string
+ * @access private
  */
-function trackback_body_strip($body) {
+function trackback_body_strip(string $body) : string {
     // replace non breakable space with normal space:
     $body = str_replace('&nbsp;', ' ', $body);
 
@@ -560,20 +597,26 @@ function trackback_body_strip($body) {
 /**
  * Create an excerpt for a trackback to send
  *
+ * Args:
+ *      - Input text
+ * Returns:
+ *      - Output text
  * @access public
- * @param   string  Input text
- * @return  string  Output text
  */
-function serendipity_trackback_excerpt($text) {
+function serendipity_trackback_excerpt(string $text) : string {
     return serendipity_mb('substr', strip_tags($text), 0, 255);
 }
 
 /**
  * Report success of a trackback
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
  * @access public
  */
-function report_trackback_success() {
+function report_trackback_success() : void {
 print '<?xml version="1.0" encoding="iso-8859-1"?>' . "\n";
 print <<<SUCCESS
 <response>
@@ -585,9 +628,13 @@ SUCCESS;
 /**
  * Report failure of a trackback
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
  * @access public
  */
-function report_trackback_failure() {
+function report_trackback_failure() : void {
 print '<?xml version="1.0" encoding="iso-8859-1"?>' . "\n";
 print <<<FAILURE
 <response>
@@ -600,9 +647,13 @@ FAILURE;
 /**
  * Return success of a pingback
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
  * @access public
  */
-function report_pingback_success() {
+function report_pingback_success() : void {
 print '<?xml version="1.0"?>' . "\n";
 print <<<SUCCESS
 <methodResponse>
@@ -618,9 +669,13 @@ SUCCESS;
 /**
  * Return failure of a pingback
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
  * @access public
  */
-function report_pingback_failure() {
+function report_pingback_failure() : void {
 print '<?xml version="1.0"?>' . "\n";
 print <<<FAILURE
 <methodResponse>
@@ -632,25 +687,27 @@ FAILURE;
 }
 
 /**
- * Search through link body, and automagically send a trackback ping.
+ * Search through link body, and automatically send a trackback ping.
  *
- * This is the trackback starter function that searches your text and sees if any
- * trackback URLs are in there
+ * This is the trackback starter function that searches your text
+ * and sees if any trackback URLs are in there
  *
+ * Args:
+ *      - The ID of our entry
+ *      - The author of our entry
+ *      - The title of our entry
+ *      - The text of our entry
+ *      - Dry-Run, without performing trackbacks?
+ * Returns:
+ *      - void
  * @access public
- * @param   int     The ID of our entry
- * @param   string  The author of our entry
- * @param   string  The title of our entry
- * @param   string  The text of our entry
- * @param   boolean Dry-Run, without performing trackbacks?
- * @return
  */
-function serendipity_handle_references($id, $author, $title, $text, $dry_run = false) {
+function serendipity_handle_references(int $id, string $author, string $title, string $text, bool $dry_run = false) : void {
     global $serendipity;
-    static $old_references = array();
-    static $saved_references = array();
-    static $saved_urls = array();
-    static $debug = false;
+    static $old_references = [];
+    static $saved_references = [];
+    static $saved_urls = [];
+    static $debug = true;
 
     $debug = (is_object($serendipity['logger']) && $debug); // ad hoc, case-by-case debugging
 
@@ -659,7 +716,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
     if ($dry_run) {
         $runtype = 'DRYRUN';
         // Store the current list of references. We might need to restore them for later usage.
-        $old_references = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}references WHERE (type = '' OR type IS NULL) AND entry_id = " . (int)$id, false, 'assoc');
+        $old_references = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}references WHERE (type = '' OR type IS NULL) AND entry_id = " . $id, false, 'assoc');
 
         if (is_string($old_references)) {
             if ($debug) $serendipity['logger']->debug("$runtype old_references SELECT: " . $old_references); // error case
@@ -677,7 +734,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
     } else {
         $runtype = 'FINAL';
         // A dry-run was called previously and restorable references are found. Restore them now.
-        $del = serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}references WHERE (type = '' OR type IS NULL) AND entry_id = " . (int)$id);
+        $del = serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}references WHERE (type = '' OR type IS NULL) AND entry_id = " . $id);
         if (is_string($del)) {
             if ($debug) $serendipity['logger']->debug("$runtype - $del"); // error case
         }
@@ -743,7 +800,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
         }
 
         $query = "SELECT COUNT(id) FROM {$serendipity['dbPrefix']}references
-                                  WHERE entry_id = ". (int)$id ."
+                                  WHERE entry_id = ". $id ."
                                     AND link = '" . serendipity_db_escape_string($locations[$i]) . "'
                                     AND (type = '' OR type IS NULL)";
 
@@ -781,7 +838,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
             if ($debug) $serendipity['logger']->debug("$runtype - Skipping full autodiscovery");
         }
     }
-    $del = serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}references WHERE entry_id=" . (int)$id . " AND (type = '' OR type IS NULL)");
+    $del = serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}references WHERE entry_id=" . $id . " AND (type = '' OR type IS NULL)");
     if (is_string($del)) {
         if ($debug) $serendipity['logger']->debug("$runtype - $del"); // error case
     }
@@ -806,7 +863,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
 
         if (isset($current_references[$locations[$i] . $names[$i]])) {
             $query = "INSERT INTO {$serendipity['dbPrefix']}references (id, entry_id, link, name)
-                           VALUES(" . (int)$current_references[$locations[$i] . $names[$i]]['id'] . ', ' . (int)$id . ", '$i_location', '$i_link')";
+                           VALUES(" . (int)$current_references[$locations[$i] . $names[$i]]['id'] . ', ' . $id . ", '$i_location', '$i_link')";
             $ins = serendipity_db_query($query);
             if (is_string($ins)) {
                 if ($debug) $serendipity['logger']->debug("$runtype - $ins"); // error case
@@ -814,7 +871,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
             $duplicate_check[$locations[$i] . $names[$i]] = true;
         } else {
             $query = "INSERT INTO {$serendipity['dbPrefix']}references (entry_id, link, name) VALUES(";
-            $query .= (int)$id . ", '" . $i_location . "', '" . $i_link . "')";
+            $query .= $id . ", '" . $i_location . "', '" . $i_link . "')";
             $ins = serendipity_db_query($query);
             if (is_string($ins)) {
                 if ($debug) $serendipity['logger']->debug("$runtype - $ins"); // error case
@@ -822,7 +879,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
 
             $old_references[] = array(
                 'id'       => serendipity_db_insert_id('references', 'id'),
-                'entry_id' => (int)$id,
+                'entry_id' => $id,
                 'link'     => $i_location,
                 'name'     => $i_link
             );
@@ -842,7 +899,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
 
     foreach($matches[1] AS $citation) {
         $query  = "INSERT INTO {$serendipity['dbPrefix']}references (entry_id, name) VALUES(";
-        $query .= (int)$id . ", '" . serendipity_db_escape_string($citation) . "')";
+        $query .= $id . ", '" . serendipity_db_escape_string($citation) . "')";
 
         $cite = serendipity_db_query($query);
         if (is_string($cite)) {
@@ -856,11 +913,13 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
 /**
  * Check if a string is in UTF-8 format.
  *
+ * Args:
+ *      - The string to check
+ * Returns:
+ *      - preg_match return codes
  * @access public
- * @param   string  The string to check
- * @return  bool
  */
-function is_utf8($string) {
+function is_utf8(string $string) : int|bool {
    // From http://w3.org/International/questions/qa-forms-utf-8.html
    return preg_match('%^(?:'
          . '[\x09\x0A\x0D\x20-\x7E]'             # ASCII
