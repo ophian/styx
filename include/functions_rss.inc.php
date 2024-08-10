@@ -19,16 +19,18 @@ if (defined('S9Y_FRAMEWORK_RSS')) {
  * This function searches for existing RSS feed template customizations. As long as a template
  * with the same name as the $version variable exists, it will be emitted.
  *
+ * Args:
+ *      - A superarray of entries to output
+ *      - The version/type of a RSS/Atom feed to display (atom1.0, rss2.0 etc.)
+ *      - If true, this is a comments feed. If false, it's an Entry feed.
+ *      - Indicates if this feed is a fulltext feed (true) or only excerpt (false)
+ *      - Indicates if E-Mail addresses should be shown (true) or hidden (false)
+ * Returns:
+ *      - void
  * @access public
  * @see serendipity_fetchEntries(), rss.php
- * @param   array       A superarray of entries to output
- * @param   string      The version/type of a RSS/Atom feed to display (atom1.0, rss2.0 etc.)
- * @param   boolean     If true, this is a comments feed. If false, it's an Entry feed.
- * @param   boolean     Indicates if this feed is a fulltext feed (true) or only excerpt (false)
- * @param   boolean     Indicates if E-Mail addresses should be shown (true) or hidden (false)
- * @return
  */
-function serendipity_printEntries_rss(&$entries, $version, $comments = false, $fullFeed = false, $showMail = true) {
+function serendipity_printEntries_rss(iterable &$entries, string $version, bool $comments = false, bool $fullFeed = false, bool $showMail = true) : void {
     global $serendipity;
 
     $options = array(
@@ -73,7 +75,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
                     // NO NEED to strip for atom, but make sure we don't do any double encoding !!
                 } else{
                     // [old] RSS2 only - No HTML allowed here:
-                    $entry['body'] = strip_tags($entry['body'] ?? ''); // see c580fa35d3ab51cb79d41a2a00863ed52aa0a83c
+                    $entry['body'] = strip_tags($entry['body']); // see c580fa35d3ab51cb79d41a2a00863ed52aa0a83c
                 }
             }
 
