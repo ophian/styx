@@ -21,11 +21,13 @@ if (defined('S9Y_FRAMEWORK_PLUGINS_ADMIN')) {
  * which are different for each language. If such a constant is not present,
  * the simple name of the group will be returned.
  *
+ * Args:
+ *      - name of the group
+ * Returns:
+ *      - realname of the group
  * @access public
- * @param  string  name of the group
- * @return string  realname of the group
  */
-function serendipity_groupname($group) {
+function serendipity_groupname(string $group) : string {
     if (defined('PLUGIN_GROUP_' . $group)) {
         return constant('PLUGIN_GROUP_' . $group);
     } else {
@@ -36,12 +38,14 @@ function serendipity_groupname($group) {
 /**
  * Sort the pluginlist by case-insensitive string functions
  *
+ * Args:
+ *      - Compared Plugin #1
+ *      - Compared Plugin #2
+ * Returns:
+ *      - Return code for array comparison
  * @access public
- * @param  array    Compared Plugin #1
- * @param  array    Compared Plugin #2
- * @return boolean  Return code for array comparison
  */
-function serendipity_pluginListSort($x, $y) {
+function serendipity_pluginListSort(iterable $x, iterable $y) : int {
     $xd = $x['description'] ?? '';
     $yd = $y['description'] ?? '';
     return strnatcasecmp($x['name'] . ' - ' . $xd, $y['name'] . ' - ' . $yd);
@@ -52,11 +56,14 @@ function serendipity_pluginListSort($x, $y) {
  *
  * Shows a HTML list of all installed plugins, complete with config/delete/sort order options
  *
+ * Args:
+ *      - Indicates if event plugins (TRUE) or sidebar plugins (FALSE) shall be shown
+ *      - sidebars Array OR NULL
+ * Returns:
+ *      - String result of serendipity_smarty_showTemplate()
  * @access public
- * @param  boolean  Indicates if event plugins (TRUE) or sidebar plugins (FALSE) shall be shown
- * @return null
  */
-function show_plugins($event_only = false, $sidebars = null) {
+function show_plugins(bool $event_only = false, ?iterable $sidebars = null) : string {
     global $serendipity;
     static $users = array(); // run once only & keep
 
@@ -217,23 +224,25 @@ function show_plugins($event_only = false, $sidebars = null) {
 /**
  * Show the plugin / theme configuration
  *
- * @access public
- * @param  object   A plugin object
- * @param  object   The plugins property bag object
- * @param  string   The name of the plugin
- * @param  string   The description of the plugin
- * @param  array    The property bag 'configuration' array, holding the array of config items.
- * @param  boolean  Shows the surrounding HTML table?
- * @param  boolean  Shows the FORM submit button?
- * @param  boolean  Shows a plugin's "example" method output?
- * @param  boolean  Spawn a plugins' configuration WYSIWYG items?
- * @param  string   The array index name of POSTed values ($serendipity['POST'][xxx]) which is either 'template' or 'plugin',
+ * Args:
+ *      - A plugin object
+ *      - The plugins property bag array
+ *      - The name of the plugin
+ *      - The description of the plugin
+ *      - The property bag 'configuration' array, holding the array of config items.
+ *      - Shows the surrounding HTML table?
+ *      - Shows the FORM submit button?
+ *      - Shows a plugin's "example" method output?
+ *      - Spawn a plugins' configuration WYSIWYG items?
+ *      - The array index name of POSTed values ($serendipity['POST'][xxx]) which is either 'template' or 'plugin',
  *                       but since used for BACK buttoning in plugin_config.tpl too, the event plugin categorytemplates
  *                       uses 'categorytemplate'.
- * @param  array    An array that groups certain config keys
- * @return string   The configuration HTML
+ *      - An array that groups certain config keys
+ * Returns:
+ *      - The configuration HTML string result of serendipity_smarty_showTemplate() OR false
+ * @access public
  */
-function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_names, $showTable = true, $showSubmit = true, $showExample = true, $spawnNuggets = true, $postKey = 'plugin', $config_groups = NULL) {
+function serendipity_plugin_config(object &$plugin, object|iterable &$bag, string &$name, string &$desc, iterable &$config_names, bool $showTable = true, bool $showSubmit = true, bool $showExample = true, bool $spawnNuggets = true, string $postKey = 'plugin', ?iterable $config_groups = NULL) : string|false {
     global $serendipity;
 
     if (empty($config_names)) {
@@ -256,7 +265,6 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
 
     $elcount = 0;
     $htmlnugget = array();
-
     $plugin_options = array();
 
     $data['desc']         = ($_postKey != 'template') ? $desc : ''; // Add for "plugin_config.tpl" to set a plugin head "plugin_togglegroup simple" [info] fieldset
@@ -295,13 +303,13 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 if (is_array($hvalue)) {
                     $hvalue = $hvalue[0]; // use the 0 key as explicite string type for trim() !!
                 } else {
-                    $hvalue = (string) $hvalue;
+                    $hvalue = $hvalue;
                 }
             } else {
                 $hvalue = htmlspecialchars($_POST['serendipity'][$_postKey][$config_item]);
             }
         } else {
-            $hvalue = is_string($value) ? htmlspecialchars($value) : '';
+            $hvalue = is_string($value) ? htmlspecialchars($value) : $value;
         }
 
         $radio      = array();
@@ -314,7 +322,7 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
         $data['ctype']           = $ctype = $cbag->get('type');
 
         $data['elcount']     = $elcount;
-        $data['hvalue']      = trim($hvalue);
+        $data['hvalue']      = is_string($hvalue) ? trim($hvalue) : $hvalue;
         $data['postKey']     = $_postKey;
         $data['config_item'] = $config_item;
         // implement double tab (8 space) indent for configuration group items for the plugin_config_item.tpl file
@@ -388,11 +396,11 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                     $counter++;
                     $checked = '';
 
-                    if ($radio_value == 'true' && ($hvalue === '1' || $hvalue === 'true')) {
+                    if ($radio_value == 'true' && ($hvalue === true || $hvalue === '1' || $hvalue === 'true')) {
                         $checked = ' checked';
-                    } elseif ($radio_value == 'false' && ($hvalue === '' || $hvalue === 'false')) {
+                    } elseif ($radio_value == 'false' && ($hvalue === false || $hvalue === '' || $hvalue === 'false')) {
                         $checked = ' checked';
-                    } elseif ($radio_value == $hvalue) {
+                    } elseif ($radio_value === $hvalue) {
                         $checked = ' checked';
                     }
                     $data['radio_button'][$radio_index]['id'] = $id;
