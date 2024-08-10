@@ -13,13 +13,15 @@ class serendipity_plugin_api_extension extends serendipity_plugin_api
     /**
      * Prepare a given one dimension array for reordering
      *
+     * Args:
+     *      - the array
+     *      - the key of the parent id
+     * Returns:
+     *      - the final array with two new keys: 'up' and 'down'
      * @access public
      * @author Falk Doering
-     * @param  array  the array
-     * @param  string the key of the parent id
-     * @return array  the final array with two new keys: 'up' and 'down'
      */
-    function prepareReorder($array, $parent_id = 'parent_id')
+    function prepareReorder(iterable $array, string $parent_id = 'parent_id') : iterable
     {
         if (is_array($array)) {
             for ($i = 0, $ii = count($array); $i < $ii; $i++) {
@@ -42,14 +44,16 @@ class serendipity_plugin_api_extension extends serendipity_plugin_api
     /**
      * Prepare a given one dimension array for deleting
      *
+     * Args:
+     *      - the array
+     *      - the key of the main id
+     *      - the key of the parent id
+     * Returns:
+     *      - the final array with one new keys: 'delete' with true or false
      * @access public
      * @author Falk Doering
-     * @param  array  the array
-     * @param  string the key of the main id
-     * @param  string the key of the parent id
-     * @return array  the final array with one new keys: 'delete' with true or false
      */
-    function prepareDelete($array, $this_id = 'id', $parent_id = 'parent_id')
+    function prepareDelete(iterable $array, string $this_id = 'id', string $parent_id = 'parent_id') : iterable
     {
         if (is_array($array)) {
             for ($i = 0, $ii = count($array); $i < $ii; $i++) {
@@ -67,15 +71,17 @@ class serendipity_plugin_api_extension extends serendipity_plugin_api
     /**
      * Update table for re-ordering
      *
+     * Args:
+     *      - Name of the table
+     *      - The direction ('up' or 'down')
+     *      - The update array
+     *      - The array containing the where clause
+     * Returns:
+     *      - boolean
      * @access public
      * @author Falk Doering
-     * @param  string  Name of the table
-     * @param  string  The direction ('up' or 'down')
-     * @param  array   The update array
-     * @param  array   The array containing the where clause
-     * @return boolean
      */
-    function doReorder($table, $moveto, $update_array, $where_array)
+    function doReorder(string $table, string $moveto, iterable $update_array, iterable $where_array) : bool
     {
         global $serendipity;
 
@@ -134,13 +140,15 @@ class serendipity_plugin_api_extension extends serendipity_plugin_api
     /**
      * Check if a string is a valid email
      *
+     * Args:
+     *      - The email string
+     * Returns:
+     *      - True is valid email, False else
      * @access public
      * @author Falk Doering
-     * @param  string   The email string
-     * @return bool     is valid email true, else false
      *
      */
-    function isEmail($email)
+    function isEmail(string $email) : bool
     {
         $preg = '/^[a-zA-Z0-9](([_\.-][a-zA-Z0-9]+)*)@([a-zA-Z0-9]+)(([\.-]?[a-zA-Z0-9]+)*)\.([a-zA-Z]{2,6})|localhost$/';
         return (preg_match($preg, $email) != 0);
