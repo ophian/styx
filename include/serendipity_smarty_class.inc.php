@@ -49,6 +49,39 @@ class Serendipity_Smarty_Security_Policy extends Smarty_Security
 
 }
 
+/**
+ * Overwrite Smarty error handler to fix new error levels in PHP8 for backwards compatibility
+ *
+ */
+class Serendipity_Smarty_Internal_ErrorHandler extends Smarty_Internal_ErrorHandler
+{
+
+    /**
+     * Allows {$foo} where foo is unset.
+     * @var bool
+     */
+    public $allowUndefinedVars = false;
+
+    /**
+     * Allows {$foo.bar} where bar is unset and {$foo.bar1.bar2} where either bar1 or bar2 is unset.
+     * @var bool
+     */
+    public $allowUndefinedArrayKeys = false;
+
+    /**
+     * Allows {$foo->bar} where bar is not an object (e.g. null or false).
+     * @var bool
+     */
+    public $allowDereferencingNonObjects = false;
+
+    /**
+     * Allows to use custom error handler.
+     * @var string
+     */
+    protected $previousErrorHandler = 'errorToExceptionHandler';
+
+}
+
 // Create a wrapper class extended from Smarty
 class Serendipity_Smarty extends Smarty
 {
