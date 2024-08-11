@@ -1,5 +1,5 @@
 <?php
-// serendipity_smarty_class.inc.php lm 2024-04-13 Ian Styx
+// serendipity_smarty_class.inc.php lm 2024-08-11 Ian Styx
 
 declare(strict_types=1);
 
@@ -42,7 +42,7 @@ class Serendipity_Smarty_Security_Policy extends Smarty_Security
     // {include} calls, we should only apply this workaround to fetch() calls.
     // Redirecting fetch() as our custom function is too risky and has too high a performance
     // impact.
-    public function isTrustedResourceDir($path, $config=null)
+    public function isTrustedResourceDir($path, $config = null)
     {
         return true;
     }
@@ -74,14 +74,20 @@ class Serendipity_Smarty extends Smarty
      * To obtain an instance of this class use:
      * $serendipity['smarty'] = Serendipity_Smarty::getInstance();
      * The first time this is called a new instance will be created. Thereafter, the same instance is handed back.
+     *
+     * Args:
+     *      - The current Smarty object instance OR NULL
+     * Returns:
+     *      - The current or new Smarty object
      */
-    public static function getInstance($newInstance = null)
+    public static function getInstance(?object $newInstance = null) : object
     {
         static $instance = null;
+
         if (isset($newInstance)) {
             $instance =& $newInstance;
         }
-        if ($instance == null) {
+        if ($instance === null) {
             $instance = new \Serendipity_Smarty();
         }
 
@@ -102,11 +108,12 @@ class Serendipity_Smarty extends Smarty
      *         engine(s) vs $serendipity['template'] vs $serendipity['defaultTemplate'].
      *         Intentional keeps possible iteration duplicates that are not in direct order!
      * @access private
-     * @param   int     The build template directory array for cleanup
-     * @param   array
-     * @return  array
+     * Args:
+     *      - The build template directory array for cleanup
+     * Returns:
+     *      - Returns an indexed array with new keys of values
      */
-    private function checkDirectSiblings($tda)
+    private function checkDirectSiblings(iterable $tda) : iterable
     {
         foreach ($tda AS $key => $value) {
             if (!is_string($key)) {
@@ -122,8 +129,15 @@ class Serendipity_Smarty extends Smarty
         return array_values($tda); // set new keys
     }
 
-    // Smarty (3.1.x) object main parameter setup
-    private function setParams()
+    /**
+     * Smarty (3.1.x +) object main parameter setup
+     *
+     * Args:
+     *      -
+     * Returns:
+     *      - void
+     */
+    private function setParams() : void
     {
         global $serendipity;
 
