@@ -269,7 +269,7 @@ if (($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission
     if (serendipity_checkPermission('adminUsersMaintainOthers')
     || (serendipity_checkPermission('adminUsersMaintainSame') && $group_intersect)) {
         $data['delete'] = true;
-        $data['userid'] = (int)$serendipity['GET']['userid'];
+        $data['userid'] = (int) $serendipity['GET']['userid'];
         $data['realname'] = $user[0]['realname'];
         $data['formToken'] = serendipity_setFormToken();
     }
