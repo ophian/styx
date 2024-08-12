@@ -22,7 +22,7 @@ if ($serendipity['GET']['adminAction'] == 'save' && serendipity_checkFormToken()
     $config = serendipity_parseTemplate(S9Y_CONFIG_USERTEMPLATE);
     $data['adminAction'] = 'save';
     if ((!serendipity_checkPermission('adminUsersEditUserlevel') || !serendipity_checkPermission('adminUsersMaintainOthers'))
-          && isset($_POST['userlevel']) && (int)$_POST['userlevel'] > $serendipity['serendipityUserlevel']) {
+          && isset($_POST['userlevel']) && (int) $_POST['userlevel'] > $serendipity['serendipityUserlevel']) {
         $data['not_authorized'] = true;
     } elseif (empty($_POST['username'])) {
         $data['empty_username'] = true;
@@ -99,8 +99,8 @@ if ($serendipity['GET']['adminAction'] == 'save' && serendipity_checkFormToken()
 
             if (isset($serendipity['POST']['authorid'])) {
                 $pl_data = array(
-                    'id'       => (int)$serendipity['POST']['authorid'],
-                    'authorid' => (int)$serendipity['POST']['authorid'],
+                    'id'       => (int) $serendipity['POST']['authorid'],
+                    'authorid' => (int) $serendipity['POST']['authorid'],
                     'username' => $_POST['username'],
                     'realname' => $_POST['realname'],
                     'email'    => $_POST['email']
