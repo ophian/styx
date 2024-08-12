@@ -92,7 +92,7 @@ if ($serendipity['GET']['adminAction'] == 'edit' || isset($_POST['NEW']) || $ser
     }
 
     $allusers = serendipity_chainByLevel(serendipity_fetchUsers());
-    $users    = isset($from['id']) ? serendipity_getGroupUsers($from['id']) : array();
+    $users    = isset($from['id']) ? serendipity_getGroupUsers((int) $from['id']) : array();
 
     $selected = array();
     if (is_array($users)) {
@@ -128,7 +128,7 @@ if ($serendipity['GET']['adminAction'] == 'edit' || isset($_POST['NEW']) || $ser
     }
 
     if ($serendipity['enablePluginACL']) {
-        if (!isset($from['id'])) $from['id'] = null;
+        $from['id'] = !isset($from['id']) ? null : (int) $from['id'];
         $data['enablePluginACL'] = true;
         $allplugins =& serendipity_plugin_api::get_event_plugins();
         $allhooks   = array();
