@@ -70,8 +70,8 @@ if (isset($_GET['serendipity']['plugin_to_move']) && isset($_GET['submit']) && s
         /* Swap the one we're moving with the one that's in the spot we're moving to */
         $tmp = $plugins[$idx_to_move]['sort_order'];
 
-        $plugins[$idx_to_move]['sort_order'] = (int)$plugins[$idx_to_move + ($_GET['submit'] == 'move down' ? 1 : -1)]['sort_order'];
-        $plugins[$idx_to_move + ($_GET['submit'] == 'move down' ? 1 : -1)]['sort_order'] = (int)$tmp;
+        $plugins[$idx_to_move]['sort_order'] = (int) $plugins[$idx_to_move + ($_GET['submit'] == 'move down' ? 1 : -1)]['sort_order'];
+        $plugins[$idx_to_move + ($_GET['submit'] == 'move down' ? 1 : -1)]['sort_order'] = (int) $tmp;
 
         /* Update table */
         foreach($plugins AS $plugin) {
@@ -236,7 +236,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     }
 
     if (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'UPGRADE') {
-        $classes = array_merge($classes, serendipity_plugin_api::enum_plugin_classes(!($serendipity['GET']['type'] === 'event'))); // normally fetches case 'sidebar'
+        $classes = array_merge($classes, serendipity_plugin_api::enum_plugin_classes(!($serendipity['GET']['type'] === 'event'))); // == bool false, normally fetches case 'sidebar' plugins
         $data['type'] = 'both';
     }
     usort($classes, 'serendipity_pluginListSort');
@@ -264,7 +264,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                 $class_data['upgrade_version'] = '';
             }
 
-            $_ptype = $foreignPlugins['pluginstack'][$class_data['name']]['plugintype'] ?? $_type; // Gotcha! Now also matches core sidebar plugins!!
+            $_ptype = $foreignPlugins['pluginstack'][$class_data['name']]['plugintype'] ?? $_type; // Gotcha! Now also matches core sidebar plugins !!
             // 1st param $plugin object is returned if a plugin is NOT a core only plugin
             $props  = serendipity_plugin_api::setPluginInfo($plugin, $pluginFile, $bag, $class_data, 'local', $_ptype);
 
@@ -287,6 +287,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             }
             // Make if/or better readable
             $upgrade = false;
+            // Here used in this order: version_compare(existing_version, new_version, operator)
             // event plugins upgradeable
             if (version_compare($props['version'], $props['upgrade_version'], '<')) {
                 $upgrade = true;
