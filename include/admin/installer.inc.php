@@ -140,13 +140,13 @@ $data['install_token_file'] = basename($install_token_file);
 $data['install_lifetime'] = ceil($lifetime/60);
 $data['styxversion'] = 'Styx ' . $serendipity['version']; // footer only
 
-if ((int)$serendipity['GET']['step'] !== 0 && !$data['install_token_pass']) {
+if ((int) $serendipity['GET']['step'] !== 0 && !$data['install_token_pass']) {
     // Do not allow user to proceed to any action step unless token matches
     $data['s9yGETstep'] = $serendipity['GET']['step'] = 0;
     $data['install_token_fail'] = true;
 }
 
-if ((int)$serendipity['GET']['step'] == 0) {
+if ((int) $serendipity['GET']['step'] === 0) {
     if (!empty($install_token) && !$data['install_token_pass']) {
         $data['install_token_fail'] = true;
     }
