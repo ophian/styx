@@ -88,7 +88,7 @@ if (($serendipity['GET']['adminAction'] == 'install' || $serendipity['GET']['adm
     } else {
         // template_engine was set by default to default, which screws up the fallback chain (to the default-template first)
         // The "Engine" now only applies to FRONTEND themes. Backend themes will always fall back to our default backend theme only, to ensure proper backend operation.
-        serendipity_set_config_var('template_engine', null);
+        serendipity_set_config_var('template_engine', '');
         if (isset($themeInfo['engine'])) {
             serendipity_set_config_var('template_engine', $themeInfo['engine']);
         }
