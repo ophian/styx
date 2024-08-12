@@ -46,9 +46,9 @@ function serendipity_upgraderResultDiagnose($result, $s) {
 
 /* shall we add the function to smarty ?? */
 /*
-function serendipity_smarty_backend_upgraderResultDiagnose($params, $smarty) {
+function serendipity_smarty_backend_upgraderResultDiagnose(iterable $params, null|string|\Smarty_Internal_Template $template) : void {
     $ssb_URD = serendipity_upgraderResultDiagnose($params[0], $params[1]);
-    $smarty->assign($ssb_URD);
+    $template->assign($ssb_URD);
 }
 */
 
