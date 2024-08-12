@@ -34,7 +34,7 @@ $serendipity['core_events']['backend_header']['jquery']  = 'serendipity_plugin_a
  *      - void
  * @access public
  */
-function serendipity_plugin_api_frontend_header(string $event, ?iterable &$bag, iterable|bool|string|null &$eventData, iterable|bool|int|string|null &$addData) : void {
+function serendipity_plugin_api_frontend_header(string $event, ?iterable &$bag, iterable|bool|int|string|null &$eventData, iterable|bool|int|string|null &$addData) : void {
     global $serendipity;
 
     // Only execute if current template (w/o fallback) does not have its own jquery.js file
@@ -81,7 +81,7 @@ function serendipity_plugin_api_frontend_header(string $event, ?iterable &$bag, 
  *      - void
  * @access protected
  */
-function serendipity_plugin_api_backend_header(string $event, ?iterable &$bag, iterable|bool|string|null &$eventData, iterable|bool|int|string|null &$addData) : void {
+function serendipity_plugin_api_backend_header(string $event, ?iterable &$bag, iterable|bool|int|string|null &$eventData, iterable|bool|int|string|null &$addData) : void {
     global $serendipity;
 
     // Only execute if current template does not have its own backend_jquery.js file
@@ -108,7 +108,7 @@ function serendipity_plugin_api_backend_header(string $event, ?iterable &$bag, i
  *      - void
  * @access protected
  */
-function serendipity_plugin_api_core_event_hook(string $event, ?iterable &$bag, iterable|bool|string|null &$eventData, iterable|bool|int|string|null &$addData) : void {
+function serendipity_plugin_api_core_event_hook(string $event, ?iterable &$bag, iterable|bool|int|string|null &$eventData, iterable|bool|int|string|null &$addData) : void {
     global $serendipity;
 
     switch($event) {
@@ -1184,7 +1184,7 @@ class serendipity_plugin_api
      *      - void
      * @access protected
      */
-    static function hook_event(string $event_name, iterable|bool|string|null &$eventData, iterable|bool|int|string|null $addData = null) : bool
+    static function hook_event(string $event_name, iterable|bool|int|string|null &$eventData, iterable|bool|int|string|null $addData = null) : bool
     {
         global $serendipity;
 
