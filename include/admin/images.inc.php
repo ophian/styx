@@ -29,9 +29,9 @@ if (empty($serendipity['GET']['hideSubdirFiles']) && empty($serendipity['COOKIE'
 if (!empty($serendipity['COOKIE']['hideSubdirFiles'])) {
     serendipity_restoreVar($serendipity['COOKIE']['hideSubdirFiles'], $serendipity['GET']['hideSubdirFiles']);
 }
-// don't do on null and secure
+// don't do on null
 if (isset($serendipity['GET']['fid'])) {
-    $serendipity['GET']['fid'] = (int)$serendipity['GET']['fid'];
+    $serendipity['GET']['fid'] = (int) $serendipity['GET']['fid'];
 }
 
 // init all boolean Smarty variables to false
@@ -142,7 +142,7 @@ switch ($serendipity['GET']['adminAction']) {
 
         $messages = array();
         $data['case_do_delete'] = true;
-        $messages[] = serendipity_deleteImage($serendipity['GET']['fid']);
+        $messages[] = serendipity_deleteImage((int) $serendipity['GET']['fid']);
         $messages[] = sprintf('<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . RIP_ENTRY . "</span>\n", $serendipity['GET']['fid']);
 
         $data['messages'] = $messages;
@@ -158,7 +158,7 @@ switch ($serendipity['GET']['adminAction']) {
         $parts = explode(',', $serendipity['GET']['id']);
         $data['case_do_multidelete'] = true;
         foreach($parts AS $id) {
-            $id = (int)$id;
+            $id = (int) $id;
             if ($id > 0) {
                 $image = serendipity_fetchImageFromDatabase($id);
                 $messages[] = serendipity_deleteImage($id);
@@ -266,7 +266,7 @@ switch ($serendipity['GET']['adminAction']) {
                 foreach($multiMoveImages AS $mkey => $move_id) {
                     $file = serendipity_fetchImageFromDatabase((int) $move_id);
                     $oDir = $file['path']; // this now is the exact oldDir path of this ID
-                    $mMDr = serendipity_moveMediaDirectory($oDir, $nDir, 'file', (int)$move_id, $file);
+                    $mMDr = serendipity_moveMediaDirectory($oDir, $nDir, 'file', (int) $move_id, $file);
                     ++$i;
                 }
                 $rDir = ($nDir == 'uploadRoot/') ? $serendipity['uploadHTTPPath'] : $serendipity['uploadHTTPPath'] . $nDir;
@@ -292,7 +292,7 @@ switch ($serendipity['GET']['adminAction']) {
         $data['case_multidelete'] = true;
         foreach($serendipity['POST']['multiCheck'] AS $idx => $id) {
             $ids .= (int) $id . ',';
-            $image = serendipity_fetchImageFromDatabase($id);
+            $image = serendipity_fetchImageFromDatabase((int) $id);
             $data['rip_image'][] = sprintf(DELETE_SURE, $image['id'] . ' - ' . htmlspecialchars($image['realname']));
         }
         if (!isset($serendipity['adminFile'])) {
@@ -535,12 +535,14 @@ switch ($serendipity['GET']['adminAction']) {
                 unset($messages);
                 break;
             }
+
             // case UPLOAD file(s)
             foreach($_FILES['serendipity']['name']['userfile'] AS $idx => $uploadfiles) {
                 if (! is_array($uploadfiles)) {
                     $uploadfiles = array($uploadfiles);
                 }
-                $uploadFileCounter=-1;
+
+                $uploadFileCounter = -1;
                 foreach($uploadfiles AS $uploadfile) {
                     $uploadFileCounter++;
                     $target_filename = $serendipity['POST']['target_filename'][$idx] ?? null;
@@ -976,10 +978,10 @@ switch ($serendipity['GET']['adminAction']) {
             $data['print_SCALING_IMAGE'] = sprintf(
                 SCALING_IMAGE,
                 $file['path'] . $file['name'] .'.'. $file['extension'],
-                (int)$serendipity['GET']['width'],
-                (int)$serendipity['GET']['height']
+                (int) $serendipity['GET']['width'],
+                (int) $serendipity['GET']['height']
             );
-            $scaleImg = serendipity_scaleImg($serendipity['GET']['fid'], (int)$serendipity['GET']['width'], (int)$serendipity['GET']['height'], (bool)($serendipity['GET']['scaleThumbVariation'] ?? false));
+            $scaleImg = serendipity_scaleImg($serendipity['GET']['fid'], (int) $serendipity['GET']['width'], (int) $serendipity['GET']['height'], (bool)($serendipity['GET']['scaleThumbVariation'] ?? false));
             if (!empty($scaleImg) && is_string($scaleImg)) {
                 $data['scaleImgError'] = $scaleImg;
             }
@@ -1011,7 +1013,7 @@ switch ($serendipity['GET']['adminAction']) {
 
         $data['unscalable']      = !(is_array($s) && in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png', 'gif', 'webp', 'avif']));
         $data['scaleFileName']   = $file['name'];
-        $data['scaleOriginSize'] = is_array($s) ? array('width' => $s[0], 'height' => $s[1]) : array('width' => 0, 'height' => 0);
+        $data['scaleOriginSize'] = is_array($s) ? array('width' => $s[0], 'height' => $s[1]) : array('width' => null, 'height' => null);
         $data['formtoken']       = serendipity_setFormToken();
         $data['file']            = $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] .($file['extension'] ? '.'. $file['extension'] : '');
         $data['file_webp']       = file_exists($serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.webp')
