@@ -8,7 +8,7 @@ if (IN_serendipity !== true) {
 
 $data = array();
 
-$commentsPerPage = (int)(!empty($serendipity['GET']['filter']['perpage']) ? $serendipity['GET']['filter']['perpage'] : 10);
+$commentsPerPage = (int) (!empty($serendipity['GET']['filter']['perpage']) ? $serendipity['GET']['filter']['perpage'] : 10);
 $summaryLength = 112;
 
 $errormsg = '';
@@ -17,28 +17,28 @@ $msgtype = 'notice';
 
 if (!isset($serendipity['allowHtmlComment'])) $serendipity['allowHtmlComment'] = false;
 
-$_id       = !empty($serendipity['GET']['id']) ? (int)$serendipity['GET']['id'] : 0;
-$_replyTo  = !empty($serendipity['POST']['replyTo']) ? (int)$serendipity['POST']['replyTo'] : 0;
-$_entry_id = !empty($serendipity['GET']['entry_id']) ? (int)$serendipity['GET']['entry_id'] : 0;
+$_id       = !empty($serendipity['GET']['id']) ? (int) $serendipity['GET']['id'] : 0;
+$_replyTo  = !empty($serendipity['POST']['replyTo']) ? (int) $serendipity['POST']['replyTo'] : 0;
+$_entry_id = !empty($serendipity['GET']['entry_id']) ? (int) $serendipity['GET']['entry_id'] : 0;
 
 if (!empty($serendipity['POST']) && isset($serendipity['POST']['formAction']) && $serendipity['POST']['formAction'] == 'multiDelete'
  && (isset($serendipity['POST']['delete']) && sizeof($serendipity['POST']['delete']) != 0) && serendipity_checkFormToken()) {
     $multi = false;
     if (!empty($serendipity['POST']['togglemoderate'])) {
         foreach($serendipity['POST']['delete'] AS $k => $v) {
-            $ac = serendipity_approveComment((int)$k, (int)$v, false, 'flip');
+            $ac = serendipity_approveComment((int) $k, (int) $v, false, 'flip');
             if ($ac > 0) {
-                $msg .= ($multi ? '' : DONE . ":\n") . sprintf(COMMENT_APPROVED, (int)$k)."\n";
+                $msg .= ($multi ? '' : DONE . ":\n") . sprintf(COMMENT_APPROVED, (int) $k)."\n";
                 $msgtype = 'success';
                 $multi = true;
             } else {
-                $msg .= DONE . ":\n" . sprintf(COMMENT_MODERATED, (int)$k)."\n";
+                $msg .= DONE . ":\n" . sprintf(COMMENT_MODERATED, (int) $k)."\n";
             }
         }
     } else {
         foreach($serendipity['POST']['delete'] AS $k => $v) {
             if (serendipity_deleteComment($k, $v)) {
-                $msg .= ($multi ? '' : DONE . ":\n") . sprintf(COMMENT_DELETED, (int)$k) . "\n";
+                $msg .= ($multi ? '' : DONE . ":\n") . sprintf(COMMENT_DELETED, (int) $k) . "\n";
                 $msgtype = 'success';
                 $multi = true;
             } else {
@@ -54,7 +54,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
 && !isset($serendipity['POST']['formAction']) && !isset($serendipity['POST']['preview']) && $_id > 0 && serendipity_checkFormToken()) {
     // re-assign this comments parent
     if (isset($serendipity['POST']['commentform']['replyToParent']) && $serendipity['POST']['commentform']['replyToParent'] >= 0) {
-        $_replyTo = ($_replyTo != $serendipity['POST']['commentform']['replyToParent']) ? (int)$serendipity['POST']['commentform']['replyToParent'] : $_replyTo;
+        $_replyTo = ($_replyTo != $serendipity['POST']['commentform']['replyToParent']) ? (int) $serendipity['POST']['commentform']['replyToParent'] : $_replyTo;
     }
     if (isset($serendipity['POST']['entry_id']) && $_id > 0) {
         $sql = "UPDATE {$serendipity['dbPrefix']}comments
@@ -62,10 +62,10 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
                         author = '" . serendipity_db_escape_string($serendipity['POST']['name'])    . "',
                         email  = '" . serendipity_db_escape_string($serendipity['POST']['email'])   . "',
                         url    = '" . serendipity_db_escape_string($serendipity['POST']['url'])     . "',
-                        " . ($_replyTo != $_id ? "parent_id = '" . (int)$_replyTo . "'," : '') . "
+                        " . ($_replyTo != $_id ? "parent_id = '" . (int) $_replyTo . "'," : '') . "
                         body   = '" . serendipity_db_escape_string($serendipity['POST']['comment']) . "'
                  WHERE id      = " . $_id . "
-                   AND entry_id= " . (int)$serendipity['POST']['entry_id'];
+                   AND entry_id= " . (int) $serendipity['POST']['entry_id'];
         serendipity_db_query($sql);
         serendipity_plugin_api::hook_event('backend_updatecomment', $serendipity['POST'], $_id);
         $msg .= COMMENT_EDITED."\n";
@@ -83,7 +83,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
     $comment['parent_id'] = $_replyTo;
 
     if (!empty($comment['comment'])) {
-        if (serendipity_saveComment((int)$serendipity['POST']['entry_id'], $comment, 'NORMAL')) {
+        if (serendipity_saveComment((int) $serendipity['POST']['entry_id'], $comment, 'NORMAL')) {
             $data['last_insert_id'] = $serendipity['last_insert_comment_id'] ?? '';
             $data['commentReplied'] = true;
             echo serendipity_smarty_showTemplate('admin/comments.inc.tpl', $data);
@@ -130,7 +130,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
     if ($rs === false) {
         $errormsg .= ERROR .': '. sprintf(COMMENT_ALREADY_APPROVED, $_id)."\n";
     } else {
-        serendipity_approveComment($_id, (int)$rs['entry_id']);
+        serendipity_approveComment($_id, (int) $rs['entry_id']);
         $msg .= DONE . ': '. sprintf(COMMENT_APPROVED, $_id)."\n";
         $msgtype = 'success';
     }
@@ -148,7 +148,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
     if ($rs === false) {
         $errormsg .= ERROR .': '. sprintf(COMMENT_ALREADY_APPROVED, $_id)."\n";
     } else {
-        serendipity_approveComment($_id, (int)$rs['entry_id'], true, true);
+        serendipity_approveComment($_id, (int) $rs['entry_id'], true, true);
         $msg .= DONE . ': '. sprintf(COMMENT_MODERATED, $_id)."\n";
     }
 }
@@ -333,7 +333,7 @@ if ($commentsPerPage != 10) {
 
 $searchString .= '&amp;' . serendipity_setFormToken('url');
 $ctype = $c_type !== null ? " AND c.type = '$c_type' " : '';
-$perm = !serendipity_checkPermission('adminEntriesMaintainOthers') ? 'AND e.authorid = ' . (int)$serendipity['authorid'] : '';
+$perm = !serendipity_checkPermission('adminEntriesMaintainOthers') ? 'AND e.authorid = ' . (int) $serendipity['authorid'] : '';
 
 /* Paging */
 $sql = serendipity_db_query("SELECT COUNT(*) AS total FROM {$serendipity['dbPrefix']}comments c
@@ -342,7 +342,7 @@ $sql = serendipity_db_query("SELECT COUNT(*) AS total FROM {$serendipity['dbPref
 
 $totalComments = $sql['total'];
 try {
-    $pages = ($commentsPerPage == COMMENTS_FILTER_ALL ? 1 : ceil($totalComments/(int)$commentsPerPage));
+    $pages = ($commentsPerPage == COMMENTS_FILTER_ALL ? 1 : ceil($totalComments/(int) $commentsPerPage));
 } catch(DivisionByZeroError $e){
     $pages = 1;
     $commentsPerPage = COMMENTS_FILTER_ALL;
@@ -352,7 +352,7 @@ try {
     $pages = ceil($totalComments/$commentsPerPage);
 }
 
-$page = (int)$serendipity['GET']['page'];
+$page = (int) $serendipity['GET']['page'];
 if ($page == 0 || $page > $pages) {
     $page = 1;
 }
@@ -367,7 +367,7 @@ $filter_vals  = array(10, 20, 50, COMMENTS_FILTER_ALL);
 if ($commentsPerPage == COMMENTS_FILTER_ALL) {
     $limit = '';
 } else {
-    $limit = serendipity_db_limit_sql(serendipity_db_limit(($page-1)*(int)$commentsPerPage, (int)$commentsPerPage));
+    $limit = serendipity_db_limit_sql(serendipity_db_limit(($page-1)*(int) $commentsPerPage, (int) $commentsPerPage));
 }
 
 $sql = serendipity_db_query("SELECT c.*, e.title FROM {$serendipity['dbPrefix']}comments c
@@ -416,7 +416,7 @@ if (is_array($sql)) {
             'id'        => $rs['id'],
             'title'     => $rs['title'],
             'timestamp' => $rs['timestamp'],
-            'pubdate'   => date('c', (int)$rs['timestamp']), /* added to comment array to support HTML5 time tags in tpl */
+            'pubdate'   => date('c', (int) $rs['timestamp']), /* added to comment array to support HTML5 time tags in tpl */
             'referer'   => $rs['referer'],
             'url'       => $rs['url'],
             'ip'        => $rs['ip'],
