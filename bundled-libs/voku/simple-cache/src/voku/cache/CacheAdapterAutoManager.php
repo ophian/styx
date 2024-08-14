@@ -30,7 +30,7 @@ class CacheAdapterAutoManager
      */
     public function addAdapter(
         string $adapter,
-        callable $callableFunction = null
+        ?callable $callableFunction = null
     ): self {
         $this->validateAdapter($adapter);
         $this->validateCallable($callableFunction);
@@ -103,7 +103,7 @@ class CacheAdapterAutoManager
      *
      * @return void
      */
-    private function validateCallable(callable $callableFunction = null)
+    private function validateCallable(?callable $callableFunction = null)
     {
         if (
             $callableFunction !== null
