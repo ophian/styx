@@ -125,7 +125,7 @@ switch ($_GET['type']) {
             // Fetch all entries in reverse order for later importing. Fetch sticky entries as normal entries.
             $entries = serendipity_fetchEntries(null, true, '', false, false, 'id ASC', '', false, true);
         } else {
-            $entries = serendipity_fetchEntries(null, true, (int)$serendipity['RSSfetchLimit'], false, $modified_since, 'timestamp DESC', '', false, true);
+            $entries = serendipity_fetchEntries(null, true, $serendipity['RSSfetchLimit'], false, $modified_since, 'timestamp DESC', '', false, true);
         }
         break;
 }
