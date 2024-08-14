@@ -376,7 +376,7 @@ function serendipity_getTemplateFile(string $file, string $key = 'serendipityHTT
  * Args:
  *      - The authorid to fetch the configuration from (0: global)
  * Returns:
- *      - true or null
+ *      - True or NULL
  * @access public
  */
 function serendipity_load_configuration(?int $author = null) : ?bool {
