@@ -200,14 +200,14 @@ if (!function_exists('errorToExceptionHandler')) {
          * (string) 'debug'     Developer build, specifically enabled.
          */
         $debug_note = ($serendipity['production'] !== 'debug' && !in_array($type, ['Warning', 'Notice', 'Catchable']))
-            ? "<br />\n".'For more details set $serendipity[\'production\'] = \'debug\' in serendipity_config_local.inc.php to receive a full stack-trace.'
+            ? "<br>\n".'For more details set $serendipity[\'production\'] = \'debug\' in serendipity_config_local.inc.php to receive a full stack-trace.'
             : '';
         $head = '';
 
         // Debug environments shall be verbose... (with the exception of warnings we'd like to suppress, while our workflow is build on it!)
         if ($serendipity['production'] === 'debug') {
             if (!in_array($type, ['Warning', 'Notice', 'Catchable'])) {
-                echo " == ERROR-REPORT (DEBUGGING ENABLED) == <br />\n";
+                echo " == ERROR-REPORT (DEBUGGING ENABLED) == <br>\n";
                 echo " == (When you copy this debug output to a forum or other places, make sure to remove your username/passwords, as they may be contained within function calls) == \n";
                 echo "<pre>\n";
                 // trying to be as detailed as possible - but avoid using args containing sensible data like passwords
