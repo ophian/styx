@@ -1185,6 +1185,11 @@ select[multiple] {
     }
 }
 
+/* event includeentry plugin */
+select#staticblock_template {
+    min-width: 10em;
+}
+
 textarea {
     min-height: 3em;
     overflow: auto;
