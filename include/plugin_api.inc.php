@@ -516,7 +516,7 @@ class serendipity_plugin_api
      *      - Returns the associative array of found plugins in the database
      * @access protected
      */
-    static function enum_plugins(string $filter = '*', bool $negate = false, string $classname = null, string $id = null) : iterable|string|bool
+    static function enum_plugins(string $filter = '*', bool $negate = false, ?string $classname = null, ?string $id = null) : iterable|string|bool
     {
         global $serendipity;
 
@@ -991,7 +991,7 @@ class serendipity_plugin_api
      *      - Smarty HTML output
      * @access protected
      */
-    static function generate_plugins(string $side, bool $negate = false, string $class = null, string $id = null, string $tpl = 'sidebar.tpl') : ?string
+    static function generate_plugins(string $side, bool $negate = false, ?string $class = null, ?string $id = null, string $tpl = 'sidebar.tpl') : ?string
     {
         global $serendipity;
 
