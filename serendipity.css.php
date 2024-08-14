@@ -47,15 +47,17 @@ switch($css_mode) {
 /**
  * Print out the Stylesheet
  *
- * @param string file file name
- * @param string dir (optional) The relative directory path
- * @param string root (optional) Whether to change files relative replacement {TEMPLATE_PATH} path because of subdirectory /plugin call
- *
- * @return string file contents
+ * Args:
+ *      - file name
+ *      - (optional) The relative directory path
+ *      - (optional) Whether to change files relative replacement {TEMPLATE_PATH} path because of subdirectory /plugin call
+ * Returns:
+ *      - file contents
+ * @access private
  */
-function serendipity_printStylesheet($file, $dir = '', $root = '') {
+function serendipity_printStylesheet(string $file, string $dir = '', string $root = '') : ?string {
     if (empty($file) || $file == 'admin/user.css' || $file == 'user.css') {
-        return; // it does not exists since having no serendipityPath !
+        return null; // it does not exists since having no serendipityPath !
     }
     return "\n/* auto include $dir */\n\n" . str_replace(
             array(
