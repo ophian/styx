@@ -294,7 +294,7 @@ if (!defined('S9Y_DATA_PATH') && file_exists(dirname(__FILE__) . '/serendipity_c
 if (!is_readable($local_config)) {
     $serendipity['lang'] = 'en';
     include(S9Y_INCLUDE_PATH . 'include/lang.inc.php');
-    serendipity_die(sprintf(INCLUDE_ERROR . '<br />' . FILE_CREATE_YOURSELF, $local_config));
+    serendipity_die(sprintf(INCLUDE_ERROR . '<br>' . FILE_CREATE_YOURSELF, $local_config));
 }
 
 include($local_config);
@@ -338,7 +338,7 @@ if (!isset( $HTTP_RAW_POST_DATA ) && function_exists('get_raw_data')) {
 if (serendipity_FUNCTIONS_LOADED !== true) {
     $serendipity['lang'] = 'en';
     include(S9Y_INCLUDE_PATH . 'include/lang.inc.php');
-    serendipity_die(sprintf(INCLUDE_ERROR . '<br />' . FILE_CREATE_YOURSELF, 'include/functions.inc.php'));
+    serendipity_die(sprintf(INCLUDE_ERROR . '<br>' . FILE_CREATE_YOURSELF, 'include/functions.inc.php'));
 }
 
 // Attempt to connect to the database
