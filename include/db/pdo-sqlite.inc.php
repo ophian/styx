@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
-function serendipity_db_logmsg($msgstr) {
+/**
+ * DEVDEV logger
+ */
+function serendipity_db_logmsg(string $msgstr) : void {
     $fp = @fopen('sqlite.log', 'a');
     fwrite($fp, '[' . date('d.m.Y H:i') . '] ' . $msgstr . "\n\n");
     fclose($fp);
@@ -15,13 +18,14 @@ function serendipity_db_logmsg($msgstr) {
  * So this function manually iterates through all result rows and rewrites 'X.yyyy' to 'yyyy'.
  * Yeah. This sucks. Don't tell me!
  *
+ * Args:
+ *      - The row resource handle
+ *      - Bitmask to tell whether to fetch numerical/associative arrays
+ * Returns:
+ *      - Proper array containing the resource results
  * @access private
- * @param  resource     The row resource handle
- * @param  int          Bitmask to tell whether to fetch numerical/associative arrays
- * @return array        Proper array containing the resource results
  */
-function serendipity_db_sqlite_fetch_array($row, $type = PDO::FETCH_ASSOC)
-{
+function serendipity_db_sqlite_fetch_array(iterable|bool $row, int $type = PDO::FETCH_ASSOC) : iterable {
     static $search  = array('%00',  '%25');
     static $replace = array("\x00", '%');
 
@@ -49,22 +53,30 @@ function serendipity_db_sqlite_fetch_array($row, $type = PDO::FETCH_ASSOC)
 /**
  * Tells the DB Layer to start a DB transaction.
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
  * @access public
  */
-
-function serendipity_db_begin_transaction() {
+function serendipity_db_begin_transaction() : void {
     global $serendipity;
+
     $serendipity['dbConn']->beginTransaction();
 }
 
 /**
  * Tells the DB Layer to end a DB transaction.
  *
+ * Args:
+ *      - If true, perform the query. If false, rollback.
+ * Returns:
+ *      -
  * @access public
- * @param  boolean  If true, perform the query. If false, rollback.
  */
-function serendipity_db_end_transaction($commit) {
+function serendipity_db_end_transaction(bool $commit) : void {
     global $serendipity;
+
     if ($commit) {
         $serendipity['dbConn']->commit();
     } else {
@@ -75,13 +87,15 @@ function serendipity_db_end_transaction($commit) {
 /**
  * Assemble and return SQL condition for a "IN (...)" clause
  *
+ * Args:
+ *      - The table column name
+ *      - A referenced array of values to search for in the "IN (...)" clause
+ *      - A condition of how to associate the different input values of the $search_ids parameter
+ * Returns:
+ *      - This resulting SQL string
  * @access public
- * @param  string   table column name
- * @param  array    referenced array of values to search for in the "IN (...)" clause
- * @param  string   condition of how to associate the different input values of the $search_ids parameter
- * @return string   resulting SQL string
  */
-function serendipity_db_in_sql($col, &$search_ids, $type = ' OR ') {
+function serendipity_db_in_sql(string $col, iterable &$search_ids, string $type = ' OR ') : string {
     $sql = array();
     if (!is_array($search_ids)) {
         return false;
@@ -98,10 +112,13 @@ function serendipity_db_in_sql($col, &$search_ids, $type = ' OR ') {
 /**
  * Connect to the configured Database
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - The resource connection handle
  * @access  public
- * @return  resource   connection handle
  */
-function serendipity_db_connect() {
+function serendipity_db_connect() : object {
     global $serendipity;
 
     try {
@@ -118,21 +135,32 @@ function serendipity_db_connect() {
     return $serendipity['dbConn'];
 }
 
-function serendipity_db_reconnect() {
+/**
+ * Stub
+ *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
+ * @access public
+ */
+function serendipity_db_reconnect() : void {
 }
 
 /**
  * Returns an escaped string, so that it can be safely included in a SQL string encapsulated within quotes, without allowing SQL injection.
  *
+ * Args:
+ *      - The input string
+ * Returns:
+ *      - The output string
  * @access  public
- * @param   string   input string
- * @return  string   output string
  */
-function serendipity_db_escape_string($string) {
+function serendipity_db_escape_string(string|int|null $string) : ?string {
     global $serendipity;
 
-    if ($string == null) {
-        return;
+    if ($string === null) {
+        return null;
     }
     return substr($serendipity['dbConn']->quote((string) $string), 1, -1);
 }
@@ -140,44 +168,55 @@ function serendipity_db_escape_string($string) {
 /**
  * Returns the option to a LIMIT SQL statement, because it varies across DB systems
  *
+ * Args:
+ *      - Number of the first row to return data from
+ *      - Number of rows to return
+ * Returns:
+ *      - SQL string to pass to a LIMIT statement
  * @access public
- * @param  int      Number of the first row to return data from
- * @param  int      Number of rows to return
- * @return string   SQL string to pass to a LIMIT statement
  */
-function serendipity_db_limit($start, $offset) {
+function serendipity_db_limit(int $start, int $offset) : string {
     return $start . ', ' . $offset;
 }
 
 /**
  * Return a LIMIT SQL option to the DB Layer as a full LIMIT statement
  *
+ * Args:
+ *      - SQL string of a LIMIT option
+ * Returns:
+ *      - SQL string containing a full LIMIT statement
  * @access public
- * @param   SQL string of a LIMIT option
- * @return  SQL string containing a full LIMIT statement
  */
-function serendipity_db_limit_sql($limitstring) {
+function serendipity_db_limit_sql(string $limitstring) : string {
     return ' LIMIT ' . $limitstring;
 }
 
 /**
  * Returns the number of affected rows of a SQL query
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - Number of affected rows
  * @access public
- * @return int      Number of affected rows
  */
-function serendipity_db_affected_rows() {
+function serendipity_db_affected_rows() : int {
     global $serendipity;
+
     return $serendipity['dbSth']->rowCount();
 }
 
 /**
  * Returns the number of updated rows in a SQL query
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - Number of updated rows
  * @access public
- * @return int  Number of updated rows
  */
-function serendipity_db_updated_rows() {
+function serendipity_db_updated_rows() : int {
     global $serendipity;
     // it is unknown whether sqlite_affected_rows returns number of rows
     //  UPDATED or MATCHED on an UPDATE statement.
@@ -187,10 +226,13 @@ function serendipity_db_updated_rows() {
 /**
  * Returns the number of matched rows in a SQL query
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - Number of matched rows
  * @access public
- * @return int  Number of matched rows
  */
-function serendipity_db_matched_rows() {
+function serendipity_db_matched_rows() : int {
     global $serendipity;
     // it is unknown whether sqlite_affected_rows returns number of rows
     //  UPDATED or MATCHED on an UPDATE statement.
@@ -200,13 +242,16 @@ function serendipity_db_matched_rows() {
 /**
  * Returns the latest INSERT_ID of an SQL INSERT INTO command, for auto-increment columns
  *
+ * Args:
+ *      - Name of the table to get a INSERT ID for
+ *      - Name of the column to get a INSERT ID for
+ * Returns:
+ *      - Value of the auto-increment column
  * @access public
- * @param  string   Name of the table to get a INSERT ID for
- * @param  string   Name of the column to get a INSERT ID for
- * @return int      Value of the auto-increment column
  */
-function serendipity_db_insert_id($table = '', $id = '') {
+function serendipity_db_insert_id(string $table = '', string $id = '') : int {
     global $serendipity;
+
     return $serendipity['dbConn']->lastInsertId();
 }
 
@@ -215,22 +260,24 @@ function serendipity_db_insert_id($table = '', $id = '') {
  *
  * This function returns values depending on the input parameters and the result of the query.
  * It can return:
- *   false or a string if there was an error (depends on $expectError),
- *   true if the query succeeded but did not generate any rows
- *   array of field values if it returned a single row and $single is true
- *   array of array of field values if it returned row(s) [stacked array]
+ *   FALSE or a STRING if there was an error (depends on $expectError),
+ *   TRUE if the query succeeded but did not generate any rows
+ *   ARRAY of field values if it returned a single row and $single is true
+ *   ARRAY of array of field values if it returned row(s) [stacked array]
  *
+ * Args:
+ *      - SQL query to execute
+ *      - Toggle whether the expected result is a single row (TRUE) or multiple rows (FALSE). This affects whether the returned array is 1 or 2 dimensional!
+ *      - Result type of the array indexing. Can be one of "assoc" (associative), "num" (numerical), "both" (numerical and associative, default)
+ *      - If true, errors will be reported. If false, errors will be ignored.
+ *      - A possible array key name, so that you can control the multi-dimensional mapping of an array by the key column
+ *      - A possible array field name, so that you can control the multi-dimensional mapping of an array by the key column and the field value.
+ *      - If true, the executed SQL error is known to fail, and should be disregarded (errors can be ignored on DUPLICATE INDEX queries and the likes)
+ * Returns:
+ *      - Returns the result of the SQL query, depending on the input parameters
  * @access public
- * @param   string      SQL query to execute
- * @param   boolean     Toggle whether the expected result is a single row (TRUE) or multiple rows (FALSE). This affects whether the returned array is 1 or 2 dimensional!
- * @param   string      Result type of the array indexing. Can be one of "assoc" (associative), "num" (numerical), "both" (numerical and associative, default)
- * @param   boolean     If true, errors will be reported. If false, errors will be ignored.
- * @param   string      A possible array key name, so that you can control the multi-dimensional mapping of an array by the key column
- * @param   string      A possible array field name, so that you can control the multi-dimensional mapping of an array by the key column and the field value.
- * @param   boolean     If true, the executed SQL error is known to fail, and should be disregarded (errors can be ignored on DUPLICATE INDEX queries and the likes)
- * @return  mixed       Returns the result of the SQL query, depending on the input parameters
  */
-function &serendipity_db_query($sql, $single = false, $result_type = "both", $reportErr = false, $assocKey = false, $assocVal = false, $expectError = false) {
+function &serendipity_db_query(string $sql, bool $single = false, string $result_type = "both", bool $reportErr = false, string|bool $assocKey = false, string|bool $assocVal = false, bool $expectError = false) : string|bool|iterable {
     global $serendipity;
     $type_map = array(
                         'assoc' => PDO::FETCH_ASSOC,
@@ -242,11 +289,11 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
 
     //serendipity_db_logmsg('SQLQUERY: ' . $sql);
     if (!$expectError && ($reportErr || !$serendipity['production'])) {
-        $serendipity['dbConn']->setAttribute( \PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION ); // Backport to PHP 8.0+ behaviour
+        $serendipity['dbConn']->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION); // Backport to PHP 8.0+ behaviour
         $serendipity['dbSth'] = $serendipity['dbConn']->prepare($sql);
     } else {
         try {
-            $serendipity['dbConn']->setAttribute( \PDO::ATTR_ERRMODE, \PDO::ERRMODE_SILENT ); // PHP 8.0: PDO: Default error mode set to exceptions. Previously used silent.
+            $serendipity['dbConn']->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_SILENT ); // PHP 8.0: PDO: Default error mode set to exceptions. Previously used silent.
             $serendipity['dbSth'] = $serendipity['dbConn']->prepare($sql);
         } catch(\Throwable $e) {
             return $type_map['false'];
@@ -309,11 +356,13 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
 /**
  * Prepares a Serendipity query input to fully valid SQL. Replaces certain "template" variables.
  *
+ * Args:
+ *      - SQL query with template variables to convert
+ * Returns:
+ *      - SQL resource handle of the executed query
  * @access public
- * @param  string   SQL query with template variables to convert
- * @return resource SQL resource handle of the executed query
  */
-function serendipity_db_schema_import($query) {
+function serendipity_db_schema_import(string $query) : string|bool|iterable {
     static $search  = array('{AUTOINCREMENT}', '{PRIMARY}', '{UNSIGNED}', '{FULLTEXT}', '{BOOLEAN}', '{UTF_8}', '{TEXT}');
     static $replace = array('INTEGER AUTOINCREMENT', 'PRIMARY KEY', '', '', 'BOOLEAN NOT NULL', '', 'LONGTEXT');
 
@@ -335,12 +384,14 @@ function serendipity_db_schema_import($query) {
 /**
  * Try to connect to the configured Database (during installation)
  *
+ * Args:
+ *      - The input configuration array, holding the connection info
+ *      - A referenced array which holds the errors that might be encountered
+ * Returns:
+ *      - True on success, False on error
  * @access public
- * @param  array     input configuration array, holding the connection info
- * @param  array     referenced array which holds the errors that might be encountered
- * @return boolean   return true on success, false on error
  */
-function serendipity_db_probe($hash, &$errs) {
+function serendipity_db_probe(iterable $hash, iterable &$errs) : bool {
     global $serendipity;
 
     if (!in_array('sqlite', PDO::getAvailableDrivers())) {
@@ -376,11 +427,13 @@ function serendipity_db_probe($hash, &$errs) {
 /**
  * Returns the SQL code used for concatenating strings
  *
+ * Args:
+ *      - Input string/column to concatenate
+ * Returns:
+ *      - SQL parameter
  * @access public
- * @param  string   Input string/column to concatenate
- * @return string   SQL parameter
  */
-function serendipity_db_concat($string) {
+function serendipity_db_concat(string $string) : string {
     return 'concat(' . $string . ')';
 }
 
