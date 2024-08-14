@@ -14,6 +14,10 @@ include(S9Y_INCLUDE_PATH . 'include/functions_rss.inc.php');
 if ($serendipity['cors']) {
     header('Access-Control-Allow-Origin: *'); // Allow RSS feeds to be read by javascript
 }
+if (!empty($_GET['url'])) {
+    $_ext  = pathinfo(parse_url($_GET['url'], PHP_URL_PATH), PATHINFO_EXTENSION);
+    $_name = pathinfo(parse_url($_GET['url'], PHP_URL_PATH), PATHINFO_FILENAME);
+}
 
 $version     = $_GET['version'] ?? null;
 $description = $serendipity['blogDescription'];
@@ -21,7 +25,7 @@ $title       = $serendipity['blogTitle'];
 $comments    = FALSE;
 
 if (empty($version)) {
-    list($version) = serendipity_discover_rss(($_GET['file'] ?? null), ($_GET['ext'] ?? null));
+    list($version) = serendipity_discover_rss(($_name ?? null), ($_ext ?? null));
 }
 
 if (isset($_GET['category'])) {
@@ -90,8 +94,8 @@ if (!isset($_GET['nocache'])) {
     }
 }
 
-if (isset($modified_since) &&
-        ((isset($_SERVER['HTTP_USER_AGENT']) && stristr($_SERVER['HTTP_USER_AGENT'], 'planet') !== FALSE) || $serendipity['enforce_RFC2616'])) {
+if (isset($modified_since)
+&& ((isset($_SERVER['HTTP_USER_AGENT']) && stristr($_SERVER['HTTP_USER_AGENT'], 'planet') !== FALSE) || $serendipity['enforce_RFC2616'])) {
     // People shall get a usual HTTP response according to RFC2616. See serendipity_config.inc.php for details
     $modified_since = FALSE;
 }
@@ -256,7 +260,7 @@ serendipity_smarty_init();
 serendipity_plugin_api::hook_event('frontend_rss', $metadata);
 
 if (!$metadata['template_file'] || $metadata['template_file'] == 'feed_' . $file_version . '.tpl') {
-    die("Invalid RSS version specified or RSS-template file not found\n");
+    die("Invalid RSS version specified or RSS-template file 'feed_$file_version.tpl' not found\n");
 }
 
 $self_url = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . serendipity_specialchars($_SERVER['REQUEST_URI']);
