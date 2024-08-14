@@ -393,7 +393,7 @@ if (IS_installed === true && php_sapi_name() !== 'cli') {
 }
 
 if (isset($_SESSION['serendipityAuthorid'])) {
-    serendipity_load_configuration($_SESSION['serendipityAuthorid']);
+    serendipity_load_configuration((int) $_SESSION['serendipityAuthorid']);
     $serendipity['lang'] = serendipity_getPostAuthSessionLanguage();
 }
 
