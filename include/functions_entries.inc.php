@@ -916,7 +916,7 @@ function &serendipity_searchEntries(string $term, ?string $limit = '', string $s
     }
 
     if (isset($serendipity['GET']['page']) && $serendipity['GET']['page'] > 1 && !str_contains((string) $limit, ',')) {
-        $limit = serendipity_db_limit(($serendipity['GET']['page']-1) * $limit, $limit);
+        $limit = serendipity_db_limit(($serendipity['GET']['page']-1) * $limit, (int) $limit);
     }
 
     $limit = serendipity_db_limit_sql($limit);
