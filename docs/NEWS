@@ -62,6 +62,9 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix ATOM feed "feed_atom1.0.tpl" template not accessing stylesheet and
+    extend the atom.css stylesheet for dark mode preferences, etc.
+
   * Preparations for PHP 8.4 on deprecation sets in the Smarty lib and for the
     Voku (simple) cache.
 
