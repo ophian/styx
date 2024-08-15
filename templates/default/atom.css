@@ -1,13 +1,28 @@
-/* Basic CSS taken from http://www.blogger.com/styles/atom.css */
+/* Styles for the feed reader iframe */
 
-feed {
-  display:block;
-  font-family:verdana, sans-serif;
-  margin:2%;
-  font-size:90%;
-  color:#000000;
-  background:#ffffff;
+:root {
+   --card-background: white;
+   --text-color: black;
+   --media-background: #f9f9fa;
+   --blockquote-background: #fafafa;
+   --deemphasized-text-color: #4a4a4f;
+   --link-color: #0060df;
+   --visited-link-color: #8000d7;
 }
+
+@media (prefers-color-scheme: dark) {
+   :root {
+     --card-background: #38383d;
+     --text-color: #f9f9fa;
+     --media-background: #2a2a2e;
+     --blockquote-background: #2a2a2e;
+     --deemphasized-text-color: #b1b1b3;
+     --link-color: #45a1ff;
+     --visited-link-color: #c069ff;
+   }
+}
+
+/* Basic CSS taken from http://www.blogger.com/styles/atom.css */
 
 title {
   display:block;
@@ -86,4 +101,181 @@ content {
   background:inherit;
   padding:1em;
   line-height:1.5em;
+}
+
+/* ------------------- basics end */
+
+html {
+  font: message-box;
+  height: 100%;
+}
+
+feed {
+  display: block;
+  margin: 2em;
+  font-family: verdana, sans-serif;
+  font-size: 100%;
+  background-color: var(--card-background);
+  color: var(--text-color);
+}
+
+body {
+  font-size: 1.25rem;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: var(--text-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+a:visited {
+  color: var(--visited-link-color);
+}
+
+a:active {
+  filter: brightness(0.7);
+}
+
+main {
+  max-width: 800px;
+  width: 100%;
+  margin: auto;
+}
+
+section {
+  margin: 30px 15px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: .67em 0;
+  line-height: 1.125em;
+}
+
+h2 {
+  border-bottom: 1px solid #eaecef;
+  padding-bottom: .3em;
+}
+
+/* special Serendipity Styx case */
+.serendipity_imageComment_center {
+  margin: 1% auto;
+}
+
+#error {
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+#error::before {
+  content: "";
+  display: block;
+  margin-bottom: 1em;
+  /* Directly embed "face-sad.svg" because otherwise the sandbox would block it */
+  background-image: url(data:image/svg+xml;base64,PCEtLSBUaGlzIFNvdXJjZSBDb2RlIEZvcm0gaXMgc3ViamVjdCB0byB0aGUgdGVybXMgb2YgdGhlIE1vemlsbGEgUHVibGljCiAgIC0gTGljZW5zZSwgdi4gMi4wLiBJZiBhIGNvcHkgb2YgdGhlIE1QTCB3YXMgbm90IGRpc3RyaWJ1dGVkIHdpdGggdGhpcwogICAtIGZpbGUsIFlvdSBjYW4gb2J0YWluIG9uZSBhdCBodHRwOi8vbW96aWxsYS5vcmcvTVBMLzIuMC8uIC0tPgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDIwIDIwIj4KICA8cGF0aCBmaWxsPSIjMDBEM0U3IiBkPSJNOS45NC44YTkuMDEgOS4wMSAwIDAgMC05IDkuNDIgMS4wNyAxLjA3IDAgMCAwIC4xMyAyLjEyaC4yMUE5LjAxIDkuMDEgMCAxIDAgOS45NC44Ii8+CiAgPHBhdGggZmlsbD0iIzAwQTFDMSIgZD0iTTE4LjkzIDEwLjIxdi0uNGMwLTIuNC0uOTMtNC42LTIuNDctNi4yQTkuMjYgOS4yNiAwIDAgMSAzLjcyIDE2LjM0YTkgOSAwIDAgMCAxNC44NS00bC4yMS0uMDFjLjYgMCAxLjA3LS40OCAxLjA3LTEuMDcuMDEtLjU0LS40LS45OS0uOTItMS4wNiIvPgogIDxwYXRoIGZpbGw9IiMzMjNCNTkiIGQ9Ik01LjQ3IDYuNTVhLjk5Ljk5IDAgMCAwLS45OS45OXYyLjIyYS45OS45OSAwIDEgMCAxLjk4IDBWNy41NGEuOTkuOTkgMCAwIDAtMS0uOTltOC45OCAwYS45OS45OSAwIDAgMC0xIC45OXYyLjIyYS45OS45OSAwIDEgMCAxLjk4IDBWNy41NGEuOTkuOTkgMCAwIDAtLjk4LS45OW0tNC41IDUuNDdhMi4yNyAyLjI3IDAgMCAwLTIuMzQgMi4xM2MtLjAyLjIzLjA5LjQ1LjI3LjU4LjE5LjE0LjQzLjE3LjY0LjA5IDAgMCAuNDctLjE3IDEuMzQtLjE3LjkxIDAgMS41NS4xOSAxLjU2LjE5YS42OS42OSAwIDAgMCAuNjEtLjExLjY3LjY3IDAgMCAwIC4yNi0uNTggMi4yNyAyLjI3IDAgMCAwLTIuMzQtMi4xMyIvPgogIDxwYXRoIGZpbGw9IiMwMEExQzEiIGQ9Ik00LjU5IDcuMDJjLS4zNiAwLS43Mi0uMTEtMS4wMy0uMzJhLjMxOC4zMTggMCAxIDEgLjM1LS41MyAxLjI1IDEuMjUgMCAwIDAgMS44LS40Ny4zMTMuMzEzIDAgMSAxIC41Ni4yOCAxLjg4IDEuODggMCAwIDEtMS42OCAxLjA0bTEwLjQ3IDBhMS44OCAxLjg4IDAgMCAxLTEuNjgtMS4wNC4zMTMuMzEzIDAgMSAxIC41Ni0uMjggMS4yNCAxLjI0IDAgMCAwIDEuOC40OC4zMi4zMiAwIDAgMSAuMzUuNTNjLS4zLjItLjY2LjMtMS4wMy4zIi8+Cjwvc3ZnPg==);
+  background-position: center;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+}
+
+entry h3 {
+  margin-bottom: 0;
+}
+/*overwrittem by .entry p */
+entry p {}
+
+/* actually we do not have a .item class selector, but we can use <entry class="item"> */
+.item {
+  background: var(--card-background);
+  color: inherit;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.12);
+  padding: 15px;
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.item:hover {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.item h1 {
+  font-size: 1.4em;
+  font-weight: normal;
+}
+
+.item h2 {
+  font-size: 1.25em;
+}
+
+.item figure {
+    display: inline;
+}
+
+.item img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.item .emoji {
+  width: 1em;
+  height: 1em;
+}
+
+.item li {
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.item a:not(:hover) {
+  text-decoration: none;
+}
+
+.item pre,
+.item code {
+  font-family: Menlo, Consolas, monospace;
+  overflow: auto;
+  text-overflow: ellipsis;
+}
+
+.item blockquote {
+  border-left: solid .25em;
+  background: var(--blockquote-background);
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.item_title {
+  font-size: 1.3em;
+  text-decoration: none;
+}
+
+.item_date {
+  display: block;
+  font-size: 0.9em;
+  color: var(--deemphasized-text-color);
+}
+
+.item_desc {
+  margin-top: 0.5em;
+  display: block;
+}
+
+.item_media {
+  margin-top: 1em;
+  padding: 0.5em;
+  background-color: var(--media-background);
+}
+
+.item_media ul {
+  padding-inline-start: 1em;
 }
