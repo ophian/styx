@@ -62,6 +62,8 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve backend styles for includeentry plugin select field width
+
   * Fix some buggy serendipity_admin_image_selector.php parameters
 
   * Fix [ default-php ] theme media_showitems.tpl conditionals and a rare case
