@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet href="{serendipity_getFile file='atom.css'}" type="text/css" ?>
 
 <feed {$namespace_display_dat}
    xmlns="http://www.w3.org/2005/Atom"
@@ -24,7 +25,7 @@
 {/if}
 
 {foreach $entries AS $entry}
-    <entry>
+    <entry class="item">
         <link href="{$entry.feed_entryLink}{if $is_comments}#c{$entry.commentid}{/if}" rel="alternate" title="{$entry.feed_title}" />
         <author>
             <name>{$entry.feed_author}</name>
