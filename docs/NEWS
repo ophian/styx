@@ -62,6 +62,9 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Preparations for PHP 8.4 on deprecation sets in the Smarty lib and for the
+    Voku (simple) cache.
+
   * Fix serendipity_die() thrown Exception message on object in db::mysqli
     database API.
 
