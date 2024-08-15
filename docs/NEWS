@@ -2,6 +2,9 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix rss wrong $_GET['url'] string reference for serendipity_discover_rss()
+    basename and extension parameters.
+
   * Improve backend styles for includeentry plugin select field width
 
   * Fix some buggy serendipity_admin_image_selector.php parameters
