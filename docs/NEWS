@@ -2,6 +2,14 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Implement Serendipity Styx API "Type safety"!
+    Uses Parameter-/Return Types in combo with Union Types for PHP 8.2+ and
+    removes @param, @return PHPDoc references which were far less exact in
+    multiple cases. Additionally more strict inner fnc CAST type conditionals
+    were set and where explicit appropriate.
+    PLEASE NOTE: This still is is a WIP, in special for core extends, like
+    importers and plugins/themes.
+
   * Implement comment search term highlight used for comment full body data
     in comment list.
 
