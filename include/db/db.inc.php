@@ -63,10 +63,10 @@ function serendipity_db_update(string $table, iterable $keys, iterable $values, 
  *      - Associative array of keys/values to insert into the table. Escaping is done automatically.
  *      - What do do with the SQL query (execute, display)
  * Returns:
- *      - Returns the result of the SQL query OR the query itself
+ *      - Returns the boolean result of the SQL query OR the QUERY string itself
  * @access  public
  */
-function serendipity_db_insert(string $table, iterable $values, string $action = 'execute') : iterable|string {
+function serendipity_db_insert(string $table, iterable $values, string $action = 'execute') : bool|string {
     global $serendipity;
 
     $names = implode(',', array_keys($values));
