@@ -2265,6 +2265,15 @@ div.serendipityPlug a {
     margin-bottom: .5em;
   }
 }
+/* left or right floated image within paragraphed text container to behave like aboves (.post p > .serendipity_image_left/right) floated images */
+div + p {
+  margin-top: 0;
+}
+
+/* adds a default margin bottom that mimics the size of the line-height - to prevent a margin less space issue - ie., when (l/r) floated text does not expand the height of the image and which has a following div figure block */
+.serendipity_image_left,
+.serendipity_image_right {
+    margin-bottom: .5em; }
 .serendipity_image_left,
 .post p > .serendipity_image_left {
     margin-left: 0;
@@ -2311,12 +2320,18 @@ figure.serendipity_imageComment_center, figure.serendipity_imageComment_left, fi
 div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.serendipity_imageComment_right,
 .grid-col .post .serendipity_image_block.col .serendipity_imageComment_left,
 .grid-col .post .serendipity_image_block.col .serendipity_imageComment_right {
-    width: auto !important;
+    width: auto;
     max-width: fit-content;
 }
 /* Strange Chromium fix - else image may be empty */
 .serendipity_image_block.col .serendipity_imageComment_img img {
     width: -webkit-fill-available;
+}
+/* Strange Chromium fix - imgs are inline elements by default, so display: block on column counts to not overflow each other */
+.serendipity_image_block.col img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 /* Auto scales
@@ -2379,21 +2394,20 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .page .serendipity_imageComment_right,
     .page p .serendipity_image_left,
     .page p .serendipity_image_right,
-    .post .serendipity_imageComment_left,
-    .post .serendipity_imageComment_right,
+    .post .serendipity_imageComment_center:not(figure),
+    .post .serendipity_imageComment_left:not(figure),
+    .post .serendipity_imageComment_right:not(figure),
     .post p .serendipity_image_left,
     .post p .serendipity_image_right,
     .post div .serendipity_image_left,
     .post div .serendipity_image_right {
-        max-width: 48%; }
+        max-width: fit-content; }
 }
 @media screen and (min-width: 900px) {
     .page .serendipity_imageComment_left,
     .page .serendipity_imageComment_right,
     .page p .serendipity_image_left,
     .page p .serendipity_image_right,
-    .post .serendipity_imageComment_left,
-    .post .serendipity_imageComment_right,
     .post p .serendipity_image_left,
     .post p .serendipity_image_right,
     .post div .serendipity_image_left,
@@ -2406,8 +2420,6 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .grid-col .page .serendipity_imageComment_right,
     .grid-col .page p .serendipity_image_left,
     .grid-col .page p .serendipity_image_right,
-    .grid-col .post .serendipity_imageComment_left,
-    .grid-col .post .serendipity_imageComment_right,
     .grid-col .post p .serendipity_image_left,
     .grid-col .post p .serendipity_image_right,
     .grid-col .post div .serendipity_image_left,
@@ -2432,8 +2444,6 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .grid-col .page .serendipity_imageComment_right,
     .grid-col .page p .serendipity_image_left,
     .grid-col .page p .serendipity_image_right,
-    .grid-col .post .serendipity_imageComment_left,
-    .grid-col .post .serendipity_imageComment_right,
     .grid-col .post p .serendipity_image_left,
     .grid-col .post p .serendipity_image_right,
     .grid-col .post div .serendipity_image_left,
@@ -2458,8 +2468,6 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .grid-col .page .serendipity_imageComment_right,
     .grid-col .page p .serendipity_image_left:not([srcset*=".400W."]),
     .grid-col .page p .serendipity_image_right:not([srcset*=".400W."]),
-    .grid-col .post .serendipity_imageComment_left,
-    .grid-col .post .serendipity_imageComment_right,
     .grid-col .post p .serendipity_image_left:not([srcset*=".400W."]),
     .grid-col .post p .serendipity_image_right:not([srcset*=".400W."]),
     .grid-col .post div .serendipity_image_left:not([srcset*=".400W."]),
@@ -2484,7 +2492,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .post p .serendipity_image_right:not([srcset*=".800W."]),
     .post div .serendipity_image_left:not([srcset*=".800W."]),
     .post div .serendipity_image_right:not([srcset*=".800W."]) {
-        max-width: 100%; }
+      max-width: min-content; }
 }
 
 /* re-spawn max-width scales for some legacy poor man galleries mostly in comment boxes */
@@ -2494,6 +2502,8 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
 .grid-col .post .serendipity_image_block > div > div .serendipity_image_right:not([srcset*=".400W."]),
 .grid-col .post .serendipity_image_block > div > div .serendipity_image_left:not([srcset*=".800W."]),
 .grid-col .post .serendipity_image_block > div > div .serendipity_image_right:not([srcset*=".800W."]),
+.grid-col .post div .serendipity_image_left:not([srcset*=".400W."]),
+.grid-col .post div .serendipity_image_right:not([srcset*=".400W."]),
 .grid-col .post figure div .serendipity_image_left:not([srcset*=".400W."]),
 .grid-col .post figure div .serendipity_image_right:not([srcset*=".400W."]),
 .grid-col .post figure div .serendipity_image_left:not([srcset*=".800W."]),
@@ -2595,6 +2605,9 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
   html {
     font-size: calc(.35rem + 1vw); /* sizes SMALL SCREENS text responsively from ~14.2px to 15.8167px; */
   }
+}
+@media screen and (min-width: 860px) and (max-width: 1023px) {
+  .archive_year { width: 47.875%; }
 }
 
 /* For TABLET SCREENS PLUS - sizing depends on default font + size and sidebar width */
