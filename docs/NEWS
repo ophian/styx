@@ -2,6 +2,9 @@ Version 4.4.3-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix serendipity_die() thrown Exception message on object in db::mysqli
+    database API.
+
   * Fix rss wrong $_GET['url'] string reference for serendipity_discover_rss()
     basename and extension parameters.
 
