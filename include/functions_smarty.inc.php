@@ -191,6 +191,8 @@ function serendipity_ifRemember(string $name, string $value, ?bool $isDefault = 
 
         return " $att=\"$att\" ";
     }
+
+    return false;
 }
 
 /**
