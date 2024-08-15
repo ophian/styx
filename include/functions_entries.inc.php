@@ -266,7 +266,7 @@ function &serendipity_fetchEntries(mixed $range = null, bool $full = true, strin
 
     $cond = array();
     $cond['orderby'] = $orderby;
-    if (isset($serendipity['short_archives']) && $serendipity['short_archives'] && $limit === $serendipity['fetchLimit']) {
+    if (isset($serendipity['short_archives']) && $serendipity['short_archives'] && $limit == $serendipity['fetchLimit']) {
         // In the short listing of all titles for a month, we don't want to have a limit applied. Otherwise we need to NOT match a global summary page with core set paging limits other than $serendipity['fetchLimit'].
         // And we don't need/want the full article body (consumes memory) - but, see the $body note below!
         // But we need a somehow matching condition to use {serendipity_fetchPrintEntries category=1 short_archives=true full=false noSticky=true limit="0,5"} or alike calls.
@@ -476,20 +476,20 @@ function &serendipity_fetchEntries(mixed $range = null, bool $full = true, strin
                 }
 
                 if ($serendipity['GET']['page'] == $totalPages) {
-                    $limit = serendipity_db_limit(0, $limit);
+                    $limit = serendipity_db_limit(0, (int) $limit);
                 } else if ($serendipity['GET']['page'] == ($totalPages - 1)) {
-                    $limit = serendipity_db_limit($limit, ($totalEntries - (($totalPages -2) * $limit)) - $limit);
+                    $limit = serendipity_db_limit((int) $limit, intval(($totalEntries - (($totalPages -2) * $limit)) - $limit));
                 } else {
-                    $limit = serendipity_db_limit(max(0, ($totalEntries - ($limit * $serendipity['GET']['page']))), $limit);
+                    $limit = serendipity_db_limit(max(0, ($totalEntries - ($limit * $serendipity['GET']['page']))), (int) $limit);
                 }
             } else {
                 if ($db_limit) {
-                    $limit = serendipity_db_limit(($serendipity['GET']['page']-1) * $limit, $limit);
+                    $limit = serendipity_db_limit(($serendipity['GET']['page']-1) * $limit, (int) $limit);
                 }
             }
         }
 
-        $limit = serendipity_db_limit_sql($limit);
+        $limit = serendipity_db_limit_sql($limit); // either an INT or a STRING number or a STRING '' vs "0,5"
     }
 
     if (!isset($cond['having'])) {
