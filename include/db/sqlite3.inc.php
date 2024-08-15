@@ -411,12 +411,12 @@ function serendipity_db_limit(int $start, int $offset) : string {
  * Return a LIMIT SQL option to the DB Layer as a full LIMIT statement
  *
  * Args:
- *      - SQL string of a LIMIT option
+ *      - SQL integer or string of a LIMIT option
  * Returns:
  *      - SQL string containing a full LIMIT statement
  * @access public
  */
-function serendipity_db_limit_sql(string $limitstring) : string {
+function serendipity_db_limit_sql(int|string $limitstring) : string {
     return ' LIMIT ' . $limitstring;
 }
 
