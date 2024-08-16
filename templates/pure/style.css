@@ -2275,7 +2275,8 @@ div + p {
 .serendipity_image_right {
     margin-bottom: .5em; }
 .serendipity_image_left,
-.post p > .serendipity_image_left {
+.post p > .serendipity_image_left,
+.post .serendipity_imageComment_left:not(figure) {
     margin-left: 0;
     margin-right: .5em; }
 .serendipity_imageComment_left {
@@ -2333,6 +2334,10 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     width: 100%;
     height: auto;
 }
+/* Strange Chromium fix for ~412px, ~430px, ~540px Mobile sizes (Pixel 7, Galaxy S20 Ultra and A51/71, Surface Duo) that needed an overwrite of defaulting inline-block */
+.serendipity_image_block.col {
+    display: block;
+}
 
 /* Auto scales
    - single set left/right oriented bigger images within p tags
@@ -2368,6 +2373,10 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
      (normally border 10px = 128px) min-width now works with 100% and -moz/-webkit-fill-available in
      .serendipity_image_block.xxx gallery cases. Yee-haw! */
 @media screen and (min-width: 768px) {
+    .post .serendipity_imageComment_left:not(figure) {
+        margin-right: .5em; }
+    .post figure.serendipity_imageComment_left {
+        margin-right: 1.25em; }
     .page .serendipity_imageComment_left,
     .page .serendipity_imageComment_right,
     .page p .serendipity_image_left,
@@ -2376,8 +2385,6 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .post .serendipity_imageComment_right,
     .post p .serendipity_image_left,
     .post p .serendipity_image_right,
-    .grid-col .post div div:not(.serendipity_image_block.col, .serendipity_image_block.row) .serendipity_image_left:not([srcset*=".400W."]),
-    .grid-col .post div div:not(.serendipity_image_block.col, .serendipity_image_block.row) .serendipity_image_right:not([srcset*=".400W."]),
     .post div.serendipity_image_block.row .serendipity_image_left,
     .post div.serendipity_image_block.row .serendipity_image_right {
         min-width: auto;
@@ -2388,6 +2395,13 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .grid-col .post div.serendipity_image_block.row .serendipity_image_left:not([srcset*=".400W."]),
     .grid-col .post div.serendipity_image_block.row .serendipity_image_right:not([srcset*=".400W."]) {
         min-width: inherit; }
+    /* special case, to have the image comment box, which normally is rendered by the image (smaller) box size, to expand to the parent imageComment box size */
+    .post :not(.serendipity_image_block) .serendipity_imageComment_left,
+    .post :not(.serendipity_image_block) .serendipity_imageComment_right,
+    .grid-col .post div:not(.serendipity_image_block) div:not(.serendipity_image_block) .serendipity_image_left:not([srcset*=".400W."]),
+    .grid-col .post div:not(.serendipity_image_block) div:not(.serendipity_image_block) .serendipity_image_right:not([srcset*=".400W."]) {
+        display: inline-grid;
+    }
 }
 @media screen and (min-width: 640px) {
     .page .serendipity_imageComment_left,
@@ -2415,6 +2429,8 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
         max-width: 75%; }
 }
 @media screen and (min-width: 1024px) {
+    .post .serendipity_imageComment_left:not(figure) {
+        margin-right: 1.25em; }
     /* 2-sidebars */
     .grid-col .page .serendipity_imageComment_left,
     .grid-col .page .serendipity_imageComment_right,
@@ -2473,26 +2489,6 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .grid-col .post div .serendipity_image_left:not([srcset*=".400W."]),
     .grid-col .post div .serendipity_image_right:not([srcset*=".400W."]) {
         max-width: 87.25%; }
-}
-@media screen and (min-width: 1600px) {
-    /* all | !in responsiveimages plugin cases */
-    .page .serendipity_imageComment_left,
-    .page .serendipity_imageComment_right,
-    .grid-col .page p .serendipity_image_left:not([srcset*=".400W."]),
-    .grid-col .page p .serendipity_image_right:not([srcset*=".400W."]),
-    .page p .serendipity_image_left:not([srcset*=".800W."]),
-    .page p .serendipity_image_right:not([srcset*=".800W."]),
-    .post .serendipity_imageComment_left,
-    .post .serendipity_imageComment_right,
-    .grid-col .post p .serendipity_image_left:not([srcset*=".400W."]),
-    .grid-col .post p .serendipity_image_right:not([srcset*=".400W."]),
-    .grid-col .post div .serendipity_image_left:not([srcset*=".400W."]),
-    .grid-col .post div .serendipity_image_right:not([srcset*=".400W."]),
-    .post p .serendipity_image_left:not([srcset*=".800W."]),
-    .post p .serendipity_image_right:not([srcset*=".800W."]),
-    .post div .serendipity_image_left:not([srcset*=".800W."]),
-    .post div .serendipity_image_right:not([srcset*=".800W."]) {
-      max-width: min-content; }
 }
 
 /* re-spawn max-width scales for some legacy poor man galleries mostly in comment boxes */
