@@ -23,7 +23,7 @@ if (!empty($serendipity['dbType']) && include(S9Y_INCLUDE_PATH . "include/db/{$s
  *      - Returns the result of the SQL query OR the query itself
  * @access public
  */
-function serendipity_db_update(string $table, iterable $keys, iterable $values, string $action = 'execute') : iterable|string {
+function serendipity_db_update(string $table, iterable $keys, iterable $values, string $action = 'execute') : iterable|string|bool {
     global $serendipity;
 
     $set = '';
