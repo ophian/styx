@@ -1075,6 +1075,7 @@ You should not want to operate a security-relevant access system with them!');
 @define('CLEANCOMPILE_TITLE', '템플릿 캐시 비우기');
 @define('CLEANCOMPILE_INFO', '현재 사용 중인 템플릿에 대해 컴파일된 템플릿 파일을 모두 삭제하는 기능입니다. 컴파일된 템플릿은 스마티 프레임워크에 의해 필요에 따라 자동으로 재생성됩니다.');
 @define('CLEAR_SELECTION', 'Clear selection');
+@define('CLEAR_FIELD', 'Clear textarea');
 @define('INSTALLER_KEY', '키');
 @define('INSTALLER_VALUE', '값');
 @define('CURRENT_TAB', '현재 탭: ');

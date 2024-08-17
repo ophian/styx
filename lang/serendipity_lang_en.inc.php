@@ -1073,6 +1073,7 @@ You should not want to operate a security-relevant access system with them!');
 @define('CLEANCOMPILE_TITLE', 'Clear template cache');
 @define('CLEANCOMPILE_INFO', 'This will purge all compiled template files of the current active template. Compiled templates will be automatically re-created on demand by the Smarty framework.');
 @define('CLEAR_SELECTION', 'Clear selection');
+@define('CLEAR_FIELD', 'Clear textarea');
 @define('INSTALLER_KEY', 'Key');
 @define('INSTALLER_VALUE', 'Value');
 @define('CURRENT_TAB', 'Current tab: ');
