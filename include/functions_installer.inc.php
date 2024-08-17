@@ -577,7 +577,10 @@ function serendipity_guessInput(string $type, string $name, iterable|string|bool
             break;
 
         case 'bool':
-            $value = serendipity_get_bool($value);
+            // DON'T DO on null or empty string
+            if ($value !== null && $value !== '') {
+                $value = serendipity_db_bool($value);
+            }
             if ($value === null || $value === '') {
                 $value = $default;
             }
