@@ -79,6 +79,8 @@ function serendipity_db_insert(string $table, iterable $values, string $action =
         // See db::serendipity_set_config_var() mentioned issue that arrays were build for the web as strings and only highly late PHP versions as of PHP 8.2 are able to type cast to INTs.
         if ($table == 'config' && $k === array_key_last($values) && is_int($v)) {
             $vals .= "$v"; // it is an integer field and PHP below 8.2 will throw a MYSQLI ERROR EXCEPTION which cannot be suppressed by @, since then the value is not stored!
+        } elseif (is_bool($v)) {
+            $vals .= "$v"; // i.e. over update plugins for property stackable = bool(true), insert as 1
         } else {
             $vals .= '\'' . serendipity_db_escape_string($v) . '\'';
         }
