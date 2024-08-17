@@ -32,7 +32,11 @@ function serendipity_db_update(string $table, iterable $keys, iterable $values, 
         if (strlen($set)) {
             $set .= ', ';
         }
-        $set .= $k . '=\'' . serendipity_db_escape_string($v) . '\'';
+        if (is_bool($v) || is_int($v)) {
+            $set .= $k . '=' . $v; // i.e. over staticpage entry saving for property markup = bool(true), insert as 1
+        } else {
+            $set .= $k . '=\'' . serendipity_db_escape_string($v) . '\'';
+        }
     }
 
     $where = '';
