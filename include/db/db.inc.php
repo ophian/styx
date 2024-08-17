@@ -29,15 +29,17 @@ function serendipity_db_update(string $table, iterable $keys, iterable $values, 
     $set = '';
 
     foreach($values AS $k => $v) {
-        if (strlen($set))
+        if (strlen($set)) {
             $set .= ', ';
+        }
         $set .= $k . '=\'' . serendipity_db_escape_string($v) . '\'';
     }
 
     $where = '';
     foreach($keys AS $k => $v) {
-        if (strlen($where))
+        if (strlen($where)) {
             $where .= ' AND ';
+        }
         $where .= $k . '=\'' . serendipity_db_escape_string($v) . '\'';
     }
 
