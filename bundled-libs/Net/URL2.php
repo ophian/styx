@@ -569,7 +569,7 @@ class Net_URL2
      * @throws Exception
      * @return array
      */
-    private function _queryArrayByBrackets($buffer, $value, array $array = null)
+    private function _queryArrayByBrackets($buffer, $value, ?array $array = null)
     {
         $entry = &$array;
 
