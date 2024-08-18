@@ -34,7 +34,7 @@ title {
 
 tagline, link {
   display:block;
-  font-size:0.9em;
+  font-size:0.9125em;
 }
 
 id, modified {
@@ -43,7 +43,7 @@ id, modified {
 
 generator {
   display:block;
-  font-size:0.9em;
+  font-size:0.9125em;
 }
 
 info {
@@ -55,7 +55,7 @@ info {
   text-align:center;
   padding:1.5em;
   font-family:mono;
-  font-size:0.8em;
+  font-size:0.875em;
 }
 
 entry {
@@ -71,10 +71,10 @@ entry modified, entry name {
   display:inline;
   color:#999999;
   background:inherit;
-  font-size:0.8em;
+  font-size:0.875em;
 }
 
-entry created, entry issued, entry id {
+entry created, entry issued, entry id, entry updated {
   display:none;
 }
 
@@ -96,7 +96,7 @@ entry title {
 
 content {
   display:block;
-  font-size:0.9em;
+  font-size:0.9125em;
   color:inherit;
   background:inherit;
   padding:1em;
@@ -187,6 +187,10 @@ h2 {
   height: 40px;
 }
 
+entry published {
+  font-size: .9125em;
+}
+
 entry h3 {
   margin-bottom: 0;
 }
@@ -261,7 +265,7 @@ entry p {}
 
 .item_date {
   display: block;
-  font-size: 0.9em;
+  font-size: 0.9125em;
   color: var(--deemphasized-text-color);
 }
 
