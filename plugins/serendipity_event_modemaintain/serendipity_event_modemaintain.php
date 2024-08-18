@@ -36,7 +36,7 @@ class serendipity_event_modemaintain extends serendipity_event
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.43');
+        $propbag->add('version',       '1.44');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'php'         => '8.2'
@@ -87,7 +87,7 @@ class serendipity_event_modemaintain extends serendipity_event
      * @access    private
      * @return
      */
-    private function service_mode($logo='')
+    private function service_mode($logo = '')
     {
         $retry = 300; // seconds
         serendipity_header( serendipity_getServerProtocol() . ' 503 Service Temporarily Unavailable', true, 503 );
@@ -95,7 +95,7 @@ class serendipity_event_modemaintain extends serendipity_event
         serendipity_header( 'X-S9y-Maintenance: true' ); // Used for debugging detection
         serendipity_header( 'Content-Type: text/html; charset=utf-8' );
         serendipity_header( "Retry-After: $retry" );
-        serendipity_die(nl2br("$logo".$this->maintenanceText), null);
+        serendipity_die(nl2br("$logo".$this->maintenanceText), false);
         exit; // actually no need, but for security reasons left alive
     }
 
@@ -105,7 +105,7 @@ class serendipity_event_modemaintain extends serendipity_event
      * @access    private
      * @param     boolean    set/unset
      */
-    private static function service_autologin($set=null)
+    private static function service_autologin($set = null)
     {
         global $serendipity;
 
@@ -127,7 +127,7 @@ class serendipity_event_modemaintain extends serendipity_event
      * @access    private
      * @param     boolean    set/unset
      */
-    private function s9y_maintenance_mode($mode=false)
+    private function s9y_maintenance_mode($mode = false)
     {
         global $serendipity;
 
