@@ -73,8 +73,8 @@ Version 4.4.3-DEV ()
   * Fix ATOM feed "feed_atom1.0.tpl" template not accessing stylesheet and
     extend the atom.css stylesheet for dark mode preferences, etc.
 
-  * Preparations for PHP 8.4 on deprecation sets in the Smarty lib and for the
-    Voku (simple) cache.
+  * Preparations for PHP 8.4 on deprecation sets in the Smarty lib, for the
+    Voku (simple) cache and for some pear libs.
 
   * Fix serendipity_die() thrown Exception message on object in db::mysqli
     database API.
