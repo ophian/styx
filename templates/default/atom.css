@@ -22,11 +22,11 @@
    }
 }
 
-/* Basic CSS taken from http://www.blogger.com/styles/atom.css */
+/* Basic CSS (mostly) taken from http://www.blogger.com/styles/atom.css */
 
 title {
   display: block;
-  font-size: 1.3em;
+  font-size: 1.3rem;
   color: inherit;
   background: inherit;
   font-weight: bold;
@@ -34,7 +34,7 @@ title {
 
 tagline, link {
   display: block;
-  font-size: .9125em;
+  font-size: .9125rem;
 }
 
 id, modified {
@@ -43,7 +43,7 @@ id, modified {
 
 generator {
   display: block;
-  font-size: .9125em;
+  font-size: .9125rem;
 }
 
 info {
@@ -55,7 +55,7 @@ info {
   text-align: center;
   padding: 1.5em;
   font-family: mono;
-  font-size: .875em;
+  font-size: .875rem;
 }
 
 entry {
@@ -71,7 +71,7 @@ entry modified, entry name {
   display: inline;
   color: #999;
   background: inherit;
-  font-size: .875em;
+  font-size: .875rem;
 }
 
 entry created, entry issued, entry id, entry updated {
@@ -85,7 +85,7 @@ slash\:comments, wfw\:commentRss, commentRss, comments, wfw\:comment, comment {
 
 entry title {
   display: block;
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: bold;
   color: inherit;
   background: inherit;
@@ -96,11 +96,11 @@ entry title {
 
 content {
   display: block;
-  font-size: .9125em;
+  font-size: 1rem;
   color: inherit;
   background: inherit;
   padding: 1em;
-  line-height: 1.5em;
+  line-height: 1.6;
 }
 
 /* ------------------- basics end */
@@ -113,8 +113,10 @@ html {
 feed {
   display: block;
   margin: 2em;
-  font-family: verdana, sans-serif;
-  font-size: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.6;
   background-color: var(--card-background);
   color: var(--text-color);
 }
@@ -188,7 +190,7 @@ h2 {
 }
 
 entry published {
-  font-size: .9125em;
+  font-size: .9125rem;
 }
 
 entry h3 {
@@ -204,7 +206,7 @@ entry p {}
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.12);
   padding: 15px;
   margin: 8px 0;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .item:hover {
@@ -212,12 +214,12 @@ entry p {}
 }
 
 .item h1 {
-  font-size: 1.4em;
+  font-size: 1.4rem;
   font-weight: normal;
 }
 
 .item h2 {
-  font-size: 1.25em;
+  font-size: 1.25rem;
 }
 
 .item figure {
@@ -237,7 +239,7 @@ entry p {}
 
 .item li {
   margin: 10px 0;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .item a:not(:hover) {
@@ -259,13 +261,13 @@ entry p {}
 }
 
 .item_title {
-  font-size: 1.3em;
+  font-size: 1.3rem;
   text-decoration: none;
 }
 
 .item_date {
   display: block;
-  font-size: .9125em;
+  font-size: .9125rem;
   color: var(--deemphasized-text-color);
 }
 
