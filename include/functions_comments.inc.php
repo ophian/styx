@@ -477,7 +477,7 @@ function serendipity_fetchComments(?int $id = null, ?string $limit = null, ?stri
     }
 
     if (!empty($id)) {
-        $and .= " AND co.entry_id = '" . (int)$id ."'";
+        $and .= " AND co.entry_id = '" . $id ."'";
     }
 
     if (!$showAll) {
