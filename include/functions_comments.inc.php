@@ -885,8 +885,6 @@ function serendipity_printCommentsByAuthor() : bool {
 function serendipity_deleteComment(int $id, int $entry_id, string $type='comments', ?string $token = null) : bool {
     global $serendipity;
 
-    $id       = (int)$id;
-    $entry_id = (int)$entry_id;
     if ($id < 1 OR $entry_id < 1) {
         return false;
     }
