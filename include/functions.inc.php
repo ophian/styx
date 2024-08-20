@@ -1093,7 +1093,7 @@ function serendipity_sendMail($to, $subject, $message, $fromMail, $headers = NUL
             $maildata['subject'] = str_replace(array("\n", "\r"), array('', ''), mb_encode_mimeheader($maildata['subject'], LANG_CHARSET));
             $maildata['fromName'] = str_replace(array("\n", "\r"), array('', ''), mb_encode_mimeheader($maildata['fromName'], LANG_CHARSET));
         }
-
+        $is_base64encoded = false;
 
         // Always add these headers
         if (!empty($maildata['blogMail'])) {
@@ -1117,6 +1117,7 @@ function serendipity_sendMail($to, $subject, $message, $fromMail, $headers = NUL
             } else {
                 $maildata['headers'][] = 'Content-Transfer-Encoding: base64';
                 $maildata['message']   = chunk_split(base64_encode($maildata['message']));
+                $is_base64encoded = true;
             }
         }
     }
@@ -1128,7 +1129,11 @@ function serendipity_sendMail($to, $subject, $message, $fromMail, $headers = NUL
     }
 
     if (!isset($maildata['skip_native']) && !empty($maildata['to'])) {
-        return @mail($maildata['to'], $maildata['subject'], $maildata['message'], implode("\n", $maildata['headers']));
+        if (!$is_base64encoded) {
+            return @mail($maildata['to'], $maildata['subject'], $maildata['message'], implode("\n", $maildata['headers']));
+        } else {
+            return @mail($maildata['to'], $maildata['subject'], $maildata['message'], implode("\r\n", $maildata['headers'])); // See RFC 5322 CRLF
+        }
     }
 }
 
