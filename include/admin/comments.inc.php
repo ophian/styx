@@ -37,7 +37,7 @@ if (!empty($serendipity['POST']) && isset($serendipity['POST']['formAction']) &&
         }
     } else {
         foreach($serendipity['POST']['delete'] AS $k => $v) {
-            if (serendipity_deleteComment($k, $v)) {
+            if (serendipity_deleteComment((int) $k, (int) $v)) {
                 $msg .= ($multi ? '' : DONE . ":\n") . sprintf(COMMENT_DELETED, (int) $k) . "\n";
                 $msgtype = 'success';
                 $multi = true;
