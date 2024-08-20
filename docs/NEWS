@@ -70,6 +70,9 @@ Version 4.5-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve serendipity_sendMail() standard compliance using CRLF to separate
+    headers in base64 Content-Transfer-Encoding case.
+
   * Fix ATOM feed "feed_atom1.0.tpl" template not accessing stylesheet and
     extend the atom.css stylesheet for dark mode preferences, etc.
 
