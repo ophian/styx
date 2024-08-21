@@ -489,7 +489,7 @@ function &serendipity_fetchEntries(mixed $range = null, bool $full = true, strin
             }
         }
 
-        $limit = serendipity_db_limit_sql($limit); // either an INT or a STRING number or a STRING '' vs "0,5"
+        $limit = serendipity_db_limit_sql($limit); // either an INT or a STRING number or a STRING alike '' vs "0,5"
     }
 
     if (!isset($cond['having'])) {
