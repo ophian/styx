@@ -5,6 +5,21 @@ if (!window.CKEDITOR) {
 }
 </script>
 {/if}
+{if NOT empty($comments)}{* comment preview only: highlight code parts *}
+{if $darkmode}
+<link rel="stylesheet" type="text/css" href="{$serendipityHTTPPath}templates/_assets/highlight/github-dark.min.css">
+{else}
+<link rel="stylesheet" type="text/css" href="{$serendipityHTTPPath}templates/_assets/highlight/github.min.css">
+{/if}
+<script src="{$serendipityHTTPPath}templates/_assets/highlight/highlight.min.js" data-manual></script>
+<script>
+    // launch the codesnippet highlight
+    hljs.configure({
+      tabReplace: '    ', // 4 spaces
+    });
+    hljs.highlightAll();
+</script>
+{/if}
 
 {if $smarty.get.serendipity.adminAction == 'edit'}
 <h2>{$CONST.EDIT_THIS_CAT|sprintf:"{$CONST.COMMENT} #`$smarty.get.serendipity.id`"|replace:'"':''}</h2>
@@ -57,7 +72,7 @@ if (!window.CKEDITOR) {
         {if $is_logged_in AND $comment_wysiwyg}{$secure_simple_ckeditor}{/if}
 
         {serendipity_hookPlugin hook="frontend_comment"}
-        {* We do not need any commentform data (array), since we do not have or even need any - this is a hook for s9ymarkup/spamblock/emoticonchooser and alike plugins. *}
+{* We do not need any commentform data (array), since we do not have or even need any - this is a hook for s9ymarkup/spamblock/emoticonchooser and alike plugins. *}
         <div class="clearfix empty">&nbsp;</div>
 
         <div class="form_button">
