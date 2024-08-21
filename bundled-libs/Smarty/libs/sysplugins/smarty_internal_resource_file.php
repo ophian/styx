@@ -25,7 +25,7 @@ class Smarty_Internal_Resource_File extends Smarty_Resource
      *
      * @throws \SmartyException
      */
-    public function populate(Smarty_Template_Source $source, Smarty_Internal_Template $_template = null)
+    public function populate(Smarty_Template_Source $source, ?Smarty_Internal_Template $_template = null)
     {
         $source->filepath = $this->buildFilepath($source, $_template);
         if ($source->filepath !== false) {
