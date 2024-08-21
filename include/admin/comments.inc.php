@@ -15,7 +15,7 @@ $errormsg = '';
 $msg = '';
 $msgtype = 'notice';
 
-if (!isset($serendipity['allowHtmlComment'])) $serendipity['allowHtmlComment'] = false;
+$serendipity['allowHtmlComment'] ??= false;
 
 $_id       = !empty($serendipity['GET']['id']) ? (int) $serendipity['GET']['id'] : 0;
 $_replyTo  = !empty($serendipity['POST']['replyTo']) ? (int) $serendipity['POST']['replyTo'] : 0;
