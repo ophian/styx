@@ -242,6 +242,8 @@ if ($metadata['fullFeed'] === 'client') {
     } else {
         $metadata['fullFeed'] = false;
     }
+} else {
+    $metadata['fullFeed'] = serendipity_db_bool($metadata['fullFeed']);
 }
 
 if ($_GET['type'] == 'content' && !isset($_GET['category']) && !isset($serendipity['GET']['tag']) &&
