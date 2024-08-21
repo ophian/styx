@@ -10,6 +10,7 @@ if (!headers_sent() && session_status() != PHP_SESSION_ACTIVE) {
 header('Content-Type: text/xml; charset=utf-8');
 
 @define('IN_RSS', true);
+
 include('serendipity_config.inc.php');
 include(S9Y_INCLUDE_PATH . 'include/functions_rss.inc.php');
 
@@ -109,14 +110,14 @@ switch ($_GET['type']) {
     case 'comments_and_trackbacks':
     case 'trackbacks':
     case 'comments':
-        $entries     = serendipity_fetchComments((int) $_GET['cid'], $serendipity['RSSfetchLimit'], 'co.id desc', false, $_GET['type']);
+        $entries = serendipity_fetchComments((int) $_GET['cid'], $serendipity['RSSfetchLimit'], 'co.id desc', false, $_GET['type']);
         $description = $title . ' - ' . $description;
         if (isset($_GET['cid'])) {
-            $title   = $title . ' - ' . COMMENTS_FROM . ' "' . $latest_entry[0]['title'] . '"';
+            $title = $title . ' - ' . COMMENTS_FROM . ' "' . $latest_entry[0]['title'] . '"';
         } else {
-            $title   = $title . ' - ' . COMMENTS;
+            $title = $title . ' - ' . COMMENTS;
         }
-        $comments    = TRUE;
+        $comments = TRUE;
         break;
 
     case 'content':
@@ -164,13 +165,13 @@ if (serendipity_get_config_var('feedBannerURL') != '') {
     $h   = serendipity_get_config_var('feedBannerHeight');
 } elseif ($banner = serendipity_getTemplateFile('img/rss_banner.png', 'serendipityPath')) {
     $img = serendipity_getTemplateFile('img/rss_banner.png', 'baseURL');
-    $i   = getimagesize($banner);
+    $i   = getimagesize($banner); // 1:1 ratio for icon !
     $w   = $i[0];
     $h   = $i[1];
 } else {
-    $img = $serendipity['baseURL'] . $serendipity['templatePath'] . 'styx_logo_150.png';
-    $w   = 120;
-    $h   = 58;
+    $img = $serendipity['baseURL'] . $serendipity['templatePath'] . 'styx_logo_150.png'; // 2:1 ratio for logo !
+    $w   = 120; //  Maximum value for width is 144, default value is 88.
+    $h   = 60; // Maximum value for height is 400, default value is 31.
 }
 
 $metadata['additional_fields']['image'] = <<<IMAGE
