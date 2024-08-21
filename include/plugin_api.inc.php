@@ -1181,7 +1181,7 @@ class serendipity_plugin_api
      *      - May contain any type of variables that are passed by reference to an event plugin - bool(true) on empty data cases, like requesting an authors entries which has none yet, or empty categories data...
      *      - May contain any type of variables that are passed to an event plugin
      * Returns:
-     *      - void
+     *      - True on success, False on bypassed, permission failure
      * @access protected
      */
     static function hook_event(string $event_name, iterable|bool|int|string|null &$eventData, iterable|bool|int|string|null $addData = null) : bool
