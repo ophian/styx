@@ -1671,6 +1671,8 @@ function serendipity_discover_rss(?string $name, ?string $ext) : iterable {
         $ver = 'rdf';
     } elseif ($ext == 'rss1') {
         $ver = '1.0';
+    } elseif ($ext == 'xsl' || $ext == 'xslt') {
+        $ver = 'xsl';
     } else {
         $ver = $default;
     }
