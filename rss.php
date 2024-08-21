@@ -136,16 +136,23 @@ if (isset($serendipity['serendipityRealname'])) {
 }
 
 if (!empty($serendipity['GET']['category'])) {
-    $cInfo       = serendipity_fetchCategoryInfo((int)$serendipity['GET']['category']);
-    $title       = serendipity_utf8_encode(htmlspecialchars($title . ' - '. $cInfo['category_name']));
+    $cInfo = serendipity_fetchCategoryInfo((int)$serendipity['GET']['category']);
+    $title = serendipity_utf8_encode(htmlspecialchars($title . ' - '. $cInfo['category_name']));
 } elseif (!empty($serendipity['GET']['viewAuthor'])) {
-    list($aInfo) = serendipity_fetchAuthor((int)$serendipity['GET']['viewAuthor']);
-    $title       = serendipity_utf8_encode(htmlspecialchars($aInfo['realname'] . ' - '. $title ));
+    list($aInfo) = serendipity_fetchAuthor((int) $serendipity['GET']['viewAuthor']);
+    $title = serendipity_utf8_encode(htmlspecialchars($aInfo['realname'] . ' - '. $title ));
 } else {
-    $title       = serendipity_utf8_encode(htmlspecialchars($title));
+    $title = serendipity_utf8_encode(htmlspecialchars($title));
 }
 
 $description = serendipity_utf8_encode(htmlspecialchars($description));
+
+// Add simple xls/transform data layer for our atom feed
+$xslt = '';
+if ($xslt_file = serendipity_getTemplateFile('feed_xslt.xsl', 'serendipityPath')) {
+    $xslt_url = serendipity_getTemplateFile('feed_xslt.xsl', 'baseURL');
+    $xslt = "<?xml-stylesheet type=\"text/xml\" href=\"$xslt_url\"?>";
+}
 
 $metadata = array(
     'title'             => $title,
@@ -156,7 +163,8 @@ $metadata = array(
     'email'             => $serendipity['blogMail'],
     'fullFeed'          => false,
     'showMail'          => false,
-    'version'           => $version
+    'version'           => $version,
+    'xslt'              => $xslt
 );
 
 if (serendipity_get_config_var('feedBannerURL') != '') {
@@ -285,6 +293,19 @@ $namespace_hook   = 'frontend_display:unknown:namespace';
 $once_display_dat = '';
 
 switch($version) {
+    case 'xsl':
+        // For people wanting extra RFC compliance
+        #header('Content-Type: application/xml; charset=utf-8');
+        #header('x-content-type-options: nosniff');
+        $namespace_hook = 'frontend_display:xslt:namespace';
+        //  since XSLT is used as a simple title listing feed xml, we can either remove the full feed and other irrelevant bits OR strip and truncate 
+        foreach ($entries AS &$entry) {
+            #unset($entry['feed_body']);
+            #unset($entry['feed_ext']);
+            $entry['feed_body'] = serendipity_truncateString(trim(preg_replace('/\s\s+/', ' ', strip_tags($entry['feed_body']))), 180) . ' (...stripped and truncated content preview)';
+        }
+        break;
+
     case 'opml1.0':
         $namespace_hook = 'frontend_display:opml-1.0:namespace';
         break;
