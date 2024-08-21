@@ -16,7 +16,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
         $propbag->add('description',   SHOWS_RSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.15');
+        $propbag->add('version',       '2.16');
         $propbag->add('configuration', array(
                                         'title',
                                         'big_img',
@@ -76,10 +76,14 @@ class serendipity_plugin_syndication extends serendipity_plugin
                 $propbag->add('description', SYNDICATION_PLUGIN_FEEDFORMAT_DESC);
                 $propbag->add('default', 'rss');
                 $propbag->add('radio', array(
-                    'value' => array('rss', 'atom', 'rssatom'),
-                    'desc'  => array(SYNDICATION_PLUGIN_20, sprintf(SYNDICATION_PLUGIN_GENERIC_FEED, 'Atom 1.0'), SYNDICATION_PLUGIN_20 .' + '. sprintf(SYNDICATION_PLUGIN_GENERIC_FEED, 'Atom 1.0'))
+                    'value' => array('rss', 'atom', 'rssatom', 'rssatomxsl'),
+                    'desc'  => array(
+                                    SYNDICATION_PLUGIN_20,
+                                    sprintf(SYNDICATION_PLUGIN_GENERIC_FEED, 'Atom 1.0'),
+                                    SYNDICATION_PLUGIN_20 .' + '. sprintf(SYNDICATION_PLUGIN_GENERIC_FEED, 'Atom 1.0'),
+                                    SYNDICATION_PLUGIN_20 .' + '. sprintf(SYNDICATION_PLUGIN_GENERIC_FEED, 'Atom 1.0') . ' +  XSLT link feed')
                 ));
-                $propbag->add('radio_per_row', '3');
+                $propbag->add('radio_per_row', '4');
                 break;
 
             case 'fb_id':
@@ -174,7 +178,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
         if ($feed_format == 'atom') {
             $useRss = false;
             $useAtom = true;
-        } else if ($feed_format == 'rssatom') {
+        } else if ($feed_format == 'rssatom' || $feed_format == 'rssatomxsl') {
             $useAtom = $useBoth = true;
         }
 
@@ -236,15 +240,24 @@ class serendipity_plugin_syndication extends serendipity_plugin
                                             ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/atom10.xml')) : ''),
                                             $icon,
                                             ($icon === $small_icon));
+            if ($feed_format == 'rssatomxsl') {
+                echo $this->generateFeedButton( serendipity_rewriteURL(PATH_FEEDS .'/index.xsl'),
+                                            "XSLT $FEED",
+                                            ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/index.xsl')) : ''),
+                                            $icon,
+                                            ($icon === $small_icon));
+            }
         }
 
         if (serendipity_db_bool($this->get_config('show_2.0c', 'false')) || serendipity_db_bool($this->get_config('show_comment_feed', 'false'))) {
+            echo "<hr/>\n"; // a separator between entry feeds and comment feeds
             // case comments feed both
             if ($useBoth) {
                 echo $this->generateFeedButton( serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.rss2'),
                                                 $COMMENTS . ' (RSS)',
                                                 ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.rss2')) : ''),
-                                                $small_icon);
+                                                $icon,
+                                                ($icon === $small_icon));
                 echo $this->generateFeedButton( serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.atom10'),
                                                 $COMMENTS . ' (Atom)',
                                                 ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.atom10')) : ''),
