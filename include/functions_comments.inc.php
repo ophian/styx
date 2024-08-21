@@ -623,7 +623,7 @@ function serendipity_printComments(iterable $comments, int|string $parentid = 0,
         $_smartyComments = array();
     }
 
-    if (!isset($serendipity['allowHtmlComment'])) $serendipity['allowHtmlComment'] = false;
+    $serendipity['allowHtmlComment'] ??= false;
 
     $i = 0;
     foreach($comments AS $comment) {
@@ -776,7 +776,8 @@ function serendipity_printCommentsByAuthor() : bool {
 
     $type = serendipity_db_escape_string($serendipity['GET']['commentMode']);
 
-    if (!isset($serendipity['allowHtmlComment'])) $serendipity['allowHtmlComment'] = false;
+    $serendipity['allowHtmlComment'] ??= false;
+
     if (!empty($serendipity['GET']['viewCommentAuthor'])) {
         $sql_where = " AND co.author = '" . serendipity_db_escape_string($serendipity['GET']['viewCommentAuthor']) . "'";
         $group_by  = "GROUP BY co.author";
