@@ -29,7 +29,7 @@ if (isset($_POST['DELETE_YES']) && serendipity_checkFormToken()) {
         $data['no_delete_permission_userlevel'] = true;
     } else {
         if (isset($user[0])) {
-            $group_intersect = serendipity_intersectGroup($user[0]['authorid']);
+            $group_intersect = serendipity_intersectGroup((int) $user[0]['authorid']);
             if (serendipity_checkPermission('adminUsersMaintainOthers') || (serendipity_checkPermission('adminUsersMaintainSame') && $group_intersect)) {
                 // if user is trying to delete itself return false
                 if (serendipity_deleteAuthor($user[0]['authorid'])) {
@@ -232,7 +232,7 @@ if (($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission
 
     if ($serendipity['GET']['adminAction'] == 'edit') {
         $user = serendipity_fetchUsers($serendipity['GET']['userid']);
-        $group_intersect = serendipity_intersectGroup($user[0]['authorid']);
+        $group_intersect = serendipity_intersectGroup((int) $user[0]['authorid']);
         if ($user[0]['userlevel'] >= $serendipity['serendipityUserlevel'] && $user[0]['authorid'] != $serendipity['authorid'] && !serendipity_checkPermission('adminUsersMaintainOthers')) {
             $data['no_create_permission'] = true;
             $from = array();
@@ -264,7 +264,7 @@ if (($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission
 
 } elseif ($serendipity['GET']['adminAction'] == 'delete' && serendipity_checkPermission('adminUsersDelete')) {
     $user = serendipity_fetchUsers($serendipity['GET']['userid']);
-    $group_intersect = serendipity_intersectGroup($user[0]['authorid']);
+    $group_intersect = serendipity_intersectGroup((int) $user[0]['authorid']);
 
     if (serendipity_checkPermission('adminUsersMaintainOthers')
     || (serendipity_checkPermission('adminUsersMaintainSame') && $group_intersect)) {
