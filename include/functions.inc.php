@@ -987,18 +987,20 @@ function serendipity_chainByLevel(iterable $users) : iterable {
 /**
  * Fetch the list of Serendipity Authors
  *
+ * Args:
+ *      - Fetch only a specific User by numeric|empty|null string
+ *      - Can contain an array of group IDs you only want to fetch authors of
+ *      - boolean If set to TRUE, the amount of entries per author will also be returned
+ * Returns:
+ *      - Result array of the SQL query OR boolean OR error string
  * @access public
- * @param   int     Fetch only a specific User
- * @param   array   Can contain an array of group IDs you only want to fetch authors of.
- * @param   boolean If set to TRUE, the amount of entries per author will also be returned
- * @return  array   Result of the SQL query
  */
-function serendipity_fetchUsers($user = '', $group = null, $is_count = false) {
+function serendipity_fetchUsers(?string $user = '', iterable|string|null $group = null, ?bool $is_count = false) : string|bool|iterable {
     global $serendipity;
 
     $where = '';
     if (!empty($user)) {
-        $where = "WHERE a.authorid = '" . (int)$user ."'";
+        $where = "WHERE a.authorid = '" . (int) $user ."'";
     }
 
     $query_select   = '';
@@ -1011,7 +1013,7 @@ function serendipity_fetchUsers($user = '', $group = null, $is_count = false) {
                                       ON (a.authorid = e.authorid AND e.isdraft = 'false')";
     }
 
-    if ($is_count || $group != null) {
+    if ($is_count || $group !== null) {
         if ($serendipity['dbType'] == 'postgres' ||
             $serendipity['dbType'] == 'pdo-postgres') {
             // Why does PostgreSQL keep doing this to us? :-)
@@ -1050,11 +1052,11 @@ function serendipity_fetchUsers($user = '', $group = null, $is_count = false) {
             $where .= ' AND gc.id IS NULL ';
         } elseif (is_array($group)) {
             foreach($group AS $g) {
-                $in_groups[] = (int)($g['id'] ?? $g); // be nice to debug sessions
+                $in_groups[] = (int) ($g['id'] ?? $g); // be nice to debug sessions
             }
             $group_sql = implode(', ', $in_groups);
         } else {
-            $group_sql = (int)$group;
+            $group_sql = (int) $group;
         }
 
         $querystring = "SELECT $query_distinct
@@ -1225,7 +1227,7 @@ function serendipity_fetchReferences(int $id) : string|bool|iterable {
  * @access public
  */
 function serendipity_utf8_encode(string $string) : ?string {
-    if (is_null($string)) return;
+    if (is_null($string)) return null;
     if (strtolower(LANG_CHARSET) != 'utf-8') {
         if (function_exists('iconv')) {
             $new = iconv(LANG_CHARSET, 'UTF-8', $string);
