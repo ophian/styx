@@ -433,6 +433,8 @@ function serendipity_displayCommentForm(int $id, string $url, ?iterable $comment
     } else {
         $serendipity['smarty']->assign('COMMENTFORM', '<div class="serendipity_msg_important">' . PLUGIN_EVENT_SPAMBLOCK_ERROR_KILLSWITCH . '</div>');
     }
+    // Used to enable highlight JS with dark mode styles in comment preview mode (see commentform.tpl)
+    $serendipity['smarty']->assign('darkmode', $serendipity['dark_mode'] ?? false);
 }
 
 /**
