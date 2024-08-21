@@ -2,6 +2,8 @@ Version 4.5-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve backend comment preview mode for code highlights with highlight JS
+
   * Improve serendipity_sendMail() standard compliance using CRLF to separate
     headers in base64 Content-Transfer-Encoding case.
 
