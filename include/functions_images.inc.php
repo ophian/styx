@@ -2021,7 +2021,7 @@ function serendipity_generateVariations(?int $id = null) : ?int {
     return $i;
 }
 
- /**
+/**
  * Delete all image AVIF/WebP Variation files in the physical Media Library
  *
  * Args:
