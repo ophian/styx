@@ -2,6 +2,10 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add a simple XLS/transform data layer for our atom 1.0 feed to give out a
+    styled entries list feed; Extends the syndication sidebar plugin for multi-
+    feed option.
+
   * Implement Serendipity Styx API "Type safety"!
     Uses Parameter-/Return Types in combo with Union Types for PHP 8.2+ and
     removes @param, @return PHPDoc references which were far less exact in
