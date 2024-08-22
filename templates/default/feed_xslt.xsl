@@ -41,9 +41,9 @@
             </p>
             <a class="head_link" target="_blank">
               <xsl:attribute name="href">
-                <xsl:value-of select="/atom:feed/atom:link"/>
+                <xsl:value-of select="/atom:feed/atom:link[@rel='alternate']/@href"/>
               </xsl:attribute>
-              Visit Website &#x2192;
+              Visit my Website &#x2192;
             </a>
           </header>
           <h2>Recent Items</h2>
