@@ -1757,6 +1757,10 @@ function serendipity_deleteEntry(int $id) : ?bool {
     // Purge the daily/monthly entries so they can be rebuilt
     $result = serendipity_db_query("SELECT timestamp, authorid FROM {$serendipity['dbPrefix']}entries WHERE id = '". $id ."'", true);
 
+    if (false === $result) {
+        return false;
+    }
+
     if ($result[1] != $serendipity['authorid'] && !serendipity_checkPermission('adminEntriesMaintainOthers')) {
         // Only admins and chief users can delete entries which do not belong to the author
         return null;
