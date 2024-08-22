@@ -34,7 +34,7 @@ if (isset($_POST['SAVE']) && serendipity_checkFormToken()) {
     } else {
         $authorid = (int) $serendipity['authorid'];
     }
-    $cid = (int) $serendipity['GET']['cid'];
+    $cid = (int) $serendipity['GET']['cid'] ??= 0; // declare 0 key as none-category key for next ACL check if GET cid does not exist (like for no parent case)
 
     $icon     = $serendipity['POST']['cat']['icon'];
     $parentid = (isset($serendipity['POST']['cat']['parent_cat']) && is_numeric($serendipity['POST']['cat']['parent_cat'])) ? $serendipity['POST']['cat']['parent_cat'] : 0;
@@ -88,7 +88,7 @@ if (isset($_POST['SAVE']) && serendipity_checkFormToken()) {
 /* Delete a category */
 if ($serendipity['GET']['adminAction'] == 'doDelete' && serendipity_checkFormToken()) {
     $data['doDelete'] = true;
-    if ($serendipity['GET']['cid'] != 0) {
+    if ((int) $serendipity['GET']['cid'] != 0) {
         $remaining_cat = (int) $serendipity['POST']['cat']['remaining_catid'];
         $category_ranges = serendipity_fetchCategoryRange((int) $serendipity['GET']['cid']);
         $category_range  = implode(' AND ', $category_ranges);
@@ -118,9 +118,9 @@ if ($serendipity['GET']['adminAction'] == 'doDelete' && serendipity_checkFormTok
         if (serendipity_deleteCategory($category_range, $admin_category) ) {
 
             foreach($category_ranges AS $cid) {
-                if (serendipity_ACLCheck((int) $serendipity['authorid'], $cid, 'category', 'write')) {
-                    serendipity_ACLGrant($cid, 'category', 'read', array());
-                    serendipity_ACLGrant($cid, 'category', 'write', array());
+                if (serendipity_ACLCheck((int) $serendipity['authorid'], (int) $cid, 'category', 'write')) {
+                    serendipity_ACLGrant((int) $cid, 'category', 'read', array());
+                    serendipity_ACLGrant((int) $cid, 'category', 'write', array());
                 }
             }
             $data['deleteSuccess'] = true;
