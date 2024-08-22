@@ -871,10 +871,10 @@ function serendipity_rebuildCategoryTree(int $parent = 0, int $left = 0) : int {
 
     $right = $left + 1;
 
-    $result = serendipity_db_query("SELECT categoryid FROM {$serendipity['dbPrefix']}category WHERE parentid = '" . (int)$parent . "'");
+    $result = serendipity_db_query("SELECT categoryid FROM {$serendipity['dbPrefix']}category WHERE parentid = '" . $parent . "'");
     if (is_array($result)) {
         foreach($result AS $category) {
-            $right = serendipity_rebuildCategoryTree($category['categoryid'], $right);
+            $right = serendipity_rebuildCategoryTree((int) $category['categoryid'], $right);
         }
     }
     if ($parent > 0 ) {
