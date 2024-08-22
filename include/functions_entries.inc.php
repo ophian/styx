@@ -1744,7 +1744,7 @@ function serendipity_updertEntry(iterable $entry) : mixed {
  * Args:
  *      - The Entry ID to delete
  * Returns:
- *      - FALSE or NULL on error
+ *      - FALSE or NULL on error, True on success
  * @access public
  */
 function serendipity_deleteEntry(int $id) : ?bool {
@@ -1770,6 +1770,8 @@ function serendipity_deleteEntry(int $id) : ?bool {
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}references WHERE entry_id='$id' AND (type = '' OR type IS NULL)");
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}permalinks WHERE entry_id='$id'");
     serendipity_cleanCache();
+
+    return true;
 }
 
 /**
