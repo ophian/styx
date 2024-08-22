@@ -215,10 +215,12 @@ switch($serendipity['GET']['adminAction']) {
         }
 
         $entry = serendipity_fetchEntry('id', $serendipity['GET']['id'], true, 1);
-        serendipity_deleteEntry((int) $serendipity['GET']['id']);
-        $data['switched_output'] = true;
-        $data['is_doDelete']     = true;
-        $data['del_entry']       = sprintf(RIP_ENTRY, $entry['id'] . ' - ' . htmlspecialchars($entry['title']));
+        if (is_array($entry)) {
+            serendipity_deleteEntry((int) $serendipity['GET']['id']);
+            $data['switched_output'] = true;
+            $data['is_doDelete']     = true;
+            $data['del_entry']       = sprintf(RIP_ENTRY, $entry['id'] . ' - ' . htmlspecialchars($entry['title']));
+        }
         // no break [PSR-2] - extends editSelect
 
     case 'doMultiDelete':
@@ -231,11 +233,13 @@ switch($serendipity['GET']['adminAction']) {
             $data['switched_output'] = true;
             $data['del_entry']       = array();
             foreach($parts AS $id) {
-                if ($id > 0) {
+                if ((int) $id > 0) {
                     $entry = serendipity_fetchEntry('id', $id, true, 1);
                     serendipity_deleteEntry((int) $id);
                     $data['is_doMultiDelete'] = true;
-                    $data['del_entry'][]      = sprintf(RIP_ENTRY, $entry['id'] . ' - ' . htmlspecialchars($entry['title']));
+                    if (is_array($entry)) {
+                        $data['del_entry'][]  = sprintf(RIP_ENTRY, $entry['id'] . ' - ' . htmlspecialchars($entry['title']));
+                    }
                 }
             }
         }
