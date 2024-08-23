@@ -24,7 +24,7 @@ if (IN_serendipity !== true) {
  *      - The new user ID of the added author
  * @access public
  */
-function serendipity_addAuthor(string $username, #[\SensitiveParameter] string $password, string $realname, string $email, int $userlevel = 0, int $hashtype = 2) : int {
+function serendipity_addAuthor(string $username, #[\SensitiveParameter] string $password, string $realname, string $email, int|string $userlevel = 0, int $hashtype = 2) : int {
     global $serendipity;
 
     $password = serendipity_hash($password);
