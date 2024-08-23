@@ -2,7 +2,8 @@ Version 4.5-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Improve [ b53 ] theme for a minor edit link CSS case with...
+  * Improve [ default ] theme CSS for media sidebar item(s).
+    Improve [ b53 ] theme for a minor edit link CSS case with...
     Improve [ b46 ] theme sidebar template for ...freetag clouds expands in
     main content views.
 
