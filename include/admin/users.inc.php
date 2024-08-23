@@ -17,7 +17,8 @@ require_once(S9Y_INCLUDE_PATH . 'include/functions_installer.inc.php');
 $data = array();
 
 $data['random_pw'] = serendipity_generate_password(20);
-define('USERCONF_NEW_PASSWDEX_TOOLTIP_INFO', ' - ' . serendipity_mb('strtolower', WORD_OR) . " -<br>\n" . sprintf('                    <span class="newrex" title="' . USERCONF_PASSWORD_RANDOM . '"><span class="icon-info-circled" aria-hidden="true"></span>%s</span>', $data['random_pw']));// no space with %s !
+define('USERCONF_NEW_PASSWDEX_TOOLTIP_INFO', ' - ' . serendipity_mb('strtolower', WORD_OR) . " -<br>\n" .
+    sprintf('                    <span class="newrex" title="' . USERCONF_PASSWORD_RANDOM . '"><span class="icon-info-circled" aria-hidden="true"></span>%s</span>', $data['random_pw']));// no space with %s !
 
 /* Delete a user */
 if (isset($_POST['DELETE_YES']) && serendipity_checkFormToken()) {
@@ -62,7 +63,8 @@ if (isset($_POST['SAVE_NEW']) && serendipity_checkFormToken()) {
             $valid_groups = serendipity_getGroups($serendipity['authorid'], true);
             /* Save all the properties */
             $config = serendipity_parseTemplate(S9Y_CONFIG_USERTEMPLATE);
-            // config array is build by 'include/tpl/config_personal.inc.php' array, which sets 'var' => 'password' and which then is the $item name. Normally these are 'pass' named input fields for login passwords.
+            // config array is build by 'include/tpl/config_personal.inc.php' array, which sets 'var' => 'password' and which then is the $item name.
+            // Normally these are 'pass' named input fields for login passwords.
             foreach($config AS $category) {
                 foreach($category['items'] AS $item) {
                     if (in_array('groups', $item['flags'])) {
@@ -250,7 +252,8 @@ if (($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission
     $data['from'] = $from;
 
     $config = serendipity_parseTemplate(S9Y_CONFIG_USERTEMPLATE);
-    // config array is build by 'include/tpl/config_personal.inc.php' array, which sets 'var' => 'password' and which then is the $item name. Normally these are 'pass' named input fields for login passwords.
+    // config array is build by 'include/tpl/config_personal.inc.php' array, which sets 'var' => 'password' and which then is the $item name.
+    // Normally these are 'pass' named input fields for login passwords.
 
     if (!empty($serendipity['GET']['userid'])) {
         // unset special group for siteAutoUpgraders is done in serendipity_getAllGroups()
