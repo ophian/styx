@@ -721,6 +721,10 @@ div.serendipityPlug a {
 .serendipity_shoutbox_comment {
     padding: 0.25em 0;
 }
+/* media side bar */
+#mediasidebar .mediasidebaritem {
+  margin-bottom: .25em;
+}
 
 
 /** Embedded images with the Serendipity Styx image manager **/
