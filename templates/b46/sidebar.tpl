@@ -3,7 +3,7 @@
 {/if}
 {foreach $plugindata AS $item}
 {if $item.class != "serendipity_plugin_syndication" AND NOT empty($item.content)}
-    <section class="{$item.class} mb-3 col-xl-3 col-lg-4 col-sm-6">
+    <section class="{$item.class} mb-3{if $item.class == "serendipity_plugin_freetag"} col-lg-12{else} col-lg-4 col-sm-6{/if} px-0">
     {if $item.title != ""}
         <h3>{$item.title}</h3>
     {/if}
