@@ -575,7 +575,7 @@ function serendipity_smarty_showPlugin(iterable $params, null|string|\Smarty_Int
     }
 
     if (empty($params['negate']) || $params['negate'] === 'null') {
-        $params['negate'] = null;
+        $params['negate'] = false;
     }
     if ($params['negate'] === 'true' || $params['negate'] === 'false') {
         $params['negate'] = serendipity_db_bool($params['negate']);
