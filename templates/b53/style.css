@@ -1000,6 +1000,7 @@ html[data-bs-theme="dark"] .hljs-keyword, html[data-bs-theme="dark"] .hljs-selec
   text-align: right; }
 
 .serendipity_edit_nugget {
+  width: auto;
   display: block;
   text-align: end;
   font-size: 14px;
