@@ -54,7 +54,7 @@ function serendipity_isActiveFile(string $file) : bool {
  *      - Result-set of images
  * @access public
  */
-function serendipity_fetchImagesFromDatabase(int $start = 0, int $limit = 0, ?int &$total = null, string|bool $order = false, string|bool $ordermode = false, string $directory = '', ?string $filename = '', string $keywords = '', iterable $filter = array(), bool $hideSubdirFiles = false) : iterable {
+function serendipity_fetchImagesFromDatabase(int $start = 0, int $limit = 0, ?int &$total = null, string|bool $order = false, string|bool $ordermode = false, string $directory = '', ?string $filename = '', string $keywords = '', ?iterable $filter = array(), bool $hideSubdirFiles = false) : iterable {
     global $serendipity;
 
     $cond = array(
