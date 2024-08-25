@@ -737,10 +737,10 @@ function &serendipity_fetchEntryProperties(int $id) : iterable {
  *          If set to "read", only categories will be show that the author can read or write to.
  *      - Allows to set a default category by author
  * Returns:
- *      - Returns the array of categories
+ *      - Returns the array of categories OR bool on empty but true or an SQL error string
  * @access public
  */
-function &serendipity_fetchCategories(?string $authorid = null, ?string $name = null, ?string $order = null, string $artifact_mode = 'write', bool $flat = false) : iterable|bool {
+function &serendipity_fetchCategories(?string $authorid = null, ?string $name = null, ?string $order = null, string $artifact_mode = 'write', bool $flat = false) : iterable|bool|string {
     global $serendipity;
 
     if ($name === null) {
