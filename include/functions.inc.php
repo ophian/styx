@@ -340,6 +340,21 @@ function serendipity_debugCallerId() : string {
 }
 
 /**
+ * Serendipity INT type compatibility check to allow overall calls with array values
+ * Args:
+ *      - The id (type)
+ * Returns:
+ *      - Void Exit on fail
+ * @access public
+ */
+function serendipity_typeCompatCheckID(int|string $id) : void {
+    if (is_string($id) && !is_numeric($id)) {
+        trigger_error('Fuck off! Don\'t play with me! Only valid author IDs allowed.', E_USER_ERROR);
+        exit;
+    }
+}
+
+/**
  * Truncate a string to a specific length, multibyte aware. Appends '...' if successfully truncated
  *
  * Args:
