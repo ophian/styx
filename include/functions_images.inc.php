@@ -4727,7 +4727,7 @@ function serendipity_parsePropertyForm() : false|iterable {
                 serendipity_uploadSecure($filedir['oldDir']),
                 serendipity_uploadSecure($filedir['newDir']),
                 'filedir',
-                $serendipity['POST']['mediaProperties'][$id]['image_id']);
+                (int) $serendipity['POST']['mediaProperties'][$id]['image_id']);
         }
     }
 
@@ -6231,7 +6231,7 @@ function serendipity_formatRealFile(string $oldDir, string $newDir, string $form
  * @access public
  * @see SPLIT serendipity_moveMediaDirectory() part 4
  */
-function serendipity_moveMediaInEntriesDB(?string $oldDir, string $newDir, string $type, iterable $file, ?iterable $pick = null, bool $debug = false) : ?false {
+function serendipity_moveMediaInEntriesDB(?string $oldDir, string $newDir, string $type, ?iterable $file, ?iterable $pick = null, bool $debug = false) : ?false {
     global $serendipity;
 
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
