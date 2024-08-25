@@ -1387,7 +1387,7 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
             } else {
                 // The caller wants an image constrained in the dimension set by config
                 $calc = serendipity_calculateAspectSize($fdim[0], $fdim[1], $size, $serendipity['imageConstraint']);
-                $r    = serendipity_resizeImageGD($infile, $outfile, $calc[0], $calc[1]);
+                $r    = serendipity_resizeImageGD($infile, $outfile, (int) round($calc[0]), (int) round($calc[1])); // float to integer
                 // Create a copy in WebP image format
                 if (file_exists($outfile) && $serendipity['useWebPFormat']) {
                     // The WebP GD part in 3 steps: 1. makeVariationPath(), 2. convertToWebPFormat(), 3. resizeImageGD()
@@ -1399,7 +1399,7 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                         // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
                         // split it up like done here: 1. $outfile->convert to WebP and then 2. $webpthbGD->resize to thumb, which overwrites the first.
                         $webpthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
-                        $newsize   = serendipity_resizeImageGD($webpthbGD, $webpthbGD, $calc[0], $calc[1]);
+                        $newsize   = serendipity_resizeImageGD($webpthbGD, $webpthbGD, (int) round($calc[0]), (int) round($calc[1])); // float to integer
                         if (false !== $newsize && is_array($newsize)) {
                             if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize success with GD lib " . DONE); }
                         } else {
@@ -1420,7 +1420,7 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                         // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
                         // split it up like done here: 1. $outfile->convert to AVIF and then 2. $avifthbGD->resize to thumb, which overwrites the first.
                         $avifthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
-                        $newsize   = serendipity_resizeImageGD($avifthbGD, $avifthbGD, $calc[0], $calc[1]);
+                        $newsize   = serendipity_resizeImageGD($avifthbGD, $avifthbGD, (int) round($calc[0]), (int) round($calc[1])); // float to integer
                         if (false !== $newsize && is_array($newsize)) {
                             if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format resize success with GD lib " . DONE); }
                         } else {
@@ -1861,10 +1861,10 @@ function serendipity_rotateImg(int $id, int $degrees) : bool {
  * Args:
  *      - file id
  * Returns:
- *      - num $items converted
+ *      - $items converted true or false or null if not allowed
  * @access private
  */
-function serendipity_generateVariations(?int $id = null) : ?int {
+function serendipity_generateVariations(?int $id = null) : ?bool {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
