@@ -697,7 +697,7 @@ function serendipity_strftime(string $format, int|string|false|null $timestamp =
         switch($serendipity['calendar']) {
             default:
             case 'gregorian':
-                if ($timestamp == null) {
+                if ($timestamp === null || $timestamp === false) {
                     $timestamp = serendipity_serverOffsetHour();
                 } elseif ($useOffset) {
                     $timestamp = serendipity_serverOffsetHour($timestamp);
@@ -708,11 +708,11 @@ function serendipity_strftime(string $format, int|string|false|null $timestamp =
                   cheers Derick
                   done!
                 */
-                $out = serendipity_toDateTimeMapper($format, $timestamp, WYSIWYG_LANG);
+                $out = serendipity_toDateTimeMapper($format, (int) $timestamp, WYSIWYG_LANG);
                 break;
 
             case 'persian-utf8':
-                if ($timestamp == null) {
+                if ($timestamp === null || $timestamp === false) {
                     $timestamp = serendipity_serverOffsetHour();
                 } elseif ($useOffset) {
                     $timestamp = serendipity_serverOffsetHour($timestamp);
