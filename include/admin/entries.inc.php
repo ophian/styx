@@ -400,7 +400,6 @@ switch($serendipity['GET']['adminAction']) {
         if (is_array($categories)) {
             $categories = serendipity_walkRecursive($categories, 'categoryid', 'parentid', VIEWMODE_THREADED);
         }
-        $categories = serendipity_walkRecursive($categories, 'categoryid', 'parentid', VIEWMODE_THREADED);
 
         $data['drawList']   = true;
         $data['sort_order'] = $sort_order;
