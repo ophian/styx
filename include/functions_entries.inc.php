@@ -843,7 +843,7 @@ function &serendipity_fetchCategories(?string $authorid = null, ?string $name = 
         echo "Query failed: $ret";
     } else {
         if ($flat) {
-            $cats = serendipity_walkRecursive($ret, 'categoryid', 'parentid', VIEWMODE_THREADED);
+            $cats = is_array($ret) ? serendipity_walkRecursive($ret, 'categoryid', 'parentid', VIEWMODE_THREADED) : [];
             $flat_cats = array();
             $flat_cats[0] = NO_CATEGORY;
             foreach($cats AS $catidx => $catdata) {
