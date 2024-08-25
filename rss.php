@@ -305,8 +305,8 @@ switch($version) {
         $namespace_hook = 'frontend_display:atom-1.0:namespace';
         // help out for HTML5 w/o /> to XML to /> in special for picture container source tags
         foreach ($entries AS &$entry) {
-            $entry['feed_body'] = preg_replace('/\<(img|source|br|hr)([^>]*)(?<!\/)>/', '<\1\2\3\4/>', str_replace('&amp;shy;', '', $entry['feed_body']));
-            $entry['feed_ext']  = preg_replace('/\<(img|source|br|hr)([^>]*)(?<!\/)>/', '<\1\2\3\4/>', str_replace('&amp;shy;', '', $entry['feed_ext']));
+            $entry['feed_body'] = preg_replace('/\<(img|source|br|hr|(?!colgroup)col)([^>]*)(?<!\/)>/', '<\1\2\3/>', str_replace('&amp;shy;', '', $entry['feed_body']));
+            $entry['feed_ext']  = preg_replace('/\<(img|source|br|hr|(?!colgroup)col)([^>]*)(?<!\/)>/', '<\1\2\3/>', str_replace('&amp;shy;', '', $entry['feed_ext']));
         }
         break;
 }
