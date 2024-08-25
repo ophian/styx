@@ -206,7 +206,9 @@ if ($serendipity['GET']['adminAction'] == 'edit' || $serendipity['GET']['adminAc
     }
 
     $categories = serendipity_fetchCategories('all');
-    $categories = serendipity_walkRecursive($categories, 'categoryid', 'parentid', VIEWMODE_THREADED);
+    if (is_array($categories)) {
+        $categories = serendipity_walkRecursive($categories, 'categoryid', 'parentid', VIEWMODE_THREADED);
+    }
     $data['categories'] = $categories;
     // hook content as var to category.inc.tpl, to place inside the form
     ob_start();
