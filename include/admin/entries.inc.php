@@ -397,6 +397,9 @@ switch($serendipity['GET']['adminAction']) {
 
         $users      = serendipity_fetchUsers('', 'hidden', true);
         $categories = serendipity_fetchCategories();
+        if (is_array($categories)) {
+            $categories = serendipity_walkRecursive($categories, 'categoryid', 'parentid', VIEWMODE_THREADED);
+        }
         $categories = serendipity_walkRecursive($categories, 'categoryid', 'parentid', VIEWMODE_THREADED);
 
         $data['drawList']   = true;
