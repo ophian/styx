@@ -4616,7 +4616,7 @@ function serendipity_mediaTypeCast(string $key, string $val, bool $invert = fals
  *      - void
  * @access private
  */
-function serendipity_updateSingleMediaProperty(int $image_id, string $property_fields, string $setval) : void {
+function serendipity_updateSingleMediaProperty(int $image_id, iterable|string $property_fields, string $setval) : void {
     global $serendipity;
 
     $AND = '';
@@ -5631,7 +5631,7 @@ function serendipity_renameDirAccess(string $oldDir, string $newDir, bool $debug
  * @see SPLIT serendipity_moveMediaDirectory() part 2
  * @access public
  */
-function serendipity_renameRealFileName(string $oldDir, string $newDir, string $type, int $item_id, iterable $file, bool $debug = false) : bool {
+function serendipity_renameRealFileName(?string $oldDir, string $newDir, string $type, int $item_id, iterable $file, bool $debug = false) : bool {
     global $serendipity;
 
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
@@ -6231,7 +6231,7 @@ function serendipity_formatRealFile(string $oldDir, string $newDir, string $form
  * @access public
  * @see SPLIT serendipity_moveMediaDirectory() part 4
  */
-function serendipity_moveMediaInEntriesDB(string $oldDir, string $newDir, string $type, iterable $file, ?iterable $pick = null, bool $debug = false) : ?false {
+function serendipity_moveMediaInEntriesDB(?string $oldDir, string $newDir, string $type, iterable $file, ?iterable $pick = null, bool $debug = false) : ?false {
     global $serendipity;
 
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
@@ -6615,7 +6615,7 @@ function serendipity_moveMediaInEntriesDB(string $oldDir, string $newDir, string
  *      - True on success, False on fail
  * @access public
  */
-function serendipity_moveMediaDirectory(string $oldDir, string $newDir, string $type = 'dir', ?int $item_id = null, ?iterable $file = null) : bool {
+function serendipity_moveMediaDirectory(?string $oldDir, string $newDir, string $type = 'dir', ?int $item_id = null, ?iterable $file = null) : bool {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
     $pick = null;
