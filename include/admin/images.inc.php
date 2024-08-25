@@ -374,7 +374,7 @@ switch ($serendipity['GET']['adminAction']) {
     // add single image variations per image
     case 'variations':
         if (serendipity_generateVariations($serendipity['GET']['fid'])) {
-            $data['messages'] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . SYNC_OPTION_BUILDVARIATIONS . ' (#'.htmlspecialchars($serendipity['GET']['fid']) . '). ' . DONE.'! ' . "</span>\n";
+            $data['messages'] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . SYNC_OPTION_BUILDVARIATIONS . ' (#'.htmlspecialchars((string) $serendipity['GET']['fid']) . '). ' . DONE.'! ' . "</span>\n";
         } else {
             $data['messages'] = '<div class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> Generating additional variations by this image not possible or available!' . "</span>\n";
         }
