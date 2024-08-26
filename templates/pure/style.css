@@ -554,7 +554,7 @@ pre {
     white-space: pre;
     white-space: pre-wrap !important;/* overwrite a possible "white-space: pre" via highlight.css */
     overflow-x: auto;
-    padding: 1em 0; }
+    padding: .5em 0; }
 .visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
 
 a, a:visited {
