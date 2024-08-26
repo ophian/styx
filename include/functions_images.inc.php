@@ -1747,7 +1747,7 @@ function serendipity_rotateImg(int $id, int $degrees) : bool {
     $infile_avif = $outfile_avif = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.avif';
     $infile_avifThumb = $outfile_avifThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . '.avif';
 
-    $turn = (preg_match('@-@', $degrees)) ? '<-' : '->';
+    $turn = preg_match('@-@', (string) $degrees) ? '<-' : '->';
 
     // check for AVIF image file errors before to prevent image rotating AT ALL
     // - this is a workaround to prevent serendipity_rotateImageGD() or serendipity_passToCMD IM -rotate errors on broken images AND does also work when getimagesize() is fixed for AVIF up from PHP 8.2
