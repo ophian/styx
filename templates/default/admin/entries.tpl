@@ -33,7 +33,7 @@
 {if !isset($entry_data.entry)}{$entry_data.entry = ''}{/if}
 
     <div class="form_area">
-        <label for="serendipity[body]">{$CONST.ENTRY_BODY}</label>
+        <label for="serendipity_textarea_body">{$CONST.ENTRY_BODY}</label>
 {if NOT $entry_vars.wysiwyg}
         <div id="tools_entry" class="editor_toolbar">
 {if isset($entry_vars.markupeditor)}
@@ -65,13 +65,13 @@
         </div>
 {/if}
 {/if}
-        <div id="teaser_entry_editor">
-            <textarea id="serendipity[body]" name="serendipity[body]" rows="15">{if isset($entry_vars.entry.body)}{$entry_vars.entry.body|default:''|escape}{/if}</textarea>
+        <div class="teaser_entry_editor">
+            <textarea id="serendipity_textarea_body" name="serendipity[body]" rows="15">{if isset($entry_vars.entry.body)}{$entry_vars.entry.body|default:''|escape}{/if}</textarea>
         </div>
     </div>
 
      <div class="form_area">
-        <label for="serendipity[extended]">{$CONST.EXTENDED_BODY}</label>
+        <label for="serendipity_textarea_extended">{$CONST.EXTENDED_BODY}</label>
 {if NOT $entry_vars.wysiwyg}
         <div id="tools_extended" class="editor_toolbar">
 {if isset($entry_vars.markupeditor)}
@@ -100,8 +100,8 @@
             {serendipity_hookPlugin hook="backend_entry_toolbar_extended" data=$entry_data.entry|default:'' hookAll="true"}
         </div>
 {/if}
-        <div id="extended_entry_editor">
-            <textarea id="serendipity[extended]" name="serendipity[extended]" rows="15">{if isset($entry_vars.entry.extended)}{$entry_vars.entry.extended|default:''|escape}{/if}</textarea>
+        <div id="extended_entry_editor" class="teaser_entry_editor">
+            <textarea id="serendipity_textarea_extended" name="serendipity[extended]" rows="15">{if isset($entry_vars.entry.extended)}{$entry_vars.entry.extended|default:''|escape}{/if}</textarea>
         </div>
     </div>
 
