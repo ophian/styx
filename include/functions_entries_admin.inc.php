@@ -153,8 +153,8 @@ function serendipity_printEntryForm(string $targetURL, iterable $hiddens = array
     $template_vars['wysiwyg']                 =  $serendipity['wysiwyg'] ?? false;
     $template_vars['serendipityRightPublish'] =  $_SESSION['serendipityRightPublish'];
     $template_vars['wysiwyg_blocks']          =  array(
-                                                    'body'      => 'serendipity[body]',
-                                                    'extended'  => 'serendipity[extended]'
+                                                    'body'      => 'serendipity_textarea_body',
+                                                    'extended'  => 'serendipity_textarea_extended'
                                                   );
 
     $template_vars['entry_template'] = serendipity_getTemplateFile('admin/entries.tpl', 'serendipityPath');
