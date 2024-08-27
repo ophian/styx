@@ -244,9 +244,10 @@
     // named serendipity[body]/serendipity[extended]
     serendipity.serendipity_imageSelector_addToBody = function(str, textarea) {
         var oEditor;
-        if (typeof(TinyMCE) != 'undefined') {
+        if (typeof(TinyMCE) != 'undefined' || window.tinyMCE) {
             // for the TinyMCE editor we do not have a text mode insert
-            tinyMCE.execInstanceCommand('serendipity[' + textarea + ']', 'mceInsertContent', false, str);
+            tinyMCE.get(textarea).execCommand("mceFocus"); // set current textarea on focus to insert
+            tinyMCE.execCommand('mceInsertContent', false, str); // no !textarea !!!
             return;
         } else if (typeof(CKEDITOR) != 'undefined') {
             oEditor = (typeof(isinstance) == 'undefined') ? CKEDITOR.instances[textarea] : isinstance;
@@ -437,7 +438,7 @@
 
         if (f['serendipity[filename_only]']) {
             // this part is used when selecting only the image without further markup (-> category-icon)
-            var starget = f['serendipity[htmltarget]'] ? f['serendipity[htmltarget]'].value : 'serendipity[' + textarea + ']';
+            var starget = f['serendipity[htmltarget]'] ? f['serendipity[htmltarget]'].value : textarea;
 
             switch(f['serendipity[filename_only]'].value) {
                 case 'true':
@@ -535,7 +536,7 @@
         // Add generic div for ALL pictureSubmit cases
         if (pictureSubmit && (imgWebPfu != '' || noLink)) {
             img = '<div>' + img + '</div>';
-            //console.log('nolink img = '+img); // if not inside a container of what ever "p, div, span..." the picture/source element is magically removed when landing in your textarea
+            //console.log('nolink img = '+img); // if not inside a container of what ever "p, div, span..." the picture/source element is magically removed by CKEDITOR when landing in your textarea
         }
         parent.self.opener.serendipity.serendipity_imageSelector_addToBody(img, textarea);
         parent.self.close();
