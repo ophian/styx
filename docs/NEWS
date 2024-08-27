@@ -2,6 +2,9 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve textarea default ID naming to snake_case convention, which fixes
+    some issues for further processing.
+
   * Add a simple XLS/transform data layer for our atom 1.0 feed to give out a
     styled entries list feed; Extends the syndication sidebar plugin for multi-
     feed option.
