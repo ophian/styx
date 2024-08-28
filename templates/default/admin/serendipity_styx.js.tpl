@@ -515,6 +515,11 @@
             img = '<div>' + img + '</div>';
             //console.log('nolink img = '+img); // if not inside a container of what ever "p, div, span..." the picture/source element is magically removed by CKEDITOR when landing in your textarea
         }
+
+        // see ID renaming and so to keep the POST name="serendipity[body]", but set element ID to id="serendipity_textarea_body" for further POST/GET data processing
+        textarea = textarea === 'serendipity[body]' ? 'serendipity_textarea_body' : textarea;
+        textarea = textarea === 'serendipity[extended]' ? 'serendipity_textarea_extended' : textarea; // ditto for second
+
         parent.self.opener.serendipity.serendipity_imageSelector_addToBody(img, textarea);
         parent.self.close();
     }
