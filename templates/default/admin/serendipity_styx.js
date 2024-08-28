@@ -213,7 +213,6 @@
 
     // "Transfer" value from media db popup to form element, used for example for selecting a category-icon
     serendipity.serendipity_imageSelector_addToElement = function(str, id) {
-        id = serendipity.escapeBrackets(id);
         var $input = $('#' + id);
         $input.val(str); // by category_icon, this adds to category template img tag, see serendipity.change_preview() for being peaceful to new picture containers
 
@@ -227,6 +226,7 @@
 
     // Escape [ and ] to be able to use the string as selector
     // jQuery fails to select the input when the selector contains unescaped [ or ]
+    // Previously used to escape old textarea ID naming alike serendipity[body], now waiting for a new future task
     serendipity.escapeBrackets = function(str) {
         str = str.replace(/\[/g, "\\[");
         str = str.replace(/\]/g, "\\]");
@@ -258,26 +258,7 @@
             }
         }
 
-        serendipity.noWysiwygAdd(str, textarea);
-    }
-
-    // The noWysiwygAdd JS function is the vanila serendipity_imageSelector_addToBody js function
-    // which works fine in NO WYSIWYG mode
-    // NOTE: the serendipity_imageSelector_addToBody could add any valid HTML string to the textarea
-    serendipity.noWysiwygAdd = function(str, textarea) {
-        escapedElement = serendipity.escapeBrackets(textarea);
-        if ($('#' + escapedElement).length) {
-            // Proper ID was specified (hopefully by plugins)
-        } else {
-            // Let us try the serendipity[] prefix
-            escapedElement = serendipity.escapeBrackets('serendipity[' + textarea + ']');
-
-            if (!$('#' + escapedElement).length) {
-                console.log("Serendipity plugin error: " + escapedElement + " not found.");
-            }
-        }
-
-        serendipity.wrapSelection($('#'+escapedElement), str, '');
+        serendipity.wrapSelection($('#'+textarea), str, '');
     }
 
     // helper
@@ -1413,8 +1394,8 @@ $(function() {
         var $el = $(this);
         var $tagOpen = $el.attr('data-tag-open');
         var $tagClose = $el.attr('data-tag-close');
-        //var target = document.forms['serendipityEntry']['serendipity[' + $el.attr('data-tarea') + ']'];
-        var target =  $('#'+serendipity.escapeBrackets($el.attr('data-tarea')));
+        //var target = document.forms['serendipityEntry']['$el.attr('data-tarea')'];
+        var target =  $('#'+$el.attr('data-tarea'));
         if ($el.hasClass('lang-html')) {
             var open = '<' + $tagOpen + '>';
             var close = '</' + $tagClose + '>';
@@ -1426,12 +1407,12 @@ $(function() {
     });
 
     $('.wrap_insimg').click(function() {
-        var target =  $('#'+serendipity.escapeBrackets($(this).attr('data-tarea')));
+        var target =  $('#'+$(this).attr('data-tarea'));
         serendipity.wrapInsImage(target);
     });
 
     $('.wrap_insurl').click(function() {
-        var target =  $('#'+serendipity.escapeBrackets($(this).attr('data-tarea')));
+        var target =  $('#'+$(this).attr('data-tarea'));
         serendipity.wrapSelectionWithLink(target);
     });
 
