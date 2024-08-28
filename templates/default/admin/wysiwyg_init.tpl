@@ -59,7 +59,7 @@
 {/foreach}
         var styxplugins = styxcustomplugins.concat('styx_mediaLibrary_{$item}{foreach $buttons AS $button},{$button.id}{/foreach}');
 
-        CKEDITOR.replace($('#'+serendipity.escapeBrackets('{$item}')).get(0), {
+        CKEDITOR.replace($('#{$item}').get(0), {
             extraPlugins : styxplugins,
             versionCheck : false,
 {if $use_autosave == 'true'}
