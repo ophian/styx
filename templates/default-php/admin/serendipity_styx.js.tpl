@@ -1401,7 +1401,7 @@ $(function() {
         var $el = $(this);
         var $tagOpen = $el.attr('data-tag-open');
         var $tagClose = $el.attr('data-tag-close');
-        //var target = document.forms['serendipityEntry']['$el.attr('data-tarea')'];
+        //var target = document.forms['serendipityEntry']['+$el.attr('data-tarea')+'];
         var target =  $('#'+$el.attr('data-tarea'));
         if ($el.hasClass('lang-html')) {
             var open = '<' + $tagOpen + '>';
