@@ -97,7 +97,7 @@ if (isset($_POST['SAVE_NEW']) && serendipity_checkFormToken()) {
                             $data['no_group_selected'] = true;
                         } else {
                             if (isset($_POST[$item['var']])) {
-                                serendipity_updateGroups($_POST[$item['var']], $serendipity['POST']['user'], false);
+                                serendipity_updateGroups($_POST[$item['var']], (int) $serendipity['POST']['user'], false);
                             }
                         }
                         continue;
@@ -170,7 +170,7 @@ if (isset($_POST['SAVE_EDIT']) && serendipity_checkFormToken()) {
                         $data['no_group_selected'] = true;
                     } else {
                         if (isset($_POST[$item['var']])) {
-                            serendipity_updateGroups($_POST[$item['var']], $serendipity['POST']['user'], false);
+                            serendipity_updateGroups($_POST[$item['var']], (int) $serendipity['POST']['user'], false);
                         }
                     }
                     continue;
