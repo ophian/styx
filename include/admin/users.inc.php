@@ -177,11 +177,11 @@ if (isset($_POST['SAVE_EDIT']) && serendipity_checkFormToken()) {
                 }
 
                 if (serendipity_checkConfigItemFlags($item, 'local')) {
-                    serendipity_set_user_var($item['var'], $_POST[$item['var']], $serendipity['POST']['user'], ($serendipity['authorid'] == $serendipity['POST']['user'] ? true : false));
+                    serendipity_set_user_var($item['var'], $_POST[$item['var']], (int) $serendipity['POST']['user'], ($serendipity['authorid'] == $serendipity['POST']['user'] ? true : false));
                 }
 
                 if (serendipity_checkConfigItemFlags($item, 'configuration')) {
-                    serendipity_set_config_var($item['var'], $_POST[$item['var']], $serendipity['POST']['user']);
+                    serendipity_set_config_var($item['var'], $_POST[$item['var']], (int) $serendipity['POST']['user']);
                 }
             }
         }
