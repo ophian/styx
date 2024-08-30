@@ -214,7 +214,7 @@ function serendipity_db_matched_rows() : int {
  *      - Value of the auto-increment column
  * @access public
  */
-function serendipity_db_insert_id(string $table = '', string $id = '') : int {
+function serendipity_db_insert_id(string $table = '', string $id = '') : string|false {
     global $serendipity;
 
     if (empty($table) || empty($id)) {
