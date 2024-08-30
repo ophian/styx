@@ -225,7 +225,7 @@ function serendipity_installDatabase(string $type = '') : void {
  *      - The default value
  * @access public
  */
-function serendipity_query_default(string $optname, string|bool $default, bool $usertemplate = false, string $type = 'string') : string|bool {
+function serendipity_query_default(string $optname, iterable|int|string|bool $default, bool $usertemplate = false, string $type = 'string') : iterable|int|string|bool {
     global $serendipity;
 
     /* I won't tell you the password, it's a salted hash anyway, you can't do anything with it */
@@ -460,7 +460,7 @@ function serendipity_replaceEmbeddedConfigVars(string $s) : string {
  *      - HTML string
  * @access public
  */
-function serendipity_build_form_data_elements(string $type, string $name, iterable|string|bool|null $value, int|iterable|string|bool $default, iterable $selected, ?int $indent) : string {
+function serendipity_build_form_data_elements(string $type, string $name, iterable|int|string|bool|null $value, iterable|int|string|bool $default, iterable $selected, ?int $indent) : string {
     $html = '';
     // configuration and personal preferences
     if ($indent == 5) {
@@ -563,7 +563,7 @@ function serendipity_build_form_data_elements(string $type, string $name, iterab
  *      - String result of serendipity_build_form_data_elements()
  * @access public
  */
-function serendipity_guessInput(string $type, string $name, iterable|string|bool|null $value = '', int|iterable|string|bool $default = '', ?int $indent = null) : string {
+function serendipity_guessInput(string $type, string $name, iterable|int|string|bool|null $value = '', iterable|int|string|bool $default = '', ?int $indent = null) : string {
     $curOptions = array();
 
     switch ($type) {
@@ -579,7 +579,7 @@ function serendipity_guessInput(string $type, string $name, iterable|string|bool
         case 'bool':
             // DON'T DO on null or empty string
             if ($value !== null && $value !== '') {
-                $value = serendipity_db_bool($value);
+                $value = ($value === true || $value == 'true' || $value == 't' || $value == '1') ? true : false; // mimic serendipity_db_bool($value) which does not exists on install
             }
             if ($value === null || $value === '') {
                 $value = $default;
@@ -643,7 +643,8 @@ function serendipity_printConfigTemplate(iterable $config, iterable|bool $from =
 
             /* Calculate value if we are not installed, how clever :) */
             if ($from === false) {
-                $value = serendipity_query_default($item['var'], $item['default']);
+                // set an empty Traversable type to an empty String as "default fallback value"
+                $value = serendipity_query_default($item['var'], (is_array($item['default']) && empty($item['default'])) ? '' : $item['default']);
             }
 
             /* Check for installOnly flag */
