@@ -207,7 +207,7 @@ function serendipity_emit_htmlarea_code(string $item, string $jsname, bool $spaw
         }
 
         $data = array('init' => $init, 'spawnMulti' => $spawnMulti, 'jsname' => $jsname, 'item' => $item, 'buttons' => $eventData['buttons']);
-        echo serendipity_smarty_showTemplate('admin/wysiwyg_init.tpl', $data);
+        echo serendipity_smarty_showTemplate('admin/tinymce_init.tpl', $data);
     }
     $init = true;
 }
