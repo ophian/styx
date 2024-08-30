@@ -25,12 +25,12 @@ function serendipity_ini_bool(string|false $var) : bool {
  * Convert a size value from a PHP.ini to a bytesize
  *
  * Args:
- *      - Boolean evaluated size value from PHP.ini
+ *      - String or Boolean evaluated size value from PHP.ini
  * Returns:
- *      - bytesize OR the bool $val
+ *      - Integer bytesize OR the bool $val
  * @access public
  */
-function serendipity_ini_bytesize(bool $val) : int|bool {
+function serendipity_ini_bytesize(bool|string $val) : int|bool {
     if (!is_numeric($val) || $val == '')
         return 0;
 
