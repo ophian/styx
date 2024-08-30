@@ -225,7 +225,7 @@ function serendipity_installDatabase(string $type = '') : void {
  *      - The default value
  * @access public
  */
-function serendipity_query_default(string $optname, string $default, bool $usertemplate = false, string $type = 'string') : string {
+function serendipity_query_default(string $optname, string|bool $default, bool $usertemplate = false, string $type = 'string') : string|bool {
     global $serendipity;
 
     /* I won't tell you the password, it's a salted hash anyway, you can't do anything with it */
