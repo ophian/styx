@@ -180,17 +180,17 @@ function serendipity_get_config_var(string $name, bool|string|null $defval = fal
  *      - The configuration value content
  * @access public
  */
-function serendipity_get_user_config_var(string $name, ?int $authorid, mixed $default = '') : string|bool {
+function serendipity_get_user_config_var(string $name, ?int $authorid, mixed $default = '') : iterable|string|bool {
     global $serendipity;
 
     $author_sql = '';
     if (!empty($authorid)) {
-        $author_sql = 'authorid = ' . (int)$authorid . ' AND ';
+        $author_sql = 'authorid = ' . (int) $authorid . ' AND ';
     } elseif (isset($serendipity[$name])) {
         return $serendipity[$name];
     }
 
-    $r = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE $author_sql name = '" . $name . "' LIMIT 1", true);
+    $r = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE $author_sql name = '" . serendipity_db_escape_string($name) . "' LIMIT 1", true);
 
     if (is_array($r)) {
         return $r[0];
