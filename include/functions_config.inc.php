@@ -275,7 +275,7 @@ function serendipity_set_user_var(string $name, string $val, int $authorid, bool
             break;
     }
 
-    serendipity_db_query("UPDATE {$serendipity['dbPrefix']}authors SET $name = '" . serendipity_db_escape_string($val) . "' WHERE authorid = " . (int)$authorid);
+    serendipity_db_query("UPDATE {$serendipity['dbPrefix']}authors SET $name = '" . serendipity_db_escape_string($val) . "' WHERE authorid = " . $authorid);
 
     if ($copy_to_s9y) {
         if (isset($user_map_array[$name])) {
