@@ -1861,10 +1861,10 @@ function serendipity_rotateImg(int $id, int $degrees) : bool {
  * Args:
  *      - file id
  * Returns:
- *      - $items converted true or false or null if not allowed
+ *      - $items converted true or false, or null if not allowed, or counted integer
  * @access private
  */
-function serendipity_generateVariations(?int $id = null) : ?bool {
+function serendipity_generateVariations(?int $id = null) : bool|int|null {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
