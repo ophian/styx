@@ -1212,6 +1212,8 @@ function serendipity_sendMail(string $to, string $subject, string $message, stri
             return @mail($maildata['to'], $maildata['subject'], $maildata['message'], implode("\r\n", $maildata['headers'])); // See RFC 5322 CRLF
         }
     }
+
+    return false;
 }
 
 /**
