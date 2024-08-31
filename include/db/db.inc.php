@@ -16,8 +16,12 @@ if (!empty($serendipity['dbType']) && include(S9Y_INCLUDE_PATH . "include/db/{$s
  *
  * Args:
  *      - Name of the DB table
- *      - Input array that controls the "WHERE" condition part. Pass it an associative array like array('key1' => 'value1', 'key2' => 'value2') to get a statement like "WHERE key1 = value1 AND key2 = value2". Escaping is done automatically in this function.
- *      - Input array that controls the "SET" condition part. Pass it an associative array like array('key1' => 'value1', 'key2' => 'value2') to get a statement like "SET key1 = value1, key2 = value2". Escaping is done automatically in this function.
+ *      - Input array that controls the "WHERE" condition part.
+ *              Pass it an associative array like array('key1' => 'value1', 'key2' => 'value2') to get a statement like "WHERE key1 = value1 AND key2 = value2".
+ *              Escaping is done automatically in this function.
+ *      - Input array that controls the "SET" condition part.
+ *              Pass it an associative array like array('key1' => 'value1', 'key2' => 'value2') to get a statement like "SET key1 = value1, key2 = value2".
+ *              Escaping is done automatically in this function.
  *      - What do do with the SQL query (execute, display)
  * Returns:
  *      - Returns the result of the SQL query OR the query itself
