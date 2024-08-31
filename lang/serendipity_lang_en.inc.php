@@ -323,7 +323,7 @@
 @define('CREATED_USER', 'A new user %s has been created');
 @define('MODIFIED_USER', 'The properties of user "%s" have been changed');
 @define('USER_LEVEL', 'Userlevel');
-@define('DELETE_USER', 'You are about to delete user #%d %s. Are you serious? This will disallow showing any entries written by him on the frontend.');
+@define('DELETE_USER', 'You are about to delete user #%d %s. Are you serious? This will disallow showing any entries written by this user on the frontend.');
 @define('DELETED_USER', 'User #%d %s deleted.');
 @define('LIMIT_TO_NUMBER', 'How many items should be displayed?');
 @define('ENTRIES_PER_PAGE', 'entries per page');

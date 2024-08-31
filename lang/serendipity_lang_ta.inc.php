@@ -323,7 +323,7 @@
 @define('CREATED_USER', 'புதிய குறிப்பாளர் %s உருவாக்கப்பட்டது');
 @define('MODIFIED_USER', '"%s" , இக்குறிப்பாளர் நிலைகள் மாற்றப்பட்டுவிட்டன.');
 @define('USER_LEVEL', 'Userlevel');
-@define('DELETE_USER', 'You are about to delete user #%d %s. Are you serious? This will disallow showing any entries written by him on the frontend.');
+@define('DELETE_USER', 'You are about to delete user #%d %s. Are you serious? This will disallow showing any entries written by this user on the frontend.');
 @define('DELETED_USER', 'User #%d %s deleted.');
 @define('LIMIT_TO_NUMBER', 'எத்தனை குறிப்புகளை காட்டவேண்டும்?');
 @define('ENTRIES_PER_PAGE', 'குறிப்புகள்/தாள்');
