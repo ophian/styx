@@ -114,7 +114,7 @@ function serendipity_remove_config_var(string $name, int $authorid = 0) : void {
  *      - void
  * @access public
  */
-function serendipity_set_config_var(string $name, string|int $val, int $authorid = 0) : void {
+function serendipity_set_config_var(string $name, string|int|null $val, int $authorid = 0) : void {
     global $serendipity;
 
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name='" . serendipity_db_escape_string($name) . "' AND authorid = " . $authorid);
@@ -180,7 +180,7 @@ function serendipity_get_config_var(string $name, bool|string|null $defval = fal
  *      - The configuration value content
  * @access public
  */
-function serendipity_get_user_config_var(string $name, ?int $authorid, mixed $default = '') : iterable|string|bool {
+function serendipity_get_user_config_var(string $name, ?int $authorid, iterable|string|bool|null $default = '') : iterable|string|bool|null {
     global $serendipity;
 
     $author_sql = '';
