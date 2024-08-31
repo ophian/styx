@@ -2745,12 +2745,12 @@ function serendipity_syncUnlinkVariation(string $originThumbFile, bool $silenced
  * LONG
  *
  * Args:
- *      - Boolean for deleteThumbs ?
+ *      - Boolean for deleteThumbs, String on checksize
  * Returns:
  *      - Number of updated thumbnails
  * @access public
  */
-function serendipity_syncThumbs(bool $deleteThumbs = false) : int {
+function serendipity_syncThumbs(bool|string $deleteThumbs = false) : int {
     global $serendipity;
 
     $i = 0;
