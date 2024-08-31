@@ -59,6 +59,9 @@ if (isset($_POST['SAVE_NEW']) && serendipity_checkFormToken()) {
         if (!is_array($_user = serendipity_fetchAuthor($_POST['username']))) {
             // POST check for password named field (see config build down below)
             $serendipity['POST']['user'] = serendipity_addAuthor($_POST['username'], $_POST['password'], $_POST['realname'], $_POST['email'], $_POST['userlevel']);
+            if ($serendipity['POST']['user'] === null) {
+                throw new Exception('"Create author ID failed: An unexpected [type] error has occurred. Check your database logs why the last insert ID failed"'); // fatal error without doing any more damage
+            }
 
             $valid_groups = serendipity_getGroups($serendipity['authorid'], true);
             /* Save all the properties */
