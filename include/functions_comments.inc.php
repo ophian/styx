@@ -1256,6 +1256,11 @@ function serendipity_insertComment(int $id, iterable $commentInfo, string $type 
     serendipity_db_query($query);
     $cid = serendipity_db_insert_id('comments', 'id');
 
+    if ($cid === false) {
+        return false;
+    }
+    $cid = (int) $cid; // turn numeric string PDO return type to an integer
+
     $_mail_comments    = serendipity_db_bool($row['mail_comments']);
     $_mail_trackbacks  = serendipity_db_bool($row['mail_trackbacks']);
     $_send_mod_comment = ($type == 'NORMAL' && $_mail_comments && $_setTo_moderation) ? true : false;
