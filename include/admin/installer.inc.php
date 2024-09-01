@@ -383,8 +383,8 @@ if ((int) $serendipity['GET']['step'] === 0) {
         $data['install_DB'] = true;
 
         $authorid = serendipity_addAuthor($_POST['user'], $_POST['pass'], $_POST['realname'], $_POST['email'], USERLEVEL_ADMIN);
-        if ($authorid === null) {
-            throw new Exception('"Create author ID failed: An unexpected [type] error has occurred. Check your database logs why the last insert ID failed"'); // fatal error without doing any more damage
+        if ($authorid === 0) {
+            throw new Exception('"Create author ID failed: An unexpected [type] error has occurred. Check your database logs why the last insert ID may have failed"'); // fatal error without doing any more damage
         }
         $mail_comments = serendipity_db_bool($_POST['want_mail']) ? '1' : '0';
         serendipity_set_user_var('mail_comments', $mail_comments, $authorid);
