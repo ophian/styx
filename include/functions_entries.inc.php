@@ -42,7 +42,7 @@ function serendipity_deleteCategory(string $category_range, string $admin_catego
 function serendipity_fetchCategoryRange(int $categoryid) : iterable {
     global $serendipity;
 
-    $res =& serendipity_db_query("SELECT category_left, category_right, hide_sub FROM {$serendipity['dbPrefix']}category WHERE categoryid='". (int)$categoryid ."'");
+    $res =& serendipity_db_query("SELECT category_left, category_right, hide_sub FROM {$serendipity['dbPrefix']}category WHERE categoryid='". (int) $categoryid ."'");
     if (!is_array($res) || !isset($res[0]['category_left']) || !isset($res[0]['category_right'])) {
         $res = array(array('category_left' => 0, 'category_right' => 0));
     }
@@ -70,7 +70,7 @@ function serendipity_getMultiCategoriesSQL(string $cats, bool $invert = false): 
     $mcategories   = explode(';', $cats);
     $cat_sql_array = array();
     foreach($mcategories AS $categoryid) {
-        $categoryid  = (int)$categoryid;
+        $categoryid  = (int) $categoryid;
 
         if ($categoryid != 0) {
             $cat_sql_array[] = ' (c.category_left ' . ($invert ? ' NOT ' : '') . ' BETWEEN ' . implode(' AND ', serendipity_fetchCategoryRange($categoryid)) . ')';
@@ -126,7 +126,7 @@ function serendipity_fetchCategoryInfo(int $categoryid, string $categoryname = '
                          c.parentid,
                          c.hide_sub
                     FROM {$serendipity['dbPrefix']}category AS c
-                   WHERE categoryid = " . (int)$categoryid;
+                   WHERE categoryid = " . (int) $categoryid;
 
         $ret =& serendipity_db_query($query);
         if (is_bool($ret)) return null;
@@ -316,14 +316,14 @@ function &serendipity_fetchEntries(mixed $range = null, bool $full = true, strin
         unset($range);
         $db_limit = false;
     } elseif (is_array($range) && count($range) == 2) { // this is serve archives routing, being calendar or default, array($ts, $te)
-        $startts = serendipity_serverOffsetHour((int)$range[0], true);
-        $endts   = serendipity_serverOffsetHour((int)$range[1], true);
+        $startts = serendipity_serverOffsetHour((int) $range[0], true);
+        $endts   = serendipity_serverOffsetHour((int) $range[1], true);
         $cond['and'] = " WHERE e.timestamp >= $startts AND e.timestamp <= $endts";
     } else {
         if ($modified_since) {
             $unix_modified = strtotime($modified_since);
             if ($unix_modified !== false) {
-                $cond['and'] = ' WHERE last_modified >= ' . (int)$unix_modified;
+                $cond['and'] = ' WHERE last_modified >= ' . (int) $unix_modified;
                 if (!empty($limit)) {
                     $limit = ($limit > $serendipity['max_fetch_limit'] ? $limit : $serendipity['max_fetch_limit']);
                 }
@@ -345,7 +345,7 @@ function &serendipity_fetchEntries(mixed $range = null, bool $full = true, strin
         $multiauthors = explode(';', $serendipity['GET']['viewAuthor']);
         $multiauthors_sql = array();
         foreach($multiauthors AS $multiauthor) {
-            $multiauthors_sql[] = 'e.authorid = ' . (int)$multiauthor;
+            $multiauthors_sql[] = 'e.authorid = ' . (int) $multiauthor;
         }
 
         $cond['and'] .= ' AND (' . implode(' OR ', $multiauthors_sql) . ')';
@@ -1100,8 +1100,8 @@ function serendipity_printEntryFooter(string $suffix = '.html', ?int $totalEntri
     }
 
     $archiveSortStable = serendipity_db_bool($serendipity['archiveSortStable']);
-    $limit = (int)$fetchLimit;
-    $totalEntries = (int)$totalEntries;
+    $limit = (int) $fetchLimit;
+    $totalEntries = (int) $totalEntries;
     $totalPages = $totalEntries > 0 ? ceil($totalEntries / $limit) : 0;
 
     if ($totalPages <= 0 ) {
@@ -1135,7 +1135,7 @@ function serendipity_printEntryFooter(string $suffix = '.html', ?int $totalEntri
     }
 
     $serendipity['smarty']->assign('footer_pageLink', serendipity_rewriteURL(implode('/', $uriArguments)) . $suffix);
-    $serendipity['smarty']->assign('footer_info', sprintf(PAGE_BROWSE_ENTRIES, (int)$serendipity['GET']['page'], $totalPages, $totalEntries));
+    $serendipity['smarty']->assign('footer_info', sprintf(PAGE_BROWSE_ENTRIES, (int) $serendipity['GET']['page'], $totalPages, $totalEntries));
 
     if ($serendipity['GET']['page'] < $totalPages) {
         $uriArguments = $serendipity['uriArguments'];
@@ -1601,13 +1601,13 @@ function serendipity_updertEntry(iterable $entry) : mixed {
         $exflag = 1;
     }
 
-    $entry['exflag'] = (string)$exflag;
+    $entry['exflag'] = (string) $exflag;
 
     if (!isset($entry['id']) || !is_numeric($entry['id'])) {
         /* we need to insert */
 
         unset($entry['id']);
-        $entry['comments'] = (string)0;
+        $entry['comments'] = (string) 0;
 
         if (!isset($entry['last_modified']) || !is_numeric($entry['last_modified'])) {
             $entry['last_modified'] = $entry['timestamp'];
@@ -1637,9 +1637,9 @@ function serendipity_updertEntry(iterable $entry) : mixed {
             if (is_array($categories)) {
                 foreach($categories AS $cat) {
                     if (is_numeric($cat)) {
-                        serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}entrycat (entryid, categoryid) VALUES ({$entry['id']}, " . (int)$cat . ")");
+                        serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}entrycat (entryid, categoryid) VALUES ({$entry['id']}, " . (int) $cat . ")");
                     } elseif (is_array($cat) && !empty($cat['categoryid'])) {
-                        serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}entrycat (entryid, categoryid) VALUES ({$entry['id']}, " . (int)$cat['categoryid'] . ")");
+                        serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}entrycat (entryid, categoryid) VALUES ({$entry['id']}, " . (int) $cat['categoryid'] . ")");
                     }
                 }
             }
@@ -1649,6 +1649,7 @@ function serendipity_updertEntry(iterable $entry) : mixed {
             // Some error message here
             return ENTRIES_NOT_SUCCESSFULLY_INSERTED;
         }
+
         $newEntry = 1;
 
     } else {
@@ -1670,7 +1671,7 @@ function serendipity_updertEntry(iterable $entry) : mixed {
         if (is_array($categories)) {
             serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}entrycat WHERE entryid={$entry['id']}");
             foreach($categories AS $cat) {
-                serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}entrycat (entryid, categoryid) VALUES ({$entry['id']}, " . (int)$cat . ")");
+                serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}entrycat (entryid, categoryid) VALUES ({$entry['id']}, " . (int) $cat . ")");
             }
         } elseif ($had_categories) {
             // This case actually only happens if an existing entry is edited, and its category assignments are all removed.
@@ -1704,7 +1705,7 @@ function serendipity_updertEntry(iterable $entry) : mixed {
     }
 
     // Reset session data, so that a reload to this frame should not happen!
-    $_SESSION['save_entry']['id'] = (int)$entry['id'];
+    $_SESSION['save_entry']['id'] = (int) $entry['id'];
 
     if (!serendipity_db_bool($entry['isdraft'])) {
         serendipity_plugin_api::hook_event('frontend_display', $entry, array('no_scramble' => true, 'from' => 'functions_entries:updertEntry'));
@@ -1923,14 +1924,14 @@ function serendipity_printArchives() : void {
 
     if (isset($serendipity['GET']['category'])) {
         $cat_sql = serendipity_getMultiCategoriesSQL($serendipity['GET']['category']);
-        $cat_get = '/C' . (int)$serendipity['GET']['category'];
+        $cat_get = '/C' . (int) $serendipity['GET']['category'];
     } else {
         $cat_sql = '';
         $cat_get = '';
     }
 
     if (isset($serendipity['GET']['viewAuthor'])) {
-        $author_get = '/A' . (int)$serendipity['GET']['viewAuthor'];
+        $author_get = '/A' . (int) $serendipity['GET']['viewAuthor'];
     } else {
         $author_get = '';
     }
@@ -1984,7 +1985,7 @@ function serendipity_printArchives() : void {
            WHERE isdraft = 'false'"
                 . (!serendipity_db_bool($serendipity['showFutureEntries']) ? ' AND timestamp <= ' . serendipity_db_time() : '')
                 . (!empty($cat_sql) ? ' AND ' . $cat_sql : '')
-                . (!empty($serendipity['GET']['viewAuthor']) ? ' AND e.authorid = ' . (int)$serendipity['GET']['viewAuthor'] : '')
+                . (!empty($serendipity['GET']['viewAuthor']) ? ' AND e.authorid = ' . (int) $serendipity['GET']['viewAuthor'] : '')
                 . "{$cond['and']}"
                 . (!empty($cat_sql) ? ' GROUP BY e.id, e.timestamp' : '');
     // die($q);
