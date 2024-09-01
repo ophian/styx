@@ -206,6 +206,7 @@ function serendipity_db_matched_rows() : int {
 
 /**
  * Returns the latest INSERT_ID of an SQL INSERT INTO command, for auto-increment columns
+ * Mimics our other db return(s) of AUTO_INCREMENT INT or 0, instead of PD0 return types string|false
  *
  * Args:
  *      - Name of the table to get a INSERT ID for
@@ -214,20 +215,22 @@ function serendipity_db_matched_rows() : int {
  *      - Value of the auto-increment column
  * @access public
  */
-function serendipity_db_insert_id(string $table = '', string $id = '') : string|false {
+function serendipity_db_insert_id(string $table = '', string $id = '') : int {
     global $serendipity;
 
     if (empty($table) || empty($id)) {
         // BC - will/should never be called with empty parameters!
-        return $serendipity['dbConn']->lastInsertId();
+        $return = $serendipity['dbConn']->lastInsertId();
+        return is_string($return) ? (int) $return : 0;
     } else {
         $query = "SELECT currval('{$serendipity['dbPrefix']}{$table}_{$id}_seq'::text) AS {$id}";
         $res = $serendipity['dbConn']->prepare($query);
         $res->execute();
         foreach($res->fetchAll(PDO::FETCH_ASSOC) AS $row) {
-            return $row[$id];
+            return (int) $row[$id] ?? 0;
         }
-        return $serendipity['dbConn']->lastInsertId();
+        $return = $serendipity['dbConn']->lastInsertId();
+        return is_string($return) ? (int) $return : 0;
     }
 }
 
