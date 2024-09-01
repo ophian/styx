@@ -700,8 +700,8 @@ function serendipity_insertHotlinkedImageInDatabase(string $filename, string $ur
     }
 
     $image_id = serendipity_db_insert_id('images', 'id');
-    if (is_numeric($image_id) && $image_id > 0) {
-        return (int) $image_id;
+    if ($image_id > 0) {
+        return $image_id;
     }
 
     return 0;
@@ -790,8 +790,8 @@ function serendipity_insertImageInDatabase(string $filename, string $directory, 
     }
 
     $image_id = serendipity_db_insert_id('images', 'id');
-    if (is_numeric($image_id) && $image_id > 0) {
-        return (int) $image_id;
+    if ($image_id > 0) {
+        return $image_id;
     }
 
     return 0;
