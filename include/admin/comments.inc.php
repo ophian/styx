@@ -175,30 +175,110 @@ if (isset($serendipity['GET']['adminAction'])
     $serendipity['smarty']->assign('comment_wysiwyg', ($serendipity['allowHtmlComment'] && $serendipity['wysiwyg']));
     if ($serendipity['allowHtmlComment'] && $serendipity['wysiwyg']) {
         // define the script here and NOT in template for secureness, since we don't want any possible manipulation!
-        $ckescript = "
+        $editorinit = "
         <script>
-            window.onload = function() {
-                if (typeof STYX_DARKMODE === 'undefined' || STYX_DARKMODE === null) STYX_DARKMODE = false;
-                const HAS_CKEDITOR_PLUGPATH = (typeof CKEDITOR_PLUGPATH === 'undefined' || CKEDITOR_PLUGPATH === null) ? false : true;
-                if (STYX_DARKMODE === true) {
-                    CKEDITOR.config.contentsCss = [ 'templates/_assets/ckebasic/dark-contents.css' ];
-                }
-
-                var plugIN = (typeof CKECONFIG_CODE_ON === 'undefined' || !CKECONFIG_CODE_ON) ? 'emoji' : 'codesnippet,emoji';
-                CKEDITOR.replace( 'serendipity_commentform_comment',
-                {
-                    toolbar : [['Undo','Redo'],['Format'],['Bold','Italic','Underline','Strike','Superscript','TextColor','-','NumberedList','BulletedList','Outdent','Blockquote'],['JustifyBlock','JustifyCenter'],['SpecialChar'],['Maximize'],['CodeSnippet','EmojiPanel'],['Source']],
-                    toolbarGroups: null,
-                    entities: false,
-                    htmlEncodeOutput: false,
-                    skin: (STYX_DARKMODE === true && HAS_CKEDITOR_PLUGPATH !== false) ? 'moonodark,' + CKEDITOR_PLUGPATH + 'serendipity_event_ckeditor/moonodark/' : (STYX_DARKMODE === true ? 'moono-dark' : 'moono-lisa'),
-                    extraAllowedContent: 'div(*);p(*);ul(*);pre;code{*}(*)',
-                    extraPlugins: plugIN,
-                    versionCheck: false
-                });
-            }
+            document.addEventListener('DOMContentLoaded', (event) => {
+              tinymce.init({
+                selector: '#serendipity_commentform_comment',
+                skin: (typeof(STYX_DARKMODE) !== 'undefined' && STYX_DARKMODE === true) ? 'tinymce-5-dark' : 'tinymce-5',
+                content_css: [ ((typeof(STYX_DARKMODE) !== 'undefined' && STYX_DARKMODE === true) ? 'templates/_assets/prism/dark/prism.css' : 'templates/_assets/prism/default/prism.css'),
+                               'templates/_assets/sctc.min.css'
+                             ], // styx-custom-tinymce-content.css
+                noneditable_class: 'mceNonEditable',
+                // keep in once, to not loose features - names are case sensitive !
+                plugins: 'preview autoresize lists code fullscreen image link media codesample table charmap styxDiv styxPrg help emoticons accordion magicline',
+                contextmenu: 'link styxDiv styxPrg code',
+                width: '100%',
+                height: 300,
+                autoresize_min_height: 300,
+                init_instance_callback: function (inst) { inst.execCommand('mceAutoResize'); },
+                // overwrite some default margin - 8px is a good compromise
+                autoresize_bottom_margin: 8,
+                menubar: false,
+                // code === source !!
+                toolbar_mode: 'sliding',
+                toolbar: [
+                    { name: 'history', items: [ 'undo' ] },
+                    { name: 'format', items: [ 'bold', 'italic', 'underline', 'strikethrough' ] },
+                    { name: 'link', items: [ 'link', 'blockquote' ] },
+                    { name: 'split', items: [ 'hr' ] },
+                    { name: 'code', items: [ 'codesample', 'emoticons', 'charmap' ] },
+                    { name: 'views', items: [ 'code', 'fullscreen' ] },
+                    { name: 'help', items: [ 'help' ] }
+                ],
+                magicline: {
+                    triggerOffset: 30,
+                    holdDistance: 0.5,
+                    color: '#ff0000',
+                    everywhere: true,
+                    tabuList: []
+                  },
+                language: 'de', // TODO add other languages
+                entity_encoding: 'raw',
+                extended_valid_elements: 'span[class],code[class],pre[class]',
+                branding: false,
+                promotion: false,
+                //license_key: 'gpl',
+                // convert image urls NOT to relative path, which is OK for the same domain, but not in other environments which are based on doc root paths
+                relative_urls : false,
+                // enables double click on hlgt code to re-open code editor for example
+                auto_focus: 'editable',
+                help_tabs: [ 'shortcuts', 'keyboardnav' ],
+                // Styx helper to break-out containers
+                setup: function (editor) {
+                  const _newBlock = (breakout) => {
+                      let editor = tinyMCE.activeEditor
+                      const dom = editor.dom
+                      const parentBlock = tinyMCE.activeEditor.selection.getSelectedBlocks()[0]
+                      const containerBlock = parentBlock.parentNode.nodeName == 'BODY' ? dom.getParent(parentBlock, dom.isBlock) : dom.getParent(parentBlock.parentNode, dom.isBlock)
+                      let newBlock = tinyMCE.activeEditor.dom.create('p')
+                      newBlock.innerHTML = '<br data-mce-bogus=\"1\">';
+                      console.log(breakout);
+                      if (breakout == 'up') {
+                        editor.getBody().insertBefore(newBlock, containerBlock);
+                      } else {
+                        dom.insertAfter(newBlock, containerBlock)
+                      }
+                      let rng = dom.createRng();
+                      newBlock.normalize();
+                      rng.setStart(newBlock, 0);
+                      rng.setEnd(newBlock, 0);
+                      editor.selection.setRng(rng);
+                  };
+                  editor.addShortcut('meta+shift+40', 'Container break-out downwards', function () { _newBlock('down'); });
+                  editor.shortcuts.add('meta+shift+38', 'Container break-out upwards', function () { _newBlock('up'); });
+                },
+                codesample_languages: [
+                  { text: 'HTML/XML', value: 'markup' },
+                  { text: 'JavaScript', value: 'javascript' },
+                  { text: 'CSS', value: 'css' },
+                  { text: 'PHP', value: 'php' },
+                  { text: 'SQL', value: 'sql' },
+                  { text: 'Ruby', value: 'ruby' },
+                  { text: 'Python', value: 'python' },
+                  { text: 'Java', value: 'java' },
+                  { text: 'Log', value: 'log' },
+                  { text: 'C', value: 'c' },
+                  { text: 'C#', value: 'csharp' },
+                  { text: 'C++', value: 'cpp' },
+                  { text: 'Go', value: 'go' },
+                  { text: 'Shell', value: 'shell' },
+                  { text: 'Smarty', value: 'smarty' },
+                  { text: 'Diff', value: 'diff' },
+                  { text: 'Rust', value: 'rust' },
+                  { text: 'YAML', value: 'yaml' }
+                ],
+                codesample_global_prismjs: true,
+                text_patterns: [
+                  { start: '//--', replacement: '—' },
+                  { start: '//indent', replacement: '<address style=\"padding-left: 40px;\">&nbsp;</address>' },
+                  { start: '//brb', replacement: 'Be Right Back' },
+                  { start: '//heading', replacement: '<h3>Heading here</h3> <h4>Author: Name here</h4> <p><em>Date: 01/01/2000</em></p> <hr />' }
+                ],
+              });
+            });
         </script>";
-        $serendipity['smarty']->assign('secure_simple_ckeditor', $ckescript);
+        $serendipity['smarty']->assign('secure_simple_rteditor', $editorinit);
     }
 
     if ($_id > 0 && $_entry_id > 0 && ($serendipity['GET']['adminAction'] == 'reply' || $serendipity['GET']['adminAction'] == 'doReply')) {
