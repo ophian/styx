@@ -2060,10 +2060,10 @@ function serendipity_printArchives() : void {
  * Args:
  *      - The type of count to show: "entries", "trackbacks", "comments", "...categories", "medias.."
  * Returns:
- *      - The counted number, the array or false on fail
+ *      - The counted number, the array or True on empty, False on fail
  * @access public
  */
-function serendipity_getTotalCount(string $what) : iterable|string|false {
+function serendipity_getTotalCount(string $what) : iterable|string|bool {
     global $serendipity;
 
     switch($what) {
