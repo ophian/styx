@@ -1,16 +1,16 @@
 {if $is_form}
 <form id="serendipity_category_form" action="{$form_url}" method="post">
 {/if}
-                        <ul class="plainList">
+                        <ul id="serendipity_categories_list" class="plainList">
 {foreach $categories AS $plugin_category}
                             <li id="category_{$plugin_category.categoryid}" class="category_depth{$plugin_category.catdepth}">
 {if $is_form}
                                 <input type="checkbox" name="serendipity[multiCat][]" value="{$plugin_category.categoryid}"{if isset($plugin_category.checkcat)} checked="checked"{/if}>
 {/if}
 {if NOT empty($category_image)}
-                                <a class="serendipity_xml_icon" href="{$plugin_category.feedCategoryURL}"><img src="{$category_image}" alt="XML"></a>
+                                <a class="serendipity_xml_icon" title="{$plugin_category.category_name|escape} {$CONST.CATEGORY} feed" href="{$plugin_category.feedCategoryURL}"><img src="{$category_image}" alt="XML"></a>
 {/if}
-                                <a class="cdp{$plugin_category.catdepth}" href="{$plugin_category.categoryURL}" title="{$plugin_category.category_description|escape}">{$plugin_category.category_name|escape}</a>
+                                <a class="cdp{$plugin_category.catdepth}" title="{$plugin_category.category_name|escape} {$CONST.CATEGORY}" href="{$plugin_category.categoryURL}" title="{$plugin_category.category_description|escape}">{$plugin_category.category_name|escape}</a>
                             </li>
 {/foreach}
                         </ul>
