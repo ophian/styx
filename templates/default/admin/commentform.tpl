@@ -1,26 +1,3 @@
-{if $is_logged_in AND $comment_wysiwyg}
-<script>
-if (!window.CKEDITOR) {
-    document.write('<script src="{$serendipityHTTPPath|replace:'/':'\/'}templates\/_assets\/ckebasic\/ckeditor.js"><\/script>');
-}
-</script>
-{/if}
-{if NOT empty($comments)}{* comment preview only: highlight code parts *}
-{if $darkmode}
-<link rel="stylesheet" type="text/css" href="{$serendipityHTTPPath}templates/_assets/highlight/github-dark.min.css">
-{else}
-<link rel="stylesheet" type="text/css" href="{$serendipityHTTPPath}templates/_assets/highlight/github.min.css">
-{/if}
-<script src="{$serendipityHTTPPath}templates/_assets/highlight/highlight.min.js" data-manual></script>
-<script>
-    // launch the codesnippet highlight
-    hljs.configure({
-      tabReplace: '    ', // 4 spaces
-    });
-    hljs.highlightAll();
-</script>
-{/if}
-
 {if $smarty.get.serendipity.adminAction == 'edit'}
 <h2>{$CONST.EDIT_THIS_CAT|sprintf:"{$CONST.COMMENT} #`$smarty.get.serendipity.id`"|replace:'"':''}</h2>
 {/if}
@@ -67,9 +44,7 @@ if (!window.CKEDITOR) {
             <label for="serendipity_commentform_comment">{$CONST.COMMENT}</label>
             <textarea id="serendipity_commentform_comment" data-tarea="serendipity_commentform_comment" name="serendipity[comment]" rows="10">{$commentform_data}</textarea>
         </div>
-        {* WYSIWYG toolbar: no 'Smiley', nor 'link' and no 'img' toolbar buttons, since any possible external or exploitable is removed and not allowed. *}
-        {* Checks, if CKE-plus plugin is installed and active, else we need to load the cores CKE-lib, see file start. *}
-        {if $is_logged_in AND $comment_wysiwyg}{$secure_simple_ckeditor}{/if}
+        {if $comment_wysiwyg}{$secure_simple_rteditor}{/if}
 
         {serendipity_hookPlugin hook="frontend_comment"}
 {* We do not need any commentform data (array), since we do not have or even need any - this is a hook for s9ymarkup/spamblock/emoticonchooser and alike plugins. *}
@@ -81,3 +56,33 @@ if (!window.CKEDITOR) {
         </div>
     </form>
 </div>
+{if $comment_wysiwyg}
+
+{if NOT empty($comments)}{* comment preview only: HIGHLIGHT.JS code parts *}
+{if $darkmode}
+<link rel="stylesheet" type="text/css" href="{$serendipityHTTPPath}templates/_assets/highlight/github-dark.min.css">
+{else}
+<link rel="stylesheet" type="text/css" href="{$serendipityHTTPPath}templates/_assets/highlight/github.min.css">
+{/if}
+<script src="{$serendipityHTTPPath}templates/_assets/highlight/highlight.min.js" data-manual></script>
+<script>
+  const elements = document.querySelectorAll("pre");
+  elements.forEach(item => {
+    // Replace matching unknown enabled highlight class names
+    item.classList.replace("language-smarty", "language-php");
+    item.classList.replace("language-perl", "language-php");
+    item.classList.replace("language-log", "language-yaml"); /* -bash is good also */
+  })
+</script>
+<script>
+    // launch the code snippets highlight
+    hljs.configure({
+      tabReplace: '    ', // 4 spaces
+    });
+    hljs.highlightAll();
+</script>
+{else}
+<script src="{$serendipityHTTPPath}templates/_assets/prism/prism.js" data-manual></script>
+{/if}
+<script src="{$serendipityHTTPPath}templates/_assets/tinymce6/js/tinymce/tinymce.min.js"></script>
+{/if}
