@@ -205,7 +205,7 @@
         item.classList.replace("language-log", "language-yaml"); /* -bash is good also */
       })
     </script>
-    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}_assets/highlight/github-pure.min.css" type="text/css">
+    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}_assets/highlight/github-boot.min.css" type="text/css">
     <script src="{$serendipityHTTPPath}{$templatePath}_assets/highlight/highlight.min.js"></script>
     <script>
         // launch the code snippets highlight
