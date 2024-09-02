@@ -500,6 +500,10 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     border-bottom: 1px solid #444c56;
     -webkit-box-shadow: 0 1px 0 #353b44 inset;
     box-shadow: 0 1px 0 #353b44 inset; }
+[data-dark-theme="dark"] #serendipity_categories_list .serendipity_xml_icon img {
+  background-color: #fbe090; }
+[data-dark-theme="dark"] #serendipity_syndication_list .serendipity_xml_icon img {
+  background-color: #0ff; }
 
 
 /* defaults */
