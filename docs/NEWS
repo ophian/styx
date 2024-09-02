@@ -77,6 +77,11 @@ Version 4.5-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve [ pure ] Standard theme CSS for serendipity_xml_icon class selector
+    styles when using "icons/rss.svg" in category plugin and in syndication
+    plugin image options. Also improves the plugin_categories.tpl template to
+    support tooltip titles.
+
   * Improve [ default ] theme CSS for media sidebar item(s).
     Improve [ b53 ] theme for a minor edit link CSS case with...
     Improve [ b46 ] theme sidebar template for ...freetag clouds expands in
