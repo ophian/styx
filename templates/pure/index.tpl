@@ -176,7 +176,7 @@
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}_assets/highlight/github-pure.min.css" type="text/css">
     <script src="{$serendipityHTTPPath}{$templatePath}_assets/highlight/highlight.min.js"></script>
     <script>
-        // launch the codesnippet highlight
+        // launch the code snippets highlight
         hljs.configure({
           tabReplace: '    ', // 4 spaces
         });
