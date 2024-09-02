@@ -228,11 +228,20 @@
     </script>
     {assign var="hljsload" value=true}
 {/if}
-{if (in_array($view, ['start', 'entries', 'entry', 'comments', 'categories']) AND $template_option.use_highlight === true) OR isset($hljsload) && $hljsload === true}
+{if (in_array($view, ['start', 'entries', 'entry', 'comments', 'categories', 'search', 'archives' ]) AND $template_option.use_highlight === true) OR isset($hljsload) && $hljsload === true}
+    <script>
+      const elements = document.querySelectorAll("pre");
+      elements.forEach(item => {
+        // Replace matching unknown enabled highlight class names
+        item.classList.replace("language-smarty", "language-php");
+        item.classList.replace("language-perl", "language-php");
+        item.classList.replace("language-log", "language-yaml"); /* -bash is good also */
+      })
+    </script>
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}_assets/highlight/github.min.css" type="text/css">
     <script src="{$serendipityHTTPPath}{$templatePath}_assets/highlight/highlight.min.js"></script>
     <script>
-        // launch the codesnippet highlight
+        // launch the code snippets highlight
         hljs.configure({
           tabReplace: '    ', // 4 spaces
         });
