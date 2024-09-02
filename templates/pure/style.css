@@ -2018,14 +2018,24 @@ section.sidebar_widget {
 .serendipitySideBarContent,
 .sidebar_content {}
 
+/* xml "icons/rss.svg" styles via categories and syndication */
+.serendipity_xml_icon {
+    line-height: 1.6; }
+    .serendipity_xml_icon img {
+      width: 1rem;
+      height: 1rem;
+      vertical-align: middle;
+      fill: currentcolor;
+      rotate: 0deg; }
+      #serendipity_categories_list .serendipity_xml_icon img {
+        background-color: #e7e4e2;
+        rotate: 180deg; }
+      #serendipity_syndication_list .serendipity_xml_icon img {
+        background-color: aqua;}
+
 /* categories */
-#serendipity_categories_list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-#serendipity_categories_list img {
-    vertical-align: middle;
+ul#serendipity_categories_list {
+    margin: 1em 0;
 }
 
 /* calendar */
