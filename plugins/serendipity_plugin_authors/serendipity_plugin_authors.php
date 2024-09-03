@@ -8,7 +8,8 @@ if (IN_serendipity !== true) {
 
 class serendipity_plugin_authors extends serendipity_plugin
 {
-    var $title = AUTHORS;
+    public $title = AUTHORS;
+    private const XML_IMAGE_AVAILABLE = " Available pure theme defaults: 'img/xml.gif' (orange), 'img/xml12.png' (lightblue 12px), 'img/xml16.png' (lightblue 16px), 'icons/rss.svg' (colored by CSS)";
 
     function introspect(&$propbag)
     {
@@ -17,8 +18,8 @@ class serendipity_plugin_authors extends serendipity_plugin
         $propbag->add('name',        AUTHORS);
         $propbag->add('description', AUTHOR_PLUGIN_DESC);
         $propbag->add('stackable',     true);
-        $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.5.0');
+        $propbag->add('author',        'Serendipity Team, Ian Styx');
+        $propbag->add('version',       '2.6.0');
         $propbag->add('configuration', array('image', 'allow_select', 'title', 'showartcount', 'mincount'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -45,8 +46,8 @@ class serendipity_plugin_authors extends serendipity_plugin
             case 'image':
                 $propbag->add('type',         'string');
                 $propbag->add('name',         XML_IMAGE_TO_DISPLAY);
-                $propbag->add('description',  XML_IMAGE_TO_DISPLAY_DESC);
-                $propbag->add('default',     serendipity_getTemplateFile('img/xml.gif', 'serendipityHTTPPath', true));
+                $propbag->add('description',  XML_IMAGE_TO_DISPLAY_DESC) . self::XML_IMAGE_AVAILABLE;
+                $propbag->add('default',      'img/xml.gif');
                 break;
 
             case 'showartcount':
@@ -91,10 +92,20 @@ class serendipity_plugin_authors extends serendipity_plugin
             $html .= '<form action="' . $serendipity['baseURL'] . $serendipity['indexFile'] . '?frontpage" method="post">' . "\n";
         }
 
-        $image = $this->get_config('image', serendipity_getTemplateFile('img/xml.gif', 'serendipityHTTPPath', true));
-        $image = (($image == "'none'" || $image == 'none') ? '' : $image);
+        $iconURL = $this->get_config('image', 'img/xml.gif');
+        if (!(str_contains($iconURL, 'none'))) {
+            $image = serendipity_getTemplateFile($iconURL, 'serendipityHTTPPath', true);
+        }
+        // on update, reset potential existing config sets
+        if (false === $image) {
+            $image = $iconURL; // old had passed serendipity_getTemplateFile() already
+            // reset the config var to the last relative path part, eg. img/xml.gif
+            $iconURL = str_replace($serendipity['serendipityHTTPPath'] . $serendipity['templatePath'] . $serendipity['template'] .'/', '', $iconURL);
+            $this->set_config('image', $iconURL); // set and done for next run
+        }
+        $usesvg = is_null($image) ? false : pathinfo($image, PATHINFO_EXTENSION) === 'svg';
 
-        $html .= '                        <ul class="plainList">' . "\n";
+        $html .= '                        <ul id="serendipity_authors_list" class="plainList' . ($usesvg ? ' xmlsvg' : '') .'">' . "\n";
 
         if (is_array($authors) && count($authors)) {
             foreach ($authors AS $auth) {
@@ -114,10 +125,10 @@ class serendipity_plugin_authors extends serendipity_plugin
                     $html .= '                                <input style="width: 15px" type="checkbox" name="serendipity[multiAuth][]" value="' . $auth['authorid'] . '">' . "\n";
                 }
 
-                if ( !empty($image) ) {
-                    $html .= '                                <a class="serendipity_xml_icon" href="'. serendipity_feedAuthorURL($auth, 'serendipityHTTPPath') .'"><img src="'. $image .'" alt="XML"></a> ' . "\n";
+                if (!empty($image)) {
+                    $html .= '                                <a class="serendipity_xml_icon" href="'. serendipity_feedAuthorURL($auth, 'serendipityHTTPPath') .'" title="' . htmlspecialchars($auth['realname']) . ' ' . AUTHOR . ' feed"><img src="'. $image .'" alt="XML"></a> ' . "\n";
                 }
-                $html .= '                                <a href="'. serendipity_authorURL($auth, 'serendipityHTTPPath') .'" title="'. htmlspecialchars($auth['realname']) .'">'. htmlspecialchars($auth['realname']) . $entrycount . '</a>' . "\n";
+                $html .= '                                <a href="'. serendipity_authorURL($auth, 'serendipityHTTPPath') .'" title="'. htmlspecialchars($auth['realname']) . ' ' . ENTRIES . '">'. htmlspecialchars($auth['realname']) . $entrycount . '</a>' . "\n";
                 $html .= "                            </li>\n";
             }
         }
