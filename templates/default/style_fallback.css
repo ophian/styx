@@ -71,6 +71,11 @@ ul#serendipity_categories_list {
     padding: 0;
     list-style-type: none; }
 
+/* xml svg icons default size */
+.serendipity_xml_icon img {
+    width: 1rem;
+    height: auto; }
+
 .serendipityPlug img {
     border: 0px;
     width: 120px;
