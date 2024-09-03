@@ -500,12 +500,12 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     border-bottom: 1px solid #444c56;
     -webkit-box-shadow: 0 1px 0 #353b44 inset;
     box-shadow: 0 1px 0 #353b44 inset; }
-[data-dark-theme="dark"] #serendipity_categories_list .serendipity_xml_icon img {
+[data-dark-theme="dark"] #serendipity_authors_list.xmlsvg .serendipity_xml_icon img {
+  background-color: #00ff70; }
+[data-dark-theme="dark"] #serendipity_categories_list.xmlsvg .serendipity_xml_icon img {
   background-color: #fbe090; }
 [data-dark-theme="dark"] #serendipity_syndication_list .serendipity_xml_icon img {
   background-color: #0ff; }
-[data-dark-theme="dark"] #serendipity_authors_list .serendipity_xml_icon img {
-  background-color: #00ff70; }
 
 
 /* defaults */
@@ -2033,8 +2033,8 @@ section.sidebar_widget {
       vertical-align: middle;
       fill: currentcolor;
       rotate: 0deg; }
-      #serendipity_authors_list .serendipity_xml_icon img,
-      #serendipity_categories_list .serendipity_xml_icon img {
+      #serendipity_authors_list.xmlsvg .serendipity_xml_icon img,
+      #serendipity_categories_list.xmlsvg .serendipity_xml_icon img {
         background-color: #e7e4e2;
         rotate: 180deg; }
       #serendipity_syndication_list .serendipity_xml_icon img {
