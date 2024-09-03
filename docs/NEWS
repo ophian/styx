@@ -14,6 +14,8 @@ Version 5.0-DEV ()
       image usage found true. For the categories plugin an additional Smarty
       {$category_is_svg} (boolean) variable was added for the same purpose in
       theme custom plugin_category.tpl templates.
+    Note the [ pure ] Standard theme is now using this SVG class selector for
+    strictness against other xml icon styles.
 
   * Improve textarea default ID naming to snake_case convention, which fixes
     some issues for further processing.
