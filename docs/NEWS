@@ -2,6 +2,9 @@ Version 4.5-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Extend the default/style_fallback.css stylesheet for theme wide xml svg icon
+    default size.
+
   * Improve [ pure ] Standard theme CSS for serendipity_xml_icon class selector
     styles when using "icons/rss.svg" in category plugin and in syndication
     plugin image options. Also improves the plugin_categories.tpl template to
