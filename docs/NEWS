@@ -2,6 +2,19 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Normalize the xml icon path to relative path consistency for set_config()
+    in "serendipity_plugin_categories" and "setendipity_plugin_authors".
+    - Add current available icon sets to XML_IMAGE_TO_DISPLAY_DESC information.
+    - Set tooltip title to link and the feed link.
+    - Add id="serendipity_authors_list" to the authors plugin ul list for
+      consistency selector stylings.
+    - Reset existing path sets om upgrade.
+    - To be able to distinguish between image sets and icon sets for styling,
+      a new "xmlsvg" CSS class selector was added to the ul list, if an svg
+      image usage found true. For the categories plugin an additional Smarty
+      {$category_is_svg} (boolean) variable was added for the same purpose in
+      theme custom plugin_category.tpl templates.
+
   * Improve textarea default ID naming to snake_case convention, which fixes
     some issues for further processing.
 
