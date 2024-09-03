@@ -16,7 +16,7 @@
     <?php if (is_array($GLOBALS['tpl']['staticpage_listContent']) && !empty($GLOBALS['tpl']['staticpage_listContent'])): ?>
         <?php foreach ($GLOBALS['tpl']['staticpage_listContent'] AS $pageList):?>
             <?php if (!empty($pageList['permalink'])): ?>
-        <a class="spp_title" href="<?= $pageList['permalink'] ?>" title="<?= serendipity_specialchars($pageList['pagetitle']) ?>" style="padding-left: <?= $pageList['depth'] ?>px;"><?= substr($pageList['headline'], 0, 32); ?>&hellip;</a>
+        <a class="spp_title" href="<?= $pageList['permalink'] ?>" title="<?= htmlspecialchars($pageList['pagetitle']) ?>" style="padding-left: <?= $pageList['depth'] ?>px;"><?= substr($pageList['headline'], 0, 32); ?>&hellip;</a>
             <?php else: ?>
         <span class="spp_title" style="padding-left: <?= $pageList['depth'] ?>px;"><?= substr($pageList['headline'], 0, 32); ?>&hellip;</span>
             <?php endif; ?>

@@ -21,7 +21,7 @@ if (! empty($GLOBALS['tpl']['entries'])):
             <span class="serendipity_entryIcon">
             <?php foreach($entry['categories'] AS $entry_category):?>
                 <?php if ($entry_category['category_icon']): ?>
-                    <a href="<?= $entry_category['category_link'] ?>"><img class="serendipity_entryIcon" title="<?= serendipity_specialchars($entry_category['category_name']) ?> <?= $entry_category['category_description'] ?>" alt="<?= serendipity_specialchars($entry_category['category_name']) ?>" src="<?= serendipity_specialchars($entry_category['category_icon']) ?>"></a>
+                    <a href="<?= $entry_category['category_link'] ?>"><img class="serendipity_entryIcon" title="<?= htmlspecialchars($entry_category['category_name']) ?> <?= $entry_category['category_description'] ?>" alt="<?= htmlspecialchars($entry_category['category_name']) ?>" src="<?= htmlspecialchars($entry_category['category_icon']) ?>"></a>
                 <?php endif; ?>
             <?php endforeach; ?>
             </span>
@@ -46,7 +46,7 @@ if (! empty($GLOBALS['tpl']['entries'])):
             <div class="serendipity_entryFooter">
                 <?= POSTED_BY ?> <a href="<?= $entry['link_author'] ?>"><?= $entry['author'] ?></a>
                 <?php if (!empty($entry['categories'])): ?>
-                   <?= IN ?> <?php foreach($entry['categories'] AS $entry_category):?><a href="<?= $entry_category['category_link'] ?>"><?= serendipity_specialchars($entry_category['category_name']); ?></a>, <?php endforeach; ?>
+                   <?= IN ?> <?php foreach($entry['categories'] AS $entry_category):?><a href="<?= $entry_category['category_link'] ?>"><?= htmlspecialchars($entry_category['category_name']); ?></a>, <?php endforeach; ?>
                 <?php endif; ?>
 
                 <?php if ($dategroup['is_sticky']): ?>
@@ -123,7 +123,7 @@ if (! empty($GLOBALS['tpl']['entries'])):
                 <a id="trackbacks"></a>
                 <div class="serendipity_commentsTitle"><?= TRACKBACKS ?></div>
                 <div class="serendipity_center">
-                    <a rel="nofollow" href="<?= $entry['link_trackback'] ?>" onclick="alert('<?= serendipity_specialchars(TRACKBACK_SPECIFIC_ON_CLICK) ?> &raquo;<?= serendipity_specialchars($entry['rdf_ident']) ?>&laquo;'); return false;" title="<?= serendipity_specialchars(TRACKBACK_SPECIFIC_ON_CLICK) ?> &raquo;<?= serendipity_specialchars($entry['rdf_ident']) ?>&laquo;"><?= TRACKBACK_SPECIFIC; ?></a>
+                    <a rel="nofollow" href="<?= $entry['link_trackback'] ?>" onclick="alert('<?= htmlspecialchars(TRACKBACK_SPECIFIC_ON_CLICK) ?> &raquo;<?= htmlspecialchars($entry['rdf_ident']) ?>&laquo;'); return false;" title="<?= htmlspecialchars(TRACKBACK_SPECIFIC_ON_CLICK) ?> &raquo;<?= htmlspecialchars($entry['rdf_ident']) ?>&laquo;"><?= TRACKBACK_SPECIFIC; ?></a>
                 </div>
                 <div id="serendipity_trackbacklist">
                     <?php echo serendipity_printTrackbacks(serendipity_fetchTrackbacks($entry['id'])); ?>

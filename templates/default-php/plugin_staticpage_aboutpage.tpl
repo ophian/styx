@@ -1,14 +1,14 @@
 <?php /* frontend plugin_staticpage_aboutpage.tpl (overview) file v. 1.05, 2015-01-20 */ ?>
 <article id="staticpage_<?= serendipity_makeFilename($GLOBALS['tpl']['staticpage_pagetitle']); ?>" class="clearfix serendipity_staticpage<?php if ($GLOBALS['tpl']['staticpage_articleformat']): ?> serendipity_entry<?php endif; ?>">
     <header>
-        <h2><?php if ($GLOBALS['tpl']['staticpage_articleformat']): ?><?php if ($GLOBALS['tpl']['staticpage_articleformattitle']): ?><?= serendipity_specialchars($GLOBALS['tpl']['staticpage_articleformattitle']) ?><?php else: ?><?= serendipity_specialchars($GLOBALS['tpl']['staticpage_pagetitle']) ?><?php endif; ?><?php else: ?><?php if ($GLOBALS['tpl']['staticpage_headline']): ?><?= serendipity_specialchars($GLOBALS['tpl']['staticpage_headline']) ?><?php else: ?><?= serendipity_specialchars($GLOBALS['tpl']['staticpage_pagetitle']) ?><?php endif; ?><?php endif; ?></h2>
+        <h2><?php if ($GLOBALS['tpl']['staticpage_articleformat']): ?><?php if ($GLOBALS['tpl']['staticpage_articleformattitle']): ?><?= htmlspecialchars($GLOBALS['tpl']['staticpage_articleformattitle']) ?><?php else: ?><?= htmlspecialchars($GLOBALS['tpl']['staticpage_pagetitle']) ?><?php endif; ?><?php else: ?><?php if ($GLOBALS['tpl']['staticpage_headline']): ?><?= htmlspecialchars($GLOBALS['tpl']['staticpage_headline']) ?><?php else: ?><?= htmlspecialchars($GLOBALS['tpl']['staticpage_pagetitle']) ?><?php endif; ?><?php endif; ?></h2>
     <?php if (is_array($GLOBALS['tpl']['staticpage_navigation']) && ($GLOBALS['tpl']['staticpage_shownavi'] || $GLOBALS['tpl']['staticpage_show_breadcrumb'])): ?>
         <div id="staticpage_nav">
         <?php if ($GLOBALS['tpl']['staticpage_shownavi']): ?>
             <ul class="staticpage_navigation">
-                <li class="staticpage_navigation_left"><?php if (!empty($GLOBALS['tpl']['staticpage_navigation']['prev']['link)'])): ?><a href="<?= $GLOBALS['tpl']['staticpage_navigation']['prev']['link'] ?>" title="prev"><?= serendipity_specialchars($GLOBALS['tpl']['staticpage_navigation']['prev']['name']) ?></a><?php else: ?><span class="staticpage_navigation_dummy"><?= PREVIOUS ?></span><?php endif; ?></li>
-                <li class="staticpage_navigation_center"><?php if ($GLOBALS['tpl']['staticpage_navigation']['top']['new']): ?><?php if (!empty($GLOBALS['tpl']['staticpage_navigation']['top']['topp_name'])): ?><a href="<?= $GLOBALS['tpl']['staticpage_navigation']['top']['topp_link'] ?>" title="top"><?= $GLOBALS['tpl']['staticpage_navigation']['top']['topp_name'] ?></a> | <?php endif; ?>&#171 <?= $GLOBALS['tpl']['staticpage_navigation']['top']['curr_name'] ?> &#187; <?php if (!empty($GLOBALS['tpl']['staticpage_navigation']['top']['exit_name'])): ?>| <a href="<?= $GLOBALS['tpl']['staticpage_navigation']['top']['exit_link'] ?>" title="exit"><?= $GLOBALS['tpl']['staticpage_navigation']['top']['exit_name'] ?></a><?php endif; ?><?php else: ?><a href="<?= $GLOBALS['tpl']['staticpage_navigation']['top']['link'] ?>" title="current page"><?= serendipity_specialchars($GLOBALS['tpl']['staticpage_navigation']['top']['name']) ?></a><?php endif; ?></li>
-                <li class="staticpage_navigation_right"><?php if (!empty($GLOBALS['tpl']['staticpage_navigation']['next']['link)'])): ?><a href="<?= $GLOBALS['tpl']['staticpage_navigation']['next']['link'] ?>" title="next"><?= serendipity_specialchars($GLOBALS['tpl']['staticpage_navigation']['next']['name']) ?></a><?php else: ?><span class="staticpage_navigation_dummy"><?= NEXT ?></span><?php endif; ?></li>
+                <li class="staticpage_navigation_left"><?php if (!empty($GLOBALS['tpl']['staticpage_navigation']['prev']['link)'])): ?><a href="<?= $GLOBALS['tpl']['staticpage_navigation']['prev']['link'] ?>" title="prev"><?= htmlspecialchars($GLOBALS['tpl']['staticpage_navigation']['prev']['name']) ?></a><?php else: ?><span class="staticpage_navigation_dummy"><?= PREVIOUS ?></span><?php endif; ?></li>
+                <li class="staticpage_navigation_center"><?php if ($GLOBALS['tpl']['staticpage_navigation']['top']['new']): ?><?php if (!empty($GLOBALS['tpl']['staticpage_navigation']['top']['topp_name'])): ?><a href="<?= $GLOBALS['tpl']['staticpage_navigation']['top']['topp_link'] ?>" title="top"><?= $GLOBALS['tpl']['staticpage_navigation']['top']['topp_name'] ?></a> | <?php endif; ?>&#171 <?= $GLOBALS['tpl']['staticpage_navigation']['top']['curr_name'] ?> &#187; <?php if (!empty($GLOBALS['tpl']['staticpage_navigation']['top']['exit_name'])): ?>| <a href="<?= $GLOBALS['tpl']['staticpage_navigation']['top']['exit_link'] ?>" title="exit"><?= $GLOBALS['tpl']['staticpage_navigation']['top']['exit_name'] ?></a><?php endif; ?><?php else: ?><a href="<?= $GLOBALS['tpl']['staticpage_navigation']['top']['link'] ?>" title="current page"><?= htmlspecialchars($GLOBALS['tpl']['staticpage_navigation']['top']['name']) ?></a><?php endif; ?></li>
+                <li class="staticpage_navigation_right"><?php if (!empty($GLOBALS['tpl']['staticpage_navigation']['next']['link)'])): ?><a href="<?= $GLOBALS['tpl']['staticpage_navigation']['next']['link'] ?>" title="next"><?= htmlspecialchars($GLOBALS['tpl']['staticpage_navigation']['next']['name']) ?></a><?php else: ?><span class="staticpage_navigation_dummy"><?= NEXT ?></span><?php endif; ?></li>
             </ul>
         <?php endif; ?>
         <?php if ($GLOBALS['tpl']['staticpage_show_breadcrumb']): ?>
@@ -16,7 +16,7 @@
                 <a href="<?= $GLOBALS['tpl']['serendipityBaseURL'] ?>"><?= HOMEPAGE ?></a> &#187;
             <?php $i=0; ?>
             <?php foreach ($GLOBALS['tpl']['staticpage_navigation']['crumbs'] AS $crumb):?>
-                <?php if (!$i == 0): ?>&#187;<?php endif; ?><?php if ($crumb['id'] != $GLOBALS['tpl']['staticpage_pid']): ?><a href="<?= $crumb['link'] ?>"><?= serendipity_specialchars($crumb['name']) ?></a><?php else: ?><?= serendipity_specialchars($crumb['name']) ?><?php endif; ?>
+                <?php if (!$i == 0): ?>&#187;<?php endif; ?><?php if ($crumb['id'] != $GLOBALS['tpl']['staticpage_pid']): ?><a href="<?= $crumb['link'] ?>"><?= htmlspecialchars($crumb['name']) ?></a><?php else: ?><?= htmlspecialchars($crumb['name']) ?><?php endif; ?>
             <?php $i++; ?>
             <?php endforeach; ?>
             </div>
@@ -43,7 +43,7 @@
     <div class="clearfix content staticpage_childpages">
         <ul id="staticpage_childpages">
             <?php foreach ($GLOBALS['tpl']['staticpage_childpages'] AS $childpage):?>
-            <li><a href="<?= serendipity_specialchars($childpage['permalink']) ?>" title="<?= serendipity_specialchars($childpage['pagetitle']) ?>"><?= serendipity_specialchars($childpage['pagetitle']) ?></a></li>
+            <li><a href="<?= htmlspecialchars($childpage['permalink']) ?>" title="<?= htmlspecialchars($childpage['pagetitle']) ?>"><?= htmlspecialchars($childpage['pagetitle']) ?></a></li>
             <?php endforeach; ?>
         </ul>
     </div>
@@ -71,7 +71,7 @@
     <footer class="staticpage_metainfo">
         <p>
         <?php if ($GLOBALS['tpl']['staticpage_author']): ?>
-            <span class="single_user"><span class="visuallyhidden"><?= POSTED_BY ?> </span><?= serendipity_specialchars($GLOBALS['tpl']['staticpage_author']) ?>
+            <span class="single_user"><span class="visuallyhidden"><?= POSTED_BY ?> </span><?= htmlspecialchars($GLOBALS['tpl']['staticpage_author']) ?>
         <?php endif; ?>
         <?php if ($GLOBALS['tpl']['staticpage_author'] && $GLOBALS['tpl']['staticpage_lastchange']): ?> | </span><?php endif; ?>
         <?php if ($GLOBALS['tpl']['staticpage_lastchange']): ?>
@@ -85,7 +85,7 @@
             <?php endif; ?>
         <?php endif; ?>
         <?php if ($GLOBALS['tpl']['staticpage_adminlink'] && $GLOBALS['tpl']['staticpage_adminlink']['page_user']): ?>
-            | <a href="<?= $GLOBALS['tpl']['staticpage_adminlink']['link_edit'] ?>"><?= serendipity_specialchars($GLOBALS['tpl']['staticpage_adminlink']['link_name']) ?></a>
+            | <a href="<?= $GLOBALS['tpl']['staticpage_adminlink']['link_edit'] ?>"><?= htmlspecialchars($GLOBALS['tpl']['staticpage_adminlink']['link_name']) ?></a>
         <?php endif; ?>
         </p>
     </footer>

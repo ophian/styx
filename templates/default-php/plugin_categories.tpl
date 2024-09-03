@@ -15,7 +15,7 @@
             <a class="serendipity_xml_icon" href="<?= $plugin_category['feedCategoryURL'] ?>"><img src="<?= $GLOBALS['tpl']['category_image'] ?>" alt="XML" /></a>
         <?php endif; ?>
 
-            <a href="<?= $plugin_category['categoryURL'] ?>" title="<?= serendipity_specialchars($plugin_category['category_description']); ?>" style="padding-left: <?= $plugin_category['paddingPx'] ?>px"><?= serendipity_specialchars($plugin_category['category_name']); ?></a>
+            <a href="<?= $plugin_category['categoryURL'] ?>" title="<?= htmlspecialchars($plugin_category['category_description']); ?>" style="padding-left: <?= $plugin_category['paddingPx'] ?>px"><?= htmlspecialchars($plugin_category['category_name']); ?></a>
         </li>
 <?php endforeach; ?>
 <?php endif; ?>
