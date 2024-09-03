@@ -504,6 +504,8 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
   background-color: #fbe090; }
 [data-dark-theme="dark"] #serendipity_syndication_list .serendipity_xml_icon img {
   background-color: #0ff; }
+[data-dark-theme="dark"] #serendipity_authors_list .serendipity_xml_icon img {
+  background-color: #00ff70; }
 
 
 /* defaults */
@@ -2031,6 +2033,7 @@ section.sidebar_widget {
       vertical-align: middle;
       fill: currentcolor;
       rotate: 0deg; }
+      #serendipity_authors_list .serendipity_xml_icon img,
       #serendipity_categories_list .serendipity_xml_icon img {
         background-color: #e7e4e2;
         rotate: 180deg; }
