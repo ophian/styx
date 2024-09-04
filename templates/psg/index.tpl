@@ -56,6 +56,10 @@
 {/if}
 {if $is_raw_mode != true}
 
+    <button id="blink" class="navbar-shader btn float" onclick="dark()" title="Theme: Dark (Browser preferences|Session override)">
+        <img id="daynight" src="{$serendipityHTTPPath}{$templatePath}{$template}/icons/moon-fill.svg" width="30" height="30" alt="">
+    </button>
+
     <header id="serendipity_banner"><a id="topofpage"></a>
         <h1><a class="homelink1" href="{$serendipityBaseURL}">{$head_title|default:$blogTitle|truncate:80:" ..."}</a></h1>
         <h2><a class="homelink2" href="{$serendipityBaseURL}">{$head_subtitle|default:$blogDescription}</a></h2>
@@ -213,6 +217,7 @@
     </footer>
 {/if}
 
+    <script> const themePath = '{$serendipityHTTPPath}{$templatePath}{$template}'; </script>
     <script src="{serendipity_getFile file="pure.js"}"></script>
 {if ($view == 'entry' AND $wysiwyg_comment AND NOT (isset($smarty.get.serendipity.csuccess) AND $smarty.get.serendipity.csuccess == 'true') && (isset($entry) AND NOT $entry.allow_comments === false)) OR (($view == 'plugin' OR $view == 'start') AND $head_title == 'contactform')}
 
