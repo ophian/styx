@@ -94,7 +94,7 @@ class serendipity_plugin_authors extends serendipity_plugin
 
         $iconURL = $this->get_config('image', 'img/xml.gif');
         if (!(str_contains($iconURL, 'none'))) {
-            $image = serendipity_getTemplateFile($iconURL, 'serendipityHTTPPath', true);
+            $image = serendipity_getTemplateFile($iconURL);
         }
         // on update, reset potential existing config sets
         if (false === $image) {
