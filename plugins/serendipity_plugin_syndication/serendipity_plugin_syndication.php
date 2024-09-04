@@ -8,28 +8,31 @@ if (IN_serendipity !== true) {
 
 class serendipity_plugin_syndication extends serendipity_plugin
 {
-    var $title = SYNDICATION;
+    public $title = SYNDICATION;
+    private const SYNDICATION_PLUGIN_OUTDATED_SERVICES = 'Historic external services';
+    private const SYNDICATION_PLUGIN_OUTDATED_SERVICES_DESC = "In the old days Googles Feedburner Service was the central collector for feeds, a provider for managing web feeds. Long ago Google moved this to the “Google graveyard of dead projects”, so said, deprecated the API and shut off certain inbound services like AdSense for Feeds, but left it alive for registered users. Lets say: you don't need it nowadays. The other, Subtome project, was a project to gather feeds all in-one, in short a subscribing application, but didn't made it to become very famous. One of the key goals of the button was to hide “RSS” altogether. Its relevance for feeds is near to nothing today. On the longer run both services will get nuked from the syndication plugin. There are so many valid subscribing tools and feedreaders that providing the xml buttons and feeds is the purest implementation we should give.";
 
     function introspect(&$propbag)
     {
         $propbag->add('name',          SYNDICATION);
         $propbag->add('description',   SHOWS_RSS_BLAHBLAH);
         $propbag->add('stackable',     true);
-        $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.16');
+        $propbag->add('author',        'Serendipity Team, Ian Styx');
+        $propbag->add('version',       '2.17');
         $propbag->add('configuration', array(
                                         'title',
-                                        'big_img',
                                         'feed_format',
-                                        'subToMe',
                                         'show_comment_feed',
                                         'separator',
                                         'iconURL',
                                         'feed_name',
                                         'comment_name',
+                                        'custom_url',
                                         'separator2',
-                                        'fb_id',
-                                        'custom_url'
+                                        'config_outdated',
+                                        'subToMe',
+                                        'big_img',
+                                        'fb_id'
                                        )
         );
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
@@ -86,13 +89,6 @@ class serendipity_plugin_syndication extends serendipity_plugin
                 $propbag->add('radio_per_row', '4');
                 break;
 
-            case 'fb_id':
-                $propbag->add('type',        'string');
-                $propbag->add('name',        SYNDICATION_PLUGIN_FEEDBURNERID);
-                $propbag->add('description', SYNDICATION_PLUGIN_FEEDBURNERID_DESC);
-                $propbag->add('default',     '');
-                break;
-
             case 'show_comment_feed':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        SYNDICATION_PLUGIN_COMMENTFEED);
@@ -112,13 +108,6 @@ class serendipity_plugin_syndication extends serendipity_plugin
                 $propbag->add('default',     'img/xml.gif');
                 break;
 
-            case 'big_img':
-                $propbag->add('type',        'string');
-                $propbag->add('name',        SYNDICATION_PLUGIN_FEEDICON);
-                $propbag->add('description', SYNDICATION_PLUGIN_FEEDICON_DESC);
-                $propbag->add('default',     'img/subtome.png');
-                break;
-
             case 'feed_name':
                 $propbag->add('type',        'string');
                 $propbag->add('name',        SYNDICATION_PLUGIN_FEEDNAME);
@@ -133,6 +122,19 @@ class serendipity_plugin_syndication extends serendipity_plugin
                 $propbag->add('default',     '');
                 break;
 
+            case 'custom_url':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        SYNDICATION_PLUGIN_CUSTOMURL);
+                $propbag->add('description', SYNDICATION_PLUGIN_CUSTOMURL_DESC);
+                $propbag->add('default',     '');
+                break;
+
+            case 'config_outdated':
+                $propbag->add('type',    'content');
+                $propbag->add('name',    'Slight outdated services');
+                $propbag->add('default', '<h3>' . self::SYNDICATION_PLUGIN_OUTDATED_SERVICES . '</h3><em>' . self::SYNDICATION_PLUGIN_OUTDATED_SERVICES_DESC . '</em>');
+                break;
+
             case 'subToMe':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        SYNDICATION_PLUGIN_SUBTOME);
@@ -140,10 +142,17 @@ class serendipity_plugin_syndication extends serendipity_plugin
                 $propbag->add('default',     'false');
                 break;
 
-            case 'custom_url':
-                $propbag->add('type',        'boolean');
-                $propbag->add('name',        SYNDICATION_PLUGIN_CUSTOMURL);
-                $propbag->add('description', SYNDICATION_PLUGIN_CUSTOMURL_DESC);
+            case 'big_img':
+                $propbag->add('type',        'string');
+                $propbag->add('name',        SYNDICATION_PLUGIN_FEEDICON);
+                $propbag->add('description', SYNDICATION_PLUGIN_FEEDICON_DESC);
+                $propbag->add('default',     'img/subtome.png');
+                break;
+
+            case 'fb_id':
+                $propbag->add('type',        'string');
+                $propbag->add('name',        SYNDICATION_PLUGIN_FEEDBURNERID);
+                $propbag->add('description', SYNDICATION_PLUGIN_FEEDBURNERID_DESC);
                 $propbag->add('default',     '');
                 break;
 
@@ -158,10 +167,20 @@ class serendipity_plugin_syndication extends serendipity_plugin
         global $serendipity;
 
         $title = $this->get_config('title', SUBSCRIBE_TO_BLOG);
+
         $iconURL = $this->get_config('iconURL', 'img/xml.gif');
-        if ($iconURL != 'none') {
-            $small_icon = serendipity_getTemplateFile($iconURL);
+        if (!(str_contains($iconURL, 'none'))) {
+            $small_icon = serendipity_getTemplateFile($iconURL, 'serendipityHTTPPath', true);
         }
+        // on update, reset potential existing config sets
+        if (false === $small_icon) {
+            $small_icon = $iconURL; // old had passed serendipity_getTemplateFile() already
+            // reset the config var to the last relative path part, eg. img/xml.gif
+            $iconURL = str_replace($serendipity['serendipityHTTPPath'] . $serendipity['templatePath'] . $serendipity['template'] .'/', '', $iconURL);
+            $this->set_config('iconURL', $iconURL); // set and done for next run
+        }
+        $usesvg = is_null($small_icon) ? false : pathinfo($small_icon, PATHINFO_EXTENSION) === 'svg';
+
         $custom_feed = trim($this->get_config('feed_name', ''));
         $custom_comm = trim($this->get_config('comment_name', ''));
         $custom_img  = trim($this->get_config('big_img', 'img/subtome.png'));
@@ -225,7 +244,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
             $onclick = $this->getOnclick($mainFeed);
         }
 
-        echo '<ul id="serendipity_syndication_list" class="plainList">'."\n";
+        echo '<ul id="serendipity_syndication_list" class="plainList' . ($usesvg ? ' xmlsvg' : '') .'">'."\n";
         // case main entries feed either/or
         echo $this->generateFeedButton( $mainFeed,
                                         ($useRss ? "RSS $FEED" : "Atom $FEED"),
