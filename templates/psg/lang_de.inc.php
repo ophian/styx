@@ -32,7 +32,7 @@
       <li>Schreiben Sie Ihren (p)-aragraphierten Inhaltstext kurz genug, um die Höhe der linken Nachbarkarte mit den "5" neuesten Blogartikeln nicht unnötig zu vergrößern!</li>
     </ul>
     <p>Die Option: "' . PURE_START_HOME_TITLE . '" definiert die Überschrift Ihrer neuesten Artikel des 2-spaltigen Rasterfeldes.<p>
-    <p><b><u>Achtung</u>:</b><br>Dieses Startseiten-Beispiel nutzt einen netten Service von «<code> lorempixel.com</code> », der Beispielbilder aus verschiedenen Kategorien einsetzt und solange als "Rückgriff" genutzt wird, wie keine eigenen Bilder gesetzt und definiert sind (siehe index.tpl und die config.inc.php Datei). Sie sollten diese Bilder aber nicht für den Produktivbetrieb verwenden. Sie werden einzig hier benutzt, um einen ersten Eindruck der möglichen Dastellung zu bekommen und dienen nur Development-Zwecken.</p>
+    <p><b><u>Achtung</u>:</b><br>Dieses Startseiten-Beispiel nutzt einen netten Service von «<code> https://picsum.photos</code> », der Beispielbilder aus verschiedenen Kategorien einsetzt und solange als "Rückgriff" genutzt wird, wie keine eigenen Bilder gesetzt und definiert sind (siehe index.tpl und die config.inc.php Datei). Sie sollten diese Bilder aber nicht für den Produktivbetrieb verwenden. Sie werden einzig hier benutzt, um einen ersten Eindruck der möglichen Dastellung zu bekommen und dienen nur Development-Zwecken.</p>
   </div>
 </details>
 <details>

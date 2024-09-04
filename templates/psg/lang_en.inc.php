@@ -32,7 +32,7 @@
       <li>Write your paragraphed content text short enough to not expand the height of this neighbour\'s first two grid column box with the "5" latest blog articles!</li>
     </ul>
     <p>The option: "' . PURE_START_HOME_TITLE . '" defines the head title of your latest articles first card 2-column grid box.<p>
-    <p><b><u>Note</u>:</b><br>This homepage example uses a nice service from «<code> lorempixel.com</code> » which uses sample images from different categories as a fallback and is used as long as no self-defined images are set (see index.tpl and the config.inc.php file). You should not use these sample images for production use. They are only used here to get a first impression of the possible presentation and are only for development purposes.</p>
+    <p><b><u>Note</u>:</b><br>This homepage example uses a nice service from «<code> https://picsum.photos</code> » which uses sample images from different categories as a fallback and is used as long as no self-defined images are set (see index.tpl and the config.inc.php file). You should not use these sample images for production use. They are only used here to get a first impression of the possible presentation and are only for development purposes.</p>
   </div>
 </details>
 <details>

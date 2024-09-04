@@ -1,12 +1,12 @@
-{* NOTE: Replace src: |default:"http://lorempixel.com/600/400/{$design.0}/?{($key+$design.1)}" (placeholder dummy image generator) with your own *}
+{* NOTE: Replace src: |default:"https://picsum.photos/600/400.jpg"} (+ webp in srcset placeholder dummy image generator) to use your own defined images *}
 {function name=gridcards}
                         <li class="grid__item">
                             <a href="{$card.link|default:'#'}" class="card">
                               <div class="card__image">
                                 <picture>
                                   <source srcset="{$card.image.avif|default:''}" type="image/avif">
-                                  <source srcset="{$card.image.webp|default:''}" type="image/webp">
-                                  <img src="{$card.image.src|default:"http://lorempixel.com/600/400/{$design.0}/?{($key+$design.1)}"}" alt="">
+                                  <source srcset="{$card.image.webp|default:'https://picsum.photos/600/400.webp'}" type="image/webp">
+                                  <img src="{$card.image.src|default:"https://picsum.photos/600/400.jpg"}" alt="">
                                 </picture>
                               </div>
                               <article class="card__content">
@@ -120,8 +120,8 @@
                               <div class="card__image">
                                 <picture>
                                   <source srcset="{* link to static MediaLibrary avif variation file *}" type="image/avif">
-                                  <source srcset="{* link to static MediaLibrary webp variation file *}" type="image/webp">
-                                  <img src="{* link to static MediaLibrary image file *}http://lorempixel.com/600/400/{$design.0}/?1" alt="">
+                                  <source srcset="{* link to static MediaLibrary webp variation file *}https://picsum.photos/760/260.webp" type="image/webp">
+                                  <img src="{* link to static MediaLibrary image file *}https://picsum.photos/760/260.jpg" alt="">
                                 </picture>
                               </div>
                               <article class="card__content">
@@ -145,8 +145,8 @@
                               <div class="card__image">
                                 <picture>
                                   <source srcset="{* link to static MediaLibrary avif variation file *}" type="image/avif">
-                                  <source srcset="{* link to static MediaLibrary webp variation file *}" type="image/webp">
-                                  <img src="{* link to static MediaLibrary image file *}http://lorempixel.com/600/400/{$design.0}/?2" alt="">
+                                  <source srcset="{* link to static MediaLibrary webp variation file *}https://picsum.photos/600/400.webp" type="image/webp">
+                                  <img src="{* link to static MediaLibrary image file *}https://picsum.photos/600/400.jpg" alt="">
                                 </picture>
                               </div>
                               <article class="card__content">
