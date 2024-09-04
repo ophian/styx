@@ -170,7 +170,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
 
         $iconURL = $this->get_config('iconURL', 'img/xml.gif');
         if (!(str_contains($iconURL, 'none'))) {
-            $small_icon = serendipity_getTemplateFile($iconURL, 'serendipityHTTPPath', true);
+            $small_icon = serendipity_getTemplateFile($iconURL);
         }
         // on update, reset potential existing config sets
         if (false === $small_icon) {
