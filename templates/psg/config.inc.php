@@ -53,15 +53,11 @@ $serendipity['smarty']->assign('addcards', array(
     ));
 */
 // STARTPAGE DEVELOPMENT image placeholder service
-// Uses default fallback service by: Placeholder Images for every case. Webdesign or Print. It's simple and absolutely free! http://lorempixel.com/
+// Uses default fallback service by: Placeholder Images for every case. Webdesign or Print. It's simple and absolutely free! https://picsum.photos from David Marby.
 // This is NOT really meant to stay and be used in production modes and is just here for development purposes and views as an example.
 // Use the hard coded cards in the index.tpl file, to add your own image links and define them here in the upper 'addcards' array for the additional cards.
-// Remove http://lorempixel.com/600/400/{$design.0}/?1 inside the <img src="" >
-// After having done so for the first row cards, do it as well for the top Smarty function in your index.tpl file and remove this part: |default:"http://lorempixel.com/600/400/{$design.0}/?{($key+$design.1)}"
-// Afterwards disable by # these next 3 lines:
-$locs = array('abstract', 'animals', 'business', 'cats', 'city', 'food', 'nightlife', 'fashion', 'people', 'nature', 'sports', 'technics', 'transport');
-$rkey = array_rand($locs);
-$serendipity['smarty']->assign('design', array(0 => $locs[$rkey], 1 => $rkey));
+// Remove https://picsum.photos/600/400.jpg inside the <img src="" > And same in source webp case.
+// After having done so for the first row cards, do it as well for the top Smarty function in your index.tpl file and remove this part: |default:"https://picsum.photos/600/400.jpg}"
 
 // don't use the no-conflict jquery mode
 $serendipity['capabilities']['jquery-noconflict'] = false;

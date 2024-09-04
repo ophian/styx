@@ -3,6 +3,18 @@ body.welcome,
 #content.welcome {
   background-color: #E9E9E9;
 }
+[data-dark-theme="dark"] body.welcome {
+  background-color: #1c2128;
+}
+[data-dark-theme="dark"] #content.welcome {
+  background-color: #2d333b;
+}
+[data-dark-theme="dark"] .card__content {
+  color: #c0c4d1;
+}
+[data-dark-theme="dark"] .card {
+  border: 1px solid #2f4f4f;
+}
 .archive_index dl {
   line-height: 1.4; }
   .archive_index dd {
