@@ -92,6 +92,8 @@ Version 4.5-DEV ()
  ------------------------------------------------------------------------
 
 
+  * syndication: Fix comment rss feed xml icon is missing
+
   * Extend the default/style_fallback.css stylesheet for theme wide xml svg icon
     default size.
 
