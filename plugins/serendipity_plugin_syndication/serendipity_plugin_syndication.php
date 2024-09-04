@@ -242,6 +242,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
                 echo $this->generateFeedButton( serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.rss2'),
                                                 $COMMENTS . ' (RSS)',
                                                 ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.rss2')) : ''),
+                                                $icon,
                                                 $small_icon);
                 echo $this->generateFeedButton( serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.atom10'),
                                                 $COMMENTS . ' (Atom)',
