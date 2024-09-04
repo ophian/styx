@@ -2,6 +2,10 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Refactor the syndication plugin configuration and add the new "xmlsvg" CSS
+    class for consistency.
+    Deprecates feedburner and subtome services.
+
   * Normalize the xml icon path to relative path consistency for set_config()
     in "serendipity_plugin_categories" and "setendipity_plugin_authors".
     - Add current available icon sets to XML_IMAGE_TO_DISPLAY_DESC information.
