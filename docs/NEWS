@@ -2,6 +2,10 @@ Version 4.5-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix [ psg ] theme broken lorempixel.com media service by new picsum.photos
+    from David Marby, https://github.com/DMarby/picsum-photos.
+    Additional fixes for previous added darkmode reference.
+
   * Fix [ psg ] child theme missing themePath JS constant and since relaying
     on parents pure.js, implement the dark/light switch with svg assets.
 
