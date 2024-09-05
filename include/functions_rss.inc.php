@@ -116,6 +116,12 @@ function serendipity_printEntries_rss(iterable &$entries, string $version, bool 
             // clean up body for XML compliance and doubled whitespace between (img) attributes as best we can.
             $entry['body'] = str_replace('"  ', '" ', xhtml_cleanup($entry['body']));
 
+            // since XSLT is used as a simple title listing feed xml, we can either remove the full feed and other irrelevant bits OR strip and truncate 
+            if ($version == 'xsl') {
+                #unset($entry['body']);
+                $entry['body'] = serendipity_truncateString(trim(preg_replace('/\s\s+/', ' ', strip_tags($entry['body']))), 180);
+            }
+
             if ($options['comments'] === true && $version == 'atom1.0') {
                 // Remember: A comment body is DB stored by using htmlspecialchars() !!
                 $entry['body'] = str_replace(['&nbsp;', '&#160;', '  '], ' ', $entry['body']); // allowed to do, since stripped'&#39;', 
