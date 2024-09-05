@@ -246,7 +246,7 @@ if (is_array($metadata['additional_fields'])) {
 }
 $metadata['fullFeed'] = serendipity_get_config_var('feedFull', false);
 if ($metadata['fullFeed'] === 'client') {
-    if ($_GET['fullFeed'] || $serendipity['GET']['fullFeed']) {
+    if (array_key_exists('fullFeed', $_GET) || array_key_exists('fullFeed', $serendipity['GET'])) {
         $metadata['fullFeed'] = true;
     } else {
         $metadata['fullFeed'] = false;
