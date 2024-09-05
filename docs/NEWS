@@ -2,6 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Refactor rss file and XSLT feed improvements
+
   * Refactor the syndication plugin configuration and add the new "xmlsvg" CSS
     class for consistency.
     Deprecates feedburner and subtome services.
