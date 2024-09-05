@@ -298,12 +298,6 @@ switch($version) {
         #header('Content-Type: application/xml; charset=utf-8');
         #header('x-content-type-options: nosniff');
         $namespace_hook = 'frontend_display:xslt:namespace';
-        //  since XSLT is used as a simple title listing feed xml, we can either remove the full feed and other irrelevant bits OR strip and truncate 
-        foreach ($entries AS &$entry) {
-            #unset($entry['feed_body']);
-            #unset($entry['feed_ext']);
-            $entry['feed_body'] = serendipity_truncateString(trim(preg_replace('/\s\s+/', ' ', strip_tags($entry['feed_body']))), 180) . ' (...stripped and truncated content preview)';
-        }
         break;
 
     case 'opml1.0':
