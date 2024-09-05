@@ -14,13 +14,13 @@ Version 5.0-DEV ()
     - Set tooltip title to link and the feed link.
     - Add id="serendipity_authors_list" to the authors plugin ul list for
       consistency selector stylings.
-    - Reset existing path sets om upgrade.
+    - Reset existing path sets on upgrade.
     - To be able to distinguish between image sets and icon sets for styling,
-      a new "xmlsvg" CSS class selector was added to the ul list, if an svg
+      a new "xmlsvg" CSS class selector was added to the ul list, if an SVG
       image usage found true. For the categories plugin an additional Smarty
       {$category_is_svg} (boolean) variable was added for the same purpose in
-      theme custom plugin_category.tpl templates.
-    Note the [ pure ] Standard theme is now using this SVG class selector for
+      future theme custom plugin_category.tpl templates.
+    Notice the [ pure ] Standard theme is now using this SVG class selector for
     strictness against other xml icon styles.
 
   * Improve textarea default ID naming to snake_case convention, which fixes
