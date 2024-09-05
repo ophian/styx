@@ -1233,15 +1233,17 @@ function xhtml_cleanup($html) {
     static $p = array(
         '/\&([\s\<])/',                 // ampersand followed by whitespace or tag
         '/\&$/',                        // ampersand at end of body
-        '/<(br|hr|img)(.*?)\/?>/i',     // commonly used unclosed single tags - attributes included
-        '/\&nbsp;/'                     // Protect whitespace
+        '/\<(img|source|br|hr|(?!colgroup)col)([^>]*)(?<!\/)>/i',     // commonly used unclosed single tags - attributes included
+        '/\&nbsp;/',                    // Protect whitespace
+        '/\&amp;shy;/'
     );
 
     static $r = array(
         '&amp;\1',
         '&amp;',
-        '<\1\2/>',
-        '&#160;'
+        '<\1\2\3/>',
+        '&#160;',
+        '&#173;'
     );
 
     return preg_replace($p, $r, $html);
