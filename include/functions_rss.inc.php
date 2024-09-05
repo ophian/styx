@@ -47,7 +47,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
                 $e_ts = $entry['timestamp'];
             }
 
-            $entry['feed_id'] = (isset($entry['entryid']) && !empty($entry['entryid']) ? $entry['entryid'] : $entry['id']);
+            $entry['feed_id'] = !empty($entry['entryid']) ? $entry['entryid'] : $entry['id'];
 
             // set feed guid only, if not already defined externally
             if (empty($entry['feed_guid'])) {
