@@ -10,9 +10,9 @@ declare(strict_types=1);
 
 class Serendipity_Import_Blogger extends Serendipity_Import
 {
-    var $info        = array('software' => 'Blogger.com [using API]');
-    var $data        = array();
-    var $inputFields = array();
+    public $info        = array('software' => 'Blogger.com [using API]');
+    public $data        = array();
+    public $inputFields = array();
 
     function __construct($data)
     {
@@ -38,7 +38,7 @@ class Serendipity_Import_Blogger extends Serendipity_Import
                                 );
     }
 
-    function getImportNotes()
+    public function getImportNotes() : string
     {
         if (empty($_REQUEST['token'])) {
             $msg = 'In order to import your blog on Blogger, Serendipity needs to be able to access it via Google\'s Blogger Data APIs.';

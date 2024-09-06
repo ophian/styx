@@ -10,9 +10,9 @@ declare(strict_types=1);
 
 class Serendipity_Import_WordPress_PG extends Serendipity_Import
 {
-    var $info        = array('software' => 'WordPress PostgreSQL');
-    var $data        = array();
-    var $inputFields = array();
+    public $info        = array('software' => 'WordPress PostgreSQL');
+    public $data        = array();
+    public $inputFields = array();
 
     function __construct($data)
     {

@@ -27,8 +27,8 @@ if (function_exists('set_time_limit')) {
 /* Class construct. Each importer plugin must extend this class. */
 class Serendipity_Import
 {
-    var $trans_table  = '';
-    var $force_recode = true;
+    public $trans_table  = '';
+    public $force_recode = true;
 
     /**
      * Return textual notes of an importer plugin
@@ -38,7 +38,7 @@ class Serendipity_Import
      * @access public
      * @return string  HTML-code of a interface/user hint
      */
-    function getImportNotes()
+    public function getImportNotes() : string
     {
         return '';
     }
@@ -50,7 +50,7 @@ class Serendipity_Import
      * @param  boolean   If set to true, returns the option "UTF-8" as first select choice, which is then preselected. If false, the current language of the blog will be the default.
      * @return array     Array of available charsets to choose from
      */
-    function getCharsets($utf8_default = true)
+    public function getCharsets(bool $utf8_default = true) : iterable
     {
         $charsets = array();
 
@@ -84,7 +84,7 @@ class Serendipity_Import
      * @param  string   input string to convert
      * @return string   converted string
      */
-    function &decode($string)
+    public function &decode(string $string) : string
     {
         // xml_parser_* functions do recoding from ISO-8859-1/UTF-8
         if (!$this->force_recode && (LANG_CHARSET == 'ISO-8859-1' || LANG_CHARSET == 'UTF-8')) {
@@ -123,7 +123,7 @@ class Serendipity_Import
      * @param  string   input string
      * @return string   output string
      */
-    function strtr($data)
+    public function strtr(?string $data) : ?string
     {
         if (!is_null($data)) {
             return strtr($this->decode($data), $this->trans_table);
@@ -140,7 +140,7 @@ class Serendipity_Import
      * @param   array   input array
      * @return  array   output array
      */
-    function strtrRecursive($data)
+    public function strtrRecursive(iterable $data) : iterable
     {
         foreach($data AS $key => $val) {
             if (is_array($val)) {
@@ -162,7 +162,7 @@ class Serendipity_Import
      * @see    $this->strtr()
      * @return null
      */
-    function getTransTable()
+    public function getTransTable() : ?true
     {
         if (!serendipity_db_bool($this->data['use_strtr'])) {
             $this->trans_table = array();
@@ -187,7 +187,7 @@ class Serendipity_Import
      * @param  resource    DB connection resource
      * @return resource    SQL response
      */
-    function &nativeQuery($query, $db = false)
+    public function &nativeQuery(string $query, object|bool $db = false) : iterable|false
     {
         global $serendipity;
 

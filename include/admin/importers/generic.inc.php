@@ -8,10 +8,10 @@ require_once S9Y_PEAR_PATH . 'Onyx/RSS.php';
 
 class Serendipity_Import_Generic extends Serendipity_Import
 {
-    var $info         = array('software' => IMPORT_GENERIC_RSS);
-    var $data         = array();
-    var $inputFields  = array();
-    var $force_recode = false;
+    public $info         = array('software' => IMPORT_GENERIC_RSS);
+    public $data         = array();
+    public $inputFields  = array();
+    public  $force_recode = false;
 
     function __construct($data)
     {

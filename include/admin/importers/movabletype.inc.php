@@ -29,9 +29,9 @@ switch ($serendipity['lang']) {
 
 class Serendipity_Import_MovableType extends Serendipity_Import
 {
-    var $info        = array('software' => 'MovableType');
-    var $data        = array();
-    var $inputFields = array();
+    public $info        = array('software' => 'MovableType');
+    public $data        = array();
+    public $inputFields = array();
 
     function __construct($data)
     {
@@ -82,7 +82,7 @@ class Serendipity_Import_MovableType extends Serendipity_Import
         }
     }
 
-    function getImportNotes()
+    public function getImportNotes() : string
     {
         $head = '<strong>MovableType</strong> This project as OS (OpenSource) died away January 2011 (as Melody fork) and April 2015 (last available OS version of MovableType). Six-Apart changed the licensing of the software several times. MovableType evolved from a free software to a portfolio of different products with graduated license fees. A large part of the previously enthusiastic users turned away and quickly rallied around b2/cafelog, which was revived as Wordpress and has now become the dominant platform. Since we already have a Dominion (<em>an interstellar superpower from the Gamma Quadrant of the Milky Way</em>) Importer ;-) MT is abandoned. Better start from scratch or take this template as a base if you need an importer for a commercial MT version 7+.';
         $notes = array();

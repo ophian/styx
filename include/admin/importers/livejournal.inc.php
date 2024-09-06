@@ -9,12 +9,12 @@ require_once S9Y_PEAR_PATH . 'Onyx/RSS.php';
 
 class Serendipity_Import_LiveJournalXML extends Serendipity_Import
 {
-    var $info        = array('software' => 'LiveJournal XML');
-    var $data        = array();
-    var $inputFields = array();
-    var $force_recode = false;
+    public $info        = array('software' => 'LiveJournal XML');
+    public $data        = array();
+    public $inputFields = array();
+    public $force_recode = false;
 
-    function getImportNotes()
+    public function getImportNotes() : string
     {
         return 'LiveJournal\'s parent company was sold to Six Apart in 2005, the owners of MovableType. Erstwhile having Millions of users in the "aughts / noughties", this went down the same way as MT and was later on sold to a Russian company. See this template as abandoned, but kept a little longer to see if someone catches up.';
     }

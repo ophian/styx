@@ -11,12 +11,12 @@ declare(strict_types=1);
 
 class Serendipity_Import_phpbb extends Serendipity_Import
 {
-    var $info        = array('software' => 'phpBB 3.x');
-    var $data        = array();
-    var $inputFields = array();
-    var $categories  = array();
+    public $info        = array('software' => 'phpBB 3.x');
+    public $data        = array();
+    public $inputFields = array();
+    public $categories  = array();
 
-    function getImportNotes()
+    public function getImportNotes() : string
     {
         return 'This Importer was originally developed with phpBB in an early 2.0.x state and some early Serendipity version too, loong ago. As one can imagine, things have changed over time. This new lookup requires at least phpBB 3..x up to current v3.3.8 (<em>Dunno!</em>) now and a running Styx instance up from latest v.3 Series. If you wish to give it a try, backup both database implementations and better do this in a testing environment first to see if you catch some breaking flaws. This new lookup has just been ported (<em>with shaky results</em>), and NOT been tested! It does not capture and import an exact copy, just some main things like from users, posts/topics and forums/categories, but NOT any other stored configurations, files, etc). This and the relations finetuning is "handmade" User stuff - left up to YOU - later on! Now go and ride this horse. File an GitHub <a href="https://github.com/ophian/styx/issues" target="_blank">issue</a> or start a <a href="https://github.com/ophian/styx/discussions" target="_blank">discussion</a> for help!';
     }

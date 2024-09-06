@@ -19,7 +19,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
     public $debug       = true;
     public $counter     = 0;
 
-    function getImportNotes()
+    public function getImportNotes() : string
     {
         // TODO: I18n!
         return 'Please set the correct settings for host, user, password, name, prefix and charset from your <b>import database</b>
