@@ -11,6 +11,7 @@
 @define('DATE_FORMAT_ENTRY', '%A, %B %e. %Y');
 @define('DATE_FORMAT_SHORT', '%d-%m-%Y %H:%M');
 @define('WYSIWYG_LANG', 'ro_RO');
+@define('TINYMCE_LANG', 'ro');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', '.');
 @define('NUMBER_FORMAT_THOUSANDS', ',');

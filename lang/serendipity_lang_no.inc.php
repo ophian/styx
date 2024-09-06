@@ -10,6 +10,7 @@
 @define('DATE_FORMAT_ENTRY', '%A - %e. %B %Y');
 @define('DATE_FORMAT_SHORT', '%d.%m.%Y %H:%M');
 @define('WYSIWYG_LANG', 'no_NO');
+@define('TINYMCE_LANG', 'no');
 @define('LANG_DIRECTION', 'ltr');
 
 @define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Styx Administrasjonssuite');

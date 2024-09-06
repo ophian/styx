@@ -12,6 +12,7 @@
 @define('DATE_FORMAT_ENTRY', '%A d. %e. %B %Y');
 @define('DATE_FORMAT_SHORT', '%d.%m.%Y %H:%M');
 @define('WYSIWYG_LANG', 'da_DA');
+@define('TINYMCE_LANG', 'da');
 @define('LANG_DIRECTION', 'ltr');
 
 @define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Styx Administrationssuite');

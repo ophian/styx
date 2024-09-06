@@ -14,6 +14,7 @@
 @define('DATE_FORMAT_ENTRY', '%A, %e de %B del %Y');
 @define('DATE_FORMAT_SHORT', '%d.%m.%Y %H:%M');
 @define('WYSIWYG_LANG', 'es_ES');
+@define('TINYMCE_LANG', 'es');
 @define('LANG_DIRECTION', 'ltr');
 
 /* rlazo[20061114]: dado que el español tiene varias traducciones para ciertas

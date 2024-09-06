@@ -11,6 +11,7 @@
 @define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
 @define('SQL_CHARSET', 'utf8');
 @define('WYSIWYG_LANG', 'tr_TR');
+@define('TINYMCE_LANG', 'tr');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', '.');
 @define('NUMBER_FORMAT_THOUSANDS', ',');

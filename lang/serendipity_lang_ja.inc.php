@@ -10,6 +10,7 @@
 @define('DATE_FORMAT_ENTRY', '%Y年 %B %e(%A)');
 @define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
 @define('WYSIWYG_LANG', 'ja_JP');
+@define('TINYMCE_LANG', 'ja');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', '.');
 @define('NUMBER_FORMAT_THOUSANDS', ',');
