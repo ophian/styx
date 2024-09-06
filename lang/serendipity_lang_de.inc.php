@@ -1073,7 +1073,7 @@ Sie sollten damit kein sicherheitsrelevantes Zugangssystem betreiben wollen!');
 @define('CLEANCOMPILE_FAIL', 'Es sind derzeit keine Dateien zu löschen.');
 @define('CLEANCOMPILE_TITLE', 'Template-Cache leeren');
 @define('CLEANCOMPILE_INFO', 'Löscht alle kompilierten Template-Dateien des derzeit aktiven Themes. Die kompilierten Template-Dateien werden bei Bedarf vom Smarty-Framework automatisch neu erzeugt.');
-@define('CLEAR_SELECTION', 'Auswahl zurücksetzen');
+@define('CLEAR_SELECTION', 'Ganze Auswahl zurücksetzen');
 @define('CLEAR_FIELD', 'Textfeld leeren');
 @define('INSTALLER_KEY', 'Schlüssel');
 @define('INSTALLER_VALUE', 'Wert');
