@@ -306,7 +306,7 @@ switch($version) {
 
     case '1.0':
         $namespace_hook = 'frontend_display:rss-1.0:namespace';
-        serendipity_plugin_api::hook_event('frontend_display:rss-1.0:once', $entries);
+        serendipity_plugin_api::hook_event('frontend_display:rss-1.0:once', $entries); // for CC license sources
         $once_display_dat = $entries['display_dat'] ?? null;
         unset($entries['display_dat']);
         break;
