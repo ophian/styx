@@ -48,7 +48,7 @@
             everywhere: true,
             tabuList: []
           },
-        language: 'de', // TODO add other languages
+        language: '{$lang}',
         // TODO Create a tinymce v.6 scriptlet to configure plugin and toolbar items per user ...?
         object_resizing: false, // we don't want the image resize option
         highlight_on_focus: false, // ?? ditto - [ This feature is only available for TinyMCE 6.4 and later. In TinyMCE 7.0, the default setting for highlight_on_focus was changed from false to true. Any editors using this highlight_on_focus: true option in TinyMCE , can remove this option from their TinyMCE init configuration when upgrading to TinyMCE 7.0. ]
