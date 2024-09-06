@@ -195,6 +195,7 @@ function serendipity_emit_htmlarea_code(string $item, string $jsname, bool $spaw
         $eventData = array(
             'init'    => &$init,
             'item'    => &$item,
+            'lang'    => TINYMCE_LANG,
             'jsname'  => &$jsname,
             'skip'    => false,
             'buttons' => array(),
