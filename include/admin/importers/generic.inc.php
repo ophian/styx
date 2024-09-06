@@ -11,7 +11,7 @@ class Serendipity_Import_Generic extends Serendipity_Import
     public $info         = array('software' => IMPORT_GENERIC_RSS);
     public $data         = array();
     public $inputFields  = array();
-    public  $force_recode = false;
+    public $force_recode = false;
 
     function __construct($data)
     {
