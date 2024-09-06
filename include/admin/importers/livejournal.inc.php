@@ -223,7 +223,7 @@ class Serendipity_Import_LiveJournalXML extends Serendipity_Import
         global $serendipity;
 
         if (!file_exists($this->data['url'])) {
-            printf(FILE_NOT_FOUND, htmlspecialchars($this->data['url']));
+            printf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . FILE_NOT_FOUND . "</span>\n", '<b>' . htmlspecialchars($this->data['url']). '</b>');
             return false;
         }
 
