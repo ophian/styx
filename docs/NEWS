@@ -35,8 +35,8 @@ Version 5.0-DEV ()
     removes @param, @return PHPDoc references which were far less exact in
     multiple cases. Additionally more strict inner fnc CAST type conditionals
     were set and where explicit appropriate.
-    PLEASE NOTE: This still is is a WIP, in special for core extends, like
-    importers and plugins/themes.
+    PLEASE NOTE: This still is a WIP, in special for core extends, like
+    plugins/themes.
 
   * Implement comment search term highlight used for comment full body data
     in comment list.
