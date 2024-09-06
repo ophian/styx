@@ -213,7 +213,7 @@ if (isset($serendipity['GET']['adminAction'])
                     everywhere: true,
                     tabuList: []
                   },
-                language: 'de', // TODO add other languages
+                language: '".TINYMCE_LANG."',
                 entity_encoding: 'raw',
                 extended_valid_elements: 'span[class],code[class],pre[class]',
                 branding: false,
