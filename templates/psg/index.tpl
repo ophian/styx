@@ -241,6 +241,7 @@
         item.classList.replace("language-smarty", "language-php");
         item.classList.replace("language-perl", "language-php");
         item.classList.replace("language-log", "language-yaml"); /* -bash is good also */
+        item.classList.replace("language-markup", "language-plaintext");
       })
     </script>
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}_assets/highlight/github.min.css" type="text/css">
