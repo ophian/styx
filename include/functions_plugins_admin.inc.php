@@ -447,7 +447,7 @@ function serendipity_plugin_config(object &$plugin, object|iterable &$bag, strin
                     #    @include_once dirname(__FILE__) . '/functions_entries_admin.inc.php';
                     #}
                     // use SpawnMulti false per default (for multi nugget textareas, eg linklist sidebar plugin) - but where do we use jsname though?
-                    serendipity_emit_htmlarea_code("nuggets{$elcount}", "nuggets{$elcount}");
+                    serendipity_emit_htmlarea_code("nuggets{$elcount}", "nuggets{$elcount}"); // item, jsname ??? TODO: Check this all, if wrong or legacy... mix
                     if ($spawnNuggets && isset($serendipity['wysiwyg']) && $serendipity['wysiwyg'] && count($htmlnugget) > 0) {
                         $data['wysiwyg'] = true;
                     }
