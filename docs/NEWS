@@ -2,6 +2,8 @@ Version 4.5-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Refactor rss file and ATOM feed improvements
+
   * Fix [ psg ] theme broken lorempixel.com media service by new picsum.photos
     from David Marby, https://github.com/DMarby/picsum-photos.
     Additional fixes for previous added darkmode reference.
