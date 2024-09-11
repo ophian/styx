@@ -3,8 +3,8 @@ let currentEditor = document.getElementById('serendipity_commentform_comment');
 let html = currentEditor.defaultValue;
 if (null !== html) {
     html = html.replaceAll(/<\/p>\s*<br[/ ]*>/ig, '</p>'); // replace </p><br> with </p>
-    // now we want to nuke empty elements of p div or pre - preferable at the very ends of textarea content html
-    html = html.replaceAll(/<(p|div|pre)[^>]*>\s*<\/\1>/ig, ''); // remove empty tags !!! alle oder gar nicht
+    // now we want to nuke empty elements of p div or pre - preferable at the very ends of textarea content html only
+    html = html.replaceAll(/<(p|div|pre)[^>]*>\s*<\/\1>/ig, ''); // remove empty tags - ToDo: run this selective
 
     currentEditor.defaultValue = html;
 } // OK This works here for the comments and this because it is a single and placed right in workflow
