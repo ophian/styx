@@ -27,7 +27,7 @@ let commonConfig = {
         { name: 'views', items: [ 'code', 'fullscreen' ] },
         { name: 'visuals', items: [ 'preview', 'visualblocks' ] },
         { name: 'help', items: [ 'help' ] },
-        { name: 'extras', items: [ 'styles', 'table', 'fontsize', 'accordion', 'magicline' ] },
+        { name: 'extras', items: [ 'styles', 'fontsize', 'table', 'accordion' ] },
         { name: 'hooks', items: [ styxPlugs ] }
     ],
     // Configure mobile behaviour
