@@ -274,19 +274,19 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     background-color: #22272e;
     border-color: #373e47 #373e47 #444c45;
     color: #adbac7; }
-  [data-dark-theme="dark"] form button, [data-dark-theme="dark"] input[type="button"], [data-dark-theme="dark"] input[type="reset"], [data-dark-theme="dark"] input[type="submit"] {
+  [data-dark-theme="dark"] form button:not(.tox-tbtn), [data-dark-theme="dark"] input[type="button"], [data-dark-theme="dark"] input[type="reset"], [data-dark-theme="dark"] input[type="submit"] {
     background-color: #444c56 !important;
     background-image: -webkit-linear-gradient(top, #444c56, #535) !important;
     background-image: linear-gradient(to bottom, #444c56, #535) !important;
     text-shadow: none;
     border-color: #444c56;
     color: #a3aaba; }
-  [data-dark-theme="dark"] form button:active, [data-dark-theme="dark"] form button:visited, [data-dark-theme="dark"] form button:hover, [data-dark-theme="dark"] form button:focus, [data-dark-theme="dark"] input[type="button"]:active, [data-dark-theme="dark"] input[type="button"]:visited, [data-dark-theme="dark"] input[type="button"]:hover, [data-dark-theme="dark"] input[type="button"]:focus, [data-dark-theme="dark"] input[type="reset"]:active, [data-dark-theme="dark"] input[type="reset"]:visited, [data-dark-theme="dark"] input[type="reset"]:hover, [data-dark-theme="dark"] input[type="reset"]:focus, [data-dark-theme="dark"] input[type="submit"]:active, [data-dark-theme="dark"] input[type="submit"]:visited, [data-dark-theme="dark"] input[type="submit"]:hover, i[data-dark-theme="dark"] nput[type="submit"]:focus {
+  [data-dark-theme="dark"] form button:not(.tox-tbtn):active, [data-dark-theme="dark"] form button:not(.tox-tbtn):visited, [data-dark-theme="dark"] form button:not(.tox-tbtn):hover, [data-dark-theme="dark"] form button:not(.tox-tbtn):focus, [data-dark-theme="dark"] input[type="button"]:active, [data-dark-theme="dark"] input[type="button"]:visited, [data-dark-theme="dark"] input[type="button"]:hover, [data-dark-theme="dark"] input[type="button"]:focus, [data-dark-theme="dark"] input[type="reset"]:active, [data-dark-theme="dark"] input[type="reset"]:visited, [data-dark-theme="dark"] input[type="reset"]:hover, [data-dark-theme="dark"] input[type="reset"]:focus, [data-dark-theme="dark"] input[type="submit"]:active, [data-dark-theme="dark"] input[type="submit"]:visited, [data-dark-theme="dark"] input[type="submit"]:hover, i[data-dark-theme="dark"] nput[type="submit"]:focus {
     color: #cdd9e5; }
-  [data-dark-theme="dark"] form button:focus, [data-dark-theme="dark"] input[type="button"]:focus, [data-dark-theme="dark"] input[type="reset"]:focus, [data-dark-theme="dark"] input[type="submit"]:focus {
+  [data-dark-theme="dark"] form button:not(.tox-tbtn):focus, [data-dark-theme="dark"] input[type="button"]:focus, [data-dark-theme="dark"] input[type="reset"]:focus, [data-dark-theme="dark"] input[type="submit"]:focus {
     box-shadow: #cdd9e5 0 0 5px 0;
     border: none; }
-  [data-dark-theme="dark"] form button[disabled], [data-dark-theme="dark"] select[disabled], [data-dark-theme="dark"] select[disabled] option, [data-dark-theme="dark"] select[disabled] optgroup, [data-dark-theme="dark"] textarea[disabled], [data-dark-theme="dark"] input[disabled] {
+  [data-dark-theme="dark"] form button:not(.tox-tbtn)[disabled], [data-dark-theme="dark"] select[disabled], [data-dark-theme="dark"] select[disabled] option, [data-dark-theme="dark"] select[disabled] optgroup, [data-dark-theme="dark"] textarea[disabled], [data-dark-theme="dark"] input[disabled] {
     color: #3c3c3c; }
   [data-dark-theme="dark"] .msg_notice, [data-dark-theme="dark"] .serendipity_msg_notice, [data-dark-theme="dark"] .msg_important, [data-dark-theme="dark"] .serendipity_msg_important {
     background-color: #1c2128; }
@@ -681,7 +681,7 @@ textarea {
   resize: vertical;
   width: 100%; }
 
-form button, input[type="button"], input[type="reset"], input[type="submit"] {
+form button:not(.tox-tbtn), input[type="button"], input[type="reset"], input[type="submit"] {
   background-color: white;
   background-image: -webkit-linear-gradient(top, #fff, #ddd);
   background-image: linear-gradient(to bottom, #fff, #ddd);
@@ -699,22 +699,22 @@ form button, input[type="button"], input[type="reset"], input[type="submit"] {
   text-decoration: none;
   text-shadow: #eee 0 1px 1px;
   width: auto; }
-  form button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover {
+  form button:not(.tox-tbtn):hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover {
     background-color: white;
     background-image: -webkit-linear-gradient(top, #fff, #ccc);
     background-image: linear-gradient(to bottom, #fff, #ccc); }
-  form button:active, input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:active {
+  form button:not(.tox-tbtn):active, input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:active {
     background-color: white;
     background-image: -webkit-linear-gradient(top, #fff, #ccc);
     background-image: linear-gradient(to bottom, #fff, #ccc);
     border-color: #999 #bbb #ddd;
     box-shadow: inset rgba(17, 17, 17, 0.25) 0 1px 2px 0; }
-  form button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus {
+  form button:not(.tox-tbtn):focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus {
     box-shadow: #06f 0 0 5px 0;
     z-index: 1; }
-  form button:active, form button:visited, form button:hover, form button:focus, input[type="button"]:active, input[type="button"]:visited, input[type="button"]:hover, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:visited, input[type="reset"]:hover, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:visited, input[type="submit"]:hover, input[type="submit"]:focus {
+  form button:not(.tox-tbtn):active, form button:not(.tox-tbtn):visited, form button:not(.tox-tbtn):hover, form button:not(.tox-tbtn):focus, input[type="button"]:active, input[type="button"]:visited, input[type="button"]:hover, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:visited, input[type="reset"]:hover, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:visited, input[type="submit"]:hover, input[type="submit"]:focus {
     color: #111; }
-  form button[disabled], select[disabled], select[disabled] option, select[disabled] optgroup, textarea[disabled], input[disabled] {
+  form button:not(.tox-tbtn)[disabled], select[disabled], select[disabled] option, select[disabled] optgroup, textarea[disabled], input[disabled] {
     box-shadow: none;
     color: #888;
     cursor: default;
