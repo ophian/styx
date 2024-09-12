@@ -2,6 +2,11 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * We had to remove the 'required' attribute on the frontend textarea element
+    for Chromium in the [ pure ] theme to avoid possible error alerts:
+    "An invalid form control with name=serendipity[comment]' is not focusable."
+    A simple javascript checkup will now prevent sending empty comments.
+
   * Refactor rss file and XSLT feed improvements
 
   * Refactor the syndication plugin configuration and add the new "xmlsvg" CSS
