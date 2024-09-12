@@ -151,13 +151,19 @@
     <script src="{serendipity_getFile file="pure.js"}"></script>
 {if ($view == 'entry' AND $wysiwyg_comment AND NOT (isset($smarty.get.serendipity.csuccess) AND $smarty.get.serendipity.csuccess == 'true') && (isset($entry) AND NOT $entry.allow_comments === false)) OR (($view == 'plugin' OR $view == 'start') AND $head_title == 'contactform')}
 
-    <script src="{$serendipityHTTPPath}{$templatePath}_assets/ckebasic/ckeditor.js"></script>
-    <script src="{$serendipityHTTPPath}{$templatePath}_assets/ckebasic/config.js"></script>
+    <script> const styxPath = '{$serendipityHTTPPath}'; </script>
+    <script src="{$serendipityHTTPPath}{$templatePath}_assets/prism/prism.js"></script>
+    <script src="{$serendipityHTTPPath}{$templatePath}_assets/tinymce6/basicEditor.js"></script>
+    <script src="{$serendipityHTTPPath}{$templatePath}_assets/tinymce6/js/tinymce/tinymce.min.js"></script>
     <script>
         window.onload = function() {
-            var cfmco = document.getElementById('serendipity_commentform_comment');
-            if (typeof(cfmco) != 'undefined' && cfmco != null) {
-                CKEDITOR.replace( cfmco, { toolbar : [['Bold','Italic','Underline','-','NumberedList','BulletedList','Blockquote'],['CodeSnippet'],['EmojiPanel']], versionCheck: false });
+            var coco = document.getElementById('serendipity_commentform_comment');
+            if (typeof(coco) != 'undefined' && coco != null) {
+                tinymce.init({
+                    selector: '#serendipity_commentform_comment',
+                    setup: (editor) => {},
+                      ...basicConfig
+                });
             }
         }
     </script>
