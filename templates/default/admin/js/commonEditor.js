@@ -30,6 +30,11 @@ let commonConfig = {
         { name: 'extras', items: [ 'styles', 'table', 'fontsize', 'accordion', 'magicline' ] },
         { name: 'hooks', items: [ styxPlugs ] }
     ],
+    // Configure mobile behaviour
+    mobile: {
+        toolbar_mode: 'floating',
+        contextmenu: 'styxDiv | styxPrg',
+    },
     // Configure our magicline plugin
     magicline: {
         triggerOffset: 30,

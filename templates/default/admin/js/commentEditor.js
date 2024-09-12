@@ -36,6 +36,11 @@ let commentConfig = {
         { name: 'views', items: [ 'code', 'fullscreen' ] },
         { name: 'help', items: [ 'help' ] }
     ],
+    // Configure mobile behaviour
+    mobile: {
+        toolbar_mode: 'floating',
+        contextmenu: 'styxDiv | styxPrg',
+    },
     magicline: {
         triggerOffset: 30,
         holdDistance: 0.5,
