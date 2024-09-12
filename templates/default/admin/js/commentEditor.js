@@ -41,6 +41,7 @@ let commentConfig = {
         toolbar_mode: 'floating',
         contextmenu: 'styxDiv | styxPrg',
     },
+    // Configure our magicline plugin
     magicline: {
         triggerOffset: 30,
         holdDistance: 0.5,
@@ -59,8 +60,9 @@ let commentConfig = {
     // enables double click on hlgt code to re-open code editor for example
     auto_focus: 'editable',
     help_tabs: [ 'shortcuts', 'keyboardnav' ],
-    // Styx helper fnc to break-out containers - see help plugin for manual keyboard commands and language additions
+    // Configure on setup
     setup: function (editor) {
+      // Styx helper fnc to break-out containers - see help plugin for manual keyboard commands and language additions
       const _newBlock = (breakout) => {
           let editor = tinyMCE.activeEditor
           const dom = editor.dom

@@ -62,8 +62,9 @@ let commonConfig = {
     relative_urls : false,
     auto_focus: 'editable',
     help_tabs: [ 'shortcuts', 'keyboardnav' ],
-    // Styx helper fnc to break-out containers - see help plugin for manual keyboard commands and language additions
+    // Configure on setup
     setup: function (editor) {
+      // Styx helper fnc to break-out containers - see help plugin for manual keyboard commands and language additions
       const _newBlock = (breakout) => {
           let editor = tinyMCE.activeEditor
           const dom = editor.dom
