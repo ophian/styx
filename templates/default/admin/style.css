@@ -4001,6 +4001,7 @@ button::-moz-focus-inner {
   padding-bottom: 40px; }
   .mfp-iframe-holder .mfp-content {
     line-height: 0;
+    height: 100%;
     width: 100%;
     max-width: 900px; }
   .mfp-iframe-holder .mfp-close {
@@ -4494,6 +4495,11 @@ img.mfp-img {
     .mediaGrid-cell.tac {
         background-color: #fff;
         border-right: 1px solid #ddd;
+    }
+
+    /* reset the 100% mobile expander */
+    .mfp-iframe-holder .mfp-content {
+        height: auto;
     }
 
     .media_file.mlMidCol header,
