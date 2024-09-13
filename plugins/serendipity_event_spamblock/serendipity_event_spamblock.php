@@ -1394,7 +1394,7 @@ class serendipity_event_spamblock extends serendipity_event
 
                     if ($_show_captcha) {
                         echo '<div class="serendipity_commentDirection serendipity_comment_captcha">'."\n";
-                        if (!isset($serendipity['POST']['preview']) || strtolower($serendipity['POST']['captcha'] != @strtolower($_SESSION['spamblock']['captcha']))) {
+                        if (!isset($serendipity['POST']['preview']) || strtolower($serendipity['POST']['captcha']) != @strtolower($_SESSION['spamblock']['captcha'])) {
                             echo PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC . "<br />\n";
                             echo $this->show_captcha($use_gd);
                             echo '<br /><label for="captcha">'. PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3 . '</label>';
