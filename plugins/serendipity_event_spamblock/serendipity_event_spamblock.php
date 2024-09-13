@@ -30,7 +30,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '4.1',
             'php'         => '8.2'
         ));
-        $propbag->add('version',       '2.80');
+        $propbag->add('version',       '2.81');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
