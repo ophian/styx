@@ -200,8 +200,7 @@
       const elements = document.querySelectorAll("pre");
       elements.forEach(item => {
         // Replace matching unknown enabled highlight class names
-        item.classList.replace("language-smarty", "language-php");
-        item.classList.replace("language-perl", "language-php");
+        item.classList.replace("language-smarty", "language-perl"); /* perl better than php else you may get unescaped HTM errors from highlightjs */
         item.classList.replace("language-log", "language-yaml"); /* -bash is good also */
         item.classList.replace("language-markup", "language-plaintext");
       })
