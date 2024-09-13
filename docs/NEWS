@@ -103,6 +103,8 @@ Version 4.5-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Backport spamblock Methusalem bugfix on false strtolower(\\captcha//) usage
+
   * Improve the viewbox height of the backend media library layer for selecting
     images on mobiles.
 
