@@ -1220,6 +1220,8 @@ nav.pager + .serendipity_blogpdf {
   .content_msg, .serendipity_content_message,
   .serendipity_commentDirection {
     background-color: #f0f8ff; }
+  .serendipity_commentDirection.serendipity_comment_captcha .captcha {
+    margin-top: .5em; }
   .msg_important, .serendipity_msg_important {
     background: #f2dede; /* light red */
     border-color: #eed3d7;
