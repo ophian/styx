@@ -166,6 +166,9 @@
                 });
             }
         }
+
+        // the tinymce auto_focus behaves erratic based on focusable content, last edit and/or having to 2 textareas and so forth... - so better force an independent page re-focus here.
+        $(window).on('load', function () { $('html, body').animate({ scrollTop: 0 }, 'smooth'); });
     </script>
     {assign var="hljsload" value=true}
 {/if}
