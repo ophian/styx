@@ -103,6 +103,8 @@ Version 4.5-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Update templates Highlight.js asset to v11.10.0 with common languages
+
   * Backport spamblock Methusalem bugfix on false strtolower(\\captcha//) usage
 
   * Improve the viewbox height of the backend media library layer for selecting
