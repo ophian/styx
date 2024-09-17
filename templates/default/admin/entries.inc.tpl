@@ -286,7 +286,7 @@
 <span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> {$ripent}</span>
 {/foreach}
 <div class="form_buttons">
-    <a class="button_link state_cancel icon_link" href="{$smarty.server.HTTP_REFERER|escape}">{$CONST.NOT_REALLY}</a>
+    <a class="button_link state_cancel icon_link" href="{if isset($smarty.server.HTTP_REFERER)}{$smarty.server.HTTP_REFERER|escape}{else}?serendipity[adminModule]=entries&serendipity[adminAction]=editSelect{/if}">{$CONST.NOT_REALLY}</a>
     <a class="button_link state_submit icon_link" href="{$newLoc}">{$CONST.DUMP_IT}</a>
 </div>
 {/if}
