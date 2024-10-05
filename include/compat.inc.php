@@ -108,7 +108,7 @@ function debug_ErrorLevelType($type) {
             return 'E_USER_WARNING';
         case E_USER_NOTICE: // 1024 //
             return 'E_USER_NOTICE';
-        case E_STRICT: // 2048 //
+        case E_STRICT: // 2048 // deprecated as of PHP 8.4rc1
             return 'E_STRICT';
         case E_RECOVERABLE_ERROR: // 4096 //
             return 'E_RECOVERABLE_ERROR';
