@@ -2,6 +2,8 @@ Version 4.5-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Hide PHP 8.4rc1 E_STRICT error reporting constant deprecation messages
+
   [ 4.5-beta1 ]
   * Fix possible missing HTTP_REFERER variable for backend deleting entry
     ARE YOU SURE [ No] button backlink.
