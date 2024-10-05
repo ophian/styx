@@ -64,7 +64,7 @@ if (!isset($serendipity['production'])) {
 }
 
 // Set error reporting - watch out non-production settings down below
-error_reporting(E_ALL & ~(E_NOTICE|E_STRICT|E_DEPRECATED)); // is 22519 with 5.4+
+error_reporting(E_ALL & ~(E_NOTICE|@E_STRICT|E_DEPRECATED)); // is 22519 with 5.4+
 
 if ($serendipity['production'] !== true) {
     @ini_set('display_errors', 'on');
@@ -304,7 +304,7 @@ if ($serendipity['production'] === 'debug') {
     error_reporting(E_ALL ^ E_NOTICE); // is 32759 with 5.4+
 }
 if ($serendipity['production'] === false) {
-    error_reporting(E_ALL & ~(E_NOTICE|E_STRICT)); // is 30711 with 5.4+
+    error_reporting(E_ALL & ~(E_NOTICE|@E_STRICT)); // is 30711 with 5.4+
 }
 
 $errLevel = error_reporting();
