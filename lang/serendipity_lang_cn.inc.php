@@ -417,8 +417,8 @@
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', '主题及选项设定');
 @define('INSTALL_CAT_DISPLAY_DESC', '设定系统的主题和其它设定');
-@define('INSTALL_WYSIWYG', '使用 WYSIWYG 编辑器');
-@define('INSTALL_WYSIWYG_DESC', '你要使用 WYSIWYG 编辑器<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG', '使用富文本（所见即所得）编辑器');
+@define('INSTALL_WYSIWYG_DESC', '该编辑器将用于常见的文本区字段，如输入表单、静态页面、注释（有额外的全局选项设置）和其他一些插件位置；它可直接存储 HTML 标记。');
 @define('INSTALL_POPUP', '使用弹出窗口');
 @define('INSTALL_POPUP_DESC', '你要在回复、引用等地方使用弹出窗口吗？');
 @define('INSTALL_EMBED', '使用内嵌功能?');

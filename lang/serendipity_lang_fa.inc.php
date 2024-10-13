@@ -416,8 +416,8 @@
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'ظاهر و تنظیمات');
 @define('INSTALL_CAT_DISPLAY_DESC', 'تنظیم چگونگی نمایش سرندیپیتی');
-@define('INSTALL_WYSIWYG', 'استفاده از ویرایشگر WYSIWYG');
-@define('INSTALL_WYSIWYG_DESC', 'آیا می خواهید از ویراشگر WYSIWYG استفا<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG', 'از ویرایشگر RichText (WYSIWYG) استفاده کنید');
+@define('INSTALL_WYSIWYG_DESC', 'سپس این ویرایشگر در فیلدهای متنی رایج مانند فرم‌های ورودی، صفحات استاتیک، نظرات (که دارای تنظیمات گزینه جهانی اضافی است) و برخی مکان‌های افزونه دیگر استفاده می‌شود. این نشانه گذاری HTML را مستقیماً ذخیره می کند.');
 @define('INSTALL_POPUP', 'توانایی استفاده از پنجره های بازشونده');
 @define('INSTALL_POPUP_DESC', 'آیا تمایل دارید که برای نظرات و دنبالک ها از پنجره های بازشونده استفاده شود؟');
 @define('INSTALL_EMBED', 'آیا سرندیپیتی جاسازی شده است؟');

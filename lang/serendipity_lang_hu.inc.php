@@ -415,8 +415,8 @@
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'Megjelenítési beállítások');
 @define('INSTALL_CAT_DISPLAY_DESC', 'A Serendipity kinézetének beállításai');
-@define('INSTALL_WYSIWYG', 'A WYSIWYG szerkesztő használata');
-@define('INSTALL_WYSIWYG_DESC', 'Szeretnéd használni a WYSIWYG szerkesztőt?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG', 'RichText (WYSIWYG) szerkesztő használata');
+@define('INSTALL_WYSIWYG_DESC', 'Ezt a szerkesztőt a közös textarea mezőkben, mint a belépési űrlapok, statikus oldalak, megjegyzések (amely egy további globális beállítási lehetőséggel rendelkezik) és néhány más plugin helyeken fogják használni; A HTML jelölést közvetlenül tárolja.');
 @define('INSTALL_POPUP', 'Engedélyezed a felbukkanó (popup) ablakok használatát');
 @define('INSTALL_POPUP_DESC', 'Szeretnéd, hogy a hozzászólások, visszahivatkozások esetében legyenek felbukkanó ablakok?');
 @define('INSTALL_EMBED', 'A Serendipity beágyazott alkalmazásként fut?');

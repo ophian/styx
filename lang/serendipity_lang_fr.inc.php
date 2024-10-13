@@ -393,8 +393,8 @@
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'Apparence et options');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Personnalisation du \'look &amp; feel\' de l\'interface du blog.');
-@define('INSTALL_WYSIWYG', 'Utiliser l\'éditeur WYSIWYG');
-@define('INSTALL_WYSIWYG_DESC', 'Voulez-vous utiliser l\'éditeur WYSIWYG pour composer vos billets ?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG', 'Utiliser un éditeur RichText (WYSIWYG)');
+@define('INSTALL_WYSIWYG_DESC', 'Cet éditeur sera utilisé dans les champs textarea courants tels que les formulaires d\'entrée, les pages statiques, les commentaires (qui disposent d\'une option globale supplémentaire) et certains autres emplacements du plugin ; il stocke directement les balises HTML.');
 @define('INSTALL_POPUP', 'Activer les fenêtres pop-pup');
 @define('INSTALL_POPUP_DESC', 'Voulez-vous que le blog utilise des fenêtres pop-up pour les commentaires, traçages et autres ?');
 @define('INSTALL_EMBED', 'Intégration dans une application externe');

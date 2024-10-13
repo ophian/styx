@@ -417,8 +417,8 @@
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'Görünümler ve Seçenekler');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Serendipity görünümü nasıl özelleştirilir');
-@define('INSTALL_WYSIWYG', ' WYSIWYG düzenleyici kullan');
-@define('INSTALL_WYSIWYG_DESC', 'WYSIWYG düzenleyici kullanmak istiyor musunuz?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG', ' RichText (WYSIWYG) düzenleyicisini kullanınn');
+@define('INSTALL_WYSIWYG_DESC', 'Bu editör, giriş formları, statik sayfalar, yorumlar (ek bir global seçenek ayarına sahip) ve diğer bazı eklenti yerleri gibi ortak textarea alanlarında kullanılacaktır; HTML işaretlemesini doğrudan depolar.');
 @define('INSTALL_POPUP', 'popup pencere kullanımını aç');
 @define('INSTALL_POPUP_DESC', 'Yorumlar ve Bırakılan izler için pop up pencere kullanılsın mı?');
 @define('INSTALL_EMBED', 'Serendipity gömülü olsun mu?');

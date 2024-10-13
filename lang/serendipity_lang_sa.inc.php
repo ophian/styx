@@ -417,8 +417,8 @@
 /* APPEARANCE AND OPTIONS خيارات و خصائص */
 @define('INSTALL_CAT_DISPLAY', 'خيارات و خصائص');
 @define('INSTALL_CAT_DISPLAY_DESC', 'تفاصيل كيف تود ان يكون مظهر المجلة');
-@define('INSTALL_WYSIWYG', 'صندوق التحرير المتطور');
-@define('INSTALL_WYSIWYG_DESC', 'Do you want to use the WYSIWYG editor?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG', 'استخدام محرر RichText (WYSIWYG)');
+@define('INSTALL_WYSIWYG_DESC', 'سيُستخدم هذا المحرر بعد ذلك في حقول المربعات النصية الشائعة مثل نماذج الإدخال، والصفحات الثابتة، والتعليقات (التي تحتوي على إعداد خيار عام إضافي) وبعض أماكن الإضافات الأخرى؛ حيث يخزن ترميز HTML مباشرةً.');
 @define('INSTALL_POPUP', 'تمكين النوافذ المنبثقة أو التلقائية؟');
 @define('INSTALL_POPUP_DESC', 'هل تود استخدام النوافذ المنبثقة في التعليقات، روابط تعقب التعليقات وغيرها؟');
 @define('INSTALL_EMBED', 'هل تريد المجلة تكون جزء واحد؟');

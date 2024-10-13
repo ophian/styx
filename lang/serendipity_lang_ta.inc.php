@@ -415,8 +415,8 @@
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'தோற்றம் மற்றும் தேர்வுகள்');
 @define('INSTALL_CAT_DISPLAY_DESC', 'செரண்டிபிட்டியின் தேற்றம்');
-@define('INSTALL_WYSIWYG', 'ரிச்டெக்ஸ்ட் எடிட்டரைப் பயன்படுத்தவும்');
-@define('INSTALL_WYSIWYG_DESC', 'For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG', 'RichText (WYSIWYG) எடிட்டரைப் பயன்படுத்தவும்');
+@define('INSTALL_WYSIWYG_DESC', 'Tநுழைவு படிவங்கள், நிலையான பக்கங்கள், கருத்துகள் (இது கூடுதல் உலகளாவிய விருப்ப அமைப்பைக் கொண்டுள்ளது) மற்றும் வேறு சில செருகுநிரல் இடங்கள் போன்ற பொதுவான உரைப் பகுதி புலங்களில் இந்த எடிட்டர் பயன்படுத்தப்படும்; இது HTML மார்க்அப்பை நேரடியாக சேமிக்கிறது.');
 @define('INSTALL_POPUP', 'Enable use of popup windows');
 @define('INSTALL_POPUP_DESC', 'Do you want to use popup windows for comments, trackbacks et al?');
 @define('INSTALL_EMBED', 'Is Serendipity embedded?');

@@ -417,8 +417,8 @@
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', '외관 및 선택사항');
 @define('INSTALL_CAT_DISPLAY_DESC', '세렌디피티의 겉모습과 인상을 정합니다.');
-@define('INSTALL_WYSIWYG', 'WYSIWYG 편집기 사용');
-@define('INSTALL_WYSIWYG_DESC', 'WYSIWYG 편집기를 사용하겠습니까?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG', '리치 텍스트(WYSIWYG) 편집기 사용');
+@define('INSTALL_WYSIWYG_DESC', '이 편집기는 입력 양식, 정적 페이지, 댓글(추가 전역 옵션 설정이 있는) 및 기타 플러그인 위치와 같은 일반적인 텍스트 영역 필드에서 사용되며 HTML 마크업을 직접 저장합니다.');
 @define('INSTALL_POPUP', '팝업 창을 사용함');
 @define('INSTALL_POPUP_DESC', '덧글이나 트랙백 등에 팝업 창을 사용하겠습니까?');
 @define('INSTALL_EMBED', '세렌디피티가 내장된 형태입니까?');

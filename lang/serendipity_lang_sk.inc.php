@@ -430,8 +430,8 @@ $i18n_filename_to = array (
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'Vzhľad a nastavenia');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Úprava vzhľadu a správania Serendipity');
-@define('INSTALL_WYSIWYG', 'Používať WYSIWYG editor?');
-@define('INSTALL_WYSIWYG_DESC', 'Chcete používať WYSIWYG editor?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG', 'Použitie editora RichText (WYSIWYG)');
+@define('INSTALL_WYSIWYG_DESC', 'Tento editor sa bude používať v bežných textarea poliach, ako sú vstupné formuláre, statické stránky, komentáre (ktoré majú ďalšie globálne nastavenie možností) a niektoré ďalšie zásuvné moduly; Ukladá priamo značky HTML.');
 @define('INSTALL_POPUP', 'Zapnúť použitie vyskakovacích okien');
 @define('INSTALL_POPUP_DESC', 'Chcete vo weblogu používať vyskakovacie okná pre komentáre, odozvy atď.?');
 @define('INSTALL_EMBED', 'Je Serendipity integrované?');

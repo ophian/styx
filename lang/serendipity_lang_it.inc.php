@@ -401,8 +401,8 @@
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'Aspetto e opzioni');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Personalizza l\'aspetto e il funzionamento di Serendipity');
-@define('INSTALL_WYSIWYG', 'Usa un editor WYSIWYG');
-@define('INSTALL_WYSIWYG_DESC', 'Vuoi usare l\'editor WYSIWYG?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG', 'Utilizzare l\'editor RichText (WYSIWYG)');
+@define('INSTALL_WYSIWYG_DESC', 'Questo editor sarà usato nei campi textarea più comuni, come i moduli di inserimento, le pagine statiche, i commenti (che hanno un\'opzione globale aggiuntiva) e alcuni altri luoghi del plugin; memorizza direttamente il markup HTML.');
 @define('INSTALL_POPUP', 'Abilita l\'uso di finestre popup');
 @define('INSTALL_POPUP_DESC', 'Vuoi usare dei popup per i commenti, i trackback, ecc.?');
 @define('INSTALL_EMBED', 'Hai inglobato Serendipity?');

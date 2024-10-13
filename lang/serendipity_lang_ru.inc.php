@@ -417,8 +417,8 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'Внешний вид и опции');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Изменить настройки интерфейса Serendipity');
-@define('INSTALL_WYSIWYG', 'Использовать WYSIWYG-редактор');
-@define('INSTALL_WYSIWYG_DESC', 'Желаете ли вы использовать WYSIWYG-редактор?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG', 'Используйте редактор RichText (WYSIWYG)');
+@define('INSTALL_WYSIWYG_DESC', 'Этот редактор будет использоваться в обычных текстовых полях, таких как формы ввода, статические страницы, комментарии (которые имеют дополнительную глобальную настройку) и некоторые другие места плагинов; Он хранит HTML-разметку напрямую.');
 @define('INSTALL_POPUP', 'Разрешить использование выскакивающих окон');
 @define('INSTALL_POPUP_DESC', 'Хотите ли вы использовать выскакивающие окна для комментариев, обратных ссылок, и т.д.?');
 @define('INSTALL_EMBED', 'Встроен ли ваш Serendipity?');

@@ -417,8 +417,8 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'Wygląd i Opcje');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Skonfiguruj wygląd i ustawienia Serendipity');
-@define('INSTALL_WYSIWYG', 'Użyj edytora WYSIWYG');
-@define('INSTALL_WYSIWYG_DESC', 'Chcesz użyć edytora WYSIWYG?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG', 'Użyj edytora RichText (WYSIWYG)');
+@define('INSTALL_WYSIWYG_DESC', 'Ten edytor będzie używany w typowych polach textarea, takich jak formularze wejściowe, strony statyczne, komentarze (które mają dodatkowe ustawienie opcji globalnej) i kilka innych miejsc wtyczek; Przechowuje znaczniki HTML bezpośrednio.');
 @define('INSTALL_POPUP', 'Zezwól na użycie wyskakujących okien');
 @define('INSTALL_POPUP_DESC', 'Chcesz użyć wyskakujących okienek dla komentarzy, śladów itp.?');
 @define('INSTALL_EMBED', 'Czy Serendipity jest osadzone?');

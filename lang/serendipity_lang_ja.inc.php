@@ -415,8 +415,8 @@
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', '外観とオプション');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Serendipity のルックアンドフィールをカスタマイズ');
-@define('INSTALL_WYSIWYG', 'WYSIWYG エディタを使う');
-@define('INSTALL_WYSIWYG_DESC', 'WYSIWYG エディタを使用しますか?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG', 'リッチテキスト（WYSIWYG）エディタを使う');
+@define('INSTALL_WYSIWYG_DESC', 'このエディタは、エントリーフォーム、静的ページ、コメント（グローバルオプション設定が追加されています）などの一般的なテキストエリア・フィールドや、いくつかの他のプラグインで使用されます; HTMLマークアップを直接保存します。');
 @define('INSTALL_POPUP', 'ポップアップ ウィンドウを有効にする');
 @define('INSTALL_POPUP_DESC', 'コメントやトラックバックにポップアップ ウィンドウを使用しますか?');
 @define('INSTALL_EMBED', 'Serendipity を組み込みで使用しますか?');

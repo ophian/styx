@@ -415,8 +415,8 @@
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'Útlit og valmöguleikar');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Stilltu tilfinningu og útlit Serendipity út á við');
-@define('INSTALL_WYSIWYG', 'Nota WYSIWYG ritilinn');
-@define('INSTALL_WYSIWYG_DESC', 'Viltu nota WYSIWYG ritilinn?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG', 'Notaðu RichText (WYSIWYG) ritstjóra');
+@define('INSTALL_WYSIWYG_DESC', 'Þessi ritstjóri verður notaður í algengum textasvæðum eins og innsláttareyðublöðum, kyrrstæðum síðum, athugasemdum (sem hefur fleiri alþjóðlega valmöguleikastillingu) og nokkrum öðrum viðbótum; Það geymir HTML merkingu beint.');
 @define('INSTALL_POPUP', 'Virkja notkun innskotsglugga');
 @define('INSTALL_POPUP_DESC', 'Viltu nota innskotsglugga (popup) fyrir athugasemdir, tilvísanir, o.fl.?');
 @define('INSTALL_EMBED', 'Er Serendipity innifalið?');

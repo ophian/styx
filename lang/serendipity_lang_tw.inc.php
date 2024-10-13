@@ -417,8 +417,8 @@ $i18n_unknown = 'tw';
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', '外觀及選項設定');
 @define('INSTALL_CAT_DISPLAY_DESC', '讓您設定 Serendipity 的外觀和其他設定');
-@define('INSTALL_WYSIWYG', '使用 WYSIWYG 編輯器');
-@define('INSTALL_WYSIWYG_DESC', '您要使用 WYSIWYG 編輯器嗎?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG', '使用 RichText (WYSIWYG) 編輯器');
+@define('INSTALL_WYSIWYG_DESC', '這個編輯器會用在常見的 textarea 欄位，例如輸入表格、靜態頁面、註解 (有額外的全域選項設定) 以及其他一些外掛程式的地方；它會直接儲存 HTML 標記。');
 @define('INSTALL_POPUP', '使用彈出視窗');
 @define('INSTALL_POPUP_DESC', '您要在迴響, 引用等地方使用彈出視窗嗎?');
 @define('INSTALL_EMBED', '使用內嵌功能?');
