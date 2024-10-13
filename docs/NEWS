@@ -103,6 +103,9 @@ Version 4.5-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix 'wysiwyg_comment' (allowHtmlComments) data variable conditional to be
+    only used as an extension of allowed WYSIWYG Editor; Not standalone.
+
   * Hide PHP 8.4rc1 E_STRICT error reporting constant deprecation messages
 
   [ 4.5-beta1 ]
