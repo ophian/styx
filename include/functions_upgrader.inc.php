@@ -547,17 +547,49 @@ $dead_dirs_440 = array(
 
 /* A list of Styx files, to be removed or renamed by 5.0.0 */
 $dead_files_500 = array(
-    'lang/serendipity_lang_cs.inc.php'
+    'lang/serendipity_lang_cs.inc.php',
+    'templates/_assets/ckebasic_plugin.js'
 );
 
 /* A list of old or removed directories for 5.0.0 */
 $dead_dirs_500 = array(
-    $serendipity['serendipityPath'] . 'lang/UTF-8'/*,
-    $serendipity['serendipityPath'] . 'plugins/serendipity_event_todooooo/UTF-8',
+    $serendipity['serendipityPath'] . 'lang/UTF-8',
+    $serendipity['serendipityPath'] . 'plugins/serendipity_event_ckeditor',
+    $serendipity['serendipityPath'] . 'templates/_assets/ckebasic'/*,
     $serendipity['serendipityPath'] . 'plugins/serendipity_event_todooooo/UTF-8',
     $serendipity['serendipityPath'] . 'plugins/serendipity_plugin_todooooo/UTF-8',
     $serendipity['serendipityPath'] . 'plugins/serendipity_plugin_todooooo/UTF-8'*/
 );
+
+/**
+ * Styx 5 recursive directory call to purge old UTF-8 directories in plugins
+ *
+ * Args:
+ *      - void
+ * Returns:
+ *      - possible exception msg
+ * @access private
+ */
+function recursive_pluginUTF8dir_iterator() : ?string {
+    global $serendipity;
+
+    $dir = $serendipity['serendipityPath'] . 'plugins';
+    if (null === $dir || !str_ends_with($dir, 'plugins')) {
+        return trigger_error('<span class="msg_error">Wrong start directory: ' . $dir . ' in recursive_pluginUTF8dir_iterator() upgrade task function. Fix it, and re-run the upgrade OR get some help.</span>', E_USER_WARNING);
+    }
+    $files = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS),
+        RecursiveIteratorIterator::CHILD_FIRST
+    );
+
+    foreach($files AS $path) {
+        if (is_dir($path) && str_ends_with($path, 'UTF-8')) {
+            serendipity_removeDeadFiles_SPL($path);
+        }
+    }
+
+    return null;
+}
 
 /**
  * recursive directory call to purge files and directories
@@ -769,7 +801,7 @@ function serendipity_removeDeadFiles_SPL(?string $dir = null, ?string $deadfiles
         return;
     }
 
-    $debugSPL = false; // dev debug only
+    $debugSPL = false; // DEV debug only
     $iterator = new RecursiveIteratorIterator($_dir, RecursiveIteratorIterator::CHILD_FIRST, RecursiveIteratorIterator::CATCH_GET_CHILD); // path, mode, flag
     $search   = array("\\", '//');
     $replace  = array('/');

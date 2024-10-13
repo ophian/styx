@@ -646,8 +646,20 @@ $tasks = array(
             array(  'version'   => '5.0-beta1',
                     'function'  => 'recursive_directory_iterator',
                     'arguments' => array($dead_dirs_500),
-                    'title'     => 'Styx 5 refactored the language file system.',
+                    'title'     => 'Styx 5 refactored the language file system and the used RichText Editor system.',
                     'desc'      => 'The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_500) . '</pre>'),
+
+            array(  'version'   => '5.0-beta1',
+                    'function'  => 'serendipity_killPlugin',
+                    'arguments' => array('serendipity_event_ckeditor'),
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Styx 5 refactored the RichText Editor system to TinyMCE.',
+                    'desc'      => 'The CKEplus Plugin therefore is removed physically and all remaining configuration references have to follow by this task too. In consequence, users with CKEditor are redirected to the new core TinyMCE RichText Editor. Please, force a reload of your Browser page in the edit areas if facing unexpected results.'),
+
+            array(  'version'   => '5.0-beta1',
+                    'function'  => 'recursive_pluginUTF8dir_iterator',
+                    'title'     => 'Since Styx 5 refactored the language file system and copied all the UTF-8/ language files one level up,',
+                    'desc'      => 'giving up the extra and overall used "/UTF-8/" directory, all plugins have to follow this distinction. THIS upgrade task removes them all in your plugins directory. After having upgraded to Styx 5, please run a <strong>PLUGIN UPDATE</strong> SESSION to get all the new plugins with all covered changes for Styx 5. You might expect at least to get some language diffusions in-between.'),
 
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
