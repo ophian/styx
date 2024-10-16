@@ -568,10 +568,10 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
             } catch (\Throwable $t) {
                 // Executed in PHP 7 only, will not match in PHP 5.x
                 if (!serendipity_db_bool($serendipity['maintenance'])) {
-                    trigger_error('Whoops! Your Cookie stored LOGIN key did not match, since: "' . $t->getMessage() . '". You have been logged out automatically for security reasons.', E_USER_ERROR);
+                    trigger_error('Whoops! Your Cookie stored LOGIN key did not match, since: "' . $t->getMessage() . '". You have been logged out automatically for security reasons.', E_USER_NOTICE);
                     serendipity_logout();
                 } else {
-                    trigger_error( 'Whoops! Your Cookie stored LOGIN key did not match, since: "' . $t->getMessage() . '". For security the encrypted login cookie data was purged. This Warning error message does only show up once for you! Since you are still in maintenance mode, you need to manually delete the $serendipity[\'maintenance\'] variable in your serendipity_config_local.inc.php file to get LOGIN access again.', E_USER_ERROR);
+                    trigger_error( 'Whoops! Your Cookie stored LOGIN key did not match, since: "' . $t->getMessage() . '". For security the encrypted login cookie data was purged. This Warning error message does only show up once for you! Since you are still in maintenance mode, you need to manually delete the $serendipity[\'maintenance\'] variable in your serendipity_config_local.inc.php file to get LOGIN access again.', E_USER_NOTICE);
                 }
                 $cipher = false; // silent logout
             }
@@ -2409,7 +2409,7 @@ function serendipity_sysInfoTicker(bool $check = false, string $whoami = '', arr
             try {
                 $xmlstr = @file_get_contents($target);
             } catch(\Throwable $t) {
-                trigger_error('Error: The URL for the remote ticker could not be opened (' . $t->getMessage() . '), nor has a callback file been created yet. There may be server or network problems.', E_USER_ERROR);
+                trigger_error('Error: The URL for the remote ticker could not be opened (' . $t->getMessage() . '), nor has a callback file been created yet. There may be server or network problems.', E_USER_NOTICE);
             }
         }
 
@@ -2431,7 +2431,7 @@ function serendipity_sysInfoTicker(bool $check = false, string $whoami = '', arr
                         try {
                             serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey) VALUES ('sysinfo_ticker', '{$hash}', 'l_sysinfo_{$comb}')");
                         } catch (\Throwable $t) {
-                            trigger_error('Error: The \'sysinfo_ticker\' hashes could not be stored to DB (' . $t->getMessage() . '). Please examine the message.', E_USER_ERROR);
+                            trigger_error('Error: The \'sysinfo_ticker\' hashes could not be stored to DB (' . $t->getMessage() . '). Please examine the message.', E_USER_NOTICE);
                         }
                     }
                 }
