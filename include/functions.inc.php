@@ -349,7 +349,7 @@ function serendipity_debugCallerId() : string {
  */
 function serendipity_typeCompatCheckID(int|string $id) : void {
     if (is_string($id) && !is_numeric($id)) {
-        trigger_error('Fuck off! Don\'t play with me! Only valid author IDs allowed.', E_USER_ERROR);
+        throw new Exception('Fuck off! Don\'t play with me! Only valid author IDs allowed.');
         exit;
     }
 }
@@ -1120,7 +1120,7 @@ function serendipity_sendMail(string $to, string $subject, string $message, stri
     global $serendipity;
 
     if (!is_null($headers) && !is_array($headers)) {
-        trigger_error(__FUNCTION__ . ': $headers must be either an array or null', E_USER_ERROR);
+        trigger_error(__FUNCTION__ . ': $headers must be either an array or null', E_USER_WARNING);
     }
 
     if (is_null($fromName) || empty($fromName)) {
