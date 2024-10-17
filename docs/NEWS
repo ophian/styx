@@ -103,6 +103,8 @@ Version 4.5-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix comment list broken javascript message snippet by wrong variable usage
+
   * Fix 'wysiwyg_comment' (allowHtmlComments) data variable conditional to be
     only used as an extension of allowed WYSIWYG Editor; Not standalone.
 
