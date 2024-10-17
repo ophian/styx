@@ -493,8 +493,6 @@ if (is_array($sql)) {
     }
 }
 
-$data['wysiwyg_comment'] = ($serendipity['allowHtmlComment'] && $serendipity['wysiwyg']) ? 'true' : 'false'; // for the codesnippet info redirector
-
 $data['comments']      = $comments;
 $data['errormsg']      = $errormsg;
 $data['msg']           = $msg;
