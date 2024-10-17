@@ -237,7 +237,8 @@
             $('#filter_type option:selected').prop('selected', false);
         });
         if (STYX_DARKMODE === true) {
-            $('.comment_full').find('code[class^="language-"]').parent('pre').attr('title', 'See this snippets codehighlight color either in Rich Text comment edit form or in your frontend');
+            $('.comment_full').find('code[class^="language-"]').parent('pre').attr('title', 'See this snippets codehighlight color either in Rich Text comment edit form or in your frontend');//old
+            $('.comment_full').find('pre[class^="language-"]').attr('title', 'See this snippets codehighlight color either in Rich Text comment edit form or in your frontend');//new
         }
     });
 </script>
