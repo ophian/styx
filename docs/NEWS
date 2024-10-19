@@ -2,6 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * First XML-SYNC for additional_plugins at master branch [Styx 5]
+
   * We had to remove the 'required' attribute on the frontend textarea element
     for Chromium in the [ pure ] theme to avoid possible error alerts:
     "An invalid form control with name=serendipity[comment]' is not focusable."
