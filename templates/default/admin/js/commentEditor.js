@@ -1,5 +1,5 @@
 // A pre load content filter for old db stored comment data
-let currentEditor = document.getElementById('serendipity_commentform_comment');
+const currentEditor = document.getElementById('serendipity_commentform_comment');
 let html = currentEditor.defaultValue;
 if (null !== html) {
     html = html.replaceAll(/<\/p>\s*<br[/ ]*>/ig, '</p>'); // replace </p><br> with </p>
@@ -9,7 +9,7 @@ if (null !== html) {
     currentEditor.defaultValue = html;
 } // OK This works here for the comments and this because it is a single and placed right in workflow
 
-let commentConfig = {
+const commentConfig = {
     skin: (typeof(STYX_DARKMODE) !== 'undefined' && STYX_DARKMODE === true) ? 'tinymce-5-dark' : 'tinymce-5',
     content_css: [ ((typeof(STYX_DARKMODE) !== 'undefined' && STYX_DARKMODE === true) ? 'templates/_assets/prism/dark/prism.css' : 'templates/_assets/prism/default/prism.css'),
                    'templates/_assets/sctc.min.css'
@@ -25,8 +25,8 @@ let commentConfig = {
     // overwrite some default margin - 8px is a good compromise
     autoresize_bottom_margin: 8,
     menubar: false,
-    // code === source !!
     toolbar_mode: 'sliding',
+    // code === source !!
     toolbar: [
         { name: 'history', items: [ 'undo' ] },
         { name: 'format', items: [ 'bold', 'italic', 'underline', 'strikethrough' ] },
@@ -50,6 +50,9 @@ let commentConfig = {
         tabuList: []
       },
     language: editorLang,
+    object_resizing: false, // we don't want the image resize option
+    highlight_on_focus: false, // ?? dito
+    visual: false, // ?? dito
     entity_encoding: 'raw',
     extended_valid_elements: 'span[class],code[class],pre[class]',
     branding: false,
@@ -110,9 +113,10 @@ let commentConfig = {
     codesample_global_prismjs: true,
     // testing some text replace patterns
     text_patterns: [
+      { start: '//---', replacement: '<hr/>' },
       { start: '//--', replacement: '—' },
+      { start: '//(c)', replacement: '©' },
       { start: '//indent', replacement: '<address style=\"padding-left: 40px;\">&nbsp;</address>' },
-      { start: '//brb', replacement: 'Be Right Back' },
-      { start: '//heading', replacement: '<h3>Heading here</h3> <h4>Author: Name here</h4> <p><em>Date: 01/01/2000</em></p> <hr />' }
+      { start: '//brb', replacement: 'Be Right Back' }
     ],
 }
