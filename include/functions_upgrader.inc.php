@@ -548,7 +548,8 @@ $dead_dirs_440 = array(
 /* A list of Styx files, to be removed or renamed by 5.0.0 */
 $dead_files_500 = array(
     'lang/serendipity_lang_cs.inc.php',
-    'templates/_assets/ckebasic_plugin.js'
+    'templates/_assets/ckebasic_plugin.js',
+    'templates/_assets/wysiwyg-style.css'
 );
 
 /* A list of old or removed directories for 5.0.0 */
