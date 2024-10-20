@@ -2,7 +2,27 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
-  * First XML-SYNC for additional_plugins at master branch [Styx 5]
+  * Refactor RichText Editor Styx integration to replace the old CKEDITOR 4
+    with TinyMCE Community Edition, currently in version 6.8.4.
+    This nukes CKEditor from Styx system completely and from now on all HTML
+    entry editor forms like blog pages, static pages, plugin hooks, backend
+    comment, and public frontend comment forms (depending on theme) and the
+    global settings will run on TinyMCE with restricted configurations based
+    on surrounding given environment.
+    PLEASE NOTE: This also is the end for the extending CKEditor plus plugin.
+    All current available plugins have been ported to hook nicely into the
+    new Editor synced from additional_plugins [ MASTER ] branch.
+
+    Since both RichText Editors and others belong to the same company "Tiugo
+    Technologies" (Tiny Technologies, Inc) since ~2023, both extending brands
+    and versions (CKE 5 and TinyMCE 7) changed their license model to GPL2+
+    and sell extending plugins for outcome.
+    To follow using CKEditor as our default Editor would have been much more
+    work to completely re-master Serendipity markup everywhere.
+    I think TinyMCE is a very nice and good improvement and we will see if it
+    is possible to jump on TinyMCE 7+ in the near future.
+
+  * First XML-SYNC for additional_plugins at [ MASTER ] branch [Styx 5]
 
   * We had to remove the 'required' attribute on the frontend textarea element
     for Chromium in the [ pure ] theme to avoid possible error alerts:
