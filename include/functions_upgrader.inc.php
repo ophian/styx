@@ -549,7 +549,8 @@ $dead_dirs_440 = array(
 $dead_files_500 = array(
     'lang/serendipity_lang_cs.inc.php',
     'templates/_assets/ckebasic_plugin.js',
-    'templates/_assets/wysiwyg-style.css'
+    'templates/_assets/wysiwyg-style.css',
+    'templates/default/admin/wysiwyg_init.tpl'
 );
 
 /* A list of old or removed directories for 5.0.0 */
