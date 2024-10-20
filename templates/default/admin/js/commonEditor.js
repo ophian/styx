@@ -1,11 +1,11 @@
-let commonConfig = {
+/* Only static configuration content here which is equal in multi ordered textareas */
+const commonConfig = {
     skin: (typeof(STYX_DARKMODE) !== 'undefined' && STYX_DARKMODE === true) ? 'tinymce-5-dark' : 'tinymce-5',
     content_css: [ ((typeof(STYX_DARKMODE) !== 'undefined' && STYX_DARKMODE === true) ? 'templates/_assets/prism/dark/prism.css' : 'templates/_assets/prism/default/prism.css'),
                    'templates/_assets/sctc.min.css'
                  ], // custom mix styx_custom_tinymce_content.css
     noneditable_class: 'mceNonEditable',
-    // keep in once, to not loose features - names are case sensitive !
-    plugins: 'preview autoresize lists code fullscreen image link media codesample table charmap styxImage styxGallery visualblocks styxDiv styxPrg help emoticons accordion magicline',
+    // plugins and toolbar and lang sets may contain dynamic sets so better place in init directly
     contextmenu: 'link styxImage styxGallery styxDiv styxPrg visualblocks code',
     width: '100%',
     height: 300,
@@ -15,21 +15,6 @@ let commonConfig = {
     autoresize_bottom_margin: 8,
     menubar: false,
     toolbar_mode: 'sliding',
-    // NOTE: code === source !!
-    toolbar: [
-        { name: 'history', items: [ 'undo' ] },
-        { name: 'format', items: [ 'bold', 'italic' ] },
-        { name: 'link', items: [ 'link', 'blockquote' ] },
-        { name: 'images', items: [ 'styxImage', 'styxGallery' ] },
-        { name: 'medias', items: [ 'media', 'emoticons' ] },
-        { name: 'split', items: [ 'hr' ] },
-        { name: 'code', items: [ 'codesample', 'charmap' ] },
-        { name: 'views', items: [ 'code', 'fullscreen' ] },
-        { name: 'visuals', items: [ 'preview', 'visualblocks' ] },
-        { name: 'help', items: [ 'help' ] },
-        { name: 'extras', items: [ 'styles', 'fontsize', 'table', 'accordion' ] },
-        { name: 'hooks', items: [ styxPlugs ] }
-    ],
     // Configure mobile behaviour
     mobile: {
         toolbar_mode: 'floating',
@@ -43,7 +28,6 @@ let commonConfig = {
         everywhere: true,
         tabuList: []
       },
-    language: editorLang,
     // TODO Create a tinymce v.6 scriptlet to configure plugin and toolbar items per user ...?
     object_resizing: false, // we don't want the image resize option
     highlight_on_focus: false, // ?? ditto - [ This feature is only available for TinyMCE 6.4 and later. In TinyMCE 7.0, the default setting for highlight_on_focus was changed from false to true. Any editors using this highlight_on_focus: true option in TinyMCE , can remove this option from their TinyMCE init configuration when upgrading to TinyMCE 7.0. ]
@@ -55,7 +39,7 @@ let commonConfig = {
     //https://www.tiny.cloud/docs/tinymce/latest/content-filtering/#valid_elements
     //https://www.tiny.cloud/docs/tinymce/latest/content-filtering/#invalid_elements
     // ToDo extend add styles * and classes * like having done for CKE
-    extended_valid_elements: 'mediainsert[*],gallery[*],media[*],audio[*],video[*],div[*],p[lang],q[lang],ul[lang],a[href|rel|target|class|id|style|onclick|title],span[*],figure[*],figcaption[*],picture;source[*],img[*],code[*],hr,pre[*]',
+    extended_valid_elements: 'mediainsert[*],gallery[*],media[*],audio[*],video[*],div[*],p[lang],q[lang],ul[lang],a[href|rel|target|class|id|style|onclick|title],span[*],figure[*],figcaption[*],picture,source[*],img[*],code[*],hr,pre[*],ref[name]',
     branding: false,
     promotion: false,
     // convert image urls NOT to relative path, which is OK for the same domain, but not in other environments which are based on doc root paths
