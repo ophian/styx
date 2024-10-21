@@ -89,7 +89,7 @@
     // keep in once, to not loose features - names are case sensitive ! - see independent note on commonToolbar
     let commonPlugins{$run} = 'preview autoresize lists code fullscreen image link media codesample table charmap styxImage styxGallery visualblocks styxDiv styxPrg help emoticons accordion magicline ' + styxPlugs.replace(/["|'|,]/g, "").slice(0, -1);
 
-    styxPlugs = []; // reset for next 2cd run // OK !!
+    styxPlugs = ''; // reset after usage for next 2cd run
 
     // wait for plugin nuggets, since often set/thrown before
     document.addEventListener("DOMContentLoaded", (event) => {
