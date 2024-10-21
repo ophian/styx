@@ -183,6 +183,7 @@ function serendipity_printEntryForm(string $targetURL, iterable $hiddens = array
  */
 function serendipity_emit_htmlarea_code(string $item, string $jsname, bool $spawnMulti = false) : void {
     # init == true when editor was already initialized
+    static $run = 1;
     static $init = false;
     global $serendipity;
 
@@ -197,6 +198,7 @@ function serendipity_emit_htmlarea_code(string $item, string $jsname, bool $spaw
             'item'    => &$item,
             'lang'    => TINYMCE_LANG,
             'jsname'  => &$jsname,
+            'run'     => $run,
             'skip'    => false,
             'buttons' => array(),
         );
@@ -207,8 +209,9 @@ function serendipity_emit_htmlarea_code(string $item, string $jsname, bool $spaw
             return;
         }
 
-        $data = array('init' => $init, 'spawnMulti' => $spawnMulti, 'jsname' => $jsname, 'item' => $item, 'buttons' => $eventData['buttons']);
+        $data = array('init' => $init, 'spawnMulti' => $spawnMulti, 'jsname' => $jsname, 'item' => $item, 'run' => $run, 'buttons' => $eventData['buttons']);
         echo serendipity_smarty_showTemplate('admin/tinymce_init.tpl', $data);
     }
     $init = true;
+    $run += 1;
 }
