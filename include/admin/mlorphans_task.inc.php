@@ -58,7 +58,7 @@ function autofix_thisimageid($entryid, $oid, $iid, $fname, $fvalue, $iname, $aut
         $str = (is_numeric($nid) && $oid !== $nid) ? str_replace(["<!-- s9ymdb:$oid -->"], ["<!-- s9ymdb:$nid -->"], $im[0]) : $im[0];
         $old = htmlspecialchars($im[0]); // for display only
         $new = htmlspecialchars($str); // for display only
-        $table = false !== strpos('content', $fname) ? 'staticpages' : 'entries';
+        $table = str_contains('content', $fname) ? 'staticpages' : 'entries';
         if ($autofix !== true) {
             return "Autofix [submit] will UPDATE $table TABLE('$fname') field and exchange old string: <pre>$old</pre> with new: <pre>$new</pre>";
         } else {
@@ -104,7 +104,7 @@ function image_inuse($iid, $eid, $im, $entry, $field, $path, $name) {
             $ret = autofix_thisimageid($eid, $iid, $_image[0]['id'], $field, $entry[$field], $o['bsename'], (isset($serendipity['POST']['mlopFormAutoFix']) && $serendipity['POST']['mlopFormAutoFix'] = 'fixentries'));
             if (is_string($ret)) echo $ret; // output the possible replacement
             if (is_bool($ret)) {
-                $table = false !== strpos('content', $field) ? 'staticpages' : 'entries';
+                $table = str_contains('content', $field) ? 'staticpages' : 'entries';
                 $o['return'] = $ret;
                 $o['autofix'] = "Good news! The problematic media ID: \"{$o['s9ymdb']}\" for \"{$o['src']}\" was automatically fixed in your database: \"$table\" entry field: \"$field\" in entry ID: \"$eid\".";
             }
