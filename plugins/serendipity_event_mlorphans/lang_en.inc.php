@@ -23,3 +23,11 @@
 @define('MLORPHANS_MTASK_REASONS', 'Of these, (<b>%d</b>) occurrences were found with "external" IMG paths and another (<b>%d</b>) with unknown reasons. The latter with manual verification required in principle! See following:');
 @define('MLORPHAN_MTASK_MAIN_PATTERN_NAME_WARNING', 'ATTENTION: Images are not allowed to have a dot in the name! Previous Serendipity Versions did not check this on upload! Avoid such occurrences in your stocks, otherwise MediaLibrary actions such as moves / renames / etc. can lead to consequences that are difficult to repair!');
 
+@define('MLORPHAN_MTASK_MCHECKED_OK', '<strong>Attention</strong>: When having verified the possible replacements marked underneath the red outlined issue boxes and found them trustable, please manually check the yellow list marked entries in the notice-box before this text, so these only are media DB items to real exclude from the "im" array. If you have made changes manually, this page must be updated. Then you can proceed using this auto fix submit. Better make a last database backup right before so you have a real last backup state in case of issues.');
+@define('MLORPHAN_MTASK_POST_PREAUTOFIX_HEAD', 'Automatic helper task in case of red marked errors on top of page...');
+@define('MLORPHAN_MTASK_AUTOFIX', 'Automatic correction');
+@define('MLORPHAN_MTASK_POST_AUTOFIX', 'After the automated correction, you should call up this page again¹ to check that the red marked issues are gone. (¹ Via the maintenance page. Do NOT simply reload!)');
+@define('MLORPHAN_MTASK_POST_AUTOFIX_THXHEAD', 'Automated correction. Please read the following:');
+@define('MLORPHAN_MTASK_POST_AUTOFIX_THX', 'No capture \'return\' key in "im" array left. Thanks for "automated correction" usage.');
+@define('MLORPHAN_MTASK_MULTIPOST_AUTOFIX', 'For cases where matches¹ and fixes were not being greedy enough, run this all from the beginning again (and then again) as long there are thrown red errors with possible replacement string parts, please. You will notice that errors and replacements are slowly getting less (reading upwards) until at the end they all are captured. Depending on the initial situation in your entries, this repetition may be necessary many times.<br>[¹ <em>on purpose !</em> ]');
+
