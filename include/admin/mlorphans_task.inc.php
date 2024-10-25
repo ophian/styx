@@ -304,9 +304,9 @@ if (empty($serendipity['POST']['multiCheck']) && empty($serendipity['POST']['orp
     if (isset($serendipity['POST']['mlopFormAutoFix']) && $serendipity['POST']['mlopFormAutoFix'] = 'fixentries') {
         $reloadmsg = false;
         foreach ($im AS $fixed) {
-            if (array_key_exists("return", $fixed)) {
+            if (array_key_exists('return', $fixed)) {
                 $f = array();
-                foreach(new RecursiveIteratorIterator(new RecursiveArrayIterator($fixed)) AS $k => $v){
+                foreach (new RecursiveIteratorIterator(new RecursiveArrayIterator($fixed)) AS $k => $v) {
                     $f[$k] = $v;
                 }
                 if (isset($f['return']) && $f['return'] === true) {
@@ -318,7 +318,7 @@ if (empty($serendipity['POST']['multiCheck']) && empty($serendipity['POST']['orp
         if ($reloadmsg) {
             echo '<span><span class="icon-attention-circled" aria-hidden="true"></span> ' . MLORPHAN_MTASK_POST_AUTOFIX . '</span>';
         } else {
-            if (!array_key_exists("return", $im)) {
+            if (!array_key_exists('return', $im)) {
                 echo '<h3> ' . MLORPHAN_MTASK_POST_AUTOFIX_THXHEAD . '</h3>';
                 echo '<span class="msg_success" style="margin:0 auto 1em"><span class="icon-ok-circled" aria-hidden="true"></span> ' . MLORPHAN_MTASK_POST_AUTOFIX_THX . '</span>';
                 echo '<span><span class="icon-attention-circled" aria-hidden="true"></span> ' . MLORPHAN_MTASK_MULTIPOST_AUTOFIX . '</span>';
