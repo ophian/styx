@@ -7,7 +7,7 @@
 
 $info['theme_info_summary'] = 'The Standard Styx Frontend Theme (since 2020). A full page modern Grid/Flexing theme in 3-2-1-column mode.';
 
-$info['theme_info_desc'] = 'This theme defines the current standard frontend up for Styx 3.0, defined and used by the core system.
+$info['theme_info_desc'] = 'This theme defines the current standard frontend up from Styx 3.0, defined and used by the core system.
 Regarding Serendipity Styx infinite possibilities, it is one of the best-concatenated and interlocked themes,
 covering most of them as simple as possible in a wide frame, made easy to look through.<br>
 It is a "Holy Grail" of modern theme HTML5 structures. Fully responsive, with incremental font sizing <u>and</u> mobile friendly!<br>
@@ -19,6 +19,6 @@ Give it an "Engine&colon; Pure" line if you want it to fall back to Pure, ie. fo
 If not having this line, you either need all template files for yourself, or regard your theme to fall back to the "Serendipity default" theme templates.<br>
 <br>
 Set additional lines "Require Serendipity&colon; 3.0", "Backend&colon; Yes",
-if having an extra backend and "Responsive&colon; Yes" and "Mobile&colon; Yes", when it covers todays standard of responsive and mobile web design.<br>
+if having an extra backend and "Responsive&colon; Yes" and "Mobile&colon; Yes", when it covers todays standard of responsive and mobile Web design.<br>
 <br>
 Back in your template list, reload the list page and select the new created theme.';
