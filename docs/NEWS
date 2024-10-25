@@ -2,6 +2,8 @@ Version 4.5-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Update [ pure ] standard theme preview images and description
+
   * Improve the mlorphans plugin core file script by an automatic correction
     helper task (in example, when having re-indexed the images entry IDs).
 
