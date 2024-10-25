@@ -5,9 +5,9 @@
  * Convert or save as UTF-8 file without BOM.
  **/
 
-$info['theme_info_summary'] = 'Das Styx Frontend Standard Theme (2020). Ein ganzseitiges modernes Grid/Flexing Theme.';
+$info['theme_info_summary'] = 'Das Styx Frontend Standard Theme (ab 2020). Ein ganzseitiges modernes Grid/Flexing Theme im 3-2-1-Spalten Modus.';
 
-$info['theme_info_desc'] = 'Dieses Theme definiert den Standard für Styx 3.0, der im Kern definiert und benutzt wird.
+$info['theme_info_desc'] = 'Dieses Theme definiert den Standard seit Styx 3.0, der im Kern definiert und benutzt wird.
 In Bezug auf die schier unendlichen Möglichkeiten von Serendipity, ist es wohl mit das am besten verknüpfte und verzahnte Theme,
 welches die meisten dieser Möglichkeiten in einfacher Weise innerhalb des eigenen Rahmens abdeckt, so dass man diese leicht durchschauen kann.<br>
 Ein "Heilige Gral" moderner Theme HTML5 Strukturen. Strukturell voll responsiv ("reagierend"), mit automatischer Anpassung der Schriftgrößen <u>und</u> Mobilgeräte freundlich!<br>
