@@ -210,7 +210,7 @@ foreach($stack AS $theme => $info) {
             if (empty($backendId) && @file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview.png')) {
                 $png = true;
                 if (false === (@filesize($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview.png') <= @filesize($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview_fullsize.jpg'))) {
-                    $png = false;
+                    $png = file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview.jpg') ? 'jpg' : false;
                 }
                 // AVIF
                 if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview.avif')) {
@@ -235,7 +235,7 @@ foreach($stack AS $theme => $info) {
                     $data['templates'][$theme]["fullsize_backend_preview_webp"] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . '/preview_backend_fullsize.webp';
                 }
                 // ORIGIN
-                $data['templates'][$theme]['preview'] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . ($png ? '/preview.png' : '/preview_fullsize.jpg');
+                $data['templates'][$theme]['preview'] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . ($png === true ? '/preview.png' : ($png == 'jpg' ? '/preview.jpg' : '/preview_fullsize.jpg'));
                 $data['templates'][$theme]['fullsize_preview'] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . '/preview_fullsize.jpg';
 
                 // CORE THEMES VARIATION SIZING checks
