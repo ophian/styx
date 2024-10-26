@@ -1745,7 +1745,7 @@ function serendipity_deleteEntry($id) {
  *               pass an image here (this setting is only used, when type==3).
  * @param string The character to use for blank indenting
  * @see serendipity_fetchCategories()
-*/
+ */
 function serendipity_generateCategoryList($cats, $select = array(0), $type = 0, $id = 0, $level = 0, $xmlImg = '', $blank_char = ' ') {
     global $serendipity;
 
