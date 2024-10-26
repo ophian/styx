@@ -1798,7 +1798,7 @@ function serendipity_deleteEntry(int $id) : ?bool {
  *      - string OR NULL
  * @access public
  * @see serendipity_fetchCategories()
-*/
+ */
 function serendipity_generateCategoryList(iterable $cats, iterable $select = array(0), int $type = 0, int $id = 0, int $level = 0, string $xmlImg = '', string $blank_char = ' ') : ?string {
     global $serendipity;
 
