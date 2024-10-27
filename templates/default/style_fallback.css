@@ -28,9 +28,9 @@ figure {
     z-index: 999;
     width: auto;
     height: auto;
-    max-height: 8rem;
+    max-height: 11em;
     overflow-x: auto;
-    padding: .5rem;
+    padding: .5em;
     border-bottom: 1px solid #e4b9b9;
     background: #f2dede;
     color: #b94a48;
