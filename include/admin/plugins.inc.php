@@ -696,7 +696,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     if ($data['updateAllMsg']) {
         $xmlcache = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/package_event_'.$serendipity['lang'].'.xml';
         $xmlts = file_exists($xmlcache) ? serendipity_serverOffsetHour(filemtime($xmlcache)) : (time() - 43201); // filemtime is Servers timezone or UTC/GMT :: 12h + 1sec = max cache time
-        $xmlts = (string) $xmlts; // strict type for PostgreSQL character varying < integer
+        $xmlts = (string) $xmlts; // strict type for PostgreSQL character varying < integer - keep, but improve better see below
         $exclude = '';
         if (!empty($_SESSION['foreignPlugins_remoteRequirements'])) {
             $exkeys = '';
@@ -706,7 +706,11 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $exkeys  = rtrim($exkeys, ', ');
             $exclude = " AND okey NOT IN ( $exkeys )";
         }
-        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE ( okey LIKE 'prr_%'{$exclude} ) AND name < $xmlts");
+        if (stristr($serendipity['dbType'], 'postgres')) {
+            serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE ( okey LIKE 'prr_%'{$exclude} ) AND name < '$xmlts'");
+        } else {
+            serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE ( okey LIKE 'prr_%'{$exclude} ) AND name < $xmlts");
+        }
     }
 }
 
