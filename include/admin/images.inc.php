@@ -22,7 +22,7 @@ if (!is_object($serendipity['smarty'])) {
     serendipity_smarty_init();
 }
 
-// PLEASE: No echo output here, before the switch, since that matters renaming alerts!
+// PLEASE: No non-terminated echo output here, before the switch, since that matters JS renaming alerts!
 
 // unset adminAction type to default, if an image was bulkmoved and the origin page reloaded
 if (!is_array($serendipity['POST']) && $serendipity['GET']['adminAction'] == 'multicheck') {
