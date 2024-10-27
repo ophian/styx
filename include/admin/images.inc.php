@@ -8,6 +8,12 @@ if (!serendipity_checkPermission('adminImages')) {
     return;
 }
 
+/* IMAGE administration paranoia termination */
+if (empty($serendipity['uploadPath']) || (strlen($serendipity['uploadPath']) > 1 && substr($serendipity['uploadPath'], -1) != '/')) {
+    trigger_error('Whoops! Your serendipity "uploadPath" path variable was not found OR is empty OR its value is not allowed by criteria "x/". This is essential to not read and insert the complete blog or other wrong files into your MediaLibrary. This current operation was terminated to protect your system. The reason for this loss is unknown. Eventually you have to check your serendipity config database table or check the "path" section for the upload directory ("uploads/") and reset/submit the backend configuration. This error termination warning notice was thrown:<br>', E_USER_WARNING);
+    return;
+}
+
 $data = array();
 
 if (!is_object($serendipity['smarty'])) {
