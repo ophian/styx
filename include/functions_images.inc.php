@@ -3268,6 +3268,11 @@ function serendipity_displayImageList(int $page = 0, bool $manage = false, ?stri
     $start   = ($page-1) * $perPage;
 
     if ($serendipity['onTheFlySynch'] && serendipity_checkPermission('adminImagesSync') && $manage && $limit_path === NULL) {
+        /* PRE SYNC paranoia termination in case a plugin or something finds a way to directly access serendipity_displayImageList() */
+        if (empty($serendipity['uploadPath']) || (strlen($serendipity['uploadPath']) > 1 && substr($serendipity['uploadPath'], -1) != '/x')) {
+            trigger_error('Whoops! Your serendipity "uploadPath" path variable was not found OR is empty OR its value is not allowed by criteria "x/". This is essential to not read and insert the complete blog or other wrong files into your MediaLibrary. This current operation was terminated to protect your system. The reason for this loss is unknown. Eventually you have to check your serendipity config database table or check the "path" section for the upload directory ("uploads/") and reset/submit the backend configuration. This error termination warning notice was thrown:<br>', E_USER_WARNING);
+            return 'error'; // dummy string for string return type to display the triggered error
+        }
         ## SYNC START ##
         $aExclude = array('CVS' => true, '.svn' => true, '.git' => true); // removed ", '.v' => true", which allows to place an existing .v/ dir stored AVIF/Webp image variation in the aFilesNoSync array! See media_items.tpl special.pfilename button.
         serendipity_plugin_api::hook_event('backend_media_path_exclude_directories', $aExclude);
