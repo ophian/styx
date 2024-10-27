@@ -52,7 +52,7 @@ if (defined('USE_MEMSNAP')) {
 }
 
 // The version string
-$serendipity['version'] = '4.5-beta2';
+$serendipity['version'] = '4.5-rc1';
 $serendipity['edition'] = 'Styx';
 
 // Setting this to 'false' will enable debugging output.
