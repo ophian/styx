@@ -117,7 +117,7 @@ Version 4.5-DEV ()
     follow and generally add "ol,ul,dl { display: flow-root }" as a consistent
     behaviour.
     This and some more browser default styles were added to all other core
-    required themes [ b46, b54, b5blog, boot, bootstrap4, clean-blog, 2k11,
+    required themes [ b46, b53, b5blog, boot, bootstrap4, clean-blog, 2k11,
     next, skeleton, sliver, timeline ].
 
   * Improve CKEditor displayed content lists in floated environments, to remain
