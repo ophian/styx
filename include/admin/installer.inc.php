@@ -295,6 +295,8 @@ if ((int) $serendipity['GET']['step'] === 0) {
     if (is_writable($basedir)) {
         $data['installerResultDiagnose_BASE_WRITABLE'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
         $basewritable = True;
+    } else {
+        $data['installerResultDiagnose_BASE_WRITABLE'] = serendipity_installerResultDiagnose(S9Y_I_ERROR, WRITABLE);
     }
 
     if (is_writable($basedir . PATH_SMARTY_COMPILE)) {
