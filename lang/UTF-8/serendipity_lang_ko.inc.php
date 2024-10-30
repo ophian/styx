@@ -1002,6 +1002,7 @@
 
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD2', '이 설정을 "강제로"로 선택했을 경우 피드버너 뿐만 아니라 다른 웹 서비스로도 RSS 피드를 전달할 수 있습니다. 아래의 "피드버너 ID" 설정을 보고 절대 경로를 입력하십시오.');
 @define('NOT_WRITABLE_SPARTACUS', '스파르타쿠스 플러그인을 통해 기본적으로 활성화된 원격 플러그인 다운로드 기능에 필요합니다!');
+@define('NOT_WRITABLE_CHMOD', 'You probably only need to set the correct "user:group" authorization for everything, like under Debian with "%s", so that this and the other "' . NOT_WRITABLE . '" diagnostics can be read correctly. Your system suggests that you should (<i>probably</i>) use "<code>%s</code>". Regardless of the fact that the octal authorization for the top-level directory may actually be missing, the most likely cause of these error message(s) is the incorrect "user:group" authorization. To specify user and group other than "root", the release compressed (zip/tar) files normally contain a "nobody:nogroup" preset which is a pseudo user:group in many Unixes and Linux distributions, with the least- or non-permissions on the system.');
 @define('MEDIA_ALT', 'ALT 속성 (묘사 또는 짧은 설명)');
 @define('MEDIA_PROPERTY_ALT', '묘사 (ALT 속성에 대한 요약)');
 

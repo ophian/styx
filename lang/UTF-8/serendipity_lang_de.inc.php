@@ -1001,6 +1001,7 @@
 @define('INSTALL_OFFSET_ON_SERVER_TIME', 'Basiert die Zeitdifferenz auf der Server-Zeitzone?');
 @define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Eintragszeiten nach Server-Zeitzone eintragen oder nicht. YES wählt die Server-Zeitzone als Basis, NO wählt GMT.');
 @define('NOT_WRITABLE_SPARTACUS', 'Erforderlich für die standardmäßig aktiv gesetzte Remote-Plugin-Download-Fähigkeit durch das Spartacus-Plugin!');
+@define('NOT_WRITABLE_CHMOD', 'Möglicherweise müssen Sie für alles nur die richtige "user:group" Berechtigung setzen, wie zB. unter Debian mit "%s", damit diese und die weiteren "' . NOT_WRITABLE . '" Diagnosen korrekt ausgelesen werden können. Ihr System sagt, Sie müssten (<i>wahrscheinlich</i>) "<code>%s</code>" benutzen. Ungeachtet dessen, dass vielleicht tatsächlich auch die oktale Berechtigung für das oberste Verzeichnis fehlen könnte, ist jedoch die nicht passende "user:group" Berechtigung die wahrscheinlichste Ursache dieser Fehlermeldung(en). Um einen anderen Benutzer und eine andere Gruppe als „root“ anzugeben, enthalten die komprimierten Release-Dateien (zip/tar) normalerweise eine „nobody:nogroup“-Voreinstellung, die in vielen Unix- und Linux-Distributionen eine Pseudo- "Benutzer:Gruppe" mit den geringsten oder gar keinen Rechten auf dem System ist.');
 @define('MEDIA_ALT', 'ALT-Attribut (Bildinhalt oder Kurzbeschreibung)');
 @define('MEDIA_PROPERTY_ALT', 'Bildinhalt (im ALT-Attribut)');
 @define('MEDIA_TITLE', 'TITLE-Attribut (wird beim Überfahren mit der Maus angezeigt)');
