@@ -1000,7 +1000,7 @@
 
 @define('INSTALL_OFFSET_ON_SERVER_TIME', 'Basiert die Zeitdifferenz auf der Server-Zeitzone?');
 @define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Eintragszeiten nach Server-Zeitzone eintragen oder nicht. YES wählt die Server-Zeitzone als Basis, NO wählt GMT.');
-@define('NOT_WRITABLE_SPARTACUS', ' Empfohlen! (Notwendig, wenn Spartacus zur Plugin-Installation über das Internet genutzt werden soll.)');
+@define('NOT_WRITABLE_SPARTACUS', 'Erforderlich für die standardmäßig aktiv gesetzte Remote-Plugin-Download-Fähigkeit durch das Spartacus-Plugin!');
 @define('MEDIA_ALT', 'ALT-Attribut (Bildinhalt oder Kurzbeschreibung)');
 @define('MEDIA_PROPERTY_ALT', 'Bildinhalt (im ALT-Attribut)');
 @define('MEDIA_TITLE', 'TITLE-Attribut (wird beim Überfahren mit der Maus angezeigt)');

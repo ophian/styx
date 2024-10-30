@@ -1010,7 +1010,7 @@ $i18n_filename_to = array (
 @define('SYNDICATION_PLUGIN_COMMENTNAME_DESC', 'Zadajte (volitelne) akékoµvek meno pre kanál s komentármi');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD', '(Ak zadáte absolútnu URL adresu s http://..., bude táto adresa pou¾itá ako cieµ presmerovania v prípade, ¾e ste vybrali voµbu "Vynúti»" pre FeedBurner. Nezabudnite, ¾e to mô¾e být URL adresa nezávislá na FeedBurneri. Pre nové kanály Google FeedBurnera budete musie» zada» http://feeds2.feedburner.com/jmenoVasehoKanalu)');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD2', 'Ak nastavíte túto voµbu na "Vynúti»", mô¾ete presmerova» RSS kanál na akúkoµvek webovú slu¾bu, nie len na FeedBurner. Pozrite sa ni¾¹ie na voµbu "Feedburner ID" pre zadanie absolútnej adresy.');
-@define('NOT_WRITABLE_SPARTACUS', ' (Vy¾adované iba ak chcete v budúcnosti vyu¾íva» plugin Spartacus pre s»ahovanie nových doplnkov.)');
+@define('NOT_WRITABLE_SPARTACUS', 'Vyžaduje sa pre možnost vzdialeného stahovania zásuvných modulov, ktorá je predvolene aktívna prostredníctvom zásuvného modulu Spartakus!');
 @define('MEDIA_ALT', 'Atribút ALT (popis alebo krátky popis)');
 @define('MEDIA_PROPERTY_ALT', 'Popis (zhrnutie pre atribút ALT)');
 

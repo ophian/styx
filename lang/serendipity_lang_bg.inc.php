@@ -1003,7 +1003,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD', '(Ако въведете абсолютен URL с http://... тук, този URL ще бъде използван за пренасочване в случай, че сте разрешили опция "Force" за FeedBurner. Забележете, че този URL може да е независим от FeedBurner. За нови Google FeedBurner емисии, трябва да въведете тук http://feeds2.feedburner.com/yourfeedname)');
 
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD2', 'Ако установите тази опция на "Force", ще можете да пренасочвате RSS емисиите към всеки webservice, не само към FeedBurner. Вижте опцията "Feedburner ID" по-долу за да въведете абсолютен URL)');
-@define('NOT_WRITABLE_SPARTACUS', ' Recommended! (Required, when you plan to use Spartacus plugin for remote plugin download.)');
+@define('NOT_WRITABLE_SPARTACUS', 'Required for the remote plugin download capability set active by default via the Spartacus plugin!');
 @define('MEDIA_ALT', 'ALT-Attribute (depiction or short description)');
 @define('MEDIA_PROPERTY_ALT', 'Depiction (summary for ALT-Attribute)');
 

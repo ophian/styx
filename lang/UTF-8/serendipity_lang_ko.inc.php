@@ -1001,7 +1001,7 @@
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD', '(만약 여기에 http://...로 시작하는 절대 경로를 입력했다면 피드버너 설정에서 "강제로"를 선택했을 때 이 주소를 리다이렉트 대상으로 사용하게 됩니다. 그리고 이 주소는 피드버너와 독립적일 수 있다는 점도 참고하십시오. 신규 구글 피드버너의 경우 http://feeds2.feedburner.com/yourfeedname 식으로 입력해야 합니다.)');
 
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD2', '이 설정을 "강제로"로 선택했을 경우 피드버너 뿐만 아니라 다른 웹 서비스로도 RSS 피드를 전달할 수 있습니다. 아래의 "피드버너 ID" 설정을 보고 절대 경로를 입력하십시오.');
-@define('NOT_WRITABLE_SPARTACUS', ' (스파르타쿠스 플러그인을 통해 원격 플러그인을 내려받을 경우에만 필요함)');
+@define('NOT_WRITABLE_SPARTACUS', '스파르타쿠스 플러그인을 통해 기본적으로 활성화된 원격 플러그인 다운로드 기능에 필요합니다!');
 @define('MEDIA_ALT', 'ALT 속성 (묘사 또는 짧은 설명)');
 @define('MEDIA_PROPERTY_ALT', '묘사 (ALT 속성에 대한 요약)');
 
