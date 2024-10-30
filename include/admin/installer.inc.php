@@ -12,6 +12,7 @@ if (!defined('IN_installer')) {
 
 define('S9Y_I_ERROR', -1);
 define('S9Y_I_WARNING', 0);
+define('S9Y_I_CHMOD', 0);
 define('S9Y_I_SUCCESS', 1);
 
 if (empty($_SESSION['install_token'])) {
@@ -59,6 +60,10 @@ function serendipity_installerResultDiagnose($result, $s) {
     if ($result === S9Y_I_WARNING) {
         $data['i_warning'] = true;
         return '<span class="msg_notice">'. $s .'<span class="visuallyhidden"> installerResultDiagnoseNoticeNoDefault [?]</span></span>';
+    }
+    if ($result === S9Y_I_CHMOD) {
+        $data['i_warning'] = true;
+        return '<span class="msg_notice">'. $s .'<span class="visuallyhidden"> installerResultDiagnoseCheckChmodFail [?]</span></span>';
     }
     if ($result === S9Y_I_ERROR) {
         $errorCount++;
@@ -295,7 +300,7 @@ if ((int)$serendipity['GET']['step'] == 0) {
         $data['installerResultDiagnose_BASE_WRITABLE'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
         $basewritable = True;
     } else {
-        $data['installerResultDiagnose_BASE_WRITABLE'] = serendipity_installerResultDiagnose(S9Y_I_ERROR, NOT_WRITABLE);
+        $data['installerResultDiagnose_BASE_WRITABLE'] = serendipity_installerResultDiagnose(S9Y_I_CHMOD, NOT_WRITABLE . '. ' . sprintf(NOT_WRITABLE_CHMOD, '<code>chmod -R www-data:www-data serendipity</code>', @exec('whoami')));
     }
 
     if (is_writable($basedir . PATH_SMARTY_COMPILE)) {
