@@ -1012,6 +1012,7 @@ $i18n_filename_to = array (
 
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD2', 'Pokud nastavíte tuto volbu na "Vynutit", mùžete pøesmìrovat RSS kanál na jakoukoliv webovou službu, nejen na FeedBurner. Podívejte se níže na volbu "Feedburner ID" pro zadání absolutní adresy.');
 @define('NOT_WRITABLE_SPARTACUS', 'Vyžadováno pro možnost vzdáleného stahování zásuvných modulu, která je ve výchozím nastavení aktivní prostrednictvím zásuvného modulu Spartacus!');
+@define('NOT_WRITABLE_CHMOD', 'You probably only need to set the correct "user:group" authorization for everything, like under Debian with "%s", so that this and the other "' . NOT_WRITABLE . '" diagnostics can be read correctly. Your system suggests that you should (<i>probably</i>) use "<code>%s</code>". Regardless of the fact that the octal authorization for the top-level directory may actually be missing, the most likely cause of these error message(s) is the incorrect "user:group" authorization. To specify user and group other than "root", the release compressed (zip/tar) files normally contain a "nobody:nogroup" preset which is a pseudo user:group in many Unixes and Linux distributions, with the least- or non-permissions on the system.');
 @define('MEDIA_ALT', 'Atribut ALT (popis nebo krátký popis)');
 @define('MEDIA_PROPERTY_ALT', 'Popis (shrnutí pro atribut ALT)');
 
