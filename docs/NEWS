@@ -2,6 +2,9 @@ Version 4.5-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve and set installer failure 'installerResultDiagnose_BASE_WRITABLE'
+    for failing "user:group" authorization.
+
   * Update [ pure ] standard theme preview images and description
 
   * Improve the mlorphans plugin core file script by an automatic correction
