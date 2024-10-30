@@ -325,7 +325,7 @@ if ((int)$serendipity['GET']['step'] == 0) {
     if (is_writable($basedir . 'plugins/')) {
         $data['installerResultDiagnose_PLUGINS'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
     } else {
-        $data['installerResultDiagnose_PLUGINS'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NOT_WRITABLE . NOT_WRITABLE_SPARTACUS);
+        $data['installerResultDiagnose_PLUGINS'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NOT_WRITABLE . '. ' . NOT_WRITABLE_SPARTACUS);
     }
 
     if (is_dir($basedir .'uploads/')) {
