@@ -1,6 +1,5 @@
-Version 4.5-DEV ()
+Version 4.5.0 (October, 31st 2024)
  ------------------------------------------------------------------------
-
 
   * Improve and set installer failure 'installerResultDiagnose_BASE_WRITABLE'
     for failing "user:group" authorization.
