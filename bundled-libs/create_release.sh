@@ -107,15 +107,16 @@ else
             fi
             echo ""
 
-        echo "7. Creating .txz file $1"
+        echo "7. Creating .tar.xz file $1"
             #tar --owner=$3 --group=$4 -czf "$1" "$2"
             tar --owner=$3 --group=$4 -cf - "$1.tar" $2  | xz -z - > "$1.tar.xz"
             echo "    [DONE]"
             echo ""
 
         echo "8. Creating .zip file $1"
-            zip -r --owner=$3 --group=$4 "$1.zip" "$2"
-            #7z a -r "$1.zip" "$2"
+            #there is no owner:group for zip on OS
+            #zip -r --owner=$3 --group=$4 "$1.zip" "$2"
+            zip -r "$1.zip" "$2" | 7z a -r "$1.zip" "$2"
             echo "    [DONE]"
             echo ""
 
