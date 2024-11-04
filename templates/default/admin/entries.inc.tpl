@@ -6,7 +6,7 @@
         <input name="serendipity[action]" type="hidden" value="admin">
         <input name="serendipity[adminModule]" type="hidden" value="entries">
         <input name="serendipity[adminAction]" type="hidden" value="editSelect">
-        <input name="serendipity[pinned_entries]" type="hidden" value="{$pin_entries}">
+        <input name="serendipity[pinned_entries]" type="hidden" value="{$pin_entries|default:''}">
         {$formtoken}
         <ul class="filters_toolbar filter_entries plainList">
             <li><a class="button_link" href="#filter_entries" title="{$CONST.FILTERS}"><span class="icon-filter" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.FILTERS}</span></a></li>
