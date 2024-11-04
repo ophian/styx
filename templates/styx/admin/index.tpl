@@ -157,7 +157,7 @@
                     <ul id="entry_hooks">
 {if 'adminEntries'|checkPermission}
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=entries&amp;serendipity[adminAction]=new">{$CONST.NEW_ENTRY}</a></li>
-                        <li><a href="serendipity_admin.php?serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect&amp;serendipity[pinned_entries]={$pin_entries}">{$CONST.EDIT_ENTRIES}</a></li>
+                        <li><a href="serendipity_admin.php?serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect&amp;serendipity[pinned_entries]={$pin_entries|default:''}">{$CONST.EDIT_ENTRIES}</a></li>
 {/if}
 {if 'adminCategories'|checkPermission}
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=category&amp;serendipity[adminAction]=view">{$CONST.CATEGORIES}</a></li>
