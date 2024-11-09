@@ -1,6 +1,7 @@
 Version 4.5.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix missing HTML comment Editor case for non-logged-in users
 
 
 
