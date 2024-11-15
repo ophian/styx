@@ -887,7 +887,7 @@
 @define('MEDIA_EXIF', 'EXIF/JPEG 그림 데이터를 불러오기');
 @define('MEDIA_EXIF_DESC', '사용할 경우 그림에 포함되어 있는 EXIF/JPEG 메타데이터를 불러들여 데이터베이스에 저장하게 되며 차후 미디어 갤러리에서 볼 수 있게 됩니다.');
 @define('MEDIA_PROP', '미디어 등록정보');
-@define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as <b>public</b> media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname! Also, beware of saving the copyright value with the here eventually pre-set login name of yours, when you don\'t actually own the rights! Better use "unknown", or such, or leave empty.');
+@define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as <b>public</b> media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname! Also, beware of saving the copyright value with the here eventually pre-set real name of yours, when you don\'t actually own the rights! Better use "unknown", or such, or leave empty.');
 @define('MEDIA_CREATEVARS', 'Add additional image variations');
 
 @define('DIALOG_DELETE_VARIATIONS_PERITEM', 'Yes [ENTER-key] will delete all occurrences of this file; No [SPACE-key] only deletes the image variations (if any), so that they can be rebuilt afterwards via the [+] icon; Cancel [ESC-key] will do nothing! "Yes" and "No" confirmation actions in the following can also be aborted.');
