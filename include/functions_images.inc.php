@@ -4352,7 +4352,7 @@ function serendipity_parseMediaProperties(&$dprops, &$keywords, &$media, &$props
 
                 case 'COPYRIGHT':
                     if (!isset($default_iptc_val)) {
-                        $default_iptc_val = $serendipity['serendipityUser'] ?? null;
+                        $default_iptc_val = $serendipity['serendipityRealname'] ?? null;
                     }
 
                 case 'TITLE':
