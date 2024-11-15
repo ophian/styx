@@ -890,7 +890,7 @@
 @define('MEDIA_EXIF', 'Importeer EXIF/JPEG-afbeeldingsgegevens');
 @define('MEDIA_EXIF_DESC', 'Als dit aan staat, worden bestaande EXIF/JPEG-gegevens van afbeeldingen ingelezen en opgeslagen in de databank om weer te geven in de mediaverzameling.');
 @define('MEDIA_PROP', 'Media-eigenschappen');
-@define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as <b>public</b> media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname! Also, beware of saving the copyright value with the here eventually pre-set login name of yours, when you don\'t actually own the rights! Better use "unknown", or such, or leave empty.');
+@define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as <b>public</b> media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname! Also, beware of saving the copyright value with the here eventually pre-set real name of yours, when you don\'t actually own the rights! Better use "unknown", or such, or leave empty.');
 @define('MEDIA_CREATEVARS', 'Add additional image variations');
 
 @define('DIALOG_DELETE_VARIATIONS_PERITEM', 'Yes [ENTER-key] will delete all occurrences of this file; No [SPACE-key] only deletes the image variations (if any), so that they can be rebuilt afterwards via the [+] icon; Cancel [ESC-key] will do nothing! "Yes" and "No" confirmation actions in the following can also be aborted.');
