@@ -1,6 +1,9 @@
 Version 4.5.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Add ref[name] to CKE config.extraAllowedContent for wikilinks 1.5.0 plugin
+    update.
+
   * Changed the image media props default value in the copyright property from
     login username to realname, which makes more sense. Elder image properties
     - already saved - might still contain the login name, which is NOT GOOD to
