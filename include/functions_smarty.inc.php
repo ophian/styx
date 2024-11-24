@@ -1258,7 +1258,8 @@ function serendipity_smarty_init(?iterable $vars = []) : bool  {
                 'template'                  => $serendipity['template'],
                 'templatePath'              => $serendipity['templatePath'],
                 'template_backend'          => $serendipity['template_backend'],
-                'wysiwyg_comment'           => (($serendipity['allowHtmlComment'] === true) && (!isset($serendipity['wysiwyg']) || $serendipity['wysiwyg'] === true)),
+                // on some systems a none set !isset() check isn't available and means to be an empty string '' ...
+                'wysiwyg_comment'           => (($serendipity['allowHtmlComment'] === true) && ((!isset($serendipity['wysiwyg']) || $serendipity['wysiwyg'] !== false)|| $serendipity['wysiwyg'] === true)),
                 'use_autosave'              => (isset($serendipity['use_autosave']) && serendipity_db_bool($serendipity['use_autosave'])) ? 'true' : 'false',
 
                 'dateRange'                 => (!empty($serendipity['range']) ? $serendipity['range'] : array())
