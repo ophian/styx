@@ -121,6 +121,22 @@ Version 5.0-DEV ()
 
 
 
+Version 4.5.1 (November, 30th 2024)
+ ------------------------------------------------------------------------
+
+  * Add ref[name] to CKE config.extraAllowedContent for wikilinks 1.5.0 plugin
+    update.
+
+  * Changed the image media props default value in the copyright property from
+    login username to realname, which makes more sense. Elder image properties
+    - already saved - might still contain the login name, which is NOT GOOD to
+    have at here since it might find its way into frontend views via plugins.
+    Check your media items, please.
+
+  * Fix missing HTML comment Editor case for non-logged-in users
+
+
+
 Version 4.5.0 (October, 31st 2024)
  ------------------------------------------------------------------------
 
