@@ -1,4 +1,4 @@
-Version 4.5.1-DEV ()
+Version 4.5.1 (November, 30th 2024)
  ------------------------------------------------------------------------
 
   * Add ref[name] to CKE config.extraAllowedContent for wikilinks 1.5.0 plugin
