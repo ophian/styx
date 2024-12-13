@@ -2,6 +2,9 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Increase TinyMCE emojis font-size and minimize its collection scrollbar.
+    - Todo: Refactor this for more independence...
+
   * Refactor RichText Editor Styx integration to replace the old CKEDITOR 4
     with TinyMCE Community Edition, currently in version 6.8.4.
     This nukes CKEditor from Styx system completely and from now on all HTML
