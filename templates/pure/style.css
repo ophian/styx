@@ -302,6 +302,9 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     border-color: #535; }
   [data-dark-theme="dark"] .card {
     border-color: #444c56; }
+  [data-dark-theme="dark"] code {
+    color: #b0a6ed;
+    font-family: ui-monospace,"Cascadia Mono","Segoe UI Mono","Liberation Mono",Menlo,Monaco,Consolas,monospace; }
   [data-dark-theme="dark"] kbd {
       color: #dadada;
       background-color: #22272e;
