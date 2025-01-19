@@ -401,7 +401,7 @@
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'Aparência e opções');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Padroniza como o Serendipity é exibido');
-@define('INSTALL_WYSIWYG', 'Utilizar o editor de RichText (WYSIWYG)';
+@define('INSTALL_WYSIWYG', 'Utilizar o editor de RichText (WYSIWYG)');
 @define('INSTALL_WYSIWYG_DESC', 'Este editor será utilizado em campos de área de texto comuns, como formulários de entrada, páginas estáticas, comentários (que têm uma definição de opção global adicional) e alguns outros locais de plugins; armazena diretamente a marcação HTML.');
 @define('INSTALL_POPUP', 'Permitir o uso de janelas popups');
 @define('INSTALL_POPUP_DESC', 'Quer que o weblog utilize janelas popups para comentários, trackbacks, etc?');
