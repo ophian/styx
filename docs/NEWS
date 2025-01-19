@@ -2,6 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Changed order of main plugin button sections to event plugins first.
+
   * Increase TinyMCE emojis font-size and minimize its collection scrollbar.
     - Todo: Refactor this for more independence...
 
