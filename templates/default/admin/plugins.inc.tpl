@@ -213,7 +213,7 @@
 {/if}
 <div id="pluginlist_tabs" class="tabs">
     <section id="pluginlist_event" class="panel">
-        <h3> ♾ {$CONST.EVENT_PLUGINS} ❕ </h3>
+        <h3> ⚛ {$CONST.EVENT_PLUGINS} {if $CONST.EVENT_PLUGINS|count_characters:true < 18}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{/if} </h3>
         <a class="button_link state_install" href="?serendipity[adminModule]=plugins&amp;serendipity[adminAction]=addnew&amp;serendipity[type]=event" title="{$CONST.CLICK_HERE_TO_INSTALL_PLUGIN|sprintf:$CONST.EVENT_PLUGIN}">{$CONST.INSTALL_NEW_EVENT_PLUGIN}</a>
         {$backend_plugins_event_header}
         {$event_plugins}
