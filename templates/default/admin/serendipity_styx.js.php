@@ -1268,7 +1268,7 @@
         });
     }
 
-    serendipity.resizeImage = function(originalWidth, originalHeight, maxWidth, maxHeight) {
+    serendipity.resizeImageCalc = function(originalWidth, originalHeight, maxWidth, maxHeight, basePortraitWidth = null) {
         // Calculate the aspect ratio
         const aspectRatio = originalWidth / originalHeight;
 
@@ -1276,18 +1276,28 @@
         let newWidth = originalWidth;
         let newHeight = originalHeight;
 
-        // Determine if we need to resize based on width or height
-        if (originalWidth > originalHeight) {
-            // Resize based on width
-            if (originalWidth > maxWidth) {
-                newWidth = maxWidth;
-                newHeight = newWidth / aspectRatio;
-            }
+        // Check if the image is in portrait mode
+        const isPortrait = originalHeight > originalWidth;
+
+        // Resize based on the larger side and check for portrait mode with base width
+        if (isPortrait && basePortraitWidth) {
+            // Resize portrait mode images based on the base width
+            newWidth = basePortraitWidth;
+            newHeight = newWidth / aspectRatio;
         } else {
-            // Resize based on height
-            if (originalHeight > maxHeight) {
-                newHeight = maxHeight;
-                newWidth = newHeight * aspectRatio;
+            // Resize based on the larger side
+            if (originalWidth > originalHeight) {
+                // Resize based on width
+                if (originalWidth > maxWidth) {
+                    newWidth = maxWidth;
+                    newHeight = newWidth / aspectRatio;
+                }
+            } else {
+                // Resize based on height
+                if (originalHeight > maxHeight) {
+                    newHeight = maxHeight;
+                    newWidth = newHeight * aspectRatio;
+                }
             }
         }
 
@@ -2067,7 +2077,12 @@ $(function() {
                                             width = image.width,
                                             height = image.height;
 
-                                        var newSize = serendipity.resizeImage(width, height, max_width, max_height);
+                                        /* optional portrait mode image base width sizing */
+                                        var sizeBaseWidth = <?php if (serendipity_get_config_var('maxImgWidthPortrait')): ?><?= serendipity_get_config_var('maxImgWidthPortrait'); ?><?php else: ?>0<?php endif; ?>;
+                                        //console.log('Image upload properties', image);
+                                        //console.log('New AJAX upload base width for portraits '+sizeBaseWidth);
+
+                                        var newSize = serendipity.resizeImageCalc(width, height, max_width, max_height, sizeBaseWidth);
                                         //console.log('New AJAX upload dimensions: width = '+newSize.width+', height = '+newSize.height);
 
                                         canvas.width = newSize.width;
