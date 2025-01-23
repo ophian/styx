@@ -2,6 +2,11 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Refactor AJAX “Resize on upload” option workload to allow and fix autosized
+    image widths and heights for a new base width constraint. This allows to in
+    example set an image maximum (base) width of 800 pixel for landscape formats
+    and a base 600 pixel width for portrait images.
+
   * Changed order of main plugin button sections to event plugins first.
 
   * Increase TinyMCE emojis font-size and minimize its collection scrollbar.
