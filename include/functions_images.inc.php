@@ -5478,6 +5478,11 @@ function serendipity_checkMediaSize(string $file) : bool {
         }
 
         if (!empty($serendipity['maxImgWidth']) && !empty($serendipity['maxImgHeight'])) {
+            // Do not error dimension failures when shall being autosized on upload
+            if ($serendipity['uploadResize'] === true) {
+                return true;
+            }
+            // if both dimensions greater, fail
             if ($dim[0] > $serendipity['maxImgWidth'] && $dim[1] > $serendipity['maxImgHeight']) {
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' .
                         sprintf(MEDIA_UPLOAD_DIMERROR . "<br>\n", (int)$serendipity['maxImgWidth'], (int)$serendipity['maxImgHeight'], INSTALL_CAT_IMAGECONV, MEDIA_UPLOAD_RESIZE) . "</span>\n";
