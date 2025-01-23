@@ -1268,6 +1268,40 @@
         });
     }
 
+    serendipity.resizeImage = function(originalWidth, originalHeight, maxWidth, maxHeight) {
+        // Calculate the aspect ratio
+        const aspectRatio = originalWidth / originalHeight;
+
+        // Initialize the new dimensions
+        let newWidth = originalWidth;
+        let newHeight = originalHeight;
+
+        // Determine if we need to resize based on width or height
+        if (originalWidth > originalHeight) {
+            // Resize based on width
+            if (originalWidth > maxWidth) {
+                newWidth = maxWidth;
+                newHeight = newWidth / aspectRatio;
+            }
+        } else {
+            // Resize based on height
+            if (originalHeight > maxHeight) {
+                newHeight = maxHeight;
+                newWidth = newHeight * aspectRatio;
+            }
+        }
+
+        // Round the new dimensions to the nearest integers
+        newWidth = Math.round(newWidth);
+        newHeight = Math.round(newHeight);
+
+        // Return the new dimensions
+        return {
+            width: newWidth,
+            height: newHeight
+        };
+    }
+
 }( window.serendipity = window.serendipity || {}, jQuery ))
 
 $(function() {
@@ -2033,18 +2067,12 @@ $(function() {
                                             width = image.width,
                                             height = image.height;
 
-                                        if (max_width > 0 && width > max_width) {
-                                            height *= max_width / width;
-                                            width = max_width;
-                                        }
-                                        if (max_height > 0 && height > max_height) {
-                                            width  *= max_height / height;
-                                            height = max_height;
-                                        }
+                                        var newSize = serendipity.resizeImage(width, height, max_width, max_height);
+                                        //console.log('New AJAX upload dimensions: width = '+newSize.width+', height = '+newSize.height);
 
-                                        canvas.width = width;
-                                        canvas.height = height;
-                                        canvas.getContext('2d').drawImage(image, 0, 0, width, height);
+                                        canvas.width = newSize.width;
+                                        canvas.height = newSize.height;
+                                        canvas.getContext('2d').drawImage(image, 0, 0, newSize.width, newSize.height);
 
                                         if (type == "image/bmp") {
                                             {* bmp is not supported *}
