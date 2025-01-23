@@ -919,6 +919,8 @@
 @define('MEDIA_UPLOAD_SIZEERROR', 'Fejl: Du kan ikke uploade filer større end %s bytes!');
 @define('MEDIA_UPLOAD_MAXWIDTH', 'Max. bredde for uploadede billeder');
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Indtast den maximale bredde i pixels, for uploadede billeder.');
+@define('MEDIA_UPLOAD_MAXWIDTH_PORTRAIT', 'Max. (opt.) width for images in portrait format');
+@define('MEDIA_UPLOAD_MAXWIDTH_PORTRAIT_DESC', 'Enter (optionally) the maximum permitted width in pixels for portrait format images to be uploaded. This is important if you activate the “Resize on upload” option and generally only want to generate images of a specified base width differently for portrait and landscape formats. This only applies if the options “Largest” side and “Resize on upload” are given. This optional specification does not release you from the following definition of a specific maximum height limit.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', 'Max. højde for uploadede billeder');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'Indtast den maximale højde i pixels, for uploadede billeder.');
 @define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');

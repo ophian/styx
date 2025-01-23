@@ -920,6 +920,8 @@
 @define('MEDIA_UPLOAD_SIZEERROR', 'خطا: شما نمی توانید فایلی با حجمی بیشتر از %s بایت ارسال کنید!');
 @define('MEDIA_UPLOAD_MAXWIDTH', 'بیشترین طول تصویر');
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'بیشترین طول تصویر برای بالاگذاری را بر اساس پیکسل وارد کنید.');
+@define('MEDIA_UPLOAD_MAXWIDTH_PORTRAIT', 'Max. (opt.) width for images in portrait format');
+@define('MEDIA_UPLOAD_MAXWIDTH_PORTRAIT_DESC', 'Enter (optionally) the maximum permitted width in pixels for portrait format images to be uploaded. This is important if you activate the “Resize on upload” option and generally only want to generate images of a specified base width differently for portrait and landscape formats. This only applies if the options “Largest” side and “Resize on upload” are given. This optional specification does not release you from the following definition of a specific maximum height limit.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', 'بیشترین عرض تصویر');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'بیشترین عرض تصویر برای بالاگذاری را بر اساس پیکسل وارد کنید.');
 @define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');

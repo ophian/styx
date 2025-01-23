@@ -919,6 +919,8 @@
 @define('MEDIA_UPLOAD_SIZEERROR', '오류: %s바이트보다 큰 파일을 올릴 수 없습니다!');
 @define('MEDIA_UPLOAD_MAXWIDTH', '올릴 그림 파일의 최대 폭');
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', '올릴 그림 파일의 최대 폭을 픽셀 단위로 입력합니다.');
+@define('MEDIA_UPLOAD_MAXWIDTH_PORTRAIT', 'Max. (opt.) width for images in portrait format');
+@define('MEDIA_UPLOAD_MAXWIDTH_PORTRAIT_DESC', 'Enter (optionally) the maximum permitted width in pixels for portrait format images to be uploaded. This is important if you activate the “Resize on upload” option and generally only want to generate images of a specified base width differently for portrait and landscape formats. This only applies if the options “Largest” side and “Resize on upload” are given. This optional specification does not release you from the following definition of a specific maximum height limit.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', '올릴 그림 파일의 최대 높이');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', '올릴 그림 파일의 최대 높이를 픽셀 단위로 입력합니다.');
 @define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
