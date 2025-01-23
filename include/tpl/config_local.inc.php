@@ -704,6 +704,13 @@
                                           'permission'  => 'blogConfiguration',
                                           'default'     => ''),
 
+                                    array('var'         => 'maxImgWidthPortrait',
+                                          'title'       => MEDIA_UPLOAD_MAXWIDTH_PORTRAIT,
+                                          'description' => MEDIA_UPLOAD_MAXWIDTH_PORTRAIT_DESC,
+                                          'type'        => 'int',
+                                          'permission'  => 'blogConfiguration',
+                                          'default'     => ''),
+
                                     array('var'         => 'maxImgHeight',
                                           'title'       => MEDIA_UPLOAD_MAXHEIGHT,
                                           'description' => MEDIA_UPLOAD_MAXHEIGHT_DESC,
