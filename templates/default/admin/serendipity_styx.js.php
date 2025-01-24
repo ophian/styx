@@ -2089,8 +2089,8 @@ $(function() {
                                         canvas.height = newSize.height;
                                         canvas.getContext('2d').drawImage(image, 0, 0, newSize.width, newSize.height);
 
+                                        // bmp is not supported
                                         if (type == "image/bmp") {
-                                            {* bmp is not supported *}
                                             type = "image/png";
                                             data.append('serendipity[target_filename][1]', file.name.replace('.bmp', '.png'));
                                         }
