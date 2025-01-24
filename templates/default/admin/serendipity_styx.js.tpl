@@ -2080,7 +2080,7 @@ $(function() {
                                             height = image.height;
 
                                         /* optional portrait mode image base width sizing */
-                                        var sizeBaseWidth = {if {serendipity_getConfigVar key='maxImgWidthPortrait'}}{serendipity_getConfigVar key='maxImgWidthPortrait'}{else}0{/if};
+                                        const sizeBaseWidth = {if {serendipity_getConfigVar key='maxImgWidthPortrait'}}{serendipity_getConfigVar key='maxImgWidthPortrait'}{else}0{/if};
                                         //console.log('Image upload properties', image);
                                         //console.log('New AJAX upload base width for portraits '+sizeBaseWidth);
 

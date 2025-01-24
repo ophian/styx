@@ -2078,7 +2078,7 @@ $(function() {
                                             height = image.height;
 
                                         /* optional portrait mode image base width sizing */
-                                        var sizeBaseWidth = <?php if (serendipity_get_config_var('maxImgWidthPortrait')): ?><?= serendipity_get_config_var('maxImgWidthPortrait'); ?><?php else: ?>0<?php endif; ?>;
+                                        const sizeBaseWidth = <?php if (serendipity_get_config_var('maxImgWidthPortrait')): ?><?= serendipity_get_config_var('maxImgWidthPortrait'); ?><?php else: ?>0<?php endif; ?>;
                                         //console.log('Image upload properties', image);
                                         //console.log('New AJAX upload base width for portraits '+sizeBaseWidth);
 
