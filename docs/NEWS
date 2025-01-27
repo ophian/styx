@@ -2,6 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix frontend issue with TinyMCE basicEditor breaking HTML grid structure
+
   * Refactor AJAX “Resize on upload” option workload to allow and fix autosized
     image widths and heights for a new base width constraint. This allows to in
     example set an image maximum (base) width of 800 pixel for landscape formats
