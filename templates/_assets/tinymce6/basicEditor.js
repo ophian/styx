@@ -77,4 +77,14 @@ let basicConfig = {
     ],
     // highlight with prism for the editor currently. Using highlight.js was found difficult, though this stays our default highlight code alignment tool.
     codesample_global_prismjs: true,
+    // TinyMCE front end editor position breaks structure: Remove "<div class="tox tox-silver-sink tox-tinymce-aux" style="width: 1490px; position: relative;"></div>" in body end context.
+    // The inline styled "position: relative" cannot be unset by global (fallback) CSS and is somehow designed for tinymce "dialog open" tasks, which we don't need here!
+    setup: (editor) => {
+      editor.on('PostRender', () => {
+        var container = editor.getContainer();
+        var uiContainer = document.querySelector('.tox.tox-tinymce-aux');
+        if (uiContainer === null) return;
+        container?.parentNode?.appendChild(uiContainer);
+      });
+    }
 }
