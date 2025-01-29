@@ -2,6 +2,9 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add current available icon sets to SYNDICATION_PLUGIN_XML_DESC information,
+    following plugin categories.
+
   * Fix frontend issue with TinyMCE basicEditor breaking HTML grid structure
 
   * Refactor AJAX "Resize on upload" option workload to allow and fix autosized
