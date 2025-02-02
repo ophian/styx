@@ -11,6 +11,7 @@
 @define('DATE_FORMAT_ENTRY', '%Y년 %B %e일 %A');
 @define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
 @define('WYSIWYG_LANG', 'ko_KR');
+@define('TINYMCE_LANG', 'ko');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', '.');
 @define('NUMBER_FORMAT_THOUSANDS', ',');
@@ -183,7 +184,7 @@
 @define('MYSQL_REQUIRED', '이 기능을 수행하려면 MySQL 확장기능이 설치되어 있어야 합니다.');
 @define('PGSQL_REQUIRED', '이 기능을 수행하려면 PostgreSQL 확장기능이 설치되어 있어야 합니다.');
 @define('COULDNT_CONNECT', 'MySQL 데이터베이스 \'%s\'에 접속하지 못했습니다.');
-@define('PGSQL_COULDNT_CONNECT', 'PostgreSQL 확장기능이 설치되어 있어야 합니다.');
+@define('PGSQL_COULDNT_CONNECT', 'PostgreSQL 데이터베이스 \'%s\'에 접속하지 못했습니다.');
 @define('COULDNT_SELECT_DB', '데이터베이스 \'%s\'(을)를 선택하지 못했습니다.');
 @define('COULDNT_SELECT_USER_INFO', '사용자 정보 \'%s\'(을)를 선택하지 못했습니다.');
 @define('COULDNT_SELECT_CATEGORY_INFO', '범주 정보 \'%s\'(을)를 선택하지 못했습니다.');
@@ -416,8 +417,8 @@
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', '외관 및 선택사항');
 @define('INSTALL_CAT_DISPLAY_DESC', '세렌디피티의 겉모습과 인상을 정합니다.');
-@define('INSTALL_WYSIWYG', 'WYSIWYG 편집기 사용');
-@define('INSTALL_WYSIWYG_DESC', 'WYSIWYG 편집기를 사용하겠습니까?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG', '리치 텍스트(WYSIWYG) 편집기 사용');
+@define('INSTALL_WYSIWYG_DESC', '이 편집기는 입력 양식, 정적 페이지, 댓글(추가 전역 옵션 설정이 있는) 및 기타 플러그인 위치와 같은 일반적인 텍스트 영역 필드에서 사용되며 HTML 마크업을 직접 저장합니다.');
 @define('INSTALL_POPUP', '팝업 창을 사용함');
 @define('INSTALL_POPUP_DESC', '덧글이나 트랙백 등에 팝업 창을 사용하겠습니까?');
 @define('INSTALL_EMBED', '세렌디피티가 내장된 형태입니까?');
@@ -825,9 +826,6 @@
 @define('CATEGORIES_PARENT_BASE_DESC', '하나의 상위 범주를 골라서 그 아래에 있는 범주만 보이도록 할 수 있습니다.');
 @define('CATEGORIES_HIDE_PARALLEL', '범주 트리에 속하지 않는 범주 숨기기');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', '다른 범주 트리에 속해 있는 범주를 보이지 않게 하려면 이것을 사용하십시오. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin, i.e if you choose multi categories by the categories checkbox selection.');
-@define('CHARSET_NATIVE', '지역 전용');
-@define('INSTALL_CHARSET', '문자열 종류 선택');
-@define('INSTALL_CHARSET_DESC', '여기서 문자열을 UTF-8로 할 것인지 지역 전용 (ISO, EUC 등)으로 할 것인지 정할 수 있습니다. 일부 언어는 UTF-8 버전만 제공되므로 "지역 전용"을 설정해도 변화가 없습니다. 새로 설치한 경우 UTF-8을 권장합니다. 이미 특별 문자를 사용하여 글을 작성했을 경우 이 설정을 변경하지 마십시오. 글자가 깨질 수 있습니다. 이 설정에 대해서는 https://ophian.github.io/hc/en/i18n.html 에 더 자세하게 소개가 되어 있습니다.');
 @define('CALENDAR_ENABLE_EXTERNAL_EVENTS', '플러그인 API 훅 사용');
 @define('CALENDAR_EXTEVENT_DESC', '사용할 경우, 플러그인은 달력에 훅을 걸어서 자체적인 이벤트를 강조 표시할 수 있게 됩니다. 이 기능이 필요한 플러그인을 설치했을 때만 사용하십시오. 그냥 켜놓게 되면 성능만 떨어뜨립니다.');
 @define('XMLRPC_NO_LONGER_BUNDLED', '세렌디피티에 대한 XML-RPC API 인터페이스는 지속적으로 보안 상의 문제가 지적되고 있고 사용자 수가 적은 관계로 더 이상 기본적으로 포함되어 있지 않습니다. 그러므로 XML-RPC API를 사용하기 위해서는 XML-RPC 플러그인을 설치해야 합니다. 기존 어플리케이션에 사용하던 주소에는 변함이 없습니다. 플러그인을 설치하게 되면 곧바로 API를 사용할 수 있게 됩니다.');
@@ -921,6 +919,8 @@
 @define('MEDIA_UPLOAD_SIZEERROR', '오류: %s바이트보다 큰 파일을 올릴 수 없습니다!');
 @define('MEDIA_UPLOAD_MAXWIDTH', '올릴 그림 파일의 최대 폭');
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', '올릴 그림 파일의 최대 폭을 픽셀 단위로 입력합니다.');
+@define('MEDIA_UPLOAD_MAXWIDTH_PORTRAIT', 'Max. (opt.) width for images in portrait format');
+@define('MEDIA_UPLOAD_MAXWIDTH_PORTRAIT_DESC', 'Enter (optionally) the maximum permitted width in pixels for portrait format images to be uploaded. This is important if you activate the “Resize on upload” option and generally only want to generate images of a specified base width differently for portrait and landscape formats. This only applies if the options “Largest” side and “Resize on upload” are given. This optional specification does not release you from the following definition of a specific maximum height limit.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', '올릴 그림 파일의 최대 높이');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', '올릴 그림 파일의 최대 높이를 픽셀 단위로 입력합니다.');
 @define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
@@ -1078,6 +1078,8 @@ You should not want to operate a security-relevant access system with them!');
 @define('CLEANCOMPILE_FAIL', '삭제할 파일이 없습니다.');
 @define('CLEANCOMPILE_TITLE', '템플릿 캐시 비우기');
 @define('CLEANCOMPILE_INFO', '현재 사용 중인 템플릿에 대해 컴파일된 템플릿 파일을 모두 삭제하는 기능입니다. 컴파일된 템플릿은 스마티 프레임워크에 의해 필요에 따라 자동으로 재생성됩니다.');
+@define('CLEAR_SELECTION', 'Clear selection');
+@define('CLEAR_FIELD', 'Clear textarea');
 @define('INSTALLER_KEY', '키');
 @define('INSTALLER_VALUE', '값');
 @define('CURRENT_TAB', '현재 탭: ');
@@ -1287,8 +1289,8 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('ERROR_DONT_CUT_YOUR_WHINEYARD', 'You should never delete the highest GROUP LEVEL you are in: %s: %s.');
 
 @define('MEDIA_SERVE_INFO', 'Serve media buttons description info');
-@define('PICTURE_FORMAT_BUTTON_DESC', 'Simple img element - <b>vs</b> - The modern & recommended & containerized form of delivering images including Variations! Normally called "responsive images" container, but here used for responsive Variation formats!');
+@define('PICTURE_FORMAT_BUTTON_DESC', 'Simple img element ['.ADD_MEDIA.'] - <b>vs</b> - The modern, recommended & containerized form of delivering images including Variations! Normally called "responsive images" container, but here used for responsive Variation formats!');
 
-@define('ENABLEAVIF', 'Enable use of AVIF Variations up from PHP 8.1');
-@define('ENABLEAVIF_DESC', 'Image AVIF variations can be very demanding on resources, since a lot of Ram and CPU/GPU cores are needed to encode images into the AV1 format. Mass uploads and mass conversions (see "Maintenance") are therefore not recommended. Learn to handle on some examples before you generally allow to keep it enabled. PHP 8.1 still lacks a crucial build-in feature to read size information from AVIF files using the usual methods. For the time being, this also means that the image functions of the MediaLibrary "Resize this image" and "Rotate image 90 degrees" cannot be used for all formats when using AVIF, since each of these actions affects the original image as well as its variations. PHP 8.2 solves this issue by adding the missing feature.');
+@define('ENABLEAVIF', 'Enable use of AVIF Variations');
+@define('ENABLEAVIF_DESC', 'The AVIF image format is a new compression format for the web that is supported by all major browser manufacturers. However, the calculation of AVIF variations can be resource-intensive and takes time to encode images into the AV1 format. For example, an image of 6 MB takes around 20 seconds - but with compression to around 10% of the original size without any visible loss. Mass uploads or mass conversions (see "Maintenance") are therefore not recommended. Single image uploads should not be larger than 12-13 MB in the original, so that the time required and susceptibility to errors are kept within limits. It is best to learn how to handle them using a few examples before you generally allow them to be used.');
 

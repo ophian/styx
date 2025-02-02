@@ -1,14 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
 umask(0000);
 $umask = 0775;
-if (!defined('IN_installer')) {
-    @define('IN_installer', true);
-}
+
+@define('IN_installer', true);
 
 define('S9Y_I_ERROR', -1);
 define('S9Y_I_WARNING', 0);
@@ -146,13 +147,13 @@ $data['install_token_file'] = basename($install_token_file);
 $data['install_lifetime'] = ceil($lifetime/60);
 $data['styxversion'] = 'Styx ' . $serendipity['version']; // footer only
 
-if ((int)$serendipity['GET']['step'] !== 0 && !$data['install_token_pass']) {
+if ((int) $serendipity['GET']['step'] !== 0 && !$data['install_token_pass']) {
     // Do not allow user to proceed to any action step unless token matches
     $data['s9yGETstep'] = $serendipity['GET']['step'] = 0;
     $data['install_token_fail'] = true;
 }
 
-if ((int)$serendipity['GET']['step'] == 0) {
+if ((int) $serendipity['GET']['step'] === 0) {
     if (!empty($install_token) && !$data['install_token_pass']) {
         $data['install_token_fail'] = true;
     }
@@ -178,7 +179,7 @@ if ((int)$serendipity['GET']['step'] == 0) {
     $data['php_uname']     = php_uname('s') .' '. php_uname('r') .', '. php_uname('m');
     $data['php_sapi_name'] = php_sapi_name();
 
-    if (version_compare(PHP_VERSION, '7.4.0', '>=')) {
+    if (version_compare(PHP_VERSION, '8.2.0', '>=')) {
         $data['installerResultDiagnose_VERSION'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES .', '. PHP_VERSION);
     } else {
         $data['installerResultDiagnose_VERSION'] = serendipity_installerResultDiagnose(S9Y_I_ERROR, NO);
@@ -368,11 +369,11 @@ if ((int)$serendipity['GET']['step'] == 0) {
 
 } elseif ($serendipity['GET']['step'] == '2a') {
     $config = serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE, null, array('simpleInstall'));
-    $data['ob_serendipity_printConfigTemplate'] = serendipity_printConfigTemplate($config, $from, true, false);
+    $data['ob_serendipity_printConfigTemplate'] = serendipity_printConfigTemplate($config, $from ?? false, true, false);
 
 } elseif ($serendipity['GET']['step'] == '2b') {
     $config = serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE);
-    $data['ob_serendipity_printConfigTemplate'] = serendipity_printConfigTemplate($config, $from, true, false);
+    $data['ob_serendipity_printConfigTemplate'] = serendipity_printConfigTemplate($config, $from ?? false, true, false);
 
 } elseif ($serendipity['GET']['step'] == '3') {
     $serendipity['dbPrefix'] = $_POST['dbPrefix'];
@@ -381,7 +382,7 @@ if ((int)$serendipity['GET']['step'] == 0) {
     if (!function_exists('serendipity_db_query') && trim($serendipity['dbPrefix']) == '') {
         serendipity_die('<p class="msg_error">' . ERROR_SOMETHING . '..</p><p>' . SERENDIPITY_INSTALLATION . ': ' . sprintf(SERENDIPITY_NOT_INSTALLED, 'index.php') ." [!]</p>\n");
     }
-    $t = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}authors", false, 'both', false, false, false, true);
+    $t = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}authors", expectError: true);
     $data['authors_query'] = $t;
 
     if (is_array($t)) {
@@ -391,10 +392,13 @@ if ((int)$serendipity['GET']['step'] == 0) {
         $data['install_DB'] = true;
 
         $authorid = serendipity_addAuthor($_POST['user'], $_POST['pass'], $_POST['realname'], $_POST['email'], USERLEVEL_ADMIN);
-        $mail_comments = serendipity_db_bool($_POST['want_mail']) ? 1 : 0;
+        if ($authorid === 0) {
+            throw new Exception('"Create author ID failed: An unexpected [type] error has occurred. Check your database logs why the last insert ID may have failed"'); // fatal error without doing any more damage
+        }
+        $mail_comments = serendipity_db_bool($_POST['want_mail']) ? '1' : '0';
         serendipity_set_user_var('mail_comments', $mail_comments, $authorid);
         serendipity_set_user_var('mail_trackbacks', $mail_comments, $authorid);
-        serendipity_set_user_var('right_publish', 1, $authorid);
+        serendipity_set_user_var('right_publish', '1', $authorid);
         serendipity_addDefaultGroup('USERLEVEL_EDITOR_DESC', USERLEVEL_EDITOR);
         serendipity_addDefaultGroup('USERLEVEL_CHIEF_DESC',  USERLEVEL_CHIEF);
         serendipity_addDefaultGroup('USERLEVEL_ADMIN_DESC',  USERLEVEL_ADMIN);

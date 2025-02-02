@@ -39,7 +39,7 @@
     <h3><?= PLUGIN_LINKTRIMMER_NAME ?></h3>
 <?php endif; ?>
     <form action="" method="post">
-        <input type="hidden" name="txtarea" value="<?= serendipity_specialchars($GLOBALS['tpl']['linktrimmer_txtarea']) ?>:'url'">
+        <input type="hidden" name="txtarea" value="<?= htmlspecialchars($GLOBALS['tpl']['linktrimmer_txtarea']) ?>:'url'">
         <fieldset id="main_linktrimmer" class="">
         <?php if ($GLOBALS['tpl']['linktrimmer_external']): ?>
             <legend><?= PLUGIN_LINKTRIMMER_NAME ?></legend>
@@ -66,17 +66,17 @@
     <?php if ($GLOBALS['tpl']['linktrimmer_url'] != '' && $GLOBALS['tpl']['linktrimmer_external']): ?>
             <script>
         <?php if (!$GLOBALS['tpl']['linktrimmer_ispopup']): ?>
-                window.parent.parent.serendipity.serendipity_imageSelector_addToBody('<a href="<?= serendipity_specialchars($GLOBALS['tpl']['linktrimmer_url']) ?>" title="<?= serendipity_specialchars($GLOBALS['tpl']['linktrimmer_origurl']) ?>"><?= serendipity_specialchars($GLOBALS['tpl']['linktrimmer_origurl']) ?></a>', '<?= serendipity_specialchars($GLOBALS['tpl']['linktrimmer_txtarea']) ?>');
+                window.parent.parent.serendipity.serendipity_imageSelector_addToBody('<a href="<?= htmlspecialchars($GLOBALS['tpl']['linktrimmer_url']) ?>" title="<?= htmlspecialchars($GLOBALS['tpl']['linktrimmer_origurl']) ?>"><?= htmlspecialchars($GLOBALS['tpl']['linktrimmer_origurl']) ?></a>', '<?= htmlspecialchars($GLOBALS['tpl']['linktrimmer_txtarea']) ?>');
                 window.parent.parent.$.magnificPopup.close();
         <?php else: ?>
-                self.opener.serendipity_imageSelector_addToBody('<a href="<?= serendipity_specialchars($GLOBALS['tpl']['linktrimmer_url']) ?>" title="<?= serendipity_specialchars($GLOBALS['tpl']['linktrimmer_origurl']) ?>"><?= serendipity_specialchars($GLOBALS['tpl']['linktrimmer_origurl']) ?></a>', '<?= serendipity_specialchars($GLOBALS['tpl']['linktrimmer_txtarea']) ?>');
+                self.opener.serendipity_imageSelector_addToBody('<a href="<?= htmlspecialchars($GLOBALS['tpl']['linktrimmer_url']) ?>" title="<?= htmlspecialchars($GLOBALS['tpl']['linktrimmer_origurl']) ?>"><?= htmlspecialchars($GLOBALS['tpl']['linktrimmer_origurl']) ?></a>', '<?= htmlspecialchars($GLOBALS['tpl']['linktrimmer_txtarea']) ?>');
                 self.close();
         <?php endif; ?>
             </script>
     <?php elseif ($GLOBALS['tpl']['linktrimmer_url'] != ''): ?>
             <div class="form_field">
                 <label for="linktrimmer_result"><?= PLUGIN_LINKTRIMMER_RESULT ?></label>
-                <input id="linktrimmer_result" class="input_textbox" type="text" value="<?= serendipity_specialchars($GLOBALS['tpl']['linktrimmer_url']) ?>" name="linktrimmer_result">
+                <input id="linktrimmer_result" class="input_textbox" type="text" value="<?= htmlspecialchars($GLOBALS['tpl']['linktrimmer_url']) ?>" name="linktrimmer_result">
                 <script>
                     document.getElementById('linktrimmer_result').select();
                     document.getElementById('linktrimmer_result').focus();

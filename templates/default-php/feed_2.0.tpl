@@ -39,7 +39,7 @@
     <author><?= $entry['feed_email'] ?> (<?= $entry['feed_author'] ?>)</author>
 <?php if (!empty($entry['body'])): ?>
     <content:encoded>
-    <?= serendipity_specialchars($entry['feed_body']) ?> <?= serendipity_specialchars($entry['feed_ext']) ?>
+    <?= htmlspecialchars($entry['feed_body']) ?> <?= htmlspecialchars($entry['feed_ext']) ?>
     </content:encoded>
 <?php endif; ?>
 

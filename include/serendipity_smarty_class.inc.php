@@ -1,5 +1,7 @@
 <?php
-// serendipity_smarty_class.inc.php lm 2023-02-12 Ian Styx
+// serendipity_smarty_class.inc.php lm 2024-08-11 Ian Styx
+
+declare(strict_types=1);
 
 // define secure_dir and trusted_dirs for Serendipity_Smarty_Security_Policy class.
 @define('S9Y_TEMPLATE_FALLBACK',    $serendipity['serendipityPath'] . $serendipity['templatePath'] . 'default');
@@ -12,7 +14,7 @@
 class Serendipity_Smarty_Security_Policy extends Smarty_Security
 {
     // These are the allowed functions only. - Default as is
-    public $php_functions = array('isset', 'empty', 'count', 'in_array', 'is_array', 'time', 'nl2br', 'class_exists');
+    public $php_functions = array('isset', 'empty', 'count', 'in_array', 'is_array', 'time', 'nl2br');
     // To disable all PHP functions use
     #public $php_functions = null;
 
@@ -40,10 +42,43 @@ class Serendipity_Smarty_Security_Policy extends Smarty_Security
     // {include} calls, we should only apply this workaround to fetch() calls.
     // Redirecting fetch() as our custom function is too risky and has too high a performance
     // impact.
-    public function isTrustedResourceDir($path, $config=null)
+    public function isTrustedResourceDir($path, $config = null)
     {
         return true;
     }
+
+}
+
+/**
+ * Overwrite Smarty error handler to fix new error levels in PHP8 for backwards compatibility
+ *
+ */
+class Serendipity_Smarty_Internal_ErrorHandler extends Smarty_Internal_ErrorHandler
+{
+
+    /**
+     * Allows {$foo} where foo is unset.
+     * @var bool
+     */
+    public $allowUndefinedVars = false;
+
+    /**
+     * Allows {$foo.bar} where bar is unset and {$foo.bar1.bar2} where either bar1 or bar2 is unset.
+     * @var bool
+     */
+    public $allowUndefinedArrayKeys = false;
+
+    /**
+     * Allows {$foo->bar} where bar is not an object (e.g. null or false).
+     * @var bool
+     */
+    public $allowDereferencingNonObjects = false;
+
+    /**
+     * Allows to use custom error handler.
+     * @var string
+     */
+    protected $previousErrorHandler = 'errorToExceptionHandler';
 
 }
 
@@ -72,14 +107,20 @@ class Serendipity_Smarty extends Smarty
      * To obtain an instance of this class use:
      * $serendipity['smarty'] = Serendipity_Smarty::getInstance();
      * The first time this is called a new instance will be created. Thereafter, the same instance is handed back.
+     *
+     * Args:
+     *      - The current Smarty object instance OR NULL
+     * Returns:
+     *      - The current or new Smarty object
      */
-    public static function getInstance($newInstance = null)
+    public static function getInstance(?object $newInstance = null) : object
     {
         static $instance = null;
+
         if (isset($newInstance)) {
             $instance =& $newInstance;
         }
-        if ($instance == null) {
+        if ($instance === null) {
             $instance = new \Serendipity_Smarty();
         }
 
@@ -100,11 +141,12 @@ class Serendipity_Smarty extends Smarty
      *         engine(s) vs $serendipity['template'] vs $serendipity['defaultTemplate'].
      *         Intentional keeps possible iteration duplicates that are not in direct order!
      * @access private
-     * @param   int     The build template directory array for cleanup
-     * @param   array
-     * @return  array
+     * Args:
+     *      - The build template directory array for cleanup
+     * Returns:
+     *      - Returns an indexed array with new keys of values
      */
-    private function checkDirectSiblings($tda)
+    private function checkDirectSiblings(iterable $tda) : iterable
     {
         foreach ($tda AS $key => $value) {
             if (!is_string($key)) {
@@ -120,8 +162,15 @@ class Serendipity_Smarty extends Smarty
         return array_values($tda); // set new keys
     }
 
-    // Smarty (3.1.x) object main parameter setup
-    private function setParams()
+    /**
+     * Smarty (3.1.x +) object main parameter setup
+     *
+     * Args:
+     *      -
+     * Returns:
+     *      - void
+     */
+    private function setParams() : void
     {
         global $serendipity;
 
@@ -247,7 +296,7 @@ class Serendipity_Smarty extends Smarty
         }
 
         // Set Smarty error reporting. General error_reporting is set in serendipity/serendipity_config.inc.php
-        $this->error_reporting = E_ALL & ~(E_NOTICE|@E_STRICT);
+        $this->error_reporting = E_ALL & ~(E_NOTICE|@E_STRICT|E_DEPRECATED|E_WARNING); // for PHP 8.2 ...
 
         // We use our own error_handler and get in conflicts with Smarty in any case?
         // $this->muteExpectedErrors(); # enable, to get all template warnings, which are normally suppressed, passed to the Serendipity error handler

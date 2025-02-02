@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 /*****************************************************************
  *  Serendipity Importer,   by Garvin Hicking *
  * ****************************************************************/
@@ -17,7 +19,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
     public $debug       = true;
     public $counter     = 0;
 
-    function getImportNotes()
+    public function getImportNotes() : string
     {
         // TODO: I18n!
         return 'Please set the correct settings for host, user, password, name, prefix and charset from your <b>import database</b>
@@ -473,7 +475,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
         }
 
         if (!$s9ydb || mysqli_connect_error()) {
-            return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
+            return sprintf(COULDNT_CONNECT, htmlspecialchars($this->data['host']));
         }
 
         if (!@mysqli_select_db($s9ydb, $this->data['name'])) {

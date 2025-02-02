@@ -11,7 +11,7 @@
 # Table structure for table '{PREFIX}authors'
 #
 
-create table {PREFIX}authors (
+CREATE TABLE {PREFIX}authors (
   realname varchar(255) NOT NULL default '',
   username varchar(32) default null,
   password varchar(64) default null,
@@ -24,12 +24,12 @@ create table {PREFIX}authors (
   hashtype int(1) default '0'
 ) {UTF_8};
 
-create table {PREFIX}groups (
+CREATE TABLE {PREFIX}groups (
   id {AUTOINCREMENT} {PRIMARY},
   name varchar(64) default null
 ) {UTF_8};
 
-create table {PREFIX}groupconfig (
+CREATE TABLE {PREFIX}groupconfig (
   id int(10) {UNSIGNED} NOT NULL default '0',
   property varchar(128) default '',
   value varchar(32) default null,
@@ -39,7 +39,7 @@ create table {PREFIX}groupconfig (
 CREATE INDEX groupid_idx ON {PREFIX}groupconfig (id);
 CREATE INDEX groupprop_idx ON {PREFIX}groupconfig (id, property);
 
-create table {PREFIX}authorgroups (
+CREATE TABLE {PREFIX}authorgroups (
   groupid int(10) {UNSIGNED} NOT NULL default '0',
   authorid int(10) {UNSIGNED} NOT NULL default '0'
 ) {UTF_8};
@@ -48,7 +48,7 @@ CREATE INDEX authorgroup_idxA ON {PREFIX}authorgroups (groupid);
 CREATE INDEX authorgroup_idxB ON {PREFIX}authorgroups (authorid);
 CREATE UNIQUE INDEX authorgroup_idx ON {PREFIX}authorgroups (groupid, authorid);
 
-create table {PREFIX}access (
+CREATE TABLE {PREFIX}access (
   groupid int(10) {UNSIGNED} NOT NULL default '0',
   artifact_id int(10) {UNSIGNED} NOT NULL default '0',
   artifact_type varchar(64) NOT NULL default '',
@@ -62,10 +62,10 @@ CREATE INDEX accessforeign_idx ON {PREFIX}access(artifact_id);
 
 
 #
-# table structure for table '{PREFIX}comments'
+# Table structure for table '{PREFIX}comments'
 #
 
-create table {PREFIX}comments (
+CREATE TABLE {PREFIX}comments (
   id {AUTOINCREMENT} {PRIMARY},
   entry_id int(10) {UNSIGNED} NOT NULL default '0',
   parent_id int(10) {UNSIGNED} NOT NULL default '0',
@@ -88,10 +88,10 @@ CREATE INDEX commtype_idx ON {PREFIX}comments (type);
 CREATE INDEX commstat_idx ON {PREFIX}comments (status);
 
 #
-# table structure for table '{PREFIX}entries'
+# Table structure for table '{PREFIX}entries'
 #
 
-create table {PREFIX}entries (
+CREATE TABLE {PREFIX}entries (
   id {AUTOINCREMENT} {PRIMARY},
   title varchar(200) default null,
   timestamp int(10) {UNSIGNED} default null,
@@ -116,10 +116,10 @@ CREATE INDEX edraft_idx ON {PREFIX}entries (isdraft);
 CREATE INDEX eauthor_idx ON {PREFIX}entries (authorid);
 
 #
-# table structure for table '{PREFIX}references'
+# Table structure for table '{PREFIX}references'
 #
 
-create table {PREFIX}references (
+CREATE TABLE {PREFIX}references (
   id {AUTOINCREMENT} {PRIMARY},
   entry_id int(10) {UNSIGNED} NOT NULL default '0',
   link text,
@@ -170,7 +170,7 @@ CREATE INDEX referrers_idx ON {PREFIX}referrers (entry_id,day);
 # Table structure for table '{PREFIX}config'
 #
 
-create table {PREFIX}config (
+CREATE TABLE {PREFIX}config (
   name varchar(255) NOT NULL,
   value text NOT NULL,
   authorid int(11) default '0',
@@ -179,7 +179,7 @@ create table {PREFIX}config (
 
 CREATE INDEX configauthorid_idx ON {PREFIX}config (authorid);
 
-create table {PREFIX}options (
+CREATE TABLE {PREFIX}options (
   name varchar(255) NOT NULL,
   value text NOT NULL,
   okey varchar(64) NOT NULL default '',
@@ -258,7 +258,7 @@ CREATE TABLE {PREFIX}entrycat (
 
 CREATE UNIQUE INDEX entryid_idx ON {PREFIX}entrycat (entryid, categoryid);
 
-create table {PREFIX}entryproperties (
+CREATE TABLE {PREFIX}entryproperties (
   entryid int(11) NOT NULL,
   property varchar(255) NOT NULL,
   value {TEXT}
@@ -267,7 +267,7 @@ create table {PREFIX}entryproperties (
 CREATE INDEX entrypropid_idx ON {PREFIX}entryproperties (entryid);
 CREATE UNIQUE INDEX prop_idx ON {PREFIX}entryproperties (entryid, property(239));
 
-create table {PREFIX}mediaproperties (
+CREATE TABLE {PREFIX}mediaproperties (
   mediaid int(11) NOT NULL,
   property varchar(128) NOT NULL,
   property_group varchar(50) NOT NULL default '',
@@ -290,14 +290,14 @@ CREATE INDEX ple_idx ON {PREFIX}permalinks (entry_id);
 CREATE INDEX plt_idx ON {PREFIX}permalinks (type);
 CREATE INDEX plcomb_idx ON {PREFIX}permalinks (permalink(200), type(50));
 
-create table {PREFIX}plugincategories (
+CREATE TABLE {PREFIX}plugincategories (
   class_name varchar(250) default null,
   category varchar(250) default null
 ) {UTF_8};
 
 CREATE INDEX plugincat_idx ON {PREFIX}plugincategories(class_name(125), category(125));
 
-create table {PREFIX}pluginlist (
+CREATE TABLE {PREFIX}pluginlist (
   plugin_file varchar(255) NOT NULL default '',
   class_name varchar(255) NOT NULL default '',
   plugin_class varchar(255) NOT NULL default '',

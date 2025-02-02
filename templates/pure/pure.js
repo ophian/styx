@@ -135,3 +135,14 @@ const dark = () => {
         $('body').prepend('<a id="topofpage"></a>');
     }
 })(jQuery);
+
+/* We had to remove the required attribute on the textarea element for Chromium to avoid:
+   "An invalid form control with name=serendipity[comment]' is not focusable." */
+(function ($) {
+    $('#serendipity_comment').on('submit', function(e) {
+        if (!$.trim($("#serendipity_commentform_comment").val())) {
+            console.log('contents is empty, fill it!');
+            e.preventDefault(); // cancel submit
+        }
+    });
+})(jQuery);

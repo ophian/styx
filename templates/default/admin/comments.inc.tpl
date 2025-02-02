@@ -237,7 +237,8 @@
             $('#filter_type option:selected').prop('selected', false);
         });
         if (STYX_DARKMODE === true) {
-            $('.comment_full').find('code[class^="language-"]').parent('pre').attr('title', 'See this snippets codehighlight color either in Rich Text comment edit form or in your frontend');
+            $('.comment_full').find('code[class^="language-"]').parent('pre').attr('title', 'Simple preview only. View this snippets codehighlight color either in Rich Text comment edit form or in your frontend when supported.');//old
+            $('.comment_full').find('pre[class^="language-"]').attr('title', 'Simple preview only. View this snippets codehighlight color either in Rich Text comment edit form or in your frontend when supported.');//new
         }
     });
 </script>

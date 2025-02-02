@@ -1,42 +1,44 @@
 <?php
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
 $data = array();
 
-$commentsPerPage = (int)(!empty($serendipity['GET']['filter']['perpage']) ? $serendipity['GET']['filter']['perpage'] : 10);
+$commentsPerPage = (int) (!empty($serendipity['GET']['filter']['perpage']) ? $serendipity['GET']['filter']['perpage'] : 10);
 $summaryLength = 112;
 
 $errormsg = '';
 $msg = '';
 $msgtype = 'notice';
 
-if (!isset($serendipity['allowHtmlComment'])) $serendipity['allowHtmlComment'] = false;
+$serendipity['allowHtmlComment'] ??= false;
 
-$_id       = !empty($serendipity['GET']['id']) ? (int)$serendipity['GET']['id'] : 0;
-$_replyTo  = !empty($serendipity['POST']['replyTo']) ? (int)$serendipity['POST']['replyTo'] : 0;
-$_entry_id = !empty($serendipity['GET']['entry_id']) ? (int)$serendipity['GET']['entry_id'] : 0;
+$_id       = !empty($serendipity['GET']['id']) ? (int) $serendipity['GET']['id'] : 0;
+$_replyTo  = !empty($serendipity['POST']['replyTo']) ? (int) $serendipity['POST']['replyTo'] : 0;
+$_entry_id = !empty($serendipity['GET']['entry_id']) ? (int) $serendipity['GET']['entry_id'] : 0;
 
 if (!empty($serendipity['POST']) && isset($serendipity['POST']['formAction']) && $serendipity['POST']['formAction'] == 'multiDelete'
  && (isset($serendipity['POST']['delete']) && sizeof($serendipity['POST']['delete']) != 0) && serendipity_checkFormToken()) {
     $multi = false;
     if (!empty($serendipity['POST']['togglemoderate'])) {
         foreach($serendipity['POST']['delete'] AS $k => $v) {
-            $ac = serendipity_approveComment((int)$k, (int)$v, false, 'flip');
+            $ac = serendipity_approveComment((int) $k, (int) $v, false, 'flip');
             if ($ac > 0) {
-                $msg .= ($multi ? '' : DONE . ":\n") . sprintf(COMMENT_APPROVED, (int)$k)."\n";
+                $msg .= ($multi ? '' : DONE . ":\n") . sprintf(COMMENT_APPROVED, (int) $k)."\n";
                 $msgtype = 'success';
                 $multi = true;
             } else {
-                $msg .= DONE . ":\n" . sprintf(COMMENT_MODERATED, (int)$k)."\n";
+                $msg .= DONE . ":\n" . sprintf(COMMENT_MODERATED, (int) $k)."\n";
             }
         }
     } else {
         foreach($serendipity['POST']['delete'] AS $k => $v) {
-            if (serendipity_deleteComment($k, $v)) {
-                $msg .= ($multi ? '' : DONE . ":\n") . sprintf(COMMENT_DELETED, (int)$k) . "\n";
+            if (serendipity_deleteComment((int) $k, (int) $v)) {
+                $msg .= ($multi ? '' : DONE . ":\n") . sprintf(COMMENT_DELETED, (int) $k) . "\n";
                 $msgtype = 'success';
                 $multi = true;
             } else {
@@ -52,7 +54,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
 && !isset($serendipity['POST']['formAction']) && !isset($serendipity['POST']['preview']) && $_id > 0 && serendipity_checkFormToken()) {
     // re-assign this comments parent
     if (isset($serendipity['POST']['commentform']['replyToParent']) && $serendipity['POST']['commentform']['replyToParent'] >= 0) {
-        $_replyTo = ($_replyTo != $serendipity['POST']['commentform']['replyToParent']) ? (int)$serendipity['POST']['commentform']['replyToParent'] : $_replyTo;
+        $_replyTo = ($_replyTo != $serendipity['POST']['commentform']['replyToParent']) ? (int) $serendipity['POST']['commentform']['replyToParent'] : $_replyTo;
     }
     if (isset($serendipity['POST']['entry_id']) && $_id > 0) {
         $sql = "UPDATE {$serendipity['dbPrefix']}comments
@@ -60,10 +62,10 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
                         author = '" . serendipity_db_escape_string($serendipity['POST']['name'])    . "',
                         email  = '" . serendipity_db_escape_string($serendipity['POST']['email'])   . "',
                         url    = '" . serendipity_db_escape_string($serendipity['POST']['url'])     . "',
-                        " . ($_replyTo != $_id ? "parent_id = '" . (int)$_replyTo . "'," : '') . "
+                        " . ($_replyTo != $_id ? "parent_id = '" . (int) $_replyTo . "'," : '') . "
                         body   = '" . serendipity_db_escape_string($serendipity['POST']['comment']) . "'
                  WHERE id      = " . $_id . "
-                   AND entry_id= " . (int)$serendipity['POST']['entry_id'];
+                   AND entry_id= " . (int) $serendipity['POST']['entry_id'];
         serendipity_db_query($sql);
         serendipity_plugin_api::hook_event('backend_updatecomment', $serendipity['POST'], $_id);
         $msg .= COMMENT_EDITED."\n";
@@ -81,7 +83,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
     $comment['parent_id'] = $_replyTo;
 
     if (!empty($comment['comment'])) {
-        if (serendipity_saveComment((int)$serendipity['POST']['entry_id'], $comment, 'NORMAL')) {
+        if (serendipity_saveComment((int) $serendipity['POST']['entry_id'], $comment, 'NORMAL')) {
             $data['last_insert_id'] = $serendipity['last_insert_comment_id'] ?? '';
             $data['commentReplied'] = true;
             echo serendipity_smarty_showTemplate('admin/comments.inc.tpl', $data);
@@ -128,7 +130,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
     if ($rs === false) {
         $errormsg .= ERROR .': '. sprintf(COMMENT_ALREADY_APPROVED, $_id)."\n";
     } else {
-        serendipity_approveComment($_id, (int)$rs['entry_id']);
+        serendipity_approveComment($_id, (int) $rs['entry_id']);
         $msg .= DONE . ': '. sprintf(COMMENT_APPROVED, $_id)."\n";
         $msgtype = 'success';
     }
@@ -146,7 +148,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
     if ($rs === false) {
         $errormsg .= ERROR .': '. sprintf(COMMENT_ALREADY_APPROVED, $_id)."\n";
     } else {
-        serendipity_approveComment($_id, (int)$rs['entry_id'], true, true);
+        serendipity_approveComment($_id, (int) $rs['entry_id'], true, true);
         $msg .= DONE . ': '. sprintf(COMMENT_MODERATED, $_id)."\n";
     }
 }
@@ -173,34 +175,26 @@ if (isset($serendipity['GET']['adminAction'])
     $serendipity['smarty']->assign('comment_wysiwyg', ($serendipity['allowHtmlComment'] && $serendipity['wysiwyg']));
     if ($serendipity['allowHtmlComment'] && $serendipity['wysiwyg']) {
         // define the script here and NOT in template for secureness, since we don't want any possible manipulation!
-        $ckescript = "
+        $editorinit = "
         <script>
-            window.onload = function() {
-                if (typeof STYX_DARKMODE === 'undefined' || STYX_DARKMODE === null) STYX_DARKMODE = false;
-                const HAS_CKEDITOR_PLUGPATH = (typeof CKEDITOR_PLUGPATH === 'undefined' || CKEDITOR_PLUGPATH === null) ? false : true;
-                if (STYX_DARKMODE === true) {
-                    CKEDITOR.config.contentsCss = [ 'templates/_assets/ckebasic/dark-contents.css' ];
-                }
-
-                var plugIN = (typeof CKECONFIG_CODE_ON === 'undefined' || !CKECONFIG_CODE_ON) ? 'emoji' : 'codesnippet,emoji';
-                CKEDITOR.replace( 'serendipity_commentform_comment',
-                {
-                    toolbar : [['Undo','Redo'],['Format'],['Bold','Italic','Underline','Strike','Superscript','TextColor','-','NumberedList','BulletedList','Outdent','Blockquote'],['JustifyBlock','JustifyCenter'],['SpecialChar'],['Maximize'],['CodeSnippet','EmojiPanel'],['Source']],
-                    toolbarGroups: null,
-                    entities: false,
-                    htmlEncodeOutput: false,
-                    skin: (STYX_DARKMODE === true && HAS_CKEDITOR_PLUGPATH !== false) ? 'moonodark,' + CKEDITOR_PLUGPATH + 'serendipity_event_ckeditor/moonodark/' : (STYX_DARKMODE === true ? 'moono-dark' : 'moono-lisa'),
-                    extraAllowedContent: 'div(*);p(*);ul(*);pre;code{*}(*)',
-                    extraPlugins: plugIN,
-                    versionCheck: false
-                });
-            }
-        </script>";
-        $serendipity['smarty']->assign('secure_simple_ckeditor', $ckescript);
+            let editorLang = '".TINYMCE_LANG."';
+        </script>
+        <script src=\"{$serendipity['serendipityHTTPPath']}templates/default/admin/js/commentEditor.js\"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+              tinymce.init({
+                selector: '#serendipity_commentform_comment',
+                setup: (editor) => {},
+                  ...commentConfig
+              });
+            });
+        </script>
+";
+        $serendipity['smarty']->assign('secure_simple_rteditor', $editorinit);
     }
 
     if ($_id > 0 && $_entry_id > 0 && ($serendipity['GET']['adminAction'] == 'reply' || $serendipity['GET']['adminAction'] == 'doReply')) {
-        $c = serendipity_fetchComments($_entry_id, 1, 'co.id', false, 'NORMAL', ' AND co.id=' . $_id);
+        $c = serendipity_fetchComments($_entry_id, '1', 'co.id', false, 'NORMAL', ' AND co.id=' . $_id);
         $p = $c[0]['parent_id'] = 0; // copy comments parent_id, since we also want to get a previewed reply view for multidepth comments
         if (isset($serendipity['POST']['preview'])) {
             $c[] = array(
@@ -239,7 +233,7 @@ if (isset($serendipity['GET']['adminAction'])
             $codata['email']      = $comment[0]['email'];
             $codata['url']        = $comment[0]['url'];
             $codata['replyTo']    = $comment[0]['parent_id'];
-            $codata['comment']    = (($serendipity['allowHtmlComment'] && $serendipity['wysiwyg']) && false === strpos($comment[0]['body'], '</p>'))
+            $codata['comment']    = (($serendipity['allowHtmlComment'] && $serendipity['wysiwyg']) && !str_contains($comment[0]['body'], '</p>'))
                                         ? nl2br($comment[0]['body'])
                                         : $comment[0]['body'];
 
@@ -268,7 +262,7 @@ if (isset($serendipity['GET']['adminAction'])
         }
     }
 
-    if (!empty($codata['url']) && substr($codata['url'], 0, 7) != 'http://' && substr($codata['url'], 0, 8) != 'https://') {
+    if (!empty($codata['url']) && !str_starts_with($codata['url'], 'http://') && !str_starts_with($codata['url'], 'https://')) {
         $codata['url'] = 'http://' . $codata['url'];
     }
 
@@ -288,7 +282,7 @@ $and = $searchString = ''; // init default
 /* Compress the filters into an "AND" SQL query, and a querystring */
 foreach($filters AS $filter) {
     $and          .= (!empty($serendipity['GET']['filter'][$filter]) ? "AND c.". $filter ." LIKE '%". serendipity_db_escape_string($serendipity['GET']['filter'][$filter]) ."%'" : "");
-    $searchString .= (!empty($serendipity['GET']['filter'][$filter]) ? "&amp;serendipity[filter][". $filter ."]=". serendipity_specialchars($serendipity['GET']['filter'][$filter]) : "");
+    $searchString .= (!empty($serendipity['GET']['filter'][$filter]) ? "&amp;serendipity[filter][". $filter ."]=". htmlspecialchars($serendipity['GET']['filter'][$filter]) : "");
 }
 
 // init default
@@ -331,7 +325,7 @@ if ($commentsPerPage != 10) {
 
 $searchString .= '&amp;' . serendipity_setFormToken('url');
 $ctype = $c_type !== null ? " AND c.type = '$c_type' " : '';
-$perm = !serendipity_checkPermission('adminEntriesMaintainOthers') ? 'AND e.authorid = ' . (int)$serendipity['authorid'] : '';
+$perm = !serendipity_checkPermission('adminEntriesMaintainOthers') ? 'AND e.authorid = ' . (int) $serendipity['authorid'] : '';
 
 /* Paging */
 $sql = serendipity_db_query("SELECT COUNT(*) AS total FROM {$serendipity['dbPrefix']}comments c
@@ -340,7 +334,7 @@ $sql = serendipity_db_query("SELECT COUNT(*) AS total FROM {$serendipity['dbPref
 
 $totalComments = $sql['total'];
 try {
-    $pages = ($commentsPerPage == COMMENTS_FILTER_ALL ? 1 : ceil($totalComments/(int)$commentsPerPage));
+    $pages = ($commentsPerPage == COMMENTS_FILTER_ALL ? 1 : ceil($totalComments/(int) $commentsPerPage));
 } catch(DivisionByZeroError $e){
     $pages = 1;
     $commentsPerPage = COMMENTS_FILTER_ALL;
@@ -350,7 +344,7 @@ try {
     $pages = ceil($totalComments/$commentsPerPage);
 }
 
-$page = (int)$serendipity['GET']['page'];
+$page = (int) $serendipity['GET']['page'];
 if ($page == 0 || $page > $pages) {
     $page = 1;
 }
@@ -365,7 +359,7 @@ $filter_vals  = array(10, 20, 50, COMMENTS_FILTER_ALL);
 if ($commentsPerPage == COMMENTS_FILTER_ALL) {
     $limit = '';
 } else {
-    $limit = serendipity_db_limit_sql(serendipity_db_limit(($page-1)*(int)$commentsPerPage, (int)$commentsPerPage));
+    $limit = serendipity_db_limit_sql(serendipity_db_limit(($page-1)*(int) $commentsPerPage, (int) $commentsPerPage));
 }
 
 $sql = serendipity_db_query("SELECT c.*, e.title FROM {$serendipity['dbPrefix']}comments c
@@ -400,11 +394,13 @@ $i = 0;
 $comments = array();
 $cofakets = time();
 
+$_searchCFTB = $serendipity['GET']['filter']['body'] ??= null;
+
 if (is_array($sql)) {
     foreach($sql AS $rs) {
         $i++;
         $comment = array(
-            'fullBody'  => $rs['body'],
+            'fullBody'  => serendipity_commentSearchHighlight($_searchCFTB, $rs['body']),
             'summary'   => serendipity_mb('substr', $rs['body'], 0, $summaryLength),
             'status'    => $rs['status'],
             'type'      => $rs['type'],
@@ -412,7 +408,7 @@ if (is_array($sql)) {
             'id'        => $rs['id'],
             'title'     => $rs['title'],
             'timestamp' => $rs['timestamp'],
-            'pubdate'   => date('c', (int)$rs['timestamp']), /* added to comment array to support HTML5 time tags in tpl */
+            'pubdate'   => date('c', (int) $rs['timestamp']), /* added to comment array to support HTML5 time tags in tpl */
             'referer'   => $rs['referer'],
             'url'       => $rs['url'],
             'ip'        => $rs['ip'],
@@ -429,34 +425,34 @@ if (is_array($sql)) {
 
         if ($serendipity['allowHtmlComment']) {
             // this replaces stripping tags OR the serendipity_htmlspecialchars() usage
-            $comment['fullBody'] = serendipity_sanitizeHtmlComments($comment['fullBody']);
-            $is_html = ($comment['fullBody'] != strip_tags($comment['fullBody'])) ? true : false;
+            $comment['fullBody'] = serendipity_sanitizeEditorHtml(serendipity_sanitizeHtmlComments($comment['fullBody']));
+            $is_html = $comment['fullBody'] !== strip_tags($comment['fullBody']);
         }
 
         if (strlen($comment['fullBody']) > strlen($comment['summary']) ) {
             $comment['excerpt'] = true;
             // When summary is not the full body, strip any HTML tags from summary, as it might break and leave unclosed HTML.
             if ($serendipity['allowHtmlComment']) {
-                $_summary = htmlspecialchars(str_replace('  ', ' ', strip_tags($comment['summary'])), ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, LANG_CHARSET, false);
-                $stripped = ($comment['summary'] != $_summary) ? true : false;
+                $_summary = htmlspecialchars(str_replace('  ', ' ', strip_tags($comment['summary'])), encoding: LANG_CHARSET, double_encode: false);
+                $stripped = $comment['summary'] !== $_summary;
                 $comment['summary']  = $stripped ? $_summary : $comment['summary']."&hellip;";
                 $comment['fullBody'] = $is_html ? $comment['fullBody'] : nl2br($comment['fullBody']);
             } else {
                 $comment['summary']  = str_replace(array('\r\n','\n\r','\n','\r','  '), ' ', trim(strip_tags($comment['summary']))); // keep in mind: for "newline" search pattern are single, for replace double quotes!
-                $comment['fullBody'] = nl2br(htmlspecialchars($comment['fullBody'], ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, LANG_CHARSET, false));
+                $comment['fullBody'] = nl2br(htmlspecialchars($comment['fullBody'], encoding: LANG_CHARSET, double_encode: false));
             }
 
         } else {
             if ($serendipity['allowHtmlComment']) {
                 // excerpt allows to open up a non-stripped fullBody box, if summary was stripped before!
-                $comment['excerpt']  = ($comment['summary'] < strip_tags($comment['summary'])) ? true : false;
+                $comment['excerpt']  = $comment['summary'] < strip_tags($comment['summary']);
                 $comment['fullBody'] = $is_html ? $comment['fullBody'] : nl2br($comment['fullBody']);
                 // Strip any HTML tags from summary, as it might break and leave unclosed HTML. But we want a space where previously was a tag following a tagged newline, like for "<p>xxx</p>\n<p>xxx</p>".
                 $comment['summary'] = str_replace('  ', ' ', trim(strip_tags(str_replace('<', ' <', $comment['summary']))));
             } else {
-                $comment['excerpt']  = (strlen($comment['summary']) < strlen(nl2br(strip_tags($comment['summary'])))) ? true : false; // allows to open up a non stripped fullBody box, if summary was stripped before!
-                $comment['summary']  = htmlspecialchars(strip_tags($comment['summary']), ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, LANG_CHARSET, false);
-                $comment['fullBody'] = nl2br(htmlspecialchars($comment['fullBody'], ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, LANG_CHARSET, false));
+                $comment['excerpt']  = strlen($comment['summary']) < strlen(nl2br(strip_tags($comment['summary']))); // allows to open up a non stripped fullBody box, if summary was stripped before!
+                $comment['summary']  = htmlspecialchars(strip_tags($comment['summary']), encoding: LANG_CHARSET, double_encode: false);
+                $comment['fullBody'] = nl2br(htmlspecialchars($comment['fullBody'], encoding: LANG_CHARSET, double_encode: false));
             }
         }
 
@@ -475,7 +471,7 @@ if (is_array($sql)) {
         if ($comment['status'] == 'pending') {
             $class .= ' serendipity_admin_comment_pending';
             $header_class = 'serendipityAdminMsgNote serendipity_admin_comment_pending_header';
-        } elseif (strstr($comment['status'], 'confirm')) {
+        } elseif (str_contains($comment['status'], 'confirm')) {
             $class .= ' serendipity_admin_comment_pending serendipity_admin_comment_confirm';
             $header_class = 'serendipityAdminMsgNote serendipity_admin_comment_pending_header serendipity_admin_comment_confirm_header';
         } else {
@@ -485,7 +481,7 @@ if (is_array($sql)) {
         $comment['class'] = $class;
         $comment['header_class'] = $header_class;
 
-        if (!empty($comment['url']) && substr($comment['url'], 0, 7) != 'http://' && substr($comment['url'], 0, 8) != 'https://') {
+        if (!empty($comment['url']) && !str_starts_with($comment['url'], 'http://') && !str_starts_with($comment['url'], 'https://')) {
             $comment['url'] = 'http://' . $comment['url'];
         }
         // include all comment vars back into upper array to assign to Smarty

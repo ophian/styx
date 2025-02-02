@@ -674,6 +674,7 @@ main.col-xs-12.col-lg-12 .save_updertH hr {
   margin: .5em 0; }
 html[data-bs-theme="dark"] body.preview_preview_body,html[data-bs-theme="dark"] body.save_preview_body {
   background-color: #343a40; }
+html[data-bs-theme="dark"] body.save_preview_body,
 html[data-bs-theme="dark"] #main.save_preview_container a {
   color: #f8f9fa; }
 

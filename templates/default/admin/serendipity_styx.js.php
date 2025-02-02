@@ -209,7 +209,6 @@
 
     // "Transfer" value from media db popup to form element, used for example for selecting a category-icon
     serendipity.serendipity_imageSelector_addToElement = function(str, id) {
-        id = serendipity.escapeBrackets(id);
         var $input = $('#' + id);
         $input.val(str); // by category_icon, this adds to category template img tag, see serendipity.change_preview() for being peaceful to new picture containers
 
@@ -223,6 +222,7 @@
 
     // Escape [ and ] to be able to use the string as selector
     // jQuery fails to select the input when the selector contains unescaped [ or ]
+    // Previously used to escape old textarea ID naming alike serendipity[body], now waiting for a new future task
     serendipity.escapeBrackets = function(str) {
         str = str.replace(/\[/g, "\\[");
         str = str.replace(/\]/g, "\\]");
@@ -240,9 +240,10 @@
     // named serendipity[body]/serendipity[extended]
     serendipity.serendipity_imageSelector_addToBody = function(str, textarea) {
         var oEditor;
-        if (typeof(TinyMCE) != 'undefined') {
+        if (typeof(TinyMCE) != 'undefined' || window.tinyMCE) {
             // for the TinyMCE editor we do not have a text mode insert
-            tinyMCE.execInstanceCommand('serendipity[' + textarea + ']', 'mceInsertContent', false, str);
+            tinyMCE.get(textarea).execCommand("mceFocus"); // set current textarea on focus to insert
+            tinyMCE.execCommand('mceInsertContent', false, str); // no !textarea !!!
             return;
         } else if (typeof(CKEDITOR) != 'undefined') {
             oEditor = (typeof(isinstance) == 'undefined') ? CKEDITOR.instances[textarea] : isinstance;
@@ -253,26 +254,7 @@
             }
         }
 
-        serendipity.noWysiwygAdd(str, textarea);
-    }
-
-    // The noWysiwygAdd JS function is the vanila serendipity_imageSelector_addToBody js function
-    // which works fine in NO WYSIWYG mode
-    // NOTE: the serendipity_imageSelector_addToBody could add any valid HTML string to the textarea
-    serendipity.noWysiwygAdd = function(str, textarea) {
-        escapedElement = serendipity.escapeBrackets(textarea);
-        if ($('#' + escapedElement).length) {
-            // Proper ID was specified (hopefully by plugins)
-        } else {
-            // Let us try the serendipity[] prefix
-            escapedElement = serendipity.escapeBrackets('serendipity[' + textarea + ']');
-
-            if (!$('#' + escapedElement).length) {
-                console.log("Serendipity plugin error: " + escapedElement + " not found.");
-            }
-        }
-
-        serendipity.wrapSelection($('#'+escapedElement), str, '');
+        serendipity.wrapSelection($('#'+textarea), str, '');
     }
 
     // helper
@@ -433,7 +415,7 @@
 
         if (f['serendipity[filename_only]']) {
             // this part is used when selecting only the image without further markup (-> category-icon)
-            var starget = f['serendipity[htmltarget]'] ? f['serendipity[htmltarget]'].value : 'serendipity[' + textarea + ']';
+            var starget = f['serendipity[htmltarget]'] ? f['serendipity[htmltarget]'].value : textarea;
 
             switch(f['serendipity[filename_only]'].value) {
                 case 'true':
@@ -531,8 +513,14 @@
         // Add generic div for ALL pictureSubmit cases
         if (pictureSubmit && (imgWebPfu != '' || noLink)) {
             img = '<div>' + img + '</div>';
-            //console.log('nolink img = '+img); // if not inside a container of what ever "p, div, span..." the picture/source element is magically removed when landing in your textarea
+            //console.log('nolink img = '+img); // if not inside a container of what ever "p, div, span..." the picture/source element is magically removed by CKEDITOR when landing in your textarea
         }
+
+        // see ID renaming and so to keep the POST name="serendipity[body]",
+        // but set the textarea var parameter to the element ID id="serendipity_textarea_body" for further POST/GET data processing
+        textarea = textarea === 'serendipity[body]' ? 'serendipity_textarea_body' : textarea;
+        textarea = textarea === 'serendipity[extended]' ? 'serendipity_textarea_extended' : textarea; // ditto for second
+
         parent.self.opener.serendipity.serendipity_imageSelector_addToBody(img, textarea);
         parent.self.close();
     }
@@ -1056,6 +1044,14 @@
         }
     }
 
+    serendipity.deSelect = function(id) {
+        var elements = document.getElementById(id).options;
+
+        for(var i = 0; i < elements.length; i++){
+          elements[i].selected = false;
+        }
+    }
+
     serendipity.tagsList = function() {
         var $source = $('#properties_freetag_tagList').val();
         var $target = $('#tags_list > ul');
@@ -1272,6 +1268,50 @@
         });
     }
 
+    serendipity.resizeImageCalc = function(originalWidth, originalHeight, maxWidth, maxHeight, basePortraitWidth = null) {
+        // Calculate the aspect ratio
+        const aspectRatio = originalWidth / originalHeight;
+
+        // Initialize the new dimensions
+        let newWidth = originalWidth;
+        let newHeight = originalHeight;
+
+        // Check if the image is in portrait mode
+        const isPortrait = originalHeight > originalWidth;
+
+        // Resize based on the larger side and check for portrait mode with base width
+        if (isPortrait && basePortraitWidth) {
+            // Resize portrait mode images based on the base width
+            newWidth = basePortraitWidth;
+            newHeight = newWidth / aspectRatio;
+        } else {
+            // Resize based on the larger side
+            if (originalWidth > originalHeight) {
+                // Resize based on width
+                if (originalWidth > maxWidth) {
+                    newWidth = maxWidth;
+                    newHeight = newWidth / aspectRatio;
+                }
+            } else {
+                // Resize based on height
+                if (originalHeight > maxHeight) {
+                    newHeight = maxHeight;
+                    newWidth = newHeight * aspectRatio;
+                }
+            }
+        }
+
+        // Round the new dimensions to the nearest integers
+        newWidth = Math.round(newWidth);
+        newHeight = Math.round(newHeight);
+
+        // Return the new dimensions
+        return {
+            width: newWidth,
+            height: newHeight
+        };
+    }
+
 }( window.serendipity = window.serendipity || {}, jQuery ))
 
 $(function() {
@@ -1411,8 +1451,8 @@ $(function() {
         var $el = $(this);
         var $tagOpen = $el.attr('data-tag-open');
         var $tagClose = $el.attr('data-tag-close');
-        //var target = document.forms['serendipityEntry']['serendipity[' + $el.attr('data-tarea') + ']'];
-        var target =  $('#'+serendipity.escapeBrackets($el.attr('data-tarea')));
+        //var target = document.forms['serendipityEntry']['+$el.attr('data-tarea')+'];
+        var target =  $('#'+$el.attr('data-tarea'));
         if ($el.hasClass('lang-html')) {
             var open = '<' + $tagOpen + '>';
             var close = '</' + $tagClose + '>';
@@ -1424,12 +1464,12 @@ $(function() {
     });
 
     $('.wrap_insimg').click(function() {
-        var target =  $('#'+serendipity.escapeBrackets($(this).attr('data-tarea')));
+        var target =  $('#'+$(this).attr('data-tarea'));
         serendipity.wrapInsImage(target);
     });
 
     $('.wrap_insurl').click(function() {
-        var target =  $('#'+serendipity.escapeBrackets($(this).attr('data-tarea')));
+        var target =  $('#'+$(this).attr('data-tarea'));
         serendipity.wrapSelectionWithLink(target);
     });
 
@@ -2037,21 +2077,20 @@ $(function() {
                                             width = image.width,
                                             height = image.height;
 
-                                        if (max_width > 0 && width > max_width) {
-                                            height *= max_width / width;
-                                            width = max_width;
-                                        }
-                                        if (max_height > 0 && height > max_height) {
-                                            width  *= max_height / height;
-                                            height = max_height;
-                                        }
+                                        /* optional portrait mode image base width sizing */
+                                        const sizeBaseWidth = <?php if (serendipity_get_config_var('maxImgWidthPortrait')): ?><?= serendipity_get_config_var('maxImgWidthPortrait'); ?><?php else: ?>0<?php endif; ?>;
+                                        //console.log('Image upload properties', image);
+                                        //console.log('New AJAX upload base width for portraits '+sizeBaseWidth);
 
-                                        canvas.width = width;
-                                        canvas.height = height;
-                                        canvas.getContext('2d').drawImage(image, 0, 0, width, height);
+                                        var newSize = serendipity.resizeImageCalc(width, height, max_width, max_height, sizeBaseWidth);
+                                        //console.log('New AJAX upload dimensions: width = '+newSize.width+', height = '+newSize.height);
 
+                                        canvas.width = newSize.width;
+                                        canvas.height = newSize.height;
+                                        canvas.getContext('2d').drawImage(image, 0, 0, newSize.width, newSize.height);
+
+                                        // bmp is not supported
                                         if (type == "image/bmp") {
-                                            {* bmp is not supported *}
                                             type = "image/png";
                                             data.append('serendipity[target_filename][1]', file.name.replace('.bmp', '.png'));
                                         }

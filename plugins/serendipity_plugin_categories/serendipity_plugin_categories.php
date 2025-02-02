@@ -1,12 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
 class serendipity_plugin_categories extends serendipity_plugin
 {
-    var $title = CATEGORIES;
+    public $title = CATEGORIES;
+    private const XML_IMAGE_AVAILABLE = " Available pure theme defaults: 'img/xml.gif' (orange), 'img/xml12.png' (lightblue 12px), 'img/xml16.png' (lightblue 16px), 'icons/rss.svg' (colored by CSS)";
 
     function introspect(&$propbag) {
         global $serendipity;
@@ -14,8 +17,8 @@ class serendipity_plugin_categories extends serendipity_plugin
         $propbag->add('name',        CATEGORIES);
         $propbag->add('description', CATEGORY_PLUGIN_DESC);
         $propbag->add('stackable',     true);
-        $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.18');
+        $propbag->add('author',        'Serendipity Team, Ian Styx');
+        $propbag->add('version',       '2.20');
         $propbag->add('configuration', array('title', 'authorid', 'parent_base', 'hide_parent', 'image', 'sort_order', 'sort_method', 'allow_select', 'hide_parallel', 'show_count', 'show_all', 'smarty'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -113,10 +116,10 @@ class serendipity_plugin_categories extends serendipity_plugin
                 break;
 
             case 'image':
-                $propbag->add('type',         'string');
-                $propbag->add('name',         XML_IMAGE_TO_DISPLAY);
-                $propbag->add('description',  XML_IMAGE_TO_DISPLAY_DESC);
-                $propbag->add('default',     serendipity_getTemplateFile('img/xml.gif', 'serendipityHTTPPath', true));
+                $propbag->add('type',        'string');
+                $propbag->add('name',        XML_IMAGE_TO_DISPLAY);
+                $propbag->add('description', XML_IMAGE_TO_DISPLAY_DESC . self::XML_IMAGE_AVAILABLE);
+                $propbag->add('default',     'img/xml.gif');
                 break;
 
             case 'smarty':
@@ -191,6 +194,19 @@ class serendipity_plugin_categories extends serendipity_plugin
             }
         }
 
+        $iconURL = $this->get_config('image', 'img/xml.gif');
+        if (!(str_contains($iconURL, 'none'))) {
+            $image = serendipity_getTemplateFile($iconURL);
+        }
+        // on update, reset potential existing config sets
+        if (false === $image) {
+            $image = $iconURL; // old had passed serendipity_getTemplateFile() already
+            // reset the config var to the last relative path part, eg. img/xml.gif
+            $iconURL = str_replace($serendipity['serendipityHTTPPath'] . $serendipity['templatePath'] . $serendipity['template'] .'/', '', $iconURL);
+            $this->set_config('image', $iconURL); // set and done for next run
+        }
+        $usesvg = is_null($image) ? false : pathinfo($image, PATHINFO_EXTENSION) === 'svg';
+
         // empty $categories returns 1
         $html = '';
 
@@ -198,11 +214,8 @@ class serendipity_plugin_categories extends serendipity_plugin
             $html .= '<form action="' . $serendipity['baseURL'] . $serendipity['indexFile'] . '?frontpage" method="post">'."\n";
         }
         if (!$smarty) {
-            $html .= '<ul id="serendipity_categories_list" class="plainList">'; // do NOT \n here for better concatenation until end
+            $html .= '<ul id="serendipity_categories_list" class="plainList' . ($usesvg ? ' xmlsvg' : '') .'">'; // do NOT \n here for better concatenation until end
         }
-
-        $image = $this->get_config('image', serendipity_getTemplateFile('img/xml.gif', 'serendipityHTTPPath', true));
-        $image = (($image == "'none'" || $image == 'none') ? '' : $image);
 
         $use_parent  = $this->get_config('parent_base', 'all');
         $hide_parent = serendipity_db_bool($this->get_config('hide_parent', 'false'));
@@ -279,9 +292,9 @@ class serendipity_plugin_categories extends serendipity_plugin
                     }
 
                     if (!empty($image)) {
-                        $html .= '<a class="serendipity_xml_icon" href="'. $categories[$cid]['feedCategoryURL'] .'"><img src="'. $image .'" alt="XML" /></a> ';
+                        $html .= '<a class="serendipity_xml_icon" href="'. $categories[$cid]['feedCategoryURL'] .'" title="' . htmlspecialchars($cat['category_name']) . ' ' . CATEGORY . ' feed"><img src="'. $image .'" alt="XML" /></a> ';
                     }
-                    $html .= '<a href="'. $categories[$cid]['categoryURL'] .'" title="'. serendipity_specialchars($cat['category_description']) .'" style="padding-left: '. $categories[$cid]['paddingPx'] .'px">'. serendipity_specialchars($categories[$cid]['category_name']) .'</a>';
+                    $html .= '<a href="'. $categories[$cid]['categoryURL'] .'" title="'. htmlspecialchars($cat['category_description']) .'" style="padding-left: '. $categories[$cid]['paddingPx'] .'px">'. htmlspecialchars($categories[$cid]['category_name']) .'</a>';
                     $html .= '</li>';
                 }
             }
@@ -323,6 +336,7 @@ class serendipity_plugin_categories extends serendipity_plugin
                 'is_form'           => $is_form,
                 'show_all'          => serendipity_db_bool($this->get_config('show_all', 'false')),
                 'category_image'    => $image,
+                'category_is_svg'   => $usesvg,
                 'form_url'          => $serendipity['baseURL'] . $serendipity['indexFile'] . '?frontpage',
                 'categories'        => is_array($categories) ? $categories : array()
             );

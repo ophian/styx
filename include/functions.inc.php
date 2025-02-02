@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -29,28 +31,32 @@ include_once(S9Y_INCLUDE_PATH . 'include/functions_smarty.inc.php');
 /**
  * Retrieve the raw request entity (body)
  *
- * @since 2.1
- * @return string
+ * Args:
+ *      -
+ * Returns:
+ *      - the string OR FALSE on fail
+ * @access public
+ * @since   2.1
  */
-function get_raw_data() {
+function get_raw_data() : string|false {
     return file_get_contents( 'php://input' );
 }
 
 /**
  * Set a new PEAR Request object
- * Includes the required PHP5 PEAR Request2 class and
- * fixes failing CERT validation check for PHP versions below 5.6
+ * Includes the required PEAR Request2 class
  * Make new Request Object
  *
+ * Args:
+ *      - the URL string
+ *      - Request method for send() string (get,head,post,put,delete,trace,conn)
+ *                one of the methods defined in RFC 2616 (https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
+ * Returns:
+ *      - Object OR FALSE on fail
+ * @access public
  * @since   2.1
- * @param   $url        string
- * @param   $method     string  Request method for send() (get,head,post,put,delete,trace,conn)
- *                      one of the methods defined in RFC 2616 (https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
- * @param   $options    array   Request parameter
- *
- * @return  object
  */
-function serendipity_request_object($url = '', $method = 'get', $options = array()) {
+function serendipity_request_object(string $url = '', string $method = 'get', iterable $options = array()) : object|false {
     require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
     require_once S9Y_PEAR_PATH . 'HTTP/Request2/ConnectionException.php';
 
@@ -94,17 +100,18 @@ function serendipity_request_object($url = '', $method = 'get', $options = array
 /**
  * Request the contents of an URL, API wrapper [A Serendipity successor of the Styx serendipity_request_object() wrapper]
  *
- * @param $uri string               The URL to fetch
- * @param $method string            HTTP method (GET/POST/PUT/OPTIONS...)
- * @param $contenttype string       optional HTTP content type
- * @param $contenttype mixed        optional extra data (i.e. POST body), can be an array
- * @param $extra_options array      Extra options for HTTP_Request $options array (can override defaults)
- * @param $addData string           possible extra event addData declaration for 'backend_http_request' hook
- * @param $auth array               Array with 'user' and 'pass' for HTTP Auth
- *
- * @return $content string          The URL contents
+ * Args:
+ *      - The URL string to fetch
+ *      - HTTP method string (GET/POST/PUT/OPTIONS...)
+ *      - optional mixed HTTP content type
+ *      - optional extra data (i.e. POST body), can be an array OR NULL
+ *      - optional extra options for HTTP_Request $options array (can override defaults) OR NULL
+ *      - optional extra event addData declaration for 'backend_http_request' hook OR NULL
+ *      - optional extra array with 'user' and 'pass' for HTTP Auth OR NULL
+ * Returns:
+ *      - The URL contents string, OR FALSE on fail
  */
-function serendipity_request_url($uri, $method = 'GET', $contenttype = null, $data = null, $extra_options = null, $addData = null, $auth = null) {
+function serendipity_request_url(string $uri, string $method = 'GET', mixed $contenttype = null, iterable|string|null $data = null, ?iterable $extra_options = null, ?string $addData = null, ?iterable $auth = null) : string|false {
     global $serendipity;
 
     require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
@@ -186,12 +193,14 @@ function serendipity_request_url($uri, $method = 'GET', $contenttype = null, $da
 /**
  * Serendipity strpos mapper to check flat arrays
  *
+ * Args:
+ *      - The haystack
+ *      - The needle
+ * Returns:
+ *      - boolean
  * @access public
- * @param   string   The haystack
- * @param   array    The needle
- * @return  boolean
  */
-function serendipity_contains($str, array $arr) {
+function serendipity_contains(string $str, iterable $arr) : bool {
     foreach($arr AS $a) {
         if (false !== @strpos($str, $a)) return true; // mute possible uninitialized items
     }
@@ -201,12 +210,14 @@ function serendipity_contains($str, array $arr) {
 /**
  * Serendipity strpos iteration mapper to also check needled arrays
  *
+ * Args:
+ *      - The haystack
+ *      - The needle
+ * Returns:
+ *      - boolean result
  * @access public
- * @param   string          The haystack
- * @param   string/array    The needle
- * @return
  */
-function serendipity_strpos($haystack, $needles) {
+function serendipity_strpos(string $haystack, string|iterable $needles) : bool {
     if (is_array($needles)) {
         foreach($needles AS $str) {
             // keep in mind if needle is not a string, it is converted to an integer and applied as the ordinal value of a character
@@ -223,13 +234,16 @@ function serendipity_strpos($haystack, $needles) {
 
 /**
  * Check a multidimensional array for set values
- * Use array_filter() before, to already filter out empty values in the primary dimension.
+ * Use array_filter() before, to already filter out empty values in the PRIMARY dimension.
  *
+ * Return result-set of empty values
+ * Args:
+ *      - An array of restricting filter sets
+ * Returns:
+ *      - boolean
  * @access public
- * @param   array   An array of restricting filter sets
- * @return  bool    Result-set of empty values
  */
-function serendipity_emptyArray($array) {
+function serendipity_emptyArray(iterable|string $array) : bool {
     $empty = true;
     if (is_array($array)) {
         foreach ($array AS $value) {
@@ -245,12 +259,15 @@ function serendipity_emptyArray($array) {
 }
 
 /**
- * Return the HTTP protocol sent by the server.
+ * Return the HTTP protocol sent by the server. Default fallback HTTP/1.1 for 304.
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - The protocol string
  * @access public
- * @return string The HTTP protocol. Default fallback HTTP/1.1 for 304.
  */
-function serendipity_getServerProtocol(): string {
+function serendipity_getServerProtocol() : string {
     $protocol = $_SERVER['SERVER_PROTOCOL'] ?? '';
     if ( ! in_array( $protocol, [ 'HTTP/1.1', 'HTTP/2', 'HTTP/2.0', 'HTTP/3' ], true ) ) {
         $protocol = 'HTTP/1.1';
@@ -261,10 +278,13 @@ function serendipity_getServerProtocol(): string {
 /**
  * Return the 304 Not Modified header.
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
  * @access public
- * @return void
  */
-function serendipity_setNotModifiedHeader() {
+function serendipity_setNotModifiedHeader() : void {
     //
     // Fetch output buffer containing the CSS output and create eTag header
     //
@@ -278,8 +298,7 @@ function serendipity_setNotModifiedHeader() {
         // specific styles.
 
         // Send ETag header using the hash value of the CSS code
-        #$hashValue = hash('xxh3', $ob_buffer); // md5() is going to be replaced with hash('xxh3', ...); 64 bit hashing up from PHP 8.1
-        $hashValue = md5($ob_buffer);
+        $hashValue = hash('xxh3', $ob_buffer);
         header('ETag: "' . $hashValue . '"');
 
         // Compare value of If-None-Match header (if available) to hash value
@@ -301,26 +320,51 @@ function serendipity_setNotModifiedHeader() {
 }
 
 /**
- * Get the Referrer calling function name for the current HTTP Request
+ * Get the Referrer calling (parent level) function name for the current HTTP Request
+ * debug_backtrace() - show all options
+ * debug_backtrace(0) - exclude ["object"]
+ * debug_backtrace(1) - same as debug_backtrace()
+ * debug_backtrace(2) - exclude ["object"] AND ["args"]
+ * used in debug logs eg. if ($debug) $serendipity['logger']->critical('Referer: ' . serendipity_debugCallerId());
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - function name string
  * @access public
- * @return string parent level function name
  */
-function serendipity_debugCallerId() {
+function serendipity_debugCallerId() : string {
     $trace = debug_backtrace();
     $level = count($trace)-1;
     return $trace[$level]['function'];
 }
 
 /**
+ * Serendipity INT type compatibility check to allow overall calls with array values
+ * Args:
+ *      - The id (type)
+ * Returns:
+ *      - Void Exit on fail
+ * @access public
+ */
+function serendipity_typeCompatCheckID(int|string $id) : void {
+    if (is_string($id) && !is_numeric($id)) {
+        throw new Exception('Fuck off! Don\'t play with me! Only valid author IDs allowed.');
+        exit;
+    }
+}
+
+/**
  * Truncate a string to a specific length, multibyte aware. Appends '...' if successfully truncated
  *
+ * Args:
+ *      - Input string
+ *      - Length the final string should have
+ * Returns:
+ *      - string truncated or not
  * @access public
- * @param   string  Input string
- * @param   int     Length the final string should have
- * @return  string  Truncated string
  */
-function serendipity_truncateString($s, $len) {
+function serendipity_truncateString(string $s, int $len) : string {
     if (strlen($s) > ($len+3)) {
         $s = serendipity_mb('substr', $s, 0, $len) . '...';
     }
@@ -330,9 +374,13 @@ function serendipity_truncateString($s, $len) {
 /**
  * Optionally turn on GZip Compression, if configured
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
  * @access public
  */
-function serendipity_gzCompression() {
+function serendipity_gzCompression() : void {
     global $serendipity;
 
     if (isset($serendipity['useGzip']) && serendipity_db_bool($serendipity['useGzip'])
@@ -346,13 +394,36 @@ function serendipity_gzCompression() {
 /**
  * Validate input entry dates only
  *
+ * Args:
+ *      - The date string
+ *      - The format string
+ * Returns:
+ *      - boolean
  * @access public
- * @param   string  Input string
- * @return  bool
  */
-function serendipity_validateDate($date, $format = 'Y-m-d') {
+function serendipity_validateDate(string $date, string $format = 'Y-m-d') : bool {
     $d = DateTime::createFromFormat($format, $date);
     return $d && $d->format($format) === $date; // be strict
+}
+
+/**
+ * Check is valid timestamp data from Smarty array where the correct key name for real timestamps is not known
+ * and all values run through formatTime, see EXIF/IPTC/XMP parsed meta data in media_items.tpl
+ * and to NOT convert some digit (time) numbers for IPTCTimeCreated, DigitalTimeCreated  and other number data values.
+ * We don't want digits to end up like 01.01.1970 01:00 by serendipity_smarty_formatTime().
+ * PRE check by !is_string($timestamp) to not even run this helper for resolutions, length, time seconds that are INTs
+ *
+ * Args:
+ *      - String value
+ * Returns:
+ *      - Boolean result
+ * @access public
+ * @see serendipity_smarty_FormatTime() smarty|formatTime::::
+ */
+function serendipity_isValidTimeStamp(string $timestamp) : bool {
+    return ((string) (int) $timestamp === $timestamp)
+        && ($timestamp <= PHP_INT_MAX)
+        && ($timestamp >= ~PHP_INT_MAX);
 }
 
 /**
@@ -364,10 +435,13 @@ function serendipity_validateDate($date, $format = 'Y-m-d') {
  * This provides a cross-platform alternative to strftime() for when it will be removed from PHP.
  * Note that output can be slightly different between libc sprintf and this function as it is using ICU.
  *
+ * Args:
+ *      - The date format string
+ *      - The timestamp integer OR NULL (normally integer|string|DateTime)
+ *      - The locale string OR NULL
+ * Returns:
+ *      - datetime string
  * @access public
- * @param  string $format Date format
- * @param  integer|string|DateTime $timestamp Timestamp
- * @return string
  *
  * Origin Usage:
  * use function \PHP81_BC\strftime;
@@ -376,7 +450,7 @@ function serendipity_validateDate($date, $format = 'Y-m-d') {
  * @author BohwaZ <https://bohwaz.net/>
  * @see https://gist.github.com/bohwaz/42fc223031e2b2dd2585aab159a20f30
  */
-function serendipity_toDateTimeMapper(string $format, $timestamp = null, ?string $locale = null): string {
+function serendipity_toDateTimeMapper(string $format, ?int $timestamp = null, ?string $locale = null): string {
 
     if (null === $timestamp) {
         $timestamp = new \DateTime;
@@ -543,12 +617,15 @@ function serendipity_toDateTimeMapper(string $format, $timestamp = null, ?string
 /**
  * Returns a timestamp formatted according to the current Server timezone offset
  *
+ * Args:
+ *      - The timestamp you want to convert into the current server timezone. Defaults to "now".
+ *      - A boolean toggle to indicate, if the timezone offset should be ADDED or SUBSTRACTED from the timezone.
+ *                                      Subtracting is required to restore original time when posting an entry.
+ * Returns:
+ *      - Timestamp integer
  * @access public
- * @param  int      The timestamp you want to convert into the current server timezone. Defaults to "now".
- * @param  boolean  A toggle to indicate, if the timezone offset should be ADDED or SUBSTRACTED from the timezone. Subtracting is required to restore original time when posting an entry.
- * @return int      The final timestamp
  */
-function serendipity_serverOffsetHour($timestamp = null, $negative = false): int {
+function serendipity_serverOffsetHour(int|string|DateTime|null $timestamp = null, ?bool $negative = false): int {
     global $serendipity;
 
     if ($timestamp === null) {
@@ -565,11 +642,13 @@ function serendipity_serverOffsetHour($timestamp = null, $negative = false): int
 /**
  * Converts a date string (DD.MM.YYYY, YYYY-MM-DD, MM/DD/YYYY) into a UNIX timestamp
  *
+ * Args:
+ *      - The input date
+ * Returns:
+ *      - UNIX timestamp integer OR string OR boolean FALSE on fail
  * @access public
- * @param  string  The input date
- * @return int     The output UNIX timestamp
  */
-function &serendipity_convertToTimestamp($in) {
+function &serendipity_convertToTimestamp(string $in) : int|string|false {
     if (preg_match('@([0-9]+)([/\.-])([0-9]+)([/\.-])([0-9]+)@', $in, $m)) {
         if ($m[2] != $m[4]) {
             return $in;
@@ -600,21 +679,17 @@ function &serendipity_convertToTimestamp($in) {
  *
  * This function can convert an input timestamp into specific PHP strftime() outputs, including applying necessary timezone calculations.
  *
+ * Args:
+ *      - Output format for the timestamp
+ *      - Timestamp to use for displaying
+ *      - Indicates, if timezone calculations shall be used.
+ *      - Whether to use strftime or simply date
+ * Returns:
+ *      - dateformat string
  * @access public
- * @param   string      Output format for the timestamp
- * @param   int         Timestamp to use for displaying
- * @param   boolean     Indicates, if timezone calculations shall be used.
- * @param   boolean     Whether to use strftime or simply date
- * @return  string      The formatted timestamp
  */
-function serendipity_strftime($format, $timestamp = null, $useOffset = true, $useDate = false) {
+function serendipity_strftime(string $format, int|string|false|null $timestamp = null, bool $useOffset = true, bool $useDate = false) : string {
     global $serendipity;
-    static $is_win_utf = null;
-
-    if ($is_win_utf === null) {
-        // Windows does not have UTF-8 locales.
-        $is_win_utf = (LANG_CHARSET == 'UTF-8' && (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false));
-    }
 
     if ($useDate) {
         $out = date($format, $timestamp);
@@ -622,7 +697,7 @@ function serendipity_strftime($format, $timestamp = null, $useOffset = true, $us
         switch($serendipity['calendar']) {
             default:
             case 'gregorian':
-                if ($timestamp == null) {
+                if ($timestamp === null || $timestamp === false) {
                     $timestamp = serendipity_serverOffsetHour();
                 } elseif ($useOffset) {
                     $timestamp = serendipity_serverOffsetHour($timestamp);
@@ -631,19 +706,13 @@ function serendipity_strftime($format, $timestamp = null, $useOffset = true, $us
                   strftime is infected by thread unsafe locales, which is plenty of reason to deprecate it, with additional pro reasons for doing so being its disparate functionality among different os-es and libc's.
                   Deprecation also doesn't mean removal, which won't happen until PHP 9, giving developers plenty of time to move to a saner threadsafe locale API based on intl/icu.
                   cheers Derick
+                  done!
                 */
-                if (PHP_VERSION_ID >= 80100 && PHP_VERSION_ICU === false) {
-                    $out = @strftime($format, $timestamp); // temporary disable deprecation notice with PHP 8.1 until found better solution with %A, %d. %B %Y alike formats, on frontend calls. Using date() replacement is doing well with generic formats like "%Y-%m-%d %H:%M:%S".
-                } elseif (PHP_VERSION_ICU === true) {
-                    // ICU71 is fixed up from PHP 8.2
-                    $out = serendipity_toDateTimeMapper($format, $timestamp, WYSIWYG_LANG);
-                } else {
-                    $out = strftime($format, $timestamp); // legacy default
-                }
+                $out = serendipity_toDateTimeMapper($format, (int) $timestamp, WYSIWYG_LANG);
                 break;
 
             case 'persian-utf8':
-                if ($timestamp == null) {
+                if ($timestamp === null || $timestamp === false) {
                     $timestamp = serendipity_serverOffsetHour();
                 } elseif ($useOffset) {
                     $timestamp = serendipity_serverOffsetHour($timestamp);
@@ -655,14 +724,6 @@ function serendipity_strftime($format, $timestamp = null, $useOffset = true, $us
         }
     }
 
-    if ($is_win_utf && PHP_VERSION_ICU === false && (empty($serendipity['calendar']) || $serendipity['calendar'] == 'gregorian')) {
-        if (!function_exists('mb_convert_encoding')) {
-            $out = @utf8_encode($out); // Deprecation in PHP 8.2, removal in PHP 9.0
-        } else {
-            $out = mb_convert_encoding($out, 'UTF-8', 'ISO-8859-1'); // string, to, from
-        }
-    }
-
     return $out;
 }
 
@@ -671,14 +732,17 @@ function serendipity_strftime($format, $timestamp = null, $useOffset = true, $us
  *
  * Utilizes serendipity_strftime() and prepares the output timestamp with a few tweaks, and applies automatic uppercasing of the return.
  *
+ * Args:
+ *      - Output format for the timestamp
+ *      - Timestamp to use for displaying
+ *      - Indicates, if timezone calculations shall be used.
+ *      - Whether to use strftime or simply date
+ * Returns:
+ *      - Datetime string
+ * @access public
  * @see serendipity_strftime()
- * @param   string      Output format for the timestamp
- * @param   int         Timestamp to use for displaying
- * @param   boolean     Indicates, if timezone calculations shall be used.
- * @param   boolean     Whether to use strftime or simply date
- * @return  string      The formatted timestamp
  */
-function serendipity_formatTime($format, $time, $useOffset = true, $useDate = false) {
+function serendipity_formatTime(string $format, int $time, bool $useOffset = true, bool $useDate = false) : string {
     static $cache;
     if (!isset($cache)) {
         $cache = array();
@@ -686,22 +750,24 @@ function serendipity_formatTime($format, $time, $useOffset = true, $useDate = fa
 
     if (!isset($cache[$format])) {
         $cache[$format] = $format;
-        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+        if (str_starts_with(strtoupper(PHP_OS), 'WIN')) {
             $cache[$format] = str_replace('%e', '%d', $cache[$format]);
         }
     }
 
-    return serendipity_mb('ucfirst', serendipity_strftime($cache[$format], (int)$time, $useOffset, $useDate));
+    return serendipity_mb('ucfirst', serendipity_strftime($cache[$format], $time, $useOffset, $useDate));
 }
 
 /**
  * Fetches the list of available templates/themes/styles.
  *
+ * Args:
+ *      - Directory string to search for a template [recursive use]
+ * Returns:
+ *      - Sorted array of available template names
  * @access public
- * @param   string  Directory to search for a template [recursive use]
- * @return  array   Sorted array of available template names
  */
-function serendipity_fetchTemplates($dir = '') {
+function serendipity_fetchTemplates(string $dir = '') : iterable {
     global $serendipity;
 
     $cdir = @opendir($serendipity['serendipityPath'] . $serendipity['templatePath'] . $dir);
@@ -735,12 +801,14 @@ function serendipity_fetchTemplates($dir = '') {
 /**
  * Get information about a specific theme/template/style
  *
+ * Args:
+ *      - Directory name of a theme
+ *      - Absolute path to the templates [for use on CVS mounted directories]
+ * Returns:
+ *      - Returns associative array of template information
  * @access public
- * @param   string  Directory name of a theme
- * @param   string  Absolute path to the templates [for use on CVS mounted directories]
- * @return  array   Associative array if template information
  */
-function serendipity_fetchTemplateInfo($theme, $abspath = null) {
+function serendipity_fetchTemplateInfo(string $theme, ?string $abspath = null) : iterable {
     global $serendipity;
 
     if ($abspath === null) {
@@ -771,6 +839,7 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
         }
     }
 
+    // Split language charset path for themes
     $charsetpath  = (LANG_CHARSET == 'UTF-8') ? '/UTF-8' : '';
     $info_default = S9Y_INCLUDE_PATH . $serendipity['templatePath'] . $theme . '/lang_info_en.inc.php';
     if ((isset($data['summary']) || isset($data['description']) || isset($data['backenddesc'])) && @is_file($info_default)) {
@@ -840,15 +909,17 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
  *
  * Used for sorting a list of comments, for example. The list of comment is iterated, and the nesting level is calculated, and the array will be sorted to represent the amount of nesting.
  *
+ * Args:
+ *      - Input array to investigate [consecutively sliced for recursive calls]
+ *      - Array index name string to indicate the ID value of an array index
+ *      - Array index name string to indicate the PARENT ID value of an array index, matched against the $child_name value
+ *      - The parent id to check an element against for recursive nesting
+ *      - The current depth of the cycled array
+ * Returns:
+ *      - The sorted and shiny polished result array OR TRUE
  * @access public
- * @param   array   Input array to investigate [consecutively sliced for recursive calls]
- * @param   string  Array index name to indicate the ID value of an array index
- * @param   string  Array index name to indicate the PARENT ID value of an array index, matched against the $child_name value
- * @param   int     The parent id to check an element against for recursive nesting
- * @param   int     The current depth of the cycled array
- * @return  array   The sorted and shiny polished result array
  */
-function serendipity_walkRecursive($ary, $child_name = 'id', $parent_name = 'parent_id', $parentid = 0, $depth = 0) {
+function serendipity_walkRecursive(iterable $ary, ?string $child_name = 'id', ?string $parent_name = 'parent_id', int|string $parentid = 0, ?int $depth = 0) : iterable|true {
     static $_resArray;
     static $_remain;
 
@@ -900,11 +971,13 @@ function serendipity_walkRecursive($ary, $child_name = 'id', $parent_name = 'par
  * In simple and clear group structures this isn't a problem, but not in multi user cases with intertwined (chained) permission sets.
  * Together they can build the correct permission chain.
  *
+ * Args:
+ *      - A (super)array of serendipity_fetchUsers() authors
+ * Returns:
+ *      - Array sorted out by USERLEVEL or by matching ID
  * @access public
- * @param   array   A (super)array of serendipity_fetchUsers() authors.
- * @return  array   Array sorted out by USERLEVEL or by matching ID
  */
-function serendipity_chainByLevel($users) {
+function serendipity_chainByLevel(iterable $users) : iterable {
     global $serendipity;
 
     $soop = serendipity_checkPermission('adminUsersMaintainOthers'); // check privileges same (<) OR others (<=)
@@ -929,18 +1002,20 @@ function serendipity_chainByLevel($users) {
 /**
  * Fetch the list of Serendipity Authors
  *
+ * Args:
+ *      - Fetch only a specific User by numeric|empty|null string
+ *      - Can contain an array of group IDs you only want to fetch authors of
+ *      - boolean If set to TRUE, the amount of entries per author will also be returned
+ * Returns:
+ *      - Result array of the SQL query OR boolean OR error string
  * @access public
- * @param   int     Fetch only a specific User
- * @param   array   Can contain an array of group IDs you only want to fetch authors of.
- * @param   boolean If set to TRUE, the amount of entries per author will also be returned
- * @return  array   Result of the SQL query
  */
-function serendipity_fetchUsers($user = '', $group = null, $is_count = false) {
+function serendipity_fetchUsers(?string $user = '', iterable|string|null $group = null, ?bool $is_count = false) : string|bool|iterable {
     global $serendipity;
 
     $where = '';
     if (!empty($user)) {
-        $where = "WHERE a.authorid = '" . (int)$user ."'";
+        $where = "WHERE a.authorid = '" . (int) $user ."'";
     }
 
     $query_select   = '';
@@ -953,7 +1028,7 @@ function serendipity_fetchUsers($user = '', $group = null, $is_count = false) {
                                       ON (a.authorid = e.authorid AND e.isdraft = 'false')";
     }
 
-    if ($is_count || $group != null) {
+    if ($is_count || $group !== null) {
         if ($serendipity['dbType'] == 'postgres' ||
             $serendipity['dbType'] == 'pdo-postgres') {
             // Why does PostgreSQL keep doing this to us? :-)
@@ -992,11 +1067,11 @@ function serendipity_fetchUsers($user = '', $group = null, $is_count = false) {
             $where .= ' AND gc.id IS NULL ';
         } elseif (is_array($group)) {
             foreach($group AS $g) {
-                $in_groups[] = (int)($g['id'] ?? $g); // be nice to debug sessions
+                $in_groups[] = (int) ($g['id'] ?? $g); // be nice to debug sessions
             }
             $group_sql = implode(', ', $in_groups);
         } else {
-            $group_sql = (int)$group;
+            $group_sql = (int) $group;
         }
 
         $querystring = "SELECT $query_distinct
@@ -1030,20 +1105,22 @@ function serendipity_fetchUsers($user = '', $group = null, $is_count = false) {
 /**
  * Sends a Mail with Serendipity formatting
  *
+ * Args:
+ *      - The recipient address string of the mail
+ *      - The subject string of the mail
+ *      - The body string of the mail
+ *      - The sender mail address string of the mail
+ *      - Additional headers array to pass to the E-Mail OR NULL
+ *      - The name of the sender OR NULL
+ * Returns:
+ *      - Return code of the PHP mail() function
  * @access public
- * @param   string  The recipient address of the mail
- * @param   string  The subject of the mail
- * @param   string  The body of the mail
- * @param   string  The sender mail address of the mail
- * @param   array   additional headers to pass to the E-Mail
- * @param   string  The name of the sender
- * @return  int     Return code of the PHP mail() function
  */
-function serendipity_sendMail($to, $subject, $message, $fromMail, $headers = NULL, $fromName = NULL) {
+function serendipity_sendMail(string $to, string $subject, string $message, string $fromMail, iterable|string|null $headers = NULL, ?string $fromName = NULL) : bool {
     global $serendipity;
 
     if (!is_null($headers) && !is_array($headers)) {
-        trigger_error(__FUNCTION__ . ': $headers must be either an array or null', E_USER_ERROR);
+        trigger_error(__FUNCTION__ . ': $headers must be either an array or null', E_USER_WARNING);
     }
 
     if (is_null($fromName) || empty($fromName)) {
@@ -1060,7 +1137,7 @@ function serendipity_sendMail($to, $subject, $message, $fromMail, $headers = NUL
 
     // Fix special characters
     $fromName = str_replace(array('"', "\r", "\n"), array("'", '', ''), $fromName);
-    $fromMail = str_replace(array("\r","\n"), array('', ''), $fromMail);
+    $fromMail = str_replace(array("\r","\n"), '', $fromMail);
 
     // Prefix all mail with weblog title
     $subject = '['. $serendipity['blogTitle'] . '] '.  $subject;
@@ -1090,8 +1167,8 @@ function serendipity_sendMail($to, $subject, $message, $fromMail, $headers = NUL
             // Usually this is according to spec, but for us it caused more trouble than
             // it prevented.
             // Regards to Mark Kronsbein for finding this issue!
-            $maildata['subject'] = str_replace(array("\n", "\r"), array('', ''), mb_encode_mimeheader($maildata['subject'], LANG_CHARSET));
-            $maildata['fromName'] = str_replace(array("\n", "\r"), array('', ''), mb_encode_mimeheader($maildata['fromName'], LANG_CHARSET));
+            $maildata['subject'] = str_replace(array("\n", "\r"), '', mb_encode_mimeheader($maildata['subject'], LANG_CHARSET));
+            $maildata['fromName'] = str_replace(array("\n", "\r"), '', mb_encode_mimeheader($maildata['fromName'], LANG_CHARSET));
         }
         $is_base64encoded = false;
 
@@ -1113,7 +1190,7 @@ function serendipity_sendMail($to, $subject, $message, $fromMail, $headers = NUL
         if (LANG_CHARSET == 'UTF-8') {
             if (function_exists('imap_8bit') && !$serendipity['forceBase64']) {
                 $maildata['headers'][] = 'Content-Transfer-Encoding: quoted-printable';
-                $maildata['message']   = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') ? imap_8bit($maildata['message']) : str_replace("\r\n", "\n", imap_8bit($maildata['message']));
+                $maildata['message']   = str_starts_with(strtoupper(PHP_OS), 'WIN') ? imap_8bit($maildata['message']) : str_replace("\r\n", "\n", imap_8bit($maildata['message']));
             } else {
                 $maildata['headers'][] = 'Content-Transfer-Encoding: base64';
                 $maildata['message']   = chunk_split(base64_encode($maildata['message']));
@@ -1135,16 +1212,20 @@ function serendipity_sendMail($to, $subject, $message, $fromMail, $headers = NUL
             return @mail($maildata['to'], $maildata['subject'], $maildata['message'], implode("\r\n", $maildata['headers'])); // See RFC 5322 CRLF
         }
     }
+
+    return false;
 }
 
 /**
  * Fetch all references (links) from a given entry ID
  *
+ * Args:
+ *      - The entry ID
+ * Returns:
+ *      - The SQL result containing the references/links of an entry
  * @access public
- * @param   int     The entry ID
- * @return  array   The SQL result containing the references/links of an entry
  */
-function serendipity_fetchReferences($id) {
+function serendipity_fetchReferences(int $id) : string|bool|iterable {
     global $serendipity;
 
     $query = "SELECT name,link FROM {$serendipity['dbPrefix']}references WHERE entry_id = '" . (int)$id . "' AND (type = '' OR type IS NULL)";
@@ -1156,28 +1237,24 @@ function serendipity_fetchReferences($id) {
 /**
  * Encode a string to UTF-8, if not already in UTF-8 format.
  *
+ * Args:
+ *      - The input string
+ * Returns:
+ *      - The output string OR NULL
  * @access public
- * @param   string  The input string
- * @return  string  The output string
  */
-function serendipity_utf8_encode($string) {
-    if (is_null($string)) return;
+function serendipity_utf8_encode(string $string) : ?string {
+    if (is_null($string)) return null;
     if (strtolower(LANG_CHARSET) != 'utf-8') {
         if (function_exists('iconv')) {
             $new = iconv(LANG_CHARSET, 'UTF-8', $string);
             if ($new !== false) {
                 return $new;
             } else {
-                if (!function_exists('mb_convert_encoding')) {
-                    return @utf8_encode($string); // Deprecation in PHP 8.2, removal in PHP 9.0
-                } else {
-                    return mb_convert_encoding($string, 'UTF-8', LANG_CHARSET); // string, to, from
-                }
+                return mb_convert_encoding($string, 'UTF-8', LANG_CHARSET); // string, to, from
             }
-        } else if (function_exists('mb_convert_encoding')) {
-            return mb_convert_encoding($string, 'UTF-8', LANG_CHARSET); // string, to, from
         } else {
-            return @utf8_encode($string); // Deprecation in PHP 8.2, removal in PHP 9.0
+            return mb_convert_encoding($string, 'UTF-8', LANG_CHARSET); // string, to, from
         }
     } else {
         return $string;
@@ -1187,12 +1264,14 @@ function serendipity_utf8_encode($string) {
 /**
  * Create a link that can be used within a RSS feed to indicate a permalink for an entry or comment
  *
+ * Args:
+ *      - The input entry array
+ *      - Toggle whether the link will be for a COMMENT [true] or an ENTRY [false] OR NULL on failures
+ * Returns:
+ *      - A permalink string for the given entry
  * @access public
- * @param   array       The input entry array
- * @param   boolean     Toggle whether the link will be for a COMMENT [true] or an ENTRY [false]
- * @return  string      A permalink for the given entry
  */
-function serendipity_rss_getguid($entry, $comments = false) {
+function serendipity_rss_getguid(iterable $entry, ?bool $comments = false) : string {
     global $serendipity;
 
     $id = (isset($entry['entryid']) && $entry['entryid'] != '' ? $entry['entryid'] : $entry['id']);
@@ -1225,11 +1304,13 @@ function serendipity_rss_getguid($entry, $comments = false) {
  *
  * Starter function to clean up XHTML for ATOM feeds.
  *
+ * Args:
+ *      - Input HTML code
+ * Returns:
+ *      - Cleaned HTML code
  * @access public
- * @param   string  Input HTML code
- * @return  string  Cleaned HTML code
  */
-function xhtml_cleanup($html) {
+function xhtml_cleanup(string $html) : string {
     static $p = array(
         '/\&([\s\<])/',                 // ampersand followed by whitespace or tag
         '/\&$/',                        // ampersand at end of body
@@ -1252,11 +1333,13 @@ function xhtml_cleanup($html) {
 /**
  * Fetch user data for a specific Serendipity author
  *
+ * Args:
+ *      - The requested author id
+ * Returns:
+ *      - The SQL result array OR boolean OR string
  * @access public
- * @param   int     The requested author id
- * @return  array   The SQL result array
  */
-function serendipity_fetchAuthor($author) {
+function serendipity_fetchAuthor(int|string $author) : string|bool|iterable {
     global $serendipity;
 
     return serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}authors WHERE " . (is_numeric($author) ? "authorid={$author};" : "username='" . serendipity_db_escape_string($author) . "';"));
@@ -1265,11 +1348,13 @@ function serendipity_fetchAuthor($author) {
 /**
  * Split a filename into basename and extension parts
  *
+ * Args:
+ *      - Filename string
+ * Returns:
+ *      - Array containing the basename and file extension
  * @access public
- * @param   string  Filename
- * @return  array   Return array containing the basename and file extension
  */
-function serendipity_parseFileName($file) {
+function serendipity_parseFileName(string $file) : iterable {
     $x = explode('.', $file);
     if (is_array($x) && count($x) > 1) {
         $suf = array_pop($x);
@@ -1282,13 +1367,15 @@ function serendipity_parseFileName($file) {
 }
 
 /**
- * Track the referer to a specific Entry ID
+ * Track the referrer to a specific Entry ID
  *
+ * Args:
+ *      - Entry ID
+ * Returns:
+ *      - void
  * @access public
- * @param   int     Entry ID
- * @return  null
  */
-function serendipity_track_referrer($entry = 0) {
+function serendipity_track_referrer(int $entry = 0) : void {
     global $serendipity;
 
     // Tracking disabled.
@@ -1310,12 +1397,12 @@ function serendipity_track_referrer($entry = 0) {
         $url_parts  = parse_url($_SERVER['HTTP_REFERER']);
         $host_parts = explode('.', $url_parts['host']);
         if (!$url_parts['host'] ||
-            strstr($url_parts['host'], $_SERVER['SERVER_NAME'])) {
+            str_contains($url_parts['host'], $_SERVER['SERVER_NAME'])) {
             return;
         }
 
         foreach($serendipity['_blockReferer'] AS $idx => $hostname) {
-            if (@strstr($url_parts['host'], $hostname)) {
+            if (@str_contains($url_parts['host'], $hostname)) {
                 return;
             }
         }
@@ -1379,10 +1466,13 @@ function serendipity_track_referrer($entry = 0) {
  * "Bad" referrers, that only occurred once to your entry are put within a
  * SUPPRESS database table. Entries contained there will be cleaned up eventually.
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
  * @access public
- * @return null
  */
-function serendipity_track_referrer_gc() {
+function serendipity_track_referrer_gc() : void {
     global $serendipity;
 
     $ts       = serendipity_db_get_interval('ts');
@@ -1394,13 +1484,15 @@ function serendipity_track_referrer_gc() {
 /**
  * Track a URL used in your Blog (Exit-Tracking)
  *
+ * Args:
+ *      - Name of the DB table where to store the link (exits|referrers)
+ *      - The URL to track
+ *      - The Entry ID to relate the track to
+ * Returns:
+ *      - void
  * @access public
- * @param  string   Name of the DB table where to store the link (exits|referrers)
- * @param  string   The URL to track
- * @param  int      The Entry ID to relate the track to
- * @return null
  */
-function serendipity_track_url($list, $url, $entry_id = 0) {
+function serendipity_track_url(string $list, string $url, int $entry_id = 0) : void {
     global $serendipity;
 
     $url_parts = parse_url($url);
@@ -1454,43 +1546,49 @@ function serendipity_track_url($list, $url, $entry_id = 0) {
 /**
  * Display the list of top referrers
  *
+ * Args:
+ *      - Number of referrers to show
+ *      - Whether to use HTML links for URLs
+ *      - Interval for which the top referrers are aggregated
+ * Returns:
+ *      - List string of Top referrers
  * @access public
  * @see serendipity_displayTopUrlList()
- * @param  int      Number of referrers to show
- * @param  boolean  Whether to use HTML links for URLs
- * @param  int      Interval for which the top referrers are aggregated
- * @return string   List of Top referrers
  */
-function serendipity_displayTopReferrers($limit = 10, $use_links = true, $interval = 7) {
+function serendipity_displayTopReferrers(int $limit = 10, bool $use_links = true, int $interval = 7) : string {
     return serendipity_displayTopUrlList('referrers', $limit, $use_links, $interval);
 }
 
 /**
  * Display the list of top exits
  *
+ * Args:
+ *      - Number of exits to show
+ *      - Whether to use HTML links for URLs
+ *      - Interval for which the top exits are aggregated
+ * Returns:
+ *      - List string of Top exits
  * @access public
  * @see serendipity_displayTopUrlList()
- * @param  int      Number of exits to show
- * @param  boolean  Whether to use HTML links for URLs
- * @param  int      Interval for which the top exits are aggregated
- * @return string   List of Top exits
  */
-function serendipity_displayTopExits($limit = 10, $use_links = true, $interval = 7) {
+function serendipity_displayTopExits(int $limit = 10, bool $use_links = true, int $interval = 7) : string {
     return serendipity_displayTopUrlList('exits', $limit, $use_links, $interval);
 }
 
 /**
  * Display HTML output data of a Exit/Referrer list
  *
+ * Args:
+ *      - Name of the DB table to show data from (exits|referrers)
+ *      - Whether to use HTML links for URLs
+ *      - Interval for which the top exits are aggregated
+ * Returns:
+ *      - Output string
  * @access public
  * @see serendipity_displayTopExits()
  * @see serendipity_displayTopReferrers()
- * @param   string      Name of the DB table to show data from (exits|referrers)
- * @param  boolean  Whether to use HTML links for URLs
- * @param  int      Interval for which the top exits are aggregated
- * @return
  */
-function serendipity_displayTopUrlList($list, $limit, $use_links = true, $interval = 7) {
+function serendipity_displayTopUrlList(string $list, string $limit, bool $use_links = true, int $interval = 7) : string {
     global $serendipity;
 
     if ($limit) {
@@ -1524,15 +1622,15 @@ function serendipity_displayTopUrlList($list, $limit, $use_links = true, $interv
             if ($use_links) {
                 $output .= sprintf(
                     '<span class="block_level"><a href="%1$s://%2$s" title="%2$s" >%2$s</a> (%3$s) </span>',
-                    serendipity_specialchars($row['scheme']),
-                    serendipity_specialchars($row['host']),
-                    serendipity_specialchars($row['total'])
+                    htmlspecialchars($row['scheme']),
+                    htmlspecialchars($row['host']),
+                    htmlspecialchars($row['total'])
                 );
             } else {
                 $output .= sprintf(
                     '<span class="block_level">%1$s (%2$s) </span>',
-                    serendipity_specialchars($row['host']),
-                    serendipity_specialchars($row['total'])
+                    htmlspecialchars($row['host']),
+                    htmlspecialchars($row['total'])
                 );
             }
         }
@@ -1544,11 +1642,13 @@ function serendipity_displayTopUrlList($list, $limit, $use_links = true, $interv
 /**
  * Return either HTML or XHTML code for an '<a target...> attribute.
  *
+ * Args:
+ *      - The target string to use (_blank, _parent, ...)
+ * Returns:
+ *      - HTML string containing the valid markup for the target attribute
  * @access public
- * @param   string  The target to use (_blank, _parent, ...)
- * @return  string  HTML string containing the valid markup for the target attribute.
  */
-function serendipity_xhtml_target($target) {
+function serendipity_xhtml_target(string $target) : string {
     global $serendipity;
 
     if ($serendipity['enablePopup'] != true)
@@ -1560,12 +1660,14 @@ function serendipity_xhtml_target($target) {
 /**
  * Parse a URI portion to return which RSS Feed version was requested
  *
+ * Args:
+ *      - Name string of the core URI part OR NULL
+ *      - File extension name string of the URI OR NULL
+ * Returns:
+ *      - RSS feed type/version
  * @access public
- * @param  string  Name of the core URI part
- * @param  string  File extension name of the URI
- * @return string  RSS feed type/version
  */
-function serendipity_discover_rss($name, $ext) {
+function serendipity_discover_rss(?string $name, ?string $ext) : iterable {
     static $default = '2.0';
 
     /* Detect type */
@@ -1588,6 +1690,8 @@ function serendipity_discover_rss($name, $ext) {
         $ver = 'rdf';
     } elseif ($ext == 'rss1') {
         $ver = '1.0';
+    } elseif ($ext == 'xsl' || $ext == 'xslt') {
+        $ver = 'xsl';
     } else {
         $ver = $default;
     }
@@ -1598,26 +1702,30 @@ function serendipity_discover_rss($name, $ext) {
 /**
  * Check whether an input string contains "evil" characters used for HTTP Response Splitting
  *
+ * Args:
+ *      - String to check for evil characters
+ * Returns:
+ *      - Return true on success, false on failure
  * @access public
- * @param   string      String to check for evil characters
- * @return  boolean     Return true on success, false on failure
  */
-function serendipity_isResponseClean($d) {
+function serendipity_isResponseClean(string $d) : bool {
     return (strpos($d, "\r") === false && strpos($d, "\n") === false && stripos($d, "%0A") === false && stripos($d, "%0D") === false);
 }
 
 /**
  * Create a new Category
  *
+ * Args:
+ *      - The new category name string
+ *      - The new category description string
+ *      - The category owner integer id
+ *      - An icon string representing the category
+ *      - A possible parentid integer to a category
+ * Returns:
+ *      - The new category's ID integer
  * @access public
- * @param   string  The new category name
- * @param   string  The new category description
- * @param   int     The category owner
- * @param   string  An icon representing the category
- * @param   int     A possible parentid to a category
- * @return  int     The new category's ID
  */
-function serendipity_addCategory($name, $desc, $authorid, $icon, $parentid) {
+function serendipity_addCategory(string $name, string $desc, int $authorid, string $icon, int $parentid) : int {
     global $serendipity;
 
     $query = "INSERT INTO {$serendipity['dbPrefix']}category
@@ -1648,30 +1756,32 @@ function serendipity_addCategory($name, $desc, $authorid, $icon, $parentid) {
 /**
  * Update an existing category
  *
+ * Args:
+ *      - Category ID integer to update
+ *      - The new category name string
+ *      - The new category description string
+ *      - The new category owner integer ID
+ *      - The new category icon string
+ *      - The new category parent ID integer
+ *      - The new category sort order integer
+ *      - The new category subcat hiding string
+ * Returns:
+ *      - void
  * @access public
- * @param   int     Category ID to update
- * @param   string  The new category name
- * @param   string  The new category description
- * @param   int     The new category owner
- * @param   string  The new category icon
- * @param   int     The new category parent ID
- * @param   int     The new category sort order
- * @param   int     The new category subcat hiding
- * @return null
  */
-function serendipity_updateCategory($cid, $name, $desc, $authorid, $icon, $parentid, $sort_order = 0, $hide_sub = 0, $admin_category = '') {
+function serendipity_updateCategory(int $cid, string $name, string $desc, int $authorid, string $icon, int $parentid, int $sort_order = 0, int $hide_sub = 0, string $admin_category = '') : void {
     global $serendipity;
 
     $query = "UPDATE {$serendipity['dbPrefix']}category
                     SET category_name = '". serendipity_db_escape_string($name) ."',
                         category_description = '". serendipity_db_escape_string($desc) ."',
-                        authorid = ". (int)$authorid .",
+                        authorid = ". $authorid .",
                         category_icon = '". serendipity_db_escape_string($icon) ."',
-                        parentid = ". (int)$parentid .",
-                        sort_order = ". (int)$sort_order . ",
-                        hide_sub = ". (int)$hide_sub . "
-                    WHERE categoryid = ". (int)$cid ."
-                        $admin_category";
+                        parentid = ". $parentid .",
+                        sort_order = ". $sort_order . ",
+                        hide_sub = ". $hide_sub . "
+                    WHERE categoryid = ". $cid .
+                        serendipity_db_escape_string($admin_category);
     serendipity_db_query($query);
     serendipity_plugin_api::hook_event('backend_category_update', $cid);
 
@@ -1687,16 +1797,28 @@ function serendipity_updateCategory($cid, $name, $desc, $authorid, $icon, $paren
 
 /**
  * Ends a session, so that while a file requests happens, Serendipity can work on in that session
+ *
+ * Args:
+ *      -
+ * Returns:
+ *      - TRUE
+ * @access public
  */
-function serendipity_request_start() {
+function serendipity_request_start() : true {
     @session_write_close();
     return true;
 }
 
 /**
  * Continues a session after a file request
+ *
+ * Args:
+ *      -
+ * Returns:
+ *      - boolean result
+ * @access public
  */
-function serendipity_request_end() {
+function serendipity_request_end() : bool {
     if (!headers_sent()) {
         session_start();
         return true;
@@ -1709,21 +1831,25 @@ if (!function_exists('microtime_float')) {
     /**
      * Get current timestamp as microseconds
      *
+     * Args:
+     * Returns:
+     *      - The time float
      * @access public
-     * @return float    the time
      */
-    function microtime_float() {
+    function microtime_float() : float {
         list($usec, $sec) = explode(' ', microtime());
-        return ((float)$usec + (float)$sec);
+        return ((float) $usec + (float) $sec);
     }
 }
 
 /**
  * Returns variable message items for sprintf parameter data for spot msg highlights
  *
+ * Args:
+ *      - The string variable
+ * Returns:
+ *      - The spot msg highlight span'ed string
  * @access public
- * @param   string  The string variable
- * @return  string  The highlight span'ed string
  */
 function serendipity_spotify(string $var): string {
     return "<span class=\"msg-spot\">$var</span>";
@@ -1732,13 +1858,15 @@ function serendipity_spotify(string $var): string {
 /**
  * Converts Array data to be used as a GET string
  *
+ * Args:
+ *      - The input array
+ *      - An array prefix string OR NULL
+ *      - How to join the array by string char
+ * Returns:
+ *      - The HTTP query string
  * @access public
- * @param   array   The input array
- * @param   string  An array prefix
- * @param   string  How to join the array
- * @return  string  The HTTP query string
  */
-function serendipity_build_query(&$array, $array_prefix = null, $comb_char = '&amp;') {
+function serendipity_build_query(iterable &$array, ?string $array_prefix = null, string $comb_char = '&amp;') : string {
     $ret = array();
     if (!is_array($array)) {
         return '';
@@ -1762,13 +1890,15 @@ function serendipity_build_query(&$array, $array_prefix = null, $comb_char = '&a
 /**
  * Picks a specified key from an array and returns it
  *
+ * Args:
+ *      - The input array
+ *      - The key string to search for
+ *      - The default value string to return when not found
+ * Returns:
+ *      - Value string
  * @access public
- * @param   array   The input array
- * @param   string  The key to search for
- * @param   string  The default value to return when not found
- * @return null
  */
-function &serendipity_pickKey(&$array, $key, $default) {
+function &serendipity_pickKey(?iterable &$array, string $key, string $default) : string|int {
     if (!is_array($array)) {
         return $default;
     }
@@ -1781,6 +1911,7 @@ function &serendipity_pickKey(&$array, $key, $default) {
     }
     foreach($array AS $child) {
         if (is_array($child) && isset($child[$key]) && !empty($child[$key])) {
+            #var_dump($child[$key]);
             return $child[$key];
         }
     }
@@ -1790,11 +1921,15 @@ function &serendipity_pickKey(&$array, $key, $default) {
 
 /**
  * Retrieves the current timestamp but only deals with minutes to optimize Database caching
+ *
+ * Args:
+ *      -
+ * Returns:
+ *      - timestamp integer
  * @access public
- * @return timestamp
  * @author Matthew Groeninger
  */
-function serendipity_db_time() {
+function serendipity_db_time() : int {
     static $ts    = null;
     static $cache = 300; // Seconds to cache
 
@@ -1807,10 +1942,15 @@ function serendipity_db_time() {
 }
 
 /**
- * Inits the logger.
- * @return null
+ * Inits the logger
+ *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
+ * @access public
  */
-function serendipity_initLog() {
+function serendipity_initLog() : void {
     global $serendipity;
 
     if (isset($serendipity['logLevel']) && $serendipity['logLevel'] !== 'Off') {
@@ -1825,9 +1965,14 @@ function serendipity_initLog() {
 
 /**
  * Check whether a given URL is valid to be locally requested
- * @return boolean
+ *
+ * Args:
+ *      - The URL string
+ * Returns:
+ *      - boolean
+ * @access public
  */
-function serendipity_url_allowed($url) {
+function serendipity_url_allowed(string $url) : bool {
     global $serendipity;
 
     if ($serendipity['allowLocalURL']) {
@@ -1866,7 +2011,7 @@ use voku\cache\Cache;
 // Configure voku/simple-cache to use templates_c as directory for the opcache files, the fallback
 // when Memcached and Redis are not used. Returns the configured cache object. Used internally by
 // the other cache functions, you most likely never need to call this.
-function serendipity_setupCache() {
+function serendipity_setupCache() : object {
     $cacheManager = new \voku\cache\CacheAdapterAutoManager();
 
     $cacheManager->addAdapter(
@@ -1899,20 +2044,21 @@ function serendipity_setupCache() {
     return $cache;
 }
 
-function serendipity_cleanCache() {
+function serendipity_cleanCache() : bool {
     $cache = serendipity_setupCache();
     return $cache->removeAll();
 }
 
-function serendipity_cacheItem($key, $item, $ttl = 3600) {
+function serendipity_cacheItem(string $key, string $item, int $ttl = 3600) : bool {
     $cache = serendipity_setupCache();
     return $cache->setItem($key, $item, $ttl);
 }
 
-function serendipity_getCacheItem($key) {
+function serendipity_getCacheItem(string $key) : mixed {
     $cache = serendipity_setupCache();
     return $cache->getItem($key);
 }
 
 define('serendipity_FUNCTIONS_LOADED', true);
+
 /* vim: set sts=4 ts=4 expandtab : */

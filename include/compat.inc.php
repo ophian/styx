@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -9,7 +11,7 @@ if (IN_serendipity !== true) {
 $serendipity = array();
 
 if (!defined('PATH_SEPARATOR')) {
-    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+    if (str_starts_with(strtoupper(PHP_OS), 'WIN')) {
         define('PATH_SEPARATOR', ';');
     } else {
         define('PATH_SEPARATOR', ':');
@@ -17,7 +19,7 @@ if (!defined('PATH_SEPARATOR')) {
 }
 
 if (!defined('DIRECTORY_SEPARATOR')) {
-    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+    if (str_starts_with(strtoupper(PHP_OS), 'WIN')) {
         define('DIRECTORY_SEPARATOR', '\\');
     } else {
         define('DIRECTORY_SEPARATOR', '/');
@@ -28,11 +30,13 @@ if (!defined('DIRECTORY_SEPARATOR')) {
  * Create a snapshot of the current memory usage
  *
  * This functions makes use of static function properties to store the last used memory and the intermediate snapshots.
+ * Args:
+ *      - string label for debugging output
+ * Return:
+ *      - whether the snapshot could be evaluated
  * @access public
- * @param  string   A label for debugging output
- * @return boolean  Return whether the snapshot could be evaluated
  */
-function memSnap($tshow = '') {
+function memSnap(string $tshow = '') : string|bool {
     static $avail    = null;
     static $show     = true;
     static $memUsage = 0;
@@ -64,11 +68,10 @@ function memSnap($tshow = '') {
 /**
  * Make fatal Errors readable
  *
+ * Throws constant error string as Exception
  * @access public
- *
- * @return string  constant error string as Exception
  */
-function fatalErrorShutdownHandler() {
+function fatalErrorShutdownHandler() : void {
     $last_error = @error_get_last();
     if (@$last_error['type'] === E_ERROR) {
         // fatal error send to
@@ -79,11 +82,13 @@ function fatalErrorShutdownHandler() {
 /**
  * Make readable error types for debugging error_reporting levels
  *
+ * Args:
+ *      - Integer error value type
+ * Return:
+ *      - constant error string
  * @access public
- * @param  int     error value
- * @return string  constant error string
  */
-function debug_ErrorLevelType($type) {
+function debug_ErrorLevelType(int $type) : string {
     switch($type)
     {
         case E_ERROR: // 1 //
@@ -129,12 +134,14 @@ function debug_ErrorLevelType($type) {
  * and the problems it causes with internal optimisations, it has now been deprecated. Instead,
  * a debugger should be used to retrieve information on local variables at the error site.
  *
+ * Args:
+ *      Standard
+ * Return:
+ *      Boolean
  * @access public
- * @param  standard
- * @return null
  */
 if (!function_exists('errorToExceptionHandler')) {
-    function errorToExceptionHandler($errNo, $errStr, $errFile = '', $errLine = NULL, $errContext = array()) {
+    function errorToExceptionHandler(string|int $errNo, string $errStr, string $errFile = '', string|int|null $errLine = NULL, iterable $errContext = array()) : bool {
         global $serendipity;
 
         // By default, we will continue our process flow, unless exit is true:
@@ -193,14 +200,14 @@ if (!function_exists('errorToExceptionHandler')) {
          * (string) 'debug'     Developer build, specifically enabled.
          */
         $debug_note = ($serendipity['production'] !== 'debug' && !in_array($type, ['Warning', 'Notice', 'Catchable']))
-            ? "<br />\n".'For more details set $serendipity[\'production\'] = \'debug\' in serendipity_config_local.inc.php to receive a full stack-trace.'
+            ? "<br>\n".'For more details set $serendipity[\'production\'] = \'debug\' in serendipity_config_local.inc.php to receive a full stack-trace.'
             : '';
         $head = '';
 
         // Debug environments shall be verbose... (with the exception of warnings we'd like to suppress, while our workflow is build on it!)
         if ($serendipity['production'] === 'debug') {
             if (!in_array($type, ['Warning', 'Notice', 'Catchable'])) {
-                echo " == ERROR-REPORT (DEBUGGING ENABLED) == <br />\n";
+                echo " == ERROR-REPORT (DEBUGGING ENABLED) == <br>\n";
                 echo " == (When you copy this debug output to a forum or other places, make sure to remove your username/passwords, as they may be contained within function calls) == \n";
                 echo "<pre>\n";
                 // trying to be as detailed as possible - but avoid using args containing sensible data like passwords
@@ -223,7 +230,7 @@ if (!function_exists('errorToExceptionHandler')) {
             if (!isset($serendipity['dbConn']) || !$serendipity['dbConn'] || $exit) {
                 echo '<p>'.$head.'</p><p><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ' on line ' . $errLine . '.' . $debug_note . "</p>\n";
             } else {
-                if (!empty($debug_note) && false !== strpos($errStr, $debug_note)) echo $head . $debug_note."\n\n";
+                if (!empty($debug_note) && str_contains($errStr, $debug_note)) echo $head . $debug_note."\n\n";
                 // die into Exception, else echo to page top (if not caught within a HTML element like select) and resume
                 if (!in_array($type, ['Warning', 'Notice', 'Catchable'])) {
                     echo '<pre style="white-space: pre-line;">'."\n\n";
@@ -254,11 +261,12 @@ if (!function_exists('errorToExceptionHandler')) {
                 }
             }
         }
+        return false;
     }
 }
 
 if (!function_exists('file_get_contents')) {
-    function file_get_contents($filename, $use_include_path = 0) {
+    function file_get_contents(string $filename, bool $use_include_path = false) : string|false {
         $file = fopen($filename, 'rb', $use_include_path);
         $data = '';
         if ($file) {
@@ -333,11 +341,13 @@ if (empty($_SERVER['REQUEST_URI'])) {
 /**
  * Translate values coming from the Database into native PHP variables to detect boolean values.
  *
+ * Args:
+ *      - input value string
+ * Return:
+ *      - String or boolean output value
  * @access public
- * @param   string      input value
- * @return  boolean     boolean output value
  */
-function serendipity_get_bool($item) {
+function serendipity_get_bool(string $item) : string|bool {
     static $translation = array('true'  => true,
                                 'false' => false);
 
@@ -349,55 +359,29 @@ function serendipity_get_bool($item) {
 }
 
 /**
- * Get the current charset
- *
- * @return  string      Empty string or "UTF-8/".
- */
-function serendipity_getCharset() {
-    global $serendipity;
-
-    $charset = $serendipity['charset'] ?? 'UTF-8/';
-    if (!empty($_POST['charset'])) {
-        if ($_POST['charset'] == 'UTF-8/') {
-            $charset = 'UTF-8/';
-        } else {
-            $charset = '';
-        }
-    }
-
-    if (!empty($serendipity['POST']['charset'])) {
-        if ($serendipity['POST']['charset'] == 'UTF-8/') {
-            $charset = 'UTF-8/';
-        } else {
-            $charset = '';
-        }
-    }
-    return $charset;
-}
-
-/**
  * Detect the language of the User Agent/Visitor
  *
  * This function needs to be included at this point so that it is globally available, also
  * during installation.
  *
+ * Args:
+ *      - toggle whether to include the language that has been autodetected.
+ * Return:
+ *      - the first detected language name or NULL
  * @access public
- * @param   boolean     Toggle whether to include the language that has been autodetected.
- * @return  string      Return the first detected language name
  */
-function serendipity_detectLang($use_include = false) {
+function serendipity_detectLang($use_include = false) : ?string {
     global $serendipity;
 
     $supported_languages = array_keys($serendipity['languages']);
     $possible_languages  = explode(',', ($_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? ''));
     if (is_array($possible_languages)) {
-        $charset = serendipity_getCharset();
 
         foreach($possible_languages AS $index => $lang) {
             $preferred_language = strtolower(preg_replace('@^([^\-_;]*)_?.*$@', '\1', $lang));
             if (in_array($preferred_language, $supported_languages)) {
                 if ($use_include) {
-                    @include_once(S9Y_INCLUDE_PATH . 'lang/' . $charset . 'serendipity_lang_' . $preferred_language . '.inc.php');
+                    @include_once(S9Y_INCLUDE_PATH . 'lang/serendipity_lang_' . $preferred_language . '.inc.php');
                     $serendipity['autolang'] = $preferred_language;
                 }
                 return $preferred_language;
@@ -411,23 +395,26 @@ function serendipity_detectLang($use_include = false) {
 /**
  * Get the current serendipity version, minus the "-alpha", "-beta" or whatever tags
  *
+ * Args:
+ *      - Serendipity version string
+ * Returns:
+ *      - Serendipity version string, stripped of unneeded parts OR NULL
  * @access public
- * @param  string   Serendipity version
- * @return string   Serendipity version, stripped of unneeded parts
  */
-function serendipity_getCoreVersion($version) {
+function serendipity_getCoreVersion(string $version) : ?string {
     return preg_replace('@^([0-9\.]+).*$@', '\1', $version);
 }
 
 /**
  * Make Serendipity emit an error message and terminate the script
  *
+ * Args:
+ *      - HTML error to die with
+ * Returns:
+ *      - By null is for Maintenance mode
  * @access public
- * @param   string  HTML error to die with
- * @param   bool    By null is for Maintenance mode
- * @return null
  */
-function serendipity_die($html, $error = true) {
+function serendipity_die(string $html, bool $error = true) : void {
     $charset = !defined('LANG_CHARSET') ? 'UTF-8' : LANG_CHARSET;
     $title   = $error ? 'Fatal Error' : '503 Service unavailable';
     $name    = $error ? 'Error' : 'Maintenance';
@@ -440,7 +427,7 @@ function serendipity_die($html, $error = true) {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="text/html; charset=' . $charset . '" http-equiv="Content-Type">
-    <meta name="robots" content="noindex,nofollow" />
+    <meta name="robots" content="noindex,nofollow">
 
     <title>' . $title . '</title>
     <style>
@@ -487,41 +474,41 @@ if (function_exists('date_default_timezone_get')) {
 
 /**
  * Serendipity htmlspecialchars mapper
- * ... not yet using PHP 8.1.0 default flags ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401 - convert for Styx 5.0
+ * Deprecated with Styx 5.0. Use htmlspecialchars() like such with named arguments ($string, encoding: LANG_CHARSET, double_encode: false)
  */
-function serendipity_specialchars($string, $flags = null, $encoding = LANG_CHARSET, $double_encode = true) {
-    $flags = ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE;
+function serendipity_specialchars(string $string, ?int $flags = null, ?string $encoding = LANG_CHARSET, bool $double_encode = true) : string {
+    $flags = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401; // default since PHP 8.1.0
     if (!$encoding || $encoding == 'LANG_CHARSET') {
         // if called before LANG_CHARSET is set, we need to set a fallback encoding to not throw a PHP warning that
         // would kill s9y blogs sometimes (https://github.com/s9y/Serendipity/issues/236)
         $encoding = 'UTF-8';
     }
 
-    return htmlspecialchars((string)$string, $flags, $encoding, $double_encode);
+    return htmlspecialchars($string, $flags, $encoding, $double_encode);
 }
 
 /**
  * Serendipity htmlentities mapper
  * @see serendipity_specialchars()
  */
-function serendipity_entities($string, $flags = null, $encoding = LANG_CHARSET, $double_encode = true) {
-    $flags = ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE;
+function serendipity_entities(string $string, ?int $flags = null, ?string $encoding = LANG_CHARSET, bool $double_encode = true) : string {
+    $flags = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401; // default since PHP 8.1.0
     if (!$encoding || $encoding == 'LANG_CHARSET') {
         $encoding = 'UTF-8';
     }
-    return htmlentities((string)$string, $flags, $encoding, $double_encode);
+    return htmlentities($string, $flags, $encoding, $double_encode);
 }
 
 /**
  * Serendipity html_entity_decode mapper
  * @see serendipity_specialchars()
  */
-function serendipity_entity_decode($string, $flags = null, $encoding = LANG_CHARSET) {
-    $flags = ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE;
+function serendipity_entity_decode(string $string, ?int $flags = null, ?string $encoding = LANG_CHARSET) : string {
+    $flags = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401; // default since PHP 8.1.0
     if (!$encoding || $encoding == 'LANG_CHARSET') {
         $encoding = 'UTF-8';
     }
-    return html_entity_decode((string)$string, $flags, $encoding);
+    return html_entity_decode($string, $flags, $encoding);
 }
 
 /* vim: set sts=4 ts=4 expandtab : */

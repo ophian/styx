@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -56,7 +58,7 @@ function autofix_thisimageid($entryid, $oid, $iid, $fname, $fvalue, $iname, $aut
         $str = (is_numeric($nid) && $oid !== $nid) ? str_replace(["<!-- s9ymdb:$oid -->"], ["<!-- s9ymdb:$nid -->"], $im[0]) : $im[0];
         $old = htmlspecialchars($im[0]); // for display only
         $new = htmlspecialchars($str); // for display only
-        $table = false !== strpos('content', $fname) ? 'staticpages' : 'entries';
+        $table = str_contains('content', $fname) ? 'staticpages' : 'entries';
         if ($autofix !== true) {
             return "Autofix [submit] will UPDATE $table TABLE('$fname') field and exchange old string: <pre>$old</pre> with new: <pre>$new</pre>";
         } else {
@@ -86,7 +88,7 @@ function image_inuse($iid, $eid, $im, $entry, $field, $path, $name) {
     $matches = img_path($iid, [$entry[$field]]);
 
     // Only care about the full s9ymdb ID plus the image src string and check if the path matches to the blog (to avoid possible others from same machine)
-    if (!empty($matches[0]) && false !== strpos($matches[0], $path)) {
+    if (!empty($matches[0]) && str_contains($matches[0], $path)) {
         $o = strip_to_array($matches[0], $path);
         $o['dbiname'] = $name;
         $o['bsename'] = strtok(basename($o['src']), '.');
@@ -95,14 +97,14 @@ function image_inuse($iid, $eid, $im, $entry, $field, $path, $name) {
         // Now (check the ID to match the image DB media ID OR having an unmatching src path against the db path/name value) OR
         //     (check the image name against the basename source name AND to comply with the blogs path (i.e. in cases you have a bunch/block of image(s) with a different path copied by another (local) blog))
         $_image = check_by_image_db($o['s9ymdb']);
-        if ((!empty($o['s9ymdb']) && $iid != $o['s9ymdb'] || false === strpos($o['src'], $_image[0]['path'].$_image[0]['name'])) || (!empty($o['src']) && $name != $o['bsename'] && false !== strpos($o['src'], $path))) {
+        if ((!empty($o['s9ymdb']) && $iid != $o['s9ymdb'] || !str_contains($o['src'], $_image[0]['path'].$_image[0]['name'])) || (!empty($o['src']) && $name != $o['bsename'] && str_contains($o['src'], $path))) {
             if (!isset($_loop)) {
                 echo '<span class="msg_hint"><span class="icon-attention-circled" aria-hidden="true"></span> ' . MLORPHAN_MTASK_MAIN_PATTERN_NAME_WARNING . "</span>\n";
             }
             $ret = autofix_thisimageid($eid, $iid, $_image[0]['id'], $field, $entry[$field], $o['bsename'], (isset($serendipity['POST']['mlopFormAutoFix']) && $serendipity['POST']['mlopFormAutoFix'] = 'fixentries'));
             if (is_string($ret)) echo $ret; // output the possible replacement
             if (is_bool($ret)) {
-                $table = false !== strpos('content', $field) ? 'staticpages' : 'entries';
+                $table = str_contains('content', $field) ? 'staticpages' : 'entries';
                 $o['return'] = $ret;
                 $o['autofix'] = "Good news! The problematic media ID: \"{$o['s9ymdb']}\" for \"{$o['src']}\" was automatically fixed in your database: \"$table\" entry field: \"$field\" in entry ID: \"$eid\".";
             }
@@ -241,7 +243,7 @@ foreach($_images AS $go) {
         $e = serendipity_db_query("SELECT id, title, body, extended FROM `{$serendipity['dbPrefix']}entries` WHERE body LIKE '%<!-- s9ymdb:{$go['id']} -->%' OR extended LIKE '%<!-- s9ymdb:{$go['id']} -->%'", false, 'assoc');
         if (!empty($e[0])) {
             $expath = img_path($go['id'], [$e[0]['body'], $e[0]['extended']]);
-            if (!empty($expath[2]) && false === strpos($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'], $expath[2])) {
+            if (!empty($expath[2]) && !str_contains($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'], $expath[2])) {
                 $alerts[] = '<b>'.$go['name'] .'</b> '.MLORPHAN_MTASK_RESPECTIVELY.' ( <b>s9ymdb: '.$go['id'].'</b> ) in Entry ID: ' . $e[0]['id'].' - "<em>'. $e[0]['title'] . '</em>". ' . sprintf(MLORPHANS_MTASK_EXPATH, $expath[2]);
                 $pckeys[] = $go['id'];
                 $exclude .= $go['id'].', ';
@@ -263,7 +265,7 @@ foreach($_images AS $go) {
         $s = serendipity_db_query("SELECT id, pagetitle, content, pre_content FROM `{$serendipity['dbPrefix']}staticpages` WHERE content LIKE '%<!-- s9ymdb:{$go['id']} -->%' OR pre_content LIKE '%<!-- s9ymdb:{$go['id']} -->%'", false, 'assoc');
         if (!empty($s[0])) {
             $expath = img_path($go['id'], [$s[0]['content'], $s[0]['pre_content']]);
-            if (!empty($expath[2]) && false === strpos($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'], $expath[2])) {
+            if (!empty($expath[2]) && !str_contains($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'], $expath[2])) {
                 $alerts[] = '<span style="color:blue;color:var(--color-alert-info-text)"><b>'.$go['name'] .'</b> ( s9ymdb: '.$go['id'].' ) in Staticpage ID: ' . $s[0]['id'].' - "<em>'. $s[0]['pagetitle'] . '</em>". ' . sprintf(MLORPHANS_MTASK_EXPATH, $expath[2]).'</span>';
                 $pckeys[] = $go['id'];
                 $exclude .= $go['id'].', ';

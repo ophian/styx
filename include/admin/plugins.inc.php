@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -68,8 +70,8 @@ if (isset($_GET['serendipity']['plugin_to_move']) && isset($_GET['submit']) && s
         /* Swap the one we're moving with the one that's in the spot we're moving to */
         $tmp = $plugins[$idx_to_move]['sort_order'];
 
-        $plugins[$idx_to_move]['sort_order'] = (int)$plugins[$idx_to_move + ($_GET['submit'] == 'move down' ? 1 : -1)]['sort_order'];
-        $plugins[$idx_to_move + ($_GET['submit'] == 'move down' ? 1 : -1)]['sort_order'] = (int)$tmp;
+        $plugins[$idx_to_move]['sort_order'] = (int) $plugins[$idx_to_move + ($_GET['submit'] == 'move down' ? 1 : -1)]['sort_order'];
+        $plugins[$idx_to_move + ($_GET['submit'] == 'move down' ? 1 : -1)]['sort_order'] = (int) $tmp;
 
         /* Update table */
         foreach($plugins AS $plugin) {
@@ -101,9 +103,9 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         $plugin->performConfig($bag);
     }
 
-    $name    = serendipity_specialchars($bag->get('name'));
-    $desc    = serendipity_specialchars($bag->get('description'));
-    $license = serendipity_specialchars($bag->get('license'));
+    $name    = htmlspecialchars($bag->get('name') ?? '');
+    $desc    = htmlspecialchars($bag->get('description') ?? '');
+    $license = htmlspecialchars($bag->get('license') ?? ''); // might be a non set, so check string type
 
     $documentation = $bag->get('website');
     $config_names  = $bag->get('configuration');
@@ -234,7 +236,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     }
 
     if (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'UPGRADE') {
-        $classes = array_merge($classes, serendipity_plugin_api::enum_plugin_classes(!($serendipity['GET']['type'] === 'event'))); // normally fetches case 'sidebar'
+        $classes = array_merge($classes, serendipity_plugin_api::enum_plugin_classes(!($serendipity['GET']['type'] === 'event'))); // == bool false, normally fetches case 'sidebar' plugins
         $data['type'] = 'both';
     }
     usort($classes, 'serendipity_pluginListSort');
@@ -262,7 +264,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                 $class_data['upgrade_version'] = '';
             }
 
-            $_ptype = $foreignPlugins['pluginstack'][$class_data['name']]['plugintype'] ?? $_type; // Gotcha! Now also matches core sidebar plugins!!
+            $_ptype = $foreignPlugins['pluginstack'][$class_data['name']]['plugintype'] ?? $_type; // Gotcha! Now also matches core sidebar plugins !!
             // 1st param $plugin object is returned if a plugin is NOT a core only plugin
             $props  = serendipity_plugin_api::setPluginInfo($plugin, $pluginFile, $bag, $class_data, 'local', $_ptype);
 
@@ -285,6 +287,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             }
             // Make if/or better readable
             $upgrade = false;
+            // Here used in this order: version_compare(existing_version, new_version, operator)
             // event plugins upgradeable
             if (version_compare($props['version'], $props['upgrade_version'], '<')) {
                 $upgrade = true;
@@ -421,7 +424,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         foreach ($locals AS $removed) {
             // Check up physically purged sidebar plugins - we don't want to have them in our db list
             // But do we actually care about bundled plugins or plugin dependencies? No, not really, since purging is an expressed user action! ( But we better check the first, though! ;-) )
-            if (!file_exists($removed['plugin_file']) && false === strpos($removed['plugin_file'], 'serendipity_event_')) {
+            if (!file_exists($removed['plugin_file']) && !str_contains($removed['plugin_file'], 'serendipity_event_')) {
                 serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}pluginlist
                                        WHERE plugin_file = '" . serendipity_db_escape_string($removed['plugin_file']) . "'
                                          AND pluginlocation  = 'local'");
@@ -607,11 +610,11 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             /* Load the new plugin */
             $plugin = &serendipity_plugin_api::load_plugin($inst);
             if (!is_object($plugin)) {
-                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <strong>DEBUG:</strong> Plugin ' . serendipity_specialchars($inst) . ' not an object: ' . serendipity_specialchars(print_r($plugin, true))
-                    . '.<br>Input: ' . serendipity_specialchars(print_r($serendipity['GET'], true)) . ".<br><br>\n\n
+                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <strong>DEBUG:</strong> Plugin ' . htmlspecialchars($inst) . ' not an object: ' . htmlspecialchars(print_r($plugin, true))
+                    . '.<br>Input: ' . htmlspecialchars(print_r($serendipity['GET'], true)) . ".<br><br>\n\n
                     This error can happen if a plugin was not properly downloaded (check your plugins directory if the requested plugin
                     was downloaded) or the inclusion of a file failed (permissions?)<br>\n";
-                echo "Backtrace:<br>\n" . nl2br(serendipity_specialchars(implode("\n", $serendipity['debug']['pluginload']))) . "<br></span>\n";
+                echo "Backtrace:<br>\n" . nl2br(htmlspecialchars(implode("\n", $serendipity['debug']['pluginload']))) . "<br></span>\n";
             }
             $bag = new serendipity_property_bag;
             $plugin->introspect($bag);

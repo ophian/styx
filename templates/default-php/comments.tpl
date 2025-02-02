@@ -31,7 +31,7 @@
         <?php endif; ?>
             </span>
             <?php if ($comment['url']): ?>
-                (<a class="comment_source_url" href="<?= serendipity_specialchars($comment['url']) ?>" title="<?= serendipity_specialchars($comment['url']); ?>"><?= HOMEPAGE ?></a>)
+                (<a class="comment_source_url" href="<?= htmlspecialchars($comment['url']) ?>" title="<?= htmlspecialchars($comment['url']); ?>"><?= HOMEPAGE ?></a>)
             <?php endif; ?>
             <?= ON ?>
             <span class="comment_source_date"><?= serendipity_formatTime(DATE_FORMAT_SHORT, $comment['timestamp']); ?></span>

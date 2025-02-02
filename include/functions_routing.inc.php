@@ -1,16 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
 /**
  * The default URI starter route to index.php including uriArguments
+ *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
+ * @access public
  */
-function serveIndex() {
+function serveIndex() : void {
     global $serendipity;
 
-    $serendipity['view'] = (false === strpos($_SERVER['QUERY_STRING'], 'frontpage')) ? 'start' : 'entries';
+    $serendipity['view'] = !str_contains($_SERVER['QUERY_STRING'], 'frontpage') ? 'start' : 'entries';
 
     if ($serendipity['GET']['action'] == 'search') {
         $serendipity['view'] = 'search';
@@ -24,8 +32,14 @@ function serveIndex() {
 
 /**
  * The default 404 fallback if nothing to serve was found
+ *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
+ * @access public
  */
-function serve404() {
+function serve404() : void {
     global $serendipity;
 
     $serendipity['view'] = '404';
@@ -43,8 +57,14 @@ function serve404() {
 
 /**
  * Helper function. Attempt to locate hidden variables within the URI
+ *
+ * Args:
+ *      - Args array
+ * Returns:
+ *      - Args array
+ * @access private
  */
-function locateHiddenVariables($_args) {
+function locateHiddenVariables(iterable $_args) : iterable {
     global $serendipity;
 
     foreach($_args AS $k => $v) {
@@ -52,7 +72,7 @@ function locateHiddenVariables($_args) {
             continue;
         }
 
-        if (isset($v[0]) && $v[0] == 'P') { /* Page */
+        if (isset($v[0]) && str_starts_with($v, 'P')) { /* Page */
             $page = substr($v, 1);
             // check for someone is willingly trying to break Serendipity by adding page orders > P2500.., which could result in breaking db limits - so we set a hard page limit
             if ($page > $serendipity['max_page_limit']) {
@@ -63,7 +83,7 @@ function locateHiddenVariables($_args) {
                 unset($_args[$k]);
                 unset($serendipity['uriArguments'][$k]);
             }
-        } elseif (isset($v[0]) && $v[0] == 'A') { /* Author */
+        } elseif (isset($v[0]) && str_starts_with($v, 'A')) { /* Author */
             $url_author = substr($v, 1);
             if (is_numeric($url_author)) {
                 $serendipity['GET']['viewAuthor'] = $_GET['viewAuthor'] = (int)$url_author;
@@ -73,7 +93,7 @@ function locateHiddenVariables($_args) {
             $serendipity['short_archives'] = true;
             $serendipity['head_subtitle'] .= SUMMARY . ' - ';
             unset($_args[$k]);
-        } elseif (isset($v[0]) && $v[0] == 'C') { /* C.ategory in "/categories/" and "/archives/" like URIs */
+        } elseif (isset($v[0]) && str_starts_with($v, 'C')) { /* C.ategory in "/categories/" and "/archives/" like URIs */
             $cat = substr($v, 1);
             if (is_numeric($cat)) {
                 $serendipity['GET']['category'] = $cat;
@@ -87,8 +107,14 @@ function locateHiddenVariables($_args) {
 
 /**
  * The default URI route to comments.php
+ *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
+ * @access public
  */
-function serveComments() {
+function serveComments() : void {
     global $serendipity;
 
     $serendipity['view'] = 'comments';
@@ -104,7 +130,7 @@ function serveComments() {
             continue;
         }
 
-        if (preg_match('@^(last|f|t|from|to)[\s_\-]*([\d\-/ ]+)$@', strtolower(urldecode($v)), $m)) {
+        if (preg_match('@^(last|f|t|from|to)[\s_\-]*([\d\-/ ]+)$@', serendipity_mb('strtolower', urldecode($v)), $m)) {
             if ($m[1] == 'last') {
                 $usetime = time() - ($m[2]*86400); // this means in the last x days, eg /last_5/ = time() - 432000, NOT equally last x comments ! Oh Oh, Garv!
                 $serendipity['GET']['commentStartTime'] = $usetime;
@@ -132,7 +158,7 @@ function serveComments() {
         }
     }
 
-    $serendipity['head_title'] = COMMENTS_FROM . ' ' . serendipity_specialchars(($serendipity['GET']['viewCommentAuthor'] ?? ''));
+    $serendipity['head_title'] = COMMENTS_FROM . ' ' . htmlspecialchars(($serendipity['GET']['viewCommentAuthor'] ?? ''));
     if (isset($timedesc['start']) && isset($timedesc['end'])) {
         $serendipity['head_title'] .= ' (' . $timedesc['start'] . ' - ' . $timedesc['end'] . ')';
     } elseif (isset($timedesc['start'])) {
@@ -149,8 +175,14 @@ function serveComments() {
 /**
  * The default URI route to serve virtual javascript
  * PAT_JS = serendipity.js | serendipity_admin.js
+ *
+ * Args:
+ *      - Javascript mode backend string
+ * Returns:
+ *      - void
+ * @access public
  */
-function serveJS($js_mode) {
+function serveJS(string $js_mode) : void {
     global $serendipity;
 
     $serendipity['view'] = 'js';
@@ -162,7 +194,7 @@ function serveJS($js_mode) {
     if ($serendipity['CacheControl']) {
         // Note that no-cache does not mean "don't cache". no-cache allows caches to store a response but requires them to revalidate it before reuse.
         // If the sense of "don't cache" that you want is actually "don't store", then no-store is the directive to use.
-        if (!empty($_SERVER['SERVER_SOFTWARE']) && strstr($_SERVER['SERVER_SOFTWARE'], 'LiteSpeed')) {
+        if (!empty($_SERVER['SERVER_SOFTWARE']) && str_contains($_SERVER['SERVER_SOFTWARE'], 'LiteSpeed')) {
             header('Cache-Control: private, max-age=3600, must-revalidate'); // for Hostinger Cache on LiteSpeed
             header('Pragma:'); // for Hostinger Cache on LiteSpeed
         } else {
@@ -199,8 +231,14 @@ function serveJS($js_mode) {
 
 /**
  * The default URI route to serve virtual stylesheets
+ *
+ * Args:
+ *      - unused - passed Argument $matches[1] is just the result of preg_match(PAT_CSS, $uri, $matches)
+ * Returns:
+ *      - void
+ * @access public
  */
-function serveCSS($css_mode) {
+function serveCSS(string $css_mode) : void {
     global $serendipity;
 
     serendipity_smarty_init();
@@ -211,8 +249,14 @@ function serveCSS($css_mode) {
 
 /**
  * The default URI route to serve search requests with uriArguments
+ *
+ * Args:
+ *      -
+ * Returns:
+ *      - Args array OR NULL
+ * @access public
  */
-function serveSearch() {
+function serveSearch() : ?iterable {
     global $serendipity;
 
     $serendipity['view'] = 'search';
@@ -225,7 +269,7 @@ function serveSearch() {
             continue;
         }
 
-        if ($k === array_key_last($_args) && false !== preg_match('@P\d+@', $v)) { /* Page */
+        if ($k === array_key_last($_args) && 1 === preg_match('@P\d+@', $v)) { /* Page */
             $page = substr($v, 1);
             // check for someone is willingly trying to break Serendipity by adding page orders > P2500.., which could result in breaking db limits - so we set a hard page limit
             if ($page > $serendipity['max_page_limit']) {
@@ -244,22 +288,31 @@ function serveSearch() {
     }
 
     $serendipity['GET']['action']     = 'search';
-    $serendipity['GET']['searchTerm'] = urldecode(serendipity_specialchars(strip_tags(implode(' ', $search))));
+    $serendipity['GET']['searchTerm'] = urldecode(htmlspecialchars(strip_tags(implode(' ', $search))));
 
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
+
+    return null;
 }
 
 /**
  * The default URI route to serve virtual author page/entry requests with uriArguments
+ *
+ * Args:
+ *      - matches Array
+ *      - Indicates if applied for multiple authors
+ * Returns:
+ *      - void
+ * @access public
  */
-function serveAuthorPage($matches, $is_multiauth=false) {
+function serveAuthorPage(iterable $matches, bool $is_multiauth = false) : void {
     global $serendipity;
 
     $serendipity['view'] = 'authors';
     unset($serendipity['uInfo']); // see below
 
     if ($is_multiauth) {
-        $serendipity['GET']['viewAuthor'] = serendipity_specialchars(implode(';', $serendipity['POST']['multiAuth']));
+        $serendipity['GET']['viewAuthor'] = htmlspecialchars(implode(';', $serendipity['POST']['multiAuth']));
         $serendipity['uriArguments'][]    = PATH_AUTHORS;
         $serendipity['uriArguments'][]    = serendipity_db_escape_string($serendipity['GET']['viewAuthor']) . '-multi';
     } elseif (empty($matches[1]) && preg_match('@'.PATH_AUTHORS.'/([0-9;]+)@', $uri, $multimatch)) {
@@ -298,8 +351,15 @@ function serveAuthorPage($matches, $is_multiauth=false) {
 
 /**
  * The default URI route to serve virtual category page/entry requests with uriArguments
+ *
+ * Args:
+ *      - matches Array
+ *      - Indicates if applied for multiple categories
+ * Returns:
+ *      - void
+ * @access public
  */
-function serveCategory($matches, $is_multicat=false) {
+function serveCategory(iterable $matches, bool $is_multicat = false) : void {
     global $serendipity;
 
     $serendipity['view'] = 'categories';
@@ -307,7 +367,7 @@ function serveCategory($matches, $is_multicat=false) {
 
     if ($is_multicat) {
         if (isset($serendipity['POST']['isMultiCat']) && $serendipity['POST']['isMultiCat'] != RESET_FILTERS) {
-            $serendipity['GET']['category'] = serendipity_specialchars(implode(';', $serendipity['POST']['multiCat']));
+            $serendipity['GET']['category'] = htmlspecialchars(implode(';', $serendipity['POST']['multiCat']));
         } else {
             $serendipity['GET']['category'] = '';
         }
@@ -330,7 +390,7 @@ function serveCategory($matches, $is_multicat=false) {
         $matches[1] = serendipity_searchPermalink($serendipity['permalinkCategoryStructure'], implode('/', $_args), ($matches[1] ?? ''), 'category');
         $serendipity['GET']['category'] = $matches[1];
     }
-    $cInfo = serendipity_fetchCategoryInfo($serendipity['GET']['category']); // category already secured to be an integer only
+    $cInfo = serendipity_fetchCategoryInfo((int) $serendipity['GET']['category']);
 
     if (!is_array($cInfo)) {
         $serendipity['view'] = '404';
@@ -341,7 +401,7 @@ function serveCategory($matches, $is_multicat=false) {
     } else {
         $serendipity['head_title'] = $cInfo['category_name'];
         if (isset($serendipity['GET']['page'])) {
-            $serendipity['head_title'] .= ' - ' . serendipity_specialchars($serendipity['GET']['page']);
+            $serendipity['head_title'] .= ' - ' . htmlspecialchars($serendipity['GET']['page']);
         }
         $serendipity['head_subtitle'] = $serendipity['blogTitle'];
     }
@@ -351,8 +411,14 @@ function serveCategory($matches, $is_multicat=false) {
 
 /**
  * The default URI route to serve virtual archive entry requests with uriArguments
+ *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
+ * @access public
  */
-function serveArchive() {
+function serveArchive() : void {
     global $serendipity;
 
     $serendipity['view'] = 'archive';
@@ -365,8 +431,14 @@ function serveArchive() {
 
 /**
  * The default URI route to redirect to the backend entry page by allowed shortcuts
+ *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
+ * @access public
  */
-function gotoAdmin() {
+function gotoAdmin() : void {
     global $serendipity;
 
     $base = $serendipity['baseURL'];
@@ -379,8 +451,14 @@ function gotoAdmin() {
 
 /**
  * The default URI route to redirect plugin external_plugin Args
+ *
+ * Args:
+ *      - matches Array
+ * Returns:
+ *      - void
+ * @access public
  */
-function servePlugin($matches) {
+function servePlugin(iterable $matches) : void {
     global $serendipity;
 
     $serendipity['view'] = 'plugin';
@@ -390,8 +468,14 @@ function servePlugin($matches) {
 
 /**
  * The default URI route to rss.php to serve feeds
+ *
+ * Args:
+ *      - matches Array
+ * Returns:
+ *      - void
+ * @access public
  */
-function serveFeed($matches) {
+function serveFeed(iterable $matches) : void {
     global $serendipity;
 
     $serendipity['view'] = 'feed';
@@ -423,8 +507,14 @@ function serveFeed($matches) {
 
 /**
  * The default URI route to serve entry requests
+ *
+ * Args:
+ *      - matches Array
+ * Returns:
+ *      - void
+ * @access public
  */
-function serveEntry($matches) {
+function serveEntry(iterable $matches) : void {
     global $serendipity;
 
     $serendipity['view'] = 'entry';
@@ -449,9 +539,9 @@ function serveEntry($matches) {
         $comment['parent_id'] = $serendipity['POST']['replyTo'];
 
         if (!empty($comment['comment'])) {
-            if (serendipity_saveComment($serendipity['POST']['entry_id'], $comment, 'NORMAL')) {
+            if (serendipity_saveComment((int) $serendipity['POST']['entry_id'], $comment, 'NORMAL')) {
                 // $serendipity['last_insert_comment_id'] used for for comment added messaging
-                $sc_url = ($_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . (strstr($_SERVER['REQUEST_URI'], '?') ? '&' : '?') . 'serendipity[csuccess]=' . ($serendipity['csuccess'] ?? 'true') . '&last_insert_cid=' . ($serendipity['last_insert_comment_id'] ?? '') . '#feedback';
+                $sc_url = ($_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . (str_contains($_SERVER['REQUEST_URI'], '?') ? '&' : '?') . 'serendipity[csuccess]=' . ($serendipity['csuccess'] ?? 'true') . '&last_insert_cid=' . ($serendipity['last_insert_comment_id'] ?? '') . '#feedback';
                 unset($serendipity['last_insert_comment_id']); // remove the temporary global, set in function serendipity_saveComment
                 if (serendipity_isResponseClean($sc_url)) {
                     header('Status: 302 Found');
@@ -466,15 +556,15 @@ function serveEntry($matches) {
         }
     }
 
-    $id = (int)$matches[1]; // An empty or non-integer /?p= (permalink ID) shall be 0 for the process and shall end up with NO_ENTRIES_TO_PRINT ...
+    $id = (int) $matches[1]; // An empty or non-integer /?p= (permalink ID) shall be 0 for the process and shall end up with NO_ENTRIES_TO_PRINT ...
 
     $_GET['serendipity']['action'] = 'read';
     $_GET['serendipity']['id']     = $id === 0 ? false : $id; // ... but the GLOBAL _GET var must be set to FALSE
 
     $title = serendipity_db_query("SELECT title FROM {$serendipity['dbPrefix']}entries WHERE id=$id AND isdraft = 'false'" . (!serendipity_db_bool($serendipity['showFutureEntries']) ? ' AND timestamp <= ' . serendipity_db_time() : ''), true);
     if (is_array($title)) {
-        $serendipity['head_title']    = serendipity_specialchars($title[0]);
-        $serendipity['head_subtitle'] = serendipity_specialchars($serendipity['blogTitle']);
+        $serendipity['head_title']    = htmlspecialchars($title[0]);
+        $serendipity['head_subtitle'] = htmlspecialchars($serendipity['blogTitle']);
     } else {
         $serendipity['view'] = '404';
         $serendipity['viewtype'] = '404_1';
@@ -489,8 +579,14 @@ function serveEntry($matches) {
 
 /**
  * The default URI route to serve virtual archives requests
+ *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
+ * @access public
  */
-function serveArchives() {
+function serveArchives() : void {
     global $serendipity;
 
     $serendipity['view'] = 'archives';
@@ -548,8 +644,8 @@ function serveArchives() {
 
             if (isset($week)) {
                 $tm = strtotime('+ '. ($week-2) .' WEEKS monday', mktime(0, 0, 0, 1, 1, (int) $year));
-                $ts = mktime(0, 0, 1, date('m', $tm), date('j', $tm), (int) $year);
-                $te = mktime(23, 59, 59, date('m', $tm), date('j', $tm)+7, (int) $year);
+                $ts = mktime(0, 0, 1, (int) date('m', $tm), (int) date('j', $tm), (int) $year);
+                $te = mktime(23, 59, 59, (int) date('m', $tm), (int) date('j', $tm)+7, (int) $year);
                 $date = serendipity_formatTime(WEEK .' '. $week .', %Y', $ts, false);
             } else {
                 // all entry summary order only
@@ -651,7 +747,7 @@ function serveArchives() {
 
     if ($serendipity['GET']['action'] == 'read') {
         if (isset($serendipity['GET']['category'])) {
-            $cInfo = serendipity_fetchCategoryInfo($serendipity['GET']['category']); // category already secured to be an integer only
+            $cInfo = serendipity_fetchCategoryInfo((int) $serendipity['GET']['category']);
             $serendipity['head_title'] = $cInfo['category_name'];
         }
         if ($date == 'alltime') {

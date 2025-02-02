@@ -1,3 +1,141 @@
+Version 5.0-DEV ()
+ ------------------------------------------------------------------------
+
+
+  * Add current available icon sets to SYNDICATION_PLUGIN_XML_DESC information,
+    following plugin categories.
+
+  * Fix frontend issue with TinyMCE basicEditor breaking HTML grid structure
+
+  * Refactor AJAX "Resize on upload" option workload to allow and fix autosized
+    image widths and heights for a new base width constraint. This allows to in
+    example set an image maximum (base) width of 800 pixel for landscape formats
+    and a base 600 pixel width for portrait images.
+
+  * Changed order of main plugin button sections to event plugins first.
+
+  * Increase TinyMCE emojis font-size and minimize its collection scrollbar.
+    - Todo: Refactor this for more independence...
+
+  * Refactor RichText Editor Styx integration to replace the old CKEDITOR 4
+    with TinyMCE Community Edition, currently in version 6.8.4.
+    This nukes CKEditor from Styx system completely and from now on all HTML
+    entry editor forms like blog pages, static pages, plugin hooks, backend
+    comment, and public frontend comment forms (depending on theme) and the
+    global settings will run on TinyMCE with restricted configurations based
+    on surrounding given environment.
+    PLEASE NOTE: This also is the end for the extending CKEditor plus plugin.
+    All current available plugins have been ported to hook nicely into the
+    new Editor synced from additional_plugins [ MASTER ] branch.
+
+    Since both RichText Editors and others belong to the same company "Tiugo
+    Technologies" (Tiny Technologies, Inc) since ~2023, both extending brands
+    and versions (CKE 5 and TinyMCE 7) changed their license model to GPL2+
+    and sell extending plugins for outcome.
+    To follow using CKEditor as our default Editor would have been much more
+    work to completely re-master Serendipity markup everywhere.
+    I think TinyMCE is a very nice and good improvement and we will see if it
+    is possible to jump on TinyMCE 7+ in the near future.
+
+  * First XML-SYNC for additional_plugins at [ MASTER ] branch [Styx 5]
+
+  * We had to remove the 'required' attribute on the frontend textarea element
+    for Chromium in the [ pure ] theme to avoid possible error alerts:
+    "An invalid form control with name=serendipity[comment]' is not focusable."
+    A simple javascript checkup will now prevent sending empty comments.
+
+  * Refactor rss file and XSLT feed improvements
+
+  * Refactor the syndication plugin configuration and add the new "xmlsvg" CSS
+    class for consistency.
+    Deprecates feedburner and subtome services.
+
+  * Normalize the xml icon path to relative path consistency for set_config()
+    in "serendipity_plugin_categories" and "setendipity_plugin_authors".
+    - Add current available icon sets to XML_IMAGE_TO_DISPLAY_DESC information.
+    - Set tooltip title to link and the feed link.
+    - Add id="serendipity_authors_list" to the authors plugin ul list for
+      consistency selector stylings.
+    - Reset existing path sets on upgrade.
+    - To be able to distinguish between image sets and icon sets for styling,
+      a new "xmlsvg" CSS class selector was added to the ul list, if an SVG
+      image usage found true. For the categories plugin an additional Smarty
+      {$category_is_svg} (boolean) variable was added for the same purpose in
+      future theme custom plugin_category.tpl templates.
+    Notice the [ pure ] Standard theme is now using this SVG class selector for
+    strictness against other xml icon styles.
+
+  * Improve textarea default ID naming to snake_case convention, which fixes
+    some issues for further processing.
+
+  * Add a simple XLS/transform data layer for our atom 1.0 feed to give out a
+    styled entries list feed; Extends the syndication sidebar plugin for multi-
+    feed option.
+
+  * Implement Serendipity Styx API "Type safety"!
+    Uses Parameter-/Return Types in combo with Union Types for PHP 8.2+ and
+    removes @param, @return PHPDoc references which were far less exact in
+    multiple cases. Additionally more strict inner fnc CAST type conditionals
+    were set and where explicit appropriate.
+    PLEASE NOTE: This still is a WIP, in special for core extends, like
+    plugins/themes.
+
+  * Implement comment search term highlight used for comment full body data
+    in comment list.
+
+  * Allow to programmatically deSelect (reset) multi-select field in group form
+
+  * Fix a [ pure ] theme space issue between cased image container components
+
+  * Merge Smarty security update v.4.5.3 to custom Styx v.4.5.3-dev4
+
+  * Refactor core language system to remove legacy native language sets and to
+    run UTF-8 only.
+
+  * Make personal config simpleFilters option default to false on install
+
+  * Remove Smarty allowed php_functions 'class_exists' allowance, due to an
+    issue with backends freetag plugin exists checkup and the new Smarty 4.5.2.
+        FUTURES: Use isset() with defined constant checkup instead.
+
+  * Revert Spartacus additional_plugins "master" to "legacy" branch division
+    for Styx 4.x Series.
+
+  * Remove ISO-8859-2 reference of [cz] language names
+
+  * Remove former [cs] lang files and references, from the early nineties...!
+
+  * Remove old MD5/SHA1 hashing upgrade routines... Will convert user...
+
+  * Register some native PHP methods AS Smarty custom modifiers/functions to
+    avoid running into deprecation notices on 1st compile.
+
+  * Update to Smarty v.4.5.2 release named 4.5.2-dev-4 for Styx custom mods
+
+  * Deprecate htmlspecialchars, htmlentities, html_entity_decode mapper functions.
+    - Use default flags up from PHP 8.1.0
+    - Convert core usage
+
+  * Use PHP 8.0 - Convert substr() to str_starts_with() where appropriate
+
+  * Declare strict_types on per file basis
+
+  * Use PHP 8.0 - Change strpos() & strstr() to str_contains() [ case-sensitive ]
+
+  * Remove old compat mb_convert_encoding() checks below PHP 8.2
+
+  * USE PHP 8.1 - Change to use fastest xxHash algorithm
+
+  * Use PHP 8.0 - Combined named arguments with positional arguments
+
+  * Add PHP 8.2 - Sensitive Parameter value redaction support
+
+  * Removed workaround and PHP_VERSION handlers for all versions below PHP 8.2
+
+  * Configure 5.0 revision up from PHP 8.2
+
+
+
 Version 4.5.1 (November, 30th 2024)
  ------------------------------------------------------------------------
 
@@ -2873,7 +3011,7 @@ Version 3.0.0 (May, 28th 2020)
   * PHP and JavaScript set Sessions and Cookies DO now SET the "sameSite"
     attribute. Inbound JS Libraries were changed or replaced to support this.
     This regards upcoming Browser changes [ Mozilla 76+, Chromium 80+, ..]
-    internally handling and changing the default “sameSite” attribute.
+    internally handling and changing the default Â“sameSiteÂ” attribute.
     To avoid future Browser Revisions to reject old Cookies without, this for
     now was hard set wherever possible.
     This raises the PHP requirement to PHP >= 7.3.0.
@@ -3002,7 +3140,7 @@ Version 3.0.0 (May, 28th 2020)
     To focus on details for utf8mb4_unicode_ci/utf8mb4_unicode_520_ci,
     there are problems with sorting/comparing certain letters which have
     a stroke for example. (This and other examples apply to languages like
-    polish, czech, greek, turkish, german (i.e. ß=ss), etc., just to name few.)
+    polish, czech, greek, turkish, german (i.e. ÃŸ=ss), etc., just to name few.)
     For these cases and languages, the sorting Algorithm does return different
     ordered resultsets, depending the collation used, appending sort results
     before, after, or at the same place as the normal letter.
@@ -5994,7 +6132,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
             see here, this is NOT trivial to change and error prone, to
             be that robust as it has ever been.
 
-     2. To set the connection’s COLLATION to "unicode" instead of
+     2. To set the connectionÂ’s COLLATION to "unicode" instead of
         "general" you have to convert these tables by using "SET NAMES
         ... COLLATE ...".
         You only need to use this better "utf8_unicode_ci" collation
@@ -6010,7 +6148,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
         By default a new Serendipity (UTF-8) installation should already
         be set to use the "utf8_unicode_ci" collation.
 
-        (*) Likewise ß=ss; utf8_unicode_ci uses the Unicode Collation
+        (*) Likewise ÃŸ=ss; utf8_unicode_ci uses the Unicode Collation
             Algorithm as defined in the Unicode standards, whereas
             utf8_general_ci is a more simple sort order which results
             in "less accurate" sorting results.
@@ -6034,7 +6172,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
         The unset Serendipity option, NOT to use SET NAMES, enables a
         better automated, modern handshake between server and database.
         At this point, these characters and symbols are actually stored
-        in native UTF-8, eg. 'Ã'+'¼' for "ü".
+        in native UTF-8, eg. 'Ãƒ'+'Â¼' for "Ã¼".
         But since there are way too much possible settings/issues
         around, which may play a role, and not have been mentioned
         here, please see this approach as "EXPERIMENTAL" and at your

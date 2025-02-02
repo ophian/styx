@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -9,22 +11,26 @@ if (IN_serendipity !== true) {
 /**
  * Convert a PHP Ini setting to a boolean flag
  *
+ * Args:
+ *      - ini_get() string
+ * Returns:
+ *      - output variable
  * @access public
- * @param   mixed       input variable
- * @return  boolean     output variable
  */
-function serendipity_ini_bool($var) {
+function serendipity_ini_bool(string|false $var) : bool {
     return ($var === 'on' || $var == '1');
 }
 
 /**
- * convert a size value from a PHP.ini to a bytesize
+ * Convert a size value from a PHP.ini to a bytesize
  *
+ * Args:
+ *      - String or Boolean evaluated size value from PHP.ini
+ * Returns:
+ *      - Integer bytesize OR the bool $val
  * @access public
- * @param   string  size value from PHP.ini
- * @return  string  bytesize
  */
-function serendipity_ini_bytesize($val) {
+function serendipity_ini_bytesize(bool|string $val) : int|bool {
     if (!is_numeric($val) || $val == '')
         return 0;
 
@@ -45,18 +51,20 @@ function serendipity_ini_bytesize($val) {
 /**
  * Update the serendipity_config_local.inc.php file with core information
  *
+ * Args:
+ *      - Database name
+ *      - Database prefix
+ *      - Database host
+ *      - Database user
+ *      - Database password
+ *      - Database type
+ *      - Use persistent connections?
+ *      - An array of additional variables to be put into the config file
+ * Returns:
+ *      - Error array OR true on success
  * @access public
- * @param   string  Database name
- * @param   string  Database prefix
- * @param   string  Database host
- * @param   string  Database user
- * @param   string  Database password
- * @param   string  Database type
- * @param   string  Use persistent connections?
- * @param   array   An array of additional variables to be put into the config file
- * @return true
  */
-function serendipity_updateLocalConfig($dbName, $dbPrefix, $dbHost, $dbUser, $dbPass, $dbType, $dbPersistent, $privateVariables = null) {
+function serendipity_updateLocalConfig(string $dbName, string $dbPrefix, string $dbHost, string $dbUser, #[\SensitiveParameter] string $dbPass, string $dbType, bool|string $dbPersistent, ?iterable $privateVariables = null) : iterable|true {
     global $serendipity;
     umask(0000);
 
@@ -64,6 +72,7 @@ function serendipity_updateLocalConfig($dbName, $dbPrefix, $dbHost, $dbUser, $db
     $path = $serendipity['serendipityPath'];
 
     $oldconfig = @file_get_contents($path . $file);
+    if (false === $oldconfig) $oldconfig = ''; // convert to string for preg_match() subject #2
     $configfp  = fopen($path . $file, 'w');
 
     if (!is_resource($configfp)) {
@@ -138,11 +147,13 @@ function serendipity_updateLocalConfig($dbName, $dbPrefix, $dbHost, $dbUser, $db
  * Creates the needed tables - beware, they will be empty and need to be stuffed with
  * default templates and such...
  *
- * @param  dbType POST install data
+ * Args:
+ *      - dbType POST install data
+ * Returns:
+ *      - void
  * @access public
- * @return null
  */
-function serendipity_installDatabase($type = '') {
+function serendipity_installDatabase(string $type = '') : void {
     global $serendipity;
 
     // PostgreSQL and SQLite do not care about string length, other than as required by the SQL standard and define the N in varchar(N) as characters (not bytes).
@@ -154,7 +165,7 @@ function serendipity_installDatabase($type = '') {
         // Print the MySQL version
         $serendipity['db_server_info'] = mysqli_get_server_info($serendipity['dbConn']); // eg.  == 5.5.5-10.4.11-MariaDB
         // be a little paranoid...
-        if (substr($serendipity['db_server_info'], 0, 6) === '5.5.5-') {
+        if (str_starts_with($serendipity['db_server_info'], '5.5.5-')) {
             // strip any possible added prefix having this 5.5.5 version string (which was never released). PHP up from 8.0.16 now strips it correctly.
             $serendipity['db_server_info'] = str_replace('5.5.5-', '', $serendipity['db_server_info']);
         }
@@ -184,8 +195,8 @@ function serendipity_installDatabase($type = '') {
     foreach($queries AS $query) {
         $return = serendipity_db_schema_import($query);
         if (is_string($return)) {
-            echo "SQL-ERROR: " . $return . "<br>\n";
-            echo "QUERY: <pre>" . $query . "</pre><br>\n";
+            echo "SQL-ERROR: $return<br>\n";
+            echo "QUERY: <pre>$query</pre><br>\n";
         }
     }
 
@@ -195,8 +206,8 @@ function serendipity_installDatabase($type = '') {
         foreach($queries AS $query) {
             $return = serendipity_db_schema_import($query);
             if (is_string($return)) {
-                echo "SQL-ERROR: " . $return . "<br>\n";
-                echo "QUERY: <pre>" . $query . "</pre><br>\n";
+                echo "SQL-ERROR: $return<br>\n";
+                echo "QUERY: <pre>$query</pre><br>\n";
             }
         }
     }
@@ -205,14 +216,16 @@ function serendipity_installDatabase($type = '') {
 /**
  * Check a default value of a config item from the configuration template files
  *
+ * Args:
+ *      - Name of the config item to check
+ *      - The default value, if none is found
+ *      - If true, it's the personal config template, if false its the global config template
+ *      - Protected fields will not be echoed in the HTML form
+ * Returns:
+ *      - The default value
  * @access public
- * @param   string      Name of the config item to check
- * @param   string      The default value, if none is found
- * @param   boolean     If true, it's the personal config template, if false its the global config template
- * @param   string      Protected fields will not be echoed in the HTML form
- * @return  string      The default value
  */
-function serendipity_query_default($optname, $default, $usertemplate = false, $type = 'string') {
+function serendipity_query_default(string $optname, iterable|int|string|bool $default, bool $usertemplate = false, string $type = 'string') : iterable|int|string|bool {
     global $serendipity;
 
     /* I won't tell you the password, it's a salted hash anyway, you can't do anything with it */
@@ -283,7 +296,7 @@ function serendipity_query_default($optname, $default, $usertemplate = false, $t
                 $path = array_merge($path, explode(PATH_SEPARATOR, $_SERVER['PATH']));
                 // remove unwanted empty or system32 path parts, so that wrong system32/convert.exe is prevented.
                 foreach($path AS $pk => $pv) {
-                    if (stripos($pv, 'system32') !== false || empty($pv)) {
+                    if (stripos((string) $pv, 'system32') !== false || empty($pv)) {
                         unset($path[$pk]);
                     }
                 }
@@ -322,13 +335,15 @@ function serendipity_query_default($optname, $default, $usertemplate = false, $t
 /**
  * Parse a configuration template file
  *
+ * Args:
+ *      - Path to the Serendipity Styx configuration template file
+ *      - An array of config areas/sections that shall be returned from the template
+ *      - Restrict the return of template variables to items containing a specific flag
+ * Returns:
+ *      - An array with configuration items, keys and values
  * @access public
- * @param   string      Path to the s9y configuration template file
- * @param   array       An array of config areas/sections that shall be returned from the template
- * @param   array       Restrict the return of template variables to items containing a specific flag
- * @return  array       An array with configuration items, keys and values
  */
-function serendipity_parseTemplate($filename, $areas = null, $onlyFlags = null) {
+function serendipity_parseTemplate(string $filename, ?string $areas = null, ?iterable $onlyFlags = null) : iterable {
     global $serendipity;
 
     $userlevel = $serendipity['serendipityUserlevel'] ?? null;
@@ -339,7 +354,7 @@ function serendipity_parseTemplate($filename, $areas = null, $onlyFlags = null) 
 
     $config = @include($filename);
     if (! is_array($config)) {
-        printf(INCLUDE_ERROR,$filename);
+        printf(INCLUDE_ERROR, $filename);
     }
 
     foreach($config AS $n => $category) {
@@ -411,11 +426,13 @@ function serendipity_parseTemplate($filename, $areas = null, $onlyFlags = null) 
 /**
  * Replace some variables within config item values with the right values
  *
+ * Args:
+ *      - Input string
+ * Returns:
+ *      - Output string
  * @access public
- * @param   string  Input string
- * @return  string  Output string
  */
-function serendipity_replaceEmbeddedConfigVars($s) {
+function serendipity_replaceEmbeddedConfigVars(string $s) : string {
     return str_replace(
                   array(
                     '%clock%'
@@ -432,23 +449,25 @@ function serendipity_replaceEmbeddedConfigVars($s) {
  * Prepares form data elements for configuration arrays by guess_input markup
  *          without using Smarty, since we need this as quick as possible
  *
+ * Args:
+ *      - The field type to parse
+ *      - The field name to set
+ *      - How to handle the default string
+ *      - If array, create select loops
+ *      - If item selected, set as selected
+ *      - The indent to perform (serendipity configuration|personal preferences have an indent of 5 * 4 spaces)
+ * Returns:
+ *      - HTML string
  * @access public
- * @param   string    The field type to parse
- * @param   string    The field name to set
- * @param   mixed     (string|boolean) How to handle the default string
- * @param   mixed     (string|array) If array, create select loops
- * @param   array     If item selected, set as selected
- * @param   null|int  The indent to perform (serendipity configuration|personal preferences have an indent of 5 * 4 spaces)
- * @return string
  */
-function serendipity_build_form_data_elements($type, $name, $value, $default, $selected, $indent) {
+function serendipity_build_form_data_elements(string $type, string $name, iterable|int|string|bool|null $value, iterable|int|string|bool $default, iterable $selected, ?int $indent) : string {
     $html = '';
     // configuration and personal preferences
     if ($indent == 5) {
         if ($type == 'bool') {
         // radio indent is 1 plus for grouped div container
             $html .= '                        <div class="form_radio">
-                            <input id="radio_cfg_' . $name . '_yes" type="radio" name="' . $name . '" value="true"'.($value == true ? ' checked="checked"' : '') . '>
+                            <input id="radio_cfg_' . $name . '_yes" type="radio" name="' . $name . '" value="true"'.($value === true ? ' checked="checked"' : '') . '>
                             <label for="radio_cfg_' . $name . '_yes">' . YES . '</label>
                         </div>
 
@@ -457,9 +476,9 @@ function serendipity_build_form_data_elements($type, $name, $value, $default, $s
                             <label for="radio_cfg_' . $name . '_no">' . NO . '</label>
                         </div>';
         } elseif ($type == 'fullprotected') {
-            $html .= '                    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+            $html .= '                    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '" autocomplete="new-password">';
         } elseif ($type == 'protected') {
-            $html .= '                    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+            $html .= '                    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '" autocomplete="new-password">';
         } elseif ($type == 'multilist') {
             $html .= '
                     <select id="' . $name . '" name="' . $name . '[]" multiple="multiple" size="5">';
@@ -481,16 +500,16 @@ function serendipity_build_form_data_elements($type, $name, $value, $default, $s
         } elseif ($type == 'file') {
             $html .= '                    <input id="' . $name . '" type="file" name="' . $name . '">';
         } elseif ($type == 'textarea') {
-            $html .= '                    <textarea id="' . $name . '" rows="5" name="' . $name . '">' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '</textarea>';
+            $html .= '                    <textarea id="' . $name . '" rows="5" name="' . $name . '">' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '</textarea>';
         } else {
-            $html .= '                    <input id="' . $name . '" type="text" name="' . $name . '" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '"' . ($name == 'username' ? ' autocomplete="new-password"' : '') . '>';
+            $html .= '                    <input id="' . $name . '" type="text" name="' . $name . '" value="' . (!empty($value) ? htmlspecialchars((string) $value, encoding: LANG_CHARSET) : '') . '"' . ($name == 'username' ? ' autocomplete="new-password"' : '') . '>';
         }
     } else {
         // importer form builds
         if ($type == 'bool') {
             // radio indent is 1 plus for grouped div container
             $html .= '    <div class="form_radio">
-                <input id="radio_cfg_' . $name . '_yes" type="radio" name="' . $name . '" value="true"'.($value == true ? ' checked="checked"' : '') . '>
+                <input id="radio_cfg_' . $name . '_yes" type="radio" name="' . $name . '" value="true"'.($value === true ? ' checked="checked"' : '') . '>
                 <label for="radio_cfg_' . $name . '_yes">'.YES . '</label>
             </div>
 
@@ -499,9 +518,9 @@ function serendipity_build_form_data_elements($type, $name, $value, $default, $s
                 <label for="radio_cfg_' . $name . '_no">'.NO . '</label>
             </div>';
         } elseif ($type == 'fullprotected') {
-            $html .= '    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+            $html .= '    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '" autocomplete="new-password">';
         } elseif ($type == 'protected') {
-            $html .= '    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '" autocomplete="new-password">';
+            $html .= '    <input id="' . $name . '" type="password" name="' . $name . '" data-type="'.$type.'" value="' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '" autocomplete="new-password">';
         } elseif ($type == 'multilist') {
             $html .= '
             <select id="' . $name . '" name="' . $name . '[]" multiple="multiple" size="5">';
@@ -523,9 +542,9 @@ function serendipity_build_form_data_elements($type, $name, $value, $default, $s
         } elseif ($type == 'file') {
             $html .= '    <input id="' . $name . '" type="file" name="' . $name . '">';
         } elseif ($type == 'textarea') {
-            $html .= '    <textarea id="' . $name . '" rows="5" name="' . $name . '">' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '</textarea>';
+            $html .= '    <textarea id="' . $name . '" rows="5" name="' . $name . '">' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '</textarea>';
         } else {
-            $html .= '    <input id="' . $name . '" type="text" name="' . $name . '" value="' . (!empty($value) ? htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, LANG_CHARSET) : '') . '"' . ($name == 'username' ? ' autocomplete="new-password"' : '') . '>';
+            $html .= '    <input id="' . $name . '" type="text" name="' . $name . '" value="' . (!empty($value) ? htmlspecialchars($value, encoding: LANG_CHARSET) : '') . '"' . ($name == 'username' ? ' autocomplete="new-password"' : '') . '>';
         }
     }
     return $html;
@@ -534,15 +553,17 @@ function serendipity_build_form_data_elements($type, $name, $value, $default, $s
 /**
  * Pre-process the configuration value and put it into a HTML output field (radio, password, text, select, ...)
  *
+ * Args:
+ *      - The type of the configuration item
+ *      - The name of the configuration item
+ *      - The current value of the configuration item
+ *      - The default value of the configuration item
+ *      - The indent default for the configuration item [configuration and personal preferences form have an indent of 5]
+ * Returns:
+ *      - String result of serendipity_build_form_data_elements()
  * @access public
- * @param   string  The type of the configuration item
- * @param   string  The name of the configuration item
- * @param   string  The current value of the configuration item
- * @param   string  The default value of the configuration item
- * @param   null|int The indent default for the configuration item [configuration and personal preferences form have an indent of 5]
- * @return null
  */
-function serendipity_guessInput($type, $name, $value = '', $default = '', $indent = null) {
+function serendipity_guessInput(string $type, string $name, iterable|int|string|bool|null $value = '', iterable|int|string|bool $default = '', ?int $indent = null) : string {
     $curOptions = array();
 
     switch ($type) {
@@ -556,8 +577,11 @@ function serendipity_guessInput($type, $name, $value = '', $default = '', $inden
             break;
 
         case 'bool':
-            $value = serendipity_get_bool($value);
-            if ($value === null) {
+            // DON'T DO on null or empty string
+            if ($value !== null && $value !== '') {
+                $value = ($value === true || $value == 'true' || $value == 't' || $value == '1') ? true : false; // mimic serendipity_db_bool($value) which does not exists on install
+            }
+            if ($value === null || $value === '') {
                 $value = $default;
             }
             break;
@@ -589,21 +613,23 @@ function serendipity_guessInput($type, $name, $value = '', $default = '', $inden
             break;
     }
 
-    return serendipity_build_form_data_elements($type ,$name, $value, $default, $curOptions, $indent);
+    return serendipity_build_form_data_elements($type, $name, $value, $default, $curOptions, $indent);
 }
 
 /**
  * Parses the configuration array and displays the configuration screen
  *
+ * Args:
+ *      - Configuration superarray
+ *      - The previous values submitted by the user
+ *      - If true, no HTML FORM container will be emitted
+ *      - If true, the user can turn folded (config) sections on and off
+ *      - If true, the user can NOT display possibly dangerous options
+ * Returns:
+ *      - String result of serendipity_smarty_showTemplate()
  * @access public
- * @param   array       Configuration superarray
- * @param   array       The previous values submitted by the user
- * @param   boolean     If true, no HTML FORM container will be emitted
- * @param   boolean     If true, the user can turn folded (config) sections on and off
- * @param   boolean     If true, the user can NOT display possibly dangerous options
- * @return null
  */
-function serendipity_printConfigTemplate($config, $from = false, $noForm = false, $allowToggle = true, $showDangerous = false) {
+function serendipity_printConfigTemplate(iterable $config, iterable|bool $from = false, bool $noForm = false, bool $allowToggle = true, bool $showDangerous = false) : string {
 
     $data = array();
     $data['noForm'] = $noForm;
@@ -616,8 +642,9 @@ function serendipity_printConfigTemplate($config, $from = false, $noForm = false
             $value = $from[$item['var']] ?? null;
 
             /* Calculate value if we are not installed, how clever :) */
-            if ($from == false) {
-                $value = serendipity_query_default($item['var'], $item['default']);
+            if ($from === false) {
+                // set an empty Traversable type to an empty String as "default fallback value"
+                $value = serendipity_query_default($item['var'], (is_array($item['default']) && empty($item['default'])) ? '' : $item['default']);
             }
 
             /* Check for installOnly flag */
@@ -634,7 +661,7 @@ function serendipity_printConfigTemplate($config, $from = false, $noForm = false
             }
 
             if (in_array('config', $item['flags']) && isset($from['authorid'])) {
-                $value = serendipity_get_user_config_var($item['var'], $from['authorid'], $item['default']);
+                $value = serendipity_get_user_config_var($item['var'], (int) $from['authorid'], $item['default']);
             }
 
             if (in_array('parseDescription', $item['flags'])) {
@@ -661,18 +688,20 @@ function serendipity_printConfigTemplate($config, $from = false, $noForm = false
  * Parse .sql files for use within Serendipity, query by query,
  * accepting only CREATE commands.
  *
+ * Args:
+ *      - The filename of the SQL file
+ * Returns:
+ *      - An array of queries to execute
  * @access public
- * @param   string  The filename of the SQL file
- * @return array    An array of queries to execute
  */
-function serendipity_parse_sql_tables($filename) {
+function serendipity_parse_sql_tables(string $filename) : iterable {
     $in_table = 0;
     $queries = array();
 
-    $fp = fopen($filename, 'r', 1);
+    $fp = fopen($filename, 'r', true);
     if ($fp) {
         while (!@feof($fp)) {
-            $line = trim(fgets($fp, 4096));
+            $line = trim((string) fgets($fp, 4096));
             if ($in_table) {
                 $def .= $line;
                 if (preg_match('/^\)\s*(type\=\S+|\{UTF_8\})?\s*\;$/i', $line)) {
@@ -700,11 +729,13 @@ function serendipity_parse_sql_tables($filename) {
  * Parse .sql files for use within Serendipity, query by query,
  * accepting only INSERT commands.
  *
+ * Args:
+ *      - The filename of the SQL file
+ * Returns:
+ *      - An array of queries to execute
  * @access public
- * @param   string  The filename of the SQL file
- * @return array    An array of queries to execute
  */
-function serendipity_parse_sql_inserts($filename) {
+function serendipity_parse_sql_inserts(string $filename) : iterable {
     $queries = array();
 
     $fp = fopen($filename, 'r', 1);
@@ -722,20 +753,23 @@ function serendipity_parse_sql_inserts($filename) {
 }
 
 /**
- * Check the serendipity Installation for problems, during installation
+ * Check the Serendipity Styx Installation for problems, during installation
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - Errors encountered? OR NULL
  * @access public
- * @return boolean  Errors encountered?
  */
-function serendipity_checkInstallation() {
+function serendipity_checkInstallation() : ?iterable {
     global $serendipity, $umask;
 
     $errs = array();
 
     serendipity_initPermalinks();
 
-    $ipath = serendipity_specialchars($_POST['serendipityPath']);
-    $upath = serendipity_specialchars($_POST['uploadPath']);
+    $ipath = htmlspecialchars($_POST['serendipityPath']);
+    $upath = htmlspecialchars($_POST['uploadPath']);
 
     // Check dirs
     if (!is_dir($_POST['serendipityPath'])) {
@@ -776,7 +810,7 @@ function serendipity_checkInstallation() {
     if ($_POST['dbType'] == 'sqlite' || $_POST['dbType'] == 'sqlite3' || $_POST['dbType'] == 'pdo-sqlite' || $_POST['dbType'] == 'sqlite3oo') {
         // We don't want that our SQLite db file can be guessed from other applications on a server
         // and have access to ours. So we randomize the SQLite dbname.
-        $_POST['sqlitedbName'] = $_POST['dbName'] . '_' . md5((string) time());
+        $_POST['sqlitedbName'] = $_POST['dbName'] . '_' . hash('XXH128', (string) time());
     }
 
     if (empty($_POST['dbPrefix']) && empty($serendipity['dbPrefix'])) {
@@ -799,17 +833,19 @@ function serendipity_checkInstallation() {
         serendipity_db_probe($_POST, $errs);
     }
 
-    return (count($errs) > 0 ? $errs : '');
+    return (count($errs) > 0 ? $errs : null);
 }
 
 /**
- * Create the files needed by Serendipity [htaccess/serendipity_config_local.inc.php]
+ * Create the files needed by Serendipity Styx [htaccess/serendipity_config_local.inc.php]
  *
+ * Args:
+ *      - Path to the serendipity directory
+ * Returns:
+ *      - Errors array OR true
  * @access public
- * @param   string      Path to the serendipity directory
- * @return  true
  */
-function serendipity_installFiles($serendipity_core = '') {
+function serendipity_installFiles(string $serendipity_core = '') : iterable|true {
     global $serendipity;
 
     // This variable is transmitted from serendipity_admin_installer. If an empty variable is used,
@@ -830,7 +866,7 @@ function serendipity_installFiles($serendipity_core = '') {
         }
     }
 
-    if (php_sapi_name() == 'cgi' || php_sapi_name() == 'cgi-fcgi' || php_sapi_name() == 'fpm-fcgi' || (php_sapi_name() === 'cli' OR defined('STDIN')) || false !== strpos(php_sapi_name(), 'cgi')) {
+    if (php_sapi_name() == 'cgi' || php_sapi_name() == 'cgi-fcgi' || php_sapi_name() == 'fpm-fcgi' || (php_sapi_name() == 'cli' OR defined('STDIN')) || str_contains(php_sapi_name(), 'cgi')) {
         $htaccess_cgi = '_cgi';
     } else {
         $htaccess_cgi = '';
@@ -960,7 +996,7 @@ function serendipity_installFiles($serendipity_core = '') {
     $fp = @fopen($serendipity_core . '.htaccess', 'w');
     if (!$fp) {
         $errs[] = sprintf(FILE_WRITE_ERROR, $serendipity_core . '.htaccess') . ' ' . FILE_CREATE_YOURSELF;
-        $errs[] = sprintf(COPY_CODE_BELOW , $serendipity_core . '.htaccess', 'serendipity', serendipity_specialchars($content));
+        $errs[] = sprintf(COPY_CODE_BELOW , $serendipity_core . '.htaccess', 'serendipity', htmlspecialchars($content));
         return $errs;
     } else {
         // Check if an old htaccess file existed and try to preserve its contents. Otherwise completely wipe the file.
@@ -978,12 +1014,14 @@ function serendipity_installFiles($serendipity_core = '') {
 /**
  * Check the flags of a configuration item for their belonging into a template
  *
+ * Args:
+ *      - An item to check
+ *      - The area (configuration|local) where the config item might be displayed
+ * Returns:
+ *      - boolean
  * @access public
- * @param   array       An item to check
- * @param   array       The area (configuration|local) where the config item might be displayed
- * @return  boolean
  */
-function serendipity_checkConfigItemFlags(&$item, $area) {
+function serendipity_checkConfigItemFlags(iterable &$item, iterable|string $area) : bool {
     if (in_array('nosave', $item['flags'])) {
         return false;
     }
@@ -1000,12 +1038,15 @@ function serendipity_checkConfigItemFlags(&$item, $area) {
 }
 
 /**
- * When paths or other options are changed in the s9y configuration, update the core files
+ * When paths or other options are changed in the Serendipity Styx configuration, update the core files
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - Array of serendipity_updateLocalConfig() OR true
  * @access public
- * @return boolean
  */
-function serendipity_updateConfiguration() {
+function serendipity_updateConfiguration() : iterable|true {
     global $serendipity, $umask;
 
     // Save all basic config variables to the database
@@ -1089,11 +1130,14 @@ function serendipity_updateConfiguration() {
 /**
  * Get the root directory of Serendipity
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - The root directory of Serendipity
  * @access public
- * @return  string      The root directory of Serendipity
  */
-function serendipity_httpCoreDir() {
-    if (!empty($_SERVER['SCRIPT_FILENAME']) && substr(php_sapi_name(), 0, 3) != 'cgi') {
+function serendipity_httpCoreDir() : string {
+    if (!empty($_SERVER['SCRIPT_FILENAME']) && !str_starts_with(php_sapi_name(), 'cgi')) {
         return dirname($_SERVER['SCRIPT_FILENAME']) . '/';
     }
 
@@ -1107,15 +1151,17 @@ function serendipity_httpCoreDir() {
 /**
  * Delete obsolete files from Serendipity
  *
+ * Args:
+ *      - List of files to remove (backup is tried)
+ * Returns:
+ *      - false OR NULL
  * @access public
- * @param   array       List of files to remove (backup is tried)
- * @return boolean
  */
-function serendipity_removeFiles($files = null) {
+function serendipity_removeFiles(?iterable $files = null) : ?false {
     global $errors;
 
     if (!is_array($files)) {
-        return;
+        return null;
     }
 
     $backupdir = S9Y_INCLUDE_PATH . 'backup';
@@ -1155,9 +1201,15 @@ function serendipity_removeFiles($files = null) {
 
 /**
  * Check image libraries for PHP WebP-Format file support by used library
- * @return bool
+ *
+ * Args:
+ *      - Whether to set the config var
+ *      - Whether to queue a message
+ * Returns:
+ *      - boolean
+ * @access private
  */
-function serendipity_checkWebPSupport($set = false, $msg = false) {
+function serendipity_checkWebPSupport(bool $set = false, bool $msg = false) : bool {
     global $serendipity;
 
     if (!isset($serendipity['magick']) || $serendipity['magick'] !== true) {
@@ -1198,16 +1250,15 @@ function serendipity_checkWebPSupport($set = false, $msg = false) {
  *  Basically, AVIF is far more expensive to encode than WebP. It is an extremely taxing process with respect to both CPU and memory.
  *  Both image libraries (IM/GD) show a huge performance lack building bigger avif images, so we hope the best for the future!
  *
- * @param  bool     Future Styx revision upgrade set to default true
- * @param  bool     Allow message returns (Currently a future possibility only)
- * @return bool
+ * Args:
+ *      - Future Styx revision upgrade set to default true
+ *      - Allow message returns (Currently a future possibility only)
+ * Returns:
+ *      - boolean supported
+ * @access private
  */
-function serendipity_checkAvifSupport($set = false, $msg = false) {
+function serendipity_checkAvifSupport(bool $set = false, bool $msg = false) : bool {
     global $serendipity;
-
-    if (PHP_VERSION_ID < 80100) {
-        return false;
-    }
 
     if (!isset($serendipity['magick']) || $serendipity['magick'] !== true) {
         if (!function_exists('gd_info')) return false;
@@ -1241,11 +1292,13 @@ function serendipity_checkAvifSupport($set = false, $msg = false) {
 /**
  * Get the real directory of this function file
  *
+ * Args:
+ *      - A filename to strip extra paths from
+ * Returns:
+ *      - The real directory name
  * @access public
- * @param   string      A filename to strip extra paths from
- * @return  string      The real directory name
  */
-function serendipity_getRealDir($file) {
+function serendipity_getRealDir(string $file) : string {
     $dir = str_replace( '\\', '/', dirname($file));
     $base = preg_replace('@/include$@', '', $dir) . '/';
     return $base;
@@ -1256,11 +1309,13 @@ function serendipity_getRealDir($file) {
  *
  * This function makes a dummy HTTP request and sees if it works
  *
+ * Args:
+ *      - The default option when rewrite fails
+ * Returns:
+ *      - The best preference option for URL rewriting
  * @access public
- * @param   string      The default option when rewrite fails
- * @return  string      The best preference option for URL rewriting
  */
-function serendipity_check_rewrite($default) {
+function serendipity_check_rewrite(string $default) : string {
     global $serendipity;
 
     if (IS_installed === true) {
@@ -1272,12 +1327,12 @@ function serendipity_check_rewrite($default) {
             $default = 'rewrite';
             return $default;
         }
-    } elseif (function_exists('phpinfo' ) && false === strpos(ini_get('disable_functions'), 'phpinfo')) {
+    } elseif (function_exists('phpinfo' ) && !str_contains(ini_get('disable_functions'), 'phpinfo')) {
         ob_start();
             phpinfo(INFO_MODULES);
         $phpinfo = ob_get_clean();
 
-        if (false !== strpos($phpinfo, 'mod_rewrite')) {
+        if (str_contains($phpinfo, 'mod_rewrite')) {
             $default = 'rewrite';
             return $default;
         }
@@ -1335,10 +1390,13 @@ function serendipity_check_rewrite($default) {
 /**
  * Remove old configuration values that are no longer used by Serendipity
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
  * @access public
- * @return null
  */
-function serendipity_removeObsoleteVars() {
+function serendipity_removeObsoleteVars() : void {
 
     $config = serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE);
     foreach($config AS $category) {
@@ -1354,16 +1412,18 @@ function serendipity_removeObsoleteVars() {
 /**
  * Retrieve an FTP-compatible checksum for a file.
  *
- * @access  public
- * @param   string      filename is the path to the file to checksum
- * @param   string      type forces a particular interpretation of newlines.  Mime
+ * Args:
+ *      - filename is the path to the file to checksum
+ *      - type forces a particular interpretation of newlines.  Mime
  *          types and strings starting with 'text' will cause newlines to be stripped
  *          before the checksum is calculated (default: null, determine from finfo
  *          and extension)
- * @return  string      An MD5 checksum of the file, with newlines removed if it's
+ * Returns:
+ *      - An XXH128 checksum of the file, with newlines removed if it's
  *          an ASCII type; or false if the file cannot be read
+ * @access private
  */
-function serendipity_FTPChecksum($filename, $type = null) {
+function serendipity_FTPChecksum(string $filename, ?string $type = null) : string|false {
     // Only read the finfo database once
     static $debug_exts = array();
 
@@ -1373,7 +1433,7 @@ function serendipity_FTPChecksum($filename, $type = null) {
     }
 
     // Figure out whether it's binary or text by extension
-    if ($type == null) {
+    if ($type === null) {
         $parts = pathinfo($filename);
         $ext = '';
         // Some PHP versions throw a warning if the index doesn't exist
@@ -1406,7 +1466,7 @@ function serendipity_FTPChecksum($filename, $type = null) {
     }
 
     // Calculate the checksum
-    $md5 = false;
+    $hash = false;
     if (stristr($type, 'text')) {
         // This is a text-type file.  We need to remove linefeeds before
         // calculating a checksum, to account for possible FTP conversions
@@ -1415,22 +1475,26 @@ function serendipity_FTPChecksum($filename, $type = null) {
         $newlines = array("#\r\n#", "#\r#", "#\n#");
         $file = file_get_contents($filename);
         $file = preg_replace($newlines, ' ', $file);
-        $md5 = md5($file);
+        $hash = hash('XXH128', $file);
     } else {
-        // Just get its md5sum
-        $md5 = md5_file($filename);
+        // Just get its xxHash
+        $hash = hash_file('XXH128', $filename);
     }
 
-    return $md5;
+    return $hash;
 }
 
 /**
  * Validate checksums for all required files.
  *
- * @return A list of all files that failed checksum, where keys are the
- *    relative path of the file, and values are the bad checksum
+ * Args:
+ *      -
+ * Returns:
+ *      - A list of all files that failed checksum, where keys are the
+ *          relative path of the file, and values are the bad checksum
+ * @access private
  */
-function serendipity_verifyFTPChecksums() {
+function serendipity_verifyFTPChecksums() : iterable {
     global $serendipity;
 
     $badsums = array();
@@ -1478,9 +1542,13 @@ function serendipity_verifyFTPChecksums() {
 /**
  * Check the Serendipity docs/RELEASE file for the newest available (stable/beta) version
  *
- * @return  string/integer  filed version / -1 error code
+ * Args:
+ *      -
+ * Returns:
+ *      - filed version string OR -1 error code
+ * @access private
  */
-function serendipity_getCurrentVersion() {
+function serendipity_getCurrentVersion() : int|string {
     global $serendipity;
 
     if ($serendipity['updateCheck'] != 'stable' && $serendipity['updateCheck'] != 'beta') {
@@ -1489,7 +1557,7 @@ function serendipity_getCurrentVersion() {
     // https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE
     $config_rv = serendipity_get_config_var('updateReleaseFileUrl', 'https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE');
 
-    $serendipity['updateVersionName'] = (false !== strpos((string)$config_rv, 'styx')) ? 'Styx' : 'Serendipity';
+    $serendipity['updateVersionName'] = str_contains((string)$config_rv, 'styx') ? 'Styx' : 'Serendipity';
 
     // Perform update check once a day. We use a suffix of the configured channel, so when
     // the user switches channels, it has its own timer.
@@ -1507,7 +1575,7 @@ function serendipity_getCurrentVersion() {
 
     serendipity_set_config_var('last_update_check_' . $serendipity['updateCheck'], time());
 
-    $updateURL = serendipity_specialchars(strip_tags((string)$config_rv));
+    $updateURL = htmlspecialchars(strip_tags((string)$config_rv));
     $context   = stream_context_create(array('http' => array('timeout' => 5.0)));
     $file      = @file_get_contents($updateURL, false, $context);
     // Some servers return a " Warning: file_get_contents(): https:// wrapper is disabled in the server configuration by allow_url_fopen=0 " so we use Curl instead
@@ -1522,7 +1590,7 @@ function serendipity_getCurrentVersion() {
     }
 
     if ($file) {
-        $file = serendipity_specialchars(strip_tags($file));
+        $file = htmlspecialchars(strip_tags($file));
         if ($serendipity['updateCheck'] == 'stable') {
             if (preg_match('/^stable:(.+)\b/m', $file, $match)) {
                 serendipity_set_config_var('last_update_version_' . $serendipity['updateCheck'], $match[1]);

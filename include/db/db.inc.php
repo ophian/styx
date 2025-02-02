@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 if (!empty($serendipity['dbType']) && include(S9Y_INCLUDE_PATH . "include/db/{$serendipity['dbType']}.inc.php")) {
     define('S9Y_DB_INCLUDED', true);
 }
@@ -12,28 +14,40 @@ if (!empty($serendipity['dbType']) && include(S9Y_INCLUDE_PATH . "include/db/{$s
  * You can pass the tablename and an array of keys to select the row,
  * and an array of values to UPDATE in the DB table.
  *
+ * Args:
+ *      - Name of the DB table
+ *      - Input array that controls the "WHERE" condition part.
+ *              Pass it an associative array like array('key1' => 'value1', 'key2' => 'value2') to get a statement like "WHERE key1 = value1 AND key2 = value2".
+ *              Escaping is done automatically in this function.
+ *      - Input array that controls the "SET" condition part.
+ *              Pass it an associative array like array('key1' => 'value1', 'key2' => 'value2') to get a statement like "SET key1 = value1, key2 = value2".
+ *              Escaping is done automatically in this function.
+ *      - What do do with the SQL query (execute, display)
+ * Returns:
+ *      - Returns the result of the SQL query OR the query itself
  * @access public
- * @param  string   Name of the DB table
- * @param  array    Input array that controls the "WHERE" condition part. Pass it an associative array like array('key1' => 'value1', 'key2' => 'value2') to get a statement like "WHERE key1 = value1 AND key2 = value2". Escaping is done automatically in this function.
- * @param  array    Input array that controls the "SET" condition part. Pass it an associative array like array('key1' => 'value1', 'key2' => 'value2') to get a statement like "SET key1 = value1, key2 = value2". Escaping is done automatically in this function.
- * @param  string   What do do with the SQL query (execute, display)
- * @return array    Returns the result of the SQL query
  */
-function serendipity_db_update($table, $keys, $values, $action = 'execute') {
+function serendipity_db_update(string $table, iterable $keys, iterable $values, string $action = 'execute') : iterable|string|bool {
     global $serendipity;
 
     $set = '';
 
     foreach($values AS $k => $v) {
-        if (strlen($set))
+        if (strlen($set)) {
             $set .= ', ';
-        $set .= $k . '=\'' . serendipity_db_escape_string($v) . '\'';
+        }
+        if (is_bool($v) || is_int($v)) {
+            $set .= $k . '=' . $v; // i.e. over staticpage entry saving for property markup = bool(true), insert as 1
+        } else {
+            $set .= $k . '=\'' . serendipity_db_escape_string($v) . '\'';
+        }
     }
 
     $where = '';
     foreach($keys AS $k => $v) {
-        if (strlen($where))
+        if (strlen($where)) {
             $where .= ' AND ';
+        }
         $where .= $k . '=\'' . serendipity_db_escape_string($v) . '\'';
     }
 
@@ -54,13 +68,15 @@ function serendipity_db_update($table, $keys, $values, $action = 'execute') {
  *
  * You can pass a tablename and an array of input data to insert into an array.
  *
+ * Args:
+ *      - Name of the SQL table
+ *      - Associative array of keys/values to insert into the table. Escaping is done automatically.
+ *      - What do do with the SQL query (execute, display)
+ * Returns:
+ *      - Returns the boolean result of the SQL query OR the QUERY string itself
  * @access  public
- * @param   string      Name of the SQL table
- * @param   array       Associative array of keys/values to insert into the table. Escaping is done automatically.
- * @param  string   What do do with the SQL query (execute, display)
- * @return array    Returns the result of the SQL query
  */
-function serendipity_db_insert($table, $values, $action = 'execute') {
+function serendipity_db_insert(string $table, iterable $values, string $action = 'execute') : bool|string {
     global $serendipity;
 
     $names = implode(',', array_keys($values));
@@ -73,6 +89,8 @@ function serendipity_db_insert($table, $values, $action = 'execute') {
         // See db::serendipity_set_config_var() mentioned issue that arrays were build for the web as strings and only highly late PHP versions as of PHP 8.2 are able to type cast to INTs.
         if ($table == 'config' && $k === array_key_last($values) && is_int($v)) {
             $vals .= "$v"; // it is an integer field and PHP below 8.2 will throw a MYSQLI ERROR EXCEPTION which cannot be suppressed by @, since then the value is not stored!
+        } elseif (is_bool($v)) {
+            $vals .= "$v"; // i.e. over update plugins for property stackable = bool(true), insert as 1
         } else {
             $vals .= '\'' . serendipity_db_escape_string($v) . '\'';
         }
@@ -96,11 +114,13 @@ function serendipity_db_insert($table, $values, $action = 'execute') {
  *
  * Values that will be recognized as TRUE are 'true', 't' and '1'.
  *
+ * Args:
+ *      - An input value to compare
+ * Returns:
+ *      - Boolean conversion of the input value
  * @access public
- * @param  string   input value to compare
- * @return boolean  boolean conversion of the input value
  */
-function serendipity_db_bool($val) {
+function serendipity_db_bool(string|bool $val) : bool {
     if (($val === true) || ($val == 'true') || ($val == 't') || ($val == '1'))
         return true;
     #elseif (($val === false || $val == 'false' || $val == 'f'))
@@ -111,12 +131,14 @@ function serendipity_db_bool($val) {
 /**
  * Return a SQL statement for a time interval or timestamp, specific to certain SQL backends
  *
+ * Args:
+ *      - Indicate whether to return a timestamp, or an Interval
+ *      - The interval one might want to use, if Interval return was selected
+ * Returns:
+ *      - SQL statement
  * @access public
- * @param   string  Indicate whether to return a timestamp, or an Interval
- * @param   int     The interval one might want to use, if Interval return was selected
- * @return  string  SQL statement
  */
-function serendipity_db_get_interval($val, $ival = 900) {
+function serendipity_db_get_interval(string $val, int $ival = 900) : string {
     global $serendipity;
 
     switch($serendipity['dbType']) {
@@ -153,15 +175,17 @@ function serendipity_db_get_interval($val, $ival = 900) {
 }
 
 /**
- * Operates on an array to prepare it for SQL usage.
+ * Operates on an array to prepare it for SQL usage
  *
+ * Args:
+ *      - Concatenation character
+ *      - Input array
+ *      - How to convert ('int': Only numbers, 'string': serendipity_db_escape_string)
+ * Returns:
+ *      - Imploded string
  * @access public
- * @param   string Concatenation character
- * @param   array  Input array
- * @param   string How to convert (int: Only numbers, string: serendipity_db_escape_String)
- * @return  string Imploded string
  */
-function serendipity_db_implode($string, &$array, $type = 'int') {
+function serendipity_db_implode(string $string, iterable &$array, string $type = 'int') : string {
     $new_array = array();
     if (!is_array($array)) {
         return '';
@@ -183,12 +207,13 @@ function serendipity_db_implode($string, &$array, $type = 'int') {
  * Operates on differing database command concepts to convert
  * the CURRENT or a DATE field value to a "UNIX TIMESTAMP" (UTC) for SQL SELECT usage
  *
+ * Args:
+ *      - Optional (joined) field name to work on (resulting to eg. '2021-12-05')
+ *          is CURRENT or NOW by default
+ *      - "Cast to string" (cts) for strictly typed operator comparisons with PostGreSQL against string/text fields
+ * Returns:
+ *      - String command by dbType to include to a query
  * @access public
- * @param   string Optional (joined) field name to work on (resulting to eg. '2021-12-05')
- *          - CURRENT or NOW by default
- * @param   boolean Cast to string (cts) for strictly typed operator comparisons with PostGreSQL against string/text fields
- *
- * @return  string String command by dbType to include to a query
  */
 function serendipity_db_get_unixTimestamp(string $field = '', bool $cts = false) : string {
     global $serendipity;
@@ -201,8 +226,7 @@ function serendipity_db_get_unixTimestamp(string $field = '', bool $cts = false)
             return "EXTRACT(EPOCH FROM $field)";
         }
     } elseif ($serendipity['dbType'] == 'sqlite' || $serendipity['dbType'] == 'sqlite3' || $serendipity['dbType'] == 'pdo-sqlite' || $serendipity['dbType'] == 'sqlite3oo') {
-        $field = empty($field) ? "'now'" : $field; // OK
-        return "STRFTIME('%s', $field)"; // change to UNIXEPOCH($field) w/ Styx 5 for SQLite >= 3.38.0 (2022-02-22) only
+        return "UNIXEPOCH($field)"; // for SQLite >= 3.38.0 (2022-02-22)
     } else {
         return "UNIX_TIMESTAMP($field)";
     }

@@ -11,6 +11,7 @@
 @define('DATE_FORMAT_ENTRY', '%A، %e %B %Y');
 @define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
 @define('WYSIWYG_LANG', 'fa_IR');
+@define('TINYMCE_LANG', 'fa');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', '.');
 @define('NUMBER_FORMAT_THOUSANDS', '٫');
@@ -415,8 +416,8 @@
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'ظاهر و تنظیمات');
 @define('INSTALL_CAT_DISPLAY_DESC', 'تنظیم چگونگی نمایش سرندیپیتی');
-@define('INSTALL_WYSIWYG', 'استفاده از ویرایشگر WYSIWYG');
-@define('INSTALL_WYSIWYG_DESC', 'آیا می خواهید از ویراشگر WYSIWYG استف<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG', 'از ویرایشگر RichText (WYSIWYG) استفاده کنید');
+@define('INSTALL_WYSIWYG_DESC', 'سپس این ویرایشگر در فیلدهای متنی رایج مانند فرم‌های ورودی، صفحات استاتیک، نظرات (که دارای تنظیمات گزینه جهانی اضافی است) و برخی مکان‌های افزونه دیگر استفاده می‌شود. این نشانه گذاری HTML را مستقیماً ذخیره می کند.');
 @define('INSTALL_POPUP', 'توانایی استفاده از پنجره های بازشونده');
 @define('INSTALL_POPUP_DESC', 'آیا تمایل دارید که برای نظرات و دنبالک ها از پنجره های بازشونده استفاده شود؟');
 @define('INSTALL_EMBED', 'آیا سرندیپیتی جاسازی شده است؟');
@@ -716,7 +717,7 @@
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'آیا آدرس ایمیل ها دیده شود؟');
 @define('IMAGE_MORE_INPUT', 'افزودن عکس');
 @define('BACKEND_TITLE', 'اطلاعات بیشتر را در قسمت تنظیمات افزونه وجود دارد');
-@define('BACKEND_TITLE_FOR_NUGGET', 'در اینجا می توانید یک رشته جدید انتخاب کنید، رشته ای که در صفحه تنظیمات افزونه ها در کنار توضیحات افزونه "تکه کد HTML" نمایش داده می شود. اگر شما از تعدادی تکه کد stacked plugins / HTML با تیتر های خالی استفاده می کنید، این مورد، کمک می کند که بتوانید این افزونه ها را از هم تمیز دهید.');
+@define('BACKEND_TITLE_FOR_NUGGET', 'در اینجا می توانید یک رشته جدید انتخاب کنید، رشته ای که در صفحه تنظیمات افزونه ها در کنار توضیحات افزونه نمایش داده می شود. اگر شما از تعدادی تکه کد stacked plugins / HTML با تیتر های خالی استفاده می کنید، این مورد، کمک می کند که بتوانید این افزونه ها را از هم تمیز دهید.');
 @define('CATEGORIES_ALLOW_SELECT', 'به کاربران اجازه نمایش همزمان چندین موضوع را اعطا کن؟');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'اگر این گزینه فعال باشد، قسمتی برای انتخاب، در کنار هر موضوع در نوار افزونه های کناری اضافه خواهد شد. کاربران می توانند موضوعات مورد نظر را انتخاب کرده تا مطالب ارسالی در موضوعات مشخص شده را مشاهده کنند.');
 @define('PAGE_BROWSE_PLUGINS', 'صفحه %s از %s، در کل %s صفحه.');
@@ -826,9 +827,6 @@
 @define('CATEGORIES_PARENT_BASE_DESC', 'شما می توانید یک موضوع "پدر" را انتخاب کنید، در این صورت، فقط موضوعات "فرزند" نمایش داده می شوند.');
 @define('CATEGORIES_HIDE_PARALLEL', 'مخفی کردن موضوعاتی که در درخت موضوعات قرار ندارند');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'اگر می خواهید موضوعاتی که قسمتی از یک درخت دیگرند را مخفی کنید، این گزینه را فعال سازید. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin, i.e if you choose multi categories by the categories checkbox selection.');
-@define('CHARSET_NATIVE', 'طبیعی');
-@define('INSTALL_CHARSET', 'انتخاب نوع حروف');
-@define('INSTALL_CHARSET_DESC', 'در اینجا می توانید نوع حروف را بین UTF-8 یا کاراکتر های طبیعی (ISO, EUC, ...) تغییر دهید. بسیاری از زبان ها، فقط به UTF-8 ترجمه شده اند که کاراکتر های "طبیعی" تاثیری روی آنها نمی گذارد. ما به شما UTF-8 را پیشنهاد می کنیم. در صورتی که قبلا ارسالی داشته اید، این گزینه را تغییر ندهید - احتمال مخدوش شدن حروف وجود دارد. در لینک زیر می توانید اطلاعات بیشتری کسب کنید https://ophian.github.io/hc/en/i18n.html .');
 @define('CALENDAR_ENABLE_EXTERNAL_EVENTS', 'فعال کردن API افزونه چنگکی');
 @define('CALENDAR_EXTEVENT_DESC', 'در صورت فعال بودن، افزونه ها می توانند از تقویم برای نشان دادن وقایع استفاده کنند. این افزونه فقط در حالتی کار می کند که افزونه هایی که آن را لازم دارند، نصب شده باشند در غیر این صورت، فقط کمی قدرت سیستم پایین می آید.');
 @define('XMLRPC_NO_LONGER_BUNDLED', 'افزونه XML-RPC API برای سرندیپیتی به دلیل مشکلات امنیتی، پشتیبانی نمی شود، ضمن اینکه کاربران کمی نیز از آن استفاده می کردند. به هر حال، برای استفاده از XML-RPC API باید افزونه XML-RPC را نصب کنید. آدرس استفاده شده در برنامه تغییر نخواهد کرد - تا زمانی که شما افزونه را نصب دارید، می توانید از API استفاده کنید.');
@@ -922,6 +920,8 @@
 @define('MEDIA_UPLOAD_SIZEERROR', 'خطا: شما نمی توانید فایلی با حجمی بیشتر از %s بایت ارسال کنید!');
 @define('MEDIA_UPLOAD_MAXWIDTH', 'بیشترین طول تصویر');
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'بیشترین طول تصویر برای بالاگذاری را بر اساس پیکسل وارد کنید.');
+@define('MEDIA_UPLOAD_MAXWIDTH_PORTRAIT', 'Max. (opt.) width for images in portrait format');
+@define('MEDIA_UPLOAD_MAXWIDTH_PORTRAIT_DESC', 'Enter (optionally) the maximum permitted width in pixels for portrait format images to be uploaded. This is important if you activate the “Resize on upload” option and generally only want to generate images of a specified base width differently for portrait and landscape formats. This only applies if the options “Largest” side and “Resize on upload” are given. This optional specification does not release you from the following definition of a specific maximum height limit.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', 'بیشترین عرض تصویر');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'بیشترین عرض تصویر برای بالاگذاری را بر اساس پیکسل وارد کنید.');
 @define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
@@ -1079,6 +1079,8 @@ You should not want to operate a security-relevant access system with them!');
 @define('CLEANCOMPILE_FAIL', 'No files available for clearing.');
 @define('CLEANCOMPILE_TITLE', 'Clear template cache');
 @define('CLEANCOMPILE_INFO', 'This will purge all compiled template files of the current active template. Compiled templates will be automatically re-created on demand by the Smarty framework.');
+@define('CLEAR_SELECTION', 'Clear selection');
+@define('CLEAR_FIELD', 'Clear textarea');
 @define('INSTALLER_KEY', 'Key');
 @define('INSTALLER_VALUE', 'Value');
 @define('CURRENT_TAB', 'Current tab: ');
@@ -1288,8 +1290,8 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('ERROR_DONT_CUT_YOUR_WHINEYARD', 'You should never delete the highest GROUP LEVEL you are in: %s: %s.');
 
 @define('MEDIA_SERVE_INFO', 'Serve media buttons description info');
-@define('PICTURE_FORMAT_BUTTON_DESC', 'Simple img element - <b>vs</b> - The modern & recommended & containerized form of delivering images including Variations! Normally called "responsive images" container, but here used for responsive Variation formats!');
+@define('PICTURE_FORMAT_BUTTON_DESC', 'Simple img element ['.ADD_MEDIA.'] - <b>vs</b> - The modern, recommended & containerized form of delivering images including Variations! Normally called "responsive images" container, but here used for responsive Variation formats!');
 
-@define('ENABLEAVIF', 'Enable use of AVIF Variations up from PHP 8.1');
-@define('ENABLEAVIF_DESC', 'Image AVIF variations can be very demanding on resources, since a lot of Ram and CPU/GPU cores are needed to encode images into the AV1 format. Mass uploads and mass conversions (see "Maintenance") are therefore not recommended. Learn to handle on some examples before you generally allow to keep it enabled. PHP 8.1 still lacks a crucial build-in feature to read size information from AVIF files using the usual methods. For the time being, this also means that the image functions of the MediaLibrary "Resize this image" and "Rotate image 90 degrees" cannot be used for all formats when using AVIF, since each of these actions affects the original image as well as its variations. PHP 8.2 solves this issue by adding the missing feature.');
+@define('ENABLEAVIF', 'Enable use of AVIF Variations');
+@define('ENABLEAVIF_DESC', 'The AVIF image format is a new compression format for the web that is supported by all major browser manufacturers. However, the calculation of AVIF variations can be resource-intensive and takes time to encode images into the AV1 format. For example, an image of 6 MB takes around 20 seconds - but with compression to around 10% of the original size without any visible loss. Mass uploads or mass conversions (see "Maintenance") are therefore not recommended. Single image uploads should not be larger than 12-13 MB in the original, so that the time required and susceptibility to errors are kept within limits. It is best to learn how to handle them using a few examples before you generally allow them to be used.');
 

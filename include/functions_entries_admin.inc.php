@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -14,14 +16,17 @@ include_once(S9Y_INCLUDE_PATH . 'include/functions_trackbacks.inc.php');
  *
  * This is the core file where your edit form appears. The Heart Of Gold, so to say.
  *
+ * Args:
+ *      - The URL where the entry form is submitted to
+ *      - An array of hidden input fields that should be passed on to the HTML FORM
+ *      - The entry superarray with your entry's contents
+ *      - Any error messages that might have occurred on the last run
+ * Returns:
+ *      - The Smarty parsed admin/entries.tpl template
  * @access public
- * @param   string      The URL where the entry form is submitted to
- * @param   array       An array of hidden input fields that should be passed on to the HTML FORM
- * @param   array       The entry superarray with your entry's contents
- * @param   string      Any error messages that might have occurred on the last run
  * @return null
  */
-function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = array(), $errMsg = '') {
+function serendipity_printEntryForm(string $targetURL, iterable $hiddens = array(), iterable $entry = array(), ?string $errMsg = '') : string {
     global $serendipity;
 
     $draftD = '';
@@ -112,28 +117,16 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
     }
 
     if (!empty($serendipity['GET']['title'])) {
-        if (!function_exists('mb_convert_encoding')) {
-            $entry['title'] = @utf8_decode(urldecode($serendipity['GET']['title'])); // Deprecation in PHP 8.2, removal in PHP 9.0
-        } else {
-            $entry['title'] = mb_convert_encoding(urldecode($serendipity['GET']['title']), 'ISO-8859-1', 'UTF-8'); // string, to, from
-        }
+        $entry['title'] = mb_convert_encoding(urldecode($serendipity['GET']['title']), 'ISO-8859-1', 'UTF-8'); // string, to, from
     }
 
     if (!empty($serendipity['GET']['body'])) {
-        if (!function_exists('mb_convert_encoding')) {
-            $entry['body'] = @utf8_decode(urldecode($serendipity['GET']['body'])); // Deprecation in PHP 8.2, removal in PHP 9.0
-        } else {
-            $entry['body'] = mb_convert_encoding(urldecode($serendipity['GET']['body']), 'ISO-8859-1', 'UTF-8'); // string, to, from
-        }
+        $entry['body'] = mb_convert_encoding(urldecode($serendipity['GET']['body']), 'ISO-8859-1', 'UTF-8'); // string, to, from
     }
 
     if (!empty($serendipity['GET']['url'])) {
         if (!isset($entry['body'])) $entry['body'] = '';
-        if (!function_exists('mb_convert_encoding')) {
-            $entry['body'] .= "\n" . '<a class="block_level" href="' . serendipity_specialchars(@utf8_decode(urldecode($serendipity['GET']['url']))) . '">' . $entry['title'] . '</a>'; // Deprecation in PHP 8.2, removal in PHP 9.0
-        } else {
-            $entry['body'] .= "\n" . '<a class="block_level" href="' . serendipity_specialchars(mb_convert_encoding(urldecode($serendipity['GET']['url']), 'ISO-8859-1', 'UTF-8')) . '">' . $entry['title'] . '</a>'; // string, to, from
-        }
+        $entry['body'] .= "\n" . '<a class="block_level" href="' . htmlspecialchars(mb_convert_encoding(urldecode($serendipity['GET']['url']), 'ISO-8859-1', 'UTF-8')) . '">' . $entry['title'] . '</a>'; // string, to, from
     }
 
     $template_vars['formToken'] = serendipity_setFormToken();
@@ -160,8 +153,8 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
     $template_vars['wysiwyg']                 =  $serendipity['wysiwyg'] ?? false;
     $template_vars['serendipityRightPublish'] =  $_SESSION['serendipityRightPublish'];
     $template_vars['wysiwyg_blocks']          =  array(
-                                                    'body'      => 'serendipity[body]',
-                                                    'extended'  => 'serendipity[extended]'
+                                                    'body'      => 'serendipity_textarea_body',
+                                                    'extended'  => 'serendipity_textarea_extended'
                                                   );
 
     $template_vars['entry_template'] = serendipity_getTemplateFile('admin/entries.tpl', 'serendipityPath');
@@ -180,14 +173,17 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
 /**
  * Prints the Rich Text Editor WYSIWYG javascript modifier initialization
  *
+ * Args:
+ *      - The item name
+ *      - The javascript name
+ *      - Multi nuggets emit spawning
+ * Returns:
+ *      - void
  * @access public
- * @param   string      The item name
- * @param   string      The javascript name
- * @param   bool        Multi nuggets emit spawning
- * @return  mixed       template string | null
  */
-function serendipity_emit_htmlarea_code($item, $jsname, $spawnMulti = false) {
+function serendipity_emit_htmlarea_code(string $item, string $jsname, bool $spawnMulti = false) : void {
     # init == true when editor was already initialized
+    static $run = 1;
     static $init = false;
     global $serendipity;
 
@@ -200,7 +196,9 @@ function serendipity_emit_htmlarea_code($item, $jsname, $spawnMulti = false) {
         $eventData = array(
             'init'    => &$init,
             'item'    => &$item,
+            'lang'    => TINYMCE_LANG,
             'jsname'  => &$jsname,
+            'run'     => $run,
             'skip'    => false,
             'buttons' => array(),
         );
@@ -211,8 +209,9 @@ function serendipity_emit_htmlarea_code($item, $jsname, $spawnMulti = false) {
             return;
         }
 
-        $data = array('init' => $init, 'spawnMulti' => $spawnMulti, 'jsname' => $jsname, 'item' => $item, 'buttons' => $eventData['buttons']);
-        echo serendipity_smarty_showTemplate('admin/wysiwyg_init.tpl', $data);
+        $data = array('init' => $init, 'spawnMulti' => $spawnMulti, 'jsname' => $jsname, 'item' => $item, 'run' => $run, 'buttons' => $eventData['buttons']);
+        echo serendipity_smarty_showTemplate('admin/tinymce_init.tpl', $data);
     }
     $init = true;
+    $run += 1;
 }

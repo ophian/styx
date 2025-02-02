@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -14,14 +16,14 @@ if (defined('S9Y_FRAMEWORK_CALENDARS')) {
 /**
  * Gregorian to Persian Converter
  *
- * @author farsiweb.info
+ * Args:
+ *      - year, month, day integers
+ * Returns:
+ *      - converted time array
  * @access public
- * @param   int year
- * @param   int month
- * @param   int day
- * @return  array   converted time
+ * @author farsiweb.info
  */
-function g2p($g_y, $g_m, $g_d) {
+function g2p(int $g_y, int $g_m, int $g_d) : iterable {
     $g_days_in_month = array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
     $j_days_in_month = array(31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29);
 
@@ -66,14 +68,14 @@ function g2p($g_y, $g_m, $g_d) {
 /**
  * Persian to Gregorian Converter
  *
- * @author farsiweb.info
+ * Args:
+ *      - year, month, day integers
+ * Returns:
+ *      - converted time array
  * @access public
- * @param   int year
- * @param   int month
- * @param   int day
- * @return  array   converted time
+ * @author farsiweb.info
  */
-function p2g($j_y, $j_m, $j_d) {
+function p2g(int $j_y, int $j_m, int $j_d) : iterable {
     $g_days_in_month = array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
     $j_days_in_month = array(31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29);
     $jy = $j_y-979;
@@ -119,13 +121,15 @@ function p2g($j_y, $j_m, $j_d) {
  * Format a string according to Persian calendar (UTF)
  *
  * @author  Omid Mottaghi
+ * Args:
+ *      - Formatting string
+ *      - Timestamp to format
+ * Returns:
+ *      - Formatted local time/date string according to locale settings
  * @access public
- * @param   string  Formatting string
- * @param   int     Timestamp to format
- * @return  string  Formatted local time/date according to locale settings
  */
-function persian_strftime_utf($format, $timestamp='') {
-    if ($timestamp == '') {
+function persian_strftime_utf(string $format, ?int $timestamp = null) : string {
+    if (null === $timestamp) {
         $timestamp = time();
     }
 
@@ -160,7 +164,7 @@ function persian_strftime_utf($format, $timestamp='') {
                            'Fri' => '7');
 
     // calculate string
-    $output_str='';
+    $output_str = '';
 
     for ($i=0; $i<strlen($format); $i++) {
 
@@ -267,13 +271,15 @@ function persian_strftime_utf($format, $timestamp='') {
  * Format a string according to Persian calendar (UTF)
  *
  * @author  Omid Mottaghi
+ * Args:
+ *      - Formatting string
+ *      - Timestamp to format
+ * Returns:
+ *      - Formatted local time/date string
  * @access public
- * @param   string  Formatting string
- * @param   int     Timestamp to format
- * @return  string  Formatted local time/date
  */
-function persian_date_utf($format, $timestamp='') {
-    if ($timestamp == '') {
+function persian_date_utf(string $format, ?int $timestamp = null) : string {
+    if (null === $timestamp) {
         $timestamp = time();
     }
 
@@ -430,17 +436,14 @@ function persian_date_utf($format, $timestamp='') {
  * Create a Unix timestamp for a Persian date
  * This function works only with day > 0
  *
- * @author Omid Mottaghi
+ * Args:
+ *      - hour, minute, second, month, day, year integers or strings
+ * Returns:
+ *      - returned timestamp integer
  * @access public
- * @param   int hour
- * @param   int minute
- * @param   int second
- * @param   int month
- * @param   int day
- * @param   int year
- * @return  int returned timestamp
+ * @author Omid Mottaghi
  */
-function persian_mktime($hour='', $min='', $sec='', $mon='', $day='', $year='') {
+function persian_mktime(int|string $hour = '', int|string $min = '', int|string $sec = '', int|string $mon = '', int|string $day = '', int|string $year = '') : int {
     $j_days_in_month = array(31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29);
 
     if ((string) $hour == '') { $hour = persian_date_utf('H'); }
@@ -507,5 +510,6 @@ function persian_mktime($hour='', $min='', $sec='', $mon='', $day='', $year='') 
         $day += $j_days_in_month[$temp_month];
     }
     list($year, $mon, $day) = p2g($year, $mon, $day);
+
     return mktime((int) $hour, (int) $min, (int) $sec, (int) $mon, (int) $day, (int) $year);
 }

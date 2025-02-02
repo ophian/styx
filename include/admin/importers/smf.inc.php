@@ -6,14 +6,16 @@
  *  SMF  Importer,     by Garvin Hicking *
  * ****************************************************************/
 
+declare(strict_types=1);
+
 class Serendipity_Import_smf extends Serendipity_Import
 {
-    var $info        = array('software' => 'SMF 2.1.x');
-    var $data        = array();
-    var $inputFields = array();
-    var $categories  = array();
+    public $info        = array('software' => 'SMF 2.1.x');
+    public $data        = array();
+    public $inputFields = array();
+    public $categories  = array();
 
-    function getImportNotes()
+    public function getImportNotes() : string
     {
         return 'This (Simple Machines Forum) Importer was originally developed with some early SMF ~v.1 and Serendipity version, in 2008. As one can imagine, things have changed over time. This new lookup requires at least SMF v.2.1.0 up to current v.2.1.2 now and a running Styx instance up from latest v.3 Series. If you wish to give it a try, backup both database implementations and better do this in a testing environment first to see if you catch some breaking flaws. This new lookup has just been ported, NOT been tested! It does not capture and import an exact copy, just some main things like from authors, entries, comments and categories, even tags if you have, but NO other, more detailed configurations. This and the relations finetuning is "handmade" User stuff - left up to YOU - later on! Now go and ride this horse. File an GitHub <a href="https://github.com/ophian/styx/issues" target="_blank">issue</a> or start a <a href="https://github.com/ophian/styx/discussions" target="_blank">discussion</a> for help!';
     }
@@ -100,7 +102,7 @@ class Serendipity_Import_smf extends Serendipity_Import
         }
 
         if (!$smfdb || mysqli_connect_error()) {
-            return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
+            return sprintf(COULDNT_CONNECT, htmlspecialchars($this->data['host']));
         }
 
         if (!@mysqli_select_db($smfdb, $this->data['name'])) {
@@ -323,7 +325,7 @@ class Serendipity_Import_smf extends Serendipity_Import
                         break;
                     }
                 }
-                $a['post_text'] = serendipity_entity_decode($a['post_text']);
+                $a['post_text'] = html_entity_decode($a['post_text']);
 
                 $comment = array('entry_id'   => $entries[$x]['entryid'],
                                  'parent_id'  => 0,

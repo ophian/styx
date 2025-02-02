@@ -37,7 +37,7 @@
     <link><?= $entry['feed_entryLink'] ?></link>
 <?php if (!empty($entry['body'])): ?>
     <description>
-    <?= serendipity_specialchars($entry['feed_body']) ?> <?= serendipity_specialchars($entry['feed_ext']) ?>
+    <?= htmlspecialchars($entry['feed_body']) ?> <?= htmlspecialchars($entry['feed_ext']) ?>
     </description>
 <?php endif; ?>
 

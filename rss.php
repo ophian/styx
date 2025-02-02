@@ -2,12 +2,15 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 if (!headers_sent() && session_status() != PHP_SESSION_ACTIVE) {
     session_cache_limiter('public');
 }
 header('Content-Type: text/xml; charset=utf-8');
 
 @define('IN_RSS', true);
+
 include('serendipity_config.inc.php');
 include(S9Y_INCLUDE_PATH . 'include/functions_rss.inc.php');
 
@@ -54,7 +57,7 @@ switch ($_GET['type']) {
     case 'comments_and_trackbacks':
     case 'trackbacks':
     case 'comments':
-        $latest_entry = serendipity_fetchComments($_GET['cid'], 1, 'co.id desc', false, $_GET['type']);
+        $latest_entry = serendipity_fetchComments((int) $_GET['cid'], '1', 'co.id desc', false, $_GET['type']);
         break;
     case 'content':
     default:
@@ -107,14 +110,14 @@ switch ($_GET['type']) {
     case 'comments_and_trackbacks':
     case 'trackbacks':
     case 'comments':
-        $entries     = serendipity_fetchComments($_GET['cid'], (int)$serendipity['RSSfetchLimit'], 'co.id desc', false, $_GET['type']);
+        $entries = serendipity_fetchComments((int) $_GET['cid'], $serendipity['RSSfetchLimit'], 'co.id desc', false, $_GET['type']);
         $description = $title . ' - ' . $description;
         if (isset($_GET['cid'])) {
-            $title   = $title . ' - ' . COMMENTS_FROM . ' "' . $latest_entry[0]['title'] . '"';
+            $title = $title . ' - ' . COMMENTS_FROM . ' "' . $latest_entry[0]['title'] . '"';
         } else {
-            $title   = $title . ' - ' . COMMENTS;
+            $title = $title . ' - ' . COMMENTS;
         }
-        $comments    = TRUE;
+        $comments = TRUE;
         break;
 
     case 'content':
@@ -123,7 +126,7 @@ switch ($_GET['type']) {
             // Fetch all entries in reverse order for later importing. Fetch sticky entries as normal entries.
             $entries = serendipity_fetchEntries(null, true, '', false, false, 'id ASC', '', false, true);
         } else {
-            $entries = serendipity_fetchEntries(null, true, (int)$serendipity['RSSfetchLimit'], false, $modified_since, 'timestamp DESC', '', false, true);
+            $entries = serendipity_fetchEntries(null, true, $serendipity['RSSfetchLimit'], false, $modified_since, 'timestamp DESC', '', false, true);
         }
         break;
 }
@@ -133,16 +136,23 @@ if (isset($serendipity['serendipityRealname'])) {
 }
 
 if (!empty($serendipity['GET']['category'])) {
-    $cInfo       = serendipity_fetchCategoryInfo((int)$serendipity['GET']['category']);
-    $title       = serendipity_utf8_encode(serendipity_specialchars($title . ' - '. $cInfo['category_name']));
+    $cInfo = serendipity_fetchCategoryInfo((int)$serendipity['GET']['category']);
+    $title = serendipity_utf8_encode(htmlspecialchars($title . ' - '. $cInfo['category_name']));
 } elseif (!empty($serendipity['GET']['viewAuthor'])) {
-    list($aInfo) = serendipity_fetchAuthor((int)$serendipity['GET']['viewAuthor']);
-    $title       = serendipity_utf8_encode(serendipity_specialchars($aInfo['realname'] . ' - '. $title ));
+    list($aInfo) = serendipity_fetchAuthor((int) $serendipity['GET']['viewAuthor']);
+    $title = serendipity_utf8_encode(htmlspecialchars($aInfo['realname'] . ' - '. $title ));
 } else {
-    $title       = serendipity_utf8_encode(serendipity_specialchars($title));
+    $title = serendipity_utf8_encode(htmlspecialchars($title));
 }
 
-$description = serendipity_utf8_encode(serendipity_specialchars($description));
+$description = serendipity_utf8_encode(htmlspecialchars($description));
+
+// Add simple xls/transform data layer for our atom feed
+$xslt = '';
+if ($xslt_file = serendipity_getTemplateFile('feed_xslt.xsl', 'serendipityPath')) {
+    $xslt_url = serendipity_getTemplateFile('feed_xslt.xsl', 'baseURL');
+    $xslt = "<?xml-stylesheet type=\"text/xml\" href=\"$xslt_url\"?>";
+}
 
 $metadata = array(
     'title'             => $title,
@@ -153,7 +163,8 @@ $metadata = array(
     'email'             => $serendipity['blogMail'],
     'fullFeed'          => false,
     'showMail'          => false,
-    'version'           => $version
+    'version'           => $version,
+    'xslt'              => $xslt
 );
 
 if (serendipity_get_config_var('feedBannerURL') != '') {
@@ -162,13 +173,13 @@ if (serendipity_get_config_var('feedBannerURL') != '') {
     $h   = serendipity_get_config_var('feedBannerHeight');
 } elseif ($banner = serendipity_getTemplateFile('img/rss_banner.png', 'serendipityPath')) {
     $img = serendipity_getTemplateFile('img/rss_banner.png', 'baseURL');
-    $i   = getimagesize($banner);
+    $i   = getimagesize($banner); // 1:1 ratio for icon !
     $w   = $i[0];
     $h   = $i[1];
 } else {
-    $img = $serendipity['baseURL'] . $serendipity['templatePath'] . 'styx_logo_150.png';
-    $w   = 120;
-    $h   = 58;
+    $img = $serendipity['baseURL'] . $serendipity['templatePath'] . 'styx_logo_150.png'; // 2:1 ratio for logo !
+    $w   = 120; //  Maximum value for width is 144, default value is 88.
+    $h   = 60; // Maximum value for height is 400, default value is 31.
 }
 
 $metadata['additional_fields']['image'] = <<<IMAGE
@@ -240,6 +251,8 @@ if ($metadata['fullFeed'] === 'client') {
     } else {
         $metadata['fullFeed'] = false;
     }
+} else {
+    $metadata['fullFeed'] = serendipity_db_bool($metadata['fullFeed']);
 }
 
 if ($_GET['type'] == 'content' && !isset($_GET['category']) && !isset($serendipity['GET']['tag']) &&
@@ -263,7 +276,7 @@ if (!$metadata['template_file'] || $metadata['template_file'] == 'feed_' . $file
     die("Invalid RSS version specified or RSS-template file 'feed_$file_version.tpl' not found\n");
 }
 
-$self_url = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . serendipity_specialchars($_SERVER['REQUEST_URI']);
+$self_url = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . htmlspecialchars($_SERVER['REQUEST_URI']);
 if (!is_array($entries)) {
     $entries = array();
 }
@@ -280,13 +293,20 @@ $namespace_hook   = 'frontend_display:unknown:namespace';
 $once_display_dat = '';
 
 switch($version) {
+    case 'xsl':
+        // For people wanting extra RFC compliance
+        #header('Content-Type: application/xml; charset=utf-8');
+        #header('x-content-type-options: nosniff');
+        $namespace_hook = 'frontend_display:xslt:namespace';
+        break;
+
     case 'opml1.0':
         $namespace_hook = 'frontend_display:opml-1.0:namespace';
         break;
 
     case '1.0':
         $namespace_hook = 'frontend_display:rss-1.0:namespace';
-        serendipity_plugin_api::hook_event('frontend_display:rss-1.0:once', $entries);
+        serendipity_plugin_api::hook_event('frontend_display:rss-1.0:once', $entries); // for CC license sources
         $once_display_dat = $entries['display_dat'] ?? null;
         unset($entries['display_dat']);
         break;

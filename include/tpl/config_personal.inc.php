@@ -123,7 +123,7 @@
                                           'description' => SIMPLE_FILTERS_DESC,
                                           'type'        => 'bool',
                                           'permission'  => 'personalConfiguration',
-                                          'default'     => true,
+                                          'default'     => (defined('IN_installer') && IS_installed === false) ? false : true,
                                           'flags'       => array('config')),
 
                                     array('var'         => 'enableBackendPopup',
@@ -184,7 +184,7 @@
                                           'title'       => CATEGORY,
                                           'description' => '',
                                           'type'        => 'list',
-                                          'default'     => serendipity_fetchCategories(null, null, null, 'write', true),
+                                          'default'     => serendipity_fetchCategories(flat: true),
                                           'permission'  => 'personalConfiguration',
                                           'flags'       => array('config')),
 

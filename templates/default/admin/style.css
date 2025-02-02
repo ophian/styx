@@ -2842,6 +2842,11 @@ h3 .media_file_actions {
 #serendipity_comments_list > li .comment_full {
     padding-right: .4em;
 }
+#serendipity_comments_list .comment_full .cofu_hlg {
+    background-color: #ef0fff;
+    color: #fff;
+    padding: 0 .15rem;
+}
 
 .zebra_list .odd,
 .zebra_list .even,

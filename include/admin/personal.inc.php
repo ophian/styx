@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -12,7 +14,7 @@ if (!serendipity_checkPermission('personalConfiguration')) {
     return;
 }
 
-define('USERCONF_NEW_PASSWDEX_TOOLTIP_INFO', ' - ' . strtolower(WORD_OR) . " -<br>\n" . sprintf('<span class="newrex" title="' . USERCONF_PASSWORD_RANDOM . '"><span class="icon-info-circled" aria-hidden="true"></span>%s</span>', serendipity_generate_password(20)));// no space with %s !
+define('USERCONF_NEW_PASSWDEX_TOOLTIP_INFO', ' - ' . serendipity_mb('strtolower', WORD_OR) . " -<br>\n" . sprintf('<span class="newrex" title="' . USERCONF_PASSWORD_RANDOM . '"><span class="icon-info-circled" aria-hidden="true"></span>%s</span>', serendipity_generate_password(20)));// no space with %s !
 
 $from = array();
 
@@ -20,7 +22,7 @@ if ($serendipity['GET']['adminAction'] == 'save' && serendipity_checkFormToken()
     $config = serendipity_parseTemplate(S9Y_CONFIG_USERTEMPLATE);
     $data['adminAction'] = 'save';
     if ((!serendipity_checkPermission('adminUsersEditUserlevel') || !serendipity_checkPermission('adminUsersMaintainOthers'))
-          && isset($_POST['userlevel']) && (int)$_POST['userlevel'] > $serendipity['serendipityUserlevel']) {
+          && isset($_POST['userlevel']) && (int) $_POST['userlevel'] > $serendipity['serendipityUserlevel']) {
         $data['not_authorized'] = true;
     } elseif (empty($_POST['username'])) {
         $data['empty_username'] = true;
@@ -97,8 +99,8 @@ if ($serendipity['GET']['adminAction'] == 'save' && serendipity_checkFormToken()
 
             if (isset($serendipity['POST']['authorid'])) {
                 $pl_data = array(
-                    'id'       => (int)$serendipity['POST']['authorid'],
-                    'authorid' => (int)$serendipity['POST']['authorid'],
+                    'id'       => (int) $serendipity['POST']['authorid'],
+                    'authorid' => (int) $serendipity['POST']['authorid'],
                     'username' => $_POST['username'],
                     'realname' => $_POST['realname'],
                     'email'    => $_POST['email']

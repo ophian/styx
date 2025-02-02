@@ -31,7 +31,7 @@
 
                                 <div class="form_tarea">
                                     <label for="serendipity_commentform_comment">{$CONST.COMMENT}{if NOT empty($required_fields.comment)}<span class="text-hint" title="{$CONST.REQUIRED_FIELD} comment"> &#8727;</span>{/if}</label>
-                                    <textarea id="serendipity_commentform_comment" rows="10" name="serendipity[comment]"{if NOT empty($required_fields.comment)} required{/if}>{$commentform_data}</textarea>
+                                    <textarea id="serendipity_commentform_comment" rows="10" name="serendipity[comment]">{$commentform_data}</textarea>
                                 </div>
 
                                 {serendipity_hookPlugin hook="frontend_comment" data=$commentform_entry}

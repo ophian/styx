@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -543,13 +545,64 @@ $dead_dirs_440 = array(
     $serendipity['serendipityPath'] . 'templates/b53/js'
 );
 
+/* A list of Styx files, to be removed or renamed by 5.0.0 */
+$dead_files_500 = array(
+    'lang/serendipity_lang_cs.inc.php',
+    'templates/_assets/ckebasic_plugin.js',
+    'templates/_assets/wysiwyg-style.css',
+    'templates/default/admin/wysiwyg_init.tpl'
+);
+
+/* A list of old or removed directories for 5.0.0 */
+$dead_dirs_500 = array(
+    $serendipity['serendipityPath'] . 'lang/UTF-8',
+    $serendipity['serendipityPath'] . 'plugins/serendipity_event_ckeditor',
+    $serendipity['serendipityPath'] . 'templates/_assets/ckebasic'/*,
+    $serendipity['serendipityPath'] . 'plugins/serendipity_event_todooooo/UTF-8',
+    $serendipity['serendipityPath'] . 'plugins/serendipity_plugin_todooooo/UTF-8',
+    $serendipity['serendipityPath'] . 'plugins/serendipity_plugin_todooooo/UTF-8'*/
+);
+
+/**
+ * Styx 5 recursive directory call to purge old UTF-8 directories in plugins
+ *
+ * Args:
+ *      - void
+ * Returns:
+ *      - possible exception msg
+ * @access private
+ */
+function recursive_pluginUTF8dir_iterator() : ?string {
+    global $serendipity;
+
+    $dir = $serendipity['serendipityPath'] . 'plugins';
+    if (null === $dir || !str_ends_with($dir, 'plugins')) {
+        return trigger_error('<span class="msg_error">Wrong start directory: ' . $dir . ' in recursive_pluginUTF8dir_iterator() upgrade task function. Fix it, and re-run the upgrade OR get some help.</span>', E_USER_WARNING);
+    }
+    $files = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS),
+        RecursiveIteratorIterator::CHILD_FIRST
+    );
+
+    foreach($files AS $path) {
+        if (is_dir($path) && str_ends_with($path, 'UTF-8')) {
+            serendipity_removeDeadFiles_SPL($path);
+        }
+    }
+
+    return null;
+}
+
 /**
  * recursive directory call to purge files and directories
  *
- * @param array $dir directories
- * @return void
+ * Args:
+ *      - array $dir directories
+ * Returns:
+ *      - void
+ * @access private
  */
-function recursive_directory_iterator($dir = array()) {
+function recursive_directory_iterator(iterable $dir = array()) : void {
     if (null === $dir) {
         return;
     }
@@ -560,12 +613,15 @@ function recursive_directory_iterator($dir = array()) {
 }
 
 /**
- * recursive local plugins purging DB call that have been removed physically
+ * Recursive local plugins purging DB call that have been removed physically
  *
- * @param array $locals directories
- * @return void
+ * Args:
+ *      - $locals directories array
+ * Returns:
+ *      - void
+ * @access private
  */
-function recursive_local_iterator($locals = array()) {
+function recursive_local_iterator(iterable $locals = array()) : void {
     if (null === $locals) {
         return;
     }
@@ -581,11 +637,13 @@ function recursive_local_iterator($locals = array()) {
 /**
  * Set/change config variables; Fix pluginlist for upgrade cases.
  *
+ * Args:
+ *      - conditional string to fix specific tasks
+ * Returns:
+ *      - boolean
  * @access private
- * @param  string   (reserved for future use)
- * @return boolean
  */
-function serendipity_fixPlugins($case) {
+function serendipity_fixPlugins(string $case) : bool {
     global $serendipity;
 
     switch($case) {
@@ -676,21 +734,30 @@ function serendipity_fixPlugins($case) {
 
 /**
  * Create an UNIQUE INDEX to avoid duplicates
+ *
+ * Args:
+ *      -
+ * Returns:
+ *      - silenced
+ * @access private
  */
-function update_table_authorgroups() {
+function update_table_authorgroups() : string|bool {
     global $serendipity;
 
-    return serendipity_db_query("CREATE UNIQUE INDEX authorgroup_idx ON {$serendipity['dbPrefix']}authorgroups (groupid, authorid)", true, 'both', false, false, false, true); // set single true and last expectError true, since table is known to fail when unique key is a duplicate on error resumes for example
+    return serendipity_db_query("CREATE UNIQUE INDEX authorgroup_idx ON {$serendipity['dbPrefix']}authorgroups (groupid, authorid)", single: true, expectError: true); // table is known to fail when unique key is a duplicate on error resumes for example
 }
 
+
 /**
- * DELETEs a plugin name value in the database by name [2.0 betas]
+ * DELETEs a plugin name value in the database by name
  *
- * @param   string  $name
- *
- * @return void
+ * Args:
+ *      - $name string
+ * Returns:
+ *      - void
+ * @access private
  */
-function serendipity_killPlugin($name) {
+function serendipity_killPlugin(string $name) : void {
     global $serendipity;
 
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}plugins WHERE name LIKE '" . serendipity_db_escape_string($name) . "%'");
@@ -699,9 +766,13 @@ function serendipity_killPlugin($name) {
 /**
  * Nukes old 'sysinfo_ticker' hash message items from database set by Styx 4.3.0 for refactored Styx 4.3.1
  *
- * @return void
+ * Args:
+ *      -
+ * Returns:
+ *      - void
+ * @access private
  */
-function serendipity_nuke_okey_sys_tick_items() {
+function serendipity_nuke_okey_sys_tick_items() : void {
     global $serendipity;
 
     // delete the overview.inc set 'sysinfo_ticker' hash message item from database that is not of current length with 4.3.1
@@ -713,16 +784,16 @@ function serendipity_nuke_okey_sys_tick_items() {
  * Use as full purge by serendipity_removeDeadFiles_SPL(/path/to/dir)
  * Or strict by serendipity_removeDeadFiles_SPL('/path/to/dir', $filelist, $directorylist, true)
  *
+ * Args:
+ *      - $dir directory
+ *      - $deadfiles dead files list
+ *      - $purgedir dead directories list
+ *      - $list_only run list only else recursive default
+ * Returns:
+ *      - void
  * @access private
- *
- * @param   string  $dir directory
- * @param   array   $deadfiles dead files list
- * @param   array   $purgedir dead directories list
- * @param   boolean $list_only run list only else recursive default
- *
- * @return void
  */
-function serendipity_removeDeadFiles_SPL($dir=null, $deadfiles=null, $purgedir=null, $list_only=false) {
+function serendipity_removeDeadFiles_SPL(?string $dir = null, ?string $deadfiles = null, ?string $purgedir = null, bool $list_only = false) : void {
     if (!is_dir($dir)) {
         return;
     }
@@ -732,7 +803,7 @@ function serendipity_removeDeadFiles_SPL($dir=null, $deadfiles=null, $purgedir=n
         return;
     }
 
-    $debugSPL = false; // dev debug only
+    $debugSPL = false; // DEV debug only
     $iterator = new RecursiveIteratorIterator($_dir, RecursiveIteratorIterator::CHILD_FIRST, RecursiveIteratorIterator::CATCH_GET_CHILD); // path, mode, flag
     $search   = array("\\", '//');
     $replace  = array('/');
@@ -787,15 +858,15 @@ function serendipity_removeDeadFiles_SPL($dir=null, $deadfiles=null, $purgedir=n
  * Remove and cleanup empty directories using the Standard PHP Library (SPL) iterator
  * Use as a standard upgrade task on every release!
  *
+ * Args:
+ *      - $path parent directory
+ * Returns:
+ *      - True OR NULL
  * @access private
- *
- * @param   string $path parent directory
- *
- * @return void
  */
-function serendipity_cleanUpDirectories_SPL( $path=null ) {
+function serendipity_cleanUpDirectories_SPL(?string $path = null) : ?true {
     if (!is_dir($path)) {
-        return;
+        return null;
     }
     try {
         $files = array();
@@ -814,7 +885,7 @@ function serendipity_cleanUpDirectories_SPL( $path=null ) {
         }
         return true;
     } catch (\Throwable $t) {
-        return;
+        return null;
     }
 }
 
@@ -822,13 +893,13 @@ function serendipity_cleanUpDirectories_SPL( $path=null ) {
  * Remove and cleanup old compiled Smarty2 files using the Standard PHP Library (SPL) iterator
  * Use as an upgrade task probably only once!
  *
+ * Args:
+ *      - $path parent directory string
+ * Returns:
+ *      - void
  * @access private
- *
- * @param   string $path parent directory
- *
- * @return void
  */
-function serendipity_cleanUpOldCompilerFiles_SPL( $path=null ) {
+function serendipity_cleanUpOldCompilerFiles_SPL(?string $path = null) : void {
     if (!is_dir($path)) {
         return;
     }
@@ -850,9 +921,13 @@ function serendipity_cleanUpOldCompilerFiles_SPL( $path=null ) {
  * due to plugin naming convention (serendipity_plugin_* and serendipity_event_*)
  * and now being filed and removed into '/plugins' with 2.0
  *
- * @return void
+ * Args:
+ *      -
+ * Returns:
+ *      - void
+ * @access private
  */
-function serendipity_upgrader_rename_plugins() {
+function serendipity_upgrader_rename_plugins() : void {
     global $serendipity;
 
     $plugs = serendipity_db_query("SELECT name FROM {$serendipity['dbPrefix']}plugins WHERE name LIKE '@%' OR name LIKE 'serendipity_html_nugget_plugin%'");
@@ -866,7 +941,7 @@ function serendipity_upgrader_rename_plugins() {
 #            $plugin['name'] = str_replace('serendipity_plugin_topreferers', 'serendipity_plugin_topreferrers', $plugin['name']); // ditto old plugin now lives as topreferrers plugin
             $pluginparts = explode(':', $plugin['name']);
 
-            #echo "<!-- " . serendipity_specialchars($origname) . " &gt;&gt; " . serendipity_specialchars($plugin['name']) . "-->\n";
+            #echo "<!-- " . htmlspecialchars($origname) . " &gt;&gt; " . htmlspecialchars($plugin['name']) . "-->\n";
             serendipity_db_query("UPDATE {$serendipity['dbPrefix']}plugins SET name = '" . serendipity_db_escape_string($plugin['name']) . "', path = '" . serendipity_db_escape_string($pluginparts[0]) . "' WHERE name = '" . serendipity_db_escape_string($origname) . "'");
         }
     }
@@ -881,7 +956,7 @@ function serendipity_upgrader_rename_plugins() {
             $config['name'] = str_replace('serendipity_html_nugget_plugin', 'serendipity_plugin_html_nugget', $config['name']);
             #$configparts = explode(':', $config['name']);
 
-            #echo "<!--[C] " . serendipity_specialchars($origname) . " &gt;&gt; " . serendipity_specialchars($config['name']) . "-->\n";
+            #echo "<!--[C] " . htmlspecialchars($origname) . " &gt;&gt; " . htmlspecialchars($config['name']) . "-->\n";
             serendipity_db_query("UPDATE {$serendipity['dbPrefix']}config SET name = '" . serendipity_db_escape_string($config['name']) . "' WHERE name = '" . serendipity_db_escape_string($origname) . "'");
         }
     }
@@ -890,9 +965,13 @@ function serendipity_upgrader_rename_plugins() {
 /**
  * Select and rewrite the syndication plugin feed icon path value in the database with 2.0+
  *
- * @return void
+ * Args:
+ *      -
+ * Returns:
+ *      - void
+ * @access private
  */
-function serendipity_upgrader_rewriteFeedIcon() {
+function serendipity_upgrader_rewriteFeedIcon() : void {
     global $serendipity;
 
     $path = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE name LIKE '%serendipity_plugin_syndication%big_img'", true);
@@ -906,9 +985,13 @@ function serendipity_upgrader_rewriteFeedIcon() {
 /**
  * Select and rewrite syndication plugin feed config value names in the database with 2.0+
  *
- * @return void
+ * Args:
+ *      -
+ * Returns:
+ *      - void
+ * @access private
  */
-function serendipity_upgrader_move_syndication_config() {
+function serendipity_upgrader_move_syndication_config() : void {
     global $serendipity;
 
     $optionsToPort = array( 'bannerURL'             => 'feedBannerURL',
@@ -943,11 +1026,14 @@ function serendipity_upgrader_move_syndication_config() {
 /**
  * Purge files in the template_cache directory per Upgrade task to allow fetching new preview images.
  *       OR delete single theme previews per Maintenance Theme Clearance Spot request
- * @param mixed     $themes     All themes is true, else array of themes, else default false
  *
- * @return bool
+ * Args:
+ *      - All themes is true, else array of themes, else default false
+ * Returns:
+ *      - boolean
+ * @access private
  */
-function serendipity_purgeTemplatesCache($themes=false) {
+function serendipity_purgeTemplatesCache(bool|iterable $themes = false) : bool {
     global $serendipity;
 
     $path = $serendipity["serendipityPath"] . PATH_SMARTY_COMPILE . '/template_cache';
@@ -978,11 +1064,15 @@ function serendipity_purgeTemplatesCache($themes=false) {
 /**
  * Rename a Serendipity global variable
  *
- * @param old       The old name to search for
- * @param new       The new name to SET to
- * @param authorid  The authorid as optional strict parameter search
+ * Args:
+ *      - The old name to search for
+ *      - The new name to SET to
+ *      - The authorid as optional strict parameter search
+ * Returns:
+ *      - void
+ * @access private
  */
-function serendipity_renameConfigVar($old = '', $new = '', $authorid = null) {
+function serendipity_renameConfigVar(string $old = '', string $new = '', ?int $authorid = null) : void {
     global $serendipity;
 
     if (!is_null($authorid)) {
@@ -999,9 +1089,15 @@ function serendipity_renameConfigVar($old = '', $new = '', $authorid = null) {
 
 /**
  * Delete old config Plugin Variables that have completely been removed.
+ *
+ * Args:
+ *      - config variable string
+ * Returns:
+ *      - void
+ * @access private
  */
-function serendipity_cleanupConfigVars($name='') {
-        global $serendipity;
+function serendipity_cleanupConfigVars(string $name = '') : void {
+    global $serendipity;
 
-        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name = '" . serendipity_db_escape_string($name) . "'");
+    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name = '" . serendipity_db_escape_string($name) . "'");
 }

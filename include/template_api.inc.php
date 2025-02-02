@@ -47,7 +47,7 @@
   - Replace '{smartycommand param1=x param2=x}' function calls with
     '<?= $GLOBALS['template']->call('smartycommand', array('param1' => 'x', 'param2' => 'x')); ?>' ones
 
-  - NOTA BENE: Be aware that many smarty function calls are just wrappers to Serendipity API
+  - NOTA BENE: Be aware that many Smarty function calls are just wrappers to Serendipity API
     calls. To save grandma's performance pennies you should search the original Serendipity API
     function before calling them with the $GLOBALS['template']->call() wrapper! This costs dearly.
 
@@ -55,6 +55,8 @@
 
  Know your PHP before you think about using this. :-)
 */
+
+declare(strict_types=1);
 
 /* wrapper fake class */
 class Smarty
@@ -103,18 +105,20 @@ class serendipity_smarty_emulator
      * @api  Smarty::registerPlugin()
      * @link http://www.smarty.net/docs/en/api.register.plugin.tpl
      *
-     * @param \Smarty_Internal_TemplateBase|\Smarty_Internal_Template|\Smarty $obj
-     * @param  string                                                         $type       plugin type
-     * @param  string                                                         $name       name of template tag
-     * @param  callback                                                       $callback   PHP callback to register
-     * @param  bool                                                           $cacheable  if true (default) this
-     *                                                                                    function is cache able
-     * @param  mixed                                                          $cache_attr caching attributes if any
-     *
-     * @return \Smarty|\Smarty_Internal_Template
-     * @throws SmartyException              when the plugin tag is invalid
+     * Args:
+     *      - \Smarty_Internal_TemplateBase|\Smarty_Internal_Template|\Smarty object
+     *      - plugin type
+     *      - name of template tag
+     *      - PHP callback to register
+     *      - if true (default) this
+     *      - function is cacheable
+     *      - caching attributes if any
+     * Returns:
+     *      - \Smarty|\Smarty_Internal_Template
+     * @access public
+     * ##@throws SmartyException when the plugin tag is invalid
      */
-    public function registerPlugin($obj, $type, $name, $callback = null, $cacheable = true, $cache_attr = null)
+    public function registerPlugin(object|string $obj, string $type, string|iterable $name, ?callable $callback = null, ?bool $cacheable = true, string|iterable|null $cache_attr = null) : callable|string
     {
         $smarty = $obj->smarty ?? $obj;
         if (isset($smarty->registered_plugins[ $type ][ $name ])) {
@@ -133,12 +137,14 @@ class serendipity_smarty_emulator
     /**
      * Assign one or multiple template variable
      *
-     * @param   mixed       Either a variable name, or an array of variables
-     * @param   mixed       Either null or the variable content.
+     * Args:
+     *      - Either a variable name, or an array of variables
+     *      - Either NULL or the variable content.
+     * Returns:
+     *      - True
      * @access public
-     * @return null
     */
-    function assign($tpl_var, $value = null)
+    function assign(string|iterable $tpl_var, iterable|string|int|bool|float|null $value = null) : true
     {
         if (is_array($tpl_var)) {
             foreach($tpl_var AS $key => $val) {
@@ -156,12 +162,14 @@ class serendipity_smarty_emulator
     /**
      * Assign one or multiple template variable by reference - Smarty API Change > 3.0
      *
-     * @param   string      Variable name
-     * @param   mixed       Referenced variable
+     * Args:
+     *      - Variable name
+     *      - Referenced variable
+     * Returns:
+     *      - True
      * @access public
-     * @return null
     */
-    function assignByRef($tpl_var, &$value)
+    function assignByRef(string $tpl_var, iterable|string|int|null &$value) : true
     {
         $GLOBALS['tpl'][$tpl_var] =& $value;
 
@@ -174,12 +182,14 @@ class serendipity_smarty_emulator
      *   need a clone in here without instance of Smarty_Internal_Template,
      *   since an instance of serendipity_smarty_emulator is given!
      *
-     * @param   string      Function name to call.
-     * @param   array       Array of parameters
+     * Args:
+     *      - Function name to call.
+     *      - Array of parameters
+     * Returns:
+     *      - Output string
      * @access public
-     * @return  string      Output
      */
-    function call($funcname, $params)
+    function call(string $funcname, iterable $params) : string
     {
         // enable for cloned methods
         /*if (method_exists($GLOBALS['template'], 'emulator_' . $funcname)) {
@@ -193,18 +203,20 @@ class serendipity_smarty_emulator
         } elseif (function_exists($funcname)) {
             return call_user_func($funcname, $params, $this);
         } else {
-            return '<span class="msg_error">ERROR: ' . serendipity_specialchars($funcname) . " NOT FOUND.</span>\n";
+            return '<span class="msg_error">ERROR: ' . htmlspecialchars($funcname) . " NOT FOUND.</span>\n";
         }
     }
 
     /**
      * Outputs a smarty template.
      *
-     * @param   string      Full path to template file
+     * Args:
+     *      - Full path to template file
+     * Returns:
+     *      - boolean
      * @access public
-     * @return boolean
      */
-    function display($resource_name)
+    function display(string $resource_name) : bool|int
     {
         return include $resource_name;
     }
@@ -212,11 +224,13 @@ class serendipity_smarty_emulator
     /**
      * Triggers a template error
      *
-     * @param   string      Error message
+     * Args:
+     *      - Error message
+     * Returns:
+     *      - void
      * @access public
-     * @return null
      */
-    function trigger_error($txt)
+    function trigger_error(string $txt) : void
     {
         trigger_error("SMARTY EMULATOR ERROR: $txt", E_USER_WARNING);
     }
@@ -224,11 +238,13 @@ class serendipity_smarty_emulator
     /**
      * Echoes a default value. Append multiple values and will output the first non empty value.
      *
-     * @param   mixed    The value to emit.
+     * Args:
+     *      - The value to emit
+     * Returns:
+     *      - The found global value OR False when not
      * @access public
-     * @return null
      */
-    function getdefault()
+    function getdefault() : string|false
     {
         $vars = func_get_args();
         foreach($vars AS $title) {
@@ -243,11 +259,13 @@ class serendipity_smarty_emulator
     /**
      * Get config directory
      *
-     * @param mixed $index index of directory to get, null to get all
-     *
-     * @return array configuration directory
+     * Args:
+     *      - index of directory to get, NULL to get all
+     * Returns:
+     *      - array configuration directory
+     * @access public
      */
-    public function getConfigDir($index = null)
+    public function getConfigDir(string|int|null $index = null) : ?iterable
     {
         return $this->getTemplateDir($index, true);
     }
@@ -255,12 +273,14 @@ class serendipity_smarty_emulator
     /**
      * Get template directories
      *
-     * @param mixed $index    index of directory to get, null to get all
-     * @param bool  $isConfig true for config_dir
-     *
-     * @return array list of template directories, or directory of $index
+     * Args:
+     *      - index of directory to get, null to get all
+     *      - $isConfig true for config_dir
+     * Returns:
+     *      - array list of template directories, OR directory of $index OR NULL
+     * @access public
      */
-    public function getTemplateDir($index = null, $isConfig = false)
+    public function getTemplateDir(string|int|null $index = null, bool $isConfig = false) : ?iterable
     {
         if ($isConfig) {
             $dir = &$this->config_dir;
@@ -284,14 +304,16 @@ class serendipity_smarty_emulator
      *  - remove /./ and /../
      *  - make it absolute if required
      *
-     * @param string $path      file path
-     * @param bool   $realpath  if true - convert to absolute
-     *                          false - convert to relative
-     *                          null - keep as it is but remove /./ /../
-     *
-     * @return string
+     * Args:
+     *      - file path
+     *      - if true - convert to absolute
+     *           false - convert to relative
+     *           null - keep as it is but remove /./ /../
+     * Returns:
+     *      - path string
+     * @access public
      */
-    public function _realpath($path, $realpath = null)
+    public function _realpath(string $path, ?bool $realpath = null) : string
     {
         $nds = $this->ds == '/' ? '\\' : '/';
         // normalize $this->ds
@@ -309,7 +331,7 @@ class serendipity_smarty_emulator
         // remove noop 'DIRECTORY_SEPARATOR DIRECTORY_SEPARATOR' and 'DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR' patterns
         $path = preg_replace('#([\\\\/]([.]?[\\\\/])+)#', $this->ds, $path);
         // resolve '..DIRECTORY_SEPARATOR' pattern, smallest first
-        if (strpos($path, '..' . $this->ds) != false &&
+        if (str_contains($path, '..' . $this->ds) &&
             preg_match_all('#(([.]?[\\\\/])*([.][.])[\\\\/]([.]?[\\\\/])*)+#', $path, $match)
         ) {
             $counts = array();
@@ -330,10 +352,13 @@ class serendipity_smarty_emulator
     /**
      * Normalize template_dir or config_dir
      *
-     * @param bool $isConfig true for config_dir
-     *
+     * Args:
+     *      - $isConfig true for config_dir
+     * Returns:
+     *      - void
+     * @access public
      */
-    private function _normalizeTemplateConfig($isConfig)
+    private function _normalizeTemplateConfig(bool $isConfig) : void
     {
         if ($isConfig) {
             $processed = &$this->_processedConfigDir;
@@ -362,16 +387,18 @@ class serendipity_smarty_emulator
      * @api  Smarty::getTemplateVars()
      * @link http://www.smarty.net/docs/en/api.get.template.vars.tpl
      *
-     * @param $data
-     *
-     * @return mixed variable value or an empty array of variables
+     * Args:
+     *      - data string
+     * Returns:
+     *      - variable value or an empty array of variables
+     * @access public
      */
-    public function getTemplateVars($data)
+    public function getTemplateVars(string $data) : string|iterable|true
     {
         if (!empty($GLOBALS['tpl'][$data])) {
             return $GLOBALS['tpl'][$data];
         } else {
-            $_result = array();
+            $_result = '';
             return $_result;
         }
     }
@@ -379,14 +406,16 @@ class serendipity_smarty_emulator
     /**
      * Parses a template file into another.
      *
-     * @param   string      The path to the resource name (prefixed with 'file:' usually)
-     * @param   string      The Cache ID (not used)
-     * @param   string      The Compile ID (not used)
-     * @param   boolean     Output data (true) or return it (false)?
+     * Args:
+     *      - The path to the resource name (prefixed with 'file:' usually)
+     *      - The Cache ID (not used)
+     *      - The Compile ID (not used)
+     *      - Output data (true) or return it (false)?
+     * Returns:
+     *      - Content string OR boolean
      * @access public
-     * @return null
      */
-    function &fetch($resource_name, $cache_id = null, $compile_id = null, $display = false)
+    function &fetch(string $resource_name, ?string $cache_id = null, ?string $compile_id = null, ?bool $display = false) : string|bool
     {
         $resource_name = str_replace('file:', '', $resource_name);
 
@@ -412,14 +441,16 @@ class serendipity_smarty_emulator
     /**
      * clear the given assigned template variable(s).
      *
-     * @param string|array $tpl_var the template variable(s) to clear
-     *
-     * @return \Smarty_Internal_Data|\Smarty_Internal_Template|\Smarty
+     * Args:
+     *      - $tpl_var the template variable(s) to clear
+     * Returns:
+     *      - \Smarty_Internal_Data|\Smarty_Internal_Template|\Smarty
+     * @access public
      */
-    public function clearAssign($tpl_var)
+    public function clearAssign(string|iterable $tpl_var) : string|iterable
     {
         if (is_array($tpl_var)) {
-            foreach ($tpl_var as $curr_var) {
+            foreach ($tpl_var AS $curr_var) {
                 unset($GLOBALS['tpl'][$data]->tpl_vars[$curr_var]);
             }
         } else {
@@ -441,8 +472,15 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
 {
     /**
      * Check matching backend routings
+     *
+     * Args:
+     *      -
+     * Returns:
+     *      - boolean
+     * @access public
      */
-    function match() {
+    function match() : bool
+    {
         if (isset($GLOBALS['matches'][2]) && $GLOBALS['matches'][2] == 'admin/serendipity_styx.js') {
             return false;
         } elseif (isset($GLOBALS['matches'][1]) && $GLOBALS['matches'][1] == 'serendipity_admin.js') {
@@ -460,9 +498,13 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
     /**
      * Test install
      *
-     * @param null $errors
+     * Args:
+     *      - Error string OR NULL
+     * Returns:
+     *      - void
+     * @access public
      */
-    public function testInstall(&$errors = null)
+    public function testInstall(?string &$errors = null) : void
     {
         $_stream_resolve_include_path = function_exists('stream_resolve_include_path');
 
@@ -538,10 +580,16 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
     /**
      * Parses a template file into another.
      *
+     * Args:
+     *      - resource name string
+     *      - cache ID OR NULL
+     *      - compile ID OR NULL
+     *      - Whether to display? (unused)
+     * Returns:
+     *      - file content OR boolean
      * @access public
-     * @return null
      */
-    function &fetch($resource_name, $cache_id = NULL, $compile_id = NULL, $display = false)
+    function &fetch(string $resource_name, ?string $cache_id = NULL, ?string $compile_id = NULL, ?bool $display = false) : string|bool
     {
         if (isset($GLOBALS['matches'][2]) && $GLOBALS['matches'][2] == 'admin/serendipity_styx.js') {
             if (!is_object($GLOBALS['serendipity']['smarty'])) {
@@ -563,10 +611,13 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
     /**
      * Outputs a smarty template.
      *
+     * Args:
+     *      - resource name string
+     * Returns:
+     *      - boolean
      * @access public
-     * @return null
      */
-    function display($resource_name)
+    function display(string $resource_name) : bool|int
     {
         if (!$this->match()) { return false; }
         echo "</serendipity>\n";
@@ -575,6 +626,12 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
 
     /**
      * PHP5 constructor
+     *
+     * Args:
+     *      -
+     * Returns:
+     *      - May return false
+     * @access public
      */
     function __construct()
     {
@@ -592,12 +649,14 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
      * Assign one or multiple template variable
      * @TODO: Why can't this function accept references. This sucks.
      *
-     * @param   mixed       Either a variable name, or an array of variables
-     * @param   mixed       Either null or the variable content.
+     * Args:
+     *      - Either a variable name, or an array of variables
+     *      - Either null or the variable content.
+     * Returns:
+     *      - boolean
      * @access public
-     * @return null
      */
-    function assign($tpl_var, $value = null, $level = 0)
+    function assign(string|iterable $tpl_var, iterable|string|int|bool|float|null $value = null, int $level = 0) : true
     {
         if (!$this->match()) { return false; }
         if (is_array($tpl_var)) {
@@ -614,12 +673,14 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
     /**
      * Assign one or multiple template variable by reference - Smarty API Change > 3.0
      *
-     * @param   string      Variable name
-     * @param   mixed       Referenced variable
+     * Args:
+     *      - Variable name
+     *      - Referenced variable
+     * Returns:
+     *      - boolean
      * @access public
-     * @return null
      */
-    function assignByRef($tpl_var, &$value)
+    function assignByRef(string $tpl_var, iterable|string|int|null &$value) : true
     {
         if (!$this->match()) { return false; }
         if (is_array($value)) {
@@ -636,13 +697,17 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
     /**
      * Create the XML output for an element
      *
-     * @param  int     The intend level
-     * @param  mixed   The XML element name
-     * @param  mixed   The XML element value
+     * Args:
+     *      - The intend level
+     *      - The XML element name
+     *      - The XML element value
+     * Returns:
+     *      - May return False or NULL
+     * @access public
      */
-    function createXML(&$level, &$key, &$val)
+    function createXML(int &$level, int|string &$key, string|iterable &$val) : ?false
     {
-        if (is_null($level)) { return; }
+        if (is_null($level)) { return null; }
         if (!$this->match()) { return false; }
         if (is_numeric($key)) {
             $openkey  = 'item index="' . $key . '"';
@@ -656,7 +721,7 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
             $this->assign($val, null, $level + 1);
             echo str_repeat("\t", $level) . "</$closekey>\n";
         } else {
-            echo str_repeat("\t", $level) . "<$openkey>" . serendipity_specialchars($val) . "</$closekey>\n";
+            echo str_repeat("\t", $level) . "<$openkey>" . htmlspecialchars($val) . "</$closekey>\n";
         }
     }
 

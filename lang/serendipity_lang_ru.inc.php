@@ -10,6 +10,7 @@
 @define('DATE_FORMAT_ENTRY', '%A, %e %B. %Y');
 @define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
 @define('WYSIWYG_LANG', 'ru_RU');
+@define('TINYMCE_LANG', 'ru');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', '.');
 @define('NUMBER_FORMAT_THOUSANDS', ', ');
@@ -86,7 +87,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Ошибка: Что-то не так...');
 @define('ADDING_IMAGE', 'Добавление изображения...');
-@define('THUMB_CREATED_DONE', 'Тамбнэйл %s успешно,<br> создан.'); // ADD: and of all variations
+@define('THUMB_CREATED_DONE', 'Тамбнэйл %s успешно,<br>создан.'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', 'Ошибка: Файл уже существует на вашем компьютере!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Произошла неизвестная ошибка, файл не был загружен. Возможно, размер вашего файл превысил допустивый максимальный размер, разрешённый на вашем сервере. Сверьтесь с вашим провайдером, или отредактируйте ваш файл php.ini чтобы позволить загрузку на сервер файлов большего размера.');
 @define('NOT_AVAILABLE', 'N/A'); // short!
@@ -416,8 +417,8 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'Внешний вид и опции');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Изменить настройки интерфейса Serendipity');
-@define('INSTALL_WYSIWYG', 'Использовать WYSIWYG-редактор');
-@define('INSTALL_WYSIWYG_DESC', 'Желаете ли вы использовать WYSIWYG-редактор?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG', 'Используйте редактор RichText (WYSIWYG)');
+@define('INSTALL_WYSIWYG_DESC', 'Этот редактор будет использоваться в обычных текстовых полях, таких как формы ввода, статические страницы, комментарии (которые имеют дополнительную глобальную настройку) и некоторые другие места плагинов; Он хранит HTML-разметку напрямую.');
 @define('INSTALL_POPUP', 'Разрешить использование выскакивающих окон');
 @define('INSTALL_POPUP_DESC', 'Хотите ли вы использовать выскакивающие окна для комментариев, обратных ссылок, и т.д.?');
 @define('INSTALL_EMBED', 'Встроен ли ваш Serendipity?');
@@ -827,9 +828,6 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('CATEGORIES_PARENT_BASE_DESC', 'Вы можете выбрать какую-нибудь категорию, чтобы показывались только её подкатегории.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Прятать категории, не входящие в дерево категорий');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Если вы хотите прятать категории, которые принадлежат другому дереву категорий, вам нужно включить эту опцию. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin, i.e if you choose multi categories by the categories checkbox selection.');
-@define('CHARSET_NATIVE', 'Родная');
-@define('INSTALL_CHARSET', 'Выбор кодировки');
-@define('INSTALL_CHARSET_DESC', 'Здесь вы выбираете кодировку для символов вашего языка - UTF-8 или родную (ISO, EUC, ...). У некоторых языков есть только UTF-8 переводы, поэтому выбор "родной" кодировки здесь не будет иметь никакого эффекта. Для новых инсталляций рекомендуется использовать UTF-8. Не изменяйте этот параметр, если вы уже создали записи в другой кодировке - это может привести к нечитаемым символам. Обязательно изучите страницу https://ophian.github.io/hc/en/i18n.html по этому поводу.');
 @define('CALENDAR_ENABLE_EXTERNAL_EVENTS', 'Включить поддержку API hook для этого плагина');
 @define('CALENDAR_EXTEVENT_DESC', 'Если эта опция включена: вы можете использовать API hook для подсвечивания ваших событий в плагине календаря. Включайте эту опцию, только если у вас есть установленные плагины, которым нужна эта функциональность, потому что из-за этой опции снижается производительность плагина.');
 @define('XMLRPC_NO_LONGER_BUNDLED', 'Интерфейс Serendipity XML-RPC API больше не входит в стандартную поставку из-за постоянных проблем с безопасностью этого API и не таким уж большим количеством людей, им пользующихся. Поэтому, для использования этого интерфейса, вам следует установить плагин XML-RPC. URL для использования в ваших приложениях НЕ ИЗМЕНИТСЯ - так что как только вы установите плагин, можно начинать пользоваться этим API.');
@@ -923,6 +921,8 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('MEDIA_UPLOAD_SIZEERROR', 'Error: You cannot upload files larger than %s bytes!');
 @define('MEDIA_UPLOAD_MAXWIDTH', 'Max. width of image files for upload');
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Enter the maximum image width in pixels for uploaded images.');
+@define('MEDIA_UPLOAD_MAXWIDTH_PORTRAIT', 'Max. (opt.) width for images in portrait format');
+@define('MEDIA_UPLOAD_MAXWIDTH_PORTRAIT_DESC', 'Enter (optionally) the maximum permitted width in pixels for portrait format images to be uploaded. This is important if you activate the “Resize on upload” option and generally only want to generate images of a specified base width differently for portrait and landscape formats. This only applies if the options “Largest” side and “Resize on upload” are given. This optional specification does not release you from the following definition of a specific maximum height limit.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', 'Max. height of image files for upload');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'Enter the maximum image height in pixels for uploaded images.');
 @define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
@@ -1080,6 +1080,8 @@ You should not want to operate a security-relevant access system with them!');
 @define('CLEANCOMPILE_FAIL', 'No files available for clearing.');
 @define('CLEANCOMPILE_TITLE', 'Clear template cache');
 @define('CLEANCOMPILE_INFO', 'This will purge all compiled template files of the current active template. Compiled templates will be automatically re-created on demand by the Smarty framework.');
+@define('CLEAR_SELECTION', 'Clear selection');
+@define('CLEAR_FIELD', 'Clear textarea');
 @define('INSTALLER_KEY', 'Key');
 @define('INSTALLER_VALUE', 'Value');
 @define('CURRENT_TAB', 'Current tab: ');
@@ -1289,8 +1291,8 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('ERROR_DONT_CUT_YOUR_WHINEYARD', 'You should never delete the highest GROUP LEVEL you are in: %s: %s.');
 
 @define('MEDIA_SERVE_INFO', 'Serve media buttons description info');
-@define('PICTURE_FORMAT_BUTTON_DESC', 'Simple img element - <b>vs</b> - The modern & recommended & containerized form of delivering images including Variations! Normally called "responsive images" container, but here used for responsive Variation formats!');
+@define('PICTURE_FORMAT_BUTTON_DESC', 'Simple img element ['.ADD_MEDIA.'] - <b>vs</b> - The modern, recommended & containerized form of delivering images including Variations! Normally called "responsive images" container, but here used for responsive Variation formats!');
 
-@define('ENABLEAVIF', 'Enable use of AVIF Variations up from PHP 8.1');
-@define('ENABLEAVIF_DESC', 'Image AVIF variations can be very demanding on resources, since a lot of Ram and CPU/GPU cores are needed to encode images into the AV1 format. Mass uploads and mass conversions (see "Maintenance") are therefore not recommended. Learn to handle on some examples before you generally allow to keep it enabled. PHP 8.1 still lacks a crucial build-in feature to read size information from AVIF files using the usual methods. For the time being, this also means that the image functions of the MediaLibrary "Resize this image" and "Rotate image 90 degrees" cannot be used for all formats when using AVIF, since each of these actions affects the original image as well as its variations. PHP 8.2 solves this issue by adding the missing feature.');
+@define('ENABLEAVIF', 'Enable use of AVIF Variations');
+@define('ENABLEAVIF_DESC', 'The AVIF image format is a new compression format for the web that is supported by all major browser manufacturers. However, the calculation of AVIF variations can be resource-intensive and takes time to encode images into the AV1 format. For example, an image of 6 MB takes around 20 seconds - but with compression to around 10% of the original size without any visible loss. Mass uploads or mass conversions (see "Maintenance") are therefore not recommended. Single image uploads should not be larger than 12-13 MB in the original, so that the time required and susceptibility to errors are kept within limits. It is best to learn how to handle them using a few examples before you generally allow them to be used.');
 

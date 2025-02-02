@@ -6,14 +6,16 @@
  *  geeklog  Importer,    by Garvin Hicking and Ian Styx         *
  * ***************************************************************/
 
+declare(strict_types=1);
+
 class Serendipity_Import_geeklog extends Serendipity_Import
 {
-    var $info        = array('software' => 'Geeklog 1.4.1');
-    var $data        = array();
-    var $inputFields = array();
-    var $categories  = array();
+    public $info        = array('software' => 'Geeklog 1.4.1');
+    public $data        = array();
+    public $inputFields = array();
+    public $categories  = array();
 
-    function getImportNotes()
+    public function getImportNotes() : string
     {
         $update = 'This Importer was originally developed with Geeklog 1.3.11 and some very early Serendipity version, loong ago. As one can imagine, things have changed over time. This new lookup requires at least Geeklog 1.4.1 up to current v2.2.2 now and a running Styx instance up from latest v.3 Series. If you wish to give it a try, backup both database implementations and better do this in a testing environment first to see if you catch some breaking flaws. This new lookup has just been ported, NOT been tested! It does not capture and import an exact copy, just some main things like from authors, entries, comments and categories, but NOT image references and/or the physically stored files for example (and so forth for other stored configurations, etc). This and the relations finetuning is "handmade" User stuff - left up to YOU - later on! Now go and ride this horse. File an GitHub <a href="https://github.com/ophian/styx/issues" target="_blank">issue</a> or start a <a href="https://github.com/ophian/styx/discussions" target="_blank">discussion</a> for help!';
         return 'GeekLog has a granular control over access privileges which cannot be migrated to Serendipity. All Users will be migrated as Superusers, you may need to set them to EDITOR or CHIEF users manually after import. ' . $update;
@@ -101,7 +103,7 @@ class Serendipity_Import_geeklog extends Serendipity_Import
         }
 
         if (!$gdb || mysqli_connect_error()) {
-            return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
+            return sprintf(COULDNT_CONNECT, htmlspecialchars($this->data['host']));
         }
 
         if (!@mysqli_select_db($gdb, $this->data['name'])) {

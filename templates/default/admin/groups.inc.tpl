@@ -70,7 +70,12 @@
     </div>
 
     <div class="clearfix even form_select">
-        <label for="group_members">{$CONST.GROUPCONF_GROUPS}</label>
+        <label for="group_members">{$CONST.GROUPCONF_GROUPS}
+        <a class="buttonless_link state_cancel" type="button" href="#group_members" onclick="serendipity.deSelect('group_members');">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+          <title>{$CONST.CLEAR_SELECTION}</title>
+          <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+        </svg></a></label>
         <select id="group_members" name="serendipity[members][]" multiple size="5">
 {foreach $allusers AS $user}
             <option{if isset($selected.{$user.authorid})} selected{/if} value="{$user.authorid}">{$user.realname|escape}</option>
@@ -147,7 +152,12 @@
 
 {if isset($enablePluginACL) AND $enablePluginACL}
     <div class="clearfix form_select">
-        <label for="forbidden_plugins">{$CONST.PERMISSION_FORBIDDEN_PLUGINS}</label>
+        <label for="forbidden_plugins">{$CONST.PERMISSION_FORBIDDEN_PLUGINS}
+        <a class="buttonless_link state_cancel" type="button" href="#forbidden_plugins" onclick="serendipity.deSelect('forbidden_plugins');">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+          <title>{$CONST.CLEAR_SELECTION}</title>
+          <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+        </svg></a></label>
         <select id="forbidden_plugins" name="serendipity[forbidden_plugins][]" multiple size="5">
 {foreach $allplugins AS $plugin}
             <option{if $plugin.has_permission === false} selected{/if} value="{$plugin@key|escape:'url'}">{$plugin.b->properties.name|escape}</option>
@@ -156,8 +166,13 @@
     </div>
 
     <div class="clearfix form_select">
-        <label for="forbidden_hooks">{$CONST.PERMISSION_FORBIDDEN_HOOKS}</label>
-        <select name="serendipity[forbidden_hooks][]" multiple size="5">
+        <label for="forbidden_hooks">{$CONST.PERMISSION_FORBIDDEN_HOOKS}
+        <a class="buttonless_link state_cancel" type="button" href="#forbidden_hooks" onclick="serendipity.deSelect('forbidden_hooks');">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+          <title>{$CONST.CLEAR_SELECTION}</title>
+          <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+        </svg></a></label>
+        <select id="forbidden_hooks" name="serendipity[forbidden_hooks][]" multiple size="5">
 {foreach $allhooks AS $hook}
             <option{if $hook.has_permission === false} selected{/if} value="{$hook@key|escape:'url'}">{$hook@key|escape}</option>
 {/foreach}

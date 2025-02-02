@@ -6,14 +6,16 @@
  *  b2evolution  Importer,   by Garvin Hicking *
  * ****************************************************************/
 
+declare(strict_types=1);
+
 class Serendipity_Import_b2evolution extends Serendipity_Import
 {
-    var $info        = array('software' => 'b2Evolution 4.1 +');
-    var $data        = array();
-    var $inputFields = array();
-    var $categories  = array();
+    public $info        = array('software' => 'b2Evolution 4.1 +');
+    public $data        = array();
+    public $inputFields = array();
+    public $categories  = array();
 
-    function getImportNotes()
+    public function getImportNotes() : string
     {
         return 'UH AHHHH! - <strong>b2Evolution</strong> has extremely changed over time! Be careful! This Importer was originally developed with b2Evolution 0.9.11 and some very early Serendipity version, loong ago. As one can imagine, things have changed over time. This new lookup requires at least b2Evolution 4.1 up to current v7.2.5-stable now and a running Styx instance up from latest v.3 Series. If you wish to give it a try, backup both database implementations and better do this in a testing environment first to see if you catch some breaking flaws. This new lookup has just been ported, NOT been tested! It does not capture and import an exact copy, just some main things like from authors, entries, comments and categories, but NOT image references and/or the physically stored files for example (and so forth for other stored configurations, granular controls over access privileges, etc). This and the relations finetuning is "handmade" User stuff - left up to YOU - later on! Now go and ride this horse. File an GitHub <a href="https://github.com/ophian/styx/issues" target="_blank">issue</a> or start a <a href="https://github.com/ophian/styx/discussions" target="_blank">discussion</a> for help!';
     }
@@ -99,7 +101,7 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
         }
 
         if (!$b2db || mysqli_connect_error()) {
-            return sprintf(COULDNT_CONNECT, serendipity_specialchars($this->data['host']));
+            return sprintf(COULDNT_CONNECT, htmlspecialchars($this->data['host']));
         }
 
         if (!@mysqli_select_db($b2db, $this->data['name'])) {

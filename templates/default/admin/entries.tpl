@@ -22,7 +22,7 @@
 
         <ul class="plainList"></ul>
     </div>
-{if class_exists('serendipity_event_freetag')}
+{if isset($CONST.FREETAG_MANAGE_URL)}
 
     <div id="tags_list" class="clearfix taxonomy">
         <h3>{$CONST.EDITOR_TAGS}</h3>
@@ -33,24 +33,24 @@
 {if !isset($entry_data.entry)}{$entry_data.entry = ''}{/if}
 
     <div class="form_area">
-        <label for="serendipity[body]">{$CONST.ENTRY_BODY}</label>
+        <label for="serendipity_textarea_body">{$CONST.ENTRY_BODY}</label>
 {if NOT $entry_vars.wysiwyg}
         <div id="tools_entry" class="editor_toolbar">
 {if isset($entry_vars.markupeditor)}
-            <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity[body]"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
-            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity[body]"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
+            <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity_textarea_body"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
+            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity_textarea_body"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
             [ {$entry_vars.markupeditortype} ]
 {else}{if isset($iso2br) AND $iso2br}
-            <button class="wrap_selection lang-html" type="button" name="insX" data-tag-open="nl" data-tag-close="nl" data-tarea="serendipity[body]">noBR</button>
+            <button class="wrap_selection lang-html" type="button" name="insX" data-tag-open="nl" data-tag-close="nl" data-tarea="serendipity_textarea_body">noBR</button>
 {/if}
-            <button class="hilite_i wrap_selection lang-html" type="button" name="insI" data-tag-open="em" data-tag-close="em" data-tarea="serendipity[body]">i</button>
-            <button class="hilite_b wrap_selection lang-html" type="button" name="insB" data-tag-open="strong" data-tag-close="strong" data-tarea="serendipity[body]">b</button>
-            <button class="hilite_u wrap_selection lang-html" type="button" name="insU" data-tag-open="u" data-tag-close="u" data-tarea="serendipity[body]">u</button>
-            <button class="wrap_selection lang-html" type="button" name="insQ" data-tag-open="blockquote" data-tag-close="blockquote" data-tarea="serendipity[body]">{$CONST.QUOTE}</button>
-            <button class="wrap_insimg" type="button" name="insJ" data-tarea="serendipity[body]">img</button>
-            <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity[body]"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
-            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity[body]"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
-            <button class="wrap_insurl" type="button" name="insURL" data-tarea="serendipity[body]">URL</button>
+            <button class="hilite_i wrap_selection lang-html" type="button" name="insI" data-tag-open="em" data-tag-close="em" data-tarea="serendipity_textarea_body">i</button>
+            <button class="hilite_b wrap_selection lang-html" type="button" name="insB" data-tag-open="strong" data-tag-close="strong" data-tarea="serendipity_textarea_body">b</button>
+            <button class="hilite_u wrap_selection lang-html" type="button" name="insU" data-tag-open="u" data-tag-close="u" data-tarea="serendipity_textarea_body">u</button>
+            <button class="wrap_selection lang-html" type="button" name="insQ" data-tag-open="blockquote" data-tag-close="blockquote" data-tarea="serendipity_textarea_body">{$CONST.QUOTE}</button>
+            <button class="wrap_insimg" type="button" name="insJ" data-tarea="serendipity_textarea_body">img</button>
+            <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity_textarea_body"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
+            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity_textarea_body"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
+            <button class="wrap_insurl" type="button" name="insURL" data-tarea="serendipity_textarea_body">URL</button>
             {serendipity_hookPlugin hook="backend_entry_toolbar_body" data=$entry_data.entry|default:'' hookAll="true"}
 {if isset($entry_vars.markupeditortype)}
             [ {$entry_vars.markupeditortype} ]
@@ -65,30 +65,30 @@
         </div>
 {/if}
 {/if}
-        <div id="teaser_entry_editor">
-            <textarea id="serendipity[body]" name="serendipity[body]" rows="15">{if isset($entry_vars.entry.body)}{$entry_vars.entry.body|default:''|escape}{/if}</textarea>
+        <div class="teaser_entry_editor">
+            <textarea id="serendipity_textarea_body" name="serendipity[body]" rows="15">{if isset($entry_vars.entry.body)}{$entry_vars.entry.body|default:''|escape}{/if}</textarea>
         </div>
     </div>
 
      <div class="form_area">
-        <label for="serendipity[extended]">{$CONST.EXTENDED_BODY}</label>
+        <label for="serendipity_textarea_extended">{$CONST.EXTENDED_BODY}</label>
 {if NOT $entry_vars.wysiwyg}
         <div id="tools_extended" class="editor_toolbar">
 {if isset($entry_vars.markupeditor)}
-            <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity[extended]"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
-            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity[extended]"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
+            <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity_textarea_extended"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
+            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity_textarea_extended"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
             [ {$entry_vars.markupeditortype} ]
 {else}{if isset($iso2br) AND $iso2br}
-            <button class="wrap_selection lang-html" type="button" name="insX" data-tag-open="nl" data-tag-close="nl" data-tarea="serendipity[extended]">noBR</button>
+            <button class="wrap_selection lang-html" type="button" name="insX" data-tag-open="nl" data-tag-close="nl" data-tarea="serendipity_textarea_extended">noBR</button>
 {/if}
-            <button class="hilite_i wrap_selection lang-html" type="button" name="insI" data-tag-open="em" data-tag-close="em" data-tarea="serendipity[extended]">i</button>
-            <button class="hilite_b wrap_selection lang-html" type="button" name="insB" data-tag-open="strong" data-tag-close="strong" data-tarea="serendipity[extended]">b</button>
-            <button class="hilite_u wrap_selection lang-html" type="button" name="insU" data-tag-open="u" data-tag-close="u" data-tarea="serendipity[extended]">u</button>
-            <button class="wrap_selection lang-html" type="button" name="insQ" data-tag-open="blockquote" data-tag-close="blockquote" data-tarea="serendipity[extended]">{$CONST.QUOTE}</button>
-            <button class="wrap_insimg" type="button" name="insJ" data-tarea="serendipity[extended]">img</button>
-            <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity[extended]"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
-            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity[extended]"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
-            <button class="wrap_insurl" type="button" name="insURL" data-tarea="serendipity[extended]">URL</button>
+            <button class="hilite_i wrap_selection lang-html" type="button" name="insI" data-tag-open="em" data-tag-close="em" data-tarea="serendipity_textarea_extended">i</button>
+            <button class="hilite_b wrap_selection lang-html" type="button" name="insB" data-tag-open="strong" data-tag-close="strong" data-tarea="serendipity_textarea_extended">b</button>
+            <button class="hilite_u wrap_selection lang-html" type="button" name="insU" data-tag-open="u" data-tag-close="u" data-tarea="serendipity_textarea_extended">u</button>
+            <button class="wrap_selection lang-html" type="button" name="insQ" data-tag-open="blockquote" data-tag-close="blockquote" data-tarea="serendipity_textarea_extended">{$CONST.QUOTE}</button>
+            <button class="wrap_insimg" type="button" name="insJ" data-tarea="serendipity_textarea_extended">img</button>
+            <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity_textarea_extended"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
+            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity_textarea_extended"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
+            <button class="wrap_insurl" type="button" name="insURL" data-tarea="serendipity_textarea_extended">URL</button>
             {serendipity_hookPlugin hook="backend_entry_toolbar_extended" data=$entry_data.entry|default:'' hookAll="true"}
 {if isset($entry_vars.markupeditortype)}
             [ {$entry_vars.markupeditortype} ]
@@ -100,15 +100,15 @@
             {serendipity_hookPlugin hook="backend_entry_toolbar_extended" data=$entry_data.entry|default:'' hookAll="true"}
         </div>
 {/if}
-        <div id="extended_entry_editor">
-            <textarea id="serendipity[extended]" name="serendipity[extended]" rows="15">{if isset($entry_vars.entry.extended)}{$entry_vars.entry.extended|default:''|escape}{/if}</textarea>
+        <div id="extended_entry_editor" class="teaser_entry_editor">
+            <textarea id="serendipity_textarea_extended" name="serendipity[extended]" rows="15">{if isset($entry_vars.entry.extended)}{$entry_vars.entry.extended|default:''|escape}{/if}</textarea>
         </div>
     </div>
 
     <div id="edit_entry_submit">
         <button id="reset_timestamp" class="button_link" type="button" href="#serendipityNewTimestamp" data-currtime="{$entry_vars.reset_timestamp|formatTime:'Y-m-d\TH:i':true:false:true}" title="{$CONST.RESET_DATE_DESC}"><span class="icon-clock" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.RESET_DATE}</span></button>
         <a id="select_category" class="button_link icon_link" href="#edit_entry_category" title="{$CONST.CATEGORY}"><span class="icon-list-bullet" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.CATEGORIES}</span></a>
-{if class_exists('serendipity_event_freetag')}
+{if isset($CONST.FREETAG_MANAGE_URL)}
         <a id="select_tags" class="button_link icon_link" href="#edit_entry_freetags" title="{$CONST.PLUGIN_EVENT_FREETAG_MANAGETAGS}"><span class="icon-tag" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.PLUGIN_EVENT_FREETAG_MANAGETAGS}</span></a>
 {/if}
         <button id="switch_entry_status" class="button_link" type="button" href="#edit_entry_status" title="{if $entry_vars.draft_mode == 'publish'}{$CONST.PUBLISH}{else}{$CONST.DRAFT}{/if}" data-title-alt="{if $entry_vars.draft_mode == 'publish'}{$CONST.DRAFT}{else}{$CONST.PUBLISH}{/if}">{if $entry_vars.draft_mode == 'publish'}<span class="icon-toggle-on" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.PUBLISH}</span>{else}<span class="icon-toggle-off" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DRAFT}</span>{/if}</button>

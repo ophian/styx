@@ -1,306 +1,307 @@
 <?php
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
-# Arabic issue was translated by Way http://www.flyingway.com  cp1256
+# Arabic issue was translated by Way http://www.flyingway.com  UTF-8
 /* vim: set sts=4 ts=4 expandtab : */
 
-@define('LANG_CHARSET', 'cp1256');
-@define('SQL_CHARSET', 'latin1');
-@define('DATE_LOCALES', 'Arabic, ar, ar_SA.windows-1256');
+@define('LANG_CHARSET', 'UTF-8');
+@define('SQL_CHARSET', 'utf8');
+@define('DATE_LOCALES', 'ar_SA.UTF-8, Arabic, ar, ar_SA.windows-1256');
 @define('DATE_FORMAT_ENTRY', '%A, %B %e. %Y');
 @define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
 @define('WYSIWYG_LANG', 'ar_SA');
+@define('TINYMCE_LANG', 'ar');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', '.');
 @define('NUMBER_FORMAT_THOUSANDS', ',');
 @define('LANG_DIRECTION', 'rtl');
 
-@define('SERENDIPITY_ADMIN_SUITE', 'อÞํศษ ลฯวัษ วแใฬแษ');
-@define('HAVE_TO_BE_LOGGED_ON', 'ํไๆฬศ ฺแํ฿ วแสำฬํแ ฿ํ สสใ฿ไ ใไ ใิวๅฯษ ๅะๅ วแีÝอษ');
-@define('WRONG_USERNAME_OR_PASSWORD', 'วำใ วแใำสฮฯใ รๆ ฿แใษ วแใัๆั Ûํั ีอํอษ');
-@define('APPEARANCE', 'ูๅๆั');
-@define('MANAGE_STYLES', 'วฯวัษ วแำสวํแวส');
-@define('CONFIGURE_PLUGINS', 'สๅํฦษ ใแÝวส วแอห - ศแๆÞ วไ');
-@define('CONFIGURATION', 'ลฺฯวฯส ฺวใษ แแใฬแษ');
-@define('BACK_TO_BLOG', 'วแฺๆฯษ วแ์ วแใฬแษ');
-@define('LOGIN', 'สำฬํแ วแฯฮๆแ');
-@define('LOGOUT', 'ฮัๆฬ');
-@define('LOGGEDOUT', 'สใ วแฮัๆฬ');
-@define('CREATE', 'วไิวม');
-@define('CREATE_NEW_CAT', 'วไิวม Þำใ ฬฯํฯ');
-@define('I_WANT_THUMB', 'วัํฯ วำสฮฯวใ วแีๆั วแใีÛัษ Ýํ ใิวั฿สํ');
-@define('I_WANT_BIG_IMAGE', 'วัํฯ วำสฮฯวใ ีๆั ฿ศํัษ Ýํ ใิวั฿สํ');
-@define('I_WANT_NO_LINK', 'ร{ํฯ ฺัึๅว ฺแ์ ๅฦํษ ีๆั');
-@define('I_WANT_IT_TO_LINK', 'วัํฯ ฺัึๅว ฺแ์ ิ฿แ วัสศวุ วแ์ ๅะว วแัวศุ');
-@define('BACK', 'ฺๆฯษ');
-@define('FORWARD', 'สÞฯํใ');
-@define('ANONYMOUS', 'ใฬๅๆแ');
-@define('NEW_TRACKBACK_TO', 'สใ ฺใแ ใำวั ฺๆฯษ ฬฯํฯ วแ์');
-@define('NEW_COMMENT_TO', 'สใ วฯัวฬ สฺแํÞ ฬฯํฯ วแ์');
-@define('RECENT', 'วแฬฯํฯ ...');
-@define('OLDER', 'วแÞฯํใ ...');
-@define('DONE', 'สใ วแวฬัวม');
-@define('WELCOME_BACK', 'ใัอศว ศฺๆฯส฿ ก');
-@define('TITLE', 'วแฺไๆวไ');
-@define('DESCRIPTION', 'วแๆีÝ');
-@define('PLACEMENT', 'สฺํํไ');
-@define('DELETE', 'อะÝ');
-@define('SAVE', 'อÝู');
+@define('SERENDIPITY_ADMIN_SUITE', 'ุญููุจุฉ ุฅุฏุงุฑุฉ ุงูู…ุฌูุฉ');
+@define('HAVE_TO_BE_LOGGED_ON', 'ูููุฌุจ ุนููู ุงูุชุณุฌูู ูู ุชุชู…ูู ู…ู ู…ุดุงูุฏุฉ ูุฐู ุงูุตูุญุฉ');
+@define('WRONG_USERNAME_OR_PASSWORD', 'ุงุณู… ุงูู…ุณุชุฎุฏู… ุฃู ููู…ุฉ ุงูู…ุฑูุฑ ุบูุฑ ุตุญูุญุฉ');
+@define('APPEARANCE', 'ุธููุฑ');
+@define('MANAGE_STYLES', 'ุงุฏุงุฑุฉ ุงูุณุชุงููุงุช');
+@define('CONFIGURE_PLUGINS', 'ุชููุฆุฉ ู…ููุงุช ุงูุญุซ - ุจููู ุงู');
+@define('CONFIGURATION', 'ุฅุนุฏุงุฏุช ุนุงู…ุฉ ููู…ุฌูุฉ');
+@define('BACK_TO_BLOG', 'ุงูุนูุฏุฉ ุงูู ุงูู…ุฌูุฉ');
+@define('LOGIN', 'ุชุณุฌูู ุงูุฏุฎูู');
+@define('LOGOUT', 'ุฎุฑูุฌ');
+@define('LOGGEDOUT', 'ุชู… ุงูุฎุฑูุฌ');
+@define('CREATE', 'ุงูุดุงุก');
+@define('CREATE_NEW_CAT', 'ุงูุดุงุก ูุณู… ุฌุฏูุฏ');
+@define('I_WANT_THUMB', 'ุงุฑูุฏ ุงุณุชุฎุฏุงู… ุงูุตูุฑ ุงูู…ุตุบุฑุฉ ูู ู…ุดุงุฑูุชู');
+@define('I_WANT_BIG_IMAGE', 'ุงุฑูุฏ ุงุณุชุฎุฏุงู… ุตูุฑ ูุจูุฑุฉ ูู ู…ุดุงุฑูุชู');
+@define('I_WANT_NO_LINK', 'ุฃ{ูุฏ ุนุฑุถูุง ุนูู ูุฆูุฉ ุตูุฑ');
+@define('I_WANT_IT_TO_LINK', 'ุงุฑูุฏ ุนุฑุถูุง ุนูู ุดูู ุงุฑุชุจุงุท ุงูู ูุฐุง ุงูุฑุงุจุท');
+@define('BACK', 'ุนูุฏุฉ');
+@define('FORWARD', 'ุชูุฏูู…');
+@define('ANONYMOUS', 'ู…ุฌููู');
+@define('NEW_TRACKBACK_TO', 'ุชู… ุนู…ู ู…ุณุงุฑ ุนูุฏุฉ ุฌุฏูุฏ ุงูู');
+@define('NEW_COMMENT_TO', 'ุชู… ุงุฏุฑุงุฌ ุชุนููู ุฌุฏูุฏ ุงูู');
+@define('RECENT', 'ุงูุฌุฏูุฏ ...');
+@define('OLDER', 'ุงููุฏูู… ...');
+@define('DONE', 'ุชู… ุงูุงุฌุฑุงุก');
+@define('WELCOME_BACK', 'ู…ุฑุญุจุง ุจุนูุฏุชู ุ');
+@define('TITLE', 'ุงูุนููุงู');
+@define('DESCRIPTION', 'ุงููุตู');
+@define('PLACEMENT', 'ุชุนููู');
+@define('DELETE', 'ุญุฐู');
+@define('SAVE', 'ุญูุธ');
 @define('OPEN', 'Open');
 @define('CLOSE', 'Close');
-@define('UP', 'รฺแ์');
-@define('DOWN', 'รำÝแ');
-@define('ENTRIES', 'วแใๆึๆฺ');
-@define('NEW_ENTRY', 'รไิวม ใๆึๆฺ ฬฯํฯ');
-@define('EDIT_ENTRIES', 'สอัํั วแใๆวึํฺ');
-@define('CATEGORIES', 'รÞำวใ');
-@define('IMAGESYNC_WARNING', 'สอะํั:<br>ํใ฿ไ วไ สำสÛัÞ ๆÞส ุๆํแ ฬฯว๐ วไ ฿วไ ๅไว฿ ีๆั ศฯๆไ วแีๆั วแใีÛัษ แๅว Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
-@define('CREATE_THUMBS', 'รฺฯ ศไวม วแีๆั วแใีÛัษ');
-@define('MANAGE_IMAGES', 'วฯวัษ วแีๆั');
-@define('NAME', 'วแรำใ');
-@define('EMAIL', 'ศัํฯ฿ วแวแ฿สัๆไํ');
-@define('HOMEPAGE', 'ีÝอส฿ รๆ ใๆÞฺ฿ วแใÝึแ');
-@define('COMMENT', 'วแสฺแํÞ');
-@define('REMEMBER_INFO', 'สะ฿ั วแใฺแๆใวสฟ');
-@define('SUBMIT_COMMENT', 'วฯัฬ สฺแํÞ');
-@define('NO_ENTRIES_TO_PRINT', 'แว ํๆฬฯ ใๆวึํฺ แแุศวฺษ');
-@define('COMMENTS', 'สฺแํÞวส');
-@define('ADD_COMMENT', 'วึวÝษ สฺแํÞ');
-@define('NO_COMMENTS', 'แว สฺแํÞวส');
-@define('POSTED_BY', 'อััษ ศๆวำุษ');
-@define('ON', 'สิÛํแ');
-@define('A_NEW_COMMENT_BLAHBLAH', 'สใ วฯัวฬ สฺแํÞ ฬฯํฯ Ýํ ใฯๆไส฿ "%s", ฺแ์ ๅะว วแัวศุ "%s".');
-@define('A_NEW_TRACKBACK_BLAHBLAH', 'สใ วฯัวฬ สฺฯํแ ฺแ์ ใิวั฿ษ Ýํ ใฯๆไส฿ "%s".');
-@define('NO_CATEGORY', 'แว ํๆฬฯ สีไํÝ');
-@define('ENTRY_BODY', 'วแฬาม วแวๆแํ ใไ วแใๆึๆฺ');
-@define('EXTENDED_BODY', 'วแฬาม วแสวแํ');
-@define('CATEGORY', 'สีไํÝ');
-@define('EDIT', 'สอัํั');
-@define('NO_ENTRIES_BLAHBLAH', 'แใ ํสใ วแฺหๆั ฺแ์ วํ ใๆวึํฺ ฬฯํฯษ %s');
-@define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'ศอห฿ ฺไ  %s ๆฬฯ %s ๅะๅ วแไสวฦฬ');
-@define('SEARCH_TOO_SHORT', 'ํฬศ รไ ส฿ๆไ ฺใแํษ วแศอห ศ฿แใษ ร฿หั ใไ 3 รอัÝ ! ! ! ํใ฿ไ แ฿ วำสฮฯวใ วแไฬใษ * ฿ํ สฬฺแ ๅะๅ วแฺใแํษ รÞีั ใไ 3 รอัÝ แสสใ ฺใแํษ ศอห฿ ฺไ วแ฿แใวส วแÞีํัษ');
+@define('UP', 'ุฃุนูู');
+@define('DOWN', 'ุฃุณูู');
+@define('ENTRIES', 'ุงูู…ูุถูุน');
+@define('NEW_ENTRY', 'ุฃูุดุงุก ู…ูุถูุน ุฌุฏูุฏ');
+@define('EDIT_ENTRIES', 'ุชุญุฑูุฑ ุงูู…ูุงุถูุน');
+@define('CATEGORIES', 'ุฃูุณุงู…');
+@define('IMAGESYNC_WARNING', 'ุชุญุฐูุฑ:<br>ูู…ูู ุงู ุชุณุชุบุฑู ููุช ุทููู ุฌุฏุงู ุงู ูุงู ููุงู ุตูุฑ ุจุฏูู ุงูุตูุฑ ุงูู…ุตุบุฑุฉ ููุง Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
+@define('CREATE_THUMBS', 'ุฃุนุฏ ุจูุงุก ุงูุตูุฑ ุงูู…ุตุบุฑุฉ');
+@define('MANAGE_IMAGES', 'ุงุฏุงุฑุฉ ุงูุตูุฑ');
+@define('NAME', 'ุงูุฃุณู…');
+@define('EMAIL', 'ุจุฑูุฏู ุงูุงููุชุฑููู');
+@define('HOMEPAGE', 'ุตูุญุชู ุฃู ู…ููุนู ุงูู…ูุถู');
+@define('COMMENT', 'ุงูุชุนููู');
+@define('REMEMBER_INFO', 'ุชุฐูุฑ ุงูู…ุนููู…ุงุชุ');
+@define('SUBMIT_COMMENT', 'ุงุฏุฑุฌ ุชุนููู');
+@define('NO_ENTRIES_TO_PRINT', 'ูุง ููุฌุฏ ู…ูุงุถูุน ููุทุจุงุนุฉ');
+@define('COMMENTS', 'ุชุนูููุงุช');
+@define('ADD_COMMENT', 'ุงุถุงูุฉ ุชุนููู');
+@define('NO_COMMENTS', 'ูุง ุชุนูููุงุช');
+@define('POSTED_BY', 'ุญุฑุฑุฉ ุจูุงุณุทุฉ');
+@define('ON', 'ุชุดุบูู');
+@define('A_NEW_COMMENT_BLAHBLAH', 'ุชู… ุงุฏุฑุงุฌ ุชุนููู ุฌุฏูุฏ ูู ู…ุฏููุชู "%s", ุนูู ูุฐุง ุงูุฑุงุจุท "%s".');
+@define('A_NEW_TRACKBACK_BLAHBLAH', 'ุชู… ุงุฏุฑุงุฌ ุชุนุฏูู ุนูู ู…ุดุงุฑูุฉ ูู ู…ุฏููุชู "%s".');
+@define('NO_CATEGORY', 'ูุง ููุฌุฏ ุชุตููู');
+@define('ENTRY_BODY', 'ุงูุฌุฒุก ุงูุงููู ู…ู ุงูู…ูุถูุน');
+@define('EXTENDED_BODY', 'ุงูุฌุฒุก ุงูุชุงูู');
+@define('CATEGORY', 'ุชุตููู');
+@define('EDIT', 'ุชุญุฑูุฑ');
+@define('NO_ENTRIES_BLAHBLAH', 'ูู… ูุชู… ุงูุนุซูุฑ ุนูู ุงู ู…ูุงุถูุน ุฌุฏูุฏุฉ %s');
+@define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'ุจุญุซู ุนู  %s ูุฌุฏ %s ูุฐู ุงููุชุงุฆุฌ');
+@define('SEARCH_TOO_SHORT', 'ูุฌุจ ุฃู ุชููู ุนู…ููุฉ ุงูุจุญุซ ุจููู…ุฉ ุฃูุซุฑ ู…ู 3 ุฃุญุฑู ! ! ! ูู…ูู ูู ุงุณุชุฎุฏุงู… ุงููุฌู…ุฉ * ูู ุชุฌุนู ูุฐู ุงูุนู…ููุฉ ุฃูุตุฑ ู…ู 3 ุฃุญุฑู ูุชุชู… ุนู…ููุฉ ุจุญุซู ุนู ุงูููู…ุงุช ุงููุตูุฑุฉ');
 @define('IMAGE', 'Image');
-@define('ERROR_FILE_NOT_EXISTS', 'ฮุร: แใ ํสใ รฯฮวแ วแใแÝ วแÞฯํใ');
-@define('ERROR_FILE_EXISTS', 'ฮุร : รำใ วแใแÝ ํๆฬฯ ใไ Þศแ รฮสั รำใว๐ รฮั');
+@define('ERROR_FILE_NOT_EXISTS', 'ุฎุทุฃ: ูู… ูุชู… ุฃุฏุฎุงู ุงูู…ูู ุงููุฏูู…');
+@define('ERROR_FILE_EXISTS', 'ุฎุทุฃ : ุฃุณู… ุงูู…ูู ููุฌุฏ ู…ู ูุจู ุฃุฎุชุฑ ุฃุณู…ุงู ุฃุฎุฑ');
 @define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
-@define('ERROR_SOMETHING', 'ฮุร: Ýํ ฮุร ใว');
-@define('ADDING_IMAGE', 'วึวÝษ ีๆัษ...');
-@define('THUMB_CREATED_DONE', 'วแีๆัษ %s วแใีÛัษ<br>ฬวๅาษ'); // ADD: and of all variations
-@define('ERROR_FILE_EXISTS_ALREADY', 'ฮุร! วแใแÝ ใๆฬๆฯ ใำศÞว๐');
-@define('ERROR_UNKNOWN_NOUPLOAD', 'อีแ ฮุร Ûํั ใฺัๆÝ! ! ! แใ ํสใแ ัÝฺ วแใแÝ – ใไ วแใใ฿ไ รไ ํ฿ๆไ วแใแÝ ร฿ศั ใไ อฬใ วแใแÝ แใีัอ ศัÝฺๅ ! ! ! รÝอี ISP รๆ Þใ ศสอัํั ใแÝ php.ini ฿ํ สำใอ ศัÝฺ วแใแÝวส วแ฿ศํัษ');
+@define('ERROR_SOMETHING', 'ุฎุทุฃ: ูู ุฎุทุฃ ู…ุง');
+@define('ADDING_IMAGE', 'ุงุถุงูุฉ ุตูุฑุฉ...');
+@define('THUMB_CREATED_DONE', 'ุงูุตูุฑุฉ ุงูู…ุตุบุฑุฉ<br>%s ุฌุงูุฒุฉ'); // ADD: and of all variations
+@define('ERROR_FILE_EXISTS_ALREADY', 'ุฎุทุฃ! ุงูู…ูู ู…ูุฌูุฏ ู…ุณุจูุงู');
+@define('ERROR_UNKNOWN_NOUPLOAD', 'ุญุตู ุฎุทุฃ ุบูุฑ ู…ุนุฑูู! ! ! ูู… ูุชู…ู ุฑูุน ุงูู…ูู โ€“ ู…ู ุงูู…ู…ูู ุฃู ูููู ุงูู…ูู ุฃูุจุฑ ู…ู ุญุฌู… ุงูู…ูู ูู…ุตุฑุญ ุจุฑูุนู ! ! ! ุฃูุญุต ISP ุฃู ูู… ุจุชุญุฑูุฑ ู…ูู php.ini ูู ุชุณู…ุญ ุจุฑูุน ุงูู…ููุงุช ุงููุจูุฑุฉ');
 @define('NOT_AVAILABLE', 'N/A'); // short!
 @define('USER_ACTION', 'User action');
 @define('MANDATORY', '[ mandatory ]');
 @define('OPTIONAL', '[ optional ]');
-@define('GO', 'ร฿ใแ!');
-@define('NEWSIZE', 'วแใÞวำ วแฬฯํฯ: ');
-@define('RESIZE_BLAHBLAH', 'สÛํํั วแใÞวํํำ %s');
-@define('ORIGINAL_SIZE', 'วแอฬใ วแวีแํ <i>%sx%s</i> pixel');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'ํใ฿ไ แ฿ สÛํํั Þํวำวส วแีๆัษ - วไ ฿ไส สัํฯ สÛํํั Þํวำวส วแีๆัษ ศรุๆวแ ใสไวำศษ - ฿แ ใว ฺแํ฿ ๅๆ วฯฮแ วแÞํวำ วแฬฯํฯ Ýํ วอฯ วแีไฯๆÞํไ หใ รึÛุ าั Tab -- ำๆÝ สฺุํ฿ วสใวสํ฿ํว๐ วแอฬใ วแใไวำศ แแÞํวำ วแฬฯํฯ - แะแ฿ วแีๆัษ ำๆÝ สำสใั ศิ฿แๅว วแรีแํ ๆ แว สÝÞฯ ิ฿แ สๆวาไๅว.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the origin input file. And this increases with each further scaling!<br><b>VARIATION:</b> Since we assume you <b>keep</b> the files proportion, a scaled image "format" variation ["image.avif" and/or "image.webp"] change will be applied to the Origin files variation only and <b>NOT</b> to the variation thumbnail, which - by certain image property conditions - would probably blow up its filesize. If you really need an image scale with an <b>other</b> proportion <b>and</b> an additional changed variation thumb dimension size, activate the "<em>..thumb variation</em>" checkbox.');
+@define('GO', 'ุฃูู…ู!');
+@define('NEWSIZE', 'ุงูู…ูุงุณ ุงูุฌุฏูุฏ: ');
+@define('RESIZE_BLAHBLAH', 'ุชุบููุฑ ุงูู…ูุงููุณ %s');
+@define('ORIGINAL_SIZE', 'ุงูุญุฌู… ุงูุงุตูู <i>%sx%s</i> pixel');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'ูู…ูู ูู ุชุบููุฑ ููุงุณุงุช ุงูุตูุฑุฉ - ุงู ููุช ุชุฑูุฏ ุชุบููุฑ ููุงุณุงุช ุงูุตูุฑุฉ ุจุฃุทูุงู ู…ุชูุงุณุจุฉ - ูู ู…ุง ุนููู ูู ุงุฏุฎู ุงูููุงุณ ุงูุฌุฏูุฏ ูู ุงุญุฏ ุงูุตูุฏูููู ุซู… ุฃุถุบุท ุฒุฑ Tab -- ุณูู ุชุนุทูู ุงุชู…ุงุชูููุงู ุงูุญุฌู… ุงูู…ูุงุณุจ ููููุงุณ ุงูุฌุฏูุฏ - ูุฐูู ุงูุตูุฑุฉ ุณูู ุชุณุชู…ุฑ ุจุดูููุง ุงูุฃุตูู ู ูุง ุชููุฏ ุดูู ุชูุงุฒููุง.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the origin input file. And this increases with each further scaling!<br><b>VARIATION:</b> Since we assume you <b>keep</b> the files proportion, a scaled image "format" variation ["image.avif" and/or "image.webp"] change will be applied to the Origin files variation only and <b>NOT</b> to the variation thumbnail, which - by certain image property conditions - would probably blow up its filesize. If you really need an image scale with an <b>other</b> proportion <b>and</b> an additional changed variation thumb dimension size, activate the "<em>..thumb variation</em>" checkbox.');
 @define('SCALE_THUMB_VARIATION', 'Force scaled thumb variation changes');
 @define('QUICKJUMP_CALENDAR', 'QuickJump Calendar');
-@define('QUICKSEARCH', 'ศอห ำัํฺ');
-@define('SEARCH_FOR_ENTRY', 'วศอห ฺไ รํ ใฺุํวส');
-@define('ARCHIVES', 'วัิํÝ');
-@define('BROWSE_ARCHIVES', 'สีÝอ วแวัิํÝ ิๅัํว');
-@define('TOP_REFERRER', 'ร฿หั วแาํวัวส ใไ:');
-@define('SHOWS_TOP_SITES', 'รฺัึ วÝึแ วแใๆวÞฺ วแใัสศุษ ศใฯๆไส฿');
-@define('TOP_EXITS', 'วฺแ์ วแใิวั฿วส');
-@define('SHOWS_TOP_EXIT', 'รฺัึ วฺแ์ วแัๆวศุ ํใ วแฮัๆฬ ใไ ใฯๆไส฿ ลแํๅ');
-@define('SYNDICATION', 'ใไิๆั');
-@define('SHOWS_RSS_BLAHBLAH', 'รฺัึ ัวศุ วแไิั แÜ RSS');
-@define('ADVERTISES_BLAHBLAH', 'ฺใแ ลิๅวั แใไิร ใฯๆไส฿');
+@define('QUICKSEARCH', 'ุจุญุซ ุณุฑูุน');
+@define('SEARCH_FOR_ENTRY', 'ุงุจุญุซ ุนู ุฃู ู…ุนุทูุงุช');
+@define('ARCHIVES', 'ุงุฑุดูู');
+@define('BROWSE_ARCHIVES', 'ุชุตูุญ ุงูุงุฑุดูู ุดูุฑูุง');
+@define('TOP_REFERRER', 'ุฃูุซุฑ ุงูุฒูุงุฑุงุช ู…ู:');
+@define('SHOWS_TOP_SITES', 'ุฃุนุฑุถ ุงูุถู ุงูู…ูุงูุน ุงูู…ุฑุชุจุทุฉ ุจู…ุฏููุชู');
+@define('TOP_EXITS', 'ุงุนูู ุงูู…ุดุงุฑูุงุช');
+@define('SHOWS_TOP_EXIT', 'ุฃุนุฑุถ ุงุนูู ุงูุฑูุงุจุท ูู… ุงูุฎุฑูุฌ ู…ู ู…ุฏููุชู ุฅููู');
+@define('SYNDICATION', 'ู…ูุดูุฑ');
+@define('SHOWS_RSS_BLAHBLAH', 'ุฃุนุฑุถ ุฑุงุจุท ุงููุดุฑ ูู€ RSS');
+@define('ADVERTISES_BLAHBLAH', 'ุนู…ู ุฅุดูุงุฑ ูู…ูุดุฃ ู…ุฏููุชู');
 @define('HTML_NUGGET', 'HTML Nugget');
-@define('HOLDS_A_BLAHBLAH', 'ๅะๅ วแวฬัวมวส ำสูๅั Ýํ วแÞๆวฦใ วแฬวไศํษ แแใฯๆไษ');
-@define('TITLE_FOR_NUGGET', 'ฺไๆวไ ฿สแษ วแฺใแ');
-@define('THE_NUGGET', 'ลฬัวมวส ศีํÛษ HTML!');
-@define('SUBSCRIBE_TO_BLOG', 'ํใ฿ไ฿ รฮะ ไำฮษ แแุศวฺษ ศรอฯ์ ๅะๅ วแีํÛ');
-@define('YOU_CHOSE', 'วฮสํวั฿ %s');
-@define('IMAGE_ROTATE_LEFT', 'วฯั วแีๆัษ 90 ฯัฬษ ศรสฬวๅ ฺÞวัศ วแำวฺษ');
-@define('IMAGE_ROTATE_RIGHT', 'วฯั วแีๆัษ 90 ฯัฬษ ศรสฬวๅ ฺÞวัศ วแำวฺษ');
+@define('HOLDS_A_BLAHBLAH', 'ูุฐู ุงูุงุฌุฑุงุกุงุช ุณุชุธูุฑ ูู ุงูููุงุฆู… ุงูุฌุงูุจูุฉ ููู…ุฏููุฉ');
+@define('TITLE_FOR_NUGGET', 'ุนููุงู ูุชูุฉ ุงูุนู…ู');
+@define('THE_NUGGET', 'ุฅุฌุฑุงุกุงุช ุจุตูุบุฉ HTML!');
+@define('SUBSCRIBE_TO_BLOG', 'ูู…ููู ุฃุฎุฐ ูุณุฎุฉ ููุทุจุงุนุฉ ุจุฃุญุฏู ูุฐู ุงูุตูุบ');
+@define('YOU_CHOSE', 'ุงุฎุชูุงุฑู %s');
+@define('IMAGE_ROTATE_LEFT', 'ุงุฏุฑ ุงูุตูุฑุฉ 90 ุฏุฑุฌุฉ ุจุฃุชุฌุงู ุนูุงุฑุจ ุงูุณุงุนุฉ');
+@define('IMAGE_ROTATE_RIGHT', 'ุงุฏุฑ ุงูุตูุฑุฉ 90 ุฏุฑุฌุฉ ุจุฃุชุฌุงู ุนูุงุฑุจ ุงูุณุงุนุฉ');
 @define('FILE_SIZE', 'File size');// keep short!
-@define('IMAGE_SIZE', 'อฬใ วแีๆัษ');
-@define('IMAGE_AS_A_LINK', 'วฯฮวแ ีๆัษ');
-@define('POWERED_BY', 'ศๆวำุษ');
-@define('TRACKBACKS', 'ัๆวศุ สฺÞํศวส');
-@define('TRACKBACK', 'ัวศุ สฺÞํศ');
-@define('NO_TRACKBACKS', 'แว ํๆฬฯ ัๆวศุ สฺÞํศ');
-@define('TOPICS_OF', 'ไใๆะฬ วแใิวั฿ษ');
-@define('VIEW_FULL', 'ฺัึ ฿วใแ');
-@define('VIEW_TOPICS', 'ฺัึ วแใÞวแวส');
-@define('AT', 'Ýํ');
-@define('SET_AS_TEMPLATE', 'ึฺษ ฺแ์ ๅํฦษ Þวแศ');
-@define('IN', 'Ýํ');
-@define('EXCERPT', 'ใÞสศำวส');
-@define('TRACKED', 'สฺÞศ');
-@define('LINK_TO_ENTRY', 'วัศุ วแ์ วแใิวั฿ษ');
-@define('LINK_TO_REMOTE_ENTRY', 'วัศุ วแ์ วแิวั฿ษ วแศฺํฯษ');
+@define('IMAGE_SIZE', 'ุญุฌู… ุงูุตูุฑุฉ');
+@define('IMAGE_AS_A_LINK', 'ุงุฏุฎุงู ุตูุฑุฉ');
+@define('POWERED_BY', 'ุจูุงุณุทุฉ');
+@define('TRACKBACKS', 'ุฑูุงุจุท ุชุนููุจุงุช');
+@define('TRACKBACK', 'ุฑุงุจุท ุชุนููุจ');
+@define('NO_TRACKBACKS', 'ูุง ููุฌุฏ ุฑูุงุจุท ุชุนููุจ');
+@define('TOPICS_OF', 'ูู…ูุฐุฌ ุงูู…ุดุงุฑูุฉ');
+@define('VIEW_FULL', 'ุนุฑุถ ูุงู…ู');
+@define('VIEW_TOPICS', 'ุนุฑุถ ุงูู…ูุงูุงุช');
+@define('AT', 'ูู');
+@define('SET_AS_TEMPLATE', 'ุถุนุฉ ุนูู ููุฆุฉ ูุงูุจ');
+@define('IN', 'ูู');
+@define('EXCERPT', 'ู…ูุชุจุณุงุช');
+@define('TRACKED', 'ุชุนูุจ');
+@define('LINK_TO_ENTRY', 'ุงุฑุจุท ุงูู ุงูู…ุดุงุฑูุฉ');
+@define('LINK_TO_REMOTE_ENTRY', 'ุงุฑุจุท ุงูู ุงูุดุงุฑูุฉ ุงูุจุนูุฏุฉ');
 @define('IP_ADDRESS', 'IP-address');
-@define('USER', 'ใำสฮฯใ');
-@define('THUMBNAIL_USING_OWN', 'วำสฮฯใ %s ฺฺแ์ รไๅว ีๆัษ ใีÛัษ แรไๅว ใไ วแวำวำ ีๆัษ ีÛํัษ');
-@define('THUMBNAIL_FAILED_COPY', 'สัํฯ วไ สำสฮฯใ %s ใไ ีวแๆัษ วแใีÛัษ แๅว . แ฿ไ Ýิแ Ýํ ฺใแํษ วแไำฮ');
-@define('AUTHOR', 'วแ฿วสศ');
-@define('LAST_UPDATED', 'รฮั สอฯํห');
-@define('TRACKBACK_SPECIFIC', 'สฺÞศ ัวศุ ใฺํไ แๅะๅ วแใิวั฿ษ');
-@define('DIRECT_LINK', 'ัศุ ใศวิั ใฺ ๅะๅ วแใิวั฿ษ');
-@define('COMMENT_ADDED', 'สใส ลึวÝษ สฺแํÞ฿?s ศไฬวอ.');
+@define('USER', 'ู…ุณุชุฎุฏู…');
+@define('THUMBNAIL_USING_OWN', 'ุงุณุชุฎุฏู… %s ุนุนูู ุฃููุง ุตูุฑุฉ ู…ุตุบุฑุฉ ูุฃููุง ู…ู ุงูุงุณุงุณ ุตูุฑุฉ ุตุบูุฑุฉ');
+@define('THUMBNAIL_FAILED_COPY', 'ุชุฑูุฏ ุงู ุชุณุชุฎุฏู… %s ู…ู ุตุงููุฑุฉ ุงูู…ุตุบุฑุฉ ููุง . ููู ูุดู ูู ุนู…ููุฉ ุงููุณุฎ');
+@define('AUTHOR', 'ุงููุงุชุจ');
+@define('LAST_UPDATED', 'ุฃุฎุฑ ุชุญุฏูุซ');
+@define('TRACKBACK_SPECIFIC', 'ุชุนูุจ ุฑุงุจุท ู…ุนูู ููุฐู ุงูู…ุดุงุฑูุฉ');
+@define('DIRECT_LINK', 'ุฑุจุท ู…ุจุงุดุฑ ู…ุน ูุฐู ุงูู…ุดุงุฑูุฉ');
+@define('COMMENT_ADDED', 'ุชู…ุช ุฅุถุงูุฉ ุชุนูููููชs ุจูุฌุงุญ.');
 @define('COMMENT_ADDED_CLICK', 'Click %shere to return%s to the comments, and %shere to close%s this window.');
-@define('COMMENT_NOT_ADDED', 'สใ ลํÞวÝ วแสฺแํÞวส ฺแ์ ๅะๅ วแใๆึๆฺ แะแ฿ แใ ํสใ วฯัวฬ สฺแํÞ฿ ');
+@define('COMMENT_NOT_ADDED', 'ุชู… ุฅููุงู ุงูุชุนูููุงุช ุนูู ูุฐู ุงูู…ูุถูุน ูุฐูู ูู… ูุชู… ุงุฏุฑุงุฌ ุชุนูููู ');
 @define('COMMENT_NOT_ADDED_CLICK', 'Click %shere to return%s to the comments, and %shere to close%s this window.');
-@define('COMMENTS_DISABLE', 'แว สำใอ ศวแสฺแํÞวส ฺแ์ ๅะว วแใๆึๆฺ');
-@define('COMMENTS_ENABLE', 'วแำใวอ ศวแสฺแํÞวส ฺแ์ ๅะว วแใๆึๆฺ');
-@define('COMMENTS_CLOSED', '฿วสศ วแใๆึๆฺ แใ ํำใอ ศวแสฺแํÞวส ฺแ์ ๅะว วแใๆึๆฺ');
-@define('EMPTY_COMMENT', 'สฺแํÞ฿ แว ํอสๆํ ฺแ์ รํ ิํม วแัฬวม  %s วแฺๆฯษ ลแ์ %s ๆ วแใอวๆแษ ใัษ รฮั์');
-@define('ENTRIES_FOR', 'ใๆึๆฺ ใไ %s');
-@define('DOCUMENT_NOT_FOUND', 'แใ ํสใ วแฺหๆั ฺแ์ ๅะๅ วแๆหํÞษ %s');
-@define('USERNAME', 'รำใ วแใำสฮฯใ');
-@define('PASSWORD', '฿แใษ วแใัๆั');
-@define('AUTOMATIC_LOGIN', 'อÝู วแใฺแๆใวส');
-@define('SERENDIPITY_INSTALLATION', 'วฺฯวฯวส สั฿ํศ วแใฬแษ');
-@define('LEFT', 'ํำวั');
-@define('RIGHT', 'ํใํไ');
-@define('HIDDEN', 'ใฮÝํ');
-@define('REMOVE_TICKED_PLUGINS', 'วศฺฯ วแศๆÞวส วแใฮสวัษ');
-@define('SAVE_CHANGES_TO_LAYOUT', 'อÝู วแสÛํํัวส ฺแ์ วแสไำํÞ');
+@define('COMMENTS_DISABLE', 'ูุง ุชุณู…ุญ ุจุงูุชุนูููุงุช ุนูู ูุฐุง ุงูู…ูุถูุน');
+@define('COMMENTS_ENABLE', 'ุงูุณู…ุงุญ ุจุงูุชุนูููุงุช ุนูู ูุฐุง ุงูู…ูุถูุน');
+@define('COMMENTS_CLOSED', 'ูุงุชุจ ุงูู…ูุถูุน ูู… ูุณู…ุญ ุจุงูุชุนูููุงุช ุนูู ูุฐุง ุงูู…ูุถูุน');
+@define('EMPTY_COMMENT', 'ุชุนูููู ูุง ูุญุชูู ุนูู ุฃู ุดูุก ุงูุฑุฌุงุก  %s ุงูุนูุฏุฉ ุฅูู %s ู ุงูู…ุญุงููุฉ ู…ุฑุฉ ุฃุฎุฑู');
+@define('ENTRIES_FOR', 'ู…ูุถูุน ู…ู %s');
+@define('DOCUMENT_NOT_FOUND', 'ูู… ูุชู… ุงูุนุซูุฑ ุนูู ูุฐู ุงููุซููุฉ %s');
+@define('USERNAME', 'ุฃุณู… ุงูู…ุณุชุฎุฏู…');
+@define('PASSWORD', 'ููู…ุฉ ุงูู…ุฑูุฑ');
+@define('AUTOMATIC_LOGIN', 'ุญูุธ ุงูู…ุนููู…ุงุช');
+@define('SERENDIPITY_INSTALLATION', 'ุงุนุฏุงุฏุงุช ุชุฑููุจ ุงูู…ุฌูุฉ');
+@define('LEFT', 'ูุณุงุฑ');
+@define('RIGHT', 'ูู…ูู');
+@define('HIDDEN', 'ู…ุฎูู');
+@define('REMOVE_TICKED_PLUGINS', 'ุงุจุนุฏ ุงูุจููุงุช ุงูู…ุฎุชุงุฑุฉ');
+@define('SAVE_CHANGES_TO_LAYOUT', 'ุญูุธ ุงูุชุบููุฑุงุช ุนูู ุงูุชูุณูู');
 @define('REQUIRED_FIELD', 'Required field');
-@define('COMMENTS_FROM', 'สฺแํÞวส ใไ');
-@define('ERROR', 'ฮุร');
-@define('ENTRY_SAVED', 'สใ อÝู ใิวั฿ส฿');
-@define('DELETE_SURE', 'ๅแ วไส ใสร฿ฯ ใไ อะÝ %s อะÝ สวใ - แไ ํ฿ๆไ ศใÞฯๆั฿ วำสัฬวฺษ');
-@define('NOT_REALLY', 'แว');
-@define('DUMP_IT', 'ไฺใ');
-@define('RIP_ENTRY', 'สใ อะÝ %s ');
+@define('COMMENTS_FROM', 'ุชุนูููุงุช ู…ู');
+@define('ERROR', 'ุฎุทุฃ');
+@define('ENTRY_SAVED', 'ุชู… ุญูุธ ู…ุดุงุฑูุชู');
+@define('DELETE_SURE', 'ูู ุงูุช ู…ุชุฃูุฏ ู…ู ุญุฐู %s ุญุฐู ุชุงู… - ูู ูููู ุจู…ูุฏูุฑู ุงุณุชุฑุฌุงุนุฉ');
+@define('NOT_REALLY', 'ูุง');
+@define('DUMP_IT', 'ูุนู…');
+@define('RIP_ENTRY', 'ุชู… ุญุฐู %s ');
 @define('CATEGORY_DELETED_ARTICLES_MOVED', 'Category #%s deleted. Old articles moved to category #%s.');
-@define('CATEGORY_DELETED', 'วแสีไํÝ #%s สใ อะÝษ.');
-@define('INVALID_CATEGORY', 'แใ ํสใ รฺุวม รํ สีไํÝ ฿ํ ํอะÝ');
-@define('CATEGORY_SAVED', 'สใ อÝู วแรÞำวใ');
-@define('SELECT_TEMPLATE', 'รฮสั วแÞวแศ วแะํ สๆฯ รำสฮฯวใษ ฺแ์ วแใฬแษ');
-@define('ENTRIES_NOT_SUCCESSFULLY_INSERTED', 'แใ ํสใ วฯัวฬ วแใๆึๆฺ ศไฬวอ ! ! !');
-@define('MT_DATA_FILE', 'Þวศแ แไÞแ ใแÝ วแใฺแๆใวส');
-@define('FORCE', 'ศวแÞๆษ');
-@define('CREATE_AUTHOR', 'วไิวม ใอัั \'%s\'.');
-@define('CREATE_CATEGORY', 'วไิวม ีํÛษ \'%s\'.');
+@define('CATEGORY_DELETED', 'ุงูุชุตููู #%s ุชู… ุญุฐูุฉ.');
+@define('INVALID_CATEGORY', 'ูู… ูุชู… ุฃุนุทุงุก ุฃู ุชุตููู ูู ูุญุฐู');
+@define('CATEGORY_SAVED', 'ุชู… ุญูุธ ุงูุฃูุณุงู…');
+@define('SELECT_TEMPLATE', 'ุฃุฎุชุฑ ุงููุงูุจ ุงูุฐู ุชูุฏ ุฃุณุชุฎุฏุงู…ุฉ ุนูู ุงูู…ุฌูุฉ');
+@define('ENTRIES_NOT_SUCCESSFULLY_INSERTED', 'ูู… ูุชู… ุงุฏุฑุงุฌ ุงูู…ูุถูุน ุจูุฌุงุญ ! ! !');
+@define('MT_DATA_FILE', 'ูุงุจู ูููู ู…ูู ุงูู…ุนููู…ุงุช');
+@define('FORCE', 'ุจุงูููุฉ');
+@define('CREATE_AUTHOR', 'ุงูุดุงุก ู…ุญุฑุฑ \'%s\'.');
+@define('CREATE_CATEGORY', 'ุงูุดุงุก ุตูุบุฉ \'%s\'.');
 @define('MYSQL_REQUIRED', 'You must have the MySQL extension in order to perform this action.');
 @define('PGSQL_REQUIRED', 'You must have the PostgreSQL extension in order to perform this action.');
-@define('COULDNT_CONNECT', 'แว ํใ฿ไ วแวสีวแ ศÞวฺฯษ วแศํวไวส: %s.');
+@define('COULDNT_CONNECT', 'ูุง ูู…ูู ุงูุงุชุตุงู ุจูุงุนุฏุฉ ุงูุจูุงูุงุช: %s.');
 @define('PGSQL_COULDNT_CONNECT', 'Could not connect to PostgreSQL database: %s.');
-@define('COULDNT_SELECT_DB', 'แว ํใ฿ไ รฮสํวั ใฺแๆใวส Þวฺฯษ วแศํวไวส: %s.');
-@define('COULDNT_SELECT_USER_INFO', 'แว ํใ฿ไ รฮสํวั ใฺแๆใวส วแฺึๆ: %s.');
-@define('COULDNT_SELECT_CATEGORY_INFO', 'แว ํใ฿ไ รฮสํวั ใฺแๆใวส วแสีไํÝ: %s.');
-@define('COULDNT_SELECT_ENTRY_INFO', 'แว ํใ฿ไ รฮสํวั ใฺแๆใวส วแใๆึๆฺ: %s.');
-@define('COULDNT_SELECT_COMMENT_INFO', 'แว ํใ฿ไ รฮสํวั ใฺแๆใวส วแสฺแํÞ: %s.');
-@define('YES', 'ไฺใ');
-@define('NO', 'แว');
-@define('USE_DEFAULT', 'รÝสัวึํ');
-@define('CHECK_N_SAVE', 'Ýอี ๆ อÝู');
+@define('COULDNT_SELECT_DB', 'ูุง ูู…ูู ุฃุฎุชูุงุฑ ู…ุนููู…ุงุช ูุงุนุฏุฉ ุงูุจูุงูุงุช: %s.');
+@define('COULDNT_SELECT_USER_INFO', 'ูุง ูู…ูู ุฃุฎุชูุงุฑ ู…ุนููู…ุงุช ุงูุนุถู: %s.');
+@define('COULDNT_SELECT_CATEGORY_INFO', 'ูุง ูู…ูู ุฃุฎุชูุงุฑ ู…ุนููู…ุงุช ุงูุชุตููู: %s.');
+@define('COULDNT_SELECT_ENTRY_INFO', 'ูุง ูู…ูู ุฃุฎุชูุงุฑ ู…ุนููู…ุงุช ุงูู…ูุถูุน: %s.');
+@define('COULDNT_SELECT_COMMENT_INFO', 'ูุง ูู…ูู ุฃุฎุชูุงุฑ ู…ุนููู…ุงุช ุงูุชุนููู: %s.');
+@define('YES', 'ูุนู…');
+@define('NO', 'ูุง');
+@define('USE_DEFAULT', 'ุฃูุชุฑุงุถู');
+@define('CHECK_N_SAVE', 'ูุญุต ู ุญูุธ');
 @define('DIRECTORY_NON_EXISTENT', 'Directory %s does not exist. Maybe is a virtual redirector directory.');
-@define('DIRECTORY_WRITE_ERROR', 'Ûํั Þวฯั ศวแ฿สวศษ Ýํ วแใฬแฯ %s วแัฬวม วแสร฿ฯ ใไ วแสีวัํอ');
-@define('DIRECTORY_CREATE_ERROR', 'วแใฬแฯ %s แใ ํสใ วไิวม วแใฬแฯ วแัฬวม Þใ ศรไิวมษ ํฯๆํว๐');
+@define('DIRECTORY_WRITE_ERROR', 'ุบูุฑ ูุงุฏุฑ ุจุงููุชุงุจุฉ ูู ุงูู…ุฌูุฏ %s ุงูุฑุฌุงุก ุงูุชุฃูุฏ ู…ู ุงูุชุตุงุฑูุญ');
+@define('DIRECTORY_CREATE_ERROR', 'ุงูู…ุฌูุฏ %s ูู… ูุชู… ุงูุดุงุก ุงูู…ุฌูุฏ ุงูุฑุฌุงุก ูู… ุจุฃูุดุงุกุฉ ูุฏููุงู');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; run <i>%s %s</i>');
 @define('CANT_EXECUTE_BINARY', 'Cannot execute the %s binary');
 @define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', 'Cannot write to file %s.');
-@define('FILE_CREATE_YOURSELF', 'วแัฬวม รไ สไิฦ วแใแÝ ศไÝำ฿ วๆ Þใ ศÝอี วแสีวัํอ แแใฬแฯวส ');
-@define('COPY_CODE_BELOW', '<br>* Þใ ศไำฮ วแ฿ๆฯ วแใๆฬๆฯ ศวแวำÝแ ๆ ึฺๅ  %s Ýํ %s วแใฬแฯ:<b><pre>%s</pre></b>' . "\n");
+@define('FILE_CREATE_YOURSELF', 'ุงูุฑุฌุงุก ุฃู ุชูุดุฆ ุงูู…ูู ุจููุณู ุงู ูู… ุจูุญุต ุงูุชุตุงุฑูุญ ููู…ุฌูุฏุงุช ');
+@define('COPY_CODE_BELOW', '<br>* ูู… ุจูุณุฎ ุงูููุฏ ุงูู…ูุฌูุฏ ุจุงูุงุณูู ู ุถุนู  %s ูู %s ุงูู…ุฌูุฏ:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Change www to the user apache runs as (e.g. nobody).');
 @define('BROWSER_RELOAD', 'Once you have done this, hit your browser\'s "reload" button.');
 @define('RELOAD_THIS_PAGE', 'Please reload this <a href="%s">%s</a> page to fetch the changed values before submitting again!');
 @define('RELOAD_COMMENTS_PAGE', 'Please reload the comments page to view the new data.');
-@define('DIAGNOSTIC_ERROR', 'สใ ร฿สิวÝ ศฺึ วแวฮุวม ฮแวแ ฺใแํษ สÝอี วแศํวไวส วแใฯฮแษ:');
+@define('DIAGNOSTIC_ERROR', 'ุชู… ุฃูุชุดุงู ุจุนุถ ุงูุงุฎุทุงุก ุฎูุงู ุนู…ููุฉ ุชูุญุต ุงูุจูุงูุงุช ุงูู…ุฏุฎูุฉ:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity is not yet installed. Please <a href="%s">install</a> it now.');
 @define('INCLUDE_ERROR', 'Serendipity error: could not include %s - exiting.');
 @define('DATABASE_ERROR', 'Serendipity error: unable to connect to database - exiting.');
 @define('CREATE_DATABASE', 'Creating default database setup...');
 @define('ATTEMPT_WRITE_FILE', 'Attempting to write %s file...');
-@define('WRITTEN_N_SAVED', 'สใ สฺฯํแ ๆ อÝู วแลฺฯวฯวส');
-@define('IMAGE_ALIGNMENT', 'ใอวะวส วแีๆัษ');
-@define('ENTER_NEW_NAME', 'รฯฮแ รำใ ฬฯํฯ แÜ: ');
-@define('RESIZING', 'สÛํั วแอฬใ');
-@define('RESIZE_DONE', 'สใ (สÛํํั Þํวำวส %s ีๆัษ).');
-@define('SYNCING', 'ึศุ Þวฺฯษ วแศํวไวส ใฺ ใฬแฯ วแีๆั');
+@define('WRITTEN_N_SAVED', 'ุชู… ุชุนุฏูู ู ุญูุธ ุงูุฅุนุฏุงุฏุงุช');
+@define('IMAGE_ALIGNMENT', 'ู…ุญุงุฐุงุช ุงูุตูุฑุฉ');
+@define('ENTER_NEW_NAME', 'ุฃุฏุฎู ุฃุณู… ุฌุฏูุฏ ูู€: ');
+@define('RESIZING', 'ุชุบูุฑ ุงูุญุฌู…');
+@define('RESIZE_DONE', 'ุชู… (ุชุบููุฑ ููุงุณุงุช %s ุตูุฑุฉ).');
+@define('SYNCING', 'ุถุจุท ูุงุนุฏุฉ ุงูุจูุงูุงุช ู…ุน ู…ุฌูุฏ ุงูุตูุฑ');
 @define('SYNC_OPTION_LEGEND', 'Thumbnail Synchronization Options');
 @define('SYNC_OPTION_KEEPTHUMBS', 'Keep all existing thumbnails');
 @define('SYNC_OPTION_SIZECHECKTHUMBS', 'Keep existing thumbnails only if they are the correct size');
 @define('SYNC_OPTION_DELETETHUMBS', 'Regenerate all (<em>*.%s</em>) thumbnails');
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
-@define('SYNC_DONE', 'Done (ึศุ %s วแีๆั).');
-@define('FILE_NOT_FOUND', 'แใ ํสใ ลํฬวฯ วแใแÝ %s, ใไ วแใใ฿ไ รไ ํ฿ๆไ Þฯ อะÝฟ');
-@define('ABORT_NOW', 'สๆÞÝ วแยไ');
+@define('SYNC_DONE', 'Done (ุถุจุท %s ุงูุตูุฑ).');
+@define('FILE_NOT_FOUND', 'ูู… ูุชู… ุฅูุฌุงุฏ ุงูู…ูู %s, ู…ู ุงูู…ู…ูู ุฃู ูููู ูุฏ ุญุฐูุ');
+@define('ABORT_NOW', 'ุชููู ุงูุขู');
 @define('REMOTE_FILE_NOT_FOUND', 'File was not located on the remote server, are you sure the URL: <b>%s</b> is correct?');
 @define('FILE_FETCHED', '%s fetched as %s');
-@define('FILE_UPLOADED', 'วแใแÝ %s สใ ัÝฺษ ศไฬวฬ ศÜ %s');
+@define('FILE_UPLOADED', 'ุงูู…ูู %s ุชู… ุฑูุนุฉ ุจูุฌุงุฌ ุจู€ %s');
 @define('WORD_OR', 'Or');
 @define('SCALING_IMAGE', 'Scaling %s to %s x %s px');
 @define('FORCE_RELOAD', 'With certain image characteristics it can occasionally happen that the old image is still present in the browser cache. If so, check into the MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
-@define('KEEP_PROPORTIONS', 'วแใอวÝูษ ฺแ์ สไวำศ วแใÞวำวส');
-@define('REALLY_SCALE_IMAGE', 'ๅแ วไส ใสร฿ฯ ใไ สÛํํั อฬใ วแีๆัษ ! ! รไสศๅ ! ! แว ํๆฬฯ สัวฬฺ ศฺฯ สÛํํั วแใÞวำวส');
-@define('TOGGLE_ALL', 'รึÛุ ๅไว แฺัึ ฬใํฺ วแฮํวัวส');
+@define('KEEP_PROPORTIONS', 'ุงูู…ุญุงูุธุฉ ุนูู ุชูุงุณุจ ุงูู…ูุงุณุงุช');
+@define('REALLY_SCALE_IMAGE', 'ูู ุงูุช ู…ุชุฃูุฏ ู…ู ุชุบููุฑ ุญุฌู… ุงูุตูุฑุฉ ! ! ุฃูุชุจู ! ! ูุง ููุฌุฏ ุชุฑุงุฌุน ุจุนุฏ ุชุบููุฑ ุงูู…ูุงุณุงุช');
+@define('TOGGLE_ALL', 'ุฃุถุบุท ููุง ูุนุฑุถ ุฌู…ูุน ุงูุฎูุงุฑุงุช');
 @define('TOGGLE_OPTION', 'Toggle option');
-@define('SUBSCRIBE_TO_THIS_ENTRY', 'วแวิสัว฿ Ýํ ๅะว วแใๆึๆฺ');
-@define('UNSUBSCRIBE_OK', "%s วแวไ แว ํใ฿ไ วแวิสัว฿ Ýํ ๅะว วแใๆึๆฺ");
+@define('SUBSCRIBE_TO_THIS_ENTRY', 'ุงูุงุดุชุฑุงู ูู ูุฐุง ุงูู…ูุถูุน');
+@define('UNSUBSCRIBE_OK', "%s ุงูุงู ูุง ูู…ูู ุงูุงุดุชุฑุงู ูู ูุฐุง ุงูู…ูุถูุน");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'New comment to subscribed entry "%s"');
 @define('SUBSCRIPTION_MAIL', "Hello %s,\n\nA new comment was made to the entry you are monitoring on \"%s\", entitled \"%s\"\nThe name of the poster is: %s\n\nYou can find the entry here: %s\n\nYou can unsubscribe by clicking on this link: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Hello %s,\n\nA new trackback was added to the entry you are monitoring on \"%s\", entitled \"%s\"\nThe name of the poster is: %s\n\nYou can find the entry here: %s\n\nYou can unsubscribe by clicking on this link: %s\n");
 @define('SIGNATURE', "\n-- \n%s is powered by %s.\nThe best blog around, you can use it too.\nCheck out <%s> to find out how.");
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 feed');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 comments');
-@define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'อÞแ "ใอัั วแวฺฯวฯวส"');
-@define('SYNDICATION_PLUGIN_WEBMASTER', 'อÞแ "วแใิัÝ วแฺวใ"');
+@define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'ุญูู "ู…ุญุฑุฑ ุงูุงุนุฏุงุฏุงุช"');
+@define('SYNDICATION_PLUGIN_WEBMASTER', 'ุญูู "ุงูู…ุดุฑู ุงูุนุงู…"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Image for the RSS feed');
-@define('SYNDICATION_PLUGIN_BANNERWIDTH', 'ฺัึ วแีๆัษ');
-@define('SYNDICATION_PLUGIN_BANNERHEIGHT', 'ุๆแ วแีๆัษ');
-@define('SYNDICATION_PLUGIN_WEBMASTER_DESC', 'วแศัํฯ วแวแ฿สัๆไํ แแใิัÝ วแฺวใ แแใฯๆไษ. (ÝวัÛ: ใฮÝํ) [RSS 2.0]');
-@define('SYNDICATION_PLUGIN_MANAGINGEDITOR_DESC', 'วแศัํฯ วแวแ฿สัๆไํ แแใอัั วไ ๆฬฯ - วไ ฿วไ ÝวัÛ ำๆÝ ํ฿ๆไ วแอÞแ ใฮÝํ [RSS 2.0]');
-@define('SYNDICATION_PLUGIN_BANNERURL_DESC', 'ัวศุ ีๆัษ ใไ ไๆฺ GIF/JPEG/PNG วะว ฿วไส ใๆฬๆฯษ ฿ํ สำสฮฯใ ิฺวั แแใฯๆไษ - วไ สั฿สๅ ÝวัÛ ำๆÝ ํสใ วฮสํวั วแิฺวั วแวÝสัวึํ');
+@define('SYNDICATION_PLUGIN_BANNERWIDTH', 'ุนุฑุถ ุงูุตูุฑุฉ');
+@define('SYNDICATION_PLUGIN_BANNERHEIGHT', 'ุทูู ุงูุตูุฑุฉ');
+@define('SYNDICATION_PLUGIN_WEBMASTER_DESC', 'ุงูุจุฑูุฏ ุงูุงููุชุฑููู ููู…ุดุฑู ุงูุนุงู… ููู…ุฏููุฉ. (ูุงุฑุบ: ู…ุฎูู) [RSS 2.0]');
+@define('SYNDICATION_PLUGIN_MANAGINGEDITOR_DESC', 'ุงูุจุฑูุฏ ุงูุงููุชุฑููู ููู…ุญุฑุฑ ุงู ูุฌุฏ - ุงู ูุงู ูุงุฑุบ ุณูู ูููู ุงูุญูู ู…ุฎูู [RSS 2.0]');
+@define('SYNDICATION_PLUGIN_BANNERURL_DESC', 'ุฑุงุจุท ุตูุฑุฉ ู…ู ููุน GIF/JPEG/PNG ุงุฐุง ูุงูุช ู…ูุฌูุฏุฉ ูู ุชุณุชุฎุฏู… ุดุนุงุฑ ููู…ุฏููุฉ - ุงู ุชุฑูุชู ูุงุฑุบ ุณูู ูุชู… ุงุฎุชูุงุฑ ุงูุดุนุงุฑ ุงูุงูุชุฑุงุถู');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH_DESC', 'in pixels, max. 144');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT_DESC', 'in pixels, max. 400');
 @define('SYNDICATION_PLUGIN_TTL', 'Field "ttl" (time-to-live)');
 @define('SYNDICATION_PLUGIN_TTL_DESC', 'Amount of minutes after which your blog should not be cached any more by foreign sites/applications (empty: hidden) [RSS 2.0]');
-@define('SYNDICATION_PLUGIN_PUBDATE', 'อÞแ สวัํฮ วแไิั');
+@define('SYNDICATION_PLUGIN_PUBDATE', 'ุญูู ุชุงุฑูุฎ ุงููุดุฑ');
 @define('SYNDICATION_PLUGIN_PUBDATE_DESC', 'Should the "pubDate"-field be embedded for a RSS-channel, to show the date of the latest entry?');
-@define('CONTENT', 'ใอสๆ์');
-@define('TYPE', 'ไๆฺ');
-@define('DRAFT', 'ใำๆฯษ');
-@define('PUBLISH', 'ไิั');
-@define('PREVIEW', 'ใิวๅฯษ วแใิวั฿ษ');
+@define('CONTENT', 'ู…ุญุชูู');
+@define('TYPE', 'ููุน');
+@define('DRAFT', 'ู…ุณูุฏุฉ');
+@define('PUBLISH', 'ูุดุฑ');
+@define('PREVIEW', 'ู…ุดุงูุฏุฉ ุงูู…ุดุงุฑูุฉ');
 @define('ALL_ENTRIES', 'All entries');
-@define('DATE', 'วแสวัํฮ');
+@define('DATE', 'ุงูุชุงุฑูุฎ');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
-@define('DATE_INVALID', 'สอะํั: ีํÛษ วแๆÞส วแสํ รฮสัสๅว Ûํั ีอํอษ ! ! ํฬศ รไ ส฿ๆไ วแีํÛษ ใใวหแ  YYYY-MM-DD HH:MM');
-@define('CATEGORY_PLUGIN_DESC', 'ฺัึ Þวฦใษ ศวแรÞำวใ วแใๆฬๆฯษ');
-@define('ALL_AUTHORS', 'ฬใํฺ วแใำสฮฯใํไ');
-@define('CATEGORIES_TO_FETCH', 'ฬแศ แแรÞำวใ');
-@define('CATEGORIES_TO_FETCH_DESC', 'Þใ ศฬแศ รÞำวใ ใไ รํ วแ฿สวศฟ');
-@define('PAGE_BROWSE_ENTRIES', 'วแีÝอษ ัÞใ %s ใไ %s, ใฬใๆฺ %s ใๆวึํฺ');
+@define('DATE_INVALID', 'ุชุญุฐูุฑ: ุตูุบุฉ ุงูููุช ุงูุชู ุฃุฎุชุฑุชูุง ุบูุฑ ุตุญูุญุฉ ! ! ูุฌุจ ุฃู ุชููู ุงูุตูุบุฉ ู…ู…ุงุซู  YYYY-MM-DD HH:MM');
+@define('CATEGORY_PLUGIN_DESC', 'ุนุฑุถ ูุงุฆู…ุฉ ุจุงูุฃูุณุงู… ุงูู…ูุฌูุฏุฉ');
+@define('ALL_AUTHORS', 'ุฌู…ูุน ุงูู…ุณุชุฎุฏู…ูู');
+@define('CATEGORIES_TO_FETCH', 'ุฌูุจ ููุฃูุณุงู…');
+@define('CATEGORIES_TO_FETCH_DESC', 'ูู… ุจุฌูุจ ุฃูุณุงู… ู…ู ุฃู ุงููุชุงุจุ');
+@define('PAGE_BROWSE_ENTRIES', 'ุงูุตูุญุฉ ุฑูู… %s ู…ู %s, ู…ุฌู…ูุน %s ู…ูุงุถูุน');
 @define('PAGE', 'Page');
-@define('PREVIOUS_PAGE', 'วแีÝอษ วแำวศÞษ');
-@define('NEXT_PAGE', 'วแีÝอษ วแสวแํษ');
-@define('ALL_CATEGORIES', 'ฬใํฺ วแสีวไํÝ');
-@define('DO_MARKUP', 'ลฬัวมวส สอๆํแ วแว฿ๆวฯ');
-@define('DO_MARKUP_DESCRIPTION', 'Þใ ศสุศํÞ สอๆํแวส วแสัใํา (วแใ฿ๆไ วแลึวÝํ) ฺแ์ วแไี (วแวศสำวใวส ก ๆ bbcode ก ๆฺแวใวส วแวฮสีวั s9y ก ๆวแสฮÝํึวส ก ๆใว ลแ์ ะแ฿). ละว สใ สฺุํแๅ ก ํสใ ฺัึ วแใอสๆ์ ศไำศษ 1: 1 ๆํสใ วแวอสÝวู ศรํ สไำํÞ HTML. ละว สใ สไิํุ ๅะว วแฮํวั ก ํใ฿ไ แแลึวÝวส วแรฮั์ สฺฯํแ ใอสๆํวส วแ฿สแษ.');
-@define('GENERAL_PLUGIN_DATEFORMAT', 'ีํÛษ วแสวัํฮ');
-@define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'ีํÛษ วฯฮวแ วแสวัํฮ วแอÞํÞํ Ýํ PHPs strftime() variables. (Default: "%s")');
-@define('ERROR_TEMPLATE_FILE', 'Ûํั Þวฯั ฺแ์ Ýสอ ใแÝ วแÞวแศ. วแัฬวม สอฯํห วแใฬแษ');
-@define('ADVANCED_OPTIONS', 'ฮํวัวส ใสÞฯใษ');
-@define('EDIT_ENTRY', 'สอัํั วแใๆึๆฺ');
+@define('PREVIOUS_PAGE', 'ุงูุตูุญุฉ ุงูุณุงุจูุฉ');
+@define('NEXT_PAGE', 'ุงูุตูุญุฉ ุงูุชุงููุฉ');
+@define('ALL_CATEGORIES', 'ุฌู…ูุน ุงูุชุตุงููู');
+@define('DO_MARKUP', 'ุฅุฌุฑุงุกุงุช ุชุญููู ุงูุงููุงุฏ');
+@define('DO_MARKUP_DESCRIPTION', 'ูู… ุจุชุทุจูู ุชุญูููุงุช ุงูุชุฑู…ูุฒ (ุงูู…ููู ุงูุฅุถุงูู) ุนูู ุงููุต (ุงูุงุจุชุณุงู…ุงุช ุ ู bbcode ุ ูุนูุงู…ุงุช ุงูุงุฎุชุตุงุฑ s9y ุ ูุงูุชุฎููุถุงุช ุ ูู…ุง ุฅูู ุฐูู). ุฅุฐุง ุชู… ุชุนุทููู ุ ูุชู… ุนุฑุถ ุงูู…ุญุชูู ุจูุณุจุฉ 1: 1 ููุชู… ุงูุงุญุชูุงุธ ุจุฃู ุชูุณูู HTML. ุฅุฐุง ุชู… ุชูุดูุท ูุฐุง ุงูุฎูุงุฑ ุ ูู…ูู ููุฅุถุงูุงุช ุงูุฃุฎุฑู ุชุนุฏูู ู…ุญุชููุงุช ุงููุชูุฉ.');
+@define('GENERAL_PLUGIN_DATEFORMAT', 'ุตูุบุฉ ุงูุชุงุฑูุฎ');
+@define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'ุตูุบุฉ ุงุฏุฎุงู ุงูุชุงุฑูุฎ ุงูุญูููู ูู PHPs strftime() variables. (Default: "%s")');
+@define('ERROR_TEMPLATE_FILE', 'ุบูุฑ ูุงุฏุฑ ุนูู ูุชุญ ู…ูู ุงููุงูุจ. ุงูุฑุฌุงุก ุชุญุฏูุซ ุงูู…ุฌูุฉ');
+@define('ADVANCED_OPTIONS', 'ุฎูุงุฑุงุช ู…ุชูุฏู…ุฉ');
+@define('EDIT_ENTRY', 'ุชุญุฑูุฑ ุงูู…ูุถูุน');
 @define('HTACCESS_ERROR', 'To check your local webserver installation, Serendipity needs to be able to write the file ".htaccess". This was not possible because of permission errors. Please adjust the permissions like this: <br>&nbsp;&nbsp;%s<br>and reload this page.');
-@define('SIDEBAR_PLUGINS', 'ิัํุ วแวฯๆวส วแฬวไศํ แแศแÞ วไ');
-@define('EVENT_PLUGINS', 'ศแๆÞวส แๆูวฦÝ ๆวอฯวห');
-@define('SORT_ORDER', 'ุัํÞษ วแสัสํศ');
-@define('SORT_ORDER_NAME', 'รำใ วแใแÝ');
-@define('SORT_ORDER_EXTENSION', 'ไๆฺํษ วแใแÝ');
-@define('SORT_ORDER_SIZE', 'อฬใ วแใแÝ');
-@define('SORT_ORDER_WIDTH', 'ฺัึ วแีๆัษ');
-@define('SORT_ORDER_HEIGHT', 'วัสÝวฺ วแีๆัษ');
-@define('SORT_ORDER_DATE', 'สวัํฮ วแัÝฺ');
-@define('SORT_ORDER_ASC', 'สัสํศ สีวฺฯํ');
-@define('SORT_ORDER_DESC', 'สัสํศ สไวาแํ');
+@define('SIDEBAR_PLUGINS', 'ุดุฑูุท ุงูุงุฏูุงุช ุงูุฌุงูุจู ููุจูู ุงู');
+@define('EVENT_PLUGINS', 'ุจูููุงุช ููุธุงุฆู ูุงุญุฏุงุซ');
+@define('SORT_ORDER', 'ุทุฑููุฉ ุงูุชุฑุชูุจ');
+@define('SORT_ORDER_NAME', 'ุฃุณู… ุงูู…ูู');
+@define('SORT_ORDER_EXTENSION', 'ููุนูุฉ ุงูู…ูู');
+@define('SORT_ORDER_SIZE', 'ุญุฌู… ุงูู…ูู');
+@define('SORT_ORDER_WIDTH', 'ุนุฑุถ ุงูุตูุฑุฉ');
+@define('SORT_ORDER_HEIGHT', 'ุงุฑุชูุงุน ุงูุตูุฑุฉ');
+@define('SORT_ORDER_DATE', 'ุชุงุฑูุฎ ุงูุฑูุน');
+@define('SORT_ORDER_ASC', 'ุชุฑุชูุจ ุชุตุงุนุฏู');
+@define('SORT_ORDER_DESC', 'ุชุฑุชูุจ ุชูุงุฒูู');
 @define('THUMBNAIL_SIZE', 'Thumb size'); // keep short
-@define('THUMBNAIL_SHORT', 'ีๆัษ ใีÛัษ');
+@define('THUMBNAIL_SHORT', 'ุตูุฑุฉ ู…ุตุบุฑุฉ');
 @define('ORIGINAL_SHORT', 'Origin');
-@define('APPLY_MARKUP_TO', 'ึฺ ลิวัษ ลแ์ %s');
-@define('CALENDAR_BEGINNING_OF_WEEK', 'ศฯวํษ วแวำศๆฺ');
+@define('APPLY_MARKUP_TO', 'ุถุน ุฅุดุงุฑุฉ ุฅูู %s');
+@define('CALENDAR_BEGINNING_OF_WEEK', 'ุจุฏุงูุฉ ุงูุงุณุจูุน');
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity has detected that your currently installed version is %s. It seems you are attempting to upgrade to version %s, so you need to <a href="%s">click here</a> to continue the upgrade process.');
 @define('SERENDIPITY_UPGRADER_WELCOME', 'Hi, and welcome to the Serendipity upgrade agent.');
 @define('SERENDIPITY_UPGRADER_PURPOSE', 'I am here to help you upgrade your Serendipity %s installation.');
@@ -315,113 +316,113 @@
 @define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'It appears you do not need to run any upgrade tasks');
 @define('SERENDIPITY_UPGRADER_PROCEED_WITH_TASK', 'Even when no specific upgrade tasks are required and only version-dependent notices for the update appear, it is recommended to use the green "' . SERENDIPITY_UPGRADER_PROCEED_DOIT . '" button.');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Consider Serendipity upgraded');
-@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Since you have ignored the upgrade stage of Serendipity, please make sure your database is correctly installed or updated, and scheduled functions are run. ศฺฯ วแวไสๅวม ใไ ฺใแ฿ วแใำศศ แแสัวฬฺก ํใ฿ไ วแÞํวใ ศะแ฿ สแÞวฦํ๐ว ศใฬัฯ ลฺวฯษ สฺํํไ วแลีฯวั Ýํ ใแÝ serendipity_config_local.inc วแฮวี ศ฿ ๆสิÛํแ ีÝอษ วแสัÞํษ ๅะๅ ใัษ รฮั์ ฺศั ีÝอษ วแๆวฬๅษ วแฮแÝํษ.');
+@define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Since you have ignored the upgrade stage of Serendipity, please make sure your database is correctly installed or updated, and scheduled functions are run. ุจุนุฏ ุงูุงูุชูุงุก ู…ู ุนู…ูู ุงูู…ุณุจุจ ููุชุฑุงุฌุนุ ูู…ูู ุงูููุงู… ุจุฐูู ุชููุงุฆููุง ุจู…ุฌุฑุฏ ุฅุนุงุฏุฉ ุชุนููู ุงูุฅุตุฏุงุฑ ูู ู…ูู serendipity_config_local.inc ุงูุฎุงุต ุจู ูุชุดุบูู ุตูุญุฉ ุงูุชุฑููุฉ ูุฐู ู…ุฑุฉ ุฃุฎุฑู ุนุจุฑ ุตูุญุฉ ุงููุงุฌูุฉ ุงูุฎูููุฉ.');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'Your Serendipity installation is now upgraded to version %s');
 @define('SERENDIPITY_UPGRADER_RETURN_HERE', 'You can return to your blog by clicking %shere%s');
-@define('MANAGE_USERS', 'ลฯวัษ วแลฺึวม');
-@define('CREATE_NEW_USER', 'วไิวม ใำสฮฯใ ฬฯํฯ');
-@define('CREATE_NOT_AUTHORIZED', 'แว ํใ฿ไ แ฿ รไ สุๆั วๆ สฺฯแ ฺแ์ ใำสฮฯใ แฯํๅ ไÝำ ใำสๆ฿ Ýํ วแีแวอํวส');
-@define('CREATE_NOT_AUTHORIZED_USERLEVEL', 'แว ํใ฿ไ แ฿ รไ สไิฦ ใำสฮฯใ ฬฯํฯ ํใสแ฿ ีแวอํวส ร฿ศั ใไ ีแวอํวส฿');
-@define('CREATED_USER', 'สใ วไิวมษ %s วแใำสฮฯใ วแฬฯํฯ');
-@define('MODIFIED_USER', 'สใ สÛํํั ฮีวฦี ๅะๅ วแใำสฮฯใ "%s"');
+@define('MANAGE_USERS', 'ุฅุฏุงุฑุฉ ุงูุฅุนุถุงุก');
+@define('CREATE_NEW_USER', 'ุงูุดุงุก ู…ุณุชุฎุฏู… ุฌุฏูุฏ');
+@define('CREATE_NOT_AUTHORIZED', 'ูุง ูู…ูู ูู ุฃู ุชุทูุฑ ุงู ุชุนุฏู ุนูู ู…ุณุชุฎุฏู… ูุฏูู ููุณ ู…ุณุชูู ูู ุงูุตูุงุญูุงุช');
+@define('CREATE_NOT_AUTHORIZED_USERLEVEL', 'ูุง ูู…ูู ูู ุฃู ุชูุดุฆ ู…ุณุชุฎุฏู… ุฌุฏูุฏ ูู…ุชูู ุตูุงุญูุงุช ุฃูุจุฑ ู…ู ุตูุงุญูุงุชู');
+@define('CREATED_USER', 'ุชู… ุงูุดุงุกุฉ %s ุงูู…ุณุชุฎุฏู… ุงูุฌุฏูุฏ');
+@define('MODIFIED_USER', 'ุชู… ุชุบููุฑ ุฎุตุงุฆุต ูุฐู ุงูู…ุณุชุฎุฏู… "%s"');
 @define('USER_LEVEL', 'Userlevel');
-@define('DELETE_USER', 'ๅแ วไส ฬวฯ Ýํ อะÝ วแใำสฮฯใ  #%d %s ฟ ๅะว ํฺไํ ฺฯใ ูๅๆั รํ ใๆึๆฺ ฿สศๅ รๆ ิวั฿ Ýํ สอัํัษ ! ! ! วไสศๅ แว สึํฺ ใฯๆไส฿');
-@define('DELETED_USER', 'ศๆวำุษ วแใำสฮฯใ #%d %s สใ อะÝๅ.');
-@define('LIMIT_TO_NUMBER', '฿ใ ใวฯษ ํใ฿ไ ฺัึๅวฟ');
-@define('ENTRIES_PER_PAGE', 'วแใๆวึํฺ Ýํ ฿แ ีÝอษ');
+@define('DELETE_USER', 'ูู ุงูุช ุฌุงุฏ ูู ุญุฐู ุงูู…ุณุชุฎุฏู…  #%d %s ุ ูุฐุง ูุนูู ุนุฏู… ุธููุฑ ุฃู ู…ูุถูุน ูุชุจู ุฃู ุดุงุฑู ูู ุชุญุฑูุฑุฉ ! ! ! ุงูุชุจู ูุง ุชุถูุน ู…ุฏููุชู');
+@define('DELETED_USER', 'ุจูุงุณุทุฉ ุงูู…ุณุชุฎุฏู… #%d %s ุชู… ุญุฐูู.');
+@define('LIMIT_TO_NUMBER', 'ูู… ู…ุงุฏุฉ ูู…ูู ุนุฑุถูุงุ');
+@define('ENTRIES_PER_PAGE', 'ุงูู…ูุงุถูุน ูู ูู ุตูุญุฉ');
 @define('XML_IMAGE_TO_DISPLAY', 'XML Button');
 @define('XML_IMAGE_TO_DISPLAY_DESC', 'Links to XML Feeds will be displayed by this image. Leave empty for default, enter \'none\' to disable.');
 
-@define('DIRECTORIES_AVAILABLE', 'ÝํวแÞวฦใษ ํๆฬฯ ใฬแฯวส Ýัฺํๅ. ํใ฿ไ แ฿ รไ สึÛุ ฺแ์ รำใ ! !  รํ ใไๅว แลไิวม ใฬแฯ ฬฯํฯ ศไÝำ วแๅํ฿แ ๅะว');
-@define('ALL_DIRECTORIES', 'ฬใํฺ วแใฬแฯวส');
-@define('MANAGE_DIRECTORIES', 'ลฯวัษ วแใฬแฯวส');
-@define('DIRECTORY_CREATED', 'วแใฬแฯ <strong>%s</strong> สใ วไิวมษ');
-@define('PARENT_DIRECTORY', 'วแใฬแฯ วแัฦํำํ รๆ วแวศ');
-@define('ERROR_NO_DIRECTORY', 'ฮุร: แใ ํสใ ลฯฮวแ วแใฬแฯ %s ');
-@define('CHECKING_DIRECTORY', 'สÝอี วแใแÝวส Ýํ วแใฬแฯ %s ');
-@define('DELETING_FILE', 'อะÝ วแใแÝ %s ...');
+@define('DIRECTORIES_AVAILABLE', 'ููุงููุงุฆู…ุฉ ููุฌุฏ ู…ุฌูุฏุงุช ูุฑุนูู. ูู…ูู ูู ุฃู ุชุถุบุท ุนูู ุฃุณู… ! !  ุฃู ู…ููุง ูุฅูุดุงุก ู…ุฌูุฏ ุฌุฏูุฏ ุจููุณ ุงููููู ูุฐุง');
+@define('ALL_DIRECTORIES', 'ุฌู…ูุน ุงูู…ุฌูุฏุงุช');
+@define('MANAGE_DIRECTORIES', 'ุฅุฏุงุฑุฉ ุงูู…ุฌูุฏุงุช');
+@define('DIRECTORY_CREATED', 'ุงูู…ุฌูุฏ <strong>%s</strong> ุชู… ุงูุดุงุกุฉ');
+@define('PARENT_DIRECTORY', 'ุงูู…ุฌูุฏ ุงูุฑุฆูุณู ุฃู ุงูุงุจ');
+@define('ERROR_NO_DIRECTORY', 'ุฎุทุฃ: ูู… ูุชู… ุฅุฏุฎุงู ุงูู…ุฌูุฏ %s ');
+@define('CHECKING_DIRECTORY', 'ุชูุญุต ุงูู…ููุงุช ูู ุงูู…ุฌูุฏ %s ');
+@define('DELETING_FILE', 'ุญุฐู ุงูู…ูู %s ...');
 @define('ERROR_DIRECTORY_NOT_EMPTY', 'Could not remove non-empty directory. Check the "force deletion" checkbox if you want to remove those files as well, and then submit again. Existing files are:');
 @define('DIRECTORY_DELETE_FAILED', 'Deletion of directory %s failed. Check permissions or messages above.');
-@define('DIRECTORY_DELETE_SUCCESS', 'สใ อะÝ วแใฬแฯ %s ศไฬวอ');
-@define('SKIPPING_FILE_EXTENSION', 'สฬวๅแ วแใแÝวส: วแสํ ศฯๆไ ๆีแ สฺัํÝ %s.');
-@define('SKIPPING_FILE_UNREADABLE', 'สฬวๅแ วแใแÝวส: %s Ûํั วแใÞัๆรษ');
-@define('FOUND_FILE', 'สใ วแฺหๆั ฺแ์ ใแÝ ฬฯํฯ รๆ ใอฯห: %s');
-@define('ALREADY_SUBCATEGORY', 'วไ %s Þำใ Ýัฺํ ใๆฬๆฯ ใไ %s');
-@define('PARENT_CATEGORY', 'วแใฬแฯ วแัฦํำํ');
-@define('IN_REPLY_TO', 'Ýํ วแัฯ ฺแ์');
-@define('TOP_LEVEL', 'ใำสๆ์ รฺแ์');
+@define('DIRECTORY_DELETE_SUCCESS', 'ุชู… ุญุฐู ุงูู…ุฌูุฏ %s ุจูุฌุงุญ');
+@define('SKIPPING_FILE_EXTENSION', 'ุชุฌุงูู ุงูู…ููุงุช: ุงูุชู ุจุฏูู ูุตู ุชุนุฑูู %s.');
+@define('SKIPPING_FILE_UNREADABLE', 'ุชุฌุงูู ุงูู…ููุงุช: %s ุบูุฑ ุงูู…ูุฑูุฃุฉ');
+@define('FOUND_FILE', 'ุชู… ุงูุนุซูุฑ ุนูู ู…ูู ุฌุฏูุฏ ุฃู ู…ุญุฏุซ: %s');
+@define('ALREADY_SUBCATEGORY', 'ุงู %s ูุณู… ูุฑุนู ู…ูุฌูุฏ ู…ู %s');
+@define('PARENT_CATEGORY', 'ุงูู…ุฌูุฏ ุงูุฑุฆูุณู');
+@define('IN_REPLY_TO', 'ูู ุงูุฑุฏ ุนูู');
+@define('TOP_LEVEL', 'ู…ุณุชูู ุฃุนูู');
 @define('SYNDICATION_PLUGIN_GENERIC_FEED', '%s feed');
-@define('PERMISSIONS', 'วแีแวอํวส');
+@define('PERMISSIONS', 'ุงูุตูุงุญูุงุช');
 @define('SECURITY', 'Security');
 @define('INTEGRITY', 'Verify Installation Integrity');
 @define('CHECKSUMS_NOT_FOUND', 'Unable to compare checksums! (No checksums.inc.php in main directory, or DEV version)');
 @define('CHECKSUMS_PASS', 'All required files verified.');
 @define('CHECKSUM_FAILED', '%s corrupt or modified: failed verification');
-@define('SETTINGS_SAVED_AT', 'สใ อÝู วแวฺฯวฯวส วแฬฯํฯษ Ýํ  %s');
+@define('SETTINGS_SAVED_AT', 'ุชู… ุญูุธ ุงูุงุนุฏุงุฏุงุช ุงูุฌุฏูุฏุฉ ูู  %s');
 
 /* DATABASE SETTINGS */
-@define('INSTALL_CAT_DB', 'รฺฯวฯวส Þวฺฯษ วแศํวไวส');
-@define('INSTALL_CAT_DB_DESC', 'ํใ฿ไ฿ ๅไว วไ สฯัฬ ฬใํฺ ใฺแๆใวส Þวฺฯส วแศํวไวส วแฮวีษ ศ฿.ใฯๆไวสไว วแใๅๆศษ ศอวฬษ วแ์ ๅะๅ วแใฺแๆใวส ฿ํ สฺใแ');
-@define('INSTALL_DBTYPE', 'ไๆฺ Þวฺฯษ วแศํวไวส');
-@define('INSTALL_DBTYPE_DESC', 'ไๆฺ Þวฺฯษ วแศํวไวส');
-@define('INSTALL_DBHOST', 'ใำสึํÝ Þวฺฯษ วแศํวไวส');
-@define('INSTALL_DBHOST_DESC', 'วำใ วแำํัÝั วแใำสึํÝ แÞวฺฯษ วแศํวไวส');
-@define('INSTALL_DBUSER', 'วำใ ใำสฮฯใ Þวฺฯษ วแศํวไวส');
-@define('INSTALL_DBUSER_DESC', 'วำใ วแใำสฮฯใ วแะํ ํใ฿ไๅ วแวสีวแ Ýํ Þวฺฯษ วแศํวไวส');
-@define('INSTALL_DBPASS', '฿แใษ วแใัๆั แÞวฺฯษ วแศํวไวส');
-@define('INSTALL_DBPASS_DESC', '฿แใษ วแใัๆั แÞวฺฯษ วแศํวไวส ฮวีษ ศๅะว วแใำสฮฯใ');
-@define('INSTALL_DBNAME', 'วำใ Þวฺฯษ วแศํวไวส');
-@define('INSTALL_DBNAME_DESC', 'รำใ Þวฺฯษ วแศํวไวส');
-@define('INSTALL_DBPREFIX', 'ศวฯฦษ ฬฯวๆแ Þวฺฯษ วแศํวไวส');
-@define('INSTALL_DBPREFIX_DESC', 'ศวฯฦษ วแฬฯวๆแ ใหวแ - styx_');
+@define('INSTALL_CAT_DB', 'ุฃุนุฏุงุฏุงุช ูุงุนุฏุฉ ุงูุจูุงูุงุช');
+@define('INSTALL_CAT_DB_DESC', 'ูู…ููู ููุง ุงู ุชุฏุฑุฌ ุฌู…ูุน ู…ุนููู…ุงุช ูุงุนุฏุช ุงูุจูุงูุงุช ุงูุฎุงุตุฉ ุจู.ู…ุฏููุงุชูุง ุงูู…ููุจุฉ ุจุญุงุฌุฉ ุงูู ูุฐู ุงูู…ุนููู…ุงุช ูู ุชุนู…ู');
+@define('INSTALL_DBTYPE', 'ููุน ูุงุนุฏุฉ ุงูุจูุงูุงุช');
+@define('INSTALL_DBTYPE_DESC', 'ููุน ูุงุนุฏุฉ ุงูุจูุงูุงุช');
+@define('INSTALL_DBHOST', 'ู…ุณุชุถูู ูุงุนุฏุฉ ุงูุจูุงูุงุช');
+@define('INSTALL_DBHOST_DESC', 'ุงุณู… ุงูุณูุฑูุฑ ุงูู…ุณุชุถูู ููุงุนุฏุฉ ุงูุจูุงูุงุช');
+@define('INSTALL_DBUSER', 'ุงุณู… ู…ุณุชุฎุฏู… ูุงุนุฏุฉ ุงูุจูุงูุงุช');
+@define('INSTALL_DBUSER_DESC', 'ุงุณู… ุงูู…ุณุชุฎุฏู… ุงูุฐู ูู…ููู ุงูุงุชุตุงู ูู ูุงุนุฏุฉ ุงูุจูุงูุงุช');
+@define('INSTALL_DBPASS', 'ููู…ุฉ ุงูู…ุฑูุฑ ููุงุนุฏุฉ ุงูุจูุงูุงุช');
+@define('INSTALL_DBPASS_DESC', 'ููู…ุฉ ุงูู…ุฑูุฑ ููุงุนุฏุฉ ุงูุจูุงูุงุช ุฎุงุตุฉ ุจูุฐุง ุงูู…ุณุชุฎุฏู…');
+@define('INSTALL_DBNAME', 'ุงุณู… ูุงุนุฏุฉ ุงูุจูุงูุงุช');
+@define('INSTALL_DBNAME_DESC', 'ุฃุณู… ูุงุนุฏุฉ ุงูุจูุงูุงุช');
+@define('INSTALL_DBPREFIX', 'ุจุงุฏุฆุฉ ุฌุฏุงูู ูุงุนุฏุฉ ุงูุจูุงูุงุช');
+@define('INSTALL_DBPREFIX_DESC', 'ุจุงุฏุฆุฉ ุงูุฌุฏุงูู ู…ุซุงู - styx_');
 
 /* PATHS */
-@define('INSTALL_CAT_PATHS', 'ใำวัวส');
-@define('INSTALL_CAT_PATHS_DESC', 'ๅะๅ ใำวัวส ใสฺฯฯษ แใฬแฯวส ๆ ใแÝวส รำวำํษ Ýํ ฺใแ วแใฬแษ - แว สไำ์ รไ สึฺ วแิัุษ (/) วแใÞแๆศษ ศฺฯ ใำใ์ วแใฬแฯวส');
-@define('INSTALL_FULLPATH', 'วแใำวั วแ฿วใแ');
-@define('INSTALL_FULLPATH_DESC', 'วแใำวั วแ฿วใแ ๆวแฯÞํÞ วแ์ ใฬแฯ วแวฺฯวฯวส (วแวไำสๆแํิ) แใฯๆไส฿');
-@define('INSTALL_UPLOADPATH', 'ใำวั ัÝฺ วแใแÝวส');
-@define('INSTALL_UPLOADPATH_DESC', 'ฬใํฺ วแใแÝวส ๆวแีๆั วแใัÝๆฺษ ำๆÝ ส฿ๆไ ๅไว, \'Full path\' - typically \'uploads/\'');
-@define('INSTALL_RELPATH', 'ใำวัวส ะวส ีแษ');
-@define('INSTALL_RELPATH_DESC', 'ใๅใ : วแใำวั วแ์ ใฯๆไส฿ ศวแใสีÝอ รํ ฺไๆวไ ใฯๆไส฿, typically \'/serendipity/\'');
-@define('INSTALL_RELTEMPLPATH', 'ใำวัวส ะวส ีแษ ศวแÞๆวแศ');
+@define('INSTALL_CAT_PATHS', 'ู…ุณุงุฑุงุช');
+@define('INSTALL_CAT_PATHS_DESC', 'ูุฐู ู…ุณุงุฑุงุช ู…ุชุนุฏุฏุฉ ูู…ุฌูุฏุงุช ู ู…ููุงุช ุฃุณุงุณูุฉ ูู ุนู…ู ุงูู…ุฌูุฉ - ูุง ุชูุณู ุฃู ุชุถุน ุงูุดุฑุทุฉ (/) ุงูู…ูููุจุฉ ุจุนุฏ ู…ุณู…ู ุงูู…ุฌูุฏุงุช');
+@define('INSTALL_FULLPATH', 'ุงูู…ุณุงุฑ ุงููุงู…ู');
+@define('INSTALL_FULLPATH_DESC', 'ุงูู…ุณุงุฑ ุงููุงู…ู ูุงูุฏููู ุงูู ู…ุฌูุฏ ุงูุงุนุฏุงุฏุงุช (ุงูุงูุณุชูููุด) ูู…ุฏููุชู');
+@define('INSTALL_UPLOADPATH', 'ู…ุณุงุฑ ุฑูุน ุงูู…ููุงุช');
+@define('INSTALL_UPLOADPATH_DESC', 'ุฌู…ูุน ุงูู…ููุงุช ูุงูุตูุฑ ุงูู…ุฑููุนุฉ ุณูู ุชููู ููุง, \'Full path\' - typically \'uploads/\'');
+@define('INSTALL_RELPATH', 'ู…ุณุงุฑุงุช ุฐุงุช ุตูุฉ');
+@define('INSTALL_RELPATH_DESC', 'ู…ูู… : ุงูู…ุณุงุฑ ุงูู ู…ุฏููุชู ุจุงูู…ุชุตูุญ ุฃู ุนููุงู ู…ุฏููุชู, typically \'/serendipity/\'');
+@define('INSTALL_RELTEMPLPATH', 'ู…ุณุงุฑุงุช ุฐุงุช ุตูุฉ ุจุงูููุงูุจ');
 @define('INSTALL_RELTEMPLPATH_DESC', 'The path to the folder containing your templates - Relative to the \'relative path\'');
-@define('INSTALL_RELUPLOADPATH', 'ใำวั ัÝฺ วแใÝวส');
-@define('INSTALL_RELUPLOADPATH_DESC', 'วแใำวั วแะํ ํฤฯํ ลแ์ ัÝฺ วแใแÝวส ใไ ใสีÝอ฿ \'relative path\'');
-@define('INSTALL_URL', 'ัวศุ วแแๆÞๆ');
-@define('INSTALL_URL_DESC', 'วแัวศุ วแวำวำํ แสหศํส ๆ สั฿ํศ วแใฬแษ. วแวไำสๆแํิไ');
+@define('INSTALL_RELUPLOADPATH', 'ู…ุณุงุฑ ุฑูุน ุงูู…ูุงุช');
+@define('INSTALL_RELUPLOADPATH_DESC', 'ุงูู…ุณุงุฑ ุงูุฐู ูุคุฏู ุฅูู ุฑูุน ุงูู…ููุงุช ู…ู ู…ุชุตูุญู \'relative path\'');
+@define('INSTALL_URL', 'ุฑุงุจุท ุงููููู');
+@define('INSTALL_URL_DESC', 'ุงูุฑุงุจุท ุงูุงุณุงุณู ูุชุซุจูุช ู ุชุฑููุจ ุงูู…ุฌูุฉ. ุงูุงูุณุชูููุดู');
 @define('INSTALL_INDEXFILE', 'Index file');
-@define('INSTALL_INDEXFILE_DESC', 'รำใ ใแÝ วแวไฯ฿ำ แแใฯๆไษ');
+@define('INSTALL_INDEXFILE_DESC', 'ุฃุณู… ู…ูู ุงูุงูุฏูุณ ููู…ุฏููุฉ');
 
 /* GENERAL SETTINGS */
-@define('INSTALL_CAT_SETTINGS', 'ลฺฯวฯวส ฺวใษ');
-@define('INSTALL_CAT_SETTINGS_DESC', 'สÝึํแวส แลฯวม วแใฬแษ');
-@define('INSTALL_USERNAME', 'วำใ วแใำสฮฯใ แแใิัÝ');
-@define('INSTALL_USERNAME_DESC', 'วำใ วแใำสฮฯใ แแใิัÝ');
-@define('INSTALL_PASSWORD', '฿แใษ ใัๆั วแใิัÝ');
-@define('INSTALL_PASSWORD_DESC', '฿แใษ วแใัๆั แแใิัÝ');
-@define('INSTALL_EMAIL', 'ศัํฯ วแใิัÝ');
-@define('INSTALL_EMAIL_DESC', 'ศัํฯ วแใิัÝ วแฺวใ แแใฯๆไษ');
-@define('INSTALL_SENDMAIL', 'รัำวแ ศัํฯ ลแ์ วแใิัÝ วแฺวใฟ');
-@define('INSTALL_SENDMAIL_DESC', 'ๅแ สัํฯ รไ ํีแ฿ ศัํฯ ฺไฯใว ํ฿สศ สฺแํÞ ฺแ์ รอฯ ใๆวึํฺ฿ฟ วแรÝึแ ไฺใ. แใสวศฺษ ใฯๆไส฿');
-@define('INSTALL_SUBSCRIBE', 'วแำใวอ แแาๆวั ศวแใิวั฿ษ Ýํ วแใๆวึํฺฟ');
-@define('INSTALL_SUBSCRIBE_DESC', 'วแำใวอ แแาๆวั ศวแใิวั฿ษ Ýํ วแใๆวึํฺ. ๆศะแ฿ ํีแ แ฿ ศัํฯ ฺไฯ ฿แ สฺแํÞ รๆ ใิวั฿ษ ฺแ์ ใๆวึํฺ฿');
-@define('INSTALL_BLOGNAME', 'รำใ วแใฬแษ');
-@define('INSTALL_BLOGNAME_DESC', 'ฺไๆวไ วแใฬแษ');
-@define('INSTALL_BLOGDESC', 'ๆีÝ วแใฬแษ');
-@define('INSTALL_BLOGDESC_DESC', 'ๅไว ึฺ ๆีÝว๐ ใฮสีัว๐ ฺไ ใๅใษ ๆรÝ฿วั ใฯๆไส฿');
-@define('INSTALL_LANG', 'วแแÛษ');
-@define('INSTALL_LANG_DESC', 'รฮสั แÛษ ใฯๆไส฿');
+@define('INSTALL_CAT_SETTINGS', 'ุฅุนุฏุงุฏุงุช ุนุงู…ุฉ');
+@define('INSTALL_CAT_SETTINGS_DESC', 'ุชูุถููุงุช ูุฅุฏุงุก ุงูู…ุฌูุฉ');
+@define('INSTALL_USERNAME', 'ุงุณู… ุงูู…ุณุชุฎุฏู… ููู…ุดุฑู');
+@define('INSTALL_USERNAME_DESC', 'ุงุณู… ุงูู…ุณุชุฎุฏู… ููู…ุดุฑู');
+@define('INSTALL_PASSWORD', 'ููู…ุฉ ู…ุฑูุฑ ุงูู…ุดุฑู');
+@define('INSTALL_PASSWORD_DESC', 'ููู…ุฉ ุงูู…ุฑูุฑ ููู…ุดุฑู');
+@define('INSTALL_EMAIL', 'ุจุฑูุฏ ุงูู…ุดุฑู');
+@define('INSTALL_EMAIL_DESC', 'ุจุฑูุฏ ุงูู…ุดุฑู ุงูุนุงู… ููู…ุฏููุฉ');
+@define('INSTALL_SENDMAIL', 'ุฃุฑุณุงู ุจุฑูุฏ ุฅูู ุงูู…ุดุฑู ุงูุนุงู…ุ');
+@define('INSTALL_SENDMAIL_DESC', 'ูู ุชุฑูุฏ ุฃู ูุตูู ุจุฑูุฏ ุนูุฏู…ุง ููุชุจ ุชุนููู ุนูู ุฃุญุฏ ู…ูุงุถูุนูุ ุงูุฃูุถู ูุนู…. ูู…ุชุงุจุนุฉ ู…ุฏููุชู');
+@define('INSTALL_SUBSCRIBE', 'ุงูุณู…ุงุญ ููุฒูุงุฑ ุจุงูู…ุดุงุฑูุฉ ูู ุงูู…ูุงุถูุนุ');
+@define('INSTALL_SUBSCRIBE_DESC', 'ุงูุณู…ุงุญ ููุฒูุงุฑ ุจุงูู…ุดุงุฑูุฉ ูู ุงูู…ูุงุถูุน. ูุจุฐูู ูุตู ูู ุจุฑูุฏ ุนูุฏ ูู ุชุนููู ุฃู ู…ุดุงุฑูุฉ ุนูู ู…ูุงุถูุนู');
+@define('INSTALL_BLOGNAME', 'ุฃุณู… ุงูู…ุฌูุฉ');
+@define('INSTALL_BLOGNAME_DESC', 'ุนููุงู ุงูู…ุฌูุฉ');
+@define('INSTALL_BLOGDESC', 'ูุตู ุงูู…ุฌูุฉ');
+@define('INSTALL_BLOGDESC_DESC', 'ููุง ุถุน ูุตูุงู ู…ุฎุชุตุฑุงู ุนู ู…ูู…ุฉ ูุฃููุงุฑ ู…ุฏููุชู');
+@define('INSTALL_LANG', 'ุงููุบุฉ');
+@define('INSTALL_LANG_DESC', 'ุฃุฎุชุฑ ูุบุฉ ู…ุฏููุชู');
 
-/* APPEARANCE AND OPTIONS */
-@define('INSTALL_CAT_DISPLAY', 'ฮํวัวส ๆ ฮีวฦี');
-@define('INSTALL_CAT_DISPLAY_DESC', 'สÝวีํแ ฿ํÝ สๆฯ วไ ํ฿ๆไ ใูๅั วแใฬแษ');
-@define('INSTALL_WYSIWYG', 'ีไฯๆÞ วแสอัํั วแใสุๆั');
-@define('INSTALL_WYSIWYG_DESC', 'Do you want to use the WYSIWYG editor?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
-@define('INSTALL_POPUP', 'สใ฿ํไ วแไๆวÝะ วแใไศหÞษ รๆ วแสแÞวฦํษฟ');
-@define('INSTALL_POPUP_DESC', 'ๅแ สๆฯ วำสฮฯวใ วแไๆวÝะ วแใไศหÞษ Ýํ วแสฺแํÞวสก ัๆวศุ สฺÞศ วแสฺแํÞวส ๆÛํัๅวฟ');
-@define('INSTALL_EMBED', 'ๅแ สัํฯ วแใฬแษ ส฿ๆไ ฬาม ๆวอฯฟ');
-@define('INSTALL_EMBED_DESC', 'ละว รัฯส รไ สฬฺแ ใฯๆไส฿ ใฬใๆฺษ ฺแ์ ๅํฦษ ีÝอวส ฺวฯํษ รฮสั วแฮํวั (ีอํอ) ฿ํ ํสฬวๅแ วแๅฯั ๆ ํสใ ุศวฺษ ใอสๆ์ วแใๆึๆฺ ÝÞุ. ฿ะแ฿ ํใ฿ไ แ฿ ะแ฿ ศวำสฮฯวใ ฮํวัวส ีÝอษ วแวไฯ฿ำ  ๆรำสฮฯใ วแÛแวÝ Ýํ รํ ใ฿วไ สึฺ Ýํๅ ํ฿ๆไ ๅฯั วแใฬแษ ฺวฯํ. วุแฺ ฺแ์ ใแÝ รÞัฦไํ แใฺัÝษ ใฺแๆใวส สÝีํแํษ ฺไ ะแ฿');
+/* APPEARANCE AND OPTIONS ุฎูุงุฑุงุช ู ุฎุตุงุฆุต */
+@define('INSTALL_CAT_DISPLAY', 'ุฎูุงุฑุงุช ู ุฎุตุงุฆุต');
+@define('INSTALL_CAT_DISPLAY_DESC', 'ุชูุงุตูู ููู ุชูุฏ ุงู ูููู ู…ุธูุฑ ุงูู…ุฌูุฉ');
+@define('INSTALL_WYSIWYG', 'ุงุณุชุฎุฏุงู… ู…ุญุฑุฑ RichText (WYSIWYG)');
+@define('INSTALL_WYSIWYG_DESC', 'ุณููุณุชุฎุฏู… ูุฐุง ุงูู…ุญุฑุฑ ุจุนุฏ ุฐูู ูู ุญููู ุงูู…ุฑุจุนุงุช ุงููุตูุฉ ุงูุดุงุฆุนุฉ ู…ุซู ูู…ุงุฐุฌ ุงูุฅุฏุฎุงูุ ูุงูุตูุญุงุช ุงูุซุงุจุชุฉุ ูุงูุชุนูููุงุช (ุงูุชู ุชุญุชูู ุนูู ุฅุนุฏุงุฏ ุฎูุงุฑ ุนุงู… ุฅุถุงูู) ูุจุนุถ ุฃู…ุงูู ุงูุฅุถุงูุงุช ุงูุฃุฎุฑูุ ุญูุซ ูุฎุฒู ุชุฑู…ูุฒ HTML ู…ุจุงุดุฑุฉู.');
+@define('INSTALL_POPUP', 'ุชู…ููู ุงูููุงูุฐ ุงูู…ูุจุซูุฉ ุฃู ุงูุชููุงุฆูุฉุ');
+@define('INSTALL_POPUP_DESC', 'ูู ุชูุฏ ุงุณุชุฎุฏุงู… ุงูููุงูุฐ ุงูู…ูุจุซูุฉ ูู ุงูุชุนูููุงุชุ ุฑูุงุจุท ุชุนูุจ ุงูุชุนูููุงุช ูุบูุฑูุงุ');
+@define('INSTALL_EMBED', 'ูู ุชุฑูุฏ ุงูู…ุฌูุฉ ุชููู ุฌุฒุก ูุงุญุฏุ');
+@define('INSTALL_EMBED_DESC', 'ุฅุฐุง ุฃุฑุฏุช ุฃู ุชุฌุนู ู…ุฏููุชู ู…ุฌู…ูุนุฉ ุนูู ููุฆุฉ ุตูุญุงุช ุนุงุฏูุฉ ุฃุฎุชุฑ ุงูุฎูุงุฑ (ุตุญูุญ) ูู ูุชุฌุงูู ุงููุฏุฑ ู ูุชู… ุทุจุงุนุฉ ู…ุญุชูู ุงูู…ูุถูุน ููุท. ูุฐูู ูู…ูู ูู ุฐูู ุจุงุณุชุฎุฏุงู… ุฎูุงุฑุงุช ุตูุญุฉ ุงูุงูุฏูุณ  ูุฃุณุชุฎุฏู… ุงูุบูุงู ูู ุฃู ู…ูุงู ุชุถุน ููู ูููู ูุฏุฑ ุงูู…ุฌูุฉ ุนุงุฏู. ุงุทูุน ุนูู ู…ูู ุฃูุฑุฆูู ูู…ุนุฑูุฉ ู…ุนููู…ุงุช ุชูุตูููุฉ ุนู ุฐูู');
 @define('INSTALL_TOP_AS_LINKS', 'Show Top Exits/Referrers as links?');
 @define('INSTALL_TOP_AS_LINKS_DESC', '"no": Exits and Referrers are shown as plain text to prevent Google spam. "yes": Exits and Referrers are shown as hyperlinks. "default": Use setting from global configuration (recommended).');
 @define('INSTALL_BLOCKREF', 'Blocked Referrers');
@@ -430,16 +431,16 @@
 @define('INSTALL_REWRITE_DESC', 'Select which rules you wish to use when generating URLs. Enabling rewrite rules will make pretty URLs for your blog and make it better indexable for spiders like Google. The webserver needs to support either mod_rewrite or "AllowOverride All" for your serendipity dir. The default setting is auto-detected');
 
 /* IMAGECONVERSION SETTINGS */
-@define('INSTALL_CAT_IMAGECONV', 'รฺฯวฯวส สอๆํแ วแีๆั');
-@define('INSTALL_CAT_IMAGECONV_DESC', 'ึฺ ใฺแๆใวส ฺวใษ ฺไ ฿ํÝํษ สฺวใแ วแใฬแษ แแีๆั');
-@define('INSTALL_IMAGEMAGICK', 'รำสฮฯใ วํใฬ ใวฬํ฿');
-@define('INSTALL_IMAGEMAGICK_DESC', 'ๅแ วไส ใั฿ศ ศัไวใฬ วํใฬ ใฬ฿ Ýํ ำํัÝั฿ ๆ สๆฯ รำสฮฯวใษ Ýํ สีÛํั ๆสฺฯํแ วแีๆัฟ');
-@define('INSTALL_IMAGEMAGICKPATH', 'ใำวั สอๆํแ วแใฺแๆใวส');
-@define('INSTALL_IMAGEMAGICKPATH_DESC', 'วแใำวั ๆ วแรำใ วแ฿วใแ ลแ์ ศัไวใฬ วแสอๆํแ วใํฬ ใวฬ฿ ฺแ์ ำํัÝั฿');
-@define('INSTALL_THUMBSUFFIX', 'แวอÞษ วแีๆั วแใีÛัษ');
-@define('INSTALL_THUMBSUFFIX_DESC', 'ำๆÝ ํฺุ์ แแีๆั วแใีÛัษ ววแรำใ ๆวแีํÛษ วแสวแํษ: original.[suffix].ext');
-@define('INSTALL_THUMBWIDTH', 'Þํวำวส วแีๆัษ วแใีÛัษ');
-@define('INSTALL_THUMBWIDTH_DESC', 'วแฺัึ วแหวศส แีๆั วแใีÛัษ วแใไิฦษ รสใวสํ฿ํว๐');
+@define('INSTALL_CAT_IMAGECONV', 'ุฃุนุฏุงุฏุงุช ุชุญููู ุงูุตูุฑ');
+@define('INSTALL_CAT_IMAGECONV_DESC', 'ุถุน ู…ุนููู…ุงุช ุนุงู…ุฉ ุนู ููููุฉ ุชุนุงู…ู ุงูู…ุฌูุฉ ููุตูุฑ');
+@define('INSTALL_IMAGEMAGICK', 'ุฃุณุชุฎุฏู… ุงูู…ุฌ ู…ุงุฌูู');
+@define('INSTALL_IMAGEMAGICK_DESC', 'ูู ุงูุช ู…ุฑูุจ ุจุฑูุงู…ุฌ ุงูู…ุฌ ู…ุฌู ูู ุณูุฑูุฑู ู ุชูุฏ ุฃุณุชุฎุฏุงู…ุฉ ูู ุชุตุบูุฑ ูุชุนุฏูู ุงูุตูุฑุ');
+@define('INSTALL_IMAGEMAGICKPATH', 'ู…ุณุงุฑ ุชุญููู ุงูู…ุนููู…ุงุช');
+@define('INSTALL_IMAGEMAGICKPATH_DESC', 'ุงูู…ุณุงุฑ ู ุงูุฃุณู… ุงููุงู…ู ุฅูู ุจุฑูุงู…ุฌ ุงูุชุญููู ุงู…ูุฌ ู…ุงุฌู ุนูู ุณูุฑูุฑู');
+@define('INSTALL_THUMBSUFFIX', 'ูุงุญูุฉ ุงูุตูุฑ ุงูู…ุตุบุฑุฉ');
+@define('INSTALL_THUMBSUFFIX_DESC', 'ุณูู ูุนุทู ููุตูุฑ ุงูู…ุตุบุฑุฉ ุงุงูุฃุณู… ูุงูุตูุบุฉ ุงูุชุงููุฉ: original.[suffix].ext');
+@define('INSTALL_THUMBWIDTH', 'ููุงุณุงุช ุงูุตูุฑุฉ ุงูู…ุตุบุฑุฉ');
+@define('INSTALL_THUMBWIDTH_DESC', 'ุงูุนุฑุถ ุงูุซุงุจุช ูุตูุฑ ุงูู…ุตุบุฑุฉ ุงูู…ูุดุฆุฉ ุฃุชู…ุงุชูููุงู');
 @define('INSTALL_IMAGEDIM', 'Image constrained dimension');
 @define('INSTALL_IMAGEDIM_LARGEST', 'Largest');
 @define('INSTALL_IMAGEDIM_WIDTH', 'Width');
@@ -450,282 +451,282 @@
     '" only limit the chosen dimension, so the other could be larger than the max size.');
 
 /* PERSONAL DETAILS */
-@define('USERCONF_CAT_PERSONAL', 'สÝีํแ วฺฯวฯส฿ วแิฮีํษ');
-@define('USERCONF_CAT_PERSONAL_DESC', 'สÛํํั สÝีํแ วแวฺฯวฯส วแิฮีํษ');
-@define('USERCONF_USERNAME', 'รำใ วแใำสฮฯใ');
-@define('USERCONF_USERNAME_DESC', 'วแวำใ วแะํ สำสฮฯใษ ศวแสำฬํแ Ýํ ใฯๆไส฿');
-@define('USERCONF_PASSWORD', '฿แใษ วแใัๆั วแฮวีษ ศ฿');
-@define('USERCONF_PASSWORD_DESC', '฿แใษ วแใัๆั วแสํ สำสฮฯใๅว ศวแสำฬํแ วแฯฮๆแ Ýํ ใฯๆไส฿');
+@define('USERCONF_CAT_PERSONAL', 'ุชูุตูู ุงุนุฏุงุฏุชู ุงูุดุฎุตูุฉ');
+@define('USERCONF_CAT_PERSONAL_DESC', 'ุชุบููุฑ ุชูุตูู ุงูุงุนุฏุงุฏุช ุงูุดุฎุตูุฉ');
+@define('USERCONF_USERNAME', 'ุฃุณู… ุงูู…ุณุชุฎุฏู…');
+@define('USERCONF_USERNAME_DESC', 'ุงูุงุณู… ุงูุฐู ุชุณุชุฎุฏู…ุฉ ุจุงูุชุณุฌูู ูู ู…ุฏููุชู');
+@define('USERCONF_PASSWORD', 'ููู…ุฉ ุงูู…ุฑูุฑ ุงูุฎุงุตุฉ ุจู');
+@define('USERCONF_PASSWORD_DESC', 'ููู…ุฉ ุงูู…ุฑูุฑ ุงูุชู ุชุณุชุฎุฏู…ูุง ุจุงูุชุณุฌูู ุงูุฏุฎูู ูู ู…ุฏููุชู');
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
-@define('USERCONF_EMAIL', 'ศัํฯ฿ วแวแ฿สัๆไํ');
-@define('USERCONF_EMAIL_DESC', 'ึฺ ศัํฯ฿ วแิฮีํ ฿ํ ํสใ วแใัวำแๅ ใไ ฮแวแษ');
-@define('USERCONF_SENDCOMMENTS', 'รัำวแ สศแํÛ Ýํ อวแ สใ ฿สวศษ สฺแํÞฟ ');
-@define('USERCONF_SENDCOMMENTS_DESC', 'ๅแ สัํฯ รไ ํีแ฿ ศัํฯ ฺไฯใว ํ฿สศ สฺแํÞ ฺแ์ รอฯ ใๆวึํฺ฿ฟ วแรÝึแ ไฺใ. แใสวศฺษ ใฯๆไส฿');
-@define('USERCONF_SENDTRACKBACKS', 'รัำวแ สศแํÛ ศัวศุ วแสฺÞํศฟ');
-@define('USERCONF_SENDTRACKBACKS_DESC', 'ๅแ สๆฯ รำสÞศวแ ศัํฯ ฺไฯใว ํสใ วแสฺÞํศ ฺแ์ ใๆวึํฺ฿ฟ วแรÝึแ ไฺใ');
-@define('USERCONF_ALLOWPUBLISH', 'อÞๆÞ: ไิั วแใๆึๆฺฟ');
-@define('USERCONF_ALLOWPUBLISH_DESC', 'ๅแ ํอÞ แแใำสฮฯใ ไิั ใๆวึํฺฟ');
+@define('USERCONF_EMAIL', 'ุจุฑูุฏู ุงูุงููุชุฑููู');
+@define('USERCONF_EMAIL_DESC', 'ุถุน ุจุฑูุฏู ุงูุดุฎุตู ูู ูุชู… ุงูู…ุฑุงุณูู ู…ู ุฎูุงูุฉ');
+@define('USERCONF_SENDCOMMENTS', 'ุฃุฑุณุงู ุชุจููุบ ูู ุญุงู ุชู… ูุชุงุจุฉ ุชุนูููุ ');
+@define('USERCONF_SENDCOMMENTS_DESC', 'ูู ุชุฑูุฏ ุฃู ูุตูู ุจุฑูุฏ ุนูุฏู…ุง ููุชุจ ุชุนููู ุนูู ุฃุญุฏ ู…ูุงุถูุนูุ ุงูุฃูุถู ูุนู…. ูู…ุชุงุจุนุฉ ู…ุฏููุชู');
+@define('USERCONF_SENDTRACKBACKS', 'ุฃุฑุณุงู ุชุจููุบ ุจุฑุงุจุท ุงูุชุนููุจุ');
+@define('USERCONF_SENDTRACKBACKS_DESC', 'ูู ุชูุฏ ุฃุณุชูุจุงู ุจุฑูุฏ ุนูุฏู…ุง ูุชู… ุงูุชุนููุจ ุนูู ู…ูุงุถูุนูุ ุงูุฃูุถู ูุนู…');
+@define('USERCONF_ALLOWPUBLISH', 'ุญููู: ูุดุฑ ุงูู…ูุถูุนุ');
+@define('USERCONF_ALLOWPUBLISH_DESC', 'ูู ูุญู ููู…ุณุชุฎุฏู… ูุดุฑ ู…ูุงุถูุนุ');
 @define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('USERCONF_DARKMODE_DESC', 'Select the "Light / Dark" mode for your backend. This setting also affects various parts of installed plugins. Regardless of this, the essential dark mode is also executed automatically if your own browser settings are set to "Automatic" or "Dark". Despite this, it is necessary to explicitly set the dark mode here in order to take the "edge cases" (plugins, upgrade routines, etc.) into account. So if you absolutely want to return to the light mode without generally adapting your browser (with auto/dark preferences), in addition to this relevant reset, you must set the private "<code>$serendipity[\'forceLightMode\'] = true;</code>" auxiliary variable in the private areas of your "serendipity_config_local.inc.php" file.');
-@define('SUCCESS', 'ไฬวอ');
-@define('POWERED_BY_SHOW_TEXT', 'รฺัึ วแใฬแษ ฺแ์ ๅํฦษ ไี ส฿ำส'); // should be 'Show "%s" as text'
-@define('POWERED_BY_SHOW_TEXT_DESC', 'ำๆÝ ํสใ ฺัึ วแใฬแษ ฺแ์ ๅํฦษ ไี ส฿ำส'); // Serendipity should be Serendipity Styx
-@define('POWERED_BY_SHOW_IMAGE', 'รฺัึ วแใฬแษ ใฺ วแิฺวั วแฮวี ศๅว'); // should be 'Show "%s" with a logo'
-@define('POWERED_BY_SHOW_IMAGE_DESC', 'รฺัึ ิๅวั วแใฬแษ'); // should be 'Displays the %s-logo'
-@define('PLUGIN_ITEM_DISPLAY', 'วํไ ํใ฿ไ ฺัึๅวฟ');
-@define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'ÝÞุ วแใๆวึํฺ วแใสใใฯษ');
-@define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'ฺัึ วแีÝอษ ÝÞุ');
-@define('PLUGIN_ITEM_DISPLAY_BOTH', 'ฬใํฺ วแใๆวฯ');
-@define('RSS_IMPORT_CATEGORY', 'รำสฮฯใ ๅะว วแสีไํÝ แลำสํัวฯ วแใÞวแวส วแÛํั ใสุวศÞษ');
+@define('SUCCESS', 'ูุฌุงุญ');
+@define('POWERED_BY_SHOW_TEXT', 'ุฃุนุฑุถ ุงูู…ุฌูุฉ ุนูู ููุฆุฉ ูุต ุชูุณุช'); // should be 'Show "%s" as text'
+@define('POWERED_BY_SHOW_TEXT_DESC', 'ุณูู ูุชู… ุนุฑุถ ุงูู…ุฌูุฉ ุนูู ููุฆุฉ ูุต ุชูุณุช'); // Serendipity should be Serendipity Styx
+@define('POWERED_BY_SHOW_IMAGE', 'ุฃุนุฑุถ ุงูู…ุฌูุฉ ู…ุน ุงูุดุนุงุฑ ุงูุฎุงุต ุจูุง'); // should be 'Show "%s" with a logo'
+@define('POWERED_BY_SHOW_IMAGE_DESC', 'ุฃุนุฑุถ ุดูุงุฑ ุงูู…ุฌูุฉ'); // should be 'Displays the %s-logo'
+@define('PLUGIN_ITEM_DISPLAY', 'ุงูู ูู…ูู ุนุฑุถูุงุ');
+@define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'ููุท ุงูู…ูุงุถูุน ุงูู…ุชู…ู…ุฏุฉ');
+@define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'ุนุฑุถ ุงูุตูุญุฉ ููุท');
+@define('PLUGIN_ITEM_DISPLAY_BOTH', 'ุฌู…ูุน ุงูู…ูุงุฏ');
+@define('RSS_IMPORT_CATEGORY', 'ุฃุณุชุฎุฏู… ูุฐุง ุงูุชุตููู ูุฅุณุชูุฑุงุฏ ุงูู…ูุงูุงุช ุงูุบูุฑ ู…ุชุทุงุจูุฉ');
 
-@define('COMMENTS_WILL_BE_MODERATED', 'ำๆÝ ํุแฺ วแใิัÝ ฺแ์ วแสฺแํÞวส วแใฯัฬษ Þศแ ไิัๅว');
-@define('YOU_HAVE_THESE_OPTIONS', 'ใสๆÝั แฯํ฿ ๅะว วแฮํวัวส:');
-@define('THIS_COMMENT_NEEDS_REVIEW', 'สอะํั: ๅะว วแสฺÞํศ ํอสวฬ วแ์ วแใๆวÝÞษ Þศแ ฺัึๅ! ! !');
-@define('DELETE_COMMENT', 'รอะÝ วแสฺÞํศ');
-@define('APPROVE_COMMENT', 'รๆวÝÞ ฺแ์ วแสฺÞํศ');
-@define('REQUIRES_REVIEW', 'ํอสวฬ ลแ์ ใัวฬฺๅ');
-@define('COMMENT_APPROVED', 'วแสฺÞํศ #%s สใ วแใๆวÝÞษ ฺแํๅ ศไฬวอ');
-@define('COMMENT_DELETED', 'วแสฺÞํศ  #%s สใ อะÝๅ ศไฬวอ');
-@define('COMMENTS_MODERATE', 'วแสฺวÞํศ ๆ ัๆวศุ วแสฺÞํศ Ýํ ๅะว วแใๆึๆฺ สอสวฬ ลแ์ ัรํ วแใิัÝ! ! !');
-@define('THIS_TRACKBACK_NEEDS_REVIEW', 'สอะํั: ัวศุ วแสฺÞํศ ๅะว ํอสวฬ ลแ์ วแใๆวÝÞษ Þศแ ฺัึๅ! ! !');
-@define('DELETE_TRACKBACK', 'รฮะÝ ัวศุ วแสฺÞํศ');
-@define('APPROVE_TRACKBACK', 'ใๆวÝÞๅ ฺแ์ ัวศุ วแสฺÞํศ');
-@define('TRACKBACK_APPROVED', 'สฺÞศ วแัวศุ #%s สใ วแใๆวÝÞษ ฺแํๅ ศไฬวอ');
-@define('TRACKBACK_DELETED', 'สฺÞศ วแัวศุ #%s สใ อะÝๅ ศไฬวอ');
+@define('COMMENTS_WILL_BE_MODERATED', 'ุณูู ูุทูุน ุงูู…ุดุฑู ุนูู ุงูุชุนูููุงุช ุงูู…ุฏุฑุฌุฉ ูุจู ูุดุฑูุง');
+@define('YOU_HAVE_THESE_OPTIONS', 'ู…ุชููุฑ ูุฏูู ูุฐุง ุงูุฎูุงุฑุงุช:');
+@define('THIS_COMMENT_NEEDS_REVIEW', 'ุชุญุฐูุฑ: ูุฐุง ุงูุชุนููุจ ูุญุชุงุฌ ุงูู ุงูู…ูุงููุฉ ูุจู ุนุฑุถู! ! !');
+@define('DELETE_COMMENT', 'ุฃุญุฐู ุงูุชุนููุจ');
+@define('APPROVE_COMMENT', 'ุฃูุงูู ุนูู ุงูุชุนููุจ');
+@define('REQUIRES_REVIEW', 'ูุญุชุงุฌ ุฅูู ู…ุฑุงุฌุนู');
+@define('COMMENT_APPROVED', 'ุงูุชุนููุจ #%s ุชู… ุงูู…ูุงููุฉ ุนููู ุจูุฌุงุญ');
+@define('COMMENT_DELETED', 'ุงูุชุนููุจ  #%s ุชู… ุญุฐูู ุจูุฌุงุญ');
+@define('COMMENTS_MODERATE', 'ุงูุชุนุงููุจ ู ุฑูุงุจุท ุงูุชุนููุจ ูู ูุฐุง ุงูู…ูุถูุน ุชุญุชุงุฌ ุฅูู ุฑุฃู ุงูู…ุดุฑู! ! !');
+@define('THIS_TRACKBACK_NEEDS_REVIEW', 'ุชุญุฐูุฑ: ุฑุงุจุท ุงูุชุนููุจ ูุฐุง ูุญุชุงุฌ ุฅูู ุงูู…ูุงููุฉ ูุจู ุนุฑุถู! ! !');
+@define('DELETE_TRACKBACK', 'ุฃุฎุฐู ุฑุงุจุท ุงูุชุนููุจ');
+@define('APPROVE_TRACKBACK', 'ู…ูุงููู ุนูู ุฑุงุจุท ุงูุชุนููุจ');
+@define('TRACKBACK_APPROVED', 'ุชุนูุจ ุงูุฑุงุจุท #%s ุชู… ุงูู…ูุงููุฉ ุนููู ุจูุฌุงุญ');
+@define('TRACKBACK_DELETED', 'ุชุนูุจ ุงูุฑุงุจุท #%s ุชู… ุญุฐูู ุจูุฌุงุญ');
 @define('VIEW', 'View');
-@define('COMMENT_ALREADY_APPROVED', 'วแสฺแํÞ #%s ใๆวÝÞ ฺแํๅ ÝÞุ แแใีัอ แๅใ');
-@define('COMMENT_EDITED', 'สใ อะÝ ๅะว วแสฺแํÞ');
+@define('COMMENT_ALREADY_APPROVED', 'ุงูุชุนููู #%s ู…ูุงูู ุนููู ููุท ููู…ุตุฑุญ ููู…');
+@define('COMMENT_EDITED', 'ุชู… ุญุฐู ูุฐุง ุงูุชุนููู');
 @define('AWAKE', 'Fade in');
-@define('HIDE', 'ลฮÝวม');
-@define('VIEW_EXTENDED_ENTRY', 'สสใษ ใๆึๆฺ "%s"');
+@define('HIDE', 'ุฅุฎูุงุก');
+@define('VIEW_EXTENDED_ENTRY', 'ุชุชู…ุฉ ู…ูุถูุน "%s"');
 @define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older Blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other Blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', 'Use https for login');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Lets the login-link point to a https-location. Your webserver needs to support this!');
-@define('INSTALL_SHOW_EXTERNAL_LINKS', 'สใ฿ํไ วแัๆวศุ วแฮวัฬํษฟ');
-@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"แว": สฺไํ ฺฯใ สใ฿ํไ ัๆวศุ วแิฺศํษ วแฮวัฬํษ  Ýํ วแใฬแษ ใหวแ (รÝึแ วแใๆวึํฺ - รÝึแ วแใัวฬฺวส – สฺแํÞวส  วแฺึๆ) ๆๅะว ํใไฺ วแำฮวใ วแไวสฬ ใไ ใอั฿ ÞๆÞแ ๆ ํÝึแ ๅะว วแวฮสํวั. "ไฺใ" วแัๆวศุ วแิฺศํษ วแฮวัฬํษ ำๆÝ สฺัึ ฺแ์ รไๅ แใ ํสใ าํวัสๅว. ๆํใ฿ไ รไ สสฬวๆา ะแ฿ ศวำสฮฯวใ รฺฯวฯวส Þวแศ วแฺใๆฯ วแฬวไศํ !!');
-@define('PAGE_BROWSE_COMMENTS', 'วแีÝอษ ัÞใ %s ใไ %s, ใฬใๆฺ %s สฺแํÞวส');
-@define('FILTERS', 'สฯÞํÞ');
-@define('FIND_ENTRIES', 'วแศอห ฺไ ใๆวึํฺ');
-@define('FIND_COMMENTS', 'วแศอห ฺไ สฺแํÞวส');
-@define('FIND_MEDIA', 'วแศอห ฺไ ๆำวฦุ ใสฺฯฯษ');
-@define('FILTER_DIRECTORY', 'ใฬแฯ');
-@define('SORT_BY', 'Ýัา อำศ');
+@define('INSTALL_SHOW_EXTERNAL_LINKS', 'ุชู…ููู ุงูุฑูุงุจุท ุงูุฎุงุฑุฌูุฉุ');
+@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"ูุง": ุชุนูู ุนุฏู… ุชู…ููู ุฑูุงุจุท ุงูุดุนุจูุฉ ุงูุฎุงุฑุฌูุฉ  ูู ุงูู…ุฌูุฉ ู…ุซุงู (ุฃูุถู ุงูู…ูุงุถูุน - ุฃูุถู ุงูู…ุฑุงุฌุนุงุช โ€“ ุชุนูููุงุช  ุงูุนุถู) ููุฐุง ูู…ูุน ุงูุณุฎุงู… ุงููุงุชุฌ ู…ู ู…ุญุฑู ูููู ู ููุถู ูุฐุง ุงูุงุฎุชูุงุฑ. "ูุนู…" ุงูุฑูุงุจุท ุงูุดุนุจูุฉ ุงูุฎุงุฑุฌูุฉ ุณูู ุชุนุฑุถ ุนูู ุฃูู ูู… ูุชู… ุฒูุงุฑุชูุง. ููู…ูู ุฃู ุชุชุฌุงูุฒ ุฐูู ุจุงุณุชุฎุฏุงู… ุฃุนุฏุงุฏุงุช ูุงูุจ ุงูุนู…ูุฏ ุงูุฌุงูุจู !!');
+@define('PAGE_BROWSE_COMMENTS', 'ุงูุตูุญุฉ ุฑูู… %s ู…ู %s, ู…ุฌู…ูุน %s ุชุนูููุงุช');
+@define('FILTERS', 'ุชุฏููู');
+@define('FIND_ENTRIES', 'ุงูุจุญุซ ุนู ู…ูุงุถูุน');
+@define('FIND_COMMENTS', 'ุงูุจุญุซ ุนู ุชุนูููุงุช');
+@define('FIND_MEDIA', 'ุงูุจุญุซ ุนู ูุณุงุฆุท ู…ุชุนุฏุฏุฉ');
+@define('FILTER_DIRECTORY', 'ู…ุฌูุฏ');
+@define('SORT_BY', 'ูุฑุฒ ุญุณุจ');
 @define('TRACKBACK_COULD_NOT_CONNECT', 'No Trackback sent: Could not open connection to %s on port %d');
-@define('MEDIA', 'ใแÝวส วแใํฯํว');
-@define('MEDIA_LIBRARY', 'ใ฿สศษ วแๆำวฦุ วแใสฺฯฯษ');
+@define('MEDIA', 'ู…ููุงุช ุงูู…ูุฏูุง');
+@define('MEDIA_LIBRARY', 'ู…ูุชุจุฉ ุงููุณุงุฆุท ุงูู…ุชุนุฏุฏุฉ');
 @define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
-@define('ADD_MEDIA', 'วึวÝษ ๆำวฦุ ใสฺฯฯษ');
-@define('ENTER_MEDIA_URL', 'รฯฮแ ัวศุ วแใแÝ วแใุแๆศ:');
-@define('ENTER_MEDIA_UPLOAD', 'วฮสั วแใแÝ วแะํ สัํฯ ัÝฺษ:');
-@define('SAVE_FILE_AS', 'อÝู วแใแÝ ศรำใ:');
-@define('STORE_IN_DIRECTORY', 'สฮาํไๅ Ýํ ฯวฮแ ๅะว วแใฬแฯ: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>รึวÝษ ใแÝ วแ์ วแใํฯํว สอส ใำฦๆแํส฿:</b><p> ๅไว ํใ฿ไ แ฿ ัÝฺ ใแÝวส วแใํฯํว ก รๆ วฮศัไว ฺไๅว ฿ํ ํสใ ฬแศๅว ใไ รํ ใ฿วไ Ýํ วแวไสัไส! รไ แใ ํ฿ไ แฯํ฿ วแีๆัษ วแใไวำศษ <a href="https://images.google.com" rel="noopener" target="_blank"> วศอห ฺไ วแีๆัษ วแใุแๆศษ Ýํ ÞๆÞแ แแีๆั </a> วแสํ สไวำศ Ý฿ัษ ใๆึๆฺ฿ ก ๆวแไสํฬษ รอํวไว ส฿ๆไ ใึอ฿ษ รๆ ฺวฯํษ ก ๆแ฿ไ ฺแํ฿ ใัวฺวษ อÞๆÞ วแไิั ก แะแ฿ ํสๆฬศ ฺแํ฿ วแำฤวแ ฺไๅว Þศแ รไ สรฮะๅว ใไ ใีฯัๅว<p><b> รฮสั วแุัํÞษ วแสํ สไวำศ฿:</b><br>');
-@define('MEDIA_RENAME', 'รฺวฯษ สำใํษ วแใแÝ');
-@define('IMAGE_RESIZE', 'สÛํํั Þํวำวส ๅะๅ วแีๆัษ');
-@define('MEDIA_DELETE', 'อะÝ วแใแÝ');
-@define('FILES_PER_PAGE', 'วแใแÝวส Ýํ ฿แ ีÝอษ');
-@define('CLICK_FILE_TO_INSERT', 'วึÛุ ฺแ์ วแใแÝ วแะํ สัํฯ วฯฮวแษ:');
-@define('SELECT_FILE', 'วฮสั วแใแÝ ฿ํ ํสใ วฯฮวแษ');
+@define('ADD_MEDIA', 'ุงุถุงูุฉ ูุณุงุฆุท ู…ุชุนุฏุฏุฉ');
+@define('ENTER_MEDIA_URL', 'ุฃุฏุฎู ุฑุงุจุท ุงูู…ูู ุงูู…ุทููุจ:');
+@define('ENTER_MEDIA_UPLOAD', 'ุงุฎุชุฑ ุงูู…ูู ุงูุฐู ุชุฑูุฏ ุฑูุนุฉ:');
+@define('SAVE_FILE_AS', 'ุญูุธ ุงูู…ูู ุจุฃุณู…:');
+@define('STORE_IN_DIRECTORY', 'ุชุฎุฒููู ูู ุฏุงุฎู ูุฐุง ุงูู…ุฌูุฏ: ');
+@define('ADD_MEDIA_BLAHBLAH', '<b>ุฃุถุงูุฉ ู…ูู ุงูู ุงูู…ูุฏูุง ุชุญุช ู…ุณุฆูููุชู:</b><p> ููุง ูู…ูู ูู ุฑูุน ู…ููุงุช ุงูู…ูุฏูุง ุ ุฃู ุงุฎุจุฑูุง ุนููุง ูู ูุชู… ุฌูุจูุง ู…ู ุฃู ู…ูุงู ูู ุงูุงูุชุฑูุช! ุฃู ูู… ููู ูุฏูู ุงูุตูุฑุฉ ุงูู…ูุงุณุจุฉ <a href="https://images.google.com" rel="noopener" target="_blank"> ุงุจุญุซ ุนู ุงูุตูุฑุฉ ุงูู…ุทููุจุฉ ูู ูููู ููุตูุฑ </a> ุงูุชู ุชูุงุณุจ ููุฑุฉ ู…ูุถูุนู ุ ูุงููุชูุฌุฉ ุฃุญูุงูุง ุชููู ู…ุถุญูุฉ ุฃู ุนุงุฏูุฉ ุ ูููู ุนููู ู…ุฑุงุนุงุฉ ุญููู ุงููุดุฑ ุ ูุฐูู ูุชูุฌุจ ุนููู ุงูุณุคุงู ุนููุง ูุจู ุฃู ุชุฃุฎุฐูุง ู…ู ู…ุตุฏุฑูุง<p><b> ุฃุฎุชุฑ ุงูุทุฑููุฉ ุงูุชู ุชูุงุณุจู:</b><br>');
+@define('MEDIA_RENAME', 'ุฃุนุงุฏุฉ ุชุณู…ูุฉ ุงูู…ูู');
+@define('IMAGE_RESIZE', 'ุชุบููุฑ ููุงุณุงุช ูุฐู ุงูุตูุฑุฉ');
+@define('MEDIA_DELETE', 'ุญุฐู ุงูู…ูู');
+@define('FILES_PER_PAGE', 'ุงูู…ููุงุช ูู ูู ุตูุญุฉ');
+@define('CLICK_FILE_TO_INSERT', 'ุงุถุบุท ุนูู ุงูู…ูู ุงูุฐู ุชุฑูุฏ ุงุฏุฎุงูุฉ:');
+@define('SELECT_FILE', 'ุงุฎุชุฑ ุงูู…ูู ูู ูุชู… ุงุฏุฎุงูุฉ');
 @define('SELECT_PAGE', 'Select page:');
-@define('MEDIA_FULLSIZE', 'อฬใ วแใแÝ');
-@define('CALENDAR_BOW_DESC', 'ํฬศ รฮะ วแวฺสศวั Ýํ วแํๆใ วแะํ ํศฯร ศๅ วแรำศๆฺ - ฺวฯษ วแวหไํ');
-@define('SUPERUSER', 'วฯวัษ วแใฬแษ');
-@define('ALLOWS_YOU_BLAHBLAH', 'ๆึฺ ัวศุ Ýํ วแÞวฦใษ วแฬวไศํษ ํๆีแ ลแ์ แๆอษ สอ฿ใ วแใฬแษ');
-@define('CALENDAR', 'วแสÞๆํใ');
-@define('SUPERUSER_OPEN_ADMIN', 'ลฯวัษ ใÝสๆอษ');
-@define('SUPERUSER_OPEN_LOGIN', 'วÝสอ ิวิษ วแสำฬํแ');
-@define('INVERT_SELECTIONS', 'สัสํ ฺ฿ำํ');
-@define('COMMENTS_DELETE_CONFIRM', 'ๅแ วไส ใสร฿ฯ ใไ อะÝ ๅะๅ วแสฺแํÞวสฟ');
-@define('COMMENT_DELETE_CONFIRM', 'ๅแ วไส ใสร฿ฯ ใไ อะÝ วแสฺแํÞ #%d, แแ฿วสศ %s ?');
-@define('DELETE_SELECTED_COMMENTS', 'วอะÝ วแสฺแํÞวส วแใฮสวัษ');
-@define('VIEW_COMMENT', 'วฺัึ วแสฺแํÞ');
-@define('VIEW_ENTRY', 'รฺัึ วแใๆึๆฺ');
-@define('DELETE_FILE_FAIL', 'แว ํใ฿ไ อะÝ วแใแÝ %s');
-@define('DELETE_THUMBNAIL', 'อะÝ วแีๆัษ ๆวแีๆัษ วแใีÛัๅ ศฺไๆวไๅว %s');
-@define('DELETE_FILE', 'อะÝ ฺไๆวไ วแใแÝ %s');
-@define('ABOUT_TO_DELETE_FILE', 'วไส ฺแ์ ๆิ฿ รไ สอะÝ <b>%s</b><br>ละว ฿ไส สำสฮฯใ ๅะว วแใแÝ Ýํ ศฺึ ใๆวึํฺ฿ ก ำๆÝ แไ สูๅั วแีๆั รๆ วแัวศุ แไ ํ฿ๆไ ิÛวแ<br> ๅแ รไส ใสร฿ฯ ใไ รไ฿ สัํฯ วแอะÝฟ');
+@define('MEDIA_FULLSIZE', 'ุญุฌู… ุงูู…ูู');
+@define('CALENDAR_BOW_DESC', 'ูุฌุจ ุฃุฎุฐ ุงูุงุนุชุจุงุฑ ูู ุงูููู… ุงูุฐู ูุจุฏุฃ ุจู ุงูุฃุณุจูุน - ุนุงุฏุฉ ุงูุงุซูู');
+@define('SUPERUSER', 'ุงุฏุงุฑุฉ ุงูู…ุฌูุฉ');
+@define('ALLOWS_YOU_BLAHBLAH', 'ูุถุน ุฑุงุจุท ูู ุงููุงุฆู…ุฉ ุงูุฌุงูุจูุฉ ููุตู ุฅูู ููุญุฉ ุชุญูู… ุงูู…ุฌูุฉ');
+@define('CALENDAR', 'ุงูุชูููู…');
+@define('SUPERUSER_OPEN_ADMIN', 'ุฅุฏุงุฑุฉ ู…ูุชูุญุฉ');
+@define('SUPERUSER_OPEN_LOGIN', 'ุงูุชุญ ุดุงุดุฉ ุงูุชุณุฌูู');
+@define('INVERT_SELECTIONS', 'ุชุฑุชู ุนูุณู');
+@define('COMMENTS_DELETE_CONFIRM', 'ูู ุงูุช ู…ุชุฃูุฏ ู…ู ุญุฐู ูุฐู ุงูุชุนูููุงุชุ');
+@define('COMMENT_DELETE_CONFIRM', 'ูู ุงูุช ู…ุชุฃูุฏ ู…ู ุญุฐู ุงูุชุนููู #%d, ูููุงุชุจ %s ?');
+@define('DELETE_SELECTED_COMMENTS', 'ุงุญุฐู ุงูุชุนูููุงุช ุงูู…ุฎุชุงุฑุฉ');
+@define('VIEW_COMMENT', 'ุงุนุฑุถ ุงูุชุนููู');
+@define('VIEW_ENTRY', 'ุฃุนุฑุถ ุงูู…ูุถูุน');
+@define('DELETE_FILE_FAIL', 'ูุง ูู…ูู ุญุฐู ุงูู…ูู %s');
+@define('DELETE_THUMBNAIL', 'ุญุฐู ุงูุตูุฑุฉ ูุงูุตูุฑุฉ ุงูู…ุตุบุฑู ุจุนููุงููุง %s');
+@define('DELETE_FILE', 'ุญุฐู ุนููุงู ุงูู…ูู %s');
+@define('ABOUT_TO_DELETE_FILE', 'ุงูุช ุนูู ูุดู ุฃู ุชุญุฐู <b>%s</b><br>ุฅุฐุง ููุช ุชุณุชุฎุฏู… ูุฐุง ุงูู…ูู ูู ุจุนุถ ู…ูุงุถูุนู ุ ุณูู ูู ุชุธูุฑ ุงูุตูุฑ ุฃู ุงูุฑุงุจุท ูู ูููู ุดุบุงู<br> ูู ุฃูุช ู…ุชุฃูุฏ ู…ู ุฃูู ุชุฑูุฏ ุงูุญุฐูุ');
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?');
-@define('TRACKBACK_SENDING', 'วัำวแ สÞีํ แแัวศุ %s...');
-@define('TRACKBACK_SENT', 'ไฬอ Ýํ สฺÞศ วแใๆึๆฺ');
-@define('TRACKBACK_FAILED', 'Ýิแ Ýํ สฺÞศ %s');
-@define('TRACKBACK_NOT_FOUND', 'แใ ํสใ วํฬวฯ รํ สฺÞศ แแัวศุ');
+@define('TRACKBACK_SENDING', 'ุงุฑุณุงู ุชูุตู ููุฑุงุจุท %s...');
+@define('TRACKBACK_SENT', 'ูุฌุญ ูู ุชุนูุจ ุงูู…ูุถูุน');
+@define('TRACKBACK_FAILED', 'ูุดู ูู ุชุนูุจ %s');
+@define('TRACKBACK_NOT_FOUND', 'ูู… ูุชู… ุงูุฌุงุฏ ุฃู ุชุนูุจ ููุฑุงุจุท');
 @define('TRACKBACK_URI_MISMATCH', 'The auto-discovered trackback URI does not match our target URI.');
-@define('TRACKBACK_CHECKING', 'Ýอี <u>%s</u> วไ ฿วไ ใๆฬๆฯ รํ ัวศุ สฺÞศ...');
-@define('TRACKBACK_NO_DATA', 'แว ํๆฬฯ รํ ใฺแๆใวส Ýํ ๅะว วแๅฯÝ');
+@define('TRACKBACK_CHECKING', 'ูุญุต <u>%s</u> ุงู ูุงู ู…ูุฌูุฏ ุฃู ุฑุงุจุท ุชุนูุจ...');
+@define('TRACKBACK_NO_DATA', 'ูุง ููุฌุฏ ุฃู ู…ุนููู…ุงุช ูู ูุฐุง ุงููุฏู');
 @define('TRACKBACK_SIZE', 'Target URI exceeded maximum filesize of %s bytes.');
-@define('COMMENTS_VIEWMODE_THREADED', 'ใสๆวีแ');
-@define('COMMENTS_VIEWMODE_LINEAR', 'สฮุํุํ');
-@define('DISPLAY_COMMENTS_AS', 'รฺัึ วแสฺแํÞวส ฺแ์ ิ฿แ');
-@define('COMMENTS_FILTER_SHOW', 'ฺัึ');
-@define('COMMENTS_FILTER_ALL', 'วแ฿แ');
-@define('COMMENTS_FILTER_APPROVED_ONLY', 'ÝÞุ ใว สใส วแใๆวÝÞษ ฺแํๅ');
+@define('COMMENTS_VIEWMODE_THREADED', 'ู…ุชูุงุตู');
+@define('COMMENTS_VIEWMODE_LINEAR', 'ุชุฎุทูุทู');
+@define('DISPLAY_COMMENTS_AS', 'ุฃุนุฑุถ ุงูุชุนูููุงุช ุนูู ุดูู');
+@define('COMMENTS_FILTER_SHOW', 'ุนุฑุถ');
+@define('COMMENTS_FILTER_ALL', 'ุงููู');
+@define('COMMENTS_FILTER_APPROVED_ONLY', 'ููุท ู…ุง ุชู…ุช ุงูู…ูุงููุฉ ุนููู');
 @define('COMMENTS_FILTER_HIDDEN_ONLY', 'Only hidden');
 @define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
 @define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
-@define('COMMENTS_FILTER_NEED_APPROVAL', 'วแใๆวÝÞๅ ฺแ์ วแใไฺ รๆ วแอฬศ');
+@define('COMMENTS_FILTER_NEED_APPROVAL', 'ุงูู…ูุงููู ุนูู ุงูู…ูุน ุฃู ุงูุญุฌุจ');
 @define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
 @define('RSS_IMPORT_BODYONLY', 'Put all imported text in the "body" section and do not split up into "extended entry" section.');
-@define('SYNDICATION_PLUGIN_FULLFEED', 'รฺัึ วแใÞวแษ ฿วใแษ ใสใใฯษ ฯวฮแ ใฺุํวส RSS');
-@define('WEEK', 'วำศๆฺ');
-@define('WEEKS', 'รำวศํฺ');
-@define('MONTHS', 'ริๅั');
-@define('DAYS', 'รํวใ');
-@define('ARCHIVE_FREQUENCY', 'ศไๆฯ สส฿ัั Ýํ วแสÞๆํใ');
-@define('ARCHIVE_FREQUENCY_DESC', 'Ýวีแ วแสๆÞํส วแาใไํ ศํไ ฿แ ใๆึๆฺ ๆวแรฮั Ýํ Þวฦใษ');
-@define('ARCHIVE_COUNT', 'ฺฯฯ วแใๆวึํฺ Ýํ ฿แ Þวฦใษ');
-@define('ARCHIVE_COUNT_DESC', 'วแัÞใ วแ฿แํ แฺฯฯ วแวิๅั - วแวำวศํฺ - วแรํวใ วแสํ ำํสใ วแฺัึ ศๅว');
-@define('BELOW_IS_A_LIST_OF_INSTALLED_PLUGINS', 'Ýํ วแวำÝแ ํูๅั แ฿ Þวฦใษ ศใแÝวส วแอห (ศแๆÞ วไ) วแสํ สใ สั฿ํศๅว');
-@define('SIDEBAR_PLUGIN', 'วแศแๆÞวส วแฬวไศํษ แแใฬแษ');
-@define('EVENT_PLUGIN', 'ศแๆÞวส แรอฯวห ใฮสแÝๅ');
-@define('CLICK_HERE_TO_INSTALL_PLUGIN', 'รึÛุ ๅไว แสหศํส ฬฯํฯ %s');
-@define('VERSION', 'รีฯวั');
-@define('INSTALL', 'สหศํส รๆ สั฿ํศ');
-@define('ALREADY_INSTALLED', 'สใ สหศํส ๅะว วแลฬัวม ใำศÞว๐');
-@define('SELECT_A_PLUGIN_TO_ADD', 'รฮสั ใแÝ วแอห - ศแๆÞ วไ -วแะํ สัํฯ สั฿ํศษ');
-@define('INSTALL_OFFSET', 'อÝู ๆÞส วแฺใแ');
+@define('SYNDICATION_PLUGIN_FULLFEED', 'ุฃุนุฑุถ ุงูู…ูุงูุฉ ูุงู…ูุฉ ู…ุชู…ู…ุฏุฉ ุฏุงุฎู ู…ุนุทูุงุช RSS');
+@define('WEEK', 'ุงุณุจูุน');
+@define('WEEKS', 'ุฃุณุงุจูุน');
+@define('MONTHS', 'ุฃุดูุฑ');
+@define('DAYS', 'ุฃูุงู…');
+@define('ARCHIVE_FREQUENCY', 'ุจููุฏ ุชุชูุฑุฑ ูู ุงูุชูููู…');
+@define('ARCHIVE_FREQUENCY_DESC', 'ูุงุตู ุงูุชูููุช ุงูุฒู…ูู ุจูู ูู ู…ูุถูุน ูุงูุฃุฎุฑ ูู ูุงุฆู…ุฉ');
+@define('ARCHIVE_COUNT', 'ุนุฏุฏ ุงูู…ูุงุถูุน ูู ูู ูุงุฆู…ุฉ');
+@define('ARCHIVE_COUNT_DESC', 'ุงูุฑูู… ุงูููู ูุนุฏุฏ ุงูุงุดูุฑ - ุงูุงุณุงุจูุน - ุงูุฃูุงู… ุงูุชู ุณูุชู… ุงูุนุฑุถ ุจูุง');
+@define('BELOW_IS_A_LIST_OF_INSTALLED_PLUGINS', 'ูู ุงูุงุณูู ูุธูุฑ ูู ูุงุฆู…ุฉ ุจู…ููุงุช ุงูุญุซ (ุจููู ุงู) ุงูุชู ุชู… ุชุฑููุจูุง');
+@define('SIDEBAR_PLUGIN', 'ุงูุจูููุงุช ุงูุฌุงูุจูุฉ ููู…ุฌูุฉ');
+@define('EVENT_PLUGIN', 'ุจูููุงุช ูุฃุญุฏุงุซ ู…ุฎุชููู');
+@define('CLICK_HERE_TO_INSTALL_PLUGIN', 'ุฃุถุบุท ููุง ูุชุซุจูุช ุฌุฏูุฏ %s');
+@define('VERSION', 'ุฃุตุฏุงุฑ');
+@define('INSTALL', 'ุชุซุจูุช ุฃู ุชุฑููุจ');
+@define('ALREADY_INSTALLED', 'ุชู… ุชุซุจูุช ูุฐุง ุงูุฅุฌุฑุงุก ู…ุณุจูุงู');
+@define('SELECT_A_PLUGIN_TO_ADD', 'ุฃุฎุชุฑ ู…ูู ุงูุญุซ - ุจููู ุงู -ุงูุฐู ุชุฑูุฏ ุชุฑููุจุฉ');
+@define('INSTALL_OFFSET', 'ุญูุธ ููุช ุงูุนู…ู');
 @define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
 @define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
-@define('STICKY_POSTINGS', 'ใิวั฿ษ ใหศสๅ');
-@define('INSTALL_FETCHLIMIT', 'ฺฯฯ วแใๆวึํฺ วแสํ สฺัึ Ýํ วแีÝอษ วแัฦํำํษ');
-@define('INSTALL_FETCHLIMIT_DESC', 'ฺฯฯ วแสฺแํÞวส วแสํ ํสใ ฺัึๅว สวศฺษ แแใๆึๆฺ Ýํ ฿แ ีÝอษ');
-@define('IMPORT_ENTRIES', 'รำสํัวฯ วแใฺแๆใวส');
-@define('EXPORT_ENTRIES', 'สีฯํั วแใๆวึํฺ');
-@define('IMPORT_WELCOME', 'ใัอศว ศ฿ Ýํ วฯๆวส วำสํัวฯ แแใฯๆไษ');
-@define('IMPORT_WHAT_CAN', 'ๅไว ํใ฿ไ แ฿ รำสํัวฯ ใๆวึํฺ ใไ ใฯๆไวส รฮั์ ใหแ ไํ฿ๆแวำ ๆ ๆััฯ ศัำ ๆ ลํÝแๆิไ! ! !');
-@define('IMPORT_SELECT', 'วแัฬวม รฮสํวั ไๆฺ วแำ฿ัศส วแะํ สัํฯ รไ สำสๆัฯ ใไๅ ใฺแๆใวส!!!');
-@define('IMPORT_PLEASE_ENTER', 'วแัฬวม รฯฮแ วแใฺแๆใวส วแใุแๆศๅ Ýํ วแรำÝแ');
-@define('IMPORT_NOW', 'รำสํัวฯ วแยไ!');
-@define('IMPORT_STARTING', 'ศฯร รฬัวม วแวำสํัวฯ ...');
-@define('IMPORT_FAILED', 'Ýิแ Ýํ วแวำสํัวฯ');
-@define('IMPORT_DONE', 'วไสๅ์ วแวำสํัวฯ ศไฬวอ');
-@define('IMPORT_WEBLOG_APP', 'สุศํÞวส วแใฬแษ');
-@define('IMPORT_NOTES', 'ใแวอูษ:');
+@define('STICKY_POSTINGS', 'ู…ุดุงุฑูุฉ ู…ุซุจุชู');
+@define('INSTALL_FETCHLIMIT', 'ุนุฏุฏ ุงูู…ูุงุถูุน ุงูุชู ุชุนุฑุถ ูู ุงูุตูุญุฉ ุงูุฑุฆูุณูุฉ');
+@define('INSTALL_FETCHLIMIT_DESC', 'ุนุฏุฏ ุงูุชุนูููุงุช ุงูุชู ูุชู… ุนุฑุถูุง ุชุงุจุนุฉ ููู…ูุถูุน ูู ูู ุตูุญุฉ');
+@define('IMPORT_ENTRIES', 'ุฃุณุชูุฑุงุฏ ุงูู…ุนููู…ุงุช');
+@define('EXPORT_ENTRIES', 'ุชุตุฏูุฑ ุงูู…ูุงุถูุน');
+@define('IMPORT_WELCOME', 'ู…ุฑุญุจุง ุจู ูู ุงุฏูุงุช ุงุณุชูุฑุงุฏ ููู…ุฏููุฉ');
+@define('IMPORT_WHAT_CAN', 'ููุง ูู…ูู ูู ุฃุณุชูุฑุงุฏ ู…ูุงุถูุน ู…ู ู…ุฏููุงุช ุฃุฎุฑู ู…ุซู ูููููุงุณ ู ูุฑุฑุฏ ุจุฑุณ ู ุฅููููุดู! ! !');
+@define('IMPORT_SELECT', 'ุงูุฑุฌุงุก ุฃุฎุชูุงุฑ ููุน ุงูุณูุฑุจุช ุงูุฐู ุชุฑูุฏ ุฃู ุชุณุชูุฑุฏ ู…ูู ู…ุนููู…ุงุช!!!');
+@define('IMPORT_PLEASE_ENTER', 'ุงูุฑุฌุงุก ุฃุฏุฎู ุงูู…ุนููู…ุงุช ุงูู…ุทููุจู ูู ุงูุฃุณูู');
+@define('IMPORT_NOW', 'ุฃุณุชูุฑุงุฏ ุงูุขู!');
+@define('IMPORT_STARTING', 'ุจุฏุฃ ุฃุฌุฑุงุก ุงูุงุณุชูุฑุงุฏ ...');
+@define('IMPORT_FAILED', 'ูุดู ูู ุงูุงุณุชูุฑุงุฏ');
+@define('IMPORT_DONE', 'ุงูุชูู ุงูุงุณุชูุฑุงุฏ ุจูุฌุงุญ');
+@define('IMPORT_WEBLOG_APP', 'ุชุทุจููุงุช ุงูู…ุฌูุฉ');
+@define('IMPORT_NOTES', 'ู…ูุงุญุธุฉ:');
 @define('EXPORT_FEED', 'Export full RSS feed');
-@define('IMPORT_STATUS', 'วแอวแษ ศฺฯ วแวำสํัวฯ');
+@define('IMPORT_STATUS', 'ุงูุญุงูุฉ ุจุนุฏ ุงูุงุณุชูุฑุงุฏ');
 @define('IMPORT_GENERIC_RSS', 'Generic RSS import');
-@define('ACTIVATE_AUTODISCOVERY', 'รัำแ ัวศุ สฺÞศ แใว ๅๆ ใๆฬๆฯ Ýํ ๅะว วแใๆึๆฺ');
-@define('WELCOME_TO_ADMIN', 'ใัอศว ศ฿ Ýํ แๆอษ สอ฿ใ วแใิัÝ วแฺวใ แแใฯๆไษ');
-@define('PLEASE_ENTER_CREDENTIALS', 'วแัฬวม ลฯฮวแ วแใฺแๆใวส วแฮวีษ ศ฿.');
-@define('ADMIN_FOOTER_POWERED_BY', 'ํำสฮฯใ ใฯๆไษ ำํัไฯศํสํ วแรีฯวั %s ๆ PHP %s');
-@define('INSTALL_USEGZIP', 'รำสฮฯใ ฮวีํษ ึÛุ วแีÝอวส - gzip ');
-@define('INSTALL_USEGZIP_DESC', 'แ฿ํ สสใ฿ไ ใไ สำัํฺ สีÝอ วแใฬแษ. ศวแลใ฿วไ ึÛุ วแีÝอวส วแสํ สัำแ ลแ์ วแาๆวั. ฺแ์ รไ ํ฿ๆไ วแใสีÝอ แฯํๅ ํฯฺใ ๅะๅ วแฮวีํษ. ํÝึแ ฺใแ ะแ฿! ! !');
-@define('INSTALL_SHOWFUTURE', 'รฺัึ วแใๆวึํฺ วแใำสÞศแํษ');
-@define('INSTALL_SHOWFUTURE_DESC', 'วไ สใ สใ฿ํไ ๅะว Ýลไๅ ำๆÝ ํฺัึ ใำสÞศแว ฬใํฺ ใๆวึํฺ วแใฬแษ. วแฮํวั วแวÝสัวึํ ๅๆ ลฮÝวม วแใๆวึํฺ ๆ สฺัึ ÝÞุ ฺไฯ สวัํฮ วแไิั');
-@define('INSTALL_DBPERSISTENT', 'รำสฮฯวใ วแวสศวุ วแอวแํ');
-@define('INSTALL_DBPERSISTENT_DESC', 'สใ฿ไ วำสฮฯวใ วแวสีวแ วแฯวฦใ แÞวฺฯษ วแศํวไวส. ํใ฿ไ฿ Þัวมษ วแใาํฯ ๅไว <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank"> ๅไÜÜว </a> ํไีอ ศๅะว วแวฬัวม');
-@define('NO_IMAGES_FOUND', 'แใ ํสใ วแฺหๆั ฺแ์ วแีๆัษ');
-@define('PERSONAL_SETTINGS', 'วแวฺฯวฯวส วแิฮีํษ');
-@define('REFERER', 'ํิํั ลแ์');
-@define('NOT_FOUND', 'แใ ํสใ ลํฬวฯษ');
-@define('WRITABLE', 'Þวศแ แแ฿สวศษ');
-@define('NOT_WRITABLE', 'Ûํั Þวศแ แแ฿สวศษ');
-@define('PROBLEM_DIAGNOSTIC', 'ศำศศ ใิ฿แ สÝอี. แว ํใ฿ไ แ฿ วแลำสใัวั Ýํ ฺใแํส วแสหศํส อส์ สสใ฿ไ ใไ สฺฯํแ ๅะว วแฮุร');
-@define('SELECT_INSTALLATION_TYPE', 'รฮสั รํ ุัํÞษ สหศํส สÝึแ');
-@define('WELCOME_TO_INSTALLATION', 'ใัอศว ศ฿ Ýํ ีÝอษ สหศํส วแใฬแษ ำํัไฯศํสํ'); // Needs to match Serendipity Styx
-@define('FIRST_WE_TAKE_A_LOOK', 'รๆแว ำๆÝ ํสใ วแไูั Ýํ วแวฺฯวฯวส วแอวแํษ. หใ สÝอี รํ ใิว฿แ ํใ฿ไ รไ สอฯห');
-@define('ERRORS_ARE_DISPLAYED_IN', 'ฮุร ใฺัๆึ Ýํ  %s. ํๆี์ Ýํ %s ๆ ไฬวอ %s');
+@define('ACTIVATE_AUTODISCOVERY', 'ุฃุฑุณู ุฑุงุจุท ุชุนูุจ ูู…ุง ูู ู…ูุฌูุฏ ูู ูุฐุง ุงูู…ูุถูุน');
+@define('WELCOME_TO_ADMIN', 'ู…ุฑุญุจุง ุจู ูู ููุญุฉ ุชุญูู… ุงูู…ุดุฑู ุงูุนุงู… ููู…ุฏููุฉ');
+@define('PLEASE_ENTER_CREDENTIALS', 'ุงูุฑุฌุงุก ุฅุฏุฎุงู ุงูู…ุนููู…ุงุช ุงูุฎุงุตุฉ ุจู.');
+@define('ADMIN_FOOTER_POWERED_BY', 'ูุณุชุฎุฏู… ู…ุฏููุฉ ุณูุฑูุฏุจูุชู ุงูุฃุตุฏุงุฑ %s ู PHP %s');
+@define('INSTALL_USEGZIP', 'ุฃุณุชุฎุฏู… ุฎุงุตูุฉ ุถุบุท ุงูุตูุญุงุช - gzip ');
+@define('INSTALL_USEGZIP_DESC', 'ููู ุชุชู…ูู ู…ู ุชุณุฑูุน ุชุตูุญ ุงูู…ุฌูุฉ. ุจุงูุฅู…ูุงู ุถุบุท ุงูุตูุญุงุช ุงูุชู ุชุฑุณู ุฅูู ุงูุฒูุงุฑ. ุนูู ุฃู ูููู ุงูู…ุชุตูุญ ูุฏูู ูุฏุนู… ูุฐู ุงูุฎุงุตูุฉ. ููุถู ุนู…ู ุฐูู! ! !');
+@define('INSTALL_SHOWFUTURE', 'ุฃุนุฑุถ ุงูู…ูุงุถูุน ุงูู…ุณุชูุจููุฉ');
+@define('INSTALL_SHOWFUTURE_DESC', 'ุงู ุชู… ุชู…ููู ูุฐุง ูุฅูู ุณูู ูุนุฑุถ ู…ุณุชูุจูุง ุฌู…ูุน ู…ูุงุถูุน ุงูู…ุฌูุฉ. ุงูุฎูุงุฑ ุงูุงูุชุฑุงุถู ูู ุฅุฎูุงุก ุงูู…ูุงุถูุน ู ุชุนุฑุถ ููุท ุนูุฏ ุชุงุฑูุฎ ุงููุดุฑ');
+@define('INSTALL_DBPERSISTENT', 'ุฃุณุชุฎุฏุงู… ุงูุงุชุจุงุท ุงูุญุงูู');
+@define('INSTALL_DBPERSISTENT_DESC', 'ุชู…ูู ุงุณุชุฎุฏุงู… ุงูุงุชุตุงู ุงูุฏุงุฆู… ููุงุนุฏุฉ ุงูุจูุงูุงุช. ูู…ููู ูุฑุงุกุฉ ุงูู…ุฒูุฏ ููุง <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank"> ููู€ู€ุง </a> ููุตุญ ุจูุฐุง ุงูุงุฌุฑุงุก');
+@define('NO_IMAGES_FOUND', 'ูู… ูุชู… ุงูุนุซูุฑ ุนูู ุงูุตูุฑุฉ');
+@define('PERSONAL_SETTINGS', 'ุงูุงุนุฏุงุฏุงุช ุงูุดุฎุตูุฉ');
+@define('REFERER', 'ูุดูุฑ ุฅูู');
+@define('NOT_FOUND', 'ูู… ูุชู… ุฅูุฌุงุฏุฉ');
+@define('WRITABLE', 'ูุงุจู ูููุชุงุจุฉ');
+@define('NOT_WRITABLE', 'ุบูุฑ ูุงุจู ูููุชุงุจุฉ');
+@define('PROBLEM_DIAGNOSTIC', 'ุจุณุจุจ ู…ุดูู ุชูุญุต. ูุง ูู…ูู ูู ุงูุฅุณุชู…ุฑุงุฑ ูู ุนู…ููุช ุงูุชุซุจูุช ุญุชู ุชุชู…ูู ู…ู ุชุนุฏูู ูุฐุง ุงูุฎุทุฃ');
+@define('SELECT_INSTALLATION_TYPE', 'ุฃุฎุชุฑ ุฃู ุทุฑููุฉ ุชุซุจูุช ุชูุถู');
+@define('WELCOME_TO_INSTALLATION', 'ู…ุฑุญุจุง ุจู ูู ุตูุญุฉ ุชุซุจูุช ุงูู…ุฌูุฉ ุณูุฑูุฏุจูุชู'); // Needs to match Serendipity Styx
+@define('FIRST_WE_TAKE_A_LOOK', 'ุฃููุง ุณูู ูุชู… ุงููุธุฑ ูู ุงูุงุนุฏุงุฏุงุช ุงูุญุงููุฉ. ุซู… ุชูุญุต ุฃู ู…ุดุงูู ูู…ูู ุฃู ุชุญุฏุซ');
+@define('ERRORS_ARE_DISPLAYED_IN', 'ุฎุทุฃ ู…ุนุฑูุถ ูู  %s. ููุตู ูู %s ู ูุฌุงุญ %s');
 @define('RED', 'red');
-@define('YELLOW', 'รีÝั');
-@define('GREEN', 'รฮึั');
+@define('YELLOW', 'ุฃุตูุฑ');
+@define('GREEN', 'ุฃุฎุถุฑ');
 @define('PRE_INSTALLATION_REPORT', 'Serendipity Styx v.%s pre-installation report');
-@define('RECOMMENDED', 'ํไีอ ศๅ');
-@define('ACTUAL', 'Ýฺแํ');
-@define('PHPINI_CONFIGURATION', 'php.ini สๅํฦษ วฺฯวฯวส');
-@define('PHP_INSTALLATION', 'PHP สหศํส');
-@define('THEY_DO', 'ํใ฿ไ แๅใ');
-@define('THEY_DONT', 'แว ํใ฿ไ แๅใ');
-@define('SIMPLE_INSTALLATION', 'วแสหศํส วแศำํุ');
-@define('EXPERT_INSTALLATION', 'วแสหศํส วแใสÞฯใ');
-@define('COMPLETE_INSTALLATION', 'สใ วแวไสๅวม ใไ วแสหศํส');
-@define('WONT_INSTALL_DB_AGAIN', 'แไ ํสใ สหศํส Þวฺฯษ วแศํวไวส ใไ ฬฯํฯ');
-@define('CHECK_DATABASE_EXISTS', 'สÝอี ลไ ฿วไส Þวฺฯษ วแศํวไวส ๆ วแฬฯวๆแ ใๆฬๆฯษ');
-@define('CREATING_PRIMARY_AUTHOR', 'ลไิวม ใอัั ัรํำํ \'%s\'');
-@define('SETTING_DEFAULT_TEMPLATE', 'ลฺฯวฯวส วแใฬแษ วแลÝสัวึํษ');
-@define('INSTALLING_DEFAULT_PLUGINS', 'สหศํส วแศแๆÞ วไ วแวÝสัวึํ');
-@define('SERENDIPITY_INSTALLED', 'สใ สั฿ํศ ใฯๆไษ ำํไฯัศํสํ ศไฬวอ'); // Needs to match Serendipity Styx
-@define('VISIT_BLOG_HERE', 'ํใ฿ไ฿ าํวัษ ใฯๆไส฿ วแฬฯํฯษ ใไ ๅไว');
-@define('THANK_YOU_FOR_CHOOSING', 'ิ฿ัว แรฮสํวั฿ ใฯๆไษ ำํไฯัศํสํ'); // Needs to match Serendipity Styx
-@define('ERROR_DETECTED_IN_INSTALL', 'สใ ร฿สิวÝ ฮุร ฮแวแ ใัอแษ วแสÞศํส');
-@define('OPERATING_SYSTEM', 'ไูวใ วแสิÛํแ');
+@define('RECOMMENDED', 'ููุตุญ ุจู');
+@define('ACTUAL', 'ูุนูู');
+@define('PHPINI_CONFIGURATION', 'php.ini ุชููุฆุฉ ุงุนุฏุงุฏุงุช');
+@define('PHP_INSTALLATION', 'PHP ุชุซุจูุช');
+@define('THEY_DO', 'ูู…ูู ููู…');
+@define('THEY_DONT', 'ูุง ูู…ูู ููู…');
+@define('SIMPLE_INSTALLATION', 'ุงูุชุซุจูุช ุงูุจุณูุท');
+@define('EXPERT_INSTALLATION', 'ุงูุชุซุจูุช ุงูู…ุชูุฏู…');
+@define('COMPLETE_INSTALLATION', 'ุชู… ุงูุงูุชูุงุก ู…ู ุงูุชุซุจูุช');
+@define('WONT_INSTALL_DB_AGAIN', 'ูู ูุชู… ุชุซุจูุช ูุงุนุฏุฉ ุงูุจูุงูุงุช ู…ู ุฌุฏูุฏ');
+@define('CHECK_DATABASE_EXISTS', 'ุชูุญุต ุฅู ูุงูุช ูุงุนุฏุฉ ุงูุจูุงูุงุช ู ุงูุฌุฏุงูู ู…ูุฌูุฏุฉ');
+@define('CREATING_PRIMARY_AUTHOR', 'ุฅูุดุงุก ู…ุญุฑุฑ ุฑุฃูุณู \'%s\'');
+@define('SETTING_DEFAULT_TEMPLATE', 'ุฅุนุฏุงุฏุงุช ุงูู…ุฌูุฉ ุงูุฅูุชุฑุงุถูุฉ');
+@define('INSTALLING_DEFAULT_PLUGINS', 'ุชุซุจูุช ุงูุจููู ุงู ุงูุงูุชุฑุงุถู');
+@define('SERENDIPITY_INSTALLED', 'ุชู… ุชุฑููุจ ู…ุฏููุฉ ุณููุฏุฑุจูุชู ุจูุฌุงุญ'); // Needs to match Serendipity Styx
+@define('VISIT_BLOG_HERE', 'ูู…ููู ุฒูุงุฑุฉ ู…ุฏููุชู ุงูุฌุฏูุฏุฉ ู…ู ููุง');
+@define('THANK_YOU_FOR_CHOOSING', 'ุดูุฑุง ูุฃุฎุชูุงุฑู ู…ุฏููุฉ ุณููุฏุฑุจูุชู'); // Needs to match Serendipity Styx
+@define('ERROR_DETECTED_IN_INSTALL', 'ุชู… ุฃูุชุดุงู ุฎุทุฃ ุฎูุงู ู…ุฑุญูุฉ ุงูุชูุจูุช');
+@define('OPERATING_SYSTEM', 'ูุธุงู… ุงูุชุดุบูู');
 @define('WEBSERVER_SAPI', 'Webserver SAPI');
-@define('TEMPLATE_SET', '\'%s\' สใ รฮสํวัษ แํ฿ๆไ วแÞวแศ วแไิุ');
-@define('SEARCH_ERROR', 'ๆูํÝษ วแศอห แใ สฺใแ ฿ใว ํไศÛํ แๅว. ๅะๅ ใแวอูษ แแใิัÝ วแฺวใ แแใฯๆไษ.: ๅะๅ ํใ฿ไ รไ สอฯห ศำศศ ÝÞฯไ รอฯ ใฺัÝวส ฬฯวๆแ Þวฺฯษ วแศํวไวส. Ýํ ไูวใ MySQL ํอสวฬ วแใำสฮฯใ ลแ์ ใําวส แๅะๅ วแลฬัวมวส:  <pre> ลไิวม y_idx ใีÝๆÝษ (ฺไๆวไ ก ฬำใ แแีÝอษ ก ใสใฯฯ) </pre> ๅะว วแฮุร ใไ Þวฺฯษ วแศํวไวส ฿วไ <pre>%s</pre>');
-@define('EDIT_THIS_CAT', 'สอัํั "%s"');
-@define('CATEGORY_REMAINING', 'รอะÝ ๅะว วแสีไํÝ ๆ Þใ ศไÞแ ฬใํฺ ใอสๆํวสๅ ลแ์ วแสีไํÝ วแสวแํ');
-@define('CATEGORY_INDEX', 'ๅะๅ Þวฦใษ ศวแรÞำวใ วแใๆฬๆฯษ แใๆวึํฺ฿:');
-@define('NO_CATEGORIES', 'แใ ํสใ วฯัวฬ รÞำวใ');
+@define('TEMPLATE_SET', '\'%s\' ุชู… ุฃุฎุชูุงุฑุฉ ููููู ุงููุงูุจ ุงููุดุท');
+@define('SEARCH_ERROR', 'ูุธููุฉ ุงูุจุญุซ ูู… ุชุนู…ู ูู…ุง ููุจุบู ููุง. ูุฐู ู…ูุงุญุธุฉ ููู…ุดุฑู ุงูุนุงู… ููู…ุฏููุฉ.: ูุฐู ูู…ูู ุฃู ุชุญุฏุซ ุจุณุจุจ ููุฏู ุฃุญุฏ ู…ุนุฑูุงุช ุฌุฏุงูู ูุงุนุฏุฉ ุงูุจูุงูุงุช. ูู ูุธุงู… MySQL ูุญุชุงุฌ ุงูู…ุณุชุฎุฏู… ุฅูู ู…ูุฒุงุช ููุฐู ุงูุฅุฌุฑุงุกุงุช:  <pre> ุฅูุดุงุก y_idx ู…ุตูููุฉ (ุนููุงู ุ ุฌุณู… ููุตูุญุฉ ุ ู…ุชู…ุฏุฏ) </pre> ูุฐุง ุงูุฎุทุฃ ู…ู ูุงุนุฏุฉ ุงูุจูุงูุงุช ูุงู <pre>%s</pre>');
+@define('EDIT_THIS_CAT', 'ุชุญุฑูุฑ "%s"');
+@define('CATEGORY_REMAINING', 'ุฃุญุฐู ูุฐุง ุงูุชุตููู ู ูู… ุจููู ุฌู…ูุน ู…ุญุชููุงุชู ุฅูู ุงูุชุตููู ุงูุชุงูู');
+@define('CATEGORY_INDEX', 'ูุฐู ูุงุฆู…ุฉ ุจุงูุฃูุณุงู… ุงูู…ูุฌูุฏุฉ ูู…ูุงุถูุนู:');
+@define('NO_CATEGORIES', 'ูู… ูุชู… ุงุฏุฑุงุฌ ุฃูุณุงู…');
 @define('RESET_DATE', 'Reset date');
-@define('RESET_DATE_DESC', 'รึÛุ ๅไว ฿ํ สอฯห วแสๆÞํส ลแ์ สๆÞํส ์แยไ');
+@define('RESET_DATE_DESC', 'ุฃุถุบุท ููุง ูู ุชุญุฏุซ ุงูุชูููุช ุฅูู ุชูููุช ููุขู');
 @define('PROBLEM_PERMISSIONS_HOWTO', 'Permissions can be set by running shell command: `<em>%s</em>` on the failed directory, or by setting this using an FTP program');
-@define('WARNING_TEMPLATE_DEPRECATED', 'สอะํั: วแÞวแศ วแอวแํ ไวÞี ศฺึ วแใฺแๆใวส ! ! ไีํอษ ศรไ สÞๆใ ศสอฯํห ๅะว วแÞวแศ ลไ รใ฿ไ');
-@define('ENTRY_PUBLISHED_FUTURE', 'แใ ํสใ ไิั ๅะว วแใๆึๆฺ ลแ์ วแยไ');
-@define('ENTRIES_BY', 'วแใๆวึํฺ ศๆวำุษ %s');
-@define('PREVIOUS', 'วแำวศÞ');
-@define('NEXT', 'วแสวแํ');
-@define('APPROVE', 'ใๆวÝÞ');
-@define('CATEGORY_ALREADY_EXIST', 'วแสีไํÝ วแใำใ์  "%s" ใฯฮแ ใำศÞว๐');
-@define('ERROR_FILE_FORBIDDEN', 'แว ํอÞ แ฿ รไ สัÝฺ ใแÝวส สึใ ใอสๆํวส ไิุษ');
-@define('ADMIN', 'วฯวัษ วแใฬแษ');
-@define('ADMIN_FRONTPAGE', 'ีÝอษ วแศฯวํษ');
-@define('QUOTE', 'รÞสศวำ');
-@define('IFRAME_SAVE', 'ํสใ วแยไ อÝู ใÞวแวส฿ ๆ ลไิวม ัๆวศุ สฺÞศ วแใๆึๆฺ ๆ ลใ฿วไํษ ฺใแ ลฺแวไวส XML-RPC – ใไ วแใใ฿ไ รไ ํำสÛัÞ ศฺึ วแๆÞส . . .  ิ฿ัว แวไสูวั฿');
-@define('IFRAME_SAVE_DRAFT', 'สใ วแลไสๅวม ใไ อÝู ใำๆฯษ ๅะๅ วแใÞวแษ');
-@define('IFRAME_PREVIEW', 'ํสใ วแยไ วไิวม ฺัึ วแใิวๅฯษ แใิวั฿ษ ...');
-@define('IFRAME_WARNING', 'ใสีÝอ฿ แว ํฯฺใ ีÝอวส วแวุวัวส iframes วแัฬว Ýสอ วแใแÝ _config.inc.php ๆรึศุ วแใสÛํั $serendipity[\'use_iframe\'] variable to FALSE');
-@define('NONE', 'แว ํๆฬฯ');
-@define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'วแวฺฯวฯวส วแวÝสัวึํๅ แแใๆวึํฺ วแฬฯํฯษ');
-@define('UPGRADE', 'สอฯํห');
-@define('UPGRADE_TO_VERSION', '<b>สอฯํห แแรีฯวั:</b> %s');
-@define('DELETE_DIRECTORY', 'อะÝ วแใฬแฯ');
-@define('DELETE_DIRECTORY_DESC', 'รไส ฺแ์ ๆิ฿ อะÝ ฯแํแ<sup>(น)</sup> Þฯ ํอสๆํ ฺแ์ ใแÝวส ๆำวฦุ ๆฺไวีั ใำสฮฯใษ ศวแÝฺแ Ýํ ลฯฮวแวส฿. สร฿ฯ!<br><sup>[น]</sup> ศใว Ýํ ะแ฿ วแÞัี วแÝัฺํ วแใฮÝํ วแะํ ํอสๆํ ฺแ์ ใแÝวส วแสศวํไ (WebP/AVIF).');
-@define('FORCE_DELETE', 'วอะÝ ฬใํฺ วแใแÝวส วแใๆฬๆฯษ Ýํ ๅะว วแฯแํแก ศใว Ýํ ะแ฿ วแรฯัวฬ วแÝัฺํษ ๆวแใแÝวส Ûํั วแใฺัๆÝษ (อส์ วแยไ) ใไ Þศแ ใ฿สศษ วแๆำวฦุ');
-@define('CREATE_DIRECTORY', 'รไิวม ใฬแฯ');
-@define('CREATE_NEW_DIRECTORY', 'วไิวม ใฬแฯ ฬฯํฯ');
-@define('CREATE_DIRECTORY_DESC', 'ๅไว ํใ฿ไ รไิวม ใฬแฯ แๆึๆฺ วแใแÝวส วแใฮสแÝๅ (ใํฯํว) Ýํๅ. รฮสั รำใ แแใฬแฯ วแฬฯํฯ ๆ฿ะแ฿ รฮสั วแใฬแฯ วแวศ แๅ แๆึๆฺๅ Ýํๅ');
-@define('BASE_DIRECTORY', 'ใฬแฯ Þวฺฯษ');
-@define('USERLEVEL_EDITOR_DESC', 'ใอัั ฺวฯํ ');
-@define('USERLEVEL_CHIEF_DESC', 'ัฦํำ วแใอััํไ');
-@define('USERLEVEL_ADMIN_DESC', 'วแใิัÝ วแฺวใ');
-@define('USERCONF_USERLEVEL', 'ใำสๆ์ วแๆีๆแ');
-#@define('USERCONF_USERLEVEL_DESC', 'ๅไว สๆึํอ แใำสๆ์ ๆีแวอํวส ฯฮๆแ วแใำสฮฯใ ลแ์ วแใฬแษ');
+@define('WARNING_TEMPLATE_DEPRECATED', 'ุชุญุฐูุฑ: ุงููุงูุจ ุงูุญุงูู ูุงูุต ุจุนุถ ุงูู…ุนููู…ุงุช ! ! ูุตูุญุฉ ุจุฃู ุชููู… ุจุชุญุฏูุซ ูุฐุง ุงููุงูุจ ุฅู ุฃู…ูู');
+@define('ENTRY_PUBLISHED_FUTURE', 'ูู… ูุชู… ูุดุฑ ูุฐุง ุงูู…ูุถูุน ุฅูู ุงูุขู');
+@define('ENTRIES_BY', 'ุงูู…ูุงุถูุน ุจูุงุณุทุฉ %s');
+@define('PREVIOUS', 'ุงูุณุงุจู');
+@define('NEXT', 'ุงูุชุงูู');
+@define('APPROVE', 'ู…ูุงูู');
+@define('CATEGORY_ALREADY_EXIST', 'ุงูุชุตููู ุงูู…ุณู…ู  "%s" ู…ุฏุฎู ู…ุณุจูุงู');
+@define('ERROR_FILE_FORBIDDEN', 'ูุง ูุญู ูู ุฃู ุชุฑูุน ู…ููุงุช ุชุถู… ู…ุญุชููุงุช ูุดุทุฉ');
+@define('ADMIN', 'ุงุฏุงุฑุฉ ุงูู…ุฌูุฉ');
+@define('ADMIN_FRONTPAGE', 'ุตูุญุฉ ุงูุจุฏุงูุฉ');
+@define('QUOTE', 'ุฃูุชุจุงุณ');
+@define('IFRAME_SAVE', 'ูุชู… ุงูุขู ุญูุธ ู…ูุงูุงุชู ู ุฅูุดุงุก ุฑูุงุจุท ุชุนูุจ ุงูู…ูุถูุน ู ุฅู…ูุงููุฉ ุนู…ู ุฅุนูุงูุงุช XML-RPC โ€“ ู…ู ุงูู…ู…ูู ุฃู ูุณุชุบุฑู ุจุนุถ ุงูููุช . . .  ุดูุฑุง ูุงูุชุธุงุฑู');
+@define('IFRAME_SAVE_DRAFT', 'ุชู… ุงูุฅูุชูุงุก ู…ู ุญูุธ ู…ุณูุฏุฉ ูุฐู ุงูู…ูุงูุฉ');
+@define('IFRAME_PREVIEW', 'ูุชู… ุงูุขู ุงูุดุงุก ุนุฑุถ ุงูู…ุดุงูุฏุฉ ูู…ุดุงุฑูุฉ ...');
+@define('IFRAME_WARNING', 'ู…ุชุตูุญู ูุง ูุฏุนู… ุตูุญุงุช ุงูุงุทุงุฑุงุช iframes ุงูุฑุฌุง ูุชุญ ุงูู…ูู _config.inc.php ูุฃุถุจุท ุงูู…ุชุบูุฑ $serendipity[\'use_iframe\'] variable to FALSE');
+@define('NONE', 'ูุง ููุฌุฏ');
+@define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'ุงูุงุนุฏุงุฏุงุช ุงูุงูุชุฑุงุถูู ููู…ูุงุถูุน ุงูุฌุฏูุฏุฉ');
+@define('UPGRADE', 'ุชุญุฏูุซ');
+@define('UPGRADE_TO_VERSION', '<b>ุชุญุฏูุซ ููุฃุตุฏุงุฑ:</b> %s');
+@define('DELETE_DIRECTORY', 'ุญุฐู ุงูู…ุฌูุฏ');
+@define('DELETE_DIRECTORY_DESC', 'ุฃูุช ุนูู ูุดู ุญุฐู ุฏููู<sup>(ยน)</sup> ูุฏ ูุญุชูู ุนูู ู…ููุงุช ูุณุงุฆุท ูุนูุงุตุฑ ู…ุณุชุฎุฏู…ุฉ ุจุงููุนู ูู ุฅุฏุฎุงูุงุชู. ุชุฃูุฏ!<br><sup>[ยน]</sup> ุจู…ุง ูู ุฐูู ุงููุฑุต ุงููุฑุนู ุงูู…ุฎูู ุงูุฐู ูุญุชูู ุนูู ู…ููุงุช ุงูุชุจุงูู (WebP/AVIF).');
+@define('FORCE_DELETE', 'ุงุญุฐู ุฌู…ูุน ุงูู…ููุงุช ุงูู…ูุฌูุฏุฉ ูู ูุฐุง ุงูุฏูููุ ุจู…ุง ูู ุฐูู ุงูุฃุฏุฑุงุฌ ุงููุฑุนูุฉ ูุงูู…ููุงุช ุบูุฑ ุงูู…ุนุฑููุฉ (ุญุชู ุงูุขู) ู…ู ูุจู ู…ูุชุจุฉ ุงููุณุงุฆุท');
+@define('CREATE_DIRECTORY', 'ุฃูุดุงุก ู…ุฌูุฏ');
+@define('CREATE_NEW_DIRECTORY', 'ุงูุดุงุก ู…ุฌูุฏ ุฌุฏูุฏ');
+@define('CREATE_DIRECTORY_DESC', 'ููุง ูู…ูู ุฃูุดุงุก ู…ุฌูุฏ ููุถูุน ุงูู…ููุงุช ุงูู…ุฎุชููู (ู…ูุฏูุง) ููู. ุฃุฎุชุฑ ุฃุณู… ููู…ุฌูุฏ ุงูุฌุฏูุฏ ููุฐูู ุฃุฎุชุฑ ุงูู…ุฌูุฏ ุงูุงุจ ูู ููุถูุนู ููู');
+@define('BASE_DIRECTORY', 'ู…ุฌูุฏ ูุงุนุฏุฉ');
+@define('USERLEVEL_EDITOR_DESC', 'ู…ุญุฑุฑ ุนุงุฏู ');
+@define('USERLEVEL_CHIEF_DESC', 'ุฑุฆูุณ ุงูู…ุญุฑุฑูู');
+@define('USERLEVEL_ADMIN_DESC', 'ุงูู…ุดุฑู ุงูุนุงู…');
+@define('USERCONF_USERLEVEL', 'ู…ุณุชูู ุงููุตูู');
+#@define('USERCONF_USERLEVEL_DESC', 'ููุง ุชูุถูุญ ูู…ุณุชูู ูุตูุงุญูุงุช ุฏุฎูู ุงูู…ุณุชุฎุฏู… ุฅูู ุงูู…ุฌูุฉ');
 @define('USERCONF_USERLEVEL_DESC', 'This level is used to determine what kind of access this user has to the Blog. User privileges are handled by group memberships!');
-@define('USER_SELF_INFO', 'สใ วแสำฬํแ ศÜ %s (%s)');
+@define('USER_SELF_INFO', 'ุชู… ุงูุชุณุฌูู ุจู€ %s (%s)');
 @define('USER_ALERT', 'Userinfo');
 @define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'You have not yet been granted the right to publish your entries directly. Until sufficient trust is built, inform your assigned editor-in-chief that your entry is ready for publication and approval.');
 @define('USER_PERMISSION_NOTIFIER_RESET', 'In case of temporary revocation of rights, please clarify the reasons in a friendly personal conversation.');
-@define('ADMIN_ENTRIES', 'วแใๆวึํฺ');
-@define('RECHECK_INSTALLATION', 'ลฺวฯษ สÝอี สหศํส วแใฬแษ');
-@define('IMAGICK_EXEC_ERROR', 'Ûํั Þวฯั ฺแ์ สไÝํะ "%s", ฮุร: %s, ใัฬฺ วแฮุร: %d');
-@define('INSTALL_OFFSET_DESC', 'รฯฮแ ÝวัÞ วแสๆÞํส ศํไ วแำํัÝั (สๆÞํส วแำํัÝั  %clock%) ๆ สๆÞํส วแใไุÞษ วแสํ สัํฯๅว');
-@define('UNMET_REQUIREMENTS', 'ใสุแศวส Ýวิแๅ: %s');
+@define('ADMIN_ENTRIES', 'ุงูู…ูุงุถูุน');
+@define('RECHECK_INSTALLATION', 'ุฅุนุงุฏุฉ ุชูุญุต ุชุซุจูุช ุงูู…ุฌูุฉ');
+@define('IMAGICK_EXEC_ERROR', 'ุบูุฑ ูุงุฏุฑ ุนูู ุชูููุฐ "%s", ุฎุทุฃ: %s, ู…ุฑุฌุน ุงูุฎุทุฃ: %d');
+@define('INSTALL_OFFSET_DESC', 'ุฃุฏุฎู ูุงุฑู ุงูุชูููุช ุจูู ุงูุณูุฑูุฑ (ุชูููุช ุงูุณูุฑูุฑ  %clock%) ู ุชูููุช ุงูู…ูุทูุฉ ุงูุชู ุชุฑูุฏูุง');
+@define('UNMET_REQUIREMENTS', 'ู…ุชุทูุจุงุช ูุงุดูู: %s');
 @define('CHARSET', 'Charset');
-@define('AUTOLANG', 'รำสฮฯใ วแแÛษ วแวÝสัวึํษ แใสีÝอ วแาวฦั/ วแาๆวั');
-@define('AUTOLANG_DESC', 'ลไ สใ สใ฿ํไ ๅะว วแฮํวั ำๆÝ สสอๆแ วแแÛษ ศไวม ฺแ์ วแแÛษ วแใำสฮฯใษ ใไ Þศแ ใสีÝอ วแาวฦั / วแาๆวั');
-@define('INSTALL_AUTODETECT_URL', 'วแสฺัÝ วแสแÞวฦํ ฺแ์ ไุวÞ (Domain) วแใๆÞฺ');
-@define('INSTALL_AUTODETECT_URL_DESC', 'รไ รฮสั วแฮํวั ีอํอ. ำๆÝ สสใ฿ไ วแใฬแษ ใไ ใฺัÝษ วแัวศุ วแะํ ํำสฮฯใๅ วแาๆวั ฺแ์ รไๅ วแัวศุ วแรำวำํ. ศวฮสํวั฿ ๅะว วแฮํวั ํฬฺแ฿ Þวฯั ฺแ์ วำสฮฯวใ ร฿หั ใไ รำใ ไุวÞ (ฯๆใํไ) แแๆีๆแ ลแ์ ใฯๆไส฿. ๆำๆÝ ํำสฮฯใ รำใ วแไุวÞ ๅะว แฬใํฺ วแัๆวศุ วแสวศฺษ แแใฯๆไษ');
-@define('CONVERT_HTMLENTITIES', 'ฬัศ สอๆํแ วแใๆวึํฺ ลแ์ ๅสใแฟ'); // Translate again
-@define('EMPTY_SETTING', 'แใ สÞใ ศรฺุวม ใฺแๆใวส ฯÞํÞษ ฺไ "%s"!');
-@define('USERCONF_REALNAME', 'วแรำใ วแอÞํÞํ');
-@define('USERCONF_REALNAME_DESC', 'วแรำใ วแ฿วใแ แแใอัั รๆ วแไวิั. ๆๅะว ำๆÝ ํูๅั แÞัวม วแใๆึๆฺ');
+@define('AUTOLANG', 'ุฃุณุชุฎุฏู… ุงููุบุฉ ุงูุงูุชุฑุงุถูุฉ ูู…ุชุตูุญ ุงูุฒุงุฆุฑ/ ุงูุฒูุงุฑ');
+@define('AUTOLANG_DESC', 'ุฅู ุชู… ุชู…ููู ูุฐุง ุงูุฎูุงุฑ ุณูู ุชุชุญูู ุงููุบุฉ ุจูุงุก ุนูู ุงููุบุฉ ุงูู…ุณุชุฎุฏู…ุฉ ู…ู ูุจู ู…ุชุตูุญ ุงูุฒุงุฆุฑ / ุงูุฒูุงุฑ');
+@define('INSTALL_AUTODETECT_URL', 'ุงูุชุนุฑู ุงูุชููุงุฆู ุนูู ูุทุงู (Domain) ุงูู…ููุน');
+@define('INSTALL_AUTODETECT_URL_DESC', 'ุฃู ุฃุฎุชุฑ ุงูุฎูุงุฑ ุตุญูุญ. ุณูู ุชุชู…ูู ุงูู…ุฌูุฉ ู…ู ู…ุนุฑูุฉ ุงูุฑุงุจุท ุงูุฐู ูุณุชุฎุฏู…ู ุงูุฒูุงุฑ ุนูู ุฃูู ุงูุฑุงุจุท ุงูุฃุณุงุณู. ุจุงุฎุชูุงุฑู ูุฐุง ุงูุฎูุงุฑ ูุฌุนูู ูุงุฏุฑ ุนูู ุงุณุชุฎุฏุงู… ุฃูุซุฑ ู…ู ุฃุณู… ูุทุงู (ุฏูู…ูู) ูููุตูู ุฅูู ู…ุฏููุชู. ูุณูู ูุณุชุฎุฏู… ุฃุณู… ุงููุทุงู ูุฐุง ูุฌู…ูุน ุงูุฑูุงุจุท ุงูุชุงุจุนุฉ ููู…ุฏููุฉ');
+@define('CONVERT_HTMLENTITIES', 'ุฌุฑุจ ุชุญููู ุงูู…ูุงุถูุน ุฅูู ูุชู…ูุ'); // Translate again
+@define('EMPTY_SETTING', 'ูู… ุชูู… ุจุฃุนุทุงุก ู…ุนููู…ุงุช ุฏูููุฉ ุนู "%s"!');
+@define('USERCONF_REALNAME', 'ุงูุฃุณู… ุงูุญูููู');
+@define('USERCONF_REALNAME_DESC', 'ุงูุฃุณู… ุงููุงู…ู ููู…ุญุฑุฑ ุฃู ุงููุงุดุฑ. ููุฐุง ุณูู ูุธูุฑ ููุฑุงุก ุงูู…ูุถูุน');
 @define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
-@define('ENTER_MEDIA_URL_METHOD', 'ุัํÞษ ฬแศ วแีๆัษ');
-@define('ADD_MEDIA_BLAHBLAH_NOTE', 'ใแวอูษ: Ýํ อวแ ฬแศ ีๆัษ ใไ ัวศุ ใฺํไ สร฿ฯ รไ วแใๆÞฺ วแะํ ำๆÝ สอใแ วแีๆัษ ใไๅ ํำใอ ศฺัึ วแีๆั Ýํ ใๆวÞฺ รฮั์. รๆ สร฿ฯ รไ ๅะว วแัวศุ ใไ ใๆÞฺ฿. ฺัึ วแีๆั ศๆวำุษ ัวศุๅว ํฺไํ฿ ฺไ สอใํแ วแีๆัษ Ýํ ใฯๆไส฿ รๆ ใๆÞฺ฿ (ใหวแ วำสฮฯวใ ใัว฿า สอใํแ วแีๆั)');
-@define('MEDIA_HOTLINKED', 'ใไ ัวศุ');
-@define('FETCH_METHOD_IMAGE', 'ัÝฺ วแีๆัษ ลแ์ ใๆÞฺ฿');
-@define('FETCH_METHOD_HOTLINK', 'ัวศุ ีๆัษ ลแ์ ใๆÞฺ');
-@define('DELETE_HOTLINK_FILE', 'สใ อะÝ วแัวศุ วแไิุ ๆวแใแÝ %s');
-@define('SYNDICATION_PLUGIN_SHOW_MAIL', 'รฺัึ วแศัํฯ วแวแ฿สัๆไํฟ');
-@define('IMAGE_MORE_INPUT', 'รึÝ ีๆั ร฿หั');
-@define('BACKEND_TITLE', 'ใฺแๆใวส ลึวÝํษ ฺไ ๆูํÝษ ๅะว วแวฬัวม');
-@define('BACKEND_TITLE_FOR_NUGGET', 'Here you can define a short custom string which is displayed in the Plugin Configuration screen together with the description of the plugin. If you have multiple stacked plugins or HTML nuggets with an empty title, this helps to distinct the plugins from another.'); // Translate
-@define('CATEGORIES_ALLOW_SELECT', 'วแำใวอ แแาๆวั ศฺัึ รÞำวใ ใสฺฯฯษ ใัษ ๆวอฯษฟ');
-@define('CATEGORIES_ALLOW_SELECT_DESC', 'Ýํ อวแ สิÛํแ ๅะว วแฮํวั Ýลไ ีไฯๆÞ ลฮสํวั ำๆÝ ํสใ ฺัึษ ศฬวไศ ใำใ์ ฿แ Þำใ ใไ รÞำวใ วแใฬแษ ก ๆศะแ฿ วแาวฦั ํใ฿ไ แๅ วแสฺแํใ ฺแ์ วแวÞำวใ วแสํ ํัํฯ วแวุแวฺ ฺแํๅว ÝÞุ');
-@define('PAGE_BROWSE_PLUGINS', 'วแีÝอษ ัÞใ %s ใไ %s, ใฬใๆฺ %s ใๆวึํฺ.');
-@define('INSTALL_CAT_PERMALINKS', 'วแัๆวศุ วแฯวฦใษ');
-@define('INSTALL_CAT_PERMALINKS_DESC', 'ๅไว สๆึํอ แัๆวศุ ใฮสแÝษ ๆๅํ ัๆวศุ ฯวฦใษ Ýํ ฺใแ วแใฬแษ ก ํÝสัึ ฺแํ฿ รไ สำสฮฯใ วแฮํวั วแวÝสัวึํ Ýํ ๅะๅ วแใฬใๆฺษ. ๆลไ รัฯส สÛํํั ิํม Ýํใ฿ไ แ฿ วแใอวๆแษ ศวำสฮฯวใ วแสฺวัÝ ๆวแÞํใ    ใหแ %id% ใว รใ฿ไ วแรใั ใไ ะแ฿ ฿ํ แว ํ฿ๆไ ๅไว฿ วฮสแวÝ Ýํ ๆีๆแ วแใฺแๆใวส ลแ์ Þวฺฯษ วแศํวไวส');
-@define('INSTALL_PERMALINK', 'ศไํษ ลฯฮวแ วแัวศุ วแวำวำํ');
+@define('ENTER_MEDIA_URL_METHOD', 'ุทุฑููุฉ ุฌูุจ ุงูุตูุฑุฉ');
+@define('ADD_MEDIA_BLAHBLAH_NOTE', 'ู…ูุงุญุธุฉ: ูู ุญุงู ุฌูุจ ุตูุฑุฉ ู…ู ุฑุงุจุท ู…ุนูู ุชุฃูุฏ ุฃู ุงูู…ููุน ุงูุฐู ุณูู ุชุญู…ู ุงูุตูุฑุฉ ู…ูู ูุณู…ุญ ุจุนุฑุถ ุงูุตูุฑ ูู ู…ูุงูุน ุฃุฎุฑู. ุฃู ุชุฃูุฏ ุฃู ูุฐุง ุงูุฑุงุจุท ู…ู ู…ููุนู. ุนุฑุถ ุงูุตูุฑ ุจูุงุณุทุฉ ุฑุงุจุทูุง ูุนููู ุนู ุชุญู…ูู ุงูุตูุฑุฉ ูู ู…ุฏููุชู ุฃู ู…ููุนู (ู…ุซุงู ุงุณุชุฎุฏุงู… ู…ุฑุงูุฒ ุชุญู…ูู ุงูุตูุฑ)');
+@define('MEDIA_HOTLINKED', 'ู…ู ุฑุงุจุท');
+@define('FETCH_METHOD_IMAGE', 'ุฑูุน ุงูุตูุฑุฉ ุฅูู ู…ููุนู');
+@define('FETCH_METHOD_HOTLINK', 'ุฑุงุจุท ุตูุฑุฉ ุฅูู ู…ููุน');
+@define('DELETE_HOTLINK_FILE', 'ุชู… ุญุฐู ุงูุฑุงุจุท ุงููุดุท ูุงูู…ูู %s');
+@define('SYNDICATION_PLUGIN_SHOW_MAIL', 'ุฃุนุฑุถ ุงูุจุฑูุฏ ุงูุงููุชุฑูููุ');
+@define('IMAGE_MORE_INPUT', 'ุฃุถู ุตูุฑ ุฃูุซุฑ');
+@define('BACKEND_TITLE', 'ู…ุนููู…ุงุช ุฅุถุงููุฉ ุนู ูุธููุฉ ูุฐุง ุงูุงุฌุฑุงุก');
+@define('BACKEND_TITLE_FOR_NUGGET', 'ูู…ูู ูู ููุง ูุถุน ุงููุตู ุงูู…ูุงุณุจ ููุฃุฌุฑุงุก ุงูุฐู ุณูู ุชููู… ุจู ููู ูุชู… ุนุฑุถู ุนูู ุงูุฒุงุฆุฑ ุ ุงู ุงููุตู ุงูุฐู ุชูุฏู…ู ููุง ู…ููุฏ ุฌุฏุงู ูู ูุงู ูุฏูู ุฃูุซุฑ ู…ู stacked plugins / HTML Nugget  ูู ู…ุฏููุชู ู ูู… ุชุนุทูุง ุนูุงููู ููู ูุณุงุนุฏ ุจุชุนุฑููู ูู ุฅุฌุฑุงุก ุนู ุงูุงุฎุฑ');
+@define('CATEGORIES_ALLOW_SELECT', 'ุงูุณู…ุงุญ ููุฒูุงุฑ ุจุนุฑุถ ุฃูุณุงู… ู…ุชุนุฏุฏุฉ ู…ุฑุฉ ูุงุญุฏุฉุ');
+@define('CATEGORIES_ALLOW_SELECT_DESC', 'ูู ุญุงู ุชุดุบูู ูุฐุง ุงูุฎูุงุฑ ูุฅู ุตูุฏูู ุฅุฎุชูุงุฑ ุณูู ูุชู… ุนุฑุถุฉ ุจุฌุงูุจ ู…ุณู…ู ูู ูุณู… ู…ู ุฃูุณุงู… ุงูู…ุฌูุฉ ุ ูุจุฐูู ุงูุฒุงุฆุฑ ูู…ูู ูู ุงูุชุนููู… ุนูู ุงูุงูุณุงู… ุงูุชู ูุฑูุฏ ุงูุงุทูุงุน ุนูููุง ููุท');
+@define('PAGE_BROWSE_PLUGINS', 'ุงูุตูุญุฉ ุฑูู… %s ู…ู %s, ู…ุฌู…ูุน %s ู…ูุงุถูุน.');
+@define('INSTALL_CAT_PERMALINKS', 'ุงูุฑูุงุจุท ุงูุฏุงุฆู…ุฉ');
+@define('INSTALL_CAT_PERMALINKS_DESC', 'ููุง ุชูุถูุญ ูุฑูุงุจุท ู…ุฎุชููุฉ ููู ุฑูุงุจุท ุฏุงุฆู…ุฉ ูู ุนู…ู ุงูู…ุฌูุฉ ุ ููุชุฑุถ ุนููู ุฃู ุชุณุชุฎุฏู… ุงูุฎูุงุฑ ุงูุงูุชุฑุงุถู ูู ูุฐู ุงูู…ุฌู…ูุนุฉ. ูุฅู ุฃุฑุฏุช ุชุบููุฑ ุดูุก ููู…ูู ูู ุงูู…ุญุงููุฉ ุจุงุณุชุฎุฏุงู… ุงูุชุนุงุฑู ูุงูููู…    ู…ุซู %id% ู…ุง ุฃู…ูู ุงูุฃู…ุฑ ู…ู ุฐูู ูู ูุง ูููู ููุงู ุงุฎุชูุงู ูู ูุตูู ุงูู…ุนููู…ุงุช ุฅูู ูุงุนุฏุฉ ุงูุจูุงูุงุช');
+@define('INSTALL_PERMALINK', 'ุจููุฉ ุฅุฏุฎุงู ุงูุฑุงุจุท ุงูุงุณุงุณู');
 @define('INSTALL_PERMALINK_DESC', 'Here you can define the relative URL structure beginning from your base URL to where entries may become available. You can use the variables %id%, %title%, %day%, %month%, %year% and any other characters.');
-@define('INSTALL_PERMALINK_AUTHOR', 'วแัวศุ วแฯวฦใ แแๆีๆแ ลแ์ ฿วสศ วแใๆึๆฺ');
+@define('INSTALL_PERMALINK_AUTHOR', 'ุงูุฑุงุจุท ุงูุฏุงุฆู… ูููุตูู ุฅูู ูุงุชุจ ุงูู…ูุถูุน');
 @define('INSTALL_PERMALINK_AUTHOR_DESC', 'Here you can define the relative URL structure beginning from your base URL to where entries from certain authors may become available. You can use the variables %id%, %realname%, %username%, %email% and any other characters.');
 @define('INSTALL_PERMALINK_CATEGORY', 'Permalink Category URL structure');
 @define('INSTALL_PERMALINK_CATEGORY_DESC', 'Here you can define the relative URL structure beginning from your base URL to where entries from certain categories may become available. You can use the variables %id%, %name%, %parentname%, %description% and any other characters.');
@@ -734,30 +735,30 @@
 @define('INSTALL_PERMALINK_FEEDAUTHOR', 'Permalink RSS-Feed Author URL structure');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Here you can define the relative URL structure beginning from your base URL to where RSS-feeds from specific users may be viewed. You can use the variables %id%, %realname%, %username%, %email% and any other characters.');
 @define('INSTALL_PERMALINK_ID_WARNING', 'If you remove the essential %id% variable, Serendipity can not create an exact relationship. This has effects on various accesses and subsequent processes and is not recommended without taking your own responsibility!');
-@define('INSTALL_PERMALINK_ARCHIVESPATH', 'ใำวั วแรัิํÝวส');
-@define('INSTALL_PERMALINK_ARCHIVEPATH', 'ใำวั วแรัิํÝ');
-@define('INSTALL_PERMALINK_CATEGORIESPATH', 'ใำวั วแรÞำวใ');
-@define('INSTALL_PERMALINK_AUTHORSPATH', 'ใำวั วแ฿สวศ รๆ วแใอััํไ');
-@define('INSTALL_PERMALINK_UNSUBSCRIBEPATH', 'ใำวั วแสฺแํÞวส วแÛํั ใิวั฿ษ');
-@define('INSTALL_PERMALINK_DELETEPATH', 'ใำวั วแสฺแํÞวส วแใอะๆÝษ');
-@define('INSTALL_PERMALINK_APPROVEPATH', 'ใำวั วแสฺแํÞวส วแสํ สใส วแใๆวÝÞษ ฺแํๅว');
-@define('INSTALL_PERMALINK_FEEDSPATH', 'ใำวั RSS');
-@define('INSTALL_PERMALINK_PLUGINPATH', 'ใำวั ศแๆÞ วไ ใฺํไ');
-@define('INSTALL_PERMALINK_ADMINPATH', 'ใำวั แๆอษ วแสอ฿ใ');
-@define('INSTALL_PERMALINK_SEARCHPATH', 'ใำวั วแศอห');
-@define('INSTALL_CAL', 'ไๆฺ วแสÞๆํใ');
-@define('INSTALL_CAL_DESC', 'วฮสั ๅํฦษ วแสÞๆใ วแสํ สัํฯ');
-@define('REPLY', 'ัฯ');
-@define('USERCONF_GROUPS', 'ใฬใๆฺษ วแวฺึวม');
-@define('USERCONF_GROUPS_DESC', 'ๅะว วแฺึๆ แฯํษ ฺึๆํษ Ýํ ๅะๅ วแใฬใๆฺวส. สฺฯฯ วแฺึๆํๅ Ýํ ใฬใๆฺวส ใฮสแÝษ ใใ฿ไ');
+@define('INSTALL_PERMALINK_ARCHIVESPATH', 'ู…ุณุงุฑ ุงูุฃุฑุดููุงุช');
+@define('INSTALL_PERMALINK_ARCHIVEPATH', 'ู…ุณุงุฑ ุงูุฃุฑุดูู');
+@define('INSTALL_PERMALINK_CATEGORIESPATH', 'ู…ุณุงุฑ ุงูุฃูุณุงู…');
+@define('INSTALL_PERMALINK_AUTHORSPATH', 'ู…ุณุงุฑ ุงููุชุงุจ ุฃู ุงูู…ุญุฑุฑูู');
+@define('INSTALL_PERMALINK_UNSUBSCRIBEPATH', 'ู…ุณุงุฑ ุงูุชุนูููุงุช ุงูุบูุฑ ู…ุดุงุฑูุฉ');
+@define('INSTALL_PERMALINK_DELETEPATH', 'ู…ุณุงุฑ ุงูุชุนูููุงุช ุงูู…ุญุฐููุฉ');
+@define('INSTALL_PERMALINK_APPROVEPATH', 'ู…ุณุงุฑ ุงูุชุนูููุงุช ุงูุชู ุชู…ุช ุงูู…ูุงููุฉ ุนูููุง');
+@define('INSTALL_PERMALINK_FEEDSPATH', 'ู…ุณุงุฑ RSS');
+@define('INSTALL_PERMALINK_PLUGINPATH', 'ู…ุณุงุฑ ุจููู ุงู ู…ุนูู');
+@define('INSTALL_PERMALINK_ADMINPATH', 'ู…ุณุงุฑ ููุญุฉ ุงูุชุญูู…');
+@define('INSTALL_PERMALINK_SEARCHPATH', 'ู…ุณุงุฑ ุงูุจุญุซ');
+@define('INSTALL_CAL', 'ููุน ุงูุชูููู…');
+@define('INSTALL_CAL_DESC', 'ุงุฎุชุฑ ููุฆุฉ ุงูุชููู… ุงูุชู ุชุฑูุฏ');
+@define('REPLY', 'ุฑุฏ');
+@define('USERCONF_GROUPS', 'ู…ุฌู…ูุนุฉ ุงูุงุนุถุงุก');
+@define('USERCONF_GROUPS_DESC', 'ูุฐุง ุงูุนุถู ูุฏูุฉ ุนุถููุฉ ูู ูุฐู ุงูู…ุฌู…ูุนุงุช. ุชุนุฏุฏ ุงูุนุถููู ูู ู…ุฌู…ูุนุงุช ู…ุฎุชููุฉ ู…ู…ูู');
 @define('GROUPCONF_GROUPS', 'Selectable members of this group');
-@define('MANAGE_GROUPS', 'วฯวัษ วแใฬใๆฺวส');
-@define('DELETED_GROUP', 'สใ อะÝๅว #%d \'%s\' วแใฬใๆฺษ');
-@define('CREATED_GROUP', 'สใ วไิวมๅว #%d \'%s\' วแใฬใๆฺษ วแฬฯํฯษ');
-@define('MODIFIED_GROUP', 'สใ สÛํํัๅว \'%s\' ฮีวฦี วแใฬใๆฺษ');
-@define('GROUP', 'วแใฬใๆฺวส');
-@define('CREATE_NEW_GROUP', 'วไิวม ใฬใๆฺษ ฬฯํฯษ');
-@define('DELETE_GROUP', 'ๅแ วไส ใสร฿ฯ ใไ อะÝ วแใฬใๆฺษ #%d \'%s\'');
+@define('MANAGE_GROUPS', 'ุงุฏุงุฑุฉ ุงูู…ุฌู…ูุนุงุช');
+@define('DELETED_GROUP', 'ุชู… ุญุฐููุง #%d \'%s\' ุงูู…ุฌู…ูุนุฉ');
+@define('CREATED_GROUP', 'ุชู… ุงูุดุงุกูุง #%d \'%s\' ุงูู…ุฌู…ูุนุฉ ุงูุฌุฏูุฏุฉ');
+@define('MODIFIED_GROUP', 'ุชู… ุชุบููุฑูุง \'%s\' ุฎุตุงุฆุต ุงูู…ุฌู…ูุนุฉ');
+@define('GROUP', 'ุงูู…ุฌู…ูุนุงุช');
+@define('CREATE_NEW_GROUP', 'ุงูุดุงุก ู…ุฌู…ูุนุฉ ุฌุฏูุฏุฉ');
+@define('DELETE_GROUP', 'ูู ุงูุช ู…ุชุฃูุฏ ู…ู ุญุฐู ุงูู…ุฌู…ูุนุฉ #%d \'%s\'');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'The ID of the feed you wish to publish');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'FeedBurner image');
@@ -766,25 +767,25 @@
 @define('SYNDICATION_PLUGIN_FEEDBURNERTITLE_DESC', 'Title (if any) to display alongside the image');
 @define('SYNDICATION_PLUGIN_FEEDBURNERALT', 'FeedBurner image text');
 @define('SYNDICATION_PLUGIN_FEEDBURNERALT_DESC', 'Text (if any) to display when hovering the image');
-@define('INSTALL_DBPORT', 'ใไÝะ Þวฺฯษ วแศํวไวส');
-@define('INSTALL_DBPORT_DESC', 'ใไÝะ วแวสีวแ ศำํัÝั Þวฺฯษ วแศํวไวส');
-@define('PLUGIN_GROUP_FRONTEND_EXTERNAL_SERVICES', 'ใๆฬๅ ลแ์ ำํัÝ ฮวัฬํ');
-@define('PLUGIN_GROUP_FRONTEND_FEATURES', 'ใแวใอ วแสๆฬํษ');
+@define('INSTALL_DBPORT', 'ู…ููุฐ ูุงุนุฏุฉ ุงูุจูุงูุงุช');
+@define('INSTALL_DBPORT_DESC', 'ู…ููุฐ ุงูุงุชุตุงู ุจุณูุฑูุฑ ูุงุนุฏุฉ ุงูุจูุงูุงุช');
+@define('PLUGIN_GROUP_FRONTEND_EXTERNAL_SERVICES', 'ู…ูุฌู ุฅูู ุณูุฑู ุฎุงุฑุฌู');
+@define('PLUGIN_GROUP_FRONTEND_FEATURES', 'ู…ูุงู…ุญ ุงูุชูุฌูุฉ');
 @define('PLUGIN_GROUP_FRONTEND_FULL_MODS', 'Frontend: Full Mods');
-@define('PLUGIN_GROUP_FRONTEND_VIEWS', 'Frontend: ใิวๅฯษ');
+@define('PLUGIN_GROUP_FRONTEND_VIEWS', 'Frontend: ู…ุดุงูุฏุฉ');
 @define('PLUGIN_GROUP_FRONTEND_ENTRY_RELATED', 'Frontend: Entry Related');
-@define('PLUGIN_GROUP_BACKEND_EDITOR', 'Backend: ใอัั');
+@define('PLUGIN_GROUP_BACKEND_EDITOR', 'Backend: ู…ุญุฑุฑ');
 @define('PLUGIN_GROUP_BACKEND_USERMANAGEMENT', 'Backend: Usermanagement');
 @define('PLUGIN_GROUP_BACKEND_METAINFORMATION', 'Backend: Meta information');
-@define('PLUGIN_GROUP_BACKEND_TEMPLATES', 'Backend: Þๆวแศ');
-@define('PLUGIN_GROUP_BACKEND_FEATURES', 'Backend: ใแวใอ');
+@define('PLUGIN_GROUP_BACKEND_TEMPLATES', 'Backend: ููุงูุจ');
+@define('PLUGIN_GROUP_BACKEND_FEATURES', 'Backend: ู…ูุงู…ุญ');
 @define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Backend: Maintenance');
 @define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Backend: Startpage');
 @define('PLUGIN_GROUP_BACKEND_ADMIN', ADMIN); // is constant, no quotes, no translate!
-@define('PLUGIN_GROUP_IMAGES', 'ีๆั');
-@define('PLUGIN_GROUP_ANTISPAM', 'ใÞวๆใษ วแำศวใ');
-@define('PLUGIN_GROUP_MARKUP', 'ใฤิั ฺแํๅว');
-@define('PLUGIN_GROUP_STATISTICS', 'ลอีวฦํวส');
+@define('PLUGIN_GROUP_IMAGES', 'ุตูุฑ');
+@define('PLUGIN_GROUP_ANTISPAM', 'ู…ูุงูู…ุฉ ุงูุณุจุงู…');
+@define('PLUGIN_GROUP_MARKUP', 'ู…ุคุดุฑ ุนูููุง');
+@define('PLUGIN_GROUP_STATISTICS', 'ุฅุญุตุงุฆูุงุช');
 
  // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: Access personal configuration');
@@ -805,7 +806,7 @@
 @define('PERMISSION_ADMINUSERSEDITUSERLEVEL', 'adminUsersEditUserlevel: Change userlevel');
 @define('PERMISSION_ADMINUSERSMAINTAINSAME', 'adminUsersMaintainSame: Administrate users that are in your group(s)');
 @define('PERMISSION_ADMINUSERSMAINTAINOTHERS', 'adminUsersMaintainOthers: Administrate users that are not in your group(s)');
-@define('PERMISSION_ADMINUSERSCREATENEW', 'adminUsersCreateNew: รไิวม ใำสฮฯใ ฬฯํฯ');
+@define('PERMISSION_ADMINUSERSCREATENEW', 'adminUsersCreateNew: ุฃูุดุงุก ู…ุณุชุฎุฏู… ุฌุฏูุฏ');
 @define('PERMISSION_ADMINUSERSGROUPS', 'adminUsersGroups: Administrate usergroups');
 @define('PERMISSION_ADMINPLUGINS', 'adminPlugins: Administrate plugins');
 @define('PERMISSION_ADMINPLUGINSMAINTAINOTHERS', 'adminPluginsMaintainOthers: Administrate other user\'s plugins');
@@ -823,39 +824,36 @@
 @define('GROUP_ADMIN_INFO_DESC', '<b>Keep in mind:</b> Changing or giving certain rights, might implement security risks. There are at least 3 permission flags [<em>adminPluginsMaintainOthers</em>, <em>adminUsersMaintainOthers</em> and <em>siteConfiguration</em>] which should stick to the ADMINISTRATOR <b>only</b>! Otherwise, vital conditions of your blog are endangered. Compare and understand what are the main differences between you, the ADMIN, and between "Editors in CHIEF" and normal "USERs". The [<em>siteAutoUpgrades</em>] permission flag is for a special cased and assigned CHIEF only. Read in the ChangeLog, the Styx Sites Help Center or the german Book on how to use it!');
 @define('GROUP_CHIEF_INFO_DESC', '<b>Keep in mind:</b> Changing or giving certain rights to normal USERs, might implement security risks. You should deeply check which permission flag should be allowed/removed, compared to a standard USER! Otherwise, vital conditions of certain areas are endangered. Compare and understand what are the main differences between you, the "Editor in CHIEF" and normal "USERs". Read in the Styx Sites Help Center or the german Book for more information!');
 
-@define('INSTALL_BLOG_EMAIL', 'ฺไๆวไ ศัํฯ วแใฬแษ');
-@define('INSTALL_BLOG_EMAIL_DESC', 'ๅะว ลฺฯวฯ วแศัํฯ วแลแ฿สัๆไํ วแะํ ำๆÝ สีแ ฺแํๅ วแัำวฦแ Ýํ อวแ Þวใ วแาวฦั ศใัวำแษ ลฯวัษ วแใฬแษ. ํฬศ ฺแํ฿ รไ สสร฿ฯ ใไ รไ ๅะว วแศัํฯ ีอํอ ๆ ลไ ฿วไ ใไ Þศแ วำสึวÝส฿ รไ ํ฿ๆไ ใฺัÝ Ýํ ลฯวัษ ศัํฯ วแวำสึวÝษ ก อํห ใไ วแใใ฿ไ แๆ แใ ํ฿ไ ศัํฯ ใฺัÝ รไ ํัÝึ ีฯๆั วแใัวำแวส ใไ วแใฬแษ');
-@define('CATEGORIES_PARENT_BASE', 'ÝÞุ รฺัึ วแรÞำวใ Ýํ วแรำÝแ');
+@define('INSTALL_BLOG_EMAIL', 'ุนููุงู ุจุฑูุฏ ุงูู…ุฌูุฉ');
+@define('INSTALL_BLOG_EMAIL_DESC', 'ูุฐุง ุฅุนุฏุงุฏ ุงูุจุฑูุฏ ุงูุฅููุชุฑููู ุงูุฐู ุณูู ุชุตู ุนููู ุงูุฑุณุงุฆู ูู ุญุงู ูุงู… ุงูุฒุงุฆุฑ ุจู…ุฑุงุณูุฉ ุฅุฏุงุฑุฉ ุงูู…ุฌูุฉ. ูุฌุจ ุนููู ุฃู ุชุชุฃูุฏ ู…ู ุฃู ูุฐุง ุงูุจุฑูุฏ ุตุญูุญ ู ุฅู ูุงู ู…ู ูุจู ุงุณุชุถุงูุชู ุฃู ูููู ู…ุนุฑู ูู ุฅุฏุงุฑุฉ ุจุฑูุฏ ุงูุงุณุชุถุงูุฉ ุ ุญูุซ ู…ู ุงูู…ู…ูู ูู ูู… ููู ุจุฑูุฏ ู…ุนุฑู ุฃู ูุฑูุถ ุตุฏูุฑ ุงูู…ุฑุงุณูุงุช ู…ู ุงูู…ุฌูุฉ');
+@define('CATEGORIES_PARENT_BASE', 'ููุท ุฃุนุฑุถ ุงูุฃูุณุงู… ูู ุงูุฃุณูู');
 @define('CATEGORIES_PARENT_BASE_DESC', 'You can choose a parent category so that only the child categories are shown.');
-@define('CATEGORIES_HIDE_PARALLEL', 'รฮÝวม วแรÞำวใ วแสํ แํำส ใไ ึใไ ิฬัษ วแสีไํÝ');
+@define('CATEGORIES_HIDE_PARALLEL', 'ุฃุฎูุงุก ุงูุฃูุณุงู… ุงูุชู ููุณุช ู…ู ุถู…ู ุดุฌุฑุฉ ุงูุชุตููู');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'If you want to hide categories that are part of a different category tree, you need to enable this. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin, i.e if you choose multi categories by the categories checkbox selection.');
-@define('CHARSET_NATIVE', 'ใอแํ');
-@define('INSTALL_CHARSET', 'สัใํา วแรอัÝ');
-@define('INSTALL_CHARSET_DESC', ' ๅไว ํใ฿ไ แ฿  รไ สÛํั ศํไ วแสัใํา วแฺวแใํ UTF-8 ๆ วแสัใํา วแใอแํ แแÛส฿ ใหแ สัใํา (ISO, EUC, ...)  ก ศฺึ วแแÛวส แฯํๅว ÝÞุ สัฬใษ สัใํา UTF-8  แะแ฿ ศวฮสํวัํ฿ สัใํา แÛส฿ วแใอแํษ แไ ํ฿ๆไ แๅ รหั ฺแ์ รฯวม ใฯๆไส฿ ก ไÞสัอ วำสฮฯวใ UTF-8 แแสั฿ํศ วแฬฯํฯ. รอะั . . .รอะั . . . รอะั . . .  แว สÞใ ศสÛํํั วแสัใํา ละว ฿ไส ฿สศส ใๆวึํฺ ใไ Þศแ. แรไ ใว ฿สศสๅ ศสัใํา แÛษ รฮั์ ำๆÝ ํีศอ ฺแ์ ิ฿แ ุแวำใ. รสฬๅ ลแ์ ๅะว วแใๆÞฺ https://ophian.github.io/hc/en/i18n.html   แแวุแวฺ ฺแ์ วแใาํฯ ใไ วแใฺแๆใวส');
 @define('CALENDAR_ENABLE_EXTERNAL_EVENTS', 'Enable Plugin API hook');
 @define('CALENDAR_EXTEVENT_DESC', 'If enabled, plugins can hook into the calendar to display their own events highlighted. Only enable if you have installed plugins that need this, otherwise it just decreases performance.');
 @define('XMLRPC_NO_LONGER_BUNDLED', 'The XML-RPC API Interface to Serendipity is no longer bundled because of ongoing security issues with this API and not many people using it. Thus you need to install the XML-RPC Plugin to use the XML-RPC API. The URL to use in your applications will NOT change - as soon as you have installed the plugin, you will again be able to use the API.');
-@define('PERM_READ', 'Þัวมษ วแสีัํอ');
-@define('PERM_WRITE', '฿สวศษ วแสีัํอ');
-@define('PERM_DENIED', 'สฬวๅแ วแสีัํอ');
-@define('INSTALL_ACL', 'ุศÞ สีัํอ วแÞัวมษ แ์ วแรÞำวใ');
+@define('PERM_READ', 'ูุฑุงุกุฉ ุงูุชุตุฑูุญ');
+@define('PERM_WRITE', 'ูุชุงุจุฉ ุงูุชุตุฑูุญ');
+@define('PERM_DENIED', 'ุชุฌุงูู ุงูุชุตุฑูุญ');
+@define('INSTALL_ACL', 'ุทุจู ุชุตุฑูุญ ุงููุฑุงุกุฉ ูู ุงูุฃูุณุงู…');
 @define('INSTALL_ACL_DESC', 'If enabled, the usergroup permission settings you setup for categories will be applied when logged-in users view your blog. If disabled, the read-permissions of the categories are NOT applied, but the positive effect is a little speedup on your blog. So if you don\'t need multi-user read permissions for your blog, disable this setting.');
-@define('PLUGIN_API_VALIDATE_ERROR', 'ฮํวัวส ๅํฦษ ฬใแ วแฮุร "%s". สอสวฬ ลแ์ รไๆวฺ วแใอสๆํวส "%s".');
+@define('PLUGIN_API_VALIDATE_ERROR', 'ุฎูุงุฑุงุช ููุฆุฉ ุฌู…ู ุงูุฎุทุฃ "%s". ุชุญุชุงุฌ ุฅูู ุฃููุงุน ุงูู…ุญุชููุงุช "%s".');
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
-@define('USERCONF_CHECK_PASSWORD', '฿แใษ วแใัๆั วแÞฯํใษ');
-@define('USERCONF_CHECK_PASSWORD_DESC', 'รไ Ûํัษ ฿แใษ วแใัๆั Ýํ วแอÞแ วแำวศÞ ก Ýรไๅ ํฬศ รไ สฯฮแ ฿แใษ วแใัๆั วแอวแํษ Ýํ ๅะว วแอÞแ');
+@define('USERCONF_CHECK_PASSWORD', 'ููู…ุฉ ุงูู…ุฑูุฑ ุงููุฏูู…ุฉ');
+@define('USERCONF_CHECK_PASSWORD_DESC', 'ุฃู ุบูุฑุฉ ููู…ุฉ ุงูู…ุฑูุฑ ูู ุงูุญูู ุงูุณุงุจู ุ ูุฃูู ูุฌุจ ุฃู ุชุฏุฎู ููู…ุฉ ุงูู…ุฑูุฑ ุงูุญุงููุฉ ูู ูุฐุง ุงูุญูู');
 @define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
-@define('USERCONF_CHECK_PASSWORD_ERROR', 'แใ สฯฮแ ฿แใษ วแใัๆั วแีอํอษ วแอวแํษ .แะแ฿ แํำ ใไ ีแวอํวส฿ สÛํํั ฿แใษ วแใัๆั วแ์ ฿แใษ ฬํฯษ. ! ! ! สไศํๅ: แใ ํสใ อÝู วแสÛํํัวส');
+@define('USERCONF_CHECK_PASSWORD_ERROR', 'ูู… ุชุฏุฎู ููู…ุฉ ุงูู…ุฑูุฑ ุงูุตุญูุญุฉ ุงูุญุงููุฉ .ูุฐูู ููุณ ู…ู ุตูุงุญูุงุชู ุชุบููุฑ ููู…ุฉ ุงูู…ุฑูุฑ ุงูู ููู…ุฉ ุฌูุฏุฉ. ! ! ! ุชูุจูู: ูู… ูุชู… ุญูุธ ุงูุชุบููุฑุงุช');
 @define('ERROR_XSRF', 'Your browser did not sent a valid HTTP-Referrer string. This may have either been caused by a misconfigured browser/proxy or by a Cross Site Request Forgery (XSRF) aimed at you. The action you requested could not be completed.');
-@define('AUTHORS', 'วแใอััํไ');
-@define('AUTHORS_ALLOW_SELECT', 'วแำใวอ แแาๆวั ศฺัึ ฺฯษ ฿สวศ ฿แ ใัษฟ');
+@define('AUTHORS', 'ุงูู…ุญุฑุฑูู');
+@define('AUTHORS_ALLOW_SELECT', 'ุงูุณู…ุงุญ ููุฒูุงุฑ ุจุนุฑุถ ุนุฏุฉ ูุชุงุจ ูู ู…ุฑุฉุ');
 @define('AUTHORS_ALLOW_SELECT_DESC', 'If this option is enabled, a checkbox will be put next to each author in this sidebar plugin.  Users can check those boxes and see entries matching their selection.');
-@define('AUTHOR_PLUGIN_DESC', 'รฺัึ Þวฦใษ ศรำใวม วแ฿สวศ');
+@define('AUTHOR_PLUGIN_DESC', 'ุฃุนุฑุถ ูุงุฆู…ุฉ ุจุฃุณู…ุงุก ุงููุชุงุจ');
 @define('CATEGORY_PLUGIN_TEMPLATE', 'Enable Smarty-Templates?');
 @define('CATEGORY_PLUGIN_TEMPLATE_DESC', 'If this option is enabled, the plugin will utilize Smarty-Templating features to output the category listing. If you enable this, you can change the layout via the "plugin_categories.tpl" template file. Enabling this option will impact performance, so if you do not need to make customizations, leave it disabled.');
-@define('CATEGORY_PLUGIN_SHOWCOUNT', 'รฺัึ ฺฯฯ วแใๆวึํฺ แ฿ สีไํÝฟ');
-@define('AUTHORS_SHOW_ARTICLE_COUNT', 'รฺัึ ฺฯฯ ใๆวึํฺ วแ฿วสศ ศฬวไศ รำใๅฟ');
-@define('AUTHORS_SHOW_ARTICLE_COUNT_DESC', 'Ýํ อวแ สิÛํแ ๅะว วแฮํวั Ýลไ ฺฯฯ วแใๆวึํฺ วแฮวีษ ศๅะว วแ฿วสศ ำๆÝ ํสใ ฺัึๅว ศฬวไศ ลำใๅ');
+@define('CATEGORY_PLUGIN_SHOWCOUNT', 'ุฃุนุฑุถ ุนุฏุฏ ุงูู…ูุงุถูุน ูู ุชุตูููุ');
+@define('AUTHORS_SHOW_ARTICLE_COUNT', 'ุฃุนุฑุถ ุนุฏุฏ ู…ูุงุถูุน ุงููุงุชุจ ุจุฌุงูุจ ุฃุณู…ูุ');
+@define('AUTHORS_SHOW_ARTICLE_COUNT_DESC', 'ูู ุญุงู ุชุดุบูู ูุฐุง ุงูุฎูุงุฑ ูุฅู ุนุฏุฏ ุงูู…ูุงุถูุน ุงูุฎุงุตุฉ ุจูุฐุง ุงููุงุชุจ ุณูู ูุชู… ุนุฑุถูุง ุจุฌุงูุจ ุฅุณู…ู');
 @define('CUSTOM_ADMIN_INTERFACE', 'Custom admin interface');
 
 @define('INSTALL_TRACKREF', 'Enable referrer tracking?');
@@ -921,6 +919,8 @@
 @define('MEDIA_UPLOAD_SIZEERROR', 'Error: You cannot upload files larger than %s bytes!');
 @define('MEDIA_UPLOAD_MAXWIDTH', 'Max. width of image files for upload');
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Enter the maximum image width in pixels for uploaded images.');
+@define('MEDIA_UPLOAD_MAXWIDTH_PORTRAIT', 'Max. (opt.) width for images in portrait format');
+@define('MEDIA_UPLOAD_MAXWIDTH_PORTRAIT_DESC', 'Enter (optionally) the maximum permitted width in pixels for portrait format images to be uploaded. This is important if you activate the โ€Resize on uploadโ€ option and generally only want to generate images of a specified base width differently for portrait and landscape formats. This only applies if the options โ€Largestโ€ side and โ€Resize on uploadโ€ are given. This optional specification does not release you from the following definition of a specific maximum height limit.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', 'Max. height of image files for upload');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'Enter the maximum image height in pixels for uploaded images.');
 @define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
@@ -1078,6 +1078,8 @@ You should not want to operate a security-relevant access system with them!');
 @define('CLEANCOMPILE_FAIL', 'No files available for clearing.');
 @define('CLEANCOMPILE_TITLE', 'Clear template cache');
 @define('CLEANCOMPILE_INFO', 'This will purge all compiled template files of the current active template. Compiled templates will be automatically re-created on demand by the Smarty framework.');
+@define('CLEAR_SELECTION', 'Clear selection');
+@define('CLEAR_FIELD', 'Clear textarea');
 @define('INSTALLER_KEY', 'Key');
 @define('INSTALLER_VALUE', 'Value');
 @define('CURRENT_TAB', 'Current tab: ');
@@ -1288,8 +1290,8 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('ERROR_DONT_CUT_YOUR_WHINEYARD', 'You should never delete the highest GROUP LEVEL you are in: %s: %s.');
 
 @define('MEDIA_SERVE_INFO', 'Serve media buttons description info');
-@define('PICTURE_FORMAT_BUTTON_DESC', 'Simple img element - <b>vs</b> - The modern & recommended & containerized form of delivering images including Variations! Normally called "responsive images" container, but here used for responsive Variation formats!');
+@define('PICTURE_FORMAT_BUTTON_DESC', 'Simple img element ['.ADD_MEDIA.'] - <b>vs</b> - The modern, recommended & containerized form of delivering images including Variations! Normally called "responsive images" container, but here used for responsive Variation formats!');
 
-@define('ENABLEAVIF', 'Enable use of AVIF Variations up from PHP 8.1');
-@define('ENABLEAVIF_DESC', 'Image AVIF variations can be very demanding on resources, since a lot of Ram and CPU/GPU cores are needed to encode images into the AV1 format. Mass uploads and mass conversions (see "Maintenance") are therefore not recommended. Learn to handle on some examples before you generally allow to keep it enabled. PHP 8.1 still lacks a crucial build-in feature to read size information from AVIF files using the usual methods. For the time being, this also means that the image functions of the MediaLibrary "Resize this image" and "Rotate image 90 degrees" cannot be used for all formats when using AVIF, since each of these actions affects the original image as well as its variations. PHP 8.2 solves this issue by adding the missing feature.');
+@define('ENABLEAVIF', 'Enable use of AVIF Variations');
+@define('ENABLEAVIF_DESC', 'The AVIF image format is a new compression format for the web that is supported by all major browser manufacturers. However, the calculation of AVIF variations can be resource-intensive and takes time to encode images into the AV1 format. For example, an image of 6 MB takes around 20 seconds - but with compression to around 10% of the original size without any visible loss. Mass uploads or mass conversions (see "Maintenance") are therefore not recommended. Single image uploads should not be larger than 12-13 MB in the original, so that the time required and susceptibility to errors are kept within limits. It is best to learn how to handle them using a few examples before you generally allow them to be used.');
 

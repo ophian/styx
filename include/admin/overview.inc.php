@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -27,7 +29,7 @@ if (isset($serendipity['POST']['adminAction'])) {
                 break;
             }
             $success = serendipity_updertEntry(array(
-                'id' => serendipity_specialchars($serendipity['POST']['id']),
+                'id' => htmlspecialchars($serendipity['POST']['id']),
                 'timestamp' => time(),
                 'isdraft' => 0
             ));
@@ -97,7 +99,7 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
                 if (!empty($post_hash[1])) {
                     $hash = serendipity_db_escape_string($post_hash[1]);
                     $hide_hashes[] = $hash;
-                    $aha = md5("{$author}{$hash}");
+                    $aha = hash('xxh128', "{$author}{$hash}");
                     if ($hash != '0') {
                         // delete the sysinfo_ticker hash message item from database. It will be renewed in the fnc serendipity_sysInfoTicker() unless being marked as read checked and stored hashes.
                         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE name = 'sysinfo_ticker' AND okey = 'l_sysinfo_{$aha}' AND value = '$hash'");
@@ -163,7 +165,7 @@ $data['shortcuts'] = $data['comments']['pending'] = $data['entries']['futures'] 
 // SQL
 $cjoin  = ($serendipity['serendipityUserlevel'] == USERLEVEL_EDITOR) ? "
         LEFT JOIN {$serendipity['dbPrefix']}authors a ON (e.authorid = a.authorid)
-            WHERE e.authorid = " . (int)$serendipity['authorid']
+            WHERE e.authorid = " . (int) $serendipity['authorid']
         : '';
 $where = !empty($cjoin) ? 'AND' : 'WHERE';
 $cquery = "SELECT COUNT(c.id) AS newcom
@@ -171,12 +173,12 @@ $cquery = "SELECT COUNT(c.id) AS newcom
         LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
            $cjoin
            $where status = 'pending'";
-$efilter  = ($serendipity['serendipityUserlevel'] == USERLEVEL_EDITOR) ? ' AND e.authorid = ' . (int)$serendipity['authorid'] : '';
+$efilter  = ($serendipity['serendipityUserlevel'] == USERLEVEL_EDITOR) ? ' AND e.authorid = ' . (int) $serendipity['authorid'] : '';
 $comments = serendipity_db_query($cquery);
 $futures  = serendipity_db_query("SELECT COUNT(e.id) AS count FROM {$serendipity['dbPrefix']}entries AS e $cjoin $where e.timestamp >= " . serendipity_serverOffsetHour() . $efilter, true);
 $drafts   = serendipity_db_query("SELECT COUNT(e.id) AS count FROM {$serendipity['dbPrefix']}entries AS e $cjoin $where e.isdraft = 'true'" . $efilter, true);
 
-$permByAuthor = (!serendipity_checkPermission('adminUsers') && (int)$serendipity['authorid'] > 1) ? '&serendipity[filter][author]=' .(int)$serendipity['authorid'] : '';
+$permByAuthor = (!serendipity_checkPermission('adminUsers') && (int) $serendipity['authorid'] > 1) ? '&serendipity[filter][author]=' .(int) $serendipity['authorid'] : '';
 
 // Assign
 if (is_array($comments)) {

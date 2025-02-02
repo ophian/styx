@@ -427,7 +427,7 @@ class HTTP_Request2 implements SplSubject
      *
      * @return   HTTP_Request2
      */
-    public function setAuth($user, $password = '', $scheme = self::AUTH_BASIC)
+    public function setAuth($user, #[\SensitiveParameter] $password = '', $scheme = self::AUTH_BASIC)
     {
         if (empty($user)) {
             $this->auth = null;

@@ -11,6 +11,7 @@
 @define('DATE_FORMAT_ENTRY', '%A, %B %e. %Y');
 @define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
 @define('WYSIWYG_LANG', 'zh_TW');
+@define('TINYMCE_LANG', 'tn');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', '.');
 @define('NUMBER_FORMAT_THOUSANDS', ',');
@@ -416,8 +417,8 @@ $i18n_unknown = 'tw';
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', '外觀及選項設定');
 @define('INSTALL_CAT_DISPLAY_DESC', '讓您設定 Serendipity 的外觀和其他設定');
-@define('INSTALL_WYSIWYG', '使用 WYSIWYG 編輯器');
-@define('INSTALL_WYSIWYG_DESC', '您要使用 WYSIWYG 編輯器嗎?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
+@define('INSTALL_WYSIWYG', '使用 RichText (WYSIWYG) 編輯器');
+@define('INSTALL_WYSIWYG_DESC', '這個編輯器會用在常見的 textarea 欄位，例如輸入表格、靜態頁面、註解 (有額外的全域選項設定) 以及其他一些外掛程式的地方；它會直接儲存 HTML 標記。');
 @define('INSTALL_POPUP', '使用彈出視窗');
 @define('INSTALL_POPUP_DESC', '您要在迴響, 引用等地方使用彈出視窗嗎?');
 @define('INSTALL_EMBED', '使用內嵌功能?');
@@ -827,9 +828,6 @@ $i18n_unknown = 'tw';
 @define('CATEGORIES_PARENT_BASE_DESC', '您可以選擇一個母類別，只顯示它下面的子類別。');
 @define('CATEGORIES_HIDE_PARALLEL', '隱藏不在類別結構內的類別');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'If you want to hide categories that are part of a different category tree, you need to enable this. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin, i.e if you choose multi categories by the categories checkbox selection.');
-@define('CHARSET_NATIVE', '預設');
-@define('INSTALL_CHARSET', '語系選項');
-@define('INSTALL_CHARSET_DESC', '這裡可以讓您轉換 UTF-8 或預設語系 (ISO, EUC, ...)。有些語言只有 UTF-8 語系檔，所以換成預設語系不會改變任何東西。新安裝的網誌建議使用 UTF-8 語系。記得不要改變這個設定如果您已經發佈了文章。詳情請看 https://ophian.github.io/hc/en/i18n.html。');
 @define('CALENDAR_ENABLE_EXTERNAL_EVENTS', '開啟外掛 API');
 @define('CALENDAR_EXTEVENT_DESC', '如果開啟，外掛可以在日曆內以顏色突顯它的事件。如果沒有使用這些特殊的外掛，建議不要使用。');
 @define('XMLRPC_NO_LONGER_BUNDLED', 'XML-RPC API 功能已不加在 s9y 的安裝裡，因為漏洞和不多人使用的關係。所以您必須安裝 XML-RPC 的外掛如果要使用 XML-RPC API。所有的 URL 不會因此改變，安裝這個外掛後可以馬上使用。');
@@ -923,6 +921,8 @@ $i18n_unknown = 'tw';
 @define('MEDIA_UPLOAD_SIZEERROR', '錯誤：您不能上傳大於 %s 位元組的檔案！');
 @define('MEDIA_UPLOAD_MAXWIDTH', '圖片的最大寬度');
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', '輸入上傳的圖片的最大寬度。');
+@define('MEDIA_UPLOAD_MAXWIDTH_PORTRAIT', 'Max. (opt.) width for images in portrait format');
+@define('MEDIA_UPLOAD_MAXWIDTH_PORTRAIT_DESC', 'Enter (optionally) the maximum permitted width in pixels for portrait format images to be uploaded. This is important if you activate the “Resize on upload” option and generally only want to generate images of a specified base width differently for portrait and landscape formats. This only applies if the options “Largest” side and “Resize on upload” are given. This optional specification does not release you from the following definition of a specific maximum height limit.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', '圖片的最大長度');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', '輸入上傳的圖片的最大長度。');
 @define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
@@ -1080,6 +1080,8 @@ You should not want to operate a security-relevant access system with them!');
 @define('CLEANCOMPILE_FAIL', 'No files available for clearing.');
 @define('CLEANCOMPILE_TITLE', 'Clear template cache');
 @define('CLEANCOMPILE_INFO', 'This will purge all compiled template files of the current active template. Compiled templates will be automatically re-created on demand by the Smarty framework.');
+@define('CLEAR_SELECTION', 'Clear selection');
+@define('CLEAR_FIELD', 'Clear textarea');
 @define('INSTALLER_KEY', 'Key');
 @define('INSTALLER_VALUE', 'Value');
 @define('CURRENT_TAB', 'Current tab: ');
@@ -1289,8 +1291,8 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('ERROR_DONT_CUT_YOUR_WHINEYARD', 'You should never delete the highest GROUP LEVEL you are in: %s: %s.');
 
 @define('MEDIA_SERVE_INFO', 'Serve media buttons description info');
-@define('PICTURE_FORMAT_BUTTON_DESC', 'Simple img element - <b>vs</b> - The modern & recommended & containerized form of delivering images including Variations! Normally called "responsive images" container, but here used for responsive Variation formats!');
+@define('PICTURE_FORMAT_BUTTON_DESC', 'Simple img element ['.ADD_MEDIA.'] - <b>vs</b> - The modern, recommended & containerized form of delivering images including Variations! Normally called "responsive images" container, but here used for responsive Variation formats!');
 
-@define('ENABLEAVIF', 'Enable use of AVIF Variations up from PHP 8.1');
-@define('ENABLEAVIF_DESC', 'Image AVIF variations can be very demanding on resources, since a lot of Ram and CPU/GPU cores are needed to encode images into the AV1 format. Mass uploads and mass conversions (see "Maintenance") are therefore not recommended. Learn to handle on some examples before you generally allow to keep it enabled. PHP 8.1 still lacks a crucial build-in feature to read size information from AVIF files using the usual methods. For the time being, this also means that the image functions of the MediaLibrary "Resize this image" and "Rotate image 90 degrees" cannot be used for all formats when using AVIF, since each of these actions affects the original image as well as its variations. PHP 8.2 solves this issue by adding the missing feature.');
+@define('ENABLEAVIF', 'Enable use of AVIF Variations');
+@define('ENABLEAVIF_DESC', 'The AVIF image format is a new compression format for the web that is supported by all major browser manufacturers. However, the calculation of AVIF variations can be resource-intensive and takes time to encode images into the AV1 format. For example, an image of 6 MB takes around 20 seconds - but with compression to around 10% of the original size without any visible loss. Mass uploads or mass conversions (see "Maintenance") are therefore not recommended. Single image uploads should not be larger than 12-13 MB in the original, so that the time required and susceptibility to errors are kept within limits. It is best to learn how to handle them using a few examples before you generally allow them to be used.');
 

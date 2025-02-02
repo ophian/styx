@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ('Don\'t hack!');
 }
@@ -15,7 +17,8 @@ require_once(S9Y_INCLUDE_PATH . 'include/functions_installer.inc.php');
 $data = array();
 
 $data['random_pw'] = serendipity_generate_password(20);
-define('USERCONF_NEW_PASSWDEX_TOOLTIP_INFO', ' - ' . strtolower(WORD_OR) . " -<br>\n" . sprintf('                    <span class="newrex" title="' . USERCONF_PASSWORD_RANDOM . '"><span class="icon-info-circled" aria-hidden="true"></span>%s</span>', $data['random_pw']));// no space with %s !
+define('USERCONF_NEW_PASSWDEX_TOOLTIP_INFO', ' - ' . serendipity_mb('strtolower', WORD_OR) . " -<br>\n" .
+    sprintf('                    <span class="newrex" title="' . USERCONF_PASSWORD_RANDOM . '"><span class="icon-info-circled" aria-hidden="true"></span>%s</span>', $data['random_pw']));// no space with %s !
 
 /* Delete a user */
 if (isset($_POST['DELETE_YES']) && serendipity_checkFormToken()) {
@@ -27,10 +30,10 @@ if (isset($_POST['DELETE_YES']) && serendipity_checkFormToken()) {
         $data['no_delete_permission_userlevel'] = true;
     } else {
         if (isset($user[0])) {
-            $group_intersect = serendipity_intersectGroup($user[0]['authorid']);
+            $group_intersect = serendipity_intersectGroup((int) $user[0]['authorid']);
             if (serendipity_checkPermission('adminUsersMaintainOthers') || (serendipity_checkPermission('adminUsersMaintainSame') && $group_intersect)) {
                 // if user is trying to delete itself return false
-                if (serendipity_deleteAuthor($user[0]['authorid'])) {
+                if (serendipity_deleteAuthor((int) $user[0]['authorid'])) {
                     $data['delete_permission'] = true;
                     serendipity_plugin_api::hook_event('backend_users_delete', $user[0]);
                 } else {
@@ -56,11 +59,15 @@ if (isset($_POST['SAVE_NEW']) && serendipity_checkFormToken()) {
         if (!is_array($_user = serendipity_fetchAuthor($_POST['username']))) {
             // POST check for password named field (see config build down below)
             $serendipity['POST']['user'] = serendipity_addAuthor($_POST['username'], $_POST['password'], $_POST['realname'], $_POST['email'], $_POST['userlevel']);
+            if ($serendipity['POST']['user'] === 0) {
+                throw new Exception('"Create author ID failed: An unexpected [type] error has occurred. Check your database logs why the last insert ID may have failed"'); // fatal error without doing any more damage
+            }
 
             $valid_groups = serendipity_getGroups($serendipity['authorid'], true);
             /* Save all the properties */
             $config = serendipity_parseTemplate(S9Y_CONFIG_USERTEMPLATE);
-            // config array is build by 'include/tpl/config_personal.inc.php' array, which sets 'var' => 'password' and which then is the $item name. Normally these are 'pass' named input fields for login passwords.
+            // config array is build by 'include/tpl/config_personal.inc.php' array, which sets 'var' => 'password' and which then is the $item name.
+            // Normally these are 'pass' named input fields for login passwords.
             foreach($config AS $category) {
                 foreach($category['items'] AS $item) {
                     if (in_array('groups', $item['flags'])) {
@@ -93,7 +100,7 @@ if (isset($_POST['SAVE_NEW']) && serendipity_checkFormToken()) {
                             $data['no_group_selected'] = true;
                         } else {
                             if (isset($_POST[$item['var']])) {
-                                serendipity_updateGroups($_POST[$item['var']], $serendipity['POST']['user'], false);
+                                serendipity_updateGroups($_POST[$item['var']], (int) $serendipity['POST']['user'], false);
                             }
                         }
                         continue;
@@ -166,18 +173,18 @@ if (isset($_POST['SAVE_EDIT']) && serendipity_checkFormToken()) {
                         $data['no_group_selected'] = true;
                     } else {
                         if (isset($_POST[$item['var']])) {
-                            serendipity_updateGroups($_POST[$item['var']], $serendipity['POST']['user'], false);
+                            serendipity_updateGroups($_POST[$item['var']], (int) $serendipity['POST']['user'], false);
                         }
                     }
                     continue;
                 }
 
                 if (serendipity_checkConfigItemFlags($item, 'local')) {
-                    serendipity_set_user_var($item['var'], $_POST[$item['var']], $serendipity['POST']['user'], ($serendipity['authorid'] == $serendipity['POST']['user'] ? true : false));
+                    serendipity_set_user_var($item['var'], $_POST[$item['var']], (int) $serendipity['POST']['user'], ($serendipity['authorid'] == $serendipity['POST']['user'] ? true : false));
                 }
 
                 if (serendipity_checkConfigItemFlags($item, 'configuration')) {
-                    serendipity_set_config_var($item['var'], $_POST[$item['var']], $serendipity['POST']['user']);
+                    serendipity_set_config_var($item['var'], $_POST[$item['var']], (int) $serendipity['POST']['user']);
                 }
             }
         }
@@ -230,7 +237,7 @@ if (($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission
 
     if ($serendipity['GET']['adminAction'] == 'edit') {
         $user = serendipity_fetchUsers($serendipity['GET']['userid']);
-        $group_intersect = serendipity_intersectGroup($user[0]['authorid']);
+        $group_intersect = serendipity_intersectGroup((int) $user[0]['authorid']);
         if ($user[0]['userlevel'] >= $serendipity['serendipityUserlevel'] && $user[0]['authorid'] != $serendipity['authorid'] && !serendipity_checkPermission('adminUsersMaintainOthers')) {
             $data['no_create_permission'] = true;
             $from = array();
@@ -248,7 +255,8 @@ if (($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission
     $data['from'] = $from;
 
     $config = serendipity_parseTemplate(S9Y_CONFIG_USERTEMPLATE);
-    // config array is build by 'include/tpl/config_personal.inc.php' array, which sets 'var' => 'password' and which then is the $item name. Normally these are 'pass' named input fields for login passwords.
+    // config array is build by 'include/tpl/config_personal.inc.php' array, which sets 'var' => 'password' and which then is the $item name.
+    // Normally these are 'pass' named input fields for login passwords.
 
     if (!empty($serendipity['GET']['userid'])) {
         // unset special group for siteAutoUpgraders is done in serendipity_getAllGroups()
@@ -262,12 +270,12 @@ if (($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission
 
 } elseif ($serendipity['GET']['adminAction'] == 'delete' && serendipity_checkPermission('adminUsersDelete')) {
     $user = serendipity_fetchUsers($serendipity['GET']['userid']);
-    $group_intersect = serendipity_intersectGroup($user[0]['authorid']);
+    $group_intersect = serendipity_intersectGroup((int) $user[0]['authorid']);
 
     if (serendipity_checkPermission('adminUsersMaintainOthers')
     || (serendipity_checkPermission('adminUsersMaintainSame') && $group_intersect)) {
         $data['delete'] = true;
-        $data['userid'] = (int)$serendipity['GET']['userid'];
+        $data['userid'] = (int) $serendipity['GET']['userid'];
         $data['realname'] = $user[0]['realname'];
         $data['formToken'] = serendipity_setFormToken();
     }

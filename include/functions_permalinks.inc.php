@@ -2,6 +2,8 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -9,12 +11,14 @@ if (IN_serendipity !== true) {
 /**
  * Converts a string into a filename that can be used safely in HTTP URLs
  *
+ * Args:
+ *      - input string
+ *      - Shall dots in the filename be removed? (Required for certain regex rules)
+ * Returns:
+ *      - output string
  * @access public
- * @param   string  input string
- * @param   boolean Shall dots in the filename be removed? (Required for certain regex rules)
- * @return  string  output string
  */
-function serendipity_makeFilename($str, $stripDots = false) {
+function serendipity_makeFilename(string $str, bool $stripDots = false) : string {
     static $from = array(
                      ' ',
                      '%',
@@ -117,22 +121,14 @@ function serendipity_makeFilename($str, $stripDots = false) {
             if (LANG_CHARSET == 'UTF-8') {
                 // URLs need to be 7bit - since this function takes care of the most common ISO-8859-1
                 // characters, try to UTF8-decode the string first.
-                if (!function_exists('mb_convert_encoding')) {
-                    $str = @utf8_decode($str); // Deprecation in PHP 8.2, removal in PHP 9.0
-                } else {
-                    $str = mb_convert_encoding($str, 'ISO-8859-1', 'UTF-8'); // string, to, from
-                }
+                $str = mb_convert_encoding($str, 'ISO-8859-1', 'UTF-8'); // string, to, from
             }
         } else {
             // Replace international chars not detected by every locale
             if (LANG_CHARSET == 'UTF-8') {
                 // URLs need to be 7bit - since this function takes care of the most common ISO-8859-1
                 // characters, try to UTF8-decode the string first.
-                if (!function_exists('mb_convert_encoding')) {
-                    $str = @utf8_decode($str); // Deprecation in PHP 8.2, removal in PHP 9.0
-                } else {
-                    $str = mb_convert_encoding($str, 'ISO-8859-1', 'UTF-8'); // string, to, from
-                }
+                $str = mb_convert_encoding($str, 'ISO-8859-1', 'UTF-8'); // string, to, from
             }
 
             $str = str_replace($from, $to, $str);
@@ -167,10 +163,13 @@ function serendipity_makeFilename($str, $stripDots = false) {
 /**
  * Initialize permalinks, if the user did not specify those yet
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - True
  * @access public
- * @return null
  */
-function serendipity_initPermalinks() {
+function serendipity_initPermalinks() : true {
     global $serendipity;
 
     if (!isset($serendipity['permalinkStructure'])) {
@@ -278,11 +277,13 @@ function serendipity_initPermalinks() {
 /**
  * Build an array containing all regular expression permalinks
  *
+ * Args:
+ *      - If set to true, the list of permalinks will be returned. If false, all permalinks will be applied as CONSTANTS
+ * Returns:
+ *      - (conditional on $return) List of permalinks OR true
  * @access public
- * @param   boolean     If set to true, the list of permalinks will be returned. If false, all permalinks will be applied as CONSTANTS
- * @return  array       (conditional on $return) List of permalinks
  */
-function &serendipity_permalinkPatterns($return = false) {
+function &serendipity_permalinkPatterns(bool $return = false) : iterable|true {
     global $serendipity;
 
     $PAT = array();
@@ -322,14 +323,16 @@ function &serendipity_permalinkPatterns($return = false) {
  * This query will show the Entry/Category/Author-ID to a permalink, if that permalink
  * does not contain %id%.
  *
+ * Args:
+ *      - The permalink configuration string
+ *      - The URL to check
+ *      - A default return value if no permalink is found
+ *      - The type of a permalink (entry|category|author)
+ * Returns:
+ *      - The ID of the permalink type or default argument
  * @access public
- * @param   string      The permalink configuration string
- * @param   string      The URL to check
- * @param   string      A default return value if no permalink is found
- * @param   string      The type of a permalink (entry|category|author)
- * @return  string      The ID of the permalink type
  */
-function serendipity_searchPermalink($struct, $url, $default, $type = 'entry') {
+function serendipity_searchPermalink(string $struct, string $url, string $default, string $type = 'entry') : string|int {
     global $serendipity;
 
     if (stristr($struct, '%id%') === FALSE) {
@@ -344,7 +347,7 @@ function serendipity_searchPermalink($struct, $url, $default, $type = 'entry') {
                 LIMIT 1";
 // echo $pq; // DEBUG
 // die($pq); // DEBUG
-        $permalink = serendipity_db_query($pq, true, 'both', false, false, false, true);
+        $permalink = serendipity_db_query($pq, single: true, expectError: true);
 
         if (is_array($permalink)) {
             return $permalink['entry_id'];
@@ -360,12 +363,14 @@ function serendipity_searchPermalink($struct, $url, $default, $type = 'entry') {
  * You can pass an entry array, or an author array to this function
  * and then get a permalink valid for that array
  *
+ * Args:
+ *      - The input data used for building the permalink
+ *      - The type of the permalink (entry|category|author)
+ * Returns:
+ *      - The permalink OR false
  * @access public
- * @param   array       The input data used for building the permalink
- * @param   string      The type of the permalink (entry|category|author)
- * @return  string      The permalink
  */
-function serendipity_getPermalink(&$data, $type = 'entry') {
+function serendipity_getPermalink(iterable &$data, string $type = 'entry') : string|false {
     switch($type) {
         case 'entry':
             return serendipity_archiveURL(
@@ -392,12 +397,14 @@ function serendipity_getPermalink(&$data, $type = 'entry') {
 /**
  * Update a permalink with new data
  *
+ * Args:
+ *      - The input data used for building the permalink
+ *      - The type of the permalink (entry|category|author)
+ * Returns:
+ *      - The database result
  * @access public
- * @param   array       The input data used for building the permalink
- * @param   string      The type of the permalink (entry|category|author)
- * @return  string      The database result
  */
-function serendipity_updatePermalink(&$data, $type = 'entry') {
+function serendipity_updatePermalink(iterable &$data, string  $type = 'entry') : string|bool {
     global $serendipity;
 
     $link = serendipity_getPermalink($data, $type);
@@ -407,7 +414,7 @@ function serendipity_updatePermalink(&$data, $type = 'entry') {
                                             AND type      = '%s'",
 
                                             serendipity_db_escape_string($link),
-                                            (int)$data['id'],
+                                            (int) $data['id'],
                                             serendipity_db_escape_string($type))));
 }
 
@@ -416,12 +423,14 @@ function serendipity_updatePermalink(&$data, $type = 'entry') {
  *
  * This function is basically only used if you have no '%id%' value in your permalink config.
  *
+ * Args:
+ *      - The input data used for building the permalink
+ *      - The type of the permalink (entry|category|author)
+ * Returns:
+ *      - Result of INSERT INTO
  * @access public
- * @param   array       The input data used for building the permalink
- * @param   string      The type of the permalink (entry|category|author)
- * @return  string      The permalink
  */
-function serendipity_insertPermalink(&$data, $type = 'entry') {
+function serendipity_insertPermalink(iterable &$data, string $type = 'entry') : string|bool {
     global $serendipity;
 
     $link = serendipity_getPermalink($data, $type);
@@ -452,10 +461,13 @@ function serendipity_insertPermalink(&$data, $type = 'entry') {
 /**
  * Build all permalinks for all current entries, authors and categories
  *
+ * Args:
+ *      -
+ * Returns:
+ *      - void
  * @access public
- * @return null
  */
-function serendipity_buildPermalinks() {
+function serendipity_buildPermalinks() : void {
     global $serendipity;
 
     $entries = serendipity_db_query("SELECT id, title, timestamp FROM {$serendipity['dbPrefix']}entries");
@@ -492,13 +504,15 @@ function serendipity_buildPermalinks() {
 /**
  * Uses logic to figure out how the URI should look, based on current rewrite rule
  *
+ * Args:
+ *      - The URL part that you want to format to "pretty urls"
+ *      - The path/URL you want as a prefix for your pretty URL
+ *      - If set to TRUE this will bypass all pretty URLs and format the link so that it works everywhere
+ * Returns:
+ *      - The rewritten URL
  * @access public
- * @param   string      The URL part that you want to format to "pretty urls"
- * @param   string      The path/URL you want as a prefix for your pretty URL
- * @param   boolean     If set to TRUE this will bypass all pretty URLs and format the link so that it works everywhere
- * @return  string      The rewritten URL
  */
-function serendipity_rewriteURL($path, $key = 'baseURL', $forceNone = false) {
+function serendipity_rewriteURL(string $path, string $key = 'baseURL', bool $forceNone = false) : string {
     global $serendipity;
 
     return ($serendipity[$key] ?? '') . ($serendipity['rewrite'] == 'none' || ($serendipity['rewrite'] != 'none' && $forceNone) ? $serendipity['indexFile'] . '?/' : '') . $path;
@@ -507,13 +521,15 @@ function serendipity_rewriteURL($path, $key = 'baseURL', $forceNone = false) {
 /**
  * Format a permalink according to the configured format
  *
+ * Args:
+ *      - The URL format to use
+ *      - The input data to format a permalink
+ *      - The type of the permalink (entry|category|author)
+ * Returns:
+ *      - The formatted permalink OR false
  * @access public
- * @param   string      The URL format to use
- * @param   array       The input data to format a permalink
- * @param   string      The type of the permalink (entry|category|author)
- * @return  string      The formatted permalink
  */
-function serendipity_makePermalink($format, $data, $type = 'entry') {
+function serendipity_makePermalink(string $format, iterable $data, string $type = 'entry') : string|false {
     global $serendipity;
     static $entryKeys    = array('%id%', '%lowertitle%', '%title%', '%day%', '%month%', '%year%');
     static $authorKeys   = array('%id%', '%username%', '%realname%', '%email%');
@@ -532,14 +548,14 @@ function serendipity_makePermalink($format, $data, $type = 'entry') {
             }
 
             $data['entry']['timestamp'] = $data['entry']['timestamp'] ?? time();
-            $ts = serendipity_serverOffsetHour($data['entry']['timestamp']);
+            $ts = serendipity_serverOffsetHour((int) $data['entry']['timestamp']);
 
             $ftitle  = serendipity_makeFilename($data['title']);
-            $fltitle = strtolower($ftitle);
+            $fltitle = serendipity_mb('strtolower', $ftitle);
 
             $replacements =
                 array(
-                    (int)$data['id'],
+                    (int) $data['id'],
                     $fltitle,
                     $ftitle,
                     date('d', $ts),
@@ -552,7 +568,7 @@ function serendipity_makePermalink($format, $data, $type = 'entry') {
         case 'author':
             $replacements =
                 array(
-                    (int)$data['authorid'],
+                    (int) $data['authorid'],
                     serendipity_makeFilename($data['username'], true),
                     serendipity_makeFilename($data['realname'], true),
                     serendipity_makeFilename($data['email'], true)
@@ -565,8 +581,8 @@ function serendipity_makePermalink($format, $data, $type = 'entry') {
             if (isset($data['categoryid'])) {
                 $parent_path = array();
                 // This is expensive. Only lookup if required.
-                if (strstr($format, '%parentname%')) {
-                    $parents = serendipity_getCategoryRoot($data['categoryid']);
+                if (str_contains($format, '%parentname%')) {
+                    $parents = serendipity_getCategoryRoot((int) $data['categoryid']);
                     if (is_array($parents)) {
                         foreach($parents AS $parent) {
                             $parent_path[] = serendipity_makeFilename($parent['category_name'], true);
@@ -576,7 +592,7 @@ function serendipity_makePermalink($format, $data, $type = 'entry') {
 
                 $replacements =
                     array(
-                        (int)$data['categoryid'],
+                        (int) $data['categoryid'],
                         serendipity_makeFilename($data['category_name'], true),
                         implode('/', $parent_path),
                         serendipity_makeFilename($data['category_description'], true)
@@ -592,12 +608,14 @@ function serendipity_makePermalink($format, $data, $type = 'entry') {
 /**
  * Convert a permalink configuration into a regular expression for use in rewrite rules
  *
+ * Args:
+ *      - The URL format to use
+ *      - The type of the permalink (entry|category|author)
+ * Returns:
+ *      - The regular expression to a permalink URL
  * @access public
- * @param   string      The URL format to use
- * @param   string      The type of the permalink (entry|category|author)
- * @return  string      The regular expression to a permalink URL
  */
-function serendipity_makePermalinkRegex($format, $type = 'entry') {
+function serendipity_makePermalinkRegex(string $format, string $type = 'entry') : string {
     static $entryKeys           = array('%id%',     '%lowertitle%',     '%title%',          '%day%',      '%month%',    '%year%');
     static $entryRegexValues    = array('([0-9]+)', PAT_FILENAME_MATCH, PAT_FILENAME_MATCH, '[0-9]{1,2}', '[0-9]{1,2}', '[0-9]{4}');
 
@@ -625,18 +643,21 @@ function serendipity_makePermalinkRegex($format, $type = 'entry') {
 /**
  * Create a permalink for an entry permalink
  *
+ * Args:
+ *      - The entry ID
+ *      - The entry title
+ *      - The base URL/path key
+ *      - Shall the link be rewritten to a pretty URL?
+ *      - Additional entry data
+ * Returns:
+ *      - The permalink
  * @access public
- * @param   int     The entry ID
- * @param   string  The entry title
- * @param   string  The base URL/path key
- * @param   boolean Shall the link be rewritten to a pretty URL?
- * @param   array   Additional entry data
- * @return  string  The permalink
  */
-function serendipity_archiveURL($id, $title, $key = 'baseURL', $checkrewrite = true, $entryData = null) {
+function serendipity_archiveURL(int|string $id, string $title, string $key = 'baseURL', bool $checkrewrite = true, ?iterable $entryData = null) : string {
     global $serendipity;
 
     $path = serendipity_makePermalink($serendipity['permalinkStructure'], array('id' => $id, 'title' => $title, 'entry' => $entryData));
+    if (false === $path) return '';
     if ($checkrewrite) {
         $path = serendipity_rewriteURL($path, $key);
     }
@@ -646,16 +667,19 @@ function serendipity_archiveURL($id, $title, $key = 'baseURL', $checkrewrite = t
 /**
  * Create a permalink for an authors permalink
  *
+ * Args:
+ *      - The author data
+ *      - The base URL/path key
+ *      - Shall the link be rewritten to a pretty URL?
+ * Returns:
+ *      - The permalink
  * @access public
- * @param   array   The author data
- * @param   string  The base URL/path key
- * @param   boolean Shall the link be rewritten to a pretty URL?
- * @return  string  The permalink
  */
-function serendipity_authorURL(&$data, $key = 'baseURL', $checkrewrite = true) {
+function serendipity_authorURL(iterable &$data, string $key = 'baseURL', bool $checkrewrite = true) : string {
     global $serendipity;
 
     $path = serendipity_makePermalink($serendipity['permalinkAuthorStructure'], $data, 'author');
+    if (false === $path) return '';
     if ($checkrewrite) {
         $path = serendipity_rewriteURL($path, $key);
     }
@@ -665,16 +689,19 @@ function serendipity_authorURL(&$data, $key = 'baseURL', $checkrewrite = true) {
 /**
  * Create a permalink for an category permalink
  *
+ * Args:
+ *      - The category data
+ *      - The base URL/path key
+ *      - Shall the link be rewritten to a pretty URL?
+ * Returns:
+ *      - The permalink
  * @access public
- * @param   array   The category data
- * @param   string  The base URL/path key
- * @param   boolean Shall the link be rewritten to a pretty URL?
- * @return  string  The permalink
  */
-function serendipity_categoryURL(&$data, $key = 'baseURL', $checkrewrite = true) {
+function serendipity_categoryURL(iterable &$data, string $key = 'baseURL', bool $checkrewrite = true) : string {
     global $serendipity;
 
     $path = serendipity_makePermalink($serendipity['permalinkCategoryStructure'], $data, 'category');
+    if (false === $path) return '';
     if ($checkrewrite) {
         $path = serendipity_rewriteURL($path, $key);
     }
@@ -684,16 +711,19 @@ function serendipity_categoryURL(&$data, $key = 'baseURL', $checkrewrite = true)
 /**
  * Create a permalink for an RSS feed permalink
  *
+ * Args:
+ *      - The entry data
+ *      - The base URL/path key
+ *      - Shall the link be rewritten to a pretty URL?
+ * Returns:
+ *      - The permalink
  * @access public
- * @param   array   The entry data
- * @param   string  The base URL/path key
- * @param   boolean Shall the link be rewritten to a pretty URL?
- * @return  string  The permalink
  */
-function serendipity_feedCategoryURL(&$data, $key = 'baseURL', $checkrewrite = true) {
+function serendipity_feedCategoryURL(iterable &$data, string $key = 'baseURL', bool $checkrewrite = true) : string {
     global $serendipity;
 
     $path = serendipity_makePermalink($serendipity['permalinkFeedCategoryStructure'], $data, 'category');
+    if (false === $path) return '';
     if ($checkrewrite) {
         $path = serendipity_rewriteURL($path, $key);
     }
@@ -703,16 +733,19 @@ function serendipity_feedCategoryURL(&$data, $key = 'baseURL', $checkrewrite = t
 /**
  * Create a permalink for an RSS authors' feed permalink
  *
+ * Args:
+ *      - The entry data
+ *      - The base URL/path key
+ *      - Shall the link be rewritten to a pretty URL?
+ * Returns:
+ *      - The permalink
  * @access public
- * @param   array   The entry data
- * @param   string  The base URL/path key
- * @param   boolean Shall the link be rewritten to a pretty URL?
- * @return  string  The permalink
  */
-function serendipity_feedAuthorURL(&$data, $key = 'baseURL', $checkrewrite = true) {
+function serendipity_feedAuthorURL(iterable &$data, string $key = 'baseURL', bool $checkrewrite = true) : string {
     global $serendipity;
 
     $path = serendipity_makePermalink($serendipity['permalinkFeedAuthorStructure'], $data, 'author');
+    if (false === $path) return '';
     if ($checkrewrite) {
         $path = serendipity_rewriteURL($path, $key);
     }
@@ -722,23 +755,28 @@ function serendipity_feedAuthorURL(&$data, $key = 'baseURL', $checkrewrite = tru
 /**
  * Create a permalink for an archive date
  *
+ * Args:
+ *      - The archive's date
+ *      - If true, only summary archive
+ *      - The base URL/path key
+ * Returns:
+ *      -  The permalink
  * @access public
- * @param   string  The archive's date
- * @param   boolean If true, only summary archive
- * @param   string  The base URL/path key
- * @return  string  The permalink
  */
-function serendipity_archiveDateUrl($range, $summary = false, $key = 'baseURL') {
+function serendipity_archiveDateUrl(string $range, bool $summary = false, string $key = 'baseURL') : string {
     return serendipity_rewriteURL(PATH_ARCHIVES . '/' . $range . ($summary ? '/summary' : '') . '.html', $key);
 }
 
 /**
  * Returns the URL to the current page that is being viewed
  *
+ * Args:
+ *      - bool strict (default false)
+ * Returns:
+ *      - the current URL
  * @access public
- * @return string   the current URL
  */
-function serendipity_currentURL($strict = false) {
+function serendipity_currentURL(bool $strict = false) : string {
     global $serendipity;
 
     // All that URL getting humpty-dumpty is necessary to allow a user to change the template in the
@@ -754,24 +792,14 @@ function serendipity_currentURL($strict = false) {
     $uri['path'] = preg_replace('@^(&amp;)?' . preg_quote($serendipity['indexFile']) . '(&amp;)@i', '', $uri['path']);
     $url = $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?' . $uri['path'] . $qst;
     $url = str_replace(
-        array(
-            $serendipity['indexFile'] . '&amp;',
-            '"',
-            "'",
-            '<',
-            '>',
-            '`'
-        ),
-
-        array(
-            '',
-            '',
-            '',
-            '',
-            ''
-        ),
-
-        $url); // Kill possible looped repetitions and bad characters which could occur
+                array(
+                    $serendipity['indexFile'] . '&amp;',
+                    '"',
+                    "'",
+                    '<',
+                    '>',
+                    '`'
+                ), '', $url); // Kill possible looped repetitions and bad characters which could occur
 
     if ($strict) {
         $url = preg_replace('@(//+)@', '/', $url);
@@ -783,12 +811,14 @@ function serendipity_currentURL($strict = false) {
 /**
  * Get the URI Arguments for the current HTTP Request
  *
+ * Args:
+ *      - The URI made for this request
+ *      - If enabled, then no Dots are allowed in the URL for permalinks
+ * Returns:
+ *      - args array
  * @access public
- * @param   string      The URI made for this request
- * @param   boolean     If enabled, then no Dots are allowed in the URL for permalinks
- * @return
  */
-function serendipity_getUriArguments($uri, $wildcard = false) {
+function serendipity_getUriArguments(string $uri, bool $wildcard = false) : iterable {
     global $serendipity;
     static $indexFile = null;
 

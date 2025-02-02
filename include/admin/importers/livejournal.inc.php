@@ -3,16 +3,18 @@
 # Copyright (c) 2009, Matthew Weigel
 # All rights reserved.  See LICENSE file for licensing details
 
+declare(strict_types=1);
+
 require_once S9Y_PEAR_PATH . 'Onyx/RSS.php';
 
 class Serendipity_Import_LiveJournalXML extends Serendipity_Import
 {
-    var $info        = array('software' => 'LiveJournal XML');
-    var $data        = array();
-    var $inputFields = array();
-    var $force_recode = false;
+    public $info        = array('software' => 'LiveJournal XML');
+    public $data        = array();
+    public $inputFields = array();
+    public $force_recode = false;
 
-    function getImportNotes()
+    public function getImportNotes() : string
     {
         return 'LiveJournal\'s parent company was sold to Six Apart in 2005, the owners of MovableType. Erstwhile having Millions of users in the "aughts / noughties", this went down the same way as MT and was later on sold to a Russian company. See this template as abandoned, but kept a little longer to see if someone catches up.';
     }
@@ -221,7 +223,7 @@ class Serendipity_Import_LiveJournalXML extends Serendipity_Import
         global $serendipity;
 
         if (!file_exists($this->data['url'])) {
-            printf(FILE_NOT_FOUND, serendipity_specialchars($this->data['url']));
+            printf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . FILE_NOT_FOUND . "</span>\n", '<b>' . htmlspecialchars($this->data['url']). '</b>');
             return false;
         }
 
@@ -273,7 +275,7 @@ class Serendipity_Import_LiveJournalXML extends Serendipity_Import
                 }
             }
             $id = serendipity_updertEntry($new_entry);
-            echo '<span class="msg_notice">Inserted entry #' . $id . ', "' . serendipity_specialchars($new_entry['title']) . '"</span>';
+            echo '<span class="msg_notice">Inserted entry #' . $id . ', "' . htmlspecialchars($new_entry['title']) . '"</span>';
             if (is_array($new_entry['comments'])) {
                 $cid_map = array();
                 $jids = array();
