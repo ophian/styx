@@ -366,7 +366,7 @@ function serendipity_typeCompatCheckID(int|string $id) : void {
  */
 function serendipity_truncateString(string $s, int $len) : string {
     if (strlen($s) > ($len+3)) {
-        $s = serendipity_mb('substr', $s, 0, $len) . '...';
+        $s = mb_substr($s, 0, $len) . '...';
     }
     return $s;
 }

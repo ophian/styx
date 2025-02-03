@@ -50,7 +50,7 @@ switch($serendipity['GET']['adminAction']) {
 
     case 'save':
         if (empty($serendipity['POST']['title']) && empty($serendipity['POST']['body']) && empty($serendipity['POST']['extended'])) {
-            $data['is_empty'] = sprintf(EMPTY_SETTING, serendipity_mb('strtolower', TITLE.', ('.ENTRY_BODY.' '.WORD_OR.' '.EXTENDED_BODY.')'));
+            $data['is_empty'] = sprintf(EMPTY_SETTING, mb_strtolower(TITLE.', ('.ENTRY_BODY.' '.WORD_OR.' '.EXTENDED_BODY.')'));
             $data['single_error'] = true;
             // reset/fallback to preview view, since we don't want any storage
             $serendipity['POST']['preview'] = 'true';
@@ -360,7 +360,7 @@ switch($serendipity['GET']['adminAction']) {
                 }
             } elseif ($serendipity['dbType'] == 'sqlite' || $serendipity['dbType'] == 'sqlite3' || $serendipity['dbType'] == 'pdo-sqlite' || $serendipity['dbType'] == 'sqlite3oo') {
                 $term = str_replace('*', '', $term);
-                $term = serendipity_mb('strtolower', $term);
+                $term = mb_strtolower($term);
                 $filter[] = "(lower(title) LIKE '%$term%' OR lower(body) LIKE '%$term%' OR lower(extended) LIKE '%$term%')"; // Using percentage (%) wildcard already
             } else {
                 // FULLTEXT search with an ideographic language such as Chinese, Japanese, and Korean is not possible without a prepared database using N-gram parser or such.

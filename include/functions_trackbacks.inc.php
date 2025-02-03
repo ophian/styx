@@ -604,7 +604,7 @@ function trackback_body_strip(string $body) : string {
  * @access public
  */
 function serendipity_trackback_excerpt(string $text) : string {
-    return serendipity_mb('substr', strip_tags($text), 0, 255);
+    return mb_substr(strip_tags($text), 0, 255);
 }
 
 /**

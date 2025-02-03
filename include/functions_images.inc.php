@@ -2917,7 +2917,7 @@ function serendipity_functionsGD(string $infilename, ?int $q = null) : false|ite
 
     $qual = is_null($q) ? 75 : $q; // currently WebP only
     $func = array();
-    $inf  = pathinfo(serendipity_mb('strtolower', $infilename));
+    $inf  = pathinfo(mb_strtolower($infilename));
     switch ($inf['extension']) {
         case 'gif':
             $func['load'] = 'imagecreatefromgif';

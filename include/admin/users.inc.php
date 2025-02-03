@@ -17,7 +17,7 @@ require_once(S9Y_INCLUDE_PATH . 'include/functions_installer.inc.php');
 $data = array();
 
 $data['random_pw'] = serendipity_generate_password(20);
-define('USERCONF_NEW_PASSWDEX_TOOLTIP_INFO', ' - ' . serendipity_mb('strtolower', WORD_OR) . " -<br>\n" .
+define('USERCONF_NEW_PASSWDEX_TOOLTIP_INFO', ' - ' . mb_strtolower(WORD_OR) . " -<br>\n" .
     sprintf('                    <span class="newrex" title="' . USERCONF_PASSWORD_RANDOM . '"><span class="icon-info-circled" aria-hidden="true"></span>%s</span>', $data['random_pw']));// no space with %s !
 
 /* Delete a user */
