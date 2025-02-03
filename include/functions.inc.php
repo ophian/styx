@@ -755,7 +755,7 @@ function serendipity_formatTime(string $format, int $time, bool $useOffset = tru
         }
     }
 
-    return serendipity_mb('ucfirst', serendipity_strftime($cache[$format], $time, $useOffset, $useDate));
+    return mb_ucfirst(serendipity_strftime($cache[$format], $time, $useOffset, $useDate));
 }
 
 /**
