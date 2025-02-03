@@ -22,7 +22,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.51');
+        $propbag->add('version',       '1.52');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
@@ -257,7 +257,7 @@ class serendipity_plugin_history extends serendipity_plugin
             }
             $t = ($maxlength == 0 || (strlen($e[$x]['title']) <= $maxlength))
                     ? $e[$x]['title']
-                    : trim(serendipity_mb('substr', $e[$x]['title'], 0, $maxlength-3)).' [...]';
+                    : trim(mb_substr($e[$x]['title'], 0, $maxlength-3)).' [...]';
             echo '    <a href="' . $url . '" title="' . str_replace("'", "`", htmlspecialchars($e[$x]['title'])) . '">' . htmlspecialchars($t) . "</a>\n";
             if ($full) {
                 echo "</div>\n";
