@@ -30,7 +30,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '4.1',
             'php'         => '8.2'
         ));
-        $propbag->add('version',       '2.81');
+        $propbag->add('version',       '2.82');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1237,8 +1237,8 @@ class serendipity_event_spamblock extends serendipity_event
                         }
 
                         // Check for maximum number of links before rejecting
-                        $link_count = substr_count(serendipity_mb('strtolower', $addData['comment']), 'http://');
-                        $add2_count = substr_count(serendipity_mb('strtolower', $addData['comment']), 'https://');
+                        $link_count = substr_count(mb_strtolower($addData['comment']), 'http://');
+                        $add2_count = substr_count(mb_strtolower($addData['comment']), 'https://');
                         $link_count = $link_count + $add2_count;
                         if ($links_reject > 0 && $link_count > $links_reject) {
                             $this->log($logfile, $eventData['id'], 'REJECTED', PLUGIN_EVENT_SPAMBLOCK_REASON_LINKS_REJECT, $addData);
@@ -1731,8 +1731,8 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
 
         if ($ftc) {
             // Check for maximum number of links before rejecting
-            $link_count = substr_count(serendipity_mb('strtolower', $addData['comment']), 'http://');
-            $add2_count = substr_count(serendipity_mb('strtolower', $addData['comment']), 'https://');
+            $link_count = substr_count(mb_strtolower($addData['comment']), 'http://');
+            $add2_count = substr_count(mb_strtolower($addData['comment']), 'https://');
             $link_count = $link_count + $add2_count;
             $links_reject = $this->get_config('links_reject', 20);
             if ($links_reject > 0 && $link_count > $links_reject) {
