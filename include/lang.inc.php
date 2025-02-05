@@ -67,61 +67,6 @@ if (!defined('serendipity_MB_LOADED') && defined('serendipity_LANG_LOADED')) {
         @mb_internal_encoding(LANG_CHARSET);
     }
 
-    /**
-     * Wrapper for multibyte string operations
-     *
-     * Multibyte string functions wrapper:
-     * strlen(), strpos(), strrpos(), strtolower(), strtoupper(), substr(), ucfirst()
-     *
-     * Args:
-     *      - (over func_get_args()) Any input array, dynamically evaluated for best emulation
-     * Returns:
-     *      - mixed data
-     * @access public
-     */
-    function serendipity_mb() : mixed {
-        static $mbstring = null;
-
-        if (is_null($mbstring)) {
-            $mbstring = (extension_loaded('mbstring') && @mb_internal_encoding(LANG_CHARSET) ? 1 : 0);
-            if ($mbstring === 1) {
-                if (function_exists('mb_strtoupper')) {
-                    $mbstring = 2;
-                }
-            }
-        }
-
-        $args = func_get_args();
-        $func = $args[0];
-        unset($args[0]);
-
-        switch($func) {
-            case 'ucfirst':
-                // there's no mb_ucfirst, so emulate it
-                if ($mbstring === 2) {
-                    $enc = LANG_CHARSET;
-                    return mb_strtoupper(mb_substr($args[1], 0, 1, $enc), $enc) . mb_substr($args[1], 1, mb_strlen($args[1], $enc), $enc);
-                } else {
-                    return ucfirst($args[1]);
-                }
-
-            case 'strtolower':
-            case 'strtoupper':
-                if ($mbstring === 2) {
-                    return call_user_func_array('mb_' . $func, $args);
-                } else {
-                    return call_user_func_array($func, $args);
-                }
-
-            default:
-                if ($mbstring) {
-                    return call_user_func_array('mb_' . $func, $args);
-                } else {
-                    return call_user_func_array($func, $args);
-                }
-        }
-    }
-
     define('serendipity_MB_LOADED', true);
 }
 
