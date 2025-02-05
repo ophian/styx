@@ -47,7 +47,32 @@ if (!defined('serendipity_LANG_LOADED') || serendipity_LANG_LOADED !== true) {
     }
 }
 
-if (!defined('serendipity_MB_LOADED') && defined('serendipity_LANG_LOADED')) {
+// PHP 8.4 mb_* polyfills
+if (PHP_VERSION_ID < 80400 && !defined('serendipity_LANG_LOADED')) {
+    /**
+     * Make a string's first character uppercase multi-byte safely.
+     */
+    function mb_ucfirst(string $string, ?string $encoding = null): string {
+        $firstChar = mb_substr($string, 0, 1, $encoding);
+        $firstChar = mb_convert_case($firstChar, MB_CASE_TITLE, $encoding);
+
+        return $firstChar . mb_substr($string, 1, null, $encoding);
+    }
+
+    /**
+     * Make a string's first character lowercase multi-byte safely.
+     */
+    function mb_lcfirst(string $string, ?string $encoding = null): string {
+        $firstChar = mb_substr($string, 0, 1, $encoding);
+        $firstChar = mb_convert_case($firstChar, MB_CASE_LOWER, $encoding);
+
+        return $firstChar . mb_substr($string, 1, null, $encoding);
+    }
+
+    define('serendipity_MB_LOADED', true);
+}
+
+if (defined('serendipity_MB_LOADED') && defined('serendipity_LANG_LOADED')) {
     // Needs to be included here because we need access to constant LANG_CHARSET defined in languages (not available for compat.inc.php)
 
     // Normally mb_language() is used for encoding e-mail messages.
