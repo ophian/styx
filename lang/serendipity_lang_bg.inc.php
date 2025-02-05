@@ -11,8 +11,12 @@
 @define('SQL_CHARSET', 'utf8');
 @define('DATE_LOCALES', 'bulgarian, bg, bg_BG');
 @define('DATE_FORMAT_ENTRY', '%A, %e %B %Y');
+@define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
 @define('WYSIWYG_LANG', 'bg_BG');
 @define('TINYMCE_LANG', 'bg');
+@define('NUMBER_FORMAT_DECIMALS', '2');
+@define('NUMBER_FORMAT_DECPOINT', ',');
+@define('NUMBER_FORMAT_THOUSANDS', '&#160;');
 @define('LANG_DIRECTION', 'ltr');
 $i18n_filename_from = array(' ', 'а', 'А', 'б', 'Б', 'в', 'В', 'г', 'Г', 'д', 'Д', 'е', 'Е', 'Ж', 'ж', 'з', 'З', 'и', 'И', 'й', 'Й', 'к', 'К', 'л', 'Л', 'м', 'М', 'н', 'Н', 'о', 'О', 'п', 'П', 'р', 'Р', 'с', 'С', 'т', 'Т', 'у', 'У', 'ф', 'Ф', 'х', 'Х', 'ц', 'Ц', 'ч', 'Ч', 'ш', 'Ш', 'щ', 'Щ', 'ъ', 'Ъ', 'ь', 'Ь', 'ю', 'Ю', 'я', 'Я');
 $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D', 'e', 'E', 'Zh', 'zh', 'z', 'Z', 'i', 'I', 'j', 'J', 'k', 'K', 'l', 'L', 'm', 'M', 'n', 'N', 'o', 'O', 'p', 'P', 'r', 'R', 's', 'S', 't', 'T', 'u', 'U', 'f', 'F', 'h', 'H', 'c', 'C', 'ch', 'Ch', 'sh', 'Sh', 'sht', 'Sht', 'a', 'A', 'y', 'Y', 'ju', 'Ju', 'ja', 'Ja');
@@ -88,6 +92,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('ADDING_IMAGE', 'Добавяне на изображение...');
 @define('THUMB_CREATED_DONE', 'Миниатюрата %s е направена.<br>Готово.'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', 'Грешка: Този файл вече съществува!');
+@define('ERROR_UNKNOWN_NOUPLOAD', 'Възникна неизвестна грешка и файлът не е качен. Може би големината на файла е по-голяма от максимално допустимата от иснталацията на сървъра. Проверете вашия доставчик или редактирайте вашия файл php.ini, така че да позволява по-големи размери.');
 @define('NOT_AVAILABLE', 'N/A'); // short!
 @define('USER_ACTION', 'User action');
 @define('MANDATORY', '[ mandatory ]');
@@ -345,11 +350,6 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('COMMENTS_VIEWMODE_THREADED', 'Нишковидно');
 @define('COMMENTS_VIEWMODE_LINEAR', 'Последователно');
 @define('DISPLAY_COMMENTS_AS', 'Показване на коментарите:');
-@define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
-@define('NUMBER_FORMAT_DECIMALS', '2');
-@define('NUMBER_FORMAT_DECPOINT', ',');
-@define('NUMBER_FORMAT_THOUSANDS', '&#160;');
-@define('ERROR_UNKNOWN_NOUPLOAD', 'Възникна неизвестна грешка и файлът не е качен. Може би големината на файла е по-голяма от максимално допустимата от иснталацията на сървъра. Проверете вашия доставчик или редактирайте вашия файл php.ini, така че да позволява по-големи размери.');
 @define('CATEGORY_DELETED_ARTICLES_MOVED', 'Категория №&#160;%s е изтрита. Старите статии са преместени в категория №&#160;%s');
 @define('USE_DEFAULT', 'По подразбиране');
 @define('PAGE_BROWSE_ENTRIES', 'Страница %s от %s, общо %s статии');
