@@ -2,6 +2,10 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Removed the serendipity_mb() wrapper function as a replacement for native
+    PHP mb_*() functions, ie. mb_strtolower() or mb_ucfirst(). Since the latter
+    is PHP >= 8.4 only PHP 8.4 polyfill functions are added.
+
   * Add current available icon sets to SYNDICATION_PLUGIN_XML_DESC information,
     following plugin categories.
 
