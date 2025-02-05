@@ -72,7 +72,7 @@ if (PHP_VERSION_ID < 80400 && !defined('serendipity_LANG_LOADED')) {
     define('serendipity_MB_LOADED', true);
 }
 
-if (defined('serendipity_MB_LOADED') && defined('serendipity_LANG_LOADED')) {
+if (defined('serendipity_LANG_LOADED')) {
     // Needs to be included here because we need access to constant LANG_CHARSET defined in languages (not available for compat.inc.php)
 
     // Normally mb_language() is used for encoding e-mail messages.
