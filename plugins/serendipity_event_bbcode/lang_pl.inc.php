@@ -7,7 +7,7 @@
  */
 
 @define('PLUGIN_EVENT_BBCODE_NAME',     'Znacznik: BBCode');
-@define('PLUGIN_EVENT_BBCODE_DESC',     'Przekszta³caj tekst stosuj±c tagi BBCode');
+@define('PLUGIN_EVENT_BBCODE_DESC',     'PrzeksztaÅ‚caj tekst stosujÄ…c tagi BBCode');
 @define('PLUGIN_EVENT_BBCODE_TRANSFORM', '<a href="https://www.phpbb.com/community/help/bbcode" target="_blank">BBCode</a> format dozwolony');
-@define('PLUGIN_EVENT_BBCODE_TARGET',   'U¿ywaæ target="blank" dla linków?');
+@define('PLUGIN_EVENT_BBCODE_TARGET',   'UÅ¼ywaÄ‡ target="blank" dla linkÃ³w?');
 

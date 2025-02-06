@@ -5,8 +5,8 @@
  *  @author Ivan Cenov jwalker@hotmail.bg
  */
  
-@define('PLUGIN_EVENT_BBCODE_NAME', 'Текстово форматиране: BBCode');
-@define('PLUGIN_EVENT_BBCODE_DESC', 'Форматиране на текст (постинг, коментар, HTML поле) с BBcode');
-@define('PLUGIN_EVENT_BBCODE_TRANSFORM', 'Разрешен формат <a href="https://www.phpbb.com/community/help/bbcode" target="_blank">BBCode</a>');
-@define('PLUGIN_EVENT_BBCODE_TARGET', 'Използване на target="blank" за връзките ?');
+@define('PLUGIN_EVENT_BBCODE_NAME', 'РўРµРєСЃС‚РѕРІРѕ С„РѕСЂРјР°С‚РёСЂР°РЅРµ: BBCode');
+@define('PLUGIN_EVENT_BBCODE_DESC', 'Р¤РѕСЂРјР°С‚РёСЂР°РЅРµ РЅР° С‚РµРєСЃС‚ (РїРѕСЃС‚РёРЅРі, РєРѕРјРµРЅС‚Р°СЂ, HTML РїРѕР»Рµ) СЃ BBcode');
+@define('PLUGIN_EVENT_BBCODE_TRANSFORM', 'Р Р°Р·СЂРµС€РµРЅ С„РѕСЂРјР°С‚ <a href="https://www.phpbb.com/community/help/bbcode" target="_blank">BBCode</a>');
+@define('PLUGIN_EVENT_BBCODE_TARGET', 'РР·РїРѕР»Р·РІР°РЅРµ РЅР° target="blank" Р·Р° РІСЂСЉР·РєРёС‚Рµ ?');
 

@@ -2,13 +2,13 @@
 
 /**
  *  @version $$
- *  @author Martin Matuπka <martin@matuska.org>
+ *  @author Martin Matu≈°ka <martin@matuska.org>
  *  EN-Revision: Revision of lang_en.inc.php
  *  Translated on 2010-08-17
  */
 
 @define('PLUGIN_EVENT_BBCODE_NAME', 'Markup: BBCode');
-@define('PLUGIN_EVENT_BBCODE_DESC', 'Transofm·cia textu pomocou BBCode');
-@define('PLUGIN_EVENT_BBCODE_TRANSFORM', 'Povolen˝ form·t <a href="https://www.phpbb.com/community/help/bbcode" target="_blank">BBCode</a>');
-@define('PLUGIN_EVENT_BBCODE_TARGET', 'Pouæiª pre odkazy target="_blank" (odkazy otv·raª v novom okne)?');
+@define('PLUGIN_EVENT_BBCODE_DESC', 'Transofm√°cia textu pomocou BBCode');
+@define('PLUGIN_EVENT_BBCODE_TRANSFORM', 'Povolen√Ω form√°t <a href="https://www.phpbb.com/community/help/bbcode" target="_blank">BBCode</a>');
+@define('PLUGIN_EVENT_BBCODE_TARGET', 'Pou≈æi≈• pre odkazy target="_blank" (odkazy otv√°ra≈• v novom okne)?');
 

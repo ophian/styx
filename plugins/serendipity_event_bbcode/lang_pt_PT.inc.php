@@ -8,11 +8,11 @@
 # http://www.jannis.to/programming/serendipity.html                      #
 #                                                                        #
 # Translated by                                                          #
-# Jo„o P Matos <jmatos@math.ist.utl.pt>                                  #
+# Jo√£o P Matos <jmatos@math.ist.utl.pt>                                  #
 #                                                                        #
 ##########################################################################
 
-@define('PLUGIN_EVENT_BBCODE_NAME', 'CÛdigo: BBCode');
-@define('PLUGIN_EVENT_BBCODE_DESC', 'Permite usar no texto codificaÁ„o BBCode');
+@define('PLUGIN_EVENT_BBCODE_NAME', 'C√≥digo: BBCode');
+@define('PLUGIN_EVENT_BBCODE_DESC', 'Permite usar no texto codifica√ß√£o BBCode');
 @define('PLUGIN_EVENT_BBCODE_TRANSFORM', 'Sintaxe <a href="https://www.phpbb.com/community/help/bbcode" target="_blank">BBCode</a> autorizada');
 
