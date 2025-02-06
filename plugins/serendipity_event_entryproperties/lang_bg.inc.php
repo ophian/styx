@@ -5,40 +5,40 @@
  *  @author Ivan Cenov jwalker@hotmail.bg
  */
 
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_TITLE', 'Допълнителни свойства за постингите');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_DESC', '(Кеширане, не публични постинги, sticky постинги)');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_STICKYPOSTS', 'Маркиране на този постинг като sticky');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS', 'Постингите могат да се четат от');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PRIVATE', 'Мене');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_MEMBERS', 'Съ-авторите');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', 'Всички');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', 'Кеширане на постингите ?');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Ако е позволено, кеширана версия на постинга ще бъде генерирана при неговия запис. Кеширането ще увеличи производителността, но ще намали гъвкавостта на другите плъгини. If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
-@define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'Кеширане на всички постинги');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'Кеширане на следващата серия постинги ...');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', 'Кеширане на постинги от %d до %d');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_BUILDING', 'Кеширане на постинг #%d, <em>%s</em>...');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHED', 'Постингът е кеширан.');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DONE', 'Кеширането завърши.');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_ABORTED', 'Кеширането е прекратено.');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_TOTAL', ' (общо %d постинга)...');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_NO_FRONTPAGE', 'Постингът да не се вижда на главната страница и в списъците');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS', 'Използване на групово-базираните рестрикции');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS_DESC', 'Когато е активирано, Вие можете да дефинирате кои потребителски групи да имат възможност за четене на постингите. Тази опция има голямо влияние върху производителността на блога. Позволете я, само ако наистина ще я използвате.');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS', 'Използване на потребител-базирани рестрикции');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS_DESC', 'Когато е активирано, Вие можете да дефинирате кои специфични потребители да имат възможност за четене на постингите. Тази опция има голямо влияние върху производителността на блога. Позволете я, само ако наистина ще я използвате.');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_HIDERSS', 'Изключване от RSS емисии');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_HIDERSS_DESC', 'При избор \'Да\' съдържанието на тази статия няма да бъде включено в RSS емисии.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_TITLE', 'Р”РѕРїСЉР»РЅРёС‚РµР»РЅРё СЃРІРѕР№СЃС‚РІР° Р·Р° РїРѕСЃС‚РёРЅРіРёС‚Рµ');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_DESC', '(РљРµС€РёСЂР°РЅРµ, РЅРµ РїСѓР±Р»РёС‡РЅРё РїРѕСЃС‚РёРЅРіРё, sticky РїРѕСЃС‚РёРЅРіРё)');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_STICKYPOSTS', 'РњР°СЂРєРёСЂР°РЅРµ РЅР° С‚РѕР·Рё РїРѕСЃС‚РёРЅРі РєР°С‚Рѕ sticky');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS', 'РџРѕСЃС‚РёРЅРіРёС‚Рµ РјРѕРіР°С‚ РґР° СЃРµ С‡РµС‚Р°С‚ РѕС‚');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PRIVATE', 'РњРµРЅРµ');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_MEMBERS', 'РЎСЉ-Р°РІС‚РѕСЂРёС‚Рµ');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', 'Р’СЃРёС‡РєРё');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', 'РљРµС€РёСЂР°РЅРµ РЅР° РїРѕСЃС‚РёРЅРіРёС‚Рµ ?');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'РђРєРѕ Рµ РїРѕР·РІРѕР»РµРЅРѕ, РєРµС€РёСЂР°РЅР° РІРµСЂСЃРёСЏ РЅР° РїРѕСЃС‚РёРЅРіР° С‰Рµ Р±СЉРґРµ РіРµРЅРµСЂРёСЂР°РЅР° РїСЂРё РЅРµРіРѕРІРёСЏ Р·Р°РїРёСЃ. РљРµС€РёСЂР°РЅРµС‚Рѕ С‰Рµ СѓРІРµР»РёС‡Рё РїСЂРѕРёР·РІРѕРґРёС‚РµР»РЅРѕСЃС‚С‚Р°, РЅРѕ С‰Рµ РЅР°РјР°Р»Рё РіСЉРІРєР°РІРѕСЃС‚С‚Р° РЅР° РґСЂСѓРіРёС‚Рµ РїР»СЉРіРёРЅРё. If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
+@define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'РљРµС€РёСЂР°РЅРµ РЅР° РІСЃРёС‡РєРё РїРѕСЃС‚РёРЅРіРё');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'РљРµС€РёСЂР°РЅРµ РЅР° СЃР»РµРґРІР°С‰Р°С‚Р° СЃРµСЂРёСЏ РїРѕСЃС‚РёРЅРіРё ...');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', 'РљРµС€РёСЂР°РЅРµ РЅР° РїРѕСЃС‚РёРЅРіРё РѕС‚ %d РґРѕ %d');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_BUILDING', 'РљРµС€РёСЂР°РЅРµ РЅР° РїРѕСЃС‚РёРЅРі #%d, <em>%s</em>...');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHED', 'РџРѕСЃС‚РёРЅРіСЉС‚ Рµ РєРµС€РёСЂР°РЅ.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DONE', 'РљРµС€РёСЂР°РЅРµС‚Рѕ Р·Р°РІСЉСЂС€Рё.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_ABORTED', 'РљРµС€РёСЂР°РЅРµС‚Рѕ Рµ РїСЂРµРєСЂР°С‚РµРЅРѕ.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_TOTAL', ' (РѕР±С‰Рѕ %d РїРѕСЃС‚РёРЅРіР°)...');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_NO_FRONTPAGE', 'РџРѕСЃС‚РёРЅРіСЉС‚ РґР° РЅРµ СЃРµ РІРёР¶РґР° РЅР° РіР»Р°РІРЅР°С‚Р° СЃС‚СЂР°РЅРёС†Р° Рё РІ СЃРїРёСЃСЉС†РёС‚Рµ');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS', 'РР·РїРѕР»Р·РІР°РЅРµ РЅР° РіСЂСѓРїРѕРІРѕ-Р±Р°Р·РёСЂР°РЅРёС‚Рµ СЂРµСЃС‚СЂРёРєС†РёРё');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS_DESC', 'РљРѕРіР°С‚Рѕ Рµ Р°РєС‚РёРІРёСЂР°РЅРѕ, Р’РёРµ РјРѕР¶РµС‚Рµ РґР° РґРµС„РёРЅРёСЂР°С‚Рµ РєРѕРё РїРѕС‚СЂРµР±РёС‚РµР»СЃРєРё РіСЂСѓРїРё РґР° РёРјР°С‚ РІСЉР·РјРѕР¶РЅРѕСЃС‚ Р·Р° С‡РµС‚РµРЅРµ РЅР° РїРѕСЃС‚РёРЅРіРёС‚Рµ. РўР°Р·Рё РѕРїС†РёСЏ РёРјР° РіРѕР»СЏРјРѕ РІР»РёСЏРЅРёРµ РІСЉСЂС…Сѓ РїСЂРѕРёР·РІРѕРґРёС‚РµР»РЅРѕСЃС‚С‚Р° РЅР° Р±Р»РѕРіР°. РџРѕР·РІРѕР»РµС‚Рµ СЏ, СЃР°РјРѕ Р°РєРѕ РЅР°РёСЃС‚РёРЅР° С‰Рµ СЏ РёР·РїРѕР»Р·РІР°С‚Рµ.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS', 'РР·РїРѕР»Р·РІР°РЅРµ РЅР° РїРѕС‚СЂРµР±РёС‚РµР»-Р±Р°Р·РёСЂР°РЅРё СЂРµСЃС‚СЂРёРєС†РёРё');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS_DESC', 'РљРѕРіР°С‚Рѕ Рµ Р°РєС‚РёРІРёСЂР°РЅРѕ, Р’РёРµ РјРѕР¶РµС‚Рµ РґР° РґРµС„РёРЅРёСЂР°С‚Рµ РєРѕРё СЃРїРµС†РёС„РёС‡РЅРё РїРѕС‚СЂРµР±РёС‚РµР»Рё РґР° РёРјР°С‚ РІСЉР·РјРѕР¶РЅРѕСЃС‚ Р·Р° С‡РµС‚РµРЅРµ РЅР° РїРѕСЃС‚РёРЅРіРёС‚Рµ. РўР°Р·Рё РѕРїС†РёСЏ РёРјР° РіРѕР»СЏРјРѕ РІР»РёСЏРЅРёРµ РІСЉСЂС…Сѓ РїСЂРѕРёР·РІРѕРґРёС‚РµР»РЅРѕСЃС‚С‚Р° РЅР° Р±Р»РѕРіР°. РџРѕР·РІРѕР»РµС‚Рµ СЏ, СЃР°РјРѕ Р°РєРѕ РЅР°РёСЃС‚РёРЅР° С‰Рµ СЏ РёР·РїРѕР»Р·РІР°С‚Рµ.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_HIDERSS', 'РР·РєР»СЋС‡РІР°РЅРµ РѕС‚ RSS РµРјРёСЃРёРё');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_HIDERSS_DESC', 'РџСЂРё РёР·Р±РѕСЂ \'Р”Р°\' СЃСЉРґСЉСЂР¶Р°РЅРёРµС‚Рѕ РЅР° С‚Р°Р·Рё СЃС‚Р°С‚РёСЏ РЅСЏРјР° РґР° Р±СЉРґРµ РІРєР»СЋС‡РµРЅРѕ РІ RSS РµРјРёСЃРёРё.');
 
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS', 'Допълнителни полета');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1', 'Допълнителните полета могат да се поставят в шаблона на вашата тема на места, където искате те да се показват. За това редактирайте вашия файл entries.tpl и поставете Smarty тагове подобно на следващите примери: {$entry.properties.ep_MyCustomField} на желаните места. Не трябва да изпускате префикса \'ep_\' преди името на полетата. ');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC2', 'Тук можете да въведете списък от имена на полета, разделени със запетаи, които да използвате за извеждане на HTML за всяка статия. В имената са разрешени само латински букви и цифри (не и специални символи). Например: \'Customfield1\', \'Customfield2\'. ' . PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1);
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'Списъкът на достъпните допълнителни полета може да бъде редактиран в <a href="%s" target="_blank" rel="noopener" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">конфигурацията</a> на приставка serendipity_event_entryproperties.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS', 'Р”РѕРїСЉР»РЅРёС‚РµР»РЅРё РїРѕР»РµС‚Р°');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1', 'Р”РѕРїСЉР»РЅРёС‚РµР»РЅРёС‚Рµ РїРѕР»РµС‚Р° РјРѕРіР°С‚ РґР° СЃРµ РїРѕСЃС‚Р°РІСЏС‚ РІ С€Р°Р±Р»РѕРЅР° РЅР° РІР°С€Р°С‚Р° С‚РµРјР° РЅР° РјРµСЃС‚Р°, РєСЉРґРµС‚Рѕ РёСЃРєР°С‚Рµ С‚Рµ РґР° СЃРµ РїРѕРєР°Р·РІР°С‚. Р—Р° С‚РѕРІР° СЂРµРґР°РєС‚РёСЂР°Р№С‚Рµ РІР°С€РёСЏ С„Р°Р№Р» entries.tpl Рё РїРѕСЃС‚Р°РІРµС‚Рµ Smarty С‚Р°РіРѕРІРµ РїРѕРґРѕР±РЅРѕ РЅР° СЃР»РµРґРІР°С‰РёС‚Рµ РїСЂРёРјРµСЂРё: {$entry.properties.ep_MyCustomField} РЅР° Р¶РµР»Р°РЅРёС‚Рµ РјРµСЃС‚Р°. РќРµ С‚СЂСЏР±РІР° РґР° РёР·РїСѓСЃРєР°С‚Рµ РїСЂРµС„РёРєСЃР° \'ep_\' РїСЂРµРґРё РёРјРµС‚Рѕ РЅР° РїРѕР»РµС‚Р°С‚Р°. ');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC2', 'РўСѓРє РјРѕР¶РµС‚Рµ РґР° РІСЉРІРµРґРµС‚Рµ СЃРїРёСЃСЉРє РѕС‚ РёРјРµРЅР° РЅР° РїРѕР»РµС‚Р°, СЂР°Р·РґРµР»РµРЅРё СЃСЉСЃ Р·Р°РїРµС‚Р°Рё, РєРѕРёС‚Рѕ РґР° РёР·РїРѕР»Р·РІР°С‚Рµ Р·Р° РёР·РІРµР¶РґР°РЅРµ РЅР° HTML Р·Р° РІСЃСЏРєР° СЃС‚Р°С‚РёСЏ. Р’ РёРјРµРЅР°С‚Р° СЃР° СЂР°Р·СЂРµС€РµРЅРё СЃР°РјРѕ Р»Р°С‚РёРЅСЃРєРё Р±СѓРєРІРё Рё С†РёС„СЂРё (РЅРµ Рё СЃРїРµС†РёР°Р»РЅРё СЃРёРјРІРѕР»Рё). РќР°РїСЂРёРјРµСЂ: \'Customfield1\', \'Customfield2\'. ' . PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1);
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'РЎРїРёСЃСЉРєСЉС‚ РЅР° РґРѕСЃС‚СЉРїРЅРёС‚Рµ РґРѕРїСЉР»РЅРёС‚РµР»РЅРё РїРѕР»РµС‚Р° РјРѕР¶Рµ РґР° Р±СЉРґРµ СЂРµРґР°РєС‚РёСЂР°РЅ РІ <a href="%s" target="_blank" rel="noopener" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">РєРѕРЅС„РёРіСѓСЂР°С†РёСЏС‚Р°</a> РЅР° РїСЂРёСЃС‚Р°РІРєР° serendipity_event_entryproperties.');
 
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_DISABLE_MARKUP', 'Забранени текстови форматирания за тази статия:');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_EXTJOINS', 'Използване на разширено търсене в базата данни');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_EXTJOINS_DESC', 'Ако е позволено, ще бъдат изпълнени допълнителни SQL заявки за лепкави статии, скрити статии и изтрити статии, за да бъдат използвани на лицевата страница. Ако не е нужна, забраната на тази функция ще увеличи производителността.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_DISABLE_MARKUP', 'Р—Р°Р±СЂР°РЅРµРЅРё С‚РµРєСЃС‚РѕРІРё С„РѕСЂРјР°С‚РёСЂР°РЅРёСЏ Р·Р° С‚Р°Р·Рё СЃС‚Р°С‚РёСЏ:');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_EXTJOINS', 'РР·РїРѕР»Р·РІР°РЅРµ РЅР° СЂР°Р·С€РёСЂРµРЅРѕ С‚СЉСЂСЃРµРЅРµ РІ Р±Р°Р·Р°С‚Р° РґР°РЅРЅРё');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_EXTJOINS_DESC', 'РђРєРѕ Рµ РїРѕР·РІРѕР»РµРЅРѕ, С‰Рµ Р±СЉРґР°С‚ РёР·РїСЉР»РЅРµРЅРё РґРѕРїСЉР»РЅРёС‚РµР»РЅРё SQL Р·Р°СЏРІРєРё Р·Р° Р»РµРїРєР°РІРё СЃС‚Р°С‚РёРё, СЃРєСЂРёС‚Рё СЃС‚Р°С‚РёРё Рё РёР·С‚СЂРёС‚Рё СЃС‚Р°С‚РёРё, Р·Р° РґР° Р±СЉРґР°С‚ РёР·РїРѕР»Р·РІР°РЅРё РЅР° Р»РёС†РµРІР°С‚Р° СЃС‚СЂР°РЅРёС†Р°. РђРєРѕ РЅРµ Рµ РЅСѓР¶РЅР°, Р·Р°Р±СЂР°РЅР°С‚Р° РЅР° С‚Р°Р·Рё С„СѓРЅРєС†РёСЏ С‰Рµ СѓРІРµР»РёС‡Рё РїСЂРѕРёР·РІРѕРґРёС‚РµР»РЅРѕСЃС‚С‚Р°.');
 
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_SEQUENCE', 'Екран за редактиране на статии');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_SEQUENCE_DESC', 'Тук можете да изберете кои елементи (полета) и в какъв ред да бъдат показани по време на процеса на редактиране.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_SEQUENCE', 'Р•РєСЂР°РЅ Р·Р° СЂРµРґР°РєС‚РёСЂР°РЅРµ РЅР° СЃС‚Р°С‚РёРё');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_SEQUENCE_DESC', 'РўСѓРє РјРѕР¶РµС‚Рµ РґР° РёР·Р±РµСЂРµС‚Рµ РєРѕРё РµР»РµРјРµРЅС‚Рё (РїРѕР»РµС‚Р°) Рё РІ РєР°РєСЉРІ СЂРµРґ РґР° Р±СЉРґР°С‚ РїРѕРєР°Р·Р°РЅРё РїРѕ РІСЂРµРјРµ РЅР° РїСЂРѕС†РµСЃР° РЅР° СЂРµРґР°РєС‚РёСЂР°РЅРµ.');
 

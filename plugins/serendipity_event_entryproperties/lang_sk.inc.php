@@ -1,46 +1,46 @@
 <?php
 
 /**
- *  @author Martin Matuπka <martin@matuska.org>
+ *  @author Martin Matu≈°ka <martin@matuska.org>
  *  EN-Revision: Revision of lang_en.inc.php
  *  @revisionDate 2010-08-17
  */
 
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_TITLE', 'RozπÌrenÈ vlastnosti Ël·nkov');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_DESC', 'cachovanie, neverejnÈ Ël·nky, st·le (prilepenÈ) Ël·nky');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_STICKYPOSTS', 'OznaËiª tento Ël·nok ako st·ly (prilepen˝)');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS', '»l·nky mÙæu byª preËÌtanÈ');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_TITLE', 'Roz≈°√≠ren√© vlastnosti ƒçl√°nkov');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_DESC', 'cachovanie, neverejn√© ƒçl√°nky, st√°le (prilepen√©) ƒçl√°nky');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_STICKYPOSTS', 'Oznaƒçi≈• tento ƒçl√°nok ako st√°ly (prilepen√Ω)');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS', 'ƒål√°nky m√¥≈æu by≈• preƒç√≠tan√©');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PRIVATE', 'Mnou');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_MEMBERS', 'Spoluautormi');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', 'K˝mkoµvek');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', 'Zapn˙ª cachovanie Ël·nkov?');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Ak je zapnutÈ, pri kaædom uloæenÌ Ël·nku bude vytvoren· cachovan· verzia. To znamen·, æe pri kaædom naËÌtanÌ str·nky nebude prÌspevok generovan˝ odznova, ale pouæije sa predgenerovan· (cachovan·) verzia. Cachovanie zv˝πi v˝kon weblogu, ale mÙæe obmedziª funkËnosª ostatn˝ch doplnkov. If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
-@define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'Cachovaª prÌspevky');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'NaËÌtanie Ôalπej d·vky prÌspevkov...');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', 'NaËÌtanie prÌspevkov %d aæ %d');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_BUILDING', 'Vytv·ranie cachovanej verzie pre prÌspevok #%d, <em>%s</em>...');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHED', 'PrÌspevok cachovan˝.');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DONE', 'Cachovanie prÌspevkov dokonËenÈ.');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_ABORTED', 'Cachovanie prÌspevkov ZRU©EN….');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_TOTAL', ' (z celkovÈho poËtu %d prÌspevkov)...');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_NO_FRONTPAGE', 'Skryª v prehµade Ël·nkov / na hlavnej str·nke');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS', 'PouæÌª obmedzenie pre skupiny');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS_DESC', 'Ak je zapnutÈ, tak mÙæete zadaª, ktorÈ skupiny pouæÌvateµov mÙæu ËÌtaª Ël·nok. Toto nastavenie m· veµk˝ vplyv an r˝chlosª vytv·rania str·nky s prehµadom Ël·nkov. Zapnite toto nastavenie, iba ak ho naozaj potrebujete.');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS', 'PouæÌª obmedzenie pre pouæÌvateµov');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS_DESC', 'Ak je zapnutÈ, tak mÙæete zadaª, ktorÌ pouæÌvatelia mÙæu ËÌtaª Ël·nok. Toto nastavenie m· veµk˝ vplyv an r˝chlosª v
-ytv·rania str·nky s prehµadom Ël·nkov. Zapnite toto nastavenie, iba ak ho naozaj potrebujete.');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_HIDERSS', 'Skryª obsah v RSS kan·li');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_HIDERSS_DESC', 'Ak je zapnutÈ ,tak sa nebude zobrazovaª obsah Ël·nku v RSS kan·li/kan·loch.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', 'K√Ωmkoƒævek');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', 'Zapn√∫≈• cachovanie ƒçl√°nkov?');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Ak je zapnut√©, pri ka≈ædom ulo≈æen√≠ ƒçl√°nku bude vytvoren√° cachovan√° verzia. To znamen√°, ≈æe pri ka≈ædom naƒç√≠tan√≠ str√°nky nebude pr√≠spevok generovan√Ω odznova, ale pou≈æije sa predgenerovan√° (cachovan√°) verzia. Cachovanie zv√Ω≈°i v√Ωkon weblogu, ale m√¥≈æe obmedzi≈• funkƒçnos≈• ostatn√Ωch doplnkov. If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
+@define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'Cachova≈• pr√≠spevky');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'Naƒç√≠tanie ƒèal≈°ej d√°vky pr√≠spevkov...');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', 'Naƒç√≠tanie pr√≠spevkov %d a≈æ %d');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_BUILDING', 'Vytv√°ranie cachovanej verzie pre pr√≠spevok #%d, <em>%s</em>...');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHED', 'Pr√≠spevok cachovan√Ω.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DONE', 'Cachovanie pr√≠spevkov dokonƒçen√©.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_ABORTED', 'Cachovanie pr√≠spevkov ZRU≈†EN√â.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_TOTAL', ' (z celkov√©ho poƒçtu %d pr√≠spevkov)...');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_NO_FRONTPAGE', 'Skry≈• v prehƒæade ƒçl√°nkov / na hlavnej str√°nke');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS', 'Pou≈æ√≠≈• obmedzenie pre skupiny');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS_DESC', 'Ak je zapnut√©, tak m√¥≈æete zada≈•, ktor√© skupiny pou≈æ√≠vateƒæov m√¥≈æu ƒç√≠ta≈• ƒçl√°nok. Toto nastavenie m√° veƒæk√Ω vplyv an r√Ωchlos≈• vytv√°rania str√°nky s prehƒæadom ƒçl√°nkov. Zapnite toto nastavenie, iba ak ho naozaj potrebujete.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS', 'Pou≈æ√≠≈• obmedzenie pre pou≈æ√≠vateƒæov');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS_DESC', 'Ak je zapnut√©, tak m√¥≈æete zada≈•, ktor√≠ pou≈æ√≠vatelia m√¥≈æu ƒç√≠ta≈• ƒçl√°nok. Toto nastavenie m√° veƒæk√Ω vplyv an r√Ωchlos≈• v
+ytv√°rania str√°nky s prehƒæadom ƒçl√°nkov. Zapnite toto nastavenie, iba ak ho naozaj potrebujete.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_HIDERSS', 'Skry≈• obsah v RSS kan√°li');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_HIDERSS_DESC', 'Ak je zapnut√© ,tak sa nebude zobrazova≈• obsah ƒçl√°nku v RSS kan√°li/kan√°loch.');
 
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS', 'VlastnÈ pole');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1', 'PridanÈ vlastnÈ polia mÙæu byª pouæitÈ vo Vaπej vlastnej πablÛne na miestach, kde chcete zobrazovaª ˙daje z t˝chto polÌ. Pre t˙to funkcio musÌte upraviª πablÛnu "entries.tpl" a v nej umiestniª Smarty tag {$entry.properties.ep_NazevMehoPolicka}. Pred n·zov kaædÈho poµa musÌ byª pridan· predpona ep_ . ');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC2', 'Tu mÙæete zadaª zoznam polÌ, ktorÈ chcete pouæiª vo svojich Ël·nkoch. Polia oddeµovaª Ëiarkou. Men· polÌ nemÙæu obsahovaª πpeci·lne znaky ani diakritiku. PrÌklad: "MojePole1, CiziPole2, UplneCiziPole3". ');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'Zoznam dostupn˝ch voliteµn˝ch polÌ mÙæe byª zmenen˝ v <a href="%s" target="_blank" rel="noopener" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">nastaveniach doplnku</a>.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS', 'Vlastn√© pole');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1', 'Pridan√© vlastn√© polia m√¥≈æu by≈• pou≈æit√© vo Va≈°ej vlastnej ≈°abl√≥ne na miestach, kde chcete zobrazova≈• √∫daje z t√Ωchto pol√≠. Pre t√∫to funkcio mus√≠te upravi≈• ≈°abl√≥nu "entries.tpl" a v nej umiestni≈• Smarty tag {$entry.properties.ep_NazevMehoPolicka}. Pred n√°zov ka≈æd√©ho poƒæa mus√≠ by≈• pridan√° predpona ep_ . ');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC2', 'Tu m√¥≈æete zada≈• zoznam pol√≠, ktor√© chcete pou≈æi≈• vo svojich ƒçl√°nkoch. Polia oddeƒæova≈• ƒçiarkou. Men√° pol√≠ nem√¥≈æu obsahova≈• ≈°peci√°lne znaky ani diakritiku. Pr√≠klad: "MojePole1, CiziPole2, UplneCiziPole3". ');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'Zoznam dostupn√Ωch voliteƒæn√Ωch pol√≠ m√¥≈æe by≈• zmenen√Ω v <a href="%s" target="_blank" rel="noopener" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">nastaveniach doplnku</a>.');
 
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_DISABLE_MARKUP', 'Zak·zaª pouæitie transofrm·ciÌ textu (markup) pre tento Ël·nok:');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_EXTJOINS', 'RozπÌrenÈ datab·zovÈ hµadanie');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_EXTJOINS_DESC', 'Ak je zapnutÈ, bud˙ vytvorenÈ prÌdavnÈ SQL dotazy, ktorÈ umoænia pouæiª aj prilepenÈ, skrytÈ a z hlavnej str·nky odstr·nanÈ Ël·nky. Ak toto nastavenie nepotrebujete, odpor˙Ëame z dÙvodov v˝konu ponechaª vypnutÈ.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_DISABLE_MARKUP', 'Zak√°za≈• pou≈æitie transofrm√°ci√≠ textu (markup) pre tento ƒçl√°nok:');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_EXTJOINS', 'Roz≈°√≠ren√© datab√°zov√© hƒæadanie');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_EXTJOINS_DESC', 'Ak je zapnut√©, bud√∫ vytvoren√© pr√≠davn√© SQL dotazy, ktor√© umo≈ænia pou≈æi≈• aj prilepen√©, skryt√© a z hlavnej str√°nky odstr√°nan√© ƒçl√°nky. Ak toto nastavenie nepotrebujete, odpor√∫ƒçame z d√¥vodov v√Ωkonu ponecha≈• vypnut√©.');
 
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_SEQUENCE', 'EditaËn· obrazovka');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_SEQUENCE_DESC', 'Tu vyberte, ktorÈ prvky a v akom poradÌ m· tento doplnok zobrazovaª v procese ˙prav Ël·nku.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_SEQUENCE', 'Editaƒçn√° obrazovka');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_SEQUENCE_DESC', 'Tu vyberte, ktor√© prvky a v akom porad√≠ m√° tento doplnok zobrazova≈• v procese √∫prav ƒçl√°nku.');
 

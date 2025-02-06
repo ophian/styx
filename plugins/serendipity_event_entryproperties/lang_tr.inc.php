@@ -6,37 +6,34 @@
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_TITLE', 'Yazýlar için geniþletilmiþ özelliklerin tanýmý');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_DESC', '(önbellek, anonim olmayan yazýlar, yapýþkan iletiler)');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_STICKYPOSTS', 'Bu yazýyý yapýþkan ileti olarak iþaretle');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS', 'Bu yazýyý okuma izni olanlar:');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_TITLE', 'YazÄ±lar iÃ§in geniÅŸletilmiÅŸ Ã¶zelliklerin tanÄ±mÄ±');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_DESC', '(Ã¶nbellek, anonim olmayan yazÄ±lar, yapÄ±ÅŸkan iletiler)');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_STICKYPOSTS', 'Bu yazÄ±yÄ± yapÄ±ÅŸkan ileti olarak iÅŸaretle');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS', 'Bu yazÄ±yÄ± okuma izni olanlar:');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PRIVATE', 'Kendim');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_MEMBERS', 'Yazarlar');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', 'Herkes');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', 'Yazýlar önbelleklensin mi?');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Eðer bu seçenek etkinse, yazýyý her kaydettiðinizde önbelleklenmiþ bir sürüm kendiliðinden oluþturulacaktýr. Önbellekleme yazýlarýn yayýn esnasýnda daha çabuk eriþilmesine imkan verir, siteye eriþim hýzýný arttýrýr, Ama diðer eklentilerle beraber çalýþýrken ölçeklenebilir olma imkanýný da azaltýr. If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
-@define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'Yazýlarý önbellekleme iþlemini gerçekleþtir');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'Yazýlarýn kaydý gelecek iþlem için çekiliyor...');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', 'Yazýlarýn çekilme iþlemi %d dan %d');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_BUILDING', 'Building cache for entryÞu yazý için önbellekleme iþlemi:
-#%d, <em>%s</em>...');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHED', 'Yazý önbellekleðe aktarýldý.');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DONE', 'Yazý önbellekleme iþlemi tamamlandý.');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_ABORTED', 'Yazý önbellekleme iþlemi iptal edildi.');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_TOTAL', ' (toplamda %d yazý)...');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_NL2BR', 'nl2br Kapalý');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_NO_FRONTPAGE', 'Yazýyý  öngörünüm / anasayfadan gizle');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS', 'Grup tabanlý yetkilendirme kullan');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS_DESC', 'Eðer bu seçenek etkinleþtirilirse, hangi kullanýcý grubunun kullanýcýlarýnýn bu yazýyý okuma yetkisi olduðunu belirleyebilirsiniz. Bu seçenek performansý olumsuz etkileyebilir. Sadece gerçekten ihtiyacýnýz varsa bu seçeneði etkinleþtirmeniz önerilir.');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS', 'Kullanýcý tabanlý yetkilendirme kullan');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS_DESC', 'Eðer bu seçenek etkinleþtirilirse, Bu yazýyý okuma izni olan özel kullanýcýlarý tanýmlayabilirsiniz. Bu seçenek performansý olumsuz
-etkileyebilir. Sadece gerçekten ihtiyacýnýz varsa bu seçeneði etkinleþtirmeniz önerilir.');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_HIDERSS', 'Ýçeriði RSS Beslemesinden gizle');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_HIDERSS_DESC', 'Eðer bu seçenek etkinleþtirilirse, içeriði RSS Beslemesinden gizlenecektir.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', 'YazÄ±lar Ã¶nbelleklensin mi?');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'EÄŸer bu seÃ§enek etkinse, yazÄ±yÄ± her kaydettiÄŸinizde Ã¶nbelleklenmiÅŸ bir sÃ¼rÃ¼m kendiliÄŸinden oluÅŸturulacaktÄ±r. Ã–nbellekleme yazÄ±larÄ±n yayÄ±n esnasÄ±nda daha Ã§abuk eriÅŸilmesine imkan verir, siteye eriÅŸim hÄ±zÄ±nÄ± arttÄ±rÄ±r, Ama diÄŸer eklentilerle beraber Ã§alÄ±ÅŸÄ±rken Ã¶lÃ§eklenebilir olma imkanÄ±nÄ± da azaltÄ±r. If you use the rich-text editor (wysiwyg) a cache is actually useless, unless you use many plugins that further change the output markup.');
+@define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'YazÄ±larÄ± Ã¶nbellekleme iÅŸlemini gerÃ§ekleÅŸtir');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'YazÄ±larÄ±n kaydÄ± gelecek iÅŸlem iÃ§in Ã§ekiliyor...');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', 'YazÄ±larÄ±n Ã§ekilme iÅŸlemi %d dan %d');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_BUILDING', 'Building cache for entryÅžu yazÄ± iÃ§in Ã¶nbellekleme iÅŸlemi: #%d, <em>%s</em>...');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHED', 'YazÄ± Ã¶nbellekleÄŸe aktarÄ±ldÄ±.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DONE', 'YazÄ± Ã¶nbellekleme iÅŸlemi tamamlandÄ±.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_ABORTED', 'YazÄ± Ã¶nbellekleme iÅŸlemi iptal edildi.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_TOTAL', ' (toplamda %d yazÄ±)...');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_NL2BR', 'nl2br KapalÄ±');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_NO_FRONTPAGE', 'YazÄ±yÄ±  Ã¶ngÃ¶rÃ¼nÃ¼m / anasayfadan gizle');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS', 'Grup tabanlÄ± yetkilendirme kullan');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS_DESC', 'EÄŸer bu seÃ§enek etkinleÅŸtirilirse, hangi kullanÄ±cÄ± grubunun kullanÄ±cÄ±larÄ±nÄ±n bu yazÄ±yÄ± okuma yetkisi olduÄŸunu belirleyebilirsiniz. Bu seÃ§enek performansÄ± olumsuz etkileyebilir. Sadece gerÃ§ekten ihtiyacÄ±nÄ±z varsa bu seÃ§eneÄŸi etkinleÅŸtirmeniz Ã¶nerilir.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS', 'KullanÄ±cÄ± tabanlÄ± yetkilendirme kullan');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS_DESC', 'EÄŸer bu seÃ§enek etkinleÅŸtirilirse, Bu yazÄ±yÄ± okuma izni olan Ã¶zel kullanÄ±cÄ±larÄ± tanÄ±mlayabilirsiniz. Bu seÃ§enek performansÄ± olumsuz etkileyebilir. Sadece gerÃ§ekten ihtiyacÄ±nÄ±z varsa bu seÃ§eneÄŸi etkinleÅŸtirmeniz Ã¶nerilir.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_HIDERSS', 'Ä°Ã§eriÄŸi RSS Beslemesinden gizle');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_HIDERSS_DESC', 'EÄŸer bu seÃ§enek etkinleÅŸtirilirse, iÃ§eriÄŸi RSS Beslemesinden gizlenecektir.');
 
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS', 'Özel Alanlar');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1', 'Þablonunuza eklenmek üzere ek özel alanlar belirleme imkaný.Bu alanlar nerede kullanmak istiyorsanýz orada gösterilecek þekilde eklenebilir. Tam olarak istediðiniz türden bir özelleþtirme için entries.tpl þablon dosyanýzý düzenleyin ve  Smarty etiketlerini HTML etiketleme yapýsý içinde
-{$entry.properties.ep_MyCustomField} gibi yerleþtirin. Not: her alanda ön ek ep_ þeklinde olmalýdýr.');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC2', 'Buraya virgülle ayrýlmýþ özel alanlarýnýzý listeleyebilirsiniz ve bunlarý her yazýnýz için kullanabilirsiniz. özel harf karakterleri ya da boþluk karakteri kullanmamaya özen gösterin - Örneðin:"Ozelalan1, Ozelalan2" þeklinde kullanýn.' . PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1);
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'Listelenen özel alanlar <a href="%s" target="_blank" rel="noopener" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">eklenti yapýlandýrma</a> bölümünden deðiþtirilebilir.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS', 'Ã–zel Alanlar');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1', 'Åžablonunuza eklenmek Ã¼zere ek Ã¶zel alanlar belirleme imkanÄ±.Bu alanlar nerede kullanmak istiyorsanÄ±z orada gÃ¶sterilecek ÅŸekilde eklenebilir. Tam olarak istediÄŸiniz tÃ¼rden bir Ã¶zelleÅŸtirme iÃ§in entries.tpl ÅŸablon dosyanÄ±zÄ± dÃ¼zenleyin ve  Smarty etiketlerini HTML etiketleme yapÄ±sÄ± iÃ§inde {$entry.properties.ep_MyCustomField} gibi yerleÅŸtirin. Not: her alanda Ã¶n ek ep_ ÅŸeklinde olmalÄ±dÄ±r.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC2', 'Buraya virgÃ¼lle ayrÄ±lmÄ±ÅŸ Ã¶zel alanlarÄ±nÄ±zÄ± listeleyebilirsiniz ve bunlarÄ± her yazÄ±nÄ±z iÃ§in kullanabilirsiniz. Ã¶zel harf karakterleri ya da boÅŸluk karakteri kullanmamaya Ã¶zen gÃ¶sterin - Ã–rneÄŸin:"Ozelalan1, Ozelalan2" ÅŸeklinde kullanÄ±n.' . PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1);
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'Listelenen Ã¶zel alanlar <a href="%s" target="_blank" rel="noopener" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">eklenti yapÄ±landÄ±rma</a> bÃ¶lÃ¼mÃ¼nden deÄŸiÅŸtirilebilir.');
 

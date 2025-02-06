@@ -9,54 +9,55 @@
  *  @author Ian
  *  @translated 2017/04/14
  */
+
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_TITLE', 'Erweiterte Eigenschaften von Artikeln');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_DESC', 'Eine Vielzahl von Methoden zur Erweiterung des Eintragsformulars, wie z.B. Cache, nicht-öffentliche Artikel, dauerhafte Artikel, Rechtemanagement, benutzerdefinierte Felder, etc.');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_DESC_PLUS', 'BESONDERER HINWEIS: Sollten noch weitere Plugin oder Theme Konfigurationen ins Spiel kommen, die sich in das "Erweiterte Eigenschaften von Artikeln" Plugin besonders bezüglich der Freien Felder im Artikelformular einklinken, kann es (je nachdem) zu unmittelbaren Verzögerungen in der Darstellung bzw deren Bereitstellung kommen. Ein erneutes Öffnen der entsprechenden Seite kann bei der Suche nach gesetzten Veränderungen hilfreich sein, so wie es analog auch bei Serendipity Cookies auftreten kann.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_DESC', 'Eine Vielzahl von Methoden zur Erweiterung des Eintragsformulars, wie z.B. Cache, nicht-Ã¶ffentliche Artikel, dauerhafte Artikel, Rechtemanagement, benutzerdefinierte Felder, etc.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_DESC_PLUS', 'BESONDERER HINWEIS: Sollten noch weitere Plugin oder Theme Konfigurationen ins Spiel kommen, die sich in das "Erweiterte Eigenschaften von Artikeln" Plugin besonders bezÃ¼glich der Freien Felder im Artikelformular einklinken, kann es (je nachdem) zu unmittelbaren VerzÃ¶gerungen in der Darstellung bzw deren Bereitstellung kommen. Ein erneutes Ã–ffnen der entsprechenden Seite kann bei der Suche nach gesetzten VerÃ¤nderungen hilfreich sein, so wie es analog auch bei Serendipity Cookies auftreten kann.');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_STICKYPOSTS', 'Dauerhafte Artikel');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS', 'Artikel können gelesen werden von');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS', 'Artikel kÃ¶nnen gelesen werden von');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PRIVATE', 'mir selbst');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_MEMBERS', 'Co-Autoren');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', 'allen');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', 'Artikel cachen?');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Falls diese Option aktiviert ist, wird eine Cache-Version des Artikels gespeichert. Dieses Caching wird zwar die Performance erhöhen, die Flexibilität anderer Plugins aber eventuell einschränken. Sollten Sie den Rich-Text Editor verwenden (wysiwyg) ist ein cache eigentlich sinnlos, außer Sie verwenden viele Plugins die das Ausgabemarkup weiter verändern.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Falls diese Option aktiviert ist, wird eine Cache-Version des Artikels gespeichert. Dieses Caching wird zwar die Performance erhÃ¶hen, die FlexibilitÃ¤t anderer Plugins aber eventuell einschrÃ¤nken. Sollten Sie den Rich-Text Editor verwenden (wysiwyg) ist ein cache eigentlich sinnlos, auÃŸer Sie verwenden viele Plugins die das Ausgabemarkup weiter verÃ¤ndern.');
 @define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'Cachen aller Artikel');
-@define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE_AUTO', 'Bestätige Cache Dialog automatisch?');
-@define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE_AUTO_DESC', 'Falls diese Option aktiviert ist, wird der Javascript Bestätigungsdialog für die nächsten 25 Cache Einträge per Seite nach 3 Sekunden automatisch gesetzt.');
+@define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE_AUTO', 'BestÃ¤tige Cache Dialog automatisch?');
+@define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE_AUTO_DESC', 'Falls diese Option aktiviert ist, wird der Javascript BestÃ¤tigungsdialog fÃ¼r die nÃ¤chsten 25 Cache EintrÃ¤ge per Seite nach 3 Sekunden automatisch gesetzt.');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'Suche nach zu cachenden Artikeln...');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', 'Bearbeite Artikel %d bis %d');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_BUILDING', 'Erzeuge Cache für Artikel #%d, <em>%s</em>...');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_BUILDING', 'Erzeuge Cache fÃ¼r Artikel #%d, <em>%s</em>...');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHED', 'Artikel gecached.');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DONE', 'Alle Artikel gecached.');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_ABORTED', 'Caching der Artikel ABGEBROCHEN.');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_TOTAL', ' (insgesamt %d Artikel vorhanden)...');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_NL2BR', 'Automatischen Zeilenumbruch deaktivieren');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_NO_FRONTPAGE', 'Nicht in Artikelübersicht zeigen');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS', 'Leserechte auf Gruppen beschränken');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS_DESC', 'Wenn aktiviert, können Leserechte abhängig von Gruppen vergeben werden. Dies wirkt sich stark auf die Performance der Artikelübersicht aus. Aktivieren Sie die Option daher nur, wenn Sie sie wirklich benötigen.');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS', 'Leserechte auf Benutzer beschränken');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS_DESC', 'Wenn aktiviert, können Leserechte abhängig von einzelnen Benutzern vergeben werden. Dies wirkt sich stark auf die Performance der Artikelübersicht aus. Aktivieren Sie die Option daher nur, wenn Sie sie wirklich benötigen.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_NO_FRONTPAGE', 'Nicht in ArtikelÃ¼bersicht zeigen');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS', 'Leserechte auf Gruppen beschrÃ¤nken');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS_DESC', 'Wenn aktiviert, kÃ¶nnen Leserechte abhÃ¤ngig von Gruppen vergeben werden. Dies wirkt sich stark auf die Performance der ArtikelÃ¼bersicht aus. Aktivieren Sie die Option daher nur, wenn Sie sie wirklich benÃ¶tigen.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS', 'Leserechte auf Benutzer beschrÃ¤nken');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS_DESC', 'Wenn aktiviert, kÃ¶nnen Leserechte abhÃ¤ngig von einzelnen Benutzern vergeben werden. Dies wirkt sich stark auf die Performance der ArtikelÃ¼bersicht aus. Aktivieren Sie die Option daher nur, wenn Sie sie wirklich benÃ¶tigen.');
 
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_HIDERSS', 'Eintragsinhalt im RSS-Feed verstecken');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_HIDERSS_DESC', 'Falls aktiviert, wird dieser Artikel im RSS-Feed ohne Inhalt dargestellt und sofort per URL aufgerufen.');
 
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS', 'Freie Felder');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1', 'Zusätzliche, freie Felder können in Ihrem Theme an beliebigen Stellen eingesetzt werden. Dafür müssen Sie nur Ihr entries.tpl-Template bearbeiten und Smarty-Tags wie {$entry.properties.ep_MyCustomField} an gewünschter Stelle einfügen. Bitte beachten Sie den Präfix ep_ für jedes Feld! ');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC2', 'Geben Sie hier eine Liste von kommaseparierten Feldnamen an, die Sie für die Einträge verwenden möchten. Keine Sonderzeichen und Leerzeichen benutzen. Beispiel: "Customfield1, Customfield2". Zusätzliche, freie Felder können in Ihrem Theme an beliebigen Stellen eingesetzt werden. Dafür müssen Sie nur Ihr entries.tpl-Template bearbeiten und Smarty-Tags wie {$entry.properties.ep_MyCustomField} an gewünschter Stelle einfügen. Bitte beachten Sie hier das Präfix "ep_" für jedes Feld!');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'Die Liste verfügbarer freier Felder kann in der <a href="%s" target="_blank" rel="noopener" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">Plugin-Konfiguration</a> bearbeitet werden.');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC4', 'Sie können den Standardwert für jedes benutzerdefinierte Feld eintragen, in dem Sie "Customfield1:Standardwert1, Customfield2:Standardwert2" benutzen. Wenn Sie Sonderzeichen wie ":" und "," im Standardwert nutzen müssen, fügen Sie einen "\\" backslash voran, beispielsweise "Standardwert1:Ich will\\:Coookies\\, Muffins und Würstchen, Standardwert2:Danke\\, ich habe fertig". Für die bessere Lesbarkeit, können Sie eine neue Zeile vor jedem benutzerdefinierten Feld einfügen.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1', 'ZusÃ¤tzliche, freie Felder kÃ¶nnen in Ihrem Theme an beliebigen Stellen eingesetzt werden. DafÃ¼r mÃ¼ssen Sie nur Ihr entries.tpl-Template bearbeiten und Smarty-Tags wie {$entry.properties.ep_MyCustomField} an gewÃ¼nschter Stelle einfÃ¼gen. Bitte beachten Sie den PrÃ¤fix ep_ fÃ¼r jedes Feld! ');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC2', 'Geben Sie hier eine Liste von kommaseparierten Feldnamen an, die Sie fÃ¼r die EintrÃ¤ge verwenden mÃ¶chten. Keine Sonderzeichen und Leerzeichen benutzen. Beispiel: "Customfield1, Customfield2". ZusÃ¤tzliche, freie Felder kÃ¶nnen in Ihrem Theme an beliebigen Stellen eingesetzt werden. DafÃ¼r mÃ¼ssen Sie nur Ihr entries.tpl-Template bearbeiten und Smarty-Tags wie {$entry.properties.ep_MyCustomField} an gewÃ¼nschter Stelle einfÃ¼gen. Bitte beachten Sie hier das PrÃ¤fix "ep_" fÃ¼r jedes Feld!');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'Die Liste verfÃ¼gbarer freier Felder kann in der <a href="%s" target="_blank" rel="noopener" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">Plugin-Konfiguration</a> bearbeitet werden.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC4', 'Sie kÃ¶nnen den Standardwert fÃ¼r jedes benutzerdefinierte Feld eintragen, in dem Sie "Customfield1:Standardwert1, Customfield2:Standardwert2" benutzen. Wenn Sie Sonderzeichen wie ":" und "," im Standardwert nutzen mÃ¼ssen, fÃ¼gen Sie einen "\\" backslash voran, beispielsweise "Standardwert1:Ich will\\:Coookies\\, Muffins und WÃ¼rstchen, Standardwert2:Danke\\, ich habe fertig". FÃ¼r die bessere Lesbarkeit, kÃ¶nnen Sie eine neue Zeile vor jedem benutzerdefinierten Feld einfÃ¼gen.');
 
 // Next lines were translated on 2009/06/03
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_DISABLE_MARKUP', 'Formatierungs-PlugIns für diesen Eintrag deaktivieren');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_DISABLE_MARKUP', 'Formatierungs-PlugIns fÃ¼r diesen Eintrag deaktivieren');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_EXTJOINS', 'Verwende erweiterte Datenbankabfragen');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_EXTJOINS_DESC', 'Wenn aktiviert, werden zusätzliche Datenbankabfragen ausgeführt. Damit wird es möglich, "dauerhafte", nicht in der "Artikelübersicht aufgeführte", und im RSS-Feed "versteckte Artikel" zu verwenden. Wenn diese Funktionen nicht benötigt werden, kann das Abschalten der Abfragen die Geschwindigkeit verbessern.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_EXTJOINS_DESC', 'Wenn aktiviert, werden zusÃ¤tzliche Datenbankabfragen ausgefÃ¼hrt. Damit wird es mÃ¶glich, "dauerhafte", nicht in der "ArtikelÃ¼bersicht aufgefÃ¼hrte", und im RSS-Feed "versteckte Artikel" zu verwenden. Wenn diese Funktionen nicht benÃ¶tigt werden, kann das Abschalten der Abfragen die Geschwindigkeit verbessern.');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_SEQUENCE', 'Reihenfolge der Optionen');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_SEQUENCE_DESC', 'Hier kann ausgewählt werden, welche Optionen in welcher Reihenfolge im Editiermodus des Artikels angezeigt werden.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_SEQUENCE_DESC', 'Hier kann ausgewÃ¤hlt werden, welche Optionen in welcher Reihenfolge im Editiermodus des Artikels angezeigt werden.');
 
 // Next lines were translated on 2017/04/02
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_EMPTYBOX', 'Funktionslose (Geschwister-)Leer-Box');
-@define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE_DESC', 'Dies ist der Cache des entryproperties event Plugins. Er ist <u>verschieden</u> vom Cache in der "%s" / "%s" Option. Er erlaubt bereits formatierte Einträge in der Datenbank abzulegen, so wie sie normalerweise durch die gesetzten Markup Plugins, zB. nl2br, oder markdown, textile, etc. für das Frontend behandelt ausgegeben werden.<p>Wenn sie das Caching hier erlauben, werden Sie zu einer Seite weitergeleitet, wo sie die Einträge des Blogs in 25-iger Schritten portionsweise durchlaufen. Dies geschieht zur besseren Kontrolle und damit die Ressourcen des Systems nicht überschritten werden wenn viele Einträge zugleich formatiert und abgespeichert werden müssen.</p>Sobald dies getan ist, sind keine weiteren Änderungen in der Reihenfolge oder im Austausch von installierten Markup Plugins für die Ausgabe möglich, ohne das dieser Cache erneut durchlaufen wird. Natürlich werden erneut gespeicherte alte Einträge über das Eintragsformular auch für den Cache Eintrag gespeichert. Dieses Verhalten muss erinnert werden, wenn zukünftig Konfigurationen des Systems vorgenommen werden, damit man nicht durcheinander kommt.');
+@define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE_DESC', 'Dies ist der Cache des entryproperties event Plugins. Er ist <u>verschieden</u> vom Cache in der "%s" / "%s" Option. Er erlaubt bereits formatierte EintrÃ¤ge in der Datenbank abzulegen, so wie sie normalerweise durch die gesetzten Markup Plugins, zB. nl2br, oder markdown, textile, etc. fÃ¼r das Frontend behandelt ausgegeben werden.<p>Wenn sie das Caching hier erlauben, werden Sie zu einer Seite weitergeleitet, wo sie die EintrÃ¤ge des Blogs in 25-iger Schritten portionsweise durchlaufen. Dies geschieht zur besseren Kontrolle und damit die Ressourcen des Systems nicht Ã¼berschritten werden wenn viele EintrÃ¤ge zugleich formatiert und abgespeichert werden mÃ¼ssen.</p>Sobald dies getan ist, sind keine weiteren Ã„nderungen in der Reihenfolge oder im Austausch von installierten Markup Plugins fÃ¼r die Ausgabe mÃ¶glich, ohne das dieser Cache erneut durchlaufen wird. NatÃ¼rlich werden erneut gespeicherte alte EintrÃ¤ge Ã¼ber das Eintragsformular auch fÃ¼r den Cache Eintrag gespeichert. Dieses Verhalten muss erinnert werden, wenn zukÃ¼nftig Konfigurationen des Systems vorgenommen werden, damit man nicht durcheinander kommt.');
 
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_MULTI_AUTHORS', 'Mehrere Autoren');
 
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_RECOMMENDED_SET', 'Artikelübersichten zeigen alle "einfachen" [body] Eintragsfelder, zB. auch dann, wenn die Einzel-Eintragsansicht durch ein hier gesetztes Passwort geschützt ist. Ansonsten können Sie in diesem Fall den schützenswerten Inhalt aber auch in das erweiterte Feld einfügen.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_RECOMMENDED_SET', 'ArtikelÃ¼bersichten zeigen alle "einfachen" [body] Eintragsfelder, zB. auch dann, wenn die Einzel-Eintragsansicht durch ein hier gesetztes Passwort geschÃ¼tzt ist. Ansonsten kÃ¶nnen Sie in diesem Fall den schÃ¼tzenswerten Inhalt aber auch in das erweiterte Feld einfÃ¼gen.');
 
