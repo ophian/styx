@@ -8,14 +8,13 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-$data = array();
-
 if (!serendipity_checkPermission('personalConfiguration')) {
     return;
 }
 
 define('USERCONF_NEW_PASSWDEX_TOOLTIP_INFO', ' - ' . mb_strtolower(WORD_OR) . " -<br>\n" . sprintf('<span class="newrex" title="' . USERCONF_PASSWORD_RANDOM . '"><span class="icon-info-circled" aria-hidden="true"></span>%s</span>', serendipity_generate_password(20)));// no space with %s !
 
+$data = array();
 $from = array();
 
 if ($serendipity['GET']['adminAction'] == 'save' && serendipity_checkFormToken()) {
