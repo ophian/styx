@@ -1,6 +1,6 @@
 <?php
 
 @define('PLUGIN_EVENT_S9YMARKUP_NAME', 'Textformatierung: Serendipity');
-@define('PLUGIN_EVENT_S9YMARKUP_DESC', 'Standard Serendipity Textformatierung durchführen');
-@define('PLUGIN_EVENT_S9YMARKUP_TRANSFORM', 'Umschließende Sterne heben ein Wort hervor *wort*. Unterstriche für Unterstreichen _wort_. Anderenfalls \_.');
+@define('PLUGIN_EVENT_S9YMARKUP_DESC', 'Standard Serendipity Textformatierung durchfÃ¼hren');
+@define('PLUGIN_EVENT_S9YMARKUP_TRANSFORM', 'UmschlieÃŸende Sterne heben ein Wort hervor *wort*. Unterstriche fÃ¼r Unterstreichen _wort_. Anderenfalls \_.');
 

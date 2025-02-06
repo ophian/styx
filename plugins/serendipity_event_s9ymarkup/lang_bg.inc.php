@@ -5,7 +5,7 @@
  *  @author Ivan Cenov jwalker@hotmail.bg
  */
 
-@define('PLUGIN_EVENT_S9YMARKUP_NAME', 'Текстово форматиране: Serendipity');
-@define('PLUGIN_EVENT_S9YMARKUP_DESC', 'Прилага базово форматиране на текст');
-@define('PLUGIN_EVENT_S9YMARKUP_TRANSFORM', 'Звездички означават bold (*текст*), подчертаване се прави с "_" (_текст_)');
+@define('PLUGIN_EVENT_S9YMARKUP_NAME', 'РўРµРєСЃС‚РѕРІРѕ С„РѕСЂРјР°С‚РёСЂР°РЅРµ: Serendipity');
+@define('PLUGIN_EVENT_S9YMARKUP_DESC', 'РџСЂРёР»Р°РіР° Р±Р°Р·РѕРІРѕ С„РѕСЂРјР°С‚РёСЂР°РЅРµ РЅР° С‚РµРєСЃС‚');
+@define('PLUGIN_EVENT_S9YMARKUP_TRANSFORM', 'Р—РІРµР·РґРёС‡РєРё РѕР·РЅР°С‡Р°РІР°С‚ bold (*С‚РµРєСЃС‚*), РїРѕРґС‡РµСЂС‚Р°РІР°РЅРµ СЃРµ РїСЂР°РІРё СЃ "_" (_С‚РµРєСЃС‚_)');
 

@@ -7,6 +7,6 @@
  */
 
 @define('PLUGIN_EVENT_S9YMARKUP_NAME', 'Markup: Serendipity');
-@define('PLUGIN_EVENT_S9YMARKUP_DESC', 'Provádí základní znaèkování textu.');
-@define('PLUGIN_EVENT_S9YMARKUP_TRANSFORM', 'Slova mezi hvìzdièkami budou tuèná (*tuènì*), podtr¾ení podobnì pomocí podtr¾ítek _podtr¾ené_.');
+@define('PLUGIN_EVENT_S9YMARKUP_DESC', 'ProvÃ¡dÃ­ zÃ¡kladnÃ­ znaÄkovÃ¡nÃ­ textu.');
+@define('PLUGIN_EVENT_S9YMARKUP_TRANSFORM', 'Slova mezi hvÄ›zdiÄkami budou tuÄnÃ¡ (*tuÄnÄ›*), podtrÅ¾enÃ­ podobnÄ› pomocÃ­ podtrÅ¾Ã­tek _podtrÅ¾enÃ©_.');
 

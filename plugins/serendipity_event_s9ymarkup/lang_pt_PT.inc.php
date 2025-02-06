@@ -8,13 +8,13 @@
 # http://www.jannis.to/programming/serendipity.html                      #
 #                                                                        #
 # Translated by                                                          #
-# Jo„o P. Matos <jmatos@math.ist.utl.pt>                                 #
+# Jo√£o P. Matos <jmatos@math.ist.utl.pt>                                 #
 # based on the french version by Sebastian Mordziol <argh@php-tools.net> #
 # http://sebastian.mordziol.de                                           #
 #                                                                        #
 ##########################################################################
 
 @define('PLUGIN_EVENT_S9YMARKUP_NAME', 'Formato: Serendipity');
-@define('PLUGIN_EVENT_S9YMARKUP_DESC', 'Activar a formataÁ„o do Serendipity no texto das entradas');
-@define('PLUGIN_EVENT_S9YMARKUP_TRANSFORM', 'Asteriscos ‡ volta duma palavra (*palavra*) marcam-na como negrito, sublinhados s„o feitos com _palavra_.');
+@define('PLUGIN_EVENT_S9YMARKUP_DESC', 'Activar a formata√ß√£o do Serendipity no texto das entradas');
+@define('PLUGIN_EVENT_S9YMARKUP_TRANSFORM', 'Asteriscos √† volta duma palavra (*palavra*) marcam-na como negrito, sublinhados s√£o feitos com _palavra_.');
 

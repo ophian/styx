@@ -6,6 +6,6 @@
  */
 
 @define('PLUGIN_EVENT_S9YMARKUP_NAME', 'Formato: Serendipity');
-@define('PLUGIN_EVENT_S9YMARKUP_DESC', 'Aplica formato b·sico serendipity a la entrada de texto');
-@define('PLUGIN_EVENT_S9YMARKUP_TRANSFORM', 'Encerrando entre asteriscos convierte el texto en negrita (*palabra*), el subrayado es hecho asÌ: _palabra_.');
+@define('PLUGIN_EVENT_S9YMARKUP_DESC', 'Aplica formato b√°sico serendipity a la entrada de texto');
+@define('PLUGIN_EVENT_S9YMARKUP_TRANSFORM', 'Encerrando entre asteriscos convierte el texto en negrita (*palabra*), el subrayado es hecho as√≠: _palabra_.');
 

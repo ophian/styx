@@ -1,6 +1,6 @@
 <?php
 
 @define('PLUGIN_EVENT_S9YMARKUP_NAME', 'Textabreyting: Serendipity');
-@define('PLUGIN_EVENT_S9YMARKUP_DESC', 'Virkja grunntextabreytingar á texta í færslum');
-@define('PLUGIN_EVENT_S9YMARKUP_TRANSFORM', 'Að setja texta innan stjarna gerir hann feitletraðan (*orð*), og til að undirstrika setur maður strik niðri á undan og eftir orði (_orð_).');
+@define('PLUGIN_EVENT_S9YMARKUP_DESC', 'Virkja grunntextabreytingar Ã¡ texta Ã­ fÃ¦rslum');
+@define('PLUGIN_EVENT_S9YMARKUP_TRANSFORM', 'AÃ° setja texta innan stjarna gerir hann feitletraÃ°an (*orÃ°*), og til aÃ° undirstrika setur maÃ°ur strik niÃ°ri Ã¡ undan og eftir orÃ°i (_orÃ°_).');
 
