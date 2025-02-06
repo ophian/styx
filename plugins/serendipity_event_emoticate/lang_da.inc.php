@@ -11,5 +11,5 @@
 @define('PLUGIN_EVENT_EMOTICATE_DESC', 'Konverter standard tekst-smileys til billeder');
 @define('PLUGIN_EVENT_EMOTICATE_TRANSFORM', 'Standard tekst-smileys som :-) og ;-) konverteres til billeder.');
 @define('PLUGIN_EVENT_EMOTICATE_EXTENSION', 'Filnavnendelse');
-@define('PLUGIN_EVENT_EMOTICATE_EXTENSION_BLAHBLAH', 'Filnavnendelsen på dine smileys. Der er forskel på store/små bogstaver.');
+@define('PLUGIN_EVENT_EMOTICATE_EXTENSION_BLAHBLAH', 'Filnavnendelsen pÃ¥ dine smileys. Der er forskel pÃ¥ store/smÃ¥ bogstaver.');
 

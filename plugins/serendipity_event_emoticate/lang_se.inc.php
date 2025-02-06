@@ -7,8 +7,8 @@
  */
 
 @define('PLUGIN_EVENT_EMOTICATE_NAME', 'Markup: Emoticate');
-@define('PLUGIN_EVENT_EMOTICATE_DESC', 'Gˆr om standard emoticons till grafiska bilder');
+@define('PLUGIN_EVENT_EMOTICATE_DESC', 'G√∂r om standard emoticons till grafiska bilder');
 @define('PLUGIN_EVENT_EMOTICATE_TRANSFORM', 'Standard emoticons som :-) och ;-) konverteras till bilder.');
-@define('PLUGIN_EVENT_EMOTICATE_EXTENSION', 'Fil‰ndelse');
-@define('PLUGIN_EVENT_EMOTICATE_EXTENSION_BLAHBLAH', 'Fil‰ndelse fˆr dina emoticons. Denna ‰r "case sensitive", dvs se till att skriva stora och smÂ bokst‰ver r‰tt.');
+@define('PLUGIN_EVENT_EMOTICATE_EXTENSION', 'Fil√§ndelse');
+@define('PLUGIN_EVENT_EMOTICATE_EXTENSION_BLAHBLAH', 'Fil√§ndelse f√∂r dina emoticons. Denna √§r "case sensitive", dvs se till att skriva stora och sm√• bokst√§ver r√§tt.');
 

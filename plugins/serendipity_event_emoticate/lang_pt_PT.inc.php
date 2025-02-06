@@ -9,7 +9,7 @@
 
 @define('PLUGIN_EVENT_EMOTICATE_NAME', 'Formato: Smilies');
 @define('PLUGIN_EVENT_EMOTICATE_DESC', 'Converter smilies normais em imagens');
-@define('PLUGIN_EVENT_EMOTICATE_TRANSFORM', 'Smilies normais como :-) e ;-) s„o convertidos em imagens.');
+@define('PLUGIN_EVENT_EMOTICATE_TRANSFORM', 'Smilies normais como :-) e ;-) s√£o convertidos em imagens.');
 @define('PLUGIN_EVENT_EMOTICATE_EXTENSION', 'File extension');
 @define('PLUGIN_EVENT_EMOTICATE_EXTENSION_BLAHBLAH', 'The file extension of your emoticons. This is case sensitive.');
 

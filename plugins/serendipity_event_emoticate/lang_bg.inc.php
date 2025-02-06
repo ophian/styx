@@ -6,9 +6,9 @@
  *  EN-Revision: Revision of lang_es.inc.php
  */
 
-@define('PLUGIN_EVENT_EMOTICATE_NAME', 'Форматиране на текст: Усмивки');
-@define('PLUGIN_EVENT_EMOTICATE_DESC', 'Конвертира стандартните знаци за изразяване на емоции в графични изображения');
-@define('PLUGIN_EVENT_EMOTICATE_TRANSFORM', 'Стандартните знаци :) и ;) се конвертират в графични изображения');
-@define('PLUGIN_EVENT_EMOTICATE_EXTENSION', 'Разширение на файла');
-@define('PLUGIN_EVENT_EMOTICATE_EXTENSION_BLAHBLAH', 'Разширение на файловете за усмивки. Малките и главните букви имат значение.');
+@define('PLUGIN_EVENT_EMOTICATE_NAME', 'Р¤РѕСЂРјР°С‚РёСЂР°РЅРµ РЅР° С‚РµРєСЃС‚: РЈСЃРјРёРІРєРё');
+@define('PLUGIN_EVENT_EMOTICATE_DESC', 'РљРѕРЅРІРµСЂС‚РёСЂР° СЃС‚Р°РЅРґР°СЂС‚РЅРёС‚Рµ Р·РЅР°С†Рё Р·Р° РёР·СЂР°Р·СЏРІР°РЅРµ РЅР° РµРјРѕС†РёРё РІ РіСЂР°С„РёС‡РЅРё РёР·РѕР±СЂР°Р¶РµРЅРёСЏ');
+@define('PLUGIN_EVENT_EMOTICATE_TRANSFORM', 'РЎС‚Р°РЅРґР°СЂС‚РЅРёС‚Рµ Р·РЅР°С†Рё :) Рё ;) СЃРµ РєРѕРЅРІРµСЂС‚РёСЂР°С‚ РІ РіСЂР°С„РёС‡РЅРё РёР·РѕР±СЂР°Р¶РµРЅРёСЏ');
+@define('PLUGIN_EVENT_EMOTICATE_EXTENSION', 'Р Р°Р·С€РёСЂРµРЅРёРµ РЅР° С„Р°Р№Р»Р°');
+@define('PLUGIN_EVENT_EMOTICATE_EXTENSION_BLAHBLAH', 'Р Р°Р·С€РёСЂРµРЅРёРµ РЅР° С„Р°Р№Р»РѕРІРµС‚Рµ Р·Р° СѓСЃРјРёРІРєРё. РњР°Р»РєРёС‚Рµ Рё РіР»Р°РІРЅРёС‚Рµ Р±СѓРєРІРё РёРјР°С‚ Р·РЅР°С‡РµРЅРёРµ.');
 

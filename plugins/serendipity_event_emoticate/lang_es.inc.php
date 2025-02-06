@@ -7,8 +7,8 @@
  */
 
 @define('PLUGIN_EVENT_EMOTICATE_NAME', 'Formato: Smilies');
-@define('PLUGIN_EVENT_EMOTICATE_DESC', 'Convertir smilies normales en imágenes');
-@define('PLUGIN_EVENT_EMOTICATE_TRANSFORM', 'Smilies normales como :-) y ;-) son convertidos en imágenes.');
-@define('PLUGIN_EVENT_EMOTICATE_EXTENSION', 'Extensión del archivo');
-@define('PLUGIN_EVENT_EMOTICATE_EXTENSION_BLAHBLAH', 'La extensión de tus smiles. Es sensible a mayúsculas/minúsculas.');
+@define('PLUGIN_EVENT_EMOTICATE_DESC', 'Convertir smilies normales en imÃ¡genes');
+@define('PLUGIN_EVENT_EMOTICATE_TRANSFORM', 'Smilies normales como :-) y ;-) son convertidos en imÃ¡genes.');
+@define('PLUGIN_EVENT_EMOTICATE_EXTENSION', 'ExtensiÃ³n del archivo');
+@define('PLUGIN_EVENT_EMOTICATE_EXTENSION_BLAHBLAH', 'La extensiÃ³n de tus smiles. Es sensible a mayÃºsculas/minÃºsculas.');
 
