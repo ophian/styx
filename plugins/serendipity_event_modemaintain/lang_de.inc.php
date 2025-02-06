@@ -1,29 +1,29 @@
 <?php
 
 @define('PLUGIN_MODEMAINTAIN_TITLE', 'Wartungs-Modus');
-@define('PLUGIN_MODEMAINTAIN_TITLE_DESC', 'Erlaubt das öffentliche Blog - das Frontend - in einen "503 - Service Temporarily Unavailable" Modus zu versetzen.');
+@define('PLUGIN_MODEMAINTAIN_TITLE_DESC', 'Erlaubt das Ã¶ffentliche Blog - das Frontend - in einen "503 - Service Temporarily Unavailable" Modus zu versetzen.');
 
 @define('PLUGIN_MODEMAINTAIN_MAINTAIN', 'Service Wartungs-Modus');
 @define('PLUGIN_DASHBOARD_MAINTENANCE_MODE_ACTIVE', '...aktiver Wartungsmodus...');
 @define('PLUGIN_MODEMAINTAIN_INFOALERT', 'Achtung: Bitte Beschreibung lesen!');
-@define('PLUGIN_MODEMAINTAIN_DASHBOARD_MODE_DESC', "ACHTUNG:<br>\n<b>Nicht</b> ausloggen, den Browser oder das Tab schließen, oder das generelle Konfigurations-Formular absenden, ohne den Wartungsmodus zurückgesetzt zu haben!");
-@define('PLUGIN_MODEMAINTAIN_DASHBOARD_EXWARNING_DESC', "ACHTUNG:<br>\nEs <em>kann</em> unter Umständen eine (Seitencache basierende) Situation geben, bei dem obiger 503-Submit-Knopf nach dem Absenden und Seitenreload seine Farbe (grün/rot) nicht unmittelbar ändert, um anzuzeigen, in welchem Modus sich die Wartung gerade wirklich befindet. In diesem Fall wählen Sie irgendeine andere Backendseite aus der Seitenleiste und kehren dann in die Wartung zurück. Erst dann sehen Sie den augenblicklichen Status.");
-@define('PLUGIN_MODEMAINTAIN_DASHBOARD_EMERGENCY_DESC', "IM NOTFALL:<br>\nWenn Sie sich jemals ausloggen, ohne den 503 Maintenance Mode zurückgestellt zu haben, oder ihr Login Cookie beschädigt oder gelöscht wurde, müssen Sie die &dollar;serendipity['maintenance'] Variable in der serendipity_config_local.inc.php Datei manuell auf 'false' stellen, um sich und der Öffentlichkeit wieder Zugang zu ihrem Blog zu ermöglichen!");
+@define('PLUGIN_MODEMAINTAIN_DASHBOARD_MODE_DESC', "ACHTUNG:<br>\n<b>Nicht</b> ausloggen, den Browser oder das Tab schlieÃŸen, oder das generelle Konfigurations-Formular absenden, ohne den Wartungsmodus zurÃ¼ckgesetzt zu haben!");
+@define('PLUGIN_MODEMAINTAIN_DASHBOARD_EXWARNING_DESC', "ACHTUNG:<br>\nEs <em>kann</em> unter UmstÃ¤nden eine (Seitencache basierende) Situation geben, bei dem obiger 503-Submit-Knopf nach dem Absenden und Seitenreload seine Farbe (grÃ¼n/rot) nicht unmittelbar Ã¤ndert, um anzuzeigen, in welchem Modus sich die Wartung gerade wirklich befindet. In diesem Fall wÃ¤hlen Sie irgendeine andere Backendseite aus der Seitenleiste und kehren dann in die Wartung zurÃ¼ck. Erst dann sehen Sie den augenblicklichen Status.");
+@define('PLUGIN_MODEMAINTAIN_DASHBOARD_EMERGENCY_DESC', "IM NOTFALL:<br>\nWenn Sie sich jemals ausloggen, ohne den 503 Maintenance Mode zurÃ¼ckgestellt zu haben, oder ihr Login Cookie beschÃ¤digt oder gelÃ¶scht wurde, mÃ¼ssen Sie die &dollar;serendipity['maintenance'] Variable in der serendipity_config_local.inc.php Datei manuell auf 'false' stellen, um sich und der Ã–ffentlichkeit wieder Zugang zu ihrem Blog zu ermÃ¶glichen!");
 
-@define('PLUGIN_MODEMAINTAIN_MAINTAIN_NOTE', 'Ergänzender Wartungs-Modus Text');
+@define('PLUGIN_MODEMAINTAIN_MAINTAIN_NOTE', 'ErgÃ¤nzender Wartungs-Modus Text');
 @define('PLUGIN_MODEMAINTAIN_MAINTAIN_TEXT', '');
 @define('PLUGIN_MODEMAINTAIN_MAINTAIN_USELOGO', 'Binde das Serendipity Styx Logo ein?');
 
 @define('PLUGIN_MODEMAINTAIN_BUTTON', 'Aktiviere den 503 Modus');
-@define('PLUGIN_MODEMAINTAIN_FREEBUTTON', 'Zurücksetzen des 503 Modus');
-@define('PLUGIN_MODEMAINTAIN_RETURN', 'Das Blog ist jetzt im %s Modus. <a href="%s">Zurück</a> zum Backend für die anstehenden Wartungsarbeiten.');
+@define('PLUGIN_MODEMAINTAIN_FREEBUTTON', 'ZurÃ¼cksetzen des 503 Modus');
+@define('PLUGIN_MODEMAINTAIN_RETURN', 'Das Blog ist jetzt im %s Modus. <a href="%s">ZurÃ¼ck</a> zum Backend fÃ¼r die anstehenden Wartungsarbeiten.');
 
-@define('PLUGIN_MODEMAINTAIN_TITLE_AUTOLOGIN', 'Um den Wartungsmodus administrieren zu können, müssen Sie sich abmelden und mit dem "Daten speichern" Modus wieder anmelden.');
+@define('PLUGIN_MODEMAINTAIN_TITLE_AUTOLOGIN', 'Um den Wartungsmodus administrieren zu kÃ¶nnen, mÃ¼ssen Sie sich abmelden und mit dem "Daten speichern" Modus wieder anmelden.');
 
 @define('PLUGIN_MODEMAINTAIN_WARNLOGOFF', 'Hey, Sie sind im <span class="fivezerothree">503</span>-Wartungs-Modus! - <b>Befreien</b> Sie den Modus <a href="%s">hier</a>, <b>bevor</b> Sie sich abmelden!');
-@define('PLUGIN_MODEMAINTAIN_WARNGLOBALCONFIGFORM', 'Hey, Sie sind im <span class="fivezerothree">503</span>-Wartungs-Modus! - <b>Befreien</b> Sie den Modus <a href="%s">hier</a>, <b>bevor</b> Sie das generelle Konfigurations-Formular ändern und/oder absenden können!');
+@define('PLUGIN_MODEMAINTAIN_WARNGLOBALCONFIGFORM', 'Hey, Sie sind im <span class="fivezerothree">503</span>-Wartungs-Modus! - <b>Befreien</b> Sie den Modus <a href="%s">hier</a>, <b>bevor</b> Sie das generelle Konfigurations-Formular Ã¤ndern und/oder absenden kÃ¶nnen!');
 
-@define('PLUGIN_MODEMAINTAIN_HINT_MAINTENANCE_MODE', 'Wenn länger andauernd, oder mit möglichen Frontend-Auswirkungen verbunden, könnte dies eine gültige Aufgabe sein, den Wartungs-Modus zu nutzen!');
+@define('PLUGIN_MODEMAINTAIN_HINT_MAINTENANCE_MODE', 'Wenn lÃ¤nger andauernd, oder mit mÃ¶glichen Frontend-Auswirkungen verbunden, kÃ¶nnte dies eine gÃ¼ltige Aufgabe sein, den Wartungs-Modus zu nutzen!');
 
-@define('PLUGIN_MODEMAINTAIN_OPENSSL_TIME_RESTRICTION', 'Die von Styx geforderte "OPENSSL_VERSION_NUMBER" stimmt nicht überein! Deshalb kann nur eine Session basierte Authentifikation erfolgen. Das Autologin Cookie verfällt nach 24 Stunden. Versetzen Sie ihr Blog <strong>nicht</strong> länger als "<strong>%s</strong>" (h:min) von JETZT an in den 503-Wartungsmodus! Wenn die verbleibende Zeit zu gering oder gerade bei "00:00" ist, warten Sie besser 1 bis X Minuten auf den Start einer neuen 24-Stunden-Sitzung.');
+@define('PLUGIN_MODEMAINTAIN_OPENSSL_TIME_RESTRICTION', 'Die von Styx geforderte "OPENSSL_VERSION_NUMBER" stimmt nicht Ã¼berein! Deshalb kann nur eine Session basierte Authentifikation erfolgen. Das Autologin Cookie verfÃ¤llt nach 24 Stunden. Versetzen Sie ihr Blog <strong>nicht</strong> lÃ¤nger als "<strong>%s</strong>" (h:min) von JETZT an in den 503-Wartungsmodus! Wenn die verbleibende Zeit zu gering oder gerade bei "00:00" ist, warten Sie besser 1 bis X Minuten auf den Start einer neuen 24-Stunden-Sitzung.');
 
