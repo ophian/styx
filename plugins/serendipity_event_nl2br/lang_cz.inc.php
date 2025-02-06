@@ -2,30 +2,30 @@
 
 /**
  *  @file lang_cz.inc.php 1501.2 2012-01-08 19:58:45 VladaAjgl
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  EN-Revision: Revision of lang_en.inc.php
  *  Translated on 2007/11/30
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2009/05/06
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2009/08/15
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2012/01/08
  */
 
 @define('PLUGIN_EVENT_NL2BR_NAME', 'Markup: NL2BR');
-@define('PLUGIN_EVENT_NL2BR_DESC', 'Mìní znaky konce øádku na tagy <br />');
+@define('PLUGIN_EVENT_NL2BR_DESC', 'MÄ›nÃ­ znaky konce Å™Ã¡dku na tagy <br />');
 @define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS', 'Exceptions for all following rules');
-@define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS_DESC', 'A list of HTML-tags where no breaks shall be converted. Návrhy: "pre,geshi,textarea". Názvy tagù oddìlujte èárkou. Tip: Zadávané tagy jsou vyhodnocovány jako regulární vıraz.');
-@define('PLUGIN_EVENT_NL2BR_PTAGS', 'Pou¾ít tagy <p>');
-@define('PLUGIN_EVENT_NL2BR_PTAGS_DESC', 'Vkládat tagy <p> místo tagù <br />');
+@define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS_DESC', 'A list of HTML-tags where no breaks shall be converted. NÃ¡vrhy: "pre,geshi,textarea". NÃ¡zvy tagÅ¯ oddÄ›lujte ÄÃ¡rkou. Tip: ZadÃ¡vanÃ© tagy jsou vyhodnocovÃ¡ny jako regulÃ¡rnÃ­ vÃ½raz.');
+@define('PLUGIN_EVENT_NL2BR_PTAGS', 'PouÅ¾Ã­t tagy <p>');
+@define('PLUGIN_EVENT_NL2BR_PTAGS_DESC', 'VklÃ¡dat tagy <p> mÃ­sto tagÅ¯ <br />');
 
 // Next lines were translated on 2012/01/08
-@define('PLUGIN_EVENT_NL2BR_CHECK_MARKUP', 'Kontrolovat dal¹í znaèkovací pluginy?');
-@define('PLUGIN_EVENT_NL2BR_CHECK_MARKUP_DESC', 'Automaticky zkontroluje, jestli jsou nainstalovány jiné znaèkovací pluginy. To je pravda, pokud je pou¾it WYSIWYG editor nebo specifické znaèkovací pluginy. Pak je plugin NL2BR vypnut.');
-@define('PLUGIN_EVENT_NL2BR_ISOBR_TAG', 'IOSBR izolace - vıchozí nastavení BR');
-@define('PLUGIN_EVENT_NL2BR_ISOBR_TAG_DESC', 'Tento novı NE-HTML tag <nl> </nl> umo¾òuje vypnout pøevod novıch øádkù na tag BR v kusu textu uzavøeném uvnitø tagù. Mù¾ete ho pou¾ít vícekrát v jednom pøíspìvku, ale nemù¾ete ho vnoøovat! Pøíklad: <nl>v tomto textu nebudou pøevádìny znaky nového øádku na tag BR</nl>');
-@define('PLUGIN_EVENT_NL2BR_CLEANTAGS', 'Pou¾ít BR-èisté-tagy jak návratovou hodnotu, pokud je ISOBR zakázáno');
-@define('PLUGIN_EVENT_NL2BR_CLEANTAGS_DESC', 'Pokud pou¾íváte v pøíspìvku <html-tagy>, které nelze úspì¹nì pou¾ít spoleènì s nastavením ISOBR, pak tato volba zapnutá bude mít za následek ignorování znakù novıch øádkù bezprostøednì za <html-tagy>. Vıchozí: (table|thead|tbody|tfoot|th|tr|td|caption|colgroup|col|ol|ul|li|dl|dt|dd)');
-@define('PLUGIN_EVENT_NL2BR_CONFIG_ERROR', 'Varování: Nepoøádek v nastavení! Nastavení "èisté tagy" bylo nastaveno zpìt na "NE", pokud je aktivní \'ISOBR\'! Je pøípustné pou¾ít pouze jednu z tìchto voleb.');
+@define('PLUGIN_EVENT_NL2BR_CHECK_MARKUP', 'Kontrolovat dalÅ¡Ã­ znaÄkovacÃ­ pluginy?');
+@define('PLUGIN_EVENT_NL2BR_CHECK_MARKUP_DESC', 'Automaticky zkontroluje, jestli jsou nainstalovÃ¡ny jinÃ© znaÄkovacÃ­ pluginy. To je pravda, pokud je pouÅ¾it WYSIWYG editor nebo specifickÃ© znaÄkovacÃ­ pluginy. Pak je plugin NL2BR vypnut.');
+@define('PLUGIN_EVENT_NL2BR_ISOBR_TAG', 'IOSBR izolace - vÃ½chozÃ­ nastavenÃ­ BR');
+@define('PLUGIN_EVENT_NL2BR_ISOBR_TAG_DESC', 'Tento novÃ½ NE-HTML tag <nl> </nl> umoÅ¾Åˆuje vypnout pÅ™evod novÃ½ch Å™Ã¡dkÅ¯ na tag BR v kusu textu uzavÅ™enÃ©m uvnitÅ™ tagÅ¯. MÅ¯Å¾ete ho pouÅ¾Ã­t vÃ­cekrÃ¡t v jednom pÅ™Ã­spÄ›vku, ale nemÅ¯Å¾ete ho vnoÅ™ovat! PÅ™Ã­klad: <nl>v tomto textu nebudou pÅ™evÃ¡dÄ›ny znaky novÃ©ho Å™Ã¡dku na tag BR</nl>');
+@define('PLUGIN_EVENT_NL2BR_CLEANTAGS', 'PouÅ¾Ã­t BR-ÄistÃ©-tagy jak nÃ¡vratovou hodnotu, pokud je ISOBR zakÃ¡zÃ¡no');
+@define('PLUGIN_EVENT_NL2BR_CLEANTAGS_DESC', 'Pokud pouÅ¾Ã­vÃ¡te v pÅ™Ã­spÄ›vku <html-tagy>, kterÃ© nelze ÃºspÄ›Å¡nÄ› pouÅ¾Ã­t spoleÄnÄ› s nastavenÃ­m ISOBR, pak tato volba zapnutÃ¡ bude mÃ­t za nÃ¡sledek ignorovÃ¡nÃ­ znakÅ¯ novÃ½ch Å™Ã¡dkÅ¯ bezprostÅ™ednÄ› za <html-tagy>. VÃ½chozÃ­: (table|thead|tbody|tfoot|th|tr|td|caption|colgroup|col|ol|ul|li|dl|dt|dd)');
+@define('PLUGIN_EVENT_NL2BR_CONFIG_ERROR', 'VarovÃ¡nÃ­: NepoÅ™Ã¡dek v nastavenÃ­! NastavenÃ­ "ÄistÃ© tagy" bylo nastaveno zpÄ›t na "NE", pokud je aktivnÃ­ \'ISOBR\'! Je pÅ™Ã­pustnÃ© pouÅ¾Ã­t pouze jednu z tÄ›chto voleb.');
 

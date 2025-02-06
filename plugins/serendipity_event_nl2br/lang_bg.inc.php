@@ -5,8 +5,8 @@
  *  @author Ivan Cenov jwalker@hotmail.bg
  */
 
-@define('PLUGIN_EVENT_NL2BR_NAME',     'Форматиране на текст: NL2BR');
-@define('PLUGIN_EVENT_NL2BR_DESC',     'Заменя новите редове в текста с HTML BR тагове');
+@define('PLUGIN_EVENT_NL2BR_NAME', 'Р¤РѕСЂРјР°С‚РёСЂР°РЅРµ РЅР° С‚РµРєСЃС‚: NL2BR');
+@define('PLUGIN_EVENT_NL2BR_DESC', 'Р—Р°РјРµРЅСЏ РЅРѕРІРёС‚Рµ СЂРµРґРѕРІРµ РІ С‚РµРєСЃС‚Р° СЃ HTML BR С‚Р°РіРѕРІРµ');
 @define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS', 'Exceptions for all following rules');
-@define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS_DESC', 'A list of HTML-tags where no breaks shall be converted. Препоръка: "pre,geshi,textarea". Използвайте "," за да укажете повече от един таг. Забележка: Въведените тагове се изчисляват като регулярни изрази.');
+@define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS_DESC', 'A list of HTML-tags where no breaks shall be converted. РџСЂРµРїРѕСЂСЉРєР°: "pre,geshi,textarea". РР·РїРѕР»Р·РІР°Р№С‚Рµ "," Р·Р° РґР° СѓРєР°Р¶РµС‚Рµ РїРѕРІРµС‡Рµ РѕС‚ РµРґРёРЅ С‚Р°Рі. Р—Р°Р±РµР»РµР¶РєР°: Р’СЉРІРµРґРµРЅРёС‚Рµ С‚Р°РіРѕРІРµ СЃРµ РёР·С‡РёСЃР»СЏРІР°С‚ РєР°С‚Рѕ СЂРµРіСѓР»СЏСЂРЅРё РёР·СЂР°Р·Рё.');
 
