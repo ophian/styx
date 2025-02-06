@@ -2,15 +2,15 @@
 
 @define('PLUGIN_EVENT_MAILER_NAME', 'Artikel mailen');
 @define('PLUGIN_EVENT_MAILER_DESC', 'Verschickt jeden neuen Artikel im Blog via E-Mail');
-@define('PLUGIN_EVENT_MAILER_RECIPIENT', 'Mail-Empf‰nger');
+@define('PLUGIN_EVENT_MAILER_RECIPIENT', 'Mail-Empf√§nger');
 @define('PLUGIN_EVENT_MAILER_RECIPIENTDESC', 'Die E-Mail Adresse an die die Artikel verschickt werden sollen (empfohlen: Eine Mailing-Liste)');
 @define('PLUGIN_EVENT_MAILER_LINK', 'URL des Artikels mailen?');
 @define('PLUGIN_EVENT_MAILER_LINKDESC', 'Verschickt die URL des Artikels.');
 @define('PLUGIN_EVENT_MAILER_STRIPTAGS', 'HTML entfernen?');
 @define('PLUGIN_EVENT_MAILER_STRIPTAGSDESC', 'Entfernt HTML-Anweisungen aus der Mail.');
 @define('PLUGIN_EVENT_MAILER_CONVERTP', 'HTML-Paragraphen in Leerzeilen wandeln?');
-@define('PLUGIN_EVENT_MAILER_CONVERTPDESC', 'F¸gt einen Zeilenumbruch nach jedem HTML-Paragraphen ein. Besonders hilfreich im Zusammenhang mit der Option "HTML Entfernen", damit der Eintrag sp‰ter selbst dann Umbr¸che enth‰lt, wenn sie nicht manuell eingegeben wurden.');
-@define('PLUGIN_EVENT_MAILER_RECIPIENTS', 'Mail-Empf‰nger (mehrere Empf‰nger mit Leerzeichen trennen)');
+@define('PLUGIN_EVENT_MAILER_CONVERTPDESC', 'F√ºgt einen Zeilenumbruch nach jedem HTML-Paragraphen ein. Besonders hilfreich im Zusammenhang mit der Option "HTML Entfernen", damit der Eintrag sp√§ter selbst dann Umbr√ºche enth√§lt, wenn sie nicht manuell eingegeben wurden.');
+@define('PLUGIN_EVENT_MAILER_RECIPIENTS', 'Mail-Empf√§nger (mehrere Empf√§nger mit Leerzeichen trennen)');
 @define('PLUGIN_EVENT_MAILER_NOTSENDDECISION', 'Dieser Eintrage wurde nicht per E-Mail versendet, da diese Option deaktiviert wurde.');
 @define('PLUGIN_EVENT_MAILER_SENDING', 'Versende');
 @define('PLUGIN_EVENT_MAILER_ISTOSENDIT', 'Diesen Eintrag per E-Mail versenden');
@@ -20,6 +20,6 @@
 @define('PLUGIN_EVENT_MAILER_KEEPSTRIPTAGSDESC', 'Gilt nur, wenn HTML entfernt wird. Falls aktiviert, werden Bilder und Hyperlinks in der Mail enthalten bleiben (in eckigen Klammern). Falls deaktiviert, werden alle Bilder und Hyperlinks auch entfernt.');
 
 @define('PLUGIN_EVENT_MAILER_FORCESEND', 'E-Mail-Versand erzwingen');
-@define('PLUGIN_EVENT_MAILER_FORCESEND_DESC', 'Standardm‰ﬂig werden E-Mails nur beim erstmaligen Verˆffentlichen eines Artikels versendet.');
-@define('PLUGIN_EVENT_MAILER_MAILTEXT', 'Optionaler Text am Anfang der E-Mail (z.B. eine Gruﬂbotschaft oder Begr¸ndung, warum der Blog-Artikel per E-Mail geschickt wird)');
+@define('PLUGIN_EVENT_MAILER_FORCESEND_DESC', 'Standardm√§√üig werden E-Mails nur beim erstmaligen Ver√∂ffentlichen eines Artikels versendet.');
+@define('PLUGIN_EVENT_MAILER_MAILTEXT', 'Optionaler Text am Anfang der E-Mail (z.B. eine Gru√übotschaft oder Begr√ºndung, warum der Blog-Artikel per E-Mail geschickt wird)');
 

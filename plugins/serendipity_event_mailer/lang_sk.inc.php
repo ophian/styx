@@ -1,23 +1,23 @@
 <?php
 
 /**
- *  @author Martin Matuπka <martin@matuska.org>
+ *  @author Martin Matu≈°ka <martin@matuska.org>
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
-@define('PLUGIN_EVENT_MAILER_NAME',             'Posielanie Ël·nkov mailom');
-@define('PLUGIN_EVENT_MAILER_DESC',             'UmoæÚuje posielaª novo vytvorenÈ Ël·nky na nastaven˙ e-mailov˙ adresu.');
-@define('PLUGIN_EVENT_MAILER_RECIPIENT',        'PrÌjemca');
-@define('PLUGIN_EVENT_MAILER_RECIPIENTDESC',    'E-mailov· adresa, na ktor˙ chcete odoslaª prÌspevok (napr.: e-mailov· konferencia)');
-@define('PLUGIN_EVENT_MAILER_LINK',             'Vloæiª do spr·vy odkaz na Ël·nok?');
-@define('PLUGIN_EVENT_MAILER_LINKDESC',         'Do spr·vy bude vloæen˝ odkaz URL na Ël·nok.');
-@define('PLUGIN_EVENT_MAILER_STRIPTAGS',        'Odstr·niª HTML?');
-@define('PLUGIN_EVENT_MAILER_STRIPTAGSDESC',    'Odstr·ni z e-mailu HTML tagy.');
-@define('PLUGIN_EVENT_MAILER_CONVERTP',         'Konvertovaª HTML odstavce na novÈ riadky?');
-@define('PLUGIN_EVENT_MAILER_CONVERTPDESC',     'Prid·va pr·zdny riadok za kaæd˝m HTML tagom pre odstavec. Ak zvolÌte odstraÚovanie HTML tagov, tak toto nastavenie umoænÌ zachovaª pÙvodnÈ delenie odstavcov v e-maili.');
-@define('PLUGIN_EVENT_MAILER_RECIPIENTS',       'PrÌjemca e-mailu (viac prÌjemcov oddelujte Ëiarkou)');
-@define('PLUGIN_EVENT_MAILER_NOTSENDDECISION',  'Tento prÌspevok nebol poslan˝ e-mailom, lebo ste sa rozhodli ho neposielaª.');
+@define('PLUGIN_EVENT_MAILER_NAME',             'Posielanie ƒçl√°nkov mailom');
+@define('PLUGIN_EVENT_MAILER_DESC',             'Umo≈æ≈àuje posiela≈• novo vytvoren√© ƒçl√°nky na nastaven√∫ e-mailov√∫ adresu.');
+@define('PLUGIN_EVENT_MAILER_RECIPIENT',        'Pr√≠jemca');
+@define('PLUGIN_EVENT_MAILER_RECIPIENTDESC',    'E-mailov√° adresa, na ktor√∫ chcete odosla≈• pr√≠spevok (napr.: e-mailov√° konferencia)');
+@define('PLUGIN_EVENT_MAILER_LINK',             'Vlo≈æi≈• do spr√°vy odkaz na ƒçl√°nok?');
+@define('PLUGIN_EVENT_MAILER_LINKDESC',         'Do spr√°vy bude vlo≈æen√Ω odkaz URL na ƒçl√°nok.');
+@define('PLUGIN_EVENT_MAILER_STRIPTAGS',        'Odstr√°ni≈• HTML?');
+@define('PLUGIN_EVENT_MAILER_STRIPTAGSDESC',    'Odstr√°ni z e-mailu HTML tagy.');
+@define('PLUGIN_EVENT_MAILER_CONVERTP',         'Konvertova≈• HTML odstavce na nov√© riadky?');
+@define('PLUGIN_EVENT_MAILER_CONVERTPDESC',     'Prid√°va pr√°zdny riadok za ka≈æd√Ωm HTML tagom pre odstavec. Ak zvol√≠te odstra≈àovanie HTML tagov, tak toto nastavenie umo≈æn√≠ zachova≈• p√¥vodn√© delenie odstavcov v e-maili.');
+@define('PLUGIN_EVENT_MAILER_RECIPIENTS',       'Pr√≠jemca e-mailu (viac pr√≠jemcov oddelujte ƒçiarkou)');
+@define('PLUGIN_EVENT_MAILER_NOTSENDDECISION',  'Tento pr√≠spevok nebol poslan√Ω e-mailom, lebo ste sa rozhodli ho neposiela≈•.');
 @define('PLUGIN_EVENT_MAILER_SENDING',          'Posielam');
-@define('PLUGIN_EVENT_MAILER_ISTOSENDIT',       'Poslaª tento prÌspevok e-mailom');
-@define('PLUGIN_EVENT_MAILER_SENDTOALL',        'Poslaª vπetk˝m autorom');
+@define('PLUGIN_EVENT_MAILER_ISTOSENDIT',       'Posla≈• tento pr√≠spevok e-mailom');
+@define('PLUGIN_EVENT_MAILER_SENDTOALL',        'Posla≈• v≈°etk√Ωm autorom');
 

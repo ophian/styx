@@ -5,18 +5,14 @@
  *  EN-Revision: 690
  */
 
-@define('PLUGIN_EVENT_MAILER_NAME', 'Envía tus entradas a través de E-Mail');
-@define('PLUGIN_EVENT_MAILER_DESC', 'Te permite enviar las entradas nuevas a un correo electrónico específico');
+@define('PLUGIN_EVENT_MAILER_NAME', 'EnvÃ­a tus entradas a travÃ©s de E-Mail');
+@define('PLUGIN_EVENT_MAILER_DESC', 'Te permite enviar las entradas nuevas a un correo electrÃ³nico especÃ­fico');
 @define('PLUGIN_EVENT_MAILER_RECIPIENT', 'Destinatario');
-@define('PLUGIN_EVENT_MAILER_RECIPIENTDESC', 'Dirección de correo electrónico a la cual enviarás las nuevas entradas (sugerencia: una lista de correos)');
-@define('PLUGIN_EVENT_MAILER_LINK', '¿Enviar enlace al artículo?');
-@define('PLUGIN_EVENT_MAILER_LINKDESC', 'Incluye un enlace al artículo dentro del correo.');
-@define('PLUGIN_EVENT_MAILER_STRIPTAGS', '¿Eliminar HTML?');
+@define('PLUGIN_EVENT_MAILER_RECIPIENTDESC', 'DirecciÃ³n de correo electrÃ³nico a la cual enviarÃ¡s las nuevas entradas (sugerencia: una lista de correos)');
+@define('PLUGIN_EVENT_MAILER_LINK', 'Â¿Enviar enlace al artÃ­culo?');
+@define('PLUGIN_EVENT_MAILER_LINKDESC', 'Incluye un enlace al artÃ­culo dentro del correo.');
+@define('PLUGIN_EVENT_MAILER_STRIPTAGS', 'Â¿Eliminar HTML?');
 @define('PLUGIN_EVENT_MAILER_STRIPTAGSDESC', 'Elimina las etiquetas HTML del correo.');
-@define('PLUGIN_EVENT_MAILER_CONVERTP', '¿Convertir párrafo HTML en saltos de linea?');
-@define('PLUGIN_EVENT_MAILER_CONVERTPDESC', 'Añade saltos de linea luego de cada párrafo HTML. Esta opción es muy útil si también activas la eliminación HTML, así tus párrafos se mantendrán.');
-@define('PLUGIN_EVENT_MAILER_RECIPIENTS', 'Destinatario (separa múltiples destinatarios con un espacio)');
-@define('PLUGIN_EVENT_MAILER_NOTSENDDECISION', 'Esta entrada no fue enviada via E-Mail porque decidiste no hacerlo.');
-@define('PLUGIN_EVENT_MAILER_SENDING', 'Enviando');
-@define('PLUGIN_EVENT_MAILER_ISTOSENDIT', 'Enviar esta entrada via E-Mail');
+@define('PLUGIN_EVENT_MAILER_CONVERTP', 'Â¿Convertir pÃ¡rrafo HTML en saltos de linea?');
+@define('PLUGIN_EVENT_MAILER_CONVERTPDESC', 'AÃ±ade saltos de linea luego de cada pÃ¡rrafo HTML. Esta opciÃ³n es muy Ãºtil si tambiÃ©n activas la eliminaciÃ³n HTML, asÃ­ tus pÃ¡rrafos se mantendrÃ¡n.');
 

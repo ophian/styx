@@ -2,23 +2,23 @@
 
 /**
  *  @version $Revision: 1381 $
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
-@define('PLUGIN_EVENT_MAILER_NAME',             'Posílání pøíspìvkù mailem');
-@define('PLUGIN_EVENT_MAILER_DESC',             'Umo¾òuje posílat novì vytvoøené pøíspìvky na pøedem zadanou mailovou adresu.');
-@define('PLUGIN_EVENT_MAILER_RECIPIENT',        'Pøíjemce');
-@define('PLUGIN_EVENT_MAILER_RECIPIENTDESC',    'E-mailová adresa, na kterou chcete odeslat pøíspìvek (tip: mailová konference)');
-@define('PLUGIN_EVENT_MAILER_LINK',             'Vlo¾it do èlánku odkaz na pøíspìvek?');
-@define('PLUGIN_EVENT_MAILER_LINKDESC',         'Vlo¾í do mailu odkaz na pøíspìvek na webu.');
+@define('PLUGIN_EVENT_MAILER_NAME',             'PosÃ­lÃ¡nÃ­ pÅ™Ã­spÄ›vkÅ¯ mailem');
+@define('PLUGIN_EVENT_MAILER_DESC',             'UmoÅ¾Åˆuje posÃ­lat novÄ› vytvoÅ™enÃ© pÅ™Ã­spÄ›vky na pÅ™edem zadanou mailovou adresu.');
+@define('PLUGIN_EVENT_MAILER_RECIPIENT',        'PÅ™Ã­jemce');
+@define('PLUGIN_EVENT_MAILER_RECIPIENTDESC',    'E-mailovÃ¡ adresa, na kterou chcete odeslat pÅ™Ã­spÄ›vek (tip: mailovÃ¡ konference)');
+@define('PLUGIN_EVENT_MAILER_LINK',             'VloÅ¾it do ÄlÃ¡nku odkaz na pÅ™Ã­spÄ›vek?');
+@define('PLUGIN_EVENT_MAILER_LINKDESC',         'VloÅ¾Ã­ do mailu odkaz na pÅ™Ã­spÄ›vek na webu.');
 @define('PLUGIN_EVENT_MAILER_STRIPTAGS',        'Odstranit HTML?');
-@define('PLUGIN_EVENT_MAILER_STRIPTAGSDESC',    'Odstraní z mailu HTML tagy.');
-@define('PLUGIN_EVENT_MAILER_CONVERTP',         'Pøevést HTML odstavce na nové øádky?');
-@define('PLUGIN_EVENT_MAILER_CONVERTPDESC',     'Pøidává prázdnou øádkou za ka¾dım HTML tagem pro odstavec. Pokud zvolíte odstraòovat HTML tagy, tato volba vám umo¾ní zachovat pùvodní dìlení na odstavce i v mailu.');
-@define('PLUGIN_EVENT_MAILER_RECIPIENTS',       'Pøíjemce mailu (více pøíjemcù oddìlujte èárkou)');
-@define('PLUGIN_EVENT_MAILER_NOTSENDDECISION',  'Tento pøíspìvek nebyl poslán mailem, proto¾e jste se rozhodli ho neposílat.');
-@define('PLUGIN_EVENT_MAILER_SENDING',          'Posílám');
-@define('PLUGIN_EVENT_MAILER_ISTOSENDIT',       'Poslat tento pøíspìvek mailem');
-@define('PLUGIN_EVENT_MAILER_SENDTOALL',        'Poslat v¹em autorùm');
+@define('PLUGIN_EVENT_MAILER_STRIPTAGSDESC',    'OdstranÃ­ z mailu HTML tagy.');
+@define('PLUGIN_EVENT_MAILER_CONVERTP',         'PÅ™evÃ©st HTML odstavce na novÃ© Å™Ã¡dky?');
+@define('PLUGIN_EVENT_MAILER_CONVERTPDESC',     'PÅ™idÃ¡vÃ¡ prÃ¡zdnou Å™Ã¡dkou za kaÅ¾dÃ½m HTML tagem pro odstavec. Pokud zvolÃ­te odstraÅˆovat HTML tagy, tato volba vÃ¡m umoÅ¾nÃ­ zachovat pÅ¯vodnÃ­ dÄ›lenÃ­ na odstavce i v mailu.');
+@define('PLUGIN_EVENT_MAILER_RECIPIENTS',       'PÅ™Ã­jemce mailu (vÃ­ce pÅ™Ã­jemcÅ¯ oddÄ›lujte ÄÃ¡rkou)');
+@define('PLUGIN_EVENT_MAILER_NOTSENDDECISION',  'Tento pÅ™Ã­spÄ›vek nebyl poslÃ¡n mailem, protoÅ¾e jste se rozhodli ho neposÃ­lat.');
+@define('PLUGIN_EVENT_MAILER_SENDING',          'PosÃ­lÃ¡m');
+@define('PLUGIN_EVENT_MAILER_ISTOSENDIT',       'Poslat tento pÅ™Ã­spÄ›vek mailem');
+@define('PLUGIN_EVENT_MAILER_SENDTOALL',        'Poslat vÅ¡em autorÅ¯m');
 

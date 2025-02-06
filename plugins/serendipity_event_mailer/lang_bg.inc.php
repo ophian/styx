@@ -3,22 +3,22 @@
 /**
  *  @version
  *  @author Ivan Cenov jwalker@hotmail.bg
-*  EN-Revision: 2030
- */
+ *  EN-Revision: 2030
+*/
 
-@define('PLUGIN_EVENT_MAILER_NAME', 'Изпращане на статии по e-mail');
-@define('PLUGIN_EVENT_MAILER_DESC', 'Приставката позволява изпращането на нови статии по e-mail съобщения на указани получатели.');
-@define('PLUGIN_EVENT_MAILER_RECIPIENT', 'Получател');
-@define('PLUGIN_EVENT_MAILER_RECIPIENTDESC', 'E-mail адрес, където искате да изпращате статиите (пример: пощенски списък).');
-@define('PLUGIN_EVENT_MAILER_LINK', 'Изпращане на връзки към статиите ?');
-@define('PLUGIN_EVENT_MAILER_LINKDESC', 'При избор \'Да\' ще бъдат включвани връзки към статиите преди тяхното съдържание.');
-@define('PLUGIN_EVENT_MAILER_STRIPTAGS', 'Премахване на HTML?');
-@define('PLUGIN_EVENT_MAILER_STRIPTAGSDESC', 'При избор \'Да\' HTML таговете в статиите ще бъдат премахвани при изпращането им.');
-@define('PLUGIN_EVENT_MAILER_CONVERTP', 'Преобразуване на HTML параграфите в нови редове ?');
-@define('PLUGIN_EVENT_MAILER_CONVERTPDESC', 'При избор \'Да\' добавя нов ред след всеки HTML параграф. Това е много удобно в случай на премахване на HTML, защото запазва структурата на статиите и подобрява читаемостта им.');
-@define('PLUGIN_EVENT_MAILER_RECIPIENTS', 'Получател (повече от един адреса разделете с интервал)');
-@define('PLUGIN_EVENT_MAILER_NOTSENDDECISION', 'Статията не беше изпратена по e-mail, понеже вие отменихте това действие.');
-@define('PLUGIN_EVENT_MAILER_SENDING', 'Изпращане');
-@define('PLUGIN_EVENT_MAILER_ISTOSENDIT', 'Изпращане на тази статия по e-mail');
-@define('PLUGIN_EVENT_MAILER_SENDTOALL', 'Изпращане до всички автори');
+@define('PLUGIN_EVENT_MAILER_NAME', 'РР·РїСЂР°С‰Р°РЅРµ РЅР° СЃС‚Р°С‚РёРё РїРѕ e-mail');
+@define('PLUGIN_EVENT_MAILER_DESC', 'РџСЂРёСЃС‚Р°РІРєР°С‚Р° РїРѕР·РІРѕР»СЏРІР° РёР·РїСЂР°С‰Р°РЅРµС‚Рѕ РЅР° РЅРѕРІРё СЃС‚Р°С‚РёРё РїРѕ e-mail СЃСЉРѕР±С‰РµРЅРёСЏ РЅР° СѓРєР°Р·Р°РЅРё РїРѕР»СѓС‡Р°С‚РµР»Рё.');
+@define('PLUGIN_EVENT_MAILER_RECIPIENT', 'РџРѕР»СѓС‡Р°С‚РµР»');
+@define('PLUGIN_EVENT_MAILER_RECIPIENTDESC', 'E-mail Р°РґСЂРµСЃ, РєСЉРґРµС‚Рѕ РёСЃРєР°С‚Рµ РґР° РёР·РїСЂР°С‰Р°С‚Рµ СЃС‚Р°С‚РёРёС‚Рµ (РїСЂРёРјРµСЂ: РїРѕС‰РµРЅСЃРєРё СЃРїРёСЃСЉРє).');
+@define('PLUGIN_EVENT_MAILER_LINK', 'РР·РїСЂР°С‰Р°РЅРµ РЅР° РІСЂСЉР·РєРё РєСЉРј СЃС‚Р°С‚РёРёС‚Рµ ?');
+@define('PLUGIN_EVENT_MAILER_LINKDESC', 'РџСЂРё РёР·Р±РѕСЂ \'Р”Р°\' С‰Рµ Р±СЉРґР°С‚ РІРєР»СЋС‡РІР°РЅРё РІСЂСЉР·РєРё РєСЉРј СЃС‚Р°С‚РёРёС‚Рµ РїСЂРµРґРё С‚СЏС…РЅРѕС‚Рѕ СЃСЉРґСЉСЂР¶Р°РЅРёРµ.');
+@define('PLUGIN_EVENT_MAILER_STRIPTAGS', 'РџСЂРµРјР°С…РІР°РЅРµ РЅР° HTML?');
+@define('PLUGIN_EVENT_MAILER_STRIPTAGSDESC', 'РџСЂРё РёР·Р±РѕСЂ \'Р”Р°\' HTML С‚Р°РіРѕРІРµС‚Рµ РІ СЃС‚Р°С‚РёРёС‚Рµ С‰Рµ Р±СЉРґР°С‚ РїСЂРµРјР°С…РІР°РЅРё РїСЂРё РёР·РїСЂР°С‰Р°РЅРµС‚Рѕ РёРј.');
+@define('PLUGIN_EVENT_MAILER_CONVERTP', 'РџСЂРµРѕР±СЂР°Р·СѓРІР°РЅРµ РЅР° HTML РїР°СЂР°РіСЂР°С„РёС‚Рµ РІ РЅРѕРІРё СЂРµРґРѕРІРµ ?');
+@define('PLUGIN_EVENT_MAILER_CONVERTPDESC', 'РџСЂРё РёР·Р±РѕСЂ \'Р”Р°\' РґРѕР±Р°РІСЏ РЅРѕРІ СЂРµРґ СЃР»РµРґ РІСЃРµРєРё HTML РїР°СЂР°РіСЂР°С„. РўРѕРІР° Рµ РјРЅРѕРіРѕ СѓРґРѕР±РЅРѕ РІ СЃР»СѓС‡Р°Р№ РЅР° РїСЂРµРјР°С…РІР°РЅРµ РЅР° HTML, Р·Р°С‰РѕС‚Рѕ Р·Р°РїР°Р·РІР° СЃС‚СЂСѓРєС‚СѓСЂР°С‚Р° РЅР° СЃС‚Р°С‚РёРёС‚Рµ Рё РїРѕРґРѕР±СЂСЏРІР° С‡РёС‚Р°РµРјРѕСЃС‚С‚Р° РёРј.');
+@define('PLUGIN_EVENT_MAILER_RECIPIENTS', 'РџРѕР»СѓС‡Р°С‚РµР» (РїРѕРІРµС‡Рµ РѕС‚ РµРґРёРЅ Р°РґСЂРµСЃР° СЂР°Р·РґРµР»РµС‚Рµ СЃ РёРЅС‚РµСЂРІР°Р»)');
+@define('PLUGIN_EVENT_MAILER_NOTSENDDECISION', 'РЎС‚Р°С‚РёСЏС‚Р° РЅРµ Р±РµС€Рµ РёР·РїСЂР°С‚РµРЅР° РїРѕ e-mail, РїРѕРЅРµР¶Рµ РІРёРµ РѕС‚РјРµРЅРёС…С‚Рµ С‚РѕРІР° РґРµР№СЃС‚РІРёРµ.');
+@define('PLUGIN_EVENT_MAILER_SENDING', 'РР·РїСЂР°С‰Р°РЅРµ');
+@define('PLUGIN_EVENT_MAILER_ISTOSENDIT', 'РР·РїСЂР°С‰Р°РЅРµ РЅР° С‚Р°Р·Рё СЃС‚Р°С‚РёСЏ РїРѕ e-mail');
+@define('PLUGIN_EVENT_MAILER_SENDTOALL', 'РР·РїСЂР°С‰Р°РЅРµ РґРѕ РІСЃРёС‡РєРё Р°РІС‚РѕСЂРё');
 

@@ -4,14 +4,14 @@
 # Translation (c) by  Rodrigo Lazo <rlazo.paz@gmail.com>
 /* vim: set sts=4 ts=4 expandtab : */
 
-@define('PLUGIN_EVENT_MAILER_NAME', 'Envie as suas entradas atravÈs de E-Mail');
-@define('PLUGIN_EVENT_MAILER_DESC', 'Permite enviar uma entrada nova via E-mail para um endereÁo especÌfico');
-@define('PLUGIN_EVENT_MAILER_RECIPIENT', 'Destinat·rio');
-@define('PLUGIN_EVENT_MAILER_RECIPIENTDESC', 'EndereÁo de E-Mail para onde enviar as entradas (sugest„o: uma lista de correio)');
-@define('PLUGIN_EVENT_MAILER_LINK', 'Enviar ligaÁ„o ao artigo?');
-@define('PLUGIN_EVENT_MAILER_LINKDESC', 'Inclui uma ligaÁ„o ao artigo dentro da mensagem.');
+@define('PLUGIN_EVENT_MAILER_NAME', 'Envie as suas entradas atrav√©s de E-Mail');
+@define('PLUGIN_EVENT_MAILER_DESC', 'Permite enviar uma entrada nova via E-mail para um endere√ßo espec√≠fico');
+@define('PLUGIN_EVENT_MAILER_RECIPIENT', 'Destinat√°rio');
+@define('PLUGIN_EVENT_MAILER_RECIPIENTDESC', 'Endere√ßo de E-Mail para onde enviar as entradas (sugest√£o: uma lista de correio)');
+@define('PLUGIN_EVENT_MAILER_LINK', 'Enviar liga√ß√£o ao artigo?');
+@define('PLUGIN_EVENT_MAILER_LINKDESC', 'Inclui uma liga√ß√£o ao artigo dentro da mensagem.');
 @define('PLUGIN_EVENT_MAILER_STRIPTAGS', 'Eliminar HTML?');
 @define('PLUGIN_EVENT_MAILER_STRIPTAGSDESC', 'Elimina as etiquetas HTML da mensagem.');
-@define('PLUGIN_EVENT_MAILER_CONVERTP', 'Converter par·grafos de HTML em mudanÁas de linha?');
-@define('PLUGIN_EVENT_MAILER_CONVERTPDESC', 'Junta mudanÁas de linha a seguir a cada par·grafo. Esta opÁ„o È muito ˙til se tambÈm escolher a eliminaÁ„o de etiquetas HTML, pois assim manter-se-„o os par·grafos.');
+@define('PLUGIN_EVENT_MAILER_CONVERTP', 'Converter par√°grafos de HTML em mudan√ßas de linha?');
+@define('PLUGIN_EVENT_MAILER_CONVERTPDESC', 'Junta mudan√ßas de linha a seguir a cada par√°grafo. Esta op√ß√£o √© muito √∫til se tamb√©m escolher a elimina√ß√£o de etiquetas HTML, pois assim manter-se-√£o os par√°grafos.');
 
