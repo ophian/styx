@@ -6,12 +6,12 @@
  *  First public version: lang_tr.inc.php
  */
 
-@define('PLUGIN_RECENTENTRIES_TITLE', 'Son Gelen Yazýlar');
-@define('PLUGIN_RECENTENTRIES_BLAHBLAH', 'En yeni yazýlarýn baþlýklarýnýn ve tarihlerinin gösterimi');
-@define('PLUGIN_RECENTENTRIES_NUMBER', 'Yazýlarýn Adedi');
-@define('PLUGIN_RECENTENTRIES_NUMBER_BLAHBLAH', 'Kaç adet yazý gösterilsin? (Öntanýmlý: 10)');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM', 'Anasayfada yayýnlanan yazýlar es geç');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_DESC', 'Sadece anasayfada gösterilmeyen son yazýlar gösterilsin. (Öntanýmlý: En son ' . $serendipity['fetchLimit'] . ' yazýlar es geçilecek)');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_ALL', 'Tümünü göster');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_RECENT', 'Anasayfadaki unsurlarý es geç');
+@define('PLUGIN_RECENTENTRIES_TITLE', 'Son Gelen YazÄ±lar');
+@define('PLUGIN_RECENTENTRIES_BLAHBLAH', 'En yeni yazÄ±larÄ±n baÅŸlÄ±klarÄ±nÄ±n ve tarihlerinin gÃ¶sterimi');
+@define('PLUGIN_RECENTENTRIES_NUMBER', 'YazÄ±larÄ±n Adedi');
+@define('PLUGIN_RECENTENTRIES_NUMBER_BLAHBLAH', 'KaÃ§ adet yazÄ± gÃ¶sterilsin? (Ã–ntanÄ±mlÄ±: 10)');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM', 'Anasayfada yayÄ±nlanan yazÄ±lar es geÃ§');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_DESC', 'Sadece anasayfada gÃ¶sterilmeyen son yazÄ±lar gÃ¶sterilsin. (Ã–ntanÄ±mlÄ±: En son ' . $serendipity['fetchLimit'] . ' yazÄ±lar es geÃ§ilecek)');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_ALL', 'TÃ¼mÃ¼nÃ¼ gÃ¶ster');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_RECENT', 'Anasayfadaki unsurlarÄ± es geÃ§');
 

@@ -7,11 +7,11 @@
  */
 
 @define('PLUGIN_RECENTENTRIES_TITLE', 'Ostatnie wpisy');
-@define('PLUGIN_RECENTENTRIES_BLAHBLAH', 'Pokazuje tytu³y i daty ostatnich wpisów');
-@define('PLUGIN_RECENTENTRIES_NUMBER', 'Ilo¶æ wpisów');
-@define('PLUGIN_RECENTENTRIES_NUMBER_BLAHBLAH', 'Jak wiele wpisów ma byæ wy¶wietlanych? (Stadnardowo: 10)');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM', 'Omiñ wpisy widoczne na stronie g³ównej');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_DESC', 'Bêd± pokazywane ostatnie wpisy, które nie s± ju¿ pokazane na stronie g³ównej. (Standardowo: ostatnie ' . $serendipity['fetchLimit'] . ' bêdzie pominiêtych)');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_ALL', 'Poka¿ wszystkie');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_RECENT', 'Pomiñ wpisy strony g³ównej');
+@define('PLUGIN_RECENTENTRIES_BLAHBLAH', 'Pokazuje tytuÅ‚y i daty ostatnich wpisÃ³w');
+@define('PLUGIN_RECENTENTRIES_NUMBER', 'IloÅ›Ä‡ wpisÃ³w');
+@define('PLUGIN_RECENTENTRIES_NUMBER_BLAHBLAH', 'Jak wiele wpisÃ³w ma byÄ‡ wyÅ›wietlanych? (Stadnardowo: 10)');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM', 'OmiÅ„ wpisy widoczne na stronie gÅ‚Ã³wnej');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_DESC', 'BÄ™dÄ… pokazywane ostatnie wpisy, ktÃ³re nie sÄ… juÅ¼ pokazane na stronie gÅ‚Ã³wnej. (Standardowo: ostatnie ' . $serendipity['fetchLimit'] . ' bÄ™dzie pominiÄ™tych)');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_ALL', 'PokaÅ¼ wszystkie');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_RECENT', 'PomiÅ„ wpisy strony gÅ‚Ã³wnej');
 

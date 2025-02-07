@@ -2,18 +2,18 @@
 
 /**
  *  @version $Revision: 1716 $
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
-@define('PLUGIN_RECENTENTRIES_TITLE',                       'Nedávné pøíspìvky');
-@define('PLUGIN_RECENTENTRIES_BLAHBLAH',                    'Zobrazuje nadpisy a data posledních pøíspìvkù');
-@define('PLUGIN_RECENTENTRIES_NUMBER',                      'Poèet pøíspìvkù');
-@define('PLUGIN_RECENTENTRIES_NUMBER_BLAHBLAH',             'Kolik posledních pøíspìvkù má bıt zobrazeno? (Pøednastaveno: 10)');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM',                 'Pøeskoèit pøíspìvky na hlavní stranì');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_DESC',            'Budou zobrazeny pouze pøíspìvky, které nejsou zobrazeny v pøehledu na hlavní stránce. (Pøednstaveno: posledních ' . $serendipity['fetchLimit'] . ' pøíspìvkù bude pøeskoèeno)');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_ALL',       'Zobrazit v¹e');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_RECENT',    'Nezobrazovat pøíspìvky z hlavní stránky');
-@define('PLUGIN_RECENTENTRIES_RANDOMIZE',                   'Zobrazit náhodnı pøíspìvek');
-@define('PLUGIN_RECENTENTRIES_RANDOMIZE_DESC',              'Pokud je vybráno, budou v bloku zobrazeny náhodnì vybrané pøíspìvky');
+@define('PLUGIN_RECENTENTRIES_TITLE',                       'NedÃ¡vnÃ© pÅ™Ã­spÄ›vky');
+@define('PLUGIN_RECENTENTRIES_BLAHBLAH',                    'Zobrazuje nadpisy a data poslednÃ­ch pÅ™Ã­spÄ›vkÅ¯');
+@define('PLUGIN_RECENTENTRIES_NUMBER',                      'PoÄet pÅ™Ã­spÄ›vkÅ¯');
+@define('PLUGIN_RECENTENTRIES_NUMBER_BLAHBLAH',             'Kolik poslednÃ­ch pÅ™Ã­spÄ›vkÅ¯ mÃ¡ bÃ½t zobrazeno? (PÅ™ednastaveno: 10)');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM',                 'PÅ™eskoÄit pÅ™Ã­spÄ›vky na hlavnÃ­ stranÄ›');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_DESC',            'Budou zobrazeny pouze pÅ™Ã­spÄ›vky, kterÃ© nejsou zobrazeny v pÅ™ehledu na hlavnÃ­ strÃ¡nce. (PÅ™ednstaveno: poslednÃ­ch ' . $serendipity['fetchLimit'] . ' pÅ™Ã­spÄ›vkÅ¯ bude pÅ™eskoÄeno)');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_ALL',       'Zobrazit vÅ¡e');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_RECENT',    'Nezobrazovat pÅ™Ã­spÄ›vky z hlavnÃ­ strÃ¡nky');
+@define('PLUGIN_RECENTENTRIES_RANDOMIZE',                   'Zobrazit nÃ¡hodnÃ½ pÅ™Ã­spÄ›vek');
+@define('PLUGIN_RECENTENTRIES_RANDOMIZE_DESC',              'Pokud je vybrÃ¡no, budou v bloku zobrazeny nÃ¡hodnÄ› vybranÃ© pÅ™Ã­spÄ›vky');
 

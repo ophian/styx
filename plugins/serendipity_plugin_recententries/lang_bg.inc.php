@@ -5,14 +5,14 @@
  *  @author Ivan Cenov jwalker@hotmail.bg
  */
 
-@define('PLUGIN_RECENTENTRIES_TITLE', 'Последни постинги');
-@define('PLUGIN_RECENTENTRIES_BLAHBLAH', 'Показва заглавията и датите на последните постинги');
-@define('PLUGIN_RECENTENTRIES_NUMBER', 'Брой на постингите');
-@define('PLUGIN_RECENTENTRIES_NUMBER_BLAHBLAH', 'Брой на постингите, които да бъдат показани (по подразбиране: 10)');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM', 'Прескачане на показаните на заглавната страница постинги');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_DESC', 'Само последните постинги, които не са показани на заглавната страница ще бъдат показани. (По подразбиране: последните ' . $serendipity['fetchLimit'] . ' ще бъдат прескочени)');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_ALL', 'Покажи всички');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_RECENT', 'Прескочи показаните на заглавната страница');
-@define('PLUGIN_RECENTENTRIES_RANDOMIZE', 'Показване на случайни статии');
-@define('PLUGIN_RECENTENTRIES_RANDOMIZE_DESC', 'Ако е установено, показва случайно избрани статии.');
+@define('PLUGIN_RECENTENTRIES_TITLE', 'РџРѕСЃР»РµРґРЅРё РїРѕСЃС‚РёРЅРіРё');
+@define('PLUGIN_RECENTENTRIES_BLAHBLAH', 'РџРѕРєР°Р·РІР° Р·Р°РіР»Р°РІРёСЏС‚Р° Рё РґР°С‚РёС‚Рµ РЅР° РїРѕСЃР»РµРґРЅРёС‚Рµ РїРѕСЃС‚РёРЅРіРё');
+@define('PLUGIN_RECENTENTRIES_NUMBER', 'Р‘СЂРѕР№ РЅР° РїРѕСЃС‚РёРЅРіРёС‚Рµ');
+@define('PLUGIN_RECENTENTRIES_NUMBER_BLAHBLAH', 'Р‘СЂРѕР№ РЅР° РїРѕСЃС‚РёРЅРіРёС‚Рµ, РєРѕРёС‚Рѕ РґР° Р±СЉРґР°С‚ РїРѕРєР°Р·Р°РЅРё (РїРѕ РїРѕРґСЂР°Р·Р±РёСЂР°РЅРµ: 10)');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM', 'РџСЂРµСЃРєР°С‡Р°РЅРµ РЅР° РїРѕРєР°Р·Р°РЅРёС‚Рµ РЅР° Р·Р°РіР»Р°РІРЅР°С‚Р° СЃС‚СЂР°РЅРёС†Р° РїРѕСЃС‚РёРЅРіРё');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_DESC', 'РЎР°РјРѕ РїРѕСЃР»РµРґРЅРёС‚Рµ РїРѕСЃС‚РёРЅРіРё, РєРѕРёС‚Рѕ РЅРµ СЃР° РїРѕРєР°Р·Р°РЅРё РЅР° Р·Р°РіР»Р°РІРЅР°С‚Р° СЃС‚СЂР°РЅРёС†Р° С‰Рµ Р±СЉРґР°С‚ РїРѕРєР°Р·Р°РЅРё. (РџРѕ РїРѕРґСЂР°Р·Р±РёСЂР°РЅРµ: РїРѕСЃР»РµРґРЅРёС‚Рµ ' . $serendipity['fetchLimit'] . ' С‰Рµ Р±СЉРґР°С‚ РїСЂРµСЃРєРѕС‡РµРЅРё)');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_ALL', 'РџРѕРєР°Р¶Рё РІСЃРёС‡РєРё');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_RECENT', 'РџСЂРµСЃРєРѕС‡Рё РїРѕРєР°Р·Р°РЅРёС‚Рµ РЅР° Р·Р°РіР»Р°РІРЅР°С‚Р° СЃС‚СЂР°РЅРёС†Р°');
+@define('PLUGIN_RECENTENTRIES_RANDOMIZE', 'РџРѕРєР°Р·РІР°РЅРµ РЅР° СЃР»СѓС‡Р°Р№РЅРё СЃС‚Р°С‚РёРё');
+@define('PLUGIN_RECENTENTRIES_RANDOMIZE_DESC', 'РђРєРѕ Рµ СѓСЃС‚Р°РЅРѕРІРµРЅРѕ, РїРѕРєР°Р·РІР° СЃР»СѓС‡Р°Р№РЅРѕ РёР·Р±СЂР°РЅРё СЃС‚Р°С‚РёРё.');
 

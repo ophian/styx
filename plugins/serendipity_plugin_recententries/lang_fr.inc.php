@@ -13,12 +13,12 @@
 #                                                                        #
 ##########################################################################
 
-@define('PLUGIN_RECENTENTRIES_TITLE', 'Billets récents');
-@define('PLUGIN_RECENTENTRIES_BLAHBLAH', 'Affiche les titres et dates des billets les plus récents');
+@define('PLUGIN_RECENTENTRIES_TITLE', 'Billets rÃ©cents');
+@define('PLUGIN_RECENTENTRIES_BLAHBLAH', 'Affiche les titres et dates des billets les plus rÃ©cents');
 @define('PLUGIN_RECENTENTRIES_NUMBER', 'Nombre de billets');
-@define('PLUGIN_RECENTENTRIES_NUMBER_BLAHBLAH', 'Définit combien de billets doivent être affichés. Valeur par défaut: 10');
+@define('PLUGIN_RECENTENTRIES_NUMBER_BLAHBLAH', 'DÃ©finit combien de billets doivent Ãªtre affichÃ©s. Valeur par dÃ©faut: 10');
 @define('PLUGIN_RECENTENTRIES_NUMBER_FROM', 'Ignorer les billets sur la page d\'accueil');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_DESC', 'Définit si seulement les billets récents qui ne sont pas affichés sur la page principale du blog seront affichés. (Par défaut, les ' . $serendipity['fetchLimit'] . ' derniers billets seront ignorés)');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_DESC', 'DÃ©finit si seulement les billets rÃ©cents qui ne sont pas affichÃ©s sur la page principale du blog seront affichÃ©s. (Par dÃ©faut, les ' . $serendipity['fetchLimit'] . ' derniers billets seront ignorÃ©s)');
 @define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_ALL', 'Non, afficher tous les billets');
 @define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_RECENT', 'Oui');
 

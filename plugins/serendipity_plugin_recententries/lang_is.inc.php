@@ -1,7 +1,7 @@
 <?php
 
-@define('PLUGIN_RECENTENTRIES_TITLE', 'Nýlegar færslur');
-@define('PLUGIN_RECENTENTRIES_BLAHBLAH', 'Sýnir titla og dagsetningar nýlegustu færslanna');
-@define('PLUGIN_RECENTENTRIES_NUMBER', 'Fjöldi færsla');
-@define('PLUGIN_RECENTENTRIES_NUMBER_BLAHBLAH', 'Hversu margar færslur ættu að vera sýndar? (Sjálfgefið gildi: 10)');
+@define('PLUGIN_RECENTENTRIES_TITLE', 'NÃ½legar fÃ¦rslur');
+@define('PLUGIN_RECENTENTRIES_BLAHBLAH', 'SÃ½nir titla og dagsetningar nÃ½legustu fÃ¦rslanna');
+@define('PLUGIN_RECENTENTRIES_NUMBER', 'FjÃ¶ldi fÃ¦rsla');
+@define('PLUGIN_RECENTENTRIES_NUMBER_BLAHBLAH', 'Hversu margar fÃ¦rslur Ã¦ttu aÃ° vera sÃ½ndar? (SjÃ¡lfgefiÃ° gildi: 10)');
 

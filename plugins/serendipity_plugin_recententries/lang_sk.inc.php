@@ -1,18 +1,18 @@
 <?php
 
 /**
- *  @author Martin Matuπka <martin@matuska.org>
+ *  @author Martin Matu≈°ka <martin@matuska.org>
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
-@define('PLUGIN_RECENTENTRIES_TITLE',                       'PoslednÈ Ël·nky');
-@define('PLUGIN_RECENTENTRIES_BLAHBLAH',                    'ZobrazÌ nadpisy a d·tumy posledn˝ch Ël·nkov');
-@define('PLUGIN_RECENTENTRIES_NUMBER',                      'PoËet Ël·nkov');
-@define('PLUGIN_RECENTENTRIES_NUMBER_BLAHBLAH',             'Koµko posledn˝ch Ël·nkov m· byª zobrazen˝ch? (PrednastavenÈ: 10)');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM',                 'PreskoËiª Ël·nky na hlavnej str·nke');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_DESC',            'Bud˙ zobrazenÈ iba Ël·nky, ktorÈ nie s˙ zobrazenÈ v prehµade na hlavnej str·nke (PrednastavenÈ: posledn˝ch ' . $serendipity['fetchLimit'] . ' Ël·nkov bude preskoËen˝ch)');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_ALL',       'Zobraziª vπetky');
-@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_RECENT',    'Nezobrazovaª Ël·nky z hlavnej str·nky');
-@define('PLUGIN_RECENTENTRIES_RANDOMIZE',                   'Zobraziª n·hodn˝ Ël·nok');
-@define('PLUGIN_RECENTENTRIES_RANDOMIZE_DESC',              'Ak je nastavenÈ, bud˙ v bloku n·hodne vybranÈ Ël·nky');
+@define('PLUGIN_RECENTENTRIES_TITLE',                       'Posledn√© ƒçl√°nky');
+@define('PLUGIN_RECENTENTRIES_BLAHBLAH',                    'Zobraz√≠ nadpisy a d√°tumy posledn√Ωch ƒçl√°nkov');
+@define('PLUGIN_RECENTENTRIES_NUMBER',                      'Poƒçet ƒçl√°nkov');
+@define('PLUGIN_RECENTENTRIES_NUMBER_BLAHBLAH',             'Koƒæko posledn√Ωch ƒçl√°nkov m√° by≈• zobrazen√Ωch? (Prednastaven√©: 10)');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM',                 'Preskoƒçi≈• ƒçl√°nky na hlavnej str√°nke');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_DESC',            'Bud√∫ zobrazen√© iba ƒçl√°nky, ktor√© nie s√∫ zobrazen√© v prehƒæade na hlavnej str√°nke (Prednastaven√©: posledn√Ωch ' . $serendipity['fetchLimit'] . ' ƒçl√°nkov bude preskoƒçen√Ωch)');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_ALL',       'Zobrazi≈• v≈°etky');
+@define('PLUGIN_RECENTENTRIES_NUMBER_FROM_RADIO_RECENT',    'Nezobrazova≈• ƒçl√°nky z hlavnej str√°nky');
+@define('PLUGIN_RECENTENTRIES_RANDOMIZE',                   'Zobrazi≈• n√°hodn√Ω ƒçl√°nok');
+@define('PLUGIN_RECENTENTRIES_RANDOMIZE_DESC',              'Ak je nastaven√©, bud√∫ v bloku n√°hodne vybran√© ƒçl√°nky');
 
