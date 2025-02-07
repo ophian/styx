@@ -1,11 +1,11 @@
 <?php
 
 @define('PLUGIN_EVENT_SPARTACUS_NAME', 'Spartacus');
-@define('PLUGIN_EVENT_SPARTACUS_DESC', '[S]erendipity [P]lugin [A]ccess [R]epository [T]ool [A]nd [C]ustomization/[U]nification [S]ystem - Leyfir þér að sækja viðbætur úr netgagnabankanum okkar');
-@define('PLUGIN_EVENT_SPARTACUS_FETCH', 'Smelltu hér til að sækja nýja %s úr Serendipity netgagnabankanum');
-@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', 'Slóðin %s gat ekki verið opnuð. Kannski er github eða mirror þjónnin niðri - við biðjumst afsökunar, þú þarft að reyna aftur síðar. Try to reload (F5) the page first.');
-@define('PLUGIN_EVENT_SPARTACUS_FETCHING', 'Reyni að opna slóðina %s...');
-@define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_URL', 'Sótti %s byte frá ofangreindri slóð. Vistaði skrá sem %s...');
-@define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_CACHE', 'Sótti %s byte frá skrá sem var þegar til á þjóninum þínum. Vistaði skrá sem %s...');
-@define('PLUGIN_EVENT_SPARTACUS_FETCHED_DONE', 'Niðurhali gagna lokið.');
+@define('PLUGIN_EVENT_SPARTACUS_DESC', '[S]erendipity [P]lugin [A]ccess [R]epository [T]ool [A]nd [C]ustomization/[U]nification [S]ystem - Leyfir Ã¾Ã©r aÃ° sÃ¦kja viÃ°bÃ¦tur Ãºr netgagnabankanum okkar');
+@define('PLUGIN_EVENT_SPARTACUS_FETCH', 'Smelltu hÃ©r til aÃ° sÃ¦kja nÃ½ja %s Ãºr Serendipity netgagnabankanum');
+@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', 'SlÃ³Ã°in %s gat ekki veriÃ° opnuÃ°. Kannski er github eÃ°a mirror Ã¾jÃ³nnin niÃ°ri - viÃ° biÃ°jumst afsÃ¶kunar, Ã¾Ãº Ã¾arft aÃ° reyna aftur sÃ­Ã°ar. Try to reload (F5) the page first.');
+@define('PLUGIN_EVENT_SPARTACUS_FETCHING', 'Reyni aÃ° opna slÃ³Ã°ina %s...');
+@define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_URL', 'SÃ³tti %s byte frÃ¡ ofangreindri slÃ³Ã°. VistaÃ°i skrÃ¡ sem %s...');
+@define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_CACHE', 'SÃ³tti %s byte frÃ¡ skrÃ¡ sem var Ã¾egar til Ã¡ Ã¾jÃ³ninum Ã¾Ã­num. VistaÃ°i skrÃ¡ sem %s...');
+@define('PLUGIN_EVENT_SPARTACUS_FETCHED_DONE', 'NiÃ°urhali gagna lokiÃ°.');
 

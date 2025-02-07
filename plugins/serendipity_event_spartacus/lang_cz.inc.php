@@ -1,67 +1,69 @@
 <?php
 
 /**
- *  @version 2.1
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @version 2.2
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  EN-Revision: Revision of lang_en.inc.php
  *  @translated 2007/12/10 
  *  @author Vladimir Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2009/02/14
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2009/02/23
  */
 
 @define('PLUGIN_EVENT_SPARTACUS_NAME', 'Spartacus');
-@define('PLUGIN_EVENT_SPARTACUS_DESC', '[S]erendipity [P]lugin [A]ccess [R]epository [T]ool [A]nd [C]ustomization/[U]nification [S]ystem - Umo¾òuje stáhnout a instalovat roz¹iøující moduly (pluginy) z internetu');
-@define('PLUGIN_EVENT_SPARTACUS_FETCH', 'Kliknìte zde pro stáhnutí novıch %s z internetové online databáze - Serendipity Online Repository');
-@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', 'URL %s nelze otevøít. Server github nebo mirror mo¾ná nebì¾í - omlouváme se, zkuste to pozdìji. Try to reload (F5) the page first.');
-@define('PLUGIN_EVENT_SPARTACUS_FETCHING', 'Pokus o otevøení URL %s...');
-@define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_URL', 'Pøijato %s bytù z vı¹e uvedené URL. Ukládání souboru jako %s...');
-@define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_CACHE', 'Pøijato %s bytù z ji¾ existujícího souboru na Va¹em serveru. Ukládání souboru jako %s...');
-@define('PLUGIN_EVENT_SPARTACUS_FETCHED_DONE', 'Data úspì¹nì sta¾ena.');
-@define('PLUGIN_EVENT_SPARTACUS_REPOSITORY_ERROR', '(On-line úlo¾i¹tì vrátilo chybu %s.)');
-@define('PLUGIN_EVENT_SPARTACUS_HEALTHCHECK', 'Nebylo mo¾no získat data z on-line úlo¾i¹tì modulu Spartacus. Zkou¹ka dostupnosti úlo¾i¹tì na adrese %s.');
-@define('PLUGIN_EVENT_SPARTACUS_HEALTHERROR', 'Diagnstická stránka modulu Spartacus vrátilo chybu (HTTP kód %s). To mù¾e znamenat, ¾e je dignostická stránka mimo provoz. Zkuste to prosím pozdìji.');
-@define('PLUGIN_EVENT_SPARTACUS_HEALTHLINK', '<a target="_blank" rel="noopener" href="%s">Kliknìte zde pro zobrazení diagnstické stránky modulu Spartacus</a> a zjistìte, zda odpovídá.');
-@define('PLUGIN_EVENT_SPARTACUS_HEALTHBLOCKED', 'SPARTACUS se pokusil pøipojit ke Googlu, ale neúspì¹nì (chyba è.%d: %s).<br/>Vá¹ server blokuje odchozí spojení. SPARTACUS nebude fungovat, proto¾e se nemù¾e pøipojit do svého online úlo¾i¹tì. <b>Kontaktujte prosím svého poskytovatele webhostingu a po¾ádejte ho o povolení odchozích pøipojení k jinım webovım stránkám.</b> Zásuvné moduly lze instalovat z lokálních adresáøù. Jednodu¹e stáhnìte nejnovìj¹í verzi pluginu z <a href="http://spartacus.s9y.org">SPARTACUS origin web úlo¾i¹tì</a>, rozbalte ho a napøíklad pomocí FTP nahrajte do adresáøe /plugins/ ve Va¹í instalaci Serendipity. For Styx link to the <a href="https://ophian.github.io/plugins/">Styx Spartacus website</a>.');
-@define('PLUGIN_EVENT_SPARTACUS_HEALTHDOWN', 'Modulu SPARTACUS se podaøilo spojit s Googlem, ale nemù¾e se spojit s on-line úlo¾i¹tìm modulu SPARTACUS. Je mo¾né, ¾e Vá¹ server blokuje nìkterá odchozí spojení, nebo je on-line úlo¾i¹tì mimo provoz. Spojte se se svım poskytovatelem webového serveru, abyste se ujistili, ¾e nemáte blokována odchozí spojení. <b>SPARTACUS nebude fungovat, proto¾e nemù¾e kontaktovat on-line úlo¾i¹tì.</b>');
-@define('PLUGIN_EVENT_SPARTACUS_MIRROR_XML', 'Umístìní souborù/(mirror server) (XML metadata)');
-@define('PLUGIN_EVENT_SPARTACUS_MIRROR_FILES', 'Umístìní souborù/(mirror server)  (soubory)');
-@define('PLUGIN_EVENT_SPARTACUS_MIRROR_DESC', 'Vyberte, odkud stahovat. NEMÌÒTE tuto hodnotu, pokud opravdu dobøe nevíte, co dìláte a jestli server orpavdu funguje. Tato volba je pøístupná pro teprve plánované funkce.');
-@define('PLUGIN_EVENT_SPARTACUS_CHOWN', 'Vlastník stahovanıch souborù');
-@define('PLUGIN_EVENT_SPARTACUS_CHOWN_DESC', 'Zde mù¾ete zadat (FTP/Shell) vlastníka souborù (jako napø. "nobody") sta¾enıch pomocí Spartacus pluginu. Pokud je nevyplnìné, nejsou provádìny ¾ádné zmìny vlastníka.');
-@define('PLUGIN_EVENT_SPARTACUS_CHMOD', 'Pøístupová práva sta¾enıch souborù.');
-@define('PLUGIN_EVENT_SPARTACUS_CHMOD_DESC', 'Zde mù¾ete zadat hodnotu pøístupovıch práv v osmièkové soustavì (jako "0777") pro soubory (FTP/Shell) sta¾ené pomocí pluginy Spartacus. Pokud je pole ponecháno prázdné, bude pou¾ito standardní systémové nastavení. Pamatujte, ¾e ne v¹echny webové servery umo¾òují zmìnu práv. Napø. servery ì¾ící v safe_mode módu. Mìjte na pamìti, ¾e práva musí umo¾nit webovému u¾ivateli, pod kterım bì¾í PHP, práva ètení a zápisu souboru. Jinak nebude modul Spartacus schopen pøepsat staré soubory.');
-@define('PLUGIN_EVENT_SPARTACUS_CHMOD_DIR', 'Pøístupová práva sta¾enıch adresáøù');
-@define('PLUGIN_EVENT_SPARTACUS_CHMOD_DIR_DESC', 'Zde mù¾ete zadat hodnotu pøístupovıch práv v osmièkové soustavì (jako "0777") pro adresáøe (FTP/Shell) sta¾ené pomocí pluginy Spartacus. Pokud je pole ponecháno prázdné, bude pou¾ito standardní systémové nastavení. Pamatujte, ¾e ne v¹echny webové servery umo¾òují zmìnu práv. Napø. servery ì¾ící v safe_mode módu. Mìjte na pamìti, ¾e práva musí umo¾nit webovému u¾ivateli, pod kterım bì¾í PHP, práva ètení a zápisu souboru. Jinak nebude modul Spartacus schopen vytvoøit nové adresáøe.');
+@define('PLUGIN_EVENT_SPARTACUS_DESC', '[S]erendipity [P]lugin [A]ccess [R]epository [T]ool [A]nd [C]ustomization/[U]nification [S]ystem - UmoÅ¾Åˆuje stÃ¡hnout a instalovat rozÅ¡iÅ™ujÃ­cÃ­ moduly (pluginy) z internetu');
+@define('PLUGIN_EVENT_SPARTACUS_FETCH', 'KliknÄ›te zde pro stÃ¡hnutÃ­ novÃ½ch %s z internetovÃ© online databÃ¡ze - Serendipity Online Repository');
+@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', 'URL %s nelze otevÅ™Ã­t. Server github nebo mirror moÅ¾nÃ¡ nebÄ›Å¾Ã­ - omlouvÃ¡me se, zkuste to pozdÄ›ji. Try to reload (F5) the page first.');
+@define('PLUGIN_EVENT_SPARTACUS_FETCHING', 'Pokus o otevÅ™enÃ­ URL %s...');
+@define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_URL', 'PÅ™ijato %s bytÅ¯ z vÃ½Å¡e uvedenÃ© URL. UklÃ¡dÃ¡nÃ­ souboru jako %s...');
+@define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_CACHE', 'PÅ™ijato %s bytÅ¯ z jiÅ¾ existujÃ­cÃ­ho souboru na VaÅ¡em serveru. UklÃ¡dÃ¡nÃ­ souboru jako %s...');
+@define('PLUGIN_EVENT_SPARTACUS_FETCHED_DONE', 'Data ÃºspÄ›Å¡nÄ› staÅ¾ena.');
+@define('PLUGIN_EVENT_SPARTACUS_REPOSITORY_ERROR', '(On-line ÃºloÅ¾iÅ¡tÄ› vrÃ¡tilo chybu %s.)');
+@define('PLUGIN_EVENT_SPARTACUS_HEALTHCHECK', 'Nebylo moÅ¾no zÃ­skat data z on-line ÃºloÅ¾iÅ¡tÄ› modulu Spartacus. ZkouÅ¡ka dostupnosti ÃºloÅ¾iÅ¡tÄ› na adrese %s.');
+@define('PLUGIN_EVENT_SPARTACUS_HEALTHERROR', 'DiagnstickÃ¡ strÃ¡nka modulu Spartacus vrÃ¡tilo chybu (HTTP kÃ³d %s). To mÅ¯Å¾e znamenat, Å¾e je dignostickÃ¡ strÃ¡nka mimo provoz. Zkuste to prosÃ­m pozdÄ›ji.');
+@define('PLUGIN_EVENT_SPARTACUS_HEALTHLINK', '<a target="_blank" rel="noopener" href="%s">KliknÄ›te zde pro zobrazenÃ­ diagnstickÃ© strÃ¡nky modulu Spartacus</a> a zjistÄ›te, zda odpovÃ­dÃ¡.');
+@define('PLUGIN_EVENT_SPARTACUS_HEALTHBLOCKED', 'SPARTACUS se pokusil pÅ™ipojit ke Googlu, ale neÃºspÄ›Å¡nÄ› (chyba Ä.%d: %s).<br/>VÃ¡Å¡ server blokuje odchozÃ­ spojenÃ­. SPARTACUS nebude fungovat, protoÅ¾e se nemÅ¯Å¾e pÅ™ipojit do svÃ©ho online ÃºloÅ¾iÅ¡tÄ›. <b>Kontaktujte prosÃ­m svÃ©ho poskytovatele webhostingu a poÅ¾Ã¡dejte ho o povolenÃ­ odchozÃ­ch pÅ™ipojenÃ­ k jinÃ½m webovÃ½m strÃ¡nkÃ¡m.</b> ZÃ¡suvnÃ© moduly lze instalovat z lokÃ¡lnÃ­ch adresÃ¡Å™Å¯. JednoduÅ¡e stÃ¡hnÄ›te nejnovÄ›jÅ¡Ã­ verzi pluginu z <a href="http://spartacus.s9y.org">SPARTACUS origin web ÃºloÅ¾iÅ¡tÄ›</a>, rozbalte ho a napÅ™Ã­klad pomocÃ­ FTP nahrajte do adresÃ¡Å™e /plugins/ ve VaÅ¡Ã­ instalaci Serendipity. For Styx link to the <a href="https://ophian.github.io/plugins/">Styx Spartacus website</a>.');
+@define('PLUGIN_EVENT_SPARTACUS_HEALTHDOWN', 'Modulu SPARTACUS se podaÅ™ilo spojit s Googlem, ale nemÅ¯Å¾e se spojit s on-line ÃºloÅ¾iÅ¡tÄ›m modulu SPARTACUS. Je moÅ¾nÃ©, Å¾e VÃ¡Å¡ server blokuje nÄ›kterÃ¡ odchozÃ­ spojenÃ­, nebo je on-line ÃºloÅ¾iÅ¡tÄ› mimo provoz. Spojte se se svÃ½m poskytovatelem webovÃ©ho serveru, abyste se ujistili, Å¾e nemÃ¡te blokovÃ¡na odchozÃ­ spojenÃ­. <b>SPARTACUS nebude fungovat, protoÅ¾e nemÅ¯Å¾e kontaktovat on-line ÃºloÅ¾iÅ¡tÄ›.</b>');
+@define('PLUGIN_EVENT_SPARTACUS_MIRROR_XML', 'UmÃ­stÄ›nÃ­ souborÅ¯/(mirror server) (XML metadata)');
+@define('PLUGIN_EVENT_SPARTACUS_MIRROR_FILES', 'UmÃ­stÄ›nÃ­ souborÅ¯/(mirror server)  (soubory)');
+@define('PLUGIN_EVENT_SPARTACUS_MIRROR_DESC', 'Vyberte, odkud stahovat. NEMÄšÅ‡TE tuto hodnotu, pokud opravdu dobÅ™e nevÃ­te, co dÄ›lÃ¡te a jestli server orpavdu funguje. Tato volba je pÅ™Ã­stupnÃ¡ pro teprve plÃ¡novanÃ© funkce.');
+@define('PLUGIN_EVENT_SPARTACUS_CHOWN', 'VlastnÃ­k stahovanÃ½ch souborÅ¯');
+@define('PLUGIN_EVENT_SPARTACUS_CHOWN_DESC', 'Zde mÅ¯Å¾ete zadat (FTP/Shell) vlastnÃ­ka souborÅ¯ (jako napÅ™. "nobody") staÅ¾enÃ½ch pomocÃ­ Spartacus pluginu. Pokud je nevyplnÄ›nÃ©, nejsou provÃ¡dÄ›ny Å¾Ã¡dnÃ© zmÄ›ny vlastnÃ­ka.');
+@define('PLUGIN_EVENT_SPARTACUS_CHMOD', 'PÅ™Ã­stupovÃ¡ prÃ¡va staÅ¾enÃ½ch souborÅ¯.');
+@define('PLUGIN_EVENT_SPARTACUS_CHMOD_DESC', 'Zde mÅ¯Å¾ete zadat hodnotu pÅ™Ã­stupovÃ½ch prÃ¡v v osmiÄkovÃ© soustavÄ› (jako "0777") pro soubory (FTP/Shell) staÅ¾enÃ© pomocÃ­ pluginy Spartacus. Pokud je pole ponechÃ¡no prÃ¡zdnÃ©, bude pouÅ¾ito standardnÃ­ systÃ©movÃ© nastavenÃ­. Pamatujte, Å¾e ne vÅ¡echny webovÃ© servery umoÅ¾ÅˆujÃ­ zmÄ›nu prÃ¡v. NapÅ™. servery Ä›Å¾Ã­cÃ­ v safe_mode mÃ³du. MÄ›jte na pamÄ›ti, Å¾e prÃ¡va musÃ­ umoÅ¾nit webovÃ©mu uÅ¾ivateli, pod kterÃ½m bÄ›Å¾Ã­ PHP, prÃ¡va ÄtenÃ­ a zÃ¡pisu souboru. Jinak nebude modul Spartacus schopen pÅ™epsat starÃ© soubory.');
+@define('PLUGIN_EVENT_SPARTACUS_CHMOD_DIR', 'PÅ™Ã­stupovÃ¡ prÃ¡va staÅ¾enÃ½ch adresÃ¡Å™Å¯');
+@define('PLUGIN_EVENT_SPARTACUS_CHMOD_DIR_DESC', 'Zde mÅ¯Å¾ete zadat hodnotu pÅ™Ã­stupovÃ½ch prÃ¡v v osmiÄkovÃ© soustavÄ› (jako "0777") pro adresÃ¡Å™e (FTP/Shell) staÅ¾enÃ© pomocÃ­ pluginy Spartacus. Pokud je pole ponechÃ¡no prÃ¡zdnÃ©, bude pouÅ¾ito standardnÃ­ systÃ©movÃ© nastavenÃ­. Pamatujte, Å¾e ne vÅ¡echny webovÃ© servery umoÅ¾ÅˆujÃ­ zmÄ›nu prÃ¡v. NapÅ™. servery Ä›Å¾Ã­cÃ­ v safe_mode mÃ³du. MÄ›jte na pamÄ›ti, Å¾e prÃ¡va musÃ­ umoÅ¾nit webovÃ©mu uÅ¾ivateli, pod kterÃ½m bÄ›Å¾Ã­ PHP, prÃ¡va ÄtenÃ­ a zÃ¡pisu souboru. Jinak nebude modul Spartacus schopen vytvoÅ™it novÃ© adresÃ¡Å™e.');
 
-@define('PLUGIN_EVENT_SPARTACUS_CHECK_SIDEBAR', 'Vyhledat nové pluginy pro postranní sloupec.');
-@define('PLUGIN_EVENT_SPARTACUS_CHECK_EVENT', 'Vyhledat nové pluginy událostí.');
-@define('PLUGIN_EVENT_SPARTACUS_CHECK_HINT', 'Rada: Mù¾ete upgradovat více roz¹iøujících modulù najednou na odkaz "upgrade" prostøedním tlaèítkem my¹i. Upgrade se otevøe v novém oknì/nové zálo¾ce. Pamatujte, ¾e automatická aktualizace v¹ech roz¹iøujících modulù je èasovì nároèná operace a mù¾e vést k pøekroèení nastavenıch èasovıch limitù na serveru a z toho dùvodu k neúplnì sta¾enım souborùm. Proto tato funkènost není zámìrnì snadno pøístupná.');
+@define('PLUGIN_EVENT_SPARTACUS_CHECK_SIDEBAR', 'Vyhledat novÃ© pluginy pro postrannÃ­ sloupec.');
+@define('PLUGIN_EVENT_SPARTACUS_CHECK_EVENT', 'Vyhledat novÃ© pluginy udÃ¡lostÃ­.');
+@define('PLUGIN_EVENT_SPARTACUS_CHECK_HINT', 'Rada: MÅ¯Å¾ete upgradovat vÃ­ce rozÅ¡iÅ™ujÃ­cÃ­ch modulÅ¯ najednou na odkaz "upgrade" prostÅ™ednÃ­m tlaÄÃ­tkem myÅ¡i. Upgrade se otevÅ™e v novÃ©m oknÄ›/novÃ© zÃ¡loÅ¾ce. Pamatujte, Å¾e automatickÃ¡ aktualizace vÅ¡ech rozÅ¡iÅ™ujÃ­cÃ­ch modulÅ¯ je ÄasovÄ› nÃ¡roÄnÃ¡ operace a mÅ¯Å¾e vÃ©st k pÅ™ekroÄenÃ­ nastavenÃ½ch ÄasovÃ½ch limitÅ¯ na serveru a z toho dÅ¯vodu k neÃºplnÄ› staÅ¾enÃ½m souborÅ¯m. Proto tato funkÄnost nenÃ­ zÃ¡mÄ›rnÄ› snadno pÅ™Ã­stupnÃ¡.');
 
-@define('PLUGIN_EVENT_SPARTACUS_TRYCURL', 'Pokus o pou¾ití knihovny cURL jako zálo¾ního øe¹ení...');
+@define('PLUGIN_EVENT_SPARTACUS_TRYCURL', 'Pokus o pouÅ¾itÃ­ knihovny cURL jako zÃ¡loÅ¾nÃ­ho Å™eÅ¡enÃ­...');
 @define('PLUGIN_EVENT_SPARTACUS_CURLFAIL', 'Knihovna cURL taky nefunguje :-/ ...');
-@define('PLUGIN_EVENT_SPARTACUS_HEALTHFIREWALLED', 'Nebylo mo¾né stáhnout soubory z on-line úlo¾i¹tì modulu SPARTACUS, nicménì se povedlo spojit se s úlo¾i¹tìm. To znamená, ¾e Vá¹ poskytovatel nejspí¹e pou¾ívá obsahovı filtr a neumo¾òuje stáhovat pøes web *.php soubory. Buï musíte Va¹eho poskytovatele po¾ádat o vypnutí pøísu¹nıch omezení (jako mod_security nebo jiné "reverse proxy"), nebo stahujte pluginy ruènì.');
+@define('PLUGIN_EVENT_SPARTACUS_HEALTHFIREWALLED', 'Nebylo moÅ¾nÃ© stÃ¡hnout soubory z on-line ÃºloÅ¾iÅ¡tÄ› modulu SPARTACUS, nicmÃ©nÄ› se povedlo spojit se s ÃºloÅ¾iÅ¡tÄ›m. To znamenÃ¡, Å¾e VÃ¡Å¡ poskytovatel nejspÃ­Å¡e pouÅ¾Ã­vÃ¡ obsahovÃ½ filtr a neumoÅ¾Åˆuje stÃ¡hovat pÅ™es web *.php soubory. BuÄ musÃ­te VaÅ¡eho poskytovatele poÅ¾Ã¡dat o vypnutÃ­ pÅ™Ã­suÅ¡nÃ½ch omezenÃ­ (jako mod_security nebo jinÃ© "reverse proxy"), nebo stahujte pluginy ruÄnÄ›.');
 
-@define('PLUGIN_EVENT_SPARTACUS_ENABLE_PLUGINS', 'Povolit stahování roz¹iøujících modulù pomocí modulu SPARTACUS?');
-@define('PLUGIN_EVENT_SPARTACUS_ENABLE_THEMES', 'Povolit stahování ¹ablon pomocí modulu SPARTACUS?');
+@define('PLUGIN_EVENT_SPARTACUS_ENABLE_PLUGINS', 'Povolit stahovÃ¡nÃ­ rozÅ¡iÅ™ujÃ­cÃ­ch modulÅ¯ pomocÃ­ modulu SPARTACUS?');
+@define('PLUGIN_EVENT_SPARTACUS_ENABLE_THEMES', 'Povolit stahovÃ¡nÃ­ Å¡ablon pomocÃ­ modulu SPARTACUS?');
 
-@define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE', 'Povolit vzdálené prohlí¾ení informací o verzích pluginù');
-@define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_DESC', 'Pokud je povoleno, náv¹tìvníci "%s" si mohou zobrazit informace o verzích v¹ech nainstalovanıch plugin. Není ¹patnı nápad ochránit tuto URL adresu pomocí souboru .htaccess proti ne¾ádoucím pøístupùm.');
-@define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL', 'Tajnı kód ke vzdálenému pøístupu k informacím o verzích pluginù');
-@define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL_DESC', 'Zadejte speciální URI komponentu, kterou musí lidé znát a zadat, aby mohli zobrazit informace o verzích pluginù.');
+@define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE', 'Povolit vzdÃ¡lenÃ© prohlÃ­Å¾enÃ­ informacÃ­ o verzÃ­ch pluginÅ¯');
+@define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_DESC', 'Pokud je povoleno, nÃ¡vÅ¡tÄ›vnÃ­ci %s si mohou zobrazit informace o verzÃ­ch vÅ¡ech nainstalovanÃ½ch plugin. NenÃ­ Å¡patnÃ½ nÃ¡pad ochrÃ¡nit tuto URL adresu pomocÃ­ souboru .htaccess proti neÅ¾Ã¡doucÃ­m pÅ™Ã­stupÅ¯m.');
+@define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL', 'TajnÃ½ kÃ³d ke vzdÃ¡lenÃ©mu pÅ™Ã­stupu k informacÃ­m o verzÃ­ch pluginÅ¯');
+@define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL_DESC', 'Zadejte speciÃ¡lnÃ­ URI komponentu, kterou musÃ­ lidÃ© znÃ¡t a zadat, aby mohli zobrazit informace o verzÃ­ch pluginÅ¯.');
 
-@define('PLUGIN_EVENT_SPARTACUS_FTP_ERROR_CONNECT', 'Chyba FTP: Nepodaøilo se pøipojit k FTP.');
-@define('PLUGIN_EVENT_SPARTACUS_FTP_ERROR_MKDIR', 'Chyba FTP: Adresáø (%s) nelze vytvoøit');
-@define('PLUGIN_EVENT_SPARTACUS_FTP_ERROR_CHMOD', 'Chyba FTP: Nelze nastavit práva u adresáøe (%s).');
-@define('PLUGIN_EVENT_SPARTACUS_FTP_SUCCESS', 'FTP: Adresáø (%s) byl úspì¹nì vytvoøen.');
+@define('PLUGIN_EVENT_SPARTACUS_FTP_ERROR_CONNECT', 'Chyba FTP: NepodaÅ™ilo se pÅ™ipojit k FTP.');
+@define('PLUGIN_EVENT_SPARTACUS_FTP_ERROR_MKDIR', 'Chyba FTP: AdresÃ¡Å™ (%s) nelze vytvoÅ™it');
+@define('PLUGIN_EVENT_SPARTACUS_FTP_ERROR_CHMOD', 'Chyba FTP: Nelze nastavit prÃ¡va u adresÃ¡Å™e (%s).');
+@define('PLUGIN_EVENT_SPARTACUS_FTP_SUCCESS', 'FTP: AdresÃ¡Å™ (%s) byl ÃºspÄ›Å¡nÄ› vytvoÅ™en.');
 
-@define('PLUGIN_EVENT_SPARTACUS_FTP_USE', 'Pou¾ít vytváøení adresáøù pøes FTP?');
-@define('PLUGIN_EVENT_SPARTACUS_FTP_USE_DESC', 'Pokud Vám bì¾í PHP v "safe_mode", musíte se podøídit jistım omezením. Tato omezení mají zjednodue¹enì øeèeno za vısledek, ¾e pokud vytvoøíte adresáø obvyklou cestou, nelze do nìj zapisovat. Ale pokud vytváøíte adresáø pomocí FTP úètu, pak toto omezení neplatí. Pokud máte zapnutı safe_mode, je vytváøení adresáøù pøes FTP prakticky jedinou cestou, jak mít mo¾nost úspì¹nì pou¾ívat SPARTACUS a upload souborù.');
+@define('PLUGIN_EVENT_SPARTACUS_FTP_USE', 'PouÅ¾Ã­t vytvÃ¡Å™enÃ­ adresÃ¡Å™Å¯ pÅ™es FTP?');
+@define('PLUGIN_EVENT_SPARTACUS_FTP_USE_DESC', 'Pokud VÃ¡m bÄ›Å¾Ã­ PHP v "safe_mode", musÃ­te se podÅ™Ã­dit jistÃ½m omezenÃ­m. Tato omezenÃ­ majÃ­ zjednodueÅ¡enÄ› Å™eÄeno za vÃ½sledek, Å¾e pokud vytvoÅ™Ã­te adresÃ¡Å™ obvyklou cestou, nelze do nÄ›j zapisovat. Ale pokud vytvÃ¡Å™Ã­te adresÃ¡Å™ pomocÃ­ FTP ÃºÄtu, pak toto omezenÃ­ neplatÃ­. Pokud mÃ¡te zapnutÃ½ safe_mode, je vytvÃ¡Å™enÃ­ adresÃ¡Å™Å¯ pÅ™es FTP prakticky jedinou cestou, jak mÃ­t moÅ¾nost ÃºspÄ›Å¡nÄ› pouÅ¾Ã­vat SPARTACUS a upload souborÅ¯.');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_SERVER', 'Adresa FTP serveru');
-@define('PLUGIN_EVENT_SPARTACUS_FTP_USERNAME', 'U¾ivatelské jméno k FTP');
+@define('PLUGIN_EVENT_SPARTACUS_FTP_USERNAME', 'UÅ¾ivatelskÃ© jmÃ©no k FTP');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_PASS', 'Heslo k FTP');
-@define('PLUGIN_EVENT_SPARTACUS_FTP_BASEDIR', 'FTP cesta k adresáøi Serendipity');
-@define('PLUGIN_EVENT_SPARTACUS_FTP_BASEDIR_DESC', 'Pokud se k serveru pøipojujete pøes FTP, nemusíte se nutnì pøipojit do adresáøe Serendipity. Zde tedy musíte specifikovat cestu k adresáøi Srendipity od adresáøe, do kterého se FTP pøihla¹uje.');
+@define('PLUGIN_EVENT_SPARTACUS_FTP_BASEDIR', 'FTP cesta k adresÃ¡Å™i Serendipity');
+@define('PLUGIN_EVENT_SPARTACUS_FTP_BASEDIR_DESC', 'Pokud se k serveru pÅ™ipojujete pÅ™es FTP, nemusÃ­te se nutnÄ› pÅ™ipojit do adresÃ¡Å™e Serendipity. Zde tedy musÃ­te specifikovat cestu k adresÃ¡Å™i Srendipity od adresÃ¡Å™e, do kterÃ©ho se FTP pÅ™ihlaÅ¡uje.');
 
-#@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR', 'Umístìní zrcadel (mirrors)');
-#@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC', 'Tuto volbu pou¾ívejte jen pokud opravdu víte, co dìláte, jste-li zku¹enı u¾ivatel. Pokud jsou pøednastavené mirror servery vypnuté nebo nepracují správnì, Serendipity se pokusí pøipojit k Vámi zadanım mirror serverùm (tøeba mù¾ete zadat https://mirror.org/serendipity/). Tyto servery musí umìt zpracovávat XML soubory na úrovni URL adresy a musí obsahovat podadresáøe "additional_plugins" a "additional_themes". Zadávejte pouze mirror servery, kterım vìøíte a které plnì zrcadlí v¹echny soubory CVS úlo¾i¹tì Serendipity. Lze zadat více zrcadel, oddìlenıch "|".');
+#@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR', 'UmÃ­stÄ›nÃ­ zrcadel (mirrors)');
+#@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC', 'Tuto volbu pouÅ¾Ã­vejte jen pokud opravdu vÃ­te, co dÄ›lÃ¡te, jste-li zkuÅ¡enÃ½ uÅ¾ivatel. Pokud jsou pÅ™ednastavenÃ© mirror servery vypnutÃ© nebo nepracujÃ­ sprÃ¡vnÄ›, Serendipity se pokusÃ­ pÅ™ipojit k VÃ¡mi zadanÃ½m mirror serverÅ¯m (tÅ™eba mÅ¯Å¾ete zadat https://mirror.org/serendipity/). Tyto servery musÃ­ umÄ›t zpracovÃ¡vat XML soubory na Ãºrovni URL adresy a musÃ­ obsahovat podadresÃ¡Å™e "additional_plugins" a "additional_themes". ZadÃ¡vejte pouze mirror servery, kterÃ½m vÄ›Å™Ã­te a kterÃ© plnÄ› zrcadlÃ­ vÅ¡echny soubory CVS ÃºloÅ¾iÅ¡tÄ› Serendipity. Lze zadat vÃ­ce zrcadel, oddÄ›lenÃ½ch "|".');
 
