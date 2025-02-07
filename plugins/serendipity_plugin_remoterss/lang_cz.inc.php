@@ -1,39 +1,41 @@
 <?php
 
 /**
- *  @version 1427.1
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @version 1427.2
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  EN-Revision: Revision of lang_en.inc.php
  *  @author Vladimir Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2009/02/14
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2009/02/23
  */
 
-@define('PLUGIN_REMOTERSS_TITLE', 'Cizí RSS/OPML kanál');
-@define('PLUGIN_REMOTERSS_BLAHBLAH', 'Zobrazuje polo¾ky z cizího RSS/OPML kanálu (napøíklad Blogroll)');
-@define('PLUGIN_REMOTERSS_NUMBER', 'Poèet pøíspìvkù');
-@define('PLUGIN_REMOTERSS_NUMBER_BLAHBLAH', 'Kolik pøíspìvkù z RSS kanálu má bıt zobrazeno? (Pøednastaveno: 0 = v¹echny pøíspìvky RSS kanálu)');
-@define('PLUGIN_REMOTERSS_SIDEBARTITLE', 'Nadpis RSS kanálu');
-@define('PLUGIN_REMOTERSS_SIDEBARTITLE_BLAHBLAH', 'Nadpis bloku v postranním sloupci s cizím RSS kanálem');
+@define('PLUGIN_REMOTERSS_TITLE', 'CizÃ­ RSS/OPML kanÃ¡l');
+@define('PLUGIN_REMOTERSS_BLAHBLAH', 'Zobrazuje poloÅ¾ky z cizÃ­ho RSS/OPML kanÃ¡lu (napÅ™Ã­klad Blogroll)');
+@define('PLUGIN_REMOTERSS_NUMBER', 'PoÄet pÅ™Ã­spÄ›vkÅ¯');
+@define('PLUGIN_REMOTERSS_NUMBER_BLAHBLAH', 'Kolik pÅ™Ã­spÄ›vkÅ¯ z RSS kanÃ¡lu mÃ¡ bÃ½t zobrazeno? (PÅ™ednastaveno: 0 = vÅ¡echny pÅ™Ã­spÄ›vky RSS kanÃ¡lu)');
+@define('PLUGIN_REMOTERSS_SIDEBARTITLE', 'Nadpis RSS kanÃ¡lu');
+@define('PLUGIN_REMOTERSS_SIDEBARTITLE_BLAHBLAH', 'Nadpis bloku v postrannÃ­m sloupci s cizÃ­m RSS kanÃ¡lem');
 @define('PLUGIN_REMOTERSS_RSSURI', 'RSS/OPML URI');
-@define('PLUGIN_REMOTERSS_RSSURI_BLAHBLAH', 'URI adresa RSS/OPML kanálu, kterı chcete zobrazit');
-@define('PLUGIN_REMOTERSS_NOURI', '®ádnı RSS/OPML kanál nebyl vybrán');
-@define('PLUGIN_REMOTERSS_RSSTARGET', 'RSS/OPML cíl odkazù');
-@define('PLUGIN_REMOTERSS_RSSTARGET_BLAHBLAH', 'Cíl (target) odkazù z RSS kanálu. Tedy do jakého okna se mají odkazy otevírat. (Pøednastaveno: _blank = nové okno)');
-@define('PLUGIN_REMOTERSS_CACHETIME', 'Jak èasto aktualizovat RSS kanál?');
-@define('PLUGIN_REMOTERSS_CACHETIME_BLAHBLAH', 'Obsah RSS kanálu je uchováván v cachi a je aktualizován pouze pokud je star¹í ne¾ X vteøin (Pøednastaveno: 3 hodiny)');
-@define('PLUGIN_REMOTERSS_FEEDTYPE', 'Typ kanálu');
-@define('PLUGIN_REMOTERSS_FEEDTYPE_BLAHBLAH', 'Vyberte typ zobrazovaného kanálu');
-@define('PLUGIN_REMOTERSS_BULLETIMG', 'Odrá¾ka');
-@define('PLUGIN_REMOTERSS_BULLETIMG_BLAHBLAH', 'Obrázek, kterı se má zobrazit pøed ka¾dım nadpisem z RSS');
-@define('PLUGIN_REMOTERSS_DISPLAYDATE', 'Zobrazování data');
-@define('PLUGIN_REMOTERSS_DISPLAYDATE_BLAHBLAH', 'Zobrazit pod nadpisem pøíspìvku datum?');
+@define('PLUGIN_REMOTERSS_RSSURI_BLAHBLAH', 'URI adresa RSS/OPML kanÃ¡lu, kterÃ½ chcete zobrazit');
+@define('PLUGIN_REMOTERSS_NOURI', 'Å½Ã¡dnÃ½ RSS/OPML kanÃ¡l nebyl vybrÃ¡n');
+@define('PLUGIN_REMOTERSS_RSSTARGET', 'RSS/OPML cÃ­l odkazÅ¯');
+@define('PLUGIN_REMOTERSS_RSSTARGET_BLAHBLAH', 'CÃ­l (target) odkazÅ¯ z RSS kanÃ¡lu. Tedy do jakÃ©ho okna se majÃ­ odkazy otevÃ­rat. (PÅ™ednastaveno: _blank = novÃ© okno)');
+@define('PLUGIN_REMOTERSS_CACHETIME', 'Jak Äasto aktualizovat RSS kanÃ¡l?');
+@define('PLUGIN_REMOTERSS_CACHETIME_BLAHBLAH', 'Obsah RSS kanÃ¡lu je uchovÃ¡vÃ¡n v cachi a je aktualizovÃ¡n pouze pokud je starÅ¡Ã­ neÅ¾ X vteÅ™in (PÅ™ednastaveno: 3 hodiny)');
+@define('PLUGIN_REMOTERSS_FEEDTYPE', 'Typ kanÃ¡lu');
+@define('PLUGIN_REMOTERSS_FEEDTYPE_BLAHBLAH', 'Vyberte typ zobrazovanÃ©ho kanÃ¡lu');
+@define('PLUGIN_REMOTERSS_BULLETIMG', 'OdrÃ¡Å¾ka');
+@define('PLUGIN_REMOTERSS_BULLETIMG_BLAHBLAH', 'ObrÃ¡zek, kterÃ½ se mÃ¡ zobrazit pÅ™ed kaÅ¾dÃ½m nadpisem z RSS');
+@define('PLUGIN_REMOTERSS_DISPLAYDATE', 'ZobrazovÃ¡nÃ­ data');
+@define('PLUGIN_REMOTERSS_DISPLAYDATE_BLAHBLAH', 'Zobrazit pod nadpisem pÅ™Ã­spÄ›vku datum?');
 
-@define('PLUGIN_REMOTERSS_RSSLINK', 'Pou¾ívat RSS odkazy?');
-@define('PLUGIN_REMOTERSS_RSSLINK_DESC', 'Mají bıt odkazy z RSS kanálu zobrazeny jako skuteèné odkazy?');
-@define('PLUGIN_REMOTERSS_RSSFIELD', 'Zobrazovanı element');
-@define('PLUGIN_REMOTERSS_RSSFIELD_DESC', 'Kterı element RSS kanálu se má zobrazovat? (napø. "title" = nadpis, "content:encoded" = tìlo pøíspìvku, "description" = popis, ...)');
-@define('PLUGIN_REMOTERSS_RSSESCAPE', 'Kódovat HTML vıstup');
-@define('PLUGIN_REMOTERSS_RSSESCAPE_DESC', 'Pokud je povoleno, HTML znaèky z RSS kanálu jsou kódovány. Pokud je tato volby zamítnuta, v¹echny HTML znaèky jsou v RSS kanálu ponechány a pøíslu¹nì se zobrazují. Tato mo¾nost pøedstavuje bezpeènostní riziku, pokud zobrazovanı RSS kanál není Vá¹ nebo pokud mu stoprocentnì nedùvìøujete!');
+@define('PLUGIN_REMOTERSS_RSSLINK', 'PouÅ¾Ã­vat RSS odkazy?');
+@define('PLUGIN_REMOTERSS_RSSLINK_DESC', 'MajÃ­ bÃ½t odkazy z RSS kanÃ¡lu zobrazeny jako skuteÄnÃ© odkazy?');
+@define('PLUGIN_REMOTERSS_RSSFIELD', 'ZobrazovanÃ½ element');
+@define('PLUGIN_REMOTERSS_RSSFIELD_DESC', 'KterÃ½ element RSS kanÃ¡lu se mÃ¡ zobrazovat? (napÅ™. "title" = nadpis, "content:encoded" = tÄ›lo pÅ™Ã­spÄ›vku, "description" = popis, ...)');
+@define('PLUGIN_REMOTERSS_RSSESCAPE', 'KÃ³dovat HTML vÃ½stup');
+@define('PLUGIN_REMOTERSS_RSSESCAPE_DESC', 'Pokud je povoleno, HTML znaÄky z RSS kanÃ¡lu jsou kÃ³dovÃ¡ny. Pokud je tato volby zamÃ­tnuta, vÅ¡echny HTML znaÄky jsou v RSS kanÃ¡lu ponechÃ¡ny a pÅ™Ã­sluÅ¡nÄ› se zobrazujÃ­. Tato moÅ¾nost pÅ™edstavuje bezpeÄnostnÃ­ riziku, pokud zobrazovanÃ½ RSS kanÃ¡l nenÃ­ VÃ¡Å¡ nebo pokud mu stoprocentnÄ› nedÅ¯vÄ›Å™ujete!');
 
-@define('PLUGIN_REMOTERSS_TEMPLATE', '©ablona pro tento kanál');
-@define('PLUGIN_REMOTERSS_TEMPLATE_DESC', 'Zde mù¾ete vybrat soubor se ¹ablonou, kterı se nachází v adresáøí tohoto pluginu, kterı má bıt pou¾it k zobrazení kanálu v postranním sloupci. Mù¾ete pøidat dal¹í ¹ablony do adresáøe pluginu. Pokud je stejnì pojmenovanı soubor ¹ablony umístìn v adresáøi se ¹ablonami, bude pou¾it místo ¹ablony v adresáøi pluginu. Tím, ¾e zde vyberete jakoukoliv ¹ablonu jinou ne¾ pøednastavenou/defaultní, bude automaticky povolen ¹ablonovací systém Smarty.');
+@define('PLUGIN_REMOTERSS_TEMPLATE', 'Å ablona pro tento kanÃ¡l');
+@define('PLUGIN_REMOTERSS_TEMPLATE_DESC', 'Zde mÅ¯Å¾ete vybrat soubor se Å¡ablonou, kterÃ½ se nachÃ¡zÃ­ v adresÃ¡Å™Ã­ tohoto pluginu, kterÃ½ mÃ¡ bÃ½t pouÅ¾it k zobrazenÃ­ kanÃ¡lu v postrannÃ­m sloupci. MÅ¯Å¾ete pÅ™idat dalÅ¡Ã­ Å¡ablony do adresÃ¡Å™e pluginu. Pokud je stejnÄ› pojmenovanÃ½ soubor Å¡ablony umÃ­stÄ›n v adresÃ¡Å™i se Å¡ablonami, bude pouÅ¾it mÃ­sto Å¡ablony v adresÃ¡Å™i pluginu. TÃ­m, Å¾e zde vyberete jakoukoliv Å¡ablonu jinou neÅ¾ pÅ™ednastavenou/defaultnÃ­, bude automaticky povolen Å¡ablonovacÃ­ systÃ©m Smarty.');
