@@ -1,34 +1,34 @@
 <?php
 
 /**
- *  @author Martin Matuπka <martin@matuska.org>
+ *  @author Martin Matu≈°ka <martin@matuska.org>
  *  EN-Revision: Revision of lang_en.inc.php
  *  Translated on 2010/08/17
  */
 
-@define('PLUGIN_HISTORY_NAME',              'HistÛria');
-@define('PLUGIN_HISTORY_DESC',              'Zobrazuje odkazy na starÈ Ël·nky, vek je nastaviteµn˝.');
-@define('PLUGIN_HISTORY_MIN_AGE',           'Minim·lny vek Ël·nku');
-@define('PLUGIN_HISTORY_MIN_AGE_DESC',      'Minim·lny vek Ël·nku (v dÚoch) pre zobrazenie v paneli histÛrie.');
-@define('PLUGIN_HISTORY_MAX_AGE',           'Maxim·lny vek Ël·nku');
-@define('PLUGIN_HISTORY_MAX_AGE_DESC',      'Maxim·lny vek Ël·nku (v dÚoch) pre zobrazenie v paneli histÛrie.');
-@define('PLUGIN_HISTORY_MAX_ENTRIES',       'Maxim·lny poËet Ël·nkov');
-@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC',  'Maxim·lny poËet Ël·nkov, ktorÈ sa zobrazia. In case of a defined time range with "Number of looped years" greater 1, this really limits the total maximum of Entries to display.');
-@define('PLUGIN_HISTORY_SHOWFULL',          'CelÈ Ël·nky');
-@define('PLUGIN_HISTORY_SHOWFULL_DESC',     'ZobrazÌ celÈ Ël·nky namiesto odkazov na nich.');
+@define('PLUGIN_HISTORY_NAME',              'Hist√≥ria');
+@define('PLUGIN_HISTORY_DESC',              'Zobrazuje odkazy na star√© ƒçl√°nky, vek je nastaviteƒæn√Ω.');
+@define('PLUGIN_HISTORY_MIN_AGE',           'Minim√°lny vek ƒçl√°nku');
+@define('PLUGIN_HISTORY_MIN_AGE_DESC',      'Minim√°lny vek ƒçl√°nku (v d≈àoch) pre zobrazenie v paneli hist√≥rie.');
+@define('PLUGIN_HISTORY_MAX_AGE',           'Maxim√°lny vek ƒçl√°nku');
+@define('PLUGIN_HISTORY_MAX_AGE_DESC',      'Maxim√°lny vek ƒçl√°nku (v d≈àoch) pre zobrazenie v paneli hist√≥rie.');
+@define('PLUGIN_HISTORY_MAX_ENTRIES',       'Maxim√°lny poƒçet ƒçl√°nkov');
+@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC',  'Maxim√°lny poƒçet ƒçl√°nkov, ktor√© sa zobrazia. In case of a defined time range with "Number of looped years" greater 1, this really limits the total maximum of Entries to display.');
+@define('PLUGIN_HISTORY_SHOWFULL',          'Cel√© ƒçl√°nky');
+@define('PLUGIN_HISTORY_SHOWFULL_DESC',     'Zobraz√≠ cel√© ƒçl√°nky namiesto odkazov na nich.');
 @define('PLUGIN_HISTORY_INTRO',             'Intro');
-@define('PLUGIN_HISTORY_INTRO_DESC',        'Kr·tky ˙vod v πt˝le \'Pred rokom som pÌsal:\'.');
+@define('PLUGIN_HISTORY_INTRO_DESC',        'Kr√°tky √∫vod v ≈°t√Ωle \'Pred rokom som p√≠sal:\'.');
 @define('PLUGIN_HISTORY_OUTRO',             'Outro');
-@define('PLUGIN_HISTORY_OUTRO_DESC',        'Kr·tky doslov, nieËo ako \'To je dobrÈ, æe?\'.');
-@define('PLUGIN_HISTORY_DISPLAYDATE',       'Zobrazovaª d·tumy');
-@define('PLUGIN_HISTORY_DISPLAYDATE_DESC',  'Zobrazovaª d·tumy zverejnenia Ël·nkov?');
-@define('PLUGIN_HISTORY_MAXLENGTH',         'DÂæka nadpisu');
-@define('PLUGIN_HISTORY_MAXLENGTH_DESC',    'Po koµk˝ch znakoch m· b˝ª nadpis orezan˝ (0 pre zobrazovanie cel˝ch nadpisov)?');
-@define('PLUGIN_HISTORY_SPECIALAGE',        'Prednastaven˝ vek?');
-@define('PLUGIN_HISTORY_SPECIALAGE_DESC',   'Ak chcete nastaviª vlastnÈ rozp‰tie pre zobrazovanie Ël·nkov mimo prednastaven˝ch, vyberte "NastavÌm s·m" a upravte nasleduj˙ce dva riadky. (This will not work with Persian calendars yet.)');
-@define('PLUGIN_HISTORY_SPECIALAGE_YEAR',   'ZobrazÌ Ël·nky, ktorÈ boli zverejnenÈ presne pred rokom');
-@define('PLUGIN_HISTORY_CUSTOMAGE',         'Chcem nastaviª vlastn˝ vek');
+@define('PLUGIN_HISTORY_OUTRO_DESC',        'Kr√°tky doslov, nieƒço ako \'To je dobr√©, ≈æe?\'.');
+@define('PLUGIN_HISTORY_DISPLAYDATE',       'Zobrazova≈• d√°tumy');
+@define('PLUGIN_HISTORY_DISPLAYDATE_DESC',  'Zobrazova≈• d√°tumy zverejnenia ƒçl√°nkov?');
+@define('PLUGIN_HISTORY_MAXLENGTH',         'Dƒ∫≈æka nadpisu');
+@define('PLUGIN_HISTORY_MAXLENGTH_DESC',    'Po koƒæk√Ωch znakoch m√° b√Ω≈• nadpis orezan√Ω (0 pre zobrazovanie cel√Ωch nadpisov)?');
+@define('PLUGIN_HISTORY_SPECIALAGE',        'Prednastaven√Ω vek?');
+@define('PLUGIN_HISTORY_SPECIALAGE_DESC',   'Ak chcete nastavi≈• vlastn√© rozp√§tie pre zobrazovanie ƒçl√°nkov mimo prednastaven√Ωch, vyberte "Nastav√≠m s√°m" a upravte nasleduj√∫ce dva riadky. (This will not work with Persian calendars yet.)');
+@define('PLUGIN_HISTORY_SPECIALAGE_YEAR',   'Zobraz√≠ ƒçl√°nky, ktor√© boli zverejnen√© presne pred rokom');
+@define('PLUGIN_HISTORY_CUSTOMAGE',         'Chcem nastavi≈• vlastn√Ω vek');
 @define('PLUGIN_HISTORY_OYA',               'Pred rokom');
-@define('PLUGIN_HISTORY_MYSELF',            'NastavÌm s·m');
-@define('PLUGIN_HISTORY_DISPLAYAUTHOR',     'Zobraziª meno autora');
+@define('PLUGIN_HISTORY_MYSELF',            'Nastav√≠m s√°m');
+@define('PLUGIN_HISTORY_DISPLAYAUTHOR',     'Zobrazi≈• meno autora');
 

@@ -5,29 +5,29 @@
  *  @author Ivan Cenov jwalker@hotmail.bg
  */
 
-@define('PLUGIN_HISTORY_NAME', 'История');
-@define('PLUGIN_HISTORY_DESC', 'Показва отдавнашни постинги, с възможност за задаване на възрастта им');
-@define('PLUGIN_HISTORY_MIN_AGE', 'Минимална възраст');
-@define('PLUGIN_HISTORY_MIN_AGE_DESC', 'Минимална възраст на постингите в дни');
-@define('PLUGIN_HISTORY_MAX_AGE', 'Максимална възраст');
-@define('PLUGIN_HISTORY_MAX_AGE_DESC','Максимална възраст на постингите в дни');
-@define('PLUGIN_HISTORY_MAX_ENTRIES', 'Брой постинги');
-@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', 'Максимален брой на постингите за показване. In case of a defined time range with "Number of looped years" greater 1, this really limits the total maximum of Entries to display.');
-@define('PLUGIN_HISTORY_SHOWFULL', 'Цели постинги');
-@define('PLUGIN_HISTORY_SHOWFULL_DESC', 'Показване на целите постинги вместо заглавията им като връзки');
-@define('PLUGIN_HISTORY_INTRO', 'Въведение');
-@define('PLUGIN_HISTORY_INTRO_DESC', 'Кратко въведение (нещо като \'Преди една година аз казах... \')');
-@define('PLUGIN_HISTORY_OUTRO', 'Край');
-@define('PLUGIN_HISTORY_OUTRO_DESC', 'Завършващ текст, след постингите');
-@define('PLUGIN_HISTORY_DISPLAYDATE', 'Показване на дата');
-@define('PLUGIN_HISTORY_DISPLAYDATE_DESC', 'Показване на датата за всеки постинг ?');
-@define('PLUGIN_HISTORY_MAXLENGTH', 'Дължина на заглавието');
-@define('PLUGIN_HISTORY_MAXLENGTH_DESC', 'След колко символа да се отреже заглавието (нула за целите заглавия) ?');
-@define('PLUGIN_HISTORY_SPECIALAGE', 'Период');
-@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'Ако искате да дефинирате период вместо да използвате период по подразбиране, изберете \'По избор\' и настройте двете стойности по-долу.  (This will not work with Persian calendars yet.)');
-@define('PLUGIN_HISTORY_SPECIALAGE_YEAR', 'Показва статии на възраст точно една година.');
-@define('PLUGIN_HISTORY_CUSTOMAGE', 'Дефиниране на възрастта');
-@define('PLUGIN_HISTORY_OYA', 'Една година назад');
-@define('PLUGIN_HISTORY_MYSELF', 'По избор');
-@define('PLUGIN_HISTORY_DISPLAYAUTHOR', 'Показване на името на автора');
+@define('PLUGIN_HISTORY_NAME', 'РСЃС‚РѕСЂРёСЏ');
+@define('PLUGIN_HISTORY_DESC', 'РџРѕРєР°Р·РІР° РѕС‚РґР°РІРЅР°С€РЅРё РїРѕСЃС‚РёРЅРіРё, СЃ РІСЉР·РјРѕР¶РЅРѕСЃС‚ Р·Р° Р·Р°РґР°РІР°РЅРµ РЅР° РІСЉР·СЂР°СЃС‚С‚Р° РёРј');
+@define('PLUGIN_HISTORY_MIN_AGE', 'РњРёРЅРёРјР°Р»РЅР° РІСЉР·СЂР°СЃС‚');
+@define('PLUGIN_HISTORY_MIN_AGE_DESC', 'РњРёРЅРёРјР°Р»РЅР° РІСЉР·СЂР°СЃС‚ РЅР° РїРѕСЃС‚РёРЅРіРёС‚Рµ РІ РґРЅРё');
+@define('PLUGIN_HISTORY_MAX_AGE', 'РњР°РєСЃРёРјР°Р»РЅР° РІСЉР·СЂР°СЃС‚');
+@define('PLUGIN_HISTORY_MAX_AGE_DESC','РњР°РєСЃРёРјР°Р»РЅР° РІСЉР·СЂР°СЃС‚ РЅР° РїРѕСЃС‚РёРЅРіРёС‚Рµ РІ РґРЅРё');
+@define('PLUGIN_HISTORY_MAX_ENTRIES', 'Р‘СЂРѕР№ РїРѕСЃС‚РёРЅРіРё');
+@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', 'РњР°РєСЃРёРјР°Р»РµРЅ Р±СЂРѕР№ РЅР° РїРѕСЃС‚РёРЅРіРёС‚Рµ Р·Р° РїРѕРєР°Р·РІР°РЅРµ. In case of a defined time range with "Number of looped years" greater 1, this really limits the total maximum of Entries to display.');
+@define('PLUGIN_HISTORY_SHOWFULL', 'Р¦РµР»Рё РїРѕСЃС‚РёРЅРіРё');
+@define('PLUGIN_HISTORY_SHOWFULL_DESC', 'РџРѕРєР°Р·РІР°РЅРµ РЅР° С†РµР»РёС‚Рµ РїРѕСЃС‚РёРЅРіРё РІРјРµСЃС‚Рѕ Р·Р°РіР»Р°РІРёСЏС‚Р° РёРј РєР°С‚Рѕ РІСЂСЉР·РєРё');
+@define('PLUGIN_HISTORY_INTRO', 'Р’СЉРІРµРґРµРЅРёРµ');
+@define('PLUGIN_HISTORY_INTRO_DESC', 'РљСЂР°С‚РєРѕ РІСЉРІРµРґРµРЅРёРµ (РЅРµС‰Рѕ РєР°С‚Рѕ \'РџСЂРµРґРё РµРґРЅР° РіРѕРґРёРЅР° Р°Р· РєР°Р·Р°С…... \')');
+@define('PLUGIN_HISTORY_OUTRO', 'РљСЂР°Р№');
+@define('PLUGIN_HISTORY_OUTRO_DESC', 'Р—Р°РІСЉСЂС€РІР°С‰ С‚РµРєСЃС‚, СЃР»РµРґ РїРѕСЃС‚РёРЅРіРёС‚Рµ');
+@define('PLUGIN_HISTORY_DISPLAYDATE', 'РџРѕРєР°Р·РІР°РЅРµ РЅР° РґР°С‚Р°');
+@define('PLUGIN_HISTORY_DISPLAYDATE_DESC', 'РџРѕРєР°Р·РІР°РЅРµ РЅР° РґР°С‚Р°С‚Р° Р·Р° РІСЃРµРєРё РїРѕСЃС‚РёРЅРі ?');
+@define('PLUGIN_HISTORY_MAXLENGTH', 'Р”СЉР»Р¶РёРЅР° РЅР° Р·Р°РіР»Р°РІРёРµС‚Рѕ');
+@define('PLUGIN_HISTORY_MAXLENGTH_DESC', 'РЎР»РµРґ РєРѕР»РєРѕ СЃРёРјРІРѕР»Р° РґР° СЃРµ РѕС‚СЂРµР¶Рµ Р·Р°РіР»Р°РІРёРµС‚Рѕ (РЅСѓР»Р° Р·Р° С†РµР»РёС‚Рµ Р·Р°РіР»Р°РІРёСЏ) ?');
+@define('PLUGIN_HISTORY_SPECIALAGE', 'РџРµСЂРёРѕРґ');
+@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'РђРєРѕ РёСЃРєР°С‚Рµ РґР° РґРµС„РёРЅРёСЂР°С‚Рµ РїРµСЂРёРѕРґ РІРјРµСЃС‚Рѕ РґР° РёР·РїРѕР»Р·РІР°С‚Рµ РїРµСЂРёРѕРґ РїРѕ РїРѕРґСЂР°Р·Р±РёСЂР°РЅРµ, РёР·Р±РµСЂРµС‚Рµ \'РџРѕ РёР·Р±РѕСЂ\' Рё РЅР°СЃС‚СЂРѕР№С‚Рµ РґРІРµС‚Рµ СЃС‚РѕР№РЅРѕСЃС‚Рё РїРѕ-РґРѕР»Сѓ. (This will not work with Persian calendars yet.)');
+@define('PLUGIN_HISTORY_SPECIALAGE_YEAR', 'РџРѕРєР°Р·РІР° СЃС‚Р°С‚РёРё РЅР° РІСЉР·СЂР°СЃС‚ С‚РѕС‡РЅРѕ РµРґРЅР° РіРѕРґРёРЅР°.');
+@define('PLUGIN_HISTORY_CUSTOMAGE', 'Р”РµС„РёРЅРёСЂР°РЅРµ РЅР° РІСЉР·СЂР°СЃС‚С‚Р°');
+@define('PLUGIN_HISTORY_OYA', 'Р•РґРЅР° РіРѕРґРёРЅР° РЅР°Р·Р°Рґ');
+@define('PLUGIN_HISTORY_MYSELF', 'РџРѕ РёР·Р±РѕСЂ');
+@define('PLUGIN_HISTORY_DISPLAYAUTHOR', 'РџРѕРєР°Р·РІР°РЅРµ РЅР° РёРјРµС‚Рѕ РЅР° Р°РІС‚РѕСЂР°');
 

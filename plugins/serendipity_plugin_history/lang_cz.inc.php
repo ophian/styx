@@ -2,34 +2,34 @@
 
 /**
  *  @version $Revision: 1381 $
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  EN-Revision: Revision of lang_en.inc.php
  *  Translated on 2007/11/23
  */
 
 @define('PLUGIN_HISTORY_NAME',              'Historie');
-@define('PLUGIN_HISTORY_DESC',              'Zobrazuje odkazy na staré pøíspìvky, stáøí je nastavitelné.');
-@define('PLUGIN_HISTORY_MIN_AGE',           'Minimální stáøí pøíspìvku');
-@define('PLUGIN_HISTORY_MIN_AGE_DESC',      'Minimální stáøí pøíspìvku (ve dnech) pro zobrazení v panelu historie.');
-@define('PLUGIN_HISTORY_MAX_AGE',           'Maximální stáøí pøíspìvku');
-@define('PLUGIN_HISTORY_MAX_AGE_DESC',      'Maximální stáøí pøíspìvku (ve dnech) pro zobrazení v panelu historie.');
-@define('PLUGIN_HISTORY_MAX_ENTRIES',       'Maximální poèet pøíspìvkù');
-@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC',  'Maximální poèet pøíspìvkù, které se zobrazí. In case of a defined time range with "Number of looped years" greater 1, this really limits the total maximum of Entries to display.');
-@define('PLUGIN_HISTORY_SHOWFULL',          'Celé pøíspìvky');
-@define('PLUGIN_HISTORY_SHOWFULL_DESC',     'Zobrazí celé pøíspìvky místo odkazù na nì.');
+@define('PLUGIN_HISTORY_DESC',              'Zobrazuje odkazy na starÃ© pÅ™Ã­spÄ›vky, stÃ¡Å™Ã­ je nastavitelnÃ©.');
+@define('PLUGIN_HISTORY_MIN_AGE',           'MinimÃ¡lnÃ­ stÃ¡Å™Ã­ pÅ™Ã­spÄ›vku');
+@define('PLUGIN_HISTORY_MIN_AGE_DESC',      'MinimÃ¡lnÃ­ stÃ¡Å™Ã­ pÅ™Ã­spÄ›vku (ve dnech) pro zobrazenÃ­ v panelu historie.');
+@define('PLUGIN_HISTORY_MAX_AGE',           'MaximÃ¡lnÃ­ stÃ¡Å™Ã­ pÅ™Ã­spÄ›vku');
+@define('PLUGIN_HISTORY_MAX_AGE_DESC',      'MaximÃ¡lnÃ­ stÃ¡Å™Ã­ pÅ™Ã­spÄ›vku (ve dnech) pro zobrazenÃ­ v panelu historie.');
+@define('PLUGIN_HISTORY_MAX_ENTRIES',       'MaximÃ¡lnÃ­ poÄet pÅ™Ã­spÄ›vkÅ¯');
+@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC',  'MaximÃ¡lnÃ­ poÄet pÅ™Ã­spÄ›vkÅ¯, kterÃ© se zobrazÃ­. In case of a defined time range with "Number of looped years" greater 1, this really limits the total maximum of Entries to display.');
+@define('PLUGIN_HISTORY_SHOWFULL',          'CelÃ© pÅ™Ã­spÄ›vky');
+@define('PLUGIN_HISTORY_SHOWFULL_DESC',     'ZobrazÃ­ celÃ© pÅ™Ã­spÄ›vky mÃ­sto odkazÅ¯ na nÄ›.');
 @define('PLUGIN_HISTORY_INTRO',             'Intro');
-@define('PLUGIN_HISTORY_INTRO_DESC',        'Krátkı úvod ve stylu \'Pøed rokem jsem psal:\'.');
+@define('PLUGIN_HISTORY_INTRO_DESC',        'KrÃ¡tkÃ½ Ãºvod ve stylu \'PÅ™ed rokem jsem psal:\'.');
 @define('PLUGIN_HISTORY_OUTRO',             'Outro');
-@define('PLUGIN_HISTORY_OUTRO_DESC',        'Krátkı doslov, nìco jko \'To je dobrı, ¾e jo?\'.');
+@define('PLUGIN_HISTORY_OUTRO_DESC',        'KrÃ¡tkÃ½ doslov, nÄ›co jko \'To je dobrÃ½, Å¾e jo?\'.');
 @define('PLUGIN_HISTORY_DISPLAYDATE',       'Zobrazovat data');
-@define('PLUGIN_HISTORY_DISPLAYDATE_DESC',  'Zobrazovat data zveøejnìní pøíspìvku?');
-@define('PLUGIN_HISTORY_MAXLENGTH',         'Délka nadpisu');
-@define('PLUGIN_HISTORY_MAXLENGTH_DESC',    'Po kolika znacích má bıt nadpis oøíznut (0 pro zobrazování celıch nadpisù)?');
-@define('PLUGIN_HISTORY_SPECIALAGE',        'Pøednastavené stáøí?');
-@define('PLUGIN_HISTORY_SPECIALAGE_DESC',   'Pokud chcete nastavit vlastní rozpìtí pro zobrazování pøíspìvkù místo pøednastavenıch, vyberte "Sám nastavím" a upravte následující dva øádky. (This will not work with Persian calendars yet.)');
-@define('PLUGIN_HISTORY_SPECIALAGE_YEAR',   'Zobrazí pøíspìvky, které byly zveøejnìny pøesnì pøed rokem');
-@define('PLUGIN_HISTORY_CUSTOMAGE',         'Nech mì nastavit vlastní stáøí');
-@define('PLUGIN_HISTORY_OYA',               'Pøed rokem');
-@define('PLUGIN_HISTORY_MYSELF',            'Sám nastavím');
-@define('PLUGIN_HISTORY_DISPLAYAUTHOR',     'Zobraz jméno autora');
+@define('PLUGIN_HISTORY_DISPLAYDATE_DESC',  'Zobrazovat data zveÅ™ejnÄ›nÃ­ pÅ™Ã­spÄ›vku?');
+@define('PLUGIN_HISTORY_MAXLENGTH',         'DÃ©lka nadpisu');
+@define('PLUGIN_HISTORY_MAXLENGTH_DESC',    'Po kolika znacÃ­ch mÃ¡ bÃ½t nadpis oÅ™Ã­znut (0 pro zobrazovÃ¡nÃ­ celÃ½ch nadpisÅ¯)?');
+@define('PLUGIN_HISTORY_SPECIALAGE',        'PÅ™ednastavenÃ© stÃ¡Å™Ã­?');
+@define('PLUGIN_HISTORY_SPECIALAGE_DESC',   'Pokud chcete nastavit vlastnÃ­ rozpÄ›tÃ­ pro zobrazovÃ¡nÃ­ pÅ™Ã­spÄ›vkÅ¯ mÃ­sto pÅ™ednastavenÃ½ch, vyberte "SÃ¡m nastavÃ­m" a upravte nÃ¡sledujÃ­cÃ­ dva Å™Ã¡dky. (This will not work with Persian calendars yet.)');
+@define('PLUGIN_HISTORY_SPECIALAGE_YEAR',   'ZobrazÃ­ pÅ™Ã­spÄ›vky, kterÃ© byly zveÅ™ejnÄ›ny pÅ™esnÄ› pÅ™ed rokem');
+@define('PLUGIN_HISTORY_CUSTOMAGE',         'Nech mÄ› nastavit vlastnÃ­ stÃ¡Å™Ã­');
+@define('PLUGIN_HISTORY_OYA',               'PÅ™ed rokem');
+@define('PLUGIN_HISTORY_MYSELF',            'SÃ¡m nastavÃ­m');
+@define('PLUGIN_HISTORY_DISPLAYAUTHOR',     'Zobraz jmÃ©no autora');
 

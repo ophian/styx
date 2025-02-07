@@ -14,27 +14,27 @@
 ##########################################################################
 
 @define('PLUGIN_HISTORY_NAME', 'Historique');
-@define('PLUGIN_HISTORY_DESC', 'Affiche des billets par leur âge.');
-@define('PLUGIN_HISTORY_MIN_AGE', 'Âge minimum');
-@define('PLUGIN_HISTORY_MIN_AGE_DESC', 'Définit l\'âge minimum des billets (en jours).');
-@define('PLUGIN_HISTORY_MAX_AGE', 'Âge maximum');
-@define('PLUGIN_HISTORY_MAX_AGE_DESC','Définit l\'âge maximum des billets (en jours).');
+@define('PLUGIN_HISTORY_DESC', 'Affiche des billets par leur Ã¢ge.');
+@define('PLUGIN_HISTORY_MIN_AGE', 'Ã‚ge minimum');
+@define('PLUGIN_HISTORY_MIN_AGE_DESC', 'DÃ©finit l\'Ã¢ge minimum des billets (en jours).');
+@define('PLUGIN_HISTORY_MAX_AGE', 'Ã‚ge maximum');
+@define('PLUGIN_HISTORY_MAX_AGE_DESC','DÃ©finit l\'Ã¢ge maximum des billets (en jours).');
 @define('PLUGIN_HISTORY_MAX_ENTRIES', 'Nombre billets');
-@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', 'Définit le nombre de billets à afficher. In case of a defined time range with "Number of looped years" greater 1, this really limits the total maximum of Entries to display.');
+@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', 'DÃ©finit le nombre de billets Ã  afficher. In case of a defined time range with "Number of looped years" greater 1, this really limits the total maximum of Entries to display.');
 @define('PLUGIN_HISTORY_SHOWFULL', 'Billets complets');
-@define('PLUGIN_HISTORY_SHOWFULL_DESC', 'Afficher les billets complets au lieu de liens vers la vue détaillée?');
+@define('PLUGIN_HISTORY_SHOWFULL_DESC', 'Afficher les billets complets au lieu de liens vers la vue dÃ©taillÃ©e?');
 @define('PLUGIN_HISTORY_INTRO', 'Introduction');
-@define('PLUGIN_HISTORY_INTRO_DESC', 'Une courte introduction du style \'Il y a un an, j\'écrivais:\'.');
+@define('PLUGIN_HISTORY_INTRO_DESC', 'Une courte introduction du style \'Il y a un an, j\'Ã©crivais:\'.');
 @define('PLUGIN_HISTORY_OUTRO', 'Conclusion');
 @define('PLUGIN_HISTORY_OUTRO_DESC', 'Une courte conclusion du style \'Pas mal, hein?\'.');
 @define('PLUGIN_HISTORY_DISPLAYDATE', 'Afficher la date');
 @define('PLUGIN_HISTORY_DISPLAYDATE_DESC', 'Afficher la date de publication de chaque billet?');
 @define('PLUGIN_HISTORY_MAXLENGTH', 'Longueur du titre');
-@define('PLUGIN_HISTORY_MAXLENGTH_DESC', 'Couper les titres après X caractères? (Entrez un 0 pour les titres complets)');
-@define('PLUGIN_HISTORY_SPECIALAGE', 'Âge prédéfini?');
-@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'Vous pouvez choisir un âge prédéfini, ou en spécifier un. Pour en spécifier un vous-même, sélectionnez \'Je veux le définir moi-même\' et complétez les deux champs ci-dessous. (This will not work with Persian calendars yet.)');
+@define('PLUGIN_HISTORY_MAXLENGTH_DESC', 'Couper les titres aprÃ¨s X caractÃ¨res? (Entrez un 0 pour les titres complets)');
+@define('PLUGIN_HISTORY_SPECIALAGE', 'Ã‚ge prÃ©dÃ©fini?');
+@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'Vous pouvez choisir un Ã¢ge prÃ©dÃ©fini, ou en spÃ©cifier un. Pour en spÃ©cifier un vous-mÃªme, sÃ©lectionnez \'Je veux le dÃ©finir moi-mÃªme\' et complÃ©tez les deux champs ci-dessous. (This will not work with Persian calendars yet.)');
 @define('PLUGIN_HISTORY_SPECIALAGE_YEAR', 'Afficher les billets d\'il y a exactement 1 an');
-@define('PLUGIN_HISTORY_CUSTOMAGE', 'Je veux le définir moi-même');
+@define('PLUGIN_HISTORY_CUSTOMAGE', 'Je veux le dÃ©finir moi-mÃªme');
 @define('PLUGIN_HISTORY_OYA', 'Il y a un an');
-@define('PLUGIN_HISTORY_MYSELF', 'Je veux le définir moi-même');
+@define('PLUGIN_HISTORY_MYSELF', 'Je veux le dÃ©finir moi-mÃªme');
 
