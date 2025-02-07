@@ -13,9 +13,9 @@
 #                                                                        #
 ##########################################################################
 
-@define('PLUGIN_EVENT_WRAPPER_NAME', 'Collecteur de données de plugins');
-@define('PLUGIN_EVENT_WRAPPER_DESC', 'Affiche les données générées par un plugin d\'évènement donné, lorsqu\'il imprime quelque chose via la méthode generate_content(&$title).');
-@define('PLUGIN_EVENT_WRAPPER_PLUGIN', 'Plugin d\'évènement source');
-@define('PLUGIN_EVENT_WRAPPER_PLUGINDESC', 'Sélectionnez le plugin dont les données doivent être affichés');
-@define('PLUGIN_EVENT_WRAPPER_TITLEDESC', 'Entrez le titre de cet élément de barre latérale (laisser vide pour hériter le titre du plugin d\'évènement)');
+@define('PLUGIN_EVENT_WRAPPER_NAME', 'Collecteur de donnÃ©es de plugins');
+@define('PLUGIN_EVENT_WRAPPER_DESC', 'Affiche les donnÃ©es gÃ©nÃ©rÃ©es par un plugin d\'Ã©vÃ¨nement donnÃ©, lorsqu\'il imprime quelque chose via la mÃ©thode generate_content(&$title).');
+@define('PLUGIN_EVENT_WRAPPER_PLUGIN', 'Plugin d\'Ã©vÃ¨nement source');
+@define('PLUGIN_EVENT_WRAPPER_PLUGINDESC', 'SÃ©lectionnez le plugin dont les donnÃ©es doivent Ãªtre affichÃ©s');
+@define('PLUGIN_EVENT_WRAPPER_TITLEDESC', 'Entrez le titre de cet Ã©lÃ©ment de barre latÃ©rale (laisser vide pour hÃ©riter le titre du plugin d\'Ã©vÃ¨nement)');
 

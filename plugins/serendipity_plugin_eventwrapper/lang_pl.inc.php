@@ -6,9 +6,9 @@
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
-@define('PLUGIN_EVENT_WRAPPER_NAME', 'Eksporter danych Wtyczek Zdarzeñ');
-@define('PLUGIN_EVENT_WRAPPER_DESC', 'Pokazuje dane zebrane z kilku Wtyczek Zdarzeñ, gdy wypisuje cos za pomoca metody generate_content(&$title).');
-@define('PLUGIN_EVENT_WRAPPER_PLUGIN', '¬ród³owa Wtyczka Zdarzenia');
-@define('PLUGIN_EVENT_WRAPPER_PLUGINDESC', 'Wybierz wtyczkê, której dane maj± byæ pokazane');
-@define('PLUGIN_EVENT_WRAPPER_TITLEDESC', 'Wprowad¼ tytu³ pozycji wy¶wietlonej w Panelu Bocznym Enter (zostaw puste by pozostawiæ nazwê wtyczki, z której dane bêd± pobierane)');
+@define('PLUGIN_EVENT_WRAPPER_NAME', 'Eksporter danych Wtyczek ZdarzeÅ„');
+@define('PLUGIN_EVENT_WRAPPER_DESC', 'Pokazuje dane zebrane z kilku Wtyczek ZdarzeÅ„, gdy wypisuje coÅ› za pomocÄ… metody generate_content(&$title).');
+@define('PLUGIN_EVENT_WRAPPER_PLUGIN', 'Å¹rÃ³dÅ‚owa Wtyczka Zdarzenia');
+@define('PLUGIN_EVENT_WRAPPER_PLUGINDESC', 'Wybierz wtyczkÄ™, ktÃ³rej dane majÄ… byÄ‡ pokazane');
+@define('PLUGIN_EVENT_WRAPPER_TITLEDESC', 'WprowadÅº tytuÅ‚ pozycji wyÅ›wietlonej w Panelu Bocznym Enter (zostaw puste by pozostawiÄ‡ nazwÄ™ wtyczki, z ktÃ³rej dane bÄ™dÄ… pobierane)');
 

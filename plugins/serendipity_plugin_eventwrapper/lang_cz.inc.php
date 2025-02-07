@@ -2,13 +2,13 @@
 
 /**
  *  @version $Revision: 1381 $
- *  @author VladimÌr Ajgl <vlada@ajgl.cz>
+ *  @author Vladim√≠r Ajgl <vlada@ajgl.cz>
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
-@define('PLUGIN_EVENT_WRAPPER_NAME',        'Zachyt·vaË v˝stupu ud·lostÌ');
-@define('PLUGIN_EVENT_WRAPPER_DESC',        'Zobrazuje data shrom·ædÏn· libovoln˝m pluginem ud·lostÌ, kdyû neco vytiskne pomocÌ metody generate_content(&$title).');
-@define('PLUGIN_EVENT_WRAPPER_PLUGIN',      'Zdrojov˝ plugin ud·lostÌ');
-@define('PLUGIN_EVENT_WRAPPER_PLUGINDESC',  'Vyberte plugin ud·lostÌ, jehoæ v˝stup m· b˝t zobrazen');
-@define('PLUGIN_EVENT_WRAPPER_TITLEDESC',   'Vloæte nadpis tohoto postrannÌho panelu (pokud je ponech·no pr·zdnÈ, bude jako nadpis pouæit n·zev zobrazovanÈho pluginu)');
+@define('PLUGIN_EVENT_WRAPPER_NAME',        'Zachyt√°vaƒç v√Ωstupu ud√°lost√≠');
+@define('PLUGIN_EVENT_WRAPPER_DESC',        'Zobrazuje data shrom√°≈ædƒõn√° libovoln√Ωm pluginem ud√°lost√≠, kdy≈æ nƒõco vytiskne pomoc√≠ metody generate_content(&$title).');
+@define('PLUGIN_EVENT_WRAPPER_PLUGIN',      'Zdrojov√Ω plugin ud√°lost√≠');
+@define('PLUGIN_EVENT_WRAPPER_PLUGINDESC',  'Vyberte plugin ud√°lost√≠, jeho≈æ v√Ωstup m√° b√Ωt zobrazen');
+@define('PLUGIN_EVENT_WRAPPER_TITLEDESC',   'Vlo≈æte nadpis tohoto postrann√≠ho panelu (pokud je ponech√°no pr√°zdn√©, bude jako nadpis pou≈æit n√°zev zobrazovan√©ho pluginu)');
 

@@ -7,8 +7,8 @@
  */
 
 @define('PLUGIN_EVENT_WRAPPER_NAME', 'Encapsulador de la salida de eventos');
-@define('PLUGIN_EVENT_WRAPPER_DESC', 'Muestra informaci髇 obtenida a trav閟 de cierta extensi髇 de evento, cuando imprime algo a trav閟 del m閠odo generate_content(&$title).');
-@define('PLUGIN_EVENT_WRAPPER_PLUGIN', 'Extensi髇 de evento fuente');
-@define('PLUGIN_EVENT_WRAPPER_PLUGINDESC', 'Selecciona la extensi髇 de evento cuya salida debe ser mostrada');
-@define('PLUGIN_EVENT_WRAPPER_TITLEDESC', 'Ingresa el t韙ulo para este elemento de la barra lateral (d閖alo vac韔 para heredarlo de la extensi髇)');
+@define('PLUGIN_EVENT_WRAPPER_DESC', 'Muestra informaci贸n obtenida a trav茅s de cierta extensi贸n de evento, cuando imprime algo a trav茅s del m茅todo generate_content(&$title).');
+@define('PLUGIN_EVENT_WRAPPER_PLUGIN', 'Extensi贸n de evento fuente');
+@define('PLUGIN_EVENT_WRAPPER_PLUGINDESC', 'Selecciona la extensi贸n de evento cuya salida debe ser mostrada');
+@define('PLUGIN_EVENT_WRAPPER_TITLEDESC', 'Ingresa el t铆tulo para este elemento de la barra lateral (d茅jalo vac铆o para heredarlo de la extensi贸n)');
 
