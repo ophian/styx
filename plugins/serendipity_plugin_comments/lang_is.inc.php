@@ -1,11 +1,11 @@
 <?php
 
-@define('PLUGIN_COMMENTS_BLAHBLAH', 'Sýnir síðustu athugasemdir á færslurnar þínar');
-@define('PLUGIN_COMMENTS_WORDWRAP', 'Línuskil');
-@define('PLUGIN_COMMENTS_WORDWRAP_BLAHBLAH', 'Hversu mörg orð þar til línuskil eiga sér stað? (Sjálfgefið gildi: 30)');
-@define('PLUGIN_COMMENTS_MAXCHARS', 'Hámarksstafafjöldi á athugasemd');
-@define('PLUGIN_COMMENTS_MAXCHARS_BLAHBLAH', 'Hversu margir stafir eiga að vera birtir fyrir hverja athugasemd? (Sjálfgefið gildi: 120)');
-@define('PLUGIN_COMMENTS_MAXENTRIES', 'Hámarksfjöldi athugasemda');
-@define('PLUGIN_COMMENTS_MAXENTRIES_BLAHBLAH', 'Hversu margar athugasemdir skal sýna? (Sjálfgefið gildi: 15)');
+@define('PLUGIN_COMMENTS_BLAHBLAH', 'SÃ½nir sÃ­Ã°ustu athugasemdir Ã¡ fÃ¦rslurnar Ã¾Ã­nar');
+@define('PLUGIN_COMMENTS_WORDWRAP', 'LÃ­nuskil');
+@define('PLUGIN_COMMENTS_WORDWRAP_BLAHBLAH', 'Hversu mÃ¶rg orÃ° Ã¾ar til lÃ­nuskil eiga sÃ©r staÃ°? (SjÃ¡lfgefiÃ° gildi: 30)');
+@define('PLUGIN_COMMENTS_MAXCHARS', 'HÃ¡marksstafafjÃ¶ldi Ã¡ athugasemd');
+@define('PLUGIN_COMMENTS_MAXCHARS_BLAHBLAH', 'Hversu margir stafir eiga aÃ° vera birtir fyrir hverja athugasemd? (SjÃ¡lfgefiÃ° gildi: 120)');
+@define('PLUGIN_COMMENTS_MAXENTRIES', 'HÃ¡marksfjÃ¶ldi athugasemda');
+@define('PLUGIN_COMMENTS_MAXENTRIES_BLAHBLAH', 'Hversu margar athugasemdir skal sÃ½na? (SjÃ¡lfgefiÃ° gildi: 15)');
 @define('PLUGIN_COMMENTS_ABOUT', '%s um%s');
 

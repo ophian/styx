@@ -5,14 +5,14 @@
  *  @author Ivan Cenov jwalker@hotmail.bg
  */
 
-@define('PLUGIN_COMMENTS_BLAHBLAH', 'Показва последните коментари на Вашите постинги');
-@define('PLUGIN_COMMENTS_WORDWRAP', 'Пренос на нов ред');
-@define('PLUGIN_COMMENTS_WORDWRAP_BLAHBLAH', 'Брой думи преди да стработи преносът на нов ред (по подразбиране: 30)');
-@define('PLUGIN_COMMENTS_MAXCHARS', 'Максимален брой показвани символи за коментар');
-@define('PLUGIN_COMMENTS_MAXCHARS_BLAHBLAH', 'Максимум колко символа да бъдат показани за всеки коментар (по подразбиране: 120)');
-@define('PLUGIN_COMMENTS_MAXENTRIES', 'Максимален брой на показваните коментари');
-@define('PLUGIN_COMMENTS_MAXENTRIES_BLAHBLAH', 'Колко коментара най-много да бъдат показани (по подразбиране: 15)');
-@define('PLUGIN_COMMENTS_ABOUT', '%s за%s');
-@define('PLUGIN_COMMENTS_ANONYMOUS', 'анонимен');
+@define('PLUGIN_COMMENTS_BLAHBLAH', 'РџРѕРєР°Р·РІР° РїРѕСЃР»РµРґРЅРёС‚Рµ РєРѕРјРµРЅС‚Р°СЂРё РЅР° Р’Р°С€РёС‚Рµ РїРѕСЃС‚РёРЅРіРё');
+@define('PLUGIN_COMMENTS_WORDWRAP', 'РџСЂРµРЅРѕСЃ РЅР° РЅРѕРІ СЂРµРґ');
+@define('PLUGIN_COMMENTS_WORDWRAP_BLAHBLAH', 'Р‘СЂРѕР№ РґСѓРјРё РїСЂРµРґРё РґР° СЃСЂР°Р±РѕС‚Рё РїСЂРµРЅРѕСЃСЉС‚ РЅР° РЅРѕРІ СЂРµРґ (РїРѕ РїРѕРґСЂР°Р·Р±РёСЂР°РЅРµ: 30)');
+@define('PLUGIN_COMMENTS_MAXCHARS', 'РњР°РєСЃРёРјР°Р»РµРЅ Р±СЂРѕР№ РїРѕРєР°Р·РІР°РЅРё СЃРёРјРІРѕР»Рё Р·Р° РєРѕРјРµРЅС‚Р°СЂ');
+@define('PLUGIN_COMMENTS_MAXCHARS_BLAHBLAH', 'РњР°РєСЃРёРјСѓРј РєРѕР»РєРѕ СЃРёРјРІРѕР»Р° РґР° Р±СЉРґР°С‚ РїРѕРєР°Р·Р°РЅРё Р·Р° РІСЃРµРєРё РєРѕРјРµРЅС‚Р°СЂ (РїРѕ РїРѕРґСЂР°Р·Р±РёСЂР°РЅРµ: 120)');
+@define('PLUGIN_COMMENTS_MAXENTRIES', 'РњР°РєСЃРёРјР°Р»РµРЅ Р±СЂРѕР№ РЅР° РїРѕРєР°Р·РІР°РЅРёС‚Рµ РєРѕРјРµРЅС‚Р°СЂРё');
+@define('PLUGIN_COMMENTS_MAXENTRIES_BLAHBLAH', 'РљРѕР»РєРѕ РєРѕРјРµРЅС‚Р°СЂР° РЅР°Р№-РјРЅРѕРіРѕ РґР° Р±СЉРґР°С‚ РїРѕРєР°Р·Р°РЅРё (РїРѕ РїРѕРґСЂР°Р·Р±РёСЂР°РЅРµ: 15)');
+@define('PLUGIN_COMMENTS_ABOUT', '%s Р·Р°%s');
+@define('PLUGIN_COMMENTS_ANONYMOUS', 'Р°РЅРѕРЅРёРјРµРЅ');
 
-@define('PLUGIN_COMMENTS_ADDURL', 'Добавя URL към');
+@define('PLUGIN_COMMENTS_ADDURL', 'Р”РѕР±Р°РІСЏ URL РєСЉРј');

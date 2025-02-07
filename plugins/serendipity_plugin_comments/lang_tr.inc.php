@@ -6,12 +6,12 @@
  *  First public version: lang_tr.inc.php
  */
 
-@define('PLUGIN_COMMENTS_BLAHBLAH', 'Yazılarınız hakkında bildirilen son görüşlerin gösterimi');
-@define('PLUGIN_COMMENTS_WORDWRAP', 'Kelime kaydırma');
-@define('PLUGIN_COMMENTS_WORDWRAP_BLAHBLAH','Kaç adet kelimeye kadar kelime kaydırma uygulanmasın? (Öntanımlı: 30)');
-@define('PLUGIN_COMMENTS_MAXCHARS', 'Görüş başına kullanılabilecek en çok harf karakteri sayısı');
-@define('PLUGIN_COMMENTS_MAXCHARS_BLAHBLAH', 'Görüşlerde en çok kaç adet harfin kullanımına izin verilsin? (Öntanımlı: 120)');
-@define('PLUGIN_COMMENTS_MAXENTRIES', 'En çok görüş sayısı');
-@define('PLUGIN_COMMENTS_MAXENTRIES_BLAHBLAH', 'Kaç adet görüş gösterilsin? (Öntanımlı: 15)');
-@define('PLUGIN_COMMENTS_ABOUT', '%s hakkında%s');
+@define('PLUGIN_COMMENTS_BLAHBLAH', 'YazÃ½larÃ½nÃ½z hakkÃ½nda bildirilen son gÃ¶rÃ¼Ã¾lerin gÃ¶sterimi');
+@define('PLUGIN_COMMENTS_WORDWRAP', 'Kelime kaydÃ½rma');
+@define('PLUGIN_COMMENTS_WORDWRAP_BLAHBLAH','KaÃ§ adet kelimeye kadar kelime kaydÃ½rma uygulanmasÃ½n? (Ã–ntanÃ½mlÃ½: 30)');
+@define('PLUGIN_COMMENTS_MAXCHARS', 'GÃ¶rÃ¼Ã¾ baÃ¾Ã½na kullanÃ½labilecek en Ã§ok harf karakteri sayÃ½sÃ½');
+@define('PLUGIN_COMMENTS_MAXCHARS_BLAHBLAH', 'GÃ¶rÃ¼Ã¾lerde en Ã§ok kaÃ§ adet harfin kullanÃ½mÃ½na izin verilsin? (Ã–ntanÃ½mlÃ½: 120)');
+@define('PLUGIN_COMMENTS_MAXENTRIES', 'En Ã§ok gÃ¶rÃ¼Ã¾ sayÃ½sÃ½');
+@define('PLUGIN_COMMENTS_MAXENTRIES_BLAHBLAH', 'KaÃ§ adet gÃ¶rÃ¼Ã¾ gÃ¶sterilsin? (Ã–ntanÃ½mlÃ½: 15)');
+@define('PLUGIN_COMMENTS_ABOUT', '%s hakkÃ½nda%s');
 

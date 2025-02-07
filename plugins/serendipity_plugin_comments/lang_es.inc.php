@@ -6,13 +6,13 @@
  *  EN-Revision: 690
  */
 
-@define('PLUGIN_COMMENTS_BLAHBLAH', 'Muestra los últimos comentarios hechos a tus entradas');
+@define('PLUGIN_COMMENTS_BLAHBLAH', 'Muestra los Ãºltimos comentarios hechos a tus entradas');
 @define('PLUGIN_COMMENTS_WORDWRAP', 'Wordwrap');
-@define('PLUGIN_COMMENTS_WORDWRAP_BLAHBLAH', '¿Cuantas palabras deben haber antes de que se haga un salto de línea? (Por defecto: 30)');
-@define('PLUGIN_COMMENTS_MAXCHARS', 'Máximo número de caracteres por comentario');
-@define('PLUGIN_COMMENTS_MAXCHARS_BLAHBLAH', '¿Cuantos caracteres deben ser mostrados por cada comentario? (Por defecto: 120)');
-@define('PLUGIN_COMMENTS_MAXENTRIES', 'Máximo número de comentarios');
-@define('PLUGIN_COMMENTS_MAXENTRIES_BLAHBLAH', '¿Cuántos comentarios deben ser mostrados? (Por defecto: 15)');
+@define('PLUGIN_COMMENTS_WORDWRAP_BLAHBLAH', 'Â¿Cuantas palabras deben haber antes de que se haga un salto de lÃ­nea? (Por defecto: 30)');
+@define('PLUGIN_COMMENTS_MAXCHARS', 'MÃ¡ximo nÃºmero de caracteres por comentario');
+@define('PLUGIN_COMMENTS_MAXCHARS_BLAHBLAH', 'Â¿Cuantos caracteres deben ser mostrados por cada comentario? (Por defecto: 120)');
+@define('PLUGIN_COMMENTS_MAXENTRIES', 'MÃ¡ximo nÃºmero de comentarios');
+@define('PLUGIN_COMMENTS_MAXENTRIES_BLAHBLAH', 'Â¿CuÃ¡ntos comentarios deben ser mostrados? (Por defecto: 15)');
 @define('PLUGIN_COMMENTS_ABOUT', '%s acerca%s');
 @define('PLUGIN_COMMENTS_ANONYMOUS', 'anon');
 

@@ -6,13 +6,13 @@
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
-@define('PLUGIN_COMMENTS_BLAHBLAH', 'Wy秝ietl ostatnie komentarze do wpis體');
+@define('PLUGIN_COMMENTS_BLAHBLAH', 'Wy艣wietl ostatnie komentarze do wpis贸w');
 @define('PLUGIN_COMMENTS_WORDWRAP', 'Przycinanie komentarza');
-@define('PLUGIN_COMMENTS_WORDWRAP_BLAHBLAH', 'Jak wiele s丑w zostanie pokazanych zanim nast眕i przyci阠ie komentarza. (Standardowo: 30)');
-@define('PLUGIN_COMMENTS_MAXCHARS', 'Maksymalna ilo舵 znak體 na komentarz');
-@define('PLUGIN_COMMENTS_MAXCHARS_BLAHBLAH', 'Jak wiele znak體 zostanie wy秝ietlonych w ka縟ym komentarzu. (Standardowo: 120)');
-@define('PLUGIN_COMMENTS_MAXENTRIES', 'Maksymalna ilo舵 pokazywanych komentarzy');
-@define('PLUGIN_COMMENTS_MAXENTRIES_BLAHBLAH', 'Jak wiele komentarzy b阣zie pokazywanych. (Standardowo: 15)');
+@define('PLUGIN_COMMENTS_WORDWRAP_BLAHBLAH', 'Jak wiele s艂贸w zostanie pokazanych zanim nast膮pi przyci臋cie komentarza. (Standardowo: 30)');
+@define('PLUGIN_COMMENTS_MAXCHARS', 'Maksymalna ilo艣膰 znak贸w na komentarz');
+@define('PLUGIN_COMMENTS_MAXCHARS_BLAHBLAH', 'Jak wiele znak贸w zostanie wy艣wietlonych w ka偶dym komentarzu. (Standardowo: 120)');
+@define('PLUGIN_COMMENTS_MAXENTRIES', 'Maksymalna ilo艣膰 pokazywanych komentarzy');
+@define('PLUGIN_COMMENTS_MAXENTRIES_BLAHBLAH', 'Jak wiele komentarzy b臋dzie pokazywanych. (Standardowo: 15)');
 @define('PLUGIN_COMMENTS_ABOUT', '%s do wpisu%s');
 @define('PLUGIN_COMMENTS_ANONYMOUS', 'anonim');
 

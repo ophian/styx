@@ -1,19 +1,19 @@
 <?php
 
 /**
- *  @author Martin Matuπka <martin@matuska.org>
+ *  @author Martin Matu≈°ka <martin@matuska.org>
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
-@define('PLUGIN_COMMENTS_BLAHBLAH',             'Zobrazenie posledn˝ch koment·rov pri Ël·nkoch');
+@define('PLUGIN_COMMENTS_BLAHBLAH',             'Zobrazenie posledn√Ωch koment√°rov pri ƒçl√°nkoch');
 @define('PLUGIN_COMMENTS_WORDWRAP',             'Zalamovanie slov');
-@define('PLUGIN_COMMENTS_WORDWRAP_BLAHBLAH',    'Po koµk˝ch slov·ch m· byª text koment·ra orezan˝? (PrednastavenÈ: 30)');
-@define('PLUGIN_COMMENTS_MAXCHARS',             'Maxim·lny poËet znakov');
-@define('PLUGIN_COMMENTS_MAXCHARS_BLAHBLAH',    'Koµko znakov m· byª maxim·lne zobrazen˝ch z kaædÈho koment·ra? (PrednastavenÈ: 120)');
-@define('PLUGIN_COMMENTS_MAXENTRIES',           'PoËet zobrazen˝ch koment·rov');
-@define('PLUGIN_COMMENTS_MAXENTRIES_BLAHBLAH',  'Koµko posledn˝ch koment·rov sa m· zobraziª? (PrednastavenÈ: 15)');
-@define('PLUGIN_COMMENTS_ABOUT',                '%s k Ël·nku %s');
+@define('PLUGIN_COMMENTS_WORDWRAP_BLAHBLAH',    'Po koƒæk√Ωch slov√°ch m√° by≈• text koment√°ra orezan√Ω? (Prednastaven√©: 30)');
+@define('PLUGIN_COMMENTS_MAXCHARS',             'Maxim√°lny poƒçet znakov');
+@define('PLUGIN_COMMENTS_MAXCHARS_BLAHBLAH',    'Koƒæko znakov m√° by≈• maxim√°lne zobrazen√Ωch z ka≈æd√©ho koment√°ra? (Prednastaven√©: 120)');
+@define('PLUGIN_COMMENTS_MAXENTRIES',           'Poƒçet zobrazen√Ωch koment√°rov');
+@define('PLUGIN_COMMENTS_MAXENTRIES_BLAHBLAH',  'Koƒæko posledn√Ωch koment√°rov sa m√° zobrazi≈•? (Prednastaven√©: 15)');
+@define('PLUGIN_COMMENTS_ABOUT',                '%s k ƒçl√°nku %s');
 @define('PLUGIN_COMMENTS_ANONYMOUS',            'anonym');
 
-@define('PLUGIN_COMMENTS_ADDURL',               'Pridaª URL adresu autorov do');
+@define('PLUGIN_COMMENTS_ADDURL',               'Prida≈• URL adresu autorov do');
 

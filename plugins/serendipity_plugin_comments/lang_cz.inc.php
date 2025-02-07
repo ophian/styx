@@ -2,19 +2,19 @@
 
 /**
  *  @version $Revision: 1381 $
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
-@define('PLUGIN_COMMENTS_BLAHBLAH',             'Zobrazuje poslední komentáøe u pøíspìvkù');
-@define('PLUGIN_COMMENTS_WORDWRAP',             'Zalamování slov');
-@define('PLUGIN_COMMENTS_WORDWRAP_BLAHBLAH',    'Po kolika slovech má bıt text komentáøe oøíznut? (Pøednastaveno: 30)');
-@define('PLUGIN_COMMENTS_MAXCHARS',             'Maximální poèet znakù');
-@define('PLUGIN_COMMENTS_MAXCHARS_BLAHBLAH',    'Kolik znakù bude nanejvı¹ zobrazeno z ka¾dého komentáøe? (Pøednastaveno: 120)');
-@define('PLUGIN_COMMENTS_MAXENTRIES',           'Poèet zobrazenıch komentáøù');
-@define('PLUGIN_COMMENTS_MAXENTRIES_BLAHBLAH',  'Kolik posledních komentáøù bude zobrazeno? (Pøednastaveno: 15)');
-@define('PLUGIN_COMMENTS_ABOUT',                '%s k pøíspìvku %s');
+@define('PLUGIN_COMMENTS_BLAHBLAH',             'Zobrazuje poslednÃ­ komentÃ¡Å™e u pÅ™Ã­spÄ›vkÅ¯');
+@define('PLUGIN_COMMENTS_WORDWRAP',             'ZalamovÃ¡nÃ­ slov');
+@define('PLUGIN_COMMENTS_WORDWRAP_BLAHBLAH',    'Po kolika slovech mÃ¡ bÃ½t text komentÃ¡Å™e oÅ™Ã­znut? (PÅ™ednastaveno: 30)');
+@define('PLUGIN_COMMENTS_MAXCHARS',             'MaximÃ¡lnÃ­ poÄet znakÅ¯');
+@define('PLUGIN_COMMENTS_MAXCHARS_BLAHBLAH',    'Kolik znakÅ¯ bude nanejvÃ½Å¡ zobrazeno z kaÅ¾dÃ©ho komentÃ¡Å™e? (PÅ™ednastaveno: 120)');
+@define('PLUGIN_COMMENTS_MAXENTRIES',           'PoÄet zobrazenÃ½ch komentÃ¡Å™Å¯');
+@define('PLUGIN_COMMENTS_MAXENTRIES_BLAHBLAH',  'Kolik poslednÃ­ch komentÃ¡Å™Å¯ bude zobrazeno? (PÅ™ednastaveno: 15)');
+@define('PLUGIN_COMMENTS_ABOUT',                '%s k pÅ™Ã­spÄ›vku %s');
 @define('PLUGIN_COMMENTS_ANONYMOUS',            'anonym');
 
-@define('PLUGIN_COMMENTS_ADDURL',               'Pøidat URL adresu autorù do');
+@define('PLUGIN_COMMENTS_ADDURL',               'PÅ™idat URL adresu autorÅ¯ do');
 
