@@ -7,108 +7,108 @@
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TITLE', 'Obrona przed spamem');
-@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'Ró¿ne metody na zwalczanie spamu w komentarzach. Jest to glówny trzon dzialan antyspamowych. Nie usuwaj!');
-@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY', 'Obrona przed spamem: Nieprawid³owy komentarz.');
-@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_IP', 'Obrona przed spamem: Nie mo¿esz wprowadziæ kolejnego komentarza tak prêdko. Proszê, poczekaj chwilê (obrona przed floodem).');
+@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'RÃ³Å¼ne metody na zwalczanie spamu w komentarzach. Jest to gÅ‚Ã³wny trzon dziaÅ‚aÅ„ antyspamowych. Nie usuwaj!');
+@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY', 'Obrona przed spamem: NieprawidÅ‚owy komentarz.');
+@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_IP', 'Obrona przed spamem: Nie moÅ¼esz wprowadziÄ‡ kolejnego komentarza tak prÄ™dko. ProszÄ™, poczekaj chwilÄ™ (obrona przed floodem).');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_KILLSWITCH', 'Ten blog znajduje siê w trybie "Ca³kowita blokada komentarzy". Proszê, wróæ tu za jaki¶ czas, kiedy ten tryb zostanie zniesiony.');
+@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_KILLSWITCH', 'Ten blog znajduje siÄ™ w trybie "CaÅ‚kowita blokada komentarzy". ProszÄ™, wrÃ³Ä‡ tu za jakiÅ› czas, kiedy ten tryb zostanie zniesiony.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BODYCLONE', 'Nie zezwalaj na zduplikowane komentarze');
-@define('PLUGIN_EVENT_SPAMBLOCK_BODYCLONE_DESC', 'Nie zezwalaj u¿ytkownikom na dodanie komentarza, który ma tak± sam± zawarto¶æ jak dopiero co dodany komentarz (kolejne dodanie takiego samego komentarza)');
-@define('PLUGIN_EVENT_SPAMBLOCK_KILLSWITCH', 'Ca³kowita blokada komentarzy');
-@define('PLUGIN_EVENT_SPAMBLOCK_KILLSWITCH_DESC', 'Czasowe wy³±czenie mo¿liwo¶ci komentowania dla wszystkich wpisów. Przydatne kiedy Twój blog jest pod zmasowanym spamerskim atakiem.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BODYCLONE_DESC', 'Nie zezwalaj uÅ¼ytkownikom na dodanie komentarza, ktÃ³ry ma takÄ… samÄ… zawartoÅ›Ä‡ jak dopiero co dodany komentarz (kolejne dodanie takiego samego komentarza)');
+@define('PLUGIN_EVENT_SPAMBLOCK_KILLSWITCH', 'CaÅ‚kowita blokada komentarzy');
+@define('PLUGIN_EVENT_SPAMBLOCK_KILLSWITCH_DESC', 'Czasowe wyÅ‚Ä…czenie moÅ¼liwoÅ›ci komentowania dla wszystkich wpisÃ³w. Przydatne kiedy TwÃ³j blog jest pod zmasowanym spamerskim atakiem.');
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD', 'Czas blokowania adresu IP');
-@define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD_DESC', 'Zezwól na komentarze z danego adresu IP co n minut. Przydatne dla blokowania komentarzowych floodów (wiele komentarzy z tego samego adresu IP w krótkim czasie).');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS', 'W³±cz Captcha');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Wymusza na u¿ytkowniku wpisanie specjalnego losowego kodu wy¶wietlanego w wygenrowanym obrazku. Proszê, zwróæ uwagê na to, ¿e ludzie maj±cy problemy ze wzrokiem mog± mieæ problemy z odczytaniem kodu. To avoid having to use visible Captchas at all, try out the extending Spamblock Bee plugin.');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC', 'Proszê, wpisz widoczny na obrazku kod do odpowiedniego pola. Twój komentarz zostanie dodany tylko gdy wpisany kod bêdzie siê zgadza³ z tym widocznym na obrazku. Proszê, upewnij siê, ¿e Twoja przegl±darka ma w³±czon± obs³ugê cookies (ciasteczek) lub Twój komentarz nie przejdzie poprawnie weryfikacji.');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2', 'Wpisz ci±g znaków, który tu widzisz do odpowiedniego pola!');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3', 'Wpisz ci±g znaków widoczny na obrazku powy¿ej: ');
-@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_CAPTCHAS', 'Wprowadzi³e¶(a¶) nieprawid³owy ci±g. Zerknij na obrazek i wprowad¼ odpowiedni ci±g ponownie.');
-@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_NOTTF', 'Captcha nie bêdzie dzia³a³o na Twoim serwerze. Potrzebujesz zainstalowanych bibliotek GDLib i freetype oraz upewnij siê, ¿e odpowiednie pliki .ttf znajuj± siê w katalogu wtyczki.');
+@define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD_DESC', 'ZezwÃ³l na komentarze z danego adresu IP co n minut. Przydatne dla blokowania komentarzowych floodÃ³w (wiele komentarzy z tego samego adresu IP w krÃ³tkim czasie).');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS', 'WÅ‚Ä…cz Captcha');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Wymusza na uÅ¼ytkowniku wpisanie specjalnego losowego kodu wyÅ›wietlanego w wygenrowanym obrazku. ProszÄ™, zwrÃ³Ä‡ uwagÄ™ na to, Å¼e ludzie majÄ…cy problemy ze wzrokiem mogÄ… mieÄ‡ problemy z odczytaniem kodu. To avoid having to use visible Captchas at all, try out the extending Spamblock Bee plugin.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC', 'ProszÄ™, wpisz widoczny na obrazku kod do odpowiedniego pola. TwÃ³j komentarz zostanie dodany tylko gdy wpisany kod bÄ™dzie siÄ™ zgadzaÅ‚ z tym widocznym na obrazku. ProszÄ™, upewnij siÄ™, Å¼e Twoja przeglÄ…darka ma wÅ‚Ä…czonÄ… obsÅ‚ugÄ™ cookies (ciasteczek) lub TwÃ³j komentarz nie przejdzie poprawnie weryfikacji.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2', 'Wpisz ciÄ…g znakÃ³w, ktÃ³ry tu widzisz do odpowiedniego pola!');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3', 'Wpisz ciÄ…g znakÃ³w widoczny na obrazku powyÅ¼ej: ');
+@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_CAPTCHAS', 'WprowadziÅ‚eÅ›(aÅ›) nieprawidÅ‚owy ciÄ…g. Zerknij na obrazek i wprowadÅº odpowiedni ciÄ…g ponownie.');
+@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_NOTTF', 'Captcha nie bÄ™dzie dziaÅ‚aÅ‚o na Twoim serwerze. Potrzebujesz zainstalowanych bibliotek GDLib i freetype oraz upewnij siÄ™, Å¼e odpowiednie pliki .ttf znajujÄ… siÄ™ w katalogu wtyczki.');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_TTL', 'Wymu¶ Captcha po ilu dniach');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_TTL_DESC', 'Mo¿esz wymusiæ uzycie Captcha po okre¶lonej ilo¶ci dni. Wprowad¼ ilo¶c dni, po których wprowadzenie Captcha bêdzie wymagane. Je¶li ustawione na 0 - bêdzie wymagane zawsze.');
-@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATION', 'Wymu¶ moderowanie komentarzy po ilu dniach');
-@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATION_DESC', 'Mo¿esz ustawiæ wymóg moderowania wszystkich komentarzy. Wprowad¼ ilo¶æ dni, po których komentarze powinny podlegaæ auto-moderacji. 0 wy³±cza automoderacjê.');
-@define('PLUGIN_EVENT_SPAMBLOCK_LINKS_MODERATE', 'Jak wiele linków musi wyst±piæ by komentarz podlega³ moderacji');
-@define('PLUGIN_EVENT_SPAMBLOCK_LINKS_MODERATE_DESC', 'Je¶li w komentarzu wyst±pi podana ilo¶æ linków bêdzie on wymaga³ moderacji. 0 oznacza wy³±czenie tej opcji.');
-@define('PLUGIN_EVENT_SPAMBLOCK_LINKS_REJECT', 'Jak wiele linków musi wyst±piæ by komentarz zosta³ odrzucony');
-@define('PLUGIN_EVENT_SPAMBLOCK_LINKS_REJECT_DESC', 'Je¶li w komentarzu wyst±pi podana ilo¶æ linków, komentarz zostanie automatycznie odrzucony. 0 oznacza wy³±czenie tej opcji.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_TTL', 'WymuÅ› Captcha po ilu dniach');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_TTL_DESC', 'MoÅ¼esz wymusiÄ‡ uzycie Captcha po okreÅ›lonej iloÅ›ci dni. WprowadÅº iloÅ›c dni, po ktÃ³rych wprowadzenie Captcha bÄ™dzie wymagane. JeÅ›li ustawione na 0 - bÄ™dzie wymagane zawsze.');
+@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATION', 'WymuÅ› moderowanie komentarzy po ilu dniach');
+@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATION_DESC', 'MoÅ¼esz ustawiÄ‡ wymÃ³g moderowania wszystkich komentarzy. WprowadÅº iloÅ›Ä‡ dni, po ktÃ³rych komentarze powinny podlegaÄ‡ auto-moderacji. 0 wyÅ‚Ä…cza automoderacjÄ™.');
+@define('PLUGIN_EVENT_SPAMBLOCK_LINKS_MODERATE', 'Jak wiele linkÃ³w musi wystÄ…piÄ‡ by komentarz podlegaÅ‚ moderacji');
+@define('PLUGIN_EVENT_SPAMBLOCK_LINKS_MODERATE_DESC', 'JeÅ›li w komentarzu wystÄ…pi podana iloÅ›Ä‡ linkÃ³w bÄ™dzie on wymagaÅ‚ moderacji. 0 oznacza wyÅ‚Ä…czenie tej opcji.');
+@define('PLUGIN_EVENT_SPAMBLOCK_LINKS_REJECT', 'Jak wiele linkÃ³w musi wystÄ…piÄ‡ by komentarz zostaÅ‚ odrzucony');
+@define('PLUGIN_EVENT_SPAMBLOCK_LINKS_REJECT_DESC', 'JeÅ›li w komentarzu wystÄ…pi podana iloÅ›Ä‡ linkÃ³w, komentarz zostanie automatycznie odrzucony. 0 oznacza wyÅ‚Ä…czenie tej opcji.');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_NOTICE_MODERATION', 'Z powodu warunków okre¶lonych przez administratora bloga, Twój komentarz zosta³ oznaczony jako "wymagaj±cy sprawdzenia".');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHA_COLOR', 'Kolor t³a captcha');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHA_COLOR_DESC', 'Wprowad¼ warto¶ci RGB: 0,255,255');
+@define('PLUGIN_EVENT_SPAMBLOCK_NOTICE_MODERATION', 'Z powodu warunkÃ³w okreÅ›lonych przez administratora bloga, TwÃ³j komentarz zostaÅ‚ oznaczony jako "wymagajÄ…cy sprawdzenia".');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHA_COLOR', 'Kolor tÅ‚a captcha');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHA_COLOR_DESC', 'WprowadÅº wartoÅ›ci RGB: 0,255,255');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGFILE', 'Po³o¿enie pliku z logiem');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGFILE_DESC', 'Informacja o odrzuconych/wymagaj±cych moderowania komentarzach mo¿e byæ przechowywania w pliku. Wyczy¶æ to pole je¶li chcesz wy³±czyæ logowanie.');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGFILE', 'PoÅ‚oÅ¼enie pliku z logiem');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGFILE_DESC', 'Informacja o odrzuconych/wymagajÄ…cych moderowania komentarzach moÅ¼e byÄ‡ przechowywania w pliku. WyczyÅ›Ä‡ to pole jeÅ›li chcesz wyÅ‚Ä…czyÄ‡ logowanie.');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_REASON_KILLSWITCH', 'Nag³y wypadek: mo¿liwo¶æ komentowania zosta³a wy³±czona');
+@define('PLUGIN_EVENT_SPAMBLOCK_REASON_KILLSWITCH', 'NagÅ‚y wypadek: moÅ¼liwoÅ›Ä‡ komentowania zostaÅ‚a wyÅ‚Ä…czona');
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_BODYCLONE', 'Zduplikowany komentarz');
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_IPFLOOD', 'Zablokowane IP');
-@define('PLUGIN_EVENT_SPAMBLOCK_REASON_CAPTCHAS', 'B³êdnie wprowadzone captcha (wprowadzono: %s, powinno byæ: %s)');
+@define('PLUGIN_EVENT_SPAMBLOCK_REASON_CAPTCHAS', 'BÅ‚Ä™dnie wprowadzone captcha (wprowadzono: %s, powinno byÄ‡: %s)');
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION', 'Auto-moderacja po X dniach');
-@define('PLUGIN_EVENT_SPAMBLOCK_REASON_LINKS_REJECT', 'Zbyt wiele linków');
-@define('PLUGIN_EVENT_SPAMBLOCK_REASON_LINKS_MODERATE', 'Zbyt wiele linków');
-@define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL', 'Ukryj adresy e-mail komentuj±cych');
-@define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_DESC', 'Adresy e-mail komentuj±cych nie bêd± pokazywane');
-@define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE', 'Adresy e-mail nie bêd± pokazywane i bêd± u¿ywane tylko do celów wysy³ania powiadomieñ drog± e-mailow±');
+@define('PLUGIN_EVENT_SPAMBLOCK_REASON_LINKS_REJECT', 'Zbyt wiele linkÃ³w');
+@define('PLUGIN_EVENT_SPAMBLOCK_REASON_LINKS_MODERATE', 'Zbyt wiele linkÃ³w');
+@define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL', 'Ukryj adresy e-mail komentujÄ…cych');
+@define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_DESC', 'Adresy e-mail komentujÄ…cych nie bÄ™dÄ… pokazywane');
+@define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE', 'Adresy e-mail nie bÄ™dÄ… pokazywane i bÄ™dÄ… uÅ¼ywane tylko do celÃ³w wysyÅ‚ania powiadomieÅ„ drogÄ… e-mailowÄ…');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE', 'Wybierz metodê logowania');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Logi o odrzuconych komentarzach mog± byæ przechowywane w Bazie danych lub w pliku tekstowym');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_FILE', 'Plik (patrz "Po³o¿enie pliku z logiem")');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE', 'Wybierz metodÄ™ logowania');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Logi o odrzuconych komentarzach mogÄ… byÄ‡ przechowywane w Bazie danych lub w pliku tekstowym');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_FILE', 'Plik (patrz "PoÅ‚oÅ¼enie pliku z logiem")');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DB', 'Baza danych');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_NONE', 'Bez logowania');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_API_COMMENTS', 'Jak obs³ugiwaæ komentarze dokonywane via API');
-@define('PLUGIN_EVENT_SPAMBLOCK_API_COMMENTS_DESC', 'To ustawienie odnosi siê do komentarzy przesy³anych przez API (¦lady (Trackbacks), WFW:commentAPI). Je¶li wybrane jest ustawienie "moderuj", wszystkie te komentarze zawsze musz± byæ wpierw zatwierdzone. Je¶li wybrane jest ustawienie "odrzucaj" - taki sposób komentowania jest zupe³nie wy³±czony. Je¶li wybrane jest ustawienie "¿adne" - komentarze dokonywane w opisany sposób bêd± traktowane jak zwyk³e komentarze.');
+@define('PLUGIN_EVENT_SPAMBLOCK_API_COMMENTS', 'Jak obsÅ‚ugiwaÄ‡ komentarze dokonywane via API');
+@define('PLUGIN_EVENT_SPAMBLOCK_API_COMMENTS_DESC', 'To ustawienie odnosi siÄ™ do komentarzy przesyÅ‚anych przez API (Åšlady (Trackbacks), WFW:commentAPI). JeÅ›li wybrane jest ustawienie "moderuj", wszystkie te komentarze zawsze muszÄ… byÄ‡ wpierw zatwierdzone. JeÅ›li wybrane jest ustawienie "odrzucaj" - taki sposÃ³b komentowania jest zupeÅ‚nie wyÅ‚Ä…czony. JeÅ›li wybrane jest ustawienie "Å¼adne" - komentarze dokonywane w opisany sposÃ³b bÄ™dÄ… traktowane jak zwykÅ‚e komentarze.');
 @define('PLUGIN_EVENT_SPAMBLOCK_API_MODERATE', 'moderuj');
 @define('PLUGIN_EVENT_SPAMBLOCK_API_REJECT', 'odrzucaj');
-@define('PLUGIN_EVENT_SPAMBLOCK_REASON_API', 'Niedozwolone jest komentowanie via API (jak np. ¦lady (Trackbacki))');
+@define('PLUGIN_EVENT_SPAMBLOCK_REASON_API', 'Niedozwolone jest komentowanie via API (jak np. Åšlady (Trackbacki))');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_ACTIVATE', 'Aktywuj filtr s³owny');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_ACTIVATE_DESC', 'Przeszukuje komentarze na okoliczno¶æ wyst±pienia pewnych ci±gów znaków i oznacza je jako spam');
+@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_ACTIVATE', 'Aktywuj filtr sÅ‚owny');
+@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_ACTIVATE_DESC', 'Przeszukuje komentarze na okolicznoÅ›Ä‡ wystÄ…pienia pewnych ciÄ…gÃ³w znakÃ³w i oznacza je jako spam');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_FILTER_URLS', 'Filtr URLi');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_URLS_DESC', 'Dozwolone s± wyra¿enia regularne, oddzielaj wyra¿enia ¶rednikami (;)');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_AUTHORS', 'Filtr nazw autorów');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_AUTHORS_DESC', 'Dozwolone s± wyra¿enia regularne, oddzielaj wyra¿enia ¶rednikami (;)');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_WORDS', 'Filtr tre¶ci komentarza');
+@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_URLS_DESC', 'Dozwolone sÄ… wyraÅ¼enia regularne, oddzielaj wyraÅ¼enia Å›rednikami (;)');
+@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_AUTHORS', 'Filtr nazw autorÃ³w');
+@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_AUTHORS_DESC', 'Dozwolone sÄ… wyraÅ¼enia regularne, oddzielaj wyraÅ¼enia Å›rednikami (;)');
+@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_WORDS', 'Filtr treÅ›ci komentarza');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_REASON_CHECKMAIL', 'Z³y adres e-mail');
-@define('PLUGIN_EVENT_SPAMBLOCK_CHECKMAIL', 'Sprawdzaæ adresy e-mail?');
+@define('PLUGIN_EVENT_SPAMBLOCK_REASON_CHECKMAIL', 'ZÅ‚y adres e-mail');
+@define('PLUGIN_EVENT_SPAMBLOCK_CHECKMAIL', 'SprawdzaÄ‡ adresy e-mail?');
 @define('PLUGIN_EVENT_SPAMBLOCK_REQUIRED_FIELDS', 'Wymagane pola komentarza');
-@define('PLUGIN_EVENT_SPAMBLOCK_REQUIRED_FIELDS_DESC', 'Wprowad¼ listê wymaganych pól, które musz± byæ wype³nione przez u¿ytkownika. Rozdzielaj pola przecinkami (,). Dostêpne nazwy pól: name, email, url, replyTo, comment');
-@define('PLUGIN_EVENT_SPAMBLOCK_REASON_REQUIRED_FIELD', 'Nie wype³ni³e¶ pola  %s!');
+@define('PLUGIN_EVENT_SPAMBLOCK_REQUIRED_FIELDS_DESC', 'WprowadÅº listÄ™ wymaganych pÃ³l, ktÃ³re muszÄ… byÄ‡ wypeÅ‚nione przez uÅ¼ytkownika. Rozdzielaj pola przecinkami (,). DostÄ™pne nazwy pÃ³l: name, email, url, replyTo, comment');
+@define('PLUGIN_EVENT_SPAMBLOCK_REASON_REQUIRED_FIELD', 'Nie wypeÅ‚niÅ‚eÅ› pola  %s!');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_CONFIG', 'Konfiguracja metod atyspamowych');
-@define('PLUGIN_EVENT_SPAMBLOCK_ADD_AUTHOR', 'Blokuj tego autora przez wtyczkê Obrona przed spamem');
-@define('PLUGIN_EVENT_SPAMBLOCK_ADD_URL', 'Blokuj ten URL przez wtyczkê Obrona przed spamem');
+@define('PLUGIN_EVENT_SPAMBLOCK_ADD_AUTHOR', 'Blokuj tego autora przez wtyczkÄ™ Obrona przed spamem');
+@define('PLUGIN_EVENT_SPAMBLOCK_ADD_URL', 'Blokuj ten URL przez wtyczkÄ™ Obrona przed spamem');
 @define('PLUGIN_EVENT_SPAMBLOCK_REMOVE_AUTHOR', 'Odblokuj tego autora we wtyczce Obrona przed spamem');
 @define('PLUGIN_EVENT_SPAMBLOCK_REMOVE_URL', 'Odblokuj ten URL we wtyczce Obrona przed spamem');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_REASON_TITLE', 'Tytu³ wpisu jest taki sam jak tre¶æ komentarza');
-#@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Odrzucaj komentarze, które zawieraj± tylko tytu³'); // translate again
+@define('PLUGIN_EVENT_SPAMBLOCK_REASON_TITLE', 'TytuÅ‚ wpisu jest taki sam jak treÅ›Ä‡ komentarza');
+#@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Odrzucaj komentarze, ktÃ³re zawierajÄ… tylko tytuÅ‚'); // translate again
 
-@define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL', 'Sprawdzaj URLe ¦ladów (Trackbacków)');
-@define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL_DESC', 'Zezwól na pozostawienie ¦ladu (Trackback) tylko gdy zawiera on link do Twojego bloga');
-@define('PLUGIN_EVENT_SPAMBLOCK_REASON_TRACKBACKURL', 'Z³y URL ¦ladu (Trackbacka)');
+@define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL', 'Sprawdzaj URLe ÅšladÃ³w (TrackbackÃ³w)');
+@define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL_DESC', 'ZezwÃ³l na pozostawienie Åšladu (Trackback) tylko gdy zawiera on link do Twojego bloga');
+@define('PLUGIN_EVENT_SPAMBLOCK_REASON_TRACKBACKURL', 'ZÅ‚y URL Åšladu (Trackbacka)');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_SCRAMBLE', 'Rozstrzelone captcha');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_HIDE', 'Wy³±cz wtyczkê dla Autorów');
-@define('PLUGIN_EVENT_SPAMBLOCK_HIDE_DESC', 'Mo¿esz zezwoliæ na komentowanie wpisów przez Autorów nale¿±cych do zaznaczonych grup bez w³±czonej ochorny antyspamowej.');
+@define('PLUGIN_EVENT_SPAMBLOCK_HIDE', 'WyÅ‚Ä…cz wtyczkÄ™ dla AutorÃ³w');
+@define('PLUGIN_EVENT_SPAMBLOCK_HIDE_DESC', 'MoÅ¼esz zezwoliÄ‡ na komentowanie wpisÃ³w przez AutorÃ³w naleÅ¼Ä…cych do zaznaczonych grup bez wÅ‚Ä…czonej ochorny antyspamowej.');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_AKISMET', 'Klucz Akismet API');
-@define('PLUGIN_EVENT_SPAMBLOCK_AKISMET_DESC', 'Akismet.com to centralny serwer antyspamowy i zawieraj±cy tzw. blacklisty. Mo¿e analizowaæ komentarze i sprawdzaæ, czy taki komentarz zosta³ zg³oszony jako spam. Akismet zosta³ stworzony dla systemu WordPress ale mo¿e byæ wykorzystywany przez inne systemy. Potrzebujesz klucza API (API Key) ze strony http://www.akismet.com - klucz otrzymasz po rejestracji w serwisie http://www.wordpress.com/. Je¶li pozostawisz to pole puste, technologia Akismet nie bêdzie wykorzystywana.');
-@define('PLUGIN_EVENT_SPAMBLOCK_AKISMET_FILTER', 'Jak traktowaæ spam zg³oszony przez Akismet');
-@define('PLUGIN_EVENT_SPAMBLOCK_REASON_AKISMET_SPAMLIST', 'U¿yto filtra Akismet.com Blacklist');
+@define('PLUGIN_EVENT_SPAMBLOCK_AKISMET_DESC', 'Akismet.com to centralny serwer antyspamowy i zawierajÄ…cy tzw. blacklisty. MoÅ¼e analizowaÄ‡ komentarze i sprawdzaÄ‡, czy taki komentarz zostaÅ‚ zgÅ‚oszony jako spam. Akismet zostaÅ‚ stworzony dla systemu WordPress ale moÅ¼e byÄ‡ wykorzystywany przez inne systemy. Potrzebujesz klucza API (API Key) ze strony http://www.akismet.com - klucz otrzymasz po rejestracji w serwisie http://www.wordpress.com/. JeÅ›li pozostawisz to pole puste, technologia Akismet nie bÄ™dzie wykorzystywana.');
+@define('PLUGIN_EVENT_SPAMBLOCK_AKISMET_FILTER', 'Jak traktowaÄ‡ spam zgÅ‚oszony przez Akismet');
+@define('PLUGIN_EVENT_SPAMBLOCK_REASON_AKISMET_SPAMLIST', 'UÅ¼yto filtra Akismet.com Blacklist');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATION_TREAT', 'Co zrobiæ z komentarzami, które bêd± automoderowane?');
-@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATIONT_TREAT', 'Co zrobiæ ze ¦ladami, które bêd± automoderowane?');
-@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATIONT', 'Wymuszaæ moderowanie ¦ladów po jak wielu dniach');
-@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATIONT_DESC', 'Mo¿esz wymusiæ moderowanie wszelkich ¦ladów do Twoich wpisów. Wprowad¼ wiek wpisu (w dniach), po którym ka¿dy ¦lad pozostawiany po tym terminie bêdzie musia³ byæ moderowany przed opublikowaniem.');
+@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATION_TREAT', 'Co zrobiÄ‡ z komentarzami, ktÃ³re bÄ™dÄ… automoderowane?');
+@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATIONT_TREAT', 'Co zrobiÄ‡ ze Åšladami, ktÃ³re bÄ™dÄ… automoderowane?');
+@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATIONT', 'WymuszaÄ‡ moderowanie ÅšladÃ³w po jak wielu dniach');
+@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATIONT_DESC', 'MoÅ¼esz wymusiÄ‡ moderowanie wszelkich ÅšladÃ³w do Twoich wpisÃ³w. WprowadÅº wiek wpisu (w dniach), po ktÃ³rym kaÅ¼dy Åšlad pozostawiany po tym terminie bÄ™dzie musiaÅ‚ byÄ‡ moderowany przed opublikowaniem.');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_CSRF', 'U¿yæ ochrony CSRF dla komentarzy?');
-@define('PLUGIN_EVENT_SPAMBLOCK_CSRF_DESC', 'Po w³±czeniu tej opcji ka¿demu komentarzowi bêdzie przyporz±dkowywana warto¶æ hash, dziêki której bêdzie mo¿na sprawdziæ, czy komentarz zosta³ pozostawiony przez u¿ytkownika z prawid³owym ID sesji. To ustawienie zmniejszy ilosæ spamu i ograniczy mo¿liwo¶æ komentowania przez CSRF ale jednocze¶nie uniemo¿liwi komentowanie u¿ytkownikom nie korzystaj±cym z ciastek (cookies) w ich przegl±darkach.');
-@define('PLUGIN_EVENT_SPAMBLOCK_CSRF_REASON', 'Twój komentarz nie posiada³ numeru hash sesji. Komentarze mog± byæ pozostawiane na tym blogu tylko gdy Twoja przegl±darka ma w³±czon± obs³ugê ciasteczek (cookies)!');
+@define('PLUGIN_EVENT_SPAMBLOCK_CSRF', 'UÅ¼yÄ‡ ochrony CSRF dla komentarzy?');
+@define('PLUGIN_EVENT_SPAMBLOCK_CSRF_DESC', 'Po wÅ‚Ä…czeniu tej opcji kaÅ¼demu komentarzowi bÄ™dzie przyporzÄ…dkowywana wartoÅ›Ä‡ hash, dziÄ™ki ktÃ³rej bÄ™dzie moÅ¼na sprawdziÄ‡, czy komentarz zostaÅ‚ pozostawiony przez uÅ¼ytkownika z prawidÅ‚owym ID sesji. To ustawienie zmniejszy ilosÄ‡ spamu i ograniczy moÅ¼liwoÅ›Ä‡ komentowania przez CSRF ale jednoczeÅ›nie uniemoÅ¼liwi komentowanie uÅ¼ytkownikom nie korzystajÄ…cym z ciastek (cookies) w ich przeglÄ…darkach.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CSRF_REASON', 'TwÃ³j komentarz nie posiadaÅ‚ numeru hash sesji. Komentarze mogÄ… byÄ‡ pozostawiane na tym blogu tylko gdy Twoja przeglÄ…darka ma wÅ‚Ä…czonÄ… obsÅ‚ugÄ™ ciasteczek (cookies)!');
 

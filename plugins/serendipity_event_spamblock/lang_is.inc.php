@@ -7,80 +7,80 @@
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
-@define('PLUGIN_EVENT_SPAMBLOCK_TITLE', 'Spammvörn');
-@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'Fjöldamargar leiðir til að hindra spamm í athugasemdir. This is the cores backbone of Anti-Spam measures. Do not remove!');
-@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY', 'Spammhindrun: Óleyfileg skilaboð.');
-@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_IP', 'Spammhindrun: Þú getur ekki sent inn athugasemd svona skömmu eftir fyrri athugasemd.');
-@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_RBL', 'Spammhindrun: IP tala tölvunnar sem þú ert að senda frá er skráð sem opinn póstþjónn.');
-@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_SURBL', 'Spammhindrun: Athugasemdin þín inniheldur slóð sem er skráð í SURBL lista.');
+@define('PLUGIN_EVENT_SPAMBLOCK_TITLE', 'SpammvÃ¶rn');
+@define('PLUGIN_EVENT_SPAMBLOCK_DESC', 'FjÃ¶ldamargar leiÃ°ir til aÃ° hindra spamm Ã­ athugasemdir. This is the cores backbone of Anti-Spam measures. Do not remove!');
+@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY', 'Spammhindrun: Ã“leyfileg skilaboÃ°.');
+@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_IP', 'Spammhindrun: ÃžÃº getur ekki sent inn athugasemd svona skÃ¶mmu eftir fyrri athugasemd.');
+@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_RBL', 'Spammhindrun: IP tala tÃ¶lvunnar sem Ã¾Ãº ert aÃ° senda frÃ¡ er skrÃ¡Ã° sem opinn pÃ³stÃ¾jÃ³nn.');
+@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_SURBL', 'Spammhindrun: Athugasemdin Ã¾Ã­n inniheldur slÃ³Ã° sem er skrÃ¡Ã° Ã­ SURBL lista.');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_KILLSWITCH', 'Þetta blogg er í "Neyðar-athugasemdalæsingu", vinsamlegast komdu aftur síðar');
-@define('PLUGIN_EVENT_SPAMBLOCK_BODYCLONE', 'Banna tvírit athugasemda');
-@define('PLUGIN_EVENT_SPAMBLOCK_BODYCLONE_DESC', 'Banna gestum að senda inn athugasemd sem er með sama innihald og áðursend athugasemd');
-@define('PLUGIN_EVENT_SPAMBLOCK_KILLSWITCH', 'Neyðar-athugasemdalæsing');
-@define('PLUGIN_EVENT_SPAMBLOCK_KILLSWITCH_DESC', 'Banna tímabundið athugasemdir fyrir allar færslur. Nytsamlegt ef bloggið þitt er undir spammárás.');
-@define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD', 'Tímabil IP tölu banna');
-@define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD_DESC', 'Leyfa IP tölu einungis að senda inn athugasemd á n mínútna fresti. Nytsamlegt til að hindra athugasemdaflóð.');
-@define('PLUGIN_EVENT_SPAMBLOCK_RBL', 'Synja athugasemdum frá RBL-skráðum netum');
-@define('PLUGIN_EVENT_SPAMBLOCK_RBL_DESC', 'Að virkja þetta mun láta kerfið neita athugasemdum frá netum sem eru skráð á RBL lista. Athugaðu að þetta getur haft áhrif á notendur proxy-þjóna eða innhringinotendur.');
-@define('PLUGIN_EVENT_SPAMBLOCK_SURBL', 'Neita athugasemdum sem innihalda SUBRL-skráð net');
-@define('PLUGIN_EVENT_SPAMBLOCK_SURBL_DESC', 'Neita athugasemdum sem innihalda SURBL-skráð net');
-@define('PLUGIN_EVENT_SPAMBLOCK_RBLLIST', 'Við hvaða RBL skal haft samband?');
-@define('PLUGIN_EVENT_SPAMBLOCK_RBLLIST_DESC', 'Synja athugasemdum byggt á RVL listum sem fengnir hafa verið. Forðast lista með breytileg (dynamic) net.');
+@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_KILLSWITCH', 'Ãžetta blogg er Ã­ "NeyÃ°ar-athugasemdalÃ¦singu", vinsamlegast komdu aftur sÃ­Ã°ar');
+@define('PLUGIN_EVENT_SPAMBLOCK_BODYCLONE', 'Banna tvÃ­rit athugasemda');
+@define('PLUGIN_EVENT_SPAMBLOCK_BODYCLONE_DESC', 'Banna gestum aÃ° senda inn athugasemd sem er meÃ° sama innihald og Ã¡Ã°ursend athugasemd');
+@define('PLUGIN_EVENT_SPAMBLOCK_KILLSWITCH', 'NeyÃ°ar-athugasemdalÃ¦sing');
+@define('PLUGIN_EVENT_SPAMBLOCK_KILLSWITCH_DESC', 'Banna tÃ­mabundiÃ° athugasemdir fyrir allar fÃ¦rslur. Nytsamlegt ef bloggiÃ° Ã¾itt er undir spammÃ¡rÃ¡s.');
+@define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD', 'TÃ­mabil IP tÃ¶lu banna');
+@define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD_DESC', 'Leyfa IP tÃ¶lu einungis aÃ° senda inn athugasemd Ã¡ n mÃ­nÃºtna fresti. Nytsamlegt til aÃ° hindra athugasemdaflÃ³Ã°.');
+@define('PLUGIN_EVENT_SPAMBLOCK_RBL', 'Synja athugasemdum frÃ¡ RBL-skrÃ¡Ã°um netum');
+@define('PLUGIN_EVENT_SPAMBLOCK_RBL_DESC', 'AÃ° virkja Ã¾etta mun lÃ¡ta kerfiÃ° neita athugasemdum frÃ¡ netum sem eru skrÃ¡Ã° Ã¡ RBL lista. AthugaÃ°u aÃ° Ã¾etta getur haft Ã¡hrif Ã¡ notendur proxy-Ã¾jÃ³na eÃ°a innhringinotendur.');
+@define('PLUGIN_EVENT_SPAMBLOCK_SURBL', 'Neita athugasemdum sem innihalda SUBRL-skrÃ¡Ã° net');
+@define('PLUGIN_EVENT_SPAMBLOCK_SURBL_DESC', 'Neita athugasemdum sem innihalda SURBL-skrÃ¡Ã° net');
+@define('PLUGIN_EVENT_SPAMBLOCK_RBLLIST', 'ViÃ° hvaÃ°a RBL skal haft samband?');
+@define('PLUGIN_EVENT_SPAMBLOCK_RBLLIST_DESC', 'Synja athugasemdum byggt Ã¡ RVL listum sem fengnir hafa veriÃ°. ForÃ°ast lista meÃ° breytileg (dynamic) net.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS', 'Virkja "Captchas"');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Neyðir notanda til að slá inn slembistreng sem sést í sértilbúinni mynd. Þetta mun hindra sjálfvirkar innsendingar á bloggið. Athugaðu þó að fólk með skerta sjón gæti átt erfitt með að þesa strenginn. To avoid having to use visible Captchas at all, try out the extending Spamblock Bee plugin.');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC', 'Til að hindra sjálfvirkar sendingar auglýsinga á bloggið, sláðu þá vinsamlegast inn strenginn á myndinni að neðan í viðkomandi reit. Athugasemdin þín verður einungis send ef strengurinn passar við myndina. Vinsamlegast gakktu úr skugga um að vafrinn þinn styðji og samþykki kökur, annars getur athugasemdin þín getur ekki verið sannprófuð á réttan hátt.');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2', 'Sláðu inn strenginn sem þú sérð hér í reitinn!');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3', 'Sláðu inn strenginn úr spammvarnarmyndinni að ofan: ');
-@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_CAPTCHAS', 'Þú slóst ekki inn strenginn sem var sýndur rétt. Vinsamlegast horfðu á myndina og sláðu inn gildin sem eru sýnd þar.');
-@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_NOTTF', '"Captchas" óvirk á þjóninum þínum. Þú þarft GDLib og freetype pakkana uppsetta fyrir PHP, og þarft að hafa .TTF skrárnar í möppunni þinni.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'NeyÃ°ir notanda til aÃ° slÃ¡ inn slembistreng sem sÃ©st Ã­ sÃ©rtilbÃºinni mynd. Ãžetta mun hindra sjÃ¡lfvirkar innsendingar Ã¡ bloggiÃ°. AthugaÃ°u Ã¾Ã³ aÃ° fÃ³lk meÃ° skerta sjÃ³n gÃ¦ti Ã¡tt erfitt meÃ° aÃ° Ã¾esa strenginn. To avoid having to use visible Captchas at all, try out the extending Spamblock Bee plugin.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC', 'Til aÃ° hindra sjÃ¡lfvirkar sendingar auglÃ½singa Ã¡ bloggiÃ°, slÃ¡Ã°u Ã¾Ã¡ vinsamlegast inn strenginn Ã¡ myndinni aÃ° neÃ°an Ã­ viÃ°komandi reit. Athugasemdin Ã¾Ã­n verÃ°ur einungis send ef strengurinn passar viÃ° myndina. Vinsamlegast gakktu Ãºr skugga um aÃ° vafrinn Ã¾inn styÃ°ji og samÃ¾ykki kÃ¶kur, annars getur athugasemdin Ã¾Ã­n getur ekki veriÃ° sannprÃ³fuÃ° Ã¡ rÃ©ttan hÃ¡tt.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2', 'SlÃ¡Ã°u inn strenginn sem Ã¾Ãº sÃ©rÃ° hÃ©r Ã­ reitinn!');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3', 'SlÃ¡Ã°u inn strenginn Ãºr spammvarnarmyndinni aÃ° ofan: ');
+@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_CAPTCHAS', 'ÃžÃº slÃ³st ekki inn strenginn sem var sÃ½ndur rÃ©tt. Vinsamlegast horfÃ°u Ã¡ myndina og slÃ¡Ã°u inn gildin sem eru sÃ½nd Ã¾ar.');
+@define('PLUGIN_EVENT_SPAMBLOCK_ERROR_NOTTF', '"Captchas" Ã³virk Ã¡ Ã¾jÃ³ninum Ã¾Ã­num. ÃžÃº Ã¾arft GDLib og freetype pakkana uppsetta fyrir PHP, og Ã¾arft aÃ° hafa .TTF skrÃ¡rnar Ã­ mÃ¶ppunni Ã¾inni.');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_TTL', 'Neyða "captchas" eftir hversu marga daga?');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_TTL_DESC', '"Captchas" geta verið sett inn eftir aldri færslanna. Sláðu inn þann fjölda daga sem þú vilt að líði áður en innsettning "captchas" er nauðsynleg. Ef stillt á 0 munu "captchas" alltaf vera notuð.');
-@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATION', 'Neyða yfirlestur athugasemda eftir hversu marga daga?');
-@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATION_DESC', 'Þú getur stillt kerfið þannig að allar athugasemdir þurfi samþykki. Sláðu inn þann aldur færsla í dögum sem þú vilt að þurfi yfirlestur til samþykkis. 0 þýðir að kerfið mun ekki sjálfkrafa biðja um samþykki þitt.');
-@define('PLUGIN_EVENT_SPAMBLOCK_LINKS_MODERATE', 'Hversu margir hlekkir áður en athugasemd þarf samþykki?');
-@define('PLUGIN_EVENT_SPAMBLOCK_LINKS_MODERATE_DESC', 'Þegar athugasemd nær ákveðnum fjölda hlekkja mun sú athugasemd vera send til yfirlesningar. 0 þýðir að engin hlekkjatalning fer fram.');
-@define('PLUGIN_EVENT_SPAMBLOCK_LINKS_REJECT', 'Hversu margir hlekkir áður en athugasemd er hafnað?');
-@define('PLUGIN_EVENT_SPAMBLOCK_LINKS_REJECT_DESC', 'Þegar athugasemd nær ákveðnum fjölda hlekkja mun þeirri athugasemd vera hafnaðd. 0 þýðir að engin hlekkjatalning far fram.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_TTL', 'NeyÃ°a "captchas" eftir hversu marga daga?');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_TTL_DESC', '"Captchas" geta veriÃ° sett inn eftir aldri fÃ¦rslanna. SlÃ¡Ã°u inn Ã¾ann fjÃ¶lda daga sem Ã¾Ãº vilt aÃ° lÃ­Ã°i Ã¡Ã°ur en innsettning "captchas" er nauÃ°synleg. Ef stillt Ã¡ 0 munu "captchas" alltaf vera notuÃ°.');
+@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATION', 'NeyÃ°a yfirlestur athugasemda eftir hversu marga daga?');
+@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATION_DESC', 'ÃžÃº getur stillt kerfiÃ° Ã¾annig aÃ° allar athugasemdir Ã¾urfi samÃ¾ykki. SlÃ¡Ã°u inn Ã¾ann aldur fÃ¦rsla Ã­ dÃ¶gum sem Ã¾Ãº vilt aÃ° Ã¾urfi yfirlestur til samÃ¾ykkis. 0 Ã¾Ã½Ã°ir aÃ° kerfiÃ° mun ekki sjÃ¡lfkrafa biÃ°ja um samÃ¾ykki Ã¾itt.');
+@define('PLUGIN_EVENT_SPAMBLOCK_LINKS_MODERATE', 'Hversu margir hlekkir Ã¡Ã°ur en athugasemd Ã¾arf samÃ¾ykki?');
+@define('PLUGIN_EVENT_SPAMBLOCK_LINKS_MODERATE_DESC', 'Ãžegar athugasemd nÃ¦r Ã¡kveÃ°num fjÃ¶lda hlekkja mun sÃº athugasemd vera send til yfirlesningar. 0 Ã¾Ã½Ã°ir aÃ° engin hlekkjatalning fer fram.');
+@define('PLUGIN_EVENT_SPAMBLOCK_LINKS_REJECT', 'Hversu margir hlekkir Ã¡Ã°ur en athugasemd er hafnaÃ°?');
+@define('PLUGIN_EVENT_SPAMBLOCK_LINKS_REJECT_DESC', 'Ãžegar athugasemd nÃ¦r Ã¡kveÃ°num fjÃ¶lda hlekkja mun Ã¾eirri athugasemd vera hafnaÃ°d. 0 Ã¾Ã½Ã°ir aÃ° engin hlekkjatalning far fram.');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_NOTICE_MODERATION', 'Vegna ákveðinna skilyrða var athugasemd þín send til yfirlesningar af eiganda bloggkerfisins áður en hún er birt.');
+@define('PLUGIN_EVENT_SPAMBLOCK_NOTICE_MODERATION', 'Vegna Ã¡kveÃ°inna skilyrÃ°a var athugasemd Ã¾Ã­n send til yfirlesningar af eiganda bloggkerfisins Ã¡Ã°ur en hÃºn er birt.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHA_COLOR', 'Litur bakgrunns "captcha"-sins');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHA_COLOR_DESC', 'Sláðu inn RGB gildi: 0,255,255');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHA_COLOR_DESC', 'SlÃ¡Ã°u inn RGB gildi: 0,255,255');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGFILE', 'Staðsetning atburðaskráar (logfile)');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGFILE_DESC', 'Upplýsingar um athugasemdir sem hafa verið sendar til yfirlesturs eða hafnað geta verið skráðar í atburðaskrá. Hafðu þennan streng tóman ef þú vilt hafa atburðaskráningu óvirka.');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGFILE', 'StaÃ°setning atburÃ°askrÃ¡ar (logfile)');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGFILE_DESC', 'UpplÃ½singar um athugasemdir sem hafa veriÃ° sendar til yfirlesturs eÃ°a hafnaÃ° geta veriÃ° skrÃ¡Ã°ar Ã­ atburÃ°askrÃ¡. HafÃ°u Ã¾ennan streng tÃ³man ef Ã¾Ãº vilt hafa atburÃ°askrÃ¡ningu Ã³virka.');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_REASON_KILLSWITCH', 'Neyðar-athugasemdalæsing');
-@define('PLUGIN_EVENT_SPAMBLOCK_REASON_BODYCLONE', 'Tvírit af athugasemd');
+@define('PLUGIN_EVENT_SPAMBLOCK_REASON_KILLSWITCH', 'NeyÃ°ar-athugasemdalÃ¦sing');
+@define('PLUGIN_EVENT_SPAMBLOCK_REASON_BODYCLONE', 'TvÃ­rit af athugasemd');
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_IPFLOOD', 'IP-synjun');
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_RBL', 'RBL-synjun');
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_SURBL', 'SURBL-synjun');
-@define('PLUGIN_EVENT_SPAMBLOCK_REASON_CAPTCHAS', 'Ógilt "captcha" (Fékk: %s, Bjóst við: %s)');
-@define('PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION', 'Sjálfvirk yfirlesningarbón eftir X daga');
+@define('PLUGIN_EVENT_SPAMBLOCK_REASON_CAPTCHAS', 'Ã“gilt "captcha" (FÃ©kk: %s, BjÃ³st viÃ°: %s)');
+@define('PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION', 'SjÃ¡lfvirk yfirlesningarbÃ³n eftir X daga');
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_LINKS_REJECT', 'Of margir hlekkir');
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_LINKS_MODERATE', 'Of margir hlekkir');
-@define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL', 'Fela netföng notenda sem skrá athugasemdir');
-@define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_DESC', 'Mun ekki sýna netföng notenda sem skrá athugasemdir');
-@define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE', 'Netföng munu ekki vera sýnd, og einungis notuð fyrir tilkynningar sendar í pósti');
+@define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL', 'Fela netfÃ¶ng notenda sem skrÃ¡ athugasemdir');
+@define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_DESC', 'Mun ekki sÃ½na netfÃ¶ng notenda sem skrÃ¡ athugasemdir');
+@define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE', 'NetfÃ¶ng munu ekki vera sÃ½nd, og einungis notuÃ° fyrir tilkynningar sendar Ã­ pÃ³sti');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE', 'Veldu tegund atburðaskráninga');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Atburðaskráning synjaðra athugasemda getur verið gerð í gagnagrunn eða venjulega textaskrá');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_FILE', 'Skrá (sjá "atburðaskrá" valmöguleika að neðan)');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE', 'Veldu tegund atburÃ°askrÃ¡ninga');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'AtburÃ°askrÃ¡ning synjaÃ°ra athugasemda getur veriÃ° gerÃ° Ã­ gagnagrunn eÃ°a venjulega textaskrÃ¡');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_FILE', 'SkrÃ¡ (sjÃ¡ "atburÃ°askrÃ¡" valmÃ¶guleika aÃ° neÃ°an)');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DB', 'Gagnagrunnur');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_NONE', 'Engin atburðaskráning');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_NONE', 'Engin atburÃ°askrÃ¡ning');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_API_COMMENTS', 'Hvernig skal meðhöndla athugasemdir skráðar gegnum API kerfi?');
-@define('PLUGIN_EVENT_SPAMBLOCK_API_COMMENTS_DESC', 'Þetta hefur áhrif á tegund samþykkis sem þörf er á vegna athugasemda sendra í gegnum API tengingar (Tilvísanir, WFW:commentAPI athugasemdir). Ef stillt á "yfirlestur" munu allar þessar athugasemdir þurfa samþykki fyrir birtingu. Ef stillt á "synja" munu slíkar athugasemdir vera algjörlega bannaðar. Ef stillt á "ekkert" munu athugasemdirnar vera meðhöndlaðar eins og venjulegar athugasemdir.');
+@define('PLUGIN_EVENT_SPAMBLOCK_API_COMMENTS', 'Hvernig skal meÃ°hÃ¶ndla athugasemdir skrÃ¡Ã°ar gegnum API kerfi?');
+@define('PLUGIN_EVENT_SPAMBLOCK_API_COMMENTS_DESC', 'Ãžetta hefur Ã¡hrif Ã¡ tegund samÃ¾ykkis sem Ã¾Ã¶rf er Ã¡ vegna athugasemda sendra Ã­ gegnum API tengingar (TilvÃ­sanir, WFW:commentAPI athugasemdir). Ef stillt Ã¡ "yfirlestur" munu allar Ã¾essar athugasemdir Ã¾urfa samÃ¾ykki fyrir birtingu. Ef stillt Ã¡ "synja" munu slÃ­kar athugasemdir vera algjÃ¶rlega bannaÃ°ar. Ef stillt Ã¡ "ekkert" munu athugasemdirnar vera meÃ°hÃ¶ndlaÃ°ar eins og venjulegar athugasemdir.');
 @define('PLUGIN_EVENT_SPAMBLOCK_API_MODERATE', 'yfirlestur');
 @define('PLUGIN_EVENT_SPAMBLOCK_API_REJECT', 'synja');
-@define('PLUGIN_EVENT_SPAMBLOCK_REASON_API', 'Engar API athugasemdir (eins og tilvísanir) leyfðar');
+@define('PLUGIN_EVENT_SPAMBLOCK_REASON_API', 'Engar API athugasemdir (eins og tilvÃ­sanir) leyfÃ°ar');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_ACTIVATE', 'Virkja orðasíu');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_ACTIVATE_DESC', 'Leitar að ákveðnum strengjum í athugasemdum og merkir þær sem spamm.');
+@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_ACTIVATE', 'Virkja orÃ°asÃ­u');
+@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_ACTIVATE_DESC', 'Leitar aÃ° Ã¡kveÃ°num strengjum Ã­ athugasemdum og merkir Ã¾Ã¦r sem spamm.');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_URLS', 'Orðasía fyrir hlekki');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_URLS_DESC', 'Regular Expressions leyfð. Strengir aðskildir með semíkommu (;).');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_AUTHORS', 'Orðasía fyrir höfundanöfn');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_AUTHORS_DESC', 'Regular Expressions leyfð. Strengir aðskildir með semíkommu (;).');
+@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_URLS', 'OrÃ°asÃ­a fyrir hlekki');
+@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_URLS_DESC', 'Regular Expressions leyfÃ°. Strengir aÃ°skildir meÃ° semÃ­kommu (;).');
+@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_AUTHORS', 'OrÃ°asÃ­a fyrir hÃ¶fundanÃ¶fn');
+@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_AUTHORS_DESC', 'Regular Expressions leyfÃ°. Strengir aÃ°skildir meÃ° semÃ­kommu (;).');
 
