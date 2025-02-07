@@ -15,8 +15,8 @@
 
 @define('PLUGIN_EVENT_XHTMLCLEANUP_NAME', 'Correction des erreurs courantes XHTML');
 @define('PLUGIN_EVENT_XHTMLCLEANUP_DESC', 'Permet de corriger automatiquement une bonne partie des erreurs courantes en XHTML.');
-@define('PLUGIN_EVENT_XHTMLCLEANUP_XHTML', 'Encoder les donnÈes XML?');
-@define('PLUGIN_EVENT_XHTMLCLEANUP_XHTML_DESC', 'Ce plugin utilise une mÈthode d\'analyse basÈe sur le XML pour valider le XHTML de votre blog. Il se peut que cette analyse peut convertisse des caractËres dÈj‡ valides une seconde fois. DÈsactivez cette option si c\'est le cas dans votre blog.');
-@define('PLUGIN_EVENT_XHTMLCLEANUP_UTF8', 'Nettoyer les entitÈs UTF-8?');
-@define('PLUGIN_EVENT_XHTMLCLEANUP_UTF8_DESC', 'Si cette option est activÈe, les entitÈs HTML dÈrivÈes des caractËres UTF-8 seront correctement converties.');
+@define('PLUGIN_EVENT_XHTMLCLEANUP_XHTML', 'Encoder les donn√©es XML?');
+@define('PLUGIN_EVENT_XHTMLCLEANUP_XHTML_DESC', 'Ce plugin utilise une m√©thode d\'analyse bas√©e sur le XML pour valider le XHTML de votre blog. Il se peut que cette analyse peut convertisse des caract√®res d√©j√† valides une seconde fois. D√©sactivez cette option si c\'est le cas dans votre blog.');
+@define('PLUGIN_EVENT_XHTMLCLEANUP_UTF8', 'Nettoyer les entit√©s UTF-8?');
+@define('PLUGIN_EVENT_XHTMLCLEANUP_UTF8_DESC', 'Si cette option est activ√©e, les entit√©s HTML d√©riv√©es des caract√®res UTF-8 seront correctement converties.');
 

@@ -2,20 +2,20 @@
 
 /**
  *  @version 1381.1
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  EN-Revision: Revision of lang_en.inc.php
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2009/05/06
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2009/08/15
  */
 
-@define('PLUGIN_EVENT_XHTMLCLEANUP_NAME', 'Oprava nejèastìj¹ích XHTML chyb');
-@define('PLUGIN_EVENT_XHTMLCLEANUP_DESC', 'Plugin opravuje nejbì¾nìj¹í chyby XHTML jazyka. Pomáhá tak udr¾et vıslednı kód XHTML kompatibilní podle standardù.');
-@define('PLUGIN_EVENT_XHTMLCLEANUP_XHTML', 'Kódovat zpracovaná XML data?');
-@define('PLUGIN_EVENT_XHTMLCLEANUP_XHTML_DESC', 'Tento plugin pou¾ívá XML parsování pro zaji¹tìní validity XHTML kódu. Toto parsování mù¾e zpùsobit, ¾e budou validní entity (znaky) pøevedeny na "unsescaped" entity (XHTML kódy). Proto plugin v¹echny entity znovu kóduje po zpracování textu. Vypnìte tuto volbu, pokud pozorujete dvojité rekódování!');
-@define('PLUGIN_EVENT_XHTMLCLEANUP_UTF8', 'Èi¹tìní UTF-8 znakù?');
-@define('PLUGIN_EVENT_XHTMLCLEANUP_UTF8_DESC', 'Pokud je zapnuto, HTML entity zpùsobené pøevedením znakù v kódování Unicode UTF-8 budou správnì pøevedeny nazpìt na znaky UTF-8 a nebudou zakódovány do podivnıch znakù v zobrazení stránky.');
-@define('PLUGIN_EVENT_XHTMLCLEANUP_YOUTUBE', 'Vyèistit kód videí z youtube?');
-@define('PLUGIN_EVENT_XHTMLCLEANUP_YOUTUBE_DESC', 'Pokud je zapnuto, pak jsou invalidní XHTML tagy generované youtube vyøezány z embed èásti. Prohlíèeè pøes toto vyøezání zobrazí video správnì.');
+@define('PLUGIN_EVENT_XHTMLCLEANUP_NAME', 'Oprava nejÄastÄ›jÅ¡Ã­ch XHTML chyb');
+@define('PLUGIN_EVENT_XHTMLCLEANUP_DESC', 'Plugin opravuje nejbÄ›Å¾nÄ›jÅ¡Ã­ chyby XHTML jazyka. PomÃ¡hÃ¡ tak udrÅ¾et vÃ½slednÃ½ kÃ³d XHTML kompatibilnÃ­ podle standardÅ¯.');
+@define('PLUGIN_EVENT_XHTMLCLEANUP_XHTML', 'KÃ³dovat zpracovanÃ¡ XML data?');
+@define('PLUGIN_EVENT_XHTMLCLEANUP_XHTML_DESC', 'Tento plugin pouÅ¾Ã­vÃ¡ XML parsovÃ¡nÃ­ pro zajiÅ¡tÄ›nÃ­ validity XHTML kÃ³du. Toto parsovÃ¡nÃ­ mÅ¯Å¾e zpÅ¯sobit, Å¾e budou validnÃ­ entity (znaky) pÅ™evedeny na "unsescaped" entity (XHTML kÃ³dy). Proto plugin vÅ¡echny entity znovu kÃ³duje po zpracovÃ¡nÃ­ textu. VypnÄ›te tuto volbu, pokud pozorujete dvojitÃ© rekÃ³dovÃ¡nÃ­!');
+@define('PLUGIN_EVENT_XHTMLCLEANUP_UTF8', 'ÄŒiÅ¡tÄ›nÃ­ UTF-8 znakÅ¯?');
+@define('PLUGIN_EVENT_XHTMLCLEANUP_UTF8_DESC', 'Pokud je zapnuto, HTML entity zpÅ¯sobenÃ© pÅ™evedenÃ­m znakÅ¯ v kÃ³dovÃ¡nÃ­ Unicode UTF-8 budou sprÃ¡vnÄ› pÅ™evedeny nazpÄ›t na znaky UTF-8 a nebudou zakÃ³dovÃ¡ny do podivnÃ½ch znakÅ¯ v zobrazenÃ­ strÃ¡nky.');
+@define('PLUGIN_EVENT_XHTMLCLEANUP_YOUTUBE', 'VyÄistit kÃ³d videÃ­ z youtube?');
+@define('PLUGIN_EVENT_XHTMLCLEANUP_YOUTUBE_DESC', 'Pokud je zapnuto, pak jsou invalidnÃ­ XHTML tagy generovanÃ© youtube vyÅ™ezÃ¡ny z embed ÄÃ¡sti. ProhlÃ­ÄeÄ pÅ™es toto vyÅ™ezÃ¡nÃ­ zobrazÃ­ video sprÃ¡vnÄ›.');
 
