@@ -8,21 +8,21 @@
 # http://www.jannis.to/programming/serendipity.html                      #
 #                                                                        #
 # Translated by                                                          #
-# João P. Matos <jmatos@math.ist.utl.pt>                                 #
+# JoÃ£o P. Matos <jmatos@math.ist.utl.pt>                                 #
 #                                                                        #
 ##########################################################################
 
-@define('PLUGIN_ENTRYLINKS_NAME', 'Ligações da entrada');
-@define('PLUGIN_ENTRYLINKS_BLAHBLAH', 'Mostra todas as ligações referenciadas numa entrada');
+@define('PLUGIN_ENTRYLINKS_NAME', 'LigaÃ§Ãµes da entrada');
+@define('PLUGIN_ENTRYLINKS_BLAHBLAH', 'Mostra todas as ligaÃ§Ãµes referenciadas numa entrada');
 @define('PLUGIN_ENTRYLINKS_NEWWIN', 'Abrir numa nova janela?');
-@define('PLUGIN_ENTRYLINKS_NEWWIN_BLAHBLAH', 'Devem as ligações abrir numa nova janela? (Por omissão: janela corrente.');
-@define('PLUGIN_ENTRYLINKS_REFERERS', 'Ligações referentes');
+@define('PLUGIN_ENTRYLINKS_NEWWIN_BLAHBLAH', 'Devem as ligaÃ§Ãµes abrir numa nova janela? (Por omissÃ£o: janela corrente.');
+@define('PLUGIN_ENTRYLINKS_REFERERS', 'LigaÃ§Ãµes referentes');
 @define('PLUGIN_ENTRYLINKS_WORDWRAP', 'Dobras de linhas');
-@define('PLUGIN_ENTRYLINKS_WORDWRAP_BLAHBLAH', 'Quantas palavras até uma dobra de linha? Valor por omissão: 30');
-@define('PLUGIN_ENTRYLINKS_MAXREF', 'Número máximo de ligações referentes');
-@define('PLUGIN_ENTRYLINKS_MAXREF_BLAHBLAH', 'Quantas ligações referentes devem ser mostradas? Valor por omissão: 15');
-@define('PLUGIN_ENTRYLINKS_ORDERBY', 'Ordem das ligações');
-@define('PLUGIN_ENTRYLINKS_ORDERBY_BLAHBLAH', 'Qual critério a usar para classificar as ligações? Par omissão: o número de ligações.');
+@define('PLUGIN_ENTRYLINKS_WORDWRAP_BLAHBLAH', 'Quantas palavras atÃ© uma dobra de linha? Valor por omissÃ£o: 30');
+@define('PLUGIN_ENTRYLINKS_MAXREF', 'NÃºmero mÃ¡ximo de ligaÃ§Ãµes referentes');
+@define('PLUGIN_ENTRYLINKS_MAXREF_BLAHBLAH', 'Quantas ligaÃ§Ãµes referentes devem ser mostradas? Valor por omissÃ£o: 15');
+@define('PLUGIN_ENTRYLINKS_ORDERBY', 'Ordem das ligaÃ§Ãµes');
+@define('PLUGIN_ENTRYLINKS_ORDERBY_BLAHBLAH', 'Qual critÃ©rio a usar para classificar as ligaÃ§Ãµes? Par omissÃ£o: o nÃºmero de ligaÃ§Ãµes.');
 @define('PLUGIN_ENTRYLINKS_ORDERBY_DAY', 'Por data');
-@define('PLUGIN_ENTRYLINKS_ORDERBY_FULLCOUNT', 'Por número de ligações');
+@define('PLUGIN_ENTRYLINKS_ORDERBY_FULLCOUNT', 'Por nÃºmero de ligaÃ§Ãµes');
 

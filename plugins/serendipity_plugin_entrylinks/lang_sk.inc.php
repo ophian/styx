@@ -1,22 +1,22 @@
 <?php
 
 /**
- *  @author Martin Matuπka <martin@matuska.org>
+ *  @author Martin Matu≈°ka <martin@matuska.org>
  *  EN-Revision: Revision of lang_en.inc.php
  *  Translated on 2010/08/17
  */
 
-@define('PLUGIN_ENTRYLINKS_NAME',               'Odkazy z Ël·nkov');
-@define('PLUGIN_ENTRYLINKS_BLAHBLAH',           'Zobraziª v samostatnom bloku odkazy z Ël·nkov.');
-@define('PLUGIN_ENTRYLINKS_NEWWIN',             'Otv·raª odkazy v novom okne?');
-@define('PLUGIN_ENTRYLINKS_NEWWIN_BLAHBLAH',    'Maj˙ sa odkazy otv·raª v novom okne? (PrednastavenÈ: NIE)');
+@define('PLUGIN_ENTRYLINKS_NAME',               'Odkazy z ƒçl√°nkov');
+@define('PLUGIN_ENTRYLINKS_BLAHBLAH',           'Zobrazi≈• v samostatnom bloku odkazy z ƒçl√°nkov.');
+@define('PLUGIN_ENTRYLINKS_NEWWIN',             'Otv√°ra≈• odkazy v novom okne?');
+@define('PLUGIN_ENTRYLINKS_NEWWIN_BLAHBLAH',    'Maj√∫ sa odkazy otv√°ra≈• v novom okne? (Prednastaven√©: NIE)');
 @define('PLUGIN_ENTRYLINKS_REFERERS',           'Odkazy');
 @define('PLUGIN_ENTRYLINKS_WORDWRAP',           'Zalamovanie textu');
-@define('PLUGIN_ENTRYLINKS_WORDWRAP_BLAHBLAH',  'Po koµko znakoch m· byª vloæenÈ zalomenie textu (aby dlhÈ odkazy nenaªahovali boËn˝ stÂpec)? (PrednastavenÈ: 30)');
-@define('PLUGIN_ENTRYLINKS_MAXREF',             'Maxim·lny poËet odkazov');
-@define('PLUGIN_ENTRYLINKS_MAXREF_BLAHBLAH',    'Koµko odkazov m· b˝t maxim·lne zobrazen˝ch? (PrednastavenÈ: 15)');
+@define('PLUGIN_ENTRYLINKS_WORDWRAP_BLAHBLAH',  'Po koƒæko znakoch m√° by≈• vlo≈æen√© zalomenie textu (aby dlh√© odkazy nena≈•ahovali boƒçn√Ω stƒ∫pec)? (Prednastaven√©: 30)');
+@define('PLUGIN_ENTRYLINKS_MAXREF',             'Maxim√°lny poƒçet odkazov');
+@define('PLUGIN_ENTRYLINKS_MAXREF_BLAHBLAH',    'Koƒæko odkazov m√° b√Ωt maxim√°lne zobrazen√Ωch? (Prednastaven√©: 15)');
 @define('PLUGIN_ENTRYLINKS_ORDERBY',            'Poradie odkazov');
-@define('PLUGIN_ENTRYLINKS_ORDERBY_BLAHBLAH',   'Podµa Ëoho maj˙ byª odkazy zoaÔovanÈ? (PrednastavenÈ: Poradie v texte)');
-@define('PLUGIN_ENTRYLINKS_ORDERBY_DAY',        'D·tum');
+@define('PLUGIN_ENTRYLINKS_ORDERBY_BLAHBLAH',   'Podƒæa ƒçoho maj√∫ by≈• odkazy zoaƒèovan√©? (Prednastaven√©: Poradie v texte)');
+@define('PLUGIN_ENTRYLINKS_ORDERBY_DAY',        'D√°tum');
 @define('PLUGIN_ENTRYLINKS_ORDERBY_FULLCOUNT',  'Poradie v texte');
 

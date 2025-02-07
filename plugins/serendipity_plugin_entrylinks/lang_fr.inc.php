@@ -15,15 +15,15 @@
 
 @define('PLUGIN_ENTRYLINKS_NAME', 'Liens du billet');
 @define('PLUGIN_ENTRYLINKS_BLAHBLAH', 'Affiche tous les liens contenus dans un billet');
-@define('PLUGIN_ENTRYLINKS_NEWWIN', 'Ouvrir dans une nouvelle fenêtre?');
-@define('PLUGIN_ENTRYLINKS_NEWWIN_BLAHBLAH', 'Si activée, cette option va faire que les liens s\'ouvriront dans une nouvelle fenêtre de navigateur. Par défaut, les liens s\'ouvrent dans la fenêtre actuelle.');
-@define('PLUGIN_ENTRYLINKS_REFERERS', 'Liens référants');
-@define('PLUGIN_ENTRYLINKS_WORDWRAP', 'Retour à la ligne');
-@define('PLUGIN_ENTRYLINKS_WORDWRAP_BLAHBLAH', 'Définit le nombre de mots à afficher avant un retour à la ligne. Valeur par défaut: 30');
-@define('PLUGIN_ENTRYLINKS_MAXREF', 'Nombre max. de liens référants');
-@define('PLUGIN_ENTRYLINKS_MAXREF_BLAHBLAH', 'Définit le nombre maximum de liens référants à afficher. Valeur par défaut: 15');
+@define('PLUGIN_ENTRYLINKS_NEWWIN', 'Ouvrir dans une nouvelle fenÃªtre?');
+@define('PLUGIN_ENTRYLINKS_NEWWIN_BLAHBLAH', 'Si activÃ©e, cette option va faire que les liens s\'ouvriront dans une nouvelle fenÃªtre de navigateur. Par dÃ©faut, les liens s\'ouvrent dans la fenÃªtre actuelle.');
+@define('PLUGIN_ENTRYLINKS_REFERERS', 'Liens rÃ©fÃ©rants');
+@define('PLUGIN_ENTRYLINKS_WORDWRAP', 'Retour Ã  la ligne');
+@define('PLUGIN_ENTRYLINKS_WORDWRAP_BLAHBLAH', 'DÃ©finit le nombre de mots Ã  afficher avant un retour Ã  la ligne. Valeur par dÃ©faut: 30');
+@define('PLUGIN_ENTRYLINKS_MAXREF', 'Nombre max. de liens rÃ©fÃ©rants');
+@define('PLUGIN_ENTRYLINKS_MAXREF_BLAHBLAH', 'DÃ©finit le nombre maximum de liens rÃ©fÃ©rants Ã  afficher. Valeur par dÃ©faut: 15');
 @define('PLUGIN_ENTRYLINKS_ORDERBY', 'Ordre des liens');
-@define('PLUGIN_ENTRYLINKS_ORDERBY_BLAHBLAH', 'D\'après quel critère les liens doivent-ils être classés? Par défaut: le nombre de liens.');
+@define('PLUGIN_ENTRYLINKS_ORDERBY_BLAHBLAH', 'D\'aprÃ¨s quel critÃ¨re les liens doivent-ils Ãªtre classÃ©s? Par dÃ©faut: le nombre de liens.');
 @define('PLUGIN_ENTRYLINKS_ORDERBY_DAY', 'Par date');
 @define('PLUGIN_ENTRYLINKS_ORDERBY_FULLCOUNT', 'Par nombre de liens');
 

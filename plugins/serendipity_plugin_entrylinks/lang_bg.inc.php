@@ -5,16 +5,16 @@
  *  @author Ivan Cenov jwalker@hotmail.bg
  */
 
-@define('PLUGIN_ENTRYLINKS_NAME', 'Връзките в постинга');
-@define('PLUGIN_ENTRYLINKS_BLAHBLAH', 'Показва връзките, намиращи в даден постинг');
-@define('PLUGIN_ENTRYLINKS_NEWWIN', 'Отваряне на връзките в нов прозорец?');
-@define('PLUGIN_ENTRYLINKS_NEWWIN_BLAHBLAH', 'Дали връзките да се отварят в нов прозорец? (по подразбиране: не)');
-@define('PLUGIN_ENTRYLINKS_REFERERS', 'Референтни връзки');
-@define('PLUGIN_ENTRYLINKS_WORDWRAP', 'Преминаване на нов ред (Wordwrap)');
-@define('PLUGIN_ENTRYLINKS_WORDWRAP_BLAHBLAH', 'Минимум брой думи преди да е възможно преминаване на нов ред (по подразбиране: 30)');
-@define('PLUGIN_ENTRYLINKS_MAXREF', 'Максимум референтни връзки');
-@define('PLUGIN_ENTRYLINKS_MAXREF_BLAHBLAH', 'Колко референтни връзки да се показват на екрана (по подразбиране: 15)');
-@define('PLUGIN_ENTRYLINKS_ORDERBY', 'Подреждане на референтните връзки');
-@define('PLUGIN_ENTRYLINKS_ORDERBY_BLAHBLAH', 'В какъв ред референтните връзки да бъдат подредени (по подразбиране: брой на връзките)');
-@define('PLUGIN_ENTRYLINKS_ORDERBY_DAY', 'Дата');
-@define('PLUGIN_ENTRYLINKS_ORDERBY_FULLCOUNT', 'Брой на връзките');
+@define('PLUGIN_ENTRYLINKS_NAME', 'Р’СЂСЉР·РєРёС‚Рµ РІ РїРѕСЃС‚РёРЅРіР°');
+@define('PLUGIN_ENTRYLINKS_BLAHBLAH', 'РџРѕРєР°Р·РІР° РІСЂСЉР·РєРёС‚Рµ, РЅР°РјРёСЂР°С‰Рё РІ РґР°РґРµРЅ РїРѕСЃС‚РёРЅРі');
+@define('PLUGIN_ENTRYLINKS_NEWWIN', 'РћС‚РІР°СЂСЏРЅРµ РЅР° РІСЂСЉР·РєРёС‚Рµ РІ РЅРѕРІ РїСЂРѕР·РѕСЂРµС†?');
+@define('PLUGIN_ENTRYLINKS_NEWWIN_BLAHBLAH', 'Р”Р°Р»Рё РІСЂСЉР·РєРёС‚Рµ РґР° СЃРµ РѕС‚РІР°СЂСЏС‚ РІ РЅРѕРІ РїСЂРѕР·РѕСЂРµС†? (РїРѕ РїРѕРґСЂР°Р·Р±РёСЂР°РЅРµ: РЅРµ)');
+@define('PLUGIN_ENTRYLINKS_REFERERS', 'Р РµС„РµСЂРµРЅС‚РЅРё РІСЂСЉР·РєРё');
+@define('PLUGIN_ENTRYLINKS_WORDWRAP', 'РџСЂРµРјРёРЅР°РІР°РЅРµ РЅР° РЅРѕРІ СЂРµРґ (Wordwrap)');
+@define('PLUGIN_ENTRYLINKS_WORDWRAP_BLAHBLAH', 'РњРёРЅРёРјСѓРј Р±СЂРѕР№ РґСѓРјРё РїСЂРµРґРё РґР° Рµ РІСЉР·РјРѕР¶РЅРѕ РїСЂРµРјРёРЅР°РІР°РЅРµ РЅР° РЅРѕРІ СЂРµРґ (РїРѕ РїРѕРґСЂР°Р·Р±РёСЂР°РЅРµ: 30)');
+@define('PLUGIN_ENTRYLINKS_MAXREF', 'РњР°РєСЃРёРјСѓРј СЂРµС„РµСЂРµРЅС‚РЅРё РІСЂСЉР·РєРё');
+@define('PLUGIN_ENTRYLINKS_MAXREF_BLAHBLAH', 'РљРѕР»РєРѕ СЂРµС„РµСЂРµРЅС‚РЅРё РІСЂСЉР·РєРё РґР° СЃРµ РїРѕРєР°Р·РІР°С‚ РЅР° РµРєСЂР°РЅР° (РїРѕ РїРѕРґСЂР°Р·Р±РёСЂР°РЅРµ: 15)');
+@define('PLUGIN_ENTRYLINKS_ORDERBY', 'РџРѕРґСЂРµР¶РґР°РЅРµ РЅР° СЂРµС„РµСЂРµРЅС‚РЅРёС‚Рµ РІСЂСЉР·РєРё');
+@define('PLUGIN_ENTRYLINKS_ORDERBY_BLAHBLAH', 'Р’ РєР°РєСЉРІ СЂРµРґ СЂРµС„РµСЂРµРЅС‚РЅРёС‚Рµ РІСЂСЉР·РєРё РґР° Р±СЉРґР°С‚ РїРѕРґСЂРµРґРµРЅРё (РїРѕ РїРѕРґСЂР°Р·Р±РёСЂР°РЅРµ: Р±СЂРѕР№ РЅР° РІСЂСЉР·РєРёС‚Рµ)');
+@define('PLUGIN_ENTRYLINKS_ORDERBY_DAY', 'Р”Р°С‚Р°');
+@define('PLUGIN_ENTRYLINKS_ORDERBY_FULLCOUNT', 'Р‘СЂРѕР№ РЅР° РІСЂСЉР·РєРёС‚Рµ');

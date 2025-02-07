@@ -8,11 +8,11 @@
 
 @define('PLUGIN_ENTRYLINKS_NAME', 'Links i artikel');
 @define('PLUGIN_ENTRYLINKS_BLAHBLAH', 'Vis alle anvendte links i en artikel');
-@define('PLUGIN_ENTRYLINKS_NEWWIN', 'Åben links i nyt vindue?');
-@define('PLUGIN_ENTRYLINKS_NEWWIN_BLAHBLAH', 'Skal links åbnes i et nye vindue? (Standard: samme vindue)');
+@define('PLUGIN_ENTRYLINKS_NEWWIN', 'Ã…ben links i nyt vindue?');
+@define('PLUGIN_ENTRYLINKS_NEWWIN_BLAHBLAH', 'Skal links Ã¥bnes i et nye vindue? (Standard: samme vindue)');
 @define('PLUGIN_ENTRYLINKS_REFERERS', 'Refererende links');
 @define('PLUGIN_ENTRYLINKS_WORDWRAP', 'Ombrydning');
-@define('PLUGIN_ENTRYLINKS_WORDWRAP_BLAHBLAH', 'Hvor mange ord før ombrydning? (Standard: 30)');
+@define('PLUGIN_ENTRYLINKS_WORDWRAP_BLAHBLAH', 'Hvor mange ord fÃ¸r ombrydning? (Standard: 30)');
 @define('PLUGIN_ENTRYLINKS_MAXREF', 'Maksimalt antal refererende links');
 @define('PLUGIN_ENTRYLINKS_MAXREF_BLAHBLAH', 'Hvor mange refererende links skal vises? (Standard: 15)');
 @define('PLUGIN_ENTRYLINKS_ORDERBY', 'Sortering af refererende links');

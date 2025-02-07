@@ -2,22 +2,22 @@
 
 /**
  *  @version $Revision: 1381 $
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  EN-Revision: Revision of lang_en.inc.php
  *  Translated on 2007/11/23
  */
 
-@define('PLUGIN_ENTRYLINKS_NAME',               'Odkazy z pøíspìvku');
-@define('PLUGIN_ENTRYLINKS_BLAHBLAH',           'Zobrazí v samostatném bloku v¹echny odkazy z pøíspìvku.');
-@define('PLUGIN_ENTRYLINKS_NEWWIN',             'Otevøít odkazy v novém oknì?');
-@define('PLUGIN_ENTRYLINKS_NEWWIN_BLAHBLAH',    'Mají bıt odkazy otvírány v novém oknì? (Standardnì: NE)');
+@define('PLUGIN_ENTRYLINKS_NAME',               'Odkazy z pÅ™Ã­spÄ›vku');
+@define('PLUGIN_ENTRYLINKS_BLAHBLAH',           'ZobrazÃ­ v samostatnÃ©m bloku vÅ¡echny odkazy z pÅ™Ã­spÄ›vku.');
+@define('PLUGIN_ENTRYLINKS_NEWWIN',             'OtevÅ™Ã­t odkazy v novÃ©m oknÄ›?');
+@define('PLUGIN_ENTRYLINKS_NEWWIN_BLAHBLAH',    'MajÃ­ bÃ½t odkazy otvÃ­rÃ¡ny v novÃ©m oknÄ›? (StandardnÄ›: NE)');
 @define('PLUGIN_ENTRYLINKS_REFERERS',           'Odkazy');
-@define('PLUGIN_ENTRYLINKS_WORDWRAP',           'Zalamování textu');
-@define('PLUGIN_ENTRYLINKS_WORDWRAP_BLAHBLAH',  'Po kolika znacích má bıt vlo¾eno zalomení textu (aby dlouhé odkazy nenatahovaly postranní sloupec)? (Standardnì: 30)');
-@define('PLUGIN_ENTRYLINKS_MAXREF',             'Maximální poèet odkazù');
-@define('PLUGIN_ENTRYLINKS_MAXREF_BLAHBLAH',    'Kolik odkazù má bıt nanejvı¹ zobrazeno? (Standardnì: 15)');
-@define('PLUGIN_ENTRYLINKS_ORDERBY',            'Poøadí odkazù');
-@define('PLUGIN_ENTRYLINKS_ORDERBY_BLAHBLAH',   'Podle èeho mají bıt odkazy øazené? (Standardnì: Poøadí v textu)');
+@define('PLUGIN_ENTRYLINKS_WORDWRAP',           'ZalamovÃ¡nÃ­ textu');
+@define('PLUGIN_ENTRYLINKS_WORDWRAP_BLAHBLAH',  'Po kolika znacÃ­ch mÃ¡ bÃ½t vloÅ¾eno zalomenÃ­ textu (aby dlouhÃ© odkazy nenatahovaly postrannÃ­ sloupec)? (StandardnÄ›: 30)');
+@define('PLUGIN_ENTRYLINKS_MAXREF',             'MaximÃ¡lnÃ­ poÄet odkazÅ¯');
+@define('PLUGIN_ENTRYLINKS_MAXREF_BLAHBLAH',    'Kolik odkazÅ¯ mÃ¡ bÃ½t nanejvÃ½Å¡ zobrazeno? (StandardnÄ›: 15)');
+@define('PLUGIN_ENTRYLINKS_ORDERBY',            'PoÅ™adÃ­ odkazÅ¯');
+@define('PLUGIN_ENTRYLINKS_ORDERBY_BLAHBLAH',   'Podle Äeho majÃ­ bÃ½t odkazy Å™azenÃ©? (StandardnÄ›: PoÅ™adÃ­ v textu)');
 @define('PLUGIN_ENTRYLINKS_ORDERBY_DAY',        'Datum');
-@define('PLUGIN_ENTRYLINKS_ORDERBY_FULLCOUNT',  'Poøadí v textu');
+@define('PLUGIN_ENTRYLINKS_ORDERBY_FULLCOUNT',  'PoÅ™adÃ­ v textu');
 
