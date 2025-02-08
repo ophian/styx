@@ -452,7 +452,7 @@
 @define('USERCONF_CAT_PERSONAL', 'Your personal details');
 @define('USERCONF_CAT_PERSONAL_DESC', 'Change your personal details');
 @define('USERCONF_USERNAME', 'Your username');
-@define('USERCONF_USERNAME_DESC', 'The username you use to log in to the Blog');
+@define('USERCONF_USERNAME_DESC', 'The username you use to log in to the Blog. Better make it different to the public real name.');
 @define('USERCONF_PASSWORD', 'Your password');
 @define('USERCONF_PASSWORD_DESC', 'The password you wish to use to log in to the Blog');
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
@@ -704,7 +704,7 @@
 @define('CONVERT_HTMLENTITIES', 'Try to auto-convert to/from HTML entities? Check your DB import data first. (Mostly "No", if both use UTF-8.)');
 @define('EMPTY_SETTING', 'You did not specify a valid value for "%s"!');
 @define('USERCONF_REALNAME', 'Real name');
-@define('USERCONF_REALNAME_DESC', 'The full name of the author. This is the name seen by readers');
+@define('USERCONF_REALNAME_DESC', 'The public name of the author. This is the name seen by readers.');
 @define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.');
 @define('ENTER_MEDIA_URL_METHOD', 'Fetch method:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Note: If you choose to hotlink to server, make sure you have permission to hotlink to the designated website, or the website is yours. Hotlink allows you to use off-site images without storing them locally.');
