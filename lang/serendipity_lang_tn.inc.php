@@ -634,8 +634,8 @@ $i18n_unknown = 'tw';
 @define('ACTUAL', '實際');
 @define('PHPINI_CONFIGURATION', 'php.ini 設定');
 @define('PHP_INSTALLATION', 'PHP 安裝');
-@define('THEY_DO', 'they do'); // translate
-@define('THEY_DONT', 'they don\'t'); // Translate
+@define('THEY_DO', 'they do');
+@define('THEY_DONT', 'they don\'t');
 @define('SIMPLE_INSTALLATION', '快速安裝');
 @define('EXPERT_INSTALLATION', '進階安裝');
 @define('COMPLETE_INSTALLATION', '完整安裝');
@@ -709,7 +709,7 @@ $i18n_unknown = 'tw';
 @define('EMPTY_SETTING', '您沒有提供 "%s" 的正確值!');
 @define('USERCONF_REALNAME', '全名');
 @define('USERCONF_REALNAME_DESC', '作者的全名，將顯示給全部讀者');
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.');
 @define('ENTER_MEDIA_URL_METHOD', '取得方法:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', '注意: 如果您選擇外部連結的方法，請先得到來源網站的允許。外部連結允許您用其他網站的圖片而不需將圖片儲存在您的主機內。');
 @define('MEDIA_HOTLINKED', '外部連結圖片');

@@ -707,19 +707,19 @@
 @define('EMPTY_SETTING', 'You did not specify a valid value for "%s"!');
 @define('USERCONF_REALNAME', 'முழுப்பெயர்');
 @define('USERCONF_REALNAME_DESC', 'வலைக்குறிப்பு அன்பர்கள் இப்பெயரைக் காண்பார்கள்');
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
-@define('ENTER_MEDIA_URL_METHOD', 'Fetch method:'); // Translate
-@define('ADD_MEDIA_BLAHBLAH_NOTE', 'Note: If you choose to hotlink to server, make sure you have permission to hotlink to the designated website, or the website is yours. Hotlink allows you to use off-site images without storing them locally.'); // Translate
-@define('MEDIA_HOTLINKED', 'hotlinked'); // Translate
-@define('FETCH_METHOD_IMAGE', 'Download image to your server'); // Translate
-@define('FETCH_METHOD_HOTLINK', 'Hotlink to server'); // Translate
-@define('DELETE_HOTLINK_FILE', 'Deleted the hotlinked file entitled %s'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.');
+@define('ENTER_MEDIA_URL_METHOD', 'Fetch method:');
+@define('ADD_MEDIA_BLAHBLAH_NOTE', 'Note: If you choose to hotlink to server, make sure you have permission to hotlink to the designated website, or the website is yours. Hotlink allows you to use off-site images without storing them locally.');
+@define('MEDIA_HOTLINKED', 'hotlinked');
+@define('FETCH_METHOD_IMAGE', 'Download image to your server');
+@define('FETCH_METHOD_HOTLINK', 'Hotlink to server');
+@define('DELETE_HOTLINK_FILE', 'Deleted the hotlinked file entitled %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Show E-Mail addresses?');
 @define('IMAGE_MORE_INPUT', 'Add more images');
-@define('BACKEND_TITLE', 'Additional information in Plugin Configuration screen'); // Translate
-@define('BACKEND_TITLE_FOR_NUGGET', 'Here you can define a short custom string which is displayed in the Plugin Configuration screen together with the description of the plugin. If you have multiple stacked plugins or HTML nuggets with an empty title, this helps to distinct the plugins from another.'); // Translate
-@define('CATEGORIES_ALLOW_SELECT', 'Allow visitors to display multiple categories at once?'); // Translate
-@define('CATEGORIES_ALLOW_SELECT_DESC', 'If this option is enabled, a checkbox will be put next to each category in this sidebar plugin. Users can check those boxes and then see entries belonging to their selection.'); // Translate
+@define('BACKEND_TITLE', 'Additional information in Plugin Configuration screen');
+@define('BACKEND_TITLE_FOR_NUGGET', 'Here you can define a short custom string which is displayed in the Plugin Configuration screen together with the description of the plugin. If you have multiple stacked plugins or HTML nuggets with an empty title, this helps to distinct the plugins from another.');
+@define('CATEGORIES_ALLOW_SELECT', 'Allow visitors to display multiple categories at once?');
+@define('CATEGORIES_ALLOW_SELECT_DESC', 'If this option is enabled, a checkbox will be put next to each category in this sidebar plugin. Users can check those boxes and then see entries belonging to their selection.');
 @define('PAGE_BROWSE_PLUGINS', 'Page %s of %s, totaling %s plugins.');
 @define('INSTALL_CAT_PERMALINKS', 'Permalinks');
 @define('INSTALL_CAT_PERMALINKS_DESC', 'Defines various URL patterns to define permanent links in your blog. It is suggested that you use the defaults; if not, you should try to use the %id% value where possible to prevent Serendipity from querying the database to lookup the target URL.');

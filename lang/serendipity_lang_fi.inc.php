@@ -705,7 +705,7 @@
 @define('EMPTY_SETTING', 'Kentän "%s" syöte on epäkelpo!');
 @define('USERCONF_REALNAME', 'Nimi');
 @define('USERCONF_REALNAME_DESC', 'Kirjoittajan koko nimi. Tämä on se nimi, joka näytetään lukijoille');
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.');
 @define('ENTER_MEDIA_URL_METHOD', 'Hakutapa:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Huom: Jos linkität kuvan toiselta palvelimelta tarvitset siihen luvan, jollei palvelin ole omasi. Linkittämällä voit käyttää kuvia tallettamatta niitä paikallisesti.');
 @define('MEDIA_HOTLINKED', 'Linkitetty palvelimelta');

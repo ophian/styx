@@ -608,7 +608,7 @@
 @define('ACTIVATE_AUTODISCOVERY', '传送文章内引用的连接');
 @define('WELCOME_TO_ADMIN', '欢迎登陆 Serendipity Styx 智能博客系统');
 @define('PLEASE_ENTER_CREDENTIALS', '请输入正确的登陆帐号');
-@define('ADMIN_FOOTER_POWERED_BY', 'Powered by Serendipity %s and PHP %s'); // Translate
+@define('ADMIN_FOOTER_POWERED_BY', 'Powered by Serendipity %s and PHP %s');
 @define('INSTALL_USEGZIP', '使用 gzip 压缩网页');
 @define('INSTALL_USEGZIP_DESC', '为了让网页运行得更快, 系统将会压缩后显示, 如果访客使用的浏览器支持压缩网页的话，建议使用。');
 @define('INSTALL_SHOWFUTURE', '显示未来文章');
@@ -710,7 +710,7 @@
 @define('EMPTY_SETTING', '你没有提供 "%s" 的正确参数');
 @define('USERCONF_REALNAME', '全名');
 @define('USERCONF_REALNAME_DESC', '作者全名，将显示全部读者');
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.');
 @define('ENTER_MEDIA_URL_METHOD', '取得方法:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', '注意:如果你选择外部连接，请先得到来源网站的允许。外部连接允许你用其它网站的图片而不需要将图片保存在你的主机内。');
 @define('MEDIA_HOTLINKED', '外部连接图片');

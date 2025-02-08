@@ -707,7 +707,7 @@
 @define('EMPTY_SETTING', 'Nu ai specificat o valoare validă pentru "%s"!');
 @define('USERCONF_REALNAME', 'Nume real');
 @define('USERCONF_REALNAME_DESC', 'Numele complet al autorului. Acesta este numele vizibil cititorilor');
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.');
 @define('ENTER_MEDIA_URL_METHOD', 'Metodă descărcare:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Notă: Dacă alegi să faci o legătură către server, asigură-te că ai permisiunea să foloseşti conţinut de pe acel site, sau că situl e al tău. Această opţiune îţi permite să foloseşti imagini de pe alte situri fără a le stoca local.');
 @define('MEDIA_HOTLINKED', 'legat direct');
@@ -715,11 +715,11 @@
 @define('FETCH_METHOD_HOTLINK', 'Leagă direct către server');
 @define('DELETE_HOTLINK_FILE', 'Am şters fişierul legat direct cu numele %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Arată adresele de email?');
-@define('IMAGE_MORE_INPUT', 'Add more images'); // Translate
-@define('BACKEND_TITLE', 'Additional information in Plugin Configuration screen'); // Translate
-@define('BACKEND_TITLE_FOR_NUGGET', 'Here you can define a short custom string which is displayed in the Plugin Configuration screen together with the description of the plugin. If you have multiple stacked plugins or HTML nuggets with an empty title, this helps to distinct the plugins from another.'); // Translate
-@define('CATEGORIES_ALLOW_SELECT', 'Allow visitors to display multiple categories at once?'); // Translate
-@define('CATEGORIES_ALLOW_SELECT_DESC', 'If this option is enabled, a checkbox will be put next to each category in this sidebar plugin. Users can check those boxes and then see entries belonging to their selection.'); // Translate
+@define('IMAGE_MORE_INPUT', 'Add more images');
+@define('BACKEND_TITLE', 'Additional information in Plugin Configuration screen');
+@define('BACKEND_TITLE_FOR_NUGGET', 'Here you can define a short custom string which is displayed in the Plugin Configuration screen together with the description of the plugin. If you have multiple stacked plugins or HTML nuggets with an empty title, this helps to distinct the plugins from another.');
+@define('CATEGORIES_ALLOW_SELECT', 'Allow visitors to display multiple categories at once?');
+@define('CATEGORIES_ALLOW_SELECT_DESC', 'If this option is enabled, a checkbox will be put next to each category in this sidebar plugin. Users can check those boxes and then see entries belonging to their selection.');
 @define('PAGE_BROWSE_PLUGINS', 'Page %s of %s, totaling %s plugins.');
 @define('INSTALL_CAT_PERMALINKS', 'Permalinks');
 @define('INSTALL_CAT_PERMALINKS_DESC', 'Defines various URL patterns to define permanent links in your blog. It is suggested that you use the defaults; if not, you should try to use the %id% value where possible to prevent Serendipity from querying the database to lookup the target URL.');

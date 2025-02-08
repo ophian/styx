@@ -709,7 +709,7 @@
 @define('EMPTY_SETTING', 'لم تقم بأعطاء معلومات دقيقة عن "%s"!');
 @define('USERCONF_REALNAME', 'الأسم الحقيقي');
 @define('USERCONF_REALNAME_DESC', 'الأسم الكامل للمحرر أو الناشر. وهذا سوف يظهر لقراء الموضوع');
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.');
 @define('ENTER_MEDIA_URL_METHOD', 'طريقة جلب الصورة');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'ملاحظة: في حال جلب صورة من رابط معين تأكد أن الموقع الذي سوف تحمل الصورة منه يسمح بعرض الصور في مواقع أخرى. أو تأكد أن هذا الرابط من موقعك. عرض الصور بواسطة رابطها يعنيك عن تحميل الصورة في مدونتك أو موقعك (مثال استخدام مراكز تحميل الصور)');
 @define('MEDIA_HOTLINKED', 'من رابط');

@@ -545,182 +545,182 @@
 @define('ADD_MEDIA_BLAHBLAH', '<b>Legg til en fil til ditt mediabibliotek:</b><p>Her kan du laste opp mediafiler, eller be meg om å hente dem fra en adresse på nettet!  Hvis du ikke har et passende bilde, <a href="https://images.google.com" rel="noopener" target="_blank">søk etter bilder på Google</a> som passer til tankene dine.  Resultatene er ofte nyttige og morsomme :)</p><p><b>Velg metode:</b></p><br>');
 @define('COMMENTS_FILTER_SHOW', 'Vis');
 @define('COMMENTS_FILTER_ALL', 'Alle');
-@define('COMMENTS_FILTER_APPROVED_ONLY', 'Only approved'); // Translate
-@define('COMMENTS_FILTER_HIDDEN_ONLY', 'Only hidden'); // Translate
-@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending'); // Translate
-@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable'); // Translate
-@define('COMMENTS_FILTER_NEED_APPROVAL', 'Pending approval'); // Translate
-@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation'); // Translate
-@define('RSS_IMPORT_BODYONLY', 'Put all imported text in the "body" section and do not split up into "extended entry" section.'); // Translate
-@define('SYNDICATION_PLUGIN_FULLFEED', 'Show full articles with extended body inside RSS feed'); // Translate
-@define('MT_DATA_FILE', 'Movable Type data file'); // Translate
-@define('FORCE', 'Force'); // Translate
-@define('CREATE_AUTHOR', 'Create author \'%s\'.'); // Translate
-@define('CREATE_CATEGORY', 'Create category \'%s\'.'); // Translate
-@define('MYSQL_REQUIRED', 'You must have the MySQL extension in order to perform this action.'); // Translate
+@define('COMMENTS_FILTER_APPROVED_ONLY', 'Only approved');
+@define('COMMENTS_FILTER_HIDDEN_ONLY', 'Only hidden');
+@define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
+@define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
+@define('COMMENTS_FILTER_NEED_APPROVAL', 'Pending approval');
+@define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
+@define('RSS_IMPORT_BODYONLY', 'Put all imported text in the "body" section and do not split up into "extended entry" section.');
+@define('SYNDICATION_PLUGIN_FULLFEED', 'Show full articles with extended body inside RSS feed');
+@define('MT_DATA_FILE', 'Movable Type data file');
+@define('FORCE', 'Force');
+@define('CREATE_AUTHOR', 'Create author \'%s\'.');
+@define('CREATE_CATEGORY', 'Create category \'%s\'.');
+@define('MYSQL_REQUIRED', 'You must have the MySQL extension in order to perform this action.');
 @define('PGSQL_REQUIRED', 'You must have the PostgreSQL extension in order to perform this action.');
-@define('COULDNT_CONNECT', 'Could not connect to MySQL database: %s.'); // Translate
+@define('COULDNT_CONNECT', 'Could not connect to MySQL database: %s.');
 @define('PGSQL_COULDNT_CONNECT', 'Could not connect to PostgreSQL database: %s.');
-@define('COULDNT_SELECT_DB', 'Could not select database: %s.'); // Translate
-@define('COULDNT_SELECT_USER_INFO', 'Could not select user information: %s.'); // Translate
-@define('COULDNT_SELECT_CATEGORY_INFO', 'Could not select category information: %s.'); // Translate
-@define('COULDNT_SELECT_ENTRY_INFO', 'Could not select entry information: %s.'); // Translate
-@define('COULDNT_SELECT_COMMENT_INFO', 'Could not select comment information: %s.'); // Translate
+@define('COULDNT_SELECT_DB', 'Could not select database: %s.');
+@define('COULDNT_SELECT_USER_INFO', 'Could not select user information: %s.');
+@define('COULDNT_SELECT_CATEGORY_INFO', 'Could not select category information: %s.');
+@define('COULDNT_SELECT_ENTRY_INFO', 'Could not select entry information: %s.');
+@define('COULDNT_SELECT_COMMENT_INFO', 'Could not select comment information: %s.');
 @define('WEEK', 'Uke');
 @define('WEEKS', 'Uker');
 @define('MONTHS', 'Måneder');
 @define('DAYS', 'Dager');
-@define('ARCHIVE_FREQUENCY', 'Calendar item frequency'); // Translate
-@define('ARCHIVE_FREQUENCY_DESC', 'The calendar interval to use between each item in the list'); // Translate
-@define('ARCHIVE_COUNT', 'Number of items in the list'); // Translate
-@define('ARCHIVE_COUNT_DESC', 'The total number of months, weeks or days to display'); // Translate
-@define('BELOW_IS_A_LIST_OF_INSTALLED_PLUGINS', 'Below is a list of installed plugins'); // Translate
-@define('SIDEBAR_PLUGIN', 'sidebar plugin'); // Translate
-@define('EVENT_PLUGIN', 'event plugin'); // Translate
-@define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Click here to install a new %s'); // Translate
+@define('ARCHIVE_FREQUENCY', 'Calendar item frequency');
+@define('ARCHIVE_FREQUENCY_DESC', 'The calendar interval to use between each item in the list');
+@define('ARCHIVE_COUNT', 'Number of items in the list');
+@define('ARCHIVE_COUNT_DESC', 'The total number of months, weeks or days to display');
+@define('BELOW_IS_A_LIST_OF_INSTALLED_PLUGINS', 'Below is a list of installed plugins');
+@define('SIDEBAR_PLUGIN', 'sidebar plugin');
+@define('EVENT_PLUGIN', 'event plugin');
+@define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Click here to install a new %s');
 @define('VERSION', 'Versjon');
 @define('INSTALL', 'Installer');
 @define('ALREADY_INSTALLED', 'Allerede installert');
-@define('SELECT_A_PLUGIN_TO_ADD', 'Select the plugin which you wish to install'); // Translate
-@define('INSTALL_OFFSET', 'Server time Offset'); // Translate
+@define('SELECT_A_PLUGIN_TO_ADD', 'Select the plugin which you wish to install');
+@define('INSTALL_OFFSET', 'Server time Offset');
 @define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
 @define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'Faste oppslag');
-@define('INSTALL_FETCHLIMIT', 'Entries to display on frontpage'); // Translate
-@define('INSTALL_FETCHLIMIT_DESC', 'Number of entries to display for each page on the frontend'); // Translate
-@define('IMPORT_ENTRIES', 'Import data'); // Translate
-@define('EXPORT_ENTRIES', 'Export entries'); // Translate
-@define('IMPORT_WELCOME', 'Welcome to the Serendipity import utility'); // Translate
-@define('IMPORT_WHAT_CAN', 'Here you can import entries from other weblog software applications'); // Translate
-@define('IMPORT_SELECT', 'Please select the software you wish to import from'); // Translate
-@define('IMPORT_PLEASE_ENTER', 'Please enter the data as requested below'); // Translate
-@define('IMPORT_NOW', 'Import now!'); // Translate
-@define('IMPORT_STARTING', 'Starting import procedure...'); // Translate
-@define('IMPORT_FAILED', 'Import failed'); // Translate
-@define('IMPORT_DONE', 'Import successfully completed'); // Translate
-@define('IMPORT_WEBLOG_APP', 'Weblog application'); // Translate
-@define('EXPORT_FEED', 'Export full RSS feed'); // Translate
-@define('IMPORT_STATUS', 'Status after import'); // Translate
-@define('IMPORT_GENERIC_RSS', 'Generic RSS import'); // Translate
-@define('ACTIVATE_AUTODISCOVERY', 'Send Trackbacks to links found in the entry'); // Translate
-@define('WELCOME_TO_ADMIN', 'Welcome to the Serendipity Styx Administration Suite.'); // Translate
-@define('PLEASE_ENTER_CREDENTIALS', 'Please enter your credentials below.'); // Translate
-@define('ADMIN_FOOTER_POWERED_BY', 'Powered by Serendipity %s and PHP %s'); // Translate
-@define('INSTALL_USEGZIP', 'Use gzip compressed pages'); // Translate
-@define('INSTALL_USEGZIP_DESC', 'To speed up delivery of pages, we can compress the pages we send to the visitor, given that his browser supports this. This is recommended.'); // Translate
-@define('INSTALL_SHOWFUTURE', 'Show future entries'); // Translate
-@define('INSTALL_SHOWFUTURE_DESC', 'If enabled, this will show all entries in the future on your blog. Default is to hide those entries and only show them if the publish date has arrived.'); // Translate
-@define('INSTALL_DBPERSISTENT', 'Use persistent connections'); // Translate
-@define('INSTALL_DBPERSISTENT_DESC', 'Enable the usage of persistent database connections, read more <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">here</a>. This is normally not recommended.'); // Translate
+@define('INSTALL_FETCHLIMIT', 'Entries to display on frontpage');
+@define('INSTALL_FETCHLIMIT_DESC', 'Number of entries to display for each page on the frontend');
+@define('IMPORT_ENTRIES', 'Import data');
+@define('EXPORT_ENTRIES', 'Export entries');
+@define('IMPORT_WELCOME', 'Welcome to the Serendipity import utility');
+@define('IMPORT_WHAT_CAN', 'Here you can import entries from other weblog software applications');
+@define('IMPORT_SELECT', 'Please select the software you wish to import from');
+@define('IMPORT_PLEASE_ENTER', 'Please enter the data as requested below');
+@define('IMPORT_NOW', 'Import now!');
+@define('IMPORT_STARTING', 'Starting import procedure...');
+@define('IMPORT_FAILED', 'Import failed');
+@define('IMPORT_DONE', 'Import successfully completed');
+@define('IMPORT_WEBLOG_APP', 'Weblog application');
+@define('EXPORT_FEED', 'Export full RSS feed');
+@define('IMPORT_STATUS', 'Status after import');
+@define('IMPORT_GENERIC_RSS', 'Generic RSS import');
+@define('ACTIVATE_AUTODISCOVERY', 'Send Trackbacks to links found in the entry');
+@define('WELCOME_TO_ADMIN', 'Welcome to the Serendipity Styx Administration Suite.');
+@define('PLEASE_ENTER_CREDENTIALS', 'Please enter your credentials below.');
+@define('ADMIN_FOOTER_POWERED_BY', 'Powered by Serendipity %s and PHP %s');
+@define('INSTALL_USEGZIP', 'Use gzip compressed pages');
+@define('INSTALL_USEGZIP_DESC', 'To speed up delivery of pages, we can compress the pages we send to the visitor, given that his browser supports this. This is recommended.');
+@define('INSTALL_SHOWFUTURE', 'Show future entries');
+@define('INSTALL_SHOWFUTURE_DESC', 'If enabled, this will show all entries in the future on your blog. Default is to hide those entries and only show them if the publish date has arrived.');
+@define('INSTALL_DBPERSISTENT', 'Use persistent connections');
+@define('INSTALL_DBPERSISTENT_DESC', 'Enable the usage of persistent database connections, read more <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">here</a>. This is normally not recommended.');
 @define('NO_IMAGES_FOUND', 'Ingen bilder funnet');
-@define('PERSONAL_SETTINGS', 'Personal Settings'); // Translate
-@define('REFERER', 'Referrer'); // Translate
-@define('NOT_FOUND', 'Not found'); // Translate
-@define('NOT_WRITABLE', 'Not writable'); // Translate
-@define('WRITABLE', 'Writable'); // Translate
-@define('PROBLEM_DIAGNOSTIC', 'Due to a problematic diagnostic, you cannot continue with the installation before the above errors are fixed'); // Translate
-@define('SELECT_INSTALLATION_TYPE', 'Select which installation type you wish to use'); // Translate
-@define('WELCOME_TO_INSTALLATION', 'Welcome to the Serendipity Styx Installation'); // Translate
-@define('FIRST_WE_TAKE_A_LOOK', 'First we will take a look at your current setup and attempt to diagnose any compatibility problems'); // Translate
-@define('ERRORS_ARE_DISPLAYED_IN', 'Errors are displayed in %s, recommendations in %s and success in %s'); // Translate
+@define('PERSONAL_SETTINGS', 'Personal Settings');
+@define('REFERER', 'Referrer');
+@define('NOT_FOUND', 'Not found');
+@define('NOT_WRITABLE', 'Not writable');
+@define('WRITABLE', 'Writable');
+@define('PROBLEM_DIAGNOSTIC', 'Due to a problematic diagnostic, you cannot continue with the installation before the above errors are fixed');
+@define('SELECT_INSTALLATION_TYPE', 'Select which installation type you wish to use');
+@define('WELCOME_TO_INSTALLATION', 'Welcome to the Serendipity Styx Installation');
+@define('FIRST_WE_TAKE_A_LOOK', 'First we will take a look at your current setup and attempt to diagnose any compatibility problems');
+@define('ERRORS_ARE_DISPLAYED_IN', 'Errors are displayed in %s, recommendations in %s and success in %s');
 @define('RED', 'rød');
 @define('YELLOW', 'gul');
-@define('GREEN', 'green'); // Translate
-@define('PRE_INSTALLATION_REPORT', 'Serendipity Styx v.%s pre-installation report'); // Translate
-@define('RECOMMENDED', 'Recommended'); // Translate
-@define('ACTUAL', 'Actual'); // Translate
-@define('PHPINI_CONFIGURATION', 'php.ini configuration'); // Translate
-@define('PHP_INSTALLATION', 'PHP installation'); // Translate
-@define('THEY_DO', 'they do'); // Translate
-@define('THEY_DONT', 'they don\'t'); // Translate
-@define('SIMPLE_INSTALLATION', 'Simple installation'); // Translate
-@define('EXPERT_INSTALLATION', 'Expert installation'); // Translate
-@define('COMPLETE_INSTALLATION', 'Complete installation'); // Translate
-@define('WONT_INSTALL_DB_AGAIN', 'won\'t install the database again'); // Translate
-@define('CHECK_DATABASE_EXISTS', 'Checking to see if the database and tables already exists'); // Translate
-@define('CREATING_PRIMARY_AUTHOR', 'Creating primary author \'%s\''); // Translate
-@define('SETTING_DEFAULT_TEMPLATE', 'Setting default template'); // Translate
-@define('INSTALLING_DEFAULT_PLUGINS', 'Installing default plugins'); // Translate
-@define('SERENDIPITY_INSTALLED', 'Serendipity Styx has been successfully installed'); // Translate
-@define('VISIT_BLOG_HERE', 'Visit your new blog here'); // Translate
-@define('THANK_YOU_FOR_CHOOSING', 'Thank you for choosing Serendipity Styx'); // Translate
-@define('ERROR_DETECTED_IN_INSTALL', 'An error was detected in the installation'); // Translate
-@define('OPERATING_SYSTEM', 'Operating system'); // Translate
-@define('WEBSERVER_SAPI', 'Webserver SAPI'); // Translate
-@define('IMAGE_ROTATE_LEFT', 'Rotate image 90 degrees counter-clockwise'); // Translate
-@define('IMAGE_ROTATE_RIGHT', 'Rotate image 90 degrees clockwise'); // Translate
-@define('TEMPLATE_SET', '\'%s\' has been set as your active template'); // Translate
-@define('SEARCH_ERROR', 'The search function did not work as expected. Notice for the administrator of this blog: This may happen because of missing index keys in your database. On MySQL systems your database user account needs to be privileged to execute this query: <pre>CREATE FULLTEXT INDEX entry_idx on %sentries (title,body,extended)</pre> The specific error returned by the database was: <pre>%s</pre>'); // Translate
-@define('EDIT_THIS_CAT', 'Editing "%s"'); // Translate
-@define('CATEGORY_REMAINING', 'Delete this category and move its entries to this category'); // Translate
-@define('CATEGORY_INDEX', 'Below is a list of categories available to your entries'); // Translate
-@define('NO_CATEGORIES', 'No categories'); // Translate
-@define('RESET_DATE', 'Reset date'); // Translate
-@define('RESET_DATE_DESC', 'Click here to reset the date to the current time'); // Translate
-@define('PROBLEM_PERMISSIONS_HOWTO', 'Permissions can be set by running shell command: `<em>%s</em>` on the failed directory, or by setting this using an FTP program'); // Translate
-@define('WARNING_TEMPLATE_DEPRECATED', 'Warning: Your current template is using a deprecated template method, you are advised to update if possible'); // Translate
-@define('ENTRY_PUBLISHED_FUTURE', 'This entry is not yet published.'); // Translate
-@define('ENTRIES_BY', 'Entries by %s'); // Translate
+@define('GREEN', 'green');
+@define('PRE_INSTALLATION_REPORT', 'Serendipity Styx v.%s pre-installation report');
+@define('RECOMMENDED', 'Recommended');
+@define('ACTUAL', 'Actual');
+@define('PHPINI_CONFIGURATION', 'php.ini configuration');
+@define('PHP_INSTALLATION', 'PHP installation');
+@define('THEY_DO', 'they do');
+@define('THEY_DONT', 'they don\'t');
+@define('SIMPLE_INSTALLATION', 'Simple installation');
+@define('EXPERT_INSTALLATION', 'Expert installation');
+@define('COMPLETE_INSTALLATION', 'Complete installation');
+@define('WONT_INSTALL_DB_AGAIN', 'won\'t install the database again');
+@define('CHECK_DATABASE_EXISTS', 'Checking to see if the database and tables already exists');
+@define('CREATING_PRIMARY_AUTHOR', 'Creating primary author \'%s\'');
+@define('SETTING_DEFAULT_TEMPLATE', 'Setting default template');
+@define('INSTALLING_DEFAULT_PLUGINS', 'Installing default plugins');
+@define('SERENDIPITY_INSTALLED', 'Serendipity Styx has been successfully installed');
+@define('VISIT_BLOG_HERE', 'Visit your new blog here');
+@define('THANK_YOU_FOR_CHOOSING', 'Thank you for choosing Serendipity Styx');
+@define('ERROR_DETECTED_IN_INSTALL', 'An error was detected in the installation');
+@define('OPERATING_SYSTEM', 'Operating system');
+@define('WEBSERVER_SAPI', 'Webserver SAPI');
+@define('IMAGE_ROTATE_LEFT', 'Rotate image 90 degrees counter-clockwise');
+@define('IMAGE_ROTATE_RIGHT', 'Rotate image 90 degrees clockwise');
+@define('TEMPLATE_SET', '\'%s\' has been set as your active template');
+@define('SEARCH_ERROR', 'The search function did not work as expected. Notice for the administrator of this blog: This may happen because of missing index keys in your database. On MySQL systems your database user account needs to be privileged to execute this query: <pre>CREATE FULLTEXT INDEX entry_idx on %sentries (title,body,extended)</pre> The specific error returned by the database was: <pre>%s</pre>');
+@define('EDIT_THIS_CAT', 'Editing "%s"');
+@define('CATEGORY_REMAINING', 'Delete this category and move its entries to this category');
+@define('CATEGORY_INDEX', 'Below is a list of categories available to your entries');
+@define('NO_CATEGORIES', 'No categories');
+@define('RESET_DATE', 'Reset date');
+@define('RESET_DATE_DESC', 'Click here to reset the date to the current time');
+@define('PROBLEM_PERMISSIONS_HOWTO', 'Permissions can be set by running shell command: `<em>%s</em>` on the failed directory, or by setting this using an FTP program');
+@define('WARNING_TEMPLATE_DEPRECATED', 'Warning: Your current template is using a deprecated template method, you are advised to update if possible');
+@define('ENTRY_PUBLISHED_FUTURE', 'This entry is not yet published.');
+@define('ENTRIES_BY', 'Entries by %s');
 @define('PREVIOUS', 'Forrige');
 @define('NEXT', 'Neste');
 @define('APPROVE', 'Godkjenn');
-@define('CATEGORY_ALREADY_EXIST', 'A category with the name "%s" already exist'); // Translate
-@define('IMPORT_NOTES', 'Note:'); // Translate
-@define('ERROR_FILE_FORBIDDEN', 'You are not allowed to upload files with active content'); // Translate
+@define('CATEGORY_ALREADY_EXIST', 'A category with the name "%s" already exist');
+@define('IMPORT_NOTES', 'Note:');
+@define('ERROR_FILE_FORBIDDEN', 'You are not allowed to upload files with active content');
 @define('ADMIN', 'Administration'); // Re-Translate
-@define('ADMIN_FRONTPAGE', 'AdminPanel'); // Translate
-@define('QUOTE', 'Quote'); // Translate
-@define('IFRAME_SAVE', 'Serendipity is now saving your entry, creating trackbacks and performing possible XML-RPC calls. This may take a while..'); // Translate
-@define('IFRAME_SAVE_DRAFT', 'A draft of this entry has been saved'); // Translate
-@define('IFRAME_PREVIEW', 'Serendipity is now creating the preview of your entry...'); // Translate
-@define('IFRAME_WARNING', 'Your browser does not support the concept of iframes. Please open your serendipity_config.inc.php file and set $serendipity[\'use_iframe\'] variable to FALSE.'); // Translate
+@define('ADMIN_FRONTPAGE', 'AdminPanel');
+@define('QUOTE', 'Quote');
+@define('IFRAME_SAVE', 'Serendipity is now saving your entry, creating trackbacks and performing possible XML-RPC calls. This may take a while..');
+@define('IFRAME_SAVE_DRAFT', 'A draft of this entry has been saved');
+@define('IFRAME_PREVIEW', 'Serendipity is now creating the preview of your entry...');
+@define('IFRAME_WARNING', 'Your browser does not support the concept of iframes. Please open your serendipity_config.inc.php file and set $serendipity[\'use_iframe\'] variable to FALSE.');
 @define('NONE', 'ingen');
-@define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Default settings for new entries'); // Translate
-@define('UPGRADE', 'Upgrade'); // Translate
-@define('UPGRADE_TO_VERSION', '<b>Upgrade to version:</b> %s'); // Translate
-@define('DELETE_DIRECTORY', 'Delete directory'); // Translate
+@define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Default settings for new entries');
+@define('UPGRADE', 'Upgrade');
+@define('UPGRADE_TO_VERSION', '<b>Upgrade to version:</b> %s');
+@define('DELETE_DIRECTORY', 'Delete directory');
 @define('DELETE_DIRECTORY_DESC', 'Du er i ferd med å slette en katalog<sup>(¹)</sup> som kan inneholde mediefiler og elementer som allerede er brukt i oppføringene dine. Vær sikker på det!<br><sup>[¹]</sup> Inkludert den skjulte underkatalogen med (WebP/AVIF)-variantfiler.');
 @define('FORCE_DELETE', 'Slett ALLE filer i denne katalogen, inkludert underkataloger og filer som MediaLibrary (ennå) ikke kjenner til');
-@define('CREATE_DIRECTORY', 'Create directory'); // Translate
-@define('CREATE_NEW_DIRECTORY', 'Create new directory'); // Translate
-@define('CREATE_DIRECTORY_DESC', 'Here you can create a new directory to place media files in. Choose the name for your new directory and select an optional parent directory to place it in.'); // Translate
-@define('BASE_DIRECTORY', 'Base directory'); // Translate
-@define('USERLEVEL_EDITOR_DESC', 'Standard editor'); // Translate
-@define('USERLEVEL_CHIEF_DESC', 'Chief editor'); // Translate
-@define('USERLEVEL_ADMIN_DESC', 'Administrator'); // Translate
-@define('USERCONF_USERLEVEL', 'Access level'); // Translate
-@define('USERCONF_USERLEVEL_DESC', 'This level is used to determine what kind of access this user has to the Blog. User privileges are handled by group memberships!'); // Translate
-@define('USER_SELF_INFO', 'Logged in as %s (%s)'); // Translate
+@define('CREATE_DIRECTORY', 'Create directory');
+@define('CREATE_NEW_DIRECTORY', 'Create new directory');
+@define('CREATE_DIRECTORY_DESC', 'Here you can create a new directory to place media files in. Choose the name for your new directory and select an optional parent directory to place it in.');
+@define('BASE_DIRECTORY', 'Base directory');
+@define('USERLEVEL_EDITOR_DESC', 'Standard editor');
+@define('USERLEVEL_CHIEF_DESC', 'Chief editor');
+@define('USERLEVEL_ADMIN_DESC', 'Administrator');
+@define('USERCONF_USERLEVEL', 'Access level');
+@define('USERCONF_USERLEVEL_DESC', 'This level is used to determine what kind of access this user has to the Blog. User privileges are handled by group memberships!');
+@define('USER_SELF_INFO', 'Logged in as %s (%s)');
 @define('USER_ALERT', 'Userinfo');
 @define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'You have not yet been granted the right to publish your entries directly. Until sufficient trust is built, inform your assigned editor-in-chief that your entry is ready for publication and approval.');
 @define('USER_PERMISSION_NOTIFIER_RESET', 'In case of temporary revocation of rights, please clarify the reasons in a friendly personal conversation.');
-@define('ADMIN_ENTRIES', 'Entries'); // Translate
-@define('RECHECK_INSTALLATION', 'Recheck installation'); // Translate
-@define('IMAGICK_EXEC_ERROR', 'Unable to execute: "%s", error: %s, return var: %d'); // Translate
-@define('INSTALL_OFFSET_DESC', 'Enter the amount of hours between the date of your webserver (current: %clock%) and your desired time zone'); // Translate
-@define('UNMET_REQUIREMENTS', 'Requirements failed: %s'); // Translate
+@define('ADMIN_ENTRIES', 'Entries');
+@define('RECHECK_INSTALLATION', 'Recheck installation');
+@define('IMAGICK_EXEC_ERROR', 'Unable to execute: "%s", error: %s, return var: %d');
+@define('INSTALL_OFFSET_DESC', 'Enter the amount of hours between the date of your webserver (current: %clock%) and your desired time zone');
+@define('UNMET_REQUIREMENTS', 'Requirements failed: %s');
 @define('CHARSET', 'Charset');
 @define('AUTOLANG', 'Use visitor\'s browser language as default');
 @define('AUTOLANG_DESC', 'If enabled, this will use the visitor\'s browser language setting to determine the default language of your entry and interface language.');
-@define('INSTALL_AUTODETECT_URL', 'Autodetect used HTTP-Host'); // Translate
-@define('INSTALL_AUTODETECT_URL_DESC', 'If set to "true", Serendipity will ensure that the HTTP Host which was used by your visitor is used as your BaseURL setting. Enabling this will let you be able to use multiple domain names for your Serendipity Blog, and use the domain for all follow-up links which the user used to access your blog.'); // Translate
+@define('INSTALL_AUTODETECT_URL', 'Autodetect used HTTP-Host');
+@define('INSTALL_AUTODETECT_URL_DESC', 'If set to "true", Serendipity will ensure that the HTTP Host which was used by your visitor is used as your BaseURL setting. Enabling this will let you be able to use multiple domain names for your Serendipity Blog, and use the domain for all follow-up links which the user used to access your blog.');
 @define('CONVERT_HTMLENTITIES', 'Try to auto-convert to/from HTML entities? Check your DB import data first. (Mostly "No", if both use UTF-8.)');
 @define('EMPTY_SETTING', 'You did not specify a valid value for "%s"!');
-@define('USERCONF_REALNAME', 'Real name'); // Translate
-@define('USERCONF_REALNAME_DESC', 'The full name of the author. This is the name seen by readers'); // Translate
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
-@define('ENTER_MEDIA_URL_METHOD', 'Fetch method:'); // Translate
-@define('ADD_MEDIA_BLAHBLAH_NOTE', 'Note: If you choose to hotlink to server, make sure you have permission to hotlink to the designated website, or the website is yours. Hotlink allows you to use off-site images without storing them locally.'); // Translate
-@define('MEDIA_HOTLINKED', 'hotlinked'); // Translate
-@define('FETCH_METHOD_IMAGE', 'Download image to your server'); // Translate
-@define('FETCH_METHOD_HOTLINK', 'Hotlink to server'); // Translate
-@define('DELETE_HOTLINK_FILE', 'Deleted the hotlinked file entitled %s'); // Translate
+@define('USERCONF_REALNAME', 'Real name');
+@define('USERCONF_REALNAME_DESC', 'The full name of the author. This is the name seen by readers');
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.');
+@define('ENTER_MEDIA_URL_METHOD', 'Fetch method:');
+@define('ADD_MEDIA_BLAHBLAH_NOTE', 'Note: If you choose to hotlink to server, make sure you have permission to hotlink to the designated website, or the website is yours. Hotlink allows you to use off-site images without storing them locally.');
+@define('MEDIA_HOTLINKED', 'hotlinked');
+@define('FETCH_METHOD_IMAGE', 'Download image to your server');
+@define('FETCH_METHOD_HOTLINK', 'Hotlink to server');
+@define('DELETE_HOTLINK_FILE', 'Deleted the hotlinked file entitled %s');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Show E-Mail addresses?');
-@define('IMAGE_MORE_INPUT', 'Add more images'); // Translate
-@define('BACKEND_TITLE', 'Additional information in Plugin Configuration screen'); // Translate
-@define('BACKEND_TITLE_FOR_NUGGET', 'Here you can define a short custom string which is displayed in the Plugin Configuration screen together with the description of the plugin. If you have multiple stacked plugins or HTML nuggets with an empty title, this helps to distinct the plugins from another.'); // Translate
-@define('CATEGORIES_ALLOW_SELECT', 'Allow visitors to display multiple categories at once?'); // Translate
-@define('CATEGORIES_ALLOW_SELECT_DESC', 'If this option is enabled, a checkbox will be put next to each category in this sidebar plugin. Users can check those boxes and then see entries belonging to their selection.'); // Translate
+@define('IMAGE_MORE_INPUT', 'Add more images');
+@define('BACKEND_TITLE', 'Additional information in Plugin Configuration screen');
+@define('BACKEND_TITLE_FOR_NUGGET', 'Here you can define a short custom string which is displayed in the Plugin Configuration screen together with the description of the plugin. If you have multiple stacked plugins or HTML nuggets with an empty title, this helps to distinct the plugins from another.');
+@define('CATEGORIES_ALLOW_SELECT', 'Allow visitors to display multiple categories at once?');
+@define('CATEGORIES_ALLOW_SELECT_DESC', 'If this option is enabled, a checkbox will be put next to each category in this sidebar plugin. Users can check those boxes and then see entries belonging to their selection.');
 @define('PAGE_BROWSE_PLUGINS', 'Page %s of %s, totaling %s plugins.');
 @define('INSTALL_CAT_PERMALINKS', 'Permalinks');
 @define('INSTALL_CAT_PERMALINKS_DESC', 'Defines various URL patterns to define permanent links in your blog. It is suggested that you use the defaults; if not, you should try to use the %id% value where possible to prevent Serendipity from querying the database to lookup the target URL.');

@@ -701,12 +701,12 @@
 @define('AUTOLANG', '訪問者が使用するブラウザーのデフォルト言語');
 @define('AUTOLANG_DESC', 'もし有効にしたならエントリーとインターフェースの言語の決定は訪問者のブラウザーの言語設定を使用します。');
 @define('INSTALL_AUTODETECT_URL', '自動検知に HTTP-Host を使う');
-@define('INSTALL_AUTODETECT_URL_DESC', 'If set to "true", Serendipity will ensure that the HTTP Host which was used by your visitor is used as your BaseURL setting. Enabling this will let you be able to use multiple domain names for your Serendipity Blog, and use the domain for all follow-up links which the user used to access your blog.'); // Translate
+@define('INSTALL_AUTODETECT_URL_DESC', 'If set to "true", Serendipity will ensure that the HTTP Host which was used by your visitor is used as your BaseURL setting. Enabling this will let you be able to use multiple domain names for your Serendipity Blog, and use the domain for all follow-up links which the user used to access your blog.');
 @define('CONVERT_HTMLENTITIES', 'HTML 実体への自動変換を試みますか?'); // Translate again
 @define('EMPTY_SETTING', '%s の値が正しく指定されていません!');
 @define('USERCONF_REALNAME', '本名');
 @define('USERCONF_REALNAME_DESC', '著作者のフルネームです。これは読者に見える名前です。');
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.');
 @define('ENTER_MEDIA_URL_METHOD', '取得方法:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', '注: ホットリンクは、それらをローカルに格納せずに、リモートのイメージを使用することを可能にします。サーバーへのホットリンクを選択した場合、自分のウェブサイトか指定のウェブサイトへホットリンクする許可を持っていることを確認してください。');
 @define('MEDIA_HOTLINKED', 'ホットリンク済み');
@@ -717,8 +717,8 @@
 @define('IMAGE_MORE_INPUT', '画像を追加する');
 @define('BACKEND_TITLE', 'プラグイン設定画面の追加情報');
 @define('BACKEND_TITLE_FOR_NUGGET', 'ここでは、プラグイン設定画面でプラグインの説明とともに表示される短いカスタム文字列を定義できます。複数のスタック型プラグインや空のタイトルを持つHTMLナゲットがある場合、これはプラグインを他と区別するのに役立ちます。');
-@define('CATEGORIES_ALLOW_SELECT', 'Allow visitors to display multiple categories at once?'); // Translate
-@define('CATEGORIES_ALLOW_SELECT_DESC', 'If this option is enabled, a checkbox will be put next to each category in this sidebar plugin. Users can check those boxes and then see entries belonging to their selection.'); // Translate
+@define('CATEGORIES_ALLOW_SELECT', 'Allow visitors to display multiple categories at once?');
+@define('CATEGORIES_ALLOW_SELECT_DESC', 'If this option is enabled, a checkbox will be put next to each category in this sidebar plugin. Users can check those boxes and then see entries belonging to their selection.');
 @define('PAGE_BROWSE_PLUGINS', '%s/%s ページ、合計 %s プラグインです。');
 @define('INSTALL_CAT_PERMALINKS', '固定リンク');
 @define('INSTALL_CAT_PERMALINKS_DESC', 'あなたのウェブログに固定リンクを定義するために様々なURLパターンを定義します。これはデフォルトを使用することが提案されます; if not, you should try to use the %id% value where possible to prevent Serendipity from querying the database to lookup the target URL.');

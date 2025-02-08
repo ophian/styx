@@ -708,7 +708,7 @@
 @define('EMPTY_SETTING', 'Bunun için doğru bir değer belirlemediniz: "%s"!');
 @define('USERCONF_REALNAME', 'Gerçek Ad');
 @define('USERCONF_REALNAME_DESC', 'Yazarın tam adı. Okuyucular için gerekli');
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.');
 @define('ENTER_MEDIA_URL_METHOD', 'Alma yöntemi:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Not: Sunucuya sıcak bağlantı vermeyi seçerseniz, tüm izinlere sahip olduğunuza emin olun.Sıcak linkler size site dışından resim saklama imkanı verir.');
 @define('MEDIA_HOTLINKED', 'Sıcak Medya Bağlantıları');

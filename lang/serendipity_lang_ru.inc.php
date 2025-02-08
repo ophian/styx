@@ -709,7 +709,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('EMPTY_SETTING', 'Вы не установили допустимое значение для "%s"!');
 @define('USERCONF_REALNAME', 'Отображаемое имя');
 @define('USERCONF_REALNAME_DESC', 'Полное имя автора. То имя которое отображается для читателей');
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.');
 @define('ENTER_MEDIA_URL_METHOD', 'Метод доставки:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Замечание: Если вы выбрали хотлинк к серверу, убедитесь, что у вас есть права на создание хотлинков к выбранному вебсайту, или вебсайт принадлежит вам. Хотлинк позволяет использовать изображения не с сайта, не сохраняя их локально.');
 @define('MEDIA_HOTLINKED', 'Привязанные изображение');
