@@ -836,7 +836,7 @@
 @define('USERCONF_CHECK_PASSWORD', 'Altes Passwort');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Falls Sie das Passwort im vorhergehenden Feld ändern, müssen Sie in diesem Feld das <b>aktuelle</b> Password eingeben.');
 @define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Seien Sie vorsichtig, denn jede nachfolgende zulässige Backend-Aktion zwingt Sie anschließend zu einem neuen Login - also nur einmal per Login-Session nutzbar!');
-@define('USERCONF_CHECK_PASSWORD_ERROR', 'Sie haben kein gültiges derzeitiges Passwort angegeben und sind daher nicht berechtigt, das neue Passwort festzulegen. Ihre Einstellungen wurden nicht gespeichert.');
+@define('USERCONF_CHECK_PASSWORD_ERROR', 'Sie haben das alte Passwort nicht richtig angegeben und sind daher nicht berechtigt das neue Passwort festzulegen. Ihre Einstellungen wurden nicht gespeichert.');
 @define('ERROR_XSRF', 'Ihr Browser hat keinen gültigen HTTP-Referrer übermittelt. Dies kann entweder daher kommen, dass Ihr Browser/Proxy nicht korrekt konfiguriert ist, oder dass Sie Opfer einer "Cross Site Request Forgery (XSRF)" waren, mit der man Sie zu ungewollten Änderungen zwingen wollte. Die angeforderte Aktion konnte daher nicht durchgeführt werden.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR', 'Permalink-Struktur für RSS-Autoren-Feed URLs');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Legt die relative URL-Struktur fest (beginnend mit der Stamm-URL), mit der gewählte RSS-Feeds von Autoren dargestellt werden. Die Variablen %id%, %realname%, %username%, %email% und jede anderen normalen Zeichen sind möglich.');
