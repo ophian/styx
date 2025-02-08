@@ -437,7 +437,7 @@
 @define('USERCONF_CAT_PERSONAL', 'Persönliche Einstellungen');
 @define('USERCONF_CAT_PERSONAL_DESC', 'Einstellungen des eigenen Accounts');
 @define('USERCONF_USERNAME', 'Benutzername');
-@define('USERCONF_USERNAME_DESC', 'Ihr Benutzername');
+@define('USERCONF_USERNAME_DESC', 'Ihr Benutzername mit dem Sie sich einloggen. Unterscheiden Sie dabei Zugangs-Name und Öffentlicher-Name!');
 @define('USERCONF_PASSWORD', 'Passwort');
 @define('USERCONF_PASSWORD_DESC', 'Ihr Passwort');
 @define('USERCONF_PASSWORD_RANDOM', 'Neues, kryptographisch sicheres Passwort als kopierbarer Vorschlag');
@@ -700,8 +700,8 @@
 @define('INSTALL_AUTODETECT_URL_DESC', 'Falls aktiviert, wird Serendipity sicherstellen, dass der vom Besucher gewählte HTTP-Hostname als BaseURL-Variable verwendet wird. Sofern diese Option aktiviert ist, ist es möglich, mehrere Domainnamen für das Weblog zu verwenden. Alle Links werden dann mit dem HTTP-Hostnamen umgeschrieben, der vom Besucher gewählt wurde.');
 @define('CONVERT_HTMLENTITIES', 'Versuchen, aus/in HTML-Entities zu konvertieren? Überprüfen Sie die Import DB. (Meist "Nein", wenn beide in UTF8.)');
 @define('EMPTY_SETTING', 'Sie haben für "%s" keinen gültigen Wert angegeben!');
-@define('USERCONF_REALNAME', 'Voller Name');
-@define('USERCONF_REALNAME_DESC', 'Der vollständige Name des Autors. Nur dieser Name wird Besuchern angezeigt.');
+@define('USERCONF_REALNAME', 'Publizierter Name');
+@define('USERCONF_REALNAME_DESC', 'Der öffentliche Name des Autors. Nur dieser Name wird Besuchern angezeigt.');
 @define('HOTLINK_DONE', 'Link zur Datei "%s" erstellt.<br>Interner Name: \'%s\' Fertig.');
 @define('ENTER_MEDIA_URL_METHOD', 'Download-Methode:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Hinweis: Falls Sie auf eine Datei/Grafik nur verweisen wollen, stellen Sie bitte sicher, dass Sie die Erlaubnis haben, zu diesen Bildern zu linken bzw. dass die verlinkte Webseite Ihnen gehört. Dateiverweise/Links ermöglichen es, eine Datei/Grafik nicht lokal zu speichern, sondern sie direkt von der verlinkten Website einzubinden.');
