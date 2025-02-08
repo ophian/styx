@@ -122,6 +122,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('IMAGE_ROTATE_RIGHT', 'Повернуть изображение на 90 градусов по часовой стрелке');
 @define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Размер изображения');
+@define('SCALED_FOR', 'scaled for browser preview');// keep short and start lowercased, since appended to tooltip sentence
 @define('IMAGE_AS_A_LINK', 'Вставка изображения');
 @define('POWERED_BY', 'Сделано с помощью');
 @define('TRACKBACKS', 'Обратные ссылки');

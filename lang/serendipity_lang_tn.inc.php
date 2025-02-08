@@ -122,6 +122,7 @@ $i18n_unknown = 'tw';
 @define('IMAGE_ROTATE_RIGHT', 'Rotate image 90 degrees clockwise');
 @define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', '圖片大小');
+@define('SCALED_FOR', 'scaled for browser preview');// keep short and start lowercased, since appended to tooltip sentence
 @define('IMAGE_AS_A_LINK', '輸入圖片');
 @define('POWERED_BY', 'Powered by');
 @define('TRACKBACKS', '引用');

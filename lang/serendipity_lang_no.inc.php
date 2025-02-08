@@ -114,6 +114,7 @@
 @define('YOU_CHOSE', 'Du valgte %s');
 @define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Bildestørrelse');
+@define('SCALED_FOR', 'scaled for browser preview');// keep short and start lowercased, since appended to tooltip sentence
 @define('IMAGE_AS_A_LINK', 'Sett inn bilde');
 @define('POWERED_BY', 'Drives av');
 @define('TRACKBACKS', 'Trackbacks');

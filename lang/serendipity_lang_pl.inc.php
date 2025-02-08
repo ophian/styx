@@ -122,6 +122,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('IMAGE_ROTATE_RIGHT', 'Obróć obrazek 90 stopni w prawo');
 @define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Rozmiar obrazka');
+@define('SCALED_FOR', 'scaled for browser preview');// keep short and start lowercased, since appended to tooltip sentence
 @define('IMAGE_AS_A_LINK', 'Linkowanie obrazka');
 @define('POWERED_BY', 'Powered by');
 @define('TRACKBACKS', 'Ślady');

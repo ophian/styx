@@ -135,6 +135,7 @@ $i18n_filename_to = array (
 @define('IMAGE_ROTATE_RIGHT', 'Otočit o 90 stupňů doprava');
 @define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Obrázek o rozměru');
+@define('SCALED_FOR', 'scaled for browser preview');// keep short and start lowercased, since appended to tooltip sentence
 @define('IMAGE_AS_A_LINK', 'Vložení obrázku');
 @define('POWERED_BY', 'Vytvořeno pomocí');
 @define('TRACKBACKS', 'Odezvy');

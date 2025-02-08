@@ -122,6 +122,7 @@
 @define('IMAGE_ROTATE_RIGHT', 'Resmi saat yönünde 90 derece döndür');
 @define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Resim boyutu');
+@define('SCALED_FOR', 'scaled for browser preview');// keep short and start lowercased, since appended to tooltip sentence
 @define('IMAGE_AS_A_LINK', 'Resim ekleme');
 @define('POWERED_BY', 'Gerçekleştiren');
 @define('TRACKBACKS', 'Bırakılan izler');

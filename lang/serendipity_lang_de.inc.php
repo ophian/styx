@@ -114,10 +114,11 @@
 @define('THE_NUGGET', 'Der HTML-Klotz!');
 @define('SUBSCRIBE_TO_BLOG', 'Blog abonnieren');
 @define('YOU_CHOSE', 'Sie haben sich für %s entschieden');
-@define('FILE_SIZE', 'Dateigröße');// keep short!
-@define('IMAGE_SIZE', 'Bildgröße');
 @define('IMAGE_ROTATE_LEFT', 'Bild um 90 Grad gegen den Uhrzeigersinn drehen');
 @define('IMAGE_ROTATE_RIGHT', 'Bild um 90 Grad im Uhrzeigersinn drehen');
+@define('FILE_SIZE', 'Dateigröße');// keep short!
+@define('IMAGE_SIZE', 'Bildgröße');
+@define('SCALED_FOR', 'skaliert für Browser-Vorschau');// keep short and start lowercased, since appended to tooltip sentence
 @define('IMAGE_AS_A_LINK', 'Bild als Link');
 @define('POWERED_BY', 'Powered by');
 @define('TRACKBACKS', 'Trackbacks');
