@@ -444,7 +444,7 @@
         </div>
     </form>
 
-    <div id="serendipityScaleImg" data-imgwidth="{$scaleOriginSize.width}" data-imgheight="{$scaleOriginSize.height}" title="{$scaleFileName}, {$CONST.ORIGINAL_SIZE|sprintf:$scaleOriginSize.width:$scaleOriginSize.height|strip_tags}, scaled for browser preview">
+    <div id="serendipityScaleImg" data-imgwidth="{$scaleOriginSize.width}" data-imgheight="{$scaleOriginSize.height}" title="{$scaleFileName}, {$CONST.ORIGINAL_SIZE|sprintf:$scaleOriginSize.width:$scaleOriginSize.height|strip_tags}, {$CONST.SCALED_FOR}">
         <picture>
 {if NOT empty($file_avif)}
             <source type="image/avif" srcset="{$file_avif|default:''}">
