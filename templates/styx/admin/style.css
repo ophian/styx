@@ -2596,7 +2596,7 @@ form#mediaPropertyForm .media_file {
       font-variant: all-petite-caps; }
     .media_properties_selects select {
       margin-left: -.5em; }
-#media_select_props .msg_hint {
+.media_file_props .msg_hint, #media_select_props .msg_hint {
     background-color: #f0f8ff;
     font-size: .9125em;
     color: #444; }
