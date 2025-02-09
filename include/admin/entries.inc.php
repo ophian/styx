@@ -50,7 +50,7 @@ switch($serendipity['GET']['adminAction']) {
 
     case 'save':
         if (empty($serendipity['POST']['title']) && empty($serendipity['POST']['body']) && empty($serendipity['POST']['extended'])) {
-            $data['is_empty'] = sprintf(EMPTY_SETTING, TITLE.', ('.ENTRY_BODY.' '.mb_strtolower(WORD_OR).' '.EXTENDED_BODY.')');
+            $data['is_empty'] = sprintf(EMPTY_SETTING, '&laquo;'.TITLE.'&raquo;, (&laquo;'.ENTRY_BODY.'&raquo; '.mb_strtolower(WORD_OR).' &laquo;'.EXTENDED_BODY.'&raquo;)');
             $data['single_error'] = true;
             // reset/fallback to preview view, since we don't want any storage
             $serendipity['POST']['preview'] = 'true';
