@@ -2,7 +2,7 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Changed {en, de] USERCONF_USERNAME_DESC and USERCONF_REALNAME/DESC to be
+  * Changed [en, de] USERCONF_USERNAME_DESC and USERCONF_REALNAME/DESC to be
     more precise on difference between log-in name and public name.
 
   * Changed ML media properties MEDIA_PROP_STATUS message from notice to hint
