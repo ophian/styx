@@ -707,7 +707,7 @@
 @define('INSTALL_AUTODETECT_URL', 'Autodetectar HTTP-Host utilizado');
 @define('INSTALL_AUTODETECT_URL_DESC', 'Se definido como "true", o Serendipity assegurará que o HTTP Host que é usado pelo seu visitante é usado como definição de BaseURL. Permitir isto torna possível usar vários nomes de domínio para o seu blogue Serendipity, e usar o domínio para todas as ligações subsequentes.'); // Verify
 @define('CONVERT_HTMLENTITIES', 'Tentar converter as entidades HTML?'); // Translate again
-@define('EMPTY_SETTING', 'Não especificou um valor válido para "%s"!');
+@define('EMPTY_SETTING', 'Não especificou um valor válido para %s !');
 @define('USERCONF_REALNAME', 'Nome verdadeiro');
 @define('USERCONF_REALNAME_DESC', 'O nome completo do autor. Este é o nome visto pelos leitores');
 @define('HOTLINK_DONE', 'Ficheiro "%s" hotlinked.<br>Internal name: \'%s\'. Feito.'); // Verify

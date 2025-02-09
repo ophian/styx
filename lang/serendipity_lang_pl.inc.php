@@ -705,7 +705,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('INSTALL_AUTODETECT_URL', 'Autodetect used HTTP-Host');
 @define('INSTALL_AUTODETECT_URL_DESC', 'If set to "true", Serendipity will ensure that the HTTP Host which was used by your visitor is used as your BaseURL setting. Enabling this will let you be able to use multiple domain names for your Serendipity Blog, and use the domain for all follow-up links which the user used to access your blog.');
 @define('CONVERT_HTMLENTITIES', 'Próbować autokonwersji fragmentów HTML?'); // Translate again
-@define('EMPTY_SETTING', 'Podano nieprawidłowe dane dla "%s"!');
+@define('EMPTY_SETTING', 'Podano nieprawidłowe dane dla %s !');
 @define('USERCONF_REALNAME', 'Prawdziwe imię i nazwisko');
 @define('USERCONF_REALNAME_DESC', 'Pełne imię i nazwisko, jest widziane przez czytających');
 @define('HOTLINK_DONE', 'Plik "%s" podlinkowany.<br>Internal name: \'%s\'. Zrobione.');

@@ -702,7 +702,7 @@
 @define('INSTALL_AUTODETECT_URL', 'Havaitse käytetty HTTP-isäntä automaattisesti');
 @define('INSTALL_AUTODETECT_URL_DESC', 'Jos valitset kyllä, Serendipity käyttää vierailijan käyttämäää HTTP-isäntänimeä BaseURL:ina. Tätä käyttämällä voit antaa blogillesi useamman verkkonimen ja käyttää samaa verkkonimeä kaikissa linkeissä, joita vierailija käyttää lukiessaan blogiasi.');
 @define('CONVERT_HTMLENTITIES', 'Yritä konvertoida HTML-entiteetit automaattisesti?'); // Translate again
-@define('EMPTY_SETTING', 'Kentän "%s" syöte on epäkelpo!');
+@define('EMPTY_SETTING', 'Kentän %s syöte on epäkelpo!');
 @define('USERCONF_REALNAME', 'Nimi');
 @define('USERCONF_REALNAME_DESC', 'Kirjoittajan koko nimi. Tämä on se nimi, joka näytetään lukijoille');
 @define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.');

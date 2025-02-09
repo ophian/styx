@@ -706,7 +706,7 @@
 @define('INSTALL_AUTODETECT_URL', 'التعرف التلقائي على نطاق (Domain) الموقع');
 @define('INSTALL_AUTODETECT_URL_DESC', 'أن أختر الخيار صحيح. سوف تتمكن المجلة من معرفة الرابط الذي يستخدمه الزوار على أنه الرابط الأساسي. باختيارك هذا الخيار يجعلك قادر على استخدام أكثر من أسم نطاق (دومين) للوصول إلى مدونتك. وسوف يستخدم أسم النطاق هذا لجميع الروابط التابعة للمدونة');
 @define('CONVERT_HTMLENTITIES', 'جرب تحويل المواضيع إلى هتمل؟'); // Translate again
-@define('EMPTY_SETTING', 'لم تقم بأعطاء معلومات دقيقة عن "%s"!');
+@define('EMPTY_SETTING', 'لم تقم بأعطاء معلومات دقيقة عن %s !');
 @define('USERCONF_REALNAME', 'الأسم الحقيقي');
 @define('USERCONF_REALNAME_DESC', 'الأسم الكامل للمحرر أو الناشر. وهذا سوف يظهر لقراء الموضوع');
 @define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.');

@@ -706,7 +706,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_AUTODETECT_URL', 'Автоматично откриване на използвания HTTP-Host');
 @define('INSTALL_AUTODETECT_URL_DESC', 'Ако е "да", Serendipity ще се подсигури, че използвания от посетителя HTTP Host ще бъде използван като настройката BaseURL. Активирането на това ще позволи да имате няколко домейн имена за вашия блог на Serendipity и ще бъде използван съответния домейн за проследяващи връзки, използвани от вашия блог.');
 @define('CONVERT_HTMLENTITIES', 'Опитване на автоматично преобразуване на ентитита на HTML?'); // Translate again
-@define('EMPTY_SETTING', 'Не зададохте валидна стойност за "%s"!');
+@define('EMPTY_SETTING', 'Не зададохте валидна стойност за %s !');
 @define('USERCONF_REALNAME', 'Истинско име');
 @define('USERCONF_REALNAME_DESC', 'Пълното име на автора. Това име ще бъде виждано от читателите');
 @define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.');

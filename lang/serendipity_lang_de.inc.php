@@ -700,7 +700,7 @@
 @define('INSTALL_AUTODETECT_URL', 'HTTP-Hostnamen automatisch erkennen');
 @define('INSTALL_AUTODETECT_URL_DESC', 'Falls aktiviert, wird Serendipity sicherstellen, dass der vom Besucher gewählte HTTP-Hostname als BaseURL-Variable verwendet wird. Sofern diese Option aktiviert ist, ist es möglich, mehrere Domainnamen für das Weblog zu verwenden. Alle Links werden dann mit dem HTTP-Hostnamen umgeschrieben, der vom Besucher gewählt wurde.');
 @define('CONVERT_HTMLENTITIES', 'Versuchen, aus/in HTML-Entities zu konvertieren? Überprüfen Sie die Import DB. (Meist "Nein", wenn beide in UTF8.)');
-@define('EMPTY_SETTING', 'Sie haben für "%s" keinen gültigen Wert angegeben!');
+@define('EMPTY_SETTING', 'Sie haben für %s keinen gültigen Wert angegeben!');
 @define('USERCONF_REALNAME', 'Publizierter Name');
 @define('USERCONF_REALNAME_DESC', 'Der öffentliche Name des Autors. Nur dieser Name wird Besuchern angezeigt.');
 @define('HOTLINK_DONE', 'Link zur Datei "%s" erstellt.<br>Interner Name: \'%s\' Fertig.');

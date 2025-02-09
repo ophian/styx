@@ -705,7 +705,7 @@
 @define('INSTALL_AUTODETECT_URL', 'تشخیص خودکار استفاده از HTTP-Host');
 @define('INSTALL_AUTODETECT_URL_DESC', 'اگر روی "بله" تنظیم شود، سرندیپیتی قرار داشتن آدرس BaseURL که در بخش تنظیمات وارد کرده اید را در درخواست ارسالی بررسی می کند. فعال کردن این گزینه، باعث می شود که شما بتوانید از چندین دامنه برای دیدن وبلاگ سرندیپیتی و تمامی لینک های وابسته به آن استفاده کنید.');
 @define('CONVERT_HTMLENTITIES', 'سعی در تغییر مقادیر HTML داشته باشم؟'); // Translate again
-@define('EMPTY_SETTING', 'شما مقدار معتبری برای "%s" انتخاب نکرده اید!');
+@define('EMPTY_SETTING', 'شما مقدار معتبری برای %s انتخاب نکرده اید!');
 @define('USERCONF_REALNAME', 'نام واقعی');
 @define('USERCONF_REALNAME_DESC', 'نام کامل نویسنده. این نام توسط خواننده دیده خواهد شد');
 @define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.');

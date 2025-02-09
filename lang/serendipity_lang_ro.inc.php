@@ -704,7 +704,7 @@
 @define('INSTALL_AUTODETECT_URL', 'Autodetecţie adresă HTTP');
 @define('INSTALL_AUTODETECT_URL_DESC', 'Dacă e activată, Serendipity va verifica ca adresa HTTP folosită de cititor să corespundă cu opţiunea ta BaseURL. Activând această opţiune vei putea folosi mai multe domenii pentru acest blog, şi să foloseşti domeniul pentru toate legăturile de pe acest blog.');
 @define('CONVERT_HTMLENTITIES', 'Încearcă conversia automată a entităţilor HTML?'); // Translate again
-@define('EMPTY_SETTING', 'Nu ai specificat o valoare validă pentru "%s"!');
+@define('EMPTY_SETTING', 'Nu ai specificat o valoare validă pentru %s !');
 @define('USERCONF_REALNAME', 'Nume real');
 @define('USERCONF_REALNAME_DESC', 'Numele complet al autorului. Acesta este numele vizibil cititorilor');
 @define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.');

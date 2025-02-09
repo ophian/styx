@@ -715,7 +715,7 @@ $i18n_filename_to = array (
 @define('INSTALL_AUTODETECT_URL', 'Autodetekce použité HTTP hostitelské adresy');
 @define('INSTALL_AUTODETECT_URL_DESC', 'Při volbě "Ano" bude Serendipity předpokládat, že HTTP adresa hostitele, použitá návštěvníkem, je vaše základní nastavení URL. Zapnutí umožní používání různých domén k přístupu na vaše stránky, a použití této jedné domény pro všechny odkazy ke sledování změn na stránkách.');
 @define('CONVERT_HTMLENTITIES', 'Zkusit automatickou konverzi HTML entit?'); // Translate again
-@define('EMPTY_SETTING', 'Nespecifikoval jste platnou hodnotu pro "%s"!');
+@define('EMPTY_SETTING', 'Nespecifikoval jste platnou hodnotu pro %s !');
 @define('USERCONF_REALNAME', 'Skutečné jméno');
 @define('USERCONF_REALNAME_DESC', 'Plné jméno autora. Toto jméno uvidí čtenáři');
 @define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.');
