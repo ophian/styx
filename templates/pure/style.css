@@ -509,7 +509,15 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
   background-color: #fbe090; }
 [data-dark-theme="dark"] #serendipity_syndication_list .serendipity_xml_icon img {
   background-color: #0ff; }
-
+[data-dark-theme="dark"] .xmlsvg  .serendipity_xml_icon img {
+  background: linear-gradient(to left bottom, rgba(0, 255, 255, 1) 0%, rgb(207 203 89) 50%, rgba(255, 255, 0, 1) 100%), linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)); }
+[data-dark-theme="dark"] #serendipity_categories_list input[type="checkbox"],
+[data-dark-theme="dark"] #serendipity_authors_list input[type="checkbox"] {
+  accent-color: #777;
+  filter: invert(100%) hue-rotate(18deg) brightness(1.7); }
+[data-dark-theme="dark"] #serendipity_categories_list input[type="checkbox"] {
+  margin-right: 4px; /*consistency space like for authors checkbox*/
+}
 
 /* defaults */
 
