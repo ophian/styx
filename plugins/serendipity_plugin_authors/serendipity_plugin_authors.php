@@ -19,7 +19,7 @@ class serendipity_plugin_authors extends serendipity_plugin
         $propbag->add('description', AUTHOR_PLUGIN_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team, Ian Styx');
-        $propbag->add('version',       '2.6.0');
+        $propbag->add('version',       '2.6.1');
         $propbag->add('configuration', array('image', 'allow_select', 'title', 'showartcount', 'mincount'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -122,7 +122,7 @@ class serendipity_plugin_authors extends serendipity_plugin
                 $html .= "                            <li>\n";
 
                 if ($is_form) {
-                    $html .= '                                <input style="width: 15px" type="checkbox" name="serendipity[multiAuth][]" value="' . $auth['authorid'] . '">' . "\n";
+                    $html .= '                                <input type="checkbox" name="serendipity[multiAuth][]" value="' . $auth['authorid'] . '">' . "\n";
                 }
 
                 if (!empty($image)) {
