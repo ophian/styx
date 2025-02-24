@@ -2,6 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Remove inline styles for authors sidebaar plugin checkbox
+
   * Changed [en, de] USERCONF_USERNAME_DESC and USERCONF_REALNAME/DESC to be
     more precise on difference between log-in name and public name.
 
