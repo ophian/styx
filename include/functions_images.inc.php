@@ -3443,7 +3443,7 @@ function serendipity_displayImageList(int $page = 0, bool $manage = false, ?stri
                        $sFileName  = substr($sFile, $nPos);
                        $sDirectory = substr($sFile, 0, $nPos);
                     }
-                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Inserting image $sFileName from $sDirectory" . print_r($aImageData, 1) . "\ninto database"); }
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Inserting image $sFileName from $sDirectory" . print_r($aImageData, true) . "\ninto database"); }
 
                     // added block for accessing serendipity_createFullFileVariations()
                     $info = pathinfo($sFileName);
