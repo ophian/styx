@@ -1413,13 +1413,13 @@ function serendipity_saveComment(int $id, iterable $commentInfo, string $type = 
     $commentInfo['source'] = $source; // put into commentInfo array
 
     // Secure email addresses, only one [first] allowed to not mail to multiple recipients
-    $mailparts = explode(',', $commentInfo['email']);
+    $mailparts = explode(',', ($commentInfo['email'] ?? ''));
     $commentInfo['email'] = trim($mailparts[0]);
 
     serendipity_plugin_api::hook_event('frontend_saveComment', $ca, $commentInfo);
     if (isset($GLOBALS['tb_logging']) && $GLOBALS['tb_logging']) {
         $fp = fopen('trackback2.log', 'a');
-        fwrite($fp, '[' . date('d.m.Y H:i') . '] ' . print_r($ca, 1) . "\n");
+        fwrite($fp, '[' . date('d.m.Y H:i') . '] ' . print_r($ca, true) . "\n");
         fclose($fp);
     }
     if ((!is_array($ca) || serendipity_db_bool($ca['allow_comments'])) && !$isUin) {
