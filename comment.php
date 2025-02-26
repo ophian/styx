@@ -122,7 +122,7 @@ if ($type == 'trackback') {
         log_pingback('RECEIVED PINGBACK');
         log_pingback('HTTP_RAW_POST_DATA: ' . print_r($HTTP_RAW_POST_DATA, true));
     }
-    if (add_pingback($_REQUEST['entry_id'], $HTTP_RAW_POST_DATA)) {
+    if (add_pingback((int) ($_REQUEST['entry_id'] ?? 0), $HTTP_RAW_POST_DATA)) {
         log_pingback('PINGBACK SUCCESS');
         log_pingback('---------------------------------------');
         report_pingback_success();
