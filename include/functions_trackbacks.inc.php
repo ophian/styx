@@ -385,7 +385,7 @@ function add_trackback(int $id, string $title, string $url, string $name, string
  * Receive a pingback
  *
  * Args:
- *      - The entryid to receive a pingback for
+ *      - The entry id to receive a pingback for
  *      - The foreign postdata to add
  * Returns:
  *      - boolean
@@ -408,7 +408,7 @@ function add_pingback(int $id, string $postdata) : bool {
         fetchPingbackData($comment);
 
         // if no ID parameter was given, try to get one from targetURI
-        if (!isset($id) || $id==0) {
+        if (!isset($id) || $id == 0) {
             log_pingback('ID not found');
             $id = evaluateIdByLocalUrl($local);
             log_pingback("ID set to $id");
