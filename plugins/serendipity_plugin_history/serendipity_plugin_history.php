@@ -189,12 +189,12 @@ class serendipity_plugin_history extends serendipity_plugin
                     if (!$cy_isaly) {
                         // and for exception under x days only condition is directly following a leap year
                         if ($cy_pox) {
-                            return $timestamp; // "after the added leap day" in non-leap-start-years; i.e TNOW = 02-03-2025 12:12:00
+                            return $timestamp; // "after the added leap day" in non-leap-start-years; i.e. TNOW = 02-03-2025 12:12:00
                         } else {
-                            return $timestamp+86400; // "after the added leap day" in non-leap-start-years; i.e TNOW = 02-03-2023 12:12:00
+                            return $timestamp+86400; // "after the added leap day" in non-leap-start-years; i.e. TNOW = 02-03-2023 12:12:00
                         }
                     } else {
-                        return $timestamp; // "after the added leap day" in leap-start-years; i.e TNOW = 02-03-2024 12:12:00
+                        return $timestamp; // "after the added leap day" in leap-start-years; i.e. TNOW = 02-03-2024 12:12:00
                     }
                 } else {
                     // current year is a leap year
@@ -203,7 +203,7 @@ class serendipity_plugin_history extends serendipity_plugin
                     } else {
                         // 2cd and 3rd normal year cases
                         if (!$cy_pox) {
-                            return $timestamp+86400; // i.e TNOW = 01-02-2022 12:12:00 OR TNOW = 01-02-2023 12:12:00
+                            return $timestamp+86400; // i.e. TNOW = 01-02-2022 12:12:00 OR TNOW = 01-02-2023 12:12:00
                         } else {
                             // The ONE and ONLY exception; [ Current start year IS a leap year + 1 and its date is NOT below February 29]  AND the range timestamp IS the 28th of February;
                             return $timestamp-86400; // i.e. TNOW = 28-02-2025 12:12:00
