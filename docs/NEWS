@@ -9,7 +9,7 @@ Version 5.0-DEV ()
   * Allow [pure] theme dark mode color styled checkbox filters and some new
     xmlsvg icons background gradients.
 
-  * Remove inline styles for authors sidebaar plugin checkbox
+  * Remove inline styles for authors sidebar plugin checkbox
 
   * Changed [en, de] USERCONF_USERNAME_DESC and USERCONF_REALNAME/DESC to be
     more precise on difference between log-in name and public name.
