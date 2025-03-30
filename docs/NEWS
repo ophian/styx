@@ -2,6 +2,10 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix serendipity_plugin_history multi-year cases and all found specialties
+    regarding leap year arithmetics - now proved for diverse timestamps, before
+    - around - on - and after.
+
   * Allow [pure] theme dark mode color styled checkbox filters and some new
     xmlsvg icons background gradients.
 
