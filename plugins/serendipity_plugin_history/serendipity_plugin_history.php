@@ -10,7 +10,7 @@ if (IN_serendipity !== true) {
 
 class serendipity_plugin_history extends serendipity_plugin
 {
-    var $title = PLUGIN_HISTORY_NAME;
+    public $title = PLUGIN_HISTORY_NAME;
 
     function introspect(&$propbag)
     {
@@ -22,7 +22,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.52');
+        $propbag->add('version',       '2.0.0');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
@@ -163,7 +163,76 @@ class serendipity_plugin_history extends serendipity_plugin
         return true;
     }
 
-    function getHistoryEntries($maxts, $mints, $max_age, $nowts, $min_age = null, $intro = null, $outro = null)
+    /**
+     * Check if multi-range timestamps happen to be in leap years and range before FEBRUARY 29th without an added leap day OR behind with 1 day plus
+     *
+     * Args:
+     *      - The multiage array lopped timestamps startday - endday. (Could also use the SQL BETWEEN operator since that is inclusive: begin and end values are included.)
+     *      - The current year - is a leap year $cy_isaly
+     *      - The current year - is directly following a leap year $cy_pox - is lyear plus one AND its timestamp day is >= Feb 28 (normal years(3) first year and x days)
+     * Returns:
+     *      - return conditional prepared $timestamp
+     */
+    private function rangeLeapYearAddDay(int $timestamp, bool $cy_isaly, bool $cy_pox) : int
+    {
+        // check looped timestamp year for being a leap year
+        if (date('L', $timestamp)) {
+            $year = (int) date('Y', $timestamp);
+            $leapDayTimestamp = mktime(0, 0, 0, 2, 29, $year); // check against start of leap day
+            // case 1: lower added leap day
+            if ($timestamp < $leapDayTimestamp) {
+                return $timestamp; // do nothing "before the added leap day"; i.e. TNOW = 06-01-2024 12:12:00
+            } else {
+            // case 2: greater or equal added leap day
+                if (date('md', $timestamp) > '0229') {
+                    // current year is a normal year
+                    if (!$cy_isaly) {
+                        // and for exception under x days only condition is directly following a leap year
+                        if ($cy_pox) {
+                            return $timestamp; // "after the added leap day" in non-leap-start-years; i.e TNOW = 02-03-2025 12:12:00
+                        } else {
+                            return $timestamp+86400; // "after the added leap day" in non-leap-start-years; i.e TNOW = 02-03-2023 12:12:00
+                        }
+                    } else {
+                        return $timestamp; // "after the added leap day" in leap-start-years; i.e TNOW = 02-03-2024 12:12:00
+                    }
+                } else {
+                    // current year is a leap year
+                    if ($cy_isaly) {
+                        return $timestamp; // i.e. TNOW = 01-02-2024 12:12:00
+                    } else {
+                        // 2cd and 3rd normal year cases
+                        if (!$cy_pox) {
+                            return $timestamp+86400; // i.e TNOW = 01-02-2022 12:12:00 OR TNOW = 01-02-2023 12:12:00
+                        } else {
+                            // The ONE and ONLY exception; [ Current start year IS a leap year + 1 and its date is NOT below February 29]  AND the range timestamp IS the 28th of February;
+                            return $timestamp-86400; // i.e. TNOW = 28-02-2025 12:12:00
+                        }
+                    }
+                }
+            }
+        }
+        // normal years in-between leap years - except $cy_pox case ly + 1 >= Feb 28th
+        return $timestamp;
+    }
+
+    /**
+     * Main function to prepare (multi-aged) timestamps to fetch historic entries off by year(s)
+     *
+     * Args:
+     *      - Option setting: Max timestamp (regularly 365 days)
+     *      - Option setting: Min timestamp (regularly 365 days)
+     *      - Multi age prepared range in days
+     *      - The current timestamp
+     *      - Current year is a leap year and its day is > 0228 - NULL on not use
+     *      - Current year is directly following a leap year and its day is >= 0228 - NULL on not use
+     *      - Option setting: Min age (optional)
+     *      - The output intro string (optional)
+     *      - The output outro string (optional)
+     * Returns:
+     *      - Boolean state
+     */
+    function getHistoryEntries(int $maxts, int $mints, iterable $max_age, int $nowts, ?bool $cyisly, ?bool $cypox, ?int $min_age = null, ?string $intro = null, ?string $outro = null) : ?false
     {
         global $serendipity;
 
@@ -181,7 +250,7 @@ class serendipity_plugin_history extends serendipity_plugin
         } else {
             // this is looped years
             foreach ($max_age AS $xt) {
-                $range[] = [($mints-($xt*86400)),($maxts-($xt*86400))];
+                $range[] = [$this->rangeLeapYearAddDay($mints-($xt*86400), $cyisly, $cypox), $this->rangeLeapYearAddDay($maxts-($xt*86400), $cyisly, $cypox)];
             }
             $hyr = array(0 => 'hyears', 1 => $range);
 
@@ -219,8 +288,7 @@ class serendipity_plugin_history extends serendipity_plugin
             $dateformat = '%a, %d.%m.%Y %H:%M';
         }
 
-        $elday = date('md', $nowts) == '0229'; // (bool) is the current day the explicit leap day ?
-        $fmrch = date('md', $nowts) == '0301'; // (bool) is the current day the explicit 1st of March day ?
+        $elday = date('md', $nowts) == '0229'; // (bool) Is the current day the explicit leap day ?
 
         echo empty($intro) ? '' : '<div class="serendipity_history_intro">' . $intro . "</div>\n";
         if (!$full) {
@@ -228,9 +296,8 @@ class serendipity_plugin_history extends serendipity_plugin
         }
 
         for($x=0; $x < $ect; $x++) {
-            // in leap years on leap day exclude both possible sibling days, in normal years exclude explicit leap day entries (by the counter days)
-            if (($elday && (date('md', $e[$x]['timestamp']) == '0228' || date('md', $e[$x]['timestamp']) == '0301'))
-             || ($fmrch && date('md', $e[$x]['timestamp']) == '0229')) continue; // do not show
+            // only exception to exclude wrongly fetched 28th days when on leap day Feb 29th
+            if ($elday && (date('md', $e[$x]['timestamp']) == '0228')) continue; // do not show
 
             $url = serendipity_archiveURL($e[$x]['id'],
                                           $e[$x]['title'],
@@ -272,6 +339,8 @@ class serendipity_plugin_history extends serendipity_plugin
         }
 
         echo empty($outro) ? '' : '<div class="serendipity_history_outro">' . $outro . "</div>\n";
+
+        return null;
     }
 
     function generate_content(&$title)
@@ -289,7 +358,9 @@ class serendipity_plugin_history extends serendipity_plugin
         $xyempty     = $this->get_config('isempty');
         $empty_ct    = $this->get_config('empty_ct', 0);
 
-        $nowts = serendipity_serverOffsetHour();
+        // $testts = mktime(00, 12, 00, 2, 27, 2025); // test timestamp cases. Do for normal year, leap year and leap year + 1 year cases with multi diff month/day cases. In special, multi-variants of Feb 28th, 29th in ly and 1st of march cases!
+        // ----
+        $nowts = serendipity_serverOffsetHour(); // test NOW TS $testts on certain year date calculations (see above)
         $maxts = mktime(23, 59, 59,  (int) date('m', $nowts), (int) date('d', $nowts), (int) date('Y', $nowts)); // this is todays timestamp at last minute of day
         $mints = mktime(0, 0, 0, (int) date('m', $nowts), (int) date('d', $nowts), (int) date('Y', $nowts)); // this is todays timestamp at start of day
 
@@ -304,6 +375,7 @@ class serendipity_plugin_history extends serendipity_plugin
             $timeout = ($maxts - $nowts); // the rest of the day
             $cached  = (($timeout >= 0) && ($maxts > $nowts));
             $date    = file_exists($cachefile) ? date('d-m-Y', $nowts) == date('d-m-Y', serendipity_serverOffsetHour(filemtime($cachefile))) : false; // filemtime is Servers timezone or UTC/GMT
+            // set $date = false for non cache debug cases
 
             // get, read and echo possible cache file
             if ($date && $cached) {
@@ -314,15 +386,12 @@ class serendipity_plugin_history extends serendipity_plugin
 
             } else {
 
-                // avoid possible haunt failings
-                #if ($serendipity['view'] == 'plugin') {
-                #    return false;
-                #}
+                $sc = (date('L', $nowts) == '1') ? (date('md', $nowts) > '0228') : false; // if to add the leap day to counter
 
-                $sc = (date('L', $nowts) == '1') ? date('md', $nowts) > '0228' : false; // if to add the leap day to counter
                 if (false === $sc) {
                     $xyears += 1; // adds one additional loop year into the array - because we are counting year days backward, starting by key 1
                 }
+
                 $cy = date('Y', $nowts);
                 $sy = ($cy-$xyears);
 
@@ -335,14 +404,22 @@ class serendipity_plugin_history extends serendipity_plugin
                     #$leap[] = !in_array($i, [1900, 2100]) ? date('L', strtotime("$i-01-01")) : false; // ;-)
                     $leap[] = date('L', strtotime("$i-01-01"));
                 }
+
                 // Loops xyears backward days by leap year (cases)
                 $skey = $sc ? 0 : 1; // Set the startkey depending on being [the leap day and + in LY] OR not
+
+                // Internal arrow function (short closure) to check a special case when current year is following a leap year, but NOT before Feb 28th !! Scope is parent.
+                $hasPreviousLeapYear = fn($nowts): bool => (date('L', strtotime((date('Y', $nowts) - 1)."-01-01")) == 1 && date('md', $nowts) >= '0228'); // Restriction important
+                $cpx = $hasPreviousLeapYear($nowts); // Boolean = current (year) plus one + x days
+
+                if ($skey == 1 && $cpx === true) $skey = 0; // special case reset - i.e. 16th of March 2025
+
                 // The interwoven conditional leap year array checkup makes it necessary that,
                 // if the current year is a leap year and the (current year) counted day is greater February 28th,
                 // the start key must start with 0, otherwise 1, so that the leap year days age counter matches the back-looped year.
                 for($y=$skey; $y < $xyears; $y++) {
-                    $days       = (isset($leap[$y]) && $leap[$y] == 1) ? 366 : 365; // days is the counter for building the back years
-                    $age       += $days; // increment, since we need all years added days for the decrementing backward day age counter
+                    $days       = (isset($leap[$y]) && $leap[$y] == '1') ? 366 : 365; // days is the counter for building the back years
+                    $age       += $days; // Increment, since we need all years added days for the decrementing backward day age counter
                     $multiage[] = $age; // When finalized we can sort out entries on special day February 29th and so. See getHistoryEntries().
                 }
 
@@ -351,7 +428,7 @@ class serendipity_plugin_history extends serendipity_plugin
                     if (!empty($intro)) {
                         echo '<div class="serendipity_history_intro">' . $intro . "</div>\n";
                     }
-                    if (false === $this->getHistoryEntries($maxts, $mints, $multiage, $nowts)) {
+                    if (false === $this->getHistoryEntries($maxts, $mints, $multiage, $nowts, $sc, $cpx)) {
                         $fallback = true;
                     }
                     if (!empty($outro)) {
@@ -388,7 +465,7 @@ class serendipity_plugin_history extends serendipity_plugin
                 }
             }
         } else {
-            if (empty($this->getHistoryEntries($maxts, $mints, $max_age, $nowts, $min_age, $intro, $outro))) {
+            if (empty($this->getHistoryEntries($maxts, $mints, $max_age, $nowts, null, null, $min_age, $intro, $outro))) {
                 if (!empty($xyempty)) {
                     echo '<div class="serendipity_history_outro history_empty">' . $xyempty . "</div>\n";
                 }
