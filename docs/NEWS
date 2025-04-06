@@ -2,6 +2,9 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix remoterss sidebarplugin Atom feed parsing over SimplePie parser by use
+    of Psr\SimpleCache\CacheInterface.
+
   * Add missing bundled-libs/psr/simple-cache lib
 
   * Fix serendipity_plugin_history multi-year cases and all found specialties
