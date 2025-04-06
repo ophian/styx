@@ -2,6 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add missing bundled-libs/psr/simple-cache lib
+
   * Fix serendipity_plugin_history multi-year cases and all found specialties
     regarding leap year arithmetics - now proved for diverse timestamps, before
     - around - on - and after.
