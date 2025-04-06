@@ -279,7 +279,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
         $propbag->add('description',   PLUGIN_REMOTERSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Udo Gerhards, Richard Thomas Harrison, Ian Styx');
-        $propbag->add('version',       '1.38');
+        $propbag->add('version',       '1.39');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
@@ -692,8 +692,8 @@ class serendipity_plugin_remoterss extends serendipity_plugin
 
                     $this->debug('Running simplepie Parser');
 
-                    $simplefeed = new SimplePie();
-                    $simplefeed->cache=false;
+                    $simplefeed = new \SimplePie\SimplePie();
+                    $simplefeed->enable_cache(false);
                     $simplefeed->set_feed_url($rssuri);
                     $success = $simplefeed->init();
                     $simplefeed->set_output_encoding($charset);
