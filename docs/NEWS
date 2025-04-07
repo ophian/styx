@@ -2,6 +2,9 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Update bundled-libs/Psr/Log library to v.3.0.2 for PHP >= 8.0.0 and types
+    and fix bundled-libs/katzgrau/klogger for a dependency type declaration.
+
   * Fix remoterss sidebarplugin Atom feed parsing over SimplePie parser by use
     of Psr\SimpleCache\CacheInterface.
 
