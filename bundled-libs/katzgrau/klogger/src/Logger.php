@@ -20,7 +20,7 @@ use Psr\Log\LogLevel;
  * @author  Kenny Katzgrau <katzgrau@gmail.com>
  * @since   July 26, 2008
  * @link    https://github.com/katzgrau/KLogger
- * @version 1.0.0
+ * @version 1.0.0 - Styx 1.3.0-dev
  */
 
 /**
@@ -202,11 +202,11 @@ class Logger extends AbstractLogger
      * Logs with an arbitrary level.
      *
      * @param mixed $level
-     * @param string $message
+     * @param Stringable|string $message
      * @param array $context
      * @return null
      */
-    public function log($level, $message, array $context = array())
+    public function log($level, \Stringable|string $message, array $context = array()): void
     {
         if ($this->logLevels[$this->logLevelThreshold] < $this->logLevels[$level]) {
             return;
