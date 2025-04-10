@@ -2,6 +2,10 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Update bundled-libs/HTTP/Request2 to v.2.7.0 including all Styx relevant
+    changes.
+    https://github.com/pear/HTTP_Request2/blob/b1c61b71128045734d757c4d3d436457ace80ea7/Changelog.md
+
   * Update bundled-libs/Psr/Log library to v.3.0.2 for PHP >= 8.0.0 and types
     and fix bundled-libs/katzgrau/klogger for a dependency type declaration.
 
