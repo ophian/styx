@@ -13,15 +13,12 @@
  * @category  HTTP
  * @package   HTTP_Request2
  * @author    Alexey Borzov <avb@php.net>
- * @copyright 2008-2021 Alexey Borzov <avb@php.net>
+ * @copyright 2008-2025 Alexey Borzov <avb@php.net>
  * @license   http://opensource.org/licenses/BSD-3-Clause BSD 3-Clause License
  * @link      http://pear.php.net/package/HTTP_Request2
  */
 
 // pear-package-only /** Exception classes for HTTP_Request2 package */
-// pear-package-only require_once 'HTTP/Request2/Exception.php';
-
-/** Exception classes for HTTP_Request2 package */
 require_once S9Y_PEAR_PATH . 'HTTP/Request2/Exception.php';
 
 /**
@@ -43,24 +40,28 @@ class HTTP_Request2_SocketWrapper
 {
     /**
      * PHP warning messages raised during stream_socket_client() call
+     *
      * @var array
      */
     protected $connectionWarnings = [];
 
     /**
      * Connected socket
+     *
      * @var resource
      */
     protected $socket;
 
     /**
      * Sum of start time and global timeout, exception will be thrown if request continues past this time
-     * @var float
+     *
+     * @var float|null
      */
     protected $deadline;
 
     /**
      * Global timeout value, mostly for exception messages
+     *
      * @var integer
      */
     protected $timeout;
@@ -118,7 +119,7 @@ class HTTP_Request2_SocketWrapper
             }
         }
         set_error_handler([$this, 'connectionWarningsHandler']);
-        $this->socket = stream_socket_client(
+        $socket = stream_socket_client(
             $address, $errno, $errstr, $timeout, STREAM_CLIENT_CONNECT, $context
         );
         restore_error_handler();
@@ -126,17 +127,18 @@ class HTTP_Request2_SocketWrapper
         // connection still succeeds, albeit with a warning. Throw an Exception
         // with the warning text in this case as that connection is unlikely
         // to be what user wants and as Curl throws an error in similar case.
-        if ($this->connectionWarnings) {
-            if ($this->socket) {
-                fclose($this->socket);
+        if ($this->connectionWarnings || !$socket) {
+            if ($socket) {
+                fclose($socket);
             }
-            $error = $errstr ? $errstr : implode("\n", $this->connectionWarnings);
+            $error = $errstr ?: implode("\n", $this->connectionWarnings);
             throw new HTTP_Request2_ConnectionException(
                 "Unable to connect to {$address}. Error: {$error}", 0, $errno
             );
         }
         // Run socket in non-blocking mode, to prevent possible problems with
         // HTTPS requests not timing out properly (see bug #21229)
+        $this->socket = $socket;
         stream_set_blocking($this->socket, false);
     }
 
@@ -153,8 +155,8 @@ class HTTP_Request2_SocketWrapper
      *
      * @param int $length Reads up to this number of bytes
      *
-     * @return   string|false Data read from socket by fread()
-     * @throws   HTTP_Request2_MessageException     In case of timeout
+     * @return string|false Data read from socket by fread()
+     * @throws HTTP_Request2_MessageException     In case of timeout
      */
     public function read($length)
     {
@@ -188,8 +190,8 @@ class HTTP_Request2_SocketWrapper
      * @param int $localTimeout timeout value to use just for this call
      *                          (used when waiting for "100 Continue" response)
      *
-     * @return   string Available data up to the newline (not including newline)
-     * @throws   HTTP_Request2_MessageException     In case of timeout
+     * @return string Available data up to the newline (not including newline)
+     * @throws HTTP_Request2_MessageException     In case of timeout
      */
     public function readLine($bufferSize, $localTimeout = null)
     {
@@ -200,13 +202,14 @@ class HTTP_Request2_SocketWrapper
                 $started  = microtime(true);
             } else {
                 $timeouts = $this->_getTimeoutsForStreamSelect();
+                $started  = 0.0;
             }
 
             $r = [$this->socket];
             $w = [];
             $e = [];
             if (stream_select($r, $w, $e, $timeouts[0], $timeouts[1])) {
-                $line .= @fgets($this->socket, $bufferSize);
+                $line .= (string)@fgets($this->socket, $bufferSize);
             }
 
             if (null === $localTimeout) {
@@ -243,11 +246,14 @@ class HTTP_Request2_SocketWrapper
             $w = [$this->socket];
             $e = null;
             if (stream_select($r, $w, $e, $timeouts[0], $timeouts[1])) {
-                set_error_handler(static function ($errNo, $errStr) use (&$error) {
-                    if (0 !== (E_NOTICE | E_WARNING) & $errNo) {
-                        $error = $errStr;
+                set_error_handler(
+                    static function ($errNo, $errStr) use (&$error) {
+                        if (0 !== ((E_NOTICE | E_WARNING) & $errNo)) {
+                            $error = $errStr;
+                        }
+                        return true;
                     }
-                });
+                );
                 $written = fwrite($this->socket, $data);
                 restore_error_handler();
             }
@@ -260,7 +266,7 @@ class HTTP_Request2_SocketWrapper
                     'Error writing request' . (null === $error ? '' : ': ' . $error)
                 );
             }
-            $data = substr($data, $written);
+            $data = (string)substr($data, $written);
             $totalWritten += $written;
         }
         return $totalWritten;
@@ -285,13 +291,15 @@ class HTTP_Request2_SocketWrapper
      *
      * @param float|null $deadline Exception will be thrown if request continues
      *                             past this time
-     * @param int $timeout         Original request timeout value, to use in
+     * @param int        $timeout  Original request timeout value, to use in
      *                             Exception message
+     *
+     * @return void
      */
     public function setDeadline($deadline, $timeout)
     {
         if (null === $deadline && 0 < ($defaultTimeout = (int)ini_get('default_socket_timeout'))) {
-            $deadline = microtime(true) + $defaultTimeout;
+            $deadline = microtime(true) + (float)$defaultTimeout;
         }
         $this->deadline = $deadline;
         $this->timeout  = $timeout;
@@ -300,6 +308,7 @@ class HTTP_Request2_SocketWrapper
     /**
      * Turns on encryption on a socket
      *
+     * @return void
      * @throws HTTP_Request2_ConnectionException
      */
     public function enableCrypto()
@@ -324,6 +333,7 @@ class HTTP_Request2_SocketWrapper
     /**
      * Throws an Exception if stream timed out
      *
+     * @return void
      * @throws HTTP_Request2_MessageException
      */
     protected function checkTimeout()

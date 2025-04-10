@@ -13,7 +13,7 @@
  * @category  HTTP
  * @package   HTTP_Request2
  * @author    Alexey Borzov <avb@php.net>
- * @copyright 2008-2021 Alexey Borzov <avb@php.net>
+ * @copyright 2008-2025 Alexey Borzov <avb@php.net>
  * @license   http://opensource.org/licenses/BSD-3-Clause BSD 3-Clause License
  * @link      http://pear.php.net/package/HTTP_Request2
  */
@@ -21,9 +21,6 @@
 // pear-package-only /**
 // pear-package-only  * Base class for exceptions in PEAR
 // pear-package-only  */
-// pear-package-only require_once 'PEAR/Exception.php';
-
-/** Base class for exceptions in PEAR */
 require_once S9Y_PEAR_PATH . 'PEAR/Exception.php';
 
 /**
@@ -39,29 +36,48 @@ require_once S9Y_PEAR_PATH . 'PEAR/Exception.php';
  */
 class HTTP_Request2_Exception extends PEAR_Exception
 {
-    /** An invalid argument was passed to a method */
+    /**
+     * An invalid argument was passed to a method
+     */
     const INVALID_ARGUMENT   = 1;
-    /** Some required value was not available */
+    /**
+     * Some required value was not available
+     */
     const MISSING_VALUE      = 2;
-    /** Request cannot be processed due to errors in PHP configuration */
+    /**
+     * Request cannot be processed due to errors in PHP configuration
+     */
     const MISCONFIGURATION   = 3;
-    /** Error reading the local file */
+    /**
+     * Error reading the local file
+     */
     const READ_ERROR         = 4;
 
-    /** Server returned a response that does not conform to HTTP protocol */
+    /**
+     * Server returned a response that does not conform to HTTP protocol
+     */
     const MALFORMED_RESPONSE = 10;
-    /** Failure decoding Content-Encoding or Transfer-Encoding of response */
+    /**
+     * Failure decoding Content-Encoding or Transfer-Encoding of response
+     */
     const DECODE_ERROR       = 20;
-    /** Operation timed out */
+    /**
+     * Operation timed out
+     */
     const TIMEOUT            = 30;
-    /** Number of redirects exceeded 'max_redirects' configuration parameter */
+    /**
+     * Number of redirects exceeded 'max_redirects' configuration parameter
+     */
     const TOO_MANY_REDIRECTS = 40;
-    /** Redirect to a protocol other than http(s):// */
+    /**
+     * Redirect to a protocol other than http(s)://
+     */
     const NON_HTTP_REDIRECT  = 50;
 
     /**
      * Native error code
-     * @var int
+     *
+     * @var int|null
      */
     private $_nativeCode;
 
@@ -72,7 +88,7 @@ class HTTP_Request2_Exception extends PEAR_Exception
      * @param int    $code       package error code, one of class constants
      * @param int    $nativeCode error code from underlying PHP extension
      */
-    public function __construct($message = null, $code = null, $nativeCode = null)
+    public function __construct($message = '', $code = null, $nativeCode = null)
     {
         parent::__construct($message, $code);
         $this->_nativeCode = $nativeCode;
@@ -85,23 +101,18 @@ class HTTP_Request2_Exception extends PEAR_Exception
      * stream_socket_client(), for Curl Adapter this will contain error number
      * returned by curl_errno()
      *
-     * @return integer
+     * @return int|null
      */
     public function getNativeCode()
     {
         return $this->_nativeCode;
     }
-
 }
 
 // backwards compatibility, include the child exceptions if installed with PEAR installer
-// pear-package-only require_once
 require_once S9Y_PEAR_PATH . 'HTTP/Request2/ConnectionException.php';
-// pear-package-only require_once
 require_once S9Y_PEAR_PATH . 'HTTP/Request2/LogicException.php';
-// pear-package-only require_once
 require_once S9Y_PEAR_PATH . 'HTTP/Request2/MessageException.php';
-// pear-package-only require_once
 require_once S9Y_PEAR_PATH . 'HTTP/Request2/NotImplementedException.php';
 
 ?>

@@ -14,7 +14,7 @@
  * @package   HTTP_Request2
  * @author    David Jean Louis <izi@php.net>
  * @author    Alexey Borzov <avb@php.net>
- * @copyright 2008-2021 Alexey Borzov <avb@php.net>
+ * @copyright 2008-2025 Alexey Borzov <avb@php.net>
  * @license   http://opensource.org/licenses/BSD-3-Clause BSD 3-Clause License
  * @link      http://pear.php.net/package/HTTP_Request2
  */
@@ -22,11 +22,6 @@
 // pear-package-only /**
 // pear-package-only  * Exception class for HTTP_Request2 package
 // pear-package-only  */
-// pear-package-only require_once 'HTTP/Request2/Exception.php';
-
-/**
- * Exception class for HTTP_Request2 package
- */
 require_once S9Y_PEAR_PATH . 'HTTP/Request2/Exception.php';
 
 /**
@@ -77,11 +72,11 @@ class HTTP_Request2_Observer_Log implements SplObserver
     // properties {{{
 
     /**
-     * The log target, it can be a a resource or a PEAR Log instance.
+     * The log target, it can be a resource or a PEAR Log instance.
      *
      * @var resource|Log $target
      */
-    protected $target = null;
+    protected $target;
 
     /**
      * The events to log.
@@ -103,9 +98,9 @@ class HTTP_Request2_Observer_Log implements SplObserver
     /**
      * Constructor.
      *
-     * @param mixed $target Can be a file path (default: php://output), a resource,
-     *                      or an instance of the PEAR Log class.
-     * @param array $events Array of events to listen to (default: all events)
+     * @param string|resource|Log $target Can be a file path (default: php://output), a resource,
+     *                                    or an instance of the PEAR Log class.
+     * @param array               $events Array of events to listen to (default: all events)
      *
      * @return void
      */
@@ -116,8 +111,11 @@ class HTTP_Request2_Observer_Log implements SplObserver
         }
         if (is_resource($target) || $target instanceof Log) {
             $this->target = $target;
-        } elseif (false === ($this->target = @fopen($target, 'ab'))) {
-            throw new HTTP_Request2_Exception("Unable to open '{$target}'");
+        } else {
+            if (false === $fp = @fopen($target, 'ab')) {
+                throw new HTTP_Request2_Exception("Unable to open '{$target}'");
+            }
+            $this->target = $fp;
         }
     }
 
@@ -134,6 +132,9 @@ class HTTP_Request2_Observer_Log implements SplObserver
      */
     public function update(SplSubject $subject)
     {
+        if (!$subject instanceof HTTP_Request2) {
+            return;
+        }
         $event = $subject->getLastEvent();
         if (!in_array($event['name'], $this->events)) {
             return;
@@ -154,10 +155,12 @@ class HTTP_Request2_Observer_Log implements SplObserver
             $this->log('> ' . $event['data'] . ' byte(s) sent');
             break;
         case 'receivedHeaders':
-            $this->log(sprintf(
-                '< HTTP/%s %s %s', $event['data']->getVersion(),
-                $event['data']->getStatus(), $event['data']->getReasonPhrase()
-            ));
+            $this->log(
+                sprintf(
+                    '< HTTP/%s %s %s', $event['data']->getVersion(),
+                    $event['data']->getStatus(), $event['data']->getReasonPhrase()
+                )
+            );
             $headers = $event['data']->getHeader();
             foreach ($headers as $key => $val) {
                 $this->log('< ' . $key . ': ' . $val);

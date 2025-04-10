@@ -13,7 +13,7 @@
  * @category  HTTP
  * @package   HTTP_Request2
  * @author    Alexey Borzov <avb@php.net>
- * @copyright 2008-2021 Alexey Borzov <avb@php.net>
+ * @copyright 2008-2025 Alexey Borzov <avb@php.net>
  * @license   http://opensource.org/licenses/BSD-3-Clause BSD 3-Clause License
  * @link      http://pear.php.net/package/HTTP_Request2
  */
@@ -21,11 +21,6 @@
 // pear-package-only /**
 // pear-package-only  * A class representing an URL as per RFC 3986.
 // pear-package-only  */
-// pear-package-only require_once 'Net/URL2.php';
-
-/**
- * A class representing an URL as per RFC 3986.
- */
 if (!class_exists('Net_URL2', true)) {
     require_once S9Y_PEAR_PATH . 'Net/URL2.php';
 }
@@ -33,11 +28,6 @@ if (!class_exists('Net_URL2', true)) {
 // pear-package-only /**
 // pear-package-only  * Exception class for HTTP_Request2 package
 // pear-package-only  */
-// pear-package-only require_once 'HTTP/Request2/Exception.php';
-
-/**
- * Exception class for HTTP_Request2 package
- */
 require_once S9Y_PEAR_PATH . 'HTTP/Request2/Exception.php';
 
 /**
@@ -53,7 +43,10 @@ require_once S9Y_PEAR_PATH . 'HTTP/Request2/Exception.php';
  */
 class HTTP_Request2 implements SplSubject
 {
-    /**#@+
+    const VERSION = '2.7.0';
+
+    /**
+     * #@+
      * Constants for HTTP request methods
      *
      * @link http://tools.ietf.org/html/rfc2616#section-5.1.1
@@ -66,25 +59,32 @@ class HTTP_Request2 implements SplSubject
     const METHOD_DELETE  = 'DELETE';
     const METHOD_TRACE   = 'TRACE';
     const METHOD_CONNECT = 'CONNECT';
-    /**#@-*/
+    /**
+     * #@-
+     */
 
-    /**#@+
+    /**
+     * #@+
      * Constants for HTTP authentication schemes
      *
      * @link http://tools.ietf.org/html/rfc2617
      */
     const AUTH_BASIC  = 'basic';
     const AUTH_DIGEST = 'digest';
-    /**#@-*/
+    /**
+     * #@-
+     */
 
     /**
      * Regular expression used to check for invalid symbols in RFC 2616 tokens
+     *
      * @link http://pear.php.net/bugs/bug.php?id=15630
      */
     const REGEXP_INVALID_TOKEN = '![\x00-\x1f\x7f-\xff()<>@,;:\\\\"/\[\]?={}\s]!';
 
     /**
      * Regular expression used to check for invalid symbols in cookie strings
+     *
      * @link http://pear.php.net/bugs/bug.php?id=15630
      * @link http://web.archive.org/web/20080331104521/http://cgi.netscape.com/newsref/std/cookie_spec.html
      */
@@ -92,46 +92,53 @@ class HTTP_Request2 implements SplSubject
 
     /**
      * Fileinfo magic database resource
-     * @var  resource
-     * @see  detectMimeType()
+     *
+     * @var resource|null
+     * @see detectMimeType()
      */
-    private static $_fileinfoDb;
+    private static $_fileinfoDb = null;
 
     /**
      * Observers attached to the request (instances of SplObserver)
-     * @var  array
+     *
+     * @var array
      */
     protected $observers = [];
 
     /**
      * Request URL
-     * @var  Net_URL2
+     *
+     * @var Net_URL2
      */
     protected $url;
 
     /**
      * Request method
-     * @var  string
+     *
+     * @var string
      */
     protected $method = self::METHOD_GET;
 
     /**
      * Authentication data
-     * @var  array
-     * @see  getAuth()
+     *
+     * @var null|array{user: string, password: string, scheme: string}
+     * @see getAuth()
      */
     protected $auth;
 
     /**
      * Request headers
-     * @var  array
+     *
+     * @var array
      */
     protected $headers = [];
 
     /**
      * Configuration parameters
-     * @var  array
-     * @see  setConfig()
+     *
+     * @var array
+     * @see setConfig()
      */
     protected $config = [
         'adapter'           => 'HTTP_Request2_Adapter_Socket',
@@ -166,8 +173,9 @@ class HTTP_Request2 implements SplSubject
 
     /**
      * Last event in request / response handling, intended for observers
-     * @var  array
-     * @see  getLastEvent()
+     *
+     * @var array
+     * @see getLastEvent()
      */
     protected $lastEvent = [
         'name' => 'start',
@@ -176,32 +184,37 @@ class HTTP_Request2 implements SplSubject
 
     /**
      * Request body
-     * @var  string|resource
-     * @see  setBody()
+     *
+     * @var string|resource|HTTP_Request2_MultipartBody
+     * @see setBody()
      */
     protected $body = '';
 
     /**
      * Array of POST parameters
-     * @var  array
+     *
+     * @var array
      */
     protected $postParams = [];
 
     /**
      * Array of file uploads (for multipart/form-data POST requests)
-     * @var  array
+     *
+     * @var array
      */
     protected $uploads = [];
 
     /**
      * Adapter used to perform actual HTTP request
-     * @var  HTTP_Request2_Adapter
+     *
+     * @var HTTP_Request2_Adapter
      */
     protected $adapter;
 
     /**
      * Cookie jar to persist cookies between requests
-     * @var HTTP_Request2_CookieJar
+     *
+     * @var HTTP_Request2_CookieJar|null
      */
     protected $cookieJar = null;
 
@@ -210,7 +223,7 @@ class HTTP_Request2 implements SplSubject
      *
      * Also sets a default value for User-Agent header.
      *
-     * @param string|Net_Url2 $url    Request URL
+     * @param string|Net_URL2 $url    Request URL
      * @param string          $method Request method
      * @param array           $config Configuration for this Request instance
      */
@@ -224,10 +237,11 @@ class HTTP_Request2 implements SplSubject
         if (!empty($method)) {
             $this->setMethod($method);
         }
-        $this->setHeader(
-            'user-agent', 'HTTP_Request2/2.5.0 ' .
-            '(https://github.com/pear/HTTP_Request2) PHP/' . phpversion()
-        );
+        $this->setHeader('user-agent', sprintf(
+            'HTTP_Request2/%s (https://github.com/pear/HTTP_Request2) PHP/%s',
+            self::VERSION,
+            phpversion() ?: '6.0'
+        ));
     }
 
     /**
@@ -239,8 +253,8 @@ class HTTP_Request2 implements SplSubject
      *
      * @param string|Net_URL2 $url Request URL
      *
-     * @return   HTTP_Request2
-     * @throws   HTTP_Request2_LogicException
+     * @return $this
+     * @throws HTTP_Request2_LogicException
      */
     public function setUrl($url)
     {
@@ -257,9 +271,11 @@ class HTTP_Request2 implements SplSubject
         }
         // URL contains username / password?
         if ($url->getUserinfo()) {
-            $username = $url->getUser();
             $password = $url->getPassword();
-            $this->setAuth(rawurldecode($username), $password? rawurldecode($password): '');
+            $this->setAuth(
+                rawurldecode((string)$url->getUser()),
+                $password? rawurldecode((string)$password): ''
+            );
             $url->setUserinfo('');
         }
         if ('' == $url->getPath()) {
@@ -273,7 +289,7 @@ class HTTP_Request2 implements SplSubject
     /**
      * Returns the request URL
      *
-     * @return   Net_URL2
+     * @return Net_URL2
      */
     public function getUrl()
     {
@@ -285,8 +301,8 @@ class HTTP_Request2 implements SplSubject
      *
      * @param string $method one of the methods defined in RFC 2616
      *
-     * @return   HTTP_Request2
-     * @throws   HTTP_Request2_LogicException if the method name is invalid
+     * @return $this
+     * @throws HTTP_Request2_LogicException if the method name is invalid
      */
     public function setMethod($method)
     {
@@ -305,7 +321,7 @@ class HTTP_Request2 implements SplSubject
     /**
      * Returns the request method
      *
-     * @return   string
+     * @return string
      */
     public function getMethod()
     {
@@ -363,8 +379,8 @@ class HTTP_Request2 implements SplSubject
      *                                   ('parameter name' => 'parameter value')
      * @param mixed        $value        parameter value if $nameOrConfig is not an array
      *
-     * @return   HTTP_Request2
-     * @throws   HTTP_Request2_LogicException If the parameter is unknown
+     * @return $this
+     * @throws HTTP_Request2_LogicException If the parameter is unknown
      */
     public function setConfig($nameOrConfig, $value = null)
     {
@@ -373,15 +389,17 @@ class HTTP_Request2 implements SplSubject
                 $this->setConfig($name, $value);
             }
 
-        } elseif ('proxy' == $nameOrConfig) {
-            $url = new Net_URL2($value);
-            $this->setConfig([
-                'proxy_type'     => $url->getScheme(),
-                'proxy_host'     => $url->getHost(),
-                'proxy_port'     => $url->getPort(),
-                'proxy_user'     => rawurldecode($url->getUser()),
-                'proxy_password' => rawurldecode($url->getPassword())
-            ]);
+        } elseif ('proxy' === $nameOrConfig) {
+            $url = new Net_URL2((string)$value);
+            $this->setConfig(
+                [
+                    'proxy_type'     => $url->getScheme(),
+                    'proxy_host'     => $url->getHost(),
+                    'proxy_port'     => $url->getPort(),
+                    'proxy_user'     => rawurldecode((string)$url->getUser()),
+                    'proxy_password' => rawurldecode((string)$url->getPassword())
+                ]
+            );
 
         } else {
             if (!array_key_exists($nameOrConfig, $this->config)) {
@@ -401,9 +419,9 @@ class HTTP_Request2 implements SplSubject
      *
      * @param string $name parameter name
      *
-     * @return   mixed   value of $name parameter, array of all configuration
+     * @return mixed   value of $name parameter, array of all configuration
      *                   parameters if $name is not given
-     * @throws   HTTP_Request2_LogicException If the parameter is unknown
+     * @throws HTTP_Request2_LogicException If the parameter is unknown
      */
     public function getConfig($name = null)
     {
@@ -419,19 +437,20 @@ class HTTP_Request2 implements SplSubject
     }
 
     /**
-     * Sets the autentification data
+     * Sets the authentication data
      *
      * @param string $user     user name
      * @param string $password password
      * @param string $scheme   authentication scheme
      *
-     * @return   HTTP_Request2
+     * @return $this
      */
-    public function setAuth($user, #[\SensitiveParameter] $password = '', $scheme = self::AUTH_BASIC)
+    public function setAuth($user, #[\SensitiveParameter] string $password = '', $scheme = self::AUTH_BASIC)
     {
         if (empty($user)) {
             $this->auth = null;
         } else {
+            /** @psalm-suppress RedundantCast */
             $this->auth = [
                 'user'     => (string)$user,
                 'password' => (string)$password,
@@ -448,7 +467,7 @@ class HTTP_Request2 implements SplSubject
      * The array has the keys 'user', 'password' and 'scheme', where 'scheme'
      * is one of the HTTP_Request2::AUTH_* constants.
      *
-     * @return   array
+     * @return array{user: string, password: string, scheme: string}|null
      */
     public function getAuth()
     {
@@ -480,8 +499,8 @@ class HTTP_Request2 implements SplSubject
      * @param bool              $replace whether to replace previous header with the
      *                                   same name or append to its value
      *
-     * @return   HTTP_Request2
-     * @throws   HTTP_Request2_LogicException
+     * @return $this
+     * @throws HTTP_Request2_LogicException
      */
     public function setHeader($name, $value = null, $replace = true)
     {
@@ -495,6 +514,7 @@ class HTTP_Request2 implements SplSubject
             }
         } else {
             if (null === $value && strpos($name, ':')) {
+                /** @psalm-suppress PossiblyUndefinedArrayOffset */
                 list($name, $value) = array_map('trim', explode(':', $name, 2));
             }
             // Header name should be a token: http://tools.ietf.org/html/rfc2616#section-4.2
@@ -532,7 +552,7 @@ class HTTP_Request2 implements SplSubject
      * The array is of the form ('header name' => 'header value'), header names
      * are lowercased
      *
-     * @return   array
+     * @return array
      */
     public function getHeaders()
     {
@@ -553,9 +573,9 @@ class HTTP_Request2 implements SplSubject
      * @param string $name  cookie name
      * @param string $value cookie value
      *
-     * @return   HTTP_Request2
-     * @throws   HTTP_Request2_LogicException
-     * @see      setCookieJar()
+     * @return $this
+     * @throws HTTP_Request2_LogicException
+     * @see    setCookieJar()
      */
     public function addCookie($name, $value)
     {
@@ -586,28 +606,26 @@ class HTTP_Request2 implements SplSubject
      * fstat() and rewind() operations.
      *
      * @param string|resource|HTTP_Request2_MultipartBody $body       Either a
-     *               string with the body or filename containing body or
-     *               pointer to an open file or object with multipart body data
+     *                                                                string with the body or filename containing body or
+     *                                                                pointer to an open file or object with multipart body data
      * @param bool                                        $isFilename Whether
-     *               first parameter is a filename
+     *                                                                first parameter is a filename
      *
-     * @return   HTTP_Request2
-     * @throws   HTTP_Request2_LogicException
+     * @return $this
+     * @throws HTTP_Request2_LogicException
      */
     public function setBody($body, $isFilename = false)
     {
-        if (!$isFilename && !is_resource($body)) {
-            if (!$body instanceof HTTP_Request2_MultipartBody) {
-                $this->body = (string)$body;
-            } else {
-                $this->body = $body;
-            }
-        } else {
+        if ($body instanceof HTTP_Request2_MultipartBody) {
+            $this->body = $body;
+        } elseif ($isFilename || is_resource($body)) {
             $fileData = $this->fopenWrapper($body, empty($this->headers['content-type']));
             $this->body = $fileData['fp'];
             if (empty($this->headers['content-type'])) {
                 $this->setHeader('content-type', $fileData['type']);
             }
+        } else {
+            $this->body = (string)$body;
         }
         $this->postParams = $this->uploads = [];
 
@@ -617,7 +635,7 @@ class HTTP_Request2 implements SplSubject
     /**
      * Returns the request body
      *
-     * @return   string|resource|HTTP_Request2_MultipartBody
+     * @return string|resource|HTTP_Request2_MultipartBody
      */
     public function getBody()
     {
@@ -627,13 +645,12 @@ class HTTP_Request2 implements SplSubject
             if (0 === strpos($this->headers['content-type'], 'application/x-www-form-urlencoded')) {
                 $body = http_build_query($this->postParams, '', '&');
                 if (!$this->getConfig('use_brackets')) {
-                    $body = preg_replace('/%5B\d+%5D=/', '=', $body);
+                    $body = (string)preg_replace('/%5B\d+%5D=/', '=', $body);
                 }
                 // support RFC 3986 by not encoding '~' symbol (request #15368)
                 return str_replace('%7E', '~', $body);
 
             } elseif (0 === strpos($this->headers['content-type'], 'multipart/form-data')) {
-                // pear-package-only require_once 'HTTP/Request2/MultipartBody.php';
                 require_once S9Y_PEAR_PATH . 'HTTP/Request2/MultipartBody.php';
                 return new HTTP_Request2_MultipartBody(
                     $this->postParams, $this->uploads, $this->getConfig('use_brackets')
@@ -657,12 +674,12 @@ class HTTP_Request2 implements SplSubject
      *
      * @param string                $fieldName    name of file-upload field
      * @param string|resource|array $filename     full name of local file,
-     *               pointer to open file or an array of files
+     *                                            pointer to open file or an array of files
      * @param string                $sendFilename filename to send in the request
      * @param string                $contentType  content-type of file being uploaded
      *
-     * @return   HTTP_Request2
-     * @throws   HTTP_Request2_LogicException
+     * @return $this
+     * @throws HTTP_Request2_LogicException
      */
     public function addUpload(
         $fieldName, $filename, $sendFilename = null, $contentType = null
@@ -708,7 +725,7 @@ class HTTP_Request2 implements SplSubject
      * @param string|array $name  parameter name or array ('name' => 'value')
      * @param mixed        $value parameter value (can be an array)
      *
-     * @return   HTTP_Request2
+     * @return $this
      */
     public function addPostParameter($name, $value = null)
     {
@@ -726,12 +743,14 @@ class HTTP_Request2 implements SplSubject
         return $this;
     }
 
+    #[\ReturnTypeWillChange]
     /**
      * Attaches a new observer
      *
      * @param SplObserver $observer any object implementing SplObserver
+     *
+     * @return void
      */
-    #[\ReturnTypeWillChange]
     public function attach(SplObserver $observer)
     {
         foreach ($this->observers as $attached) {
@@ -742,12 +761,14 @@ class HTTP_Request2 implements SplSubject
         $this->observers[] = $observer;
     }
 
+    #[\ReturnTypeWillChange]
     /**
      * Detaches an existing observer
      *
      * @param SplObserver $observer any object implementing SplObserver
+     *
+     * @return void
      */
-    #[\ReturnTypeWillChange]
     public function detach(SplObserver $observer)
     {
         foreach ($this->observers as $key => $attached) {
@@ -758,10 +779,12 @@ class HTTP_Request2 implements SplSubject
         }
     }
 
+    #[\ReturnTypeWillChange]
     /**
      * Notifies all observers
+     *
+     * @return void
      */
-    #[\ReturnTypeWillChange]
     public function notify()
     {
         foreach ($this->observers as $observer) {
@@ -777,6 +800,8 @@ class HTTP_Request2 implements SplSubject
      *
      * @param string $name event name
      * @param mixed  $data event data
+     *
+     * @return void
      */
     public function setLastEvent($name, $data = null)
     {
@@ -819,7 +844,7 @@ class HTTP_Request2 implements SplSubject
      * Different adapters may not send all the event types. Mock adapter does
      * not send any events to the observers.
      *
-     * @return   array   The array has two keys: 'name' and 'data'
+     * @return array   The array has two keys: 'name' and 'data'
      */
     public function getLastEvent()
     {
@@ -840,8 +865,8 @@ class HTTP_Request2 implements SplSubject
      *
      * @param string|HTTP_Request2_Adapter $adapter Adapter to use
      *
-     * @return   HTTP_Request2
-     * @throws   HTTP_Request2_LogicException
+     * @return $this
+     * @throws HTTP_Request2_LogicException
      */
     public function setAdapter($adapter)
     {
@@ -882,18 +907,15 @@ class HTTP_Request2 implements SplSubject
      * responses. Cookies from jar will be automatically added to the request
      * headers based on request URL.
      *
-     * @param HTTP_Request2_CookieJar|bool $jar Existing CookieJar object, true to
-     *                                          create a new one, false to remove
+     * @param HTTP_Request2_CookieJar|bool|null $jar Existing CookieJar object, true to
+     *                                               create a new one, false/null to remove
      *
-     * @return HTTP_Request2
+     * @return $this
      * @throws HTTP_Request2_LogicException
      */
     public function setCookieJar($jar = true)
     {
-        // pear-package-only require_once 'HTTP/Request2/CookieJar.php';
-        if (!class_exists('HTTP_Request2_CookieJar', false)) {
-            require_once S9Y_PEAR_PATH . 'HTTP/Request2/CookieJar.php';
-        }
+        require_once S9Y_PEAR_PATH . 'HTTP/Request2/CookieJar.php';
 
         if ($jar instanceof HTTP_Request2_CookieJar) {
             $this->cookieJar = $jar;
@@ -924,15 +946,15 @@ class HTTP_Request2 implements SplSubject
     /**
      * Sends the request and returns the response
      *
-     * @throws   HTTP_Request2_Exception
-     * @return   HTTP_Request2_Response
+     * @throws HTTP_Request2_Exception
+     * @return HTTP_Request2_Response
      */
     public function send()
     {
         // Sanity check for URL
         if (!$this->url instanceof Net_URL2
             || !$this->url->isAbsolute()
-            || !in_array(strtolower($this->url->getScheme()), ['https', 'http'])
+            || !in_array(strtolower((string)$this->url->getScheme()), ['https', 'http'])
         ) {
             throw new HTTP_Request2_LogicException(
                 'HTTP_Request2 needs an absolute HTTP(S) request URL, '
@@ -947,7 +969,7 @@ class HTTP_Request2 implements SplSubject
         }
         // force using single byte encoding if mbstring extension overloads
         // strlen() and substr(); see bug #1781, bug #10605
-        if (extension_loaded('mbstring') && (2 & ini_get('mbstring.func_overload'))) {
+        if (extension_loaded('mbstring') && (2 & (int)ini_get('mbstring.func_overload'))) {
             $oldEncoding = mb_internal_encoding();
             mb_internal_encoding('8bit');
         }
@@ -966,10 +988,10 @@ class HTTP_Request2 implements SplSubject
      *
      * @param string|resource $file       file name or pointer to open file
      * @param bool            $detectType whether to try autodetecting MIME
-     *                        type of file, will only work if $file is a
-     *                        filename, not pointer
+     *                                    type of file, will only work if $file is a
+     *                                    filename, not pointer
      *
-     * @return array array('fp' => file pointer, 'size' => file size, 'type' => MIME type)
+     * @return array{fp: resource, size: int, type: string}
      * @throws HTTP_Request2_LogicException
      */
     protected function fopenWrapper($file, $detectType = false)
@@ -981,15 +1003,17 @@ class HTTP_Request2 implements SplSubject
             );
         }
         $fileData = [
-            'fp'   => is_string($file)? null: $file,
             'type' => 'application/octet-stream',
             'size' => 0
         ];
-        if (is_string($file)) {
+        if (is_resource($file)) {
+            $fileData['fp'] = $file;
+        } else {
             if (!($fileData['fp'] = @fopen($file, 'rb'))) {
                 $error = error_get_last();
                 throw new HTTP_Request2_LogicException(
-                    $error['message'], HTTP_Request2_Exception::READ_ERROR
+                    $error ? $error['message'] : "fopen() error",
+                    HTTP_Request2_Exception::READ_ERROR
                 );
             }
             if ($detectType) {
@@ -1010,12 +1034,12 @@ class HTTP_Request2 implements SplSubject
      * Tries to detect MIME type of a file
      *
      * The method will try to use fileinfo extension if it is available,
-     * mime_content_type() function in the other case. If neither
+     * deprecated mime_content_type() function in the other case. If neither
      * works, default 'application/octet-stream' MIME type is returned
      *
      * @param string $filename file name
      *
-     * @return   string  file MIME type
+     * @return string  file MIME type
      */
     protected static function detectMimeType($filename)
     {
@@ -1028,7 +1052,7 @@ class HTTP_Request2 implements SplSubject
                 $info = finfo_file(self::$_fileinfoDb, $filename);
             }
         }
-        // mime_content_type function available
+        // (deprecated) mime_content_type function available
         if (empty($info) && function_exists('mime_content_type')) {
             $info = mime_content_type($filename);
         }

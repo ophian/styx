@@ -13,20 +13,15 @@
  * @category  HTTP
  * @package   HTTP_Request2
  * @author    Alexey Borzov <avb@php.net>
- * @copyright 2008-2021 Alexey Borzov <avb@php.net>
+ * @copyright 2008-2025 Alexey Borzov <avb@php.net>
  * @license   http://opensource.org/licenses/BSD-3-Clause BSD 3-Clause License
  * @link      http://pear.php.net/package/HTTP_Request2
  */
 
-/**
- * Exception class for HTTP_Request2 package
- */
-require_once S9Y_PEAR_PATH . 'HTTP/Request2/Exception.php';
-
 // pear-package-only /**
 // pear-package-only  * Exception class for HTTP_Request2 package
 // pear-package-only  */
-// pear-package-only require_once 'HTTP/Request2/Exception.php';
+require_once S9Y_PEAR_PATH . 'HTTP/Request2/Exception.php';
 
 /**
  * Class representing a HTTP response
@@ -60,12 +55,14 @@ class HTTP_Request2_Response
 {
     /**
      * HTTP protocol version (e.g. 1.0, 1.1)
-     * @var  string
+     *
+     * @var string
      */
     protected $version;
 
     /**
      * Status code
+     *
      * @var  integer
      * @link http://tools.ietf.org/html/rfc2616#section-6.1.1
      */
@@ -73,41 +70,46 @@ class HTTP_Request2_Response
 
     /**
      * Reason phrase
-     * @var  string
+     *
+     * @var  string|null
      * @link http://tools.ietf.org/html/rfc2616#section-6.1.1
      */
     protected $reasonPhrase;
 
     /**
      * Effective URL (may be different from original request URL in case of redirects)
-     * @var  string
+     *
+     * @var string
      */
     protected $effectiveUrl;
 
     /**
      * Associative array of response headers
-     * @var  array
+     *
+     * @var array
      */
     protected $headers = [];
 
     /**
      * Cookies set in the response
-     * @var  array
+     *
+     * @var array
      */
     protected $cookies = [];
 
     /**
-     * Name of last header processed by parseHederLine()
+     * Name of last header processed by {@see parseHeaderLine()}
      *
      * Used to handle the headers that span multiple lines
      *
-     * @var  string
+     * @var string|null
      */
     protected $lastHeader = null;
 
     /**
      * Response body
-     * @var  string
+     *
+     * @var string
      */
     protected $body = '';
 
@@ -117,7 +119,7 @@ class HTTP_Request2_Response
      * cURL provides the decoded body to the callback; if we are reading from
      * socket the body is still gzipped / deflated
      *
-     * @var  bool
+     * @var bool
      */
     protected $bodyEncoded;
 
@@ -195,6 +197,8 @@ class HTTP_Request2_Response
      *                           (null if no phrase is available), array of all
      *                           reason phrases if $code is null
      * @link   http://pear.php.net/bugs/18716
+     *
+     * @psalm-return ($code is null ? array<int, string> : ?string)
      */
     public static function getDefaultReasonPhrase($code = null)
     {
@@ -212,11 +216,11 @@ class HTTP_Request2_Response
      * @param bool   $bodyEncoded  Whether body is still encoded by Content-Encoding
      * @param string $effectiveUrl Effective URL of the response
      *
-     * @throws   HTTP_Request2_MessageException if status line is invalid according to spec
+     * @throws HTTP_Request2_MessageException if status line is invalid according to spec
      */
     public function __construct($statusLine, $bodyEncoded = true, $effectiveUrl = null)
     {
-        if (!preg_match('!^HTTP/(\d\.\d) (\d{3})(?: (.+))?!', $statusLine, $m)) {
+        if (!preg_match('!^HTTP/(\d\.\d) (\d{3}) ([^\r\n]*)!', $statusLine, $m)) {
             throw new HTTP_Request2_MessageException(
                 "Malformed response: {$statusLine}",
                 HTTP_Request2_Exception::MALFORMED_RESPONSE
@@ -224,7 +228,7 @@ class HTTP_Request2_Response
         }
         $this->version      = $m[1];
         $this->code         = intval($m[2]);
-        $this->reasonPhrase = !empty($m[3]) ? trim($m[3]) : self::getDefaultReasonPhrase($this->code);
+        $this->reasonPhrase = '' !== $m[3] ? $m[3] : self::getDefaultReasonPhrase($this->code);
         $this->bodyEncoded  = (bool)$bodyEncoded;
         $this->effectiveUrl = (string)$effectiveUrl;
     }
@@ -238,6 +242,8 @@ class HTTP_Request2_Response
      * empty string in the end.
      *
      * @param string $headerLine Line from HTTP response
+     *
+     * @return void
      */
     public function parseHeaderLine($headerLine)
     {
@@ -290,7 +296,9 @@ class HTTP_Request2_Response
      *
      * @param string $cookieString value of Set-Cookie header
      *
-     * @link     http://web.archive.org/web/20080331104521/http://cgi.netscape.com/newsref/std/cookie_spec.html
+     * @return void
+     *
+     * @link http://web.archive.org/web/20080331104521/http://cgi.netscape.com/newsref/std/cookie_spec.html
      */
     protected function parseCookie($cookieString)
     {
@@ -303,16 +311,16 @@ class HTTP_Request2_Response
 
         if (!strpos($cookieString, ';')) {
             // Only a name=value pair
-            $pos = strpos($cookieString, '=');
-            $cookie['name']  = trim(substr($cookieString, 0, $pos));
-            $cookie['value'] = trim(substr($cookieString, $pos + 1));
+            $pos = (int)strpos($cookieString, '=');
+            $cookie['name']  = trim((string)substr($cookieString, 0, $pos));
+            $cookie['value'] = trim((string)substr($cookieString, $pos + 1));
 
         } else {
             // Some optional parameters are supplied
             $elements = explode(';', $cookieString);
-            $pos = strpos($elements[0], '=');
-            $cookie['name']  = trim(substr($elements[0], 0, $pos));
-            $cookie['value'] = trim(substr($elements[0], $pos + 1));
+            $pos = (int)strpos($elements[0], '=');
+            $cookie['name']  = trim((string)substr($elements[0], 0, $pos));
+            $cookie['value'] = trim((string)substr($elements[0], $pos + 1));
 
             for ($i = 1; $i < count($elements); $i++) {
                 if (false === strpos($elements[$i], '=')) {
@@ -325,9 +333,9 @@ class HTTP_Request2_Response
                 if ('secure' == $elName) {
                     $cookie['secure'] = true;
                 } elseif ('expires' == $elName) {
-                    $cookie['expires'] = str_replace('"', '', $elValue);
+                    $cookie['expires'] = str_replace('"', '', (string)$elValue);
                 } elseif ('path' == $elName || 'domain' == $elName) {
-                    $cookie[$elName] = urldecode($elValue);
+                    $cookie[$elName] = urldecode((string)$elValue);
                 } else {
                     $cookie[$elName] = $elValue;
                 }
@@ -340,6 +348,8 @@ class HTTP_Request2_Response
      * Appends a string to the response body
      *
      * @param string $bodyChunk part of response body
+     *
+     * @return void
      */
     public function appendBody($bodyChunk)
     {
@@ -362,7 +372,7 @@ class HTTP_Request2_Response
     /**
      * Returns the status code
      *
-     * @return   integer
+     * @return integer
      */
     public function getStatus()
     {
@@ -372,7 +382,7 @@ class HTTP_Request2_Response
     /**
      * Returns the reason phrase
      *
-     * @return   string
+     * @return string|null
      */
     public function getReasonPhrase()
     {
@@ -382,7 +392,7 @@ class HTTP_Request2_Response
     /**
      * Whether response is a redirect that can be automatically handled by HTTP_Request2
      *
-     * @return   bool
+     * @return bool
      */
     public function isRedirect()
     {
@@ -395,9 +405,10 @@ class HTTP_Request2_Response
      *
      * @param string $headerName Name of header to return
      *
-     * @return   string|array    Value of $headerName header (null if header is
+     * @return string|array|null Value of $headerName header (null if header is
      *                           not present), array of all response headers if
      *                           $headerName is null
+     * @psalm-return ($headerName is null ? array<string, string> : ?string)
      */
     public function getHeader($headerName = null)
     {
@@ -412,7 +423,7 @@ class HTTP_Request2_Response
     /**
      * Returns cookies set in response
      *
-     * @return   array
+     * @return array
      */
     public function getCookies()
     {
@@ -422,42 +433,41 @@ class HTTP_Request2_Response
     /**
      * Returns the body of the response
      *
-     * @return   string
-     * @throws   HTTP_Request2_Exception if body cannot be decoded
+     * @return string
+     * @throws HTTP_Request2_Exception if body cannot be decoded
      */
     public function getBody()
     {
-        if (0 == strlen($this->body) || !$this->bodyEncoded
-            || !in_array(strtolower(($this->getHeader('content-encoding') ?? '')), ['gzip', 'deflate'])
+        if ('' !== $this->body
+            && $this->bodyEncoded
+            && in_array(strtolower($this->getHeader('content-encoding') ?: ''), ['gzip', 'deflate'])
         ) {
-            return $this->body;
-
-        } else {
-            if (extension_loaded('mbstring') && (2 & ini_get('mbstring.func_overload'))) {
+            if (extension_loaded('mbstring') && (2 & (int)ini_get('mbstring.func_overload'))) {
                 $oldEncoding = mb_internal_encoding();
                 mb_internal_encoding('8bit');
             }
 
             try {
-                switch (strtolower($this->getHeader('content-encoding'))) {
+                switch (strtolower((string)$this->getHeader('content-encoding'))) {
                 case 'gzip':
                     return self::decodeGzip($this->body);
-                    break;
                 case 'deflate':
                     return self::decodeDeflate($this->body);
                 }
             } finally {
-                if (!empty($oldEncoding)) {
+                if (extension_loaded('mbstring') && !empty($oldEncoding)) {
                     mb_internal_encoding($oldEncoding);
                 }
             }
         }
+
+        return $this->body;
     }
 
     /**
      * Get the HTTP version of the response
      *
-     * @return   string
+     * @return string
      */
     public function getVersion()
     {
@@ -473,7 +483,7 @@ class HTTP_Request2_Response
      */
     public static function hasGzipIdentification($data)
     {
-        return 0 === strcmp(substr($data, 0, 2), "\x1f\x8b");
+        return 0 === strcmp((string)substr($data, 0, 2), "\x1f\x8b");
     }
 
     /**
@@ -505,14 +515,14 @@ class HTTP_Request2_Response
             );
         }
 
-        $method = ord(substr($data, 2, 1));
+        $method = ord((string)substr($data, 2, 1));
         if (8 != $method) {
             throw new HTTP_Request2_MessageException(
                 'Error parsing gzip header: unknown compression method',
                 HTTP_Request2_Exception::DECODE_ERROR
             );
         }
-        $flags = ord(substr($data, 3, 1));
+        $flags = ord((string)substr($data, 3, 1));
         if ($flags & 224) {
             throw new HTTP_Request2_MessageException(
                 'Error parsing gzip header: reserved bits are set',
@@ -530,8 +540,9 @@ class HTTP_Request2_Response
                     HTTP_Request2_Exception::DECODE_ERROR
                 );
             }
-            $extraLength = unpack('v', substr($data, 10, 2));
-            if ($length - $headerLength - 2 - $extraLength[1] < 0) {
+            if (false === ($extraLength = unpack('v', (string)substr($data, 10, 2)))
+                || $length - $headerLength - 2 - $extraLength[1] < 0
+            ) {
                 throw new HTTP_Request2_MessageException(
                     'Error parsing gzip header: data too short',
                     HTTP_Request2_Exception::DECODE_ERROR
@@ -547,7 +558,7 @@ class HTTP_Request2_Response
                     HTTP_Request2_Exception::DECODE_ERROR
                 );
             }
-            $filenameLength = strpos(substr($data, $headerLength), chr(0));
+            $filenameLength = strpos((string)substr($data, $headerLength), chr(0));
             if (false === $filenameLength
                 || $length - $headerLength - $filenameLength - 1 < 0
             ) {
@@ -566,7 +577,7 @@ class HTTP_Request2_Response
                     HTTP_Request2_Exception::DECODE_ERROR
                 );
             }
-            $commentLength = strpos(substr($data, $headerLength), chr(0));
+            $commentLength = strpos((string)substr($data, $headerLength), chr(0));
             if (false === $commentLength
                 || $length - $headerLength - $commentLength - 1 < 0
             ) {
@@ -585,9 +596,10 @@ class HTTP_Request2_Response
                     HTTP_Request2_Exception::DECODE_ERROR
                 );
             }
-            $crcReal   = 0xffff & crc32(substr($data, 0, $headerLength));
-            $crcStored = unpack('v', substr($data, $headerLength, 2));
-            if ($crcReal != $crcStored[1]) {
+            $crcReal = 0xffff & crc32((string)substr($data, 0, $headerLength));
+            if (false === ($crcStored = unpack('v', (string)substr($data, $headerLength, 2)))
+                || $crcReal != $crcStored[1]
+            ) {
                 throw new HTTP_Request2_MessageException(
                     'Header CRC check failed',
                     HTTP_Request2_Exception::DECODE_ERROR
@@ -607,10 +619,10 @@ class HTTP_Request2_Response
      *
      * @param string $data gzip-encoded data
      *
-     * @return   string  decoded data
-     * @throws   HTTP_Request2_LogicException
-     * @throws   HTTP_Request2_MessageException
-     * @link     http://tools.ietf.org/html/rfc1952
+     * @return string  decoded data
+     * @throws HTTP_Request2_LogicException
+     * @throws HTTP_Request2_MessageException
+     * @link   http://tools.ietf.org/html/rfc1952
      */
     public static function decodeGzip($data)
     {
@@ -626,14 +638,19 @@ class HTTP_Request2_Response
         }
 
         // unpacked data CRC and size at the end of encoded data
-        $tmp = unpack('V2', substr($data, -8));
+        if (false === $tmp = unpack('V2', (string)substr($data, -8))) {
+            throw new HTTP_Request2_MessageException(
+                'Failed to extract data CRC and size',
+                HTTP_Request2_Exception::DECODE_ERROR
+            );
+        }
         $dataCrc  = $tmp[1];
         $dataSize = $tmp[2];
 
         $headerLength = self::parseGzipHeader($data, true);
 
         // don't pass $dataSize to gzinflate, see bugs #13135, #14370
-        $unpacked = gzinflate(substr($data, $headerLength, -8));
+        $unpacked = gzinflate((string)substr($data, $headerLength, -8));
         if (false === $unpacked) {
             throw new HTTP_Request2_MessageException(
                 'gzinflate() call failed',
@@ -662,8 +679,8 @@ class HTTP_Request2_Response
      *
      * @param string $data deflate-encoded data
      *
-     * @return   string  decoded data
-     * @throws   HTTP_Request2_LogicException
+     * @return string  decoded data
+     * @throws HTTP_Request2_LogicException
      */
     public static function decodeDeflate($data)
     {
@@ -677,8 +694,12 @@ class HTTP_Request2_Response
         // while many applications send raw deflate stream from RFC 1951.
         // We should check for presence of zlib header and use gzuncompress() or
         // gzinflate() as needed. See bug #15305
-        $header = unpack('n', substr($data, 0, 2));
-        return (0 == $header[1] % 31)? gzuncompress($data): gzinflate($data);
+        $header = unpack('n', (string)substr($data, 0, 2));
+        return (string)(
+            (is_array($header) && 0 === $header[1] % 31)
+            ? gzuncompress($data)
+            : gzinflate($data)
+        );
     }
 }
 ?>
