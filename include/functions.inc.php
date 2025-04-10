@@ -58,7 +58,6 @@ function get_raw_data() : string|false {
  */
 function serendipity_request_object(string $url = '', string $method = 'get', iterable $options = array()) : object|false {
     require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
-    require_once S9Y_PEAR_PATH . 'HTTP/Request2/ConnectionException.php';
 
     switch($method) {
         case 'get':
@@ -115,7 +114,6 @@ function serendipity_request_url(string $uri, string $method = 'GET', mixed $con
     global $serendipity;
 
     require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
-    require_once S9Y_PEAR_PATH . 'HTTP/Request2/ConnectionException.php';
     $options = array('follow_redirects' => true, 'max_redirects' => 5);
 
     if (is_array($extra_options)) {
