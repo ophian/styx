@@ -91,12 +91,17 @@ class HTTP_Request2_Exception extends PEAR_Exception
     {
         return $this->_nativeCode;
     }
+
 }
 
 // backwards compatibility, include the child exceptions if installed with PEAR installer
-// pear-package-only require_once 'HTTP/Request2/ConnectionException.php';
-// pear-package-only require_once 'HTTP/Request2/LogicException.php';
-// pear-package-only require_once 'HTTP/Request2/MessageException.php';
-// pear-package-only require_once 'HTTP/Request2/NotImplementedException.php';
+// pear-package-only require_once
+require_once S9Y_PEAR_PATH . 'HTTP/Request2/ConnectionException.php';
+// pear-package-only require_once
+require_once S9Y_PEAR_PATH . 'HTTP/Request2/LogicException.php';
+// pear-package-only require_once
+require_once S9Y_PEAR_PATH . 'HTTP/Request2/MessageException.php';
+// pear-package-only require_once
+require_once S9Y_PEAR_PATH . 'HTTP/Request2/NotImplementedException.php';
 
 ?>
