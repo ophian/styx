@@ -124,6 +124,7 @@ class HTTP_Request2_Observer_Log implements SplObserver
     // }}}
     // update() {{{
 
+    #[\ReturnTypeWillChange]
     /**
      * Called when the request notifies us of an event.
      *
