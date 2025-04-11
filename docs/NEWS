@@ -2,6 +2,9 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix PHP 8 issues with bundled-libs/XML/RPC and get rid of resource naming
+    for clarity. It is an object(XMLParser) instance up from PHP 8.
+
   * Upgrade global /b5/ assets to new 5.3 Series Bootstrap v5.3.5 revision
         https://github.com/twbs/bootstrap/releases/tag/v5.3.4
         https://github.com/twbs/bootstrap/releases/tag/v5.3.5
