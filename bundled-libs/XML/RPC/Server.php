@@ -545,47 +545,47 @@ class XML_RPC_Server
         }
 
         $this->encoding = XML_RPC_Message::getEncoding($data);
-        $parser_resource = xml_parser_create($this->encoding);
-        $parser = (int) $parser_resource;
+        $parser_instance = xml_parser_create($this->encoding);
+        $pid = spl_object_id($parser_instance);
 
-        $XML_RPC_xh[$parser] = array();
-        $XML_RPC_xh[$parser]['cm']     = 0;
-        $XML_RPC_xh[$parser]['isf']    = 0;
-        $XML_RPC_xh[$parser]['params'] = array();
-        $XML_RPC_xh[$parser]['method'] = '';
-        $XML_RPC_xh[$parser]['stack'] = array();
-        $XML_RPC_xh[$parser]['valuestack'] = array();
+        $XML_RPC_xh[$pid] = array();
+        $XML_RPC_xh[$pid]['cm']     = 0;
+        $XML_RPC_xh[$pid]['isf']    = 0;
+        $XML_RPC_xh[$pid]['params'] = array();
+        $XML_RPC_xh[$pid]['method'] = '';
+        $XML_RPC_xh[$pid]['stack'] = array();
+        $XML_RPC_xh[$pid]['valuestack'] = array();
 
         $plist = '';
 
         // decompose incoming XML into request structure
 
-        xml_parser_set_option($parser_resource, XML_OPTION_CASE_FOLDING, true);
-        xml_set_element_handler($parser_resource, 'XML_RPC_se', 'XML_RPC_ee');
-        xml_set_character_data_handler($parser_resource, 'XML_RPC_cd');
-        if (!xml_parse($parser_resource, $data, 1)) {
+        xml_parser_set_option($parser_instance, XML_OPTION_CASE_FOLDING, true);
+        xml_set_element_handler($parser_instance, 'XML_RPC_se', 'XML_RPC_ee');
+        xml_set_character_data_handler($parser_instance, 'XML_RPC_cd');
+        if (!xml_parse($parser_instance, $data, true)) {
             // return XML error as a faultCode
             $r = new XML_RPC_Response(0,
-                                      $XML_RPC_errxml+xml_get_error_code($parser_resource),
+                                      $XML_RPC_errxml+xml_get_error_code($parser_instance),
                                       sprintf('XML error: %s at line %d',
-                                              xml_error_string(xml_get_error_code($parser_resource)),
-                                              xml_get_current_line_number($parser_resource)));
-            xml_parser_free($parser_resource);
-        } elseif ($XML_RPC_xh[$parser]['isf']>1) {
+                                              xml_error_string(xml_get_error_code($parser_instance)),
+                                              xml_get_current_line_number($parser_instance)));
+            xml_parser_free($parser_instance);
+        } elseif ($XML_RPC_xh[$pid]['isf'] > 1) {
             $r = new XML_RPC_Response(0,
                                       $XML_RPC_err['invalid_request'],
                                       $XML_RPC_str['invalid_request']
                                       . ': '
-                                      . $XML_RPC_xh[$parser]['isf_reason']);
-            xml_parser_free($parser_resource);
+                                      . $XML_RPC_xh[$pid]['isf_reason']);
+            xml_parser_free($parser_instance);
         } else {
-            xml_parser_free($parser_resource);
-            $m = new XML_RPC_Message($XML_RPC_xh[$parser]['method']);
+            xml_parser_free($parser_instance);
+            $m = new XML_RPC_Message($XML_RPC_xh[$pid]['method']);
             // now add parameters in
-            for ($i = 0; $i < sizeof($XML_RPC_xh[$parser]['params']); $i++) {
-                // print '<!-- ' . $XML_RPC_xh[$parser]['params'][$i]. "-->\n";
-                $plist .= "$i - " . var_export($XML_RPC_xh[$parser]['params'][$i], true) . " \n";
-                $m->addParam($XML_RPC_xh[$parser]['params'][$i]);
+            for ($i = 0; $i < sizeof($XML_RPC_xh[$pid]['params']); $i++) {
+                // print '<!-- ' . $XML_RPC_xh[$pid]['params'][$i]. "-->\n";
+                $plist .= "$i - " . var_export($XML_RPC_xh[$pid]['params'][$i], true) . " \n";
+                $m->addParam($XML_RPC_xh[$pid]['params'][$i]);
             }
 
             if ($this->debug) {
@@ -593,7 +593,7 @@ class XML_RPC_Server
             }
 
             // now to deal with the method
-            $methName = $XML_RPC_xh[$parser]['method'];
+            $methName = $XML_RPC_xh[$pid]['method'];
             if (strpos($methName, 'system.') === 0) {
                 $dmap = $XML_RPC_Server_dmap;
                 $sysCall = 1;
@@ -637,7 +637,7 @@ class XML_RPC_Server
             } else {
                 // else prepare error response
                 $r = new XML_RPC_Response(0, $XML_RPC_err['unknown_method'],
-                                          $XML_RPC_str['unknown_method']);
+                                          $XML_RPC_str['unknown_method'] . ": " . $methName);
             }
         }
         return $r;
