@@ -2005,28 +2005,37 @@ function serendipity_url_allowed(string $url) : bool {
     return true;
 }
 
+//  Userland cache only
 use voku\cache\Cache;
-// Configure voku/simple-cache to use templates_c as directory for the opcache files, the fallback
-// when Memcached and Redis are not used. Returns the configured cache object. Used internally by
-// the other cache functions, you most likely never need to call this.
+// Configure voku/simple-cache to use templates_c as directory for the OpCache files, the fallback
+// when Memcached, Redis or APCu are not used. Returns the configured cache object. Used internally
+// by the other cache functions, you most likely never need to call this.
 function serendipity_setupCache() : object {
     $cacheManager = new \voku\cache\CacheAdapterAutoManager();
 
+    // 1. check for "APCu" support first
     $cacheManager->addAdapter(
-        \voku\cache\AdapterOpCache::class,
-        static function () {
-            global $serendipity;
-            $cacheDir = $serendipity['serendipityPath'] . '/templates_c/simple_cache';
-
-            return $cacheDir;
-        }
+        \voku\cache\AdapterApcu::class
     );
 
+    // 2. try "OpCache"-Cache - remember, OpCache needs to store files with modification dates 1 day off
+    $cacheManager->addAdapter(
+        \voku\cache\AdapterOpCache::class,
+        static function () { return SIMPLE_CACHE_DIR; }/*php.ini::opcache.enable=1*/
+    );
+
+    // 3. try "File"-Cache
+    $cacheManager->addAdapter(
+        \voku\cache\AdapterFileSimple::class,
+        static function () { return SIMPLE_CACHE_DIR; }
+    );
+
+    // 4. use Memory Cache as final fallback
     $cacheManager->addAdapter(
         \voku\cache\AdapterArray::class
     );
 
-    $cache = new Cache(
+    $cache = new \voku\cache\CachePsr16(
         null,
         null,
         false,
@@ -2037,7 +2046,7 @@ function serendipity_setupCache() : object {
         false,
         '',
         $cacheManager,
-        false
+        true
     );
     return $cache;
 }
@@ -2047,7 +2056,7 @@ function serendipity_cleanCache() : bool {
     return $cache->removeAll();
 }
 
-function serendipity_cacheItem(string $key, string $item, int $ttl = 3600) : bool {
+function serendipity_cacheItem(string $key, string $item, \DateInterval|int|null $ttl = 3600) : bool {
     $cache = serendipity_setupCache();
     return $cache->setItem($key, $item, $ttl);
 }
@@ -2055,6 +2064,11 @@ function serendipity_cacheItem(string $key, string $item, int $ttl = 3600) : boo
 function serendipity_getCacheItem(string $key) : mixed {
     $cache = serendipity_setupCache();
     return $cache->getItem($key);
+}
+
+function serendipity_removeCacheItem(string $key) : bool {
+    $cache = serendipity_setupCache();
+    return $cache->removeItem($key);
 }
 
 define('serendipity_FUNCTIONS_LOADED', true);
