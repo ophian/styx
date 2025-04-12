@@ -232,38 +232,6 @@ function &serendipity_fetchEntryCategories(int $entryid) : iterable {
 function &serendipity_fetchEntries(mixed $range = null, bool $full = true, string|int $limit = '', bool $fetchDrafts = false, string|int|bool $modified_since = false, ?string $orderby = 'timestamp DESC', ?string $filter_sql = '', bool $noCache = false, bool $noSticky = false, ?string $select_key = null, ?string $group_by = null, string $returncode = 'array', bool $joinauthors = true, bool $joincategories = true, ?string $joinown = null) : iterable|string|bool  {
     global $serendipity;
 
-    $initial_args = array_values(func_get_args());
-
-    if ($serendipity['useInternalCache']) {
-        if (isset($serendipity['range'])) {
-            $_this_range = implode(', ', $serendipity['range']); // this will never be unserialized as an global item and is used only for uniquely key building
-        }
-        $key = md5(
-                serialize($initial_args)
-                    . ($serendipity['short_archives'] ?? null)
-                    . '||' . ($_this_range ?? '')
-                    . '||' . ($serendipity['GET']['category'] ?? '')
-                    . '||' . ($serendipity['GET']['hide_category'] ?? '')
-                    . '||' . ($serendipity['GET']['viewAuthor'] ?? '')
-                    . '||' . ($serendipity['GET']['page'] ?? '')
-                    . '||' . $serendipity['fetchLimit']
-                    . '||' . $serendipity['max_fetch_limit']
-                    . '||' . ($serendipity['GET']['adminModule'] ?? '')
-                    . '||' . serendipity_checkPermission('adminEntriesMaintainOthers')
-                    . '||' . $serendipity['showFutureEntries']
-                    . '||' . $serendipity['archiveSortStable']
-                    . '||' . ($serendipity['plugindata']['smartyvars']['uriargs'] ?? '')
-                );
-
-        $entries = serendipity_getCacheItem($key);
-        if (isset($entries) && $entries !== false) {
-            $serendipity['fullCountQuery'] = serendipity_getCacheItem($key . '_fullCountQuery');
-            $getcached = unserialize($entries);
-            // Only variable references should be returned by reference
-            return $getcached;
-        }
-    }
-
     $cond = array();
     $cond['orderby'] = $orderby;
     if (isset($serendipity['short_archives']) && $serendipity['short_archives'] && $limit == $serendipity['fetchLimit']) {
@@ -528,31 +496,6 @@ function &serendipity_fetchEntries(mixed $range = null, bool $full = true, strin
         // this is now limited to just one query per fetched articles group
 
         serendipity_fetchEntryData($ret);
-    }
-
-    if ($serendipity['useInternalCache']) {
-        if (isset($serendipity['range']) && !isset($_this_range)) {
-            $_this_range = implode(', ', $serendipity['range']); // this will never be unserialized as an global item and is used only for uniquely key building
-        }
-        $key = md5(
-                serialize($initial_args)
-                    . ($serendipity['short_archives'] ?? null)
-                    . '||' . ($_this_range ?? '')
-                    . '||' . ($serendipity['GET']['category'] ?? '')
-                    . '||' . ($serendipity['GET']['hide_category'] ?? '')
-                    . '||' . ($serendipity['GET']['viewAuthor'] ?? '')
-                    . '||' . ($serendipity['GET']['page'] ?? '')
-                    . '||' . $serendipity['fetchLimit']
-                    . '||' . $serendipity['max_fetch_limit']
-                    . '||' . ($serendipity['GET']['adminModule'] ?? '')
-                    . '||' . serendipity_checkPermission('adminEntriesMaintainOthers')
-                    . '||' . $serendipity['showFutureEntries']
-                    . '||' . $serendipity['archiveSortStable']
-                    . '||' . ($serendipity['plugindata']['smartyvars']['uriargs'] ?? '')
-                );
-
-        serendipity_cacheItem($key, serialize($ret));
-        serendipity_cacheItem($key . '_fullCountQuery', $serendipity['fullCountQuery']);
     }
 
     return $ret;
@@ -1243,6 +1186,17 @@ function serendipity_printEntries(iterable|bool|null $entries, bool $extended = 
         serendipity_smarty_init(); // if not set, start Smarty templating to avoid member function "method()" on a non-object errors (was draft preview error, now at line 1239)
     }
 
+    // Caching. It is much better to place this here since it will only take the configured entries output and not SQL data, etc.
+    $initial_args = array_values(func_get_args());
+    if ($serendipity['useInternalCache']) {
+        $cache_key = md5(serialize($initial_args) . '||' .  serendipity_checkPermission('adminEntriesMaintainOthers'));
+        $cached = serendipity_getCacheItem($cache_key);
+        if ($cached && $cached !== false) {
+            $serendipity['smarty']->assignByRef($smarty_block, $cached);
+            return $cached;
+        }
+    }
+
     if ($use_hooks) {
         $addData = array('extended' => $extended, 'preview' => $preview);
         serendipity_plugin_api::hook_event('entry_display', $entries, $addData);
@@ -1518,6 +1472,9 @@ function serendipity_printEntries(iterable|bool|null $entries, bool $extended = 
     }
 
     if ($smarty_fetch === 'return') {
+        if ($serendipity['useInternalCache']) {
+            serendipity_cacheItem($cache_key, $dategroup);
+        }
         return $dategroup;
     }
 
