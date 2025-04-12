@@ -217,6 +217,7 @@ include($serendipity['serendipityPath'] . 'include/lang.inc.php');
 @define('USERLEVEL_CHIEF', 1);
 @define('USERLEVEL_EDITOR', 0);
 
+@define('SIMPLE_CACHE_DIR', S9Y_INCLUDE_PATH . PATH_SMARTY_COMPILE . '/simple_cache'); // voku init
 @define('VIEWMODE_THREADED', 'threaded'); // static
 @define('VIEWMODE_LINEAR', 'linear'); // static
 
