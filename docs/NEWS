@@ -2,6 +2,9 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improved functions API serendipity_** configured voku/simple-cache calls
+    which mainly is a userland cache for entries caching and some plugin caches.
+
   * Fix PHP 8 issues with bundled-libs/XML/RPC and get rid of resource naming
     for clarity. It is an object(XMLParser) instance up from PHP 8.
 
