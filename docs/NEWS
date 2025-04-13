@@ -2,6 +2,9 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Retire outdated bundled-libs/Net* library. All relying plugin dependencies
+   (spamblock_rbl and spamblock surbl) have retired too.
+
   * Improved functions API serendipity_** configured voku/simple-cache calls
     which mainly is a userland cache for entries caching and some plugin caches.
 
