@@ -559,6 +559,8 @@ $dead_dirs_500 = array(
     $serendipity['serendipityPath'] . 'bundled-libs/Net',
     $serendipity['serendipityPath'] . 'lang/UTF-8',
     $serendipity['serendipityPath'] . 'plugins/serendipity_event_ckeditor',
+    $serendipity['serendipityPath'] . 'plugins/serendipity_event_spamblock_rbl',
+    $serendipity['serendipityPath'] . 'plugins/serendipity_event_spamblock_surbl',
     $serendipity['serendipityPath'] . 'templates/_assets/ckebasic'/*,
     $serendipity['serendipityPath'] . 'plugins/serendipity_event_todooooo/UTF-8',
     $serendipity['serendipityPath'] . 'plugins/serendipity_plugin_todooooo/UTF-8',
