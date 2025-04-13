@@ -2,6 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Retire bundled-libs/Cache/Lite* for bundled voku/cache library only usage
+
   * Retire outdated bundled-libs/Net* library. All relying plugin dependencies
    (spamblock_rbl and spamblock surbl) have retired too.
 
