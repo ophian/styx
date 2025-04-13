@@ -1,17 +1,13 @@
-All (pear/customized) libs have more or less being touched for PHP5 constructors and PHP compat issues
+All libs have more or less being touched for PHP or Styx compat issues
 
-Cache_Lite              1.7.16 (CVS 1.7.16)
-Katzgrau/klogger        1.2.1  (latest, 2016-08-10)
-HTTP_Request2           2.3.0  (latest, 2016-06-22)
-Net_CheckIP2            1.1    (latest, 2016-06-22)
-Net_DNSBL               1.0.0  (CVS 1.4)
-Net_Socket2             ???    (latest, 2016-06-22)
-Net_URL2                2.2.1  (latest, 2016-06-22)
-Net_SURBL               1.4    (latest, 2016-06-22)
-Onyx (customized)       1.0
-PEAR                    1.10.1
-Psr/log                 1.1.1  (latest, 2019-10-25)
-SimplePie               1.7.0  (latest, 2022-09-29)
-Smarty                  3.1.33 (3.1.34-dev-7, 2018-10-30)
-XML_RPC                 1.4.0  (1.5.5)
+HTTP/Request2           2.7.0  (latest, 2025-04-10)
+Katzgrau/klogger        1.2.2  (1.3.0-dev, 2025-04-07)
+Onyx (customized)       1.0    (latest, 2024-03-06)
+PEAR/Exception.php              (latest, 2021-09-19)
+Psr/log                 3.0.2  (latest, 2025-04-07)
+Psr/simple_cache               (1.0.x-dev, 2025-04-07)
+SimplePie               1.8.0  (latest, 2024-06-09)
+Smarty                  4.5.3  (4.5.3-dev4, 2024-09-02)
+voku/cache                     (latest, 2024-08-15)
+XML_RPC                 1.5.5  (latest, 2025-04-11)
 
