@@ -365,7 +365,7 @@ class Cache implements iCache
      */
     protected function cleanStoreKey(string $str): string
     {
-        return \md5($str);
+        return \hash('XXH128', $str);
     }
 
     /**
