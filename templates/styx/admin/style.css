@@ -427,6 +427,9 @@ progress {
 #fileListing .plainList {
     font-size: smaller;
 }
+.atomium {
+    font-size: 1.125em;
+}
 
 /* bootstrap icons 1.4.1 */
 svg.bi {
