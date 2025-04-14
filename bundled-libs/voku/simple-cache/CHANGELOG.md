@@ -1,3 +1,9 @@
+# Changelog 4.2.0-dev (2025-04-14) Styx
+
+- Replace cache hash md5(...) with hash(XXH128', ...)
+- Pre-Fix some callable | Voku-typed parameter types for PHP 8.4 compat
+- Improve voku/simple-cache AdapterOpCache constructor for PLESK 17.8.11 + using opcache_get_configuration()
+
 # Changelog 4.1.0 (2020-03-15)
 
 - "Cache" -> add "getAdapter()" & "getSerializer()"
