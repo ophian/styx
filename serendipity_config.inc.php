@@ -217,10 +217,13 @@ include($serendipity['serendipityPath'] . 'include/lang.inc.php');
 @define('USERLEVEL_CHIEF', 1);
 @define('USERLEVEL_EDITOR', 0);
 
-@define('SIMPLE_CACHE_DIR', S9Y_INCLUDE_PATH . PATH_SMARTY_COMPILE . '/simple_cache'); // voku init
+@define('SIMPLE_CACHE_DIR', S9Y_INCLUDE_PATH . PATH_SMARTY_COMPILE . '/simple_cache'); // voku path init
 @define('VIEWMODE_THREADED', 'threaded'); // static
 @define('VIEWMODE_LINEAR', 'linear'); // static
 
+#### REQUIREMENT CHECK ####
+
+// For REQUIREMENT error noting we need to set a default language
 if (!version_compare(PHP_VERSION, '8.2.0', '>=')) {
     $serendipity['lang'] = 'en';
     include(S9Y_INCLUDE_PATH . 'include/lang.inc.php');
@@ -266,11 +269,14 @@ if ($use_include !== false && $use_include == $new_include) {
 }
 // PEAR path setup inclusion finished
 
+// Set the language required for install purpose
 if (defined('IN_installer') && IS_installed === false) {
     $serendipity['lang'] = $serendipity['autolang'];
     $css_mode            = 'serendipity_admin.css';
     return 1;
 }
+
+#### LOAD CONFIGURATION ####
 
 /*
  *   Load DB configuration information
@@ -292,6 +298,7 @@ if (!defined('S9Y_DATA_PATH') && file_exists(dirname(__FILE__) . '/serendipity_c
     $local_config = S9Y_INCLUDE_PATH . 'serendipity_config_local.inc.php';
 }
 
+// For CONFIGURATION NOT READABLE error noting we need to set a default language
 if (!is_readable($local_config)) {
     $serendipity['lang'] = 'en';
     include(S9Y_INCLUDE_PATH . 'include/lang.inc.php');
@@ -336,13 +343,17 @@ if (!isset( $HTTP_RAW_POST_DATA ) && function_exists('get_raw_data')) {
     $HTTP_RAW_POST_DATA = get_raw_data();
 }
 
+#### LOAD FUNCTIONS ####
+// For FUNCTIONS LOADED FAILURE error noting we need to set a default language
 if (serendipity_FUNCTIONS_LOADED !== true) {
     $serendipity['lang'] = 'en';
     include(S9Y_INCLUDE_PATH . 'include/lang.inc.php');
     serendipity_die(sprintf(INCLUDE_ERROR . '<br>' . FILE_CREATE_YOURSELF, 'include/functions.inc.php'));
 }
 
+#### CONNECT DATABASE ####
 // Attempt to connect to the database
+// For DATABASE error noting we need to set a default language
 if (!serendipity_db_connect()) {
     $serendipity['lang'] = 'en';
     include(S9Y_INCLUDE_PATH . 'include/lang.inc.php');
@@ -352,19 +363,24 @@ if (!serendipity_db_connect()) {
     serendipity_die(DATABASE_ERROR);
 }
 
+#### CONNECTION AND NO-FAILURE SUCCESS SECTION ####
+
 // Load Configuration options from the database
 
 if (defined('USE_MEMSNAP')) {
     echo memSnap('Framework init');
 }
 
+// Load the default prompts
 serendipity_load_configuration();
 $serendipity['lang'] = serendipity_getSessionLanguage();
 
+// Init the katzgrau/klogger on demand
 serendipity_initLog();
 
-if ( (isset($serendipity['autodetect_baseURL']) && serendipity_db_bool($serendipity['autodetect_baseURL'])) ||
-     (isset($serendipity['embed']) && serendipity_db_bool($serendipity['embed'])) ) {
+// Set auto baseURL OR when embedded
+if ( (isset($serendipity['autodetect_baseURL']) && serendipity_db_bool($serendipity['autodetect_baseURL']))
+||   (isset($serendipity['embed']) && serendipity_db_bool($serendipity['embed'])) ) {
     $serendipity['baseURL'] = 'http' . (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on' ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . (!str_contains($_SERVER['HTTP_HOST'], ':') && !empty($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] != '80' && $_SERVER['SERVER_PORT'] != '443' ? ':' . $_SERVER['SERVER_PORT'] : '') . $serendipity['serendipityHTTPPath'];
 }
 
@@ -423,10 +439,10 @@ if (defined('DATE_LOCALES')) {
         }
     }
 }
-if (function_exists('date_default_timezone_set')) {
-    if (isset($serendipity['useServerOffset']) && $serendipity['useServerOffset'] == false) {
-        date_default_timezone_set('UTC');
-    }
+
+// Set the DEFAULT TIMEZONE, if useServerOffset has been set false
+if (isset($serendipity['useServerOffset']) && $serendipity['useServerOffset'] === false) {
+    date_default_timezone_set('UTC');
 }
 
 // Fallback charset, if none is defined in the language files
@@ -472,6 +488,7 @@ if (!isset($serendipity['GET']['action'])) {
     }
 }
 
+// Copy serendipity POST adminAction parameter to GET
 if (!isset($serendipity['GET']['adminAction'])) {
     $serendipity['GET']['adminAction'] = $serendipity['POST']['adminAction'] ?? '';
 }
