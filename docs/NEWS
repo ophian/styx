@@ -2,6 +2,10 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix an old issue within the configuration form 'selected' language field to
+    really show the stored global public frontend language and not the chosen
+    Session/Cookie language of the current authenticated user.
+
   * Retire bundled-libs/Cache/Lite* for bundled voku/cache library only usage
 
   * Retire outdated bundled-libs/Net* library. All relying plugin dependencies
