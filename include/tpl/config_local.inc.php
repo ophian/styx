@@ -437,7 +437,7 @@
                                           'permission'  => 'siteConfiguration'),
 
                                     array('var'         => 'useInternalCache',
-                                          'title'       => USE_CACHE . ' (EXPERIMENTAL)',
+                                          'title'       => USE_CACHE,
                                           'description' => USE_CACHE_DESC,
                                           'type'        => 'bool',
                                           'default'     => false,
