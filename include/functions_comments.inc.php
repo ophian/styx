@@ -1091,7 +1091,7 @@ function serendipity_approveComment(int $cid, int $entry_id, bool $force = false
         serendipity_plugin_api::hook_event('backend_approvecomment', $rs);
     }
 
-    serendipity_cleanCache();
+    serendipity_cleanCache(); // approveComment
     if ($flip) {
         if ($moderate) return -1; // comment set to pending
         if (!$moderate) return 1; // comment set to approved
@@ -1337,7 +1337,7 @@ function serendipity_insertComment(int $id, iterable $commentInfo, string $type 
         fclose($fp);
     }
 
-    serendipity_cleanCache();
+    serendipity_cleanCache(); // insertComment
     return $cid;
 }
 

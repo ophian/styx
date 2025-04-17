@@ -1049,7 +1049,7 @@ function serendipity_checkConfigItemFlags(iterable &$item, iterable|string $area
 function serendipity_updateConfiguration() : iterable|true {
     global $serendipity, $umask;
 
-    serendipity_cleanCache();
+    serendipity_cleanCache(); // updateConfiguration
 
     // Save all basic config variables to the database
     $config = serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE);

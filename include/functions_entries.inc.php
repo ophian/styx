@@ -1692,7 +1692,7 @@ function serendipity_updertEntry(iterable $entry) : mixed {
         serendipity_handle_references((int) $entry['id'], $serendipity['blogTitle'], $drafted_entry['title'], $drafted_entry['body'] . @$drafted_entry['extended'], false);
     }
 
-    serendipity_cleanCache();
+    serendipity_cleanCache(); // updertEntry
     return (int) $entry['id'];
 }
 
@@ -1731,7 +1731,7 @@ function serendipity_deleteEntry(int $id) : ?bool {
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}comments WHERE entry_id='$id'");
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}references WHERE entry_id='$id' AND (type = '' OR type IS NULL)");
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}permalinks WHERE entry_id='$id'");
-    serendipity_cleanCache();
+    serendipity_cleanCache(); // deleteEntry
 
     return true;
 }
@@ -1837,7 +1837,7 @@ function serendipity_updateEntryCategories(int $postid, iterable $categories) : 
         $query = "INSERT INTO {$serendipity['dbPrefix']}entrycat (categoryid, entryid) VALUES (" . (int) $cat . ", " . $postid . ")";
         serendipity_db_query($query);
     }
-    serendipity_cleanCache();
+    serendipity_cleanCache(); // updateEntryCategories
 }
 
 /**

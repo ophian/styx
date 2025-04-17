@@ -711,7 +711,7 @@ switch ($serendipity['GET']['adminAction']) {
                 serendipity_nukePath($serendipity['serendipityPath'] . $serendipity['uploadPath'], $vlddir, (isset($serendipity['POST']['nuke']) ? true : false));
                 $data['ob_serendipity_nukePath'] = ob_get_contents();
                 ob_end_clean();
-                serendipity_cleanCache();
+                serendipity_cleanCache(); // directoryDoDelete
            }
         } else {
             $data['print_ERROR_NO_DIRECTORY'] = sprintf(ERROR_NO_DIRECTORY, "<span class=\"msg-spot\">$vlddir</span>");
@@ -819,7 +819,7 @@ switch ($serendipity['GET']['adminAction']) {
             $data['print_DIRECTORY_CREATED'] = sprintf(DIRECTORY_CREATED, htmlspecialchars($new_dir));
             @umask(0000);
             @chmod($nd, 0777);
-            serendipity_cleanCache();
+            serendipity_cleanCache(); // directoryDoCreate
 
             // Apply parent ACL to new child.
             $array_parent_read  = serendipity_ACLGet(0, 'directory', 'read',  $serendipity['POST']['parent']);
