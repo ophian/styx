@@ -73,8 +73,26 @@ if (empty($serendipity['updateReleaseFileUrl'])) {
     $serendipity['updateReleaseFileUrl'] = 'https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE';
 }
 
+// CONFIGURATION LANGUAGE STORED SET EXCEPTION, i.e.
+// The public set global language is set to Spanish [es], but the Administrators personal preference language is using German [de] and the Administrator also wants to view the frontend - logged-in - to display in German [de].
+// Without this temporary switch - defined in serendipity_getSessionLanguage() - the configuration form language would show up as selected German [de] without actually having being set to it yet,
+// since it it guess-build on $serendipity['lang'] value.
+// All available lang vars in SESSION, COOKIE, and the Serendipity global have to stay valid as defined by the workload. But for the configuration form we need the real set stored 'lang' state.
+if (isset($serendipity['configurated_lang']) && $serendipity['lang'] != $serendipity['configurated_lang']) {
+    // Temporary copy to pass over to build form and to guessInput and then return
+    $_serendipity['lang'] = $serendipity['lang'];
+    $serendipity['lang'] = $serendipity['configurated_lang'];
+    unset($serendipity['configurated_lang']);
+}
+
 // A pre parsed and rendered template, analogue to 'ENTRIES' etc
 $data['CONFIG'] = serendipity_printConfigTemplate(serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE), $serendipity, false);
+
+if (isset($_serendipity['lang'])) {
+    // Reset to normal
+    $serendipity['lang'] = $_serendipity['lang'];
+    unset($_serendipity['lang']);
+}
 
 if (!is_object($serendipity['smarty'])) {
     serendipity_smarty_init();

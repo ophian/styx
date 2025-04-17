@@ -1284,21 +1284,23 @@ function serendipity_header(string $header) : void {
 function serendipity_getSessionLanguage() : string {
     global $serendipity;
 
-    // DISABLE THIS!
+    // DISABLE THIS! Probably a debug session before Aug 2, 2006.
 /*
     if ($_SESSION['serendipityAuthedUser']) {
         serendipity_header('X-Serendipity-InterfaceLangSource: Database');
         return $serendipity['lang'];
     }
 */
+    // Global 'lang' is SET but NOT in language list, USE 'autolang' == 'en'
     if (isset($serendipity['lang']) && !isset($serendipity['languages'][$serendipity['lang']])) {
         $serendipity['lang'] = $serendipity['autolang'];
     }
-
+    // Customized valid 'user_language' requested by [-multilingual plugins-] SET 'serendipityLanguage' COOKIE
     if (isset($_REQUEST['user_language']) && (!empty($serendipity['languages'][$_REQUEST['user_language']])) && !headers_sent()) {
         serendipity_setCookie('serendipityLanguage', $_REQUEST['user_language'], false);
     }
-
+    // Pre-checked internal $lang variable for the 'detected_lang' global
+    // Check the 'serendipityLanguage' COOKIE, then valid ['GET']['lang_selected'], then 'lang_content_negotiation' true for detectLang fallback
     if (isset($serendipity['COOKIE']['serendipityLanguage'])) {
         if ($serendipity['expose_s9y']) serendipity_header('X-Serendipity-InterfaceLangSource: Cookie');
         $lang = $serendipity['COOKIE']['serendipityLanguage'];
@@ -1310,9 +1312,16 @@ function serendipity_getSessionLanguage() : string {
         $lang = serendipity_detectLang();
     }
 
+    // Globally store detected $lang
     if (isset($lang)) {
         $serendipity['detected_lang'] = $lang;
     } else {
+        // Case configuration form
+        // Keep the current configured 'lang' global to later show up as the selected and configured language in the configuration form, to indicate the public non-logged-in frontend language set
+        if (!empty($serendipity['lang']) && isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModule'] == 'configuration') {
+            $serendipity['configurated_lang'] = $serendipity['lang'];
+        }
+        // Now, set the internal $lang variable to return, by SESSION or COOKIE'userDefLang'] or 'lang' global
         if (! empty($_SESSION['serendipityLanguage'])) {
             $lang = $_SESSION['serendipityLanguage'];
         } else {
@@ -1322,11 +1331,14 @@ function serendipity_getSessionLanguage() : string {
                 $lang = $serendipity['lang'];
             }
         }
+        // Reset a possible 'detected_lang' cached global
         $serendipity['detected_lang'] = null;
     }
 
+    // Only allow valid $lang sets, ELSE set the SESSION['serendipityLanguage']
     if (!isset($serendipity['languages'][$lang])) {
         $serendipity['detected_lang'] = null;
+
         return $serendipity['lang'];
     } else {
         $_SESSION['serendipityLanguage'] = $lang;
