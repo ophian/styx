@@ -880,7 +880,7 @@ class serendipity_event_spamblock extends serendipity_event
 
         if ($use_gd) {
             return sprintf('<img src="%s" onclick="this.src=this.src + \'1\'" title="%s" alt="CAPTCHA" class="captcha" />',
-                $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . "plugin/{$x}captcha_" . hash('XXH128', (string) time()),
+                $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . "plugin/{$x}captcha_" . hash('xxh128', (string) time()),
                 htmlspecialchars(PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2)
             );
         } else {
@@ -890,7 +890,7 @@ class serendipity_event_spamblock extends serendipity_event
             $output = '<div class="serendipity_comment_captcha_image" style="background-color: ' . $hexval . '">';
             for ($i = 1; $i <= $max_char; $i++) {
                 $output .= sprintf('<img src="%s" title="%s" alt="CAPTCHA ' . $i . '" class="captcha" />',
-                    $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . "plugin/{$x}captcha_" . $i . '_' . hash('XXH128', (string) time()),
+                    $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . "plugin/{$x}captcha_" . $i . '_' . hash('xxh128', (string) time()),
                     htmlspecialchars(PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2)
                 );
             }

@@ -1037,11 +1037,11 @@ class serendipity_event_entryproperties extends serendipity_event
 
                     if (isset($serendipity['GET']['id']) && isset($eventData[0]['properties']['ep_entrypassword'])) {
 
-                        if (isset($_SESSION['entrypassword_unlocked']) && $_SESSION['entrypassword_unlocked'][$serendipity['GET']['id']] == hash('XXH128', $eventData[0]['properties']['ep_entrypassword'])
+                        if (isset($_SESSION['entrypassword_unlocked']) && $_SESSION['entrypassword_unlocked'][$serendipity['GET']['id']] == hash('xxh128', $eventData[0]['properties']['ep_entrypassword'])
                         || isset($serendipity['POST']['entrypassword']) && $eventData[0]['properties']['ep_entrypassword'] == $serendipity['POST']['entrypassword'])
                         {
                             // Do not show login form again, once we have first enabled it.
-                            $_SESSION['entrypassword_unlocked'][$serendipity['GET']['id']] = hash('XXH128', $eventData[0]['properties']['ep_entrypassword']);
+                            $_SESSION['entrypassword_unlocked'][$serendipity['GET']['id']] = hash('xxh128', $eventData[0]['properties']['ep_entrypassword']);
                         } else {
                             // Adding eventData makes no real sense for excluding eventData items like in 'entries_footer',
                             // apart from the preview, the entries list and 'external_plugin' hook which all play after,
