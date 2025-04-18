@@ -745,6 +745,7 @@ form button:not(.tox-tbtn), input[type="button"], input[type="reset"], input[typ
 .form_field label, .form_select label, .form_tarea label {
     display: block;
     font-weight: bold;
+    padding-bottom: 1px;
 }
 .form_field input, .form_field select, .form_select input, .form_select select, .form_tarea input, .form_tarea select {
     width: 100%;
