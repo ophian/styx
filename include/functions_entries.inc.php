@@ -1189,7 +1189,7 @@ function serendipity_printEntries(iterable|bool|null $entries, bool $extended = 
     // Caching. It is much better to place this here since it will only take the configured entries output and not SQL data, etc.
     $initial_args = array_values(func_get_args());
     if ($serendipity['useInternalCache']) {
-        $cache_key = md5(serialize($initial_args) . '||' .  serendipity_checkPermission('adminEntriesMaintainOthers'));
+        $cache_key = hash('xxh128', serialize($initial_args) . '||' . serendipity_checkPermission('adminEntriesMaintainOthers'));
         $cached = serendipity_getCacheItem($cache_key);
         if ($cached && $cached !== false) {
             $serendipity['smarty']->assignByRef($smarty_block, $cached);
