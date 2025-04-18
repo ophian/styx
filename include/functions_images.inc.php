@@ -3347,7 +3347,7 @@ function serendipity_displayImageList(int $page = 0, bool $manage = false, ?stri
         usort($paths, 'serendipity_sortPath');
 
         if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Got real disc files: " . print_r($aFilesOnDisk, true)); }
-        $serendipity['current_image_hash'] = hash('XXH128', serialize($aFilesOnDisk));
+        $serendipity['current_image_hash'] = hash('xxh128', serialize($aFilesOnDisk));
         $serendipity['last_image_hash'] = $serendipity['last_image_hash'] ?? ''; // avoid a non-isset by a relatively new image database which had never run setting the $serendipity['last_image_hash'] before
 
         // ML Cleanup START - is part of SYNC

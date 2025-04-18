@@ -810,7 +810,7 @@ function serendipity_checkInstallation() : ?iterable {
     if ($_POST['dbType'] == 'sqlite' || $_POST['dbType'] == 'sqlite3' || $_POST['dbType'] == 'pdo-sqlite' || $_POST['dbType'] == 'sqlite3oo') {
         // We don't want that our SQLite db file can be guessed from other applications on a server
         // and have access to ours. So we randomize the SQLite dbname.
-        $_POST['sqlitedbName'] = $_POST['dbName'] . '_' . hash('XXH128', (string) time());
+        $_POST['sqlitedbName'] = $_POST['dbName'] . '_' . hash('xxh128', (string) time());
     }
 
     if (empty($_POST['dbPrefix']) && empty($serendipity['dbPrefix'])) {
@@ -1477,7 +1477,7 @@ function serendipity_FTPChecksum(string $filename, ?string $type = null) : strin
         $newlines = array("#\r\n#", "#\r#", "#\n#");
         $file = file_get_contents($filename);
         $file = preg_replace($newlines, ' ', $file);
-        $hash = hash('XXH128', $file);
+        $hash = hash('xxh128', $file);
     } else {
         // Just get its xxHash
         $hash = hash_file('XXH128', $filename);
