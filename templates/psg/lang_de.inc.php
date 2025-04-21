@@ -4,15 +4,15 @@
 @define('NAV_MENU', 'navigation');
 // Landing page
 @define('PURE_START_WELCOME', 'Erlaube eine themeeigene Startseite');
-@define('PURE_START_WELCOME_DESC', 'Erlaubt das Ausführen einer themeneigenen Startseite mit einigen neueren Einträgen als Zusammenfassung und einem beliebigen Einleitungstext-Block. Der vollständige Blog-Inhalt befindet sich unter "?frontpage" und ein Link dorthin ist bereits platziert. Siehe die detaillierten Info-Beschreibungen.');
-@define('PURE_START_HOME_TITLE', 'Feld links: Überschrift der Artikelliste');
-@define('PURE_START_HOME_TITLE_DESC', 'Erste Zeile, linkes und größeres Rasterfeld. Einfacher Titel-Text ohne HTML-Markup. Für Default-Änderungen, lesen Sie sorgfältig die detaillierte "FETCHING ARTICLES" Information zur Ausgestaltung ihrer eigenen Blog Belange!');
+@define('PURE_START_WELCOME_DESC', 'Erlaubt das AusfÃ¼hren einer themeneigenen Startseite mit einigen neueren EintrÃ¤gen als Zusammenfassung und einem beliebigen Einleitungstext-Block. Der vollstÃ¤ndige Blog-Inhalt befindet sich unter "?frontpage" und ein Link dorthin ist bereits platziert. Siehe die detaillierten Info-Beschreibungen.');
+@define('PURE_START_HOME_TITLE', 'Feld links: Ãœberschrift der Artikelliste');
+@define('PURE_START_HOME_TITLE_DESC', 'Erste Zeile, linkes und grÃ¶ÃŸeres Rasterfeld. Einfacher Titel-Text ohne HTML-Markup. FÃ¼r Default-Ã„nderungen, lesen Sie sorgfÃ¤ltig die detaillierte "FETCHING ARTICLES" Information zur Ausgestaltung ihrer eigenen Blog Belange!');
 @define('PURE_START_HOME_TITLE_DEFAULT', 'Die neuesten Artikel');
 @define('PURE_START_WELCOME_BLOG_LINK_TITLE', 'Feld rechts: Feld-Linkname (nur als Tooltip)');
 @define('PURE_START_WELCOME_BLOG_LINK_TITLE_DEFAULT', 'Zu meinem Blog..');
-@define('PURE_START_WELCOME_TITLE', 'Feld rechts: Überschrift Einleitungstext');
-@define('PURE_START_WELCOME_TITLE_DESC', 'Schreiben Sie ein einfaches « none » in das Feld um das Head Markup auszuschalten, oder leeren Sie das Feld um den Abstand zu halten.');
-@define('PURE_START_WELCOME_TITLE_DEFAULT', 'Über dieses Blog');
+@define('PURE_START_WELCOME_TITLE', 'Feld rechts: Ãœberschrift Einleitungstext');
+@define('PURE_START_WELCOME_TITLE_DESC', 'Schreiben Sie ein einfaches Â« none Â» in das Feld um das Head Markup auszuschalten, oder leeren Sie das Feld um den Abstand zu halten.');
+@define('PURE_START_WELCOME_TITLE_DEFAULT', 'Ãœber dieses Blog');
 @define('PURE_START_WELCOME_CONTENT', 'Feld rechts: (HTML) Einleitungstext-Block');
 //details
 @define('PURE_START_WELCOME_GROUP_TITLE', '<h3>Startseiteneinstellungen (optional):</h3>
@@ -21,39 +21,39 @@
   <img class="serendipity_image_right" src="templates/psg/home-ex-200.png" alt="" />
 </picture></a></p>
 <details>
-  <summary class="button button_link" role="button" aria-expanded="false" title="öffne/schließe Inhalt">LANDING PAGE - HOME</summary>
+  <summary class="button button_link" role="button" aria-expanded="false" title="Ã¶ffne/schlieÃŸe Inhalt">LANDING PAGE - HOME</summary>
   <div class="clearfix helpbox">
-    <p>Wie Sie auf dem Beispielbild sehen können, kann Ihr Rasterkartendesign 2 Zeilen mal 3 Spalten für die Startseite haben. Es ist sogar ganz einfach, dies um zusätzliche Zeilen oder Karten zu erweitern.</p>
-    <p>Die erste Zeile mit 2 (besser gesagt 3 Karten, denn die erste überspannt zwei Spalten) sind bereits fest in der template Datei index.tpl kodiert, siehe etwa ab Zeile 111. Laden Sie die Datei in ihren Editor, um sie auf Ihre Bedürfnise hin abzustimmen. Aber lesen Sie hier zunächst weiter, um sich besser damit vertraut zu machen.</p>
-    <p>Die erste <b>linke</b> Karte ist so gestaltet, dass die letzten Artikel des Blogs als Überschriftliste über <code>{serendipity_fetchPrintEntries ...}</code> geholt werden. <b>Lesen</b> Sie mehr dazu in der detaillierten: "<em>FETCHING ARTICLES</em>" Info-Kasten Beschreibung. Die Standardeinstellung liefert die neuesten 5 Blog-Artikel (und aus allen Kategorien).</p>
-    <p>Der Inhalt der <b>rechten</b> oberen Karte ist das, was Sie über die  unten folgenden Theme-Optionen setzen können. Für das <b>HTML</b> Feld beachten Sie:</p>
+    <p>Wie Sie auf dem Beispielbild sehen kÃ¶nnen, kann Ihr Rasterkartendesign 2 Zeilen mal 3 Spalten fÃ¼r die Startseite haben. Es ist sogar ganz einfach, dies um zusÃ¤tzliche Zeilen oder Karten zu erweitern.</p>
+    <p>Die erste Zeile mit 2 (besser gesagt 3 Karten, denn die erste Ã¼berspannt zwei Spalten) sind bereits fest in der template Datei index.tpl kodiert, siehe etwa ab Zeile 111. Laden Sie die Datei in ihren Editor, um sie auf Ihre BedÃ¼rfnise hin abzustimmen. Aber lesen Sie hier zunÃ¤chst weiter, um sich besser damit vertraut zu machen.</p>
+    <p>Die erste <b>linke</b> Karte ist so gestaltet, dass die letzten Artikel des Blogs als Ãœberschriftliste Ã¼ber <code>{serendipity_fetchPrintEntries ...}</code> geholt werden. <b>Lesen</b> Sie mehr dazu in der detaillierten: "<em>FETCHING ARTICLES</em>" Info-Kasten Beschreibung. Die Standardeinstellung liefert die neuesten 5 Blog-Artikel (und aus allen Kategorien).</p>
+    <p>Der Inhalt der <b>rechten</b> oberen Karte ist das, was Sie Ã¼ber die  unten folgenden Theme-Optionen setzen kÃ¶nnen. FÃ¼r das <b>HTML</b> Feld beachten Sie:</p>
     <ul>
-      <li>Keine Links hier, bitte! Die ganze Boxkarte selbst ist der Link, der auf Ihren eigentliches Blog zeigt (und Sie können keine Links ineinander verschachteln)!</li>
-      <li>Schreiben Sie Ihren (p)-aragraphierten Inhaltstext kurz genug, um die Höhe der linken Nachbarkarte mit den "5" neuesten Blogartikeln nicht unnötig zu vergrößern!</li>
+      <li>Keine Links hier, bitte! Die ganze Boxkarte selbst ist der Link, der auf Ihren eigentliches Blog zeigt (und Sie kÃ¶nnen keine Links ineinander verschachteln)!</li>
+      <li>Schreiben Sie Ihren (p)-aragraphierten Inhaltstext kurz genug, um die HÃ¶he der linken Nachbarkarte mit den "5" neuesten Blogartikeln nicht unnÃ¶tig zu vergrÃ¶ÃŸern!</li>
     </ul>
-    <p>Die Option: "' . PURE_START_HOME_TITLE . '" definiert die Überschrift Ihrer neuesten Artikel des 2-spaltigen Rasterfeldes.<p>
-    <p><b><u>Achtung</u>:</b><br>Dieses Startseiten-Beispiel nutzt einen netten Service von «<code> https://picsum.photos</code> », der Beispielbilder aus verschiedenen Kategorien einsetzt und solange als "Rückgriff" genutzt wird, wie keine eigenen Bilder gesetzt und definiert sind (siehe index.tpl und die config.inc.php Datei). Sie sollten diese Bilder aber nicht für den Produktivbetrieb verwenden. Sie werden einzig hier benutzt, um einen ersten Eindruck der möglichen Dastellung zu bekommen und dienen nur Development-Zwecken.</p>
+    <p>Die Option: "' . PURE_START_HOME_TITLE . '" definiert die Ãœberschrift Ihrer neuesten Artikel des 2-spaltigen Rasterfeldes.<p>
+    <p><b><u>Achtung</u>:</b><br>Dieses Startseiten-Beispiel nutzt einen netten Service von Â«<code> https://picsum.photos</code> Â», der Beispielbilder aus verschiedenen Kategorien einsetzt und solange als "RÃ¼ckgriff" genutzt wird, wie keine eigenen Bilder gesetzt und definiert sind (siehe index.tpl und die config.inc.php Datei). Sie sollten diese Bilder aber nicht fÃ¼r den Produktivbetrieb verwenden. Sie werden einzig hier benutzt, um einen ersten Eindruck der mÃ¶glichen Dastellung zu bekommen und dienen nur Development-Zwecken.</p>
   </div>
 </details>
 <details>
-  <summary class="button button_link" role="button" aria-expanded="false" title="öffne/schließe Inhalt">OPTIONAL GRID CARDS - The 2cd row [++]</summary>
+  <summary class="button button_link" role="button" aria-expanded="false" title="Ã¶ffne/schlieÃŸe Inhalt">OPTIONAL GRID CARDS - The 2cd row [++]</summary>
   <div class="clearfix helpbox">
-    <p>An dieser Stelle (in der Datei config.inc.php) können Sie sehr einfach, <b>manuell</b> (mit einem Editor-Programm wie Notepad++ oder ähnlich), weitere <b>3 Karten</b> (+/-) für Ihre eigene Startseite hinzufügen und definieren. Die wichtigsten Array-Elemente sind [<em>image, link, title, body</em>]:</p>
+    <p>An dieser Stelle (in der Datei config.inc.php) kÃ¶nnen Sie sehr einfach, <b>manuell</b> (mit einem Editor-Programm wie Notepad++ oder Ã¤hnlich), weitere <b>3 Karten</b> (+/-) fÃ¼r Ihre eigene Startseite hinzufÃ¼gen und definieren. Die wichtigsten Array-Elemente sind [<em>image, link, title, body</em>]:</p>
     <ul>
-      <li>Jede Karte muss mit einem Bild versehen sein, zum Beispiel aus der Mediathek:<br><code>$serendipity[\'baseURL\'] . $serendipity[\'uploadPath\'] . \'your/image.styxThumb.png\'</code>.<br>Querformatige Vorschaubilder (400px) der Mediathek eignen sich von der Größe her gut für diese Karten.</li>
+      <li>Jede Karte muss mit einem Bild versehen sein, zum Beispiel aus der Mediathek:<br><code>$serendipity[\'baseURL\'] . $serendipity[\'uploadPath\'] . \'your/image.styxThumb.png\'</code>.<br>Querformatige Vorschaubilder (400px) der Mediathek eignen sich von der GrÃ¶ÃŸe her gut fÃ¼r diese Karten.</li>
       <li>Jede ganze Karte an sich ist ein Link, der zB auf <code>$serendipity[\'baseURL\'] . \'archive\'</code> oder eine Statische Seite <code>$serendipity[\'baseURL\'] . \'pages/aboutme.html\'</code> verweist.</li>
-      <li>Jede Karte sollte einen kurzen Titel aus \'reinem Text\', beispielsweise: \'Über mich\' beinhalten.</li>
-      <li>Jede Karte sollte ein kurzes(!) Intro oder Willkommens-Text, eingeschlossen von (P)-aragraphen, zB \'&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. [...]&lt;/p&gt;\' ohne jeden Link oder Bild o.Ä. enthalten. Sie können Mehrfachabsätze, br-Zeilenumbrüche und andere einfache Stilelemente hinzufügen.</li>
+      <li>Jede Karte sollte einen kurzen Titel aus \'reinem Text\', beispielsweise: \'Ãœber mich\' beinhalten.</li>
+      <li>Jede Karte sollte ein kurzes(!) Intro oder Willkommens-Text, eingeschlossen von (P)-aragraphen, zB \'&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. [...]&lt;/p&gt;\' ohne jeden Link oder Bild o.Ã„. enthalten. Sie kÃ¶nnen MehrfachabsÃ¤tze, br-ZeilenumbrÃ¼che und andere einfache Stilelemente hinzufÃ¼gen.</li>
     </ul>
-    <p>Unter Ausnutzung des Vorteils der Unterstützung unserer neuen Variations-generierten Bilder-Thumbnails sollte der image [avif | webp] Wert wie folgt aussehen::<br>
+    <p>Unter Ausnutzung des Vorteils der UnterstÃ¼tzung unserer neuen Variations-generierten Bilder-Thumbnails sollte der image [avif | webp] Wert wie folgt aussehen::<br>
           <code>\'avif\' => $serendipity[\'baseURL\'] . $serendipity[\'uploadPath\'] . \'relative/path/to/image/.v/imagename.styxThumb.avif\',</code><br>
           <code>\'webp\' => $serendipity[\'baseURL\'] . $serendipity[\'uploadPath\'] . \'relative/path/to/image/.v/imagename.styxThumb.webp\'</code>. Beachten Sie den <b>/.v</b> Bild Variations Ordner!</p>
-    <p>Es kann vorkommen, dass einige normale Vorschaubilder kleiner (KB) sind als die generierten Variationsdateien, siehe die Bild-Metadaten ihrer Mediathek. In diesem Fall lassen Sie den [avif | webp] Wert durch ein Paar einfache Anführungszeichen \'\' einfach leer.</p>
-    <p>Wenn <b>aktiviert</b>, d.h. <em>unkommentiert gesetzt und mit eigenen Inhalten befüllt</em>, führt das Array eine Smarty-Funktion im Kopf der Datei index.tpl aus, um jede durch das Array definierte Gitterkarte zu platzieren.</p>
+    <p>Es kann vorkommen, dass einige normale Vorschaubilder kleiner (KB) sind als die generierten Variationsdateien, siehe die Bild-Metadaten ihrer Mediathek. In diesem Fall lassen Sie den [avif | webp] Wert durch ein Paar einfache AnfÃ¼hrungszeichen \'\' einfach leer.</p>
+    <p>Wenn <b>aktiviert</b>, d.h. <em>unkommentiert gesetzt und mit eigenen Inhalten befÃ¼llt</em>, fÃ¼hrt das Array eine Smarty-Funktion im Kopf der Datei index.tpl aus, um jede durch das Array definierte Gitterkarte zu platzieren.</p>
   </div>
 </details>
 <details>
-  <summary class="button button_link" role="button" aria-expanded="false" title="öffne/schließe Inhalt">EXAMPLE ARRAY</summary>
+  <summary class="button button_link" role="button" aria-expanded="false" title="Ã¶ffne/schlieÃŸe Inhalt">EXAMPLE ARRAY</summary>
   <div class="clearfix helpbox">
     <pre><code class="language-php hljs">$serendipity[<span class="hljs-string">\'smarty\'</span>]-&gt;assign(<span class="hljs-string">\'addcards\'</span>, <span class="hljs-keyword">array</span>(
     <span class="hljs-number">0</span> =&gt; <span class="hljs-keyword">array</span>(
@@ -91,12 +91,12 @@
   </div>
 </details>
 <details>
-  <summary class="button button_link" role="button" aria-expanded="false" title="öffne/schließe Inhalt">FETCHING ARTICLES</summary>
+  <summary class="button button_link" role="button" aria-expanded="false" title="Ã¶ffne/schlieÃŸe Inhalt">FETCHING ARTICLES</summary>
   <div class="clearfix helpbox">
-    <p>Finden Sie eine solche Smarty Funktion (Zeile ~125): <code>{serendipity_fetchPrintEntries short_archives=true ... limit="0,5"}</code> in Ihrer <b>index.tpl</b> Datei und stimmen diese auf Ihre eigenen Bedürfnisse hin ab.</p>
-    <p>Wählen Sie eine einzelne category ID, oder kombinieren Sie mehrere Kategorien mittel Semikolon «<code> category="1;2;5"</code> ». Setzen Sie diesen Parameter gar nicht, wenn Sie die aktuellsten Einträge aller Kategorien wünschen.</p>
-    <p>Setzen Sie (optional) eine «<code> template="mycat.tpl"</code> » Parameter-Option, wenn Sie eine eigene template Datei für die Ausgabe erstellt haben; siehe Standard- und Beispieldatei in "<code>templates/default/smarty_entries_short_archives.tpl</code>" oder kopieren und verändern Sie die "<code>entries_summary.tpl</code>" Datei dieses Themes (aber Achtung: <code>{$dateRange.0|&hellip;}</code> liegt hier nicht vor).</p>
-    <p>Der «<code> limit="0,5"</code> » Parameter definiert Auswahllimitierungen für die Datenbankabfrage. Dies ist eine Zeichenfolge, die angibt, wie viele Blog-Artikel ausgelesen werden sollen. Diese Zeichenfolge kann entweder eine einzelne Zahl oder eine Angabe <code>X, Y</code> enthalten, wobei <code>X</code> der Index des Artikels ist, aus dem die Artikel angezeigt werden, und <code>Y</code> die Anzahl der zu lesenden Artikel ist. Ein Parameter <code>limit="5, 10"</code> würde 10 Artikel ausgeben und die ersten 5 aktuellen Artikel überspringen. Wenn dieser Parameter nicht angegeben wird, werden so viele Artikel gelesen, wie in der Konfiguration des Blogs als Standard definiert sind.</p>
+    <p>Finden Sie eine solche Smarty Funktion (Zeile ~125): <code>{serendipity_fetchPrintEntries short_archives=true ... limit="0,5"}</code> in Ihrer <b>index.tpl</b> Datei und stimmen diese auf Ihre eigenen BedÃ¼rfnisse hin ab.</p>
+    <p>WÃ¤hlen Sie eine einzelne category ID, oder kombinieren Sie mehrere Kategorien mittel Semikolon Â«<code> category="1;2;5"</code> Â». Setzen Sie diesen Parameter gar nicht, wenn Sie die aktuellsten EintrÃ¤ge aller Kategorien wÃ¼nschen.</p>
+    <p>Setzen Sie (optional) eine Â«<code> template="mycat.tpl"</code> Â» Parameter-Option, wenn Sie eine eigene template Datei fÃ¼r die Ausgabe erstellt haben; siehe Standard- und Beispieldatei in "<code>templates/default/smarty_entries_short_archives.tpl</code>" oder kopieren und verÃ¤ndern Sie die "<code>entries_summary.tpl</code>" Datei dieses Themes (aber Achtung: <code>{$dateRange.0|&hellip;}</code> liegt hier nicht vor).</p>
+    <p>Der Â«<code> limit="0,5"</code> Â» Parameter definiert Auswahllimitierungen fÃ¼r die Datenbankabfrage. Dies ist eine Zeichenfolge, die angibt, wie viele Blog-Artikel ausgelesen werden sollen. Diese Zeichenfolge kann entweder eine einzelne Zahl oder eine Angabe <code>X, Y</code> enthalten, wobei <code>X</code> der Index des Artikels ist, aus dem die Artikel angezeigt werden, und <code>Y</code> die Anzahl der zu lesenden Artikel ist. Ein Parameter <code>limit="5, 10"</code> wÃ¼rde 10 Artikel ausgeben und die ersten 5 aktuellen Artikel Ã¼berspringen. Wenn dieser Parameter nicht angegeben wird, werden so viele Artikel gelesen, wie in der Konfiguration des Blogs als Standard definiert sind.</p>
   </div>
 </details>');
 @define('PURE_START_GROUP_SEPARATOR_TITLE', '<h3>Globale Theme und Navigations-Tab Optionen:</h3>');
