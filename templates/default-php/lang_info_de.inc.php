@@ -1,18 +1,18 @@
 <?php
 /*
- * The info.txt charset (translation) file as an array.
+ * The info.txt UTF-8 charset (translation) file as an array.
  * Save as lang_info_xx.inc.php and replace 'xx' with your short lang term, defined and set in $serendipity['lang'].
- * Convert or save as ANSI (ISO-8859-1) or your native charset
+ * Convert or save as UTF-8 file without BOM.
  **/
 
-$info['theme_info_summary'] = 'Default PHP-Template und responsives HTML5 Theme f¸r das Serendipity Styx Blog System';
+$info['theme_info_summary'] = 'Default PHP-Template und responsives HTML5 Theme f√ºr das Serendipity Styx Blog System';
 
 $info['theme_info_desc'] = 'Einfaches Theme aus 2006 basierend auf dem alten Default (Serendipity 2.3) Theme,
-neu aufgearbeitet und stark erweitert f¸r die Serendipity Styx Edition.
+neu aufgearbeitet und stark erweitert f√ºr die Serendipity Styx Edition.
 (Trotzdem kann es immer noch einige wenige PHP Template Dateien vermissen lassen.)
-Lesen Sie die Theme-eigene IMPORTANT-TODO Datei f¸r mehr.<br>
+Lesen Sie die Theme-eigene IMPORTANT-TODO Datei f√ºr mehr.<br>
 
 <u><b>ACHTUNG&colon;</b></u><br>
 Je weniger (Smarty erweiternde) Plugins verwendet werden, desto mehr funktioniert dies auch fehlerfrei.<br>
 
-Derzeit ist keine nennenswerte Einschr‰nkung bekannt!';
+Derzeit ist keine nennenswerte Einschr√§nkung bekannt!';
