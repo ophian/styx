@@ -2,40 +2,40 @@
             <ol class="plainList quick_info">
                 <li>
                     <b>I. Was ist das hier?</b><br>
-                    <span><em>Dies ist das &#187;<b>Backend</b>&#171;; Der Platz der Administration.<br>Dieses ist der Öffentlichkeit nicht zugänglich, welche nur auf das &#187;<b>Frontend</b>&#171;, das veröffentlichte <u>Blog</u>, gestaltet durch ihr <u>Theme</u> zugreifen kann.</em></span>
+                    <span><em>Dies ist das &#187;<b>Backend</b>&#171;; Der Platz der Administration.<br>Dieses ist der Ã–ffentlichkeit nicht zugÃ¤nglich, welche nur auf das &#187;<b>Frontend</b>&#171;, das verÃ¶ffentlichte <u>Blog</u>, gestaltet durch ihr <u>Theme</u> zugreifen kann.</em></span>
                 </li>
                 <li>
-                    <b>II. Die Übersicht konfigurieren?</b><br>
-                    <span><em>Öffnen Sie die Einstellungen der &#187;{$CONST.PERSONAL_SETTINGS}&#171; über den oberen Navigations- <span class="icon-cog-alt" aria-hidden="true"></span> -Knopf.</em></span>
+                    <b>II. Die Ãœbersicht konfigurieren?</b><br>
+                    <span><em>Ã–ffnen Sie die Einstellungen der &#187;{$CONST.PERSONAL_SETTINGS}&#171; Ã¼ber den oberen Navigations- <span class="icon-cog-alt" aria-hidden="true"></span> -Knopf.</em></span>
                 </li>
                 <li>
-                    <b>III. Der Übersicht mehr hinzufügen?</b><br>
-                    <span><em>Öffnen Sie die Plugin Liste über &#187;{$CONST.MENU_SETTINGS}</em> &#10140; <em>{$CONST.MENU_PLUGINS}&#171; und installieren Sie <u>(event)</u> Ereignis-Plugins, zB. das empfohlene &#187;Serendipity Autoupdate&#171; Plugin. Sie werden es in der &#187;{$CONST.PLUGIN_GROUP_BACKEND_DASHBOARD}&#171; Kategoriengruppe finden.</em></span>
+                    <b>III. Der Ãœbersicht mehr hinzufÃ¼gen?</b><br>
+                    <span><em>Ã–ffnen Sie die Plugin Liste Ã¼ber &#187;{$CONST.MENU_SETTINGS}</em> &#10140; <em>{$CONST.MENU_PLUGINS}&#171; und installieren Sie <u>(event)</u> Ereignis-Plugins, zB. das empfohlene &#187;Serendipity Autoupdate&#171; Plugin. Sie werden es in der &#187;{$CONST.PLUGIN_GROUP_BACKEND_DASHBOARD}&#171; Kategoriengruppe finden.</em></span>
                 </li>
                 <li>
                     <b>IV. Suche nach mehr Themes?</b><br>
-                    <span><em>Öffnen Sie die Einstellung des &#187;Spartacus&#171; Ereignis-Plugins und erlauben Sie die &#187;Themes&#171; Option. Sie ist standardmäßig deaktiviert, da das erstmalige Laden durchaus ein wenig Zeit beanspruchen kann.</em></span>
+                    <span><em>Ã–ffnen Sie die Einstellung des &#187;Spartacus&#171; Ereignis-Plugins und erlauben Sie die &#187;Themes&#171; Option. Sie ist standardmÃ¤ÃŸig deaktiviert, da das erstmalige Laden durchaus ein wenig Zeit beanspruchen kann.</em></span>
                 </li>
                 <li>
                     <b>V. Spezifische Konfigurationen?</b><br>
-                    <span><em>Die Einstellungen für das Autoupdate Plugin zum Beispiel werden an zwei Orten erteilt. In der Plugin Konfiguration und genereller in der &#187;{$CONST.CONFIGURATION}</em> &#10140; <em>{$CONST.INSTALL_CAT_SETTINGS}&#171; Sektion. Globale Theme Einstellungen sind ebenfalls dort zu setzen, aber manche Themes haben noch erweiterte eigene Konfigurations-Einstellungen, wie das Standard Theme "pure". Auch die Blog Sprache als weiteres Beispiel wird generell in &#187;{$CONST.CONFIGURATION}&#171;... und genauer für den Benutzer in &#187;{$CONST.PERSONAL_SETTINGS}&#171; eingestellt.</em></span>
+                    <span><em>Die Einstellungen fÃ¼r das Autoupdate Plugin zum Beispiel werden an zwei Orten erteilt. In der Plugin Konfiguration und genereller in der &#187;{$CONST.CONFIGURATION}</em> &#10140; <em>{$CONST.INSTALL_CAT_SETTINGS}&#171; Sektion. Globale Theme Einstellungen sind ebenfalls dort zu setzen, aber manche Themes haben noch erweiterte eigene Konfigurations-Einstellungen, wie das Standard Theme "pure". Auch die Blog Sprache als weiteres Beispiel wird generell in &#187;{$CONST.CONFIGURATION}&#171;... und genauer fÃ¼r den Benutzer in &#187;{$CONST.PERSONAL_SETTINGS}&#171; eingestellt.</em></span>
                     <ul>
                         <li>
                             <b>Manuelle Einstellungen</b><br>
-                            <span><em>Durch die Nutzung der globalen &#187;&nbsp;$serendipity&nbsp;&#171; Variable gibt es des Weiteren die Möglichkeit <u>bestimmte</u> Standard Einstellungen mit Hilfe der &#187;serendipity_config_local.inc.php&#171; Datei zu überschreiben. Welche das sind, lesen Sie bitte <a href="https://ophian.github.io/hc/en/code-primer.html#docs-initializing-the-framework-serendipity_configincphp-and-serendipity_config_localincphp" target="_blank" rel="noopener">hier</a>, in der Styx Dokumentation, nach. Nicht alle dort genannten Variablen sind wirklich <u>nur</u> auf diese Weise manuell zu setzen, da einige auch besser in den Konfigurationsoptionen zu finden sind. Allgemein sollten nur Nutzer mit ein wenig Erfahrung diese manuelle Erweiterungsmöglichkeit nutzen.</em></span>
+                            <span><em>Durch die Nutzung der globalen &#187;&nbsp;$serendipity&nbsp;&#171; Variable gibt es des Weiteren die MÃ¶glichkeit <u>bestimmte</u> Standard Einstellungen mit Hilfe der &#187;serendipity_config_local.inc.php&#171; Datei zu Ã¼berschreiben. Welche das sind, lesen Sie bitte <a href="https://ophian.github.io/hc/en/code-primer.html#docs-initializing-the-framework-serendipity_configincphp-and-serendipity_config_localincphp" target="_blank" rel="noopener">hier</a>, in der Styx Dokumentation, nach. Nicht alle dort genannten Variablen sind wirklich <u>nur</u> auf diese Weise manuell zu setzen, da einige auch besser in den Konfigurationsoptionen zu finden sind. Allgemein sollten nur Nutzer mit ein wenig Erfahrung diese manuelle ErweiterungsmÃ¶glichkeit nutzen.</em></span>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <b>VI. Empfehlungen für den ersten Start:</b><br>
-                    <span><em>Es ist <u>nicht</u> zu empfehlen aus Neugier eine große Anzahl von Plugins vom Start weg zu installieren. Jedes beansprucht ein gewisses Quantum an Ressourcen, wie RAM, erweiterte Datenbank Abfragen, oder Zeit und verlangsamt ihr Blog. Wenn Sie diese Maxime beachten, können Sie mit der Zeit natürlich viele Plugins ausprobieren und wieder deaktivieren bzw. löschen.</em></span><br>
-                    <span><em>Themes basieren auf Templates der Smarty Template Engine, einfach zu erlernen. Jedes Theme kann leicht modifiziert werden, zB durch eine neu angelegte, update-unabhängige user.css Datei, die neue Stylesheets be-, oder bereits geladene über-schreibt. Wenn Sie noch größere Flexibilität und Unabhängigkeit benötigen, kopieren Sie ein Theme (siehe Dokumentation) und gestalten Sie es ganz nach ihren Wünschen, ohne auf zukünftige System/Theme Updates Rücksicht nehmen zu müssen.</em></span><br>
-                    <span><em><br>Lesen Sie die Dokumentation und die FAQ für mehr.</em></span><br>
-                    <span><em>Serendipity Styx ist höchst konfigurabel und manche dieser erweiterten Einstellungen sind nicht leichtfertig zu nutzen, ohne tieferen Einblick und in Kenntnis ihrer Auswirkungen.</em></span>
+                    <b>VI. Empfehlungen fÃ¼r den ersten Start:</b><br>
+                    <span><em>Es ist <u>nicht</u> zu empfehlen aus Neugier eine groÃŸe Anzahl von Plugins vom Start weg zu installieren. Jedes beansprucht ein gewisses Quantum an Ressourcen, wie RAM, erweiterte Datenbank Abfragen, oder Zeit und verlangsamt ihr Blog. Wenn Sie diese Maxime beachten, kÃ¶nnen Sie mit der Zeit natÃ¼rlich viele Plugins ausprobieren und wieder deaktivieren bzw. lÃ¶schen.</em></span><br>
+                    <span><em>Themes basieren auf Templates der Smarty Template Engine, einfach zu erlernen. Jedes Theme kann leicht modifiziert werden, zB durch eine neu angelegte, update-unabhÃ¤ngige user.css Datei, die neue Stylesheets be-, oder bereits geladene Ã¼ber-schreibt. Wenn Sie noch grÃ¶ÃŸere FlexibilitÃ¤t und UnabhÃ¤ngigkeit benÃ¶tigen, kopieren Sie ein Theme (siehe Dokumentation) und gestalten Sie es ganz nach ihren WÃ¼nschen, ohne auf zukÃ¼nftige System/Theme Updates RÃ¼cksicht nehmen zu mÃ¼ssen.</em></span><br>
+                    <span><em><br>Lesen Sie die Dokumentation und die FAQ fÃ¼r mehr.</em></span><br>
+                    <span><em>Serendipity Styx ist hÃ¶chst konfigurabel und manche dieser erweiterten Einstellungen sind nicht leichtfertig zu nutzen, ohne tieferen Einblick und in Kenntnis ihrer Auswirkungen.</em></span>
                 </li>
                 <li>
                     <b>VII. Styx Ratgeber:</b><br>
-                    <span><em>Für Migrationen, lesen Sie die wichtige Styx Upgrade Dokumentation und den &#187;hitchhikers "upgrade" guide&#171; für das Styx Backend im <a href="https://ophian.github.io/hc/en/installation.html#user-content-the-important-upgraders-howto---step-by-step-guide" target="_blank" rel="noopener">Help Center</a> der Styx Webseite</em>.</span><br>
-                    <span><em>Erlernen Sie unseren RichText-Editor mit den dafür empfohlenen Techniken zu verwenden. Probieren Sie unsere Schritt für Schritt <a href="https://ophian.github.io/hc/en/the-stockholm-lessons.html" target="_blank" rel="noopener">RichText-Editor-Lektionen</a> auf der englischen Hilfe Webseite aus</em>.</span>
+                    <span><em>FÃ¼r Migrationen, lesen Sie die wichtige Styx Upgrade Dokumentation und den &#187;hitchhikers "upgrade" guide&#171; fÃ¼r das Styx Backend im <a href="https://ophian.github.io/hc/en/installation.html#user-content-the-important-upgraders-howto---step-by-step-guide" target="_blank" rel="noopener">Help Center</a> der Styx Webseite</em>.</span><br>
+                    <span><em>Erlernen Sie unseren RichText-Editor mit den dafÃ¼r empfohlenen Techniken zu verwenden. Probieren Sie unsere Schritt fÃ¼r Schritt <a href="https://ophian.github.io/hc/en/the-stockholm-lessons.html" target="_blank" rel="noopener">RichText-Editor-Lektionen</a> auf der englischen Hilfe Webseite aus</em>.</span>
                 </li>
             </ol>
