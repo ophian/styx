@@ -1,16 +1,16 @@
 <?php
 // Theme-Optionen
 @define('TWOK11_INSTR', 'Um 2k11 updatesicher um eigene Styles zu erweitern kann eine Datei <code>/templates/2k11/user.css</code> angelegt werden; diese wird automagisch durch Serendipity Styx eingebunden. Wenn Ihr theme ein CHILD oder ENGINE theme ist, platzieren Sie die user.css Datei dort hinein.');
-@define('TWOK11_HEADER_IMG','Bannergrafik im Kopfbereich einbinden? (1120 Pixel breit; Feld leeren um Ausgabe zu unterdrücken)');
+@define('TWOK11_HEADER_IMG','Bannergrafik im Kopfbereich einbinden? (1120 Pixel breit; Feld leeren um Ausgabe zu unterdrÃ¼cken)');
 @define('TWOK11_USE_CORENAV', 'Globale Navigation einbinden?');
 @define('TWOK11_WEBFONTS', 'Einen von Google gehosteten Webfont nutzen?');
 @define('TWOK11_NOWEBFONT', 'Keinen Webfont einbinden');
 @define('TWOK11_USERSTYLES', 'user.css einbinden? (Muss selbst im Themeverzeichnis angelegt werden! Generator: http://yellowled.github.com)');
-@define('TWOK11_IMGSTYLE', 'Gestaltung von Bildern in Einträgen');
+@define('TWOK11_IMGSTYLE', 'Gestaltung von Bildern in EintrÃ¤gen');
 @define('TWOK11_IMGSTYLE_NONE', 'Kein Rahmen');
 @define('TWOK11_IMGSTYLE_BORDER', 'Einfacher Rahmen');
 @define('TWOK11_IMGSTYLE_SHADOW', 'Schatten-Rahmen');
-@define('TWOK11_REFCOMMENTS', 'Link zum übergeordneten Kommentar hinzufügen, wenn der Kommentar eine Antwort ist?');
+@define('TWOK11_REFCOMMENTS', 'Link zum Ã¼bergeordneten Kommentar hinzufÃ¼gen, wenn der Kommentar eine Antwort ist?');
 // Sprachkonstanten
 @define('TWOK11_NAV_TITLE', 'Navigation');
 @define('TWOK11_PAG_TITLE', 'Pagination');
@@ -26,8 +26,8 @@
 @define('TWOK11_TWEET_THIS', 'Artikel via Twitter teilen');
 @define('TWOK11_DENT_THIS', 'Artikel via Identica teilen');
 @define('TWOK11_SHORT_URL', 'Kurz-URL');
-@define('TWOK11_SHORT_URL_HINT', 'Dieser Link ist nicht aktiv. Er enthält die Kurz-URL zu diesem Eintrag. Sie können diese URL benutzen, um diesen Eintrag zu verlinken. Um den Link zu kopieren, klicken Sie ihn mit der rechten Maustaste an und wählen "Verknüpfung kopieren" oder "Linkadresse kopieren" je nach System.');
-@define('TWOK11_EMPTYTRACKBACK', 'Die Anzeige des Inhaltes dieses Trackbacks ist leider nicht möglich.');
+@define('TWOK11_SHORT_URL_HINT', 'Dieser Link ist nicht aktiv. Er enthÃ¤lt die Kurz-URL zu diesem Eintrag. Sie kÃ¶nnen diese URL benutzen, um diesen Eintrag zu verlinken. Um den Link zu kopieren, klicken Sie ihn mit der rechten Maustaste an und wÃ¤hlen "VerknÃ¼pfung kopieren" oder "Linkadresse kopieren" je nach System.');
+@define('TWOK11_EMPTYTRACKBACK', 'Die Anzeige des Inhaltes dieses Trackbacks ist leider nicht mÃ¶glich.');
 @define('TWOK11_TRACKBACKPREVIEW', 'Vorschau anzeigen');
-@define('TWOK11_REPLYORIGIN', 'Antwort auf');
+@define('TWOK11_REPLYORIGIN', 'Ursprung');
 @define('TWOK11_FORMOPTIONS', 'Formular-Optionen');

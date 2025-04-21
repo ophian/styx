@@ -2,47 +2,47 @@
 
 /**
  *  @version 1.2
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  @translated 2012/01/08
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2013/03/03
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2013/03/31
  */
-@define('TWOK11_HEADER_IMG','Pou¾ít banner - obrázek v záhlaví stránky? (1120 pixelù ¹irokı; ponechte prázdné políèko a nebude se pou¾ívat ¾ádnı banner)');
-@define('TWOK11_USE_CORENAV', 'Pou¾ít globální navigaci?');
-@define('TWOK11_WEBFONTS', 'Pou¾ít webfont hostovanı u Googlu?');
-@define('TWOK11_NOWEBFONT', 'Nevkládat ¾ádnı webfont');
-@define('TWOK11_USERSTYLES', 'Vkládat user.css? (Je tøeba vytvoøit tento soubor v adresáøi ¹ablony. Generátor souborù na: http://yellowled.github.com)');
+@define('TWOK11_HEADER_IMG','PouÅ¾Ã­t banner - obrÃ¡zek v zÃ¡hlavÃ­ strÃ¡nky? (1120 pixelÅ¯ Å¡irokÃ½; ponechte prÃ¡zdnÃ© polÃ­Äko a nebude se pouÅ¾Ã­vat Å¾Ã¡dnÃ½ banner)');
+@define('TWOK11_USE_CORENAV', 'PouÅ¾Ã­t globÃ¡lnÃ­ navigaci?');
+@define('TWOK11_WEBFONTS', 'PouÅ¾Ã­t webfont hostovanÃ½ u Googlu?');
+@define('TWOK11_NOWEBFONT', 'NevklÃ¡dat Å¾Ã¡dnÃ½ webfont');
+@define('TWOK11_USERSTYLES', 'VklÃ¡dat user.css? (Je tÅ™eba vytvoÅ™it tento soubor v adresÃ¡Å™i Å¡ablony. GenerÃ¡tor souborÅ¯ na: http://yellowled.github.com)');
 // Lang constants
 
 @define('TWOK11_NAV_TITLE', 'Navigace');
-@define('TWOK11_PAG_TITLE', 'Stránkování');
+@define('TWOK11_PAG_TITLE', 'StrÃ¡nkovÃ¡nÃ­');
 @define('TWOK11_PLINK_TEXT', 'Odkaz');
-@define('TWOK11_PLINK_TITLE', 'Stálı odkaz na tento komentáø');
-@define('TWOK11_PLACE_SEARCH', 'Vyhledat vıraz(y)');
-@define('TWOK11_PLACE_NAME', 'napø. Honza Králík');
-@define('TWOK11_PLACE_MAIL', 'napø. mail@priklad.cz');
-@define('TWOK11_PLACE_URL', 'napø. http://priklad.cz');
-@define('TWOK11_PLACE_MESSAGE', 'Co máte na jazyku?');
+@define('TWOK11_PLINK_TITLE', 'StÃ¡lÃ½ odkaz na tento komentÃ¡Å™');
+@define('TWOK11_PLACE_SEARCH', 'Vyhledat vÃ½raz(y)');
+@define('TWOK11_PLACE_NAME', 'napÅ™. Honza KrÃ¡lÃ­k');
+@define('TWOK11_PLACE_MAIL', 'napÅ™. mail@priklad.cz');
+@define('TWOK11_PLACE_URL', 'napÅ™. http://priklad.cz');
+@define('TWOK11_PLACE_MESSAGE', 'Co mÃ¡te na jazyku?');
 @define('TWOK11_SEND_MAIL', 'Poslat');
-@define('TWOK11_TWEET_THIS', 'Sdílet pøíspìvek na Twitteru');
-@define('TWOK11_DENT_THIS', 'Sdílet pøíspìvek na Identice');
-@define('TWOK11_SHORT_URL', 'Krátké URL');
-@define('TWOK11_SHORT_URL_HINT', 'Tento odkaz není my¹len ke klikání. Obsahuje krátkou URL adresu k tomuto pøíspìvku. Mù¾ete ji pou¾ít k odkazování na tento pøíspìvek. Zkopírujte kliknutím pravım tlaèítkem a následnì kliknìte na Kopírovat odkaz v Internet Exporeru nebo Kopírovat umístìní odkazu v Mozille.');
+@define('TWOK11_TWEET_THIS', 'SdÃ­let pÅ™Ã­spÄ›vek na Twitteru');
+@define('TWOK11_DENT_THIS', 'SdÃ­let pÅ™Ã­spÄ›vek na Identice');
+@define('TWOK11_SHORT_URL', 'KrÃ¡tkÃ© URL');
+@define('TWOK11_SHORT_URL_HINT', 'Tento odkaz nenÃ­ myÅ¡len ke klikÃ¡nÃ­. Obsahuje krÃ¡tkou URL adresu k tomuto pÅ™Ã­spÄ›vku. MÅ¯Å¾ete ji pouÅ¾Ã­t k odkazovÃ¡nÃ­ na tento pÅ™Ã­spÄ›vek. ZkopÃ­rujte kliknutÃ­m pravÃ½m tlaÄÃ­tkem a nÃ¡slednÄ› kliknÄ›te na KopÃ­rovat odkaz v Internet Exporeru nebo KopÃ­rovat umÃ­stÄ›nÃ­ odkazu v Mozille.');
 
 // Next lines were translated on 2013/03/03
 
-@define('TWOK11_REFCOMMENTS', 'Pøidat ke komntáøùm odkaz na pøíbuzné komentáøe (pokud jsou odpovìdí na jinı komentáø)?');
-@define('TWOK11_SIDEBAR', 'Postranní sloupec');
-@define('TWOK11_EMPTYTRACKBACK', 'Obsah této Odezvy bohu¾el nemù¾e bıt zobrazen.');
-@define('TWOK11_TRACKBACKPREVIEW', 'Ukázat náhled');
-@define('TWOK11_REPLYORIGIN', 'Pùvodní');
-@define('TWOK11_FORMOPTIONS', 'Mo¾nosti formuláøe');
+@define('TWOK11_REFCOMMENTS', 'PÅ™idat ke komntÃ¡Å™Å¯m odkaz na pÅ™Ã­buznÃ© komentÃ¡Å™e (pokud jsou odpovÄ›dÃ­ na jinÃ½ komentÃ¡Å™)?');
+@define('TWOK11_SIDEBAR', 'PostrannÃ­ sloupec');
+@define('TWOK11_EMPTYTRACKBACK', 'Obsah tÃ©to Odezvy bohuÅ¾el nemÅ¯Å¾e bÃ½t zobrazen.');
+@define('TWOK11_TRACKBACKPREVIEW', 'UkÃ¡zat nÃ¡hled');
+@define('TWOK11_REPLYORIGIN', 'PÅ¯vodnÃ­');
+@define('TWOK11_FORMOPTIONS', 'MoÅ¾nosti formulÃ¡Å™e');
 
 // Next lines were translated on 2013/03/31
-@define('TWOK11_IMGSTYLE', 'Vzhled obrázkù v pøíspìvcích');
-@define('TWOK11_IMGSTYLE_NONE', 'Bez rámeèku');
-@define('TWOK11_IMGSTYLE_BORDER', 'Jednoduchı rámeèek');
-@define('TWOK11_IMGSTYLE_SHADOW', 'Stínovanı rámeèek');
+@define('TWOK11_IMGSTYLE', 'Vzhled obrÃ¡zkÅ¯ v pÅ™Ã­spÄ›vcÃ­ch');
+@define('TWOK11_IMGSTYLE_NONE', 'Bez rÃ¡meÄku');
+@define('TWOK11_IMGSTYLE_BORDER', 'JednoduchÃ½ rÃ¡meÄek');
+@define('TWOK11_IMGSTYLE_SHADOW', 'StÃ­novanÃ½ rÃ¡meÄek');
 
