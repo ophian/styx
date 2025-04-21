@@ -54,7 +54,7 @@
 @define('SLIVERS_PRETTIFY_BLAHBLAH', 'Includes local prettify.js file (minified origin Google Code). Use with "%s"');
 // google analytics support
 @define('GOOGLE_ANALYTICS', 'Use Google analytics?');
-@define('GOOGLE_ANALYTICS_BLAHBLAH', 'Includes anonymized google-analytics.com/ga.js to the end of index.tpl');
+@define('GOOGLE_ANALYTICS_BLAHBLAH', 'Includes google-analytics.com/ga.js into the index.tpl');
 @define('GOOGLE_ANALYTICS_ID', 'Your Google analytics ID');
 // Navigation
 @define('USE_CORENAV', 'Use global navigation?');
@@ -84,8 +84,8 @@
 @define('FOOTER', 'footer');
 @define('MIDDLE', 'middle');
 /* Navigation styles */
-@define('SITENAV_STYLE', 'This site\'s navigation bar styles against the default-style using a background picture (id:#sitenav).');
-@define('SITENAV_STYLE_BLAHBLAH', 'Simple = use slim and easy CSS style (id:#nav). - Extended = use extended style with CSS3 technics (id:#sitenav-extended).');
+@define('SITENAV_STYLE', 'This site\'s Navigation-CSS-Button-Styles.');
+@define('SITENAV_STYLE_BLAHBLAH', 'These styles are for navbars above or below banner, not in sidebars. Default = use default CSS with background picture (id:#sitenav). - Simple = use slim and easy CSS style (id:#nav). - Extended = use extended style with CSS3 technics (id:#sitenav-extended).');
 @define('SITENAV_SLIM', 'simple');
 @define('SITENAV_EXTENDED', 'extended');
 /* Config groups */
