@@ -4,7 +4,7 @@
 @define('SEARCH_WHAT', 'Wonach soll gesucht werden?'); //used on quicksearch modal
 @define('SEARCH', 'Suche');
 @define('TOGGLE_NAV', 'Navigation'); //only seen by screen readers
-@define('CLOSE', 'Schließen'); //close button on search form
+@define('CLOSE', 'SchlieÃŸen'); //close button on search form
 @define('READ_MORE', 'Mehr lesen');
 @define('FOOTER', 'unten');
 
@@ -13,15 +13,15 @@
 @define('THEME_PAGE_OPTIONS', 'Seiten-Optionen');
 @define('THEME_NAVIGATION', 'Navigations-Optionen');
 @define('THEME_README', 'Lies mich');
-@define('THEME_IDENTITY', 'Seiten-Identität');
-@define('THEME_EP_YES', '<p class="msg_success">Das Plugin "Erweiterte Eigenschaften von Artikeln" (serendipity_event_entryproperties) wird benötigt. Es ist installiert und aktiv.</p>');
-@define('THEME_EP_NO', '<p class="msg_error">Das Plugin "Erweiterte Eigenschaften von Artikeln" (serendipity_event_entryproperties) wird benötigt. Es ist entweder nicht installiert oder inaktiv. Bitte das Plugin installieren, um alle Features dieses Themes voll zu nutzen.</p>');
-@define('THEME_INSTRUCTIONS', '<p>Dieses Theme zeigt Blogbeiträge auf einer linearen Zeitleiste an. Jede Gruppe von Monatsbeiträgen kann auch auf der Zeitleiste angezeigt oder ausgeblendet werden.</p>
-<p>Dieses Theme verwendet eine rechte und eine untere Seitenleiste. Eine oder beide Seitenleisten können deaktiviert werden, indem Sie die Seitenleisten-Plugins löschen oder die Seitenleisten-Plugins in die Spalte "versteckt" in der Plugin-Konfiguration verschieben.</p>
+@define('THEME_IDENTITY', 'Seiten-IdentitÃ¤t');
+@define('THEME_EP_YES', '<p class="msg_success">Das Plugin "Erweiterte Eigenschaften von Artikeln" (serendipity_event_entryproperties) wird benÃ¶tigt. Es ist installiert und aktiv.</p>');
+@define('THEME_EP_NO', '<p class="msg_error">Das Plugin "Erweiterte Eigenschaften von Artikeln" (serendipity_event_entryproperties) wird benÃ¶tigt. Es ist entweder nicht installiert oder inaktiv. Bitte das Plugin installieren, um alle Features dieses Themes voll zu nutzen.</p>');
+@define('THEME_INSTRUCTIONS', '<p>Dieses Theme zeigt BlogbeitrÃ¤ge auf einer linearen Zeitleiste an. Jede Gruppe von MonatsbeitrÃ¤gen kann auch auf der Zeitleiste angezeigt oder ausgeblendet werden.</p>
+<p>Dieses Theme verwendet eine rechte und eine untere Seitenleiste. Eine oder beide Seitenleisten kÃ¶nnen deaktiviert werden, indem Sie die Seitenleisten-Plugins lÃ¶schen oder die Seitenleisten-Plugins in die Spalte "versteckt" in der Plugin-Konfiguration verschieben.</p>
 <p>Dieses Theme kann so konfiguriert werden, dass Kategorien und Eintrags-Tags aus den jeweiligen Sidebar-Plugins auf der Archivseite angezeigt werden. Siehe "' . THEME_PAGE_OPTIONS . '" unten.</p>
-<p>Wenn Sie das Avatar-Plugin (serendipity_event_gravatar) verwenden, konfigurieren Sie die Option "Smarty-Tag erzeugen = ja" für eine bessere Darstellung von Kommentar-Avataren.</p>
-<p>Konfigurieren Sie die serendipity_event_freetag-Option "Erweitertes Smarty = ja" für eine schönere Darstellung von Tags in der Fußzeile des Eintrags.</p>');
-@define('THEME_CUSTOM_FIELD_HEADING', 'Freie Felder für Einträge');
+<p>Wenn Sie das Avatar-Plugin (serendipity_event_gravatar) verwenden, konfigurieren Sie die Option "Smarty-Tag erzeugen = ja" fÃ¼r eine bessere Darstellung von Kommentar-Avataren.</p>
+<p>Konfigurieren Sie die serendipity_event_freetag-Option "Erweitertes Smarty = ja" fÃ¼r eine schÃ¶nere Darstellung von Tags in der FuÃŸzeile des Eintrags.</p>');
+@define('THEME_CUSTOM_FIELD_HEADING', 'Freie Felder fÃ¼r EintrÃ¤ge');
 @define('THEME_CUSTOM_FIELD_DEFINITION', 'Diese optionalen Felder sind nur bei Verwendung dieses Themes (timeline) gesetzt. Das Event-Plugin serendipity_event_entryproperties ("Erweiterte Eigenschaften von Artikeln") muss ebenfalls installiert sein, um diese Felder zu verwenden. Das Eintragsbild wird sowohl in der Zeitleiste als auch oben in jedem detaillierten Eintrag angezeigt.');
 @define('THEME_ENTRY_IMAGE', 'Zugeordnetes Eintrags Bild.');
 @define('THEME_DEMO_AVAILBLE', 'Eine komplette englische Anleitung zur <a href="http://www.optional-necessity.com/demo/timeline/archives/13-Using-the-Timeline-theme.html">Konfiguration und Benutzung von Timeline</a> findet sich in der <a href="http://www.optional-necessity.com/demo/timeline/">Timeline theme demo</a>.');
@@ -33,19 +33,19 @@
 @define('USE_GOOGLEFONTS', 'Google Webfonts einbinden?');
 @define('THEME_COLORSET', 'Farbsystem');
 @define('THEME_SKINSET', 'Theme-Skin');
-@define('HEADER_IMG', 'Optionales Kopfzeilenbild. Leer für Blognamen');
-@define('HEADER_IMG_DESC', 'Empfohlene Größe des Logo Header-Bildes: 150 x 40px. Wird nur angezeigt, wenn "' . USE_CORENAV . '" auf "'. YES .'" steht.');
+@define('HEADER_IMG', 'Optionales Kopfzeilenbild. Leer fÃ¼r Blognamen');
+@define('HEADER_IMG_DESC', 'Empfohlene GrÃ¶ÃŸe des Logo Header-Bildes: 150 x 40px. Wird nur angezeigt, wenn "' . USE_CORENAV . '" auf "'. YES .'" steht.');
 @define('SUBHEADER_IMG', 'Optionales Subheader Hintergrund-Bild');
 @define('SUBHEADER_IMG_DESC', 'Dieses Hintergrundbild in voller Breite erscheint unterhalb des Header-Logos und der Site-Navigation.');
-@define('HEADERS_USE_VARIATION', 'Ausgabe als Bild-Variations Format, wenn erhältlich?');
-@define('ENTRY_DATE_FORMAT', 'Datumsformat für Einträge');
-@define('COMMENT_TIME_FORMAT', 'Zeitformat für Kommentare und Trackbacks');
+@define('HEADERS_USE_VARIATION', 'Ausgabe als Bild-Variations Format, wenn erhÃ¤ltlich?');
+@define('ENTRY_DATE_FORMAT', 'Datumsformat fÃ¼r EintrÃ¤ge');
+@define('COMMENT_TIME_FORMAT', 'Zeitformat fÃ¼r Kommentare und Trackbacks');
 @define('WORDS', 'Textfassung');
 @define('TIMESTAMP', 'Zeitstempel');
 @define('DISPLAY_AS_TIMELINE', 'Timeline-Format verwenden');
-@define('DISPLAY_AS_TIMELINE_DESC', 'Timeline-Format für Blog-Posts verwenden. Falls Nein werden Blog-Posts im üblichen Blog-Format ausgegeben.');
+@define('DISPLAY_AS_TIMELINE_DESC', 'Timeline-Format fÃ¼r Blog-Posts verwenden. Falls Nein werden Blog-Posts im Ã¼blichen Blog-Format ausgegeben.');
 @define('MONTHS_ON_TIMELINE', 'Monatsnamen auf der Zeitleiste anzeigen');
-@define('MONTHS_ON_TIMELINE_DESC', 'Der Monatsname wird als Überschrift auf der Zeitleiste für jeden Monat der Einträge angezeigt.');
+@define('MONTHS_ON_TIMELINE_DESC', 'Der Monatsname wird als Ãœberschrift auf der Zeitleiste fÃ¼r jeden Monat der EintrÃ¤ge angezeigt.');
 @define('MONTHS_ON_TIMELINE_FORMAT', 'Timeline Monatsformat');
 @define('CATEGORIES_ON_ARCHIVE', 'Kategorien auf der Archivseite anzeigen');
 @define('CATEGORIES_ON_ARCHIVE_DESC', 'Das Seitenleisten-Plugin "Kategorien" (serendipity_plugin_categories) muss installiert und die Option "Smarty-Templating aktivieren?" aktiviert sein, damit Kategorien auf der Archiv-Seite angezeigt werden.');
@@ -55,8 +55,8 @@
 
 //Social media
 @define('SOCIAL_ICONS_AMOUNT', 'Anzahl der Links zu sozialen Medien eingeben');
-@define('SOCIAL_NETWORK_SERVICE', 'Social-Media-Dienst für Link auswählen');
-@define('SOCIAL_ICON_URL', 'URL für Social-Media-Dienst-Link');
+@define('SOCIAL_NETWORK_SERVICE', 'Social-Media-Dienst fÃ¼r Link auswÃ¤hlen');
+@define('SOCIAL_ICON_URL', 'URL fÃ¼r Social-Media-Dienst-Link');
 @define('COPYRIGHT', 'Copyright');
 
 //time ago in words function
@@ -68,9 +68,9 @@
 @define('ELAPSED_DAYS_AGO', 'Vor %s Tagen');
 @define('ELAPSED_MONTHS_AGO', 'Vor %s Monaten');
 @define('ELAPSED_YEARS_AGO', 'Vor %s Jahren'); //not currently using this, but defining just in case
-@define('ELAPSED_ABOUT_ONE_HOUR_AGO', 'Vor ungefähr einer Stunde'); // greater than 45 minutes, less than 90 minutes
-@define('ELAPSED_ABOUT_ONE_MONTH_AGO', 'Vor ungefähr einem Monat'); // greater than 30 days, less than 60 days
-@define('ELAPSED_ABOUT_ONE_YEAR_AGO', 'Vor ungefähr einem Jahr'); // greater than one year, less than 2 years
+@define('ELAPSED_ABOUT_ONE_HOUR_AGO', 'Vor ungefÃ¤hr einer Stunde'); // greater than 45 minutes, less than 90 minutes
+@define('ELAPSED_ABOUT_ONE_MONTH_AGO', 'Vor ungefÃ¤hr einem Monat'); // greater than 30 days, less than 60 days
+@define('ELAPSED_ABOUT_ONE_YEAR_AGO', 'Vor ungefÃ¤hr einem Jahr'); // greater than one year, less than 2 years
 @define('ELAPSED_OVER_YEARS_AGO', 'Vor mehr als %s Jahren');// greater than 2 years
 
 //Static Pages
