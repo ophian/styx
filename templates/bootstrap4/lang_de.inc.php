@@ -3,9 +3,9 @@
 
 @define('BS_LIGHT', 'hell');
 @define('BS_DARK', 'dunkel');
-@define('BS_PRIMARY', 'prim‰r');
+@define('BS_PRIMARY', 'prim√§r');
 
-@define('BS_LARGE', 'groﬂ');
+@define('BS_LARGE', 'gro√ü');
 @define('BS_SMALL', 'klein');
 @define('BS_COMPACT', 'kompakt');
 @define('BS_NONE', 'kein');
