@@ -4373,7 +4373,7 @@ function serendipity_showPropertyForm(iterable &$new_media, int $keywordsPerBloc
 }
 
 /**
- * Parse/Convert properties
+ * Parse/Convert media properties
  *
  * Args:
  *      - Holds the property key array
