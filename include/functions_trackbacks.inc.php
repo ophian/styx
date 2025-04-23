@@ -755,12 +755,13 @@ function serendipity_handle_references(int $id, string $author, string $title, s
         }
     }
 
+    // The regex-part (data-fallback|href) helps for the array_shift resets, but is not matching item data-fallback instead of href, if exists...
     if (!preg_match_all('@<a[^>]+?(data-fallback|href)\s*=\s*["\']?([^\'" >]+?)[ \'"][^>]*>(.+?)</a>@i', $text, $matches)) {
         $matches = array(0 => array(), 1 => array());
     } else {
         // remove full matches
         array_shift($matches);
-        // remove the ugly data-fallback|href attribute matches, which came in to avoid rel tags for lightboxes for example,.. since I hate regex(!) and this was the only way I got matching fallback or href links
+        // remove the ugly data-fallback|href attribute matches, which came in to avoid rel tags for lightboxes for example (or for links pointing to full variations),.. since I hate regex(!) and this was the only way I got matching fallback or href links
         array_shift($matches);
         // matches now contains the URL values of data-fallback OR href
     }
