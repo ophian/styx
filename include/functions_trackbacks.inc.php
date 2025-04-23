@@ -775,7 +775,9 @@ function serendipity_handle_references(int $id, string $author, string $title, s
     $locations = $matches[0];
     $names     = $matches[1];
 
-    $serendipity['trackback_debug_data'] = $debug; // hook into trackback plugin debugging
+    if ($debug) {
+        $serendipity['trackback_debug_data'] = $debug; // hook into trackback plugin debugging
+    }
 
     $checked_locations = array();
     serendipity_plugin_api::hook_event('backend_trackbacks', $locations);
