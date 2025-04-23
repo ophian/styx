@@ -707,7 +707,7 @@ function serendipity_handle_references(int $id, string $author, string $title, s
     static $old_references = [];
     static $saved_references = [];
     static $saved_urls = [];
-    static $debug = true;
+    static $debug = false;
 
     $debug = (is_object($serendipity['logger']) && $debug); // ad hoc, case-by-case debugging
 
