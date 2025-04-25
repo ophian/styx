@@ -2485,7 +2485,7 @@ function serendipity_convertThumbs() : int {
             }
             // RENAME in file system
             rename($basedir.$oldthumbnail, $basedir.$newThumbnail);
-            if ($debug) { $serendipity['logger']->debug("\n\n$logtag FILE RENAMES FROM::TO:\n".$basedir.$oldthumbnail.",\n".$basedir.$newThumbnail . DONE); }
+            if ($debug) { $serendipity['logger']->debug("\n\n$logtag FILE RENAMES FROM::TO:\n".$basedir.$oldthumbnail.",\n".$basedir.$newThumbnail . ' ' . DONE); }
             // update in image database
             $q = "UPDATE {$serendipity['dbPrefix']}images
                      SET thumbnail_name = '" . serendipity_db_escape_string($serendipity['thumbSuffix']) . "'
