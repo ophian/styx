@@ -897,7 +897,7 @@ function serendipity_convertImageFormat(iterable $file, string $oldMime, string 
     $oldfile = $file['path'] . $file['name'] . '.' . $file['extension'];
     $newfile = $file['path'] . $file['name'] . '.' . $new['extension']; // pass over with extensions DOT!
 
-    return serendipity_formatRealFile($oldfile, $newfile, $new['extension'], $file['id'], $file);
+    return serendipity_formatRealFile($oldfile, $newfile, $new['extension'], (int) $file['id'], $file);
 
 }
 
@@ -2169,7 +2169,7 @@ function serendipity_generateThumbs() : int {
             if ($update) {
                 $i++;
                 $updates = array('thumbnail_name' => $serendipity['thumbSuffix']);
-                serendipity_updateImageInDatabase($updates, $file['id']);
+                serendipity_updateImageInDatabase($updates, (int) $file['id']);
             }
         } else {
             // Currently, non-image files have no thumbnail.
@@ -2874,7 +2874,7 @@ function serendipity_syncThumbs(bool|string $deleteThumbs = false) : int {
             // Do the database update, if needed
             if (sizeof($update) != 0 && !preg_match('@/.v/@', $files[$x])) {
                 $_list .= '<span class="ml_action">' . sprintf(FOUND_FILE . " (<em>Update in database</em>)", $files[$x]) . '</span>';
-                serendipity_updateImageInDatabase($update, $rs['id']);
+                serendipity_updateImageInDatabase($update, (int) $rs['id']);
                 $i++;
             }
 
@@ -6067,7 +6067,7 @@ function serendipity_renameRealFileDir(string $oldDir, string $newDir, string $t
  *      - True on success, False on fail
  * @access public
  */
-function serendipity_formatRealFile(string $oldDir, string $newDir, string $format, string $item_id, iterable $file) : bool {
+function serendipity_formatRealFile(string $oldDir, string $newDir, string $format, int $item_id, iterable $file) : bool {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
@@ -6634,7 +6634,7 @@ function serendipity_moveMediaDirectory(?string $oldDir, string $newDir, string 
     $debug = (is_object($serendipity['logger']) && $debug); // ad hoc debug + enabled logger
 
     // paranoid case for updating an old image id entry - else we have a new entry incrementation
-    if (is_null($item_id) && isset($file['id']) && $file['id'] > 0) $item_id = $file['id'];
+    if (is_null($item_id) && isset($file['id']) && $file['id'] > 0) $item_id = (int) $file['id'];
 
     if (!$item_id || $item_id < 1) {
         // only print message if not posting a case_directoryEdit submit
@@ -6679,7 +6679,7 @@ function serendipity_moveMediaDirectory(?string $oldDir, string $newDir, string 
 
         } else {
             // check return! A single 'file' rename is oldDir === null
-            if (false === serendipity_renameRealFileName($oldDir, $newDir, $type, (int) $item_id, $file, $debug)) {
+            if (false === serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file, $debug)) {
                 return false;
             }
         }
@@ -6687,7 +6687,7 @@ function serendipity_moveMediaDirectory(?string $oldDir, string $newDir, string 
     // Used solely by this APIs serendipity_parsePropertyForm() base_properties only, when changing the file selected path within mediaproperties form
     } elseif ($type == 'filedir') {
 
-        $pick = serendipity_renameRealFileDir($oldDir, $newDir, $type, (int) $item_id, $debug);
+        $pick = serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug);
         if ($pick === false) {
             return false;
         }
