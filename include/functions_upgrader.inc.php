@@ -568,29 +568,54 @@ $dead_dirs_500 = array(
 );
 
 /**
- * Styx 5 recursive directory call to purge old UTF-8 directories in plugins
+ * Styx 5 recursive directory call to purge old UTF-8 directories in 'plugins' or 'templates'
  *
  * Args:
- *      - void
+ *      - The directory base name to check underneath serendipityPath [valid are 'plugins', 'templates']
  * Returns:
  *      - possible exception msg
  * @access private
  */
-function recursive_pluginUTF8dir_iterator() : ?string {
+function recursive_UTF8dir_iterator(?string $startdir) : ?string {
     global $serendipity;
 
-    $dir = $serendipity['serendipityPath'] . 'plugins';
-    if (null === $dir || !str_ends_with($dir, 'plugins')) {
-        return trigger_error('<span class="msg_error">Wrong start directory: ' . $dir . ' in recursive_pluginUTF8dir_iterator() upgrade task function. Fix it, and re-run the upgrade OR get some help.</span>', E_USER_WARNING);
+    if ($startdir === null || !in_array($startdir, ['plugins', 'templates'])) {
+        return null;
+    }
+    $dir = $serendipity['serendipityPath'] . $startdir;
+
+    if (null === $startdir || !str_ends_with($dir, $startdir)) {
+        return trigger_error('<span class="msg_error">Wrong start directory: ' . $startdir . ' in recursive_UTF8dir_iterator() upgrade task function. Fix it, and re-run the upgrade OR get some help.</span>', E_USER_WARNING);
     }
     $files = new RecursiveIteratorIterator(
         new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS),
         RecursiveIteratorIterator::CHILD_FIRST
-    );
+    ); // path, mode, flag
+
+    if ($startdir == 'plugins') {
+        // In case of _spamblock, avoid true return for spamblock_bee, etc w/ . DIRECTORY_SEPARATOR
+        // Some of the old internal plugins don't even have have a UTF-8 directory since based on core lang files. But better check them included.
+        $check = ['serendipity_event_bbcode', 'serendipity_event_changelog', 'serendipity_event_emoticate',
+                 'serendipity_event_entryproperties', 'serendipity_event_mailer', 'serendipity_event_mlorphans',
+                 'serendipity_event_modemaintain', 'serendipity_event_nl2br', 'serendipity_event_plugup',
+                 'serendipity_event_s9ymarkup', 'serendipity_event_spamblock'. DIRECTORY_SEPARATOR, 'serendipity_event_spartacus',
+                 'serendipity_event_xhtmlcleanup',
+                 'serendipity_plugin_archives', 'serendipity_plugin_authors', 'serendipity_plugin_calendar',
+                 'serendipity_plugin_categories', 'serendipity_plugin_comments', 'serendipity_plugin_entrylinks',
+                 'serendipity_plugin_eventwrapper', 'serendipity_plugin_history', 'serendipity_plugin_html_nugget',
+                 'serendipity_plugin_plug', 'serendipity_plugin_quicksearch', 'serendipity_plugin_recententries',
+                 'serendipity_plugin_remoterss', 'serendipity_plugin_superuser', 'serendipity_plugin_syndication'];
+    }
+    if ($startdir == 'templates') {
+        // For case of styx theme, avoid true return for all others if serendipity root dir is *styx* w/ . DIRECTORY_SEPARATOR
+        // Some of the core themes don't even have have a UTF-8 directory since based on engine themes lang files. But better check them included.
+        $check = ['2k11', 'b5blog', 'b46', 'b53', 'boot', 'bootstrap4', 'clean-blog', 'default', 'default-php', 'dude', 'next', 'psg', 'pure', 'skeleton', 'sliver', 'styx'. DIRECTORY_SEPARATOR, 'timeline'];
+    }
 
     foreach($files AS $path) {
-        if (is_dir($path) && str_ends_with($path, 'UTF-8')) {
-            serendipity_removeDeadFiles_SPL($path);
+        // The last two checks are to prevent other true matching subdirectories, i.e. 2k11/js or default/admin/docs/UTF-8
+        if ($path->isDir() && serendipity_contains((string) $path, $check) && str_ends_with((string) $path, 'UTF-8') && !str_contains((string) $path, 'default' . DIRECTORY_SEPARATOR . 'admin')) {
+            serendipity_removeDeadFiles_SPL((string) $path);
         }
     }
 
