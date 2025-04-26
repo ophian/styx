@@ -189,20 +189,18 @@ function serendipity_request_url(string $uri, string $method = 'GET', mixed $con
 }
 
 /**
- * Serendipity strpos mapper to check flat arrays
+ * Serendipity "str_contains_any" mapper to check flat arrays
  *
  * Args:
- *      - The haystack
- *      - The needle
+ *      - The haystack string
+ *      - The needles array | SplFileInfo(object)
  * Returns:
  *      - boolean
  * @access public
  */
 function serendipity_contains(string $str, iterable $arr) : bool {
-    foreach($arr AS $a) {
-        if (false !== @strpos($str, $a)) return true; // mute possible uninitialized items
-    }
-    return false;
+    // Uses Internal arrow function (short closure) for foreach()
+    return array_reduce($arr, fn($a, $n) => $a || @str_contains($str, $n), false); // array_reduce() in this case returns a boolean
 }
 
 /**
