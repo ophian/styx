@@ -193,7 +193,7 @@ function serendipity_request_url(string $uri, string $method = 'GET', mixed $con
  *
  * Args:
  *      - The haystack string
- *      - The needles array | SplFileInfo(object)
+ *      - The needles array
  * Returns:
  *      - boolean
  * @access public
@@ -201,31 +201,6 @@ function serendipity_request_url(string $uri, string $method = 'GET', mixed $con
 function serendipity_contains(string $str, iterable $arr) : bool {
     // Uses Internal arrow function (short closure) for foreach()
     return array_reduce($arr, fn($a, $n) => $a || @str_contains($str, $n), false); // array_reduce() in this case returns a boolean
-}
-
-/**
- * Serendipity strpos iteration mapper to also check needled arrays
- *
- * Args:
- *      - The haystack
- *      - The needle
- * Returns:
- *      - boolean result
- * @access public
- */
-function serendipity_strpos(string $haystack, string|iterable $needles) : bool {
-    if (is_array($needles)) {
-        foreach($needles AS $str) {
-            // keep in mind if needle is not a string, it is converted to an integer and applied as the ordinal value of a character
-            if (is_string($str)) {
-                return strpos($haystack, $str);
-            } else {
-                serendipity_strpos($haystack, $str);
-            }
-        }
-    } else {
-        return strpos($haystack, $needles);
-    }
 }
 
 /**
