@@ -612,6 +612,7 @@ function recursive_UTF8dir_iterator(?string $startdir) : ?string {
         $check = ['2k11', 'b5blog', 'b46', 'b53', 'boot', 'bootstrap4', 'clean-blog', 'default', 'default-php', 'dude', 'next', 'psg', 'pure', 'skeleton', 'sliver', 'styx'. DIRECTORY_SEPARATOR, 'timeline'];
     }
 
+    // SplFileInfo(object)
     foreach($files AS $path) {
         // The last two checks are to prevent other true matching subdirectories, i.e. 2k11/js or default/admin/docs/UTF-8
         if ($path->isDir() && serendipity_contains((string) $path, $check) && str_ends_with((string) $path, 'UTF-8') && !str_contains((string) $path, 'default' . DIRECTORY_SEPARATOR . 'admin')) {
