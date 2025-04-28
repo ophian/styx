@@ -572,11 +572,12 @@ $dead_dirs_500 = array(
  *
  * Args:
  *      - The directory base name to check underneath serendipityPath [valid are 'plugins', 'templates']
+ *      - Negate core items to identify others [default = false]
  * Returns:
  *      - possible exception msg
  * @access private
  */
-function recursive_UTF8dir_iterator(?string $startdir) : ?string {
+function recursive_UTF8dir_iterator(?string $startdir, bool $negate = false) : ?string {
     global $serendipity;
 
     if ($startdir === null || !in_array($startdir, ['plugins', 'templates'])) {
@@ -614,8 +615,8 @@ function recursive_UTF8dir_iterator(?string $startdir) : ?string {
 
     // SplFileInfo(object)
     foreach($files AS $path) {
-        // The last two checks are to prevent other true matching subdirectories, i.e. 2k11/js or default/admin/docs/UTF-8
-        if ($path->isDir() && serendipity_contains((string) $path, $check) && str_ends_with((string) $path, 'UTF-8') && !str_contains((string) $path, 'default' . DIRECTORY_SEPARATOR . 'admin')) {
+        // Negate the $negate to fetch the opposite. The last two checks are to prevent other true matching subdirectories, i.e. 2k11/js or default/admin/docs/UTF-8
+        if ($path->isDir() && !($negate) === serendipity_contains((string) $path, $check) && str_ends_with((string) $path, 'UTF-8') && !str_contains((string) $path, 'default' . DIRECTORY_SEPARATOR . 'admin')) {
             serendipity_removeDeadFiles_SPL((string) $path);
         }
     }
