@@ -3,9 +3,12 @@ Version 5.0-DEV ()
 
 
   * Prepare RT Editor commentbox  conditioning for userland single entry cached
-    views in the [ pure ] standard theme. According to this, all adapted themes
-    [ b46, b53, b5blog, boot, dude, psg ] have now changed too using the new
-    Rich Text Editor.
+    views in the [ pure ] standard theme index.tpl file. According to this, all
+    adapted themes [ b46, b53, b5blog, boot, dude, psg ] have now changed too
+    using the new Rich Text Editor.
+    PLEASE NOTE:
+      If you use a copy or engine theme that holds an own index.tpl file, you
+      need to follow the change of your parents theme (mentioned above).
 
   * According to core language system refactoring to remove legacy native
     language sets and to run UTF-8 only, all core plugins and all core themes
