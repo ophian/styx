@@ -181,17 +181,26 @@
 {$raw_data}
 {serendipity_hookPlugin hook="frontend_footer"}
 {if $is_embedded != true}
-{if ($view == 'entry' AND $wysiwyg_comment AND NOT (isset($smarty.get.serendipity.csuccess) AND $smarty.get.serendipity.csuccess == 'true') && (isset($entry) AND NOT $entry.allow_comments === false)) OR (($view == 'plugin' OR $view == 'start') AND $head_title == 'contactform')}
+{if ($view == 'entry' AND $wysiwyg_comment AND NOT (isset($smarty.get.serendipity.csuccess) AND $smarty.get.serendipity.csuccess == 'true') && (isset($entry) AND NOT ($entry.allow_comments === false))) OR (($view == 'plugin' OR $view == 'start') AND $head_title == 'contactform')}
 
-    <script src="{serendipity_getFile file="ckebasic/ckeditor.js"}"></script>
-    <script src="{serendipity_getFile file="ckebasic/config.js"}"></script>
+    <script> const styxPath = '{$serendipityHTTPPath}'; </script>
+    <script src="{$serendipityHTTPPath}{$templatePath}_assets/prism/prism.js"></script>
+    <script src="{$serendipityHTTPPath}{$templatePath}_assets/tinymce6/basicEditor.js"></script>
+    <script src="{$serendipityHTTPPath}{$templatePath}_assets/tinymce6/js/tinymce/tinymce.min.js"></script>
     <script>
         window.onload = function() {
-            var cfmco = document.getElementById('serendipity_commentform_comment');
-            if (typeof(cfmco) != 'undefined' && cfmco != null) {
-                CKEDITOR.replace( cfmco, { toolbar : [['Bold','Italic','Underline','-','NumberedList','BulletedList','Blockquote'],['CodeSnippet'],['EmojiPanel']], versionCheck: false });
+            var coco = document.getElementById('serendipity_commentform_comment');
+            if (typeof(coco) != 'undefined' && coco != null) {
+                tinymce.init({
+                    selector: '#serendipity_commentform_comment',
+                    setup: (editor) => {},
+                      ...basicConfig
+                });
             }
         }
+
+        // the tinymce auto_focus behaves erratic based on focusable content, last edit and/or having to 2 textareas and so forth... - so better force an independent page re-focus here.
+        $(window).on('load', function () { $('html, body').animate({ scrollTop: 0 }, 'smooth'); });
     </script>
 {assign var="hljsload" value=true}
 {/if}
