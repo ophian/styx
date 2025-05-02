@@ -230,25 +230,43 @@
 {serendipity_hookPlugin hook="frontend_footer"}
 {if $is_embedded != true}
 
-{if ($view == 'entry' AND $wysiwyg_comment AND NOT (isset($smarty.get.serendipity.csuccess) AND $smarty.get.serendipity.csuccess == 'true') && (isset($entry) AND NOT $entry.allow_comments === false)) OR (($view == 'plugin' OR $view == 'start') AND $head_title == 'contactform')}
+{if ($view == 'entry' AND $wysiwyg_comment AND NOT (isset($smarty.get.serendipity.csuccess) AND $smarty.get.serendipity.csuccess == 'true') && (isset($entry) AND NOT ($entry.allow_comments === false))) OR (($view == 'plugin' OR $view == 'start') AND $head_title == 'contactform')}
 
-<script src="{$serendipityHTTPPath}{$templatePath}_assets/ckebasic/ckeditor.js"></script>
-<script src="{$serendipityHTTPPath}{$templatePath}_assets/ckebasic/config.js"></script>
+<script> const styxPath = '{$serendipityHTTPPath}'; </script>
+<script src="{$serendipityHTTPPath}{$templatePath}_assets/prism/prism.js"></script>
+<script src="{$serendipityHTTPPath}{$templatePath}_assets/tinymce6/basicEditor.js"></script>
+<script src="{$serendipityHTTPPath}{$templatePath}_assets/tinymce6/js/tinymce/tinymce.min.js"></script>
 <script>
     window.onload = function() {
-        var cfmco = document.getElementById('serendipity_commentform_comment');
-        if (typeof(cfmco) != 'undefined' && cfmco != null) {
-            CKEDITOR.replace( cfmco, { toolbar : [['Bold','Italic','Underline','-','NumberedList','BulletedList','Blockquote'],['CodeSnippet'],['EmojiPanel']] });
+        var coco = document.getElementById('serendipity_commentform_comment');
+        if (typeof(coco) != 'undefined' && coco != null) {
+            tinymce.init({
+                selector: '#serendipity_commentform_comment',
+                setup: (editor) => {},
+                  ...basicConfig
+            });
         }
     }
+
+    // the tinymce auto_focus behaves erratic based on focusable content, last edit and/or having to 2 textareas and so forth... - so better force an independent page re-focus here.
+    $(window).on('load', function () { $('html, body').animate({ scrollTop: 0 }, 'smooth'); });
 </script>
 {assign var="hljsload" value=true}
 {/if}
-{if (in_array($view, ['start', 'entries', 'entry', 'comments', 'categories']) AND $wysiwyg_comment) OR isset($hljsload) && $hljsload === true}
+{if (in_array($view, ['start', 'entries', 'entry', 'comments', 'categories', 'search', 'archives' ]) AND $template_option.use_highlight === true) OR isset($hljsload) && $hljsload === true}
+<script>
+    const elements = document.querySelectorAll("pre");
+    elements.forEach(item => {
+        // Replace matching unknown enabled highlight class names
+        item.classList.replace("language-smarty", "language-perl"); /* perl better than php else you may get unescaped HTM errors from highlightjs */
+        item.classList.replace("language-log", "language-yaml"); /* -bash is good also */
+        item.classList.replace("language-markup", "language-plaintext");
+    })
+</script>
 <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}_assets/highlight/github.min.css" type="text/css">
 <script src="{$serendipityHTTPPath}{$templatePath}_assets/highlight/highlight.min.js"></script>
 <script>
-    // launch the codesnippet highlight
+    // launch the code snippet highlight
     hljs.configure({
       tabReplace: '    ', // 4 spaces
     });
