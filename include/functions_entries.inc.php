@@ -1186,8 +1186,8 @@ function serendipity_printEntries(iterable|bool|null $entries, bool $extended = 
         serendipity_smarty_init(); // if not set, start Smarty templating to avoid member function "method()" on a non-object errors (was draft preview error, now at line 1239)
     }
 
-    // Do NOT return cached pages on search requests!
-    if (!(isset($serendipity['action']) && $serendipity['action'] == 'search')) {
+    // Do NOT return cached pages on search requests or preview!
+    if (!(isset($serendipity['action']) && $serendipity['action'] == 'search') && !$preview) {
         // Caching. It is much better to place this here since it will only take the configured entries output and not SQL data, etc.
         $initial_args = array_values(func_get_args());
         if ($serendipity['useInternalCache']) {
@@ -1480,7 +1480,8 @@ function serendipity_printEntries(iterable|bool|null $entries, bool $extended = 
         serendipity_printEntryFooter();
     }
 
-    if ($smarty_fetch === 'return') {
+    // Special case and Do NOT cache pages on search requests or preview!
+    if ($smarty_fetch === 'return' && !(isset($serendipity['action']) && $serendipity['action'] == 'search') && !$preview) {
         if ($serendipity['useInternalCache']) {
             serendipity_cacheItem($cache_key, $dategroup);
         }
@@ -1513,7 +1514,8 @@ function serendipity_printEntries(iterable|bool|null $entries, bool $extended = 
         $ret = serendipity_smarty_fetch($smarty_block, 'entries.tpl', true);
     }
 
-    if ($serendipity['useInternalCache']) {
+    // Do NOT cache pages on search requests or preview!
+    if ($serendipity['useInternalCache'] && !(isset($serendipity['action']) && $serendipity['action'] == 'search') && !$preview) {
         serendipity_cacheItem($cache_key, $ret);
     }
 
