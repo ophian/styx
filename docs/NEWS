@@ -2,6 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * [Finetuning] Dis-allow cached entries output returns on search requests
+
   * Prepare RT Editor commentbox  conditioning for userland single entry cached
     views in the [ pure ] standard theme index.tpl file. According to this, all
     adapted themes [ b46, b53, b5blog, boot, dude, psg ] have now changed too
