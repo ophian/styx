@@ -153,7 +153,7 @@ function serendipity_set_config_var(string $name, string|int|null $val, int $aut
  *      - The configuration value content
  * @access public
  */
-function serendipity_get_config_var(string $name, bool|string|null $defval = false, bool $empty = false) : bool|string|null {
+function serendipity_get_config_var(string $name, bool|string|null $defval = false, bool $empty = false) : bool|int|string|null {
     global $serendipity;
 
     if (isset($serendipity[$name])) {
