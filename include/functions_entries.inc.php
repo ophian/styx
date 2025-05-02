@@ -1190,6 +1190,12 @@ function serendipity_printEntries(iterable|bool|null $entries, bool $extended = 
     $initial_args = array_values(func_get_args());
     if ($serendipity['useInternalCache']) {
         $cache_key = hash('xxh128', serialize($initial_args) . '||' . serendipity_checkPermission('adminEntriesMaintainOthers'));
+
+        // Fix missing $entry array on single entry page for commentbox 'allow_comments' RT Editor check in ... && (isset($entry) AND NOT ($entry.allow_comments === false))) ...
+        if (count($entries) == 1) {
+            $serendipity['smarty']->assign('entry', $initial_args);
+        }
+
         $cached = serendipity_getCacheItem($cache_key);
         if ($cached && $cached !== false) {
             $serendipity['smarty']->assignByRef($smarty_block, $cached);
