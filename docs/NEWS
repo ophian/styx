@@ -2,7 +2,9 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
-  * [Finetuning] Dis-allow cached entries output returns on search requests
+  * [ Cache finetuning ]:
+    - Dis-allow cached entries on search request(s)
+    - Dis-allow cached entries on entry preview(s)
 
   * Prepare RT Editor commentbox  conditioning for userland single entry cached
     views in the [ pure ] standard theme index.tpl file. According to this, all
