@@ -19,7 +19,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.28');
+        $propbag->add('version',       '3.29');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'php'         => '8.2'
@@ -322,7 +322,7 @@ class serendipity_event_spartacus extends serendipity_event
     {
         global $serendipity;
 
-        if (serendipity_db_bool($this->get_config('use_ftp')) && $this->get_config('ftp_password') != '') {
+        if (serendipity_db_bool($this->get_config('use_ftp', 'false')) && $this->get_config('ftp_password') != '') {
             return $this->make_dir_via_ftp($dir);
         }
 
@@ -1418,7 +1418,7 @@ class serendipity_event_spartacus extends serendipity_event
                     break;
 
                 case 'backend_directory_create':
-                    if (serendipity_db_bool($this->get_config('use_ftp')) && (!is_dir($eventData))) {
+                    if (serendipity_db_bool($this->get_config('use_ftp', 'false')) && (!is_dir($eventData))) {
                         return $this->make_dir_via_ftp($eventData);
                     }
                     break;
