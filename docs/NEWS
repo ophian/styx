@@ -2,13 +2,13 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Fixed a commentform.tpl and plugin_contactform.tpl textarea attribute for
-    auto-replaced hidden sets with option: Htmlcomments with RT-Editor, on
-    FireFox Mozilla causing halts because of < ... element cannot be focused >
-    message in [ boot, b46 ] themes.
+  * Fixed a commentform.tpl textarea attribute for auto-replaced hidden sets
+    with option: Htmlcomments with RT-Editor, on FireFox Mozilla causing halts
+    because of < ... element cannot be focused > message in [ boot, b46 ]
+    themes.
     PLEASE NOTE:
-      If you use a copy or engine theme that holds one or both mentioned
-      template files, you need to follow the change of your parents theme.
+      If you use a copy or engine theme that holds an own mentioned template
+      file, you need to follow the change of your parents theme.
 
   * [ Cache finetuning ]:
     - Dis-allow cached entries on search request(s)
