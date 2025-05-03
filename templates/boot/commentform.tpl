@@ -29,7 +29,7 @@
 
                                 <div class="form-group">
                                     <label for="serendipity_commentform_comment" class="form-label">{$CONST.COMMENT}{if NOT empty($required_fields.comment)} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_comment">{$CONST.REQUIRED_FIELD} comment</title><use xlink:href="#required-field-asterisk"/></svg>{/if}</label>
-                                    <textarea id="serendipity_commentform_comment" class="form-control" rows="10" name="serendipity[comment]"{if NOT empty($required_fields.comment)} required{/if}>{$commentform_data}</textarea>
+                                    <textarea id="serendipity_commentform_comment" class="form-control" rows="10" name="serendipity[comment]">{$commentform_data}</textarea>
                                 </div>
 
                                 <div class="form-group">
