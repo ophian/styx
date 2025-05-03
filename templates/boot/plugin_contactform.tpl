@@ -41,7 +41,7 @@
 
                         <div class="form-group">
                             <label for="serendipity_commentform_comment" class="form-label">{$CONST.PLUGIN_CONTACTFORM_MESSAGE} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_comment">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="#required-field-asterisk"/></svg></label>
-                            <textarea id="serendipity_commentform_comment" class="form-control" rows="10" name="serendipity[comment]">{$commentform_data}</textarea>
+                            <textarea id="serendipity_commentform_comment" class="form-control" rows="10" name="serendipity[comment]" required>{$commentform_data}</textarea>
 {* If you do NOT need AND run the emoticonchooser plugin, or have the RT Editor enabled, but do NOT want it to apply here, you can as well just use id="serendipity_contactform_{$field.id}" here! *}
                         </div>
 
