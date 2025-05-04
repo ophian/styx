@@ -2,6 +2,9 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix htmlcomment (comment) tinyMCE tinymce-5-dark background for frontend
+    bootstrap themes that have a dark mode [ boot, b5blog, b53+ ].
+
   * Fixed a commentform.tpl textarea attribute for auto-replaced hidden sets
     with option: Htmlcomments with RT-Editor, on FireFox Mozilla causing halts
     because of < ... element cannot be focused > message in [ boot, b46 ]
