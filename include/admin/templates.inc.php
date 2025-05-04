@@ -81,6 +81,7 @@ if (($serendipity['GET']['adminAction'] == 'install' || $serendipity['GET']['adm
 
     if ($serendipity['GET']['adminAction'] == 'install' || $serendipity['GET']['adminAction'] == 'install-frontend') {
         serendipity_set_config_var('template', htmlspecialchars($serendipity['GET']['theme']));
+        serendipity_cleanCache(); // updateTheme
     }
 
     if ($serendipity['GET']['adminAction'] == 'install-backend' && $themeInfo['custom_admin_interface'] == YES) {
