@@ -6,11 +6,10 @@ Version 5.0-DEV ()
     bootstrap themes that have a dark mode [ boot, b5blog, b53+ ].
 
   * Fixed a commentform.tpl textarea attribute for auto-replaced hidden sets
-    with option: Htmlcomments with RT-Editor, on FireFox Mozilla causing halts
-    because of < ... element cannot be focused > message in [ boot->b53, b46 ]
-    themes.
+    with option: Htmlcomments w/ RT-Editor, on Browsers causing halts because
+    of < ... element cannot be focused > message in [ boot->b53, b46 ] themes.
     PLEASE NOTE:
-      If you use a copy or engine theme that holds an own mentioned template
+      If you use a copy or engine theme that holds an own commentform template
       file, you need to follow the change of your parents theme.
 
   * [ Cache finetuning ]:
