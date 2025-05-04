@@ -7,7 +7,7 @@ Version 5.0-DEV ()
 
   * Fixed a commentform.tpl textarea attribute for auto-replaced hidden sets
     with option: Htmlcomments with RT-Editor, on FireFox Mozilla causing halts
-    because of < ... element cannot be focused > message in [ boot, b46 ]
+    because of < ... element cannot be focused > message in [ boot->b53, b46 ]
     themes.
     PLEASE NOTE:
       If you use a copy or engine theme that holds an own mentioned template
