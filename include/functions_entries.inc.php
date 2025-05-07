@@ -1480,9 +1480,10 @@ function serendipity_printEntries(iterable|bool|null $entries, bool $extended = 
         serendipity_printEntryFooter();
     }
 
-    // Special case and Do NOT cache pages on search requests or preview!
-    if ($smarty_fetch === 'return' && !(isset($serendipity['action']) && $serendipity['action'] == 'search') && !$preview) {
-        if ($serendipity['useInternalCache']) {
+    // Special case
+    if ($smarty_fetch === 'return') {
+        // Do NOT cache pages on search requests or preview!
+        if ($serendipity['useInternalCache'] && !(isset($serendipity['action']) && $serendipity['action'] == 'search') && !$preview) {
             serendipity_cacheItem($cache_key, $dategroup);
         }
         return $dategroup;
