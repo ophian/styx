@@ -18,7 +18,7 @@ Version 5.0-DEV ()
     - Run _cleanCache() on Configuration submit
     - Run _cleanCache() on Theme install/change
     - Be considerate of hooks (pages like contactform, staticpages, etc.)
-    - Be considerate of hooks (special staticpages with related category (summary))
+    - Better check conditions for specials (Staticpages with related category)
     - Allow cache sets for Non-Smarty [default-php] theme parser
 
   * Prepare RT Editor commentbox  conditioning for userland single entry cached
