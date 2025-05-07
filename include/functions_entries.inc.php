@@ -1516,7 +1516,7 @@ function serendipity_printEntries(iterable|bool|null $entries, bool $extended = 
     }
 
     // Do NOT cache pages on search requests or preview!
-    if ($serendipity['useInternalCache'] && !(isset($serendipity['action']) && $serendipity['action'] == 'search') && !$preview) {
+    if ($serendipity['useInternalCache'] && !empty($ret) && !(isset($serendipity['action']) && $serendipity['action'] == 'search') && !$preview) {
         serendipity_cacheItem($cache_key, $ret);
     }
 
