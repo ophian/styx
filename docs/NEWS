@@ -17,6 +17,7 @@ Version 5.0-DEV ()
     - Dis-allow cached entries on entry preview(s)
     - Run _cleanCache() on Configuration submit
     - Run _cleanCache() on Theme install/change
+    - Be considerate of hooks (pages like staticpages)
 
   * Prepare RT Editor commentbox  conditioning for userland single entry cached
     views in the [ pure ] standard theme index.tpl file. According to this, all
