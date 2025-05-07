@@ -1482,7 +1482,7 @@ function serendipity_printEntries(iterable|bool|null $entries, bool $extended = 
 
     // Special case
     if ($smarty_fetch === 'return') {
-        // Do NOT cache pages on search requests or preview!
+        // Intermediate cache of entries dategroup. Do NOT cache pages on search requests or preview!
         if ($serendipity['useInternalCache'] && !(isset($serendipity['action']) && $serendipity['action'] == 'search') && !$preview) {
             serendipity_cacheItem($cache_key, $dategroup);
         }
@@ -1506,6 +1506,10 @@ function serendipity_printEntries(iterable|bool|null $entries, bool $extended = 
     unset($entries, $dategroup);
 
     if (isset($entry_out)) {
+        // Intermediate cache of entries dategroup. [No-Smarty] Do NOT cache pages on search requests or preview!
+        if ($serendipity['useInternalCache'] && !(isset($serendipity['action']) && $serendipity['action'] == 'search') && !$preview) {
+            serendipity_cacheItem($cache_key, $entry_out);
+        }
         return $entry_out; // special case, see above
     }
 
