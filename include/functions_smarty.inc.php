@@ -54,7 +54,7 @@ if (IN_serendipity !== true) {
  *      - Result set of comments
  * @access public
  */
-function &serendipity_fetchTrackbacks(int|string $id, ?string $limit, bool $showAll = false) : array {
+function &serendipity_fetchTrackbacks(int|string $id, ?string $limit = null, bool $showAll = false) : array {
     global $serendipity;
 
     if (!$showAll) {
