@@ -1186,26 +1186,6 @@ function serendipity_printEntries(iterable|bool|null $entries, bool $extended = 
         serendipity_smarty_init(); // if not set, start Smarty templating to avoid member function "method()" on a non-object errors (was draft preview error, now at line 1239)
     }
 
-    // Do NOT return cached pages on search requests or preview!
-    if (!(isset($serendipity['action']) && $serendipity['action'] == 'search') && !$preview) {
-        // Caching. It is much better to place this here since it will only take the configured entries output and not SQL data, etc.
-        $initial_args = array_values(func_get_args());
-        if ($serendipity['useInternalCache']) {
-            $cache_key = hash('xxh128', serialize($initial_args) . '||' . serendipity_checkPermission('adminEntriesMaintainOthers'));
-
-            // Fix missing $entry array on single entry page for commentbox 'allow_comments' RT Editor check in ... && (isset($entry) AND NOT ($entry.allow_comments === false))) ...
-            if (is_array($entries) && count($entries) == 1) {
-                $serendipity['smarty']->assign('entry', $initial_args);
-            }
-
-            $cached = serendipity_getCacheItem($cache_key);
-            if ($cached && $cached !== false) {
-                $serendipity['smarty']->assignByRef($smarty_block, $cached);
-                return $cached;
-            }
-        }
-    }
-
     if ($use_hooks) {
         $addData = array('extended' => $extended, 'preview' => $preview);
         serendipity_plugin_api::hook_event('entry_display', $entries, $addData);
@@ -1226,6 +1206,26 @@ function serendipity_printEntries(iterable|bool|null $entries, bool $extended = 
             return null; // no display of this item
         } else {
             $serendipity['smarty']->assign('plugin_clean_page', false);
+        }
+    }
+
+    // Do NOT return cached pages on search requests or preview and on clean_page true events by hooks !
+    if (!(isset($serendipity['action']) && $serendipity['action'] == 'search') && !$preview) {
+        // Caching. It is much better to place this here since it will only take the configured entries output and not SQL data, etc.
+        $initial_args = array_values(func_get_args());
+        if ($serendipity['useInternalCache']) {
+            $cache_key = hash('xxh128', serialize($initial_args) . '||' . serendipity_checkPermission('adminEntriesMaintainOthers'));
+
+            // Fix missing $entry array on single entry page for commentbox 'allow_comments' RT Editor check in ... && (isset($entry) AND NOT ($entry.allow_comments === false))) ...
+            if (is_array($entries) && count($entries) == 1) {
+                $serendipity['smarty']->assign('entry', $initial_args);
+            }
+
+            $cached = serendipity_getCacheItem($cache_key);
+            if ($cached && $cached !== false) {
+                $serendipity['smarty']->assignByRef($smarty_block, $cached);
+                return $cached;
+            }
         }
     }
 
