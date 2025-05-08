@@ -30,7 +30,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '4.1',
             'php'         => '8.2'
         ));
-        $propbag->add('version',       '2.82');
+        $propbag->add('version',       '2.83');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1375,17 +1375,17 @@ class serendipity_event_spamblock extends serendipity_event
                     break;
 
                 case 'frontend_comment':
+                    if (serendipity_db_bool($this->get_config('csrf', 'true'))) {
+                        echo '<div>' . serendipity_setFormToken('form') . "</div>\n\n"; // No indent, since first applied line after tpl markup, so cared in there as startup indent
+                    }
+
                     if (serendipity_db_bool($this->get_config('hide_email', 'true'))) {
-                        echo '<div class="serendipity_commentDirection serendipity_comment_spamblock">' . PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE . '</div>';
+                        echo '                                <div class="serendipity_commentDirection serendipity_comment_spamblock">' . PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE . "</div>\n\n";
                     }
 
                     $_checkmail = (string)$this->get_config('checkmail', 'false');
                     if ($_checkmail === 'verify_always' || $_checkmail === 'verify_once') {
-                        echo '<div class="serendipity_commentDirection serendipity_comment_spamblock">' . PLUGIN_EVENT_SPAMBLOCK_CHECKMAIL_VERIFICATION_INFO . '</div>';
-                    }
-
-                    if (serendipity_db_bool($this->get_config('csrf', 'true'))) {
-                        echo serendipity_setFormToken('form');
+                        echo '                                <div class="serendipity_commentDirection serendipity_comment_spamblock">' . PLUGIN_EVENT_SPAMBLOCK_CHECKMAIL_VERIFICATION_INFO . "</div>\n";
                     }
 
                     // Check whether to allow comments from registered authors
@@ -1395,16 +1395,16 @@ class serendipity_event_spamblock extends serendipity_event
                     $_show_captcha = $show_captcha ?? ($captchas && (@$serendipity['GET']['subpage'] == 'adduser' || @$serendipity['POST']['subpage'] == 'adduser'));
 
                     if ($_show_captcha) {
-                        echo '<div class="serendipity_commentDirection serendipity_comment_captcha">'."\n";
+                        echo '                                <div class="serendipity_commentDirection serendipity_comment_captcha">'."\n";
                         if (!isset($serendipity['POST']['preview']) || strtolower($serendipity['POST']['captcha']) != @strtolower($_SESSION['spamblock']['captcha'])) {
-                            echo PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC . "<br />\n";
-                            echo $this->show_captcha($use_gd);
-                            echo '<br /><label for="captcha">'. PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3 . '</label>';
-                            echo '<input id="captcha" class="input_textbox" type="text" size="5" name="serendipity[captcha]" value="" />';
+                            echo '                                    ' . PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC . "<br />\n";
+                            echo '                                    ' . $this->show_captcha($use_gd) . "<br />\n";
+                            echo '                                    <label for="captcha">'. PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3 . "</label>\n";
+                            echo '                                    <input id="captcha" class="input_textbox" type="text" size="5" name="serendipity[captcha]" value="" />';
                         } elseif (isset($serendipity['POST']['captcha'])) {
-                            echo '<input type="hidden" name="serendipity[captcha]" value="' . htmlspecialchars($serendipity['POST']['captcha']) . '" />';
+                            echo '                                    <input type="hidden" name="serendipity[captcha]" value="' . htmlspecialchars($serendipity['POST']['captcha']) . '" />';
                         }
-                        echo "\n</div>\n";
+                        echo "\n                                </div>\n\n";
                     }
                     break;
 
