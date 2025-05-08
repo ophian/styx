@@ -140,9 +140,17 @@ const dark = () => {
    "An invalid form control with name=serendipity[comment]' is not focusable." */
 (function ($) {
     $('#serendipity_comment').on('submit', function(e) {
-        if (!$.trim($("#serendipity_commentform_comment").val())) {
-            console.log('contents is empty, fill it!');
-            e.preventDefault(); // cancel submit
+        // check vanilla textarea vs TinyMCE area
+        if ($("#serendipity_commentform_comment").style.display !== 'none') {
+            if (!$.trim($("#serendipity_commentform_comment").val())) {
+                console.log('contents is empty, fill it!');
+                e.preventDefault(); // cancel submit
+            }
+        } else {
+            if (!$.trim($("#serendipity_commentform_comment_ifr").val())) {
+                console.log('HTMLcomment contents is empty, fill it!');
+                e.preventDefault(); // cancel submit
+            }
         }
     });
 })(jQuery);
