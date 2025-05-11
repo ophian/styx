@@ -273,6 +273,7 @@ function serendipity_reference_autodiscover(string $loc, string $url, string $au
     // Workaround port 80 default for https in $parsed_loc, which elsewise (see above) already has returned void if not supported. Only for serendipity_request_url() params, not in storage or link bindings.
     if ($u['scheme'] == 'https') {
         $port = ':' . 443;
+        $secured = true;
     }
 
     $parsed_loc = $u['scheme'] . '://' . $u['host'] . $port . $u['path'];
