@@ -1209,11 +1209,14 @@ function serendipity_printEntries(iterable|bool|null $entries, bool $extended = 
         }
     }
 
+    $uri = $_SERVER['REQUEST_URI']; // i.e. blah.html/foo/bar (but never the client userland hash mark i.e. #feedback)
+
     // Do NOT return cached pages on search requests or preview and on clean_page true events by hooks !
     if (!(isset($serendipity['action']) && $serendipity['action'] == 'search') && !$preview) {
         // Caching. It is much better to place this here since it will only take the configured entries output and not SQL data, etc.
         $initial_args = array_values(func_get_args());
-        if ($serendipity['useInternalCache']) {
+        // DO NOT cache on the comment added success page etc; Caught by PHP_URL_QUERY not being NULL. NOR send back already cached pages (see below).
+        if ($serendipity['useInternalCache'] && empty(parse_url($uri, PHP_URL_QUERY))) {
             $cache_key = hash('xxh128', serialize($initial_args) . '||' . serendipity_checkPermission('adminEntriesMaintainOthers'));
             $cached = serendipity_getCacheItem($cache_key);
             if ($cached && $cached !== false) {
@@ -1480,8 +1483,8 @@ function serendipity_printEntries(iterable|bool|null $entries, bool $extended = 
 
     // Special case
     if ($smarty_fetch === 'return') {
-        // Intermediate cache of entries dategroup. Do NOT cache pages on search requests or preview!
-        if ($serendipity['useInternalCache'] && !(isset($serendipity['action']) && $serendipity['action'] == 'search') && !$preview) {
+        // Intermediate cache of entries dategroup. Do NOT cache pages on search requests OR preview OR PHP_URL_QUERY !
+        if ($serendipity['useInternalCache'] && empty(parse_url($uri, PHP_URL_QUERY)) && !(isset($serendipity['action']) && $serendipity['action'] == 'search') && !$preview) {
             serendipity_cacheItem($cache_key, $dategroup);
         }
         return $dategroup;
@@ -1504,8 +1507,8 @@ function serendipity_printEntries(iterable|bool|null $entries, bool $extended = 
     unset($entries, $dategroup);
 
     if (isset($entry_out)) {
-        // Intermediate cache of entries dategroup. [No-Smarty] Do NOT cache pages on search requests or preview!
-        if ($serendipity['useInternalCache'] && !(isset($serendipity['action']) && $serendipity['action'] == 'search') && !$preview) {
+        // Intermediate cache of entries dategroup. [No-Smarty] Do NOT cache pages on search requests OR preview OR PHP_URL_QUERY !
+        if ($serendipity['useInternalCache'] && empty(parse_url($uri, PHP_URL_QUERY)) && !(isset($serendipity['action']) && $serendipity['action'] == 'search') && !$preview) {
             serendipity_cacheItem($cache_key, $entry_out);
         }
         return $entry_out; // special case, see above
@@ -1517,8 +1520,8 @@ function serendipity_printEntries(iterable|bool|null $entries, bool $extended = 
         $ret = serendipity_smarty_fetch($smarty_block, 'entries.tpl', true);
     }
 
-    // Do NOT cache pages on search requests or preview!
-    if ($serendipity['useInternalCache'] && !empty($ret) && !(isset($serendipity['action']) && $serendipity['action'] == 'search') && !$preview) {
+    // Do NOT cache pages on search requests OR preview OR PHP_URL_QUERY !
+    if ($serendipity['useInternalCache'] && empty(parse_url($uri, PHP_URL_QUERY)) && !empty($ret) && !(isset($serendipity['action']) && $serendipity['action'] == 'search') && !$preview) {
         serendipity_cacheItem($cache_key, $ret);
     }
 
