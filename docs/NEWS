@@ -22,6 +22,7 @@ Version 5.0-DEV ()
     - Be considerate of hooks (pages like contactform, staticpages, etc.)
     - Better check conditions for specials (Staticpages with related category)
     - Allow cache sets for Non-Smarty [default-php] theme parser
+    - Deny cache on comment added success pages, etc
 
   * Prepare RT Editor commentbox  conditioning for userland single entry cached
     views in the [ pure ] standard theme index.tpl file. According to this, all
