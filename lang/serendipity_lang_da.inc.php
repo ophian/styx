@@ -68,7 +68,7 @@
 @define('ADD_COMMENT', 'Tilføj kommentar');
 @define('NO_COMMENTS', 'Ingen kommentarer');
 @define('POSTED_BY', 'Skrevet af');
-@define('ON', 'aktiv');
+@define('ON', 'på');
 @define('A_NEW_COMMENT_BLAHBLAH', 'En ny kommentar er blevet oprettet på din blog "%s", til artiklen ved navn "%s".');
 @define('A_NEW_TRACKBACK_BLAHBLAH', 'Et nyt trackback er blevet lavet til din artikel ved navn "%s".');
 @define('NO_CATEGORY', 'Ingen kategori');
