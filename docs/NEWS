@@ -2,6 +2,11 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix/Improve serendipity_reference_autodiscover() trackbacks API method for
+    'https' schemed trackback URLs over serendipity_request_url() or send a
+    'http' schemed location URL only.
+    This still relies on an enabled 'openssl' PHP extension!
+
   * Improve the ON [da, no] language constant (i.e. for comment date header)
 
   * Fix htmlcomment (comment) tinyMCE tinymce-5-dark background for frontend
