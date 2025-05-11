@@ -2,6 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve the ON [da, no] language constant (i.e. for comment date header)
+
   * Fix htmlcomment (comment) tinyMCE tinymce-5-dark background for frontend
     bootstrap themes that have a dark mode [ boot, b5blog, b53+ ].
 
