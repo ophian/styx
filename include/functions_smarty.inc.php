@@ -987,7 +987,7 @@ function &serendipity_smarty_printTrackbacks(iterable $params, null|string|\Smar
         return null;
     }
 
-    $trackbacks =& serendipity_fetchTrackbacks($params['entry'], NULL);
+    $trackbacks =& serendipity_fetchTrackbacks($params['entry']);
 
     if (empty($params['depth'])) {
         $params['depth'] = 0;
