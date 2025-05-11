@@ -270,7 +270,13 @@ function serendipity_reference_autodiscover(string $loc, string $url, string $au
         $u['path'] .= '?' . $u['query'];
     }
 
+    // Workaround port 80 default for https in $parsed_loc, which elsewise (see above) already has returned void if not supported. Only for serendipity_request_url() params, not in storage or link bindings.
+    if ($u['scheme'] == 'https') {
+        $port = ':' . 443;
+    }
+
     $parsed_loc = $u['scheme'] . '://' . $u['host'] . $port . $u['path'];
+    $_parsed_loc = $secured ? $parsed_loc : str_replace('https', 'http', $parsed_loc); // prep fallback to http for serendipity_request_url()
 
     if (preg_match('@\.(jpe?g|aiff?|gif|png|webp|avifs?|pdf|doc|rtf|wave?|mp2|mp4|mpe?g3|mpe?g4|divx|xvid|bz2|mpe?g|avi|mp3|xl?|ppt|pps|xslt?|xsd|zip|tar|t?gz|swf|rm|ram?|exe|phar|mov|qt|midi?|qcp|emf|wmf|snd|pmg|w?bmp|gcd|mms|ogg|ogm|rv|wmv|wma|jad|3g?|jar)$@i', $u['path'])) {
         // echo '<div>&#8226; ' . TRACKBACK_NO_DATA . '</div>';
@@ -283,7 +289,7 @@ function serendipity_reference_autodiscover(string $loc, string $url, string $au
     $options = array('follow_redirects' => true, 'max_redirects' => 5);
     serendipity_plugin_api::hook_event('backend_http_request', $options, 'trackback_detect');
 
-    $fContent = serendipity_request_url($parsed_loc, extra_options: $options, addData: 'trackback_detect');
+    $fContent = serendipity_request_url($_parsed_loc, extra_options: $options, addData: 'trackback_detect');
     #echo '<pre>serendipity_reference_autodiscover() '.print_r($serendipity['last_http_request'], true).'</pre>';
 
     if (false === $fContent) {
