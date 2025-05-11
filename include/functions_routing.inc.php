@@ -540,8 +540,8 @@ function serveEntry(iterable $matches) : void {
 
         if (!empty($comment['comment'])) {
             if (serendipity_saveComment((int) $serendipity['POST']['entry_id'], $comment, 'NORMAL')) {
-                // $serendipity['last_insert_comment_id'] used for for comment added messaging
-                $sc_url = ($_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . (str_contains($_SERVER['REQUEST_URI'], '?') ? '&' : '?') . 'serendipity[csuccess]=' . ($serendipity['csuccess'] ?? 'true') . '&last_insert_cid=' . ($serendipity['last_insert_comment_id'] ?? '') . '#feedback';
+                // The global $serendipity['last_insert_comment_id'] is used for comment added messaging
+                $sc_url = ($_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $uri . (str_contains($uri, '?') ? '&' : '?') . 'serendipity[csuccess]=' . ($serendipity['csuccess'] ?? 'true') . '&last_insert_cid=' . ($serendipity['last_insert_comment_id'] ?? '') . '#feedback';
                 unset($serendipity['last_insert_comment_id']); // remove the temporary global, set in function serendipity_saveComment
                 if (serendipity_isResponseClean($sc_url)) {
                     header('Status: 302 Found');
