@@ -357,11 +357,11 @@ class HTTP_Request2 implements SplSubject
      *   <li> 'ssl_verify_peer'   - Whether to verify peer's SSL certificate (bool)</li>
      *   <li> 'ssl_verify_host'   - Whether to check that Common Name in SSL
      *                              certificate matches host name (bool)</li>
-     *   <li> 'ssl_cafile'        - Cerificate Authority file to verify the peer
+     *   <li> 'ssl_cafile'        - Certificate Authority file to verify the peer
      *                              with (use with 'ssl_verify_peer') (string)</li>
      *   <li> 'ssl_capath'        - Directory holding multiple Certificate
      *                              Authority files (string)</li>
-     *   <li> 'ssl_local_cert'    - Name of a file containing local cerificate (string)</li>
+     *   <li> 'ssl_local_cert'    - Name of a file containing local certificate (string)</li>
      *   <li> 'ssl_passphrase'    - Passphrase with which local certificate
      *                              was encoded (string)</li>
      *   <li> 'digest_compat_ie'  - Whether to imitate behaviour of MSIE 5 and 6
