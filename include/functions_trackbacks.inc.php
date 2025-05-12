@@ -735,10 +735,11 @@ function serendipity_handle_references(int $id, string $author, string $title, s
             $current_references = array();
             foreach($old_references AS $idx => $old_reference) {
                 // We need the current reference ID to restore it later.
-                $saved_references[$old_reference['link'] . $old_reference['name']] = $current_references[$old_reference['link'] . $old_reference['name']] = $old_reference;
+                $rkey = empty($old_reference['link']) ? $old_reference['name'] : $old_reference['link'];
+                $saved_references[$rkey] = $current_references[$rkey] = $old_reference;
                 $saved_urls[$old_reference['link']] = true;
             }
-            if ($debug) $serendipity['logger']->debug("$runtype - Got references: " . print_r($current_references, true)); // don't mind the double [link . name] in key. Probably to ensure we have a proper key in case one is empty!
+            if ($debug) $serendipity['logger']->debug("$runtype - Got references: " . print_r($current_references, true));// either or $old_reference['name'] : $old_reference['link']
         }
     } else {
         $runtype = 'FINAL';
@@ -753,14 +754,15 @@ function serendipity_handle_references(int $id, string $author, string $title, s
             $current_references = array();
             foreach($old_references AS $idx => $old_reference) {
                 // We need the current reference ID to restore it later.
-                $current_references[rtrim($old_reference['link'] . $old_reference['name'])] = $old_reference;
+                $rkey = empty($old_reference['link']) ? $old_reference['name'] : $old_reference['link'];
+                $current_references[rtrim($rkey)] = $old_reference;
                 $q = serendipity_db_insert('references', $old_reference, 'show');
                 $cr = serendipity_db_query($q);
                 if (is_string($cr)) {
                     if ($debug) $serendipity['logger']->debug("$runtype - $cr"); // error case
                 }
             }
-            if ($debug) $serendipity['logger']->debug("$runtype - Got references: " . print_r($current_references, true)); // don't mind the double [link . name] in key. Probably to ensure we have a proper key in case one is empty!
+            if ($debug) $serendipity['logger']->debug("$runtype - Got references: " . print_r($current_references, true));// either or $old_reference['name'] : $old_reference['link']
         }
     }
 
@@ -828,7 +830,7 @@ function serendipity_handle_references(int $id, string $author, string $title, s
         }
 
         if (!isset($serendipity['skip_trackback_check']) || !$serendipity['skip_trackback_check']) {
-            if ($row[0] > 0 && isset($saved_references[$locations[$i] . $names[$i]])) {
+            if ($row[0] > 0 && isset($saved_references[empty($locations[$i]) ? $names[$i] : $locations[$i]])) {
                 if ($debug) $serendipity['logger']->debug("$runtype - Found references for [$id], skipping rest");
                 continue;
             }
