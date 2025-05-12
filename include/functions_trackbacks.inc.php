@@ -245,6 +245,7 @@ function serendipity_reference_autodiscover(string $loc, string $url, string $au
     #global $serendipity;
 
     $timeout = 30;
+    $secured = false;
     $u = parse_url($loc);
     $u['scheme'] = $u['scheme'] ?? '';
 
@@ -278,7 +279,7 @@ function serendipity_reference_autodiscover(string $loc, string $url, string $au
     }
 
     $parsed_loc = $u['scheme'] . '://' . $u['host'] . $port . $u['path'];
-    $_parsed_loc = $secured ? $parsed_loc : str_replace('https', 'http', $parsed_loc); // prep fallback to http for serendipity_request_url()
+    $_parsed_loc = $secured ? $parsed_loc : str_replace('https', 'http', $parsed_loc); // prep fallback to http for serendipity_request_url() only
 
     if (preg_match('@\.(jpe?g|aiff?|gif|png|webp|avifs?|pdf|doc|rtf|wave?|mp2|mp4|mpe?g3|mpe?g4|divx|xvid|bz2|mpe?g|avi|mp3|xl?|ppt|pps|xslt?|xsd|zip|tar|t?gz|swf|rm|ram?|exe|phar|mov|qt|midi?|qcp|emf|wmf|snd|pmg|w?bmp|gcd|mms|ogg|ogm|rv|wmv|wma|jad|3g?|jar)$@i', $u['path'])) {
         // echo '<div>&#8226; ' . TRACKBACK_NO_DATA . '</div>';
