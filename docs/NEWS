@@ -2,6 +2,14 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add 'ignoreUnescapedHTML' highlight.js config set to avoid cluttering error
+    notices in browser console. Data is escaped for sure!
+    Change went to the [ pure ] standard theme index.tpl file. According to this,
+    all adapted themes [ b46, b53, b5blog, boot, dude, psg ] have followed.
+    PLEASE NOTE:
+      If you use a copy or engine theme that holds an own index.tpl file, you
+      need to follow the change of your parents theme (mentioned above).
+
   * Fix/Improve serendipity_reference_autodiscover() trackbacks API method for
     'https' schemed trackback URLs over serendipity_request_url() or send a
     'http' schemed location URL only.
