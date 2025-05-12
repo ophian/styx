@@ -743,7 +743,7 @@ function serendipity_handle_references(int $id, string $author, string $title, s
         }
     } else {
         $runtype = 'FINAL';
-        // A dry-run was called previously and restorable references are found. Restore them now.
+        // A dry-run was called previously and re-storable references are found. Restore them now.
         $del = serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}references WHERE (type = '' OR type IS NULL) AND entry_id = " . $id);
         if (is_string($del)) {
             if ($debug) $serendipity['logger']->debug("$runtype - $del"); // error case
