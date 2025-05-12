@@ -269,6 +269,7 @@
     // launch the code snippet highlight
     hljs.configure({
       tabReplace: '    ', // 4 spaces
+      ignoreUnescapedHTML: true, // We already have it escaped!
     });
     hljs.highlightAll();
 </script>
