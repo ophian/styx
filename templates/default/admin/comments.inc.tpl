@@ -163,7 +163,7 @@
 
                 <div id="c{$comment.id}_summary" class="comment_summary{if $comment.stype == 'P'} ping{/if}">{$comment.summary}{if empty($comment.summary) AND $comment.type == 'PINGBACK'}<u>PING by:</u>: {$comment.url}{/if}</div>
 
-                <div id="c{$comment.id}_full" class="clearfix comment_full additional_info">
+                <div id="c{$comment.id}_full" class="clearfix comment_full additional_info"{if $comment.type == 'TRACKBACK'} title="Trackback excerpt, 255 chars [&hellip;]"{/if}>
                     {$comment.fullBody}
                 </div>
 
