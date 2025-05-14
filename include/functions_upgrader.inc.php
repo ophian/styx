@@ -824,7 +824,7 @@ function serendipity_nuke_okey_sys_tick_items() : void {
  *      - void
  * @access private
  */
-function serendipity_removeDeadFiles_SPL(?string $dir = null, ?string $deadfiles = null, ?string $purgedir = null, bool $list_only = false) : void {
+function serendipity_removeDeadFiles_SPL(?string $dir = null, string|iterable|null $deadfiles = null, string|iterable|null $purgedir = null, bool $list_only = false) : void {
     if (!is_dir($dir)) {
         return;
     }
