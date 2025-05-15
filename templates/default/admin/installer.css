@@ -352,7 +352,20 @@ progress {
     background: #FFF;
 }
 
+summary{display:block;font-size:1rem}
+summary::after{margin-left:1ch;display:inline-block;content:'▶';transition:0.2s;color:#666;font-size:smaller}
+details[open]>summary::after{transform:rotate(90deg)}
+details{font-size:.925rem}
+details[name="myisamtoaria"]{margin:0}
+details[name="myisamtoaria"] br{display:none}
+details[name="myisamtoaria"] ul{margin:.25em 0}
+details[name="myisamtoaria"] #isamtoaria{border:none;box-shadow:2px 2px 4px #777;margin-top:.5em;color:darkslategray}
+details>summary{list-style-type:none;width:15em;border:none;text-decoration:underline;cursor:pointer}
+details>p,details>div{padding:2px 6px;margin:0}
+
 /* HELPER CLASSES */
+.upgrader_tasks .nobr br{display:none}
+
 /* Hide visually, available for screenreaders */
 .visuallyhidden {
     border: 0;
