@@ -119,13 +119,13 @@ $tasks = array(
 
             array(  'version'   => '2.1.0',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> Check the Styx 2.1 changeLog doc/NEWS file for theme file changes',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> Check the Styx 2.1 changeLog doc/NEWS file for theme file changes',
                     'desc'      => 'Serendipity Styx 2.1.0 fixes an issue creating the entry ID, in <em>"preview.tpl"</em>, caused by a wrong javascript execution.
                                     Please read the docs/NEWS file to add this manually to your custom/unsupported/copy theme.'),
 
             array(  'version'   => '2.1.0',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> The "default", "default-php" and "default-xml" themes have been reworked.',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> The "default", "default-php" and "default-xml" themes have been reworked.',
                     'desc'      => 'This had effects to some depending themes ("blue", "idea" and "default-rtl") delivered by core.
                                     Spartacus themes may be effected too. Also the general theme fallback stack has changed a little,
                                     regarding images and some special files. Read the Styx changeLog NEWS file carefully for more detailed information.
@@ -133,7 +133,7 @@ $tasks = array(
 
             array(  'version'   => '2.1.0',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"entries.tpl"</em> needs a specific assignment',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> The template file <em>"entries.tpl"</em> needs a specific assignment',
                     'desc'      => 'to transport the $entry variable to "sub"-templates like comments.tpl and trackbacks.tpl.
                                    Due to scoping changes in recent Smarty versions we were in need to touch this again.
                                    All release shipped templates files have been changed already, so make sure you are using a recent version of your blog\'s theme template.
@@ -142,7 +142,7 @@ $tasks = array(
 
             array(  'version'   => '2.1.0',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"comments.tpl"</em> and <em>"comments_by_authors.tpl"</em>',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> The template file <em>"comments.tpl"</em> and <em>"comments_by_authors.tpl"</em>',
                     'desc'      => 'now use some slightly changed variables, to check and set the "serendipity_comment_author_self" class. Please make sure to check both your files, if have in your custom theme.'),
 
             array(  'version'   => '2.1.0',
@@ -164,17 +164,17 @@ $tasks = array(
 
             array(  'version'   => '2.2.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Due to changes to the Cookie LOGIN kept password strength generation with Styx 2.2.0 under PHP 7+,',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE</b> Due to changes to the Cookie LOGIN kept password strength generation with Styx 2.2.0 under PHP 7+,',
                     'desc'      => 'you shall <b>NOT</b> close your browser after the update, your current checkup and/or maintenance session, without fully terminating your current LOGIN session per LOGOUT. Else you\'ll get an error with the automated login on LOGIN. This only is a need when on PHP 7+ and only ONCE! In the case of updating your system to PHP 7 later on, please remember to terminate your Cookie kept login data for the switch once too, per LOGOUT."'),
 
             array(  'version'   => '2.2.0',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"entries.tpl"</em> now uses a slightly changed variable check,',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> The template file <em>"entries.tpl"</em> now uses a slightly changed variable check,',
                     'desc'      => 'to evaluate if a 404 error page was assigned before announcing the possible "NO ENTRIES TO PRINT" constant error. Please make sure to check your own / or copy theme files to get the best results. Change "{if NOT $plugin_clean_page}" to "{if NOT $plugin_clean_page AND $view != \'404\'}."'),
 
             array(  'version'   => '2.2.0',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"plugin_staticpage.tpl"</em> and its siblings were changed',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> The template file <em>"plugin_staticpage.tpl"</em> and its siblings were changed',
                     'desc'      => 'regarding separator spaces in the breadcrumb navigation. Keep your own / or copy theme files in touch.'),
 
             array(  'version'   => '2.2.0',
@@ -185,12 +185,12 @@ $tasks = array(
 
             array(  'version'   => '2.2.0',
                     'type'      => 'PLUGIN_NOTICE',
-                    'title'     => '<b>PLUGIN_NOTICE:</b> The Spartacus plugin mirror <em>"Netmirror"</em> server is <b>not</b> the default mirror any more.',
+                    'title'     => '<b>PLUGIN_NOTICE</b> The Spartacus plugin mirror <em>"Netmirror"</em> server is <b>not</b> the default mirror any more.',
                     'desc'      => 'The Spartacus mirror <em>"Netmirror"</em> has been down for a while. Please use the GitHub or the S9y server for plugin and theme locations. This does not hit Styx by default, since Styx uses a custom plugin repository.'),
 
             array(  'version'   => '2.2.0',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"entries.tpl"</em> was changed for the trackback URI constant.',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> The template file <em>"entries.tpl"</em> was changed for the trackback URI constant.',
                     'desc'      => 'Keep your own / or copy theme files in touch. See all themes with date: 2017-06-21 for examples.<br>Serendipity also introduces a new trackback detection alternative to RDF, by adding a "rel=trackback" element to the "index.tpl" header. The standard theme 2k11 was already changed to use it. You may want to spread and test this any further.'),
 
             array(  'version'   => '2.3-beta1',
@@ -224,12 +224,12 @@ $tasks = array(
 
             array(  'version'   => '2.5-beta1',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> login COOKIE data encryption changed for PHP 7.1.3+',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE</b> login COOKIE data encryption changed for PHP 7.1.3+',
                     'desc'      => 'Due to changes to the (optional) keep password login COOKIE crypt generation with Styx 2.5.0-alpha2 with PHP 7.1.3+, you shall <b>NOT</b> close your browser after the update, your current checkup and/or maintenance session, <b>without</b> fully terminating your current LOGIN session per <b>LOGOUT</b>. Else you\'ll get an error with the automated login on LOGIN and are stuck. This only is a need when upgrading PHP 7.1.3+ versions and only ONCE for this current beta upgrade! If you upgrade to a later Styx version (like the 2.5.0 release), you don\'t need to care.'),
 
             array(  'version'   => '2.5-beta1',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> All release themes were changed',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> All release themes were changed',
                     'desc'      => 'regarding Serendipity message colorizing for consistency. Please adapt this selector change to your copy or Spartacus pulled themes. Read the ChangeLog for more.'),
 
             array(  'version'   => '2.5.0',
@@ -252,7 +252,7 @@ $tasks = array(
 
             array(  'version'   => '2.5.0',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> More themes were changed',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> More themes were changed',
                     'desc'      => 'for webfonts, calendar, typos, display of post comment owner and trackbacks. Please adapt these changes to your template copy. Read the ChangeLog for more.'),
 
             array(  'version'   => '2.6-beta1',
@@ -274,7 +274,7 @@ $tasks = array(
 
             array(  'version'   => '2.6-beta1',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> All release themes were changed',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> All release themes were changed',
                     'desc'      => 'for logic, initialization checks, etc. Please adapt these changes to your template copies. Read the ChangeLog for more. Styx recommends to start you copy theme from scratch, since not all of them were explicitly mentioned!'),
 
             array(  'version'   => '2.6-beta2',
@@ -287,17 +287,17 @@ $tasks = array(
                     'type'      => 'IMPORTANT_CORE_NOTICE',
                     'function'  => 'recursive_directory_iterator',
                     'arguments' => array($dead_dirs_260),
-                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Styx moved the Smarty Backend templates to the "default" theme',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE</b> Styx moved the Smarty Backend templates to the "default" theme',
                     'desc'      => 'If you have any custom or developer files in the "templates/2k11/admin" directory, make a backup copy before proceeding. Do not try to keep this directory, since further file development already went to the new location! The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_260) . '</pre>'),
 
             array(  'version'   => '2.6.2',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> All core delivered themes were changed',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> All core delivered themes were changed',
                     'desc'      => 'fixing a regression in the "entries.tpl" file for the entries list pagination condition. PLEASE adapt to your copy themes <pre>{if NOT $is_single_entry AND NOT $is_preview AND NOT $plugin_clean_page AND (NOT empty($footer_prev_page) OR NOT empty($footer_next_page))}</pre>'),
 
             array(  'version'   => '2.6.4',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> All core delivered themes were changed',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> All core delivered themes were changed',
                     'desc'      => 'for comment owner selectors and the new (paged comments) "pcomments.tpl" file . PLEASE check your copy themes.'),
 
             array(  'version'   => '2.7.0',
@@ -314,27 +314,27 @@ $tasks = array(
 
             array(  'version'   => '2.8.0',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> All core delivered themes were changed.',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> All core delivered themes were changed.',
                     'desc'      => 'Please read the more detailed ChangeLog file via the backends "Maintenance" page. And PLEASE check your copy themes.'),
 
             array(  'version'   => '2.8.0',
                     'type'      => 'CONFIGURATION_NOTICE',
-                    'title'     => '<b>CONFIGURATION_NOTICE:</b> Missing (default) media property fields on elder systems',
+                    'title'     => '<b>CONFIGURATION_NOTICE</b> Missing (default) media property fields on elder systems',
                     'desc'      => 'cause some media backend forms to not display all available items. Please READ about this "issue" later on in the ChangeLog file via the backends "Maintenance" page and re-check your settings.'),
 
             array(  'version'   => '2.8.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '7.0.0') >= 0) ? 'OK' : 'outdated') . '.',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '7.0.0') >= 0) ? 'OK' : 'outdated') . '.',
                     'desc'      => 'The PHP recommended version for Serendipity Styx 2.8.0 is <b>PHP 7.3</b>.x. This Styx Series <b>2</b> will end here and only get security fixes as minor point releases for a short time. PLEASE NOTE: The <b>next</b> regular Serendipity Styx <b>major</b> upgrade to <b>3.0</b> requires at least <b>PHP 7.2</b> as the minimum.'),
 
             array(  'version'   => '2.9.2',
                     'type'      => 'ENTRIES_NOTICE',
-                    'title'     => '<b>ENTRIES_NOTICE:</b> A bugfix for a special task cased entries timestamp was applied.',
+                    'title'     => '<b>ENTRIES_NOTICE</b> A bugfix for a special task cased entries timestamp was applied.',
                     'desc'      => 'Please read the more detailed ChangeLog file via the backends "Maintenance" page after having done the upgrade, to catch up, if you probably were hit by this issue.'),
 
             array(  'version'   => '2.9.2',
                     'type'      => 'CONFIGURATION_NOTICE',
-                    'title'     => '<b>CONFIGURATION_NOTICE:</b> An Upgrade configuration needs to be done for upcoming Styx 3.0 upgrades!',
+                    'title'     => '<b>CONFIGURATION_NOTICE</b> An Upgrade configuration needs to be done for upcoming Styx 3.0 upgrades!',
                     'desc'      => 'If you <strong>want</strong> or <strong>have to</strong> use elder than PHP 7.3 versions for a longer time, please read <a href="https://ophian.github.io/2019/08/19/Serendipity-Styx-2.9.1-released/" rel="noopener" target="_blank">this blog entry</a>.<p>To not get in conflict with the upcoming next major 3.0 upgrades, you <strong>have to</strong> set up a <strong>new</strong> Update-RELEASE-file <strong>URL</strong> in your Backend Configuration Panel.<br>Open <strong>Configuration</strong> - <strong>General Settings</strong> - and see the option <strong>Update RELEASE-file URL</strong>. There you add this new URL, pointing to the branch RELEASE file and submit the form:<br><em>https://raw.githubusercontent.com/ophian/styx/styx2.9/docs/RELEASE</em></p><p>Now you will only get future update request notes if a new branch point release, like (next) 2.9.3 is prepared to supply.<br>If you then are ready for upcoming Styx 3.0 Next, you just change it back to the master branch at:<br><em>https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE</em></p>'),
 
             array(  'version'   => '2.9.3',
@@ -350,29 +350,29 @@ $tasks = array(
 
             array(  'version'   => '3.0-alpha2',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '7.3.0') >= 0) ? 'OK' : 'outdated') . '.',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '7.3.0') >= 0) ? 'OK' : 'outdated') . '.',
                     'desc'      => 'The recommended and required PHP version for Serendipity Styx 3.0-alpha3+ will probably be <b>PHP 7.3</b>.x. Make sure to upgrade until then.'),
 
             array(  'version'   => '3.0-alpha3',
                     'type'      => 'CONFIGURATION_NOTICE',
-                    'title'     => '<b>CONFIGURATION_NOTICE:</b> "Build WebP Image Variations" Maintenance MediaLibrary Synchronizer task available',
+                    'title'     => '<b>CONFIGURATION_NOTICE</b> "Build WebP Image Variations" Maintenance MediaLibrary Synchronizer task available',
                     'desc'      => 'Maybe you haven\'t_noticed yet: In the Maintenance MediaLibrary Synchronizer task box you are able to automatically run a WebP-Variation format upgrade task for your existing MediaLibrary images once. After that you\'ll have the counterpart function available, that lets you delete all WebP-Variations. And so forth.'),
 
             array(  'version'   => '3.0-alpha3',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> New core delivered themes were added',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> New core delivered themes were added',
                     'desc'      => 'Sliver, a responsive variant of Bulletproof, "The Big Ease" Dude and Pure (2019) were newly added to core themes. The Pure (2019) theme is the new Styx Standard theme.'),
 
             array(  'version'   => '3.0-alpha3',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
                     'function'  => 'recursive_directory_iterator',
                     'arguments' => array($dead_dirs_300),
-                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Styx removed the PHP5 random_bytes polyfill, which is now part of PHP7.',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE</b> Styx removed the PHP5 random_bytes polyfill, which is now part of PHP7.',
                     'desc'      => 'The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_300) . '</pre>'),
 
             array(  'version'   => '3.0-alpha3',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>CONFIGURATION_NOTICE:</b> Serendipity Styx is complete! Now having its own "additional_templates" repository, available via Spartacus.',
+                    'title'     => '<b>CONFIGURATION_NOTICE</b> Serendipity Styx is complete! Now having its own "additional_templates" repository, available via Spartacus.',
                     'desc'      => 'All available themes were upgraded to HTML5, were fixed, improved and checked, and at least basically made working with Serendipity Styx Revisions.
                     <p>Some, which had been worthy, because of well done structured design or laid groundwork, even got more than just a simple HTML5/CSS upgrade and are now able to act as references for theme copies, theme-dependency-childs, or easy to change to a custom user theme.</p>
                     Please, <b>carefully</b> read the regarding changelog entry for this matter and for preparations to make this available in Styx.'),
@@ -443,7 +443,7 @@ $tasks = array(
 
             array(  'version'   => '3.2.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>THEMES_NOTICE:</b> Lots of smaller bugfix were patched into core themes.',
+                    'title'     => '<b>THEMES_NOTICE</b> Lots of smaller bugfix were patched into core themes.',
                     'desc'      => 'Please read the more detailed ChangeLog file via the backends "Maintenance" page after having done the upgrade, to catch up, if you need to to check your COPY-Themes.'),
 
             array(  'version'   => '3.2.0',
@@ -465,7 +465,7 @@ $tasks = array(
 
             array(  'version'   => '3.3.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>THEMES_NOTICE:</b> Lots of fixes regarding PHP 8 were patched into core themes.',
+                    'title'     => '<b>THEMES_NOTICE</b> Lots of fixes regarding PHP 8 were patched into core themes.',
                     'desc'      => 'Please read the more detailed ChangeLog file via the backends "Maintenance" page after having done the upgrade, to catch up, if you need to to check your COPY/CHILD-Themes.'),
 
             array(  'version'   => '3.3.1',
@@ -476,7 +476,7 @@ $tasks = array(
 
             array(  'version'   => '3.4.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>PLUGINS_NOTICE:</b> A long time deprecated set addLoadEvent() JavaScript compatibility function initializer got removed from core.',
+                    'title'     => '<b>PLUGINS_NOTICE</b> A long time deprecated set addLoadEvent() JavaScript compatibility function initializer got removed from core.',
                     'desc'      => 'Please check personal plugins not use this function init. Use vanilla <code>document.addEventListener("DOMContentLoaded", function() { funcname(); });</code> or jQuery <code>$(document).ready(function() { funcname(); });</code> instead.'),
 
             array(  'version'   => '3.4.0',
@@ -493,27 +493,27 @@ $tasks = array(
 
             array(  'version'   => '3.5-alpha2',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>ADMINISTRATION_NOTICE:</b> We fixed a USER form permissive bug which was around since late Dec. 2020.',
+                    'title'     => '<b>ADMINISTRATION_NOTICE</b> We fixed a USER form permissive bug which was around since late Dec. 2020.',
                     'desc'      => 'If you did submit a USER administration users form (NOT via "Personal Preferences", which does not have this field) in this time, without having explicitly set (checked) the "Access level" property, trusting its shown (select) value, please re-check to ensure it (now) has the correct Access Level (Standard editor, Chief editor, or Administrator) set for that user. This is an old (historic) permission flag, while user privileges should be handled by group memberships in Serendipity for long, but it is still used and could have done (downgrade) damage to Administrator or Chief permission levels! You (the Administrator) or your Chiefs for sure would have noticed a sudden reset to Standard editors very limited permissions right after. We do not add a (repair) task here, since it is just a number change in the database and assume nobody was hit by it yet. Consider this ADMINISTRATION upgrade NOTICE as an informational notice only.'),
 
             array(  'version'   => '3.5-beta2',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> We improved the contactform template files and more for certain reasons.',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> We improved the contactform template files and more for certain reasons.',
                     'desc'      => 'Please read about it in the CHANGELOG, which you can easily do via your maintenance backend section, while there might be some additional THEME-UPGRADE work to do for you. Of course only for the case, you have a CUSTOM derivative!'),
 
             array(  'version'   => '3.5-beta3',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> As a follow-up, required fields setup was re-worked, moving it from theme config.inc.php files.',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> As a follow-up, required fields setup was re-worked, moving it from theme config.inc.php files.',
                     'desc'      => 'Please follow the details in the CHANGELOG NEWS file above the Beta-2 note.'),
 
             array(  'version'   => '3.6-beta2',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>ADMINISTRATION_NOTICE:</b> Please read the ChangeLog via your Maintenance section.',
+                    'title'     => '<b>ADMINISTRATION_NOTICE</b> Please read the ChangeLog via your Maintenance section.',
                     'desc'      => 'It holds additional notes to Re-Check your personal settings and of course a bigger text about the main features for upcoming PHP 8.1 and the new AV1 Image File format (AVIF).'),
 
             array(  'version'   => '3.7-beta1',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>ADMINISTRATION_NOTICE:</b> Added (<em>experimental</em> and <em>extended</em>) AVIF support by option with PHP 8.1.',
+                    'title'     => '<b>ADMINISTRATION_NOTICE</b> Added (<em>experimental</em> and <em>extended</em>) AVIF support by option with PHP 8.1.',
                     'desc'      => 'Please Read the options info description in &laquo; Configuration &raquo; - &laquo; Image Conversion Settings &raquo; - &laquo; Enable use of AVIF Variations? &raquo; and the related blog entry at <a href="https://ophian.github.io/2021/11/26/Serendipity-Styx-AV1-Image-File-support/" target="_blank" rel="noopener">Serendipity Styx AV1 Image File support</a>. Please help improving this new Variation format. Make and share some experiences!'),
 
             array(  'version'   => '3.8-beta2',
@@ -523,17 +523,17 @@ $tasks = array(
 
             array(  'version'   => '3.8.0',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> Improved the current Standard Theme "pure" to revision 2022.',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> Improved the current Standard Theme "pure" to revision 2022.',
                     'desc'      => 'Please read about related changes and improvements in the maintenance section ChangeLog, which changes are in need to follow for possible user theme copies.'),
 
             array(  'version'   => '3.8.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>ADMINISTRATION_NOTICE:</b> MediaLibrary upload filenames were improved to get strictly named uniquely only.',
+                    'title'     => '<b>ADMINISTRATION_NOTICE</b> MediaLibrary upload filenames were improved to get strictly named uniquely only.',
                     'desc'      => 'Please check your MediaLibrary by the name filter tool for old media items with duplicate names, living in other directories and rename them by the ML rename tool yourself to avoid further conflicts.'),
 
             array(  'version'   => '3.9.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>ADMINISTRATION_NOTICE:</b> Please read the current ChangeLog via your Maintenance section.',
+                    'title'     => '<b>ADMINISTRATION_NOTICE</b> Please read the current ChangeLog via your Maintenance section.',
                     'desc'      => 'It holds additional notes about fixes, upcoming PHP 8.2 readiness and improved features for the new AV1 Image File format (AVIF).'),
 
             array(  'version'   => '3.9.9',
@@ -544,7 +544,7 @@ $tasks = array(
 
             array(  'version'   => '3.9.9',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>ADMINISTRATION_NOTICE:</b> Please read the current ChangeLog via your Maintenance section.',
+                    'title'     => '<b>ADMINISTRATION_NOTICE</b> Please read the current ChangeLog via your Maintenance section.',
                     'desc'      => 'It holds additional notes about a function rename of _serendipity_send() for PING requests to serendipity_send(). There should no breakage exist, except, if you are using unsupported (non-official) plugins which might make use of it. The probability that this exists is extreme low. though!'),
 
             array(  'version'   => '3.9.9',
@@ -555,37 +555,37 @@ $tasks = array(
 
             array(  'version'   => '3.9.9',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '7.4.0') >= 0) ? 'OK' : 'outdated') . '.',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '7.4.0') >= 0) ? 'OK' : 'outdated') . '.',
                     'desc'      => 'The minimum required PHP version for Serendipity Styx 4.0 is <b>PHP 7.4</b>.x. But better jump to recommended PHP 8.0/1/2 versions, since PHP 7.4 security support will end on 28 Nov 2022 soon. Styx will require PHP 8 only up from around v.4.2.'),
 
             array(  'version'   => '4.1.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Old images with the name "0" (null, i.e. "0.jpg") may cause errors with some image actions, for example when moving to another path location.',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE</b> Old images with the name "0" (null, i.e. "0.jpg") may cause errors with some image actions, for example when moving to another path location.',
                     'desc'      => 'In the early Serendipity days it was possible to have them as name "0". Please check your MediaLibrary and rename them differently to avoid future problems. "01.jpg" is allowed.'),
 
             array(  'version'   => '4.1.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> The "Comments_by_Authors" (CBAfetchLimit) configuration option was set (moved) to "Appearance and Options".',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE</b> The "Comments_by_Authors" (CBAfetchLimit) configuration option was set (moved) to "Appearance and Options".',
                     'desc'      => 'Introduced in Styx 2.6, this was a special global $serendipity variable only for private use in the ..local.inc.. file. If have, please remove it there and set to your needs in the configuration.'),
 
             array(  'version'   => '4.1.0',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> The COMMENT_ADDED messaging constant was changed to support a link variable.',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> The COMMENT_ADDED messaging constant was changed to support a link variable.',
                     'desc'      => 'Templates usage must now at least add an empty sprintf modifier, i.e. <code>{$CONST.COMMENT_ADDED|sprintf:\'\'}</code>. All themes were already changed. If you have a copy theme with a custom entries.tpl file, please follow your engine theme.'),
 
             array(  'version'   => '4.1.0',
                     'type'      => 'REQUIREMENT_NOTICE',
-                    'title'     => '<b>REQUIREMENT_NOTICE:</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '7.4.0') >= 0) ? 'OK' : 'outdated') . '.',
+                    'title'     => '<b>REQUIREMENT_NOTICE</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '7.4.0') >= 0) ? 'OK' : 'outdated') . '.',
                     'desc'      => 'Please remember, that next Serendipity Styx version up from 4.2 (~in summer &rsquo;23) will require a minimum version of <b>PHP 8.0</b>. Styx recommends using at least <b>PHP 8.2</b> to get fully AVIF image file support.'),
 
             array(  'version'   => '4.2-beta1',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> The previously announced REQUIREMENT_NOTICE change to a minimum version of PHP 8 has been kept back for the next major Styx 5.0 version, which shall be based on PHP 8.2.',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE</b> The previously announced REQUIREMENT_NOTICE change to a minimum version of PHP 8 has been kept back for the next major Styx 5.0 version, which shall be based on PHP 8.2.',
                     'desc'      => 'So this final 4.2 update is more seen as a last set of the Styx 4.x version series, which will probably only receive further minor bugfix point releases. At least that is the plan.<br>For other relevant upgrades regarding the new Styx logo, header changes and others, please read through the changelog via the maintenance changelog view.'),
 
             array(  'version'   => '4.2-beta1',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> Templates have changed during development.',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> Templates have changed during development.',
                     'desc'      => 'To keep track, the recommended way for upgrade is to fetch a new fresh template copy for your copy themes, if have. You can find detailed notes in the changelog.'),
 
             array(  'version'   => '4.2.0',
@@ -596,17 +596,17 @@ $tasks = array(
 /* Keep titles short and concise up from 4.3.0 for upgrading in dark mode */
             array(  'version'   => '4.3.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Bugfix for Plugin zombies task applied! ',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE</b> Bugfix for Plugin zombies task applied! ',
                     'desc'      => 'It occurred that the Maintenance task for the local plugin zombies comparison checkup did not fully select all remaining plugins and caused incompatibilities on elder systems by this regression. Please run the task again at least ONCE to avoid running into (future) conflicts with non-updated local plugin zombies and remaining old data.'),
 
             array(  'version'   => '4.3.0',
                     'type'      => 'REQUIREMENT_NOTICE',
-                    'title'     => '<b>REQUIREMENT_NOTICE:</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '8.2.0') >= 0) ? 'OK' : 'outdated') . '.',
+                    'title'     => '<b>REQUIREMENT_NOTICE</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '8.2.0') >= 0) ? 'OK' : 'outdated') . '.',
                     'desc'      => 'Please remember, that <b>next</b> Serendipity Styx major version <b>Series 5</b> will require a minimum version of <b>PHP 8.2</b>. This Series 4 will further only get security or needed bugfix releases, if any...'),
 
             array(  'version'   => '4.3.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> New Styx remote messaging regarding next major UP release.',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE</b> New Styx remote messaging regarding next major UP release.',
                     'desc'      => 'To avoid conflicts with development (versions) of next major Styx 5 series with new system requirements within the next few months, some logical changes have already been applied to divide series 4 and 5 versions apart. This also was necessary for Spartacus access to "additional plugins", which for the current series moved to another branch on GitHub, called "legacy". Please watch out for eventually raised related "Remote System Notification" issues in your blogs backend or at the Serendipity Styx <a href="https://ophian.github.io/blog/" rel="external noopener" target="_blank">website blog</a>.'),
 
             array(  'version'   => '4.3.1',
