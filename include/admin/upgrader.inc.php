@@ -653,7 +653,7 @@ $tasks = array(
                     'function'  => 'serendipity_killPlugin',
                     'arguments' => array('serendipity_event_ckeditor'),
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Styx 5 refactored the RichText Editor system to TinyMCE.',
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE</b> Styx 5 refactored the RichText Editor system to TinyMCE.',
                     'desc'      => 'The CKEplus Plugin therefore is removed physically and all remaining configuration references have to follow by this task too. In consequence, users with CKEditor are redirected to the new core TinyMCE RichText Editor. Please, force a reload of your Browser page in the edit areas if facing unexpected results.'),
 
             array(  'version'   => '5.0-beta1',
