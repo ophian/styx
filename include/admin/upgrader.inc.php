@@ -634,8 +634,8 @@ $tasks = array(
 
             array(  'version'   => '5.0-beta1',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Styx 5 refactored the language file system to remove native charset files.',
-                    'desc'      => 'This moved all UTF-8/* lang files one level up into the parent lang/* directory. To avoid conflicts with open document file encodings please delete all having opened language files in your editor before making any personal changes.'),
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE</b> Styx 5 refactored the language file system to remove native charset files.',
+                    'desc'      => 'This moved all UTF-8/* lang files one level up into the parent lang/* directory. To avoid conflicts with open document file encodings please close all current having opened language files in your editor (if have) before making any personal changes to these sort of files in future.'),
 
             array(  'version'   => '5.0-beta1',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
@@ -646,7 +646,7 @@ $tasks = array(
             array(  'version'   => '5.0-beta1',
                     'function'  => 'recursive_directory_iterator',
                     'arguments' => array($dead_dirs_500),
-                    'title'     => 'Styx 5 refactored the language file system and the used RichText Editor system.',
+                    'title'     => 'Styx 5 refactored the language file system and the used RichText Editor system, and nuked some plugins.',
                     'desc'      => 'The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_500) . '</pre>'),
 
             array(  'version'   => '5.0-beta1',
