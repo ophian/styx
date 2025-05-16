@@ -2,6 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix a desktop CSS style issue with reset maxpart comments in [ pure ] theme
+
   * Add 'ignoreUnescapedHTML' highlight.js config set to avoid cluttering error
     notices in browser console. Data is escaped for sure!
     Change went to the [ pure ] standard theme index.tpl file. According to this,
