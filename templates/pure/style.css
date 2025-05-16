@@ -1826,7 +1826,7 @@ ol.plainList > .comment.commentlevel-16 {
         content: initial;
     }
     .comment.commentlevel-maxpart code {
-        display: initial;
+        display: inherit;
     }
 }
 /* mobile with 350x640 like Galaxy S5 - DPR:3 */
