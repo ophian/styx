@@ -149,6 +149,7 @@ if (!$use_installer && $is_logged_in) {
             if (empty($serendipity['useAvifFormat'])) {
                 $serendipity['useAvifFormat'] = false;
             }
+
             include S9Y_INCLUDE_PATH . 'include/admin/images.inc.php';
             $admin_section = MEDIA;
             break;
@@ -257,6 +258,7 @@ if (!$use_installer && $is_logged_in) {
                 echo $warning;
                 break;
             }
+
             include S9Y_INCLUDE_PATH . 'include/admin/overview.inc.php';
             $admin_section = ADMIN_FRONTPAGE;
             break;
