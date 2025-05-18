@@ -1,6 +1,6 @@
 Name: B46 [Black Edition]
 Author: Ian Styx
-Date: 2025-05-12
+Date: 2025-05-18
 Require Serendipity: 3.5
 Backend: No
 Responsive: Yes
