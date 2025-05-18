@@ -1,6 +1,6 @@
 Name: The Dude
 Author: Ian Styx
-Date: 2025-05-12
+Date: 2025-05-18
 Require Serendipity: 2.7
 Backend: No
 Responsive: Yes
