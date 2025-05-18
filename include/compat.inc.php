@@ -421,6 +421,7 @@ function serendipity_die(string $html, bool $error = true) : void {
     $color   = $error ? 'crimson' : 'midnightblue';
     $type    = $error ? 'an error' : 'maintenance';
     $what    = $error ? 'suspended' : 'unavailable';
+    $visit   = $error ? '' : '<p> Please visit us again in a few minutes. </p>';
     $help    = $error ? '<p>Please inform the Administrator of this site!</p>' : '';
     die('<!DOCTYPE html>
 <html lang="en">
@@ -447,7 +448,7 @@ function serendipity_die(string $html, bool $error = true) : void {
         <h1> ' . $name . ' </h1>
         <h2> System is temporarily unavailable </h2>
         <p> Due to '.$type.', the system is temporarily ' . $what . '. </p>
-        <p> Please visit us again in a few minutes. </p>
+        ' . $visit .'
         <div class="msg_alert">' . $html . '</div>
         ' . $help . '
     </div>
