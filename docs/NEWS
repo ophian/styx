@@ -2,6 +2,13 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve backend & frontend HTMLcomments RichText editor auto focus behavior
+    to not effect hash marked jump anchors. On frontend side the [ pure, b46,
+    b53, b5blog, boot, dude, psg ] themes "index.tpl" files were touched.
+    PLEASE NOTE:
+      If you use a copy or engine theme that holds an own "index.tpl" file, you
+      need to follow the change of your parents theme (mentioned above).
+
   * Fix a desktop CSS style issue with reset maxpart comments in [ pure ] theme
 
   * Add 'ignoreUnescapedHTML' highlight.js config set to avoid cluttering error
