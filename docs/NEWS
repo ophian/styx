@@ -225,9 +225,10 @@ Version 5.0-DEV ()
   * Update to Smarty v.4.5.2 release named 4.5.2-dev-4 for Styx custom mods
 
   * Deprecate serendipity *htmlspecialchars, *htmlentities, *html_entity_decode
-    mapper functions.
+    mapper functions. Use native methods again instead.
     - Use default flags up from PHP 8.1.0
     - Convert core usage
+    - Additional plugins are still WIP...
 
   * Use PHP 8.0 - Convert substr() to str_starts_with() where appropriate
 
