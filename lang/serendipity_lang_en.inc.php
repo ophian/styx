@@ -954,7 +954,7 @@
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET_DESC', 'Bookmark this link and then use it on any page you want to Blog about, to quickly access your Serendipity Blogs backend entry form (when logged in).');
 @define('IMPORT_WP_PAGES', 'Also fetch attachments and staticpages as normal Blog entries?');
 @define('USERCONF_CREATE', 'Disable user / forbid activity?');
-@define('USERCONF_CREATE_DESC', 'If selected, the user will not have any editing or creation possibilities on the Blog anymore. When logging in to the backend, he cannot do anything else apart from logging out and viewing his personal configuration.');
+@define('USERCONF_CREATE_DESC', 'If this option is activated, the user will not be able to create entries or perform any other actions. When he enters the administration interface, all he can do is change his personal settings and log out again.');
 @define('CATEGORY_HIDE_SUB', 'Hide postings made to sub-categories?');
 @define('CATEGORY_HIDE_SUB_DESC', 'By default, when you browse a category also entries of any subcategory are displayed. If this option is turned on, only postings of the currently selected category are displayed.');
 @define('PINGBACK_SENDING', 'Sending pingback to URI %s...');

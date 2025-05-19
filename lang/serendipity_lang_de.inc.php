@@ -951,7 +951,7 @@
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET_DESC', 'Fügen Sie diesen Link ihrem Browser manuell als Lesezeichen/Favoriten hinzu. Dann können Sie dieses Lesezeichen auf jeder beliebigen Seite nutzen, um in einem Popup Fenster direkt in das Backend Eintragsformular ihres Blog zu springen (nur wenn eingeloggt).');
 @define('IMPORT_WP_PAGES', 'Auch "attachments" und "staticpages" als normale Blog-Einträge importieren?');
 @define('USERCONF_CREATE', 'Benutzer deaktivieren / Rechte entziehen?');
-@define('USERCONF_CREATE_DESC', 'Wenn diese Option aktiviert ist, wird dieser Benutzer keine Möglichkeit mehr haben Einträge anzulegen oder sonstige Aktionen auszuführen. Wenn er in die Administrations-Oberfläche kommt, wird er nichts anderes tun können als seine Persönlichen Einstellungen zu ändern und sich auszuloggen.');
+@define('USERCONF_CREATE_DESC', 'Ist diese Option aktiviert, wird der Benutzer keine Möglichkeit haben Einträge anzulegen oder sonstige Aktionen auszuführen. Wenn er in die Administrations-Oberfläche kommt, wird er nichts anderes tun können als seine Persönlichen Einstellungen zu ändern und sich wieder auszuloggen.');
 @define('CATEGORY_HIDE_SUB', 'Artikel von Unterkategorien verstecken?');
 @define('CATEGORY_HIDE_SUB_DESC', 'Standardmäßig werden bei der Ansicht einer Kategorie im Frontend alle Artikel der gewählten Kategorie und aller Unterkategorien angezeigt. Wenn diese Option aktiviert ist, werden nur Beiträge der aktuell ausgewählten Kategorie angezeigt.');
 @define('PINGBACK_SENDING', 'Sende pingback an URI %s...');
