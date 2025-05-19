@@ -9,12 +9,12 @@ Version 5.0-DEV ()
       If you use a copy or engine theme that holds an own "index.tpl" file, you
       need to follow the change of your parents theme (mentioned above).
 
-  * Fix a desktop CSS style issue with reset maxpart comments in [ pure ] theme
+  * Fix a CSS style issue with reset maxpart code comments in [ pure ] theme
 
   * Add 'ignoreUnescapedHTML' highlight.js config set to avoid cluttering error
     notices in browser console. Data is escaped for sure!
-    Change went to the [ pure ] standard theme index.tpl file. According to this,
-    all adapted themes [ b46, b53, b5blog, boot, dude, psg ] have followed.
+    Change went to the [ pure ] standard theme "index.tpl" file. According, all
+    adapted themes [ b46, b53, b5blog, boot, dude, psg ] have followed.
     PLEASE NOTE:
       If you use a copy or engine theme that holds an own "index.tpl" file, you
       need to follow the change of your parents theme (mentioned above).
@@ -26,7 +26,7 @@ Version 5.0-DEV ()
 
   * Improve the ON [da, no] language constant (i.e. for comment date header)
 
-  * Fix htmlcomment (comment) tinyMCE tinymce-5-dark background for frontend
+  * Fix HTMLcomment (comment) tinyMCE tinymce-5-dark background for frontend
     bootstrap themes that have a dark mode [ boot, b5blog, b53+ ].
 
   * Fixed a commentform.tpl textarea attribute for auto-replaced hidden sets
@@ -48,27 +48,27 @@ Version 5.0-DEV ()
     - Allow cache sets for Non-Smarty [default-php] theme parser
     - Deny cache on comment added success pages, etc
 
-  * Prepare RT Editor commentbox  conditioning for userland single entry cached
-    views in the [ pure ] standard theme index.tpl file. According to this, all
-    adapted themes [ b46, b53, b5blog, boot, dude, psg ] have now changed too
-    using the new Rich Text Editor.
+  * Prepare RT Editor commentbox conditioning for userland single entry cached
+    views in the [ pure ] standard theme "index.tpl" file. According to this,
+    all adapted themes [ b46, b53, b5blog, boot, dude, psg ] have now changed
+    too using the new Rich Text Editor.
     PLEASE NOTE:
-      If you use a copy or engine theme that holds an own index.tpl file, you
+      If you use a copy or engine theme that holds an own "index.tpl" file, you
       need to follow the change of your parents theme (mentioned above).
 
   * According to core language system refactoring to remove legacy native
     language sets and to run UTF-8 only, all core plugins and all core themes
     have given up their UTF-8/ lang directory and their files moved up one
     level up into the dedicated theme or plugin root directory.
-    The 5.0 upgrader will auto-nuke these old directories on UPGRADE.
+    The 5.0 Upgrader will auto-nuke these old [ core ] directories on UPGRADE.
     PLEASE NOTE:
     - Additional themes and additional plugins still use their UTF-8/ lang file
       directory until it is decided what to do about it.
     - Adding NEW plugins or themes can follow the cores approach.
 
   * Fix an old issue within the configuration form 'selected' language field to
-    really show the stored global public frontend language and not the chosen
-    Session/Cookie language of the current authenticated user.
+    really show the stored global public frontend language and not (eventually)
+    the chosen Session/Cookie language of the current authenticated user.
 
   * Retire bundled-libs/Cache/Lite* for bundled voku/cache library only usage
 
@@ -137,8 +137,8 @@ Version 5.0-DEV ()
     global settings will run on TinyMCE with restricted configurations based
     on surrounding given environment.
     PLEASE NOTE: This also is the end for the extending CKEditor plus plugin.
-    All current available plugins have been ported to hook nicely into the
-    new Editor synced from additional_plugins [ MASTER ] branch.
+    - All current available plugins have been ported to hook nicely into the
+      new Editor synced from additional_plugins [ MASTER ] branch.
 
     Since both RichText Editors and others belong to the same company "Tiugo
     Technologies" (Tiny Technologies, Inc) since ~2023, both extending brands
@@ -146,7 +146,7 @@ Version 5.0-DEV ()
     and sell extending plugins for outcome.
     To follow using CKEditor as our default Editor would have been much more
     work to completely re-master Serendipity markup everywhere.
-    I think TinyMCE is a very nice and good improvement and we will see if it
+    We think TinyMCE is a very nice and good improvement and we will see if it
     is possible to jump on TinyMCE 7+ in the near future.
 
   * First XML-SYNC for additional_plugins at [ MASTER ] branch [Styx 5]
@@ -162,7 +162,7 @@ Version 5.0-DEV ()
     class for consistency.
     Deprecates feedburner and subtome services.
 
-  * Normalize the xml icon path to relative path consistency for set_config()
+  * Normalize the XML icon path to relative path consistency for set_config()
     in "serendipity_plugin_categories" and "setendipity_plugin_authors".
     - Add current available icon sets to XML_IMAGE_TO_DISPLAY_DESC information.
     - Set tooltip title to link and the feed link.
@@ -173,14 +173,14 @@ Version 5.0-DEV ()
       a new "xmlsvg" CSS class selector was added to the ul list, if an SVG
       image usage found true. For the categories plugin an additional Smarty
       {$category_is_svg} (boolean) variable was added for the same purpose in
-      future theme custom plugin_category.tpl templates.
+      future theme custom "plugin_category.tpl" templates.
     Notice the [ pure ] Standard theme is now using this SVG class selector for
-    strictness against other xml icon styles.
+    strictness against other XML icon styles.
 
-  * Improve textarea default ID naming to snake_case convention, which fixes
-    some issues for further processing.
+  * Improve entry form textarea default ID naming to snake_case convention,
+    which fixes some issues for further processing.
 
-  * Add a simple XLS/transform data layer for our atom 1.0 feed to give out a
+  * Add a simple XLS/transform data layer for our ATOM 1.0 feed to give out a
     styled entries list feed; Extends the syndication sidebar plugin for multi-
     feed option.
 
@@ -189,8 +189,8 @@ Version 5.0-DEV ()
     removes @param, @return PHPDoc references which were far less exact in
     multiple cases. Additionally more strict inner fnc CAST type conditionals
     were set and where explicit appropriate.
-    PLEASE NOTE: This still is a WIP, in special for core extends, like
-    plugins/themes.
+    PLEASE NOTE:
+      This still is a WIP, in special for core extends, like plugins/themes.
 
   * Implement comment search term highlight used for comment full body data
     in comment list.
