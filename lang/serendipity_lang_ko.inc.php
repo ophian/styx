@@ -1133,7 +1133,7 @@ You should not want to operate a security-relevant access system with them!');
 @define('PLUGIN_GROUP_ALL', '모든 범주');
 
 @define('CONF_USE_AUTOSAVE', '자동 저장 기능 사용');
-@define('CONF_USE_AUTOSAVE_DESC', '사용할 경우 블로그 글에 입력한 내용을 브라우저의 세션 저장소에 주기적으로 저장하게 됩니다. 글 작성 중 브라우저가 비정상 종료될 경우 다음 번에 새로 글을 작성할 때 본문 내용이 자동 저장에서 복구되어 표시됩니다.');
+@define('CONF_USE_AUTOSAVE_DESC', '이 기능을 활성화하면 블로그 항목에 입력한 텍스트가 브라우저의 세션 저장소에 주기적으로 저장됩니다. 글 작성 중에 브라우저가 충돌하는 경우 다음에 새 항목을 만들 때 이 자동 저장에서 텍스트가 복원됩니다. 부작용이 있을 수 있으므로 이 기능을 사용하지 않는 것이 좋습니다. 이 기능은 글 작성 중 브라우저 충돌이나 세션 종료와 같은 드문 경우에만 적용되며, 초안이나 장문의 글 작성에는 적용되지 않습니다.');
 @define('INSTALL_CAT_FEEDS', '피드 설정');
 @define('INSTALL_CAT_FEEDS_DESC', 'Customize how Serendipity feeds Feeds');
 
