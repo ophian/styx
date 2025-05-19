@@ -1308,7 +1308,7 @@ class serendipity_plugin_api
             $side = 'right';
         }
 
-        $classes = serendipity_plugin_api::enum_plugin_classes(null);
+        $classes = serendipity_plugin_api::enum_plugin_classes();
         if (isset($classes[$plugin_name])) {
             $instance = serendipity_plugin_api::create_plugin_instance($plugin_name, null, $side, $authorid, $classes[$plugin_name]['pluginPath']);
         } else {
