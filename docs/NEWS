@@ -224,7 +224,8 @@ Version 5.0-DEV ()
 
   * Update to Smarty v.4.5.2 release named 4.5.2-dev-4 for Styx custom mods
 
-  * Deprecate htmlspecialchars, htmlentities, html_entity_decode mapper functions.
+  * Deprecate serendipity *htmlspecialchars, *htmlentities, *html_entity_decode
+    mapper functions.
     - Use default flags up from PHP 8.1.0
     - Convert core usage
 
