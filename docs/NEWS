@@ -2,6 +2,9 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Precise USERCONF_CREATE_DESC [en, de] and [all] CONF_USE_AUTOSAVE_DESC lang
+    constants.
+
   * Improve backend & frontend HTMLcomments RichText editor auto focus behavior
     to not effect hash marked jump anchors. On frontend side the [ pure, b46,
     b53, b5blog, boot, dude, psg ] themes "index.tpl" files were touched.
