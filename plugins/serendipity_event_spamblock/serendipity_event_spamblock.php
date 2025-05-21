@@ -30,7 +30,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '4.1',
             'php'         => '8.2'
         ));
-        $propbag->add('version',       '2.84');
+        $propbag->add('version',       '2.85');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1395,12 +1395,13 @@ class serendipity_event_spamblock extends serendipity_event
                     $_show_captcha = $show_captcha ? $show_captcha : ($captchas && (@$serendipity['GET']['subpage'] == 'adduser' || @$serendipity['POST']['subpage'] == 'adduser')) === true;
 
                     if ($_show_captcha) {
+                        $selector_id = 'captcha' . (!empty($serendipity['GET']['subpage']) ? '_'.$serendipity['GET']['subpage'] : '');
                         echo '                                <div class="serendipity_commentDirection serendipity_comment_captcha">'."\n";
                         if (!isset($serendipity['POST']['preview']) || strtolower($serendipity['POST']['captcha']) != @strtolower($_SESSION['spamblock']['captcha'])) {
                             echo '                                    ' . PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC . "<br />\n";
                             echo '                                    ' . $this->show_captcha($use_gd) . "<br />\n";
-                            echo '                                    <label for="captcha">'. PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3 . "</label>\n";
-                            echo '                                    <input id="captcha" class="input_textbox" type="text" size="5" name="serendipity[captcha]" value="" />';
+                            echo '                                    <label for="'.$selector_id.'">'. PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3 . "</label>\n";
+                            echo '                                    <input id="'.$selector_id.'" class="input_textbox" type="text" size="5" name="serendipity[captcha]" value="" />';
                         } elseif (isset($serendipity['POST']['captcha'])) {
                             echo '                                    <input type="hidden" name="serendipity[captcha]" value="' . htmlspecialchars($serendipity['POST']['captcha']) . '" />';
                         }
