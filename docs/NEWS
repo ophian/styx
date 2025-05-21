@@ -2,6 +2,9 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix spamblock event_plugin Captchas for serendipity_plugin_adduser sidebar
+    registration.
+
   * Precise USERCONF_CREATE_DESC [en, de] and [all] CONF_USE_AUTOSAVE_DESC,
     HTML_COMMENTS_DESC lang constants.
 
