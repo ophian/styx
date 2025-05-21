@@ -2195,6 +2195,11 @@ div.serendipityPlug a {
     margin: .5em 0;
     padding-left: 0;
 }
+/* adduser */
+.serendipitySideBarContent .serendipity_comment_captcha label {
+    padding: 0.25em 0;
+    display: block;
+}
 /* history */
 .serendipity_history_author {
     font-weight: bolder;
