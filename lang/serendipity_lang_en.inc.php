@@ -486,7 +486,7 @@
 @define('REQUIRES_REVIEW', 'Requires review');
 @define('COMMENT_APPROVED', 'Comment #%s has successfully been approved');
 @define('COMMENT_DELETED', 'Comment #%s has successfully been deleted');
-@define('COMMENTS_MODERATE', 'Comments & trackbacks to this entry requires moderation');
+@define('COMMENTS_MODERATE', 'Comments & trackbacks require moderation');
 @define('THIS_TRACKBACK_NEEDS_REVIEW', 'Warning: This trackback needs approval before it will be displayed');
 @define('DELETE_TRACKBACK', 'Delete trackback');
 @define('APPROVE_TRACKBACK', 'Approve trackback');
