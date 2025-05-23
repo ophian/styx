@@ -1032,7 +1032,7 @@
 
 // New 2.0 constants
 @define('SIMPLE_FILTERS', '간소화된 필터');
-@define('SIMPLE_FILTERS_DESC', '사용할 경우 검색 입력창과 필터 기능을 필수요소만 남깁니다. 사용하지 않을 경우 가능한 모든 필터 기능이 다 나타납니다 - 미디어 보관함이나 글 편집기에도 보입니다.');
+@define('SIMPLE_FILTERS_DESC', '활성화하면 검색 양식 및 필터 기능이 필수 옵션으로 축소됩니다. 비활성화하면 ‘미디어 라이브러리’ 또는 ‘항목 수정’ 목록에서와 같이 가능한 모든 필터 또는 작업 옵션이 실제 권한 조건에 따라 표시됩니다.');
 @define('ENTRY_PAGE_PASSWORD_INFO_SET', 'Entries related passwords are - unlike login passwords - stored unencrypted, thus simple and unsecured.
 You should not want to operate a security-relevant access system with them!');
 @define('TOGGLE_SELECT', '선택사항 표시');

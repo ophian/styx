@@ -1034,7 +1034,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 
 // New 2.0 constants
 @define('SIMPLE_FILTERS', 'Simplified filters');
-@define('SIMPLE_FILTERS_DESC', 'When enabled, search forms and filter functions are reduced to essential options. When disabled, you will see every possible filter option, like in the "Media library" or the "Edit entries" list, under condition of actual permission.');
+@define('SIMPLE_FILTERS_DESC', 'When enabled, search forms and filter functions are reduced to essential options. When disabled, every possible filter or task option is shown, like in the "Media library" or in the "Edit entries" list, under condition of actual permission.');
 @define('ENTRY_PAGE_PASSWORD_INFO_SET', 'Entries related passwords are - unlike login passwords - stored unencrypted, thus simple and unsecured.
 You should not want to operate a security-relevant access system with them!');
 @define('TOGGLE_SELECT', 'Mark for selection');
