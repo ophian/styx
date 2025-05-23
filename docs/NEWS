@@ -10,6 +10,7 @@ Version 5.0-DEV ()
     HTML_COMMENTS_DESC lang constants. Using a more neutral speech in [all]
     SIMPLE_FILTERS_DESC, INSTALL_BACKENDPOPUP_DESC, CONF_USE_AUTOSAVE_DESC
     and for [en] COMMENTS_MODERATE, COMMENTS_ENABLE option titles.
+    Add new USERCONF_LANG_DESC for personal preferences.
 
   * Improve backend & frontend HTMLcomments RichText editor auto focus behavior
     to not effect hash marked jump anchors. On frontend side the [ pure, b46,
