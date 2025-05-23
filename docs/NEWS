@@ -7,7 +7,9 @@ Version 5.0-DEV ()
     form and sidebar adduser plugin form.
 
   * Precise USERCONF_CREATE_DESC [en, de] and [all] CONF_USE_AUTOSAVE_DESC,
-    HTML_COMMENTS_DESC lang constants.
+    HTML_COMMENTS_DESC lang constants. Using a more neutral speech in [all]
+    SIMPLE_FILTERS_DESC, INSTALL_BACKENDPOPUP_DESC, CONF_USE_AUTOSAVE_DESC
+    and for [en] COMMENTS_MODERATE, COMMENTS_ENABLE option titles.
 
   * Improve backend & frontend HTMLcomments RichText editor auto focus behavior
     to not effect hash marked jump anchors. On frontend side the [ pure, b46,
