@@ -65,7 +65,7 @@
 
                                     array('var'         => 'lang',
                                           'title'       => INSTALL_LANG,
-                                          'description' => INSTALL_LANG_DESC,
+                                          'description' => USERCONF_LANG_DESC,
                                           'type'        => 'list',
                                           'default'     => $serendipity['languages'],
                                           'permission'  => 'personalConfiguration',
