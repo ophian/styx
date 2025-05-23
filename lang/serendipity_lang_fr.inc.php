@@ -1137,7 +1137,7 @@ You should not want to operate a security-relevant access system with them!');
 @define('PLUGIN_GROUP_ALL', 'All categories');
 
 @define('CONF_USE_AUTOSAVE', 'Enable autosave-feature');
-@define('CONF_USE_AUTOSAVE_DESC', 'When enabled, the text you enter into Blog entries will be periodically saved in your browser\'s session storage. If your browser crashes during writing, the next time you create a new entry, the text will be restored from this autosave. This may have side-effects, so better try without. This only is for the described rare case of browser crashes or ending sessions during writing, not for DRAFT or long thinking entry development.');
+@define('CONF_USE_AUTOSAVE_DESC', 'When enabled, the text written to Blog entries will be saved into the browser\'s session storage periodically. If the browser crashes during writing, at next time a new entry is created, the text will be restored from this autosave. This may have side-effects, so keep on regard. This only is for the described rare case of browser crashes or ending sessions during writing, not for DRAFT or long thinking entry development.');
 @define('INSTALL_CAT_FEEDS', 'Feed Settings');
 @define('INSTALL_CAT_FEEDS_DESC', 'Customize how Serendipity feeds Feeds');
 

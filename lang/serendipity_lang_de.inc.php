@@ -1130,7 +1130,7 @@ Sie sollten damit kein sicherheitsrelevantes Zugangssystem betreiben wollen!');
 @define('NO_UPDATES', 'Keine Plugin-Updates verfügbar.');
 @define('PLUGIN_GROUP_ALL', 'Alle Kategorien');
 @define('CONF_USE_AUTOSAVE', 'Automatische Speicherung aktivieren');
-@define('CONF_USE_AUTOSAVE_DESC', 'Wenn aktiviert, wird der Text von Blog-Einträgen regelmäßig automatisch im Session-Speicher des Browsers gesichert. Falls der Browser während des Schreibens abstürzt, oder die gegenwärtige Login-Session abläuft, wird beim nächsten Erzeugen eines Eintrags der verlorene Text wiederhergestellt. Dies kann eventuell zu unerwünschten Nebenwirkungen führen, also versuchen Sie es vorerst besser ohne. Um Beiträge "entwurfsmäßig" (mit längeren Denkpausen) zu entwickeln, sollte besser der (Draft) Entwurfsmodus genutzt werden.');
+@define('CONF_USE_AUTOSAVE_DESC', 'Wenn aktiviert, wird der zu schreibende Text von Blog-Einträgen regelmäßig im Session-Speicher des Browsers gesichert. Falls der Browser während des Schreibens abstürzt, oder die gegenwärtige Login-Session abläuft, wird beim nächsten Erzeugen eines Eintrags der verlorene Text wiederhergestellt. Dies kann eventuell zu unerwünschten Nebenwirkungen führen, also seien Sie achtsam. Um Beiträge "entwurfsmäßig" (mit längeren Denkpausen) zu entwickeln, sollte besser der (Draft) Entwurfsmodus genutzt werden.');
 @define('INSTALL_CAT_FEEDS', 'Feed-Einstellungen');
 @define('INSTALL_CAT_FEEDS_DESC', 'Bestimmt, wie Serendipity Feeds bestückt');
 
