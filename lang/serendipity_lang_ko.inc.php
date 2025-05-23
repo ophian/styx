@@ -1114,7 +1114,7 @@ You should not want to operate a security-relevant access system with them!');
 @define('SYNDICATION_PLUGIN_SUBTOME', '서브투미(subToMe)');
 @define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Load the external subToMe javascript and show the internal subToMe icon-button, a layer to make feed subscription easier.');
 @define('INSTALL_BACKENDPOPUP', '관리 페이지에서 팝업 창을 사용할 수 있게 함');
-@define('INSTALL_BACKENDPOPUP_DESC', 'Do you want to use popup windows for some backend functionality? When disabled (default), inline modal dialogs will be used for e.g. the category selector and MediaLibrary. On the other hand this popup-window option only works for some elements, like the MediaLibrary and some plugins. Others, like categories, will show up embedded.');
+@define('INSTALL_BACKENDPOPUP_DESC', 'Shall popup windows be used for some backend functionality? When disabled (default), inline modal dialogs will be used for e.g. the category selector and MediaLibrary. On the other hand this popup-window option only works for some elements, like the MediaLibrary and some plugins. Others, like categories, will show up embedded.');
 @define('UPDATE_STABLE', '안정화 버전');
 @define('UPDATE_BETA', '베타 버전');
 @define('SYNDICATION_PLUGIN_FEEDFORMAT', '피드 규격');

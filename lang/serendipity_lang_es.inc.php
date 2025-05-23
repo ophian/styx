@@ -1128,7 +1128,7 @@ You should not want to operate a security-relevant access system with them!');
 @define('SYNDICATION_PLUGIN_SUBTOME', 'subToMe');
 @define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Load the external subToMe javascript and show the internal subToMe icon-button, a layer to make feed subscription easier.');
 @define('INSTALL_BACKENDPOPUP', 'Enable use of popup windows for the backend');
-@define('INSTALL_BACKENDPOPUP_DESC', 'Do you want to use popup windows for some backend functionality? When disabled (default), inline modal dialogs will be used for e.g. the category selector and MediaLibrary. On the other hand this popup-window option only works for some elements, like the MediaLibrary and some plugins. Others, like categories, will show up embedded.');
+@define('INSTALL_BACKENDPOPUP_DESC', 'Shall popup windows be used for some backend functionality? When disabled (default), inline modal dialogs will be used for e.g. the category selector and MediaLibrary. On the other hand this popup-window option only works for some elements, like the MediaLibrary and some plugins. Others, like categories, will show up embedded.');
 @define('UPDATE_STABLE', 'stable');
 @define('UPDATE_BETA', 'beta');
 @define('SYNDICATION_PLUGIN_FEEDFORMAT', 'Feed format');
