@@ -461,6 +461,7 @@
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', '전자우편 주소');
 @define('USERCONF_EMAIL_DESC', '사용하고 있는 개인 전자우편 주소');
+@define('USERCONF_LANG_DESC', 'The language of your personal preference');
 @define('USERCONF_SENDCOMMENTS', '덧글 알림 발송');
 @define('USERCONF_SENDCOMMENTS_DESC', '작성된 글에 덧글이 달리면 전자우편을 받겠습니까?');
 @define('USERCONF_SENDTRACKBACKS', '트랙백 알림 발송');

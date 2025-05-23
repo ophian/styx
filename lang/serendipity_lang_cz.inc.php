@@ -473,6 +473,7 @@ $i18n_filename_to = array (
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'E-mailová adresa');
 @define('USERCONF_EMAIL_DESC', 'Váš e-mail');
+@define('USERCONF_LANG_DESC', 'The language of your personal preference');
 @define('USERCONF_SENDCOMMENTS', 'Posílat zprávy o komentářích?');
 @define('USERCONF_SENDCOMMENTS_DESC', 'Chcete dostávat zprávy o komentářích e-mailem?');
 @define('USERCONF_SENDTRACKBACKS', 'Posílat zprávy o odezvách?');

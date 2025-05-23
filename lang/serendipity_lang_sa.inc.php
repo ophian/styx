@@ -461,6 +461,7 @@
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'بريدك الالكتروني');
 @define('USERCONF_EMAIL_DESC', 'ضع بريدك الشخصي كي يتم المراسله من خلالة');
+@define('USERCONF_LANG_DESC', 'The language of your personal preference');
 @define('USERCONF_SENDCOMMENTS', 'أرسال تبليغ في حال تم كتابة تعليق؟ ');
 @define('USERCONF_SENDCOMMENTS_DESC', 'هل تريد أن يصلك بريد عندما يكتب تعليق على أحد مواضيعك؟ الأفضل نعم. لمتابعة مدونتك');
 @define('USERCONF_SENDTRACKBACKS', 'أرسال تبليغ برابط التعقيب؟');

@@ -445,6 +445,7 @@
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Il tuo indirizzo e-mail');
 @define('USERCONF_EMAIL_DESC', 'Il tuo indirizzo e-mail personale');
+@define('USERCONF_LANG_DESC', 'The language of your personal preference');
 @define('USERCONF_SENDCOMMENTS', 'Manda avvisi di commenti?');
 @define('USERCONF_SENDCOMMENTS_DESC', 'Vuoi ricevere un\'e-mail quando vengono scritti commenti sui tuoi articoli?');
 @define('USERCONF_SENDTRACKBACKS', 'manda avvisi di trackback?');

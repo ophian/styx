@@ -458,6 +458,7 @@
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Sähköpostiosoitteesi');
 @define('USERCONF_EMAIL_DESC', 'Henkilökohtainen sähköpostiosoitteesi');
+@define('USERCONF_LANG_DESC', 'The language of your personal preference');
 @define('USERCONF_SENDCOMMENTS', 'Lähetänkö komentointi-ilmoitukset?');
 @define('USERCONF_SENDCOMMENTS_DESC', 'Haluatko postia kun joku kommentoi merkintöjäsi?');
 @define('USERCONF_SENDTRACKBACKS', 'Lähetä paluuviitteet?');

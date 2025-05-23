@@ -459,6 +459,7 @@
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', '電子メールアドレス');
 @define('USERCONF_EMAIL_DESC', '個人の電子メールアドレスを指定します。');
+@define('USERCONF_LANG_DESC', 'The language of your personal preference');
 @define('USERCONF_SENDCOMMENTS', 'コメントの通知を送信しますか?');
 @define('USERCONF_SENDCOMMENTS_DESC', 'コメントをあなたのエントリーが受けたとき、電子メールを受信しますか?');
 @define('USERCONF_SENDTRACKBACKS', 'トラックバックの通知を送信しますか?');

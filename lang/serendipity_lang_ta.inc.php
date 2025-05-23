@@ -459,6 +459,7 @@
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'உங்கள் மின்னஞ்சல் முகவரி');
 @define('USERCONF_EMAIL_DESC', 'வலைக்குறிப்பு தகவல்கள் இம்மின்னஞ்சல் முகவரிக்கு அனுப்பப்படும்');
+@define('USERCONF_LANG_DESC', 'The language of your personal preference');
 @define('USERCONF_SENDCOMMENTS', 'மின்னஞ்சலில் அன்பர் கருத்துகள் அறிவிப்பு');
 @define('USERCONF_SENDCOMMENTS_DESC', 'உங்கள் வலைக்குறிப்பின் மீதான அன்பர்கள் அன்பர் கருத்து பற்றிய அறிவிப்பை மின்னஞ்சலில் பெருக');
 @define('USERCONF_SENDTRACKBACKS', 'மேற்கோள்(trackback)  அறிவிப்பு');

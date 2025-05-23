@@ -461,6 +461,7 @@
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', '你的电子邮件');
 @define('USERCONF_EMAIL_DESC', '你使用的电子邮件');
+@define('USERCONF_LANG_DESC', 'The language of your personal preference');
 @define('USERCONF_SENDCOMMENTS', '寄送回复通知');
 @define('USERCONF_SENDCOMMENTS_DESC', '当有新回复时使用通知');
 @define('USERCONF_SENDTRACKBACKS', '寄送引用通知?');

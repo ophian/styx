@@ -443,6 +443,7 @@
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Seu endereço de e-mail');
 @define('USERCONF_EMAIL_DESC', 'Seu endereço de e-mail pessoal');
+@define('USERCONF_LANG_DESC', 'The language of your personal preference');
 @define('USERCONF_SENDCOMMENTS', 'Enviar notificação dos comentários?');
 @define('USERCONF_SENDCOMMENTS_DESC', 'Quer receber e-mails quando comentários forem enviados para os seus artigos?');
 @define('USERCONF_SENDTRACKBACKS', 'Enviar notificação de trackbacks?');

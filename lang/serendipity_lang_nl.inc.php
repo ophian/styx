@@ -462,6 +462,7 @@
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Uw e-mailadres');
 @define('USERCONF_EMAIL_DESC', 'Uw eigen e-mailadres');
+@define('USERCONF_LANG_DESC', 'The language of your personal preference');
 @define('USERCONF_SENDCOMMENTS', 'Bericht bij reacties?');
 @define('USERCONF_SENDCOMMENTS_DESC', 'Wilt u een e-mail ontvangen wanneer er reacties geplaatst worden op uw artikelen?');
 @define('USERCONF_SENDTRACKBACKS', 'Bericht bij trackbacks?');

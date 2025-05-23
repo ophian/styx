@@ -461,6 +461,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Twój adres e-mail');
 @define('USERCONF_EMAIL_DESC', 'Twój prywatny adres e-mail');
+@define('USERCONF_LANG_DESC', 'The language of your personal preference');
 @define('USERCONF_SENDCOMMENTS', 'Wysyłać powiadomienia o komentarzach?');
 @define('USERCONF_SENDCOMMENTS_DESC', 'Czy chcesz otrzymywać maile z informacją o komentarzach do Twoich wpisów?');
 @define('USERCONF_SENDTRACKBACKS', 'Wysyłać powiadomienia o śladach?');

@@ -459,6 +459,7 @@
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Din e-post adress');
 @define('USERCONF_EMAIL_DESC', 'Din personliga e-post adress');
+@define('USERCONF_LANG_DESC', 'The language of your personal preference');
 @define('USERCONF_SENDCOMMENTS', 'Skicka kommentar-meddelanden?');
 @define('USERCONF_SENDCOMMENTS_DESC', 'Vill du få e-post när kommentarer skapas till dina artiklar?');
 @define('USERCONF_SENDTRACKBACKS', 'Skicka trackback-meddelanden');

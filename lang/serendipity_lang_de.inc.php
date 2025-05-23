@@ -444,6 +444,7 @@
 @define('USERCONF_PASSWORD_RANDOM', 'Neues, kryptographisch sicheres Passwort als kopierbarer Vorschlag');
 @define('USERCONF_EMAIL', 'E-Mail');
 @define('USERCONF_EMAIL_DESC', 'Ihre E-Mail-Adresse');
+@define('USERCONF_LANG_DESC', 'Die Sprache ihrer persönlichen Präferenz');
 @define('USERCONF_SENDCOMMENTS', 'Bei Kommentaren benachrichtigen?');
 @define('USERCONF_SENDCOMMENTS_DESC', 'Wollen Sie eine E-Mail erhalten, sobald ein neuer Kommentar zu Ihrem Eintrag geschrieben wurde?');
 @define('USERCONF_SENDTRACKBACKS', 'Bei Trackbacks benachrichtigen?');

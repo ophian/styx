@@ -459,6 +459,7 @@
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Netfangið þitt');
 @define('USERCONF_EMAIL_DESC', 'Persónulega netfangið þitt');
+@define('USERCONF_LANG_DESC', 'The language of your personal preference');
 @define('USERCONF_SENDCOMMENTS', 'Senda tilkynningar v/athugasemda?');
 @define('USERCONF_SENDCOMMENTS_DESC', 'Viltu fá sendan póst þegar athugasemdir eru sendar á færslurnar þínar?');
 @define('USERCONF_SENDTRACKBACKS', 'Senda tilkynningar v/tilvísana?');

@@ -459,6 +459,7 @@
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Your e-mail address');
 @define('USERCONF_EMAIL_DESC', 'Your personal e-mail address');
+@define('USERCONF_LANG_DESC', 'The language of your personal preference');
 @define('USERCONF_SENDCOMMENTS', 'Send comment announcements?');
 @define('USERCONF_SENDCOMMENTS_DESC', 'Do you want to receive emails when comments are posted to your entries?');
 @define('USERCONF_SENDTRACKBACKS', 'Send trackback announcements?');

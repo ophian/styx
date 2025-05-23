@@ -461,6 +461,7 @@
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'E-Posta Adresi');
 @define('USERCONF_EMAIL_DESC', 'Kişisel e-posta adresiniz');
+@define('USERCONF_LANG_DESC', 'The language of your personal preference');
 @define('USERCONF_SENDCOMMENTS', 'Görüş eklendiğinde haber verilsin mi?');
 @define('USERCONF_SENDCOMMENTS_DESC', 'Yazdığınız yazıya görüş bildirildiğinde e-posta yoluyla haber verilsin mi?');
 @define('USERCONF_SENDTRACKBACKS', 'Bırakılan izlerle ilgili haber verilsin mi?');

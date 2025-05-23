@@ -460,6 +460,7 @@
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Adresa e-mail');
 @define('USERCONF_EMAIL_DESC', 'Adresa ta de e-mail');
+@define('USERCONF_LANG_DESC', 'The language of your personal preference');
 @define('USERCONF_SENDCOMMENTS', 'Trimite notificări comentarii?');
 @define('USERCONF_SENDCOMMENTS_DESC', 'Vrei să primeşti notificări pe email când sunt adăugate comentarii la însemnările tale?');
 @define('USERCONF_SENDTRACKBACKS', 'Trimite notificări referinţe?');

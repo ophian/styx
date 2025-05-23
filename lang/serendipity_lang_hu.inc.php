@@ -459,6 +459,7 @@
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', 'Email cím');
 @define('USERCONF_EMAIL_DESC', 'Az email címed');
+@define('USERCONF_LANG_DESC', 'The language of your personal preference');
 @define('USERCONF_SENDCOMMENTS', 'Hozzászólások elküldése?');
 @define('USERCONF_SENDCOMMENTS_DESC', 'Szeretnél kapni emailt ha valamelyik bejegyzéshez hozzászólás érkezik?');
 @define('USERCONF_SENDTRACKBACKS', 'Küldjünk értesítést visszahivatkozáskor?');

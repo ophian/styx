@@ -461,6 +461,7 @@ $i18n_unknown = 'tw';
 @define('USERCONF_PASSWORD_RANDOM', 'New cryptographically secure password as a copyable proposal');
 @define('USERCONF_EMAIL', '您的電子郵件');
 @define('USERCONF_EMAIL_DESC', '您使用的電子郵件');
+@define('USERCONF_LANG_DESC', 'The language of your personal preference');
 @define('USERCONF_SENDCOMMENTS', '寄送迴響通知?');
 @define('USERCONF_SENDCOMMENTS_DESC', '當有新迴響到您的文章時要通知您嗎?');
 @define('USERCONF_SENDTRACKBACKS', '寄送引用通知?');
