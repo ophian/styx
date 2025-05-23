@@ -148,7 +148,7 @@
 @define('COMMENT_ADDED_CLICK', 'Click %shere to return%s to the comments, and %shere to close%s this window.');
 @define('COMMENT_NOT_ADDED_CLICK', 'Click %shere to return%s to the comments, and %shere to close%s this window.');
 @define('COMMENTS_DISABLE', 'Do not allow comments to this entry');
-@define('COMMENTS_ENABLE', 'Allow comments to this entry');
+@define('COMMENTS_ENABLE', 'Allow comments');
 @define('COMMENTS_CLOSED', 'The author does not allow comments to this entry');
 @define('EMPTY_COMMENT', 'Your comment did not contain anything, please %sgo back%s and try again');
 @define('ENTRIES_FOR', 'Entries from %s');
