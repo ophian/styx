@@ -8,7 +8,7 @@ I agree to the <a href="#">Terms of Use</a>.
 {/capture}
 
 {* Form starts here *}
-<form id="adduserform" action="{$registerbox_url}#adduser" method="post"{if $registerbox_termsofuse == 'true'} onsubmit="if (document.getElementById('registerbox_termsofuse').checked != true) {ldelim} alert('{$registerbox_termsofuse_error|escape:javascript}'); return false {rdelim}"{/if}>
+<form id="adduserform{$selector_get_id|default:''}" action="{$registerbox_url}#adduser" method="post"{if $registerbox_termsofuse == 'true'} onsubmit="if (document.getElementById('registerbox_termsofuse').checked != true) {ldelim} alert('{$registerbox_termsofuse_error|escape:javascript}'); return false {rdelim}"{/if}>
 {if NOT empty($registerbox_hidden)}
     <div>
 {foreach $registerbox_hidden AS $key => $val}
@@ -22,16 +22,16 @@ I agree to the <a href="#">Terms of Use</a>.
     </div>
 
     <div class="form_field">
-        <label for="registerbox_username">{$CONST.USERNAME}</label>
-        <input id="registerbox_username" type="text" name="serendipity[adduser_user]" maxlength="40" value="{$registerbox_username|escape}">
+        <label for="registerbox_username{$selector_get_id|default:''}">{$CONST.USERNAME}</label>
+        <input id="registerbox_username{$selector_get_id|default:''}" type="text" name="serendipity[adduser_user]" maxlength="40" value="{$registerbox_username|escape}">
     </div>
      <div class="form_field">
-        <label for="registerbox_password">{$CONST.PASSWORD}</label>
-        <input id="registerbox_password" type="password" name="serendipity[adduser_pass]" maxlength="32" autocomplete="new-password" value="{$registerbox_password|escape}">
+        <label for="registerbox_password{$selector_get_id|default:''}">{$CONST.PASSWORD}</label>
+        <input id="registerbox_password{$selector_get_id|default:''}" type="password" name="serendipity[adduser_pass]" maxlength="32" autocomplete="new-password" value="{$registerbox_password|escape}">
     </div>
     <div class="form_field">
-        <label for="registerbox_email">{$CONST.EMAIL}</label>
-        <input id="registerbox_email" type="text" name="serendipity[adduser_email]" value="{$registerbox_email|escape}">
+        <label for="registerbox_email{$selector_get_id|default:''}">{$CONST.EMAIL}</label>
+        <input id="registerbox_email{$selector_get_id|default:''}" type="text" name="serendipity[adduser_email]" value="{$registerbox_email|escape}">
     </div>
 
 {if $registerbox_termsofuse == 'true'}
