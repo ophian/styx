@@ -30,7 +30,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '4.1',
             'php'         => '8.2'
         ));
-        $propbag->add('version',       '2.85');
+        $propbag->add('version',       '2.86');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1375,6 +1375,7 @@ class serendipity_event_spamblock extends serendipity_event
                     break;
 
                 case 'frontend_comment':
+                    static $unique_sid = 1;
                     if (serendipity_db_bool($this->get_config('csrf', 'true'))) {
                         echo '<div>' . serendipity_setFormToken('form') . "</div>\n\n"; // No indent, since first applied line after tpl markup, so cared in there as startup indent
                     }
@@ -1395,7 +1396,7 @@ class serendipity_event_spamblock extends serendipity_event
                     $_show_captcha = $show_captcha ? $show_captcha : ($captchas && (@$serendipity['GET']['subpage'] == 'adduser' || @$serendipity['POST']['subpage'] == 'adduser')) === true;
 
                     if ($_show_captcha) {
-                        $selector_id = 'captcha' . (!empty($serendipity['GET']['subpage']) ? '_'.$serendipity['GET']['subpage'] : '');
+                        $selector_id = 'captcha_'.$unique_sid; // for possible adduser form on main page and in sidebar
                         echo '                                <div class="serendipity_commentDirection serendipity_comment_captcha">'."\n";
                         if (!isset($serendipity['POST']['preview']) || strtolower($serendipity['POST']['captcha']) != @strtolower($_SESSION['spamblock']['captcha'])) {
                             echo '                                    ' . PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC . "<br />\n";
@@ -1406,6 +1407,7 @@ class serendipity_event_spamblock extends serendipity_event
                             echo '                                    <input type="hidden" name="serendipity[captcha]" value="' . htmlspecialchars($serendipity['POST']['captcha']) . '" />';
                         }
                         echo "\n                                </div>\n\n";
+                        $unique_sid++;
                     }
                     break;
 
