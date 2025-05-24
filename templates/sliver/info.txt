@@ -1,6 +1,6 @@
 Name: Sliver
 Author: Ian Styx
-Date: 2024-06-07
+Date: 2025-05-24
 Require Serendipity: 2.7
 Version: 4.63
 Responsive: Yes
