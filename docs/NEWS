@@ -2,6 +2,11 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Add 2 new form element selectors styles "form_instruct" (not activated) and
+    "form_hooks" e.g. for the spamblock captcha hook to the [ pure ] theme.
+    In regard the "plugin_registerbox.tpl" template file for the adduser plugin
+    was added.
+
   * Fix spamblock event_plugin Captchas for serendipity_plugin_adduser sidebar
     registration. Also fix selector unique ID for case single page with comment
     form and sidebar adduser plugin form.
