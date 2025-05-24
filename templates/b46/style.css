@@ -1415,7 +1415,7 @@ p > img.serendipity_image_center {
   .serendipity_image_block .serendipity_imageComment_left,
   .serendipity_image_block .serendipity_imageComment_right {
     margin-top: auto; }
-  #captcha {
+  .input_captcha {
     max-width: 12em;
     padding: 1em;
     margin-left: .5em; }
