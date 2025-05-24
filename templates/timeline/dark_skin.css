@@ -221,8 +221,8 @@ table table {
   background-color: #fff;
 }
 
-#captcha,
 #serendipity_replyTo,
+.input_captcha,
 .form-control {
     background-color: #222;
     border: 1px solid #383838;
