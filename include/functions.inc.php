@@ -1087,7 +1087,7 @@ function serendipity_fetchUsers(?string $user = '', iterable|string|null $group 
  *      - Return code of the PHP mail() function
  * @access public
  */
-function serendipity_sendMail(string $to, string $subject, string $message, string $fromMail, iterable|string|null $headers = NULL, ?string $fromName = NULL) : bool {
+function serendipity_sendMail(string $to, string $subject, string $message, ?string $fromMail, iterable|string|null $headers = NULL, ?string $fromName = NULL) : bool {
     global $serendipity;
 
     if (!is_null($headers) && !is_array($headers)) {
