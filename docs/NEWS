@@ -3,7 +3,7 @@ Version 5.0-DEV ()
 
 
   * In regression of fixing the spamblock Captcha element ID for uniqueness, we
-    had to convert relying themes styles to better use a new class_selector.
+    had to convert relying theme styles to better use a new [.]class_selector.
     These themes [ pure, default, boot, b5blog, b46, b53, sliver, timeline] were
     touched. As always,
     PLEASE NOTE:
