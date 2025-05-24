@@ -476,7 +476,7 @@ ul.staticpage_result li {
     margin: .5em;
     font-size: smaller; }
 
-#captcha {
+.input_captcha {
     max-width: 10em;
     width: auto;
 }
