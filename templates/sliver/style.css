@@ -1225,15 +1225,15 @@ ul#serendipity_categories_list input {
     float: left;
     margin-right: 4px;
 }
-#searchterm, .form-fields input, .form-fields textarea, #captcha {
+#searchterm, .form-fields input, .form-fields textarea, .input_captcha {
     background: none #FFF;
     border: 1px solid #888;
     color: #666;
 }
-#searchterm:hover, .form-fields input:hover, .form-fields textarea:hover, #captcha:hover {
+#searchterm:hover, .form-fields input:hover, .form-fields textarea:hover, .input_captcha:hover {
     border-color: #3388DD;
 }
-#searchterm:focus, .form-fields input:focus, .form-fields textarea:focus, #captcha:focus {
+#searchterm:focus, .form-fields input:focus, .form-fields textarea:focus, .input_captcha:focus {
     background: none #EEE;
     border-color: #3388DD;
     color: #333;
@@ -1382,7 +1382,7 @@ ul#serendipity_categories_list input {
 .form-fields label, #serendipity_esubmit {
     display: block;
 }
-.input-text input, .input-textarea textarea, #search-term, #captcha {
+.input-text input, .input-textarea textarea, #search-term, .input_captcha {
     background: none #FFF;
     border: 1px solid #AAA;
     color: #888;
