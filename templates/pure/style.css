@@ -733,6 +733,10 @@ form button:not(.tox-tbtn), input[type="button"], input[type="reset"], input[typ
     -moz-user-select: none;
     user-select: none; }
 
+.form_instruct {
+    /* display: inline-block;
+    font-style: italic; */
+}
 .form_field, .form_select {
     margin: .5em auto;
 }
@@ -749,6 +753,9 @@ form button:not(.tox-tbtn), input[type="button"], input[type="reset"], input[typ
 }
 .form_field input, .form_field select, .form_select input, .form_select select, .form_tarea input, .form_tarea select {
     width: 100%;
+}
+.form_hooks {
+    display: inline-grid;
 }
 
 .has-error .checkbox,.has-error .checkbox-inline,.has-error .control-label,.has-error .help-block,.has-error .radio,.has-error .radio-inline,.has-error.checkbox label,.has-error.checkbox-inline label,.has-error.radio label,.has-error.radio-inline label{color:#a94442}
