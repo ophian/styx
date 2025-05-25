@@ -53,7 +53,7 @@
 
 {if $is_error}
         <div class="login_error">
-            <p>{$CONST.WRONG_USERNAME_OR_PASSWORD}</p>
+            <p class="serendipity_content_message serendipity_msg_important">{$CONST.WRONG_USERNAME_OR_PASSWORD}</p>
         </div>
 
 {/if}
