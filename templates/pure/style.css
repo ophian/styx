@@ -2672,7 +2672,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
   .form_tarea {
     max-width: 720px;
     max-width: 45rem; }
-  #login_error, #login_instructions, #loginbox {
+  #login_error, #login_instructions, #loginbox, .login_error {
     margin: auto 25%; }
 }
 
@@ -2789,7 +2789,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
   /* sadly necessary when using 3-char[+] notation */
   .serendipity_calendar th {
     font-size: x-small; }
-  #login_error, #login_instructions, #loginbox {
+  #login_error, #login_instructions, #loginbox, .login_error {
     margin: auto 30%; }
 }
 
@@ -2810,7 +2810,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     max-width: initial; }
   #navbar ul li.navsearch {
     margin-right: 1em; }
-  #login_error, #login_instructions, #loginbox {
+  #login_error, #login_instructions, #loginbox, .login_error {
     margin: auto 35%; }
 }
 @media screen and (min-width: 1490px) {
