@@ -33,15 +33,15 @@ I agree to the <a href="#">Terms of Use</a>.
         <label for="registerbox_email{$selector_get_id|default:''}">{$CONST.EMAIL}</label>
         <input id="registerbox_email{$selector_get_id|default:''}" type="text" name="serendipity[adduser_email]" value="{$registerbox_email|escape}">
     </div>
-
 {if $registerbox_termsofuse == 'true'}
+
     <div class="form_check">
-        <input type="checkbox" name="serendipity[adduser_termsofuse]" value="true" id="registerbox_termsofuse">
+        <input id="registerbox_termsofuse" type="checkbox" name="serendipity[adduser_termsofuse]" value="true">
         <label for="registerbox_termsofuse">{$smarty.capture.registerbox_termsofuse_text|default:''}</label>
     </div>
 {/if}
-
 {if $registerbox_captcha === true}
+
     <div class="form_hooks">
         <!-- This is where the spamblock/Captcha plugin is called -->
         {serendipity_hookPlugin hook="frontend_comment" data=$registerbox_url}
@@ -49,6 +49,6 @@ I agree to the <a href="#">Terms of Use</a>.
 {/if}
 
     <div class="form_buttons">
-        <input type="submit" name="serendipity[adduser_action]" value="{$CONST.GO} &gt;" />
+        <input type="submit" name="serendipity[adduser_action]" value=" {$CONST.GO} ">
     </div>
 </form>

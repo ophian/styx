@@ -36,7 +36,7 @@
             <input type="hidden" name="serendipity[logout]" value="logout">
             <fieldset class="form-group">
                 <div class="form_buttons">
-                    <input id="login_send" name="submit" type="submit" value="{$CONST.LOGOUT} &gt;">
+                    <input id="login_send" name="submit" type="submit" value=" {$CONST.LOGOUT} ">
                     <a class="button_link" href="{$serendipityBaseURL}">{$CONST.BACK_TO_BLOG}</a>
                 </div>
             </fieldset>
@@ -75,7 +75,7 @@
                 </div>
 
                 <div class="form_buttons">
-                    <input id="login_send" name="submit" type="submit" value="{$CONST.LOGIN} &gt;">
+                    <input id="login_send" name="submit" type="submit" value=" {$CONST.LOGIN} ">
                     <a class="button_link" href="{$serendipityBaseURL}">{$CONST.BACK_TO_BLOG}</a>
                 </div>
                 {$loginform_add.table}
