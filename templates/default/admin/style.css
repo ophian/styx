@@ -437,32 +437,32 @@ svg.bi {
 }
 
 .svg-placeholder-img {
-  font-size: 1rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  width: 100%;
-  height: auto;
+    font-size: 1rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    width: 100%;
+    height: auto;
 }
 .theme_file.tmMidCol .svg-placeholder-img-lg {
-  font-size: 1.125rem;
+    font-size: 1.125rem;
 }
 .theme_file.tmDefCol .svg-placeholder-img-lg {
-  font-size: 1.75rem;
+    font-size: 1.75rem;
 }
 
 /* ICON FONT: http://fortawesome.github.com/Font-Awesome/ */
 @font-face {
-  font-family: 'fontello';
-  src: url('{TEMPLATE_PATH}font/fontello.eot?65970368');
-  src: url('{TEMPLATE_PATH}font/fontello.eot?65970368#iefix') format('embedded-opentype'),
-       url('{TEMPLATE_PATH}font/fontello.woff2?65970368') format('woff2'),
-       url('{TEMPLATE_PATH}font/fontello.woff?65970368') format('woff'),
-       url('{TEMPLATE_PATH}font/fontello.ttf?65970368') format('truetype'),
-       url('{TEMPLATE_PATH}font/fontello.svg?65970368#fontello') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'fontello';
+    src: url('{TEMPLATE_PATH}font/fontello.eot?65970368');
+    src: url('{TEMPLATE_PATH}font/fontello.eot?65970368#iefix') format('embedded-opentype'),
+         url('{TEMPLATE_PATH}font/fontello.woff2?65970368') format('woff2'),
+         url('{TEMPLATE_PATH}font/fontello.woff?65970368') format('woff'),
+         url('{TEMPLATE_PATH}font/fontello.ttf?65970368') format('truetype'),
+         url('{TEMPLATE_PATH}font/fontello.svg?65970368#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
