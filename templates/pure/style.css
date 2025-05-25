@@ -275,17 +275,51 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     border-color: #373e47 #373e47 #444c45;
     color: #adbac7; }
   [data-dark-theme="dark"] form button:not(.tox-tbtn), [data-dark-theme="dark"] input[type="button"], [data-dark-theme="dark"] input[type="reset"], [data-dark-theme="dark"] input[type="submit"] {
-    background-color: #444c56 !important;
-    background-image: -webkit-linear-gradient(top, #444c56, #535) !important;
-    background-image: linear-gradient(to bottom, #444c56, #535) !important;
+    background: #2c3d51;
+    background: -webkit-linear-gradient(135deg, #1c2128, #2c3d51);
+    background: linear-gradient(135deg, #1c2128, #2c3d51);
+    color: #dcdcdc;
     text-shadow: none;
     border-color: #444c56;
+    border-radius: 4px;
+    padding: .325rem .625rem;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1; }
+  [data-dark-theme="dark"] form button:not(.tox-tbtn)::before, [data-dark-theme="dark"] input[type="button"]::before, [data-dark-theme="dark"] input[type="reset"]::before, [data-dark-theme="dark"] input[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: -webkit-linear-gradient(135deg, #4f46e5, #4338ca);
+    background: linear-gradient(135deg, #4f46e5, #4338ca);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease; }
+  [data-dark-theme="dark"] form button:not(.tox-tbtn):hover, [data-dark-theme="dark"] input[type="button"]:hover, [data-dark-theme="dark"] input[type="reset"]:hover, [data-dark-theme="dark"] input[type="submit"]:hover {
+    box-shadow: 0 3px 9px rgba(13, 13, 13, 0.9);
+    background: linear-gradient(135deg, #4f46e5, #4338ca); }
+  [data-dark-theme="dark"] form button:not(.tox-tbtn):hover::before, [data-dark-theme="dark"] input[type="button"]:hover::before, [data-dark-theme="dark"] input[type="reset"]:hover::before, [data-dark-theme="dark"] input[type="submit"]:hover::before {
+    opacity: 1; }
+  [data-dark-theme="dark"] form button:not(.tox-tbtn):active, [data-dark-theme="dark"] input[type="button"]:active, [data-dark-theme="dark"] input[type="reset"]:active, [data-dark-theme="dark"] input[type="submit"]:active {
+    background: linear-gradient(135deg, #4f46e5, #4338ca);
+    box-shadow: #cdd9e5 0 0 5px 0;
+    border-color: #1c2128; }
+  [data-dark-theme="dark"] form button:not(.tox-tbtn):focus, [data-dark-theme="dark"] input[type="button"]:focus, [data-dark-theme="dark"] input[type="reset"]:focus, [data-dark-theme="dark"] input[type="submit"]:focus {
+    box-shadow: #cdd9e5 0 0 5px 0;
+    border: none;
     color: #a3aaba; }
   [data-dark-theme="dark"] form button:not(.tox-tbtn):active, [data-dark-theme="dark"] form button:not(.tox-tbtn):visited, [data-dark-theme="dark"] form button:not(.tox-tbtn):hover, [data-dark-theme="dark"] form button:not(.tox-tbtn):focus, [data-dark-theme="dark"] input[type="button"]:active, [data-dark-theme="dark"] input[type="button"]:visited, [data-dark-theme="dark"] input[type="button"]:hover, [data-dark-theme="dark"] input[type="button"]:focus, [data-dark-theme="dark"] input[type="reset"]:active, [data-dark-theme="dark"] input[type="reset"]:visited, [data-dark-theme="dark"] input[type="reset"]:hover, [data-dark-theme="dark"] input[type="reset"]:focus, [data-dark-theme="dark"] input[type="submit"]:active, [data-dark-theme="dark"] input[type="submit"]:visited, [data-dark-theme="dark"] input[type="submit"]:hover, i[data-dark-theme="dark"] nput[type="submit"]:focus {
     color: #cdd9e5; }
-  [data-dark-theme="dark"] form button:not(.tox-tbtn):focus, [data-dark-theme="dark"] input[type="button"]:focus, [data-dark-theme="dark"] input[type="reset"]:focus, [data-dark-theme="dark"] input[type="submit"]:focus {
-    box-shadow: #cdd9e5 0 0 5px 0;
-    border: none; }
   [data-dark-theme="dark"] form button:not(.tox-tbtn)[disabled], [data-dark-theme="dark"] select[disabled], [data-dark-theme="dark"] select[disabled] option, [data-dark-theme="dark"] select[disabled] optgroup, [data-dark-theme="dark"] textarea[disabled], [data-dark-theme="dark"] input[disabled] {
     color: #3c3c3c; }
   [data-dark-theme="dark"] .msg_notice, [data-dark-theme="dark"] .serendipity_msg_notice, [data-dark-theme="dark"] .msg_important, [data-dark-theme="dark"] .serendipity_msg_important {
