@@ -2,6 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve [ pure ] standard theme [ dark mode ] button coloring !!
+
   * In regression of fixing the spamblock Captcha element ID for uniqueness, we
     had to convert relying theme styles to better use a new [.]class_selector.
     These themes [ pure, default, boot, b5blog, b46, b53, sliver, timeline] were
