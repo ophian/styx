@@ -2,6 +2,9 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fixed wrong thrown "no right to publish" message in Userinfo for addUser
+    plugin added new users in the backend per default startup value.
+
   * Improve [ pure ] standard theme [ dark mode ] button coloring !!
 
   * In regression of fixing the spamblock Captcha element ID for uniqueness, we
