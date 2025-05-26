@@ -264,7 +264,7 @@
 {if $admin_vars.no_create !== true}{serendipity_hookPlugin hook="backend_sidebar_users" hookAll="true"}{/if}
 {else}
 {if $admin_vars.no_create !== true}{serendipity_hookPlugin hook="backend_sidebar_users" hookAll="true"}{/if}
-{if $admin_vars.right_publish !== true}
+{if $admin_vars.right_publish !== true AND $admin_vars.no_create !== true}
                         <li>
                             <span class="msg_hint">{$CONST.USER_ALERT} "<b>{$CONST.PERMISSIONS|upper}</b>"<br>&laquo;&nbsp;<em>{$CONST.ENTRY_STATUS}: {$CONST.DRAFT}</em>&nbsp;&raquo;</span>
                             <span class="msg_notice hyphenate"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.USER_PERMISSION_NOTIFIER_DRAFT_MODE}</span>
@@ -274,6 +274,7 @@
 {if $admin_vars.no_create === true}
                         <li>
                             <span class="msg_hint">{$CONST.USER_ALERT} "<b>{$CONST.PERMISSIONS|upper}</b>"<br>&laquo;&nbsp;<em>{$CONST.PERMISSIONS}: {$CONST.NONE}</em>&nbsp;&raquo;</span>
+                            <span class="msg_notice hyphenate"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.USER_PERMISSION_NOTIFIER_WRITE_MODE}</span>
                             <span class="msg_notice hyphenate"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.USER_PERMISSION_NOTIFIER_RESET}</span>
                         </li>
 {/if}
