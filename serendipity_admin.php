@@ -281,6 +281,10 @@ if ($ajax) {
         $admin_vars[$poll_admin_var] =& $$poll_admin_var;
     }
 
+    if (!is_bool($serendipity['no_create'])) {
+        $serendipity['no_create'] = serendipity_db_bool($serendipity['no_create']);
+    }
+
     $admin_vars['out']       = array();
     $admin_vars['darkmode']  = $serendipity['dark_mode'] ?? false;
     $admin_vars['no_create'] = $serendipity['no_create'];
@@ -289,9 +293,10 @@ if ($ajax) {
     // If set to true (in serendipity_config_local.inc.php), the pages (tab) title will be
     // "blog title | section | SERENDIPITY_ADMIN_SUITE" instead
     $admin_vars['backendBlogtitleFirst'] = empty($serendipity['backendBlogtitleFirst']) ? false : true;
-    $admin_vars['right_publish'] = $serendipity['right_publish'] ?? true; // true is the default (fallback) start value (AddUser new case set: revoke right == no)
-                                                                          // when user[s] backend configuration 'right_publish' hasn't been ever set yet, and will
-                                                                          // be set either/or true|false to the serendipity global when configured at least once by admin.
+    $admin_vars['right_publish'] = $serendipity['right_publish'] ?? $serendipity['no_create'] !== false;
+                                    // true is the default (fallback) start value (AddUser new case set: revoke right == no)
+                                    // when user[s] backend configuration 'right_publish' hasn't been ever set yet, and will
+                                    // be set either/or true|false to the serendipity global when configured at least once by admin.
 
     if ($serendipity['expose_s9y']) {
         $admin_vars['version_info'] = sprintf(ADMIN_FOOTER_POWERED_BY, $serendipity['versionInstalled'], PHP_VERSION);
