@@ -692,6 +692,7 @@
 @define('USER_SELF_INFO', 'Logged in as %s (%s)');
 @define('USER_ALERT', 'Userinfo');
 @define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'You have not yet been granted the right to publish your entries directly. Until sufficient trust is built, inform your assigned editor-in-chief that your entry is ready for publication and approval.');
+@define('USER_PERMISSION_NOTIFIER_WRITE_MODE', 'You have not (yet) been granted writing rights on this blog. Until sufficient trust has been built up, please inform your assigned editor-in-chief / administrator that you would like to publish an entry and send it along for approval and publication.');
 @define('USER_PERMISSION_NOTIFIER_RESET', 'In case of temporary revocation of rights, please clarify the reasons in a friendly personal conversation.');
 @define('ADMIN_ENTRIES', 'Entries');
 @define('RECHECK_INSTALLATION', 'Recheck installation');
