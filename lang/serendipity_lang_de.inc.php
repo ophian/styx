@@ -688,8 +688,8 @@
 @define('USERCONF_USERLEVEL_DESC', 'Zugriffsrechte bestimmen die Art und den Umfang des Zugriffs eines Benutzers auf die Funktionalitäten des Blogs. Benutzerrechte werden mittels Gruppenzugehörigkeiten verwaltet!');
 @define('USER_SELF_INFO', 'Angemeldet als %s (%s)');
 @define('USER_ALERT', 'Benutzermeldung');
-@define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'Ihnen wurde noch nicht das Recht gewährt ihre Einträge direkt zu veröffentlichen. Bis genügend Vertrauen aufbaut ist, informieren Sie ihren zugeordneten Chefredakteur darüber, dass ihr Eintrag zur Abnahme und Veröffentlichung fertig bereit steht.');
-@define('USER_PERMISSION_NOTIFIER_WRITE_MODE', 'Ihnen wurden (noch) keine Schreibrechte auf diesem Blog gewährt. Bis genügend Vertrauen aufbaut ist, informieren Sie ihren zugeordneten Chefredakteur / Administrator darüber, dass Sie einen Eintrag veröffentlichen möchten und senden diesen zur Abnahme und Veröffentlichung gleich mit.');
+@define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'Ihnen wurde noch nicht das Recht gewährt ihre Einträge direkt zu veröffentlichen. Bis genügend Vertrauen aufgebaut ist, informieren Sie ihren zugeordneten Chefredakteur / Administrator darüber, dass ihr Eintrag zur Abnahme und Veröffentlichung fertig bereit steht.');
+@define('USER_PERMISSION_NOTIFIER_WRITE_MODE', 'Ihnen wurden (noch) keine Schreibrechte auf diesem Blog gewährt. Bis genügend Vertrauen aufgebaut ist, informieren Sie ihren zugeordneten Chefredakteur / Administrator darüber, dass Sie einen Eintrag veröffentlichen möchten und senden diesen zur Abnahme und Veröffentlichung gleich mit.');
 @define('USER_PERMISSION_NOTIFIER_RESET', 'Bei vorübergehenden Entzug von Rechten, klären Sie die Gründe bitte im freundlich persönlichen Gespräch.');
 @define('ADMIN_ENTRIES', 'Einträge');
 @define('RECHECK_INSTALLATION', 'Installation erneut überprüfen');

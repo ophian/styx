@@ -694,7 +694,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('USERCONF_USERLEVEL_DESC', 'Това ниво определя какъв вид достъп ще има потребителя до блога. Привилегиите на потребителите се управляват от членството в групи!');
 @define('USER_SELF_INFO', 'Влязъл сте като %s (%s)');
 @define('USER_ALERT', 'Userinfo');
-@define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'You have not yet been granted the right to publish your entries directly. Until sufficient trust is built, inform your assigned editor-in-chief that your entry is ready for publication and approval.');
+@define('USER_PERMISSION_NOTIFIER_DRAFT_MODE', 'You have not yet been granted the right to publish your entries directly. Until sufficient trust is built, inform your assigned editor-in-chief / administrator that your entry is ready for publication and approval.');
 @define('USER_PERMISSION_NOTIFIER_WRITE_MODE', 'You have not (yet) been granted writing rights on this blog. Until sufficient trust has been built up, please inform your assigned editor-in-chief / administrator that you would like to publish an entry and send it along for approval and publication.');
 @define('USER_PERMISSION_NOTIFIER_RESET', 'In case of temporary revocation of rights, please clarify the reasons in a friendly personal conversation.');
 @define('ADMIN_ENTRIES', 'Статии');
