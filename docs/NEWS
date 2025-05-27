@@ -2,6 +2,9 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Update [ pure ] standard theme build year to 2025 for Styx 5 and various
+    improvements along the road.
+
   * Fixed wrong thrown "no right to publish" message in backend Userinfo for
     addUser plugin added new users default startup value. Improve (editor users)
     backend sidebar conditional for 'no_create' vs 'right_publish' messaging.
