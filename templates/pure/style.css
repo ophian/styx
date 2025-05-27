@@ -2314,6 +2314,16 @@ div.serendipityPlug a {
     margin-bottom: 5px;
 }
 
+/* adduser login/logoutbox */
+#serendipity_loginform #content {
+    margin: 0.5em;
+    min-height: 12em;
+    width: auto;
+}
+#loginbox .button_link {
+    margin-left: 6em;
+}
+
 /** Embedded images with the Serendipity Styx image manager **/
 
 .serendipity_imageComment_center,
