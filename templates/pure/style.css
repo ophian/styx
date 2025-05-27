@@ -277,6 +277,11 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     border-image-slice: 1;
     box-shadow: 2px 3px 7px rgb(32 32 33 / 90%);
     color: #adbac7; }
+  [data-dark-theme="dark"] select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #22272e url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'><path fill='%23adbac7' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>") right .75rem center/8px 10px no-repeat; }
   [data-dark-theme="dark"] form button:not(.tox-tbtn), [data-dark-theme="dark"] input[type="button"], [data-dark-theme="dark"] input[type="reset"], [data-dark-theme="dark"] input[type="submit"] {
     background: #2c3d51;
     background: -webkit-linear-gradient(135deg, #1c2128, #2c3d51);
