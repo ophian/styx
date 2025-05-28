@@ -2330,6 +2330,13 @@ fieldset p,
     margin-bottom: 0;
 }
 
+.entry_status_mode_header {
+    font-size: .9125rem;
+    font-style: italic;
+    cursor: help;
+    color: #c09853;
+}
+
 .actions,
 .edit_actions,
 #dashboard > section .entry_status,
