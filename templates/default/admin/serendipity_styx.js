@@ -1370,8 +1370,12 @@ $(function() {
 
         if (stateIcon.hasClass('icon-toggle-on')) {
             stateIcon.removeClass('icon-toggle-on').addClass('icon-toggle-off');
+            setTimeout(function() {
+                $('.entry_status_mode_header').show();
+            }, 5000);
         } else {
             stateIcon.removeClass('icon-toggle-off').addClass('icon-toggle-on');
+            $('.entry_status_mode_header').hide();
         }
 
         // Inline notification, we might want to make this reusable
