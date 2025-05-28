@@ -483,7 +483,7 @@ switch($serendipity['GET']['adminAction']) {
                     'ep_is_sticky'  => (isset($ey['properties']['ep_is_sticky']) && serendipity_db_bool($ey['properties']['ep_is_sticky']) ? true : false),
                     'ep_is_locked'  => !empty($ey['properties']['ep_entrypassword']),
                     'pubdate'       => date('c', (int) $ey['timestamp']),
-                    'author'        => htmlspecialchars($ey['author']),
+                    'author'        => htmlspecialchars($ey['author'] ?? 'N/A'),
                     'cats'          => $entry_cats,
                     'preview'       => ((serendipity_db_bool($ey['isdraft']) || (!$serendipity['showFutureEntries'] && $ey['timestamp'] >= serendipity_serverOffsetHour())) ? true : false),
                     'archive_link'  => serendipity_archiveURL($ey['id'], $ey['title'], 'serendipityHTTPPath', true, array('timestamp' => $ey['timestamp'])),
