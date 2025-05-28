@@ -2331,9 +2331,10 @@ fieldset p,
 }
 
 .entry_status_mode_header {
+    margin-left: .5em;
+    cursor: help;
     font-size: .9125rem;
     font-style: italic;
-    cursor: help;
     color: #c09853;
 }
 
