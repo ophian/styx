@@ -2,6 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Show entry draft status in backend entry form
+
   * Update [ pure ] standard theme build year to 2025 for Styx 5 and various
     improvements along the road.
 
