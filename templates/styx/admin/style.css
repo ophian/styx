@@ -2331,6 +2331,9 @@ fieldset p,
     right: 27%;
     cursor: pointer;
 }
+.comment_filter {
+    right: 34%;
+}
 .filter_mode svg.bi {
     width: 24px;
     height: 24px;
@@ -4581,8 +4584,11 @@ img.mfp-img {
     .media_filter {
         top: 4.5em;
     }
-    .entry_filter {
+    .entry_filter, .comment_filter {
         top: 1.5em;
+    }
+    .comment_filter {
+        right: 30%;
     }
 
     .entry_status_stripe {
@@ -5756,7 +5762,7 @@ img.mfp-img {
         margin: auto auto 4em;
     }
 
-    .entry_filter {
+    .entry_filter, .comment_filter {
         top: 1.875em;
     }
     .media_filter {
