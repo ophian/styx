@@ -2,8 +2,8 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
-  * Improve the "filtered-mode" icon for backend entries list & media toolbar.
-    Now resets the filter on click to the default values.
+  * Improve the "filtered-mode" icon for backend entries list, comments and the
+    media toolbar. Now resets the filter on click to the default values.
 
   * Show entry draft status in backend entry form
 
