@@ -220,12 +220,6 @@ body {
 }
 
 /* These selection declarations have to be separate. */
-::-moz-selection {
-    background: #ccdde7;
-    color: #444;
-    text-shadow: none;
-}
-
 ::selection {
     background: #ccdde7;
     color: #444;
