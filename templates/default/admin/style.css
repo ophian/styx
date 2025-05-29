@@ -2119,12 +2119,17 @@ fieldset p,
     margin-bottom: 0;
 }
 
-.entry_status_mode_header {
-    margin-left: .5em;
-    cursor: help;
-    font-size: .9125rem;
-    font-style: italic;
-    color: #c09853;
+.entry_status_stripe {
+    top: 1em;
+    position: relative;
+    float: right;
+    font-size: smaller;
+    color: currentColor;
+    opacity: .7;
+    width: auto;
+    padding: 0 1em;
+    background: repeating-linear-gradient( 45deg, transparent, transparent 10px, #ddd 10px, #eee 20px );
+    border: 1px dashed currentColor;
 }
 
 .actions,
@@ -4248,6 +4253,10 @@ img.mfp-img {
 
     #media_selector_bar {
         margin: 0;
+    }
+
+    .entry_status_stripe {
+        top: 5em;
     }
 
     .popuplayer_showUpload {
