@@ -4582,7 +4582,7 @@ img.mfp-img {
         top: 4.5em;
     }
     .entry_filter {
-        top: 1.875em;
+        top: 1.5em;
     }
 
     .entry_status_stripe {
@@ -5756,6 +5756,9 @@ img.mfp-img {
         margin: auto auto 4em;
     }
 
+    .entry_filter {
+        top: 1.875em;
+    }
     .media_filter {
         top: 5em;
     }
