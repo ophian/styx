@@ -443,21 +443,12 @@ form .row:first-child .floating-label-form-group {
   background-color: #404040;
   cursor: not-allowed;
 }
-::-moz-selection {
-  color: white;
-  text-shadow: none;
-  background: #0085a1;
-}
 ::selection {
   color: white;
   text-shadow: none;
   background: #0085a1;
 }
 img::selection {
-  color: white;
-  background: transparent;
-}
-img::-moz-selection {
   color: white;
   background: transparent;
 }
