@@ -2119,6 +2119,18 @@ fieldset p,
     margin-bottom: 0;
 }
 
+.filter_mode {
+    position: relative;
+    float: right;
+    top: 1.375em;
+    right: 27%;
+    cursor: pointer;
+}
+.filter_mode svg.bi {
+    width: 24px;
+    height: 24px;
+}
+
 .entry_status_stripe {
     top: 1em;
     position: relative;
@@ -4255,6 +4267,13 @@ img.mfp-img {
         margin: 0;
     }
 
+    .media_filter {
+        top: 4.5em;
+    }
+    .entry_filter {
+        top: 1.875em;
+    }
+
     .entry_status_stripe {
         top: 5em;
     }
@@ -4465,6 +4484,9 @@ img.mfp-img {
         margin: 1.71429em 0;
     }
 
+    .media_filter {
+        top: 4.5em;
+    }
     .media_file h3 {
         width: 16em;
     }
@@ -5323,6 +5345,9 @@ img.mfp-img {
         margin: auto auto 4em;
     }
 
+    .media_filter {
+        top: 5em;
+    }
     .media_pane > .media_file.mlMidCol ul.media_file_actions.plainList,
     .media_pane > .media_file.mlMaxCol ul.media_file_actions.plainList {
         padding: .15em .15em;
