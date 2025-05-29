@@ -110,6 +110,26 @@
 
 {if !empty($c_type) OR isset($smarty.get.submit)}
 <a class="button_link" href="serendipity_admin.php?serendipity[adminModule]=comments">{$CONST.BACK}</a>
+
+<script>
+    $(document).ready(function() {
+        $('#filter_comments').find('.reset_comment_filters').addClass('reset_filter');
+        $('.reset_filter').click(function() {
+            $('#filter_author').attr('value', '');
+            $('#filter_email').attr('value', '');
+            $('#filter_url').attr('value', '');
+            $('#filter_ip').attr('value', '');
+            $('#filter_body').attr('value', '');
+            $('#filter_referer').attr('value', '');
+            $('#filter_perpage option:selected').prop('selected', false);
+            $('#filter_show option:selected').prop('selected', false);
+            $('#filter_type option:selected').prop('selected', false);
+        });
+        $('.filter_mode').one( "click", function( event ) {
+            $('.reset_filter').trigger( "click" );
+        });
+    });
+</script>
 {/if}
 {else}
 
