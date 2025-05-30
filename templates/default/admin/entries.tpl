@@ -1,4 +1,4 @@
-{if $entry_vars.entry.isdraft == true}<div class="entry_status_stripe" title="{$CONST.DRAFT}"> [ {$CONST.DRAFT} ] </div>{/if}
+{if $entry_vars.entry.isdraft == 'true'}<div class="entry_status_stripe" title="{$CONST.DRAFT}"> [ {$CONST.DRAFT} ] </div>{/if}
 
 <h2>{if isset($entry_vars.entry.title)}{$CONST.EDIT_ENTRY}{else}{$CONST.NEW_ENTRY}{/if}</h2>
 {if $entry_vars.errMsg}
