@@ -12,8 +12,8 @@ if (null !== html) {
 const commentConfig = {
     skin: (typeof(STYX_DARKMODE) !== 'undefined' && STYX_DARKMODE === true) ? 'tinymce-5-dark' : 'tinymce-5',
     content_css: [ ((typeof(STYX_DARKMODE) !== 'undefined' && STYX_DARKMODE === true) ? 'templates/_assets/prism/dark/prism.css' : 'templates/_assets/prism/default/prism.css'),
-                   'templates/_assets/sctc.min.css'
-                 ], // styx-custom-tinymce-content.css
+                   'templates/_assets/sctc.min.css', ((typeof(STYX_DARKMODE) !== 'undefined' && STYX_DARKMODE === true) ? 'templates/_assets/sctc-dark.min.css' : '')
+                 ], // custom mix styx_custom_tinymce_content.css w/ own colors, for STYX_DARKMODE case including dark mode additions to overwrite 'sctc.min.css'
     noneditable_class: 'mceNonEditable',
     // keep in once, to not loose features - names are case sensitive !
     plugins: 'preview autoresize lists code fullscreen image link media codesample table charmap styxDiv styxPrg help emoticons accordion magicline',
