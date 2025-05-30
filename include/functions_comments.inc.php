@@ -199,7 +199,7 @@ function serendipity_forgetCommentDetails(iterable $keys) : void {
  *      - The modified string if match
  */
 function serendipity_commentSearchHighlight(?string $search, string $string) : string {
-    if (null === $search) return $string;
+    if (empty($search)) return $string;
 
     $words = explode(' ', urldecode($search));
     $escaped_words = array_map(function ($word) {
