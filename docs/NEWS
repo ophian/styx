@@ -2,6 +2,9 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Improve load of custom dark or light mode styles for the TinyMCE RichText
+    Editor backend content frame(s).
+
   * Improve the "filtered-mode" icon setup for backend entries list, comments &
     the media toolbar. Now resets the filter on "click" to the default values.
 
