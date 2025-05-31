@@ -1409,10 +1409,12 @@ h3.additional_properties {
     tab-size: 4;
     width: 99%;
     width: -moz-fit-content;
+    width: fit-content;
 }
 .comment_full pre code {
+    display: -webkit-box;
     display: block;
-    padding: 0.5em;
+    padding: .5em;
     color: #333;
     background: #f8f8f8;
 }
