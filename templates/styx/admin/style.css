@@ -11,12 +11,14 @@ main,
 nav,
 section,
 summary {
+    display: -webkit-box;
     display: block;
 }
 
 audio,
 canvas,
 video {
+    display: -webkit-inline-box;
     display: inline-block;
 }
 
@@ -242,6 +244,7 @@ body {
 }
 
 hr {
+    display: -webkit-box;
     display: block;
     height: 1px;
     border: 0;
@@ -331,6 +334,7 @@ details summary {
 }
 
 .no-details details summary {
+    display: -webkit-box;
     display: block;
 }
 
@@ -476,6 +480,7 @@ svg.bi {
     font-style: normal;
     font-weight: normal;
     speak: none;
+    display: -webkit-inline-box;
     display: inline-block;
     text-decoration: inherit;
     width: 1em;
@@ -606,6 +611,7 @@ form > button,
 .comment_status,
 .tabs > ul > li,
 .overviewListForm {
+    display: -webkit-inline-box;
     display: inline-block;
 }
 
@@ -643,6 +649,7 @@ label > span,
 #mediaPropertyForm footer b,
 #content .upgrade_task,
 #content .upgrade_done {
+    display: -webkit-box;
     display: block;
 }
 
@@ -710,6 +717,7 @@ form > button,
     border: 1px solid red;
 }
 .plugins_installable .single_hint {
+    display: -webkit-box;
     display: block;
     border: 1px solid red;
     box-shadow: 1px 2px 3px #555;
@@ -863,6 +871,7 @@ button[type="submit"].publish_now {
 
 .button_group {
     width: auto;
+    display: -webkit-inline-box;
     display: inline-block;
     margin-bottom: 2em;
 }
@@ -1251,6 +1260,7 @@ input[type=checkbox],
 }
 
 #upgrade_notice a {
+    display: -webkit-box;
     display: block;
     margin: 0 0 .5em;
 }
@@ -1340,6 +1350,7 @@ h3.additional_properties {
 }
 #media_filter .bp_note {
     margin-top: 2.25em;
+    display: -webkit-inline-box;
     display: inline-block;
     padding: 1px;
     border: 1px solid #CCC;
@@ -1650,6 +1661,7 @@ summary {
 .installer .msg_success,
 .installer .msg_notice,
 .installer .msg_hint {
+    display: -webkit-inline-box;
     display: inline-block;
     margin: .5em 0;
     padding: 0 .5em;
@@ -1774,6 +1786,7 @@ summary {
 }
 
 #mediaPropertyForm .media_wrap_thumb {
+    display: -webkit-inline-box;
     display: inline-block;
     float: none;
     margin: 0;
@@ -1946,6 +1959,7 @@ a.media_show_info.button_link,
 }
 
 .user_level {
+    display: -webkit-box;
     display: block;
 }
 ul.edit_actions li > .user_level {
@@ -1989,6 +2003,7 @@ ul.edit_actions li > .user_level {
     white-space: nowrap;
     overflow: hidden;
     vertical-align: top;
+    display: -webkit-inline-box;
     display: inline-block;
 }
 #top {
@@ -2148,6 +2163,7 @@ html[data-login-color-mode="dark"], [data-login-color-mode="dark"] button, [data
 }
 
 #main_menu a {
+    display: -webkit-box;
     display: block;
     padding-top: 3px;
     padding-bottom: 3px;
@@ -2167,6 +2183,7 @@ html[data-login-color-mode="dark"], [data-login-color-mode="dark"] button, [data
 }
 
 #main_menu #user_menu li {
+    display: -webkit-inline-box;
     display: inline-block;
     margin-right: .5em;
     width: auto;
@@ -2310,12 +2327,14 @@ fieldset p,
 }
 
 .media_file_metadata dl {
+    display: -webkit-box;
     display: block;
     margin-top: 0;
     border-top: 1px solid #aaa;
 }
 .media_file_metadata dt,
 .media_file_metadata dd {
+    display: -webkit-inline-box;
     display: inline-block;
     min-width: 15em;
     width: auto;
@@ -2430,6 +2449,7 @@ span[class^="msg_"] + .entry_status_stripe {
     margin-bottom: 1em;
 }
 .upgrader_tasks dd {
+    display: -webkit-inline-box;
     display: inline-block;
     background: #fcf8e3;
     border: 1px solid #fbeed5;
@@ -2455,6 +2475,7 @@ span[class^="msg_"] + .entry_status_stripe {
 }
 
 .category_desc {
+    display: -webkit-box;
     display: block;
 }
 
@@ -2563,8 +2584,9 @@ form > .button_link:first-of-type,
 }
 
 #template_select a.media_fullsize {
-  height: auto;
-  display: inline-block;
+    height: auto;
+    display: -webkit-inline-box;
+    display: inline-block;
 }
 
 .plugins_removed li {
@@ -2604,6 +2626,7 @@ form > .button_link:first-of-type,
     position: relative;
 }
 .media_enclose_no header div {
+    display: -webkit-box;
     display: block;
     border-bottom: 1px solid #DDD;
     background: #FEFEFE;
@@ -2803,6 +2826,7 @@ h3 .media_file_actions {
 
 .mfp-content #backend_freetag_list a,
 .mfp-content #backend_freetag_list b {
+    display: -webkit-inline-box;
     display: inline-block;
     margin-right: .25em;
 }
@@ -2821,8 +2845,9 @@ h3 .media_file_actions {
 
 .js .mfp-wrap #edit_entry_category .wrap_legend,
 .mfp-content #s9y_links h3 {
-    border-bottom: 1px solid #aaa;
+    display: -webkit-box;
     display: block;
+    border-bottom: 1px solid #aaa;
     margin-bottom: .583335em;
     padding-bottom: .583335em;
 }
@@ -2840,6 +2865,7 @@ h3 .media_file_actions {
 .mfp-content #rename_msg .msg_error,
 .mfp-content #rename_msg code,
 .mfp-content #rename_msg pre {
+    display: -webkit-inline-box;
     display: inline-block;
     text-align: left;
 }
@@ -2881,6 +2907,7 @@ h3 .media_file_actions {
 }
 
 .taxonomy li {
+    display: -webkit-inline-box;
     display: inline-block;
     margin: 0 .5714em .3571em 0;
     padding: .1875em 0 0;
@@ -2926,6 +2953,7 @@ h3 .media_file_actions {
 
 #login fieldset > span,
 #auth_fpwd fieldset > span {
+    display: -webkit-box;
     display: block;
     font-weight: bold;
 }
@@ -3000,12 +3028,14 @@ h3 .media_file_actions {
     font-size: .925rem;
 }
 #dashboard_sysinfo .sysinfo_title {
+    display: -webkit-inline-box;
     display: inline-block;
     width: 85%;
     margin-bottom: .125em;
     color: firebrick;
 }
 #dashboard_sysinfo .sysinfo_priority {
+    display: -webkit-inline-box;
     display: inline-block;
     width: 15%;
     text-align: right;
@@ -3253,6 +3283,7 @@ h3 .media_file_actions {
 
 .field_info {
     clear: both;
+    display: -webkit-box;
     display: block;
     margin: .75em 0;
 }
@@ -3264,6 +3295,7 @@ h3 .media_file_actions {
 }
 
 .installer .toggle_info b {
+    display: -webkit-inline-box;
     display: inline-block;
     font-family: Georgia, 'Times New Roman', serif;
     font-size: .875em;
@@ -3341,6 +3373,7 @@ select#serendipity_commentform_replyToParent {
 }
 #copa_info.comment_status {
     float: none;
+    display: -webkit-inline-box;
     display: inline-block;
     margin: .5em 0;
 }
@@ -3582,6 +3615,7 @@ label .perm_name,
 
 .pluginmanager  .pluginmanager_grablet {
     cursor: move;
+    display: -webkit-box;
     display: block;
 }
 .pluginmanager_grablet button {
@@ -3630,6 +3664,7 @@ label .perm_name,
 
 .configuration_group .sequence_grablet,
 .configuration_group .sequence_item .form_check {
+    display: -webkit-inline-box;
     display: inline-block;
     margin: 0 .4em 0 0;
 }
@@ -3638,6 +3673,7 @@ label .perm_name,
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    display: -webkit-box;
     display: block;
     margin: 0 0 .25em;
     padding: .25em;
@@ -3645,6 +3681,7 @@ label .perm_name,
 }
 
 .configure_plugin .configuration_group .sequence_item > span {
+    display: -webkit-inline-box;
     display: inline-block;
     width: 70%;
     vertical-align: top;
@@ -3696,6 +3733,7 @@ label .perm_name,
 
 .no-js .nojs-controls,
 .touch .nojs-controls {
+    display: -webkit-box;
     display: block;
     visibility: visible;
 }
@@ -3745,6 +3783,7 @@ label .perm_name,
 .js .mlDefCol .media_controls audio {
     width: max-content;
     min-width: 18em;
+    display: -webkit-inline-box;
     display: inline-block;
 }
 .js img.media_mime_player_thumb,
@@ -3972,10 +4011,12 @@ input[name="serendipity[filter][fileCategory]"] {
 }
 
 #media_pane_sort .media_page {
+    display: -webkit-inline-box;
     display: inline-block;
     width: 100%;
 }
 #media_pane_sort .media_page label {
+    display: -webkit-inline-box;
     display: inline-block;
 }
 input#select_page {
@@ -3993,6 +4034,7 @@ input#select_page {
 }
 
 #progressWidget {
+    display: -webkit-box;
     display: block;
     margin: auto;
     position: relative;
@@ -4010,6 +4052,7 @@ input#select_page {
 }
 
 #updateProgress, #updateIndicator, #updateMessage {
+    display: -webkit-box;
     display: block;
     margin-bottom: 1em;
     margin: auto;
@@ -4039,6 +4082,7 @@ input#select_page {
 }
 
 #footerContainer .button_link {
+    display: -webkit-box;
     display: block;
 }
 
@@ -4088,6 +4132,7 @@ input#select_page {
 
 .mfp-container:before {
   content: '';
+  display: -webkit-inline-box;
   display: inline-block;
   height: 100%;
   vertical-align: middle; }
@@ -4104,6 +4149,7 @@ input#select_page {
 
 .mfp-content {
   position: relative;
+  display: -webkit-inline-box;
   display: inline-block;
   vertical-align: middle;
   margin: 0 auto;
@@ -4190,6 +4236,7 @@ button.mfp-arrow {
   background: transparent;
   border: 0;
   -webkit-appearance: none;
+  display: -webkit-box;
   display: block;
   outline: none;
   padding: 0;
@@ -4260,6 +4307,7 @@ button::-moz-focus-inner {
   .mfp-arrow:before,
   .mfp-arrow:after {
     content: '';
+    display: -webkit-box;
     display: block;
     width: 0;
     height: 0;
@@ -4313,6 +4361,7 @@ button::-moz-focus-inner {
   padding-top: 56.25%; }
   .mfp-iframe-scaler iframe {
     position: absolute;
+    display: -webkit-box;
     display: block;
     top: 0;
     left: 0;
@@ -4326,6 +4375,7 @@ img.mfp-img {
   width: auto;
   max-width: 100%;
   height: auto;
+  display: -webkit-box;
   display: block;
   line-height: 0;
   box-sizing: border-box;
@@ -4341,6 +4391,7 @@ img.mfp-img {
     left: 0;
     top: 40px;
     bottom: 40px;
+    display: -webkit-box;
     display: block;
     right: 0;
     width: auto;
@@ -4349,8 +4400,9 @@ img.mfp-img {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
     background: #444; }
   .mfp-figure small {
-    color: #BDBDBD;
+    color: #bdbdbd;
     display: block;
+    display: -webkit-box;
     font-size: 12px;
     line-height: 14px; }
   .mfp-figure figure {
@@ -4447,6 +4499,7 @@ img.mfp-img {
         width: auto;
     }
     #media_filter .range-label {/*mediafilter*/
+        display: -webkit-inline-box;
         display: inline-block;
         width: auto;
     }
@@ -4651,6 +4704,7 @@ img.mfp-img {
     #media_pane_sort label,
     #karmafilters label,
     #image_directory_create_form label {
+        display: -webkit-inline-box;
         display: inline-block;
         width: 20%;
         white-space: nowrap;/*mediafilter*/
@@ -4663,6 +4717,7 @@ img.mfp-img {
     }
 
     #uploadform label {
+        display: -webkit-inline-box;
         display: inline-block;
     }
     #uploadform .form_field input,
@@ -4750,6 +4805,7 @@ img.mfp-img {
     #mediaPropertyForm .media_file_props label,
     #mediaPropertyForm header b,
     #mediaPropertyForm footer b {
+        display: -webkit-inline-box;
         display: inline-block;
         width: 20%;
     }
@@ -4786,6 +4842,7 @@ img.mfp-img {
     }
 
     #plugin_filter {
+        display: -webkit-inline-box;
         display: inline-block;
         margin-right: 2%;
         width: 48%;
@@ -4853,6 +4910,7 @@ img.mfp-img {
     }
 
     .js #grid-selector {
+        display: -webkit-box;
         display: block;
         visibility: visible;
         float: right;
@@ -5036,6 +5094,7 @@ img.mfp-img {
                 column-count: 2;
     }
     #maintenance > section {
+        display: -webkit-inline-box;
         display: inline-block;
         width: 100%;
         -webkit-column-break-inside: avoid;
@@ -5177,6 +5236,7 @@ img.mfp-img {
     }
 
     #upgrade_notice a {
+        display: -webkit-inline-box;
         display: inline-block;
         margin: 0 0 0 .4em;
     }
@@ -5226,6 +5286,7 @@ img.mfp-img {
     }
 
     #maintenance_import label {
+        display: -webkit-box;
         display: block;
     }
 
@@ -5345,6 +5406,7 @@ img.mfp-img {
     #template_options .configuration_group .form_area  .cke {
         float: unset;
         width: 98%;
+        display: -webkit-inline-box;
         display: inline-block;
         margin-top: .5rem;
     }
@@ -5436,6 +5498,7 @@ img.mfp-img {
     #media_pane_filter label,
     #media_pane_sort label,
     #karmafilters label {
+        display: -webkit-box;
         display: block;
         width: auto;
     }
@@ -5627,6 +5690,7 @@ img.mfp-img {
       border-bottom: 1px solid transparent;
     }
     .js #main_menu .expandable {
+      display: -webkit-inline-box;
       display: inline-block;
       overflow: visible;
       vertical-align: text-bottom;
@@ -5704,6 +5768,7 @@ img.mfp-img {
         background-image: -webkit-linear-gradient(#fff, #ddd);
         background-image: linear-gradient(#fff, #ddd);
         border-bottom: 1px solid #aaa;
+        display: -webkit-box;
         display: block;
         color: #666;
         font-size: 1em;
