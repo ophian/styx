@@ -1019,6 +1019,13 @@ button[type="submit"]:focus {
     color: #fafafa;
     text-shadow: #050505 0 1px 1px;
 }
+/* entry trackbacks & in-group clearfield buttons */
+.buttonless_link.state_cancel {
+    background-image: linear-gradient(#ffdddd, #b94a48);
+    border: 2px solid;
+    border-color: #ede6dc;
+    cursor: pointer;
+}
 
 .icon-user.admin, .icon-users.admin {
     color: #b10dc9;
