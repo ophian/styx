@@ -1446,8 +1446,10 @@ h3.additional_properties {
     tab-size: 4;
     width: 99%;
     width: -moz-fit-content;
+    width: fit-content;
 }
 .comment_full pre[class^="language-"] {
+    display: -webkit-box;
     display: block;
     max-height: 100vh;
     padding: .5em;
@@ -1457,11 +1459,12 @@ h3.additional_properties {
     border-right-color: transparent;
 }
 .comment_full pre code {
+    display: -webkit-box;
     display: block;
     padding: .5em;
     color: #333;
     background: #f8f8f8;
-    min-width: 15em;
+    min-width: 18em;
 }
 .comment_full pre code[class^="language-"] {
     background-color: lightgray;
