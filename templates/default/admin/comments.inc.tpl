@@ -260,6 +260,7 @@
         $('.filter_mode').one( "click", function( event ) {
             $('.reset_filter').trigger( "click" );
         });
+        if (typeof STYX_DARKMODE === 'undefined' || STYX_DARKMODE === null) STYX_DARKMODE = false;
         if (STYX_DARKMODE === true) {
             $('.comment_full').find('code[class^="language-"]').parent('pre').attr('title', 'Simple preview only. View this snippets codehighlight color either in Rich Text comment edit form or in your frontend when supported.');//old
             $('.comment_full').find('pre[class^="language-"]').attr('title', 'Simple preview only. View this snippets codehighlight color either in Rich Text comment edit form or in your frontend when supported.');//new
