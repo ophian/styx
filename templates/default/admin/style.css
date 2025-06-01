@@ -2130,17 +2130,23 @@ fieldset p,
 
 .filter_mode {
     position: relative;
+    line-height: 1;
     float: right;
-    top: 1.375em;
+    top: 1em;
     right: 27%;
     cursor: pointer;
 }
-.comment_filter {
-    right: 34%;
+.filter_comment {
+    right: 35%;
+}
+.filter_media {
+    right: 30%;
 }
 .filter_mode svg.bi {
-    width: 24px;
-    height: 24px;
+    width: 36px;
+    height: 36px;
+    border: 2px solid #b9b9b9;
+    border-radius: 20px 20px 20px 20px;
 }
 
 .entry_status_stripe {
@@ -2340,8 +2346,8 @@ form > .button_link:first-of-type,
 }
 
 #template_select a.media_fullsize {
-  height: auto;
-  display: inline-block;
+    height: auto;
+    display: inline-block;
 }
 
 .plugins_removed li {
@@ -4282,13 +4288,10 @@ img.mfp-img {
         margin: 0;
     }
 
-    .media_filter {
-        top: 4.5em;
+    .filter_media {
+        top: 4.25em;
     }
-    .entry_filter, .comment_filter {
-        top: 1.5em;
-    }
-    .comment_filter {
+    .filter_comment {
         right: 30%;
     }
 
@@ -4505,9 +4508,6 @@ img.mfp-img {
         margin: 1.71429em 0;
     }
 
-    .media_filter {
-        top: 4.5em;
-    }
     .media_file h3 {
         width: 16em;
     }
@@ -5366,11 +5366,11 @@ img.mfp-img {
         margin: auto auto 4em;
     }
 
-    .entry_filter, .comment_filter {
-        top: 1.875em;
+    .filter_entry, .filter_comment {
+        top: 1.5em;
     }
-    .media_filter {
-        top: 5em;
+    .filter_media {
+        top: 4.75em;
     }
     .media_pane > .media_file.mlMidCol ul.media_file_actions.plainList,
     .media_pane > .media_file.mlMaxCol ul.media_file_actions.plainList {
