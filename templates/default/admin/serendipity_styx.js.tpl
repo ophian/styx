@@ -1335,8 +1335,10 @@ $(function() {
     }
 
     // Fire details polyfill
-    $('html').addClass($.fn.details.support ? 'details' : 'no-details');
-    $('details').details();
+    if (typeof $.fn.details !== 'undefined' && $.fn.details !== null) {
+        $('html').addClass($.fn.details.support ? 'details' : 'no-details');
+        $('details').details();
+    }
 
     // Fire WYSIWYG editor(s)
     serendipity.spawn();
@@ -2224,9 +2226,11 @@ $(function() {
             }
         }
 
-        $('.pluginmanager_sidebar .pluginmanager_container').sortable(getDragdropConfiguration('plugins_sidebar'));
-        $('.pluginmanager_event .pluginmanager_container').sortable(getDragdropConfiguration('plugins_event'));
-        $('.configuration_group .pluginmanager_container').sortable(getDragdropConfiguration('plugins_event'));
+        if ($().sortable) {
+            $('.pluginmanager_sidebar .pluginmanager_container').sortable(getDragdropConfiguration('plugins_sidebar'));
+            $('.pluginmanager_event .pluginmanager_container').sortable(getDragdropConfiguration('plugins_event'));
+            $('.configuration_group .pluginmanager_container').sortable(getDragdropConfiguration('plugins_event'));
+        }
     }
 
     // Equal Heights
