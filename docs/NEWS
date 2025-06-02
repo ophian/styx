@@ -3,8 +3,8 @@ Version 5.0-DEV ()
 
 
   * Fix (edge case) "Methusalem" bug with a user set $serendipity['use_iframe']
-    variable to false, to still parse through the themes "preview_iframe.tpl"
-    file, causing display render failures mixing the theme structures.
+    variable to false, which still parsed the themes "preview_iframe.tpl" file,
+    causing display render failures mixing the theme structures.
 
   * Improve load of custom dark or light mode styles for the TinyMCE RichText
     Editor backend content frame(s).
