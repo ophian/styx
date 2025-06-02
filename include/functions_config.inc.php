@@ -1120,7 +1120,7 @@ function serendipity_iframe(iterable &$entry, ?string $mode = null) : string|boo
             }
             if ($serendipity['use_iframe'] === false) {
                 // just return the content in a pre configured container
-                $data['preview'] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . IFRAME_PREVIEW . " (<span class=\"icon-attention-circled\" aria-hidden=\"true\"></span>  A preview <strong>w/o iframe</strong> has <strong>no</strong> theme styles ! )</span>\n"
+                $data['preview'] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . IFRAME_PREVIEW . " (<span class=\"icon-attention-circled\" aria-hidden=\"true\"></span>  A preview <strong>w/o iframe</strong> has <strong>no</strong> frontend theme styles ! )</span>\n"
                 . '<div class="is_entry_preview no_iframe_data">'
                 . $data['preview']
                 . "</div>\n";
