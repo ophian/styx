@@ -1999,11 +1999,11 @@ ul.edit_actions li > .user_level {
 .is_entry_preview.no_iframe_data {
     display: inline-block;
     border: 1px solid #ddd;
-    margin: 1.5em .25em 2.5em;
+    margin: 0 0 1em;
     padding: .5em;
     box-shadow: 2px 3px 4px #222;
     background-color: whitesmoke;
-    width: 92%;
+    width: 94%;
 }
 
 #edit_entry_timestamp,
@@ -4204,7 +4204,7 @@ img.mfp-img {
     }
 
     .is_entry_preview.no_iframe_data {
-        width: 93%;
+        width: 95%;
     }
 
     .media_file h3 {
@@ -4267,7 +4267,7 @@ img.mfp-img {
         max-width: 12em;
     }
     .is_entry_preview.no_iframe_data {
-        width: 94%;
+        width: 96%;
     }
 }
 
@@ -4310,10 +4310,6 @@ img.mfp-img {
     }
     .filter_comment {
         right: 30%;
-    }
-
-    .is_entry_preview.no_iframe_data {
-        width: 95%;
     }
 
     .entry_status_stripe {
@@ -4386,7 +4382,7 @@ img.mfp-img {
         width: 30em;
     }
     .is_entry_preview.no_iframe_data {
-        width: 96%;
+        width: 97%;
     }
 }
 
@@ -4929,7 +4925,7 @@ img.mfp-img {
     }
 
     .is_entry_preview.no_iframe_data {
-        width: 97%;
+        width: 97.5%;
     }
 
     .serendipity_statistics > .wide_box {
@@ -5363,10 +5359,6 @@ img.mfp-img {
         width: 66%;
     }
 
-    .is_entry_preview.no_iframe_data {
-        width: 96%;
-    }
-
     #main_menu {
         width: 23%;
     }
@@ -5463,7 +5455,7 @@ img.mfp-img {
     }
 
     .is_entry_preview.no_iframe_data {
-        width: 97%;
+        width: 98%;
     }
 
     .actions li,
