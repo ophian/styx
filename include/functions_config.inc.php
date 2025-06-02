@@ -1107,7 +1107,11 @@ function serendipity_iframe(iterable &$entry, ?string $mode = null) : string|boo
                 ob_end_clean();
             }
 
-            $serendipity['smarty_preview']  = true;
+            // If 'smarty_preview' global is set true && the 'use_iframe' global is set false,
+            // the default/admin/index.tpl etc. is used, which has no dark mode !! and this preview backend page turns white !!
+            if ($serendipity['use_iframe'] !== false) {
+                $serendipity['smarty_preview'] = true;
+            }
 
             if (!empty($php_preview)) {
                 $data['preview'] = $php_preview;
