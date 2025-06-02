@@ -2221,6 +2221,16 @@ html[data-login-color-mode="dark"], [data-login-color-mode="dark"] button, [data
     position: absolute;
 }
 
+.is_entry_preview.no_iframe_data {
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin: 1.5em .25em 2.5em;
+    padding: .5em;
+    box-shadow: 2px 3px 4px #222;
+    background-color: whitesmoke;
+    width: 92%;
+}
+
 #edit_entry_timestamp,
 #edit_entry_category,
 #edit_entry_freetags,
@@ -4523,6 +4533,10 @@ img.mfp-img {
         width: 8em;
     }
 
+    .is_entry_preview.no_iframe_data {
+        width: 93%;
+    }
+
     .media_file h3 {
         width: 15em;
     }
@@ -4633,6 +4647,9 @@ img.mfp-img {
     .js .mlMaxCol .media_controls video {
         max-width: 12em;
     }
+    .is_entry_preview.no_iframe_data {
+        width: 94%;
+    }
 }
 
 @media only screen and (min-width: 480px) {
@@ -4674,6 +4691,10 @@ img.mfp-img {
     }
     .filter_comment {
         right: 30%;
+    }
+
+    .is_entry_preview.no_iframe_data {
+        width: 95%;
     }
 
     .entry_status_stripe {
@@ -4746,6 +4767,9 @@ img.mfp-img {
     .current_template,
     .current_backend_template  {
         width: 30em;
+    }
+    .is_entry_preview.no_iframe_data {
+        width: 96%;
     }
 }
 
@@ -5298,6 +5322,10 @@ img.mfp-img {
         width: 100%;
     }
 
+    .is_entry_preview.no_iframe_data {
+        width: 97%;
+    }
+
     .serendipity_statistics > .wide_box {
         clear: left;
         float: none;
@@ -5822,6 +5850,10 @@ img.mfp-img {
         width: 66%;
     }
 
+    .is_entry_preview.no_iframe_data {
+        width: 96%;
+    }
+
     #main_menu {
         width: 23%;
     }
@@ -5919,6 +5951,10 @@ img.mfp-img {
     }
     #serendipityScaleImg {
         margin-top: 0;
+    }
+
+    .is_entry_preview.no_iframe_data {
+        width: 97%;
     }
 
     .actions li,
