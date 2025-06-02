@@ -192,7 +192,7 @@
 {capture name='_cap_linkout' assign=cap_linkout}{if count($entry.cats)} {$CONST.IN}{foreach $entry.cats AS $cat}
  <a class="linkout" href="{$cat.link}">{$cat.category_name|escape}</a>{if NOT empty($cat.grouped)}{foreach $cat.groupname AS $gshortname} <span class="icon-users {$gshortname}" aria-hidden="true" title="read and view restriction to group {$gshortname}"></span>{/foreach}{/if}{if (count($entry.cats) > 1) AND !$cat@last}, {/if}
 {/foreach}{/if}{/capture}
-                        <span class="entry_meta"><span class="icon-edit" aria-hidden="true" title="{$CONST.POSTED_BY}"></span>: {$entry.author|escape}{$cap_linkout|default:''}</span>
+                        <span class="entry_meta"><span class="icon-edit" aria-hidden="true" title="{$CONST.POSTED_BY}"></span>: {$entry.author|replace:"&#039;":"'"|escape}{$cap_linkout|default:''}</span>
 {if NOT empty($entry.ep_is_locked)}
                         <span class="entry_status status_locked"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-lock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><title id="title">lock protected</title><path d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z"></path><path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"></path></svg></span>
 {/if}
