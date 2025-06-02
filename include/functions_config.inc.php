@@ -1192,6 +1192,7 @@ function serendipity_iframe_create(string $mode, iterable &$entry) : string|bool
             break;
     }
 
+    // This IFRAME_WARNING, for case the browser in use does not support it, is written beneath closing iframe </html> element and so is readable in the source which may confuse users. This is a Chromium only issue. Firefox is sane !
     return '<iframe src="serendipity_admin.php?serendipity[is_iframe]=true&amp;serendipity[iframe_mode]=' . $mode . '" id="serendipity_iframe" name="serendipity_iframe" ' . $attr . ' width="100%" frameborder="0" marginwidth="0" marginheight="0" scrolling="auto" title="Serendipity">'
          . IFRAME_WARNING
          . '</iframe>';
