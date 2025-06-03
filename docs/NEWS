@@ -2,8 +2,12 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Remove [ pure ] theme "preview_iframe.tpl" workaround for hiding hooked
+    entrypaging per CSS in entry previews, which will be fixed in Styx 5.0
+    accessible entrypaging plugin v.2.0.0.
+
   * Fix possible "Cannot read properties of null" javascript error in the
-    preview_iframetpl scriptlet of all core themes, that have this template
+    "preview_iframe.tpl" scriptlet of all core themes, that have this template
     file.
 
   * Fix backend entry preview "Methusalem" bug with a private user set (edge
