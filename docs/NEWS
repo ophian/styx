@@ -2,6 +2,10 @@ Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
 
+  * Fix possible "Cannot read properties of null" javascript error in the
+    preview_iframetpl scriptlet of all core themes, that have this template
+    file.
+
   * Fix backend entry preview "Methusalem" bug with a private user set (edge
     case) "$serendipity['use_iframe'] = false;" variable, which still parsed
     the frontend themes "preview_iframe.tpl" file, causing display render
