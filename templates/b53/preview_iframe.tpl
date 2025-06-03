@@ -22,13 +22,16 @@
 {/if}
 
     <script type="text/javascript">
-        window.onload = function() {
-            var frameheight = document.querySelector('html').offsetHeight;
-            parent.document.getElementById('serendipity_iframe').style.height = frameheight + 'px';
-            parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
-            parent.document.getElementById('serendipity_iframe').style.border = 0;
-            parent.document.getElementById('serendipity_iframe').style.overflow = 'hidden';
-        }
+        window.onload = function() {ldelim}
+            var thisFrame = parent.document.getElementById('serendipity_iframe');
+            if (typeof thisFrame !== 'undefined' && thisFrame !== null) {ldelim}
+                var frameheight = document.querySelector('html').offsetHeight;
+                thisFrame.style.height = frameheight + 'px';
+                thisFrame.scrolling    = 'no';
+                thisFrame.style.border = 0;
+                thisFrame.style.overflow = 'hidden';
+            {rdelim}
+        {rdelim}
     </script>
 </head>
 <body class="{$mode}_preview_body">
