@@ -13,12 +13,17 @@
 {if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
     <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
 {/if}
-    <script>window.onload = function() {ldelim}
-        parent.document.getElementById('serendipity_iframe').style.height = document.querySelector('html').offsetHeight + 'px';
-        parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
-        parent.document.getElementById('serendipity_iframe').style.border = 0;
-        parent.document.getElementById('serendipity_iframe').style.overflow = 'hidden';
-    {rdelim}
+    <script>
+        window.onload = function() {ldelim}
+            var thisFrame = parent.document.getElementById('serendipity_iframe');
+            if (typeof thisFrame !== 'undefined' && thisFrame !== null) {ldelim}
+                var frameheight = document.querySelector('html').offsetHeight;
+                thisFrame.style.height = frameheight + 'px';
+                thisFrame.scrolling    = 'no';
+                thisFrame.style.border = 0;
+                thisFrame.style.overflow = 'hidden';
+            {rdelim}
+        {rdelim}
     </script>
     <style> body { background-color: #fff; } .save_preview_content, .preview_preview_content { margin: .5em; } </style>
 </head>
