@@ -39,10 +39,14 @@
 
     <script type="text/javascript">
         window.onload = function() {ldelim}
-            var frameheight = document.querySelector('html').offsetHeight{* if $mode == 'preview'}-14{/if *};
-            parent.document.getElementById('serendipity_iframe').style.height = frameheight + 'px';
-            parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
-            parent.document.getElementById('serendipity_iframe').style.border = 0;
+            var thisFrame = parent.document.getElementById('serendipity_iframe');
+            if (typeof thisFrame !== 'undefined' && thisFrame !== null) {ldelim}
+                var frameheight = document.querySelector('html').offsetHeight{* if $mode == 'preview'}-14{/if *};
+                thisFrame.style.height = frameheight + 'px';
+                thisFrame.scrolling    = 'no';
+                thisFrame.style.border = 0;
+                thisFrame.style.overflow = 'hidden';
+            {rdelim}
         {rdelim}
     </script>
   </head>
