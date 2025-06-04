@@ -2093,6 +2093,9 @@ html[data-login-color-mode="dark"], [data-login-color-mode="dark"] button, [data
     color: var(--color-text-white);
     text-shadow: none;
 }
+[data-login-color-mode="dark"] .button_link:focus {
+    color: var(--color-text-primary);
+}
 [data-login-color-mode="dark"] .active, [data-login-color-mode="dark"] input:checked + .media_selector, [data-login-color-mode="dark"] .button_link:active, [data-login-color-mode="dark"] button[type="submit"].publish_now:active, [data-login-color-mode="dark"] .tabs > ul a:active, [data-login-color-mode="dark"] button:active, [data-login-color-mode="dark"] input[type="button"]:active, [data-login-color-mode="dark"] input[type="color"]:active {
     box-shadow: inset rgba(225, 225, 225, .75) 0 1px 2px 0;
 }
