@@ -112,7 +112,7 @@ audio:not([controls]) {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box }
-ul,ol { list-style-position: inside; }
+ul,ol { list-style-position: outside; }
 ol, ul, dl { display: flow-root } /* this allows correct list indentation in floats */
 
 table { border-collapse: collapse; border-spacing: 0; }
