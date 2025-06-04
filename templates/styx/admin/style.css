@@ -2117,7 +2117,7 @@ html[data-login-color-mode="dark"], [data-login-color-mode="dark"] button, [data
     background: transparent !important;
     background-image: none !important;
 }
-[data-login-color-mode="dark"] .button_link:focus [data-login-color-mode="dark"] input:focus, [data-login-color-mode="dark"] select:focus, [data-login-color-mode="dark"] textarea:focus {
+[data-login-color-mode="dark"] .button_link:focus, [data-login-color-mode="dark"] input:focus, [data-login-color-mode="dark"] select:focus, [data-login-color-mode="dark"] textarea:focus {
     box-shadow: var(--color-shadow-medium);
 }
 [data-login-color-mode="dark"] #meta {
