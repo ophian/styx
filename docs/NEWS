@@ -1,6 +1,8 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix wrong Browser default pre-style ul, ol CSS list-style-position in all
+    core themes with a "style.css" file.
 
   * Remove [ pure ] theme "preview_iframe.tpl" workaround for hiding hooked
     entrypaging per CSS in entry previews, which will be fixed in Styx 5.0
