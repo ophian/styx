@@ -20,6 +20,9 @@ Version 5.0-DEV ()
 
   * Improve the "filtered-mode" icon setup for backend entries list, comments &
     the media toolbar. Now resets the filter on "click" to the default values.
+    REMEMBER: Entry and comment filters are only set per runtime; Media filters
+              are a little different and for some filters, are kept acting more
+              like a personal preference option until re-set per user again.
 
   * Show entry draft status in backend entry form
 
