@@ -1433,8 +1433,8 @@ h3.additional_properties {
 }
 
 .comment_data {
-    font-size: smaller;
-    padding: .9125em;
+    font-size: .9125em;
+    padding: .25em;
 }
 .comment_data.ping {
     width: auto;
