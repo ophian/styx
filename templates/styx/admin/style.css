@@ -2559,7 +2559,10 @@ form > .button_link:first-of-type,
 #serendipity_comments_list .actions {
   position: relative;
   top: 2em;
+  right: .25em;
+  margin-bottom: .5em;
   display: flex;
+  gap: 1px;
   justify-content: flex-end;
 }
 
@@ -3445,7 +3448,7 @@ select#serendipity_commentform_replyToParent {
     background-color: rgba(255, 232, 84, .8);/* downlighted rgba 255,220,0,.8 #FFDC00 Color Hex new Yellow */
 }
 .comment_type .stype {
-    margin-top: -.25em;
+    margin-top: -.2em;
     padding: .4em;
     font-weight: 600;
 }
