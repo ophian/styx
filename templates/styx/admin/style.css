@@ -593,7 +593,6 @@ form > a,
 form > button,
 .edit_actions li,
 .actions li,
-.actions_extra,
 #login .form_field label,
 #auth_fpwd .form_field label,
 #filter_comments label,
@@ -2511,10 +2510,6 @@ span[class^="msg_"] + .entry_status_stripe {
     margin: 0 .4em 0 0;
 }
 
-.actions li,
-.actions_extra {
-    margin: 0 0 .5em;
-}
 .media_file_actions .special {
     margin: 0 0 auto;
 }
@@ -2559,13 +2554,11 @@ form > .button_link:first-of-type,
     min-height: inherit !important;
 }
 
-#serendipity_comments_list .actions,
-.actions_extra {
-    float: right;
-    position: relative;
-    margin: 0;
-    top: 1.75em;
-    right: .25em;
+#serendipity_comments_list .actions {
+  position: relative;
+  top: 2em;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .bayes_done {
@@ -3432,10 +3425,13 @@ select#serendipity_commentform_replyToParent {
     background-color: transparent;
     width: 1.5em;
     height: 1.5em;
-    margin-top: 2.4em;
-    margin-left: -0.4em;
     border-top: 1px solid #AAA;
     border-right: 1px solid #AAA;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: .25em;
+    line-height: normal;
 }
 .comment_type.normal {
     background-color: rgba(240,248,255, .8);/*#F0F8FF Color Hex Alice Blue*/
@@ -3445,12 +3441,9 @@ select#serendipity_commentform_replyToParent {
 }
 .comment_type.pingback {
     background-color: rgba(255, 232, 84, .8);/* downlighted rgba 255,220,0,.8 #FFDC00 Color Hex new Yellow */
-    margin-top: 5.3em;
-}
-.comment_type.pingback.pingup {
-    margin-top: 1em; /* when pingback comment_data info is opened */
 }
 .comment_type .stype {
+    margin-top: -.25em;
     padding: .4em;
     font-weight: 600;
 }
@@ -4632,9 +4625,6 @@ img.mfp-img {
 }
 
 @media only screen and (min-width: 426px) {
-    #serendipity_comments_list .pingback.actions {
-        margin-top: 1.5em;
-    }
     #media_pane_sort .hideSubDirLabel {
         white-space: pre;
     }
@@ -4665,15 +4655,6 @@ img.mfp-img {
 
     .media_file h3 {
         width: 18em;
-    }
-
-    .actions li,
-    .actions_extra {
-        margin: 0 .4em .5em 0;
-    }
-
-    .actions_extra {
-        margin-top: .75em;
     }
 
     #edit_entry_submit, #advanced_options .jump_to_edit_entry_submit {
@@ -4800,12 +4781,6 @@ img.mfp-img {
     #serendipity_comments_list h4.pingback {
         max-width: 96%;
         width: 96%;
-    }
-    #serendipity_comments_list .pingback.actions {
-        margin-top: -1em;
-    }
-    .comment_type.pingback {
-        margin-top: 3em;/* not 2.4em, since too small when h4 breaks */
     }
     .comments_pane .pagination h3,
     .media_pane .pagination h3,
@@ -5222,10 +5197,6 @@ img.mfp-img {
         margin: 0 0 1em 2% !important;
     }
 
-    .actions li,
-    .actions_extra {
-        margin: 0 .3em .5em 0;
-    }
     .media_chooser {
         margin-bottom: 0;
     }
@@ -5498,10 +5469,6 @@ img.mfp-img {
     }
     .media_file.mlMaxCol h3 {
         width: 11em;
-    }
-    .actions li,
-    .actions_extra {
-        margin: 0 .4em .5em 0;
     }
 }
 
@@ -5874,11 +5841,6 @@ img.mfp-img {
         width: 100%;
     }
 
-    .actions li,
-    .actions_extra {
-        margin: 0 .3em .5em 0;
-    }
-
     #login {
         margin: 4em auto 8em;
     }
@@ -5931,12 +5893,6 @@ img.mfp-img {
         max-width: 97.75%;
         width: 97.75%;
     }
-    #serendipity_comments_list .pingback.actions {
-        margin-top: -1.5em;
-    }
-    .comment_type.pingback {
-        margin-top: 2.4em;
-    }
     #edit_entry_metadata #categoryfilter {
         max-width: 80%;
         min-width: 0;
@@ -5952,10 +5908,6 @@ img.mfp-img {
         width: 98%;
     }
 
-    .actions li,
-    .actions_extra {
-        margin: 0 .4em .5em 0;
-    }
     .media_pane > .media_file.mlMidCol ul.media_file_actions.plainList,
     .media_pane > .media_file.mlMaxCol ul.media_file_actions.plainList {
         padding: .25em .45em;
