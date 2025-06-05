@@ -1445,7 +1445,8 @@ h3.additional_properties {
 }
 /* hides the box when empty, without breaking depending styles */
 .comment_summary.ping {
-    line-height: 0px;
+    line-height: 0;
+    width: 0;
 }
 /* additional comment html support start */
 .comment_full h4 {
