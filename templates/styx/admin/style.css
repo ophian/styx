@@ -1432,6 +1432,10 @@ h3.additional_properties {
     clear: both;
 }
 
+.comment_data {
+    font-size: smaller;
+    padding: .9125em;
+}
 .comment_data.ping {
     width: auto;
     margin-bottom: 0;
