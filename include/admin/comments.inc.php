@@ -435,7 +435,7 @@ if (is_array($sql)) {
             if ($serendipity['allowHtmlComment']) {
                 $_summary = htmlspecialchars(str_replace('  ', ' ', strip_tags($comment['summary'])), encoding: LANG_CHARSET, double_encode: false);
                 $stripped = $comment['summary'] !== $_summary;
-                $comment['summary']  = $stripped ? $_summary : $comment['summary']."&hellip;";
+                $comment['summary']  = $stripped ? $_summary : (($serendipity['template_backend'] == 'styx' && $comment['type'] == 'PINGBACK') ? $comment['summary'] : $comment['summary']."&hellip;");
                 $comment['fullBody'] = $is_html ? $comment['fullBody'] : nl2br($comment['fullBody']);
             } else {
                 $comment['summary']  = str_replace(array('\r\n','\n\r','\n','\r','  '), ' ', trim(strip_tags($comment['summary']))); // keep in mind: for "newline" search pattern are single, for replace double quotes!
