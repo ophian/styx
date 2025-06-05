@@ -41,7 +41,7 @@ input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
 input[type="radio"],input[type="checkbox"]{position:relative;vertical-align:top;top:5px}
 input[type="checkbox"],input[type="radio"]{filter:grayscale(1)}
 .form_radio{float:left;margin-right:1em}
-.icon_link,.button_link,form > button,.edit_actions li,.actions li,.actions_extra,#login .form_field label,.folder_name,.toggle_info{display:inline-block}
+.icon_link,.button_link,form > button,.edit_actions li,.actions li,#login .form_field label,.folder_name,.toggle_info{display:inline-block}
 .block_level,.form_multiselect label,label > span,.wrap_legend > legend > span,.msg_error,.msg_success,.msg_notice,.msg_hint,.configuration_group .form_select label,.configuration_group .form_multiselect label,.configuration_group .form_field label,.configuration_group .form_area label,#content .upgrade_task,#content .upgrade_done{display:block}
 h5,h6,blockquote,ul,ol,dl,p,table,details,.standalone,.form_buttons,form > a,form > button,#content .upgrade_done,#upgrade_notice{margin-top:1.5em;margin-bottom:1.5em}
 #serendipity_config_options .field_info,.hyphenate{overflow-wrap:break-word;word-wrap:break-word;-webkit-hyphens:auto;ms-hyphens:auto;-moz-hyphens:auto;hyphens:auto}
