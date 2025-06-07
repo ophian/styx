@@ -30,7 +30,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '4.1',
             'php'         => '8.2'
         ));
-        $propbag->add('version',       '2.87');
+        $propbag->add('version',       '2.88');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1583,9 +1583,9 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                     $akismet_apikey = $this->get_config('akismet');
                     $akismet        = $this->get_config('akismet_filter');
                     if (!empty($akismet_apikey) && $eventData['type'] == 'NORMAL') {
-                        if (!isset($eventData['action_more']) || !is_string($eventData['action_more'])) $eventData['action_more'] = '';
-                        $eventData['action_more'] .= ' <a class="button_link actions_extra" title="' . PLUGIN_EVENT_SPAMBLOCK_SPAM . '" href="serendipity_admin.php?serendipity[adminModule]=comments&amp;serendipity[spamIsSpam]=' . $eventData['id'] . $addData . '#' . $clink . '"><span class="icon-block" aria-hidden="true"></span><span class="visuallyhidden"> ' . PLUGIN_EVENT_SPAMBLOCK_SPAM . '</span></a>';
-                        $eventData['action_more'] .= ' <a class="button_link actions_extra" title="' . PLUGIN_EVENT_SPAMBLOCK_NOT_SPAM . '" href="serendipity_admin.php?serendipity[adminModule]=comments&amp;serendipity[spamNotSpam]=' . $eventData['id'] . $addData . '#' . $clink . '"><span class="icon-ok-circled" aria-hidden="true"></span><span class="visuallyhidden"> ' . PLUGIN_EVENT_SPAMBLOCK_NOT_SPAM . '</span></a>';
+                        if (!isset($eventData['action_more']) || !is_string($eventData['action_more'])) $eventData['action_more'] = ''; // bayes and spamblock akismet place it
+                        $eventData['action_more'] .= '<li><a class="button_link actions_extra" title="Akismet: ' . PLUGIN_EVENT_SPAMBLOCK_SPAM . '" href="serendipity_admin.php?serendipity[adminModule]=comments&amp;serendipity[spamIsSpam]=' . $eventData['id'] . $addData . '#' . $clink . '"><span class="icon-block" aria-hidden="true"></span><span class="visuallyhidden"> Akismet: ' . PLUGIN_EVENT_SPAMBLOCK_SPAM . '</span></a></li>';
+                        $eventData['action_more'] .= '<li><a class="button_link actions_extra" title="Akismet: ' . PLUGIN_EVENT_SPAMBLOCK_NOT_SPAM . '" href="serendipity_admin.php?serendipity[adminModule]=comments&amp;serendipity[spamNotSpam]=' . $eventData['id'] . $addData . '#' . $clink . '"><span class="icon-ok-circled" aria-hidden="true"></span><span class="visuallyhidden"> Akismet: ' . PLUGIN_EVENT_SPAMBLOCK_NOT_SPAM . '</span></a></li>';
                     }
 
                     if (!isset($eventData['action_author'])) $eventData['action_author'] = '';
