@@ -1011,30 +1011,15 @@ nav.pager {
     border: 1px solid #eee;
     border-radius: 5px;
 }
-nav.pager .totop {
-    margin-top: -2.5em;
-    margin-left: 92%; }
-    @media screen and (min-width: 667px) {
-      nav.pager .totop {
-        margin-left: 97%; }
-    }
-#reply .totop, .closed_cf.totop {
-    float: right; }
-    #reply .totop {
-       margin: -1.75em 0.5em 0 0;}
-    /* small views */
-    .closed_cf.totop {
-      margin: -4.75em 0.5em 0 0; }
-      /* wide views */
-      @media screen and (min-width: 416px) {
-        .closed_cf.totop { margin: -3.925em 0.5em 0 0; }
-      }
-      /* back to small views on breakpoints */
-      @media screen
-        and (min-width: 459px) and (max-width: 481px),
-            (min-width: 1024px) and (max-width: 1092px) {
-          .closed_cf.totop { margin: -4.75em 0.5em 0 0; }
-      }
+
+#reply .totop, nav.pager .totop, .closed_cf.totop {
+  display: flex;
+  justify-content: flex-end; }
+  nav.pager .totop {
+    margin: -2.5em .5em 0 0; }
+  #reply .totop, .closed_cf.totop {
+    margin: -2em .5em 0 0; }
+
 nav.pager ul {
     margin: 0 3em 1.5em;
     display: -webkit-flex;
