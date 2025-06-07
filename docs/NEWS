@@ -1,6 +1,12 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Refactor comments $eventData 'action_more' button placement to a better
+    standard use, to include these hooked buttons - for real comments only -
+    just before the comments item toggle button at action bar right end.
+    Only spamblock and spamblock_bayes plugins use it so far and are now set
+    ready for this new standard behaviour.
+
   * Use CSS flexbox for floats in comments list in [ styx ] backend theme.
     We have 2025!
 
