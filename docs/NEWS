@@ -9,6 +9,7 @@ Version 5.0-DEV ()
 
   * Use CSS flexbox for floats in comments list in [ styx ] backend theme.
     We have 2025!
+    - Same for [ pure ] theme toTop "button" implementations.
 
   * Fix wrong Browser default pre-style ul, ol CSS list-style-position in all
     core themes with a "style.css" file.
