@@ -1,6 +1,8 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix long or right touch "t.touches" error in tinymce theme silver js
+
   * Refactor comments $eventData 'action_more' button placement to a better
     standard use, to include these hooked buttons - for real comments only -
     just before the comments item toggle button at action bar right end.
