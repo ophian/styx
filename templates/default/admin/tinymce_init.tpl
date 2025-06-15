@@ -82,7 +82,7 @@
 
     // NOTE: code === source !!
     // the run loop number makes our setting independent for multiple textarea configurations !
-    let commonToolbar{$run} = [ { name: 'history', items: [ 'undo' ] }, { name: 'format', items: [ 'bold', 'italic' ] }, { name: 'link', items: [ 'link', 'blockquote' ] }, { name: 'images', items: [ 'styxImage', 'styxGallery' ] }, { name: 'medias', items: [ 'media', 'emoticons' ] }, { name: 'split', items: [ 'hr' ] }, { name: 'code', items: [ 'codesample', 'charmap' ] }, { name: 'views', items: [ 'code', 'fullscreen' ] }, { name: 'visuals', items: [ 'preview', 'visualblocks' ] }, { name: 'help', items: [ 'help' ] }, { name: 'extras', items: [ 'styles', 'fontsize', 'table', 'accordion' ] }, { name: 'hooks', items: styxButtonHooks } ];
+    let commonToolbar{$run} = [ { name: 'history', items: [ 'undo' ] }, { name: 'format', items: [ 'bold', 'italic' ] }, { name: 'link', items: [ 'link', 'blockquote' ] }, { name: 'split', items: [ 'hr' ] }, { name: 'images', items: [ 'styxImage', 'styxGallery' ] }, { name: 'medias', items: [ 'media', 'emoticons' ] }, { name: 'code', items: [ 'codesample', 'charmap' ] }, { name: 'visuals', items: [ 'preview', 'visualblocks' ] }, { name: 'help', items: [ 'help' ] }, { name: 'views', items: [ 'code', 'fullscreen' ] }, { name: 'extras', items: [ 'styles', 'fontsize', 'table', 'accordion' ] }, { name: 'hooks', items: styxButtonHooks } ];
 
     styxPlugs = pluginArrToStr(styxpluginnames);
 
