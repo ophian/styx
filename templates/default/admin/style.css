@@ -4326,6 +4326,9 @@ img.mfp-img {
     .popuplayer_showUpload {
         margin: 1em 0 0;
     }
+    .js .popuplayer_showUpload {
+        margin: 0;
+    }
 
     .tabcontent #pluginlist_event > a,
     .tabcontent #pluginlist_sidebar > a {
