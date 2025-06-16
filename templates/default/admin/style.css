@@ -2152,12 +2152,12 @@ fieldset p,
 .filter_media {
     right: 30%;
 }
-[class^="msg_"] + .filter_media {
-    top: -.5em;
-}
 .js .filter_media {
     top: 1em;
     right: 36%;
+}
+.js [class^="msg_"] + .filter_media {
+    top: -.5em;
 }
 .filter_mode svg.bi {
     width: 36px;
@@ -4315,7 +4315,7 @@ img.mfp-img {
     .filter_media {
         top: 4.25em;
     }
-    [class^="msg_"] + .filter_media {
+    .js [class^="msg_"] + .filter_media {
         top: 2.5em;
     }
     .filter_comment {
@@ -5409,7 +5409,7 @@ img.mfp-img {
     .filter_media {
         top: 4.75em;
     }
-    [class^="msg_"] + .filter_media {
+    .js [class^="msg_"] + .filter_media {
         top: 3em;
     }
     .js .filter_media {
