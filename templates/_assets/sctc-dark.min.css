@@ -1,6 +1,6 @@
 /**
- * Adds custom Serendipity Styx dark mode styles to TinyMCE-RT-mode iframe content v.1.10 on 2025-05-30 19:47
+ * Adds custom Serendipity Styx dark mode styles to TinyMCE-RT-mode iframe content v.1.11 on 2025-06-18 11:27
  * Only used additional to the loaded styx-custom-tinymce-content.css (sctc.min.css) for certain elements
  */
-html,body{scrollbar-color:#8899b1 #1e2127}body{background-color:#2f3742;color:#dfe0e4}.mce-content-body a[data-mce-selected="inline-boundary"]{scrollbar-color: #8899b1 #1e2127}.mce-content-body pre{background-color:#242527;scrollbar-color:#8899b1 #1e2127}.mce-content-body [contentEditable=false][data-mce-selected]{background-color:#efefef}
+html,body{scrollbar-color:#8899b1 #1e2127}body{background-color:#2f3742;color:#dfe0e4}.mce-content-body a[data-mce-selected="inline-boundary"]{scrollbar-color: #8899b1 #1e2127}.mce-content-body pre{background-color:#242527;scrollbar-color:#8899b1 #1e2127}.mce-content-body [contentEditable=false][data-mce-selected]{background-color:#1e2127}
 
