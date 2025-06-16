@@ -2152,6 +2152,9 @@ fieldset p,
 .filter_media {
     right: 30%;
 }
+[class^="msg_"] + .filter_media {
+    top: -.5em;
+}
 .js .filter_media {
     top: 1em;
     right: 36%;
@@ -4312,6 +4315,9 @@ img.mfp-img {
     .filter_media {
         top: 4.25em;
     }
+    [class^="msg_"] + .filter_media {
+        top: 2.5em;
+    }
     .filter_comment {
         right: 30%;
     }
@@ -5402,6 +5408,9 @@ img.mfp-img {
     }
     .filter_media {
         top: 4.75em;
+    }
+    [class^="msg_"] + .filter_media {
+        top: 3em;
     }
     .js .filter_media {
         top: 1.5em;
