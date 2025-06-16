@@ -2421,7 +2421,7 @@ fieldset p,
     background: repeating-linear-gradient( -45deg, transparent, transparent 10px, #ddd 10px, #eee 20px );
     border: 1px dashed currentColor;
 }
-span[class^="msg_"] + .entry_status_stripe {
+[class^="msg_"] + .entry_status_stripe {
     top: 0;
 }
 
@@ -4690,7 +4690,7 @@ img.mfp-img {
     .entry_status_stripe {
         top: 5em;
     }
-    span[class^="msg_"] + .entry_status_stripe {
+    [class^="msg_"] + .entry_status_stripe {
         top: 3.5em;
     }
 
