@@ -2398,6 +2398,10 @@ fieldset p,
 .filter_media {
     right: 30%;
 }
+.js .filter_media {
+    top: 1em;
+    right: 36%;
+}
 .filter_mode svg.bi {
     width: 36px;
     height: 36px;
@@ -5859,6 +5863,9 @@ img.mfp-img {
     }
     .filter_media {
         top: 4.75em;
+    }
+    .js .filter_media {
+        top: 1.5em;
     }
 
     .media_pane > .media_file.mlMidCol ul.media_file_actions.plainList,
