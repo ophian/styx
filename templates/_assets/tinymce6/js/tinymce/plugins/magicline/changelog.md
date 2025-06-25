@@ -1,6 +1,6 @@
 # MagicLine Plugin – Changelog Summary
 
-## [Unreleased / 2025-06-25]
+## [v. 2.0.0 / 2025-06-25]
 
 ### Major Features
 - **Insert Paragraph Line:** Adds a visible red “magic line” between block elements, allowing users to easily insert new paragraphs anywhere in the content.
