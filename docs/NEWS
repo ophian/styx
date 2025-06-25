@@ -1,6 +1,15 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Integrated new MagicLine TinyMCE v.2.0.0 plugin to have a well continued
+    experience coming from the old RichText CKEditor:
+    - easily insert paragraphs between all block elements, with touch support,
+      accessibility, and improved overlay logic.
+    - Improved editor usability and accessibility for all devices.
+    - Enhanced dark mode and block handling for galleries and images.
+    - Various bug fixes and performance improvements.
+    - Allows [en] and [de] languages.
+
   * Change tinymce commonEditor toolbar order, moving the 'view' group:
     [source view, fullscreen] a tad more to the right.
 
