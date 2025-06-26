@@ -1,5 +1,11 @@
 # MagicLine Plugin – Changelog Summary
 
+## [v. 2.0.1 / 2025-06-26]
+
+### Improved
+- Added a special case for triggering an image upward red line when the previous sibling element is a pre element code container
+
+
 ## [v. 2.0.0 / 2025-06-25]
 
 ### Major Features
