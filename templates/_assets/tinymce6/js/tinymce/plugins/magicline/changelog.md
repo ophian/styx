@@ -1,11 +1,15 @@
 # MagicLine Plugin – Changelog Summary
 
 ## [v. 2.0.3 / 2025-06-26]
+
+### Improved
 - Improved and fixed touchDevice 'touchend' eventListener linger Timeout
 - Optimized some debug strings
 
 
 ## [v. 2.0.2 / 2025-06-26]
+
+### Improved
 - Extend the 2.0.1 special case for downward line with next element being a PRE element code container
 
 
