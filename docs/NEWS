@@ -1,8 +1,9 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
-  * Integrated new MagicLine TinyMCE v.2.0.0 plugin to have a well continued
-    experience coming from the old RichText CKEditor:
+  * Integrated Styx MagicLine TinyMCE v.2.0 plugin to provide a well-formed,
+    continuous experience in the transition from the old CKEditor to the new
+    TinyMCE RichText Editor:
     - easily insert paragraphs between all block elements, with touch support,
       accessibility, and improved overlay logic.
     - Improved editor usability and accessibility for all devices.
