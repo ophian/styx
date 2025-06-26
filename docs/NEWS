@@ -1,15 +1,21 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
-  * Integrated Styx MagicLine TinyMCE v.2.0 plugin to provide a well-formed,
+  * Integrated Styx MagicLine TinyMCE v.2.0+ plugin to provide a well-formed,
     continuous experience in the transition from the old CKEditor to the new
     TinyMCE RichText Editor:
-    - easily insert paragraphs between all block elements, with touch support,
-      accessibility, and improved overlay logic.
+    - easily insert paragraphs between all allowed block elements, with touch
+      support, accessibility, and improved overlay logic.
     - Improved editor usability and accessibility for all devices.
-    - Enhanced dark mode and block handling for galleries and images.
+    - Enhanced block handling for galleries and images.
     - Various bug fixes and performance improvements.
     - Allows [en] and [de] languages.
+
+    This improved MagicLine Helper is much better content driven by the Styx
+    User experience (UX) and product use. It will not allow the user to continue
+    adding nested elements into each other, so the design of Styx entry block
+    level containers skeleton stays intact. You will most probably notice with
+    the recommended « Use picture element » containers.
 
   * Change tinymce commonEditor toolbar order, moving the 'view' group:
     [source view, fullscreen] a tad more to the right.
