@@ -19,6 +19,7 @@ Version 5.0-DEV ()
 
   * Change tinymce commonEditor toolbar order, moving the 'view' group:
     [source view, fullscreen] a tad more to the right.
+    - Same for the split [hr] group.
 
   * Fix long or right touch "t.touches" error in tinymce theme silver js
 
