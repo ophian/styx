@@ -1,5 +1,11 @@
 # MagicLine Plugin – Changelog Summary
 
+## [v. 2.0.4 / 2025-06-26]
+
+### Improved
+- Fix null case in special case handler added to 2.0.1/2
+
+
 ## [v. 2.0.3 / 2025-06-26]
 
 ### Improved
