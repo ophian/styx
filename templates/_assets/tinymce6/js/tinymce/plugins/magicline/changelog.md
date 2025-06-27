@@ -1,5 +1,12 @@
 # MagicLine Plugin – Changelog Summary
 
+## [v. 2.0.5 / 2025-06-26]
+
+### Improved
+- Improved touch for Styx (video) 'media_object_container' hit areas.
+  This is for the hit-area only since the video tag element container itself is exclusively bound to the media (plugin) button.
+
+
 ## [v. 2.0.4 / 2025-06-26]
 
 ### Improved
