@@ -41,14 +41,6 @@ const commentConfig = {
         toolbar_mode: 'floating',
         contextmenu: 'styxDiv | styxPrg',
     },
-    // Configure our magicline plugin
-    magicline: {
-        triggerOffset: 30,
-        holdDistance: 0.5,
-        color: '#ff0000',
-        everywhere: true,
-        tabuList: []
-      },
     language: editorLang,
     object_resizing: false, // we don't want the image resize option
     highlight_on_focus: false, // ?? dito
