@@ -20,14 +20,6 @@ const commonConfig = {
         toolbar_mode: 'floating',
         contextmenu: 'styxDiv | styxPrg',
     },
-    // Configure our magicline plugin
-    magicline: {
-        triggerOffset: 30,
-        holdDistance: 0.5,
-        color: '#ff0000',
-        everywhere: true,
-        tabuList: []
-      },
     // TODO Create a tinymce v.6 scriptlet to configure plugin and toolbar items per user ...?
     object_resizing: false, // we don't want the image resize option
     highlight_on_focus: false, // ?? ditto - [ This feature is only available for TinyMCE 6.4 and later. In TinyMCE 7.0, the default setting for highlight_on_focus was changed from false to true. Any editors using this highlight_on_focus: true option in TinyMCE , can remove this option from their TinyMCE init configuration when upgrading to TinyMCE 7.0. ]
