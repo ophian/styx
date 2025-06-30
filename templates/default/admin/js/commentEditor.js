@@ -50,7 +50,7 @@ const commentConfig = {
     branding: false,
     promotion: false,
     //license_key: 'gpl',
-    // convert image urls NOT to relative path, which is OK for the same domain, but not in other environments which are based on doc root paths
+    // convert image URLs NOT to relative path, which is OK for the same domain, but not in other environments which are based on doc root paths
     relative_urls : false,
     // enables double click on hlgt code to re-open code editor for example
     auto_focus: 'editable',
