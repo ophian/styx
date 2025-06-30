@@ -34,7 +34,7 @@ const commonConfig = {
     extended_valid_elements: 'mediainsert[*],gallery[*],media[*],audio[*],video[*],div[*],p[lang],q[lang],ul[lang],a[href|rel|target|class|id|style|onclick|title],span[*],figure[*],figcaption[*],picture,source[*],img[*],code[*],hr,pre[*],ref[name]',
     branding: false,
     promotion: false,
-    // convert image urls NOT to relative path, which is OK for the same domain, but not in other environments which are based on doc root paths
+    // convert image URLs NOT to relative path, which is OK for the same domain, but not in other environments which are based on doc root paths
     relative_urls : false,
     auto_focus: 'editable',
     help_tabs: [ 'shortcuts', 'keyboardnav' ],
