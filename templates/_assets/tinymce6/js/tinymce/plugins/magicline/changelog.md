@@ -1,5 +1,13 @@
 # MagicLine Plugin – Changelog Summary
 
+## [v. 2.1.0 / 2025-06-30]
+
+### Simplification & Robustness
+- Improved rect handlers
+- Removed touch focus and blur since already good enough with current "hideaway" events
+- Improved minification of inline styles
+- Removed the z-index where possible to not conflict other TinyMCE dialogs
+
 ## [v. 2.0.5 / 2025-06-26]
 
 ### Improved
