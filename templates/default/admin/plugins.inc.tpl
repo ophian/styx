@@ -214,14 +214,14 @@
 <div id="pluginlist_tabs" class="tabs">
     <section id="pluginlist_event" class="panel">
         <h3> <span class="atomium">⚛</span> {$CONST.EVENT_PLUGINS} {if $CONST.EVENT_PLUGINS|count_characters:true < 18}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{/if} </h3>
-        <a class="button_link state_install" href="?serendipity[adminModule]=plugins&amp;serendipity[adminAction]=addnew&amp;serendipity[type]=event" title="{$CONST.CLICK_HERE_TO_INSTALL_PLUGIN|sprintf:$CONST.EVENT_PLUGIN}">{$CONST.INSTALL_NEW_EVENT_PLUGIN}</a>
+        <a class="button_link state_install" href="?serendipity[adminModule]=plugins&amp;serendipity[adminAction]=addnew&amp;serendipity[type]=event" title="{$CONST.CLICK_HERE_TO_INSTALL_PLUGIN|sprintf:$CONST.EVENT_PLUGIN}"><span class="atomium">⚛</span> {$CONST.INSTALL_NEW_EVENT_PLUGIN}</a>
         {$backend_plugins_event_header}
         {$event_plugins}
     </section>
 
     <section id="pluginlist_sidebar" class="panel">
-        <h3> 🎫 {$CONST.SIDEBAR_PLUGINS}</h3>
-        <a class="button_link state_install" href="?serendipity[adminModule]=plugins&amp;serendipity[adminAction]=addnew" title="{$CONST.CLICK_HERE_TO_INSTALL_PLUGIN|sprintf:$CONST.SIDEBAR_PLUGIN}">{$CONST.INSTALL_NEW_SIDEBAR_PLUGIN}</a>
+        <h3> <span class="sidebar_icon">🎫</span> {$CONST.SIDEBAR_PLUGINS}</h3>
+        <a class="button_link state_install" href="?serendipity[adminModule]=plugins&amp;serendipity[adminAction]=addnew" title="{$CONST.CLICK_HERE_TO_INSTALL_PLUGIN|sprintf:$CONST.SIDEBAR_PLUGIN}"><span class="sidebar_icon">🎫</span> {$CONST.INSTALL_NEW_SIDEBAR_PLUGIN}</a>
         {$backend_plugins_sidebar_header}
         {$sidebar_plugins}
     </section>
