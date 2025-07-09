@@ -8,14 +8,14 @@
 $info['theme_info_summary'] = 'Das Styx Standard Backend Theme';
 
 $info['theme_info_desc'] = '<u>ACHTUNG&colon;</u> Dieses Theme hat kein eigenes Frontend!<br>
-Dieses Standard Backend Theme verweist auf die Styx Kern Backend Templates im "default/admin" Unterverzeichnis.
+Dieses Standard Backend Theme verweist auf die Kern Styx Backend Templates im "default/admin" Unterverzeichnis.
 Es zeigt auf einfache Weise, wie Sie damit in der Lage sind, nur diejenigen Dateien zu ändern oder hinzuzufügen, die notwendig sind, um Ihre momentanen Bedürfnisse zu erfüllen.';
 
-$info['theme_info_backend'] = 'Dieses Standard Backend-Theme verweist auf die Styx Kern Backend Templates im "default/admin" Unterverzeichnis.
-Als Serendipity Styx Standard Backend "Beispiel" zeigt es die Möglichkeit, ein eigenes und mehr oder weniger template-leeres Backend Theme zu erstellen das als "Fallback" die "default" Backend Template Dateien nutzt.
+$info['theme_info_backend'] = 'Dieses Standard Backend-Theme verweist auf die Kern Styx Backend Templates im "default/admin" Unterverzeichnis.
+Als Serendipity Styx Standard Backend "Beispiel" zeigt es die Möglichkeit, ein eigenes und mehr oder weniger "template-leeres" Backend Theme zu erstellen, das als "Fallback" die "default" Backend Template Dateien nutzt.
 Es zeigt auf einfache Weise, wie Sie damit in der Lage sind, nur diejenigen Dateien zu ändern oder hinzuzufügen, die notwendig sind, um Ihre momentanen Bedürfnisse zu erfüllen.
-Momentan enthält es nur eine angepasste index und eine upgrader.inc Template Datei, die, außer dem neuen "Dark Mode", nur bestimmte irrelevante Informationen und Assets auf der Login-Seite entfernen, wenn Sie nicht angemeldet sind.
-Dieses Standard Backend verfügt über eine eigene styles Auszeichnungs-Datei, über die stetig Verbesserungen im Backend vorgenommen werden.
+Momentan enthält es außer einer angepassten index Datei nur noch die installer.inc und upgrader.inc Template Dateien, deren drei, außer dem "Dark Mode", nur bestimmte irrelevante Informationen und Assets auf der Login-Seite entfernen, wenn Sie nicht angemeldet sind.
+Dieses Standard Backend verfügt über eigene stylesheet Auszeichnungs-Dateien, über die kontinuierlich und stetig Verbesserungen im Backend vorgenommen werden.
 
 <p>DAS FOLGENDE IST DIE BESCHREIBUNG DES FALLBACK BACKENDS&colon;<br>
 Dieses Theme beherbergt die Styx-Kern Backend Templates im Unterverzeichnis "default/admin".
