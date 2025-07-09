@@ -1,6 +1,9 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Partially revert retired and outdated bundled-libs/Net* library.
+    Re-Add PEAR Net/URL2.php to latest commit state for Spartacus requests.
+
   * Fix Administrators personal 'simpleFilters' configuration default value
 
   * Integrated Styx MagicLine TinyMCE v.2.0+ plugin to provide a well-formed,
