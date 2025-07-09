@@ -1,6 +1,8 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Iconize pluginlist_tabs and install button(s)
+
   * Partially revert retired and outdated bundled-libs/Net* library.
     Re-Add PEAR Net/URL2.php to latest commit state for Spartacus requests.
     - Precise related upgrade tasks.
