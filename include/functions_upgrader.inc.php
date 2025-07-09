@@ -547,6 +547,10 @@ $dead_dirs_440 = array(
 
 /* A list of Styx files, to be removed or renamed by 5.0.0 */
 $dead_files_500 = array(
+    'bundled-libs/Net/BUNDLE_NOTICE',
+    'bundled-libs/Net/CheckIP2.php',
+    'bundled-libs/Net/DNSBL.php',
+    'bundled-libs/Net/Socket2.php',
     'lang/serendipity_lang_cs.inc.php',
     'templates/_assets/ckebasic_plugin.js',
     'templates/_assets/wysiwyg-style.css',
@@ -556,7 +560,8 @@ $dead_files_500 = array(
 /* A list of old or removed directories for 5.0.0 */
 $dead_dirs_500 = array(
     $serendipity['serendipityPath'] . 'bundled-libs/Cache',
-    $serendipity['serendipityPath'] . 'bundled-libs/Net',
+    $serendipity['serendipityPath'] . 'bundled-libs/Net/DNSBL',
+    $serendipity['serendipityPath'] . 'bundled-libs/Net/Socket2',
     $serendipity['serendipityPath'] . 'lang/UTF-8',
     $serendipity['serendipityPath'] . 'plugins/serendipity_event_ckeditor',
     $serendipity['serendipityPath'] . 'plugins/serendipity_event_spamblock_rbl',
