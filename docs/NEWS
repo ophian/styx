@@ -1,6 +1,8 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix Administrators personal 'simpleFilters' configuration default value
+
   * Integrated Styx MagicLine TinyMCE v.2.0+ plugin to provide a well-formed,
     continuous experience in the transition from the old CKEditor to the new
     TinyMCE RichText Editor:
