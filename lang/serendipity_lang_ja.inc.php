@@ -966,7 +966,7 @@
 @define('PINGBACK_FAILED', 'ピングバックに失敗しました: %s');
 @define('PINGBACK_NOT_FOUND', 'ピングバック URI が見つかりませんでした。');
 @define('CATEGORY_PLUGIN_HIDEZEROCOUNT', 'Hide archives link when no entries were made in that timespan (requires counting entries)');
-@define('RSS_IMPORT_WPXRSS', 'WordPress eXtended RSS import, requires PHP5 and might take up much memory');
+@define('RSS_IMPORT_WPXRSS', 'WordPress eXtended RSS import might take up much RAM memory');
 @define('SET_TO_MODERATED', 'モデレート');
 @define('COMMENT_MODERATED', 'コメント #%s をもでレート済みに設定することに成功しました');
 @define('CENTER', '中央');

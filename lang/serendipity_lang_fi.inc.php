@@ -964,7 +964,7 @@
 @define('PINGBACK_FAILED', 'Pingback failed: %s');
 @define('PINGBACK_NOT_FOUND', 'No pingback-URI found.');
 @define('CATEGORY_PLUGIN_HIDEZEROCOUNT', 'Hide archives link when no entries were made in that timespan (requires counting entries)');
-@define('RSS_IMPORT_WPXRSS', 'WordPress eXtended RSS import, requires PHP5 and might take up much memory');
+@define('RSS_IMPORT_WPXRSS', 'WordPress eXtended RSS import might take up much RAM memory');
 @define('SET_TO_MODERATED', 'Moderate');
 @define('COMMENT_MODERATED', 'Comment #%s has successfully been set as moderated');
 @define('CENTER', 'center');

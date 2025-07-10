@@ -965,7 +965,7 @@
 @define('PINGBACK_FAILED', 'Pingback misslyckades: %s');
 @define('PINGBACK_NOT_FOUND', 'Ingen pingback-URI hittades.');
 @define('CATEGORY_PLUGIN_HIDEZEROCOUNT', 'Dölj arkivlänken om inga artiklar skrevs i denna tidsrymd (kräver att artiklar räknas)');
-@define('RSS_IMPORT_WPXRSS', 'WordPress eXtended RSS import, kräver PHP5 och kan använda mycket minne');
+@define('RSS_IMPORT_WPXRSS', 'WordPress eXtended RSS-import kan ta upp mycket RAM-minne');
 @define('SET_TO_MODERATED', 'Moderera');
 @define('COMMENT_MODERATED', 'Kommentar #%s har angetts som modererad');
 @define('CENTER', 'centrera');

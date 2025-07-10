@@ -965,7 +965,7 @@
 @define('PINGBACK_FAILED', 'Az URL létezés ellenőrzése sikertelen: %s');
 @define('PINGBACK_NOT_FOUND', 'Nem található hivatkozás az URL létezés ellenőrzéséhez.');
 @define('CATEGORY_PLUGIN_HIDEZEROCOUNT', 'Az archívum hivatkozás elrejtése, ha nincs abban az időszakban bejegyzés (a bejegyzések számolása szükséges)');
-@define('RSS_IMPORT_WPXRSS', 'WordPress eXtended RSS importálása, PHP5 szükséges, és lehet hogy sok memóriát igényel');
+@define('RSS_IMPORT_WPXRSS', 'A WordPress eXtended RSS importálása sok RAM memóriát foglalhat el');
 @define('SET_TO_MODERATED', 'Moderate');
 @define('COMMENT_MODERATED', 'Comment #%s has successfully been set back to state "moderate".');
 @define('CENTER', 'center');

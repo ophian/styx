@@ -961,7 +961,7 @@
 @define('PINGBACK_FAILED', 'Pingback fehlgeschlagen: %s');
 @define('PINGBACK_NOT_FOUND', 'Keine pingback-URI gefunden.');
 @define('CATEGORY_PLUGIN_HIDEZEROCOUNT', 'Versteckt den Archiv-Link, wenn es keine Einträge für einen Zeitraum gab (benötigt das Zählen der Einträge)');
-@define('RSS_IMPORT_WPXRSS', 'WordPress eXtended RSS Import, benötigt PHP5 und kann viel RAM/Speicher benötigen.');
+@define('RSS_IMPORT_WPXRSS', 'WordPress eXtended RSS Import benötigt viel RAM/Speicher.');
 
 @define('SET_TO_MODERATED', 'Moderieren');
 @define('COMMENT_MODERATED', 'Kommentar #%s wurde erfolgreich auf Status "moderieren" zurückgesetzt.');

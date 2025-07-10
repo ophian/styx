@@ -980,7 +980,7 @@
 @define('PINGBACK_FAILED', 'Falló envío de Pingback: %s');
 @define('PINGBACK_NOT_FOUND', 'No se encontró pingback-URI.');
 @define('CATEGORY_PLUGIN_HIDEZEROCOUNT', 'Oculta el enlace a los archivos de una fecha dada cuando, durante ese lapso de tiempo, no se hayan registrado entradas (requiere conteo de entradas)');
-@define('RSS_IMPORT_WPXRSS', 'Importar el RSS eXtendido de WordPress (WPXRSS), necesita PHP5 y es posible que consuma bastante memoria');
+@define('RSS_IMPORT_WPXRSS', 'La importación de RSS de WordPress eXtended puede ocupar mucha memoria RAM');
 @define('SET_TO_MODERATED', 'Moderar');
 @define('COMMENT_MODERATED', 'El comentario #%s ha sido marcado como moderado exitosamente');
 @define('CENTER', 'Centro');

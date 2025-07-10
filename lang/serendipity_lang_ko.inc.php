@@ -966,7 +966,7 @@
 @define('PINGBACK_FAILED', '핑백 실패: %s');
 @define('PINGBACK_NOT_FOUND', '핑백 URI를 찾을 수 없었음.');
 @define('CATEGORY_PLUGIN_HIDEZEROCOUNT', '아무런 글이 작성되지 않은 시간대의 글 목록 링크를 숨김 (글 수를 집계하는 기능을 사용해야 함)');
-@define('RSS_IMPORT_WPXRSS', '워드프레스의 확장 RSS (WordPress eXtended RSS) 불러오기 - PHP5가 필요하며 메모리를 많이 차지할 수 있음');
+@define('RSS_IMPORT_WPXRSS', 'WordPress eXtended RSS 가져오기가 많은 RAM 메모리를 차지할 수 있습니다.');
 @define('SET_TO_MODERATED', '중재하기');
 @define('COMMENT_MODERATED', '%s번 덧글을 성공적으로 중재하기로 설정함');
 @define('CENTER', '중앙');

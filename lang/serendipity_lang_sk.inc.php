@@ -976,7 +976,7 @@ $i18n_filename_to = array (
 @define('PINGBACK_FAILED', 'Oznámenie zlyhalo: %s');
 @define('PINGBACK_NOT_FOUND', 'Oznamovacia URI adresa neexistuje.');
 @define('CATEGORY_PLUGIN_HIDEZEROCOUNT', 'Schovať odkaz na archívy, ak nie sú vo vybranom období vydané žiadne články (vyžaduje počítánie článkov)');
-@define('RSS_IMPORT_WPXRSS', 'WordPress eXtended RSS import (rozšírený WordPress RSS import), vyžaduje PHP5 a môže spotrebovať priveľa pamäti');
+@define('RSS_IMPORT_WPXRSS', 'WordPress eXtended RSS import môže zaberať veľa pamäte RAM');
 @define('SET_TO_MODERATED', 'Schváliť');
 @define('COMMENT_MODERATED', 'Komentár č.%s bol úspešne schválený');
 @define('CENTER', 'stred');
