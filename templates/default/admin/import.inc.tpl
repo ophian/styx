@@ -36,6 +36,7 @@
     </dl>
 
     <div class="form_buttons">
+        <a class="button_link" id="back" href="?serendipity[adminModule]=maintenance">{$CONST.BACK}</a>
         <button type="submit" class="button_link state_import">{$CONST.IMPORT_NOW}</button>
     </div>
 </form>
