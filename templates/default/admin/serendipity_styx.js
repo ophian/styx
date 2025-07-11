@@ -1528,6 +1528,11 @@ $(function() {
         }
     });
 
+    // Maintenance integrity check when files have to be checked
+    $('#maintenance_integrity a.button_link').click(function() {
+      $( '#waitingspin' ).toggle();
+    });
+
     // Plugin update check added by spartacus/plugup
     $('#upgrade_notice').click(function() {
       $( '#waitingspin' ).toggle();
