@@ -1,3 +1,5 @@
+<div id="waitingspin" class="pulsator busy_integrity" style="display: none"><div></div><div></div></div>
+
 <h2>{$CONST.MENU_MAINTENANCE}</h2>
 <a class="maintenance_toogle_info toggle_info button_link" type="button" href="#maintenance_info">
     <span class="icon-info-circled" aria-hidden="true"></span>
@@ -9,15 +11,15 @@
 </div>
 {if isset($action) AND $action == "integrity" AND isset($badsums)}
 
-    <h3 class="visuallyhidden">{$CONST.INTEGRITY}</h3>
+<h3 class="visuallyhidden">{$CONST.INTEGRITY}</h3>
 {if $badsums|count > 0}
 {assign "cfiles" $badsums|count}
 
-    <ul class="plainList">
+<ul class="plainList">
 {foreach $badsums AS $rpath => $calcsum}
-        <li class="msg_error_list"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CHECKSUM_FAILED|sprintf:$rpath}</li>
+    <li class="msg_error_list"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CHECKSUM_FAILED|sprintf:$rpath}</li>
 {/foreach}
-    </ul>
+</ul>
 {/if}
 {/if}
 
