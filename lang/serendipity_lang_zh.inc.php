@@ -371,7 +371,7 @@
 @define('INSTALL_DBUSER', '数据库帐号');
 @define('INSTALL_DBUSER_DESC', '登入数据库的帐号');
 @define('INSTALL_DBPASS', '数据密码');
-@define('INSTALL_DBPASS_DESC', '你的数据库密码');
+@define('INSTALL_DBPASS_DESC', '你的数据库密码。 如果已經設定，則只存在於存取的「serendipity_config_local.inc」檔案中，也可以在此設定。');
 @define('INSTALL_DBNAME', '数据名称');
 @define('INSTALL_DBNAME_DESC', '资料库名称');
 @define('INSTALL_DBPREFIX', '表前置名称');

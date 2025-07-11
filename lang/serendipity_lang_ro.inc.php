@@ -370,7 +370,7 @@
 @define('INSTALL_DBUSER', 'Utilizator');
 @define('INSTALL_DBUSER_DESC', 'Utilizatorul folosit pentru conectarea la baza de date');
 @define('INSTALL_DBPASS', 'Parolă');
-@define('INSTALL_DBPASS_DESC', 'Parola pentru utilizatorul de mai sus');
+@define('INSTALL_DBPASS_DESC', 'Parola pentru utilizatorul de mai sus. Dacă este deja setat, acesta există numai în fișierul de acces "serendipity_config_local.inc" sau poate fi setat aici.');
 @define('INSTALL_DBNAME', 'Nume bază de date');
 @define('INSTALL_DBNAME_DESC', 'Numele bazei tale de date');
 @define('INSTALL_DBPREFIX', 'Prefixul tabelelor');

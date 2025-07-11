@@ -371,7 +371,7 @@
 @define('INSTALL_DBUSER', 'اسم مستخدم قاعدة البيانات');
 @define('INSTALL_DBUSER_DESC', 'اسم المستخدم الذي يمكنه الاتصال في قاعدة البيانات');
 @define('INSTALL_DBPASS', 'كلمة المرور لقاعدة البيانات');
-@define('INSTALL_DBPASS_DESC', 'كلمة المرور لقاعدة البيانات خاصة بهذا المستخدم');
+@define('INSTALL_DBPASS_DESC', 'كلمة المرور لقاعدة البيانات خاصة بهذا المستخدم. إذا تم تعيينه بالفعل، فهو موجود فقط في ملف الوصول "serendipity_config_local.inc"، أو يمكن تعيينه هنا.');
 @define('INSTALL_DBNAME', 'اسم قاعدة البيانات');
 @define('INSTALL_DBNAME_DESC', 'أسم قاعدة البيانات');
 @define('INSTALL_DBPREFIX', 'بادئة جداول قاعدة البيانات');

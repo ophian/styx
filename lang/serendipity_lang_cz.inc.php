@@ -386,7 +386,7 @@ $i18n_filename_to = array (
 @define('INSTALL_DBUSER', 'Uživatel');
 @define('INSTALL_DBUSER_DESC', 'Uživatelské jméno');
 @define('INSTALL_DBPASS', 'Heslo');
-@define('INSTALL_DBPASS_DESC', 'Uživatelské heslo');
+@define('INSTALL_DBPASS_DESC', 'Uživatelské heslo. Pokud je již nastaven, existuje pouze v přístupovém souboru "serendipity_config_local.inc", nebo jej lze nastavit zde.');
 @define('INSTALL_DBNAME', 'Název');
 @define('INSTALL_DBNAME_DESC', 'Název databáze');
 @define('INSTALL_DBPREFIX', 'Prefix');

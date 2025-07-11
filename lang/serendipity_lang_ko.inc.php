@@ -371,7 +371,7 @@
 @define('INSTALL_DBUSER', '데이터베이스 사용자');
 @define('INSTALL_DBUSER_DESC', '데이터베이스에 접속하기 위한 사용자 이름');
 @define('INSTALL_DBPASS', '데이터베이스 암호');
-@define('INSTALL_DBPASS_DESC', '사용자 이름에 대응하는 암호');
+@define('INSTALL_DBPASS_DESC', '사용자 이름에 대응하는 암호. 이미 설정되어 있는 경우 액세스 "serendipity_config_local.inc" 파일에만 존재하거나 여기에서 설정할 수 있습니다.');
 @define('INSTALL_DBNAME', '데이터베이스 이름');
 @define('INSTALL_DBNAME_DESC', '사용할 데이터베이스의 이름');
 @define('INSTALL_DBPREFIX', '데이터베이스 테이블 접두사');

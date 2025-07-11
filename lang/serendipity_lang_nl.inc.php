@@ -372,7 +372,7 @@
 @define('INSTALL_DBUSER', 'Databankgebruiker');
 @define('INSTALL_DBUSER_DESC', 'De gebruikersnaam die nodig is om verbinding te maken met uw databank');
 @define('INSTALL_DBPASS', 'Databankwachtwoord');
-@define('INSTALL_DBPASS_DESC', 'Het wachtwoord behorend bij de ingevoerde gebruikersnaam');
+@define('INSTALL_DBPASS_DESC', 'Het wachtwoord behorend bij de ingevoerde gebruikersnaam. Als het al is ingesteld, bestaat het alleen in het access "serendipity_config_local.inc" bestand, of kan het hier worden ingesteld.');
 @define('INSTALL_DBNAME', 'Databanknaam');
 @define('INSTALL_DBNAME_DESC', 'De naam van uw databank');
 @define('INSTALL_DBPREFIX', 'Databankvoorvoegsel');

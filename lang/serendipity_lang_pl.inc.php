@@ -371,7 +371,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('INSTALL_DBUSER', 'Użytkownik bazy danych');
 @define('INSTALL_DBUSER_DESC', 'Nazwa użytkownika używana do łączenia się z bazą danych');
 @define('INSTALL_DBPASS', 'Hasło bazy danych');
-@define('INSTALL_DBPASS_DESC', 'Hasło dla użytkownika podanego powyżej');
+@define('INSTALL_DBPASS_DESC', 'Hasło dla użytkownika podanego powyżej. Jeśli jest już ustawiony, istnieje tylko w pliku dostępu "serendipity_config_local.inc" lub można go ustawić tutaj.');
 @define('INSTALL_DBNAME', 'Nazwa bazy danych');
 @define('INSTALL_DBNAME_DESC', 'Nazwa Twojej bazy danych');
 @define('INSTALL_DBPREFIX', 'Prefiks tabel bazy danych');

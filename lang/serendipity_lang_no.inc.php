@@ -328,7 +328,7 @@
 @define('INSTALL_DBUSER', 'Databasebrukernavn');
 @define('INSTALL_DBUSER_DESC', 'Brukernavnet som er brukt til å koble til databasen din');
 @define('INSTALL_DBPASS', 'Databasepassord');
-@define('INSTALL_DBPASS_DESC', 'Passordet som passer til brukernavnet over');
+@define('INSTALL_DBPASS_DESC', 'Passordet som passer til brukernavnet over. Hvis den allerede er angitt, finnes den bare i filen "serendipity_config_local.inc", eller kan angis her.');
 @define('INSTALL_DBNAME', 'Databasenavn');
 @define('INSTALL_DBNAME_DESC', 'Navnet på din database');
 @define('INSTALL_DBPREFIX', 'Databasetabell-prefiks');

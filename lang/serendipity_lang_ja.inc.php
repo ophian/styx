@@ -369,7 +369,7 @@
 @define('INSTALL_DBUSER', 'データベースユーザー');
 @define('INSTALL_DBUSER_DESC', 'データベースの接続に使用するユーザー名を指定します。');
 @define('INSTALL_DBPASS', 'データベースパスワード');
-@define('INSTALL_DBPASS_DESC', '上のユーザー名と一致するパスワードを指定します。');
+@define('INSTALL_DBPASS_DESC', '上のユーザー名と一致するパスワードを指定します。 すでに設定されている場合は、アクセス「serendipity_config_local.inc」ファイルにのみ存在し、ここで設定することもできる。');
 @define('INSTALL_DBNAME', 'データベース名');
 @define('INSTALL_DBNAME_DESC', '使用するデータベース名を指定します。');
 @define('INSTALL_DBPREFIX', 'データベーステーブル接頭語');

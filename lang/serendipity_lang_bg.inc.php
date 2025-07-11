@@ -403,7 +403,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_DBUSER', 'Потребител');
 @define('INSTALL_DBUSER_DESC', 'Името на потребителя, с което да бъде установявана връзка с вашата база данни');
 @define('INSTALL_DBPASS', 'Парола');
-@define('INSTALL_DBPASS_DESC', 'Паролата на горния потребител');
+@define('INSTALL_DBPASS_DESC', 'Паролата на горния потребител. Ако вече е зададена, тя съществува само във файла за достъп "serendipity_config_local.inc" или може да бъде зададена тук.');
 @define('INSTALL_DBNAME', 'Име на базата данни');
 @define('INSTALL_DBNAME_DESC', 'Името на вашата база данни');
 @define('INSTALL_DBPREFIX', 'Представка на таблиците');

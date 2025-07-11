@@ -351,7 +351,7 @@
 @define('INSTALL_DBUSER', 'Usuario');
 @define('INSTALL_DBUSER_DESC', 'El usuario que conecta a la base de datos');
 @define('INSTALL_DBPASS', 'Contraseña');
-@define('INSTALL_DBPASS_DESC', 'La contraseña para el usuario');
+@define('INSTALL_DBPASS_DESC', 'La contraseña para el usuario. Si ya está configurado, sólo existe en el archivo de acceso "serendipity_config_local.inc", o puede configurarse aquí.');
 @define('INSTALL_DBNAME', 'Nombre');
 @define('INSTALL_DBNAME_DESC', 'El nombre de la base de datos');
 @define('INSTALL_DBPREFIX', 'Prefijo');

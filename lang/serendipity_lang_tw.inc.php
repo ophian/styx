@@ -371,7 +371,7 @@ $i18n_unknown = 'tw';
 @define('INSTALL_DBUSER', '資料庫帳號');
 @define('INSTALL_DBUSER_DESC', '登入資料庫的帳號');
 @define('INSTALL_DBPASS', '資料庫密碼');
-@define('INSTALL_DBPASS_DESC', '您的資料庫密碼');
+@define('INSTALL_DBPASS_DESC', '您的資料庫密碼。 如果已經設定，則只存在於存取的「serendipity_config_local.inc」檔案中，也可以在此設定。');
 @define('INSTALL_DBNAME', '資料庫名稱');
 @define('INSTALL_DBNAME_DESC', '資料庫名稱');
 @define('INSTALL_DBPREFIX', '資料表前置名稱');

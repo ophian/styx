@@ -368,7 +368,7 @@
 @define('INSTALL_DBUSER', 'Kantakäyttäjä');
 @define('INSTALL_DBUSER_DESC', 'Kantakäyttäjän käyttäjätunnus');
 @define('INSTALL_DBPASS', 'Kantakäyttäjän salasana');
-@define('INSTALL_DBPASS_DESC', 'Kantakäyttäjän salasana');
+@define('INSTALL_DBPASS_DESC', 'Kantakäyttäjän salasana. Jos se on jo asetettu, se on vain "serendipity_config_local.inc"-tiedostossa, tai se voidaan asettaa täällä.');
 @define('INSTALL_DBNAME', 'Kannan nimi');
 @define('INSTALL_DBNAME_DESC', 'Tietokannan nimi');
 @define('INSTALL_DBPREFIX', 'Tauluetuliite');

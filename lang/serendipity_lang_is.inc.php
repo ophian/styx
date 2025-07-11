@@ -369,7 +369,7 @@
 @define('INSTALL_DBUSER', 'Notandi gagnagrunns');
 @define('INSTALL_DBUSER_DESC', 'Notandanafnið sem notað verður til að tengjast gagnagrunninum');
 @define('INSTALL_DBPASS', 'Lykilorð gagnagrunns');
-@define('INSTALL_DBPASS_DESC', 'Lykilorðið sem nota á með notandanafninu að ofan');
+@define('INSTALL_DBPASS_DESC', 'Lykilorðið sem nota á með notandanafninu að ofan. Ef það er þegar stillt, þá er það aðeins til staðar í aðgangsskránni "serendipity_config_local.inc" eða hægt er að endurstilla það hér.');
 @define('INSTALL_DBNAME', 'Nafn gagnagrunns');
 @define('INSTALL_DBNAME_DESC', 'Nafnið á gagnagrunninum þínum');
 @define('INSTALL_DBPREFIX', 'Fasti á undan færslum í gagnagrunni');

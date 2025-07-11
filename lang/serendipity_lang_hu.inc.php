@@ -369,7 +369,7 @@
 @define('INSTALL_DBUSER', 'Adatbázis felhasználó');
 @define('INSTALL_DBUSER_DESC', 'A felhasználói név, amivel az adatbázisodhoz lehet kapcsolódni');
 @define('INSTALL_DBPASS', 'Adatbázis jelszó');
-@define('INSTALL_DBPASS_DESC', 'A fent megadott felhasználóhoz tartozó jelszó');
+@define('INSTALL_DBPASS_DESC', 'A fent megadott felhasználóhoz tartozó jelszó. Ha már be van állítva, akkor csak a "serendipity_config_local.inc" hozzáférési fájlban létezik, vagy itt állítható be.');
 @define('INSTALL_DBNAME', 'Az adatbázis neve');
 @define('INSTALL_DBNAME_DESC', 'Az adatbázisod neve');
 @define('INSTALL_DBPREFIX', 'Az adatbázis táblák prefix-e');

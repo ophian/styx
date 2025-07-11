@@ -371,7 +371,7 @@
 @define('INSTALL_DBUSER', 'Veritabanı kullanıcısı');
 @define('INSTALL_DBUSER_DESC', 'Veritabanına bağlanmak için bu kullanıcı adı kullanılacak');
 @define('INSTALL_DBPASS', 'Veritabanı şifresi');
-@define('INSTALL_DBPASS_DESC', 'Bu şifre kullanıcı adınızla beraber kullanılacak');
+@define('INSTALL_DBPASS_DESC', 'Bu şifre kullanıcı adınızla beraber kullanılacak. Zaten ayarlanmışsa, yalnızca erişim "serendipity_config_local.inc" dosyasında bulunur veya burada ayarlanabilir.');
 @define('INSTALL_DBNAME', 'Veritabanı adı');
 @define('INSTALL_DBNAME_DESC', 'Veritabanınızın adı');
 @define('INSTALL_DBPREFIX', 'Veritabanı tablo öneki');

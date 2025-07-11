@@ -347,7 +347,7 @@
 @define('INSTALL_DBUSER', 'Nom d\'utilisateur');
 @define('INSTALL_DBUSER_DESC', 'Le nom d\'utilisateur à utiliser pour se connecter à la base de données');
 @define('INSTALL_DBPASS', 'Mot de passe');
-@define('INSTALL_DBPASS_DESC', 'Le mot de passe correspondant au nom d\'utilisateur');
+@define('INSTALL_DBPASS_DESC', 'Le mot de passe correspondant au nom d\'utilisateur. Si elle est déjà définie, elle n\'existe que dans le fichier d\'accès "serendipity_config_local.inc", ou peut être redéfinie ici.');
 @define('INSTALL_DBNAME', 'Nom de la base de données');
 @define('INSTALL_DBNAME_DESC', 'Le nom de la base de données à laquelle Serendipity doit se connecter');
 @define('INSTALL_DBPREFIX', 'Préfixe des tables');

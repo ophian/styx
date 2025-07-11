@@ -370,7 +370,7 @@
 @define('INSTALL_DBUSER', 'کاربر پایگاه داده');
 @define('INSTALL_DBUSER_DESC', 'نام کاربری که توسط آن به پایگاه داده متصل می شوید');
 @define('INSTALL_DBPASS', 'رمز عبور پایگاه داده');
-@define('INSTALL_DBPASS_DESC', 'رمز عبور مربوط به نام کاربری که در فوق وارد کردید');
+@define('INSTALL_DBPASS_DESC', 'رمز عبوری که با نام کاربری بالا مطابقت دارد. اگر از قبل تنظیم شده باشد، فقط در فایل دسترسی "serendipity_config_local.inc" وجود دارد، یا می‌توان آن را در اینجا دوباره تنظیم کرد.');
 @define('INSTALL_DBNAME', 'نام پایگاه داده');
 @define('INSTALL_DBNAME_DESC', 'نام پایگاه داده شما');
 @define('INSTALL_DBPREFIX', 'پیشوند جداول پایگاه داده');
