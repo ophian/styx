@@ -1,6 +1,8 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Add maintenance (busy_) integrity task visual waitingspin(ner)
+
   * Iconize pluginlist_tabs and install button(s)
 
   * Partially revert retired and outdated bundled-libs/Net* library.
