@@ -861,7 +861,7 @@
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Si cambias la contraseña en el campo de arriba, debes escribir la contraseña actual en este campo.');
 @define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'No especificaste correctamente la contraseña actual, por lo tanto no estas autorizado para establecer una nueva. Tus cambios no fueron guardados.');
-@define('ERROR_XSRF', 'Tu navegador no envió una cadena válida de HTTP-Referrer. Esto puede deberse a una mala configuración del navegador/proxy o por un "Cross Site Request Forgery (XSRF)" dirigido a ti. La acción solicitada no pudo ser completada.');
+@define('ERROR_XSRF', 'Su navegador no ha enviado una cadena HTTP-Referrer válida. En una situación grave para el Referrer esto puede haber sido causado por un navegador/proxy mal configurado o por un Cross Site Request Forgery (XSRF) dirigido a usted. De lo contrario, este mensaje sólo puede indicar que su pestaña ha estado abierta durante demasiado tiempo y su token de edición actual ha caducado. La acción solicitada no ha podido completarse.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Aquí puedes definir la estructura relativa de URLs comenzando por tu URL base hasta incluso las sindicaciones RSS de usuarios específicos que puedan ser vistos. Puedes usar las variables %id%, %realname%, %username%, %email% y cualquier otro carácter.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR', 'Estructura de los Enlaces Permanentes para las sindicaciones RSS de autores');
 @define('INSTALL_PERMALINK_AUTHORSPATH', 'Ruta para los autores');

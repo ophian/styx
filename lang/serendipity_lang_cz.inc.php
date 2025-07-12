@@ -856,7 +856,7 @@ $i18n_filename_to = array (
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Jestliže změníte  heslo v políčku výše, musíte do tohoto pole zadat současné heslo.');
 @define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Nezadali jste správné staré heslo a nejste oprávněni heslo změnit. Vaše nastavení nebylo uloženo.');
-@define('ERROR_XSRF', 'Váš prohlížeč nezaslal platný  HTTP-Referrer string. To mohlo být způsobeno buď špatně nastaveným prohlížečem/proxy nebo  Cross Site Request Forgery (XSRF), který je na vás namířen. Požadovaná akce nemohla být dokončena.');
+@define('ERROR_XSRF', 'Váš prohlížeč neodeslal platný řetězec HTTP-Referrer. V závažné situaci pro Referrer to mohlo být způsobeno buď špatně nakonfigurovaným prohlížečem/proxy serverem, nebo na vás cíleným Cross Site Request Forgery (XSRF). V opačném případě může tato zpráva pouze indikovat, že vaše karta byla otevřena příliš dlouho a platnost aktuálního editačního tokenu vypršela. Vámi požadovanou akci nebylo možné dokončit.');
 @define('AUTHORS', 'Autoři');
 @define('AUTHORS_ALLOW_SELECT', 'Povolit návštěvníkům vybrat více autorů najednou?');
 @define('AUTHORS_ALLOW_SELECT_DESC', 'Jestliže je tato volba povolena, bude u každého autora umístěno zatrhávací okénko. Uživatelé mohou zvolit více autorů  a vidět příspěvky, které vyhovují jejich výběru');

@@ -845,7 +845,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Ако смените паролата в горното поле, трябва да въведете текущата парола в това поле.');
 @define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Не зададохте правилно старата си парола и не сте удостоверени за смяна с нова парола. Вашите настройки не са запазени.');
-@define('ERROR_XSRF', 'Вашият браузър не изпрати правилен низ Referrer на HTTP. Това може да е предизвикано или от неправилно настроен браузър/прокси, или от междусайтова фалшификация на заявка (Cross Site Request Forgery - XSRF), прицелена към вас. Действието, което сте заявили, не може да бъде завършено.');
+@define('ERROR_XSRF', 'Вашият браузър не е изпратил валиден низ за HTTP-референт. В сериозна ситуация за Referrer това може да е причинено или от неправилно конфигуриран браузър/прокси сървър, или от Cross Site Request Forgery (XSRF), насочен към вас. В противен случай това съобщение може само да показва, че табът ви е бил отворен твърде дълго и текущият ви токен за редактиране е изтекъл. Заявеното от вас действие не може да бъде завършено.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Тук можете да определите относителна структура на URL спрямо основния URL, откъдето са налични емисии на RSS от дадени потребители. Можете да използвате променливите %id%, %realname%, %username%, %email% и всички други знаци.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR', 'Структура на постоянна връзка към емисия на RSS на автор');
 @define('INSTALL_PERMALINK_AUTHORSPATH', 'Път до автори');

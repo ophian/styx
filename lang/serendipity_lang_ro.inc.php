@@ -843,7 +843,7 @@
 @define('USERCONF_CHECK_PASSWORD_DESC', 'If you change the password in the field above, you need to enter the current user password into this field.');
 @define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'You did not specify the right old password, and are not authorized to change the new password. Your settings were not saved.');
-@define('ERROR_XSRF', 'Your browser did not sent a valid HTTP-Referrer string. This may have either been caused by a misconfigured browser/proxy or by a Cross Site Request Forgery (XSRF) aimed at you. The action you requested could not be completed.');
+@define('ERROR_XSRF', 'Your browser did not sent a valid HTTP-Referrer string. In a serious situation for the Referrer this may have either been caused by a mis-configured browser/proxy or by a Cross Site Request Forgery (XSRF) aimed at you. Otherwise, this message can only indicate that your tab has been open for too long and your current editing token has expired. The action you requested could not be completed.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Here you can define the relative URL structure beginning from your base URL to where RSS-feeds from specific users may be viewed. You can use the variables %id%, %realname%, %username%, %email% and any other characters.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR', 'Permalink RSS-Feed Author URL structure');
 @define('INSTALL_PERMALINK_AUTHORSPATH', 'Path to authors');

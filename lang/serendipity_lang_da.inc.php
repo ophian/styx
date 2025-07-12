@@ -843,7 +843,7 @@
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Hvis du ændrer kodeord i feltet herover skal du indtaste dit nuværende kodeord her.');
 @define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Du indtastede ikke det rigtige nuværende kodeord, og kan derfor ikke ændre kodeord, din ændring blev ikke gemt.');
-@define('ERROR_XSRF', 'Your browser did not sent a valid HTTP-Referrer string. This may have either been caused by a misconfigured browser/proxy or by a Cross Site Request Forgery (XSRF) aimed at you. The action you requested could not be completed.');
+@define('ERROR_XSRF', 'Your browser did not sent a valid HTTP-Referrer string. In a serious situation for the Referrer this may have either been caused by a mis-configured browser/proxy or by a Cross Site Request Forgery (XSRF) aimed at you. Otherwise, this message can only indicate that your tab has been open for too long and your current editing token has expired. The action you requested could not be completed.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Her kan du angive den relative URL struktur fra din grund URL til hvor RSS-feeds fra bestemte forfattere bliver tilgængelige. Du kan anvende de variable værdier %id%, %realname%, %username%, %email% samt alle andre karakterer.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR', 'Permalink RSS-Feed forfatter URL struktur');
 @define('INSTALL_PERMALINK_AUTHORSPATH', 'Sti til forfattere');

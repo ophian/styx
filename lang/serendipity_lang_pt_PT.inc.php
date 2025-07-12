@@ -849,7 +849,7 @@
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Se mudar a senha no campo acima, precisa de inserir a senha corrente neste campo.');
 @define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Não especificou a senha antiga correctamente, e não está autorizado a mudar a nova senha. As suas preferências não foram guardadas.');
-@define('ERROR_XSRF', 'O seu navegador não enviou uma sequência válida de HTTP-Referrer. Isto pode ter sido causado por um proxy ou navegador mal configurado ou por um Cross Site Request Forgery (XSRF) dirigido a si. A acção que solicitou não pôde ser completada.');
+@define('ERROR_XSRF', 'O seu browser não enviou uma cadeia de caracteres HTTP-Referrer válida. Numa situação grave para o Referrer, isto pode ter sido causado por um navegador/proxy mal configurado ou por uma falsificação de pedidos entre sítios (XSRF) dirigida a si. Caso contrário, esta mensagem pode apenas indicar que o seu separador está aberto há demasiado tempo e que o seu token de edição atual expirou. A ação solicitada não pôde ser concluída.');
 
 @define('AUTHORS', 'Autores');
 @define('AUTHORS_ALLOW_SELECT', 'Permitir aos visitantes ver múltiplos autores simultaneamente?');

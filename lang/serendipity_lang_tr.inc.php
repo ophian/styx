@@ -846,7 +846,7 @@
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Eğer şifrenizi değiştirmek istiyorsanız, eski şifrenizi bu alana girmek zorundasınız.');
 @define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Eski şifrenizi doğru olarak girmediniz, bu nedenle şifre değiştirme işleminiz onaylanmadı.Yeni Ayarlarınız kaydedilmedi.');
-@define('ERROR_XSRF', 'Tarayıcınız HTTP-Ziyaretçi Gönderenler için doğru  karakter dizgesi gönderemedi. Bu tarayıcı ve proxy ayarlarınızın doğru şekilde yapılandırılmamış olmasından kaynaklanabilir ya da Cross Site Request Forgery (XSRF) diye tanımlanan durum ortaya çıkmış olabilir.Yapmak istediğiniz eylem tamamlanamadı.');
+@define('ERROR_XSRF', 'Tarayıcınız geçerli bir HTTP-Referrer dizesi göndermedi. Referrer için ciddi bir durumda bu, yanlış yapılandırılmış bir tarayıcı/proxy\'den veya sizi hedef alan bir Çapraz Site İstek Sahteciliğinden (XSRF) kaynaklanmış olabilir. Aksi takdirde, bu mesaj yalnızca sekmenizin çok uzun süredir açık olduğunu ve mevcut düzenleme belirtecinizin süresinin dolduğunu gösterebilir. Talep ettiğiniz işlem tamamlanamadı.');
 @define('AUTHORS', 'Yazarlar');
 @define('AUTHORS_ALLOW_SELECT', 'Ziyaretçiler aynı anda birkaç yazarı beraber görebilsin mi?');
 @define('AUTHORS_ALLOW_SELECT_DESC', 'Bu seçenek açık olursa, Kullanıcılar işaretleme kutularından bir kaç yazarı aynı anda seçip yazılarını görebilecekler.');

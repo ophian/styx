@@ -842,7 +842,7 @@
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Ha a mezőben megváltoztatod a jelszót, itt meg kell adnod a jelenlegit.');
 @define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Helytelenül adtad meg a jelenlegi jelszót, így nem változtathatod meg. A beállításokat nem mentettük.');
-@define('ERROR_XSRF', 'A böngésződ nem küldött érvényes HTTP-Hivatkozó szöveget. Ez több okból lehet, pl. rosszul beállított böngésző, proxy, vagy egy Cross Site Request Forgery (XSRF) támadás áldozata lettél. A kért művelet nem hajtható végre.');
+@define('ERROR_XSRF', 'A böngészője nem küldött érvényes HTTP-Referrer karakterláncot. A Referrer esetében súlyos esetben ezt vagy egy rosszul konfigurált böngésző/proxy, vagy egy Önt célzó Cross Site Request Forgery (XSRF) okozhatta. Egyébként ez az üzenet csak azt jelezheti, hogy a lapja túl sokáig volt nyitva, és az aktuális szerkesztési tokenje lejárt. Az Ön által kért műveletet nem sikerült végrehajtani.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Itt adhatod meg a relatív URL struktúrát az alap URL-hez képest, ahol az egyes felhasználók RSS hírcsatornái megtekinthetők. A következő változókat használhatod: %id%, %realname%, %username%, %email% és egyéb karaktereket.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR', 'A szerzőre hivatkozó permanens hivatkozás RSS hírcsatorna-beli struktúrája');
 @define('INSTALL_PERMALINK_AUTHORSPATH', 'Útvonal a szerzőkhöz');
