@@ -1297,10 +1297,10 @@ class serendipity_plugin_api
      *      - The new owner author
      *      - Indicates if the plugin is an event plugin
      * Returns:
-     *      - Returns the plugin object or false, if failure
+     *      - Returns the plugin string or false, if failure
      * @access protected
      */
-    static function &autodetect_instance(string $plugin_name, ?string $authorid, bool $is_event_plugin = false) : object|false
+    static function &autodetect_instance(string $plugin_name, ?string $authorid, bool $is_event_plugin = false) : string|false
     {
         if ($is_event_plugin) {
             $side = 'event';
