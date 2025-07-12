@@ -38,6 +38,8 @@ if (isset($_POST['SAVE']) && serendipity_checkFormToken()) {
 
     $icon     = $serendipity['POST']['cat']['icon'];
     $parentid = (isset($serendipity['POST']['cat']['parent_cat']) && is_numeric($serendipity['POST']['cat']['parent_cat'])) ? $serendipity['POST']['cat']['parent_cat'] : 0;
+    $_sort_order = 0; //$serendipity['POST']['cat']['sort_order'] ?? 0; // was never used and does not exist (yet)
+    $_hide_sub   = $serendipity['POST']['cat']['hide_sub']   ?? 0;
 
     if ($parentid > 0 && $serendipity['GET']['adminAction'] == 'newSub'
     && false === (serendipity_checkPermission('adminCategoriesMaintainOthers') && serendipity_ACLCheck($authorid, $cid, 'category', 'write'))) {
@@ -53,7 +55,7 @@ if (isset($_POST['SAVE']) && serendipity_checkFormToken()) {
             $data['category_name'] = $name;
         } else {
             $data['new'] = true;
-            $catid = serendipity_addCategory($name, $desc, $authorid, $icon, (int) $parentid);
+            $catid = serendipity_addCategory($name, $desc, $authorid, $icon, (int) $parentid, (int) $_sort_order, (int) $_hide_sub); // hide_sub and sort_order previously were not set/given for a new cat and sort_order is unused
             serendipity_ACLGrant($catid, 'category', 'read', $serendipity['POST']['cat']['read_authors']);
             serendipity_ACLGrant($catid, 'category', 'write', $serendipity['POST']['cat']['write_authors']);
         }
@@ -72,8 +74,6 @@ if (isset($_POST['SAVE']) && serendipity_checkFormToken()) {
                                             WHERE categoryid = ". (int) $parentid);
                 $data['subcat'] = sprintf(ALREADY_SUBCATEGORY, htmlspecialchars($r[0]['category_name']), htmlspecialchars($name));
             } else {
-                $_sort_order = $serendipity['POST']['cat']['sort_order'] ?? 0;
-                $_hide_sub   = $serendipity['POST']['cat']['hide_sub']   ?? 0;
                 serendipity_updateCategory($cid, $name, $desc, $authorid, $icon, (int) $parentid, (int) $_sort_order, (int) $_hide_sub, $admin_category);
                 serendipity_ACLGrant($cid, 'category', 'read', $serendipity['POST']['cat']['read_authors']);
                 serendipity_ACLGrant($cid, 'category', 'write', $serendipity['POST']['cat']['write_authors']);

@@ -1692,11 +1692,13 @@ function serendipity_isResponseClean(string $d) : bool {
  *      - The category owner integer id
  *      - An icon string representing the category
  *      - A possible parentid integer to a category
+ *      - A category sort order integer (is never used and does not exist)
+ *      - A category subcat hiding integer (true/false)
  * Returns:
  *      - The new category's ID integer
  * @access public
  */
-function serendipity_addCategory(string $name, string $desc, int $authorid, string $icon, int $parentid) : int {
+function serendipity_addCategory(string $name, string $desc, int $authorid, string $icon, int $parentid, int $sort_order = 0, int $hide_sub = 0) : int {
     global $serendipity;
 
     $query = "INSERT INTO {$serendipity['dbPrefix']}category
@@ -1704,11 +1706,13 @@ function serendipity_addCategory(string $name, string $desc, int $authorid, stri
                   VALUES
                     ('". serendipity_db_escape_string($name) ."',
                      '". serendipity_db_escape_string($desc) ."',
-                      ". (int)$authorid .",
+                      ". $authorid .",
                      '". serendipity_db_escape_string($icon) ."',
-                      ". (int)$parentid .",
+                      ". $parentid .",
                        0,
-                       0)";
+                       0,
+                      $sort_order,
+                      $hide_sub)";
 
     serendipity_db_query($query);
     $cid = serendipity_db_insert_id('category', 'categoryid');
