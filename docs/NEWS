@@ -1,6 +1,12 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix/Extend another "Methusalem" bug from S9y 1.2-alpha3, which added 2 new
+    fields: sort_order (unused) and hide_sub to the category table structure,
+    but forgot to also have this added to the serendipty_addCategory() function.
+    This fixes the issue that at least hide_sub could only be set on a category
+    EDIT UPDATE.
+
   * Add maintenance (busy_) integrity task visual waitingspin(ner)
 
   * Iconize pluginlist_tabs and install button(s)
