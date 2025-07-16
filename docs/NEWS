@@ -1,6 +1,9 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Colorize freetag [dark-mode] tags in freetag list administration for Styx
+    backend theme.
+
   * Fix/Extend another "Methusalem" bug from S9y 1.2-alpha3, which added 2 new
     fields: sort_order (unused) and hide_sub to the category table structure,
     but forgot to also have this added to the serendipty_addCategory() function.
