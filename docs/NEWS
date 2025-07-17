@@ -1,7 +1,7 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
-  * Add bullish and numbered lists to the commonToolbar tinyMCE configurator
+  * Add bullist and numbered lists to the commonToolbar tinyMCE configurator
 
   * Colorize freetag [dark-mode] tags in freetag list administration for Styx
     backend theme.
