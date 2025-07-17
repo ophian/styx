@@ -348,7 +348,7 @@ function serendipity_plugin_config(object &$plugin, object|iterable &$bag, strin
                 $data['ctype'] = 'select';
                 if (is_array($hvalue)) {
                     $selected_options = $hvalue;
-                } elseif ($is_multi_select) {
+                } elseif ($is_multi_select && is_string($hvalue)) {
                     $selected_options = explode('^', $hvalue);
                 } else {
                     $selected_options = array($hvalue => $hvalue);
