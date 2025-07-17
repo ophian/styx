@@ -82,7 +82,7 @@
 
     // NOTE: code === source !!
     // the run loop number makes our setting independent for multiple textarea configurations ! last change: move split group behind medias group container ... was behind link previously
-    let commonToolbar{$run} = [ { name: 'history', items: [ 'undo' ] }, { name: 'format', items: [ 'bold', 'italic' ] }, { name: 'link', items: [ 'link', 'blockquote' ] }, { name: 'images', items: [ 'styxImage', 'styxGallery' ] }, { name: 'medias', items: [ 'media', 'emoticons' ] }, { name: 'split', items: [ 'hr' ] }, { name: 'code', items: [ 'codesample', 'charmap' ] }, { name: 'views', items: [ 'code', 'fullscreen' ] }, { name: 'visuals', items: [ 'preview', 'visualblocks' ] }, { name: 'help', items: [ 'help' ] }, { name: 'extras', items: [ 'styles', 'fontsize', 'table', 'accordion' ] }, { name: 'hooks', items: styxButtonHooks } ];
+    let commonToolbar{$run} = [ { name: 'history', items: [ 'undo' ] }, { name: 'format', items: [ 'bold', 'italic' ] }, { name: 'link', items: [ 'link', 'blockquote' ] }, { name: 'images', items: [ 'styxImage', 'styxGallery' ] }, { name: 'medias', items: [ 'media', 'emoticons' ] }, { name: 'split', items: [ 'hr' ] }, { name: 'code', items: [ 'codesample', 'charmap' ] }, { name: 'views', items: [ 'code', 'fullscreen' ] }, { name: 'visuals', items: [ 'preview', 'visualblocks' ] }, { name: 'help', items: [ 'help' ] }, { name: 'extras', items: [ 'styles', 'fontsize', 'table', 'bullist', 'numlist', 'accordion' ] }, { name: 'hooks', items: styxButtonHooks } ];
 
     styxPlugs = pluginArrToStr(styxpluginnames);
 
