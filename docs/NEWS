@@ -3,8 +3,9 @@ Version 5.0-DEV ()
 
   * Add bullist and numbered lists to the commonToolbar tinyMCE configurator
 
-  * Colorize freetag [dark-mode] tags in freetag list administration for Styx
-    backend theme.
+  * Styx backend theme:
+    - Colorize freetag [dark-mode] tags in plugin freetag list administration
+    - Set/Improve [dark-mode] assigncategories plugin backend styles
 
   * Fix/Extend another "Methusalem" bug from S9y 1.2-alpha3, which added 2 new
     fields: sort_order (unused) and hide_sub to the category table structure,
