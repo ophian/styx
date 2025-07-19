@@ -223,7 +223,7 @@ if ($serendipity['GET']['adminAction'] != 'delete') {
         }
     }
 
-    if (!(isset($_POST['NEW']) || $serendipity['GET']['adminAction'] == 'new') && serendipity_checkPermission('adminUsersCreateNew')) {
+    if (!(isset($_POST['NEW']) || $serendipity['GET']['adminAction'] == 'new' || $serendipity['GET']['adminAction'] == 'edit') && serendipity_checkPermission('adminUsersCreateNew')) {
         $data['new'] = true;
     }
 }
