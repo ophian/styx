@@ -1,6 +1,9 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+  * For group(s) and user(s) EDIT administration remove the top NEW button
+    which shall only appear in list startup cases.
+
   * Add bullist and numbered lists to the commonToolbar tinyMCE configurator
 
   * Styx backend theme:
