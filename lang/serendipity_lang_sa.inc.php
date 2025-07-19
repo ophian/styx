@@ -847,7 +847,7 @@
 @define('USERCONF_CHECK_PASSWORD_DESC', 'أن غيرة كلمة المرور في الحقل السابق ، فأنه يجب أن تدخل كلمة المرور الحالية في هذا الحقل');
 @define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'لم تدخل كلمة المرور الصحيحة الحالية .لذلك ليس من صلاحياتك تغيير كلمة المرور الى كلمة جيدة. ! ! ! تنبيه: لم يتم حفظ التغييرات');
-@define('ERROR_XSRF', 'Your browser did not sent a valid HTTP-Referrer string. In a serious situation for the Referrer this may have either been caused by a mis-configured browser/proxy or by a Cross Site Request Forgery (XSRF) aimed at you. Otherwise, this message can only indicate that your tab has been open for too long and your current editing token has expired. The action you requested could not be completed.');
+@define('ERROR_XSRF', 'Your browser did not sent a valid HTTP-Referrer string. For the Referrer this may have either been caused by a mis-configured browser/proxy or by a Cross Site Request Forgery (XSRF) aimed at you. Otherwise, this message can only indicate that your tab has been open for too long and your current editing token has expired. The action you requested could not be completed.');
 @define('AUTHORS', 'المحررين');
 @define('AUTHORS_ALLOW_SELECT', 'السماح للزوار بعرض عدة كتاب كل مرة؟');
 @define('AUTHORS_ALLOW_SELECT_DESC', 'If this option is enabled, a checkbox will be put next to each author in this sidebar plugin.  Users can check those boxes and see entries matching their selection.');

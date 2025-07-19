@@ -846,7 +846,7 @@
 @define('USERCONF_CHECK_PASSWORD_DESC', '如果你要更改密码，请将新密码输入到这里。');
 @define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', '你提供了错误的久密码所以不能更改密码。你的设定未保存。');
-@define('ERROR_XSRF', '您的瀏覽器沒有傳送有效的 HTTP-Referrer 字串。在 Referrer 的嚴重情況下，這可能是由於瀏覽器/代理伺服器設定錯誤或針對您的跨站請求偽造 (XSRF) 所造成。否則，此訊息只能表示您的索引標籤已開啟過久，且您目前的編輯權限已過期。您要求的動作無法完成。');
+@define('ERROR_XSRF', '您的瀏覽器沒有傳送有效的 HTTP-Referrer 字串。對於 Referrer 而言，這可能是由於瀏覽器/代理伺服器設定錯誤或針對您的跨網站請求偽造 (XSRF) 所造成。否則，此訊息只能表示您的索引標籤已開啟過久，且您目前的編輯權限已過期。您要求的動作無法完成。');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', '这里可以让你定义相对 URL ，从基本 URL 到会员读取的 RSS-feeds 为标准。你可以用这些参数 %id%, %realname%, %username%, %email% 或其它字符。');
 @define('INSTALL_PERMALINK_FEEDAUTHOR', 'Permalink RSS-Feed 作者的 URL');
 @define('INSTALL_PERMALINK_AUTHORSPATH', '作者路径');

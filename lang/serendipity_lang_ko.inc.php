@@ -843,7 +843,7 @@
 @define('USERCONF_CHECK_PASSWORD_DESC', '위의 적힌 암호를 변경하려면 여기에 현재 사용중인 암호를 적으십시오.');
 @define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', '이전 암호가 올바르지 않으므로 새 암호로 변경할 권한이 없습니다. 설정이 저장되지 않았습니다.');
-@define('ERROR_XSRF', '브라우저가 유효한 HTTP 리퍼러 문자열을 보내지 않았습니다. 리퍼러의 심각한 상황에서는 브라우저/프록시가 잘못 구성되었거나 사용자를 노린 XSRF(교차 사이트 요청 위조)로 인해 발생한 것일 수 있습니다. 그렇지 않은 경우, 이 메시지는 탭이 너무 오래 열려 있어 현재 편집 토큰이 만료되었음을 나타낼 수 있습니다. 요청한 작업을 완료할 수 없습니다.');
+@define('ERROR_XSRF', '브라우저가 유효한 HTTP 리퍼러 문자열을 보내지 않았습니다. 리퍼러의 경우 잘못 구성된 브라우저/프록시 또는 회원님을 노린 크로스 사이트 요청 위조(XSRF)로 인해 발생한 것일 수 있습니다. 그렇지 않은 경우, 이 메시지는 탭이 너무 오래 열려 있어 현재 편집 토큰이 만료되었음을 나타낼 수 있습니다. 요청한 작업을 완료할 수 없습니다.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', '특정 사용자의 RSS 피드를 보기 위한 상대적인 인터넷 주소 구조를 %id%, %realname%, %username%, %email% 등의 변수와 일반 글자를 활용해서 정의할 수 있습니다. 전체 주소는 사이트의 기본 주소를 기초로 해서 시작합니다.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR', '작성자에 따른 RSS 피드 고정 링크 주소 구조');
 @define('INSTALL_PERMALINK_AUTHORSPATH', '작성자로 가는 경로');

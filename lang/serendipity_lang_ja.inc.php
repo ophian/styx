@@ -842,7 +842,7 @@
 @define('USERCONF_CHECK_PASSWORD_DESC', '上の項目でパスワードを変更する場合、この項目に現在のユーザーパスワードを入力する必要があります。');
 @define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', '正しい古いパスワードを指定せず、新しいパスワードを変更することは許可されていません．設定は保存されませんでした。');
-@define('ERROR_XSRF', 'ブラウザが有効な HTTP-Referrer 文字列を送信しませんでした。リファラーの深刻な状況では、ブラウザ/プロキシの設定ミスか、クロスサイトリクエストフォージェリ(XSRF)による可能性があります。それ以外の場合、このメッセージは、タブを開いている時間が長すぎ、現在の編集トークンの有効期限が切れたことを示すだけです。リクエストされたアクションを完了できませんでした。');
+@define('ERROR_XSRF', 'ブラウザが有効な HTTP-Referrer 文字列を送信しませんでした。リファラーについては、ブラウザ/プロキシの設定ミス、またはクロスサイトリクエストフォージェリ(XSRF)によって引き起こされた可能性があります。それ以外の場合、このメッセージは、タブを開いている時間が長すぎ、現在の編集トークンの有効期限が切れたことを示すだけです。リクエストされたアクションを完了できませんでした。');
 
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'ここで、ベース URL からある特定のユーザーの RSS フィード が入手可能になる、適当な場所への相対的な URL 構造の先頭を定義することができます。変数は、%id%、%realname%、%username%、%email%、そして他の文字を使用することができます。 ');
 @define('INSTALL_PERMALINK_FEEDAUTHOR', '固定リンク の RSS フィードの著者 URL 構造');
