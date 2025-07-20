@@ -88,8 +88,9 @@ $is_logged_in = serendipity_userLoggedIn();
 
 if ($is_logged_in) {
     $self_info = sprintf(USER_SELF_INFO, htmlspecialchars($serendipity['serendipityUser']), $serendipity['permissionLevels'][$serendipity['serendipityUserlevel']]);
+    $permlevel = $serendipity['serendipityUserlevel'] == '255' ? ' admin' : ($serendipity['serendipityUserlevel'] == '1' ? ' chief' : ' editor');
 } else {
-    $self_info = '';
+    $self_info = $permlevel = '';
 }
 
 $serendipity['ajax'] = $ajax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
@@ -274,7 +275,7 @@ if ($ajax) {
 
 } elseif (!$use_installer) {
 
-    $poll_admin_vars = array('main_content', 'no_banner', 'no_sidebar', 'no_footer', 'post_action', 'is_logged_in', 'admin_installed', 'self_info', 'use_installer', 'title');
+    $poll_admin_vars = array('main_content', 'no_banner', 'no_sidebar', 'no_footer', 'post_action', 'is_logged_in', 'admin_installed', 'self_info', 'permlevel', 'use_installer', 'title');
     $admin_vars      = array();
 
     foreach($poll_admin_vars AS $poll_admin_var) {
