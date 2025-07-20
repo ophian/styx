@@ -12,6 +12,7 @@ Version 5.0-DEV ()
     - Set/Improve [dark-mode] assigncategories plugin backend styles
     - Colorize "Home" and "Personal Preferences" [dark-mode] top navigation
       buttons by userlevel, analogue group colors.
+    - Change [dark-mode] color for .comment_status_pending and ...status_hidden
 
   * Fix/Extend another "Methusalem" bug from S9y 1.2-alpha3, which added 2 new
     fields: sort_order (unused) and hide_sub to the category table structure,
