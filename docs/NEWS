@@ -4,7 +4,8 @@ Version 5.0-DEV ()
   * For group(s) and user(s) EDIT administration remove the top NEW button
     which shall only appear in list startup cases.
 
-  * Add bullist and numbered lists to the commonToolbar tinyMCE configurator
+  * Add bullist and numbered lists to the commonToolbar tinyMCE configurator.
+    For the latter, added to the backend commentToolbar configuration too.
 
   * Styx backend theme:
     - Colorize freetag [dark-mode] tags in plugin freetag list administration
