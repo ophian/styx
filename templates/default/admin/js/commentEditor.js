@@ -30,7 +30,7 @@ const commentConfig = {
     toolbar: [
         { name: 'history', items: [ 'undo' ] },
         { name: 'format', items: [ 'bold', 'italic', 'underline', 'strikethrough' ] },
-        { name: 'link', items: [ 'link', 'blockquote' ] },
+        { name: 'link', items: [ 'link', 'blockquote', 'numlist' ] },
         { name: 'split', items: [ 'hr' ] },
         { name: 'code', items: [ 'codesample', 'emoticons', 'charmap' ] },
         { name: 'views', items: [ 'code', 'fullscreen' ] },
