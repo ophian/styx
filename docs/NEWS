@@ -9,6 +9,8 @@ Version 5.0-DEV ()
   * Styx backend theme:
     - Colorize freetag [dark-mode] tags in plugin freetag list administration
     - Set/Improve [dark-mode] assigncategories plugin backend styles
+    - Colorize "Home" and "Personal Preferences" [dark-mode] top navigation
+      buttons by userlevel, analogue group colors.
 
   * Fix/Extend another "Methusalem" bug from S9y 1.2-alpha3, which added 2 new
     fields: sort_order (unused) and hide_sub to the category table structure,
