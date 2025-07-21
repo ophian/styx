@@ -2128,20 +2128,6 @@ html[data-login-color-mode="dark"], [data-login-color-mode="dark"] button, [data
 [data-login-color-mode="dark"] #meta p {
     color: var(--color-text-placeholder);
 }
-/* plugins */
-[data-color-mode="dark"] .freetags_manage tr > td:first-of-type {
-    color: var(--color-auto-purple-6);
-}
-[data-color-mode="dark"] #assigncategories .form_multiselect {
-    border: 1px solid var(--color-alert-info-border);
-    background: var(--color-bg-secondary);
-}
-[data-color-mode="dark"] #assigncategories label {
-    color: var(--color-label-orange-text);
-    border: 1px solid var(--color-label-orange-border);
-    background: var(--color-bg-info);
-    padding-left: .25em;
-}
 
 /* NAVIGATION */
 .js #main_menu {
