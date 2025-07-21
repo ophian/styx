@@ -36,4 +36,7 @@
 @define('PLUGIN_HISTORY_MULTIYEARS', 'Number of looped years');
 @define('PLUGIN_HISTORY_MULTIYEARS_DESC', 'Set a new number of years to loop through, when having selected the time range "one year ago". Default is 1 (the current year). Set upper "Min age" and "Max age" entries to exact 365 days. In case of multi years, all history sidebar output - inclusive possible intro/outro - will be cached for performance reasons inside a "templates_c/history_daylist.dat" file for the rest of the day.');
 @define('PLUGIN_HISTORY_MULTIYEARS_EMPTY', 'Optional cached fallback text when multi-years are empty');
+@define('PLUGIN_HISTORY_PURGE_CACHE', 'Purge cache file');
+@define('PLUGIN_HISTORY_PURGE_CACHE_DESC', 'If your cached file seems to miss entries, try to get another run. [Default: false]');
+@define('PLUGIN_HISTORY_CACHE_OK', 'Your cashed history file "<code>%s</code>" has been purged successfully. Open up this <a href="%s">link</a> for a reset configuration and don\'t forget to open your Blog Frontend to generate a new file.');
 

@@ -22,7 +22,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '2.0.0');
+        $propbag->add('version',       '2.1.0');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
@@ -44,6 +44,7 @@ class serendipity_plugin_history extends serendipity_plugin
                                              'amount',
                                              'displaydate',
                                              'displayauthor',
+                                             'purge_cache',
                                              'dateformat'));
     }
 
@@ -155,6 +156,13 @@ class serendipity_plugin_history extends serendipity_plugin
                 $propbag->add('name',         PLUGIN_HISTORY_DISPLAYAUTHOR);
                 $propbag->add('description',  '');
                 $propbag->add('default',      'false');
+                break;
+
+            case 'purge_cache':
+                $propbag->add('type', 'boolean');
+                $propbag->add('name', PLUGIN_HISTORY_PURGE_CACHE);
+                $propbag->add('description', PLUGIN_HISTORY_PURGE_CACHE_DESC);
+                $propbag->add('default', 'false');
                 break;
 
             default:
@@ -341,6 +349,20 @@ class serendipity_plugin_history extends serendipity_plugin
         echo empty($outro) ? '' : '<div class="serendipity_history_outro">' . $outro . "</div>\n";
 
         return null;
+    }
+
+    function example() {
+        global $serendipity;
+
+        $s = '';
+        if (serendipity_db_bool($this->get_config('purge_cache'))) {
+            $cachefile   = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/history_daylist.dat';
+            if (true === @unlink($cachefile)) {
+                $this->set_config('purge_cache', 'false');
+                $s .= '<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span> ' . sprintf(PLUGIN_HISTORY_CACHE_OK, $cachefile, $_SERVER['PHP_SELF'] . '?' . $_SERVER['QUERY_STRING']) . '</p>';
+            }
+        }
+        return $s;
     }
 
     function generate_content(&$title)
