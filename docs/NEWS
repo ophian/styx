@@ -1,6 +1,9 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Add new option to the history sidebar plugin to purge the cache file on
+    demand and so no FTP access is a need anymore.
+
   * For group(s) and user(s) EDIT administration remove the top NEW button
     which shall only appear in list startup cases.
 
