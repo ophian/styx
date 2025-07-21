@@ -668,7 +668,7 @@ $tasks = array(
                     'title'     => 'Removal of old dead core theme lang directories for Styx 5',
                     'desc'      => 'Ditto all <b>themes</b> have to follow this distinction too. THIS upgrade task removes them all in your templates directory. After having upgraded to Styx 5, check your themes if you have any further <strong>non-core</strong> or <strong>copy</strong> themes that use a UTF-8 language directory. Copy all UTF-8/lang** files one level up replacing the others und purge the UTF-8 directory afterwards. You might expect at least to get some language diffusions in-between. The following core template directories will be checked for removal of the UTF-8 directory.<pre>' . implode(', ', ['2k11', 'b5blog', 'b46', 'b53', 'boot', 'bootstrap4', 'clean-blog', 'default', 'default-php', 'dude', 'next', 'psg', 'pure', 'skeleton', 'sliver', 'styx', 'timeline']) . '</pre>'),
 
-            array(  'version'   => '5.0-alpha3',
+            array(  'version'   => '5.0-beta1',
                     'type'      => 'POST_RELEASE_ANNOUNCMENT',
                     'title'     => '<b>POST_RELEASE_ANNOUNCMENT</b> In the next 5.1.0 release or so, after 5.0.0 has settled down...,',
                     'desc'      => 'there will be an upgrade task to clean up <b>all</b> dirs in templates/ and plugins/ to get rid of remaining UTF-8/ directories completely. So you only have to care about personal or copied plugins/themes in this relation until then.'),
