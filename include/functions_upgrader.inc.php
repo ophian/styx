@@ -554,6 +554,7 @@ $dead_files_500 = array(
     'lang/serendipity_lang_cs.inc.php',
     'templates/_assets/ckebasic_plugin.js',
     'templates/_assets/wysiwyg-style.css',
+    'templates/default/admin/doc/quicktip_cs.tpl',
     'templates/default/admin/wysiwyg_init.tpl'
 );
 
@@ -566,7 +567,8 @@ $dead_dirs_500 = array(
     $serendipity['serendipityPath'] . 'plugins/serendipity_event_ckeditor',
     $serendipity['serendipityPath'] . 'plugins/serendipity_event_spamblock_rbl',
     $serendipity['serendipityPath'] . 'plugins/serendipity_event_spamblock_surbl',
-    $serendipity['serendipityPath'] . 'templates/_assets/ckebasic'/*,
+    $serendipity['serendipityPath'] . 'templates/_assets/ckebasic',
+    $serendipity['serendipityPath'] . 'templates/default/admin/doc/UTF-8'/*,
     $serendipity['serendipityPath'] . 'plugins/serendipity_event_todooooo/UTF-8',
     $serendipity['serendipityPath'] . 'plugins/serendipity_plugin_todooooo/UTF-8',
     $serendipity['serendipityPath'] . 'plugins/serendipity_plugin_todooooo/UTF-8'*/
