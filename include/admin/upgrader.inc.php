@@ -681,12 +681,9 @@ $tasks = array(
                                      But Styx uses the ARIA engine per default - out of reasons.</span>
                                     <details name="myisamtoaria"><summary title="Open / Close">If you are affected, read this:</summary>
                                     <div id="isamtoaria">
-                                    <div>While it would be easy to ALTER the Engine itself by auto-lopping over all database tables and convert the tables by i.e. "ALTER styx_authors ENGINE=Aria;"
-                                     the problematic PRIMARY key length of the INDEX names (a sort of table cache) still persists and may collide with unknown or unusual or just bad settings in your
-                                     old database dump. Remember, in the old days we had to reset the length of specific keys to not exceed the specific keys field VARCHAR length, i.e. a 255 VARCHAR
-                                     table field that should have an INDEX key had to be set to 191 length to not swap over the supported max of 767 bytes for UTF8MB4 (sum of 4 bytes per char in UTF-8)
-                                     in MyIsam (MySQL), or ditto, 250 to not swap over the max of 1000 byte length in some versions of early MariaDB 10.x databases. Since then the max key length
-                                     of ARIA raised and allows 2000 byte with ARIA in MariaDB, so the Serendipity Styx installation defaults match without change since MariaDB-10.5 ++ versions.</div>
+                                    <p>While it would be easy to ALTER the Engine itself by auto-lopping over all database tables and convert the tables by i.e. "ALTER styx_authors ENGINE=Aria;" the problematic PRIMARY key length of the INDEX names (a sort of table cache) still persists and may collide with unknown or unusual or just bad settings in your old database dump.</p>
+                                    <p>Remember, in the old days we had to reset the length of specific keys to not exceed the specific keys field VARCHAR length, i.e. a 255 VARCHAR table field that should have an INDEX key had to be set to 191 length to not swap over the supported max of 767 bytes for UTF8MB4 (sum of 4 bytes per char in UTF-8) in MyIsam (MySQL), or ditto, 250 to not swap over the max of 1000 byte length in some versions of early MariaDB 10.x databases.</p>
+                                    <p>Since then the max key length of ARIA raised and allows 2000 byte with ARIA in MariaDB, so the Serendipity Styx installation defaults match without change since MariaDB-10.5 ++ versions.</p>
                                     <div><b>Conclusion:</b> The smaller you have the INDEX key length the smaller is the benefit of this cache INDEX for performance of special queries and crash safety.
                                      As you might expect this is pretty sketchy to write a secure auto-migration upgrade task. And to sum it up: <b><em>I won\'t try!</em></b>
                                     <div> So now there are three or more possibilities to deal with it for you:</div>
