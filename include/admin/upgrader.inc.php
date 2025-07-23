@@ -676,28 +676,25 @@ $tasks = array(
             array(  'version'   => '5.0-beta1',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
                     'title'     => '<b>OLD DATABASE MIGRATION</b> With Styx version 3.2.0 (December, 17th 2020) we promised',
-                    'desc'      => '<span class="nobr">to rethink a possible future auto-conversion of old Serendipity <u>MySQL</u> database <b>MyIsam</b> engines to the better <u>MariaDB</u> <b>ARIA</b>
-                                     table engine on MariaDB-10.5 ++ database versions - when time has come. The InnoDB table engine was not problematic for this issue and if you migrated and use it, just keep it.
-                                     But Styx uses the ARIA engine per default - out of reasons.</span>
-                                    <details name="myisamtoaria"><summary title="Open / Close">If you are affected, read this:</summary>
-                                    <div id="isamtoaria">
-                                    <p>While it would be easy to ALTER the Engine itself by auto-lopping over all database tables and convert the tables by i.e. "ALTER styx_authors ENGINE=Aria;" the problematic PRIMARY key length of the INDEX names (a sort of table cache) still persists and may collide with unknown or unusual or just bad settings in your old database dump.</p>
-                                    <p>Remember, in the old days we had to reset the length of specific keys to not exceed the specific keys field VARCHAR length, i.e. a 255 VARCHAR table field that should have an INDEX key had to be set to 191 length to not swap over the supported max of 767 bytes for UTF8MB4 (sum of 4 bytes per char in UTF-8) in MyIsam (MySQL), or ditto, 250 to not swap over the max of 1000 byte length in some versions of early MariaDB 10.x databases.</p>
-                                    <p>Since then the max key length of ARIA raised and allows 2000 byte with ARIA in MariaDB, so the Serendipity Styx installation defaults match without change since MariaDB-10.5 ++ versions.</p>
-                                    <div><b>Conclusion:</b> The smaller you have the INDEX key length the smaller is the benefit of this cache INDEX for performance of special queries and crash safety.
-                                     As you might expect this is pretty sketchy to write a secure auto-migration upgrade task. And to sum it up: <b><em>I won\'t try!</em></b>
-                                    <div> So now there are three or more possibilities to deal with it for you:</div>
-                                    <ul>
-                                    <li>Database: Back it all up !!</li>
-                                    <li>Alter all tables yourself manually to change to the better ARIA Engine via the PMA SQL field i.e. "ALTER styx_authors ENGINE=Aria;", etc., or</li>
-                                    <li>EXPORT your old database with phpMyAdmin and change occurrences of "ENGINE=MyISAM" to "ENGINE=Aria" to IMPORT it again to a new or the emptied old database location.</li>
-                                    <li>Changing the INDEX key length may be done in the SQL dump too but you really have to know what you do. Or you just leave these PRIMARY keys in length like
-                                        they were before in MyISAM (a little bit lower than your current MariaDB supports, like already described).</li>
-                                    <li>You could even try to install a new Styx into a new database and install the plugins you had before so all database tables are in place.
-                                        Then you could just empty all these new tables and dump into the VALUES of your old database dump. This should work if there aren\'t any strange flaws in your old data.</li>
-                                    <li>Or just use the new database as an export "DIFF" dump only and see all differences in comparing the section for ALTERing the exported tables like for "ALTER TABLE `styx_config`".
-                                        There you should see the difference to the old database dump quite easily and what you might need to exchange in the old dump data.</li></ul>
-                                    <div><b>Its up to you...!</b> 😅 (If your database is affected by this, copy this manual conversion notice information now for possible later to work.)</div></div></details>'),
+                    'desc'      => 'to rethink a possible future auto-conversion of old Serendipity <u>MySQL</u> database <b>MyIsam</b> engines to the better <u>MariaDB</u> <b>ARIA</b> table engine on MariaDB-10.5 ++ database versions - when time has come. The InnoDB table engine was not problematic for this issue and if you migrated and use it, just keep it. But Styx uses the ARIA engine per default - out of reasons.
+                    <details name="myisamtoaria"><summary title="Open / Close">If you are affected, read this:</summary>
+                    <div id="isamtoaria">
+                    <p>While it would be easy to ALTER the Engine itself by auto-lopping over all database tables and convert the tables by i.e. "ALTER styx_authors ENGINE=Aria;" the problematic PRIMARY key length of the INDEX names (a sort of table cache) still persists and may collide with unknown or unusual or just bad settings in your old database dump.</p>
+                    <p>Remember, in the old days we had to reset the length of specific keys to not exceed the specific keys field VARCHAR length, i.e. a 255 VARCHAR table field that should have an INDEX key had to be set to 191 length to not swap over the supported max of 767 bytes for UTF8MB4 (sum of 4 bytes per char in UTF-8) in MyIsam (MySQL), or ditto, 250 to not swap over the max of 1000 byte length in some versions of early MariaDB 10.x databases.</p>
+                    <p>Since then the max key length of ARIA raised and allows 2000 byte with ARIA in MariaDB, so the Serendipity Styx installation defaults match without change since MariaDB-10.5 ++ versions.</p>
+                    <p><b>Conclusion:</b> The smaller you have the INDEX key length the smaller is the benefit of this cache INDEX for performance of special queries and crash safety. As you might expect this is pretty sketchy to write a secure auto-migration upgrade task. And to sum it up: <b><em>I won\'t try!</em></b></p>
+                    <p> So now there are three or more possibilities to deal with it for you:</p>
+                    <ul>
+                    <li>Database: Back it all up !!</li>
+                    <li>Alter all tables yourself manually to change to the better ARIA Engine via the PMA SQL field i.e. "ALTER styx_authors ENGINE=Aria;", etc., or</li>
+                    <li>EXPORT your old database with phpMyAdmin and change occurrences of "ENGINE=MyISAM" to "ENGINE=Aria" to IMPORT it again to a new or the emptied old database location.</li>
+                    <li>Changing the INDEX key length may be done in the SQL dump too but you really have to know what you do. Or you just leave these PRIMARY keys in length like
+                        they were before in MyISAM (a little bit lower than your current MariaDB supports, like already described).</li>
+                    <li>You could even try to install a new Styx into a new database and install the plugins you had before so all database tables are in place.
+                        Then you could just empty all these new tables and dump into the VALUES of your old database dump. This should work if there aren\'t any strange flaws in your old data.</li>
+                    <li>Or just use the new database as an export "DIFF" dump only and see all differences in comparing the section for ALTERing the exported tables like for "ALTER TABLE `styx_config`".
+                        There you should see the difference to the old database dump quite easily and what you might need to exchange in the old dump data.</li></ul>
+                    <p><b>Its up to you...!</b> 😅 (If your database is affected by this, copy this manual conversion notice information now for possible later to work.)</p></div></details>'),
 
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
