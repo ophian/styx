@@ -1,6 +1,10 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Last minute updates for the installer CSS on upgrade [dark-mode] tasks and
+    the upgraders 5.0-beta1 upgrade task descriptions, including a developers
+    THANK YOU for PRE-TESTING Serendipity Styx 5.0 !
+
   * Add new option to the history sidebar plugin to purge the cache file on
     demand and so no FTP access is a need anymore.
 
