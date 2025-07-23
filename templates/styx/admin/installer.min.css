@@ -143,6 +143,7 @@ html[data-color-mode="dark"],[data-color-mode="dark"] button,[data-color-mode="d
 [data-color-mode="dark"] .msg_hint{background:var(--color-bg-info);color:var(--color-text-primary);border-color:var(--color-border-primary);text-shadow:none}
 [data-color-mode="dark"] .upgrader_tasks{background:var(--color-alert-info-bg)}
 [data-color-mode="dark"] .upgrader_tasks dd{border-color:var(--color-alert-info-border);color:var(--color-alert-info-text);margin-top:0.125em}
+[data-color-mode="dark"] .upgrader_tasks dd pre{color:var(--color-text-primary)}
 [data-color-mode="dark"] .upgrader_tasks dt b{background-color:var(--color-highlight-text)}
 [data-color-mode="dark"] details[name="myisamtoaria"] #isamtoaria{color:var(--color-text-primary);box-shadow:none}
 [data-color-mode="dark"] summary::after{color:var(--color-alert-warn-icon)}
