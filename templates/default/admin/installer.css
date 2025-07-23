@@ -354,6 +354,7 @@ details[name="myisamtoaria"]{margin:0}
 details[name="myisamtoaria"] br{display:none}
 details[name="myisamtoaria"] ul{margin:.25em 0}
 details[name="myisamtoaria"] #isamtoaria{border:none;box-shadow:2px 2px 4px #777;margin-top:.5em;color:darkslategray}
+details[name="myisamtoaria"] #isamtoaria p{margin:.75em auto}
 details>summary{list-style-type:none;width:15em;border:none;text-decoration:underline;cursor:pointer}
 details>p,details>div{padding:2px 6px;margin:0}
 
