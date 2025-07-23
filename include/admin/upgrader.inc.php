@@ -670,13 +670,13 @@ $tasks = array(
 
             array(  'version'   => '5.0-beta1',
                     'type'      => 'POST_RELEASE_ANNOUNCMENT',
-                    'title'     => '<b>POST_RELEASE_ANNOUNCMENT</b> In the next 5.1.0 release or so, after 5.0.0 has settled down...,',
-                    'desc'      => 'there will be an upgrade task to clean up <b>all</b> dirs in templates/ and plugins/ to get rid of remaining UTF-8/ directories completely. So you only have to care about personal or copied plugins/themes in this relation until then.'),
+                    'title'     => '<b>POST_RELEASE_ANNOUNCMENT</b>',
+                    'desc'      => 'In the next 5.1.0 release or so, after 5.0.0 has settled down..., there will be an upgrade task to clean up <b>all</b> dirs in templates/ and plugins/ to get rid of remaining UTF-8/ directories completely. So you only have to care about personal or copied plugins/themes in this relation until then.'),
 
             array(  'version'   => '5.0-beta1',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => '<b>OLD DATABASE MIGRATION</b> With Styx version 3.2.0 (December, 17th 2020) we promised',
-                    'desc'      => 'to rethink a possible future auto-conversion of old Serendipity <u>MySQL</u> database <b>MyIsam</b> engines to the better <u>MariaDB</u> <b>ARIA</b> table engine on MariaDB-10.5 ++ database versions - when time has come. The InnoDB table engine was not problematic for this issue and if you migrated and use it, just keep it. But Styx uses the ARIA engine per default - out of reasons.
+                    'title'     => '<b>OLD DATABASE MIGRATION</b>',
+                    'desc'      => 'With Styx version 3.2.0 (December, 17th 2020) we promised to rethink a possible future auto-conversion of old Serendipity <u>MySQL</u> database <b>MyIsam</b> engines to the better <u>MariaDB</u> <b>ARIA</b> table engine on MariaDB-10.5 ++ database versions - when time has come. The InnoDB table engine was not problematic for this issue and if you migrated and use it, just keep it. But Styx uses the ARIA engine per default - out of reasons.
                     <details name="myisamtoaria"><summary title="Open / Close">If you are affected, read this:</summary>
                     <div id="isamtoaria">
                     <p>While it would be easy to ALTER the Engine itself by auto-lopping over all database tables and convert the tables by i.e. "ALTER styx_authors ENGINE=Aria;" the problematic PRIMARY key length of the INDEX names (a sort of table cache) still persists and may collide with unknown or unusual or just bad settings in your old database dump.</p>
@@ -695,6 +695,11 @@ $tasks = array(
                     <li>Or just use the new database as an export "DIFF" dump only and see all differences in comparing the section for ALTERing the exported tables like for "ALTER TABLE `styx_config`".
                         There you should see the difference to the old database dump quite easily and what you might need to exchange in the old dump data.</li></ul>
                     <p><b>Its up to you...!</b> 😅 (If your database is affected by this, copy this manual conversion notice information now for possible later to work.)</p></div></details>'),
+
+            array(  'version'   => '5.0-beta1',
+                    'type'      => 'IMPORTANT_DEVELOP_NOTICE',
+                    'title'     => '<b>THANK YOU FOR PRE-TESTING Serendipity Styx 5.0</b>',
+                    'desc'      => 'Styx 5.0 is much more exact in multi cases and uses type safety. It has been tested a long time but cannot fully guarantee that we do not catch any further exception for type safety. Please help us all to find these issues. That is what the BETA and RC phase is up fore. We will nuke them one by one together and as fast as possible. A big handful of commonly used plugins has been checked already, but there are lots of others that still need to convert. If you discover an error please file an issue at "https://github.com/ophian/styx/issues" or "https://github.com/ophian/additional_plugins/issues" or mention them in the discussions. Just paste the error exception with the stack trace and explain what you did to get there, so it is easy to reproduce. Normally you can just resume with you work afterwards by going back in your browsers history or by a new startup at the Back- or Frontend of your blog. I am happy to hear from you, even when you find inconsistencies or other strange behavior changes, or are not satisfied with the changes already applied to Styx 5.0. Let\'s roll!'),
 
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
