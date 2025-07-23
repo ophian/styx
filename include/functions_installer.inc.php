@@ -1480,7 +1480,7 @@ function serendipity_FTPChecksum(string $filename, ?string $type = null) : strin
         $hash = hash('xxh128', $file);
     } else {
         // Just get its xxHash
-        $hash = hash_file('XXH128', $filename);
+        $hash = hash_file('xxh128', $filename);
     }
 
     return $hash;
