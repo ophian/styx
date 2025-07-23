@@ -625,6 +625,7 @@ function recursive_UTF8dir_iterator(?string $startdir, bool $negate = false) : ?
         // Negate the $negate to fetch the opposite. The last two checks are to prevent other true matching subdirectories, i.e. 2k11/js or default/admin/docs/UTF-8
         if ($path->isDir() && !($negate) === serendipity_contains((string) $path, $check) && str_ends_with((string) $path, 'UTF-8') && !str_contains((string) $path, 'default' . DIRECTORY_SEPARATOR . 'admin')) {
             serendipity_removeDeadFiles_SPL((string) $path);
+            if (is_dir((string) $path)) @rmdir((string) $path);
         }
     }
 
