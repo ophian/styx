@@ -140,6 +140,11 @@ html[data-color-mode="dark"],[data-color-mode="dark"] button,[data-color-mode="d
 [data-color-mode="dark"] .msg_success{background:var(--color-bg-success);color:var(--color-text-success);border-color:var(--color-border-success)}
 [data-color-mode="dark"] .msg_error{background:var(--color-alert-error-bg);color:var(--color-alert-error-text);border-color:var(--color-alert-error-border)}
 [data-color-mode="dark"] .msg_hint{background:var(--color-bg-info);color:var(--color-text-primary);border-color:var(--color-border-primary);text-shadow:none}
+[data-color-mode="dark"] .upgrader_tasks{background:var(--color-alert-info-bg)}
+[data-color-mode="dark"] .upgrader_tasks dd{border-color:var(--color-alert-info-border);color:var(--color-alert-info-text);margin-top:0.125em}
+[data-color-mode="dark"] .upgrader_tasks dt b{background-color:var(--color-highlight-text)}
+[data-color-mode="dark"] details[name="myisamtoaria"] #isamtoaria{color:var(--color-caption-highlight-text);box-shadow:none}
+[data-color-mode="dark"] summary::after{color:var(--color-alert-warn-icon)}
 @media only screen and (min-width:640px) {
   .upgrader_perms{background-color:#f5f5f5;border:1px solid #ddd;padding:.5em 0 0 1em}
   [data-color-mode="dark"] .upgrader_perms{background-color:var(--color-bg-overlay);border:1px solid var(--color-border-primary)}
