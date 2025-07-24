@@ -1559,7 +1559,7 @@ function serendipity_displayTopExits(int $limit = 10, bool $use_links = true, in
  * @see serendipity_displayTopExits()
  * @see serendipity_displayTopReferrers()
  */
-function serendipity_displayTopUrlList(string $list, string $limit, bool $use_links = true, int $interval = 7) : string {
+function serendipity_displayTopUrlList(string $list, int $limit, bool $use_links = true, int $interval = 7) : string {
     global $serendipity;
 
     if ($limit) {
