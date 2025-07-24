@@ -1,6 +1,17 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Users of markup plugins, like markdown, textile, etc are now able to hide
+    the entryforms markup [ infobox ] per CSS in a custom user.css file in the
+    backend of use (e.g. styx/admin/user.css). Here you can just add:
+        .infobox_markupeditortype {  display: none;  visibility: hidden; }
+    to visually get rid of the external linked markup usage information if they
+    were/are really ANNOYING you.
+    ATTEND:
+        This will also disable other informations i.e. if you accidentally have
+        two concurrent markup plugins active. So this is a workaround for the
+        ADVANCED USERS only.
+
   * Last minute updates for the installer CSS on upgrade [dark-mode] tasks and
     the upgraders 5.0-beta1 upgrade task descriptions, including a developers
     THANK YOU for PRE-TESTING Serendipity Styx 5.0 !
