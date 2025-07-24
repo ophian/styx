@@ -11,7 +11,7 @@ Version 5.0-DEV ()
   * For group(s) and user(s) EDIT administration remove the top NEW button
     which shall only appear in list startup cases.
 
-  * Add bullist and numbered lists to the commonToolbar tinyMCE configurator.
+  * Add bullist and numbered lists to the commonToolbar TinyMCE configurator.
     For the latter, added to the backend commentToolbar configuration too.
 
   * Styx backend theme:
@@ -53,11 +53,11 @@ Version 5.0-DEV ()
     level containers skeleton stays intact. You will most probably notice with
     the recommended « Use picture element » containers.
 
-  * Change tinymce commonEditor toolbar order, moving the 'view' group:
+  * Chang commonEditor toolbar ordere for TinyMCE, moving the 'view' group:
     [source view, fullscreen] a tad more to the right.
     - Same for the split [hr] group.
 
-  * Fix long or right touch "t.touches" error in tinymce theme silver js
+  * Fix long or right touch "t.touches" error in TinyMCE theme silver js
 
   * Refactor comments $eventData 'action_more' button placement to a better
     standard use, to include these hooked buttons - for real comments only -
@@ -152,7 +152,7 @@ Version 5.0-DEV ()
 
   * Improve the ON [da, no] language constant (i.e. for comment date header)
 
-  * Fix HTMLcomment (comment) tinyMCE tinymce-5-dark background for frontend
+  * Fix HTMLcomment (comment) TinyMCE tinymce-5-dark background for frontend
     bootstrap themes that have a dark mode [ boot, b5blog, b53+ ].
 
   * Fixed a commentform.tpl textarea attribute for auto-replaced hidden sets
