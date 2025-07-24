@@ -1551,6 +1551,7 @@ function serendipity_displayTopExits(int $limit = 10, bool $use_links = true, in
  *
  * Args:
  *      - Name of the DB table to show data from (exits|referrers)
+ *      - Number of items to fetch for db_limit_sql
  *      - Whether to use HTML links for URLs
  *      - Interval for which the top exits are aggregated
  * Returns:
