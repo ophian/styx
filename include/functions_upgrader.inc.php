@@ -800,6 +800,8 @@ function serendipity_killPlugin(string $name) : void {
     global $serendipity;
 
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}plugins WHERE name LIKE '" . serendipity_db_escape_string($name) . "%'");
+    // also purge all plugin configuration options placed into the config table
+    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name LIKE '" . serendipity_db_escape_string($name) . "%'");
 }
 
 /**
