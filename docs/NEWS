@@ -1,8 +1,8 @@
 Version 5.0-beta1 (July 24th, 2025)
  ------------------------------------------------------------------------
 
-  * Fix a bunch of last minutes catches for some strict type edge cases for
-    referrer listings and the history plugin.
+  * Fix a bunch of last minutes catches for some strict type edge cases in
+    statistical referrer listings and the history plugin.
 
   * Users of markup plugins, like markdown, textile, etc are now able to hide
     the entryforms markup [ infobox ] per CSS in a custom user.css file in the
