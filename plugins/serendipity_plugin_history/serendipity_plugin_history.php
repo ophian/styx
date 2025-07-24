@@ -22,7 +22,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '2.1.0');
+        $propbag->add('version',       '2.1.1');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
@@ -240,7 +240,7 @@ class serendipity_plugin_history extends serendipity_plugin
      * Returns:
      *      - Boolean state
      */
-    function getHistoryEntries(int $maxts, int $mints, iterable $max_age, int $nowts, ?bool $cyisly, ?bool $cypox, ?int $min_age = null, ?string $intro = null, ?string $outro = null) : ?false
+    function getHistoryEntries(int $maxts, int $mints, int|iterable $max_age, int $nowts, ?bool $cyisly, ?bool $cypox, ?int $min_age = null, ?string $intro = null, ?string $outro = null) : ?false
     {
         global $serendipity;
 
