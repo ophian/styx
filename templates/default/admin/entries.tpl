@@ -41,7 +41,7 @@
 {if isset($entry_vars.markupeditor)}
             <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity_textarea_body"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
             <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity_textarea_body"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
-            [ {$entry_vars.markupeditortype} ]
+            <span class="infobox_markupeditortype">[ {$entry_vars.markupeditortype} ]</span>
 {else}{if isset($iso2br) AND $iso2br}
             <button class="wrap_selection lang-html" type="button" name="insX" data-tag-open="nl" data-tag-close="nl" data-tarea="serendipity_textarea_body">noBR</button>
 {/if}
@@ -55,7 +55,7 @@
             <button class="wrap_insurl" type="button" name="insURL" data-tarea="serendipity_textarea_body">URL</button>
             {serendipity_hookPlugin hook="backend_entry_toolbar_body" data=$entry_data.entry|default:'' hookAll="true"}
 {if isset($entry_vars.markupeditortype)}
-            [ {$entry_vars.markupeditortype} ]
+            <span class="infobox_markupeditortype">[ {$entry_vars.markupeditortype} ]</span>
 {/if}
 {/if}
         </div>
@@ -79,7 +79,7 @@
 {if isset($entry_vars.markupeditor)}
             <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity_textarea_extended"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
             <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity_textarea_extended"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
-            [ {$entry_vars.markupeditortype} ]
+            <span class="infobox_markupeditortype">[ {$entry_vars.markupeditortype} ]</span>
 {else}{if isset($iso2br) AND $iso2br}
             <button class="wrap_selection lang-html" type="button" name="insX" data-tag-open="nl" data-tag-close="nl" data-tarea="serendipity_textarea_extended">noBR</button>
 {/if}
@@ -93,7 +93,7 @@
             <button class="wrap_insurl" type="button" name="insURL" data-tarea="serendipity_textarea_extended">URL</button>
             {serendipity_hookPlugin hook="backend_entry_toolbar_extended" data=$entry_data.entry|default:'' hookAll="true"}
 {if isset($entry_vars.markupeditortype)}
-            [ {$entry_vars.markupeditortype} ]
+            <span class="infobox_markupeditortype">[ {$entry_vars.markupeditortype} ]</span>
 {/if}
 {/if}
         </div>
