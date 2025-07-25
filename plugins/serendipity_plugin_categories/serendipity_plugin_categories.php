@@ -18,7 +18,7 @@ class serendipity_plugin_categories extends serendipity_plugin
         $propbag->add('description', CATEGORY_PLUGIN_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team, Ian Styx');
-        $propbag->add('version',       '2.20');
+        $propbag->add('version',       '2.21');
         $propbag->add('configuration', array('title', 'authorid', 'parent_base', 'hide_parent', 'image', 'sort_order', 'sort_method', 'allow_select', 'hide_parallel', 'show_count', 'show_all', 'smarty'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -277,6 +277,8 @@ class serendipity_plugin_categories extends serendipity_plugin
                 $categories[$cid]['categoryURL']     = serendipity_categoryURL($cat, 'serendipityHTTPPath');
                 $categories[$cid]['paddingPx']       = $cat['depth']*6;
                 $categories[$cid]['catdepth']        = $cat['depth'];
+
+                $categories[$cid]['category_name'] = empty($categories[$cid]['category_name']) ? $cat['categoryid'] . '...' : $categories[$cid]['category_name']; // we can do empty category names even when they do not make sense
 
                 if (!empty($cat_count[$cat['categoryid']])) {
                     $categories[$cid]['true_category_name'] = $cat['category_name'];
