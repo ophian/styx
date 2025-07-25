@@ -1,6 +1,9 @@
 Version 5.0-beta2 DEV ()
  ------------------------------------------------------------------------
 
+ * plugin API: Fix get_event_plugins( 1st param string type) for special cased
+               eventwrapper plugin which also then return as an object type.
+
  * config API: Fix serendipity_setCookie(4th param type) missing int type.
    - Fix parameter types for serendipity_setCookie() in plugup plugin
 
