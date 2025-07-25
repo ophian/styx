@@ -11,7 +11,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
     public $title = SYNDICATION;
     private const SYNDICATION_PLUGIN_OUTDATED_SERVICES = 'Historic external services';
     private const SYNDICATION_PLUGIN_OUTDATED_SERVICES_DESC = "In the old days Googles Feedburner Service was the central collector for feeds, a provider for managing web feeds. Long ago Google moved this to the “Google graveyard of dead projects”, so said, deprecated the API and shut off certain inbound services like AdSense for Feeds, but left it alive for registered users. Lets say: you don't need it nowadays. The other, Subtome project, was a project to gather feeds all in-one, in short a subscribing application, but didn't made it to become very famous. One of the key goals of the button was to hide “RSS” altogether. Its relevance for feeds is near to nothing today. On the longer run both services will get nuked from the syndication plugin. There are so many valid subscribing tools and feedreaders that providing the xml buttons and feeds is the purest implementation we should give.";
-    private const XML_IMAGE_AVAILABLE = " Available pure theme defaults: 'img/xml.gif' (orange), 'img/xml12.png' (lightblue 12px), 'img/xml16.png' (lightblue 16px), 'icons/rss.svg' (colored by CSS)";
+    private const XML_IMAGE_AVAILABLE = " Available [ pure ] theme defaults: 'img/xml.gif' (orange), 'img/xml12.png' (lightblue 12px), 'img/xml16.png' (lightblue 16px), 'icons/rss.svg' (colored by CSS)";
 
     function introspect(&$propbag)
     {
@@ -19,7 +19,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
         $propbag->add('description',   SHOWS_RSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team, Ian Styx');
-        $propbag->add('version',       '2.18');
+        $propbag->add('version',       '2.19');
         $propbag->add('configuration', array(
                                         'title',
                                         'feed_format',
@@ -105,7 +105,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
             case 'iconURL':
                 $propbag->add('type',        'string');
                 $propbag->add('name',        XML_IMAGE_TO_DISPLAY);
-                $propbag->add('description', SYNDICATION_PLUGIN_XML_DESC) . self::XML_IMAGE_AVAILABLE;
+                $propbag->add('description', SYNDICATION_PLUGIN_XML_DESC . self::XML_IMAGE_AVAILABLE);
                 $propbag->add('default',     'img/xml.gif');
                 break;
 
