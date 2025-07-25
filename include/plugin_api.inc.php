@@ -1122,13 +1122,13 @@ class serendipity_plugin_api
      * Prepares a cache of all event plugins and load them in queue so that they can be fetched
      *
      * Args:
-     *      - If set to a string, a certain event plugin cache object will be returned by this function
+     *      - If set to a string, a certain event plugin (eventwrapper) cache object will be returned by this function
      *      - If set to true, the list of cached event plugins will be refreshed
      * Returns:
      *      - Either returns the whole list of event plugins, or only a specific instance
      * @access protected
      */
-    static function &get_event_plugins(bool $getInstance = false, bool $refresh = false) : iterable|string|false
+    static function &get_event_plugins(string|bool $getInstance = false, bool $refresh = false) : iterable|object|string|false
     {
         static $event_plugins;
         static $false = false;
