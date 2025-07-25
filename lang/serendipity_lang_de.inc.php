@@ -1153,7 +1153,7 @@ Sie sollten damit kein sicherheitsrelevantes Zugangssystem betreiben wollen!');
 @define('UPDATE_ALL', 'Update Alle');
 @define('JS_FAILURE', 'Die Serendipity JavaScript-Datei konnte nicht geladen werden. Dies kann aufgrund von PHP- oder Plugin-Fehlern, oder sogar von einem fehlerhaften Browser Pufferspeicher (cache) geschehen. Um die exakte Fehlermeldung anzusehen, öffnen Sie bitte diesen Link <a href="%1$s">%1$s</a> in ihrem Browser. Ein solcher Fehler kann vielfältige Ursachen haben, ist aber meist eine Stapel (Fehler-) Ausgabe zur Unzeit und verhindert hier die korrekte Ausführung der Javascript Datei.');
 @define('THEMES_PREVIEW_BLOG', 'Siehe Demo auf blog.s9y.org');
-@define('SYNDICATION_PLUGIN_XML_DESC', 'Setze auf "none", wenn Sie nur einen Text-Link ausgeben wollen.');
+@define('SYNDICATION_PLUGIN_XML_DESC', 'Auf "none" setzen, wenn Sie nur einen Text-Link ausgeben wollen.');
 
 @define('MULTICHECK_NO_ITEM', 'Kein Element ausgewählt, wählen Sie mindestens eines. <a href="%s">Zurück zur vorherigen Seite</a>.');
 @define('MULTICHECK_NO_DIR', 'Kein Verzeichnis ausgewählt, wählen Sie eines. <a href="%s">Zurück zur vorherigen Seite</a>.');
