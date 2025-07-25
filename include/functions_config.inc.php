@@ -924,13 +924,13 @@ function serendipity_restoreVar(mixed &$source, mixed &$target) : bool {
  *      - The name of the cookie variable
  *      - The contents of the cookie variable
  *      - Set the Secure flag
- *      - Cookie validity (unix timestamp) as int
+ *      - Cookie validity (unix timestamp) as int or bool
  *      - Set the “sameSite” HttpOnly flag
  * Returns:
  *      - void
  * @access public
  */
-function serendipity_setCookie(string $name, string $value, bool $securebyprot = true, bool $custom_timeout = false, bool $httpOnly = true) : void {
+function serendipity_setCookie(string $name, string $value, bool $securebyprot = true, int|bool $custom_timeout = false, bool $httpOnly = true) : void {
     global $serendipity;
 
     $host = $_SERVER['HTTP_HOST'];
