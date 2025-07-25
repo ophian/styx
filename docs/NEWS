@@ -1,7 +1,8 @@
 Version 5.0-beta2 DEV ()
  ------------------------------------------------------------------------
 
- * config API: Fix serendipity_setCookie(4th param type) missing int type
+ * config API: Fix serendipity_setCookie(4th param type) missing int type.
+   - Fix parameter types for serendipity_setCookie() in plugup plugin
 
  * De-Sync old tinymce event plugin temporarily to avoid a karambolage
 
