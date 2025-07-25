@@ -9,7 +9,7 @@ if (IN_serendipity !== true) {
 class serendipity_plugin_authors extends serendipity_plugin
 {
     public $title = AUTHORS;
-    private const XML_IMAGE_AVAILABLE = " Available pure theme defaults: 'img/xml.gif' (orange), 'img/xml12.png' (lightblue 12px), 'img/xml16.png' (lightblue 16px), 'icons/rss.svg' (colored by CSS)";
+    private const XML_IMAGE_AVAILABLE = " Available [ pure ] theme defaults: 'img/xml.gif' (orange), 'img/xml12.png' (lightblue 12px), 'img/xml16.png' (lightblue 16px), 'icons/rss.svg' (colored by CSS)";
 
     function introspect(&$propbag)
     {
@@ -19,7 +19,7 @@ class serendipity_plugin_authors extends serendipity_plugin
         $propbag->add('description', AUTHOR_PLUGIN_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team, Ian Styx');
-        $propbag->add('version',       '2.6.1');
+        $propbag->add('version',       '2.6.2');
         $propbag->add('configuration', array('image', 'allow_select', 'title', 'showartcount', 'mincount'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -46,7 +46,7 @@ class serendipity_plugin_authors extends serendipity_plugin
             case 'image':
                 $propbag->add('type',         'string');
                 $propbag->add('name',         XML_IMAGE_TO_DISPLAY);
-                $propbag->add('description',  XML_IMAGE_TO_DISPLAY_DESC) . self::XML_IMAGE_AVAILABLE;
+                $propbag->add('description',  XML_IMAGE_TO_DISPLAY_DESC . self::XML_IMAGE_AVAILABLE);
                 $propbag->add('default',      'img/xml.gif');
                 break;
 
