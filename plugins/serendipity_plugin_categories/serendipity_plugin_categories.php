@@ -9,7 +9,7 @@ if (IN_serendipity !== true) {
 class serendipity_plugin_categories extends serendipity_plugin
 {
     public $title = CATEGORIES;
-    private const XML_IMAGE_AVAILABLE = " Available pure theme defaults: 'img/xml.gif' (orange), 'img/xml12.png' (lightblue 12px), 'img/xml16.png' (lightblue 16px), 'icons/rss.svg' (colored by CSS)";
+    private const XML_IMAGE_AVAILABLE = " Available [ pure ] theme defaults: 'img/xml.gif' (orange), 'img/xml12.png' (lightblue 12px), 'img/xml16.png' (lightblue 16px), 'icons/rss.svg' (colored by CSS)";
 
     function introspect(&$propbag) {
         global $serendipity;
