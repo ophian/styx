@@ -21,7 +21,7 @@ class serendipity_event_plugup extends serendipity_plugin
         $propbag->add('description',    PLUGIN_EVENT_PLUGUP_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',         'Ian Styx');
-        $propbag->add('version',        '1.15');
+        $propbag->add('version',        '1.16');
         $propbag->add('requirements',   array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
@@ -94,13 +94,13 @@ class serendipity_event_plugup extends serendipity_plugin
             return 0;
         }
         if ($inc) {
-            $event  = (int)substr_count($inc, 'UPGRADE: serendipity_event');
-            $plugin = (int)substr_count($inc, 'UPGRADE: serendipity_plugin');
+            $event  = substr_count($inc, 'UPGRADE: serendipity_event');
+            $plugin = substr_count($inc, 'UPGRADE: serendipity_plugin');
             #echo "$url\n$event\n$plugin\n";
             // store
-            serendipity_setCookie('plugsEvent', $event, true, $ts);
-            serendipity_setCookie('plugsPlugin', $plugin, true, $ts);
-            serendipity_setCookie('plugsCheckTime', $ts, true, $ts);
+            serendipity_setCookie('plugsEvent', (string) $event, true, $ts);
+            serendipity_setCookie('plugsPlugin', (string) $plugin, true, $ts);
+            serendipity_setCookie('plugsCheckTime', (string) $ts, true, $ts);
 
             return (int)($event+$plugin);
         }
