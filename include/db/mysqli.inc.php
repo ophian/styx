@@ -285,7 +285,7 @@ function serendipity_db_connect() : object {
     $connparts = explode(':', $serendipity['dbHost']);
     if (!empty($connparts[1])) {
         // A "hostname:port" connection was specified
-        try { $serendipity['dbConn'] = $function($connparts[0], $serendipity['dbUser'], $serendipity['dbPass'], $serendipity['dbName'], $connparts[1]); } catch (\Throwable $t) {}
+        try { $serendipity['dbConn'] = $function($connparts[0], $serendipity['dbUser'], $serendipity['dbPass'], $serendipity['dbName'], (int) $connparts[1]); } catch (\Throwable $t) {}
     } else {
         // Connect with default ports
         try { $serendipity['dbConn'] = $function($connparts[0], $serendipity['dbUser'], $serendipity['dbPass']); } catch (\Throwable $t) {}
