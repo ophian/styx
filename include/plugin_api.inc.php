@@ -413,14 +413,14 @@ class serendipity_plugin_api
      *
      * Args:
      *      - The path to start from (usually '.')
-     *      - A referenced array of currently found classes
+     *      - A referenced array of currently found classes (null type case possible with emerge_spartacus !)
      *      - If true, only event plugins will be searched. If false, only sidebar plugins will be searched.
-     *      - The maindir where we started searching from [for recursive use]
+     *      - The main dir where we started searching from [for recursive use]
      * Returns:
      *      - void
      * @access protected
      */
-    static function traverse_plugin_dir(string $ppath, iterable &$classes, bool $event_only, string $maindir = '') : void
+    static function traverse_plugin_dir(string $ppath, ?iterable &$classes, bool $event_only, string $maindir = '') : void
     {
         $d = @opendir($ppath);
         if ($d) {
