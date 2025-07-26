@@ -2181,6 +2181,9 @@ td.Today {
 /* Plugin multilingual */
 #language_chooser select {
     font-size: .8125rem !important;
+    width: fit-content;
+    block-size: fit-content;
+    min-width: calc(6vw);
 }
 
 /* Powered by */
