@@ -1133,6 +1133,12 @@ function serendipity_confirmMail(int $cid, string $hash) : bool|iterable {
 
         // TODO?
         /* if (serendipity_db_bool($confirm['mail_comments'])) {
+            // Avoid crashes on NULL types
+            $name ??= '';
+            $email ??= '';
+            $url ??= '';
+            $comments ??= '';
+
             serendipity_sendComment($cid, $row['email'], $name, $email, $url, $id, $row['title'], $comments, $type, serendipity_db_bool($ca['moderate_comments']));
         }
         */
@@ -1260,6 +1266,12 @@ function serendipity_insertComment(int $id, iterable $commentInfo, string $type 
     $_mail_trackbacks  = serendipity_db_bool($row['mail_trackbacks']);
     $_send_mod_comment = ($type == 'NORMAL' && $_mail_comments && $_setTo_moderation) ? true : false;
     $_send_mod_tpback  = (($type == 'TRACKBACK' || $type == 'PINGBACK') && $_mail_trackbacks && $_setTo_moderation) ? true : false;
+
+    // Avoid crashes on NULL types
+    $name ??= '';
+    $email ??= '';
+    $url ??= '';
+    $comments ??= '';
 
     // Send mail to the author if he chose to receive these mails, or if the comment is awaiting moderation
     # 1. Don't do this on STATUS confirm and hidden pendings
