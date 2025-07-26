@@ -1,6 +1,8 @@
 Version 5.0-beta2 DEV ()
  ------------------------------------------------------------------------
 
+ * lang API: Silence a possible warning for serendipity_MB_LOADED defines
+
  * db: Force the port parameter of mysqli_connect() to INT type for the
    constructor. This is an old bug, with new PHP versions being more strict!
 
