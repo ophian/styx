@@ -1543,12 +1543,14 @@ function serendipity_cancelSubscription(string $email, int $entry_id) : int {
  *      - ID of the comment that has been made
  *      - Author's email address to send the mail to
  *      - The name of the sender
+ *      - The email of the sender
  *      - The URL of the sender
  *      - The ID of the entry that has been commented
  *      - The title of the entry that has been commented
  *      - The text of the comment
  *      - The type of the comment (normal|trackback)
  *      - Toggle Whether comments to this entry need approval
+ *      - The referrer string
  * Returns:
  *      - Return success of sending the mails
  * @access public
