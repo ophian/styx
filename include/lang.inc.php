@@ -69,7 +69,7 @@ if (PHP_VERSION_ID < 80400 && !defined('serendipity_LANG_LOADED')) {
         return $firstChar . mb_substr($string, 1, null, $encoding);
     }
 
-    define('serendipity_MB_LOADED', true);
+    @define('serendipity_MB_LOADED', true);
 }
 
 if (defined('serendipity_LANG_LOADED')) {
@@ -81,7 +81,7 @@ if (defined('serendipity_LANG_LOADED')) {
     @mb_language('uni');
     @mb_internal_encoding(LANG_CHARSET);
 
-    define('serendipity_MB_LOADED', true);
+    @define('serendipity_MB_LOADED', true);
 }
 
 /* vim: set sts=4 ts=4 expandtab : */
