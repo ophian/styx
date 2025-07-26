@@ -1,6 +1,9 @@
 Version 5.0-beta2 DEV ()
  ------------------------------------------------------------------------
 
+ * Improve [en, de] descriptions of the eventwrapper plugin as an oddball
+   between worlds.
+
  * [ pure ] theme:
    - Extend Smarty template "plugin_categories.tpl" for SVG icon usage
    - Style (min) width of Plugin multilingual language selectbox
