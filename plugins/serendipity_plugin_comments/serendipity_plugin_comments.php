@@ -22,7 +22,7 @@ class serendipity_plugin_comments extends serendipity_plugin
         $propbag->add('description',   PLUGIN_COMMENTS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Garvin Hicking, Tadashi Jokagi, Judebert, G. Brockhaus, Ian Styx');
-        $propbag->add('version',       '1.28');
+        $propbag->add('version',       '1.29');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
@@ -222,16 +222,7 @@ class serendipity_plugin_comments extends serendipity_plugin
                 // Strip any HTML tags from comment. But we want a space where previously was a tag following a tagged newline like for "<p>xxx</p>\n<p>xxx</p>".
                 $comment = str_replace(array("\r\n","\n\r","\n","\r",'  '), ' ', trim(strip_tags(str_replace('<', ' <', $row['comment']))));
                 # truncate comment to $max_chars
-                if (function_exists('mb_strimwidth')) {
-                    $comment = mb_strimwidth($comment, 0, $max_chars, " [&hellip;]", LANG_CHARSET);
-                } else {
-                    $comments = wordwrap($comment, $max_chars, '@@@', 1);
-                    $aComment = explode('@@@', $comments);
-                    $comment  = $aComment[0];
-                    if (count($aComment) > 1) {
-                        $comment .= ' [&hellip;]';
-                    }
-                }
+                $comment = mb_strimwidth($comment, 0, (int) $max_chars, " [&hellip;]", LANG_CHARSET);
                 $isTrackBack = ($row['comment_type'] == 'TRACKBACK' || $row['comment_type'] == 'PINGBACK');
 
                 if ($row['comment_url'] != '' && ( ($isTrackBack && ($showurls == 'trackbacks' || $showurls == 'all') || !$isTrackBack && ($showurls == 'comments' || $showurls == 'all')) ) ) {
