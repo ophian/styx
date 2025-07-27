@@ -19,7 +19,7 @@ if (isset($_GET['url_id']) && !empty($_GET['url_id']) && isset($_GET['entry_id']
         // URL is valid. Track it.
         $url = str_replace('&amp;', '&', $links['link']);
         $trust_url = true;
-        serendipity_track_url('exits', $url, $_GET['entry_id']);
+        serendipity_track_url('exits', $url, (int) $_GET['entry_id']);
     } elseif (isset($_GET['url']) && !empty($_GET['url'])) {
         // URL is invalid. But a URL-location was sent, so we want to redirect the user kindly.
         $url = str_replace('&amp;', '&', base64_decode($_GET['url']));
