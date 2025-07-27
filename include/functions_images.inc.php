@@ -23,7 +23,7 @@ function serendipity_isActiveFile(string $file) : bool {
         return true;
     }
 
-    $core = preg_match('@.(php.*|[psj]html?|pht|aspx?|cgi|jsp|py|pl)$@i', $file);
+    $core = preg_match('@\.(php.*|[psj]html?|pht|aspx?|cgi|jsp|py|pl)$@i', $file);
     if ($core) {
         return true;
     }
@@ -2872,7 +2872,7 @@ function serendipity_syncThumbs(bool|string $deleteThumbs = false) : int {
             }
 
             // Do the database update, if needed
-            if (sizeof($update) != 0 && !preg_match('@/.v/@', $files[$x])) {
+            if (sizeof($update) != 0 && !preg_match('@/\.v/@', $files[$x])) {
                 $_list .= '<span class="ml_action">' . sprintf(FOUND_FILE . " (<em>Update in database</em>)", $files[$x]) . '</span>';
                 serendipity_updateImageInDatabase($update, (int) $rs['id']);
                 $i++;
@@ -3299,7 +3299,7 @@ function serendipity_displayImageList(int $page = 0, bool $manage = false, ?stri
                 }
             } else {
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag {$sFile['relpath']} is a file."); }
-                if ($sFile['relpath'] == '.empty' || str_contains($sFile['relpath'], '.quickblog.') || ( preg_match('@\.v/@', $sFile['relpath']) && preg_match('@[.webp|.avif]$@', $sFile['relpath']) )) {
+                if ($sFile['relpath'] == '.empty' || str_contains($sFile['relpath'], '.quickblog.') || ( preg_match('@\.v/@', $sFile['relpath']) && preg_match('/\.(avif|webp)$/i', $sFile['relpath']) )) {
                     if ($sFile['relpath'] != '.empty' && (!isset($serendipity['aFilesNoSync']) || !in_array($sFile['relpath'], (array)$serendipity['aFilesNoSync']))) {
                         if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Found aFilesNoSync = {$sFile['relpath']}."); }
                         $path_parts = pathinfo($sFile['relpath']);
@@ -3423,7 +3423,7 @@ function serendipity_displayImageList(int $page = 0, bool $manage = false, ?stri
 
             $nCount = 0;
             foreach($aUnmatchedOnDisk AS $sFile) {
-                if (preg_match('@.' . $serendipity['thumbSuffix'] . '.@', $sFile) || preg_match('@\.v/@', $sFile)) {
+                if (preg_match('@\.' . $serendipity['thumbSuffix'] . '\.@', $sFile) || preg_match('@\.v/@', $sFile)) {
                     // this means from now on these image variations are not added to the database any more!
                     if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Skipping special cased hidden directory AND/OR thumbnail file $sFile"); }
                     continue;
