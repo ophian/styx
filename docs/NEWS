@@ -1,6 +1,8 @@
 Version 5.0-beta2 DEV ()
  ------------------------------------------------------------------------
 
+ * Fix serendipity_track_url() truncated url query parts define on null
+
  * exit: Fix call of serendipity_track_url() for 3rd parameter type to INT
 
  * comments API: Fix type issues with _sendComment() email calls
