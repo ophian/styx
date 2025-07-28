@@ -19,10 +19,10 @@ if (!defined('serendipity_LANG_LOADED') || serendipity_LANG_LOADED !== true) {
     if (isset($serendipity['useTemplateLanguage']) && $serendipity['useTemplateLanguage'] === true && !empty($serendipity['template'])
     && !defined('IN_serendipity_admin') && !in_array($serendipity['template'], ['default', 'default-php', $serendipity['defaultTemplate']])) {
         if (defined('S9Y_DATA_PATH')) {
-            @include_once (S9Y_DATA_PATH . 'templates/' . $serendipity['template'] . '/' . LANG_CHARSET . '/lang_' . $serendipity['lang'] . '.inc.php');
+            @include_once (S9Y_DATA_PATH . 'templates/' . $serendipity['template'] . '/' . LANG_CHARSET . '/lang_' . $serendipity['lang'] . '.inc.php'); // ToDo: Remove when UTF-8 conversion finished
             @include_once (S9Y_DATA_PATH . 'templates/' . $serendipity['template'] . '/lang_en.inc.php');
         } else {
-            @include_once (S9Y_INCLUDE_PATH . 'templates/' . $serendipity['template'] . '/' . LANG_CHARSET . '/lang_' . $serendipity['lang'] . '.inc.php');
+            @include_once (S9Y_INCLUDE_PATH . 'templates/' . $serendipity['template'] . '/' . LANG_CHARSET . '/lang_' . $serendipity['lang'] . '.inc.php'); // ToDo: Remove when UTF-8 conversion finished
             @include_once (S9Y_INCLUDE_PATH . 'templates/' . $serendipity['template'] . '/lang_en.inc.php');
         }
     }
