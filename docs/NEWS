@@ -1,6 +1,9 @@
 Version 5.0-beta2 DEV ()
  ------------------------------------------------------------------------
 
+ * Fix case sensitive directory name issue for case-sensitive filesystems for
+   custom Styx plugins added to the TinyMCE RichText Editor.
+
  * Fix tinyMCE editor iframe custom styles for blockquote p, which centered
 
  * Fix some regex simplifications in the images API
