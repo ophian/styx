@@ -754,14 +754,6 @@
 @define('GROUP', 'Gruppe');
 @define('CREATE_NEW_GROUP', 'Neue Gruppe anlegen');
 @define('DELETE_GROUP', 'Sie beabsichtigen, die Gruppe #%d \'%s\' zu löschen. Sind Sie sicher?');
-@define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner-ID');
-@define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'Die ID des Feeds, der veröffentlicht werden soll');
-@define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'FeedBurner-Bild');
-@define('SYNDICATION_PLUGIN_FEEDBURNERIMG_DESC', 'Dateiname des Bildes, das dargestellt werden soll (leer lassen für einen Zähler). Die Datei muss auf feedburner.com vorhanden sein, z.B. fbapix.gif');
-@define('SYNDICATION_PLUGIN_FEEDBURNERTITLE', 'FeedBurner Titel');
-@define('SYNDICATION_PLUGIN_FEEDBURNERTITLE_DESC', 'Titel (falls vorhanden) der neben dem Bild angezeigt werden soll');
-@define('SYNDICATION_PLUGIN_FEEDBURNERALT', 'FeedBurner Bildunterschrift');
-@define('SYNDICATION_PLUGIN_FEEDBURNERALT_DESC', 'Text (falls vorhanden), der angezeigt werden soll, wenn Sie den Mauszeiger auf das Bild bewegen');
 @define('SEARCH_TOO_SHORT', 'Die Wörter Ihrer Suchanfrage müssen länger als 3 Zeichen sein. Sie können versuchen, ein "*" an diese kurzen Wörter anzuhängen (z.B. s9y*) um die Beschränkung zu umgehen.');
 @define('INSTALL_DBPORT', 'Datenbank-Port');
 @define('INSTALL_DBPORT_DESC', 'Der Port, der verwendet wird, um zum Datenbankserver zu verbinden');
@@ -997,9 +989,6 @@
 @define('SYNDICATION_PLUGIN_FEEDNAME_DESC', 'Optional benutzerdefinierten Namen für die Feeds eingeben (Vorgabe ist "feed" wenn leer)');
 @define('SYNDICATION_PLUGIN_COMMENTNAME', 'Anzeigename für "Kommentar" feed');
 @define('SYNDICATION_PLUGIN_COMMENTNAME_DESC', 'Optional benutzerdefinierten Namen für den Kommentar-Feed eingeben');
-@define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD', '(ist eine absolute URL mit http://... eingetragen, wird diese URL wird als Umleitungsziel verwendet, wenn die "Erzwingen" Option für FeedBurner eingeschaltet ist. Hinweis: Das kann auch eine URL sein, die auf andere Ziele als FeedBurner verweist. Für die neuen Google FeedBurner Feeds muss http://feeds2.feedburner.com/yourfeedname eingetragen werden.)');
-
-@define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD2', '(Wenn diese Option auf "Erzwingen" gesetzt ist, wird der RSS Feed an einen anderen Webservice weitergeleitet, wie z.B. (aber nicht nur) FeedBurner. Siehe die untenstehende Option "Feedburner ID" um die absolute URL einzutragen)');
 
 @define('INSTALL_OFFSET_ON_SERVER_TIME', 'Basiert die Zeitdifferenz auf der Server-Zeitzone?');
 @define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Eintragszeiten nach Server-Zeitzone eintragen oder nicht. YES wählt die Server-Zeitzone als Basis, NO wählt GMT.');
@@ -1111,8 +1100,6 @@ Sie sollten damit kein sicherheitsrelevantes Zugangssystem betreiben wollen!');
 @define('STACKED_PLUGIN', 'Einfach-Gestapeltes Plugin!');
 @define('MULTISTACK_PLUGIN', 'Mehrfach-Gestapeltes Plugin!');
 @define('INSTALL_DBPREFIX_INVALID', 'Der Datenbank-Tabellenpräfix darf nicht leer sein und darf nur Zahlen, Nummern und den Unterstrich enthalten.');
-@define('SYNDICATION_PLUGIN_SUBTOME', 'subToMe');
-@define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Lade das externe subToMe Javascript und nutze das interne subToMe Icon, mit dem Feed-Abonnements einfacher für Besucher verwaltet werden können.');
 @define('INSTALL_BACKENDPOPUP', 'Popups für das Backend verwenden?');
 @define('INSTALL_BACKENDPOPUP_DESC', 'Sollen im Backend Popup-Fenster eingesetzt werden? Wenn deaktiviert (Standard), werden eingebettete modale Dialoge z.b. für die Mediathek und die Kategorieauswahl verwendet. Andererseits gilt diese Popup-Option nur für bestimmte Elemente, wie die Mediathek oder auch einige Plugins. Anderes, wie die Kategorien, wird eingebettet angezeigt.');
 @define('UPDATE_STABLE', 'stabil');
@@ -1121,8 +1108,6 @@ Sie sollten damit kein sicherheitsrelevantes Zugangssystem betreiben wollen!');
 @define('SYNDICATION_PLUGIN_FEEDFORMAT_DESC', 'Hier kann das Standard-Format der Feeds gewählt werden. Beide Formate werden heutzutage von den meisten Feedreader unterstützt.');
 @define('SYNDICATION_PLUGIN_COMMENTFEED', 'Kommentar-Feed');
 @define('SYNDICATION_PLUGIN_COMMENTFEED_DESC', 'Bindet einen zusätzlichen Link zum Kommentar-Feed ein. Dies ist meist eher für die Blog-Autoren interessant.');
-@define('SYNDICATION_PLUGIN_FEEDICON', 'Feed-Icon');
-@define('SYNDICATION_PLUGIN_FEEDICON_DESC', 'Zeigt ein (großes) Bild anstelle eines Textlinks an. Auf "none" stellen um dies zu deaktivieren oder auf "feedburner" stellen, wenn bei der Verwendung von FeedBurner dessen Symbol genutzt werden soll.');
 @define('SYNDICATION_PLUGIN_CUSTOMURL', 'Individuelle Feed-URL aktivieren?');
 @define('SYNDICATION_PLUGIN_CUSTOMURL_DESC', 'Falls der Link zu der individuellen Feed-URL der globalen Konfiguration führen soll, muss diese Option aktiviert werden.');
 @define('FEED_CUSTOM', 'Individuelle Feed-URL');
