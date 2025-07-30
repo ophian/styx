@@ -1115,7 +1115,7 @@ You should not want to operate a security-relevant access system with them!');
 @define('SYNDICATION_PLUGIN_CUSTOMURL', 'Custom URL');
 @define('SYNDICATION_PLUGIN_CUSTOMURL_DESC', 'If you want to link to the custom feed specified in the Blog configuration, enable this option.');
 @define('FEED_CUSTOM', 'Custom feed URL');
-@define('FEED_CUSTOM_DESC', 'If set, a custom feed URL can be set to forward Feedreaders to a specific URL. Useful for statistical analyzers like Feedburner, in which case you would enter your Feedburner-URL here.');
+@define('FEED_CUSTOM_DESC', 'If set, a custom feed URL can be set to forward Feedreaders to a specific URL. Was useful for statistical analyzers like Feedburner in the past, in which case you would have entered your Feedburner-URL here.');
 @define('FEED_FORCE', 'Force custom feed URL?');
 @define('FEED_FORCE_DESC', 'If enabled, the URL entered above will be mandatory for Feedreaders, and your usual feed cannot be accessed from clients.');
 @define('NO_UPDATES', 'No plugin updates are available');

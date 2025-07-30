@@ -1114,7 +1114,7 @@ You should not want to operate a security-relevant access system with them!');
 @define('SYNDICATION_PLUGIN_CUSTOMURL', '사용자화된 주소(URL)');
 @define('SYNDICATION_PLUGIN_CUSTOMURL_DESC', '블로그 설정에 지정한 사용자화된 피드로 링크를 할 경우 이 설정을 사용합니다.');
 @define('FEED_CUSTOM', '사용자화된 피드의 주소(URL)');
-@define('FEED_CUSTOM_DESC', '사용할 경우 피드 리더가 특정 주소로 방문하도록 별도의 사용자화된 피드 주소를 설정할 수 있습니다. 피드버너와 같이 통계 분석 기능이 있을 때 유용하며, 이 경우 피드버너 주소(URL)를 입력하면 됩니다.');
+@define('FEED_CUSTOM_DESC', '설정 시 사용자 정의 피드 URL을 지정하여 피드 리더를 특정 URL로 리디렉션할 수 있습니다. 과거에는 Feedburner와 같은 통계 분석 도구에서 유용하게 사용되었으며, 이 경우 여기에서 Feedburner URL을 입력하셨을 것입니다.');
 @define('FEED_FORCE', '사용자화된 피드의 주소를 강제로 사용합니까?');
 @define('FEED_FORCE_DESC', '사용할 경우 위에 입력한 주소가 모든 피드 리더에서 의무적으로 사용되며 일반적인 피드는 접근할 수 없게 됩니다.');
 @define('NO_UPDATES', '플러그인 업데이트가 없습니다');

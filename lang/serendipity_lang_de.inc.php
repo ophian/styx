@@ -1111,7 +1111,7 @@ Sie sollten damit kein sicherheitsrelevantes Zugangssystem betreiben wollen!');
 @define('SYNDICATION_PLUGIN_CUSTOMURL', 'Individuelle Feed-URL aktivieren?');
 @define('SYNDICATION_PLUGIN_CUSTOMURL_DESC', 'Falls der Link zu der individuellen Feed-URL der globalen Konfiguration führen soll, muss diese Option aktiviert werden.');
 @define('FEED_CUSTOM', 'Individuelle Feed-URL');
-@define('FEED_CUSTOM_DESC', 'Wenn gesetzt, wird die eingetragene URL verwendet um Feedreader dorthin weiterzuleiten. Dies ist hilfreich für Statistikdienste wie z.B. Feedburner, so dass hier die Feedburner-URL des eigenen Feeds hinterlegt werden kann.');
+@define('FEED_CUSTOM_DESC', 'Wenn gesetzt, wird die eingetragene URL verwendet um Feedreader dorthin weiterzuleiten. Dies ist hilfreich für Statistikdienste wie z.B. ehemals Feedburner, so dass hier die Feedburner-URL des eigenen Feeds hinterlegt werden kann.');
 @define('FEED_FORCE', 'Erzwingen der individuellen Feed-URL?');
 @define('FEED_FORCE_DESC', 'Wenn aktiviert, werden alle Feedreader automatisch zu der eingetragenen individuellen Feed-URL weitergeleitet.');
 @define('NO_UPDATES', 'Keine Plugin-Updates verfügbar.');
