@@ -367,6 +367,7 @@ function serendipity_plugin_config(object &$plugin, object|iterable &$bag, strin
                 $per_row = 3;
                 $radio['value'][] = 'default';
                 $radio['desc'][]  = USE_DEFAULT;
+                $tristate = true;
 
             case 'boolean':
                 $data['ctype'] = 'boolean';
@@ -400,7 +401,9 @@ function serendipity_plugin_config(object &$plugin, object|iterable &$bag, strin
                         $checked = ' checked';
                     } elseif ($radio_value == 'false' && ($hvalue === false || $hvalue === '' || $hvalue === 'false')) {
                         $checked = ' checked';
-                    } elseif ($radio_value == $hvalue) { // this can compare int with string or vice versa so we can't use strict type comparison
+                    } elseif ($radio_value === $hvalue) { // this checks normal radios true/false yes/no cases using strict type comparison !
+                        $checked = ' checked';
+                    } elseif (isset($tristate) && $radio_value == $hvalue) { // this is the tristate fallback since it can compare int with string or vice versa so we can't use strict type comparison
                         $checked = ' checked';
                     }
                     $data['radio_button'][$radio_index]['id'] = $id;
