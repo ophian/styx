@@ -55,7 +55,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE', 'Emailadresser vil udelukkende blive brugt til notificering');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE', 'Vælg logmetode');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Der kan logges til en database eller en tekstfil');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Der kan logges til en database eller en tekstfil. Logs skal vedligeholdes manuelt fra tid til anden for at forhindre systemoverbelastning på grund af stigende størrelse og for at identificere fejlagtige afvisninger. Databaselogning kan ryddes via en vedligeholdelsesopgave i Vedligeholdelse.');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_FILE', 'Fil (se "logfil" indstilling herunder)');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DB', 'Database');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_NONE', 'Ingen logning');

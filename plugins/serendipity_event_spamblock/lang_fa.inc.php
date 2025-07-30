@@ -54,7 +54,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE', 'آدرس های ایمیل نمایش داده نمی شوند و فقط برای ارسال اطلاعات استفاده می شود.');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE', 'روش نگهداری تاریخچه');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'نگهداری تاریخچه، می تواند با کمک فایل یا پایگاه داده انجام شود');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'نگهداری تاریخچه، می تواند با کمک فایل یا پایگاه داده انجام شود. لاگ‌ها باید هر از گاهی به صورت دستی نگهداری شوند تا از اضافه بار سیستم به دلیل افزایش اندازه جلوگیری شود و رد شدن‌های اشتباه شناسایی شوند. لاگ‌های پایگاه داده را می‌توان از طریق یک وظیفه نگهداری در Maintenance پاک‌سازی کرد.');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_FILE', 'فایل (مقدار "مکان فایل تاریخچه" را تنظیم کنید)');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DB', 'پایگاه داده');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_NONE', 'بدون ثبت تاریخچه');

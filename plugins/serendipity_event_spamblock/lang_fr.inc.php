@@ -59,7 +59,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_DESC', 'Masque les adresses Emqil des utilisateurs qui ont écrit des commentaires');
 @define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE', 'Les adresses Email ne sont pas affichées, et sont seulement utilisées pour la communication.');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE', 'Choisissez une méthode de logage');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Le logage des commentaires refusés peut se faire dans un fichier texte, ou dans la base de données.');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Le logage des commentaires refusés peut se faire dans un fichier texte, ou dans la base de données. Les journaux doivent être gérés manuellement de temps à autre afin d\'éviter une surcharge du système due à leur taille croissante et d\'identifier les rejets erronés. La journalisation de la base de données peut être nettoyée via une tâche de maintenance dans Maintenance.');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_FILE', 'Fichier (voir l\'option \'Fichier log\')');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DB', 'Base de données');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_NONE', 'Pas de logage');

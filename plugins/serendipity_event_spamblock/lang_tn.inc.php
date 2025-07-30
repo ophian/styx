@@ -55,7 +55,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE', '電子信箱將不會顯示，僅用於發佈通知');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE', '記錄方法');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', '記錄的資料可以存到資料庫或文字檔');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', '記錄的資料可以存到資料庫或文字檔。日誌應不時以手動方式維護，以防止系統因日誌大小增加而負荷過重，並找出錯誤的拒絕。資料庫日誌可透過 Maintenance 中的維護任務清理。');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_FILE', '文字檔 (看下面的記錄檔選項)');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DB', '資料庫');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_NONE', '不記錄');

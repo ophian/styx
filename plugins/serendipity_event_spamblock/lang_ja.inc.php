@@ -55,7 +55,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE', '電子メールアドレスは表示せず、電子メールの通知にのみ使用します。');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE', 'ログ記録方法を選択する');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', '拒絶したコメントのログ記録はデータベース、あるいは平文テキストファイルへ行うことができます。');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', '拒絶したコメントのログ記録はデータベース、あるいは平文テキストファイルへ行うことができます。ログは、サイズが増加することでシステム過負荷を防止し、誤った拒否を特定するため、定期的に手動でメンテナンスする必要があります。データベースのログは、メンテナンスのメンテナンスタスクを通じてクリーンアップできます。');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_FILE', 'ファイル (下の「ログファイル」オプションを参照してください)');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DB', 'データベース');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_NONE', 'ログ記録しない');

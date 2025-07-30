@@ -60,7 +60,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE', 'E-mailové adresy nebudou zobrazovány, budou použity pouze pro oznámení elektronickou poštou.');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE', 'Vyberte metodu logování');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Logování zamítnutých komentářů může být prováděno buď v databázi nebo v textovém souboru');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Logování zamítnutých komentářů může být prováděno buď v databázi nebo v textovém souboru. Protokoly by měly být pravidelně ručně udržovány, aby se zabránilo přetížení systému v důsledku rostoucí velikosti a aby se identifikovaly nesprávně směrované odmítnutí. Protokolování databáze lze vyčistit pomocí údržbové úlohy v části Údržba.');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_FILE', 'Soubor (viz. volba "logfile" níže)');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DB', 'Databáze');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_NONE', 'Nelogovat');

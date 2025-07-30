@@ -53,7 +53,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE', 'Die angegebene E-Mail-Adresse wird nicht dargestellt, sondern nur für eventuelle Benachrichtigungen verwendet.');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE', 'Protokollierung von fehlgeschlagenen Kommentaren');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Die Protokollierung von fehlgeschlagenen Kommentaren und deren Gründen kann auf mehrere Arten durchgeführt werden.');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Die Protokollierung von fehlgeschlagenen Kommentaren und deren Gründen kann auf mehrere Arten durchgeführt werden. Protokollierungen sollten von Zeit zu Zeit "händisch" gepflegt werden um Überlastungen des Systems aufgrund zunehmender Größe zu vermeiden bzw um fehlgeleitete Abweisungen herauszufinden. Die Datenbank-Protokollierung kann per Wartungsaufgabe in der Wartung bereinigt werden.');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_FILE', 'Einfache Datei (siehe Option "Logfile")');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DB', 'Datenbank');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_NONE', 'Keine Protokollierung');

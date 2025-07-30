@@ -56,7 +56,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE', '电子邮件地址将不会被显示，而仅将被用于发送电子邮件通知');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE', '选择日志记录方法');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', '被拒绝的回复可以被记录在数据库或文本文件中');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', '被拒绝的回复可以被记录在数据库或文本文件中。日志应定期手动维护，以防止系统因日志文件过大而发生过载，并识别错误的拒绝操作。数据库日志可通过维护任务中的维护操作进行清理。');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_FILE', '文件 (请参考下面“日志文件”选项)');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DB', '数据库');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_NONE', '不记录日志');

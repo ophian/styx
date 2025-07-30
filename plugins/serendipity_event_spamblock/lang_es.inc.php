@@ -51,7 +51,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE', 'Direcciones e-mail no serán mostradas y sólo serán utilizadas para notificaciones a través de esa vía');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE', 'Elige el método de reporte');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Reportes sobre comentarios rechazados pueden ser hechos a través de la base de datos o en un archivo de texto plano');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Reportes sobre comentarios rechazados pueden ser hechos a través de la base de datos o en un archivo de texto plano. Los registros deben mantenerse manualmente de vez en cuando para evitar la sobrecarga del sistema debido al aumento de tamaño e identificar los rechazos erróneos. El registro de la base de datos se puede limpiar mediante una tarea de mantenimiento en Mantenimiento.');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_FILE', 'Archivo (la opción "logfile" debajo)');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DB', 'Base de datos');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_NONE', 'Sin reporte');

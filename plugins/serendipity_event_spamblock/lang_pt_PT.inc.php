@@ -59,7 +59,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_DESC', 'Masque les adresses Emqil des utilisateurs qui ont écrit des commentaires');
 @define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE', 'Les adresses Email ne sont pas affichées, et sont seulement utilisées pour la communication.');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE', 'Escolha um método para os logs');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Os logs de comentários recusados podem ter como suporte um ficheiro de texto, ou uma base de dados.');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Os logs de comentários recusados podem ter como suporte um ficheiro de texto, ou uma base de dados. Os registos devem ser mantidos manualmente de tempos em tempos para evitar sobrecarga do sistema devido ao aumento do tamanho e para identificar rejeições mal direcionadas. O registo da base de dados pode ser limpo através de uma tarefa de manutenção em Manutenção.');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_FILE', 'Ficheiro (ver a opção \'Ficheiro de log\')');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DB', 'Base de dados');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_NONE', 'Não usar logs');

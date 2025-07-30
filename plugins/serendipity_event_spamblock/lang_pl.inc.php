@@ -54,7 +54,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE', 'Adresy e-mail nie będą pokazywane i będą używane tylko do celów wysyłania powiadomień drogą e-mailową');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE', 'Wybierz metodę logowania');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Logi o odrzuconych komentarzach mogą być przechowywane w Bazie danych lub w pliku tekstowym');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Logi o odrzuconych komentarzach mogą być przechowywane w Bazie danych lub w pliku tekstowym. Dzienniki należy od czasu do czasu aktualizować ręcznie, aby zapobiec przeciążeniu systemu spowodowanemu wzrostem rozmiaru oraz zidentyfikować błędnie odrzucone dane. Dzienniki bazy danych można wyczyścić za pomocą zadania konserwacyjnego w sekcji Konserwacja.');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_FILE', 'Plik (patrz "Położenie pliku z logiem")');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DB', 'Baza danych');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_NONE', 'Bez logowania');

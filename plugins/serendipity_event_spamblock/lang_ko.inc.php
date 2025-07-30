@@ -55,7 +55,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE', '전자우편 주소는 보여지지 않으며 전자우편으로 통보를 할 때만 사용됩니다.');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE', '로그 기록 방법 선택');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', '거부된 덧글은 데이터베이스나 일반 텍스트 파일에 기록될 수 있습니다.');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', '거부된 덧글은 데이터베이스나 일반 텍스트 파일에 기록될 수 있습니다. 로그는 시스템 과부하를 방지하기 위해 크기가 증가함에 따라 정기적으로 수동으로 관리해야 하며, 잘못된 거부 사항을 식별하기 위해 필요합니다. 데이터베이스 로그는 유지보수 메뉴의 유지보수 작업 통해 정리할 수 있습니다.');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_FILE', '파일 ("로그 파일" 옵션 참조)');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DB', '데이터베이스');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_NONE', '로그 기록 안 함');

@@ -54,7 +54,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE', 'E-Mail addresses will not be displayed and will only be used for E-Mail notifications.');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE', 'Choose logging method');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Logging of rejected comments can be done in Database or to a plaintext file');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Logging of rejected comments can be done in Database or to a plaintext file. Logs should be maintained manually from time to time to prevent system overload due to increasing size and to identify misdirected rejections. Database logging can be cleaned up via a maintenance task in Maintenance.');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_FILE', 'File (see "logfile" option below)');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DB', 'Database');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_NONE', 'No Logging');

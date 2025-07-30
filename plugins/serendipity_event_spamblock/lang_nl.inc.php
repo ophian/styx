@@ -53,7 +53,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE', 'Email adressen worden niet getoond en zijn alleen zichtbaar voor de blogger.');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE', 'Kies logmethode');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Loggen van geweigerde commentaren kan naar een bestand of de database.');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Loggen van geweigerde commentaren kan naar een bestand of de database. Logs moeten van tijd tot tijd handmatig worden bijgehouden om overbelasting van het systeem als gevolg van toenemende omvang te voorkomen en om verkeerd gerichte afwijzingen te identificeren. Database-logging kan worden opgeschoond via een onderhoudstaak in Onderhoud.');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_FILE', 'Bestand (zie "logfile" optie hieronder)');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DB', 'Database');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_NONE', 'Geen Logging');

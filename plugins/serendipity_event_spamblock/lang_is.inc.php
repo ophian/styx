@@ -65,7 +65,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE', 'Netföng munu ekki vera sýnd, og einungis notuð fyrir tilkynningar sendar í pósti');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE', 'Veldu tegund atburðaskráninga');
-@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Atburðaskráning synjaðra athugasemda getur verið gerð í gagnagrunn eða venjulega textaskrá');
+@define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DESC', 'Atburðaskráning synjaðra athugasemda getur verið gerð í gagnagrunn eða venjulega textaskrá. Skrár ættu að vera viðhaldnar handvirkt öðru hvoru til að koma í veg fyrir ofhleðslu á kerfinu vegna vaxandi stærðar og til að bera kennsl á misbeittar höfnanir. Hægt er að hreinsa upp í gagnagrunnsskráningu með viðhaldsverkefni í Viðhaldi.');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_FILE', 'Skrá (sjá "atburðaskrá" valmöguleika að neðan)');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_DB', 'Gagnagrunnur');
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGTYPE_NONE', 'Engin atburðaskráning');
