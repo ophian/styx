@@ -1,6 +1,8 @@
 Version 5.0-beta2 DEV ()
  ------------------------------------------------------------------------
 
+ * plugins_admin API: Fix selected tristate checked option comparison by type
+
  * syndication plugin: Remove outdated feedburner and subToMe references.
    PLEASE UPDATE your RSS/XML configuration. Notice that XML icons via all
    related plugins are customizable and [ pure ] theme users may even use a
