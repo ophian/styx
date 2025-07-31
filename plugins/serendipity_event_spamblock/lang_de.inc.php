@@ -11,7 +11,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY', 'Spamschutz: Ungültiger Kommentar!');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_IP', 'Spamschutz: Ein weiterer Kommentar kann innerhalb so kurzer Zeit nicht übermittelt werden.');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_KILLSWITCH', 'Dieses Blog ist im "Notfall Kommentar"-Modus. Bitte kommen Sie später wieder.');
-@define('PLUGIN_EVENT_SPAMBLOCK_BODYCLONE', 'Keine doppelten Kommentare erlauben');
+@define('PLUGIN_EVENT_SPAMBLOCK_BODYCLONE', 'Doppelte Kommentare nicht zulassen');
 @define('PLUGIN_EVENT_SPAMBLOCK_BODYCLONE_DESC', 'Verbietet Benutzern einen Kommentar zu übermitteln, der gleichlautend bereits besteht.');
 @define('PLUGIN_EVENT_SPAMBLOCK_KILLSWITCH', 'Notfall-Blockade von Kommentaren');
 @define('PLUGIN_EVENT_SPAMBLOCK_KILLSWITCH_DESC', 'Übergangsweise Kommentare zu allen Einträgen verbieten. Nützlich, wenn das Blog unter andauerndem Spam-Beschuss leidet.');
