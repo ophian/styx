@@ -400,7 +400,7 @@ function serendipity_plugin_config(object &$plugin, object|iterable &$bag, strin
                         $checked = ' checked';
                     } elseif ($radio_value == 'false' && ($hvalue === false || $hvalue === '' || $hvalue === 'false')) {
                         $checked = ' checked';
-                    } elseif (is_numeric($hvalue) ? $radio_value == $hvalue : $radio_value === $hvalue) { // $hvalue may be a numeric string like 2, 3 or 4
+                    } elseif (is_numeric($hvalue) ? $radio_value == $hvalue : $radio_value === $hvalue) { // $hvalue may be a numeric string like 2, 3 or 4, but we really need the strict comparison for the boolean types
                         $checked = ' checked';
                     }
                     $data['radio_button'][$radio_index]['id'] = $id;
