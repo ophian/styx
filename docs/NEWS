@@ -1,6 +1,9 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+ * Review of blockquote styles in [ pure ] standard theme. Implements same
+   behavior as we implemented for lists in (image) floated environments.
+
  * Fix custom RT Editor styles for flex breaking normal blockquote behavior
 
 
