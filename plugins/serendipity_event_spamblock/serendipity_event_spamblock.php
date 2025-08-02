@@ -1476,7 +1476,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                         <option value="hpot">LIKE "BEE Honeypot%"</option>
                         <option value="hcap">LIKE "BEE HiddenCaptcha%"</option>
                         <option value="cbay">LIKE "Caught by the Bayes-Plugin%"</option>
-                        <option value="ipv">LIKE "IP validation%" in (de, en, cs, cz, sk) languages</option>
+                        <option value="ipv">LIKE "IP validation%" in (de, en, cz, sk) languages</option>
                     </select>
                     <div class="form_buttons form_cpm">
                         <input class="state_submit" name="spamclean_multi" type="submit" value="<?php echo PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MULTI_BUTTON; ?>">
@@ -2062,8 +2062,8 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                             $sbldone = true;
                         }
                         if ($p == 'ipv') {
-                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' AND (reason LIKE 'IP validation%' OR reason LIKE 'IP Validierung%' OR reason LIKE 'Kontrola IP adresy%')"); // (en, de, cs, cz, sk) (approximately mid-big data)
-                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'MODERATE' AND (reason LIKE 'IP validation%' OR reason LIKE 'IP Validierung%' OR reason LIKE 'Kontrola IP adresy%')"); // (en, de, cs, cz, sk) (approximately mid-big data)
+                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' AND (reason LIKE 'IP validation%' OR reason LIKE 'IP Validierung%' OR reason LIKE 'Kontrola IP adresy%')"); // (en, de, cz, sk) (approximately mid-big data)
+                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'MODERATE' AND (reason LIKE 'IP validation%' OR reason LIKE 'IP Validierung%' OR reason LIKE 'Kontrola IP adresy%')"); // (en, de, cz, sk) (approximately mid-big data)
                             $sbldone = true;
                         }
                         if ($p == 'cbay') {
