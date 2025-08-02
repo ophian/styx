@@ -136,6 +136,13 @@ const dark = () => {
     }
 })(jQuery);
 
+/* Allows color threaded nested blockquote stylings */
+(function ($) {
+  $('.post_content blockquote blockquote').each(function(index, element){
+     if (index % 2 == 0) { $(element).addClass('odd'); }
+  });
+})(jQuery);
+
 /* We had to remove the required attribute on the textarea element for Chromium to avoid:
    "An invalid form control with name=serendipity[comment]' is not focusable." */
 (function ($) {
