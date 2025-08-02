@@ -3,6 +3,7 @@ Version 5.0-DEV ()
 
  * Review of blockquote styles in [ pure ] standard theme. Implements same
    behavior as we implemented for lists in (image) floated environments.
+   - Add JS selector toggle for nested blockquote styles
 
  * Fix custom RT Editor styles for flex breaking normal blockquote behavior
 
