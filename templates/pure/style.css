@@ -376,6 +376,8 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     border-color: #3b434c; }
   [data-dark-theme="dark"] .post_content blockquote {
     border-left-color: #adbac7; }
+    [data-dark-theme="dark"] .post_content blockquote.odd {
+      border-left-color: darkseagreen; }
   [data-dark-theme="dark"] .serendipity_date {
     color: #a3aaba; }
   [data-dark-theme="dark"] .serendipity_searchQuery {
@@ -1307,6 +1309,8 @@ nav.pager + .serendipity_blogpdf {
       margin-left: 1.75em;
       display: flow-root;
       min-width: 10em }
+      .post_content blockquote.odd {
+        border-left-color: gainsboro; }
     /* this element now behaves again like a block element,
        expands to its auto width only,
        heights to a max viewport height before scroll and
