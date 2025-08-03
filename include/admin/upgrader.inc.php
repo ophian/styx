@@ -701,6 +701,16 @@ $tasks = array(
                     'title'     => '<b>THANK YOU FOR PRE-TESTING Serendipity Styx 5.0</b>',
                     'desc'      => 'Styx 5.0 is much more exact in multi cases and uses type safety. It has been tested a long time but cannot fully guarantee that we do not catch any further exception for type safety. Please help us all to find these issues. That is what the BETA and RC phase is up fore. We will nuke them one by one together and as fast as possible. A big handful of commonly used plugins has been checked already, but there are lots of others that still need to convert. If you discover an error, please file an issue at "https://github.com/ophian/styx/issues" or "https://github.com/ophian/additional_plugins/issues" or mention them in the discussions. Just paste the error exception including the stack trace and explain what you did to get there, so it is easy to reproduce. Normally you can just resume with your work afterwards by going back in your browsers history or by a new startup at the Back- or Frontend of your blog. I am happy to hear from you, even when you find inconsistencies or other strange behavior changes, or are not satisfied with the changes already applied to Styx 5.0. To make sure you have all style changes loaded, force a hard reload of your backend once the UPGRADE is done. Let\'s roll!'),
 
+            array(  'version'   => '5.0-beta2',
+                    'type'      => 'TEMPLATE_NOTICE',
+                    'title'     => '<b>TEMPLATE_NOTICE</b>',
+                    'desc'      => 'Due to the switch to the new TinyMCE RichText Editor, all themes already making use of it <pre>[ pure, b46, b53, b5blog, boot, dude, psg ]</pre> were changed to support the new editor, remove the CKE references and convert the code highlight references. If you are using one of these mentioned themes as a <b>parent theme</b>, your custom <b>child theme\'s</b> <em>index.tpl</em> file needs to follow the change of its parent.'),
+
+            array(  'version'   => '5.0-beta2',
+                    'type'      => 'PLUGIN_NOTICE',
+                    'title'     => '<b>PLUGIN_NOTICE</b>',
+                    'desc'      => 'The sidebar syndication plugin removed the outdated Google feedburner and the SubToMe service references. Please update your syndication plugin configuration to avoid having dead references in your frontend sidebar.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
