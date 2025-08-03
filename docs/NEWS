@@ -1,6 +1,9 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+ * Add beta2 upgrade task notifications for "parent themes" and "syndication"
+   changes.
+
  * Review of blockquote styles in [ pure ] standard theme. Implements same
    behavior as we implemented for lists in (image) floated environments.
    - Add JS selector toggle for nested blockquote styles
