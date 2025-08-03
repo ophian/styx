@@ -136,7 +136,10 @@
 {/if}
 {/if}
 
-            <h3>{$CONST.SERENDIPITY_UPGRADER_VERSION_SPECIFIC}:{if is_array($tasks) AND !empty($tasks)} PLEASE, TAKE TIME TO READ !!{/if}</h3>
+            <h3>{$CONST.SERENDIPITY_UPGRADER_VERSION_SPECIFIC}:</h3>
+{if is_array($tasks) AND !empty($tasks)}
+            <span class="msg_notice"><strong>Please, take your time to READ !! Open up details, and better make a full browser screenshot to re-read later on !</strong></span>
+{/if}
 {if is_array($tasks) AND !empty($tasks)}
 
             <dl class="upgrader_tasks">
