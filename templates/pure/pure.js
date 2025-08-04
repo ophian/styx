@@ -136,10 +136,10 @@ const dark = () => {
     }
 })(jQuery);
 
-/* Allows color threaded nested blockquote stylings */
+/* Allows color threaded nested blockquote styling */
 (function ($) {
-  $('.post_content blockquote blockquote').each(function(index, element){
-     if (index % 2 == 0) { $(element).addClass('odd'); }
+  $('.post_content blockquote').each(function(index, element){
+     if (index % 2 > 0) { $(element).addClass('odd'); }
   });
 })(jQuery);
 
