@@ -73,10 +73,10 @@ function serendipity_db_update(string $table, iterable $keys, iterable $values, 
  *      - Associative array of keys/values to insert into the table. Escaping is done automatically.
  *      - What do do with the SQL query (execute, display)
  * Returns:
- *      - Returns the boolean result of the SQL query OR the QUERY string itself
+ *      - Returns the boolean result of the SQL query OR the QUERY string itself - BUT on PDO::PostgreSQL serendipity_db_query() may return an empty Array(1) { [0]=> array(0) {}}
  * @access  public
  */
-function serendipity_db_insert(string $table, iterable $values, string $action = 'execute') : bool|string {
+function serendipity_db_insert(string $table, iterable $values, string $action = 'execute') : bool|string|iterable {
     global $serendipity;
 
     $names = implode(',', array_keys($values));
