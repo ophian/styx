@@ -1,6 +1,8 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+ * Fix some parameter type and return issues for PDO::PostgreSQL
+
  * Add beta2 upgrade task notifications for "parent themes" and "syndication"
    changes.
 
