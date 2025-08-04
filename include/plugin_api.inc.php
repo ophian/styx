@@ -1020,7 +1020,7 @@ class serendipity_plugin_api
         }
 
         foreach($plugins AS $plugin_data) {
-            $plugin =& serendipity_plugin_api::load_plugin($plugin_data['name'], $plugin_data['authorid'], $plugin_data['path']);
+            $plugin =& serendipity_plugin_api::load_plugin($plugin_data['name'], (string) $plugin_data['authorid'], $plugin_data['path']);
             if (is_object($plugin)) {
                 $class  = get_class($plugin);
                 $title  = '';
@@ -1150,7 +1150,7 @@ class serendipity_plugin_api
 
         $event_plugins = array();
         foreach($plugins AS $plugin_data) {
-            if ($event_plugins[$plugin_data['name']]['p'] = &serendipity_plugin_api::load_plugin($plugin_data['name'], $plugin_data['authorid'], $plugin_data['path'])) {
+            if ($event_plugins[$plugin_data['name']]['p'] = &serendipity_plugin_api::load_plugin($plugin_data['name'], (string) $plugin_data['authorid'], $plugin_data['path'])) {
                 /* query for its name, description and configuration data */
                 $event_plugins[$plugin_data['name']]['b'] = new serendipity_property_bag;
                 $event_plugins[$plugin_data['name']]['p']->introspect($event_plugins[$plugin_data['name']]['b']);
