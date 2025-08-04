@@ -22,7 +22,7 @@ class serendipity_plugin_recententries extends serendipity_plugin
         $propbag->add('description',   PLUGIN_RECENTENTRIES_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Christian Machmeier, Christian Brabandt, Judebert, Don Chambers, Ian Styx');
-        $propbag->add('version',       '3.0.1');
+        $propbag->add('version',       '3.0.2');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
@@ -82,7 +82,7 @@ class serendipity_plugin_recententries extends serendipity_plugin
                 break;
 
             case 'category':
-                $cats    = serendipity_fetchCategories($serendipity['authorid']);
+                $cats    = serendipity_fetchCategories((string) $serendipity['authorid']);
                 if (!is_array($cats)) {
                     break;
                 }
