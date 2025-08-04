@@ -280,7 +280,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
         $propbag->add('description',   PLUGIN_REMOTERSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Udo Gerhards, Richard Thomas Harrison, Ian Styx');
-        $propbag->add('version',       '1.39');
+        $propbag->add('version',       '1.40');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
@@ -343,8 +343,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
 
             case 'charset':
                 $propbag->add('type',           'radio');
-                $propbag->add('name',           CHARSET);
-                $propbag->add('description',    CHARSET);
+                $propbag->add('name',           PLUGIN_REMOTERSS_TO_CHARSET);
                 $propbag->add('default',        'native');
 
                 $charsets = array();

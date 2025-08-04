@@ -17,6 +17,7 @@
 @define('PLUGIN_REMOTERSS_NOURI', 'No RSS/OPML feed selected');
 @define('PLUGIN_REMOTERSS_RSSTARGET', 'RSS/OPML linktarget');
 @define('PLUGIN_REMOTERSS_RSSTARGET_BLAHBLAH', 'Target of the link to one of the displayed RSS items (Default: _blank)');
+@define('PLUGIN_REMOTERSS_TO_CHARSET', 'Output Charset');
 @define('PLUGIN_REMOTERSS_CACHETIME', 'When to update the feed?');
 @define('PLUGIN_REMOTERSS_CACHETIME_BLAHBLAH', 'The contents of a feed are stored in a cache which will be updated as soon as its older than X seconds (Default: 3 hours)');
 @define('PLUGIN_REMOTERSS_FEEDTYPE', 'Feedtype');

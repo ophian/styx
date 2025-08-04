@@ -16,6 +16,7 @@
 @define('PLUGIN_REMOTERSS_RSSTARGET', 'Link-Target');
 @define('PLUGIN_REMOTERSS_RSSTARGET_BLAHBLAH', 'Ziel des Links zu einem der angezeigten RSS-Einträge (Standard: _blank)');
 @define('PLUGIN_REMOTERSS_NOURI', 'Kein RSS/OPML-Feed gewählt');
+@define('PLUGIN_REMOTERSS_TO_CHARSET', 'Zeichensatz der Ausgabe');
 @define('PLUGIN_REMOTERSS_CACHETIME', 'Wann wird der Feed aktualisiert?');
 @define('PLUGIN_REMOTERSS_CACHETIME_BLAHBLAH', 'Die Inhalte des fremden Feeds werden gecached. Sobald der Cache älter ist als X Sekunden wird er aktualisiert (Standard: 3 Stunden)');
 @define('PLUGIN_REMOTERSS_FEEDTYPE', 'Typ des Feeds');
