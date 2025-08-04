@@ -8,7 +8,7 @@ if (IN_serendipity !== true) {
 
 class serendipity_plugin_superuser extends serendipity_plugin
 {
-    var $title = SUPERUSER;
+    public $title = SUPERUSER;
 
     function introspect(&$propbag)
     {

@@ -13,7 +13,7 @@ if (IN_serendipity !== true) {
 // Extend the base class
 class serendipity_event_modemaintain extends serendipity_event
 {
-    var $title = PLUGIN_MODEMAINTAIN_TITLE;
+    public $title = PLUGIN_MODEMAINTAIN_TITLE;
 
     /**
      * Access property maintenanceText

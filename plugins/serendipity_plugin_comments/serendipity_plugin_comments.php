@@ -10,7 +10,7 @@ if (IN_serendipity !== true) {
 
 class serendipity_plugin_comments extends serendipity_plugin
 {
-    var $title = COMMENTS;
+    public $title = COMMENTS;
 
     function introspect(&$propbag)
     {

@@ -8,7 +8,7 @@ if (IN_serendipity !== true) {
 
 class serendipity_plugin_calendar extends serendipity_plugin
 {
-    var $title = CALENDAR;
+    public $title = CALENDAR;
 
     function introspect(&$propbag)
     {

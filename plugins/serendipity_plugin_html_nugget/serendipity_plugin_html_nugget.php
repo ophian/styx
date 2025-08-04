@@ -8,7 +8,7 @@ if (IN_serendipity !== true) {
 
 class serendipity_plugin_html_nugget extends serendipity_plugin
 {
-    var $title = HTML_NUGGET;
+    public $title = HTML_NUGGET;
 
     function introspect(&$propbag)
     {

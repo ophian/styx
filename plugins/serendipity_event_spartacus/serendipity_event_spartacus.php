@@ -10,8 +10,9 @@ if (IN_serendipity !== true) {
 
 class serendipity_event_spartacus extends serendipity_event
 {
-    var $title = PLUGIN_EVENT_SPARTACUS_NAME;
-    var $purgeCache = false;
+    public $title = PLUGIN_EVENT_SPARTACUS_NAME;
+
+    private $purgeCache = false;
 
     function introspect(&$propbag)
     {

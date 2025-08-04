@@ -8,7 +8,7 @@ if (IN_serendipity !== true) {
 
 class serendipity_plugin_quicksearch extends serendipity_plugin
 {
-    var $title = QUICKSEARCH;
+    public $title = QUICKSEARCH;
 
     function introspect(&$propbag)
     {

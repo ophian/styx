@@ -10,7 +10,7 @@ if (IN_serendipity !== true) {
 
 class serendipity_event_bbcode extends serendipity_event
 {
-    var $title = PLUGIN_EVENT_BBCODE_NAME;
+    public $title = PLUGIN_EVENT_BBCODE_NAME;
 
     function introspect(&$propbag)
     {

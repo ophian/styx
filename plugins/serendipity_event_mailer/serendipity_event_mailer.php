@@ -10,8 +10,9 @@ if (IN_serendipity !== true) {
 
 class serendipity_event_mailer extends serendipity_event
 {
-    var $title = PLUGIN_EVENT_MAILER_NAME;
-    var $data  = array();
+    public $title = PLUGIN_EVENT_MAILER_NAME;
+
+    private $data = array();
 
     function introspect(&$propbag)
     {

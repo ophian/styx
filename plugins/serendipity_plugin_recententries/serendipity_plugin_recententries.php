@@ -12,7 +12,7 @@ if (IN_serendipity !== true) {
 
 class serendipity_plugin_recententries extends serendipity_plugin
 {
-    var $title = PLUGIN_RECENTENTRIES_TITLE;
+    public $title = PLUGIN_RECENTENTRIES_TITLE;
 
     function introspect(&$propbag)
     {

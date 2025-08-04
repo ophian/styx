@@ -10,7 +10,7 @@ if (IN_serendipity !== true) {
 
 class serendipity_event_s9ymarkup extends serendipity_event
 {
-    var $title = PLUGIN_EVENT_S9YMARKUP_NAME;
+    public $title = PLUGIN_EVENT_S9YMARKUP_NAME;
 
     function introspect(&$propbag)
     {

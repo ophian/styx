@@ -10,8 +10,9 @@ if (IN_serendipity !== true) {
 
 class serendipity_event_xhtmlcleanup extends serendipity_event
 {
-    var $title = PLUGIN_EVENT_XHTMLCLEANUP_NAME;
-    var $cleanup_tag, $cleanup_checkfor, $cleanup_val, $cleanup_parse;
+    public $title = PLUGIN_EVENT_XHTMLCLEANUP_NAME;
+
+    private $cleanup_tag, $cleanup_checkfor, $cleanup_val, $cleanup_parse;
 
     function introspect(&$propbag)
     {

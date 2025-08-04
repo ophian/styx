@@ -10,8 +10,9 @@ if (IN_serendipity !== true) {
 
 class serendipity_event_entryproperties extends serendipity_event
 {
-    var $services, $showPasswordForm;
-    var $title = PLUGIN_EVENT_ENTRYPROPERTIES_TITLE;
+    public $title = PLUGIN_EVENT_ENTRYPROPERTIES_TITLE;
+
+    private $showPasswordForm;
 
     function introspect(&$propbag)
     {
@@ -21,11 +22,11 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC . (isset($serendipity['GET']['plugin_to_conf']) ? ' ' . PLUGIN_EVENT_ENTRYPROPERTIES_DESC_PLUS : ''));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.95');
+        $propbag->add('version',       '1.96');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
-            'php'         => '8.2.0'
+            'php'         => '8.2'
         ));
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,

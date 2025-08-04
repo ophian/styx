@@ -112,9 +112,9 @@ define('OPMLDEBUG', '0');
 
 class s9y_remoterss_OPML
 {
-    var $cacheOPMLHead;
-    var $cacheOPMLBody;
-    var $cacheOPMLOutline;
+    private $cacheOPMLHead;
+    private $cacheOPMLBody;
+    private $cacheOPMLOutline;
 
     function __construct()
     {
@@ -268,8 +268,9 @@ class s9y_remoterss_OPML
 
 class serendipity_plugin_remoterss extends serendipity_plugin
 {
-    var $title = PLUGIN_REMOTERSS_TITLE;
-    var $encoding = null;
+    public $title = PLUGIN_REMOTERSS_TITLE;
+
+    private $encoding = null;
 
     function introspect(&$propbag)
     {

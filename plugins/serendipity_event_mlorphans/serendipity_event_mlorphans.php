@@ -10,7 +10,7 @@ if (IN_serendipity !== true) {
 
 class serendipity_event_mlorphans extends serendipity_event
 {
-    var $title = PLUGIN_EVENT_MLORPHANS_NAME;
+    public $title = PLUGIN_EVENT_MLORPHANS_NAME;
 
     function introspect(&$propbag)
     {

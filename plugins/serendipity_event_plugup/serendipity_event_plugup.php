@@ -13,7 +13,7 @@ if (IN_serendipity !== true) {
 // Extend the base class
 class serendipity_event_plugup extends serendipity_plugin
 {
-    var $title = PLUGIN_EVENT_PLUGUP_TITLE;
+    public $title = PLUGIN_EVENT_PLUGUP_TITLE;
 
     // Setup metadata
     function introspect(&$propbag) {

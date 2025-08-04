@@ -13,7 +13,7 @@ if (IN_serendipity !== true) {
 // Extend the base class
 class serendipity_event_changelog extends serendipity_event
 {
-    var $title = PLUGIN_CHANGELOG_TITLE;
+    public $title = PLUGIN_CHANGELOG_TITLE;
 
     // Setup metadata
     function introspect(&$propbag)

@@ -10,7 +10,7 @@ if (IN_serendipity !== true) {
 
 class serendipity_plugin_entrylinks extends serendipity_plugin
 {
-    var $title = PLUGIN_ENTRYLINKS_NAME;
+    public $title = PLUGIN_ENTRYLINKS_NAME;
 
     function introspect(&$propbag)
     {

@@ -8,7 +8,7 @@ if (IN_serendipity !== true) {
 
 class serendipity_plugin_archives extends serendipity_plugin
 {
-    var $title = ARCHIVES;
+    public $title = ARCHIVES;
 
     function introspect(&$propbag)
     {

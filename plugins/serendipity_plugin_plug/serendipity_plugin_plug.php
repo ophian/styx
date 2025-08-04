@@ -8,7 +8,7 @@ if (IN_serendipity !== true) {
 
 class serendipity_plugin_plug extends serendipity_plugin
 {
-    var $title = POWERED_BY;
+    public $title = POWERED_BY;
 
     function introspect(&$propbag)
     {
