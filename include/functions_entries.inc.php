@@ -683,7 +683,7 @@ function &serendipity_fetchEntryProperties(int $id) : iterable {
  *      - Returns the array of categories OR bool on empty but true or an SQL error string
  * @access public
  */
-function &serendipity_fetchCategories(?string $authorid = null, ?string $name = null, ?string $order = null, string $artifact_mode = 'write', bool $flat = false) : iterable|bool|string {
+function &serendipity_fetchCategories(int|string|null $authorid = null, ?string $name = null, ?string $order = null, string $artifact_mode = 'write', bool $flat = false) : iterable|bool|string {
     global $serendipity;
 
     if ($name === null) {
