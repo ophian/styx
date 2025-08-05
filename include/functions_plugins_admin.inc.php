@@ -145,7 +145,7 @@ function show_plugins(bool $event_only = false, ?iterable $sidebars = null) : st
         $sort_idx = 0;
         foreach($plugins AS $plugin_data) {
             $i++;
-            $plugin  =& serendipity_plugin_api::load_plugin($plugin_data['name'], (string) $plugin_data['authorid']);
+            $plugin  =& serendipity_plugin_api::load_plugin($plugin_data['name'], (string) $plugin_data['authorid']); // INT to STRING cast for PDO::PostgreSQL
             $key     = urlencode($plugin_data['name']);
             #$css_key = 's9ypid' . str_replace('%', '-', $key);
             $crc32   = hash('xxh32', (string) random_int(0, 0x3fff));
