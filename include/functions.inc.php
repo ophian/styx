@@ -974,14 +974,14 @@ function serendipity_chainByLevel(iterable $users) : iterable {
  * Fetch the list of Serendipity Authors
  *
  * Args:
- *      - Fetch only a specific User by numeric|empty|null string
+ *      - Fetch only a specific User by integer OR numeric|empty|null string
  *      - Can contain an array of group IDs you only want to fetch authors of
  *      - boolean If set to TRUE, the amount of entries per author will also be returned
  * Returns:
  *      - Result array of the SQL query OR boolean OR error string
  * @access public
  */
-function serendipity_fetchUsers(?string $user = '', iterable|string|null $group = null, ?bool $is_count = false) : string|bool|iterable {
+function serendipity_fetchUsers(int|null|string $user = '', iterable|string|null $group = null, ?bool $is_count = false) : string|bool|iterable {
     global $serendipity;
 
     $where = '';
