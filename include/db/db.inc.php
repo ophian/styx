@@ -112,7 +112,9 @@ function serendipity_db_insert(string $table, iterable $values, string $action =
  * this function tries to detect what the return code of a SQL column is, and convert it
  * to a PHP native boolean.
  *
- * Values that will be recognized as TRUE are 'true', 't' and '1'.
+ * Values that will be recognized as TRUE are 'true', 't' and '1'. New to this is now INT 1.
+ * PHP 8.1 changed that emulated prepares now produce the same results as native prepares.
+ * Starting from PHP 8.3, it is safe to assume that PDO would return int and float values with respective types all the time.
  *
  * Args:
  *      - An input value to compare
@@ -120,8 +122,8 @@ function serendipity_db_insert(string $table, iterable $values, string $action =
  *      - Boolean conversion of the input value
  * @access public
  */
-function serendipity_db_bool(string|bool $val) : bool {
-    if (($val === true) || ($val == 'true') || ($val == 't') || ($val == '1'))
+function serendipity_db_bool(int|string|bool $val) : bool {
+    if (($val === true) || ($val == 'true') || ($val == 't') || ($val == '1') || ($val === 1))
         return true;
     #elseif (($val === false || $val == 'false' || $val == 'f'))
     else
