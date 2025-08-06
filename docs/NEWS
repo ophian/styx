@@ -1,7 +1,9 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
- * Fix some parameter type and return issues for PDO::PostgreSQL
+ * Fix some fnc parameter type and return type issues for PDO::PostgreSQL.
+   PHP 8.1 normalized prepared statement returns regardless emulate prepares
+   setting and up from 8.3 on PDO now supports values with respective types.
 
  * Add beta2 upgrade task notifications for "parent themes" and "syndication"
    changes.
