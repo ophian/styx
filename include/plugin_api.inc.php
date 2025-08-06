@@ -695,7 +695,7 @@ class serendipity_plugin_api
      *
      * Args:
      *      - The ID of the plugin to load
-     *      - The owner of the plugin (can be autodetected)
+     *      - The owner of the plugin (can be autodetected). Don't allow int type, regarding further checks.
      *      - The path to a plugin (can be autodetected)
      *      - The filename of a plugin (can be autodetected)
      * Returns:
@@ -735,7 +735,7 @@ class serendipity_plugin_api
             $sql = "SELECT authorid from {$serendipity['dbPrefix']}plugins WHERE name = '" . serendipity_db_escape_string($instance_id) . "'";
             $owner = serendipity_db_query($sql, true);
             if (is_array($owner) && isset($owner[0])) {
-                $p->serendipity_owner = $owner[0];
+                $p->serendipity_owner = (string) $owner[0]; // Be strict to string type, see PDO INT returns.
             }
         }
 
