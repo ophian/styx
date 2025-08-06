@@ -401,10 +401,10 @@ function serendipity_getPermalink(iterable &$data, string $type = 'entry') : str
  *      - The input data used for building the permalink
  *      - The type of the permalink (entry|category|author)
  * Returns:
- *      - The database result
+ *      - The database result - PDO may result an empty Array(1) { [0]=> array(0) {}}
  * @access public
  */
-function serendipity_updatePermalink(iterable &$data, string  $type = 'entry') : string|bool {
+function serendipity_updatePermalink(iterable &$data, string  $type = 'entry') : string|bool|iterable {
     global $serendipity;
 
     $link = serendipity_getPermalink($data, $type);
@@ -427,10 +427,10 @@ function serendipity_updatePermalink(iterable &$data, string  $type = 'entry') :
  *      - The input data used for building the permalink
  *      - The type of the permalink (entry|category|author)
  * Returns:
- *      - Result of INSERT INTO
+ *      - Result of INSERT INTO - PDO may result an empty Array(1) { [0]=> array(0) {}}
  * @access public
  */
-function serendipity_insertPermalink(iterable &$data, string $type = 'entry') : string|bool {
+function serendipity_insertPermalink(iterable &$data, string $type = 'entry') : string|bool|iterable {
     global $serendipity;
 
     $link = serendipity_getPermalink($data, $type);
