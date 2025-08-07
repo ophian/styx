@@ -549,7 +549,7 @@ class SimplePie
      * @see SimplePie::set_cache_location()
      * @access private
      */
-    public $cache_location = './cache';
+    public $cache_location = S9Y_INCLUDE_PATH . 'templates_c/simple_cache';
 
     /**
      * @var string Function that creates the cache filename
