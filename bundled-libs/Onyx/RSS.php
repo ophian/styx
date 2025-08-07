@@ -68,11 +68,13 @@ class ONYX_RSS
             $this->raiseError((__LINE__-3), ONYX_ERR_NO_PARSER);
             return false;
         }
-        xml_set_object($this->parser, $this);
+        #xml_set_object($this->parser, $this);
         xml_parser_set_option($this->parser, XML_OPTION_CASE_FOLDING, false);
         @xml_parser_set_option($this->parser, XML_OPTION_TARGET_ENCODING, LANG_CHARSET);
-        xml_set_element_handler($this->parser, 'tag_open', 'tag_close');
-        xml_set_character_data_handler($this->parser, 'cdata');
+        #xml_set_element_handler($this->parser, 'tag_open', 'tag_close');
+        xml_set_element_handler($this->parser, [$this, 'tag_open'], [$this, 'tag_close']);
+        #xml_set_character_data_handler($this->parser, 'cdata');
+        xml_set_character_data_handler($this->parser, [$this, 'cdata']);
     }
 
     function parse($uri, $file=false, $time=false, $local=false)
