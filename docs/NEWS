@@ -1,6 +1,9 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+ * Fix bundled-libs/SimplePie cache_location pointing to relative ./cache dir
+   to now use a full path into templates_c/simple_cache.
+
  * Fix-up Onyx/RSS and SimplePie libraries for PHP 8.4 deprecations to provide
    a proper method callable to xml_set_*_handler() functions.
 
