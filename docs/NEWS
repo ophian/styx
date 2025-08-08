@@ -1,6 +1,9 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+ * Fix-up bundled-libs/XML/RPC OEAR lib for PHP 8.4 deprecations to provide
+   a proper method callable to xml_set_*_handler() functions.
+
  * Fix bundled-libs/SimplePie cache_location pointing to relative ./cache dir
    to now support a valid full path cache dir in templates_c/simple_cache.
    - Fix breaking issues with $cache_location member property
