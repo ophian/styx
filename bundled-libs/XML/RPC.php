@@ -1446,8 +1446,8 @@ class XML_RPC_Message extends XML_RPC_Base
         $XML_RPC_xh[$pid]['valuestack'] = array();
 
         xml_parser_set_option($parser_instance, XML_OPTION_CASE_FOLDING, true);
-        xml_set_element_handler($parser_instance, 'XML_RPC_se', 'XML_RPC_ee');
-        xml_set_character_data_handler($parser_instance, 'XML_RPC_cd');
+        xml_set_element_handler($parser_instance, [$this, 'XML_RPC_se'], [$this, 'XML_RPC_ee']);
+        xml_set_character_data_handler($parser_instance, [$this, 'XML_RPC_cd']);
 
         $hdrfnd = 0;
         if ($this->debug) {

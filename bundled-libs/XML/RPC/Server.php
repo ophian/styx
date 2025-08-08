@@ -561,8 +561,8 @@ class XML_RPC_Server
         // decompose incoming XML into request structure
 
         xml_parser_set_option($parser_instance, XML_OPTION_CASE_FOLDING, true);
-        xml_set_element_handler($parser_instance, 'XML_RPC_se', 'XML_RPC_ee');
-        xml_set_character_data_handler($parser_instance, 'XML_RPC_cd');
+        xml_set_element_handler($parser_instance, [$this, 'XML_RPC_se'], [$this, 'XML_RPC_ee']);
+        xml_set_character_data_handler($parser_instance, [$this, 'XML_RPC_cd']);
         if (!xml_parse($parser_instance, $data, true)) {
             // return XML error as a faultCode
             $r = new XML_RPC_Response(0,
