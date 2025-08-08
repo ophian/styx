@@ -71,6 +71,10 @@ ul#serendipity_categories_list {
     padding: 0;
     list-style-type: none; }
 
+/* Plugin frontend_comment external link(s) SVG */
+.bi.bi-box-arrow-up-right {
+    vertical-align: text-bottom; }
+
 /* xml svg icons default size */
 .serendipity_xml_icon img {
     width: 1rem;
