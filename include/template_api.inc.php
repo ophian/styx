@@ -144,7 +144,7 @@ class serendipity_smarty_emulator
      *      - True
      * @access public
     */
-    function assign(string|iterable $tpl_var, iterable|string|int|bool|float|null $value = null) : true
+    function assign(string|iterable $tpl_var, mixed $value = null) : true
     {
         if (is_array($tpl_var)) {
             foreach($tpl_var AS $key => $val) {
@@ -656,7 +656,7 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
      *      - boolean
      * @access public
      */
-    function assign(string|iterable $tpl_var, iterable|string|int|bool|float|null $value = null, int $level = 0) : true
+    function assign(string|iterable $tpl_var, mixed $value = null, int $level = 0) : true
     {
         if (!$this->match()) { return false; }
         if (is_array($tpl_var)) {
