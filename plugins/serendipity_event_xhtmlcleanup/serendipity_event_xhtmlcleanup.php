@@ -247,7 +247,7 @@ class serendipity_event_xhtmlcleanup extends serendipity_event
                 $p = xml_parser_create('');
         }
 
-        @xml_parse_into_struct($p, $data[0], $vals, $index);
+        xml_parse_into_struct($p, $data[0], $vals, $index);
         xml_parser_free($p);
 
         // Check if the xml parser returned anything useful
