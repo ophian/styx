@@ -370,7 +370,7 @@ function serendipity_get_bool(string $item) : string|bool {
  *      - the first detected language name or NULL
  * @access public
  */
-function serendipity_detectLang($use_include = false) : ?string {
+function serendipity_detectLang(?bool $use_include = false) : ?string {
     global $serendipity;
 
     $supported_languages = array_keys($serendipity['languages']);
