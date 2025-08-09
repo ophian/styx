@@ -55,7 +55,9 @@ $GLOBALS['_PEAR_destructor_object_list'] = array();
 $GLOBALS['_PEAR_shutdown_funcs']         = array();
 $GLOBALS['_PEAR_error_handler_stack']    = array();
 
-@ini_set('track_errors', true);
+if(function_exists('ini_set')) {
+    @ini_set('track_errors', true);
+}
 
 /**
  * Base class for other PEAR classes.  Provides rudimentary
@@ -81,7 +83,7 @@ $GLOBALS['_PEAR_error_handler_stack']    = array();
  * @author     Greg Beaver <cellog@php.net>
  * @copyright  1997-2006 The PHP Group
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
- * @version    Release: 1.10.1
+ * @version    Release: @package_version@
  * @link       http://pear.php.net/package/PEAR
  * @see        PEAR_Error
  * @since      Class available since PHP 4.0.2
@@ -205,7 +207,7 @@ class PEAR
      * but is included for forward compatibility, so subclass
      * destructors should always call it.
      *
-     * See the note in the class description about output from
+     * See the note in the class desciption about output from
      * destructors.
      *
      * @access public
@@ -220,9 +222,13 @@ class PEAR
     public function __call($method, $arguments)
     {
         if (!isset(self::$bivalentMethods[$method])) {
-            trigger_error(
-                'Call to undefined method PEAR::' . $method . '()', E_USER_ERROR
-            );
+           if (PHP_VERSION_ID < 70000) {
+                trigger_error(
+                    'Call to undefined method PEAR::' . $method . '()', E_USER_ERROR
+                );
+            } else {
+                throw new Error('Call to undefined method PEAR::' . $method . '()');
+            }
         }
         return call_user_func_array(
             array(__CLASS__, '_' . $method),
@@ -233,9 +239,13 @@ class PEAR
     public static function __callStatic($method, $arguments)
     {
         if (!isset(self::$bivalentMethods[$method])) {
-            trigger_error(
-                'Call to undefined method PEAR::' . $method . '()', E_USER_ERROR
-            );
+            if (PHP_VERSION_ID < 70000) {
+                trigger_error(
+                    'Call to undefined method PEAR::' . $method . '()', E_USER_ERROR
+                );
+            } else {
+                throw new Error('Call to undefined method PEAR::' . $method . '()');
+            }
         }
         return call_user_func_array(
             array(__CLASS__, '_' . $method),
@@ -456,7 +466,7 @@ class PEAR
     }
 
     /**
-     * This method deletes all occurences of the specified element from
+     * This method deletes all occurrences of the specified element from
      * the expected error codes stack.
      *
      * @param  mixed $error_code error code that should be deleted
@@ -548,7 +558,7 @@ class PEAR
             count($object->_expected_errors) > 0 &&
             count($exp = end($object->_expected_errors))
         ) {
-            if ($exp[0] == "*" ||
+            if ($exp[0] === "*" ||
                 (is_int(reset($exp)) && in_array($code, $exp)) ||
                 (is_string(reset($exp)) && in_array($message, $exp))
             ) {
@@ -772,6 +782,28 @@ class PEAR
 
         return @dl('php_'.$ext.$suffix) || @dl($ext.$suffix);
     }
+
+    /**
+     * Get SOURCE_DATE_EPOCH environment variable
+     * See https://reproducible-builds.org/specs/source-date-epoch/
+     *
+     * @return int
+     * @access public
+     */
+    static function getSourceDateEpoch()
+    {
+        if ($source_date_epoch = getenv('SOURCE_DATE_EPOCH')) {
+            if (preg_match('/^\d+$/', $source_date_epoch)) {
+                return (int) $source_date_epoch;
+            } else {
+            //  "If the value is malformed, the build process SHOULD exit with a non-zero error code."
+            self::raiseError("Invalid SOURCE_DATE_EPOCH: $source_date_epoch");
+            exit(1);
+            }
+        } else {
+            return time();
+        }
+    }
 }
 
 function _PEAR_call_destructors()
@@ -788,7 +820,7 @@ function _PEAR_call_destructors()
             $_PEAR_destructor_object_list = array_reverse($_PEAR_destructor_object_list);
         }
 
-        foreach($_PEAR_destructor_object_list AS $k => &$objref) {
+        foreach ($_PEAR_destructor_object_list as $k => $objref) {
             $classname = get_class($objref);
             while ($classname) {
                 $destructor = "_$classname";
@@ -829,7 +861,7 @@ function _PEAR_call_destructors()
  * @author     Gregory Beaver <cellog@php.net>
  * @copyright  1997-2006 The PHP Group
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
- * @version    Release: 1.10.1
+ * @version    Release: @package_version@
  * @link       http://pear.php.net/manual/en/core.pear.pear-error.php
  * @see        PEAR::raiseError(), PEAR::throwError()
  * @since      Class available since PHP 4.0.2
@@ -843,6 +875,7 @@ class PEAR_Error
     var $message              = '';
     var $userinfo             = '';
     var $backtrace            = null;
+    var $callback             = null;
 
     /**
      * PEAR_Error constructor
