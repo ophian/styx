@@ -207,7 +207,7 @@ class PEAR
      * but is included for forward compatibility, so subclass
      * destructors should always call it.
      *
-     * See the note in the class desciption about output from
+     * See the note in the class description about output from
      * destructors.
      *
      * @access public
