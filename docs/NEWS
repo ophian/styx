@@ -4,7 +4,7 @@ Version 5.0-DEV ()
  * Fix "Calling get_class() without arguments is deprecated in bundled-libs/
    PEAR.php on line ..." up from PHP 8.3.
 
- * Fix-up bundled-libs/XML/RPC OEAR lib for PHP 8.4 deprecations to provide
+ * Fix-up bundled-libs/XML/RPC PEAR lib for PHP 8.4 deprecations to provide
    a proper method callable to xml_set_*_handler() functions.
 
  * Fix bundled-libs/SimplePie cache_location pointing to relative ./cache dir
