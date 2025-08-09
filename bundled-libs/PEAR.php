@@ -205,7 +205,7 @@ class PEAR
      * but is included for forward compatibility, so subclass
      * destructors should always call it.
      *
-     * See the note in the class desciption about output from
+     * See the note in the class description about output from
      * destructors.
      *
      * @access public
@@ -225,7 +225,7 @@ class PEAR
             );
         }
         return call_user_func_array(
-            array(get_class(), '_' . $method),
+            array(__CLASS__, '_' . $method),
             array_merge(array($this), $arguments)
         );
     }
@@ -238,7 +238,7 @@ class PEAR
             );
         }
         return call_user_func_array(
-            array(get_class(), '_' . $method),
+            array(__CLASS__, '_' . $method),
             array_merge(array(null), $arguments)
         );
     }
