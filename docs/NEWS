@@ -1,10 +1,8 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
- * Update bundled-libs/PEAR.php file incl. Serendipity patch to v.1.10.16 ++
-
- * Fix "Calling get_class() without arguments is deprecated in bundled-libs/
-   PEAR.php on line ..." up from PHP 8.3.
+ * Update bundled-libs/PEAR.php file incl. Serendipity patch to v.1.10.16 ++.
+   Fixes several PHP 8.3 + type and deprecation issues.
 
  * Fix-up bundled-libs/XML/RPC PEAR lib for PHP 8.4 deprecations to provide
    a proper method callable to xml_set_*_handler() functions.
