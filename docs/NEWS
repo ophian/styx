@@ -8,7 +8,7 @@ Version 5.0-DEV ()
    a proper method callable to xml_set_*_handler() functions.
 
  * Fix bundled-libs/SimplePie cache_location pointing to relative ./cache dir
-   to now support a valid full path cache dir in templates_c/simple_cache.
+   to now support a valid full path cache dir in "templates_c/simple_cache".
    - Fix breaking issues with $cache_location member property
    - Fix PHP 8.4: Implicitly nullable parameter declarations deprecated ...
 
