@@ -633,6 +633,35 @@ function recursive_UTF8dir_iterator(?string $startdir, bool $negate = false) : ?
 }
 
 /**
+ * Recursively deletes files with a given name from a starting directory.
+ *
+ * Args:
+ *      - $startDir Directory string to start searching from
+ *      - $filename File name string to delete
+ * Returns:
+ *      - void
+ * @access private
+ */
+function recursive_file_delete_iterator(string $startDir, string $filename) : void
+{
+    global $serendipity;
+
+    if (!is_dir($serendipity['serendipityPath'] . $startDir) || empty($startDir) || $startDir == '/' || str_starts_with($startDir, '.') || empty($filename)) {
+        return;
+    }
+
+    $iterator = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($startDir, FilesystemIterator::SKIP_DOTS)
+    );
+
+    foreach ($iterator AS $fileInfo) {
+        if ($fileInfo->isFile() && $fileInfo->getFilename() === $filename) {
+            @unlink($fileInfo->getPathname());
+        }
+    }
+}
+
+/**
  * recursive directory call to purge files and directories
  *
  * Args:
