@@ -20,8 +20,8 @@ Version 5.0-DEV ()
    setting and up from 8.3 on PDO now supports values with respective types.
    So an INT db field now is also an INT type in the fetched result array.
 
- * Add beta2 upgrade task notifications for "parent themes" and "syndication"
-   changes.
+ * Add missing upgrade task notifications for beta1 "parent themes" and
+   "syndication" changes to RC1.
 
  * Review of blockquote styles in [ pure ] standard theme. Implements same
    behavior as we implemented for lists in (image) floated environments.
