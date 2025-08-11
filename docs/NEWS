@@ -15,9 +15,10 @@ Version 5.0-DEV ()
  * Fix-up Onyx/RSS and SimplePie libraries for PHP 8.4 deprecations to provide
    a proper method callable to xml_set_*_handler() functions.
 
- * Fix some fnc parameter type and return type issues for PDO::PostgreSQL.
+ * Fix some API parameter and return type issues for PDO::PostgreSQL.
    PHP 8.1 normalized prepared statement returns regardless emulate prepares
    setting and up from 8.3 on PDO now supports values with respective types.
+   So an INT db field now is also an INT type in the fetched result array.
 
  * Add beta2 upgrade task notifications for "parent themes" and "syndication"
    changes.
