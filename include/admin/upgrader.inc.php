@@ -711,6 +711,24 @@ $tasks = array(
                     'title'     => '<b>PLUGIN_NOTICE</b>> extends Beta1 notes',
                     'desc'      => 'The sidebar syndication plugin removed the outdated Google feedburner and the SubToMe service references. Please update your syndication plugin configuration to avoid having dead references in your frontend sidebar.'),
 
+            array(  'version'   => '5.0-rc1',
+                    'function'  => 'recursive_file_delete_iterator',
+                    'arguments' => array('plugins', 'documentation_cs.html'),
+                    'title'     => 'Removal of old dead documentation language [cs] files for Styx 5',
+                    'desc'      => 'The following old dead files will be removed recursively from your plugins directory system.<pre>documentation_cs.html</pre>'),
+
+            array(  'version'   => '5.0-rc1',
+                    'function'  => 'recursive_file_delete_iterator',
+                    'arguments' => array('plugins', 'lang_cs.inc.php'),
+                    'title'     => 'Removal of old dead language [cs] files for Styx 5',
+                    'desc'      => 'The following old dead files will be removed recursively from your plugins directory system.<pre>lang_cs.inc.php</pre>'),
+
+            array(  'version'   => '5.0-rc1',
+                    'function'  => 'recursive_file_delete_iterator',
+                    'arguments' => array('templates', 'lang_cs.inc.php'),
+                    'title'     => 'Removal of old dead language [cs] files for Styx 5',
+                    'desc'      => 'The following old dead files will be removed recursively from your templates directory system.<pre>lang_cs.inc.php</pre>'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
