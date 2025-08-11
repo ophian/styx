@@ -1,6 +1,8 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+ * Add RC1 upgrade cleanup tasks for dead [cs] file occurrences
+
  * Update bundled-libs/PEAR.php file incl. Serendipity patch to v.1.10.16 ++.
    Fixes several PHP 8.3 + type and deprecation issues.
 
