@@ -22,7 +22,7 @@ class serendipity_event_xhtmlcleanup extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_XHTMLCLEANUP_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.14');
+        $propbag->add('version',       '1.15');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
@@ -248,7 +248,6 @@ class serendipity_event_xhtmlcleanup extends serendipity_event
         }
 
         xml_parse_into_struct($p, $data[0], $vals, $index);
-        xml_parser_free($p);
 
         // Check if the xml parser returned anything useful
         if (is_array($vals) && isset($vals[0]) && $vals[0]['tag'] == $tag) {
