@@ -1521,7 +1521,6 @@ class SimplePie
             if ($xml_is_sane === null) {
                 $parser_check = xml_parser_create();
                 xml_parse_into_struct($parser_check, '<foo>&amp;</foo>', $values);
-                xml_parser_free($parser_check);
                 $xml_is_sane = isset($values[0]['value']);
             }
             if (!$xml_is_sane) {
@@ -14881,7 +14880,6 @@ class Parser implements RegistryAware
         if ($xml_is_sane === null) {
             $parser_check = xml_parser_create();
             xml_parse_into_struct($parser_check, '<foo>&amp;</foo>', $values);
-            xml_parser_free($parser_check);
             $xml_is_sane = isset($values[0]['value']);
         }
 
@@ -14919,7 +14917,7 @@ class Parser implements RegistryAware
             $this->current_line = xml_get_current_line_number($xml);
             $this->current_column = xml_get_current_column_number($xml);
             $this->current_byte = xml_get_current_byte_index($xml);
-            xml_parser_free($xml);
+
             return $return;
         }
 
