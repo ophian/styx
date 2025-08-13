@@ -20,7 +20,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.30');
+        $propbag->add('version',       '3.31');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'php'         => '8.2'
@@ -709,7 +709,7 @@ class serendipity_event_spartacus extends serendipity_event
             xml_parser_set_option($p, XML_OPTION_TARGET_ENCODING, LANG_CHARSET);
             $xml_package = $xml_string . "\n" . $xml_package;
             xml_parse_into_struct($p, $xml_package, $vals);
-            xml_parser_free($p);
+
             $tree[0]['children'][] = array(
                 'tag'        => $vals[$i]['tag'],
                 'attributes' => $vals[$i]['attributes'],
