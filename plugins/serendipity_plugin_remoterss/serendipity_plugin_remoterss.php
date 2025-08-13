@@ -92,7 +92,6 @@ class s9y_remoterss_XMLTree
         @xml_parser_set_option($p, XML_OPTION_CASE_FOLDING, 0);
         xml_parser_set_option($p, XML_OPTION_TARGET_ENCODING, LANG_CHARSET);
         xml_parse_into_struct($p, $data, $vals, $index);
-        xml_parser_free($p);
 
         $i = 0;
         $tree = array();
@@ -280,7 +279,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
         $propbag->add('description',   PLUGIN_REMOTERSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Udo Gerhards, Richard Thomas Harrison, Ian Styx');
-        $propbag->add('version',       '1.40');
+        $propbag->add('version',       '1.41');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
