@@ -143,7 +143,7 @@ class Serendipity_Import_LiveJournalXML extends Serendipity_Import
             @xml_parser_set_option($p, XML_OPTION_TARGET_ENCODING, LANG_CHARSET);
             $xml_package = $xml_string . "\n" . $xml_package;
             xml_parse_into_struct($p, $xml_package, $vals);
-            xml_parser_free($p);
+
             $tree[0]['children'][] = array(
                 'tag'        => $vals[$i]['tag'],
                 'attributes' => $vals[$i]['attributes'],
