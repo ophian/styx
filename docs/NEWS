@@ -1,6 +1,8 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+ * Fix some type issues calling delete and approve comment functions
+
  * Fix some PHP 8.5 deprecation issues in bundled-libs, plugins and importers
 
  * Add RC1 upgrade cleanup tasks for dead [cs] file occurrences
