@@ -77,13 +77,13 @@ function serendipity_checkCommentTokenModeration(string $uri) : void {
         if (is_array($tokenparse)) {
             if (strlen($tokenparse[2]) == 32) {
                 if ($tokenparse[0] == 'comment') {
-                    if (serendipity_deleteComment($res[2], $res[3], 'comments', $tokenparse[2])) {
+                    if (serendipity_deleteComment((int) $res[2], (int) $res[3], 'comments', $tokenparse[2])) {
                         $return_msg = sprintf(COMMENT_DELETED, $res[2])."\n";
                     } else {
                         $return_msg = sprintf(COMMENT_NOTOKENMATCH, $res[2])."\n";
                     }
                 } elseif ($tokenparse[0] == 'trackback') {
-                    if (serendipity_deleteComment($res[2], $res[3], 'trackbacks', $tokenparse[2])) {
+                    if (serendipity_deleteComment((int) $res[2], (int) $res[3], 'trackbacks', $tokenparse[2])) {
                         $return_msg = sprintf(TRACKBACK_DELETED, $res[2])."\n";
                     } else {
                         $return_msg = sprintf(TRACKBACK_NOTOKENMATCH, $res[2])."\n";
@@ -103,13 +103,13 @@ function serendipity_checkCommentTokenModeration(string $uri) : void {
         if (is_array($tokenparse)) {
             if (strlen($tokenparse[2]) == 32) {
                 if ($tokenparse[0] == 'comment') {
-                    if (serendipity_approveComment($res[2], $res[3], false, false, $tokenparse[2])) {
+                    if (serendipity_approveComment((int) $res[2], (int) $res[3], false, false, $tokenparse[2])) {
                         $return_msg = sprintf(COMMENT_APPROVED, $res[2])."\n";
                     } else {
                         $return_msg = sprintf(COMMENT_NOTOKENMATCH, $res[2])."\n";
                     }
                 } elseif ($tokenparse[0] == 'trackback') {
-                    if (serendipity_approveComment($res[2], $res[3], false, false, $tokenparse[2])) {
+                    if (serendipity_approveComment((int) $res[2], (int) $res[3], false, false, $tokenparse[2])) {
                         $return_msg = sprintf(TRACKBACK_APPROVED, $res[2])."\n";
                     } else {
                         $return_msg = sprintf(TRACKBACK_NOTOKENMATCH, $res[2])."\n";
@@ -1143,7 +1143,7 @@ function serendipity_confirmMail(int $cid, string $hash) : bool|iterable {
         }
         */
 
-        serendipity_approveComment($cid, $confirm['entry_id'], true);
+        serendipity_approveComment($cid, (int) $confirm['entry_id'], true);
         return $confirm;
     } else {
         return false;
