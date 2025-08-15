@@ -14,7 +14,7 @@ header('Content-Type: text/html; charset=' . LANG_CHARSET);
 
 if (isset($serendipity['GET']['delete'], $serendipity['GET']['entry'], $serendipity['GET']['type'])) {
     $_SERVER['HTTP_REFERER'] = $_SERVER['HTTP_REFERER'] ?? $serendipity['baseURL'] . ($serendipity['GET']['rel_referer'] ?? $serendipity['permalinkArchivesPath'] . '/' . $serendipity['GET']['entry'] . '-finished.html');
-    serendipity_deleteComment($serendipity['GET']['delete'], $serendipity['GET']['entry'], $serendipity['GET']['type'], $serendipity['GET']['token']);
+    serendipity_deleteComment((int) $serendipity['GET']['delete'], (int) $serendipity['GET']['entry'], $serendipity['GET']['type'], $serendipity['GET']['token']);
     if (serendipity_isResponseClean($_SERVER['HTTP_REFERER']) && preg_match('@^https?://' . preg_quote($_SERVER['HTTP_HOST'], '@') . '@imsU', $_SERVER['HTTP_REFERER'])) {
         header('Status: 302 Found');
         header('Location: '. $_SERVER['HTTP_REFERER']);
