@@ -47,9 +47,9 @@ if (preg_match(PAT_UNSUBSCRIBE, $uri, $res)) {
 serendipity_checkCommentTokenModeration($uri);
 
 if (preg_match(PAT_DELETE, $uri, $res) && $serendipity['serendipityAuthedUser'] === true) {
-    if ($res[1] == 'comment' && serendipity_deleteComment($res[2], $res[3], 'comments')) {
+    if ($res[1] == 'comment' && serendipity_deleteComment((int) $res[2], (int) $res[3], 'comments')) {
         define('DATA_COMMENT_DELETED', sprintf(COMMENT_DELETED, $res[2]));
-    } elseif ( $res[1] == 'trackback' && serendipity_deleteComment($res[2], $res[3], 'trackbacks') ) {
+    } elseif ( $res[1] == 'trackback' && serendipity_deleteComment((int) $res[2], (int) $res[3], 'trackbacks') ) {
         define('DATA_TRACKBACK_DELETED', sprintf(TRACKBACK_DELETED, $res[2]));
     }
 } else {
@@ -58,10 +58,10 @@ if (preg_match(PAT_DELETE, $uri, $res) && $serendipity['serendipityAuthedUser'] 
 }
 
 if (preg_match(PAT_APPROVE, $uri, $res) && $serendipity['serendipityAuthedUser'] === true) {
-    if ($res[1] == 'comment' && serendipity_approveComment($res[2], $res[3])) {
+    if ($res[1] == 'comment' && serendipity_approveComment((int) $res[2], (int) $res[3])) {
         define('DATA_COMMENT_APPROVED', sprintf(COMMENT_APPROVED, $res[2]));
         define('DATA_TRACKBACK_APPROVED', false);
-    } elseif ($res[1] == 'trackback' && serendipity_approveComment($res[2], $res[3])) {
+    } elseif ($res[1] == 'trackback' && serendipity_approveComment((int) $res[2], (int) $res[3])) {
         define('DATA_COMMENT_APPROVED', false);
         define('DATA_TRACKBACK_APPROVED', sprintf(TRACKBACK_APPROVED, $res[2]));
     }
