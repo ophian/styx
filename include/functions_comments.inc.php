@@ -1199,7 +1199,7 @@ function serendipity_insertComment(int $id, iterable $commentInfo, string $type 
                 FROM {$serendipity['dbPrefix']}entries AS e
      LEFT OUTER JOIN {$serendipity['dbPrefix']}authors AS a
                   ON a.authorid = e.authorid
-               WHERE e.id  = '". (int)$id ."'
+               WHERE e.id  = '". $id ."'
                  AND e.isdraft = 'false'";
     if (!serendipity_db_bool($serendipity['showFutureEntries'])) {
         $query .= " AND e.timestamp <= " . serendipity_db_time();
@@ -1252,7 +1252,7 @@ function serendipity_insertComment(int $id, iterable $commentInfo, string $type 
     }
 
     $query  = "INSERT INTO {$serendipity['dbPrefix']}comments (entry_id, parent_id, ip, author, email, url, body, type, timestamp, title, subscribed, status, referer)";
-    $query .= " VALUES ('". (int)$id ."', '$parentid', '$ip', '$name', '$email', '$url', '$commentsFixed', '$type', '$t', '$title', '$subscribe', '$dbstatus', '$referer')";
+    $query .= " VALUES ('". $id ."', '$parentid', '$ip', '$name', '$email', '$url', '$commentsFixed', '$type', '$t', '$title', '$subscribe', '$dbstatus', '$referer')";
 
     if (isset($GLOBALS['tb_logging']) && $GLOBALS['tb_logging']) {
         $fp = fopen('trackback2.log', 'a');
@@ -1327,7 +1327,7 @@ function serendipity_insertComment(int $id, iterable $commentInfo, string $type 
     if ($send_optin) {
         $dupe_check = serendipity_db_query("SELECT count(entry_id) AS counter
                                               FROM {$serendipity['dbPrefix']}comments
-                                             WHERE entry_id = " . (int)$id . "
+                                             WHERE entry_id = " . $id . "
                                                AND email = '$email'
                                                AND subscribed = 'true'", true);
         if (!is_array($dupe_check) || $dupe_check['counter'] < 1) {
