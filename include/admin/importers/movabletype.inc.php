@@ -482,7 +482,7 @@ class Serendipity_Import_MovableType extends Serendipity_Import
                         $comment['entry_id'] = $r;
                         if ($rc = serendipity_db_insert('comments', $comment)) {
                             $cid = serendipity_db_insert_id('comments', 'id');
-                            serendipity_approveComment($cid, $entry['id'], true);
+                            serendipity_approveComment($cid, (int) $entry['id'], true);
                         } else {
                             echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . $rc . "</span>\n";
                         }

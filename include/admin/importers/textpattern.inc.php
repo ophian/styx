@@ -250,7 +250,7 @@ class Serendipity_Import_textpattern extends Serendipity_Import
                     serendipity_db_insert('comments', $this->strtrRecursive($comment));
                     if ($a['visible'] == '1') {
                         $cid = serendipity_db_insert_id('comments', 'id');
-                        serendipity_approveComment($cid, $entry['entryid'], true);
+                        serendipity_approveComment($cid, (int) $entry['entryid'], true);
                     }
                 }
             }
