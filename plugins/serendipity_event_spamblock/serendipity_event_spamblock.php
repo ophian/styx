@@ -30,7 +30,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '4.1',
             'php'         => '8.2'
         ));
-        $propbag->add('version',       '2.88');
+        $propbag->add('version',       '2.89');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1976,7 +1976,6 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                 }
             }
             imagejpeg($image, NULL, 90); // NULL fixes https://bugs.php.net/bug.php?id=63920
-            imagedestroy($image);
         } else {
             header('Content-Type: image/png');
             $output_char = strtolower($_SESSION['spamblock']['captcha'][$param - 1]);
