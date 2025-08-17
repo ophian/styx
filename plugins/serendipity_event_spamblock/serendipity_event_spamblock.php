@@ -1805,8 +1805,8 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
         $this->chars = array(2, 3, 4, 7, 9); // 1, 5, 6 and 8 may look like characters.
         $this->chars = array_merge($this->chars, array('A','B','C','D','E','F','H','J','K','L','M','N','P','Q','R','T','U','V','W','X','Y','Z')); // I, O, S may look like numbers
 
-        $strings   = array_rand($this->chars, mt_rand($min_char, $max_char));
-        $string    = '';
+        $strings = array_rand($this->chars, mt_rand($min_char, $max_char));
+        $string  = '';
         foreach($strings AS $idx => $charidx) {
             $string .= $this->chars[$charidx];
         }
@@ -1937,14 +1937,14 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
 
             header('Content-Type: image/jpeg');
             if ($darkmode && $serendipity['dark_mode']) {
-                $image  = imagecreatetruecolor($width, $height); // recommended use of imagecreatetruecolor() returns a black background-color (Backend only)
+                $image = imagecreatetruecolor($width, $height); // recommended use of imagecreatetruecolor() returns a black background-color (Backend only)
             } else {
-                $image  = imagecreate($width, $height); // returns a white background-color
+                $image = imagecreate($width, $height); // returns a white background-color
             }
-            $bgcol  = imagecolorallocate($image, (int) trim($bgcolors[0]), (int) trim($bgcolors[1]), (int) trim($bgcolors[2]));
+            $bgcol = imagecolorallocate($image, (int) trim($bgcolors[0]), (int) trim($bgcolors[1]), (int) trim($bgcolors[2]));
             // imagettftext($image, 10, 1, 1, 15, imagecolorallocate($image, 255, 255, 255), $font, 'String: ' . $string);
 
-            $pos_x  = 5;
+            $pos_x = 5;
             foreach($strings AS $idx => $charidx) {
                 $color = imagecolorallocate($image, mt_rand(50, 235), mt_rand(50, 235), mt_rand(50,235));
                 $size  = intval(mt_rand(15, 21));
