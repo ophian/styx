@@ -3,7 +3,8 @@ Version 5.0-DEV ()
 
  * Fix some type issues calling delete and approve comment functions
 
- * Fix some PHP 8.5 deprecation issues in bundled-libs, plugins and importers
+ * Removed use of PHP 8.5 deprecated functions in bundled-libs and core files
+    - XML free() or IMAGE destroy() instances that had no effect since PHP 8.0
 
  * Add RC1 upgrade cleanup tasks for dead [cs] file occurrences
 
