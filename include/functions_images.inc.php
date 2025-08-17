@@ -923,12 +923,8 @@ function serendipity_imageGDWebPConversion(string $infile, string $outfile, int 
         imagewebp($im, $outfile, $quality);
     } catch (\Throwable $t) {
         echo 'Could not create WebP image with GD: ',  $t->getMessage(), "\n";
-        if (true === ($im instanceof \GdImage)) {
-            imagedestroy($im);
-        }
         return false;
     }
-    imagedestroy($im);
 
     return $outfile;
 }
@@ -959,8 +955,6 @@ function serendipity_imageGDAvifConversion(string $infile, string $outfile, int 
     }
 
     @imageavif($im, $outfile, $quality);
-
-    imagedestroy($im);
 
     return $outfile;
 }
