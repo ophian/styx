@@ -22,6 +22,7 @@
         alert('{$CONST.USER_SELF_INFO|sprintf:$loginform_user:$loginform_mail}');
     {/if}
         self.close();
+        window.location = "serendipity_admin.php";
     </script>
 
 {elseif $is_logged_in}
