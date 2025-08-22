@@ -2331,6 +2331,9 @@ html[data-login-color-mode="dark"], [data-login-color-mode="dark"] button, [data
 .plugin_info.plainList li {
     width: 100%;
 }
+.plugin_info.tgroup_info p {
+    margin: auto;
+}
 
 fieldset p,
 .media_file_meta > ul {
