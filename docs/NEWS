@@ -1,6 +1,15 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+ * Finally all additional_plugins have raised up for Serendipity Styx 5.0.
+   This means, they were converted to have all language files live in the
+   plugins root directory and the old UTF-8/ dir is able to get removed, which
+   will happen automatically with Styx 5.1. This will give you some time to
+   convert your private or custom plugins to the new necessities.
+   They all use strict types and so may happen to throw type exceptions until
+   we have ironed out all possible places. For sure common plugins have been
+   checked more deeply than edge cased plugins.
+
  * Fix some type issues calling delete and approve comment functions
 
  * Removed use of PHP 8.5 deprecated functions in bundled-libs and core files
