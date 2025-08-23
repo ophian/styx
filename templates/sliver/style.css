@@ -1879,7 +1879,7 @@ section#blog {
     transition: border-bottom 1s ease-in-out;
     -webkit-transition: border-bottom 1s ease-in-out;
   }
-  #ham .burger::-moz-focus-inner {
+  #ham .burger:focus-visible {
     border: 0;
     padding: 0;
   }
