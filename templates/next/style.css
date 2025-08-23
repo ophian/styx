@@ -119,7 +119,7 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
 button[disabled], html input[disabled] {
   cursor: default; }
 
-button::-moz-focus-inner, input::-moz-focus-inner {
+button:focus-visible, input:focus-visible {
   border: 0;
   padding: 0; }
 
