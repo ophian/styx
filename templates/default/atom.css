@@ -190,6 +190,9 @@ h2 {
 }
 
 /* special Serendipity Styx image cases */
+.serendipity_image_block {
+  display: flow-root;
+}
 .serendipity_imageComment_center {
   margin: 1% auto;
 }
