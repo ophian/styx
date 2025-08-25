@@ -1,6 +1,8 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+ * Remove [styx backend] user sidebar block for editor permlevel when empty
+
  * Finally all additional_plugins have raised up for Serendipity Styx 5.0.
    This means, they were converted to have all language files live in the
    plugins root directory and the old UTF-8/ dir is able to get removed, which
