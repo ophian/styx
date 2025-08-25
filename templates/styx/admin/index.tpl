@@ -321,6 +321,9 @@
     </footer>
 {/if}
 {if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_footer" hookAll="true"}{/if}
+{if $admin_vars.permlevel === ' editor'}
+    <script>if ($('#user_hooks:empty')) { $('#user_hooks').parent().hide(); } </script>
+{/if}
 
 </body>
 </html>
