@@ -1,6 +1,8 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+ * Update to jQuery v4.0.0-rc.1
+
  * Remove [styx backend] user sidebar block for editor permlevel when empty
 
  * Finally all additional_plugins have raised up for Serendipity Styx 5.0.
