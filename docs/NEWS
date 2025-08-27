@@ -13,8 +13,9 @@ Version 5.0-DEV ()
    They all use strict types and so may happen to throw type exceptions until
    we have ironed out all possible places. For sure common plugins have been
    checked more deeply than edge cased plugins.
-   - Removed the temporary workaround in load_language(): Custom or unknown
-     plugins will fall back to [en] language as long as not being converted.
+   - Removed the temporary workaround in plugin API::load_language() method:
+     Custom or unknown plugins will fall back to the [en] language now - until
+     converted.
 
  * Fix some type issues calling delete and approve comment functions
 
