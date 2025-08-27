@@ -2032,6 +2032,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 lex[i].classList.add('ease-in');
                 lex[i].removeAttribute('style');
             }
+            try {
+                sessionStorage.setItem('sidebar_expand_' + pnode.id, 'true');
+            } catch (e) {}
         } else {
             first.className = 'open';
             // working on multi li.list-flex elements
@@ -2039,6 +2042,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 lex[i].classList.remove('ease-in');
                 lex[i].classList.add('ease-out');
             }
+            try {
+                sessionStorage.removeItem('sidebar_expand_' + pnode.id);
+            } catch (e) {}
         }
 
         if (next.className == 'open') {
@@ -2068,8 +2074,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const ct_eh = document.querySelectorAll('#entry_hooks .list-flex').length;
     const ct_ah = document.querySelectorAll('#activity_hooks .list-flex').length;
     const ct_uh = document.querySelectorAll('#user_hooks .list-flex').length;
+    const hooks = [];
 
     if (ct_eh > 1) {
+        hooks.push('entry_hooks');
         document.querySelectorAll('#entry_hooks .expandable-group > .ex > button').forEach(btn=>btn.addEventListener('click',clickhandler));
     } else {
         // reset the hidden sets and the toggle
@@ -2078,6 +2086,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (eh_tgrp !== null) { eh_tgrp.remove(); }
     }
     if (ct_ah > 1) {
+        hooks.push('activity_hooks');
         document.querySelectorAll('#activity_hooks .expandable-group > .ex > button').forEach(btn=>btn.addEventListener('click',clickhandler));
     } else {
         // reset the hidden sets and the toggle
@@ -2086,6 +2095,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (ah_tgrp !== null) { ah_tgrp.remove(); }
     }
     if (ct_uh > 1) {
+        hooks.push('user_hooks');
         document.querySelectorAll('#user_hooks .expandable-group > .ex > button').forEach(btn=>btn.addEventListener('click',clickhandler));
     } else {
         // reset the hidden sets and the toggle
@@ -2093,4 +2103,42 @@ document.addEventListener("DOMContentLoaded", function() {
         let uh_tgrp = document.querySelector('#user_hooks .expandable-group');
         if (uh_tgrp !== null) { uh_tgrp.remove(); }
     }
+
+    // --- Only set sessionStorage if clicking a .list-flex link ---
+    hooks.forEach(function(groupId) {
+        var group = document.getElementById(groupId);
+        if (!group) return;
+        group.querySelectorAll('.list-flex a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                try {
+                    sessionStorage.setItem('sidebar_expand_' + groupId, 'true');
+                } catch (e) {}
+            });
+        });
+        // Remove on all other INSIDE the group but NOT isset .list-flex
+        group.querySelectorAll('li:not(.list-flex a)').forEach(function(link) {
+            // Exclude links that are descendants of .list-flex
+            if (!link.closest('.list-flex')) {
+                link.addEventListener('click', function() {
+                    try {
+                        sessionStorage.removeItem('sidebar_expand_' + groupId);
+                    } catch (e) {}
+                });
+            }
+        });
+    });
+
+    // --- SessionStorage: Expand group if needed ---
+    hooks.forEach(groupId=>{
+        if (sessionStorage.getItem('sidebar_expand_' + groupId) === 'true') {
+            try {
+                sessionStorage.removeItem('sidebar_expand_' + groupId);
+            } catch (e) {}
+            // Expand the group if not already expanded
+            const btn = document.querySelector('#' + groupId + ' .expandable-group > .ex > button');
+            if (btn && btn.getAttribute('aria-expanded') !== 'true') {
+                btn.click();
+            }
+        }
+    });
 });
