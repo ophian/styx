@@ -1,6 +1,10 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+ * Improve serendipity_styx.js extendedPlugins expandable-group sidebar toggler
+   to use session state storage. Although further improvements are still needed
+   for "in-content" works.
+
  * Update to jQuery v4.0.0-rc.1
 
  * Remove [styx backend] user sidebar block for editor permlevel when empty
