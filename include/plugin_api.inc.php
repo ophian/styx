@@ -1331,9 +1331,7 @@ class serendipity_plugin_api
     {
         global $serendipity;
 
-        $_charset = is_dir($path . '/' . $serendipity['charset']) ? $serendipity['charset'] : ''; // Temporary compat check as long as not having converted all official plugins
-
-        $probelang = $path . '/' . $_charset . 'lang_' . $serendipity['lang'] . '.inc.php';
+        $probelang = $path . '/lang_' . $serendipity['lang'] . '.inc.php';
         if (file_exists($probelang)) {
             include $probelang;
         }
