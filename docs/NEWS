@@ -1,6 +1,10 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+ * Remove use of old deprecated s9y image2 in POWERED BY plug plugin.
+   Added to the "$dead_files_500" 5.0-beta1 upgrade task.
+   BETA TESTERS: Please follow, ...or forget about it... 😉
+
  * Add 2 missing retired plugins: 'serendipity_event_smartymarkup' and
    'serendipity_plugin_feedburnersidebar' to the "$dead_dirs_500" 5.0-beta1
    upgrade task.
