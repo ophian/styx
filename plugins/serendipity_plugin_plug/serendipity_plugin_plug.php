@@ -16,10 +16,9 @@ class serendipity_plugin_plug extends serendipity_plugin
         $propbag->add('description',   ADVERTISES_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.6.0');
+        $propbag->add('version',       '1.7.0');
         $propbag->add('configuration', array(
                                         'image',
-                                        'image2',
                                         'text'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -29,16 +28,9 @@ class serendipity_plugin_plug extends serendipity_plugin
         switch($name) {
             case 'image':
                 $propbag->add('type',        'boolean');
-                $propbag->add('name',        sprintf(POWERED_BY_SHOW_IMAGE, 'Serendipity Styx') . ' 1');
+                $propbag->add('name',        sprintf(POWERED_BY_SHOW_IMAGE, 'Serendipity Styx'));
                 $propbag->add('description', POWERED_BY_SHOW_IMAGE_DESC);
                 $propbag->add('default',     'true');
-                break;
-
-            case 'image2':
-                $propbag->add('type',        'boolean');
-                $propbag->add('name',        sprintf(POWERED_BY_SHOW_IMAGE, 'Serendipity Styx') . ' 2');
-                $propbag->add('description', str_replace(' Styx', '', POWERED_BY_SHOW_IMAGE_DESC) . ' (deprecated)');
-                $propbag->add('default',     'false');
                 break;
 
             case 'text':
@@ -62,15 +54,11 @@ class serendipity_plugin_plug extends serendipity_plugin
         $s .= "\n";
         $s = '<div class="configuration_group odd plug">';
         $s .= sprintf(POWERED_BY_SHOW_IMAGE, 'Serendipity Styx');
-        $s .= '1: <picture>
+        $s .= '<picture>
                     <source type="image/webp" srcset="' . $serendipity['serendipityHTTPPath'] . $serendipity['templatePath'] . 'styx_logo_150.webp">
                     <img src="' . $serendipity['serendipityHTTPPath'] . $serendipity['templatePath'] . 'styx_logo_150.png' . '" alt="Serendipity Styx PHP Weblog" title="' . POWERED_BY . ' Serendipity Styx">
-                   </picture> ';
+                </picture> ';
         $s .= "</div>\n";
-        $s .= '<div class="configuration_group even plug">';
-        $s .= sprintf(POWERED_BY_SHOW_IMAGE, 'Serendipity Styx');
-        $s .= '2: <img src="' . $serendipity['serendipityHTTPPath'] . $serendipity['templatePath'] . 's9y_banner_small.png" alt="Serendipity Styx PHP Weblog" title="' . POWERED_BY . ' Serendipity Styx (img is deprecated)">';
-        $s .= "<div>\n";
         return $s;
     }
 
@@ -89,11 +77,6 @@ class serendipity_plugin_plug extends serendipity_plugin
                                 <source type="image/webp" srcset="<?=$serendipity['serendipityHTTPPath'] . $serendipity['templatePath']?>styx_logo_150.webp">
                                 <img src="<?php echo $serendipity['serendipityHTTPPath'] . $serendipity['templatePath'] . 'styx_logo_150.png'; ?>" title="&copy; Serendipity Styx Edition" alt="<?=$edition?> PHP Weblog">
                             </picture>
-                        </a>
-<?php } ?>
-<?php if (serendipity_db_bool($this->get_config('image2', 'false'))) { ?>
-                        <a title="<?php echo $title ?> <?=$edition?>" href="<?=$url?>">
-                            <img src="<?php echo $serendipity['serendipityHTTPPath'] . $serendipity['templatePath'] . 's9y_banner_small.png'; ?>" alt="<?=$edition?> PHP Weblog">
                         </a>
 <?php } ?>
 <?php if (serendipity_db_bool($this->get_config('text', 'true'))) { ?>
