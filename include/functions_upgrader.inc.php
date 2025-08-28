@@ -552,6 +552,7 @@ $dead_files_500 = array(
     'bundled-libs/Net/DNSBL.php',
     'bundled-libs/Net/Socket2.php',
     'lang/serendipity_lang_cs.inc.php',
+    'templates/s9y_banner_small.png',
     'templates/_assets/ckebasic_plugin.js',
     'templates/_assets/wysiwyg-style.css',
     'templates/default/admin/doc/quicktip_cs.tpl',
