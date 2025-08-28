@@ -1,6 +1,9 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+ * Update bootstrap /b5/ assets to v5.3.8 revision
+   https://github.com/twbs/bootstrap/releases/tag/v5.3.8
+
  * Improve serendipity_styx.js extendedPlugins expandable-group sidebar toggler
    to use session state storage. Although further improvements are still needed
    for "in-content" works.
