@@ -691,6 +691,57 @@ class serendipity_plugin_api
     }
 
     /**
+     * Monitor the load memory usage of a plugin.
+     *
+     * Args:
+     *      - plugin_instance_id string
+     *      - stage string (e.g., 'start', 'end')
+     * Returns:
+     *      - void
+     * @access protected
+     */
+    private static function monitor_plugin_memory_usage(string $plugin_instance_id, string $stage) : void
+    {
+        global $serendipity;
+
+        // Only monitor in backend context
+        if (defined('IN_serendipity_admin') && IN_serendipity_admin === true) {
+            static $memory_usage = [];
+
+            if (str_contains($stage, 'start')) {
+                $memory_usage[$plugin_instance_id] = memory_get_usage();
+            } elseif (str_contains($stage, 'end') && isset($memory_usage[$plugin_instance_id])) {
+                $initial_memory = $memory_usage[$plugin_instance_id];
+                $final_memory = memory_get_usage();
+                $used_memory = $final_memory - $initial_memory;
+
+                // Store the memory usage in the global array
+                $serendipity['plugin_memory_usage'][$plugin_instance_id] = $used_memory;
+
+                // Alternatively, store in the database:
+                // serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}plugin_monitor (plugin_id, memory_usage) VALUES ('$plugin_instance_id', $used_memory)");
+
+                // Also store in debug log for additional visibility
+                $serendipity['debug']['pluginload'][] = sprintf(
+                    "Plugin %s used %d bytes of memory.",
+                    $plugin_instance_id,
+                    $used_memory
+                );
+                // Log or store the memory usage.
+                $log_message = sprintf(
+                    "Plugin %s used %d bytes of memory.\n",
+                    $plugin_instance_id,
+                    $used_memory
+                );
+                /*
+                error_log($log_message, 3, $serendipity['serendipityPath'] . 'logs/plugin_memory_usage.log');
+                */
+                #echo $serendipity['plugin_memory_usage'][$plugin_instance_id]." - $log_message <br>\n";
+            }
+        }
+    }
+
+    /**
      * Instantiates a plugin class
      *
      * Args:
@@ -727,6 +778,9 @@ class serendipity_plugin_api
             return $r; // avoid Notice: Only variable references should be returned by reference
         }
 
+        // Monitor memory usage at the start
+        serendipity_plugin_api::monitor_plugin_memory_usage($instance_id, 'start');
+
         // $serendipity['debug']['pluginload'][] = "Returning new $class_name($instance_id)";
         $p = new $class_name($instance_id);
         if (!is_null($authorid)) {
@@ -744,6 +798,9 @@ class serendipity_plugin_api
             $p->act_pluginPath = $class_name;
         }
         $p->pluginFile = $pluginFile;
+
+        // Monitor memory usage at the end
+        serendipity_plugin_api::monitor_plugin_memory_usage($instance_id, 'end');
 
         return $p;
     }
