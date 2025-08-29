@@ -3621,6 +3621,13 @@ label .perm_name,
     overflow-wrap: anywhere;
 }
 
+.pluginmanager_memoryusage {
+    display: inline-block;
+}
+.pluginmanager_ownership.spawn-right {
+    float: right;
+}
+
 .pluginmanager_place,
 .pluginmanager_ownership,
 .pluginmanager_move,
