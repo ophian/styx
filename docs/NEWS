@@ -1,6 +1,8 @@
 Version 5.0-DEV ()
  ------------------------------------------------------------------------
 
+ * Add "experimental" plugin load memory usage information to the pluginmanager
+
  * Remove use of old deprecated s9y image2 in POWERED BY plug plugin.
    Added to the "$dead_files_500" 5.0-beta1 upgrade task.
    BETA TESTERS: Please follow, ...or forget about it... 😉
