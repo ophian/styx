@@ -1047,10 +1047,10 @@ class serendipity_plugin_api
                                           'id'      => $plugin->instance);
                 }
             } else {
-                    $pluginData[] = array('side'          => $side,
-                                          'title'         => ERROR,
-                                          'class'         => $class,
-                                          'content'       => sprintf(INCLUDE_ERROR, $plugin_data['name']));
+                    $pluginData[] = array('side'    => $side,
+                                          'title'   => ERROR,
+                                          'class'   => $class,
+                                          'content' => sprintf(INCLUDE_ERROR, $plugin_data['name']));
             }
         }
 
@@ -1798,7 +1798,7 @@ class serendipity_plugin
     }
 
     /**
-     * Parses a smarty template file (which can be stored in either the plugin directory, the user template directory
+     * Parses a Smarty template file (which can be stored in either the plugin directory, the user template directory
      * or the default template directory, and return the parsed output.
      *
      * Args:
@@ -1819,7 +1819,7 @@ class serendipity_plugin
             $tfile = dirname($this->pluginFile) . '/' . $filename;
         }
 
-        $template = $serendipity['smarty']->fetch('file:'. $tfile);// avoid Notice: Only variable references should be returned by reference
+        $template = $serendipity['smarty']->fetch('file:'. $tfile); // avoid Notice: Only variable references should be returned by reference
         return $template;
     }
 
