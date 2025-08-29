@@ -149,6 +149,7 @@ function show_plugins(bool $event_only = false, ?iterable $sidebars = null) : st
             $key     = urlencode($plugin_data['name']);
             #$css_key = 's9ypid' . str_replace('%', '-', $key);
             $crc32   = hash('xxh32', (string) random_int(0, 0x3fff));
+            $memory_usage = $serendipity['plugin_memory_usage'][$plugin_data['name']];
             $is_plugin_owner    = ($plugin_data['authorid'] == $serendipity['authorid'] || serendipity_checkPermission('adminPluginsMaintainOthers'));
             $is_plugin_editable = ($is_plugin_owner || $plugin_data['authorid'] == '0');
             $cname = explode(':', $plugin_data['name']);
@@ -201,6 +202,7 @@ function show_plugins(bool $event_only = false, ?iterable $sidebars = null) : st
 
             $data['placement'][$plugin_placement]['plugin_data'][$i]['sort_idx'] = $sort_idx;
             #$data['placement'][$plugin_placement]['plugin_data'][$i]['css_key'] = $css_key; // previously used very long key for unique items
+            $data['placement'][$plugin_placement]['plugin_data'][$i]['memory_usage'] = $memory_usage;
             $data['placement'][$plugin_placement]['plugin_data'][$i]['is_plugin_editable'] = $is_plugin_editable;
             $data['placement'][$plugin_placement]['plugin_data'][$i]['is_plugin_owner'] = $is_plugin_owner;
             $data['placement'][$plugin_placement]['plugin_data'][$i]['name'] = $plugin_data['name'];
