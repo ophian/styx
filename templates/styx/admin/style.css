@@ -1466,6 +1466,9 @@ h3.additional_properties {
     display: block;
     max-height: 100vh;
     padding: .5em;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #8899b1 #1e2127;
     background-color: lightgray;
     background-image: linear-gradient(135deg, #fcfcfc, #dbcbcb, #aaa0a0);
     border: 1px solid #cbcbcb;
