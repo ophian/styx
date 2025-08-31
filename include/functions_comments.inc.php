@@ -1092,6 +1092,7 @@ function serendipity_approveComment(int $cid, int $entry_id, bool $force = false
     }
 
     serendipity_cleanCache(); // approveComment
+
     if ($flip) {
         if ($moderate) return -1; // comment set to pending
         if (!$moderate) return 1; // comment set to approved
