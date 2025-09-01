@@ -226,6 +226,7 @@ if (!function_exists('errorToExceptionHandler')) {
         }
         if ($serendipity['production'] === false) {
             $head = " == ERROR-REPORT (RC/BETA/ALPHA-BUILDS) == \n";
+            $no_double = false;
             // Display error (production: FALSE and trigger_errors with E_USER_ERROR
             if (!isset($serendipity['dbConn']) || !$serendipity['dbConn'] || $exit) {
                 echo '<p>'.$head.'</p><p><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ' on line ' . $errLine . '.' . $debug_note . "</p>\n";
@@ -238,9 +239,13 @@ if (!function_exists('errorToExceptionHandler')) {
                     echo "</pre>\n";
                 } else {
                     echo '<div id="serendipity_error_top" class="error_totop"><b>' . $type . ':</b> ' . $errStr . ' in ' . $errFile . ': ' . $errLine . '.' . $debug_note . "</div>\n";
+                    $no_double = true;
                 }
                 if (!$serendipity['dbConn'] || $exit) {
                     exit; // make sure to exit in case of database connection errors or fatal errors.
+                }
+                if ($no_double) {
+                    return true; // avoid doubled error by silenced PHP thrown
                 }
             }
         } else {
