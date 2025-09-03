@@ -1,6 +1,9 @@
 Version 5.0 ()
  ------------------------------------------------------------------------
 
+ * Fix MYSQLI_SQL_EXCEPTION: Duplicate entry [...] for key 'PRIMARY' errors
+   in history plugin cached multiyears option.
+
  * db::PDO: For proper messaging, add unionized boolean return type of
    serendipity_db_connect() on fail.
 
