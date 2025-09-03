@@ -473,7 +473,7 @@ class serendipity_plugin_history extends serendipity_plugin
                 } else {
                     $xytxt = '<div class="serendipity_history_outro history_empty">' . $xyempty . "</div>\n";
                     if ($empty_ct < 8) {
-                        if ($empty_ct+1 < 9) $this->set_config('empty_ct', $empty_ct+1); // Avoid Uncaught mysqli_sql_exception: Duplicate entry '..history../empty_ct' for key 'PRIMARY' in errors
+                        if ($empty_ct+1 < 9) @$this->set_config('empty_ct', $empty_ct+1); // Avoid Uncaught mysqli_sql_exception: Duplicate entry '..history../empty_ct' for key 'PRIMARY' in errors
                         echo '<!-- ' . $empty_ct . date(' H:i:s', $nowts) . ' -->' . $xytxt;
                     } else {
                         $this->set_config('empty_ct', 0);
