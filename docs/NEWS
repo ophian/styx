@@ -1,6 +1,9 @@
 Version 5.0 ()
  ------------------------------------------------------------------------
 
+ * db::PDO: For proper messaging, add unionized boolean return type of
+   serendipity_db_connect() on fail.
+
  * Extend serendipity_styx.js extendedPlugins expandable-group sidebar toggler
    to use session state storage for "in-content" workloads.
 
