@@ -1,6 +1,9 @@
 Version 5.0 ()
  ------------------------------------------------------------------------
 
+ * Extend serendipity_styx.js extendedPlugins expandable-group sidebar toggler
+   to use session state storage for "in-content" workloads.
+
  * Extend errorToExceptionHandler production = false messaging to avoid double
    thrown noticeable error messages. Marked "Experimental" for logged errors to
    php error_log file, so is under surveillance...
