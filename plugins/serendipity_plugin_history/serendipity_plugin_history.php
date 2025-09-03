@@ -467,16 +467,31 @@ class serendipity_plugin_history extends serendipity_plugin
                     fwrite($fp, serialize($history_daylist));
                     fclose($fp);
                     @touch($cachefile); // 'w' mode will NOT update the modification time (filemtime)
-                    $this->set_config('empty_ct', 0); // reset the counter
+                    try {
+                        $this->set_config('empty_ct', 0); // reset the counter
+                    } catch(Exception $e) {
+                        $this->set_config('empty_ct', random_int()); // reset the counter to make it unique
+                        $this->set_config('empty_ct', 0); // reset the counter
+                    }
                     // echo on run
                     echo $history_daylist;
                 } else {
                     $xytxt = '<div class="serendipity_history_outro history_empty">' . $xyempty . "</div>\n";
                     if ($empty_ct < 8) {
-                        if ($empty_ct+1 < 9) @$this->set_config('empty_ct', $empty_ct+1); // Avoid Uncaught mysqli_sql_exception: Duplicate entry '..history../empty_ct' for key 'PRIMARY' in errors
+                        try {
+                            $this->set_config('empty_ct', $empty_ct+1); // Avoid Uncaught mysqli_sql_exception: Duplicate entry 'foo' for key 'PRIMARY' in errors
+                        } catch(Exception $e) {
+                            $this->set_config('empty_ct', random_int()); // reset the counter to make it unique
+                            $this->set_config('empty_ct', $empty_ct+1); // count up
+                        }
                         echo '<!-- ' . $empty_ct . date(' H:i:s', $nowts) . ' -->' . $xytxt;
                     } else {
-                        $this->set_config('empty_ct', 0);
+                        try {
+                            $this->set_config('empty_ct', 0);
+                        } catch(Exception $e) {
+                            $this->set_config('empty_ct', random_int()); // reset the counter to make it unique
+                            $this->set_config('empty_ct', 0);
+                        }
                         // write to cache
                         $fp = fopen($cachefile, 'w');
                         fwrite($fp, serialize($xytxt));
