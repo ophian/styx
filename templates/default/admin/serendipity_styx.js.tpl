@@ -2390,4 +2390,45 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
+
+    // Sub-Paging: --- Plugin action URL: Expand group if matches ---
+    hooks.forEach(function(groupId) {
+        const group = document.getElementById(groupId);
+        if (!group) return;
+
+        // Gather all main URLs and adminAction values from sidebar links
+        const mainUrls = [];
+        const adminActions = [];
+        group.querySelectorAll('.list-flex a').forEach(function(link) {
+            const href = link.href;
+            const mainMatch = href.match(/(serendipity_admin\.php\?[^#]*serendipity\[adminAction\]=[^&#]*)/);
+            if (mainMatch) mainUrls.push(mainMatch[1]);
+            const actionMatch = href.match(/serendipity\[adminAction\]=([^&#]*)/);
+            if (actionMatch) adminActions.push(actionMatch[1]);
+        });
+
+        // Check current URL for GET-based main action
+        let shouldOpen = false;
+        const current = window.location.href;
+        const currentMainMatch = current.match(/(serendipity_admin\.php\?[^#]*serendipity\[adminAction\]=[^&#]*)/);
+        if (currentMainMatch && mainUrls.includes(currentMainMatch[1])) {
+            shouldOpen = true;
+        }
+
+        // Or check for relevant forms in #content with matching adminAction hidden input (for POST workloads)
+        document.getElementById('content').querySelectorAll('form').forEach(function(form) {
+            const adminActionInput = form.querySelector('input[name="serendipity[adminAction]"]');
+            if (adminActionInput && adminActions.includes(adminActionInput.value)) {
+                shouldOpen = true;
+            }
+        });
+
+        // If either check matches, open the group
+        if (shouldOpen) {
+            const btn = document.querySelector('#' + groupId + ' .expandable-group > .ex > button');
+            if (btn && btn.getAttribute('aria-expanded') !== 'true') {
+                btn.click();
+            }
+        }
+    });
 });
