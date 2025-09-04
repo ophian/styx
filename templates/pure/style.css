@@ -371,7 +371,7 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     border-color: #3b434c; }
   [data-dark-theme="dark"] .post_content blockquote {
     border-left-color: #adbac7; }
-    [data-dark-theme="dark"] .post_content blockquote.odd {
+    [data-dark-theme="dark"] .post_content :not(first-of-type) blockquote.odd {
       border-left-color: darkseagreen; }
   [data-dark-theme="dark"] .serendipity_date {
     color: #a3aaba; }
@@ -1298,7 +1298,7 @@ nav.pager + .serendipity_blogpdf {
     clear: both;
     line-height: 1.6;
     width: 100%; }
-    .post_content blockquote {
+    .post_content blockquote, .post_content blockquote:first-of-type {
       border-left: .2rem solid #ccc;
       padding-left: .75em;
       margin-left: 1.75em;
