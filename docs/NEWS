@@ -1,6 +1,8 @@
 Version 5.0 ()
  ------------------------------------------------------------------------
 
+ * Improve nested blockquote coloring in [ pure ] standard theme
+
  * Fix MYSQLI_SQL_EXCEPTION: Duplicate entry [...] for key 'PRIMARY' errors
    in history plugin cached multiyears option.
 
