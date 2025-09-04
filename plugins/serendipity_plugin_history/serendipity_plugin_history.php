@@ -470,7 +470,7 @@ class serendipity_plugin_history extends serendipity_plugin
                     try {
                         $this->set_config('empty_ct', 0); // reset the counter
                     } catch(Exception $e) {
-                        $this->set_config('empty_ct', random_int()); // reset the counter to make it unique
+                        $this->set_config('empty_ct', random_int(0, 0x3fff)); // reset the counter to make it unique
                         $this->set_config('empty_ct', 0); // reset the counter
                     }
                     // echo on run
@@ -481,7 +481,7 @@ class serendipity_plugin_history extends serendipity_plugin
                         try {
                             $this->set_config('empty_ct', $empty_ct+1); // Avoid Uncaught mysqli_sql_exception: Duplicate entry 'foo' for key 'PRIMARY' in errors
                         } catch(Exception $e) {
-                            $this->set_config('empty_ct', random_int()); // reset the counter to make it unique
+                            $this->set_config('empty_ct', random_int(0, 0x3fff)); // reset the counter to make it unique
                             $this->set_config('empty_ct', $empty_ct+1); // count up
                         }
                         echo '<!-- ' . $empty_ct . date(' H:i:s', $nowts) . ' -->' . $xytxt;
@@ -489,7 +489,7 @@ class serendipity_plugin_history extends serendipity_plugin
                         try {
                             $this->set_config('empty_ct', 0);
                         } catch(Exception $e) {
-                            $this->set_config('empty_ct', random_int()); // reset the counter to make it unique
+                            $this->set_config('empty_ct', random_int(0, 0x3fff)); // reset the counter to make it unique
                             $this->set_config('empty_ct', 0);
                         }
                         // write to cache
