@@ -999,7 +999,7 @@ function serendipity_allowCommentsToggle(int $entry_id, string $switch = 'disabl
  *      - Returns Success or failure bool OR INT
  * @access public
  */
-function serendipity_approveComment(int $cid, int $entry_id, bool $force = false, bool $moderate = false, ?string $token = null) : bool|int {
+function serendipity_approveComment(int $cid, int $entry_id, bool $force = false, string|bool $moderate = false, ?string $token = null) : bool|int {
     global $serendipity;
 
     $goodtoken = serendipity_checkCommentToken($token, $cid);
