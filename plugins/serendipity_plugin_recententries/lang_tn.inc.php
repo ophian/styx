@@ -9,7 +9,7 @@
 #                                                                        #
 # Translated by                                                          #
 # (c) 2004-2005 CapriSkye <admin@capriskye.com>                          #
-#       http://open.38.com                                               #
+#               http://open.38.com                                       #
 ##########################################################################
 
 @define('PLUGIN_RECENTENTRIES_TITLE', '最新文章');
