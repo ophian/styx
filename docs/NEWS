@@ -1,6 +1,9 @@
 Version 5.0 ()
  ------------------------------------------------------------------------
 
+ * Fix serendipity_approveComment(): Argument #4 ($moderate) strict_types error
+   when approving multi trackbacks at once.
+
  * Fix uninitialized Smarty backend assignment for private variable set
 
  * Improve nested blockquote coloring in [ pure ] standard theme
