@@ -2736,6 +2736,8 @@ function serendipity_hasPluginPermissions(string $plugin, ?int $groupid = null) 
         }
     }
 
+	$groupid ??= ''; // Deprecation up from PHP 8.5 RC2/RC3 - Using null as an array offset is deprecated, use an empty string instead
+
     if (isset($forbidden[$groupid]['f_' . $plugin])) {
         return false;
     } else {
