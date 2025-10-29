@@ -370,8 +370,11 @@ function serendipity_getTemplateFile(string $file, string $key = 'serendipityHTT
 /**
  * Loads all configuration values and imports them to the $serendipity array
  *
- * This function may be called twice - once for the global config and once for
- * user-specific config
+ * This function may be called "twice" - once for the global config and once for
+ * user-specific config. Once in the frontend to check a logged-in user or not
+ * and multiple times in the backend for the empty load_configuration(), then the
+ * serendipity_login() chain, and lastly the session authenticated user call;
+ * And one further for event hook chains on first login.
  *
  * Args:
  *      - The authorid to fetch the configuration from (0: global)
@@ -382,6 +385,8 @@ function serendipity_getTemplateFile(string $file, string $key = 'serendipityHTT
 function serendipity_load_configuration(?int $author = null) : ?bool {
     global $serendipity;
     static $config_loaded = array();
+
+	$author ??= ''; // Deprecation up from PHP 8.5 RC2/RC3 - Using null as an array offset is deprecated, use an empty string instead
 
     if (isset($config_loaded[$author])) {
         return true;
