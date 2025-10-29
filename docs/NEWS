@@ -1,6 +1,8 @@
 Version 5.0 ()
  ------------------------------------------------------------------------
 
+ * Fix several config API variable array offsets for PHP8.5 deprecation on null
+
  * Fix serendipity_approveComment(): Argument #4 ($moderate) strict_types error
    when approving multi trackbacks at once.
 
