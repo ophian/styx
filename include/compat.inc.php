@@ -245,7 +245,7 @@ if (!function_exists('errorToExceptionHandler')) {
                     exit; // make sure to exit in case of database connection errors or fatal errors.
                 }
                 if ($no_double) {
-                    return true; // avoid doubled error by silenced PHP thrown
+                    return true; // avoid doubled error showups by silenced PHP thrown error strings, keeping the serendipity_error_top msg error string box only
                 }
             }
         } else {
