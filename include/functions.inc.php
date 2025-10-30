@@ -1996,7 +1996,7 @@ function serendipity_setupCache() : object {
         \voku\cache\AdapterApcu::class
     );
 
-    // 2. try "OpCache"-Cache - remember, OpCache needs to store files with modification dates 1 day off
+    // 2. try "OpCache"-Cache - Remember, OpCache needs to store files with modification dates 1 day off
     $cacheManager->addAdapter(
         \voku\cache\AdapterOpCache::class,
         static function () { return SIMPLE_CACHE_DIR; }/*php.ini::opcache.enable=1*/
