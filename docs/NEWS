@@ -1,6 +1,9 @@
 Version 5.0 ()
  ------------------------------------------------------------------------
 
+ * Improve serendipity_checkPermission() visitors return if no user is
+   logged-in and the authorid fallback is null.
+
  * Improve maintenance template UTF8MB4_MIGRATION_TASK_DONE info icon tooltip
    for possible action, since some users never noticed.
 
