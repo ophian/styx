@@ -1569,7 +1569,13 @@ function serendipity_checkPermission(?string $permName = null, ?int $authorid = 
     }
 
     if ($authorid === null) {
-        $authorid = $serendipity['authorid'] ?? 0;
+        $authorid = $serendipity['authorid'] ?? null;
+    }
+
+	// Workaround PHP 8.5 array offset deprecation of null value in $group[$authorid]
+	// If we still have no real authorid end the function. Discovered by an unlogged user frontend access in calendar sidebar app or sidebar history app. Assume there will be more...
+    if ($authorid === null) {
+        return false;
     }
 
     if (!isset($group[$authorid])) {
