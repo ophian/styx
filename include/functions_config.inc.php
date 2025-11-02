@@ -386,7 +386,7 @@ function serendipity_load_configuration(?int $author = null) : ?bool {
     global $serendipity;
     static $config_loaded = array();
 
-	$author ??= ''; // Deprecation up from PHP 8.5 RC2/RC3 - Using null as an array offset is deprecated, use an empty string instead
+    $author ??= ''; // Deprecation up from PHP 8.5 RC2/RC3 - Using null as an array offset is deprecated, use an empty string instead
 
     if (isset($config_loaded[$author])) {
         return true;
@@ -1572,8 +1572,8 @@ function serendipity_checkPermission(?string $permName = null, ?int $authorid = 
         $authorid = $serendipity['authorid'] ?? null;
     }
 
-	// Workaround PHP 8.5 array offset deprecation of null value in $group[$authorid]
-	// If we still have no real authorid end the function. Discovered by an unlogged user frontend access in calendar sidebar app or sidebar history app. Assume there will be more...
+    // Workaround PHP 8.5 array offset deprecation of null value in $group[$authorid]
+    // If we still have no real authorid end the function. Discovered by an unlogged user frontend access in calendar sidebar app or sidebar history app. Assume there will be more...
     if ($authorid === null) {
         return false;
     }
@@ -2742,7 +2742,7 @@ function serendipity_hasPluginPermissions(string $plugin, ?int $groupid = null) 
         }
     }
 
-	$groupid ??= ''; // Deprecation up from PHP 8.5 RC2/RC3 - Using null as an array offset is deprecated, use an empty string instead
+    $groupid ??= ''; // Deprecation up from PHP 8.5 RC2/RC3 - Using null as an array offset is deprecated, use an empty string instead
 
     if (isset($forbidden[$groupid]['f_' . $plugin])) {
         return false;
