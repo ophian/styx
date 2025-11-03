@@ -239,17 +239,11 @@
       var coco = document.getElementById('serendipity_commentform_comment');
       if (typeof(coco) != 'undefined' && coco != null) {
         tinymce.init({
-                selector: '#serendipity_commentform_comment',
-                setup: (editor) => {},
-                  ...basicConfig
-            });
-        }
-    }
-
-    // the tinymce auto_focus behaves erratic based on focusable content, last edit and/or having to 2 textareas and so forth... - so better force an independent page re-focus here.
-    var h = location.hash ; null;
-    if (!h) {
-        $(window).on('load', function () { $('html, body').animate({ scrollTop: 0 }, 'smooth'); });
+          selector: '#serendipity_commentform_comment',
+            setup: (editor) => {},
+              ...basicConfig
+        });
+      }
     }
   </script>
 {assign var="hljsload" value=true}
