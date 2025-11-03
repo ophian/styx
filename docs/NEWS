@@ -1,6 +1,16 @@
 Version 5.0 ()
  ------------------------------------------------------------------------
 
+  * Due to issues with sidebar plugins, the FRONTEND HTMLcomments RichText
+    Editor auto focus behavior was un-set to better reflect hash marked jump
+    anchors. On frontend side the [ pure, b46, b53, b5blog, boot, dude, psg ]
+    themes "index.tpl" files were touched. Sadly this touches accessibility,
+    but it breaks too much of valid frontend anchor linking to be kept any
+    longer.
+    PLEASE NOTE:
+      If you use a copy or engine theme that holds an own "index.tpl" file, you
+      need to follow the change of your parents theme (mentioned above).
+
  * Improve serendipity_checkPermission() visitors return if no user is
    logged-in and the authorid fallback is null.
 
