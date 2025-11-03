@@ -52,7 +52,21 @@ let basicConfig = {
     //license_key: 'gpl',
     // convert image urls NOT to relative path, which is OK for the same domain, but not in other environments which are based on doc root paths
     relative_urls : false,
-    auto_focus: true,
+    auto_focus: 'editable',
+    // While the editors auto_focus is making huge trouble with other than the actual article page link using an anchor, like directly called comments from sidebar,
+    // ensure the editor is not focused after init, since there is no documented false set available
+    init_instance_callback: function (editor) {
+      setTimeout(function () {
+        const body = editor.getBody();
+        if (body && typeof body.blur === 'function') {
+          body.blur();
+        }
+        // fallback: blur whatever DOM element is currently focused
+        if (document.activeElement && typeof document.activeElement.blur === 'function') {
+          document.activeElement.blur();
+        }
+      }, 0);
+    },
     help_tabs: false,
     // define codesample language markers
     codesample_languages: [
