@@ -54,6 +54,20 @@ const commentConfig = {
     relative_urls : false,
     // enables double click on hlgt code to re-open code editor for example
     auto_focus: 'editable',
+    // Comment textareas don't have issues with auto focus inits that much, but for consistency follow the general unset;
+    // Ensure the editor is not focused after init, since there is no documented false set available
+    init_instance_callback: function (editor) {
+      setTimeout(function () {
+        const body = editor.getBody();
+        if (body && typeof body.blur === 'function') {
+          body.blur();
+        }
+        // fallback: blur whatever DOM element is currently focused
+        if (document.activeElement && typeof document.activeElement.blur === 'function') {
+          document.activeElement.blur();
+        }
+      }, 0);
+    },
     help_tabs: [ 'shortcuts', 'keyboardnav' ],
     // Configure on setup
     setup: function (editor) {
