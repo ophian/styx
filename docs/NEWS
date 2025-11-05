@@ -1,6 +1,11 @@
 Version 5.0 ()
  ------------------------------------------------------------------------
 
+  * The BACKEND RichText Editor auto focus behavior in init scriptlets do now
+    follow the FRONTEND approach to nuke the erratic auto focus behavior in
+    general. Users have to explicitely access a RichText area to be able to
+    write or change content.
+
   * Due to issues with sidebar plugins, the FRONTEND HTMLcomments RichText
     Editor auto focus behavior was un-set to better reflect hash marked jump
     anchors. On frontend side the [ pure, b46, b53, b5blog, boot, dude, psg ]
