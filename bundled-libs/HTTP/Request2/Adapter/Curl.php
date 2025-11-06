@@ -201,7 +201,7 @@ class HTTP_Request2_Adapter_Curl extends HTTP_Request2_Adapter
                 if (CURLE_OK !== curl_errno($ch)) {
                     $this->request->setLastEvent('warning', curl_error($ch));
                 }
-                curl_close($ch);
+                $ch = NULL;
             }
             $response = $this->response;
             unset($this->request, $this->requestBody, $this->response);
