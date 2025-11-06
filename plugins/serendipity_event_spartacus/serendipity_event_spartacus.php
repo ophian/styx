@@ -20,7 +20,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.31');
+        $propbag->add('version',       '3.32');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'php'         => '8.2'
@@ -455,7 +455,8 @@ class serendipity_event_spartacus extends serendipity_event
                     curl_setopt($curl_handle, CURLOPT_URL, $url);
                     curl_setopt($curl_handle, CURLOPT_HEADER, 0);
                     $curl_result = curl_exec($curl_handle);
-                    curl_close($curl_handle);
+                    $curl_handle = NULL;
+
                     if ($curl_result) {
                         $check_health = false;
                     } else {
