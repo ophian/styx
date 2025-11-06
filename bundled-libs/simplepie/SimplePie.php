@@ -6857,7 +6857,7 @@ class File
                     if ($info = curl_getinfo($fp)) {
                         $this->url = $info['url'];
                     }
-                    curl_close($fp);
+                    $fp = NULL;
                     $this->headers = \SimplePie\HTTP\Parser::prepareHeaders($this->headers, $info['redirect_count'] + 1);
                     $parser = new \SimplePie\HTTP\Parser($this->headers);
                     if ($parser->parse()) {
