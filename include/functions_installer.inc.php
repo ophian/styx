@@ -1587,7 +1587,7 @@ function serendipity_getCurrentVersion() : int|string {
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_TIMEOUT, '5');
             $file = curl_exec($ch);
-            curl_close($ch);
+            $ch = NULL;
         }
     }
 

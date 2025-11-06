@@ -2537,7 +2537,7 @@ function serendipity_sysInfoTicker(bool $check = false, string $whoami = '', ite
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
                 curl_setopt($ch, CURLOPT_TIMEOUT, '5');
                 $xmlstr = curl_exec($ch);
-                curl_close($ch);
+                $ch = NULL;
             }
         }
         // use fallback
