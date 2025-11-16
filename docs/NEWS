@@ -1,6 +1,9 @@
 Version 5.0 ()
  ------------------------------------------------------------------------
 
+  * Refactor serendipity_cancelSubscription() param & return types while being
+    called by matching $res array items.
+
   * The BACKEND RichText Editor auto focus behavior in init scriptlets do now
     follow the FRONTEND approach to nuke the erratic auto focus behavior in
     general. Users have to explicitely access a RichText area to be able to
