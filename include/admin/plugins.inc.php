@@ -464,6 +464,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $pluggroups['UPGRADE'][] = $plugdata;
         } elseif (is_array($plugdata['groups'])) {
             foreach($plugdata['groups'] AS $group) {
+                if (is_null($group)) continue;
                 $pluggroups[$group][] = $plugdata;
             }
         } else {
