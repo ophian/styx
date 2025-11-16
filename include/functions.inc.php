@@ -1206,7 +1206,7 @@ function serendipity_fetchReferences(int $id) : string|bool|iterable {
 
 
 /**
- * Encode a string to UTF-8, if not already in UTF-8 format.
+ * Encode a string to UTF-8, if not already in UTF-8 format. [since UTF-8 only, set DEPRECATED]
  *
  * Args:
  *      - The input string
