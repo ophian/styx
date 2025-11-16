@@ -1,4 +1,4 @@
-Version 5.0 ()
+Version 5.0-rc2 (November, 16th 2025)
  ------------------------------------------------------------------------
 
   * Refactor serendipity_cancelSubscription() param & return types while being
