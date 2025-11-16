@@ -1537,9 +1537,10 @@ function serendipity_mailSubscribers(int $entry_id, string $poster, string $post
  *      - Return number of unsubscriptions
  * @access public
  */
-function serendipity_cancelSubscription(string $email, int $entry_id) : int {
+function serendipity_cancelSubscription(string $email, string|int $entry_id) : bool|int {
     global $serendipity;
 
+    if (!is_integer($entry_id)) return false;
     $sql = "UPDATE {$serendipity['dbPrefix']}comments
                SET subscribed = 'false'
              WHERE entry_id = '". (int)$entry_id ."'
