@@ -30,7 +30,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '4.1',
             'php'         => '8.2'
         ));
-        $propbag->add('version',       '2.89');
+        $propbag->add('version',       '2.90');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1001,6 +1001,7 @@ class serendipity_event_spamblock extends serendipity_event
                     }
 
                     if (!is_array($eventData) || serendipity_db_bool($eventData['allow_comments'])) {
+                        $serendipity['addUser_allow_comments'] = $eventData['allow_comments']; // default set to pass through to addUser event plugin if not getting disabled by checks
                         $this->checkScheme();
 
                         $serendipity['csuccess']  = 'true';
