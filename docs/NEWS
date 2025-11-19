@@ -1,6 +1,8 @@
 Version 5.0 ()
  ------------------------------------------------------------------------
 
+  * Fix Chromium behavior adding default -internal-autofill-selected white
+    background styling for light theme in [ pure ] dark theme.
 
 
 
