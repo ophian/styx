@@ -223,13 +223,16 @@ html[data-dark-theme="dark"] *::-webkit-scrollbar-thumb {
   background-color: #76787b;
   border-color: #1c2128; }
 [data-dark-theme="dark"] *::-webkit-scrollbar-corner {
-   background-color: #22272f; }
+  background-color: #22272f; }
 /* Others Browsers */
 html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="dark"] ol, [data-dark-theme="dark"] ul, [data-dark-theme="dark"] select, [data-dark-theme="dark"] textarea, [data-dark-theme="dark"] pre {
   scrollbar-color: #8899b1 #1c2128; }
-/* Chromium */
+/* Chromium default as fallback */
 [data-dark-theme="dark"] input {
   color-scheme: dark; }
+/* Chromium forced bg color for consistency */
+[data-dark-theme="dark"] input:autofill {
+  box-shadow: inset 0 0 0 100px #22272e !important; }
 
 /* more or less sectioned dark-theme styles */
 [data-dark-theme="dark"] body {
