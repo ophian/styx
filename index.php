@@ -13,7 +13,7 @@ header($protocol . ' 200');
 header('Status: 200 OK');
 
 // Session are needed to also remember an autologin user on the frontend
-include('serendipity_config.inc.php');
+include('serendipity_config.inc.php'); // Be aware: frontend_configure hook is run and end of file and so before routing !!
 include('include/functions_routing.inc.php');
 
 header('Content-Type: text/html; charset=' . LANG_CHARSET);
