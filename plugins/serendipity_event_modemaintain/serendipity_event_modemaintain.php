@@ -36,7 +36,7 @@ class serendipity_event_modemaintain extends serendipity_event
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.44');
+        $propbag->add('version',       '1.45');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'php'         => '8.2'
@@ -219,7 +219,7 @@ class serendipity_event_modemaintain extends serendipity_event
                     }
 
                     // do not allow session based authentication
-                    if ($_SESSION['serendipityAuthedUser'] == true && !isset($serendipity['COOKIE']['author_information'])) {
+                    if (isset($_SESSION['serendipityAuthedUser']) && $_SESSION['serendipityAuthedUser'] === true && !isset($serendipity['COOKIE']['author_information'])) {
 ?>
 
     <section id="maintenance_moma" class="quick_list">
