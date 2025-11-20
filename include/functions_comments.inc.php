@@ -162,6 +162,7 @@ function serendipity_rememberComment() : void {
 function serendipity_rememberCommentDetails(iterable $details) : void {
 
     foreach($details AS $n => $v) {
+        if (empty($v)) continue;
         serendipity_setCookie($n, $v);
     }
 }
