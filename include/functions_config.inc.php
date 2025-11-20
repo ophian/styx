@@ -801,7 +801,7 @@ function serendipity_authenticate_author(string $username = '', #[\SensitivePara
         fwrite($fp, date('Y-m-d H:i') . ' - #' . $debugc . ' Login init [' . $username . ',' . $password . ',' . (int)$is_hashed . ',' . (int)$use_external . ']' . ' (' . $_SERVER['REMOTE_ADDR'] . ', ' . $_SERVER['REQUEST_URI'] . ', ' . session_id() . ')' . "\n");
     }
 
-    if (isset($_SESSION['serendipityUser']) && isset($_SESSION['serendipityPassword']) && isset($_SESSION['serendipityAuthedUser']) && $_SESSION['serendipityAuthedUser'] == true) {
+    if (isset($_SESSION['serendipityUser']) && isset($_SESSION['serendipityPassword']) && isset($_SESSION['serendipityAuthedUser']) && $_SESSION['serendipityAuthedUser'] === true) {
         $username = $_SESSION['serendipityUser'];
         $password = $_SESSION['serendipityPassword'];
         // For safety reasons when multiple blogs are installed on the same host, we need to check the current author each time to not let him log into a different blog with the same sessiondata
