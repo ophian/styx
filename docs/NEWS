@@ -1,6 +1,8 @@
 Version 5.0 ()
  ------------------------------------------------------------------------
 
+  * Fix postgres serendipity_db_insert_id(): Return value type
+
   * Fix plugin related Methusalem issue with comment submission POSTs loosing
     name and email values for database INSERTs. Please update the addUser
     plugin, if have.
