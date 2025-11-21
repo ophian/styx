@@ -224,7 +224,7 @@ function serendipity_db_insert_id(string $table = '', string $id = '') : int {
         $res   = pg_query($serendipity['dbConn'], $query);
         if (pg_num_rows($res)) {
             $insert_id = pg_fetch_array($res, 0, PGSQL_ASSOC);
-            return $insert_id[$id];
+            return (int) $insert_id[$id];
         } else {
             return pg_last_oid($serendipity['dbLastResult']); // BC - should not happen!
         }
