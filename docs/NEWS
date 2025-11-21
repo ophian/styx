@@ -1,8 +1,9 @@
 Version 5.0 ()
  ------------------------------------------------------------------------
 
-  * Fix Methusalem issue with comment submission POSTs loosing name and email
-    values for database INSERTs. Please update the addUser plugin, if have.
+  * Fix plugin related Methusalem issue with comment submission POSTs loosing
+    name and email values for database INSERTs. Please update the addUser
+    plugin, if have.
 
   * Fix Chromium behavior adding default -internal-autofill-selected white
     background styling for light theme in [ pure ] dark theme.
