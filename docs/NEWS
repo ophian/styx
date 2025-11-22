@@ -1,6 +1,8 @@
 Version 5.0 ()
  ------------------------------------------------------------------------
 
+  * Better check a spamblock 'fetchcomments' authed user session case
+
   * Fix postgres serendipity_db_insert_id(): Return value type
 
   * Fix plugin related Methusalem issue with comment submission POSTs loosing
