@@ -1,6 +1,9 @@
 Version 5.0 ()
  ------------------------------------------------------------------------
 
+  * Improve [ pure ] theme image max sizing styles for image block galleries
+    in flexed 1-sidebar theme grid cases.
+
   * Better check a spamblock 'fetchcomments' authed user session case
 
   * Fix postgres serendipity_db_insert_id(): Return value type
