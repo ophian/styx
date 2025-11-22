@@ -2517,6 +2517,16 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .post div .serendipity_image_left,
     .post div .serendipity_image_right {
         max-width: 75%; }
+    /* 1-sidebar | for content image block galeries in 100% */
+    .grid-flex .page .serendipity_image_block .serendipity_imageComment_left,
+    .grid-flex .page .serendipity_image_block .serendipity_imageComment_right,
+    .grid-flex .page p .serendipity_image_block .serendipity_image_left,
+    .grid-flex .page p .serendipity_image_block .serendipity_image_right,
+    .grid-flex .post p .serendipity_image_block .serendipity_image_left,
+    .grid-flex .post p .serendipity_image_block .serendipity_image_right,
+    .grid-flex .post div .serendipity_image_block .serendipity_image_left,
+    .grid-flex .post div .serendipity_image_block .serendipity_image_right {
+        max-width: fit-content; }
 }
 @media screen and (min-width: 1024px) {
     .post .serendipity_imageComment_left:not(figure) {
@@ -2543,6 +2553,18 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .grid-flex .post div .serendipity_image_left:not([srcset*=".400W."]),
     .grid-flex .post div .serendipity_image_right:not([srcset*=".400W."]) {
         max-width: 48%; }
+    /* 1-sidebar | for content image block galeries in 100% | !in responsiveimages plugin cases */
+    .grid-flex .page .serendipity_image_block .serendipity_imageComment_left,
+    .grid-flex .page .serendipity_image_block .serendipity_imageComment_right,
+    .grid-flex .page p .serendipity_image_block .serendipity_image_left:not([srcset*=".400W."]),
+    .grid-flex .page p .serendipity_image_block .serendipity_image_right:not([srcset*=".400W."]),
+    .grid-flex .post .serendipity_image_block .serendipity_imageComment_left,
+    .grid-flex .post .serendipity_image_block .serendipity_imageComment_right,
+    .grid-flex .post p .serendipity_image_block .serendipity_image_left:not([srcset*=".400W."]),
+    .grid-flex .post p .serendipity_image_block .serendipity_image_right:not([srcset*=".400W."]),
+    .grid-flex .post div .serendipity_image_block .serendipity_image_left:not([srcset*=".400W."]),
+    .grid-flex .post div .serendipity_image_block .serendipity_image_right:not([srcset*=".400W."]) {
+        max-width: fit-content; }
 }
 @media screen and (min-width: 1440px) {
     /* 2-sidebars */
