@@ -729,6 +729,11 @@ $tasks = array(
                     'title'     => 'Removal of old dead language [cs] files for Styx 5',
                     'desc'      => 'The following old dead files will be removed recursively from your templates directory system.<pre>lang_cs.inc.php</pre>'),
 
+            array(  'version'   => '5.0-rc2',
+                    'type'      => 'TEMPLATE_NOTICE',
+                    'title'     => '<b>TEMPLATE_NOTICE</b> extends RC1 notes',
+                    'desc'      => 'Due to the reset refactoring of the new TinyMCE RichText Editor auto_focus behavior, all themes already making use of it <pre>[ pure, b46, b53, b5blog, boot, dude, psg ]</pre> were changed to support the remove of auto focus. If you are using one of these mentioned themes as a <b>parent theme</b>, your custom <b>child theme\'s</b> <em>index.tpl</em> file needs to follow the change of its parent.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
