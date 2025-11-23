@@ -1,4 +1,4 @@
-Version 5.x-DEV ()
+Version 5.0.1 (November, 23rd 2025)
  ------------------------------------------------------------------------
 
  * plugin API: Fix get_plugin_title() case on NULL $title reference
