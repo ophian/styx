@@ -77,6 +77,7 @@
                     <option value="hidden"{if $get.filter.show == 'hidden'} selected{/if}>{$CONST.COMMENTS_FILTER_HIDDEN_ONLY}</option>
                     <option value="pending"{if $get.filter.show == 'pending'} selected{/if}>{$CONST.COMMENTS_FILTER_APPROVAL_ONLY}</option>
                     <option value="confirm"{if $get.filter.show == 'confirm'} selected{/if}>{$CONST.COMMENTS_FILTER_CONFIRM_ONLY}</option>
+                    <option value="subscribed"{if $get.filter.show == 'subscribed'} selected{/if}>{$CONST.COMMENTS_FILTER_SUBSCRIBED_ONLY}</option>
                 </select>
             </div>
 
