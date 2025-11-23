@@ -1,6 +1,8 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Add new backend filter logic to search for subscribed comments only
+
  * Fix / Improve unfinished comment subscription status tag for backend comment
    previews.
 
