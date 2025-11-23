@@ -398,6 +398,11 @@ function serendipity_displayCommentForm(int $id, string $url, ?iterable $comment
             if (isset($data['id']) && $comment['id'] != $data['id']) {
                 $entry_comment_parents[] = array('id' => $comment['id'], 'name' => str_replace(array('[', ']', '(', ')', '\'', '"'), '', htmlspecialchars(substr($comment['author'], 0, 44), encoding: LANG_CHARSET)));
             }
+            // Additional: Place some preview status vars into the backend entry form
+            if (isset($data['id']) && $comment['id'] == $data['id']) {
+                $entry_comment_subscription = $comment['subscribed'];
+                $entry_comment_status = $comment['status'];
+            }
         }
         if (isset($entry_comment_parents)) {
             $entry_comment_parents[] = 0; // add a parent 0 ID
@@ -420,6 +425,8 @@ function serendipity_displayCommentForm(int $id, string $url, ?iterable $comment
         'commentform_replyTo'        => $_commentform_replyTo,
         'commentform_changeReplyTo'  => !empty($entry_comment_parents) ? $entry_comment_parents : null,
         'commentform_subscribe'      => isset($data['subscribe']) ? ' checked="checked"' : '',
+        'commentform_status'         => !empty($entry_comment_status) ? $entry_comment_status : null,
+        'commentform_subscribed'     => !empty($entry_comment_subscription) ? $entry_comment_subscription : null,
         'commentform_data'           => isset($data['comment'])   ? htmlspecialchars($data['comment'], encoding: LANG_CHARSET) : '',
         'is_commentform_showToolbar' => $showToolbar,
         'is_allowSubscriptions'      => (serendipity_db_bool($serendipity['allowSubscriptions']) || $serendipity['allowSubscriptions'] === 'fulltext' ? true : false),
