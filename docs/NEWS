@@ -1,6 +1,13 @@
 Version 5.x-DEV ()
  ------------------------------------------------------------------------
 
+ * Fix possible Plugin updates issue(s) with some plugin $bag-> fields
+   containing UTF-8 strings and failing to insert and halting system with
+   "Incorrect string value..." fatal errors. The fields 'name', 'description'
+   may be langified with UTF-8 and also the author name may be a non plain
+   ASCII name too.
+   ie. Uncaught mysqli_sql_exception: Incorrect string value: '\\xF6glich...'
+       for column `database`.`styx_pluginlist`.`description`
 
 
 
