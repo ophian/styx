@@ -247,11 +247,13 @@ if (isset($serendipity['GET']['adminAction'])
             $codata['comment']    = $serendipity['POST']['comment'];
             $pc_data = array(
                 array(
-                    'email'     => $serendipity['POST']['email'],
-                    'author'    => $serendipity['POST']['name'],
-                    'body'      => $serendipity['POST']['comment'],
-                    'url'       => $serendipity['POST']['url'],
-                    'timestamp' => time()
+                    'email'      => $serendipity['POST']['email'],
+                    'author'     => $serendipity['POST']['name'],
+                    'body'       => $serendipity['POST']['comment'],
+                    'url'        => $serendipity['POST']['url'],
+                    'status'     => $serendipity['POST']['status'],
+                    'subscribed' => $serendipity['POST']['subscribed'],
+                    'timestamp'  => time()
                 )
             );
 
