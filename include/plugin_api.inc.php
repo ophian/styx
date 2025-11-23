@@ -1141,6 +1141,7 @@ class serendipity_plugin_api
             $title = &$plugin->title;
         } else {
             $ne = (isset($serendipity['no_events']) && $serendipity['no_events'] ? true : false);
+            $title  = '';
             $serendipity['no_events'] = true;
             ob_start();
             $plugin->generate_content($title);
