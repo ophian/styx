@@ -555,7 +555,7 @@ function serendipity_smarty_showCommentForm(iterable $params, null|string|\Smart
  *      - The Smarty HTML response OR false
  * @access public
  */
-function serendipity_smarty_showPlugin(iterable $params, null|string|\Smarty_Internal_Template $template) : string|false {
+function serendipity_smarty_showPlugin(iterable $params, null|string|\Smarty_Internal_Template $template) : null|string|false {
     global $serendipity;
 
     if (empty($params['class'])) {
