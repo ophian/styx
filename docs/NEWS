@@ -1,6 +1,8 @@
 Version 5.x-DEV ()
  ------------------------------------------------------------------------
 
+ * Fix Plugin updates issue(s) with some plugin $bag-> fields for non-sets
+
 
 
 
