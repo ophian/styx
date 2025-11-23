@@ -1,4 +1,4 @@
-Version 5.x-DEV ()
+Version 5.0.2 (November, 23rd 2025)
  ------------------------------------------------------------------------
 
  * Fix Plugin updates issue(s) with some plugin $bag-> fields for non-sets
