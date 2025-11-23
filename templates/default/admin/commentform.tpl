@@ -9,6 +9,8 @@
             <input type="hidden" name="serendipity[comment_id]" value="{$smarty.get.serendipity.id}">
             <input type="hidden" name="serendipity[entry_id]" value="{$commentform_id}">
             <input type="hidden" name="serendipity[replyTo]" value="{$commentform_replyTo}">
+            <input type="hidden" name="serendipity[status]" value="{$commentform_status}">
+            <input type="hidden" name="serendipity[subscribed]" value="{$commentform_subscribed}">
         </div>
         <div class="form_field">
             <label for="serendipity_commentform_name">{$CONST.NAME}</label>
