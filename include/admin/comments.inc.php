@@ -304,6 +304,9 @@ if ($serendipity['GET']['filter']['show'] == 'approved') {
 } elseif ($serendipity['GET']['filter']['show'] == 'hidden') {
     $and          .= "AND status = 'hidden'";
     $searchString .= '&amp;serendipity[filter][show]=hidden';
+} elseif ($serendipity['GET']['filter']['show'] == 'subscribed') {
+    $and          .= "AND subscribed = 'true'";
+    $searchString .= '&amp;serendipity[filter][show]=subscribed';
 } else {
     $serendipity['GET']['filter']['show'] = 'all';
 }
