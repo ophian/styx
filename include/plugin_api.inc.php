@@ -905,9 +905,9 @@ class serendipity_plugin_api
             $data = array(
                 'class_name'      => get_class($plugin),
                 'stackable'       => $bag->get('stackable'),
-                'name'            => $bag->get('name'),
-                'description'     => $bag->get('description'),
-                'author'          => $bag->get('author'),
+                'name'            => mb_convert_encoding($bag->get('name'), 'UTF-8', LANG_CHARSET),
+                'description'     => mb_convert_encoding($bag->get('description'), 'UTF-8', LANG_CHARSET),
+                'author'          => mb_convert_encoding($bag->get('author'), 'UTF-8', LANG_CHARSET),
                 'version'         => $bag->get('version'),
                 'upgrade_version' => ($class_data['upgrade_version'] ?? $bag->get('version')),
                 'requirements'    => serialize($bag->get('requirements')),
