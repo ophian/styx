@@ -1,6 +1,8 @@
 Version 5.x-DEV ()
  ------------------------------------------------------------------------
 
+ * smarty API: Add possible return type NULL to serendipity_smarty_showPlugin()
+
  * Fix possible Plugin updates issue(s) with some plugin $bag-> fields
    containing UTF-8 strings and failing to insert and halting system with
    "Incorrect string value..." fatal errors. The fields 'name', 'description'
