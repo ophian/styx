@@ -566,6 +566,7 @@
 @define('COMMENTS_FILTER_HIDDEN_ONLY', 'Only hidden');
 @define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
 @define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
+@define('COMMENTS_FILTER_SUBSCRIBED_ONLY', 'Only subscribed');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Wachtend op goedkeuring');
 @define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
 @define('RSS_IMPORT_BODYONLY', 'Voeg alle geïmporteerde teksten in de "Artikeltekst"-sectie en splits deze niet op naar de "Uitgebreide tekst"-sectie.');

@@ -565,6 +565,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('COMMENTS_FILTER_HIDDEN_ONLY', 'Only hidden');
 @define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
 @define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
+@define('COMMENTS_FILTER_SUBSCRIBED_ONLY', 'Only subscribed');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'Ожидающие подтверждения');
 @define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
 @define('RSS_IMPORT_BODYONLY', 'Поместить весь импортированный текст в раздел "текст записи" и не создавать раздел "дополнительный текст записи".');

@@ -564,6 +564,7 @@
 @define('COMMENTS_FILTER_HIDDEN_ONLY', 'Only hidden');
 @define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
 @define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
+@define('COMMENTS_FILTER_SUBSCRIBED_ONLY', 'Only subscribed');
 @define('COMMENTS_FILTER_NEED_APPROVAL', '显示等待审核');
 @define('COMMENTS_FILTER_NEED_CONFIRM', 'Pending confirmation');
 @define('RSS_IMPORT_BODYONLY', '将输入的文字放到主内容, 将不拆开过长的文章到副内容');

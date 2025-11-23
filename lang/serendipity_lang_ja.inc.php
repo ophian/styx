@@ -563,6 +563,7 @@
 @define('COMMENTS_FILTER_HIDDEN_ONLY', 'Only hidden');
 @define('COMMENTS_FILTER_APPROVAL_ONLY', 'Only pending');
 @define('COMMENTS_FILTER_CONFIRM_ONLY', 'Only confirmable');
+@define('COMMENTS_FILTER_SUBSCRIBED_ONLY', 'Only subscribed');
 @define('COMMENTS_FILTER_NEED_APPROVAL', '承認待ち');
 @define('COMMENTS_FILTER_NEED_CONFIRM', 'ユーザーの確認を保留しています');
 @define('RSS_IMPORT_BODYONLY', 'すべてのエントリーは「本文」セクションに置き、拡張エントリーセクションに分割しない');

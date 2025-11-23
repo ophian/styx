@@ -549,6 +549,7 @@
 @define('COMMENTS_FILTER_HIDDEN_ONLY', 'Nur versteckte');
 @define('COMMENTS_FILTER_APPROVAL_ONLY', 'Nur zu bewilligende');
 @define('COMMENTS_FILTER_CONFIRM_ONLY', 'Nur zu bestätigende');
+@define('COMMENTS_FILTER_SUBSCRIBED_ONLY', 'Nur abonnierte');
 @define('COMMENTS_FILTER_NEED_APPROVAL', 'zu bewilligen');
 @define('COMMENTS_FILTER_NEED_CONFIRM', 'zu bestätigen');
 @define('RSS_IMPORT_BODYONLY', 'Füge den gesamten importierten Text in das einzelne "Text"-Feld ein. Verhindert die Aufteilung in den "Erweiterten Eintrag"-Bereich.');
