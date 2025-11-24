@@ -215,7 +215,7 @@
 @define('REALLY_SCALE_IMAGE', 'Bildgröße wirklich verändern? Diese Änderung kann nicht rückgängig gemacht werden!');
 @define('TOGGLE_ALL', 'Alle Optionen ein-/ausblenden');
 @define('TOGGLE_OPTION', 'Option ein-/ausblenden');
-@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
+@define('SUBSCRIPTION_TO_ENTRY', 'User Kommentar-Abonnement aus-/einschalten');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'Bei Aktualisierung dieser Kommentare benachrichtigen');
 @define('UNSUBSCRIBE_OK', 'Sie (%s) erhalten nun keine weiteren Benachrichtigungen mehr.');
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Benachrichtigung zu neuem Kommentar des Eintrags "%s"');
