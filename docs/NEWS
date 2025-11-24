@@ -1,10 +1,14 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * For $commentform_subscribed(true) add a user SVG notification icon to the
+   backend commentform.
+
  * Add new backend filter logic to search for subscribed comments only
 
  * Fix / Improve unfinished comment subscription status tag for backend comment
    previews.
+
 
 
 
