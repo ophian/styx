@@ -3397,7 +3397,7 @@ h3 button.toggle_info.button_link.group_info {
 
 #serendipity_comment .form_field input.serendipity_commentform_ckbx_subscribe {
     width: 1em;
-    margin: 0 .25em;
+    margin: .15em .25em;
 }
 select#serendipity_commentform_replyToParent {
     text-align-last: right;
