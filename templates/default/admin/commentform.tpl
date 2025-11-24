@@ -19,6 +19,7 @@
         <div class="form_field">
             <label for="serendipity_commentform_email">{$CONST.EMAIL}</label>
             <input id="serendipity_commentform_email" name="serendipity[email]" type="email" value="{$commentform_email}">
+            <input class="serendipity_commentform_ckbx_subscribe" name="serendipity[subscribe]" type="checkbox" title="{$CONST.SUBSCRIPTION_TO_ENTRY}" value="{$commentform_subscribed|default:''}"{if isset($commentform_subscribed) AND $commentform_subscribed === 'true'} checked="checked"{/if}>
 {if isset($commentform_subscribed) AND $commentform_subscribed === 'true'}
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-person" viewBox="0 0 16 16">
               <title>{$CONST.ACTIVE_COMMENT_SUBSCRIPTION}</title>
