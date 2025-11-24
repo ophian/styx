@@ -218,6 +218,7 @@
 @define('REALLY_SCALE_IMAGE', 'Er du sikker på at du vil endre størrelsen på dette bildet? Det er ingen vei tilbake!');
 @define('TOGGLE_ALL', 'Vis/Skjul alle');
 @define('TOGGLE_OPTION', 'Vis/Skjul denne opsjonen');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'Abonnér på denne artikkelen');
 @define('UNSUBSCRIBE_OK', "%s er ikke lenger abonnent på denne artikkelen");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Ny kommentar til abonnert artikkel "%s"');

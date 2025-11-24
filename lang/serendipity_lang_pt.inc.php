@@ -221,6 +221,7 @@
 @define('REALLY_SCALE_IMAGE', 'Quer mesmo redimensionar a imagem? Não haverá volta!!');
 @define('TOGGLE_ALL', 'Alternar para expandir tudo');
 @define('TOGGLE_OPTION', 'Opção para alternar');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'Inscrever-se para este artigo');
 @define('UNSUBSCRIBE_OK', "%s teve a inscrição cancelada para este artigo");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Novo comentário para o artigo inscrita"%s"');

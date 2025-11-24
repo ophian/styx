@@ -250,6 +250,7 @@ $i18n_filename_to = array (
 @define('REALLY_SCALE_IMAGE', 'Naozaj chcete zmeniť rozmery? Návrat nie je možný!');
 @define('TOGGLE_ALL', 'Vybrať všetko');
 @define('TOGGLE_OPTION', 'Vybrať voľbu');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'Prihlásiť sa k sledovaniu komentáov tohto článku');
 @define('UNSUBSCRIBE_OK', "%s bol odhlásený zo sledovania komentárov");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Nový komentár k sledovanému článku "%s"');

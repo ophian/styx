@@ -239,6 +239,7 @@
 @define('REALLY_SCALE_IMAGE', '确定要缩放图片吗? 这个动作不能恢复！');
 @define('TOGGLE_ALL', '切换展开');
 @define('TOGGLE_OPTION', '切换选项');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', '订阅这篇文章');
 @define('UNSUBSCRIBE_OK', "%s 已取消订阅这篇文章");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', '新回复到订阅的文章 "%s"');

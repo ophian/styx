@@ -237,6 +237,7 @@
 @define('REALLY_SCALE_IMAGE', 'Really scale the image? This operation cannot be undone!');
 @define('TOGGLE_ALL', 'புலப்பாட்டை மாற்றுக');
 @define('TOGGLE_OPTION', 'புலப்பாடு');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'இக்குறிப்பு மீதான கருத்துக்களை மின்னஞ்சலில் பெறுக');
 @define('UNSUBSCRIBE_OK', "%s மின்னஞ்சல் நீக்கப்பட்டது");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'புதிய கருத்து! குறிப்பு: "%s"');

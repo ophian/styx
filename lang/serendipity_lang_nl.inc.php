@@ -240,6 +240,7 @@
 @define('REALLY_SCALE_IMAGE', 'Wilt u de afbeelding echt aanpassen? Dit kan niet ongedaan gemaakt worden!');
 @define('TOGGLE_ALL', 'Alles uit- of inklappen');
 @define('TOGGLE_OPTION', 'Uit-/inklappen');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'Abonneer op dit artikel');
 @define('UNSUBSCRIBE_OK', 'Het abonnement op dit artikel is nu opgezegd voor %s');
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Nieuwe reactie op geabonneerd artikel "%s"');

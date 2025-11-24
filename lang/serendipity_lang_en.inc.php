@@ -237,6 +237,7 @@
 @define('REALLY_SCALE_IMAGE', 'Really scale the image? This operation cannot be undone!');
 @define('TOGGLE_ALL', 'Toggle expand all');
 @define('TOGGLE_OPTION', 'Toggle option');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'Subscribe to this entry');
 @define('UNSUBSCRIBE_OK', "%s is now unsubscribed from this entry");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'New comment to subscribed entry "%s"');

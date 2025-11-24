@@ -239,6 +239,7 @@
 @define('REALLY_SCALE_IMAGE', '크기 조절을 정말로 하겠습니까? 나중에 되돌릴 수 없습니다.');
 @define('TOGGLE_ALL', '모두 보기 선택');
 @define('TOGGLE_OPTION', '선택 옵션');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', '이 글을 구독하기');
 @define('UNSUBSCRIBE_OK', "%s(은)는 이 글에서 구독 해지가 되었습니다");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', '구독한 글 "%s"에 새로운 덧글이 달림');

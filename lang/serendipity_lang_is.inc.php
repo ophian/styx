@@ -237,6 +237,7 @@
 @define('REALLY_SCALE_IMAGE', 'Ertu viss að þú viljir breyta stærð myndarinnar? Það er ekki hægt að breyta til baka!');
 @define('TOGGLE_ALL', 'Virkja stækka allt');
 @define('TOGGLE_OPTION', 'Virkja valmöguleika');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'Gerast áskrifandi að þessari færslu');
 @define('UNSUBSCRIBE_OK', "%s hefur nú verið afskráður frá þessari færslu");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Ný athugasemd á færslu í áskrift "%s"');

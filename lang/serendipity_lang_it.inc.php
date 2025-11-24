@@ -223,6 +223,7 @@
 @define('REALLY_SCALE_IMAGE', 'Vuoi veramente riscalare questa immagine? Questa operazione non può essere annullata!');
 @define('TOGGLE_ALL', 'Espandi tutto');
 @define('TOGGLE_OPTION', 'Inverti l\'opzione');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'Iscriviti a questa notizia');
 @define('UNSUBSCRIBE_OK', "%s è stato disiscritto dalla notizia");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Nuovo commento alla notizia "%s" a cui sei iscritto');

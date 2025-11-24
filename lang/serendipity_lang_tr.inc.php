@@ -239,6 +239,7 @@
 @define('REALLY_SCALE_IMAGE', 'Resmi ölçeklemeyi istiyormusunuz? Bu işlem geri alınamaz!');
 @define('TOGGLE_ALL', 'Tümünü Aç - Kapa');
 @define('TOGGLE_OPTION', 'Açma Kapama Seçeneği');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'Bu yazıya abone ol');
 @define('UNSUBSCRIBE_OK', "%s bu yazıdan abonelik kaldırılacak");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Abone olunan yazı için yeni görüş "%s"');

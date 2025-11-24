@@ -223,6 +223,7 @@
 @define('REALLY_SCALE_IMAGE', 'Réellement redimensionner cette image ? Attention : cette opération est irréversible !');
 @define('TOGGLE_ALL', 'Afficher/Ne pas afficher les détails');
 @define('TOGGLE_OPTION', 'Afficher les détails');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'Souscrire à ce billet');
 @define('UNSUBSCRIBE_OK', "%s est maintenant désinscrit de cette news");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Nouveau commentaire posté à votre souscription du billet "%s"');

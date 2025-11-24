@@ -239,6 +239,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('REALLY_SCALE_IMAGE', 'Na pewno przeskalować obrazek? Ta operacja jest nieodwracalna!');
 @define('TOGGLE_ALL', 'Rozwiń/zwiń wszystkie');
 @define('TOGGLE_OPTION', 'Przełącz opcję');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'Wyślij mailem powiadomienie o odpowiedziach');
 @define('UNSUBSCRIBE_OK', "%s subskrypcja tego wpisu została usunięta");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Nowy komentarz do subskrybowanej wiadomości "%s"');

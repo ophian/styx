@@ -225,6 +225,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('REALLY_SCALE_IMAGE', 'Сигурни ли сте, че искате да промените размера? После изображението не може да бъде възстановено!');
 @define('TOGGLE_ALL', 'Показване на всички');
 @define('TOGGLE_OPTION', 'Превключване на опция');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'Абониране за тази статия');
 @define('UNSUBSCRIBE_OK', "%s сега е отписан от тази статия");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Нов коментар към абонирана статия "%s"');

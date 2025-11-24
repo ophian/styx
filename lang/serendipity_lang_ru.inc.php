@@ -239,6 +239,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('REALLY_SCALE_IMAGE', 'Вы уверены, что хотите изменить размеры изображения? Эта операция необратима!');
 @define('TOGGLE_ALL', 'Раскрыть все разделы');
 @define('TOGGLE_OPTION', 'Переключить опцию');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'Подписаться на эту запись');
 @define('UNSUBSCRIBE_OK', "%s теперь отписан от этой записи");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Новый комментарий к записи, на которую вы подписаны - "%s"');

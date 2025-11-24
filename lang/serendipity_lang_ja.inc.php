@@ -237,6 +237,7 @@
 @define('REALLY_SCALE_IMAGE', '本当に画像を変換しますか? この操作は取り消すことができません!');
 @define('TOGGLE_ALL', 'すべて展開に切り替え');
 @define('TOGGLE_OPTION', 'オプションに切り替え');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'このエントリーを購読する');
 @define('UNSUBSCRIBE_OK', "%s は今、このエントリーの購読を取り消しました。");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', '購読済みエントリー "%s" に新規コメントです');

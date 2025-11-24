@@ -239,6 +239,7 @@
 @define('REALLY_SCALE_IMAGE', 'هل انت متأكد من تغيير حجم الصورة ! ! أنتبه ! ! لا يوجد تراجع بعد تغيير المقاسات');
 @define('TOGGLE_ALL', 'أضغط هنا لعرض جميع الخيارات');
 @define('TOGGLE_OPTION', 'Toggle option');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'الاشتراك في هذا الموضوع');
 @define('UNSUBSCRIBE_OK', "%s الان لا يمكن الاشتراك في هذا الموضوع");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'New comment to subscribed entry "%s"');

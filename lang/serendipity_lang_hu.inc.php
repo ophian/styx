@@ -237,6 +237,7 @@
 @define('REALLY_SCALE_IMAGE', 'Biztos, hogy átméretezed? Nem lehet visszafordítani a folyamatot!');
 @define('TOGGLE_ALL', 'Minden kibontása');
 @define('TOGGLE_OPTION', 'Beállítások');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'Feliratkozom erre a bejegyzésre');
 @define('UNSUBSCRIBE_OK', "%s leiratkozott erről a bejegyzésről");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Új hozzászólás érkezett az alábbi (feliratkozott) bejegyzéshez "%s"');

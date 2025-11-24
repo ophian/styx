@@ -238,6 +238,7 @@
 @define('REALLY_SCALE_IMAGE', 'آیا از تغییر اندازه تصاویر اطمینان دارید؟ این عمل قابل بازگشت نیست!');
 @define('TOGGLE_ALL', 'باز کردن همه');
 @define('TOGGLE_OPTION', 'انتخاب وضعیت گزینه ها');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'وقتی نظری ارسال شد، مرا خبر کن');
 @define('UNSUBSCRIBE_OK', "%s حذف شد");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'توضیح جدیدی برای مطلب "%s" ارسال شد');

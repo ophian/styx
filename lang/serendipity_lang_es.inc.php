@@ -220,6 +220,7 @@
 @define('REALLY_SCALE_IMAGE', '¿Realmente deseas escalar la imagen? ¡No se podrá deshacer esta acción!');
 @define('TOGGLE_ALL', 'Mostrar/Ocultar todo');
 @define('TOGGLE_OPTION', 'Mostrar/Ocultar');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'Suscribirse a esta entrada');
 @define('UNSUBSCRIBE_OK', "%s ya no está suscrito a esta entrada");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Nuevo comentario en la entrada suscrita "%s"');

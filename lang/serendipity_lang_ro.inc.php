@@ -238,6 +238,7 @@
 @define('REALLY_SCALE_IMAGE', 'Chiar vrei să redimensionezi imaginea? Operaţia este ireversibilă!');
 @define('TOGGLE_ALL', 'Alternează deschide toate');
 @define('TOGGLE_OPTION', 'Alternează opţiunea');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'Abonează-te la această însemnare');
 @define('UNSUBSCRIBE_OK', "%s nu mai este abonat la această însemnare");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Comentariu nou la însemnare "%s"');

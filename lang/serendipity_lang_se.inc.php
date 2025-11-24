@@ -237,6 +237,7 @@
 @define('REALLY_SCALE_IMAGE', 'Vill du verkligen ändra storlek? Detta kan inte ångras!');
 @define('TOGGLE_ALL', 'Visa/dölj alla');
 @define('TOGGLE_OPTION', 'Visa/dölj val');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'Prenumerera på denna artikel');
 @define('UNSUBSCRIBE_OK', "%s har nu avslutat prenumeration på denna artikel");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Ny kommentar till prenumererad artikel "%s"');

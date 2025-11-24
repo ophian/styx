@@ -239,6 +239,7 @@ $i18n_unknown = 'tw';
 @define('REALLY_SCALE_IMAGE', '確定要縮放圖片嗎? 這個動作不能復原!');
 @define('TOGGLE_ALL', '切換展開');
 @define('TOGGLE_OPTION', '切換選項');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', '訂閱這篇文章');
 @define('UNSUBSCRIBE_OK', "%s 已取消訂閱這篇文章");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', '新迴響到訂閱的文章 "%s"');

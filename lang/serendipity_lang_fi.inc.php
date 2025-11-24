@@ -237,6 +237,7 @@
 @define('REALLY_SCALE_IMAGE', 'Skaalataanko kuva? Tätä operaatiota ei voi peruuttaa!');
 @define('TOGGLE_ALL', 'Näytä kaikki');
 @define('TOGGLE_OPTION', 'Näytä');
+@define('SUBSCRIPTION_TO_ENTRY', 'Un-/Subscribe this user from/to entry');
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'Seuraa tätä merkintää');
 @define('UNSUBSCRIBE_OK', "%s :n seuranta peruttu.");
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Uusi kommentti seurattuun merkintään "%s"');
