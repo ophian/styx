@@ -56,6 +56,9 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
     if (isset($serendipity['POST']['commentform']['replyToParent']) && $serendipity['POST']['commentform']['replyToParent'] >= 0) {
         $_replyTo = ($_replyTo != $serendipity['POST']['commentform']['replyToParent']) ? (int) $serendipity['POST']['commentform']['replyToParent'] : $_replyTo;
     }
+    // Remember: Admin set/changed ['POST']['subscribe'] is converted to the real 'subscribed' DB field and this w/o extra (user) confirmation.
+    // And we have an extra hidden serendipity[subscribed] input in the form for notification/iconisation purposes
+    $_subscribe = isset($serendipity['POST']['subscribe']) && $serendipity['POST']['subscribe'] == 'on' ? 'true' : 'false'; // if type=checkbox is set w/o value we have 'on' or null
     if (isset($serendipity['POST']['entry_id']) && $_id > 0) {
         $sql = "UPDATE {$serendipity['dbPrefix']}comments
                    SET
@@ -63,6 +66,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
                         email  = '" . serendipity_db_escape_string($serendipity['POST']['email'])   . "',
                         url    = '" . serendipity_db_escape_string($serendipity['POST']['url'])     . "',
                         " . ($_replyTo != $_id ? "parent_id = '" . (int) $_replyTo . "'," : '') . "
+                        subscribed   = '" . serendipity_db_escape_string($_subscribe)     . "',
                         body   = '" . serendipity_db_escape_string($serendipity['POST']['comment']) . "'
                  WHERE id      = " . $_id . "
                    AND entry_id= " . (int) $serendipity['POST']['entry_id'];
