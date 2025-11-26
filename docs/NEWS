@@ -1,6 +1,9 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Allow to change comment subscribed states via the backend commentform by the
+   Admin Group.
+
  * For $commentform_subscribed states add a user SVG notification icon to the
    backend commentform.
 
