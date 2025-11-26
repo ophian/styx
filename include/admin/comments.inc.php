@@ -405,24 +405,24 @@ if (is_array($sql)) {
     foreach($sql AS $rs) {
         $i++;
         $comment = array(
-            'fullBody'  => serendipity_commentSearchHighlight($_searchCFTB, $rs['body']),
-            'summary'   => mb_substr($rs['body'], 0, $summaryLength),
-            'status'    => $rs['status'],
-            'type'      => $rs['type'],
-            'stype'     => $rs['type'] == 'NORMAL' ? 'C' : ($rs['type'] == 'TRACKBACK' ? 'T' : 'P'),
-            'id'        => $rs['id'],
-            'title'     => $rs['title'],
-            'timestamp' => $rs['timestamp'],
-            'pubdate'   => date('c', (int) $rs['timestamp']), /* added to comment array to support HTML5 time tags in tpl */
-            'referer'   => $rs['referer'],
-            'url'       => $rs['url'],
-            'ip'        => $rs['ip'],
-            'entry_url' => serendipity_archiveURL($rs['entry_id'], $rs['title'], 'baseURL', true, array('timestamp' => $rs['timestamp'])),
-            'email'     => $rs['email'],
-            'author'    => (empty($rs['author']) ? ANONYMOUS : $rs['author']),
-            'is_owner'  => ($rs['email'] === $serendipity['email'] && $rs['author'] === $serendipity['realname']),
-            'entry_id'  => $rs['entry_id'],
-            'subscribed'=> $rs['subscribed']
+            'fullBody'   => serendipity_commentSearchHighlight($_searchCFTB, $rs['body']),
+            'summary'    => mb_substr($rs['body'], 0, $summaryLength),
+            'status'     => $rs['status'],
+            'type'       => $rs['type'],
+            'stype'      => $rs['type'] == 'NORMAL' ? 'C' : ($rs['type'] == 'TRACKBACK' ? 'T' : 'P'),
+            'id'         => $rs['id'],
+            'title'      => $rs['title'],
+            'timestamp'  => $rs['timestamp'],
+            'pubdate'    => date('c', (int) $rs['timestamp']), /* added to comment array to support HTML5 time tags in tpl */
+            'referer'    => $rs['referer'],
+            'url'        => $rs['url'],
+            'ip'         => $rs['ip'],
+            'entry_url'  => serendipity_archiveURL($rs['entry_id'], $rs['title'], 'baseURL', true, array('timestamp' => $rs['timestamp'])),
+            'email'      => $rs['email'],
+            'author'     => (empty($rs['author']) ? ANONYMOUS : $rs['author']),
+            'is_owner'   => ($rs['email'] === $serendipity['email'] && $rs['author'] === $serendipity['realname']),
+            'entry_id'   => $rs['entry_id'],
+            'subscribed' => $rs['subscribed']
         );
 
         $entrylink = serendipity_archiveURL($comment['entry_id'], 'comments', 'serendipityHTTPPath', true, array('timestamp' => $cofakets)) . '#c' . $comment['id'];
