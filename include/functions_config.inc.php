@@ -2285,7 +2285,7 @@ function serendipity_ACL_SQL(iterable &$cond, bool|string $append_category = fal
     if (!isset($serendipity['enableACL']) || $serendipity['enableACL'] == true) {
 
         // If the user is logged in, we retrieve his authorid for the upcoming checks
-        if (isset($_SESSION['serendipityAuthedUser']) && $_SESSION['serendipityAuthedUser'] === true) {
+        if (isset($_SESSION['serendipityAuthedUser']) && $_SESSION['serendipityAuthedUser'] === true && !empty($serendipity['authorid'])) {
             $read_id = (int)$serendipity['authorid'];
             $read_id_sql = 'acl_a.groupid OR acl_acc.groupid = 0 ';
         } else {
