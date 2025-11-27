@@ -1703,15 +1703,15 @@ function serendipity_addCategory(string $name, string $desc, int $authorid, stri
     global $serendipity;
 
     $query = "INSERT INTO {$serendipity['dbPrefix']}category
-                    (category_name, category_description, authorid, category_icon, parentid, category_left, category_right)
+                    (category_name, category_icon, category_description, authorid, category_left, category_right, parentid, sort_order, hide_sub)
                   VALUES
                     ('". serendipity_db_escape_string($name) ."',
+                     '". serendipity_db_escape_string($icon) ."',
                      '". serendipity_db_escape_string($desc) ."',
                       ". $authorid .",
-                     '". serendipity_db_escape_string($icon) ."',
+                       0,
+                       0,
                       ". $parentid .",
-                       0,
-                       0,
                       $sort_order,
                       $hide_sub)";
 
