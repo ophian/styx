@@ -2,7 +2,7 @@ Version 5.0.3 ()
  ------------------------------------------------------------------------
 
  * Fix silent on NULL thrown errors halting system workload for cases:
-   eg. image rotation [w/ ImageMagick] w/ unfilled arguments.
+   eg. image rotation [w/ ImageMagick] causing unfilled arguments.
 
  * Fix scaled AVIF image [w/ ImageMagick] serendipity_passToModule() 4th args
    options for case of forced variation thumb recreation option true, which
