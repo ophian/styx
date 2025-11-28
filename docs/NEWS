@@ -1,7 +1,7 @@
 Version 5.0.3 ()
  ------------------------------------------------------------------------
 
-* Fix missing field names error for the values when adding categories
+* Fix missing field names database error for the values when adding categories
 
 
 
