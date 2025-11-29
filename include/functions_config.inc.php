@@ -483,11 +483,14 @@ function serendipity_logout() : void {
 function serendipity_session_destroy() : void {
     $_no_smarty = $_SESSION['no_smarty'] ?? null;
     @session_destroy();
-    session_start();// set regenerate new to avoid of possible (old) session hijacking
-    session_regenerate_id(true);
+    // Check return type AND @silenced to avoid excessive logging on fail
+    // set regenerate new to avoid of possible (old) session hijacking
+    if (@session_start()) {
+        @session_regenerate_id(true);
 
-    $_SESSION['SERVER_GENERATED_SID'] = true;
-    $_SESSION['no_smarty']            = $_no_smarty;
+        $_SESSION['SERVER_GENERATED_SID'] = true;
+    }
+    $_SESSION['no_smarty'] = $_no_smarty;
 }
 
 /**
