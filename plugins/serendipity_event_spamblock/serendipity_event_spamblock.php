@@ -30,7 +30,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '4.1',
             'php'         => '8.2'
         ));
-        $propbag->add('version',       '2.92');
+        $propbag->add('version',       '2.93');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1265,7 +1265,7 @@ class serendipity_event_spamblock extends serendipity_event
                         }
 
                         // Check for forced COMMENT moderation (X days) w/ $forcemoderation !!
-                        if ($addData['type'] == 'NORMAL' && $forcemoderation > 0 && $eventData['timestamp'] < (time() - ($forcemoderation * 60 * 60 * 24))) {
+                        if ($addData['type'] == 'NORMAL' && $forcemoderation > 0 && isset($eventData['timestamp']) && $eventData['timestamp'] < (time() - ($forcemoderation * 60 * 60 * 24))) {
                             $fm_method = $forcemoderation_treat == 'reject' ? 'REJECTED' : 'MODERATE';
                             $this->log($logfile, $eventData['id'], $fm_method, PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION, $addData);
                             if ($forcemoderation_treat == 'reject') {
