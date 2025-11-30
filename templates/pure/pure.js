@@ -149,12 +149,12 @@ const dark = () => {
     $('#serendipity_comment').on('submit', function(e) {
         // check vanilla textarea vs TinyMCE area
         if ($("#serendipity_commentform_comment").style.display !== 'none') {
-            if (!$.trim($("#serendipity_commentform_comment").val())) {
+            if (!$("#serendipity_commentform_comment").val().trim()) {
                 console.log('contents is empty, fill it!');
                 e.preventDefault(); // cancel submit
             }
         } else {
-            if (!$.trim($("#serendipity_commentform_comment_ifr").val())) {
+            if (!$("#serendipity_commentform_comment_ifr").val().trim()) {
                 console.log('HTMLcomment contents is empty, fill it!');
                 e.preventDefault(); // cancel submit
             }
