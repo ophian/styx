@@ -1,6 +1,8 @@
 Version 5.0.3 ()
  ------------------------------------------------------------------------
 
+ * Fixed several silently logged fail errors for non-set variable states
+
  * Fix silent on NULL thrown errors halting system workload for cases:
    eg. image rotation [w/ ImageMagick] causing unfilled arguments.
 
