@@ -30,7 +30,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '4.1',
             'php'         => '8.2'
         ));
-        $propbag->add('version',       '2.93');
+        $propbag->add('version',       '2.94');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -914,7 +914,8 @@ class serendipity_event_spamblock extends serendipity_event
 
             // Check if the entry is older than the allowed amount of time. Enforce Captchas if that is true
             // or if Captchas are activated for every entry
-            $show_captcha = ($captchas && isset($eventData['timestamp']) && ($captchas_ttl < 1 || ($eventData['timestamp'] < (time() - ($captchas_ttl*60*60*24)))) ? true : false);
+            // The last ternary false to $captchas asssignment is to make sure that entries within captchas_ttl will fall true if spamblock general option is set true
+            $show_captcha = $captchas && (($captchas_ttl < 1 || (($eventData['timestamp'] ?? 0) < (time() - ($captchas_ttl*60*60*24)))) ? true : $captchas);
 
             // Plugins can override with custom captchas
             if (isset($serendipity['plugins']['disable_internal_captcha'])) {
