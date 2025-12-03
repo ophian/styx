@@ -1,6 +1,8 @@
 Version 5.0.3 ()
  ------------------------------------------------------------------------
 
+ * maintenance: Exclude image variations directory from thememanager cleanup
+
  * spamblock: Fix Captcha boolean assignment for entries within $captchas_ttl
 
  * Fixed several silently logged fail errors for non-set variable states
