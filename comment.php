@@ -208,7 +208,7 @@ if ($type == 'trackback') {
         $comment['parent_id'] = $serendipity['POST']['replyTo'];
         if (!empty($comment['comment'])) {
             if (serendipity_saveComment($id, $comment, 'NORMAL')) {
-                $sc_url = $serendipity['baseURL'] . 'comment.php?serendipity[entry_id]=' . $id . '&success=true&url=' . urlencode($_SERVER['HTTP_REFERER']);
+                $sc_url = $serendipity['baseURL'] . 'comment.php?serendipity[entry_id]=' . $id . '&success=true&url=' . urlencode($_SERVER['HTTP_REFERER'] ?? '');
                 if (serendipity_isResponseClean($sc_url)) {
                     header('Status: 302 Found');
                     header('Location: ' . $sc_url);
