@@ -185,6 +185,7 @@ switch($serendipity['GET']['adminAction']) {
         foreach ($dir AS $fileinfo) {
             if ($fileinfo->isDir() && !$fileinfo->isDot()) {
                 $dirname = $fileinfo->getFilename();
+                if ($dirname == '.v') continue;
                 // exclude release theme names
                 if (!in_array($dirname, $keepthemes)) {
                     #echo $dirname."<br>\n";
