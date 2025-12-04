@@ -1,6 +1,11 @@
 Version 5.0.3 ()
  ------------------------------------------------------------------------
 
+ * spamblock: Fix for PHP 8.5 INT cast of a float-string. Since long the non-GD
+   Captcha generation is out of function, since it remains just as a fallback
+   to not hardly fail break the use_gd section. It will be removed in near
+   future, including their png images. For Captchas: GD is required.
+
  * maintenance: Exclude image variations directory from thememanager cleanup
 
  * spamblock: Fix Captcha boolean assignment for entries within $captchas_ttl
