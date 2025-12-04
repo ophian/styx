@@ -30,7 +30,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '4.1',
             'php'         => '8.2'
         ));
-        $propbag->add('version',       '2.94');
+        $propbag->add('version',       '2.95');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1902,7 +1902,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
 
         $parts = explode('_', (string)$eventData);
         if (!empty($parts[1])) {
-            $param = (int)$parts[1]; // get the sessions random data string
+            $param = $parts[1]; // get the sessions random data floated-string
         } else {
             $param = null;
         }
@@ -1979,8 +1979,10 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
             }
             imagejpeg($image, NULL, 90); // NULL fixes https://bugs.php.net/bug.php?id=63920
         } else {
+            // Since long this is out of function since it remains just as a fallback to not hardly fail break the use_gd section. It will be removed in near future, including the png images.
             header('Content-Type: image/png');
-            $output_char = strtolower($_SESSION['spamblock']['captcha'][$param - 1]);
+            $output_char = strtolower($_SESSION['spamblock']['captcha'][intval($param) - 1]);
+            $output_char = empty($output_char) ? strtolower(array_last($_SESSION['spamblock']['captcha'])) : $output_char;
             $cap = $serendipity['serendipityPath'] . 'plugins/serendipity_event_spamblock/captcha_' . $output_char . '.png';
             if (!file_exists($cap)) {
                 $cap = S9Y_INCLUDE_PATH . 'plugins/serendipity_event_spamblock/captcha_' . $output_char . '.png';
