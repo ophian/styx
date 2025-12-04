@@ -1982,7 +1982,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
             // Since long this is out of function since it remains just as a fallback to not hardly fail break the use_gd section. It will be removed in near future, including the png images.
             header('Content-Type: image/png');
             $output_char = strtolower($_SESSION['spamblock']['captcha'][intval($param) - 1]);
-            $output_char = empty($output_char) ? strtolower($_SESSION['spamblock']['captcha'][array_key_last($_SESSION['spamblock']['captcha'])]) : $output_char;
+            $output_char = empty($output_char) ? substr(str_shuffle(str_repeat("23479abcdefhjklmnpqrtuvwxyz", 1)), 0, 1) : $output_char;
             $cap = $serendipity['serendipityPath'] . 'plugins/serendipity_event_spamblock/captcha_' . $output_char . '.png';
             if (!file_exists($cap)) {
                 $cap = S9Y_INCLUDE_PATH . 'plugins/serendipity_event_spamblock/captcha_' . $output_char . '.png';
