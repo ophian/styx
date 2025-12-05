@@ -3395,6 +3395,12 @@ h3 button.toggle_info.button_link.group_info {
     padding-right: .5em;
 }
 
+/* spamblock captcha non-GD fallback */
+.serendipity_comment_captcha_image {
+    display: inline-block;
+    border: 1px solid #ddd;
+}
+
 select#serendipity_commentform_replyToParent {
     text-align-last: right;
 }
