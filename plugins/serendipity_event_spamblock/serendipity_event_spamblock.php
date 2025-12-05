@@ -860,7 +860,7 @@ class serendipity_event_spamblock extends serendipity_event
 
     function example()
     {
-        return '<p id="captchabox" class="msg_hint">' . PLUGIN_EVENT_SPAMBLOCK_LOOK . ' (GD Captchas only.)' . $this->show_captcha() . '</p>';
+        return '<p id="captchabox" class="msg_hint">' . PLUGIN_EVENT_SPAMBLOCK_LOOK . (!(function_exists('imagettftext') && function_exists('imagejpeg')) ? ' (GD Captchas only.)' : '') . $this->show_captcha() . '</p>';
     }
 
     function show_captcha($use_gd = false)
