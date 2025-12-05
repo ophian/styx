@@ -1,6 +1,8 @@
 Version 5.0.3 ()
  ------------------------------------------------------------------------
 
+ * spamblock: Fix Catchas on missing darkmode variable (like fresh installs)
+
  * spamblock: Fix for PHP 8.5 INT cast of a float-string. Fix for non-GD
    Captcha simple image fallback generation and its stylings.
 
