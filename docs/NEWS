@@ -6,8 +6,8 @@ Version 5.0.3 ()
 
  * spamblock: Fix Captchas on missing darkmode variable (like fresh installs)
 
- * spamblock: Fix for PHP 8.5 INT cast of a float-string. Fix for non-GD
-              Captcha simple image fallback generation and its stylings.
+ * spamblock: Fix for PHP 8.5 INT cast of a float-string. Fixes for non-GD
+              Captcha simple image fallback generation and their styles.
 
  * maintenance: Exclude image variations directory from thememanager cleanup
 
@@ -15,12 +15,12 @@ Version 5.0.3 ()
 
  * Fixed several silently logged fail errors for non-set variable states
 
- * Fix silent on NULL thrown errors halting system workload for cases:
-   eg. image rotation [w/ ImageMagick] causing unfilled arguments.
+ * Fix silent on NULL thrown errors halting system workload for cases, eg.
+   image rotation [w/ ImageMagick] causing unfilled arguments.
 
  * Fix scaled AVIF image [w/ ImageMagick] serendipity_passToModule() 4th args
    options for case of forced variation thumb recreation option true, which
-   needs a arguments reset to the new scaled full size dimensions.
+   needs an arguments reset to the new scaled full size dimensions.
 
  * Fix missing field names database error for the values when adding categories
 
