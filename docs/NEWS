@@ -1,6 +1,9 @@
 Version 5.0.3 ()
  ------------------------------------------------------------------------
 
+ * nl2br: Add media <picture> block container tag to the list of ignored
+          elements with enabled [p-tags]-option.
+
  * spamblock: Fix Captchas on missing darkmode variable (like fresh installs)
 
  * spamblock: Fix for PHP 8.5 INT cast of a float-string. Fix for non-GD
