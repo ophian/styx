@@ -860,7 +860,7 @@ class serendipity_event_spamblock extends serendipity_event
 
     function example()
     {
-        return '<p id="captchabox" class="msg_hint">' . PLUGIN_EVENT_SPAMBLOCK_LOOK . $this->show_captcha() . '</p>';
+        return '<p id="captchabox" class="msg_hint">' . PLUGIN_EVENT_SPAMBLOCK_LOOK . ' (GD Captchas only.)' . $this->show_captcha() . '</p>';
     }
 
     function show_captcha($use_gd = false)
@@ -884,13 +884,14 @@ class serendipity_event_spamblock extends serendipity_event
                 htmlspecialchars(PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2)
             );
         } else {
+            // no need for $x here since static and stylable per CSS
             $bgcolors = explode(',', $this->get_config('captcha_color', '255,0,255'));
-            $hexval   = '#' . dechex(trim($bgcolors[0])) . dechex(trim($bgcolors[1])) . dechex(trim($bgcolors[2]));
+            $hexval   = '#' . dechex((int)trim($bgcolors[0])) . dechex((int)trim($bgcolors[1])) . dechex((int)trim($bgcolors[2]));
             $this->random_string($max_char, $min_char);
             $output = '<div class="serendipity_comment_captcha_image" style="background-color: ' . $hexval . '">';
             for ($i = 1; $i <= $max_char; $i++) {
                 $output .= sprintf('<img src="%s" title="%s" alt="CAPTCHA ' . $i . '" class="captcha" />',
-                    $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . "plugin/{$x}captcha_" . $i . '_' . hash('xxh128', (string) time()),
+                    $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . "plugin/captcha_" . $i . '_' . hash('xxh128', (string) time()),
                     htmlspecialchars(PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2)
                 );
             }
@@ -1979,9 +1980,8 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
             }
             imagejpeg($image, NULL, 90); // NULL fixes https://bugs.php.net/bug.php?id=63920
         } else {
-            // Since long this is out of function since it remains just as a fallback to not hardly fail break the use_gd section. It will be removed in near future, including the png images.
             header('Content-Type: image/png');
-            $output_char = substr(str_shuffle(str_repeat("23479abcdefhjklmnpqrtuvwxyz", 1)), 0, 1); // make it simple analoque random_string()
+            $output_char = strtolower($_SESSION['spamblock']['captcha'][$param - 1]);
             $cap = $serendipity['serendipityPath'] . 'plugins/serendipity_event_spamblock/captcha_' . $output_char . '.png';
             if (!file_exists($cap)) {
                 $cap = S9Y_INCLUDE_PATH . 'plugins/serendipity_event_spamblock/captcha_' . $output_char . '.png';
