@@ -867,7 +867,7 @@ class serendipity_event_spamblock extends serendipity_event
     {
         global $serendipity;
 
-        $x = $use_gd ? '' : 'x'; // at this state $use_gd is just some sort of frontend <-> backend divider, so we can use it for external_plugin darkmode captchas. In the further the variable defines itself at a real function.
+        $x = $use_gd ? '' : 'x'; // at this state $use_gd is just some sort of frontend <-> backend divider, so we can use it for external_plugin [backend] darkmode captchas. In the further the variable defines itself at a real function.
 
         if ($use_gd || (function_exists('imagettftext') && function_exists('imagejpeg'))) {
             $max_char = 5;
