@@ -57,7 +57,7 @@ if (defined('USE_MEMSNAP')) {
 $serendipity['charset'] ??= 'UTF-8/'; // Path part setting for themes and plugins. The LANG_CHARSET constant is defined in the lang files
 
 // The version string
-$serendipity['version'] = '5.0.2';
+$serendipity['version'] = '5.0.3';
 $serendipity['edition'] = 'Styx';
 
 // Setting this to 'false' will enable debugging output.
