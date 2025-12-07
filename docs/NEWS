@@ -1,6 +1,9 @@
 Version 5.0.4 ()
  ------------------------------------------------------------------------
 
+ * Fix the [timeline] theme for an early Styx 5 security removal of allowed PHP
+   methods. Copy/child themes must follow the 'index.tpl' file change.
+
  * Fix too new jQuery v4 library regression on bootstrap v4 themes, that do not
    support it. The previously in Styx 4.5 used v.3.7.1 jQuery lib will now live
    in the "templates/_assets/b4/" directory for these legacy fallback cases.
