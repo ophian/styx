@@ -13,8 +13,8 @@ Version 5.0.4 ()
    The also updated [ b46 ] theme is now pointing directly to the new location.
 
    THEME-COPIES:
-        If you are using a child/copy theme of the ['b46'] theme,
-        please check your 'index.tpl' file for the now required correct path
+        If you are using a child/copy theme of the [ b46 ] theme,
+        please check your "index.tpl" file for the now required correct path
         to the legacy jquery.
 
    PARENT-THEMES:
