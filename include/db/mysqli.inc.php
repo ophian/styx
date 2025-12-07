@@ -290,9 +290,9 @@ function serendipity_db_connect() : object {
         // Connect with default ports
         try { $serendipity['dbConn'] = $function($connparts[0], $serendipity['dbUser'], $serendipity['dbPass']); } catch (\Throwable $t) {}
     }
-    if ((is_null($serendipity['dbConn']) || false === $serendipity['dbConn']) && isset($t)) {
+    if ((!isset($serendipity['dbConn']) || false === $serendipity['dbConn']) && isset($t)) {
         serendipity_die(substr($t->getMessage(), 0, 96)); // mysqli_sql_exception: No connection could be made because the target machine actively refused it
-    } else if (is_null($serendipity['dbConn']) || false === $serendipity['dbConn']) {
+    } else if (!isset($serendipity['dbConn']) || false === $serendipity['dbConn']) {
         serendipity_die('MYSQLI ERROR EXCEPTION: No connection could be made because the target machine actively refused it. Go your way!');
     }
     mysqli_select_db($serendipity['dbConn'], $serendipity['dbName']);
