@@ -58,7 +58,7 @@ function serendipity_db_in_sql(string $col, iterable &$search_ids, string $type 
  *      - The resource connection handle
  * @access  public
  */
-function serendipity_db_connect() : object {
+function serendipity_db_connect() : false|object {
     global $serendipity;
 
     if (isset($serendipity['dbPersistent']) && $serendipity['dbPersistent']) {
