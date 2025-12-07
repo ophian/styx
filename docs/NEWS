@@ -1,6 +1,28 @@
 Version 5.0.4 ()
  ------------------------------------------------------------------------
 
+ * Fix too new jQuery v4 library regression on bootstrap v4 themes, that do not
+   support it. The previously in Styx 4.5 used v.3.7.1 jQuery lib will now live
+   in the "templates/_assets/b4/" directory for these legacy fallback cases.
+   Automatically hooked placements via the
+                {serendipity_hookPlugin hook="frontend_header"}
+   are added for the [ bootstrap4, clean-blog and timeline] themes via core.
+   The also updated [ b46 ] theme is now pointing directly to the new location.
+
+   THEME-COPIES:
+        If you are using a child/copy theme of the ['b46'] theme,
+        please check your 'index.tpl' file for the now required correct path
+        to the legacy jquery.
+
+   PARENT-THEMES:
+        If you are using a CHILD theme of one of the three mentioned themes,
+        please add to your themes "config.inc.php" file
+            $serendipity['capabilities']['jquery'] = false;
+        to disable the automatic set and place
+            <script src="{$serendipityHTTPPath}{$templatePath}_assets/b4/jquery.js"></script>
+        to the "index.tpl" file wherever you need it to load, ...but before the
+        loading of the "bootstrap.min.js" file.
+
  * Improve database connection failure conditions
 
 
