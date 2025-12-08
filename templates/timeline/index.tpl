@@ -199,7 +199,7 @@
                         </div>
                     </div>
                 {else}
-                    {if !isset($CONST.THEME_EP_NO)}
+                    {if !isset($CONST.PLUGIN_EVENT_ENTRYPROPERTIES_TITLE)}
                         <div id="search-block" class="row">
                             <div class="col-md-10 col-md-offset-1 alert alert-danger">
                                 {$CONST.THEME_EP_NO}
