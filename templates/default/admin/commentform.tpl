@@ -4,7 +4,7 @@
 
 <div id="serendipityCommentFormC" class="serendipity_commentForm{if isset($commentform_changeReplyTo)} reassign{/if}">
     <div id="serendipity_replyform_0"></div>
-    <form id="serendipity_comment" action="{$commentform_action}#feedback" method="post">
+    <form id="serendipity_comment" action="{$commentform_action}" method="post">
         <div>
             <input type="hidden" name="serendipity[comment_id]" value="{$smarty.get.serendipity.id}">
             <input type="hidden" name="serendipity[entry_id]" value="{$commentform_id}">
