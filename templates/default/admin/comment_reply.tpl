@@ -8,6 +8,11 @@
         {if isset($comment.avatar)}{$comment.avatar}{/if}
         {$comment.body}
     </div>
+{if $comment.subscribed === 'true'}
+    <footer>
+        <div class="msg_notice serendipity_subscription_on"><em>{$CONST.ACTIVE_COMMENT_SUBSCRIPTION}</em></div>
+    </footer>
+{/if}
 </article>
 {foreachelse}
 <p class="nocomments">{$CONST.NO_COMMENTS}</p>
