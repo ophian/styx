@@ -1271,6 +1271,10 @@ input[type=checkbox],
     margin-top: .75em;
     margin-bottom: .75em;
 }
+.form_field.commentspacebox {
+    margin: 0;
+    line-height: 0;
+}
 
 #category_permissions legend {
     margin-bottom: .5rem;
@@ -5192,6 +5196,12 @@ img.mfp-img {
     }
     .serendipity_commentForm.reassign #serendipity_comment label {
         width: 100%;
+    }
+    .serendipity_commentForm.reassign #serendipity_comment .form_field.commentspacebox {
+        display: block;
+        margin: 2.75em;
+        width: 33%;
+        line-height: 1.5;
     }
 
     #media_filter > div.keywords {/*simple filter*/
