@@ -3,8 +3,8 @@ Version 5.1-DEV ()
 
  * Add active comment subscription marker notice to backend reply form
 
- * Allow to change comment subscribed states via the backend commentform by the
-   Admin Group.
+ * Allow to change user comment subscription states via the backend commentform
+   by the Admin Group.
 
  * For $commentform_subscribed states add a user SVG notification icon to the
    backend commentform.
