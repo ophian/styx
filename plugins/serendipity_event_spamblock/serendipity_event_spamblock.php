@@ -30,7 +30,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '4.1',
             'php'         => '8.2'
         ));
-        $propbag->add('version',       '2.91');
+        $propbag->add('version',       '2.96');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -860,14 +860,14 @@ class serendipity_event_spamblock extends serendipity_event
 
     function example()
     {
-        return '<p id="captchabox" class="msg_hint">' . PLUGIN_EVENT_SPAMBLOCK_LOOK . $this->show_captcha() . '</p>';
+        return '<p id="captchabox" class="msg_hint">' . PLUGIN_EVENT_SPAMBLOCK_LOOK . (!(function_exists('imagettftext') && function_exists('imagejpeg')) ? ' (GD Captchas only.)' : '') . $this->show_captcha() . '</p>';
     }
 
     function show_captcha($use_gd = false)
     {
         global $serendipity;
 
-        $x = $use_gd ? '' : 'x'; // at this state $use_gd is just some sort of frontend <-> backend divider, so we can use it for external_plugin darkmode captchas. In the further the variable defines itself at a real function.
+        $x = $use_gd ? '' : 'x'; // at this state $use_gd is just some sort of frontend <-> backend divider, so we can use it for external_plugin [backend] darkmode captchas. In the further the variable defines itself at a real function.
 
         if ($use_gd || (function_exists('imagettftext') && function_exists('imagejpeg'))) {
             $max_char = 5;
@@ -884,13 +884,14 @@ class serendipity_event_spamblock extends serendipity_event
                 htmlspecialchars(PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2)
             );
         } else {
+            // no need for $x here since static and stylable per CSS
             $bgcolors = explode(',', $this->get_config('captcha_color', '255,0,255'));
-            $hexval   = '#' . dechex(trim($bgcolors[0])) . dechex(trim($bgcolors[1])) . dechex(trim($bgcolors[2]));
+            $hexval   = '#' . dechex((int)trim($bgcolors[0])) . dechex((int)trim($bgcolors[1])) . dechex((int)trim($bgcolors[2]));
             $this->random_string($max_char, $min_char);
             $output = '<div class="serendipity_comment_captcha_image" style="background-color: ' . $hexval . '">';
             for ($i = 1; $i <= $max_char; $i++) {
                 $output .= sprintf('<img src="%s" title="%s" alt="CAPTCHA ' . $i . '" class="captcha" />',
-                    $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . "plugin/{$x}captcha_" . $i . '_' . hash('xxh128', (string) time()),
+                    $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . "plugin/captcha_" . $i . '_' . hash('xxh128', (string) time()),
                     htmlspecialchars(PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2)
                 );
             }
@@ -914,7 +915,8 @@ class serendipity_event_spamblock extends serendipity_event
 
             // Check if the entry is older than the allowed amount of time. Enforce Captchas if that is true
             // or if Captchas are activated for every entry
-            $show_captcha = ($captchas && isset($eventData['timestamp']) && ($captchas_ttl < 1 || ($eventData['timestamp'] < (time() - ($captchas_ttl*60*60*24)))) ? true : false);
+            // The last ternary false to $captchas asssignment is to make sure that entries within captchas_ttl will fall true if spamblock general option is set true
+            $show_captcha = $captchas && (($captchas_ttl < 1 || (($eventData['timestamp'] ?? 0) < (time() - ($captchas_ttl*60*60*24)))) ? true : $captchas);
 
             // Plugins can override with custom captchas
             if (isset($serendipity['plugins']['disable_internal_captcha'])) {
@@ -1265,7 +1267,7 @@ class serendipity_event_spamblock extends serendipity_event
                         }
 
                         // Check for forced COMMENT moderation (X days) w/ $forcemoderation !!
-                        if ($addData['type'] == 'NORMAL' && $forcemoderation > 0 && $eventData['timestamp'] < (time() - ($forcemoderation * 60 * 60 * 24))) {
+                        if ($addData['type'] == 'NORMAL' && $forcemoderation > 0 && isset($eventData['timestamp']) && $eventData['timestamp'] < (time() - ($forcemoderation * 60 * 60 * 24))) {
                             $fm_method = $forcemoderation_treat == 'reject' ? 'REJECTED' : 'MODERATE';
                             $this->log($logfile, $eventData['id'], $fm_method, PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION, $addData);
                             if ($forcemoderation_treat == 'reject') {
@@ -1399,7 +1401,7 @@ class serendipity_event_spamblock extends serendipity_event
                     if ($_show_captcha) {
                         $selector_id = 'captcha_'.$unique_sid; // for possible adduser form on main page and in sidebar
                         echo '                                <div class="serendipity_commentDirection serendipity_comment_captcha">'."\n";
-                        if (!isset($serendipity['POST']['preview']) || strtolower($serendipity['POST']['captcha']) != @strtolower($_SESSION['spamblock']['captcha'])) {
+                        if (!isset($serendipity['POST']['preview']) || strtolower($serendipity['POST']['captcha'] ?? '') != @strtolower($_SESSION['spamblock']['captcha'] ?? '')) {
                             echo '                                    ' . PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC . "<br />\n";
                             echo '                                    ' . $this->show_captcha($use_gd) . "<br />\n";
                             echo '                                    <label for="'.$selector_id.'">'. PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3 . "</label>\n";
@@ -1901,7 +1903,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
 
         $parts = explode('_', (string)$eventData);
         if (!empty($parts[1])) {
-            $param = (int)$parts[1]; // get the sessions random data string
+            $param = $parts[1]; // get the sessions random data floated-string
         } else {
             $param = null;
         }
@@ -1937,7 +1939,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
             }
 
             header('Content-Type: image/jpeg');
-            if ($darkmode && $serendipity['dark_mode']) {
+            if ($darkmode && isset($serendipity['dark_mode']) && $serendipity['dark_mode']) {
                 $image = imagecreatetruecolor($width, $height); // recommended use of imagecreatetruecolor() returns a black background-color (Backend only)
             } else {
                 $image = imagecreate($width, $height); // returns a white background-color

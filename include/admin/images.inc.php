@@ -940,7 +940,7 @@ switch ($serendipity['GET']['adminAction']) {
         }
 
         if (empty($serendipity['adminFile_redirect'])) {
-            $serendipity['adminFile_redirect'] = htmlspecialchars($_SERVER['HTTP_REFERER']);
+            $serendipity['adminFile_redirect'] = htmlspecialchars($_SERVER['HTTP_REFERER'] ?? '');
         }
 
         $data['case_rotateCW'] = true;
@@ -959,7 +959,7 @@ switch ($serendipity['GET']['adminAction']) {
         }
 
         if (empty($serendipity['adminFile_redirect'])) {
-            $serendipity['adminFile_redirect'] = htmlspecialchars($_SERVER['HTTP_REFERER']);
+            $serendipity['adminFile_redirect'] = htmlspecialchars($_SERVER['HTTP_REFERER'] ?? '');
         }
 
         $data['case_rotateCCW'] = true;

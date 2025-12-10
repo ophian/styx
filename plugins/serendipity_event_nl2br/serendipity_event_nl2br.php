@@ -20,7 +20,7 @@ class serendipity_event_nl2br extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_NL2BR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team, Ian Styx, Stephan Brunker');
-        $propbag->add('version',       '2.57');
+        $propbag->add('version',       '2.58');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
@@ -457,7 +457,7 @@ p.wl_notopbottom {
     var $isolation_inline_elements = array('svg','style');
 
     var $ignored_elements = array('a', 'area', 'br', 'col', 'command', 'embed',
-                                'img', 'input', 'keygen', 'link', 'param', 'source',
+                                'img', 'input', 'keygen', 'link', 'param', 'picture', 'source',
                                 'track', 'wbr', 'iframe',
                                 'li','tr','th','col','colgroup',
                                 'thead', 'tbody', 'tfoot', 'caption', 'figcaption', 'ins','del',

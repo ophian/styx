@@ -565,6 +565,11 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
 [data-dark-theme="dark"] #serendipity_categories_list input[type="checkbox"] {
   margin-right: 4px; /*consistency space like for authors checkbox*/
 }
+/* spamblock captcha non-GD fallback */
+[data-dark-theme="dark"] .serendipity_comment_captcha_image {
+  background-color: transparent !important; }
+[data-dark-theme="dark"] .serendipity_comment_captcha .captcha {
+  border-color: #333941; }
 
 /* defaults */
 
@@ -1510,6 +1515,9 @@ body.grid-block .dsgvo_gdpr_footer {
 }
 .dsgvo_gdpr_comment label {
     font-weight: normal;
+}
+#serendipity_emoticonchooser_comment, .form_toolbar.dsgvo_gdpr_comment {
+    margin-bottom: 1em;
 }
 #checkbox_dsgvo_gdpr {
     margin-right: .5rem;

@@ -208,7 +208,7 @@ if ($type == 'trackback') {
         $comment['parent_id'] = $serendipity['POST']['replyTo'];
         if (!empty($comment['comment'])) {
             if (serendipity_saveComment($id, $comment, 'NORMAL')) {
-                $sc_url = $serendipity['baseURL'] . 'comment.php?serendipity[entry_id]=' . $id . '&success=true&url=' . urlencode($_SERVER['HTTP_REFERER']);
+                $sc_url = $serendipity['baseURL'] . 'comment.php?serendipity[entry_id]=' . $id . '&success=true&url=' . urlencode($_SERVER['HTTP_REFERER'] ?? '');
                 if (serendipity_isResponseClean($sc_url)) {
                     header('Status: 302 Found');
                     header('Location: ' . $sc_url);
@@ -218,7 +218,7 @@ if ($type == 'trackback') {
                 $serendipity['smarty']->assign(
                     array(
                         'is_comment_notadded' => true,
-                        'comment_url'         => htmlspecialchars($_SERVER['HTTP_REFERER']),
+                        'comment_url'         => htmlspecialchars($_SERVER['HTTP_REFERER'] ?? ''),
                         'comment_string'      => explode('%s', COMMENT_NOT_ADDED_CLICK)
                     )
                 );
@@ -227,7 +227,7 @@ if ($type == 'trackback') {
             $serendipity['smarty']->assign(
                 array(
                     'is_comment_empty' => true,
-                    'comment_url'      => htmlspecialchars($_SERVER['HTTP_REFERER']),
+                    'comment_url'      => htmlspecialchars($_SERVER['HTTP_REFERER'] ?? ''),
                     'comment_string'   => explode('%s', EMPTY_COMMENT)
                 )
             );

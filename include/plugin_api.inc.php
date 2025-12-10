@@ -41,10 +41,13 @@ function serendipity_plugin_api_frontend_header(string $event, ?iterable &$bag, 
     // jquery can be disabled if a template's config.inc.php or a plugin sets
     // $serendipity['capabilities']['jquery'] = false
 
+    // Since Styx 5 runs with jQuery v4 we have to fall back bootstrap 4 themes running the previous jquery 3.7.1 version of Styx 4.5.1 - now living in _assets/b4/
+    $path = in_array($serendipity['template'], ['bootstrap4', 'clean-blog', 'timeline']) ? '_assets/b4/' : '';
+
     $check = file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $serendipity['template'] . '/jquery.js');
     if (!$check && $serendipity['capabilities']['jquery']) {
 ?>
-    <script src="<?php echo $serendipity['serendipityHTTPPath']; ?>templates/jquery.js"></script>
+    <script src="<?php echo $serendipity['serendipityHTTPPath']; ?>templates/<?=$path?>jquery.js"></script>
 <?php
         if ($serendipity['capabilities']['jquery-noconflict']) {
 ?>

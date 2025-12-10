@@ -1674,6 +1674,9 @@ function serendipity_scaleImg(int $id, int $width, int $height, bool $scaleThumb
             }
             // do on SAME FILE for the AVIF-Format variation
             if (file_exists($oavif)) {
+                if ($scaleThumbVariation && file_exists($owebpTH)) {
+                    $pass = [ $serendipity['convert'], ['-scale'], [], ["\"{$width}x{$height}\""], 100, 2 ]; // reset for full size dimension when ran through (silently) force scale Thumb Variation too
+                }
                 $resavif = serendipity_passToCMD('image/avif', $oavif, $oavif, $pass);
                 if (is_array($resavif) && $resavif[0] != 0) {
                     echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' .

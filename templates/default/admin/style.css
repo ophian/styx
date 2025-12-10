@@ -3098,6 +3098,12 @@ h3 button.toggle_info.button_link.group_info {
     padding-right: .5em;
 }
 
+/* spamblock captcha non-GD fallback */
+.serendipity_comment_captcha_image {
+    display: inline-block;
+    border: 1px solid #ddd;
+}
+
 #serendipity_comment .form_field input.serendipity_commentform_ckbx_subscribe {
     width: 1em;
     margin: .15em .25em;

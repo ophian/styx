@@ -222,7 +222,8 @@
     <p lang="en">Powered by <a href="https://ophian.github.io/">Serendipity Styx Edition</a> <abbr title="and">&amp;</abbr> the <i>{$template}</i> theme.</p>
 </footer>
 
-<script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
+{* Bootstrap's v4 JavaScript requires at least jQuery v1.9.1 but less than v4.0.0 - so we use previous v.3.7.1 that long *}
+<script src="{$serendipityHTTPPath}{$templatePath}_assets/b4/jquery.js"></script>
 <script src="{serendipity_getFile file="b4/js/bootstrap.min.js"}"></script>
 <script src="{serendipity_getFile file="js/theme.js"}"></script>
 {/if}

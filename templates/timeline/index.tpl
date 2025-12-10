@@ -199,7 +199,7 @@
                         </div>
                     </div>
                 {else}
-                    {if !class_exists('serendipity_event_entryproperties')}
+                    {if !isset($CONST.PLUGIN_EVENT_ENTRYPROPERTIES_TITLE)}
                         <div id="search-block" class="row">
                             <div class="col-md-10 col-md-offset-1 alert alert-danger">
                                 {$CONST.THEME_EP_NO}

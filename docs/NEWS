@@ -12,16 +12,78 @@ Version 5.1-DEV ()
  * Fix / Improve unfinished comment subscription status tag for backend comment
    previews.
 
+ * Fix [ timeline ] theme fix of 5.0.4
 
 
-Version 5.0.2 (November, 23rd 2025)
+
+Version 5.0.4 (December 7th, 2025)
+ ------------------------------------------------------------------------
+
+ * Fix [ timeline ] theme for an early Styx 5 security removal of allowed PHP
+   methods. Copy/child themes must follow the 'index.tpl' file change.
+
+ * Fix too new jQuery v4 library regression on bootstrap v4 themes, that do not
+   support it. The previously in Styx 4.5 used v.3.7.1 jQuery lib will now live
+   in the "templates/_assets/b4/" directory for these legacy fallback cases.
+   Automatically hooked placements via the
+                {serendipity_hookPlugin hook="frontend_header"}
+   are added for the [ bootstrap4, clean-blog and timeline ] themes via core.
+   The also updated [ b46 ] theme is now pointing directly to the new location.
+
+   THEME-COPIES:
+        If you are using a child/copy theme of the [ b46 ] theme,
+        please check your "index.tpl" file for the now required correct path
+        to the legacy jquery.
+
+   PARENT-THEMES:
+        If you are using a CHILD theme of one of the three mentioned themes,
+        please add to your themes "config.inc.php" file
+            $serendipity['capabilities']['jquery'] = false;
+        to disable the automatic set and place
+            <script src="{$serendipityHTTPPath}{$templatePath}_assets/b4/jquery.js"></script>
+        to the "index.tpl" file wherever you need it to load, ...but before the
+        loading of the "bootstrap.min.js" file.
+
+ * Improve database connection failure conditions
+
+
+
+Version 5.0.3 (December 6th, 2025)
+ ------------------------------------------------------------------------
+
+ * nl2br: Add media <picture> block container tag to the list of ignored
+          elements with enabled [p-tags]-option.
+
+ * spamblock: Fix Captchas on missing darkmode variable (like fresh installs)
+
+ * spamblock: Fix for PHP 8.5 INT cast of a float-string. Fixes for non-GD
+              Captcha simple image fallback generation and their styles.
+
+ * maintenance: Exclude image variations directory from thememanager cleanup
+
+ * spamblock: Fix Captcha boolean assignment for entries within $captchas_ttl
+
+ * Fixed several silently logged fail errors for non-set variable states
+
+ * Fix silent on NULL thrown errors halting system workload for cases, eg.
+   image rotation [w/ ImageMagick] causing unfilled arguments.
+
+ * Fix scaled AVIF image [w/ ImageMagick] serendipity_passToModule() 4th args
+   options for case of forced variation thumb recreation option true, which
+   needs an arguments reset to the new scaled full size dimensions.
+
+ * Fix missing field names database error for the values when adding categories
+
+
+
+Version 5.0.2 (November 23rd, 2025)
  ------------------------------------------------------------------------
 
  * Fix Plugin updates issue(s) with some plugin $bag-> fields for non-sets
 
 
 
-Version 5.0.1 (November, 23rd 2025)
+Version 5.0.1 (November 23rd, 2025)
  ------------------------------------------------------------------------
 
  * plugin API: Fix get_plugin_title() case on NULL $title reference
@@ -38,7 +100,7 @@ Version 5.0.1 (November, 23rd 2025)
 
 
 
-Version 5.0.0 (November, 23rd 2025)
+Version 5.0.0 (November 23rd, 2025)
  ------------------------------------------------------------------------
 
   * Improve [ pure ] theme image max sizing styles for image block galleries
@@ -57,7 +119,7 @@ Version 5.0.0 (November, 23rd 2025)
 
 
 
-Version 5.0-rc2 (November, 16th 2025)
+Version 5.0-rc2 (November 16th, 2025)
  ------------------------------------------------------------------------
 
   * Refactor serendipity_cancelSubscription() param & return types while being
