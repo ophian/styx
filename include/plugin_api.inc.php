@@ -756,12 +756,13 @@ class serendipity_plugin_api
      *      - object
      * @access protected
      */
-    static function &load_plugin(string $instance_id, ?string $authorid = null, $pluginPath = '', ?string $pluginFile = null) : object|false
+    static function &load_plugin(string $instance_id, ?string $authorid = null, ?string $pluginPath = '', ?string $pluginFile = null) : object|false
     {
         global $serendipity;
 
         if ($pluginFile === null) {
             $class_name = '';
+            $pluginPath ??= ''; // SET on NULL, while being parsed by reference
             // $serendipity['debug']['pluginload'][] = "Init probe for plugin $instance_id, $class_name, $pluginPath";
             $pluginFile = serendipity_plugin_api::probePlugin($instance_id, $class_name, $pluginPath);
         } else {
