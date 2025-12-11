@@ -1,3 +1,5 @@
+ * Fix a rare type issue in load_plugin() on NULL
+
  * Fix [ timeline ] theme fix of 5.0.4
 
 
