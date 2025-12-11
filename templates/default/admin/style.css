@@ -3087,6 +3087,11 @@ h3 button.toggle_info.button_link.group_info {
     float: right;
 }
 
+.comment_status.comment_status_pending.unfloat {
+    float: none;
+    background-color: transparent;
+}
+
 #serendipity_comments_list .comment_status {
     margin: .5em;
 }
