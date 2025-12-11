@@ -1,6 +1,8 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Add iconized virgin unapproved/hidden info state to comment edit preview
+
  * Add active comment subscription marker notice to backend reply form
 
  * Allow to change user comment subscription states via the backend commentform
