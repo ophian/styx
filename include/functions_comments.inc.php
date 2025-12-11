@@ -746,7 +746,7 @@ function serendipity_printComments(iterable $comments, int|string $parentid = 0,
                     $comment['preview_editstatus'] = '<div class="msg_notice serendipity_subscription_off"><em>' . NO_COMMENT_SUBSCRIPTION . '</em></div>';
                 }
             }
-            $comment['preview_editstatus'] = $comment['preview_editstatus'] ?? null;
+            $comment['preview_editstatus'] ??= null;
 
             $_smartyComments[] = $comment;
             // NOTE: There is no THREADed VIEW on comment summary pages. See commentByAuthors, this is hard called by VIEWMODE_LINEAR
