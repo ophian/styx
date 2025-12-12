@@ -6,10 +6,10 @@ Version 5.1-DEV ()
  * Add active comment subscription marker notice to backend reply form
 
  * Allow to change user comment subscription states via the backend commentform
-   by the Admin Group when the comment user has an email set.
+   by the Admin Group when the users comment has an email set.
 
  * For $commentform_subscribed states add a user SVG notification icon to the
-   backend commentform when the comment user has an email set.
+   backend commentform when the users comment has an email set.
 
  * Add new backend filter logic to search for subscribed comments only
 
