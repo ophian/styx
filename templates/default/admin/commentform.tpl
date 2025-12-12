@@ -8,11 +8,12 @@ This shall set the above "reassign" selector and the commentspacebox for paired 
 Virgin, un-approved comment edits will NOT show any subscription or reassign editing, so we have a "tri-state" 33% form field order such as in answer to comment "preview".
 
 *}
-{if (NOT isset($comments[0]) AND ($commentform_status == 'approved' AND $commentform_subscribed === 'false'))
+{if NOT empty($commentform_email)
+ AND ((NOT isset($comments[0]) AND ($commentform_status == 'approved' AND $commentform_subscribed === 'false'))
  OR
     ($commentform_status == 'approved' AND $commentform_subscribed === 'false')
  OR
-    $commentform_subscribed === 'true'}{assign var='reassign' value=true}{/if}
+    $commentform_subscribed === 'true')}{assign var='reassign' value=true}{/if}
 {if $smarty.get.serendipity.adminAction == 'edit'}
 <h2>{$CONST.EDIT_THIS_CAT|sprintf:"{$CONST.COMMENT} #`$smarty.get.serendipity.id`"|replace:'"':''}</h2>
 {/if}
@@ -34,8 +35,8 @@ Virgin, un-approved comment edits will NOT show any subscription or reassign edi
         <div class="form_field">
             <label for="serendipity_commentform_email">{$CONST.EMAIL}</label>
             <input id="serendipity_commentform_email" name="serendipity[email]" type="email" value="{$commentform_email}">
-{if (isset($commentform_changeReplyTo) OR $commentform_replyTo == 0) OR (NOT isset($comments[0]) AND empty($commentform_data))}
-{if NOT empty($commentform_email) AND $commentform_status == 'approved'}
+{if NOT empty($commentform_email) AND (isset($commentform_changeReplyTo) OR $commentform_replyTo == 0) OR (NOT isset($comments[0]) AND empty($commentform_data))}
+{if $commentform_status == 'approved'}
             <input class="serendipity_commentform_ckbx_subscribe" name="serendipity[subscribe]" type="checkbox" title="{$CONST.SUBSCRIPTION_TO_ENTRY}"{if isset($commentform_subscribed) AND $commentform_subscribed === 'true'} checked="checked"{/if}>
 {/if}
 {if isset($commentform_subscribed) AND $commentform_subscribed === 'true'}
