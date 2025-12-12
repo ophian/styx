@@ -743,7 +743,9 @@ function serendipity_printComments(iterable $comments, int|string $parentid = 0,
                     }
                 } else {
                     // why not ... :)
-                    $comment['preview_editstatus'] = '<div class="msg_notice serendipity_subscription_off"><em>' . NO_COMMENT_SUBSCRIPTION . '</em></div>';
+                    if (!empty($comment['email'])) {
+                        $comment['preview_editstatus'] = '<div class="msg_notice serendipity_subscription_off"><em>' . NO_COMMENT_SUBSCRIPTION . '</em></div>';
+                    }
                 }
             }
             $comment['preview_editstatus'] ??= null;
