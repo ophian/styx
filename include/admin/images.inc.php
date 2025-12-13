@@ -347,6 +347,7 @@ switch ($serendipity['GET']['adminAction']) {
 
         $data['case_changeProp'] = true;
         $messages = array();
+        // $serendipity['POST']['mediaFormat'] is a permissive array - NOT for EDITOR users
         if (isset($serendipity['POST']['adminSubAction']) && $serendipity['POST']['adminSubAction'] == 'properties') {
             if (isset($serendipity['POST']['mediaFormat']) && $serendipity['POST']['mediaFormat'][0]['oldMime'] != $serendipity['POST']['mediaFormat'][0]['newMime']
             &&  $serendipity['POST']['mediaDirectory'][0]['oldDir'] != $serendipity['POST']['mediaDirectory'][0]['newDir']) {
