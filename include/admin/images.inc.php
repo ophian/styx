@@ -348,13 +348,13 @@ switch ($serendipity['GET']['adminAction']) {
         $data['case_changeProp'] = true;
         $messages = array();
         if (isset($serendipity['POST']['adminSubAction']) && $serendipity['POST']['adminSubAction'] == 'properties') {
-            if ($serendipity['POST']['mediaFormat'][0]['oldMime'] != $serendipity['POST']['mediaFormat'][0]['newMime']
+            if (isset($serendipity['POST']['mediaFormat']) && $serendipity['POST']['mediaFormat'][0]['oldMime'] != $serendipity['POST']['mediaFormat'][0]['newMime']
             &&  $serendipity['POST']['mediaDirectory'][0]['oldDir'] != $serendipity['POST']['mediaDirectory'][0]['newDir']) {
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SELECTION . "</span>\n";
                 break;
             }
             // PROPERTIES CHANGE SUB CASE: image format convert/rename extension
-            if ($serendipity['POST']['mediaFormat'][0]['oldMime'] != $serendipity['POST']['mediaFormat'][0]['newMime']
+            if (isset($serendipity['POST']['mediaFormat']) && $serendipity['POST']['mediaFormat'][0]['oldMime'] != $serendipity['POST']['mediaFormat'][0]['newMime']
             && serendipity_checkPermission('adminImagesDelete') && serendipity_checkPermission('adminImagesMaintainOthers')) {
                 // fetch file
                 $file = serendipity_fetchImageFromDatabase((int) $serendipity['POST']['mediaProperties'][0]['image_id']);
