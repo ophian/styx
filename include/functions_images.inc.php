@@ -2841,9 +2841,14 @@ function serendipity_syncThumbs(bool|string $deleteThumbs = false) : int {
         $rs = serendipity_db_query("SELECT *
                                       FROM {$serendipity['dbPrefix']}images AS i
                                            {$cond['joins']}
-                                           {$cond['and']}", true, 'assoc');
+                                           {$cond['and']} LIMIT 1", true, 'assoc');
+        // Workaround a strange postgreSQL-PDO issue (only) that returns false, but the query w/o an extra added " LIMIT 1",
+        // somehow still creates a multidimensional array with [0] and [1] keys and duplicated components - BUT the later checkup awaits a flattened array only
+        // Why and how does PDO do this?
+        // SO BETTER use LIMIT to flatten the array result. It works for them all and is what we need!
+
         // Leave messages plain un-styled
-        if (is_array($rs)) {
+        if (false !== $rs && is_array($rs)) {
 
             // This image is in the database. Check our calculated data against the database data.
             $update = array();
