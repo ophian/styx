@@ -16,8 +16,8 @@ Version 5.1-DEV ()
  * Fix / Improve unfinished comment subscription status tag for backend comment
    previews.
 
- * Fix a strange PDO:PostgreSQL array result issue for the rebuild media thumbs
-   maintenance task.
+ * Fix a possible PDO:PostgreSQL wrong result array for the rebuild media
+   thumbs maintenance task single file checks.
 
  * Fix media property variable POST change access when not having permission
    (EDITOR user)
