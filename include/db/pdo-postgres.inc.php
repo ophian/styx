@@ -302,8 +302,6 @@ function &serendipity_db_query(string $sql, bool $single = false, string $result
 
     $result_type = $type_map[$result_type];
 
-    $n = 0;
-
     $rows = array();
     foreach($serendipity['dbSth']->fetchAll($result_type) AS $row) {
         if (!empty($assocKey)) {
@@ -317,13 +315,15 @@ function &serendipity_db_query(string $sql, bool $single = false, string $result
             $rows[] = $row;
         }
     }
-    if (count($rows) == 0) {
+
+    $n = count($rows);
+    if ($n == 0) {
         if ($single) {
             return $type_map['false'];
         }
         return $type_map['true'];
     }
-    if (count($rows) == 1 && $single) {
+    if ($n > 0 && $single) {
         return $rows[0];
     }
     return $rows;
