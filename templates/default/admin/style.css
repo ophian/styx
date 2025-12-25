@@ -3124,6 +3124,10 @@ select#serendipity_commentform_replyToParent {
 #serendipity_commentform_replyToParent option {
     direction: rtl;
 }
+.serendipity_comment.reply footer {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
 .serendipity_comment.reply .msg_notice.serendipity_subscription_on {
     margin: 1px 0 1px calc(100% - 80px);
     padding: 0 .5em;
