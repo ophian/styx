@@ -1,6 +1,8 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Remove backend footer in comment answer (+preview) popups
+
  * Add iconized virgin unapproved/hidden info state to comment edit preview
 
  * Add active comment subscription marker notice to backend reply form
