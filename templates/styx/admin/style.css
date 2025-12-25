@@ -1521,6 +1521,7 @@ h3.additional_properties {
     margin-bottom: 1em;
     background-color: #F9F9F9;
     border: 1px solid #DDD;
+    min-height: 1em;
 }
 .comment_preview_editstatus { float: right; }
 .comment_preview_editstatus .msg_notice {
