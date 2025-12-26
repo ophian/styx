@@ -1212,6 +1212,10 @@ nav.pager + .serendipity_blogpdf {
     display: none;
     visibility: hidden;
 }
+/* overwrites gallery 900px media 75% sizes for the entry preview */
+#content.preview_preview_content .serendipity_image_block.col img {
+    max-width: fit-content;
+}
 
 
 
