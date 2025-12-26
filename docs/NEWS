@@ -1,6 +1,8 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Add target and title to named comment.url comment (+reply) previews
+
  * Remove backend footer in comment answer (+preview) popups
 
  * Add iconized virgin unapproved/hidden info state to comment edit preview
