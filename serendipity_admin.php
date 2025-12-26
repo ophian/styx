@@ -101,6 +101,8 @@ $serendipity['ajax'] = $ajax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && str
 $no_banner  = (isset($serendipity['GET']['noBanner'])  || isset($serendipity['POST']['noBanner']));
 $no_sidebar = (isset($serendipity['GET']['noSidebar']) || isset($serendipity['POST']['noSidebar']));
 $no_footer  = (isset($serendipity['GET']['noFooter'])  || isset($serendipity['POST']['noFooter']));
+// all three in ONE to shorten the GET URI string
+$no_banner  = $no_sidebar = $no_footer = (isset($serendipity['GET']['popupContent'])  || isset($serendipity['POST']['popupContent']));
 
 $use_installer = (!isset($serendipity['serendipityPath']) || IS_installed === false || IS_up2date === false );
 
