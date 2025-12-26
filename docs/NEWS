@@ -1,6 +1,10 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Introduce new 'popupContent' shortcut request variable to shorten long URIs
+   when no sidebars, banners and footers shall appear. Backend comment & media
+   links have migrated.
+
  * Add target and title to named comment.url comment (+reply) previews
 
  * Remove backend footer in comment answer (+preview) popups
