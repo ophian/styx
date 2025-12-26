@@ -211,7 +211,7 @@ if (isset($serendipity['GET']['adminAction'])
             );
         }
 
-        $target_url = '?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=doReply&amp;serendipity[id]=' . $_id . '&amp;serendipity[entry_id]=' . $_entry_id . '&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;' . serendipity_setFormToken('url');
+        $target_url = '?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=doReply&amp;serendipity[id]=' . $_id . '&amp;serendipity[entry_id]=' . $_entry_id . '&amp;serendipity[popupContent]=true&amp;' . serendipity_setFormToken('url');
         $out        = serendipity_printComments($c, $p);
         $codata     = $serendipity['POST'];
 
