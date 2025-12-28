@@ -1,6 +1,9 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Improve backend image scaling form with new SCALE_VARIATION_FORMAT info
+   constant.
+
  * For more powerful (server) computers and environments of today:
     - Raise AVIF encoding limit from 14MB to 24MB filesize as restriction
     - Allow to set and use a custom limit as an optional private
