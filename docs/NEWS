@@ -1,6 +1,8 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Improve Styx ImageMagick quality sets and (+forced) scaled (+thumb) sizes
+
  * Introduce new 'popupContent' shortcut request variable to shorten long URIs
    when no sidebars, banners and footers shall appear. Backend comment & media
    links have migrated.
