@@ -401,6 +401,9 @@
     <span id="media_scale_selection" class="clearfix additional_info media_scale_selection">
         <span class="msg_hint image_resize_hint"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.HERE_YOU_CAN_ENTER_BLAHBLAH}</span>
     </span>
+    <span id="media_scale_variation" class="clearfix additional_info media_scale_selection">
+        <span class="msg_hint image_resize_hint"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.SCALE_VARIATION_FORMAT}</span>
+    </span>
 </span>
 {/if}
 
@@ -435,7 +438,7 @@
 
         <div class="form_check">
             <input id="resize_scalethumbvariation" name="serendipity[scaleThumbVariation]" type="checkbox">
-            <label for="resize_scalethumbvariation">{$CONST.SCALE_THUMB_VARIATION} <button class="toggle_info button_link" type="button" data-href="#media_scale_selection"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button></label>
+            <label for="resize_scalethumbvariation">{$CONST.SCALE_THUMB_VARIATION} <button class="toggle_info button_link" type="button" data-href="#media_scale_variation"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button></label>
         </div>
 
         <div class="form_buttons">
