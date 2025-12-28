@@ -1601,7 +1601,7 @@ function serendipity_scaleImg(int $id, int $width, int $height, bool $scaleThumb
     if (file_exists($oavif)) {
         // returns 0, 1, 2, 3, bits, channels, mime (up from PHP 8.2)
         list($_width, $_height, $_type, $_attr) = @getimagesize($oavif); // to grasp the nettle this currently is the default for AVIF in the moment, excluding known broken filesizes
-        if (($_width == 0 && $_height == 0 && $_type = 19) || in_array(filesize($oavif), [3389, 34165])) {
+        if (($_width == 0 && $_height == 0 && $_type = 19) || in_array(filesize($oavif), [145, 3389, 34165])) {
             return 'Sorry! This function is temporary disabled because the AVIF Variation file is erroneous!';
         }
     }
@@ -1773,7 +1773,7 @@ function serendipity_rotateImg(int $id, int $degrees) : bool {
     if (file_exists($infile_avif)) {
         // returns 0, 1, 2, 3, bits, channels, mime (up from PHP 8.2)
         list($_width, $_height, $_type, $_attr) = @getimagesize($infile_avif); // to grasp the nettle this currently is the default for AVIF in the moment, excluding known broken filesizes
-        if (($_width == 0 && $_height == 0 && $_type = 19) || in_array(filesize($infile_avif), [3389, 34165])) {
+        if (($_width == 0 && $_height == 0 && $_type = 19) || in_array(filesize($infile_avif), [145, 3389, 34165])) {
             return true; // silently return, else we will need {if !isset($rotate_img_done) OR $rotate_img_done} in templates\default\admin\images.inc.tpl. Also see possible thrown errors in the XHR request by serendipity_rotateImageGD() with unsilenced imagecreatefromavif and imagerotate for example
         }
     }
