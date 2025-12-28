@@ -6104,7 +6104,8 @@ function serendipity_formatRealFile(string $oldDir, string $newDir, string $form
         // pass to IM
         else {
             $_format = "format-$format";
-            $pass    = [ $serendipity['convert'], [], [], [], 100, -1 ]; // Best result format conversion settings with ImageMagick CLI convert is empty/nothing, which is some kind of auto true! Do not handle with lossless!!
+            // last two pass args are Quality and Gamma. Gamma argument of image operation: -1 is disabled. 2 use defaults.
+            $pass    = [ $serendipity['convert'], [], [], [], -1, -1 ]; // Best result format conversion settings with ImageMagick is empty/nothing, which is some kind of auto true! Do not handle with lossless!!
             $result  = serendipity_passToCMD($_format, $infile, $outfile, $pass);
             $call    = 'serendipity_passToCMD()';
             if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: ImageMagick CLI - New Image '{$format}' format creation: '{$result[2]}'"); }
