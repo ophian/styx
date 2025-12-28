@@ -3077,7 +3077,7 @@ function serendipity_resizeImageGD(string $infilename, string $outfilename, int 
         // If an image exist that can not be loaded (invalid GIF for example), the page shall still be rendered
         $in = @$func['load']($infilename);
     } catch (\Throwable $t) {
-        echo 'serendipity_resizeImageGD(): Could not create thumbnail resource: ',  $t->getMessage(), "\n";
+        echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> serendipity_resizeImageGD(): Could not create thumbnail resource: ',  $t->getMessage(), "</span>\n";
         return false;
     }
 
