@@ -8,6 +8,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 @define('NOTHING_TODO', 'Nothing to do');
+@define('WORKFLOW_ERROR', 'WORKFLOW_ERROR%s: Please use the API workflow via %s!');
 
 /**
  * Check if an uploaded file is "evil"
@@ -5531,7 +5532,7 @@ function serendipity_renameDirAccess(string $oldDir, string $newDir, bool $debug
         $serendipity['logger']->debug("TRACE: " . print_r($trace,true));
     }
     if (is_array($trace) && $trace[1]['function'] != 'serendipity_moveMediaDirectory') {
-        echo 'P1: Please use the API workflow via serendipity_moveMediaDirectory()!';
+        printf(WORKFLOW_ERROR, ' P1', 'serendipity_moveMediaDirectory()');
         return false;
     }
 
@@ -5648,7 +5649,7 @@ function serendipity_renameRealFileName(?string $oldDir, string $newDir, string 
         $serendipity['logger']->debug("TRACE: " . print_r($trace,true));
     }
     if (is_array($trace) && $trace[1]['function'] != 'serendipity_moveMediaDirectory') {
-        echo 'P2: Please use the API workflow via serendipity_moveMediaDirectory()!';
+        printf(WORKFLOW_ERROR, ' P2', 'serendipity_moveMediaDirectory()');
         return false;
     }
 
@@ -5948,7 +5949,7 @@ function serendipity_renameRealFileDir(string $oldDir, string $newDir, string $t
         $serendipity['logger']->debug("TRACE: " . print_r($trace,true));
     }
     if (is_array($trace) && $trace[1]['function'] != 'serendipity_moveMediaDirectory') {
-        echo 'P3: Please use the API workflow via serendipity_moveMediaDirectory()!';
+        printf(WORKFLOW_ERROR, ' P3', 'serendipity_moveMediaDirectory()');
         return false;
     }
 
@@ -6075,7 +6076,7 @@ function serendipity_formatRealFile(string $oldDir, string $newDir, string $form
         $serendipity['logger']->debug("TRACE: " . print_r($trace,true));
     }
     if (is_array($trace) && $trace[1]['function'] != 'serendipity_convertImageFormat') {
-        echo 'Please use the API workflow via serendipity_convertImageFormat()!';
+        printf(WORKFLOW_ERROR, '', 'serendipity_convertImageFormat()');
         return false;
     }
 
@@ -6248,7 +6249,7 @@ function serendipity_moveMediaInEntriesDB(?string $oldDir, string $newDir, strin
         $serendipity['logger']->debug("TRACE: " . print_r($trace,true));
     }
     if (is_array($trace) && !in_array($trace[1]['function'], ['serendipity_moveMediaDirectory', 'serendipity_formatRealFile'])) {
-        echo 'P4: Please use the API workflow via serendipity_moveMediaDirectory()!';
+        printf(WORKFLOW_ERROR, ' P4', 'serendipity_moveMediaDirectory()');
         return false;
     }
 
