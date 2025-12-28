@@ -516,7 +516,7 @@ switch ($serendipity['GET']['adminAction']) {
                                 foreach($thumbs AS $thumb) {
                                     // Create thumbnail
                                     if ($created_thumbnail = serendipity_makeThumbnail($tfile, $serendipity['POST']['target_directory'][$tindex], (int) $thumb['thumbSize'], $thumb['thumb'])) {
-                                        $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . THUMB_CREATED_DONE . "</span>\n", "<b>{$thumb['thumb']}</b> &#8660; <b>$tfile</b>");
+                                        $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . THUMB_CREATED_DONE . "</span>\n", "<em class=\"media_msg v\">{$thumb['thumb']}</em> &#8660; <em class=\"media_msg v\">$tfile</em>");
                                     }
                                 }
 
@@ -634,7 +634,7 @@ switch ($serendipity['GET']['adminAction']) {
                     // Accept file
                     if (is_uploaded_file($uploadtmp) && serendipity_checkMediaSize($uploadtmp) && move_uploaded_file($uploadtmp, $target)) {
                         $uploadfile = htmlspecialchars($uploadfile); // @see $tfile L 439 - and we DO WANT the ORIGIN NAME here!
-                        $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . FILE_UPLOADED . "</span>\n", "<b>$uploadfile</b>", "<em class=\"media_msg t\">$target</em>");
+                        $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . FILE_UPLOADED . "</span>\n", "<em class=\"media_msg o\">$uploadfile</em>", "<em class=\"media_msg t\">$target</em>");
                         @umask(0000);
                         @chmod($target, 0664);
 
@@ -655,7 +655,7 @@ switch ($serendipity['GET']['adminAction']) {
                         foreach($thumbs AS $thumb) {
                             // Create thumbnail
                             if ($created_thumbnail = serendipity_makeThumbnail($tfile, $serendipity['POST']['target_directory'][$idx], (int) $thumb['thumbSize'], $thumb['thumb'])) {
-                                $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . THUMB_CREATED_DONE . "</span>\n", "<b>{$thumb['thumb']}</b> &#8660; <b>$uploadfile</b>");
+                                $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . THUMB_CREATED_DONE . "</span>\n", "<em class=\"media_msg v\">{$thumb['thumb']}</em> &#8660; <em class=\"media_msg v\">$uploadfile</em>");
                             }
                         }
 
