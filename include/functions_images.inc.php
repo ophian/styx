@@ -1171,19 +1171,19 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
     $cmd = null;
     $out = array();
     $res = 0;
-    $args[0] = $args[0] ?? '/usr/local/bin/convert';
-    $args[1] = $args[1] ?? array();
-    $args[2] = $args[2] ?? array();
-    $args[3] = $args[3] ?? array();
-    $args[4] = $args[4] ?? -1;
-    $args[5] = $args[5] ?? -1;
+    $args[0] ??= '/usr/local/bin/convert';
+    $args[1] ??= array();
+    $args[2] ??= array();
+    $args[3] ??= array();
+    $args[4] ??= -1;
+    $args[5] ??= -1;
+
     if (count($args[2]) > 0) {
         $do = implode(' ', $args[1]) . ' ' . implode(' ', $args[2]) . ' | "' .
             $args[0] . '" ' . implode(' ', $args[3]); // this is a fully operational string containing infile, settings/operators and the outfile; while [1] is just some kind of preset in this case.
     } else {
         $do = implode(' ', $args[1]) . ' ' . implode(' ', $args[3]); // else [2] is just an arguments (sizing) string for settings/operators
     }
-
     $do = str_replace('  ', ' ', $do);
 
     $quality = ($args[4] != -1) ? "-quality {$args[4]}" : '';
