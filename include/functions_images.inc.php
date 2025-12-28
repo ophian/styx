@@ -4352,13 +4352,15 @@ function serendipity_showPropertyForm(iterable &$new_media, int $keywordsPerBloc
 
         serendipity_parseMediaProperties($dprops, $keywords, $show[$idx], $props, $keywordsPerBlock, $is_edit);
     }
+
+    // created_thumbnail is only set when viewing properties after adding an image
     $smarty_vars = array(
         'is_edit'           => $is_edit,
         'editform_hidden'   => $editform_hidden,
         'keywordsPerBlock'  => $keywordsPerBlock,
         'keywords'          => $keywords,
         'dprops'            => $dprops,
-        'case_add'          => (isset($new_media[0]['created_thumbnail']) && is_array($new_media[0]['created_thumbnail']))     // created_thumbnail is only set when viewing properties after adding an image
+        'case_add'          => (isset($new_media[0]['created_thumbnail']) && is_array($new_media[0]['created_thumbnail']))
     );
 
     return serendipity_showMedia(
