@@ -3,9 +3,9 @@ Version 5.1-DEV ()
 
  * For more powerful (server) computers and environments of today:
     - Raise AVIF encoding limit from 14MB to 24MB filesize as restriction
-    - Allow to set and use a custom limit as a possible private
+    - Allow to set and use a custom limit as an optional private
         $serendipity['restrictedBytes'] = xxx;
-      variable defined as a Mebibytes integer in the config_local.inc file.
+      variable - defined as a Mebibytes integer - in the config_local.inc file.
 
  * Improve Styx ImageMagick quality sets and (+forced) scaled (+thumb) sizes
 
