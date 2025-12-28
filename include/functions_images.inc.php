@@ -2690,7 +2690,7 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
     // Create a target copy variation in AVIF image format
     if (file_exists($target) && $serendipity['useAvifFormat'] && !in_array(strtolower($info['extension']), ['webp', 'avif'])) {
         $serendipity['restrictedBytes'] ??= 25165824; // >= 24MB raised in Mebibytes - old was 14680064; // >= 14MB
-        if (filesize($target) > $restrictedBytes && $serendipity['magick'] === true) {
+        if (filesize($target) > $serendipity['restrictedBytes'] && $serendipity['magick'] === true) {
             //void
             $messages[] = '<span class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> No AVIF image format variation(s) with ImageMagick created, since Origin is too big '.filesize($target)."! Sorry! Limit is currently set at 14MB.</span>\n";
             if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: No AVIF image format created {$result[2]} from $target - Limit is currently until 24MB"); }
