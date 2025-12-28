@@ -2663,7 +2663,7 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
             }
             // do not if empty
             if (!empty($_relative_result_outfile)) {
-                $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> WebP image format variation(s) \'<em class="media_msg v">'.$_relative_result_outfile.'</em>\' created!</span>'."\n";
+                $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> WebP image format variation \'<em class="media_msg v">'.$_relative_result_outfile."</em>' created!</span>\n";
             }
             if ($result[0] == 0) {
                 if (is_string($result[1])) {
@@ -2691,7 +2691,7 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
     if (file_exists($target) && $serendipity['useAvifFormat'] && !in_array(strtolower($info['extension']), ['webp', 'avif'])) {
         $serendipity['restrictedBytes'] ??= 25165824; // >= 24MB raised in Mebibytes - old was 14680064; // >= 14MB
         if (filesize($target) > $serendipity['restrictedBytes'] && $serendipity['magick'] === true) {
-            //void
+            // void
             $messages[] = '<span class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> No AVIF image format variation(s) with ImageMagick created, since Origin is too big '.filesize($target)."! Sorry! Limit is currently set at 14MB.</span>\n";
             if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: No AVIF image format created {$result[2]} from $target - Limit is currently until 24MB"); }
         } else {
@@ -2707,7 +2707,7 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
                 }
                 // do not if empty
                 if (!empty($_relative_result_outfile)) {
-                    $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> AVIF image format variation(s) \'<em class="media_msg v">'.$_relative_result_outfile.'</em>\' created!</span>'."\n";
+                    $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> AVIF image format variation \'<em class="media_msg v">'.$_relative_result_outfile."</em>' created!</span>\n";
                 }
                 if ($result[0] == 0) {
                     if (is_string($result[1])) {
