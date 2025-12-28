@@ -1689,12 +1689,12 @@ function serendipity_scaleImg(int $id, int $width, int $height, bool $scaleThumb
                     echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' .
                             sprintf(IMAGICK_EXEC_ERROR, $reswebp[2], $reswebp[1][0], $reswebp[0]) ."</span>\n";
                 } else {
-                    if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Scale WebP File command: {$reswebp[2]}, with {$width}x{$height}."); }
+                    if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Scale WebP File command: {$reswebp[2]}, with {$width}x{$height}{$bang}."); }
                     if ($scaleThumbVariation && file_exists($owebpTH)) {
                         // if particularly wished, (silently) force scale Thumb Variation too
                         $resTH = serendipity_passToCMD('image/webp', $owebpTH, $owebpTH, $fpass);
                         if (is_array($resTH) && $resTH[0] == 0 && $debug) {
-                            $serendipity['logger']->debug("ImageMagick CLI Scale WebP Thumb File command: {$owebpTH}, with {$width}x{$height}.");
+                            $serendipity['logger']->debug("ImageMagick CLI Scale WebP Thumb File command: {$owebpTH}, with {$ntbz[0]}x{$ntbz[1]}{$bang}.");
                         }
                     }
                 }
@@ -1706,12 +1706,12 @@ function serendipity_scaleImg(int $id, int $width, int $height, bool $scaleThumb
                     echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' .
                             sprintf(IMAGICK_EXEC_ERROR, $resavif[2], $resavif[1][0], $resavif[0]) ."</span>\n";
                 } else {
-                    if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Scale AVIF File command: {$resavif[2]}, with {$width}x{$height}."); }
+                    if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Scale AVIF File command: {$resavif[2]}, with {$width}x{$height}{$bang}."); }
                     if ($scaleThumbVariation && file_exists($oavifTH)) {
                         // if particularly wished, (silently) force scale Thumb Variation too
                         $resTH = serendipity_passToCMD('image/avif', $oavifTH, $oavifTH, $fpass);
                         if (is_array($resTH) && $resTH[0] == 0 && $debug) {
-                            $serendipity['logger']->debug("ImageMagick CLI Scale AVIF Thumb File command: {$oavifTH}, with {$width}x{$height}.");
+                            $serendipity['logger']->debug("ImageMagick CLI Scale AVIF Thumb File command: {$oavifTH}, with {$ntbz[0]}x{$ntbz[1]}{$bang}.");
                         }
                     }
                 }
