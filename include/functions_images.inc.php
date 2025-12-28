@@ -923,7 +923,7 @@ function serendipity_imageGDWebPConversion(string $infile, string $outfile, int 
     try {
         imagewebp($im, $outfile, $quality);
     } catch (\Throwable $t) {
-        echo 'Could not create WebP image with GD: ',  $t->getMessage(), "\n";
+        echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> Could not create WebP image with GD: ',  $t->getMessage(), "</span>\n";
         return false;
     }
 
