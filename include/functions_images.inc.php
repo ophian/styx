@@ -4597,10 +4597,10 @@ function serendipity_mediaTypeCast(string $key, string $val, bool $invert = fals
         $seconds  = intval($val % 60);
         $mseconds = intval((($val - $seconds) * 100) % 100);
 
-        $tmp .= str_pad($hours, 2, '0', STR_PAD_LEFT) . ':';
-        $tmp .= str_pad($minutes, 2, '0', STR_PAD_LEFT). ':';
-        $tmp .= str_pad($seconds, 2, '0', STR_PAD_LEFT) . '.';
-        $tmp .= str_pad($mseconds, 2, '0', STR_PAD_LEFT);
+        $tmp .= str_pad((string)$hours, 2, '0', STR_PAD_LEFT) . ':';
+        $tmp .= str_pad((string)$minutes, 2, '0', STR_PAD_LEFT). ':';
+        $tmp .= str_pad((string)$seconds, 2, '0', STR_PAD_LEFT) . '.';
+        $tmp .= str_pad((string)$mseconds, 2, '0', STR_PAD_LEFT);
 
         return $tmp;
     } elseif ($invert === false && preg_match('@^([0-9]+):([0-9]+):([0-9]+).([0-9]+)$@i', $val, $m)) {
