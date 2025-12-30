@@ -799,6 +799,19 @@ function serendipity_insertImageInDatabase(string $filename, string $directory, 
 }
 
 /**
+ * Serendipity Check ImageMagick being an active Module imagick.so extension
+ * Returns:
+ *      - boolean
+ */
+function serendipity_checkImagickAsModule() : bool {
+    if ( extension_loaded('imagick') || class_exists("Imagick") ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
  * Helper function for creating WebP formatted images with the PHP GD library
  * @see serendipity_imageGDWebPConversion()
  *
@@ -1009,7 +1022,12 @@ function serendipity_convertToWebPFormat(string $infile, string $outpath, string
                 return ((false !== $out) ? array(0, $out, 'with GD') : array(1, 'false', 'with GD'));
             } else {
                 $pass = [ $serendipity['convert'], [], [], [], $quality, -1 ]; // Best result format conversion settings with ImageMagick CLI convert is empty/nothing (-1), which is some kind of auto true! Do not handle with lossless!!
-                $out  = serendipity_passToCMD('format-webp', $infile, $_outfile, $pass);
+                // check Imagick module extension vs binary CLI usage
+                if (serendipity_checkImagickAsModule()) {
+                    $out = serendipity_passToModule('format-webp', $infile, $_outfile, $pass);
+                } else {
+                    $out = serendipity_passToCMD('format-webp', $infile, $_outfile, $pass);
+                }
                 if ($out === false && $mute === false) {
                     echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> Trying to store a WebP IM image format ' . $thumb . 'variation in: ' . $_tmppath  . " directory.</span>\n";
                 }
@@ -1071,7 +1089,12 @@ function serendipity_convertToAvifFormat(string $infile, string $outpath, string
                 return ((false !== $out) ? array(0, $out, 'with GD') : array(1, 'false', 'with GD'));
             } else {
                 $pass = [ $serendipity['convert'], [], [], [], $quality, -1 ]; // Best result format conversion settings with ImageMagick CLI convert is empty/nothing, which is some kind of auto true! Do not handle with lossless!!
-                $out  = serendipity_passToCMD('format-avif', $infile, $_outfile, $pass);
+                // check Imagick module extension vs binary CLI usage
+                if (serendipity_checkImagickAsModule()) {
+                    $out   = serendipity_passToModule('format-avif', $infile, $_outfile, $pass);
+                } else {
+                    $out   = serendipity_passToCMD('format-avif', $infile, $_outfile, $pass);
+                }
                 if ($out === false && $mute === false) {
                     echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> Trying to store a AVIF IM image format ' . $thumb . 'variation in: ' . $_tmppath  . " directory.</span>\n";
                 }
@@ -1137,6 +1160,158 @@ function serendipity_generate_webpPathURI(string $image, string $ext = 'webp') :
     $rpath  = $vpath . '.v/' . $fname . '.' . $ext; // the relative document root image filepath
 
     return $rpath;
+}
+
+/**
+ * Pass ImageMagick CMD build variables to the Imagick module class and process the image resize for a single image file
+ *
+ * Args:
+ *      - Mime/string type name the image shall be formatted to
+ *      - Source file fullpath
+ *      - Target file fullpath
+ *      - $args TODO since arg[0] will be unused and ....
+ * Returns:
+ *      - boolean on fail, else array with result and $im_debug string (for debug)
+ * @access private
+ */
+function serendipity_passToModule(?string $type = null, string $source = '', string $target = '', iterable $args = array()): string|iterable|bool
+{
+    if ($type === null
+    || (!in_array($type, ['pdfthumb', 'mkthumb', 'format-jpg', 'format-jpeg', 'format-png', 'format-gif', 'format-webp', 'format-avif']) && !in_array(strtoupper(explode('/', $type)[1]), serendipity_getSupportedFormats(true)))
+    || !serendipity_checkPermission('adminImagesAdd')) {
+        return false;
+    }
+
+    $result_info = [];
+    $res = 0;
+    $im_debug = ''; // a prefix is already given by "Imagick ..."
+    try {
+        // Handle PDF thumbs: load only first page
+        if ($type === 'pdfthumb') {
+            $im = new Imagick();
+            $im->readImage($source . "[0]");
+            $im_debug .= "pdfthumb, ";
+        } else {
+            $im = new Imagick($source);
+            $im_debug .= "source loaded, ";
+        }
+
+        // 1. QUALITY (args[4])
+        if (isset($args[4]) && $args[4] != -1) {
+            $im->setImageCompressionQuality((int) $args[4]);
+            $im_debug .= "quality set to {$args[4]}, ";
+        }
+
+        // 2. DEPTH (setImageDepth)
+        // By default, for modern formats 8 is fine.
+        if ($type === 'pdfthumb' || $type === 'mkthumb' || str_contains($type, 'format-')) {
+            $depth = ($type === 'pdfthumb') ? 8 : 8; // adjust as needed; can be made conditional
+            $im->setImageDepth($depth);
+            $im_debug .= "depth set to $depth, ";
+        }
+
+        // 3. STRIP (remove metadata)
+        if (in_array($type, ['pdfthumb', 'mkthumb', 'format-webp', 'format-avif', 'format-jpg', 'format-jpeg', 'format-png', 'format-gif'])) {
+            $im->stripImage();
+            $im_debug .= "stripped, ";
+        }
+
+        // 4. GAMMA ([5])
+        if (isset($args[5]) && $args[5] != -1) {
+            // linearize before resize; de-linearize after; standard is 2.2
+            $im->gammaImage(0.454545);
+            $im_debug .= "gamma to 0.454545 before resize, ";
+        }
+
+        // 5. ANTI-ALIAS, FLATTEN, SCALE/RESIZE, etc
+        // (Parse $args[1] and $args[3] for operator keywords)
+        $operators = array_merge($args[1] ?? [], $args[2] ?? [], $args[3] ?? []);
+        #echo '<pre>'.print_r($operators, true).'</pre>';
+        foreach($operators as $opstring) {
+            #DEV# echo "op = [$type] ";
+            // Break up operator string (possibly grouped flags)
+            foreach(preg_split('/\s+/', trim($opstring)) AS $op) {
+                if (!$op) continue;
+                #DEV# echo "$op, "; //op = -antialias, -resize, op = "400x225", op = -antialias, -resize, op = "400x225", op = -antialias, -resize, op = "400x225", 
+                if (isset($prev) && str_starts_with($prev, '-resize')) {
+                    // e.g.,  "400x225>!"
+                    if (preg_match('/"?(\d+)x(\d+)/', $op, $m)) {
+                        // e.g., "800x600
+                        #DEV# echo "op matches resize {$m[1]}, {$m[2]}, Imagick::FILTER_LANCZOS ";
+                        $im->resizeImage((int)$m[1], (int)$m[2], Imagick::FILTER_LANCZOS, 1);
+                        $im_debug .= "resize {$m[1]}x{$m[2]}, ";
+                    }
+                } else if (isset($prev) && str_starts_with($prev, '-scale')) {
+                    // op = -scale, op = "1000x563", op matches scale 1000, 563 op = -scale, op = "1000x563", op matches scale 1000, 563 op = -scale, op = "1000x563", op matches scale 1000, 563 - including conditional bang forcement
+                    if (preg_match('/"?(\d+)x(\d+)/', $op, $m)) {
+                        #DEV# echo "op matches scale {$m[1]}, {$m[2]} ";
+                        $im->scaleImage((int)$m[1], (int)$m[2]);
+                        $im_debug .= "scale {$m[1]}x{$m[2]}, ";
+                    }
+                } else if (isset($prev) && str_starts_with($prev, '-rotate')) {
+                    // DEGREES    Rotation angle, in degrees. The rotation angle is interpreted as the number of degrees to rotate the image clockwise.
+                    // So the degrees turn for moduled imagick and GD are handled different !
+                    // GD > rotate 90 means counter clockwise.
+                    // Imagick > rotate 90 means clockwise.
+                    // e.g. GD -90 = Imagick 270 or GD 90 = Imagick 90.
+                    if (preg_match('/^"?(-?\d+)/', $op, $m)) {
+                        #DEV# echo "op matches rotate {$m[1]} ";
+                        $deg = (int) $m[1] < 0 ? (int) (360 - str_replace('-', '', $m[1])) : (int) $m[1];
+                        $transparent = '#00000000';
+                        $im->rotateImage($transparent, $deg);
+                        $im_debug .= "rotate $deg, ";
+                    }
+                } elseif ($op === '-flatten') {
+                    $im = $im->mergeImageLayers(Imagick::LAYERMETHOD_FLATTEN);
+                    $im_debug .= "flatten, ";
+                } elseif ($op === '-antialias') {
+                    $im->setImageProperty('antialias', 'true'); // not all Imagick builds honor this
+                    $im_debug .= "antialias, ";
+                }
+                $prev = $op;
+                // Add more options here as needed
+            }
+            #DEV# echo "<br>\n";
+        }
+
+        // 6. Restore gamma if set
+        if (isset($args[5]) && $args[5] != -1) {
+            $im->gammaImage(2.2);
+            $im_debug .= "gamma to 2.2 after resize, ";
+        }
+
+        // 7. Format-specific options
+        if ($type === 'pdfthumb') {
+            $im->setImageFormat('png'); // PDF thumbnails become PNGs
+            $im_debug .= "pdfthumb output png, ";
+        } elseif ($type === 'format-webp' || $type === 'image/webp') {
+            $im->setImageFormat('webp');
+            $im_debug .= "format webp, ";
+        } elseif ($type === 'format-avif' || $type === 'image/avif') {
+            $im->setImageFormat('avif');
+            $im_debug .= "format avif, ";
+        } elseif (in_array($type, ['format-jpg', 'format-jpeg', 'image/jpg', 'image/jpeg'])) {
+            $im->setImageFormat('jpeg');
+            $im_debug .= "format jpeg, ";
+        } elseif ($type === 'format-png' || $type === 'image/png') {
+            $im->setImageFormat('png');
+            $im_debug .= "format png, ";
+        } elseif ($type === 'format-gif' || $type === 'image/gif') {
+            $im->setImageFormat('gif');
+            $im_debug .= "format gif, ";
+        }
+
+        // 8. Save
+        $im->writeImage($target);
+        $im->clear();
+        $im->destroy();
+
+        $result_info = [0, ['Imagick: success'], $im_debug . "[OK]"];
+    } catch (Exception $e) {
+        $result_info = [1, ['Imagick Error: ' . $e->getMessage()], $im_debug . "[ERROR: {$e->getMessage()}]"];
+    }
+
+    return $result_info;
 }
 
 /**
@@ -1449,10 +1624,17 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
             if ($fdim['mime'] == 'application/pdf') {
                 $isPDF = true;
                 $pass = [ $serendipity['convert'], ['-antialias -flatten -scale'], [], ['"'.$newSize.'"'], 75, 2 ];
-                $result = serendipity_passToCMD('pdfthumb', $infile[0], $outfile . '.png', $pass);
+                // check Imagick module extension vs binary CLI usage
                 // The [0] after the pdf path is used to choose which page we want to convert, starting from 0.
+                if (serendipity_checkImagickAsModule()) {
+                    $result = serendipity_passToModule('pdfthumb', $infile[0], $outfile . '.png', $pass);
+                    $crtby = 'MOD';
+                } else {
+                    $result = serendipity_passToCMD('pdfthumb', $infile[0], $outfile . '.png', $pass);
+                    $crtby = 'CLI';
+                }
 
-                if ($debug) { $serendipity['logger']->debug("ImageMagick CLI PDF thumbnail creation: {$result[2]}"); }
+                if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) PDF thumbnail creation: {$result[2]}"); }
 
             } else {
                 $isPDF = false;
@@ -1461,7 +1643,7 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                 }
 
                 // force the first run image geometry exactly to given sizes, if there were rounding differences (@see https://github.com/s9y/Serendipity/commit/94881ba and comments)
-                $bang = empty($serendipity['imagemagick_nobang']) ? '!' : '';
+                $bang = empty($serendipity['imagemagick_nobang']) ? '!' : ''; // it seems the Imagick Module can handle bang too..!
                 $newSize .= $bang;
 
                 $_imtp = !empty($serendipity['imagemagick_thumb_parameters']) ? ' '. $serendipity['imagemagick_thumb_parameters'] : '';
@@ -1478,15 +1660,22 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                 // avoid the file resizing loop in special case; which is example.serendipityThumb.ext (png,jpg,webp,avif..)
                 if (!file_exists($outfile)) {
                     $pass = [ $serendipity['convert'], ["-antialias -resize $_imtp"], [], ['"'.$newSize.'"'], 75, -1 ];
-                    $result = serendipity_passToCMD($fdim['mime'], $infile, $outfile, $pass);
+                    // check Imagick module extension vs binary CLI usage
+                    if (serendipity_checkImagickAsModule()) {
+                        $result = serendipity_passToModule($fdim['mime'], $infile, $outfile, $pass);
+                        $crtby = 'MOD';
+                    } else {
+                        $result = serendipity_passToCMD($fdim['mime'], $infile, $outfile, $pass);
+                        $crtby = 'CLI';
+                    }
                     if ($result === false) {
                         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> Image thumb variation failed. Please contact the sites Administrator!' . "</span>\n";
-                        $logres = 'Thumb variation failed - serendipity_passToCMD L.:' . (__LINE__ - 3) . ' returned false!';
+                        $logres = 'Thumb variation failed - ImageMagick ({$crtby}) L.:' . (__LINE__ - 3) . ' returned false!';
                     } else {
                         $logres = $result[2];
                     }
 
-                    if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image thumbnail creation: $logres"); }
+                    if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image thumbnail creation: $logres"); }
                 }
 
                 // Create a copy of the thumb in WebP image format
@@ -1497,18 +1686,25 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                     $webpthb = $newfile['filepath'] . '/.v/' . $newfile['filename'];
                     $reswebp = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), $mute); // WebP thumbnail uses full quality by auto default
                     if (is_array($reswebp) && $reswebp[0] == 0) {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image WebP format creation success {$reswebp[2]} " . DONE); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image WebP format creation success {$reswebp[2]} " . DONE); }
                         unset($reswebp);
                         // The resizing to same name(!)
                         $pass = $pass ?? [ $serendipity['convert'], ["-antialias -resize $_imtp"], [], ['"'.$newSize.'"'], 75, -1 ]; // no upload (FTP like case)
-                        $reswebp = serendipity_passToCMD('image/webp', $webpthb, $webpthb, $pass);
-                        if (is_array($reswebp) && $reswebp[0] == 0) {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image WebP format resize success {$reswebp[2]} " . DONE); }
+                        // check Imagick module extension vs binary CLI usage
+                        if (serendipity_checkImagickAsModule()) {
+                            $reswebp = serendipity_passToModule('image/webp', $webpthb, $webpthb, $pass);
+                            $crtby = 'MOD';
                         } else {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image WebP format resize failed! Perhaps a wrong path: '$webpthb' ?"); }
+                            $reswebp = serendipity_passToCMD('image/webp', $webpthb, $webpthb, $pass);
+                            $crtby = 'CLI';
+                        }
+                        if (is_array($reswebp) && $reswebp[0] == 0) {
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image WebP format resize success {$reswebp[2]} " . DONE); }
+                        } else {
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image WebP format resize failed! Perhaps a wrong path: '$webpthb' ?"); }
                         }
                     } else {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image WebP format creation failed OR already exists."); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image WebP format creation failed OR already exists."); }
                     }
                 }
                 // Create a copy of the thumb in AVIF image format
@@ -1519,18 +1715,25 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                     $avifthb = $newfile['filepath'] . '/.v/' . $newfile['filename'];
                     $resavif = serendipity_convertToAvifFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), $mute);
                     if (is_array($resavif) && $resavif[0] == 0) {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image AVIF format creation success {$resavif[2]} " . DONE); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image AVIF format creation success {$resavif[2]} " . DONE); }
                         unset($resavif);
                         // The resizing to same name(!)
-                        $pass = $pass ?? []; // (FTP like case) pass args 1,2,4,5 are currently unused with AVIF
-                        $resavif = serendipity_passToCMD('image/avif', $avifthb, $avifthb, $pass);
-                        if (is_array($resavif) && $resavif[0] == 0) {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image AVIF format resize success {$resavif[2]} " . DONE); }
+                        $pass = $pass ?? []; // (FTP like case)
+                        // check Imagick module extension vs binary CLI usage
+                        if (serendipity_checkImagickAsModule()) {
+                            $resavif = serendipity_passToModule('image/avif', $avifthb, $avifthb, $pass);
+                            $crtby = 'MOD';
                         } else {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image AVIF format resize failed! Perhaps a wrong path: '$avifthb' ?"); }
+                            $resavif = serendipity_passToCMD('image/avif', $avifthb, $avifthb, $pass);
+                            $crtby = 'CLI';
+                        }
+                        if (is_array($resavif) && $resavif[0] == 0) {
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image AVIF format resize success {$resavif[2]} " . DONE); }
+                        } else {
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image AVIF format resize failed! Perhaps a wrong path: '$avifthb' ?"); }
                         }
                     } else {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image AVIF format creation failed OR already exists."); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image AVIF format creation failed OR already exists."); }
                     }
                 }
             }
@@ -1655,23 +1858,38 @@ function serendipity_scaleImg(int $id, int $width, int $height, bool $scaleThumb
     } else {
         // SCALE with ImageMagick
         // force the image geometry exactly to given sizes, if there were rounding differences (@see https://github.com/s9y/Serendipity/commit/94881ba and comments)
-        $bang = empty($serendipity['imagemagick_nobang']) ? '!' : '';
+        $bang = empty($serendipity['imagemagick_nobang']) ? '!' : ''; // it seems the Imagick Module can handle bang too..!
         // scale the origin format: eg jpg
         $pass = [ $serendipity['convert'], ['-scale'], [], ["\"{$width}x{$height}{$bang}\""], -1, 2 ]; // auto quality is checked best against Quality 100. Gamma argument of image operation: -1 is disabled. 2 use defaults.
-        $result = serendipity_passToCMD($file['mime'], $infile, $outfile, $pass);
+        // check Imagick module extension vs binary CLI usage
+        if (serendipity_checkImagickAsModule()) {
+            #DEV# echo "{$file['mime']}, $infile, $outfile, ".print_r($pass,true)."<br>\n<br>\n";
+            $result = serendipity_passToModule($file['mime'], $infile, $outfile, $pass); // these are the origin formats like jpg
+            $crtby = 'MOD';
+        } else {
+            $result = serendipity_passToCMD($file['mime'], $infile, $outfile, $pass);
+            $crtby = 'CLI';
+        }
         if ($result[0] != 0) {
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' .
                     sprintf(IMAGICK_EXEC_ERROR, $result[2], $result[1][0], $result[0]) ."</span>\n";
             return false;
         } else {
             // debug log for full file scale variants
-            if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Scale File command: {$result[2]}, with {$width}x{$height}{$bang}."); }
+            if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Scale File command: {$result[2]}, with {$width}x{$height}{$bang}."); }
 
             // Now, add the origins thumb jpg resize on forced given $scaleThumbVariation
             if ($scaleThumbVariation && file_exists($oTH)) {
                 // if particularly wished, (silently) force scale Thumb Variation too - check new thumb size
                 $_pass  = [ $serendipity['convert'], ['-scale'], [], ["\"{$ntbz[0]}x{$ntbz[1]}{$bang}\""], -1, -1 ]; // tests say: for scale of origin thumb use the optimized default quality
-                $result = serendipity_passToCMD($file['mime'], $oTH, $oTH, $_pass);
+                // check Imagick module extension vs binary CLI usage
+                if (serendipity_checkImagickAsModule()) {
+                    $result = serendipity_passToModule($file['mime'], $oTH, $oTH, $_pass);// these are the origin formats like jpg
+                    $crtby = 'MOD';
+                } else {
+                    $result = serendipity_passToCMD($file['mime'], $oTH, $oTH, $_pass);
+                    $crtby = 'CLI';
+                }
             }
             // DEFINE SET VARIATIONS $pass ARGUMENTS
             // - for full file variation formats
@@ -1682,34 +1900,66 @@ function serendipity_scaleImg(int $id, int $width, int $height, bool $scaleThumb
             }
             // do on SAME FILE for the WebP-Format variation
             if (file_exists($owebp)) {
-                $reswebp = serendipity_passToCMD('image/webp', $owebp, $owebp, $pass);
+                // check Imagick module extension vs binary CLI usage
+                if (serendipity_checkImagickAsModule()) {
+                    $reswebp = serendipity_passToModule('image/webp', $owebp, $owebp, $pass);
+                    $crtby = 'MOD';
+                } else {
+                    $reswebp = serendipity_passToCMD('image/webp', $owebp, $owebp, $pass);
+                    $crtby = 'CLI';
+                }
                 if (is_array($reswebp) && $reswebp[0] != 0) {
                     echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' .
                             sprintf(IMAGICK_EXEC_ERROR, $reswebp[2], $reswebp[1][0], $reswebp[0]) ."</span>\n";
                 } else {
-                    if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Scale WebP File command: {$reswebp[2]}, with {$width}x{$height}{$bang}."); }
+                    if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Scale WebP File command: {$reswebp[2]}, with {$width}x{$height}{$bang}."); }
                     if ($scaleThumbVariation && file_exists($owebpTH)) {
                         // if particularly wished, (silently) force scale Thumb Variation too
-                        $resTH = serendipity_passToCMD('image/webp', $owebpTH, $owebpTH, $fpass);
+                        #DEV# echo "if particularly wished, (silently) force scale Thumb Variation too ".print_r($fpass,true)."<br>\n<br>\n";
+                        // check Imagick module extension vs binary CLI usage
+                        if (serendipity_checkImagickAsModule()) {
+                            $resTH = serendipity_passToModule('image/webp', $owebpTH, $owebpTH, $fpass);
+                            $crtby = 'MOD';
+                        } else {
+                            $resTH = serendipity_passToCMD('image/webp', $owebpTH, $owebpTH, $fpass);
+                            $crtby = 'CLI';
+                       }
+                        #DEV# echo print_r($resTH,true)."<br>\n<br>\n";
                         if (is_array($resTH) && $resTH[0] == 0 && $debug) {
-                            $serendipity['logger']->debug("ImageMagick CLI Scale WebP Thumb File command: {$owebpTH}, with {$ntbz[0]}x{$ntbz[1]}{$bang}.");
+                            $serendipity['logger']->debug("ImageMagick ({$crtby}) Scale WebP Thumb File command: {$owebpTH}, with {$ntbz[0]}x{$ntbz[1]}{$bang}.");
                         }
                     }
                 }
             }
             // do on SAME FILE for the AVIF-Format variation
             if (file_exists($oavif)) {
-                $resavif = serendipity_passToCMD('image/avif', $oavif, $oavif, $pass);
+                // check Imagick module extension vs binary CLI usage
+                if (serendipity_checkImagickAsModule()) {
+                    $resavif = serendipity_passToModule('image/avif', $oavif, $oavif, $pass);
+                    $crtby = 'MOD';
+                } else {
+                    $resavif = serendipity_passToCMD('image/avif', $oavif, $oavif, $pass);
+                    $crtby = 'CLI';
+                }
                 if (is_array($resavif) && $resavif[0] != 0) {
                     echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' .
                             sprintf(IMAGICK_EXEC_ERROR, $resavif[2], $resavif[1][0], $resavif[0]) ."</span>\n";
                 } else {
-                    if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Scale AVIF File command: {$resavif[2]}, with {$width}x{$height}{$bang}."); }
+                    if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Scale AVIF File command: {$resavif[2]}, with {$width}x{$height}{$bang}."); }
                     if ($scaleThumbVariation && file_exists($oavifTH)) {
                         // if particularly wished, (silently) force scale Thumb Variation too
-                        $resTH = serendipity_passToCMD('image/avif', $oavifTH, $oavifTH, $fpass);
+                        #DEV# echo "if particularly wished, (silently) force scale Thumb Variation too ".print_r($fpass,true)."<br>\n<br>\n";
+                        // check Imagick module extension vs binary CLI usage
+                        if (serendipity_checkImagickAsModule()) {
+                            $resTH = serendipity_passToModule('image/avif', $oavifTH, $oavifTH, $fpass);
+                            $crtby = 'MOD';
+                        } else {
+                            $resTH = serendipity_passToCMD('image/avif', $oavifTH, $oavifTH, $fpass);
+                            $crtby = 'CLI';
+                        }
+                        #DEV# echo print_r($resTH,true)."<br>\n<br>\n";
                         if (is_array($resTH) && $resTH[0] == 0 && $debug) {
-                            $serendipity['logger']->debug("ImageMagick CLI Scale AVIF Thumb File command: {$oavifTH}, with {$ntbz[0]}x{$ntbz[1]}{$bang}.");
+                            $serendipity['logger']->debug("ImageMagick ({$crtby}) Scale AVIF Thumb File command: {$oavifTH}, with {$ntbz[0]}x{$ntbz[1]}{$bang}.");
                         }
                     }
                 }
@@ -1810,55 +2060,63 @@ function serendipity_rotateImg(int $id, int $degrees) : bool {
     } else {
         /* Why can't we just all agree on the rotation direction?
         -> Styx 2.5 disabled, since that seems to be a workaround for a very very old bug
-        $degrees = (360 - $degrees); */
+        $degrees = (360 - $degrees); NO! This probably was here for the DEGREES direction handler issue. But currently is better fixed in serendipity_passToModule() */
 
         $pass = [ $serendipity['convert'], ['-rotate'], [], ['"'.$degrees.'"'], 100, 2 ];
+        // check Imagick module extension vs binary CLI usage
+        if (serendipity_checkImagickAsModule()) {
+            $_passToFnctName = 'serendipity_passToModule';
+            $crtby = 'MOD';
+        } else {
+            $_passToFnctName = 'serendipity_passToCMD';
+            $crtby = 'CLI';
+        }
 
         /* Resize main image */
-        $result = serendipity_passToCMD($file['mime'], $infile, $outfile, $pass);
-        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate main file command: Rotate {$turn} {$degrees} degrees, file: {$result[2]}"); }
+        $result = $_passToFnctName($file['mime'], $infile, $outfile, $pass);
+        if ($debug) { $serendipity['logger']->debug("ImageMagick {$crtby} Rotate main file command: Rotate {$turn} {$degrees} degrees, file: {$result[2]}"); }
         if ($result[0] != 0) {
-            if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate failed: {$turn} {$degrees} degrees, file: {$outfile}."); }
+            if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate failed: {$turn} {$degrees} degrees, file: {$outfile}."); }
         }
         unset($result);
 
         /* Resize thumbnail */
-        $result = serendipity_passToCMD($file['mime'], $infileThumb, $outfileThumb, $pass);
-        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate thumb file command: Rotate $turn {$degrees} degrees, file: {$result[2]}"); }
+        $result = $_passToFnctName($file['mime'], $infileThumb, $outfileThumb, $pass);
+        if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate thumb file command: Rotate $turn {$degrees} degrees, file: {$result[2]}"); }
         if ($result[0] != 0) {
-            if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate failed: {$turn} {$degrees} degrees, file: {$outfileThumb}."); }
+            if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate failed: {$turn} {$degrees} degrees, file: {$outfileThumb}."); }
         }
         unset($result);
 
         /* Resize main WebP image */
-        $result = serendipity_passToCMD($file['mime'], $infile_webp, $outfile_webp, $pass);
-        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate main WebP file command: Rotate $turn {$degrees} degrees, file: {$result[2]}"); }
+        $result = $_passToFnctName($file['mime'], $infile_webp, $outfile_webp, $pass);
+        if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate main WebP file command: Rotate $turn {$degrees} degrees, file: {$result[2]}"); }
         if ($result[0] != 0) {
-            if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_webp}."); }
+            if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_webp}."); }
         }
         unset($result);
 
         /* Resize WebP thumbnail */
-        $result = serendipity_passToCMD($file['mime'], $infile_webpThumb, $outfile_webpThumb, $pass);
-        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate WebP thumb file command: Rotate $turn {$degrees} degrees, file: {$result[2]}"); }
+        $result = $_passToFnctName($file['mime'], $infile_webpThumb, $outfile_webpThumb, $pass);
+        if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate WebP thumb file command: Rotate $turn {$degrees} degrees, file: {$result[2]}"); }
         if ($result[0] != 0) {
-            if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_webpThumb}."); }
+            if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_webpThumb}."); }
         }
         unset($result);
 
         /* Resize main AVIF image */
-        $result = serendipity_passToCMD($file['mime'], $infile_avif, $outfile_avif, $pass);
-        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate main AVIF file command: Rotate $turn {$degrees} degrees, file: {$result[2]}"); }
+        $result = $_passToFnctName($file['mime'], $infile_avif, $outfile_avif, $pass);
+        if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate main AVIF file command: Rotate $turn {$degrees} degrees, file: {$result[2]}"); }
         if ($result[0] != 0) {
-            if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_avif}."); }
+            if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_avif}."); }
         }
         unset($result);
 
         /* Resize AVIF thumbnail */
-        $result = serendipity_passToCMD($file['mime'], $infile_avifThumb, $outfile_avifThumb, $pass);
-        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate AVIF thumb file command: Rotate $turn {$degrees} degrees, file: {$result[2]}"); }
+        $result = $_passToFnctName($file['mime'], $infile_avifThumb, $outfile_avifThumb, $pass);
+        if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate AVIF thumb file command: Rotate $turn {$degrees} degrees, file: {$result[2]}"); }
         if ($result[0] != 0) {
-            if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_avifThumb}."); }
+            if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_avifThumb}."); }
         }
         unset($result);
 
@@ -2650,6 +2908,11 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
                 $webpIMQ = $dv; // Origins WebP ImageMagick variation copy QUALITY only, in case it is big, else we might get bigger WebP lossless expression than the origin file
             }
         }
+        if (serendipity_checkImagickAsModule()) {
+            $crtby = 'MOD';
+        } else {
+            $crtby = 'CLI';
+        }
         $result = serendipity_convertToWebPFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target), false, $webpIMQ);
         if (is_array($result)) {
             // capture GD result
@@ -2659,6 +2922,11 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
             if (in_array(strrchr($_vname, '.'), ['.webp', '.avif']) && empty($_relative_result_outfile)) {
                 $_relative_result_outfile = str_replace(['"', $serendipity['serendipityPath'] . $serendipity['uploadPath']], '', $_vname);
             }
+            // catch Imagick (mod) success return case to return the relative path w/ file instead
+            if (is_array($_relative_result_outfile) && $_relative_result_outfile[0] == 'Imagick: success') {
+                $_relative_result_outfile = str_replace($serendipity['serendipityPath'], '', $variat['filepath']) . '.v/' . $variat['filename'];
+            }
+            $_relative_result_outfile = is_array($_relative_result_outfile) ? $_relative_result_outfile[0] : $_relative_result_outfile;
             // do not if empty
             if (!empty($_relative_result_outfile)) {
                 $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> WebP image format variation \'<em class="media_msg v">'.$_relative_result_outfile."</em>' created!</span>\n";
@@ -2667,7 +2935,7 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
                 if (is_string($result[1])) {
                     if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: Image WebP format creation success {$result[2]} from $target " . DONE); }
                 } else {
-                    if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image WebP format creation success {$result[2]} from $target " . DONE); }
+                    if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick {$crtby} Image WebP format creation success {$result[2]} from $target " . DONE); }
                     // Is this missing...?? not clear...!!
                     if (empty($_relative_result_outfile) && !empty($result[2])) {
                         $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> WebP image format variation(s) \'<em class="media_msg v">'.$result[2].'</em>\' created!</span>'."\n";
@@ -2681,7 +2949,7 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
             if ($serendipity['magick'] !== true) {
                 if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: GD Image WebP format creation failed"); }
             } else {
-                if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image WebP format creation failed"); }
+                if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick {$crtby} Image WebP format creation failed"); }
             }
         }
     }
@@ -2703,6 +2971,11 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
                 if (in_array(strrchr($_vname, '.'), ['.webp', '.avif']) && empty($_relative_result_outfile)) {
                     $_relative_result_outfile = str_replace(['"', $serendipity['serendipityPath'] . $serendipity['uploadPath']], '', $_vname);
                 }
+                // catch Imagick (mod) success return case to return the relative path w/ file instead
+                if (is_array($_relative_result_outfile) && $_relative_result_outfile[0] == 'Imagick: success') {
+                    $_relative_result_outfile = str_replace($serendipity['serendipityPath'], '', $variat['filepath']) . '.v/' . $variat['filename'];
+                }
+                $_relative_result_outfile = is_array($_relative_result_outfile) ? $_relative_result_outfile[0] : $_relative_result_outfile;
                 // do not if empty
                 if (!empty($_relative_result_outfile)) {
                     $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> AVIF image format variation \'<em class="media_msg v">'.$_relative_result_outfile."</em>' created!</span>\n";
@@ -2711,7 +2984,7 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
                     if (is_string($result[1])) {
                         if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: Image AVIF format creation success {$result[2]} from $target " . DONE); }
                     } else {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image AVIF format creation success {$result[2]} from $target " . DONE); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick (CLI/MOD) Image AVIF format creation success {$result[2]} from $target " . DONE); }
                     }
                 }
             } else {
@@ -2721,7 +2994,12 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
                 if ($serendipity['magick'] !== true) {
                     if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: GD Image AVIF format creation failed"); }
                 } else {
-                    if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image AVIF format creation failed"); }
+                    // check Imagick module extension vs binary CLI usage
+                    if (serendipity_checkImagickAsModule()) {
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick extension Image AVIF format creation failed"); }
+                    } else {
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image AVIF format creation failed"); }
+                    }
                 }
             }
         }
@@ -6110,9 +6388,17 @@ function serendipity_formatRealFile(string $oldDir, string $newDir, string $form
             $_format = "format-$format";
             // last two pass args are Quality and Gamma. Gamma argument of image operation: -1 is disabled. 2 use defaults.
             $pass    = [ $serendipity['convert'], [], [], [], -1, -1 ]; // Best result format conversion settings with ImageMagick is empty/nothing, which is some kind of auto true! Do not handle with lossless!!
-            $result  = serendipity_passToCMD($_format, $infile, $outfile, $pass);
-            $call    = 'serendipity_passToCMD()';
-            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: ImageMagick CLI - New Image '{$format}' format creation: '{$result[2]}'"); }
+            // check Imagick module extension vs binary CLI usage
+            if (serendipity_checkImagickAsModule()) {
+                $result  = serendipity_passToModule($_format, $infile, $outfile, $pass);
+                $call    = 'serendipity_passToModule()';
+                $crtby = 'MOD';
+            } else {
+                $result  = serendipity_passToCMD($_format, $infile, $outfile, $pass);
+                $call    = 'serendipity_passToCMD()';
+                $crtby = 'CLI';
+            }
+            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: ImageMagick ({$crtby}) - New Image '{$format}' format creation: '{$result[2]}'"); }
         }
 
         if (!is_array($result) || $result[0] != 0) {
@@ -6140,16 +6426,23 @@ function serendipity_formatRealFile(string $oldDir, string $newDir, string $form
         }
         // IM
         else if (is_array($result) && $result[0] == 0) {
-            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: ImageMagick CLI - New Image '{$format}' format creation success '{$result[2]}' " . DONE); }
+            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: ImageMagick ({$crtby}) - New Image '{$format}' format creation success '{$result[2]}' " . DONE); }
             unset($result);
             unlink($infile); // delete the old origin format
             // 2cd run: The thumb conversion to new format
-            $result  = serendipity_passToCMD($_format, $infileThumb, $outfileThumb, $pass);
+            // check Imagick module extension vs binary CLI usage
+            if (serendipity_checkImagickAsModule()) {
+                $result  = serendipity_passToModule($_format, $infileThumb, $outfileThumb, $pass);
+                $crtby = 'MOD';
+            } else {
+                $result  = serendipity_passToCMD($_format, $infileThumb, $outfileThumb, $pass);
+                $crtby = 'CLI';
+            }
             if (is_array($result) && $result[0] == 0) {
-                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: ImageMagick CLI - New Image '{$format}' format THUMB RESIZE success '{$result[2]}' " . DONE); }
+                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: ImageMagick ({$crtby}) - New Image '{$format}' format THUMB RESIZE success '{$result[2]}' " . DONE); }
                 unlink($infileThumb); // delete the old thumb format
             } else {
-                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: ImageMagick CLI - New Image '{$format}' format RESIZE failed! Perhaps a wrong path: \"{$outfileThumb}\" ?"); }
+                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: ImageMagick ({$crtby}) - New Image '{$format}' format RESIZE failed! Perhaps a wrong path: \"{$outfileThumb}\" ?"); }
             }
             unset($result);
             $uID = serendipity_updateImageInDatabase(array('extension' => $format, 'mime' => serendipity_guessMime($format), 'size' => (int)@filesize($outfile), 'date' => (int)@filemtime($outfile), 'realname' => $outfileRealName), $item_id);
