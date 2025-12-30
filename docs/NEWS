@@ -1,6 +1,11 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Improved image tooling variations for Imagick module (.so) usage.
+   If ImageMagick is set true in the global image configuration the system
+   will use the moduled Imagick extension automatically if installed on server,
+   instead of using the CLI command line interface to the ImageMagick binary.
+
  * Improve backend image scaling form with new SCALE_VARIATION_FORMAT info
    constant.
 
