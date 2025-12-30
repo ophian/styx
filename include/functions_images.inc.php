@@ -1333,8 +1333,6 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
     if (isset($fdim['noimage'])) {
         $r = array(0, 0);
     } else {
-        $fdim[0] ??= 0; // this check is temporary getimagesize() hotfix related since uploaded avif images have no sizes yet by default
-        $fdim[1] ??= 0; // ditto
         // GD - serendipity_makeThumbnail
         if ($serendipity['magick'] !== true) {
             if (is_array($size)) {
