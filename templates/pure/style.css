@@ -368,7 +368,10 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
   [data-dark-theme="dark"] .serendipity_commentForm,
   [data-dark-theme="dark"] .content_msg, [data-dark-theme="dark"] .serendipity_content_message, [data-dark-theme="dark"] .serendipity_commentDirection,
   [data-dark-theme="dark"] table td {
-    border-color: #444c56; }
+    border-color: #373f47; }
+  [data-dark-theme="dark"] table:not(.table,.serendipity_calendar,.calendar-nav) td {
+    border-style: solid;
+    padding: 0 2px; }
   [data-dark-theme="dark"] .archive_year,
   [data-dark-theme="dark"] .post table, [data-dark-theme="dark"] .post_content table,
   [data-dark-theme="dark"] .post_info, [data-dark-theme="dark"] .serendipity_entryFooter,
@@ -1391,7 +1394,8 @@ nav.pager + .serendipity_blogpdf {
     overflow: auto;
     border-collapse: separate;
     border: 1px solid #eee;
-    padding: .5em; }
+    padding: .5em;
+    margin-bottom: .5em; }
 .serendipity_entry_author_self {}
 .serendipity_entry_read_more {
     text-align: right;
