@@ -4030,6 +4030,10 @@ input[name="serendipity[filter][fileCategory]"] {
     display: none;
 }
 
+#media_scale_selection:not(.additional_info) ~ #media_scale_variation:not(.additional_info) .msg_hint {
+    margin-top: 0;
+}
+
 .media_selector {
     cursor: pointer;
     margin-right: -5px;
