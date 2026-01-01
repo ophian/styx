@@ -1184,6 +1184,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
 
     $result_info = [];
     $res = 0;
+    $op_debug = false; // #DEV# live debug echo out for reached state of args [1,2,3]
     $im_debug = ''; // a prefix is already given by "Imagick ..."
     try {
         // Handle PDF thumbs: load only first page
@@ -1228,23 +1229,23 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
         $operators = array_merge($args[1] ?? [], $args[2] ?? [], $args[3] ?? []);
         #echo '<pre>'.print_r($operators, true).'</pre>';
         foreach($operators as $opstring) {
-            #DEV# echo "op = [$type] ";
+            if ($op_debug) echo "op = [$type] ";
             // Break up operator string (possibly grouped flags)
             foreach(preg_split('/\s+/', trim($opstring)) AS $op) {
                 if (!$op) continue;
-                #DEV# echo "$op, "; //op = -antialias, -resize, op = "400x225", op = -antialias, -resize, op = "400x225", op = -antialias, -resize, op = "400x225", 
+                if ($op_debug) echo "$op, "; //op = -antialias, -resize, op = "400x225", op = -antialias, -resize, op = "400x225", op = -antialias, -resize, op = "400x225", 
                 if (isset($prev) && str_starts_with($prev, '-resize')) {
                     // e.g.,  "400x225>!"
                     if (preg_match('/"?(\d+)x(\d+)/', $op, $m)) {
                         // e.g., "800x600
-                        #DEV# echo "op matches resize {$m[1]}, {$m[2]}, Imagick::FILTER_LANCZOS ";
+                        if ($op_debug) echo "op matches resize {$m[1]}, {$m[2]}, Imagick::FILTER_LANCZOS ";
                         $im->resizeImage((int)$m[1], (int)$m[2], Imagick::FILTER_LANCZOS, 1);
                         $im_debug .= "resize {$m[1]}x{$m[2]}, ";
                     }
                 } else if (isset($prev) && str_starts_with($prev, '-scale')) {
                     // op = -scale, op = "1000x563", op matches scale 1000, 563 op = -scale, op = "1000x563", op matches scale 1000, 563 op = -scale, op = "1000x563", op matches scale 1000, 563 - including conditional bang forcement
                     if (preg_match('/"?(\d+)x(\d+)/', $op, $m)) {
-                        #DEV# echo "op matches scale {$m[1]}, {$m[2]} ";
+                        if ($op_debug) echo "op matches scale {$m[1]}, {$m[2]} ";
                         $im->scaleImage((int)$m[1], (int)$m[2]);
                         $im_debug .= "scale {$m[1]}x{$m[2]}, ";
                     }
@@ -1255,7 +1256,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                     // Imagick > rotate 90 means clockwise.
                     // e.g. GD -90 = Imagick 270 or GD 90 = Imagick 90.
                     if (preg_match('/^"?(-?\d+)/', $op, $m)) {
-                        #DEV# echo "op matches rotate {$m[1]} ";
+                        if ($op_debug) echo "op matches rotate {$m[1]} ";
                         $deg = (int) $m[1] < 0 ? (int) (360 - str_replace('-', '', $m[1])) : (int) $m[1];
                         $transparent = '#00000000';
                         $im->rotateImage($transparent, $deg);
@@ -1271,7 +1272,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                 $prev = $op;
                 // Add more options here as needed
             }
-            #DEV# echo "<br>\n";
+            if ($op_debug) echo "<br>\n";
         }
 
         // 6. Restore gamma if set
