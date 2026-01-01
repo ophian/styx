@@ -809,7 +809,7 @@ function serendipity_checkInstallation() : ?iterable {
             $errs[] = sprintf(CANT_EXECUTE_BINARY, 'convert imagemagick');
         }
         // Check imagick module
-        if (!extension_loaded('imagick')) {
+        if (!extension_loaded('imagick') || !class_exists("Imagick")) {
             $errs[] = sprintf(CANT_EXECUTE_EXTENSION, 'imagick');
         }
     }
