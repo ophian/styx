@@ -122,6 +122,10 @@
                             <td>{$installerResultDiagnose_ICONV}</td>
                         </tr>
                         <tr>
+                            <td>Imagick extension</td>
+                            <td>{$installerResultDiagnose_IMEXT}</td>
+                        </tr>
+                        <tr>
                             <td>XML extension</td>
                             <td>{$installerResultDiagnose_XML}</td>
                         </tr>
