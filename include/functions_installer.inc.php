@@ -802,9 +802,16 @@ function serendipity_checkInstallation() : ?iterable {
         $errs[] = sprintf(DIRECTORY_RUN_CMD, 'chmod go+rwx', $ipath . PATH_ARCHIVES);
     }
 
-    // Check imagick
-    if ($_POST['magick'] == 'true' && function_exists('is_executable') && !@is_executable($_POST['convert'])) {
-        $errs[] = sprintf(CANT_EXECUTE_BINARY, 'convert imagemagick');
+    // Check supported imagemagick libs
+    if ($_POST['magick'] == 'true') {
+        // Check imagemagick binary
+        if (function_exists('is_executable') && !@is_executable($_POST['convert'])) {
+            $errs[] = sprintf(CANT_EXECUTE_BINARY, 'convert imagemagick');
+        }
+        // Check imagick module
+        if (!extension_loaded('imagick')) {
+            $errs[] = sprintf(CANT_EXECUTE_EXTENSION, 'imagick');
+        }
     }
 
     if ($_POST['dbType'] == 'sqlite' || $_POST['dbType'] == 'sqlite3' || $_POST['dbType'] == 'pdo-sqlite' || $_POST['dbType'] == 'sqlite3oo') {
