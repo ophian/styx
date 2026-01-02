@@ -4257,7 +4257,7 @@ function serendipity_getImageSize(string $file, string $ft_mime = '', string $su
     } else if ($ft_mime == 'text/calendar') { // see compat '@getimagesize.*Error reading from@i' exception for forced debug bypassed error processing because it's @-silenced.
          $fdim = '';
     } else {
-        $fdim = !empty($file) ? @getimagesize($file) : $file; // $file (AVIF) may be empty if too big by restriction and fail with error 500
+        $fdim = !empty($file) ? @getimagesize($file) : $file; // Fix $file being empty if too big by php.ini "upload_max_filesize" restriction failing w/ error 500
     }
 
     if (is_array($fdim)) {
