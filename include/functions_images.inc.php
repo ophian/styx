@@ -4247,7 +4247,7 @@ function serendipity_uploadSecure(string $var, bool $strip_paths = true, bool $a
  *      - Array containing the width/height of the file
  * @access public
  */
-function serendipity_getImageSize(string $file,string  $ft_mime = '', string $suf = '') : iterable {
+function serendipity_getImageSize(string $file, string $ft_mime = '', string $suf = '') : iterable {
     if (empty($ft_mime) && !empty($suf)) {
         $ft_mime = serendipity_guessMime($suf);
     }
