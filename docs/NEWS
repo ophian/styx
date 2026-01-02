@@ -1,7 +1,8 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
- * Fix AVIF file being empty if too big by restriction - failing with error 500
+ * Fix failure with uploading media file being empty if too big by php.ini
+   "upload_max_filesize" restriction.
 
  * Improve [ pure ] standard theme default table styles:
     - allow custom overwrite (reset) with unstyled .table selector
