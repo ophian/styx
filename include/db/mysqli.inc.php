@@ -653,15 +653,15 @@ function serendipity_db_probe(iterable $hash, iterable &$errs) : bool {
     $connparts = explode(':', $hash['dbHost']);
     if (!empty($connparts[1])) {
         // A "hostname:port" connection was specified
-        try { $c = $function($connparts[0], $hash['dbUser'], $hash['dbPass'], $hash['dbName'], $connparts[1]); } catch (\Throwable $t) {}
+        try { $c = $function($connparts[0], $hash['dbUser'], $hash['dbPass'], $hash['dbName'], $connparts[1]); } catch (\Throwable $t) { $errs[] = "MYSQLI_SQL_EXCEPTION: " . $t->getMessage() . "\n"; }
     } else {
         // Connect with default ports
-        try { $c = $function($connparts[0], $hash['dbUser'], $hash['dbPass']); } catch (\Throwable $t) {}
+        try { $c = $function($connparts[0], $hash['dbUser'], $hash['dbPass']); } catch (\Throwable $t) { $errs[] = "MYSQLI_SQL_EXCEPTION: " . $t->getMessage() . "\n"; }
     }
 
-    if (!isset($c) && isset($t)) {
+    if ((!isset($c) && isset($t)) || $c->sqlstate === "00000") {
         $errs[] = 'Could not connect to database; check your settings.';
-        $errs[] = 'The mySQL error was: ' . htmlspecialchars(mysqli_connect_error());
+        $errs[] = 'The mySQL error was: ' . htmlspecialchars(mysqli_connect_error() ?? $c->sqlstate) .'. Does it exist?';
         return false;
     }
 
