@@ -200,8 +200,8 @@
 @define('DIRECTORY_WRITE_ERROR', '不能读写文件夹 %s，请检查权限！');
 @define('DIRECTORY_CREATE_ERROR', '文件夹 %s 不存在也无法建立，请自己建立这个文件夹！');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; run <i>%s %s</i>');
-@define('CANT_EXECUTE_BINARY', '无法执行 %s 文件！');
-@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
+@define('CANT_EXECUTE_BINARY', '无法执行 %s 二进制路径（使用扩展模块时非必需）');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager (optional).');
 @define('FILE_WRITE_ERROR', '无法读写文件 %s！');
 @define('FILE_CREATE_YOURSELF', '请自己建立这个文件或检查权限');
 @define('COPY_CODE_BELOW', '<br>* 请复制下面的代码然后放入 %s 到你的 %s 文件夹:<b><pre>%s</pre></b>' . "\n");

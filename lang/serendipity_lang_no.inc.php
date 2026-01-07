@@ -179,8 +179,8 @@
 @define('DIRECTORY_WRITE_ERROR', 'Kan ikke skrive til biblioteket %s. Sjekk filrettighederne.');
 @define('DIRECTORY_CREATE_ERROR', 'Biblioteket %s eksisterer ikke og kunne ikke op1prettes. Vennligst opprett biblioteket manuelt');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; Kjør <i>%s %s</i>');
-@define('CANT_EXECUTE_BINARY', 'Kan ikke eksekvere %s');
-@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
+@define('CANT_EXECUTE_BINARY', 'Kan ikke utføre %s binærsti (ikke obligatorisk når du bruker utvidelsesmodulen)');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager (optional).');
 @define('FILE_WRITE_ERROR', 'Kan ikke skrive til filen %s.');
 @define('FILE_CREATE_YOURSELF', 'Venligst opprett filen selv og sjekk dens rettigheter');
 @define('COPY_CODE_BELOW', '<br>* Kopier koden nedenunder og plasser den i %s i din %s mappe:<b><pre>%s</pre></b>' . "\n");

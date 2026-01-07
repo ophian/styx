@@ -199,8 +199,8 @@
 @define('DIRECTORY_WRITE_ERROR', 'Nu pot scrie în directorul %s. Verifică te rog permisiunile.');
 @define('DIRECTORY_CREATE_ERROR', 'Directorul %s nu există şi nu poate fi creat. Te rog să creezi directorul manual');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; execută <i>%s %s</i>');
-@define('CANT_EXECUTE_BINARY', 'Nu pot executa programul %s');
-@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
+@define('CANT_EXECUTE_BINARY', 'Nu se poate executa calea binară %s (nu este obligatoriu atunci când se utilizează modulul de extensie)');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager (optional).');
 @define('FILE_WRITE_ERROR', 'Nu pot scrie în fişierul %s.');
 @define('FILE_CREATE_YOURSELF', 'Te rog să creezi fişierul tu sau să verifici permisiunile');
 @define('COPY_CODE_BELOW', '<br>* Nu trebuie decât să copiezi codul de mai jos şi să-l pui în %s din directorul %s:<b><pre>%s</pre></b>' . "\n");
