@@ -369,7 +369,7 @@ function serendipity_db_probe(iterable $hash, iterable &$errs) : bool {
         return false;
     }
 
-    $serendipity['dbConn'] = pg_connect(
+    $serendipity['dbConn'] = @pg_connect(
                                sprintf(
                                  '%sdbname=%s user=%s password=%s',
 
