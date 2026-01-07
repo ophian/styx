@@ -806,11 +806,16 @@ function serendipity_checkInstallation() : ?iterable {
     if ($_POST['magick'] == 'true') {
         // Check imagemagick binary
         if (function_exists('is_executable') && !@is_executable($_POST['convert'])) {
-            $errs[] = sprintf(CANT_EXECUTE_BINARY, 'convert imagemagick');
+            $cli = sprintf(CANT_EXECUTE_BINARY, 'convert imagemagick');
         }
-        // Check imagick module
+        // Check Imagick extension module
         if (!extension_loaded('imagick') || !class_exists("Imagick")) {
-            $errs[] = sprintf(CANT_EXECUTE_EXTENSION, 'imagick');
+            $mod = sprintf(CANT_EXECUTE_EXTENSION, 'imagick');
+        }
+        if (!empty($cli) && !empty($mod)) {
+            $errs[] = $cli;
+        } else if (empty($cli) && !empty($mod)) {
+            $errs[] = $mod;
         }
     }
 
