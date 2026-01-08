@@ -1021,7 +1021,8 @@ function serendipity_convertToWebPFormat(string $infile, string $outpath, string
                 }
                 return ((false !== $out) ? array(0, $out, 'with GD') : array(1, 'false', 'with GD'));
             } else {
-                $pass = [ $serendipity['convert'], [], [], [], $quality, -1 ]; // Best result format conversion settings with ImageMagick CLI convert is empty/nothing (-1), which is some kind of auto true! Do not handle with lossless!!
+                // last two pass args are Quality and Gamma. Gamma argument of image operation: -1 is disabled. 2 use defaults.
+                $pass = [ $serendipity['convert'], [], [], [], $quality, -1 ]; // Best result format conversion settings with ImageMagick is -1 disabled, which is some kind of auto true! Do not handle with lossless!!
                 // check Imagick module extension vs binary CLI usage
                 if (serendipity_checkImagickAsModule()) {
                     $out = serendipity_passToModule('format-webp', $infile, $_outfile, $pass);
@@ -1088,7 +1089,8 @@ function serendipity_convertToAvifFormat(string $infile, string $outpath, string
                 }
                 return ((false !== $out) ? array(0, $out, 'with GD') : array(1, 'false', 'with GD'));
             } else {
-                $pass = [ $serendipity['convert'], [], [], [], $quality, -1 ]; // Best result format conversion settings with ImageMagick CLI convert is empty/nothing, which is some kind of auto true! Do not handle with lossless!!
+                // last two pass args are Quality and Gamma. Gamma argument of image operation: -1 is disabled. 2 use defaults.
+                $pass = [ $serendipity['convert'], [], [], [], $quality, -1 ]; // Best result format conversion settings with ImageMagick is -1 disabled, which is some kind of auto true! Do not handle with lossless!!
                 // check Imagick module extension vs binary CLI usage
                 if (serendipity_checkImagickAsModule()) {
                     $out   = serendipity_passToModule('format-avif', $infile, $_outfile, $pass);
@@ -1184,7 +1186,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
 
     $result_info = [];
     $res = 0;
-    $op_debug = false; // #DEV# live debug echo out for reached state of args [1,2,3]
+    $op_debug = false; // #DEV# live debug echo out for reached state of args [1,2,3] - Unusable for ajax image auto resizing on upload !!
     $im_debug = ''; // a prefix is already given by "Imagick ..."
     try {
         // Handle PDF thumbs: load only first page
@@ -6391,7 +6393,7 @@ function serendipity_formatRealFile(string $oldDir, string $newDir, string $form
         else {
             $_format = "format-$format";
             // last two pass args are Quality and Gamma. Gamma argument of image operation: -1 is disabled. 2 use defaults.
-            $pass    = [ $serendipity['convert'], [], [], [], -1, -1 ]; // Best result format conversion settings with ImageMagick is empty/nothing, which is some kind of auto true! Do not handle with lossless!!
+            $pass    = [ $serendipity['convert'], [], [], [], -1, -1 ]; // Best result format conversion settings with ImageMagick is -1 disabled, which is some kind of auto true! Do not handle with lossless!!
             // check Imagick module extension vs binary CLI usage
             if (serendipity_checkImagickAsModule()) {
                 $result  = serendipity_passToModule($_format, $infile, $outfile, $pass);
