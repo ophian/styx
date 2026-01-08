@@ -1378,14 +1378,16 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         // For example, using a value of gamma=2 is the same as taking the square root of the image.
     }
 
+    $idepth = ($type === 'pdfthumb' || $type === 'mkthumb') ? 8 : 16; // adjust as needed; can be made conditional
+
     // variations - with type being a command parameter
     if ($type == 'pdfthumb') {
-        $cmd =  "\"{$args[0]}\" \"$source\" -depth 16 {$gamma['linear']} {$do} {$gamma['standard']} " .
-                "-depth 8 -strip \"$target\"";
+        $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
+                "-depth {$idepth} -strip \"$target\"";
 
     } else if ($type == 'mkthumb') {
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
-                "-depth 8 $quality -strip \"$target\"";
+                "-depth {$idepth} $quality -strip \"$target\"";
 
     } else if ($type == 'format-webp') {
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
@@ -1402,26 +1404,26 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
 
     // main file scaling (scale, resize, rotate, ...) - with type being a mime string parameter, while we have it already
     if (image_type_to_mime_type(IMAGETYPE_JPEG) == $type) {
-        $cmd =  "\"{$args[0]}\" \"$source\" -depth 16 {$gamma['linear']} -filter Lanczos {$do} {$gamma['standard']} " .
-                "-depth 16 $quality -sampling-factor 1x1 -strip \"$target\"";
+        $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} -filter Lanczos {$do} {$gamma['standard']} " .
+                "-depth {$idepth} $quality -sampling-factor 1x1 -strip \"$target\"";
 
     } else if (image_type_to_mime_type(IMAGETYPE_PNG) == $type) {
-        $cmd =  "\"{$args[0]}\" \"$source\" -depth 16 {$gamma['linear']} {$do} {$gamma['standard']} " .
-                "-depth 16 -strip \"$target\"";
+        $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
+                "-depth {$idepth} -strip \"$target\"";
 
     } else if (image_type_to_mime_type(IMAGETYPE_GIF) == $type) {
-        $cmd =  "\"{$args[0]}\" \"$source\" -depth 16 {$gamma['linear']} {$do} {$gamma['standard']} " .
-                "-depth 16 -strip \"$target\"";
+        $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
+                "-depth {$idepth} -strip \"$target\"";
 
     } else if (image_type_to_mime_type(IMAGETYPE_WEBP) == $type) {
-        $cmd =  "\"{$args[0]}\" \"$source\" -depth 16 {$gamma['linear']} {$do} {$gamma['standard']} " .
-                "-depth 16 -strip \"$target\"";
+        $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
+                "-depth {$idepth} -strip \"$target\"";
 
     } else if (defined('IMAGETYPE_AVIF') && image_type_to_mime_type(IMAGETYPE_AVIF) == $type) {
-        $cmd =  "\"{$args[0]}\" \"$source\" -depth 16 {$gamma['linear']} {$do} {$gamma['standard']} " .
-                "-depth 16 -strip \"$target\""; // ToDO: or depth 8, 10, 12, etc for other args
+        $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
+                "-depth {$idepth} -strip \"$target\"";
         if (str_contains($cmd, '-scale')) {
-            $cmd = str_replace('-depth 16 ', '', $cmd); // remove both depth 16 assignments for avif since delivers slight better sharpened quality - works on both sizes
+            $cmd = str_replace('-depth {$idepth} ', '', $cmd); // on scale: Remove both depth assignments for avif since delivers slight better sharpened quality - works on both sizes
         }
     }
 
