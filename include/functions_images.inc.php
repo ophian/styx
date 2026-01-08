@@ -1206,9 +1206,10 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
         // 2. DEPTH (setImageDepth)
         // By default, for modern formats 8 is fine.
         if ($type === 'pdfthumb' || $type === 'mkthumb' || str_contains($type, 'format-')) {
-            $depth = ($type === 'pdfthumb') ? 8 : 8; // adjust as needed; can be made conditional
-            $im->setImageDepth($depth);
-            $im_debug .= "depth set to $depth, ";
+            $_idpth = $im->getImageDepth();
+            $idepth = ($type === 'pdfthumb') ? 8 : (is_int($_idpth) && $_idpth > 8 ? $_idpth : 8); // adjust as needed; can be made conditional
+            $im->setImageDepth($idepth);
+            $im_debug .= "depth set to {$idepth}, ";
         }
 
         // 3. STRIP (remove metadata)
