@@ -2086,10 +2086,10 @@ $(function() {
                                         let height = image.height;
 
                                         // Calculate the final target dimensions first
-                                        let max_width = {if {serendipity_getConfigVar key='maxImgWidth'}}{serendipity_getConfigVar key='maxImgWidth'}{else}0{/if};
-                                        let max_height = {if {serendipity_getConfigVar key='maxImgHeight'}}{serendipity_getConfigVar key='maxImgHeight'}{else}0{/if};
+                                        let max_width = <?php if (serendipity_get_config_var('maxImgWidth')): ?><?= serendipity_get_config_var('maxImgWidth'); ?><?php else: ?>0<?php endif; ?>;
+                                        let max_height = <?php if (serendipity_get_config_var('maxImgHeight')): ?><?= serendipity_get_config_var('maxImgHeight'); ?><?php else: ?>0<?php endif; ?>;
                                         /* optional portrait mode image base width sizing */
-                                        const sizeBaseWidth = {if {serendipity_getConfigVar key='maxImgWidthPortrait'}}{serendipity_getConfigVar key='maxImgWidthPortrait'}{else}0{/if};
+                                        const sizeBaseWidth = <?php if (serendipity_get_config_var('maxImgWidthPortrait')): ?><?= serendipity_get_config_var('maxImgWidthPortrait'); ?><?php else: ?>0<?php endif; ?>;
                                         const finalSize = serendipity.resizeImageCalc(width, height, max_width, max_height, sizeBaseWidth);
 
                                         // KEEP IN MIND:
