@@ -2084,34 +2084,60 @@ $(function() {
                                 $('.form_buttons').append(progressContainer);
                                 if (type.substring(0, 6) == "image/") {
                                     image.onload = function (imageEvent) {
-                                        var canvas = document.createElement('canvas'),
-                                            max_width = {if {serendipity_getConfigVar key='maxImgWidth'}}{serendipity_getConfigVar key='maxImgWidth'}{else}0{/if},
-                                            max_height = {if {serendipity_getConfigVar key='maxImgHeight'}}{serendipity_getConfigVar key='maxImgHeight'}{else}0{/if},
-                                            width = image.width,
-                                            height = image.height;
+                                        let width = image.width;
+                                        let height = image.height;
 
+                                        // Calculate the final target dimensions first
+                                        let max_width = {if {serendipity_getConfigVar key='maxImgWidth'}}{serendipity_getConfigVar key='maxImgWidth'}{else}0{/if};
+                                        let max_height = {if {serendipity_getConfigVar key='maxImgHeight'}}{serendipity_getConfigVar key='maxImgHeight'}{else}0{/if};
                                         /* optional portrait mode image base width sizing */
                                         const sizeBaseWidth = {if {serendipity_getConfigVar key='maxImgWidthPortrait'}}{serendipity_getConfigVar key='maxImgWidthPortrait'}{else}0{/if};
-                                        //console.log('Image upload properties', image);
-                                        //console.log('New AJAX upload base width for portraits '+sizeBaseWidth);
+                                        const finalSize = serendipity.resizeImageCalc(width, height, max_width, max_height, sizeBaseWidth);
 
-                                        var newSize = serendipity.resizeImageCalc(width, height, max_width, max_height, sizeBaseWidth);
-                                        //console.log('New AJAX upload dimensions: width = '+newSize.width+', height = '+newSize.height);
+                                        // KEEP IN MIND:
+                                        // The drawImage() function is using a linear-interpolation, nearest-neighbor resampling method.
+                                        // This works well when not resizing down more than half the original size !! A direct resize from width 3500 to 700 for example is way too much !
+                                        // This issues an "aliasing" effect:
+                                        // When you downsample a high-resolution image to a much smaller size in one go, the browser's drawImage algorithm often skips pixels
+                                        // rather than averaging them, leading to jagged edges and lost detail.
+                                        // The technique to look for is called Stepping Down or Lanczos-like scaling.
+                                        // By reducing the image by roughly 50% in each iteration, we maintain much better visual fidelity !
 
-                                        canvas.width = newSize.width;
-                                        canvas.height = newSize.height;
-                                        canvas.getContext('2d').drawImage(image, 0, 0, newSize.width, newSize.height);
+                                        // Setup our scaling canvas
+                                        const canvas = document.createElement('canvas');
+                                        const ctx = canvas.getContext('2d');
 
-                                        // bmp is not supported
-                                        if (type == "image/bmp") {
-                                            type = "image/png";
-                                            data.append('serendipity[target_filename][1]', file.name.replace('.bmp', '.png'));
+                                        // Optimization: Use imageSmoothingQuality for better results in modern browsers
+                                        ctx.imageSmoothingEnabled = true;
+                                        ctx.imageSmoothingQuality = 'high';
+
+                                        // Step Down Loop
+                                        // We create a temporary variable to hold the "source" of each draw
+                                        let currSource = image;
+
+                                        while (width > finalSize.width * 2 && height > finalSize.height * 2) {
+                                            width = Math.floor(width / 2);
+                                            height = Math.floor(height / 2);
+
+                                            const tempCanvas = document.createElement('canvas');
+                                            tempCanvas.width = width;
+                                            tempCanvas.height = height;
+                                            tempCanvas.getContext('2d').drawImage(currSource, 0, 0, width, height);
+
+                                            currSource = tempCanvas; // The next iteration uses this smaller version
                                         }
+
+                                        // Final Scale to exact dimensions
+                                        canvas.width = finalSize.width;
+                                        canvas.height = finalSize.height;
+                                        ctx.drawImage(currSource, 0, 0, finalSize.width, finalSize.height);
+
+                                        // Output to Blob
                                         canvas.toBlob(function(blob) {
                                             data.append('serendipity[userfile][1]', blob, file.name);
                                             sendDataToML(data, progressContainer, progress);
-                                        }, type);
-                                    }
+                                        }, type, 0.92); // image quality [1..0] default 0.92
+                                    };
                                     image.src = readerEvent.target.result;
                                 } else {
                                     data.append('serendipity[userfile][1]', file, file.name);
