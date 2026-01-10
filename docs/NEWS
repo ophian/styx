@@ -1,6 +1,11 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Improve ajaxify media auto upload scaling with "Resize images on upload"
+   option using custom defined sets of restricted maxImgWidth and maxImgHeight.
+   Fixes "aliasing" effects downsampling high-resolution images to a much
+   smaller size in one go.
+
  * Fix failure with uploading media file being empty if too big by php.ini
    "upload_max_filesize" restriction.
 
