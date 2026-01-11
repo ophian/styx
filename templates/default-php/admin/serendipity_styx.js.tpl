@@ -2088,17 +2088,17 @@ $(function() {
                                         // Calculate the final target dimensions first
                                         let max_width = <?php if (serendipity_get_config_var('maxImgWidth')): ?><?= serendipity_get_config_var('maxImgWidth'); ?><?php else: ?>0<?php endif; ?>;
                                         let max_height = <?php if (serendipity_get_config_var('maxImgHeight')): ?><?= serendipity_get_config_var('maxImgHeight'); ?><?php else: ?>0<?php endif; ?>;
-                                        /* optional portrait mode image base width sizing */
+                                        // Optional portrait mode image base width sizing
                                         const sizeBaseWidth = <?php if (serendipity_get_config_var('maxImgWidthPortrait')): ?><?= serendipity_get_config_var('maxImgWidthPortrait'); ?><?php else: ?>0<?php endif; ?>;
                                         const finalSize = serendipity.resizeImageCalc(width, height, max_width, max_height, sizeBaseWidth);
 
                                         // KEEP IN MIND:
                                         // The drawImage() function is using a linear-interpolation, nearest-neighbor resampling method.
                                         // This works well when not resizing down more than half the original size !! A direct resize from width 3500 to 700 for example is way too much !
-                                        // This issues an "aliasing" effect:
-                                        // When you downsample a high-resolution image to a much smaller size in one go, the browser's drawImage algorithm often skips pixels
-                                        // rather than averaging them, leading to jagged edges and lost detail.
-                                        // The technique to look for is called Stepping Down or Lanczos-like scaling.
+                                        // This may issue an "aliasing" effect with certain images:
+                                        //      When you downsample a high-resolution image to a much smaller size in one go, the browser's drawImage algorithm often skips pixels
+                                        //      rather than averaging them, leading to jagged edges and lost detail.
+                                        //      The technique to look for is called Stepping Down or Lanczos-like scaling.
                                         // By reducing the image by roughly 50% in each iteration, we maintain much better visual fidelity !
 
                                         // Setup our scaling canvas
