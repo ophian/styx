@@ -1,6 +1,10 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Allow "jpg/jpeg" image library specific manipulation fixing a possible
+   wrong orientation image issue of smartphone camera images with SET EXIF
+   orientation on UPLOAD.
+
  * Improve serendipity_checkImagickAsModule() for NEW possible private member
    variable $serendipity['Imagick_module_noAVIF'] = true;
    when the loaded imagick extension library wasn't build with full AVIF
