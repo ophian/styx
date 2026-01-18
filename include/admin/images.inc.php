@@ -638,6 +638,24 @@ switch ($serendipity['GET']['adminAction']) {
                         @umask(0000);
                         @chmod($target, 0664);
 
+                        // flip and/or rotate the virgin uploaded target file auto-oriented to the EXIF orientation regarded to dimensions of the origin JPG/JPEG files
+                        if ($serendipity['magick'] !== true) {
+                            serendipity_correctImageOrientationGD($target); // GD rotate and write a new file - EXIF data is empty afterwards
+                        } else {
+                            // Check Imagick module extension vs binary CLI usage
+                            // ImageMagick's -auto-orient performs the transform on the pixel data and then resets the EXIF orientation to 1.
+                            if (serendipity_checkImagickAsModule()) {
+                                serendipity_correctImageOrientationImagick($target); // IM imagick rotate and re-write the file - EXIF data is kept, but for previously Portrait orientation it changes to Landscape, but is visually corrrect...!
+                            } else {
+                                list($filebase, $extension) = serendipity_parseFileName($target);
+                                if (in_array(strtolower($extension), ['jpeg', 'jpg'])) {
+                                    $mime = serendipity_guessMime($extension);
+                                    $pass   = [ $serendipity['convert'], ['-auto-orient'], [], [], -1, -1 ]; // rotate image shot by a non-default orientation and use the optimized default quality
+                                    $result = serendipity_passToCMD("image/$mime", $target, $target, $pass);
+                                }
+                            }
+                        }
+
                         if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML case UPLOAD file(s) CREATE VARIATIONS SEPARATOR" . str_repeat(" <<< ", 10) . "\n"); }
 
                         // Create ORIGIN TARGET full file Variations, if file is supported to have Variations!
