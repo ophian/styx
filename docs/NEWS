@@ -1,6 +1,11 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Improve serendipity_checkImagickAsModule() for NEW possible private member
+   variable $serendipity['Imagick_module_noAVIF'] = true;
+   when the loaded imagick extension library wasn't build with full AVIF
+   support but the ImageMagick binary supports it.
+
  * Improve the javascript media auto upload by the "Resize images on upload"
    option, using custom defined sets of restricted maxImgWidth / maxImgHeight
    upload measures. This fixes a possible "aliasing" effect when downsampling
