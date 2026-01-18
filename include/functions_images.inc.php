@@ -804,6 +804,11 @@ function serendipity_insertImageInDatabase(string $filename, string $directory, 
  *      - boolean
  */
 function serendipity_checkImagickAsModule() : bool {
+    global $serendipity;
+
+    if (isset($serendipity['Imagick_module_noAVIF']) && $serendipity['Imagick_module_noAVIF'] === true) {
+        return false;
+    }
     if ( extension_loaded('imagick') || class_exists("Imagick") ) {
         return true;
     } else {
