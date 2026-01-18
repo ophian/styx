@@ -1326,7 +1326,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
  *      - Source file fullpath
  *      - Target file fullpath
  *      - $args      [0] ImageMagick executor command (remember, "magick" shall be used for IM 7 only, but always a copy named "convert" is created too, so we can stick to convert until this is reverted.)
- *                          [1],[2],[3] Convert setting/operator commands [-antialias, -sharp, -unsharp, -flatten, -scale, -resize, -crop, size adjustments, etc]
+ *                          [1],[2],[3] Convert setting/operator commands [-antialias, -auto-orient, -sharp, -unsharp, -flatten, -scale, -resize, -crop, size adjustments, etc]
  *                          [4] Quality of image operation (normally 100, 75 for non-scaled normal [-resize] thumb downsizing)
  *                          [5] The same color image displayed on two different workstations may look different due to differences in the display monitor.
  *                              Use gamma correction to adjust for this color difference. Reasonable values extend from 0.8 to 2.3.
@@ -1404,7 +1404,13 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
                 "\"$target\"";
     }
 
-    // main file scaling (scale, resize, rotate, ...) - with type being a mime string parameter, while we have it already
+    // Special case fixing a possible wrong orient image issue of smartphone cameras with SET EXIF orientation on UPLOAD
+    if (in_array($type, ['image/jpg', 'image/jpeg']) && trim($do) == '-auto-orient') {
+            $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
+                    "\"$target\"";
+    }
+
+    // main file scaling (scale, resize, rotate, ...) - with type being a mime string parameter, since we have it already
     if (image_type_to_mime_type(IMAGETYPE_JPEG) == $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} -filter Lanczos {$do} {$gamma['standard']} " .
                 "-depth {$idepth} $quality -sampling-factor 1x1 -strip \"$target\"";
@@ -1425,7 +1431,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
                 "-depth {$idepth} -strip \"$target\"";
         if (str_contains($cmd, '-scale')) {
-            $cmd = str_replace('-depth {$idepth} ', '', $cmd); // on scale: Remove both depth assignments for avif since delivers slight better sharpened quality - works on both sizes
+            $cmd = str_replace('-depth {$idepth} ', '', $cmd); // on scale: Remove both depth assignments for AVIF since delivers slight better sharpened quality - works on both sizes
         }
     }
 
@@ -1449,6 +1455,153 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
 
     // a failure would be $res[0] == 1
     return array($res, $out, $cmd);
+}
+
+/**
+ * Correct an EXIF image orientation on upload with Imagick module
+ * This is the virgin state after ADD IMAGE move_uploaded_file($uploadtmp, $target)
+ *      and the last channce for correction before the MediaLibrary tasks take over.
+ * ImageMagick's -auto-orient performs the transform on the pixel data and then resets the EXIF orientation to 1.
+ *      This is what we are trying to mimick here using the Imagick extension module.
+ *
+ * Args:
+ *      - The target input image file (full path)
+ * Returns:
+ *      void
+ * @access public
+ */
+function serendipity_correctImageOrientationImagick($image) : void {
+    if (!file_exists($image)) return;
+
+    global $serendipity;
+    static $debug = false;
+
+    $im = new Imagick($image); // creates an empty object with a handle to $image
+    if (method_exists($im, 'getImageProperty')) {
+        $orientation = $im->getImageProperty('exif:Orientation');
+    } else {
+        $filename = $im->getImageFilename();
+
+        if (empty($filename)) {
+            $filename = 'data://image/jpeg;base64,' . base64_encode($im->getImageBlob());
+        }
+
+        $exif = exif_read_data($filename);
+        $orientation = $exif['Orientation'] ?? null;
+    }
+
+    // apply transforms to make image "top-left"
+    switch ($orientation) {
+        case Imagick::ORIENTATION_TOPLEFT:
+            // EXIF 1 - no-op
+            break;
+        case Imagick::ORIENTATION_TOPRIGHT:
+            // EXIF 2 - horizontal flip
+            $im->flopImage();
+            break;
+        case Imagick::ORIENTATION_BOTTOMRIGHT:
+            // EXIF 3 - rotate 180
+            $im->rotateImage(new ImagickPixel('none'), 180);
+            break;
+        case Imagick::ORIENTATION_BOTTOMLEFT:
+            // EXIF 4 - vertical flip
+            $im->flipImage();
+            break;
+        case Imagick::ORIENTATION_LEFTTOP:
+            // EXIF 5 - transpose (rotate + flip)
+            $im->transposeImage();
+            break;
+        case Imagick::ORIENTATION_RIGHTTOP:
+            // EXIF 6 - rotate 90 clockwise
+            $im->rotateImage(new ImagickPixel('none'), 90);
+            break;
+        case Imagick::ORIENTATION_RIGHTBOTTOM:
+            // EXIF 7 - transverse (rotate + flip)
+            $im->transverseImage();
+            break;
+        case Imagick::ORIENTATION_LEFTBOTTOM:
+            // EXIF 8 - rotate 270 or -90 counter-clockwise
+            $im->rotateImage(new ImagickPixel('none'), -90);
+            break;
+    }
+
+    // reset canvas/page offsets that can be left over after rotations
+    #$im->setImagePage(0, 0, 0, 0);
+
+    // make sure the stored orientation is "normal"
+    $im->setImageOrientation(Imagick::ORIENTATION_TOPLEFT);
+
+    // save
+    $im->writeImage($image);
+    $im->clear();
+    $im->destroy();
+
+}
+
+/**
+ * Correct an EXIF image orientation on upload with GD
+ * This is the virgin state after ADD IMAGE move_uploaded_file($uploadtmp, $target)
+ *      and the last channce for correction before the MediaLibrary tasks take over.
+ * As long not using a library for EXIF writing the EXIF properties are emptied by this correction !
+ *
+ * Args:
+ *      - The target input image file (full path)
+ * Returns:
+ *      void
+ * @access public
+ */
+function serendipity_correctImageOrientationGD(string $ifile) : void {
+    global $serendipity;
+    static $debug = false;
+
+    if (!file_exists($ifile)) {
+        return;
+    }
+    list($filebase, $extension) = serendipity_parseFileName($ifile);
+    if (!in_array(strtolower($extension), ['jpeg', 'jpg'])) {
+        return;
+    }
+    if (function_exists('exif_read_data')) {
+        $exif = exif_read_data($ifile);
+        if ($exif && isset($exif['Orientation'])) {
+            $orientation = $exif['Orientation'];
+            if (!$orientation) return;
+            if ($debug) {
+                $logtag = 'ML_FIXORIENTATION::';
+                $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML serendipity_correctImageOrientation SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
+                $serendipity['logger']->debug("L_".__LINE__.":: $logtag TYPE JPG on UPLOAD() orientation == $orientation: " . print_r($exif,true));
+            }
+            // 1: Normal (0° rotation),
+            // 3: Upside-down (180° rotation),
+            // 6: Rotated 90° counterclockwise (270° clockwise),
+            // 8: Rotated 90° clockwise (270° counterclockwise)
+            if ($orientation != 1) {
+                // Create a new image from file
+                $img = @imagecreatefromjpeg($ifile);
+                if (!$img) return;
+                $deg = 0;
+                // NOTE: Sadly, such copy image strips any Exif data from the image
+                switch ($orientation) {
+                  case 3:
+                    $deg = 180;
+                    break;
+                  case 6:
+                    $deg = 270; // or -90
+                    break;
+                  case 8:
+                    $deg = 90;
+                    break;
+                }
+                if ($deg != 0) {
+                  $img = @imagerotate($img, $deg, 0);
+                }
+                // rewrite the rotated image back to the disk as $ifile
+                if ($deg != 0) {
+                    @imagejpeg($img, $ifile, 100);
+                }
+            }
+        }
+    }
 }
 
 /**
