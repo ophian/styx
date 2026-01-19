@@ -5889,8 +5889,8 @@ function serendipity_imageAppend(string &$tfile, string &$target, string $dir, b
     $target = $dir . $tfile;
 
     if ($echo) {
-        echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> <b>' .
-                sprintf(FILENAME_REASSIGNED, htmlspecialchars($tfile)) . "</b></span>\n";
+        echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' .
+                sprintf(FILENAME_REASSIGNED, '\'<em class="media_msg t">' . htmlspecialchars($tfile)) . "</em>'</span>\n";
     }
 
     return $realname;
