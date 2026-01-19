@@ -1409,14 +1409,13 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
                 "\"$target\"";
     }
 
-    // Special case fixing a possible wrong orient image issue of smartphone cameras with SET EXIF orientation on UPLOAD
-    if (in_array($type, ['image/jpg', 'image/jpeg']) && trim($do) == '-auto-orient') {
-            $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
-                    "\"$target\"";
-    }
+    // Main file scaling (scale, resize, rotate, ...) - with type being a mime string parameter, since we have it already
+    // Special case, fixing a possible wrong orient image issue of smartphone cameras with SET EXIF orientation on UPLOAD
+    if (image_type_to_mime_type(IMAGETYPE_JPEG) == $type && trim($do) == '-auto-orient') {
+        $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
+                "\"$target\"";
 
-    // main file scaling (scale, resize, rotate, ...) - with type being a mime string parameter, since we have it already
-    if (image_type_to_mime_type(IMAGETYPE_JPEG) == $type) {
+    } else if (image_type_to_mime_type(IMAGETYPE_JPEG) == $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} -filter Lanczos {$do} {$gamma['standard']} " .
                 "-depth {$idepth} $quality -sampling-factor 1x1 -strip \"$target\"";
 
