@@ -1,6 +1,8 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Allow WebP images in "Add to ML" download hotlink
+
  * Allow Graphics-library specific resets for "jpg/jpeg" images on UPLOAD,
    fixing a possible wrong visual image orientation issue of smartphone shot
    images with explicit set EXIF orientation.
