@@ -1,9 +1,15 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
- * Allow "jpg/jpeg" image library specific manipulation fixing a possible
-   wrong orientation image issue of smartphone camera images with SET EXIF
-   orientation on UPLOAD.
+ * Allow Graphics-library specific resets for "jpg/jpeg" images on UPLOAD,
+   fixing a possible wrong visual image orientation issue of smartphone shot
+   images with explicit set EXIF orientation.
+   For the moment this possible reset fix has the following side effects:
+   - Working with GD graphics library, this reset removes the EXIF properties
+     completely, while
+   - ImageMagick resets the EXIF orient to the default 1 (landscape), which for
+     both are a matter of NOT being able to re-write EXIF tags w/o changing the
+     visual output again.
 
  * Improve serendipity_checkImagickAsModule() for NEW possible private member
    variable $serendipity['Imagick_module_noAVIF'] = true;
