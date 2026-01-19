@@ -650,8 +650,16 @@ switch ($serendipity['GET']['adminAction']) {
                                 list($filebase, $extension) = serendipity_parseFileName($target);
                                 if (in_array(strtolower($extension), ['jpeg', 'jpg'])) {
                                     $mime = serendipity_guessMime($extension);
-                                    $pass   = [ $serendipity['convert'], ['-auto-orient'], [], [], -1, -1 ]; // rotate image shot by a non-default orientation and use the optimized default quality
-                                    $result = serendipity_passToCMD("image/$mime", $target, $target, $pass);
+                                    $pass   = [ $serendipity['convert'], ['-auto-orient'], [], [], -1, -1 ]; // rotate image, shot by a non-default orientation and use the optimized default quality
+                                    $result = serendipity_passToCMD($mime, $target, $target, $pass);
+                                    if (is_array($result) && $result[0] == 0) {
+                                        if (is_object($serendipity['logger'])) {
+                                            $logtag = 'ML_FIXORIENTATION::';
+                                            $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML images.inc SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
+                                            $serendipity['logger']->debug("L_".__LINE__.":: $logtag On UPLOAD EXIF rotation From/To: $target");
+                                            $serendipity['logger']->debug("ImageMagick (CLI) EXIF rotation fix succeeded: {$result[2]}");
+                                        }
+                                    }
                                 }
                             }
                         }
