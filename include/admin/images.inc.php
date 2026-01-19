@@ -408,7 +408,7 @@ switch ($serendipity['GET']['adminAction']) {
         $_imageurl  = htmlspecialchars(($serendipity['POST']['imageurl'] ?? ''));
 
         // First find out whether to fetch a download hotlink or accept an upload file
-        $pattern = '~^(?:ht|f)tps?://[a-z0-9.-_\/](?:(?!.{3}+\?|#|\+).)+\.(?:jpe?g|png|gif)~Ui'; // each protocol, a negative look behind to not match malicious URIs and the 4 most common img extensions
+        $pattern = '~^(?:ht|f)tps?://[a-z0-9.-_\/](?:(?!.{3}+\?|#|\+).)+\.(?:jpe?g|png|gif|webp)~Ui'; // each protocol, a negative look behind to not match malicious URIs and the 4 most common img extensions
         if ($_imageurl != '' && $_imageurl != 'http://' && preg_match($pattern, $_imageurl)) {
             // case DOWNLOAD file
             if (!empty($serendipity['POST']['target_filename'][2])) {
