@@ -1216,7 +1216,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
             $_idpth = $im->getImageDepth();
             $idepth = ($type === 'pdfthumb') ? 8 : (is_int($_idpth) && $_idpth > 8 ? $_idpth : 8); // adjust as needed; can be made conditional
             $im->setImageDepth($idepth);
-            $im_debug .= "depth set to {$idepth}, ";
+            $im_debug .= "depth {$_idpth} set to {$idepth}, ";
         }
 
         // 3. STRIP (remove metadata)
@@ -1246,7 +1246,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                     // e.g.,  "400x225>!"
                     if (preg_match('/"?(\d+)x(\d+)/', $op, $m)) {
                         // e.g., "800x600
-                        if ($op_debug) echo "op matches resize {$m[1]}, {$m[2]}, Imagick::FILTER_LANCZOS ";
+                        if ($op_debug) echo "op matches resize {$m[1]}, {$m[2]}, Imagick::FILTER_LANCZOS (22) ";
                         $im->resizeImage((int)$m[1], (int)$m[2], Imagick::FILTER_LANCZOS, 1);
                         $im_debug .= "resize {$m[1]}x{$m[2]}, ";
                     }
@@ -1378,7 +1378,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
     // But "resize" (like most other image processing operators) is a mathematically linear processor, that assumes that image values directly represent a linear color brightness.
     // The colorspace "sRGB" basically contains a gamma correction of roughly 2.2. As of version 6.7.5 ImageMagick follows the standard convention and defines the default colorspace of
     // images (at least for most image file formats) to be sRGB. This means we simply need to use the "-gamma/-level" (colorspace) to transform the image to a linear space before doing the resize. 
-    $gamma['linear'] = $gamma['standard'] = '';
+    $gamma['linear'] = $gamma['standard'] = ''; // init
     if ($args[5] != -1) {
         $gamma['linear']   = '-gamma 0.454545'; // (0.45455 is 1/2.2 POW)
         $gamma['standard'] = '-gamma 2.2';
@@ -1464,7 +1464,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
 /**
  * Correct an EXIF image orientation on upload with Imagick module
  * This is the virgin state after ADD IMAGE move_uploaded_file($uploadtmp, $target)
- *      and the last channce for correction before the MediaLibrary tasks take over.
+ *      and the last chance for correction before the MediaLibrary tasks take over.
  * ImageMagick's -auto-orient performs the transform on the pixel data and then resets the EXIF orientation to 1.
  *      This is what we are trying to mimick here using the Imagick extension module.
  *
@@ -1545,7 +1545,7 @@ function serendipity_correctImageOrientationImagick($image) : void {
 /**
  * Correct an EXIF image orientation on upload with GD
  * This is the virgin state after ADD IMAGE move_uploaded_file($uploadtmp, $target)
- *      and the last channce for correction before the MediaLibrary tasks take over.
+ *      and the last chance for correction before the MediaLibrary tasks take over.
  * As long not using a library for EXIF writing the EXIF properties are emptied by this correction !
  *
  * Args:
