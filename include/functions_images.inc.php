@@ -1597,11 +1597,18 @@ function serendipity_correctImageOrientationGD(string $ifile) : void {
                     break;
                 }
                 if ($deg != 0) {
-                  $img = @imagerotate($img, $deg, 0);
-                }
-                // rewrite the rotated image back to the disk as $ifile
-                if ($deg != 0) {
-                    @imagejpeg($img, $ifile, 100);
+                    $img = @imagerotate($img, $deg, 0);
+                    $filesize = @filesize($ifile);
+                    $quality  = -1;
+                    #   1024 B x           3.6 MB         6 MB           9 MB           12 MB
+                    $bytes = [1024 => 100, 3686400 => 92, 6144000 => 85, 9216000 => 80, 12288000 => -1]; // bytesize => samplequality
+                    foreach ($bytes AS $bs => $sq) {
+                        if ($filesize > $bs) {
+                            $quality = $sq;
+                        }
+                    }
+                    // rewrite the rotated image back to the disk as $ifile
+                    @imagejpeg($img, $ifile, $quality); // default (-1) uses the default IJG quality value (about 75). 
                 }
             }
         }
