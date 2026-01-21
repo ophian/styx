@@ -1561,11 +1561,7 @@ function serendipity_correctImageOrientationGD(string $ifile) : void {
     if (!file_exists($ifile)) {
         return;
     }
-    list($filebase, $extension) = serendipity_parseFileName($ifile);
-    if (!in_array(strtolower($extension), ['jpeg', 'jpg'])) {
-        return;
-    }
-    if (function_exists('exif_read_data')) {
+    if (function_exists('exif_read_data') && exif_imagetype($ifile) === IMAGETYPE_JPEG) {
         $exif = exif_read_data($ifile);
         if ($exif && isset($exif['Orientation'])) {
             $orientation = $exif['Orientation'];
