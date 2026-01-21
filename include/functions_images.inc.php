@@ -1494,6 +1494,9 @@ function serendipity_correctImageOrientationImagick($image) : void {
         $orientation = $exif['Orientation'] ?? null;
     }
 
+    // Get the EXIF information for debugging
+    if ($debug) $exifArray = $im->getImageProperties("exif:*");
+
     // apply transforms to make image "top-left"
     switch ($orientation) {
         case Imagick::ORIENTATION_TOPLEFT:
@@ -1534,6 +1537,12 @@ function serendipity_correctImageOrientationImagick($image) : void {
 
     // make sure the stored orientation is "normal"
     $im->setImageOrientation(Imagick::ORIENTATION_TOPLEFT);
+
+    if ($debug) {
+        $logtag = 'ML_MOD_FIXORIENTATION::';
+        $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML serendipity_correctImageOrientationImagick() SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
+        $serendipity['logger']->debug("L_".__LINE__.":: $logtag TYPE JPG on UPLOAD() orientation == $orientation: " . print_r($exifArray,true));
+    }
 
     // save
     $im->writeImage($image);
