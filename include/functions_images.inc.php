@@ -1695,13 +1695,13 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                     // first we create it!
                     $result = serendipity_convertToWebPFormat($infile, $newgdfile['filepath'], $newgdfile['filename'], mime_content_type($outfile), $mute);
                     if (is_array($result) && $result[0] == 0) {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format creation success {$result[2]} " . DONE); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format creation success {$result[2]} | " . DONE); }
                         // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
                         // split it up like done here: 1. $outfile->convert to WebP and then 2. $webpthbGD->resize to thumb, which overwrites the first.
                         $webpthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
                         $newsize   = serendipity_resizeImageGD($webpthbGD, $webpthbGD, $size['width'], $size['height']);
                         if (false !== $newsize && is_array($newsize)) {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize success with GD lib " . DONE); }
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize success with GD lib | " . DONE); }
                         } else {
                             if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize failed! Perhaps a wrong path: '$webpthbGD' ?"); }
                         }
@@ -1716,13 +1716,13 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                     // first we create it!
                     $result = serendipity_convertToAvifFormat($infile, $newgdfile['filepath'], $newgdfile['filename'], mime_content_type($outfile), $mute);
                     if (is_array($result) && $result[0] == 0) {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image AVIF format creation success {$result[2]} " . DONE); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image AVIF format creation success {$result[2]} | " . DONE); }
                         // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
                         // split it up like done here: 1. $outfile->convert to AVIF and then 2. $avifthbGD->resize to thumb, which overwrites the first.
                         $avifthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
                         $newsize   = serendipity_resizeImageGD($avifthbGD, $avifthbGD, $size['width'], $size['height']);
                         if (false !== $newsize && is_array($newsize)) {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format resize success with GD lib " . DONE); }
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format resize success with GD lib | " . DONE); }
                         } else {
                             if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format resize failed! Perhaps a wrong path: '$avifthbGD' ?"); }
                         }
@@ -1741,13 +1741,13 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                     // first we create it!
                     $result = serendipity_convertToWebPFormat($infile, $newgdfile['filepath'], $newgdfile['filename'], mime_content_type($outfile), $mute);
                     if (is_array($result) && $result[0] == 0) {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format creation success {$result[2]} " . DONE); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format creation success {$result[2]} | " . DONE); }
                         // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
                         // split it up like done here: 1. $outfile->convert to WebP and then 2. $webpthbGD->resize to thumb, which overwrites the first.
                         $webpthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
                         $newsize   = serendipity_resizeImageGD($webpthbGD, $webpthbGD, (int) round($calc[0]), (int) round($calc[1])); // float to integer
                         if (false !== $newsize && is_array($newsize)) {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize success with GD lib " . DONE); }
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize success with GD lib | " . DONE); }
                         } else {
                             if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize failed! Perhaps a wrong path: '$webpthbGD' ?"); }
                         }
@@ -1762,13 +1762,13 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                     // first we create it!
                     $result = serendipity_convertToAvifFormat($infile, $newgdfile['filepath'], $newgdfile['filename'], mime_content_type($outfile), $mute);
                     if (is_array($result) && $result[0] == 0) {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image AVIF format creation success {$result[2]} " . DONE); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image AVIF format creation success {$result[2]} | " . DONE); }
                         // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
                         // split it up like done here: 1. $outfile->convert to AVIF and then 2. $avifthbGD->resize to thumb, which overwrites the first.
                         $avifthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
                         $newsize   = serendipity_resizeImageGD($avifthbGD, $avifthbGD, (int) round($calc[0]), (int) round($calc[1])); // float to integer
                         if (false !== $newsize && is_array($newsize)) {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format resize success with GD lib " . DONE); }
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format resize success with GD lib | " . DONE); }
                         } else {
                             if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format resize failed! Perhaps a wrong path: '$avifthbGD' ?"); }
                         }
@@ -1861,7 +1861,7 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                     $webpthb = $newfile['filepath'] . '/.v/' . $newfile['filename'];
                     $reswebp = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), $mute); // WebP thumbnail uses full quality by auto default
                     if (is_array($reswebp) && $reswebp[0] == 0) {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image WebP format creation success {$reswebp[2]} " . DONE); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image WebP format creation success {$reswebp[2]} | " . DONE); }
                         unset($reswebp);
                         // The resizing to same name(!)
                         $pass = $pass ?? [ $serendipity['convert'], ["-antialias -resize $_imtp"], [], ['"'.$newSize.'"'], 75, -1 ]; // no upload (FTP like case)
@@ -1874,7 +1874,7 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                             $crtby = 'CLI';
                         }
                         if (is_array($reswebp) && $reswebp[0] == 0) {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image WebP format resize success {$reswebp[2]} " . DONE); }
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image WebP format resize success {$reswebp[2]} | " . DONE); }
                         } else {
                             if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image WebP format resize failed! Perhaps a wrong path: '$webpthb' ?"); }
                         }
@@ -1890,7 +1890,7 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                     $avifthb = $newfile['filepath'] . '/.v/' . $newfile['filename'];
                     $resavif = serendipity_convertToAvifFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), $mute);
                     if (is_array($resavif) && $resavif[0] == 0) {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image AVIF format creation success {$resavif[2]} " . DONE); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image AVIF format creation success {$resavif[2]} | " . DONE); }
                         unset($resavif);
                         // The resizing to same name(!)
                         $pass = $pass ?? []; // (FTP like case)
@@ -1903,7 +1903,7 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                             $crtby = 'CLI';
                         }
                         if (is_array($resavif) && $resavif[0] == 0) {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image AVIF format resize success {$resavif[2]} " . DONE); }
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image AVIF format resize success {$resavif[2]} | " . DONE); }
                         } else {
                             if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image AVIF format resize failed! Perhaps a wrong path: '$avifthb' ?"); }
                         }
@@ -3108,9 +3108,9 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
             }
             if ($result[0] == 0) {
                 if (is_string($result[1])) {
-                    if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: Image WebP format creation success {$result[2]} from $target " . DONE); }
+                    if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: Image WebP format creation success {$result[2]} from $target | " . DONE); }
                 } else {
-                    if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick {$crtby} Image WebP format creation success {$result[2]} from $target " . DONE); }
+                    if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick {$crtby} Image WebP format creation success {$result[2]} from $target | " . DONE); }
                     // Is this missing...?? not clear...!!
                     if (empty($_relative_result_outfile) && !empty($result[2])) {
                         $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> WebP image format variation(s) \'<em class="media_msg v">'.$result[2].'</em>\' created!</span>'."\n";
@@ -3157,9 +3157,9 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
                 }
                 if ($result[0] == 0) {
                     if (is_string($result[1])) {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: Image AVIF format creation success {$result[2]} from $target " . DONE); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: Image AVIF format creation success {$result[2]} from $target | " . DONE); }
                     } else {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick (CLI/MOD) Image AVIF format creation success {$result[2]} from $target " . DONE); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick (CLI/MOD) Image AVIF format creation success {$result[2]} from $target | " . DONE); }
                     }
                 }
             } else {
@@ -6583,7 +6583,7 @@ function serendipity_formatRealFile(string $oldDir, string $newDir, string $form
 
         // GD
         if (is_array($result) && $result[0] == 0 && $serendipity['magick'] !== true) {
-            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: New Image '{$format}' format creation success '{$result[2]}' " . DONE); }
+            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: New Image '{$format}' format creation success '{$result[2]}' | " . DONE); }
             unset($result);
             unset($out);
             unlink($infile); // delete the old origin format
@@ -6593,7 +6593,7 @@ function serendipity_formatRealFile(string $oldDir, string $newDir, string $form
                 $result  = array(0, $out, 'with GD');
             }
             if (is_array($result) && $result[0] == 0) {
-                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: New Image '{$format}' format success '{$result[2]}' " . DONE); }
+                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: New Image '{$format}' format success '{$result[2]}' | " . DONE); }
                 unlink($infileThumb); // delete the old thumb format
             }
             unset($result);
@@ -6601,7 +6601,7 @@ function serendipity_formatRealFile(string $oldDir, string $newDir, string $form
         }
         // IM
         else if (is_array($result) && $result[0] == 0) {
-            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: ImageMagick ({$crtby}) - New Image '{$format}' format creation success '{$result[2]}' " . DONE); }
+            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: ImageMagick ({$crtby}) - New Image '{$format}' format creation success '{$result[2]}' | " . DONE); }
             unset($result);
             unlink($infile); // delete the old origin format
             // 2cd run: The thumb conversion to new format
@@ -6614,7 +6614,7 @@ function serendipity_formatRealFile(string $oldDir, string $newDir, string $form
                 $crtby = 'CLI';
             }
             if (is_array($result) && $result[0] == 0) {
-                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: ImageMagick ({$crtby}) - New Image '{$format}' format THUMB RESIZE success '{$result[2]}' " . DONE); }
+                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: ImageMagick ({$crtby}) - New Image '{$format}' format THUMB RESIZE success '{$result[2]}' | " . DONE); }
                 unlink($infileThumb); // delete the old thumb format
             } else {
                 if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: ImageMagick ({$crtby}) - New Image '{$format}' format RESIZE failed! Perhaps a wrong path: \"{$outfileThumb}\" ?"); }
