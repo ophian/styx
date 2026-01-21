@@ -1567,9 +1567,9 @@ function serendipity_correctImageOrientationGD(string $ifile) : void {
             $orientation = $exif['Orientation'];
             if (!$orientation) return;
             if ($debug) {
-                $logtag = 'ML_FIXORIENTATION::';
-                $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML serendipity_correctImageOrientation SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
-                $serendipity['logger']->debug("L_".__LINE__.":: $logtag TYPE JPG on UPLOAD() orientation == $orientation: " . print_r($exif,true));
+                $logtag = 'ML_GD_FIXORIENTATION::';
+                $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML serendipity_correctImageOrientationGD() SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
+                $serendipity['logger']->debug("L_".__LINE__.":: $logtag TYPE JPG on UPLOAD() orientation == $orientation: " . print_r($exif,true)); // yepp, this is before it is purged
             }
             // 1: Normal (0° rotation),
             // 3: Upside-down (180° rotation),
