@@ -1,6 +1,9 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Update to jQuery final v4.0.0 release
+   https://blog.jquery.com/2026/01/17/jquery-4-0-0/
+
  * Allow WebP images in "Add to ML" download hotlink
 
  * Allow Graphics-library specific resets for "jpg/jpeg" images on UPLOAD,
