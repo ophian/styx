@@ -1,6 +1,11 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Fix height issue of TinyMCE editor frame expanding large when writing long
+   content and loosing easy access to the editorstoolbar. We now return to the
+   previous editor behavior of a fixed frame max-height in normal view mode
+   and down from here vertically auto-scroll overflowing content.
+
  * Fix issue of TinyMCE editor frame in fullscreen mode overwriting existing
    Styx CSS mfp-* layers.
 
