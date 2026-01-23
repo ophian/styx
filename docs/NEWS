@@ -1,6 +1,9 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Fix issue of TinyMCE editor frame in fullscreen mode overwriting existing
+   Styx CSS mfp-* layers.
+
  * Update to jQuery final v4.0.0 release
    https://blog.jquery.com/2026/01/17/jquery-4-0-0/
 
