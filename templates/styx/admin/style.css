@@ -4167,7 +4167,7 @@ input#select_page {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1042;
+  z-index: 1242;
   overflow: hidden;
   position: fixed;
   background: #0b0b0b;
@@ -4178,7 +4178,7 @@ input#select_page {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1043;
+  z-index: 1243;
   position: fixed;
   outline: none !important;
   -webkit-backface-visibility: hidden; }
@@ -4224,7 +4224,7 @@ input#select_page {
   vertical-align: middle;
   margin: 0 auto;
   text-align: left;
-  z-index: 1045; }
+  z-index: 1245; }
 
 .mfp-dialog {
   background: #1c2128cc;
@@ -4287,7 +4287,7 @@ input#select_page {
   margin-top: -0.8em;
   left: 8px;
   right: 8px;
-  z-index: 1044; }
+  z-index: 1244; }
   .mfp-preloader a {
     color: #CCC; }
     .mfp-preloader a:hover {
@@ -4310,7 +4310,7 @@ button.mfp-arrow {
   display: block;
   outline: none;
   padding: 0;
-  z-index: 1046;
+  z-index: 1246;
   box-shadow: none;
   touch-action: manipulation; }
 
