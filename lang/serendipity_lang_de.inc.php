@@ -231,7 +231,7 @@
 @define('SYNDICATION_PLUGIN_BANNERWIDTH', 'Breite des Bildes');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT', 'Höhe des Bildes');
 @define('SYNDICATION_PLUGIN_WEBMASTER_DESC', 'E-Mail-Adresse des Webmasters, falls vorhanden (leer: nicht verwenden). [RSS 2.0]');
-@define('SYNDICATION_PLUGIN_MANAGINGEDITOR_DESC', 'E-Mail-Adresse des verantwortlichen Editors, falls vorhanden (leer: nicht verwenden). [RSS 2.0]');
+@define('SYNDICATION_PLUGIN_MANAGINGEDITOR_DESC', 'E-Mail-Adresse des verantwortlichen Redakteurs, falls vorhanden (leer: nicht verwenden). [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_BANNERURL_DESC', 'URL für ein Bild im GIF/JPEG/PNG Format, falls vorhanden (leer: Serendipity-Logo).');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH_DESC', 'in Pixeln, max. 144');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT_DESC', 'in Pixeln, max. 400');
