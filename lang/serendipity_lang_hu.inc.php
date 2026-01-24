@@ -435,7 +435,7 @@
 @define('INSTALL_CAT_IMAGECONV', 'Kép konvertáló beállítások');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Globális beállítások arról, hogy a Serendipity hogyan kezelje a képeket');
 @define('INSTALL_IMAGEMAGICK', 'ImageMagick használata');
-@define('INSTALL_IMAGEMAGICK_DESC', 'Van-e a szerveren ImageMagick telepítve, és szeretné-e ezt használni a képek átméretezéséhez?');
+@define('INSTALL_IMAGEMAGICK_DESC', 'Telepítve van az ImageMagick bináris könyvtár vagy az Imagick modul, és szeretné használni képek átméretezésére?');
 @define('INSTALL_IMAGEMAGICKPATH', 'A futtatható fájl elérési útvonala');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'Az Imagemagic program útvonala és fájlneve');
 @define('INSTALL_THUMBSUFFIX', 'A generált előnézeti képek előtagja');

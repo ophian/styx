@@ -435,7 +435,7 @@
 @define('INSTALL_CAT_IMAGECONV', '画像変換設定');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Serendipity がどのようにイメージを扱わなければならないかに関する一般的な情報を入力します。');
 @define('INSTALL_IMAGEMAGICK', 'Imagemagick を使う');
-@define('INSTALL_IMAGEMAGICK_DESC', 'image magick がインストール済みで、それを使って画像のリサイズをしますか?');
+@define('INSTALL_IMAGEMAGICK_DESC', 'ImageMagickのバイナリライブラリまたはImagickモジュールがインストールされており、画像のサイズ変更に使用したいですか？');
 @define('INSTALL_IMAGEMAGICKPATH', 'convert バイナリへのパス');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'image magic convert バイナリのフルパスと名前');
 @define('INSTALL_THUMBSUFFIX', 'サムネイル接尾辞');

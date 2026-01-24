@@ -434,7 +434,7 @@
 @define('INSTALL_CAT_IMAGECONV', 'Kuvamuunnosten asetukset');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Serendipityn kuvankäsittelyasetukset.');
 @define('INSTALL_IMAGEMAGICK', 'Käytä Imagemagick:ä');
-@define('INSTALL_IMAGEMAGICK_DESC', 'Onko image magick asennettuna ja haluatko käyttää sitä kuvien käsittelyyn?');
+@define('INSTALL_IMAGEMAGICK_DESC', 'Onko sinulla asennettuna ImageMagick-binaarikirjasto tai Imagick-moduuli ja haluatko käyttää sitä kuvien koon muuttamiseen?');
 @define('INSTALL_IMAGEMAGICKPATH', 'Convert-ohjelman sijainti');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'Imagemagick convert-ohjelman nimi ja täydellinen tiedostopolku');
 @define('INSTALL_THUMBSUFFIX', 'Pienoiskuvakkeen suffiksi');

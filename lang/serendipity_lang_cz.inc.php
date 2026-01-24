@@ -452,7 +452,7 @@ $i18n_filename_to = array (
 @define('INSTALL_CAT_IMAGECONV', 'Úpravy obrázků');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Vložení základních informací o způsobu zpracování obrázků');
 @define('INSTALL_IMAGEMAGICK', 'Používat Imagemagick?');
-@define('INSTALL_IMAGEMAGICK_DESC', 'Máte instalován Imagemagick?');
+@define('INSTALL_IMAGEMAGICK_DESC', 'Máte nainstalovanou binární knihovnu ImageMagick nebo modul Imagick a chcete ji použít ke změně velikosti obrázků?');
 @define('INSTALL_IMAGEMAGICKPATH', 'Cesta ke konverznímu souboru');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'Úplná cesta a název konverzního souboru Imagemagick');
 @define('INSTALL_THUMBSUFFIX', 'Sufix náhledů');

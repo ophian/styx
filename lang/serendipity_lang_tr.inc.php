@@ -437,7 +437,7 @@
 @define('INSTALL_CAT_IMAGECONV', 'Resim Düzenleme Ayarları');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Resimlerin nasıl düzenlenebileceğini belirten seçimleri yapın');
 @define('INSTALL_IMAGEMAGICK', 'ImageMagick kullan');
-@define('INSTALL_IMAGEMAGICK_DESC', 'ImageMagick kurulumuna sahipseniz resimleri yeniden boyutlamak için kullanılsın mı?');
+@define('INSTALL_IMAGEMAGICK_DESC', 'ImageMagick ikili kütüphanesi veya Imagick modülü yüklü mü ve bunu görüntüleri yeniden boyutlandırmak için kullanmak mı istiyorsunuz?');
 @define('INSTALL_IMAGEMAGICKPATH', 'Dönüştürülecek dosyanın yolu');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'Tam yolu & adı ImageMagick yoluyla dosya dönüştürmek için');
 @define('INSTALL_THUMBSUFFIX', 'Küçükresim soneki');

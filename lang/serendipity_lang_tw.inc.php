@@ -437,7 +437,7 @@ $i18n_unknown = 'tw';
 @define('INSTALL_CAT_IMAGECONV', '圖片轉換設定');
 @define('INSTALL_CAT_IMAGECONV_DESC', '請設定 Serendipity 設定圖片轉換的方式');
 @define('INSTALL_IMAGEMAGICK', '使用 Imagemagick');
-@define('INSTALL_IMAGEMAGICK_DESC', '如果有安裝 image magick, 您要用它來改變圖片大小嗎?');
+@define('INSTALL_IMAGEMAGICK_DESC', '您是否已安裝 ImageMagick 二進位函式庫或 Imagick 模組，並希望用它來調整圖片尺寸？');
 @define('INSTALL_IMAGEMAGICKPATH', '轉換程式路徑');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'image magick 轉換程式的完全路徑和名稱');
 @define('INSTALL_THUMBSUFFIX', '縮圖後置字元');

@@ -436,7 +436,7 @@
 @define('INSTALL_CAT_IMAGECONV', 'تنظیمات تغییر عکس');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'اطلاعات کلی برای سرندیپیتی برای چگونگی پردازش تصاویر');
 @define('INSTALL_IMAGEMAGICK', 'استفاده از ImageMagick');
-@define('INSTALL_IMAGEMAGICK_DESC', 'آیا شما ImageMagick را نصب کرده اید و آیا می خواهید از آن به عنوان پردازنده تصاویر استفاده کنید؟');
+@define('INSTALL_IMAGEMAGICK_DESC', 'آیا کتابخانهٔ باینری ImageMagick یا ماژول Imagick را نصب کرده‌اید و می‌خواهید از آن برای تغییر اندازهٔ تصاویر استفاده کنید؟');
 @define('INSTALL_IMAGEMAGICKPATH', 'مسیر تغییر فایل های باینری');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'آدرس کامل و نام فایل ImageMagick برای تغییر فایل های باینری');
 @define('INSTALL_THUMBSUFFIX', 'پیشوند عکس های کوچک');

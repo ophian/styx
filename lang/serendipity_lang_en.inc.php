@@ -435,7 +435,7 @@
 @define('INSTALL_CAT_IMAGECONV', 'Image Conversion Settings');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Enter general information about how Serendipity should handle Images');
 @define('INSTALL_IMAGEMAGICK', 'Use ImageMagick');
-@define('INSTALL_IMAGEMAGICK_DESC', 'Do you have ImageMagick installed and want to use it to resize images?');
+@define('INSTALL_IMAGEMAGICK_DESC', 'Do you have the ImageMagick binary library or the Imagick module installed and want to use it to resize images?');
 @define('INSTALL_IMAGEMAGICKPATH', 'Path to convert binary');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'Full path & name of your ImageMagick convert binary');
 @define('INSTALL_THUMBSUFFIX', 'Thumbnail suffix');

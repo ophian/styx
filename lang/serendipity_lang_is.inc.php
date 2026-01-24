@@ -435,7 +435,7 @@
 @define('INSTALL_CAT_IMAGECONV', 'Myndbreytingastillingar:');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Skráðu inn almennar upplýsingar um hvernig Serendipity ætti að sjá um myndir');
 @define('INSTALL_IMAGEMAGICK', 'Nota Imagemagick');
-@define('INSTALL_IMAGEMAGICK_DESC', 'Ertu með imagemagick uppsett og vilt nota það til að breyta stærð mynda?');
+@define('INSTALL_IMAGEMAGICK_DESC', 'Er ImageMagick-bókasafnið eða Imagick-viðbótin uppsett hjá þér og viltu nota það til að breyta stærð mynda?');
 @define('INSTALL_IMAGEMAGICKPATH', 'Slóð á forritið');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'Full slóð og nafnið á imagemagick myndvinnsuforritinu');
 @define('INSTALL_THUMBSUFFIX', 'Viðskeyti sýnishorna');

@@ -437,7 +437,7 @@
 @define('INSTALL_CAT_IMAGECONV', 'أعدادات تحويل الصور');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'ضع معلومات عامة عن كيفية تعامل المجلة للصور');
 @define('INSTALL_IMAGEMAGICK', 'أستخدم ايمج ماجيك');
-@define('INSTALL_IMAGEMAGICK_DESC', 'هل انت مركب برنامج ايمج مجك في سيرفرك و تود أستخدامة في تصغير وتعديل الصور؟');
+@define('INSTALL_IMAGEMAGICK_DESC', 'هل لديك مكتبة ImageMagick الثنائية أو وحدة Imagick مثبتة وتريد استخدامها لتغيير حجم الصور؟');
 @define('INSTALL_IMAGEMAGICKPATH', 'مسار تحويل المعلومات');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'المسار و الأسم الكامل إلى برنامج التحويل اميج ماجك على سيرفرك');
 @define('INSTALL_THUMBSUFFIX', 'لاحقة الصور المصغرة');

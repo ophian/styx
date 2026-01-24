@@ -437,7 +437,7 @@
 @define('INSTALL_CAT_IMAGECONV', '图片转换设定');
 @define('INSTALL_CAT_IMAGECONV_DESC', '请设定图片转换的方式');
 @define('INSTALL_IMAGEMAGICK', '使用 Imagemagick');
-@define('INSTALL_IMAGEMAGICK_DESC', '如果安装 image magick, 你要用它来改变图片大小吗?');
+@define('INSTALL_IMAGEMAGICK_DESC', '您是否已安装ImageMagick二进制库或Imagick模块，并希望使用它来调整图像尺寸？');
 @define('INSTALL_IMAGEMAGICKPATH', '转换程式路径');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'image magick 转换程式的完全路径和名称');
 @define('INSTALL_THUMBSUFFIX', '缩图后置字符');

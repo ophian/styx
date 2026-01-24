@@ -450,7 +450,7 @@ $i18n_filename_to = array (
 @define('INSTALL_CAT_IMAGECONV', 'Nastavenie úpravy obrázkov');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Tu zadajte všeobecné informácie, ako má Serendipity spracovávať obrázky');
 @define('INSTALL_IMAGEMAGICK', 'Používať Imagemagick?');
-@define('INSTALL_IMAGEMAGICK_DESC', 'Máte nainštalovaný Imagemagick a chcete ho použiť na zmenu veľkosti obrázkov?');
+@define('INSTALL_IMAGEMAGICK_DESC', 'Máte nainštalovanú binárnu knižnicu ImageMagick alebo modul Imagick a chcete ju použiť na zmenu veľkosti obrázkov?');
 @define('INSTALL_IMAGEMAGICKPATH', 'Cesta k súboru convert');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'Úplná cesta a název binárneho súboru convert programu Imagemagick');
 @define('INSTALL_THUMBSUFFIX', 'Prápona náhľadov');

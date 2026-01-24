@@ -437,7 +437,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('INSTALL_CAT_IMAGECONV', 'Ustawienia konwersji obrazków');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Wpriwadź ustawienia dotyczące sposobów obsługi obrazków przez Serendipity');
 @define('INSTALL_IMAGEMAGICK', 'Użyj ImageMagick');
-@define('INSTALL_IMAGEMAGICK_DESC', 'Czy masz zainstalowany program ImageMagick i chcesz użyć go do zmiany rozmiarów obrazków?');
+@define('INSTALL_IMAGEMAGICK_DESC', 'Czy masz zainstalowaną bibliotekę binarną ImageMagick lub moduł Imagick i chcesz używać ich do zmiany rozmiaru obrazów?');
 @define('INSTALL_IMAGEMAGICKPATH', 'Ścieżka do programu konwertującego');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'Pełna ścieżka do i nazwa używanego przez Ciebie programu obsługującego ImageMagick');
 @define('INSTALL_THUMBSUFFIX', 'Sufiks Miniaturek');

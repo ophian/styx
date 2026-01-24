@@ -417,7 +417,7 @@
 @define('INSTALL_CAT_IMAGECONV', 'Opciones para la conversión de imágenes');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Información sobre cómo debería Serendipity manejar imágenes');
 @define('INSTALL_IMAGEMAGICK', 'Usar ImageMagick');
-@define('INSTALL_IMAGEMAGICK_DESC', '¿Tienes ImageMagick instalado y quieres usarlo para redimensionar imágenes?');
+@define('INSTALL_IMAGEMAGICK_DESC', '¿Tienes instalada la biblioteca binaria ImageMagick o el módulo Imagick y quieres usarla para cambiar el tamaño de las imágenes?');
 @define('INSTALL_IMAGEMAGICKPATH', 'Ruta hasta el programa convert');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'Ruta completa y nombre del programa convert de ImageMagick');
 @define('INSTALL_THUMBSUFFIX', 'Sufijo de la miniatura');

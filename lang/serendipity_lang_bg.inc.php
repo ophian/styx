@@ -469,7 +469,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_CAT_IMAGECONV', 'Настройване на обработката на изображения');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Задаване на обща информация как Serendipity да обработва изображения');
 @define('INSTALL_IMAGEMAGICK', 'Използване на Imagemagick');
-@define('INSTALL_IMAGEMAGICK_DESC', 'Имате ли instaliran image magick и искате ли да го използвате за промяна на размера на изображения?');
+@define('INSTALL_IMAGEMAGICK_DESC', 'Имате ли инсталирана бинарната библиотека ImageMagick или модула Imagick и искате да ги използвате за промяна на размера на изображенията?');
 @define('INSTALL_IMAGEMAGICKPATH', 'Път до изпълнимия файл convert');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'Пълен път и име на изпълнимия файл convert на image magick');
 @define('INSTALL_THUMBSUFFIX', 'Наставка на миниатюрите');

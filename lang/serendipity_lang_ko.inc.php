@@ -437,7 +437,7 @@
 @define('INSTALL_CAT_IMAGECONV', '그림 변환 설정');
 @define('INSTALL_CAT_IMAGECONV_DESC', '세렌디피티가 그림을 어떻게 다룰지에 대한 정보를 입력합니다.');
 @define('INSTALL_IMAGEMAGICK', 'ImageMagick 사용하기');
-@define('INSTALL_IMAGEMAGICK_DESC', 'ImageMagick이 설치되어 있으며 이를 그림 크기 조절에 사용하겠습니까?');
+@define('INSTALL_IMAGEMAGICK_DESC', '이미지 크기 조정을 위해 ImageMagick 바이너리 라이브러리나 Imagick 모듈을 설치하셨고 이를 사용하고자 하시나요?');
 @define('INSTALL_IMAGEMAGICKPATH', '변환 바이너리 경로');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'ImageMagick 변환 바이너리(프로그램)의 이름 및 전체 경로');
 @define('INSTALL_THUMBSUFFIX', '작은 그림 접두사');

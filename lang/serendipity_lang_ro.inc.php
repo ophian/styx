@@ -436,7 +436,7 @@
 @define('INSTALL_CAT_IMAGECONV', 'Setări Conversie Imagini');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Aici sunt stocate informaţii despre cum tratează Serendipity imaginile');
 @define('INSTALL_IMAGEMAGICK', 'Foloseşte ImageMagick');
-@define('INSTALL_IMAGEMAGICK_DESC', 'Ai ImageMagick instalat pe server şi vrei să-l foloseşti pentru redimensionarea imaginilor?');
+@define('INSTALL_IMAGEMAGICK_DESC', 'Aveți biblioteca binară ImageMagick sau modulul Imagick instalat și doriți să îl utilizați pentru a redimensiona imagini?');
 @define('INSTALL_IMAGEMAGICKPATH', 'Calea către executabilul convert');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'Calea completă şi numele executabilului folosit de ImageMagick pentru conversia imaginilor');
 @define('INSTALL_THUMBSUFFIX', 'Sufix Miniaturi');
