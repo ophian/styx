@@ -420,9 +420,9 @@
 @define('INSTALL_CAT_IMAGECONV', 'Bildkonvertierung');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Wie soll Serendipity Bilder handhaben');
 @define('INSTALL_IMAGEMAGICK', 'ImageMagick zur Skalierung verwenden');
-@define('INSTALL_IMAGEMAGICK_DESC', 'Ist ImageMagick installiert? Verwendet ansonsten die GDLib.');
-@define('INSTALL_IMAGEMAGICKPATH', 'Pfad zur "convert" ImageMagick-Datei');
-@define('INSTALL_IMAGEMAGICKPATH_DESC', 'Voller Pfad und Name zur Image-Magick Datei');
+@define('INSTALL_IMAGEMAGICK_DESC', 'Ist ImageMagick oder das Imagick Modul installiert? Verwendet ansonsten die GDLib.');
+@define('INSTALL_IMAGEMAGICKPATH', 'Pfad zur "convert" ImageMagick-Binary-Datei');
+@define('INSTALL_IMAGEMAGICKPATH_DESC', 'Voller Pfad und Name zur Image-Magick Binary-Datei');
 @define('INSTALL_THUMBSUFFIX', 'Vorschaubild-Suffix');
 @define('INSTALL_THUMBSUFFIX_DESC', 'Vorschaubilder werden nach dem Schema Originalname.Suffix.Typ (ext) benannt.');
 @define('INSTALL_THUMBWIDTH', 'Vorschaubildgröße');
