@@ -1092,7 +1092,7 @@ Sie sollten damit kein sicherheitsrelevantes Zugangssystem betreiben wollen!');
 @define('FRONTEND', 'Frontend');
 @define('BACKEND', 'Backend');
 @define('MEDIA_UPLOAD_RESIZE', 'Größe für Upload automatisch anpassen');
-@define('MEDIA_UPLOAD_RESIZE_DESC', 'Mittels Javascript werden Bilder beim Upload an die oben gewählte(n) Maximal-Größe(n) angepasst. Wenn aktiv, wird Ajax für den Bildupload verwendet, was auch zur Entfernung des "Eigenschaften angeben"-Buttons führt. Dieses muss dann separat geschehen.<br>ACHTUNG: Diese Einstellung kann andere, erweiterte Optionen verhindern, insbesondere dann, wenn das imageselectorplus event Plugin genutzt wird!');
+@define('MEDIA_UPLOAD_RESIZE_DESC', 'Mittels Javascript werden Bilder beim Upload an die oben gewählte(n) Maximal-Größe(n) angepasst. Wenn aktiv, wird Ajax für den Bildupload verwendet, was auch zur Entfernung des "Eigenschaften angeben"-Buttons führt. Diese können dann nur separat angepasst werden.<br>ACHTUNG: Diese Einstellung kann andere, erweiterte Optionen verhindern, insbesondere dann, wenn das imageselectorplus event Plugin genutzt wird!');
 @define('LOG_LEVEL', 'Log Level');
 @define('LOG_LEVEL_DESC', 'An einigen Stellen im Serendipity-Code wurden Debugging-Ausgaben platziert. Wenn diese Option auf "Debug" gesetzt wird, werden jene Ausgaben nach templates_c/logs/ geschrieben. Diese Option sollte nur aktiviert werden, wenn Probleme in der Funktionsausführung bestehen. Wird die Option auf "Fehler" gesetzt, werden PHP-Fehler in jenes Logfile geschrieben, hierbei wird die PHP error_log Option überschrieben.');
 @define('DEBUG', 'Debug');
