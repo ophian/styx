@@ -5063,6 +5063,7 @@ img.mfp-img {
     .js .media_pane .media_file.mlMidCol .media_file_preview {
         min-height: 12.75em;
         height: 12.75em;
+        overflow-y: auto;
     }
     /* article element size 205.35 x 205.35 */
     .js #template_select ul li.theme_file.tmMaxCol article .template_preview {
@@ -5072,6 +5073,7 @@ img.mfp-img {
     .js .media_pane .media_file.mlMaxCol .media_file_preview {
         min-height: 7.5em;
         height: 7.5em;
+        overflow-y: auto;
     }
     #template_select .theme_file.tmMidCol h3,
     #template_select .theme_file.tmMaxCol h3,
