@@ -879,7 +879,7 @@
 @define('MEDIA_KEYWORDS', 'Medien-Schlüsselwörter');
 @define('MEDIA_KEYWORDS_DESC', 'Tragen Sie eine Liste von ";" separierten Schlüsselwörtern ein, die für Mediendaten vergeben werden können.');
 @define('MEDIA_EXIF', 'EXIF/JPEG Metadaten übernehmen?');
-@define('MEDIA_EXIF_DESC', 'Falls aktiviert, werden EXIF/JPEG Metadaten ausgelesen und in der Datenbank gespeichert.');
+@define('MEDIA_EXIF_DESC', 'Falls aktiviert, werden EXIF/JPEG Metadaten ausgelesen und zusätzlich in der Datenbank gespeichert. Nein unterbindet nur die Auslesung und Darstellung der Metadaten. Per Auto-Größen-Upload geschriebene Bilder mittels der GDLib löschen diese sogar in den Metadaten des Bildes selbst.');
 @define('MEDIA_PROP', 'Medien-Eigenschaften');
 @define('MEDIA_PROP_STATUS', 'Die Formular-Eingabewerte "alt", "comment"s und "title" als <b>öffentliche</b> Medieneigenschaften sind noch nicht gespeichert, ODER entsprechen dem Standard. Derzeit wird ein Bildtitel-Attribut automatisch durch den Dateinamen erzeugt! Vermeiden Sie es auch, den Copyright-Wert mit Ihrem hier eventuell vor-eingestellten Real-Namen zu speichern, wenn Sie die Rechte nicht wirklich besitzen! Nutzen Sie "unknown" oder Ähnliches, oder lassen Sie den Wert leer.');
 @define('MEDIA_CREATEVARS', 'Zusätzliche Bild-Variationen erzeugen');
