@@ -8,7 +8,7 @@
         "psr/log": "^3.0.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.0.0"
+        "phpunit/phpunit": "^8.5.52"
     },
     "license": "MIT",
     "authors": [
