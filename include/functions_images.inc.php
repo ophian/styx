@@ -1181,10 +1181,11 @@ function serendipity_generate_webpPathURI(string $image, string $ext = 'webp') :
  *      - boolean on fail, else array with result and $im_debug string (for debug)
  * @access private
  */
-function serendipity_passToModule(?string $type = null, string $source = '', string $target = '', iterable $args = array()): string|iterable|bool
-{
+function serendipity_passToModule(?string $type = null, string $source = '', string $target = '', iterable $args = array()): string|iterable|bool {
+    // check null type || $type is not supported || failed ACL permission
+    $_mimetype = str_contains($type, '/') ? explode('/', $type)[1] : $type;
     if ($type === null
-    || (!in_array($type, ['pdfthumb', 'mkthumb', 'format-jpg', 'format-jpeg', 'format-png', 'format-gif', 'format-webp', 'format-avif']) && !in_array(strtoupper(explode('/', $type)[1]), serendipity_getSupportedFormats(true)))
+    || (!in_array($type, ['pdfthumb', 'mkthumb', 'format-jpg', 'format-jpeg', 'format-png', 'format-gif', 'format-webp', 'format-avif']) && !in_array(strtoupper($_mimetype), serendipity_getSupportedFormats(true)))
     || !serendipity_checkPermission('adminImagesAdd')) {
         return false;
     }
@@ -1345,9 +1346,10 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
  * @access private
  */
 function serendipity_passToCMD(?string $type = null, string $source = '', string $target = '', iterable $args = array()) : string|iterable|bool {
-
+    // check null type || $type is not supported || failed ACL permission
+    $_mimetype = str_contains($type, '/') ? explode('/', $type)[1] : $type;
     if ($type === null
-    || (!in_array($type, ['pdfthumb', 'mkthumb', 'format-jpg', 'format-jpeg', 'format-png', 'format-gif', 'format-webp', 'format-avif']) && !in_array(strtoupper(explode('/', $type)[1]), serendipity_getSupportedFormats(true)))
+    || (!in_array($type, ['pdfthumb', 'mkthumb', 'format-jpg', 'format-jpeg', 'format-png', 'format-gif', 'format-webp', 'format-avif']) && !in_array(strtoupper($_mimetype), serendipity_getSupportedFormats(true)))
     || !serendipity_checkPermission('adminImagesAdd')) {
         return false;
     }
