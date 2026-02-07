@@ -362,13 +362,13 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     [data-dark-theme="dark"] table thead th {
       border-color: #444c56;
       border-width: 1px; }
+  [data-dark-theme="dark"] tr td:first-of-type {
+    padding-left: .25em; }
   [data-dark-theme="dark"] #content,
   [data-dark-theme="dark"] #serendipityLeftSideBar,
   [data-dark-theme="dark"] #serendipityRightSideBar,
   [data-dark-theme="dark"] .serendipity_commentForm,
   [data-dark-theme="dark"] .content_msg, [data-dark-theme="dark"] .serendipity_content_message, [data-dark-theme="dark"] .serendipity_commentDirection,
-  [data-dark-theme="dark"] tr td:first-of-type {
-    padding-left: .25em; }
   [data-dark-theme="dark"] table td {
     border-color: #373f47; }
   [data-dark-theme="dark"] table:not(.table,.serendipity_calendar,.calendar-nav) td {
