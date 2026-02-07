@@ -1690,6 +1690,11 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
             if (is_array($size)) {
                 // The caller wants a thumbnail with a specific size
                 $r = serendipity_resizeImageGD($infile, $outfile, $size['width'], $size['height']);
+
+                if (false !== $r && is_array($r)) {
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: ML_CREATEDTHUMBNAIL: GD Image upload origin to specific thumb size | {$r[0]} x {$r[1]} "); }
+                }
+
                 // Create a copy in WebP image format
                 if (file_exists($outfile) && $serendipity['useWebPFormat']) {
                     // The WebP GD part in 3 steps: 1. makeVariationPath(), 2. convertToWebPFormat(), 3. resizeImageGD()
@@ -1736,6 +1741,11 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                 // The caller wants an image constrained in the dimension set by config
                 $calc = serendipity_calculateAspectSize($fdim[0], $fdim[1], $size, $serendipity['imageConstraint']);
                 $r    = serendipity_resizeImageGD($infile, $outfile, (int) round($calc[0]), (int) round($calc[1])); // float to integer
+
+                if (false !== $r && is_array($r)) {
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: ML_CREATEDTHUMBNAIL: GD Image upload origin to default thumb size | {$r[0]} x {$r[1]} "); }
+                }
+
                 // Create a copy in WebP image format
                 if (file_exists($outfile) && $serendipity['useWebPFormat']) {
                     // The WebP GD part in 3 steps: 1. makeVariationPath(), 2. convertToWebPFormat(), 3. resizeImageGD()
