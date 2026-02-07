@@ -359,6 +359,8 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     border-top: 1px solid #444c56; }
   [data-dark-theme="dark"] table thead {
     background-color: #191f27; }
+    [data-dark-theme="dark"] .post thead tr, [data-dark-theme="dark"] .post_content thead tr {
+      box-shadow: inset 0em -1px #00032b; }
     [data-dark-theme="dark"] table thead th {
       border-color: #444c56;
       border-width: 1px; }
@@ -1402,6 +1404,8 @@ nav.pager + .serendipity_blogpdf {
 .post_content thead {
     line-height: 1.8;
     background: #f6f6f6; }
+.post thead tr, .post_content thead tr {
+    box-shadow: inset 0em -1px #dcdcdc; }
 
 .serendipity_entry_author_self {}
 .serendipity_entry_read_more {
