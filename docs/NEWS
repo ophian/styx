@@ -39,7 +39,9 @@ Version 5.1-DEV ()
    "upload_max_filesize" restriction.
 
  * Improve [ pure ] standard theme default table styles:
-    - allow custom overwrite (reset) with unstyled .table selector
+    - allow custom overwrite (inner border reset) with unstyled .table selector
+    - the zebra coloring uses a default table head <thead> element; If not used
+      the odd/even effect looks vice versa.
 
  * Improved image RESIZE/SCALE/ROTATE/- tooling for new Imagick module usage.
    If ImageMagick is set true in the global image configuration, the system
