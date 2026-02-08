@@ -3557,7 +3557,7 @@ function serendipity_functionsGD(string $infilename, ?int $q = null) : false|ite
         return false;
     }
 
-    $qual = is_null($q) ? 75 : $q; // currently WebP only
+    $qual = is_null($q) ? 75 : $q; // Origin (JPG) and WebP only
     $func = array();
     $inf  = pathinfo(mb_strtolower($infilename));
     switch ($inf['extension']) {
@@ -3572,7 +3572,7 @@ function serendipity_functionsGD(string $infilename, ?int $q = null) : false|ite
         case 'jfif':
             $func['load'] = 'imagecreatefromjpeg';
             $func['save'] = 'imagejpeg';
-            $func['qual'] = 100;
+            $func['qual'] = $qual;
             break;
 
         case 'png':
