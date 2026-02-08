@@ -1590,7 +1590,16 @@ function serendipity_correctImageOrientationGD(string $ifile) : void {
         return;
     }
     if (function_exists('exif_read_data') && exif_imagetype($ifile) === IMAGETYPE_JPEG) {
-        $exif = exif_read_data($ifile);
+        $dbg = '';
+        $exif = exif_read_data($ifile); // origins PRE EXIF Data
+
+        // Create a new image from file
+        $img = @imagecreatefromjpeg($ifile);
+        $filesize = @filesize($ifile);
+
+        // Get calculated target "source quality" guess based on BPP (Bits Per Pixel) - preferable against readout of quality
+        $quality = serendipity_getOptimizedQuality($ifile); // Being in serendipity_correctImageOrientationGD
+
         if ($exif && isset($exif['Orientation'])) {
             $orientation = $exif['Orientation'];
             if (!$orientation) return;
@@ -1601,40 +1610,63 @@ function serendipity_correctImageOrientationGD(string $ifile) : void {
             }
             // 1: Normal (0° rotation),
             // 3: Upside-down (180° rotation),
-            // 6: Rotated 90° counterclockwise (270° clockwise),
-            // 8: Rotated 90° clockwise (270° counterclockwise)
+            // 6: Rotated -90° counterclockwise (270° clockwise),
+            // 8: Rotated  90° clockwise (270° counterclockwise)
             if ($orientation != 1) {
-                // Create a new image from file
-                $img = @imagecreatefromjpeg($ifile);
                 if (!$img) return;
-                $deg = 0;
                 // NOTE: Sadly, such copy image strips any Exif data from the image
                 switch ($orientation) {
-                  case 3:
-                    $deg = 180;
-                    break;
-                  case 6:
-                    $deg = 270; // or -90
-                    break;
-                  case 8:
-                    $deg = 90;
-                    break;
+                    case 2:
+                        imageflip($img, IMG_FLIP_HORIZONTAL);
+                        break;
+                    case 3:
+                        $img = imagerotate($img, 180, 0);
+                        break;
+                    case 4:
+                        imageflip($img, IMG_FLIP_VERTICAL);
+                        break;
+                    case 5:
+                        $img = imagerotate($img, -90, 0); // or 270
+                        imageflip($img, IMG_FLIP_HORIZONTAL);
+                        break;
+                    case 6:
+                        $img = imagerotate($img, -90, 0); // or 270
+                        break;
+                    case 7:
+                        $img = imagerotate($img, 90, 0);
+                        imageflip($img, IMG_FLIP_HORIZONTAL);
+                        break;
+                    case 8:
+                        $img = imagerotate($img, 90, 0);
+                        break;
                 }
-                if ($deg != 0) {
-                    $img = @imagerotate($img, $deg, 0);
-                    $filesize = @filesize($ifile);
-                    $quality  = -1;
-                    #   1024 B x           3.6 MB         6 MB           9 MB           12 MB
-                    $bytes = [1024 => 100, 3686400 => 92, 6144000 => 85, 9216000 => 80, 12288000 => -1]; // bytesize => samplequality
-                    foreach ($bytes AS $bs => $sq) {
-                        if ($filesize > $bs) {
-                            $quality = $sq;
-                        }
-                    }
-                    // rewrite the rotated image back to the disk as $ifile
-                    @imagejpeg($img, $ifile, $quality); // default (-1) uses the default IJG quality value (about 75). 
-                }
+                $dbgmatch = match ($orientation) {
+                    1       => "imagejpeg(normal[1], $ifile, $quality)\n",
+                    2,4     => "imagejpeg(flip[$orientation], $ifile, $quality)\n",
+                    3,6,8   => "imagejpeg(rotate, $ifile, $quality)\n",
+                    5,7     => "imagejpeg(rotate/flip[$orientation], $ifile, $quality)\n",
+                    default => 'No transformation',
+                };
+                $dbg .= $dbgmatch;
+
+                // rewrite the transformed image back to the disk as $ifile
+                @imagejpeg($img, $ifile, $quality);
             }
+        } else {
+            // case NO EXIF,
+            $dbg .= "imagejpeg(NO EXIF, $ifile, $quality)\n";
+            // rewrite the transformed image back to the disk as $ifile
+            @imagejpeg($img, $ifile, $quality);
+        }
+
+        if ($serendipity['uploadResize'] === true) {
+            if ($debug) {
+                $logtag = 'ML_GD_IMAGEJPEG_QUALITY::';
+                $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML serendipity_correctImageOrientationGD() SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
+                $serendipity['logger']->debug("L_".__LINE__.":: $logtag TYPE JPG on AUTO RESIZED UPLOAD() dbg msg SET QUALITY: ".print_r(explode("\n", $dbg),true));
+            }
+        } else {
+            if ($debug) echo $dbg;
         }
     }
 }
