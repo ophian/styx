@@ -29,9 +29,9 @@ Version 5.1-DEV ()
    For the moment this possible reset fix has the following side effects:
    - Working with GD graphics library, this reset removes the EXIF properties
      completely, while
-   - ImageMagick resets the EXIF orient to the default 1 (landscape), which for
-     both are a matter of NOT being able to re-write EXIF tags w/o changing the
-     visual output again.
+   - ImageMagick resets the EXIF orient to the default 1 ("do nothing"), which
+     for both are a matter of NOT being able to re-write EXIF tags w/o changing
+     the visual output again.
 
  * Allow to disable the Imagick (MOD) extension usage by an optional private
         $serendipity['Imagick_module_noAVIF'] = true;
