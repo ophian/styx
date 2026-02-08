@@ -1450,7 +1450,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
                 "-depth {$idepth} -strip \"$target\"";
 
-    } else if (defined('IMAGETYPE_AVIF') && image_type_to_mime_type(IMAGETYPE_AVIF) == $type) {
+    } else if (image_type_to_mime_type(IMAGETYPE_AVIF) == $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
                 "-depth {$idepth} -strip \"$target\"";
         if (str_contains($cmd, '-scale')) {
