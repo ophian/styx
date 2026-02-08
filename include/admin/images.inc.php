@@ -711,32 +711,6 @@ switch ($serendipity['GET']['adminAction']) {
                             }
                         }
 
-                        // Flip and/or rotate the virgin uploaded target file auto-oriented to the EXIF orientation regarded to dimensions of the origin JPG/JPEG files
-                        if ($serendipity['magick'] !== true) {
-                            serendipity_correctImageOrientationGD($target); // GD rotate and write a new file - EXIF data is empty afterwards
-                        } else {
-                            // Check Imagick module extension vs binary CLI usage
-                            // ImageMagick's -auto-orient performs the transform on the pixel data and then resets the EXIF orientation to 1.
-                            if (serendipity_checkImagickAsModule()) {
-                                serendipity_correctImageOrientationImagick($target); // IM imagick rotate and re-write the file - EXIF data is kept and orientation set to Normal (1) == 0° rotation (do nothing for other tools, readers, etc.)
-                            } else {
-                                list($filebase, $extension) = serendipity_parseFileName($target);
-                                if (in_array(strtolower($extension), ['jpeg', 'jpg'])) {
-                                    $mime = serendipity_guessMime($extension);
-                                    $pass   = [ $serendipity['convert'], ['-auto-orient'], [], [], -1, -1 ]; // rotate image, shot by a non-default orientation and use the optimized default quality
-                                    $result = serendipity_passToCMD($mime, $target, $target, $pass);
-                                    if (is_array($result) && $result[0] == 0) {
-                                        if (is_object($serendipity['logger'])) {
-                                            $logtag = 'ML_FIXORIENTATION::';
-                                            $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML images.inc SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
-                                            $serendipity['logger']->debug("L_".__LINE__.":: $logtag On UPLOAD EXIF rotation From/To: $target");
-                                            $serendipity['logger']->debug("ImageMagick (CLI) EXIF rotation fix succeeded: {$result[2]}");
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
                         if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML case UPLOAD file(s) CREATE VARIATIONS SEPARATOR" . str_repeat(" <<< ", 10) . "\n"); }
 
                         // Create ORIGIN TARGET full file Variations, if file is supported to have Variations!
