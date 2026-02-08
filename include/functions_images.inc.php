@@ -1248,7 +1248,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                     if (preg_match('/"?(\d+)x(\d+)/', $op, $m)) {
                         // e.g., "800x600
                         if ($op_debug) echo "op matches resize {$m[1]}, {$m[2]}, Imagick::FILTER_LANCZOS (22) ";
-                        $im->resizeImage((int)$m[1], (int)$m[2], Imagick::FILTER_LANCZOS, 1);
+                        $im->resizeImage((int)$m[1], (int)$m[2], 22, 0.5); // The blur factor where > 1 is blurry, < 1 is sharp
                         $im_debug .= "resize {$m[1]}x{$m[2]}, ";
                     }
                 } else if (isset($prev) && str_starts_with($prev, '-scale')) {
