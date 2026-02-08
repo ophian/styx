@@ -1243,7 +1243,19 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
             foreach(preg_split('/\s+/', trim($opstring)) AS $op) {
                 if (!$op) continue;
                 if ($op_debug) echo "$op, "; //op = -antialias, -resize, op = "400x225", op = -antialias, -resize, op = "400x225", op = -antialias, -resize, op = "400x225", 
-                if (isset($prev) && str_starts_with($prev, '-resize')) {
+                if (str_starts_with($op, '-auto-orient')) {
+                    if (method_exists($im,'autoOrient')) {
+                        #if MagickLibVersion >= 0x692 since 2015
+                        if (false !== $im->autoOrient()) {
+                            // Get calculated target "source quality" guess based on BPP (Bits Per Pixel) - preferable against readout of quality
+                            $quality = serendipity_getOptimizedQuality($source); // Being in serendipity_passToModule
+                            // Method for existing images
+                            $im->setImageCompressionQuality($quality); // save optimized
+                            if ($op_debug) echo "autoOrient() and saved w/ BPP quality: $quality "; // OK
+                            $im_debug .= "autoOrient() and saved w/ BPP quality: $quality, "; // OK
+                        }
+                    }
+                } else if (isset($prev) && str_starts_with($prev, '-resize')) {
                     // e.g.,  "400x225>!"
                     if (preg_match('/"?(\d+)x(\d+)/', $op, $m)) {
                         // e.g., "800x600
