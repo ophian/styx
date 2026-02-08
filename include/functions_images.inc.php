@@ -5563,6 +5563,8 @@ function serendipity_metaFieldConvert(string|int &$item, string $type) : string|
 
         case 'or':
             if ($item == '1') {
+                return 'Normal (0° rotation)';
+            } else if (in_array($item, [2,4,5,7])) {
                 return 'Landscape';
             } else {
                 return 'Portrait';
