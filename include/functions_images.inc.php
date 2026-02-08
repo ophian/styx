@@ -1481,6 +1481,73 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
 }
 
 /**
+ * Identify an JPEG image file quality compression Level
+ *
+ * This function adjusts the "Quality Guess" based on the MP total pixel count (area)
+ * and the BPP thresholds to remove as much noisy/unoptimized Pixels as possible
+ * without losing visual quality and details. We have blog content in mind!
+ *
+ * [LONG]
+ * JPEG compression works in 8 x 8 pixel blocks. Because of this, the relationship between file size and quality isn't linear.
+ * To refine the BPP (Bits Per Pixel) logic, we have to account for a specific quirk of JPEG compression:
+ *      - small images require more bits per pixel than large images to maintain the same perceived quality.
+ *  This is because the "overhead" (headers, EXIF data, and fixed-size encoding blocks) takes up a
+ *  larger percentage of the file in a "200x200" image than in a "4000x3000" one.
+ *
+ * Although ImageMagick tooling is able to read out the Image Quality from the image file header
+ *      by using "$image->identyImage(true)['rawOutput']" OR simpler for the CLI
+ *      by using "identify -format %Q example.jpg", this has been proved as not being reliable.
+ *      It is a trap, since the ImageMagick %Q is a measure of Intent (what the last user wanted),
+ *      but the BPP Guess is a measure of Payload (how much data is actually there).
+ * Since we are also using the GDLib, which decodes images into raw pixel buffers,
+ *      discarding the original quantization tables to read out Quality sets,
+ *      using a library agnostic BPP (Bits Per Pixel) check is our best tool to decide
+ *      if we should save "heavy", "medium" or "light" to respect the user's original file size
+ *      but save it as much optimized as possible, since data compression is the most common
+ *      application that any multimedia content will undergo.
+ * The returned quality sets work in an "opposite logic" way than one could expect, since the
+ *      quantization tables are build for the human eye that has a different perpective on what it
+ *      declines as sharp, bright, detailed enough, etc.
+ * The quantization tables are the important elements in the JPEG image compression. But at all,
+ *      the proper method of quantifying visual image quality is through subjective evaluation.
+ *      This is what we did. It showed, that a quality of 75 (compression) is in most cases the best
+ *      optimized level. Only smaller images will have exceptions for this rule, to better control
+ *      possible artifacts and color/detail loss also for the further compression WebP/AVIF variations.
+ *      We can try to reduce the "air" but we cannot make the image better than it came in.
+ *
+ * Args:
+ *      - The filename string as full path
+ * Returns:
+ *      int
+ * @access public
+ */
+function serendipity_getOptimizedQuality(string $filename) : int {
+    if (!file_exists($filename)) return 75;
+
+    $info = getimagesize($filename);
+    $totalPixels = $info[0] * $info[1];
+    $filesize = filesize($filename);
+    $bpp = ($filesize * 8) / $totalPixels;
+
+    // If it is a large image (> 1.5MP), trust 75.
+    // It's the most efficient for pure digital images.
+    if ($totalPixels > 1500000) {
+        return 75;
+    }
+
+    // If the BPP is high (> 1.2), it's a "dense" image (like your 1280x720).
+    // We better use 80 to prevent "Fuzzy Background" issues.
+    if ($bpp > 1.2) {
+        return 80;
+    }
+
+    // If it's already a light-weight file, 77 is our "Safety Floor".
+    // We could use 75 to prevent the "Inflation Trap" (blowing up the origins filesize),
+    // but some images are special and may return noticeable "Fuzzy Background" artifacts when being directly compared.
+    return 77;
+}
+
+/**
  * Correct an EXIF image orientation on upload with Imagick module
  * This is the virgin state after ADD IMAGE move_uploaded_file($uploadtmp, $target)
  *      and the last chance for correction before the MediaLibrary tasks take over.
