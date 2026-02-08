@@ -1384,7 +1384,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
     }
     $do = str_replace('  ', ' ', $do);
 
-    $quality = ($args[4] != -1) ? "-quality {$args[4]}" : '';
+    $quality = ($args[4] != -1) ? "-quality {$args[4]}" : '-quality 0'; // 0 in mean of none for auto quality compression of all variants - but the origins upload must be optimized instead.
 
     // Do resizing images right:
     // @see https://www.imagemagick.org/Usage/resize/#resize_gamma, for 16bit (Q16 binary) workspace and optional gamma correction.
@@ -1416,7 +1416,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
 
     } else if ($type == 'format-avif') {
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
-                "-strip \"$target\"";
+                "$quality -strip \"$target\"";
 
     } else if (in_array($type, ['format-jpg', 'format-jpeg', 'format-png', 'format-gif'])) {
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
@@ -1426,9 +1426,14 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
     // Main file scaling (scale, resize, rotate, ...) - with type being a mime string parameter, since we have it already
     // Special case, fixing a possible wrong orient image issue of smartphone cameras with SET EXIF orientation on UPLOAD
     if (image_type_to_mime_type(IMAGETYPE_JPEG) == $type && trim($do) == '-auto-orient') {
-        $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
+        // Get calculated target "source quality" guess based on BPP (Bits Per Pixel) - preferable against readout of quality
+        $qlty = serendipity_getOptimizedQuality($source); // source === target | Being in serendipity_passToCMD
+        // Checks, if we want to NOT touch the origin on UPLOAD if we do not resize it,
+        // but put the optimizing into the variations or ... the 1st helps on image only, the 2cd matters for the picture container
+        $cmd =  "\"{$args[0]}\" \"$source\" {$do} -quality {$qlty} " .
                 "\"$target\"";
 
+    // format-$format is used for unknown images like uploads and variations thumbifications... image/$mime is used when already known (like come from DB and the scale, rotate etc.
     } else if (image_type_to_mime_type(IMAGETYPE_JPEG) == $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} -filter Lanczos {$do} {$gamma['standard']} " .
                 "-depth {$idepth} $quality -sampling-factor 1x1 -strip \"$target\"";
