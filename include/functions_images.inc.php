@@ -1638,6 +1638,50 @@ function serendipity_correctImageOrientationImagick($image) : void {
 }
 
 /**
+ * Parse Imagick Extension $image->identyImage(true)['rawOutput'] and convert the raw string into a nested PHP array.
+ * To be used in serendipity_correctImageOrientationImagick() since the CLI has a way better access to Quality property.
+ *
+ * Currently unused, as it turned out that the BPP quality guess is better for our current workflow, but kept for possible future accessment.
+ *
+ * Args:
+ *      - The returned raw string in a YAML-like nested string format
+ * Returns:
+ *      array
+ * @access public
+ */
+function serendipity_parseImageMagickRaw(string $rawString) : iterable {
+    $lines = explode("\n", $rawString);
+    $result = [];
+    $stack = [&$result];
+
+    foreach ($lines as $line) {
+        // Identify indentation level (2 spaces per level)
+        if (!preg_match('/^(\s*)(.*?): ?(.*)?$/', $line, $matches)) continue;
+
+        $indent = strlen($matches[1]);
+        $key    = trim($matches[2]);
+        $value  = trim($matches[3]);
+
+        // Calculate depth (0, 1, 2, etc.)
+        $depth = $indent / 2;
+
+        // Clean up the stack to match current depth
+        while (count($stack) > $depth + 1) {
+            array_pop($stack);
+        }
+
+        // Assign value or create a sub-array
+        if ($value === "" && $key !== "") {
+            $stack[$depth][$key] = [];
+            $stack[] = &$stack[$depth][$key];
+        } else {
+            $stack[$depth][$key] = $value;
+        }
+    }
+    return $result['Image'];
+}
+
+/**
  * Correct an EXIF image orientation on upload with GD
  * This is the virgin state after ADD IMAGE move_uploaded_file($uploadtmp, $target)
  *      and the last chance for correction before the MediaLibrary tasks take over.
