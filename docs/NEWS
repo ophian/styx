@@ -1,6 +1,15 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Refactor the image upload handler for JPEG image EXIF orientation fixes
+   before being passed to the MediaLibrary toolkit.
+   The refactoring change handles JPEG files to get auto oriented and auto
+   optimized for quality compression, so that this file is in the best
+   compression quality and shape that our system can address for the most
+   common Blog use cases. All other follow-up thumb and variation tasks will
+   profit at least for the case of consistent image orientation and best
+   fallback image size.
+
  * Fix height issue of TinyMCE editor frame expanding large when writing long
    content and loosing easy access to the editor toolbar. We now return to the
    previous editor behavior of a fixed frame max-height in normal view mode
