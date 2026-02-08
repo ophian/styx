@@ -2520,20 +2520,7 @@ function serendipity_generateVariations(?int $id = null) : bool|int|null {
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE WEBP: ".print_r($newfile,true)); }
                 $newfileTH = serendipity_makeImageVariationPath($outfileTH, 'webp');
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB WEBP: ".print_r($newfileTH,true)); }
-                if (in_array(strtoupper(explode('/', mime_content_type($outfile))[1]), serendipity_getSupportedFormats())) {
-                    $odim = filesize($infile);
-                    $webpIMQ = -1;
-                    #   1024 B x            3.6 MB         6 MB           9 MB           12 MB
-                    $dimensions = [0 => -1, 3686400 => 90, 6144000 => 85, 9216000 => 80, 12288000 => 75];
-                    foreach ($dimensions AS $dk => $dv) {
-                        if ($odim > $dk) {
-                            $webpIMQ = $dv;
-                        }
-                    }
-                } else {
-                    $webpIMQ = -1;
-                }
-                $result    = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true, $webpIMQ); // Origins WebP copy variation only in case it is big, else we might get bigger webp lossless expression than the origin
+                $result    = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true, -1);
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO WEBP: ".print_r($result,true)); }
                 if ($result !== false && is_array($result) && $result[0] == 0) {
                     serendipity_convertToWebPFormat($infileTH, $newfileTH['filepath'], $newfileTH['filename'], mime_content_type($outfileTH), true); // WebP thumbnail uses full quality by auto default
@@ -2589,20 +2576,7 @@ function serendipity_generateVariations(?int $id = null) : bool|int|null {
                     if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE WEBP: ".print_r($newfile,true)); }
                     $newfileTH = serendipity_makeImageVariationPath($outfileTH, 'webp');
                     if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB WEBP: ".print_r($newfileTH,true)); }
-                    if (in_array(strtoupper(explode('/', mime_content_type($outfile))[1]), serendipity_getSupportedFormats())) {
-                        $odim = filesize($infile);
-                        $webpIMQ = -1;
-                        #   1024 B x            3.6 MB         6 MB           9 MB           12 MB
-                        $dimensions = [0 => -1, 3686400 => 90, 6144000 => 85, 9216000 => 80, 12288000 => 75];
-                        foreach ($dimensions AS $dk => $dv) {
-                            if ($odim > $dk) {
-                                $webpIMQ = $dv;
-                            }
-                        }
-                    } else {
-                        $webpIMQ = -1;
-                    }
-                    $result    = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true, $webpIMQ); // Origins WebP copy variation only in case it is big, else we might get bigger webp lossless expression than the origin
+                    $result    = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true, -1);
                     if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO WEBP: ".print_r($result,true)); }
                     if ($result !== false && is_array($result) && $result[0] == 0) {
                         serendipity_convertToWebPFormat($infileTH, $newfileTH['filepath'], $newfileTH['filename'], mime_content_type($outfileTH), true); // WebP thumbnail uses full quality by auto default
@@ -3247,20 +3221,12 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
     if (file_exists($target) && $serendipity['useWebPFormat'] && !in_array(strtolower($info['extension']), ['webp', 'avif'])) {
         $odim = filesize($target);
         $variat = serendipity_makeImageVariationPath($target, 'webp');
-        $webpIMQ = -1;
-        #   1024 B x            3.6 MB         6 MB           9 MB           12 MB
-        $dimensions = [0 => -1, 3686400 => 90, 6144000 => 85, 9216000 => 80, 12288000 => 75];
-        foreach ($dimensions AS $dk => $dv) {
-            if ($odim > $dk) {
-                $webpIMQ = $dv; // Origins WebP ImageMagick variation copy QUALITY only, in case it is big, else we might get bigger WebP lossless expression than the origin file
-            }
-        }
         if (serendipity_checkImagickAsModule()) {
             $crtby = 'MOD';
         } else {
             $crtby = 'CLI';
         }
-        $result = serendipity_convertToWebPFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target), false, $webpIMQ);
+        $result = serendipity_convertToWebPFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target), false, -1);
         if (is_array($result)) {
             // capture GD result
             $_relative_result_outfile = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $result[1]);
