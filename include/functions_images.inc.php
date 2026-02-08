@@ -3609,20 +3609,6 @@ function serendipity_resizeImageGD(string $infilename, string $outfilename, int 
 }
 
 /**
- * Deprecation compatibility wrapper for Plugins (imageselectorplus)
- *
- * Args:
- *      -
- * Returns:
- *      -
- * @access public
- * @return  serendipity_calculateAspectSize()
- */
-function serendipity_calculate_aspect_size(int $width, int $height, int $size, ?string $constraint = null) : iterable {
-    return serendipity_calculateAspectSize($width, $height, $size, $constraint);
-}
-
-/**
  * Calculate new size for an image, considering aspect ratio and constraint
  *
  * Args:
