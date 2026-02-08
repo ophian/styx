@@ -638,14 +638,87 @@ switch ($serendipity['GET']['adminAction']) {
                         @umask(0000);
                         @chmod($target, 0664);
 
-                        // flip and/or rotate the virgin uploaded target file auto-oriented to the EXIF orientation regarded to dimensions of the origin JPG/JPEG files
+                        // I KNOW. WAY TOO LOOONG... But it helps to clear and remember all adventures on my way...  ;-)
+                        // Here the target is created and the uploaded image has moved from /temp to /uploads. The next follow-up tasks do create all kind of variants and save the image data to DB.
+                        // ... WHAT is the main problem here..?
+                        // Imagine you have a smartphone shot image taken in portrait form. It internally sizes wrong outlined vice versa as width : 4000 and height : 1846,
+                        // but HAS an EXIF orientation of portrait (6 or 8). The displaying programm (in our case the browser) reads and displays "Portrait".
+                        // The Upload happens as is, but then will do the following:
+                        //  - The uploaded (jpg or tiff) file orients fine as portrait because it is the untouched origin and the browser render display probably reads "portrait"
+                        //    and then turns it correct when to be displayed.
+                        //  - But all further direct Styx resizing or formatting variants, which are ALL thumb formats and the (webp, avif) variations from this uploaded origin file,
+                        //    will be created and displayed as a landscape format oriented at the W/H sizes. Then even the database added dimension pixel measures for the width and the height are wrong.
+                        // This is nothing that should exist. When it is WRONG, it should be WRONG for all (so to be fixed later on), OR exist and display in the right mode in all existent pleasures.
+                        // Pre-resized images by Programms on User-Side (or the Serendpity JS Upload resizer) in most cases just remove the EXIF data and so the upload with all variants
+                        // behaves consistent.
+                        // We - DO NEED - consistency to NOT run into problems when different variant data is displayed, outlined as size "whatever", or when we scale and rotate images.
+                        // This is what - "correctImageOrientation" - is doing, based on the capability of the used image Library (GDLib, ImageMagick Binary or Imagick Module):
+                        //  - It reads the EXIF data if the image has it in the Metadata and then rewrites (rotates or flips) the upload first image to the correct orientation.
+                        //  - And in case it does with success:
+                        //              - the GDlib purges the EXIF Metadata,
+                        //              - and the ImageMagick CLI/EXT Variants sort of keep or better say rewrites the EXIF data:
+                        //                          - the ImageMagick Binary and the Imagick Module both reset it to the default (1) orientation,
+                        //                            which later in the Serendipity image properties is read-out as "landscape" orientation, even when now a consistent portrait image.
+                        //                            And we have learned from the GD mimic that is is really mandatory to reset it to the default (1) orientation.
+                        //                          - Both reset most of the GROUPED properties except some single properties, and just set an "exif:*" prefix group. 
+                        //                            They still have the wrong dimensions in "Exif Image Height" : 1846 and "Exif Image Width" : 4000 which are PixelXDimension and PixelYDimension,
+                        //                            but DO NOW have set a correct "Image Width" : 1846, "Image Height" : 4000 and "Image Size" : 1846x4000 (example read out by exiftool).
+                        // There is a forum thread under https://jqmagick.imagemagick.org/discourse-server/viewtopic.php?t=27037 which takes these different sets into account.
+                        // It was promised to have this inconsistency looked up for later improvement but this was 2015 and we now have 2026...
+                        // Conclusion is to either better remove the EXIF data to not have such inconsistencies, as many programs or libraries do, or have to live with it.
+
+                        // Check digital camera images EXIF rotation needs, then ...
+                        // set and save the image with a quality by size
+                        //  * do quality compression on exact rotation case [3, 6, 8],
+                        //  * do quality compression on uncased orientation flips [2, 4, 5, 7] for the ORIGIN
+                        //  * do quality compression on normal orientation [1] for the ORIGIN
+                        //  * do quality compression on no EXIF for the ORIGIN
+                        // do quality compression for other filetypes [ToDo: Tiff may have EXIF too], PNG needs a special compression rate, etc. JPG2000....
+
+                        // Flip and/or rotate the virgin uploaded target file auto-oriented to the EXIF orientation regarded to dimensions of the origin JPG/JPEG files
+                        if ($serendipity['magick'] !== true) {
+                            // if the file is re-written it will additionally be saved "quality optimized" by BPP size - (...including the follow-up format variations)
+                            serendipity_correctImageOrientationGD($target); // GD rotate and write a new file - w/o EXIF Metadata after saved with imagejpeg() !
+                        } else {
+                            // ToDo: Tiff EXIF case
+                            if (function_exists('exif_read_data') && exif_imagetype($target) === IMAGETYPE_JPEG) {
+                                $mime = 'image/jpeg';
+                                $pass   = [ $serendipity['convert'], ['-auto-orient'], [], [], -1, -1 ]; // rotate image, shot by a non-default orientation and use the optimized default quality
+                                // Check Imagick module extension vs binary CLI usage
+                                // ImageMagick's -auto-orient performs the transform on the pixel data and then resets the EXIF orientation to Normal (1).
+                                if (serendipity_checkImagickAsModule()) {
+                                    $result = serendipity_passToModule($mime, $target, $target, $pass);
+                                    if (is_array($result) && $result[0] == 0) {
+                                        if (is_object($serendipity['logger'])) {
+                                            $logtag = 'ML_FIXORIENTATION::';
+                                            $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML images.inc SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
+                                            $serendipity['logger']->debug("L_".(__LINE__ - 5).":: $logtag UPLOAD On EXIF transformation From/To: $target");
+                                            $serendipity['logger']->debug("ImageMagick (MOD) EXIF rotation fix succeeded: {$result[2]}");
+                                        }
+                                    }
+                                } else {
+                                    // If the file is re-written it will be saved "quality optimized" by size - this needed -quality 0 for none = auto quality optimized and compression
+                                    $result = serendipity_passToCMD($mime, $target, $target, $pass);
+                                    if (is_array($result) && $result[0] == 0) {
+                                        if (is_object($serendipity['logger'])) {
+                                            $logtag = 'ML_FIXORIENTATION::';
+                                            $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML images.inc SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
+                                            $serendipity['logger']->debug("L_".(__LINE__ - 5).":: $logtag UPLOAD On EXIF transformation From/To: $target");
+                                            $serendipity['logger']->debug("ImageMagick (CLI) EXIF rotation fix succeeded: {$result[2]}");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        // Flip and/or rotate the virgin uploaded target file auto-oriented to the EXIF orientation regarded to dimensions of the origin JPG/JPEG files
                         if ($serendipity['magick'] !== true) {
                             serendipity_correctImageOrientationGD($target); // GD rotate and write a new file - EXIF data is empty afterwards
                         } else {
                             // Check Imagick module extension vs binary CLI usage
                             // ImageMagick's -auto-orient performs the transform on the pixel data and then resets the EXIF orientation to 1.
                             if (serendipity_checkImagickAsModule()) {
-                                serendipity_correctImageOrientationImagick($target); // IM imagick rotate and re-write the file - EXIF data is kept, but for previously Portrait orientation it changes to Landscape, but is visually corrrect...!
+                                serendipity_correctImageOrientationImagick($target); // IM imagick rotate and re-write the file - EXIF data is kept and orientation set to Normal (1) == 0° rotation (do nothing for other tools, readers, etc.)
                             } else {
                                 list($filebase, $extension) = serendipity_parseFileName($target);
                                 if (in_array(strtolower($extension), ['jpeg', 'jpg'])) {
