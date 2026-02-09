@@ -1647,60 +1647,58 @@ function serendipity_correctImageOrientationGD(string $ifile) : void {
 
         if ($exif && isset($exif['Orientation'])) {
             $orientation = $exif['Orientation'];
-            if (!$orientation) return;
+            if (!$orientation || !$img) return;
             if ($debug) {
                 $logtag = 'ML_GD_FIXORIENTATION::';
                 $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML serendipity_correctImageOrientationGD() SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
-                $serendipity['logger']->debug("L_".__LINE__.":: $logtag TYPE JPG on UPLOAD() orientation == $orientation: " . print_r($exif,true)); // yepp, this is before it is purged
+                $serendipity['logger']->debug("L_".__LINE__.":: $logtag TYPE JPEG on UPLOAD() PRE orientation == $orientation");// EXIFDATA: " . print_r($exif,true)); // yepp, this is before it is purged
             }
+            // Most common sets:
             // 1: Normal (0° rotation),
             // 3: Upside-down (180° rotation),
             // 6: Rotated -90° counterclockwise (270° clockwise),
             // 8: Rotated  90° clockwise (270° counterclockwise)
-            if ($orientation != 1) {
-                if (!$img) return;
-                // NOTE: Sadly, such copy image strips any Exif data from the image
-                switch ($orientation) {
-                    case 2:
-                        imageflip($img, IMG_FLIP_HORIZONTAL);
-                        break;
-                    case 3:
-                        $img = imagerotate($img, 180, 0);
-                        break;
-                    case 4:
-                        imageflip($img, IMG_FLIP_VERTICAL);
-                        break;
-                    case 5:
-                        $img = imagerotate($img, -90, 0); // or 270
-                        imageflip($img, IMG_FLIP_HORIZONTAL);
-                        break;
-                    case 6:
-                        $img = imagerotate($img, -90, 0); // or 270
-                        break;
-                    case 7:
-                        $img = imagerotate($img, 90, 0);
-                        imageflip($img, IMG_FLIP_HORIZONTAL);
-                        break;
-                    case 8:
-                        $img = imagerotate($img, 90, 0);
-                        break;
-                }
-                $dbgmatch = match ($orientation) {
-                    1       => "imagejpeg(normal[1], $ifile, $quality)\n",
-                    2,4     => "imagejpeg(flip[$orientation], $ifile, $quality)\n",
-                    3,6,8   => "imagejpeg(rotate, $ifile, $quality)\n",
-                    5,7     => "imagejpeg(rotate/flip[$orientation], $ifile, $quality)\n",
-                    default => 'No transformation',
-                };
-                $dbg .= $dbgmatch;
-
-                // rewrite the transformed image back to the disk as $ifile
-                @imagejpeg($img, $ifile, $quality);
+            // NOTE: Sadly, such copy image strips any Exif data from the image
+            switch ($orientation) {
+                case 2:
+                    imageflip($img, IMG_FLIP_HORIZONTAL);
+                    break;
+                case 3:
+                    $img = imagerotate($img, 180, 0);
+                    break;
+                case 4:
+                    imageflip($img, IMG_FLIP_VERTICAL);
+                    break;
+                case 5:
+                    $img = imagerotate($img, -90, 0); // or 270
+                    imageflip($img, IMG_FLIP_HORIZONTAL);
+                    break;
+                case 6:
+                    $img = imagerotate($img, -90, 0); // or 270
+                    break;
+                case 7:
+                    $img = imagerotate($img, 90, 0);
+                    imageflip($img, IMG_FLIP_HORIZONTAL);
+                    break;
+                case 8:
+                    $img = imagerotate($img, 90, 0);
+                    break;
             }
+            $dbgmatch = match ($orientation) {
+                1       => "imagejpeg(normal[1], $ifile, $quality)\n",
+                2,4     => "imagejpeg(flip[$orientation], $ifile, $quality)\n",
+                3,6,8   => "imagejpeg(rotate, $ifile, $quality)\n",
+                5,7     => "imagejpeg(rotate/flip[$orientation], $ifile, $quality)\n",
+                default => 'No transformation',
+            };
+            $dbg .= $dbgmatch;
+
+            // rewrite the transformed image back to the disk as $ifile
+            @imagejpeg($img, $ifile, $quality);
         } else {
             // case NO EXIF,
             $dbg .= "imagejpeg(NO EXIF, $ifile, $quality)\n";
-            // rewrite the transformed image back to the disk as $ifile
+            // rewrite the transformed image back to the disk as $ifile for the quality
             @imagejpeg($img, $ifile, $quality);
         }
 
@@ -1711,9 +1709,11 @@ function serendipity_correctImageOrientationGD(string $ifile) : void {
                 $serendipity['logger']->debug("L_".__LINE__.":: $logtag TYPE JPG on AUTO RESIZED UPLOAD() dbg msg SET QUALITY: ".print_r(explode("\n", $dbg),true));
             }
         } else {
-            if ($debug) echo $dbg;
+            if ($debug) echo ' | ' .$dbg;
         }
     }
+    // Void - NO type,
+    if ($debug && !isset($dbg)) echo " | serendipity_correctImageOrientationGD() returns void - No mime type IMAGETYPE_JPEG specified\n";
 }
 
 /**
