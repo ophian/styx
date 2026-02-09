@@ -1278,7 +1278,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                     // e.g. GD -90 = Imagick 270 or GD 90 = Imagick 90.
                     if (preg_match('/^"?(-?\d+)/', $op, $m)) {
                         if ($op_debug) echo " | op matches rotate {$m[1]} ";
-                        $deg = (int) $m[1] < 0 ? (int) (360 - str_replace('-', '', $m[1])) : (int) $m[1];
+                        $deg = (int) $m[1];
                         $transparent = '#00000000';
                         $im->rotateImage($transparent, $deg);
                         $im_debug .= "rotate $deg, ";
