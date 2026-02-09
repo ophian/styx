@@ -1431,7 +1431,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
 
     // Main file scaling (scale, resize, rotate, ...) - with type being a mime string parameter, since we have it already
     // Special case, fixing a possible wrong orient image issue of smartphone cameras with SET EXIF orientation on UPLOAD
-    if (image_type_to_mime_type(IMAGETYPE_JPEG) == $type && trim($do) == '-auto-orient') {
+    if (image_type_to_mime_type(IMAGETYPE_JPEG) === $type && trim($do) == '-auto-orient') {
         // May we really assume that reading out the quality of an image with "identify -format %Q file" (i.e. 98) is the same as having a high BPP with our GD version guess?
         //      NO ! The BPP is based on real image pixels, while identify %Q is just the quality that was wished when previous image creator saved the origin image. Do we already have it for Imagick?
         // As already noted: The ImageMagick %Q is a measure of Intent (what the last user wanted). The BPP Guess is a measure of Payload (how much data is actually there).
@@ -1445,27 +1445,27 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         $dbg .= "Virgin upload source AUTO-ORIENT from $type [ $cmd ]\n";
 
     // format-$format is used for unknown images like uploads and variations thumbifications... image/$mime is used when already known (like come from DB and the scale, rotate etc.
-    } else if (image_type_to_mime_type(IMAGETYPE_JPEG) == $type) {
+    } else if (image_type_to_mime_type(IMAGETYPE_JPEG) === $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} -filter Lanczos {$do} {$gamma['standard']} " .
                 "-depth {$idepth} $quality -sampling-factor 1x1 -strip \"$target\"";
         $dbg .= "source from $type [ $cmd ]\n";
 
-    } else if (image_type_to_mime_type(IMAGETYPE_PNG) == $type) {
+    } else if (image_type_to_mime_type(IMAGETYPE_PNG) === $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
                 "-depth {$idepth} -strip \"$target\"";
         $dbg .= "source from $type [ $cmd ]\n";
 
-    } else if (image_type_to_mime_type(IMAGETYPE_GIF) == $type) {
+    } else if (image_type_to_mime_type(IMAGETYPE_GIF) === $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
                 "-depth {$idepth} -strip \"$target\"";
         $dbg .= "source from $type [ $cmd ]\n";
 
-    } else if (image_type_to_mime_type(IMAGETYPE_WEBP) == $type) {
+    } else if (image_type_to_mime_type(IMAGETYPE_WEBP) === $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
                 "-depth {$idepth} -strip \"$target\"";
         $dbg .= "source from $type [ $cmd ]\n";
 
-    } else if (image_type_to_mime_type(IMAGETYPE_AVIF) == $type) {
+    } else if (image_type_to_mime_type(IMAGETYPE_AVIF) === $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
                 "-depth {$idepth} -strip \"$target\"";
         if (str_contains($cmd, '-scale')) {
@@ -1478,7 +1478,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         return false;
     } else {
         $cmd = str_replace('  ', ' ', $cmd);
-        if ($type == 'format-avif' || (defined('IMAGETYPE_AVIF') && image_type_to_mime_type(IMAGETYPE_AVIF) == $type)) {
+        if ($type == 'format-avif' || (defined('IMAGETYPE_AVIF') && image_type_to_mime_type(IMAGETYPE_AVIF) === $type)) {
             // yeah AVIF takes it all - yammi, gimme more! ;-) 2 Gigs plus the filesize at least
             $mlimit = round(filesize($source)/1024, 0); // in KB
             if ($mlimit > 3596) {
