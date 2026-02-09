@@ -1627,7 +1627,14 @@ function serendipity_correctImageOrientationGD(string $ifile) : void {
     if (!file_exists($ifile)) {
         return;
     }
-    if (function_exists('exif_read_data') && exif_imagetype($ifile) === IMAGETYPE_JPEG) {
+    if (function_exists("exif_imagetype")) {
+        $type = exif_imagetype($ifile); // normally this
+    } else {
+        $type = getimagesize($ifile)[2];// as fallback; could as well be serendipity_getImageSize
+    }
+    $type ??= null;
+
+    if (function_exists('exif_read_data') && $type === IMAGETYPE_JPEG) {
         $dbg = '';
         $exif = exif_read_data($ifile); // origins PRE EXIF Data
 
