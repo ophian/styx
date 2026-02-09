@@ -1251,7 +1251,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                             $quality = serendipity_getOptimizedQuality($source); // Being in serendipity_passToModule
                             // Method for existing images
                             $im->setImageCompressionQuality($quality); // save optimized
-                            if ($op_debug) echo "autoOrient() and saved w/ BPP quality: $quality "; // OK
+                            if ($op_debug) echo " | autoOrient() and saved w/ BPP quality: $quality "; // OK
                             $im_debug .= "autoOrient() and saved w/ BPP quality: $quality, "; // OK
                         }
                     }
@@ -1259,14 +1259,14 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                     // e.g.,  "400x225>!"
                     if (preg_match('/"?(\d+)x(\d+)/', $op, $m)) {
                         // e.g., "800x600
-                        if ($op_debug) echo "op matches resize {$m[1]}, {$m[2]}, Imagick::FILTER_LANCZOS (22) ";
+                        if ($op_debug) echo " | op matches resize {$m[1]}, {$m[2]}, Imagick::FILTER_LANCZOS (22) ";
                         $im->resizeImage((int)$m[1], (int)$m[2], 22, 0.5); // The blur factor where > 1 is blurry, < 1 is sharp
                         $im_debug .= "resize {$m[1]}x{$m[2]}, ";
                     }
                 } else if (isset($prev) && str_starts_with($prev, '-scale')) {
                     // op = -scale, op = "1000x563", op matches scale 1000, 563 op = -scale, op = "1000x563", op matches scale 1000, 563 op = -scale, op = "1000x563", op matches scale 1000, 563 - including conditional bang forcement
                     if (preg_match('/"?(\d+)x(\d+)/', $op, $m)) {
-                        if ($op_debug) echo "op matches scale {$m[1]}, {$m[2]} ";
+                        if ($op_debug) echo " | op matches scale {$m[1]}, {$m[2]} ";
                         $im->scaleImage((int)$m[1], (int)$m[2]);
                         $im_debug .= "scale {$m[1]}x{$m[2]}, ";
                     }
@@ -1277,7 +1277,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                     // Imagick > rotate 90 means clockwise.
                     // e.g. GD -90 = Imagick 270 or GD 90 = Imagick 90.
                     if (preg_match('/^"?(-?\d+)/', $op, $m)) {
-                        if ($op_debug) echo "op matches rotate {$m[1]} ";
+                        if ($op_debug) echo " | op matches rotate {$m[1]} ";
                         $deg = (int) $m[1] < 0 ? (int) (360 - str_replace('-', '', $m[1])) : (int) $m[1];
                         $transparent = '#00000000';
                         $im->rotateImage($transparent, $deg);
