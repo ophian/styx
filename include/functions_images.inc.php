@@ -1637,6 +1637,14 @@ function serendipity_correctImageOrientationGD(string $ifile) : void {
     if (function_exists('exif_read_data') && $type === IMAGETYPE_JPEG) {
         $dbg = '';
         $exif = exif_read_data($ifile); // origins PRE EXIF Data
+        if (is_array($exif)) {
+            if (isset($exif['UndefinedTag:0x9AAA'])) {
+                unset($exif['UndefinedTag:0x9AAA']); // OK ... just my personal remove only, since I don't want this unreadable encoded chinese telemetry crumble
+            }
+            if (isset($exif['ComponentsConfiguration'])) {
+                unset($exif['ComponentsConfiguration']);
+            }
+        }
 
         // Create a new image from file
         $img = @imagecreatefromjpeg($ifile);
