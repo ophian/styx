@@ -680,8 +680,15 @@ switch ($serendipity['GET']['adminAction']) {
                             // if the file is re-written it will additionally be saved "quality optimized" by BPP size - (...including the follow-up format variations)
                             serendipity_correctImageOrientationGD($target); // GD rotate and write a new file - w/o EXIF Metadata after saved with imagejpeg() !
                         } else {
+                            if (function_exists("exif_imagetype")) {
+                                $type = exif_imagetype($target); // normally this
+                            } else {
+                                $type = getimagesize($target)[2]; // as fallback; could as well be serendipity_getImageSize
+                            }
+                            $type ??= null;
+
                             // ToDo: Tiff EXIF case
-                            if (function_exists('exif_read_data') && exif_imagetype($target) === IMAGETYPE_JPEG) {
+                            if (function_exists('exif_read_data') && $type === IMAGETYPE_JPEG) {
                                 $mime = 'image/jpeg';
                                 $pass   = [ $serendipity['convert'], ['-auto-orient'], [], [], -1, -1 ]; // rotate image, shot by a non-default orientation and use the optimized default quality
                                 // Check Imagick module extension vs binary CLI usage
