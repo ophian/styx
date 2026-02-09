@@ -1098,9 +1098,9 @@ function serendipity_convertToAvifFormat(string $infile, string $outpath, string
                 $pass = [ $serendipity['convert'], [], [], [], $quality, -1 ]; // Best result format conversion settings with ImageMagick is -1 disabled, which is some kind of auto true! Do not handle with lossless!!
                 // check Imagick module extension vs binary CLI usage
                 if (serendipity_checkImagickAsModule()) {
-                    $out   = serendipity_passToModule('format-avif', $infile, $_outfile, $pass);
+                    $out = serendipity_passToModule('format-avif', $infile, $_outfile, $pass);
                 } else {
-                    $out   = serendipity_passToCMD('format-avif', $infile, $_outfile, $pass);
+                    $out = serendipity_passToCMD('format-avif', $infile, $_outfile, $pass);
                 }
                 if ($out === false && $mute === false) {
                     echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> Trying to store a AVIF IM image format ' . $thumb . 'variation in: ' . $_tmppath  . " directory.</span>\n";
