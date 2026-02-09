@@ -1025,7 +1025,7 @@ switch ($serendipity['GET']['adminAction']) {
         }
 
         $data['case_rotateCW'] = true;
-        if (serendipity_rotateImg($serendipity['GET']['fid'], -90)) {
+        if (serendipity_rotateImg($serendipity['GET']['fid'], 90)) { // TURN RGT
             $data['rotate_img_done']    = true;
             $data['adminFile_redirect'] = $serendipity['adminFile_redirect'];
         }
@@ -1044,7 +1044,7 @@ switch ($serendipity['GET']['adminAction']) {
         }
 
         $data['case_rotateCCW'] = true;
-        if (serendipity_rotateImg($serendipity['GET']['fid'], 90)) {
+        if (serendipity_rotateImg($serendipity['GET']['fid'], -90)) { // TURN LFT
             $data['rotate_img_done']    = true;
             $data['adminFile_redirect'] = $serendipity['adminFile_redirect'];
         }
