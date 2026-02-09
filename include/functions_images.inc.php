@@ -1273,9 +1273,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                 } else if (isset($prev) && str_starts_with($prev, '-rotate')) {
                     // DEGREES    Rotation angle, in degrees. The rotation angle is interpreted as the number of degrees to rotate the image clockwise.
                     // So the degrees turn for moduled imagick and GD are handled different !
-                    // GD > rotate 90 means counter clockwise.
-                    // Imagick > rotate 90 means clockwise.
-                    // e.g. GD -90 = Imagick 270 or GD 90 = Imagick 90.
+                    // Imagick > rotate 90 means clockwise like in REAL LIFE and can take the rotation value as is.
                     if (preg_match('/^"?(-?\d+)/', $op, $m)) {
                         if ($op_debug) echo " | op matches rotate {$m[1]} ";
                         $deg = (int) $m[1];
