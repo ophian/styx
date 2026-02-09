@@ -1,6 +1,12 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Fix/Improve irritating image rotation direction.
+   ImageMagick is doing correct CLOCKWISE while GDLib is the failing part.
+   Previously the workflow was oriented on GD which behaves COUNTER CLOCKWISE.
+   Like in REAL LIFE a TURN RIGHT prompt now is +90 and a TURN LEFT is -90.
+   The fix for GDLib lives in _rotateImageGD().
+
  * Refactor the image upload handler for JPEG image EXIF orientation fixes
    before being passed to the MediaLibrary toolkit.
    The refactoring change handles JPEG files to get auto oriented and auto
