@@ -1,6 +1,11 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Improve ImageMagick rotation quality needs for different image types
+   - Extend _getOptimizedQuality() for rotation quality plus case with WebP
+   - Fixes wrong type parameter for WebP / AVIF cases in _rotateImg()
+   - Adds debug separator and code lines in _rotateImg()
+
  * Fix/Improve irritating image rotation direction.
    ImageMagick is doing correct CLOCKWISE while GDLib is the failing part.
    Previously the workflow was oriented on GD which behaves COUNTER CLOCKWISE.
