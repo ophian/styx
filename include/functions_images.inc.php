@@ -2784,6 +2784,10 @@ function serendipity_guessMime(string $extension) : string {
             $mime = 'image/avif-sequence';
             break;
 
+        case 'webp':
+            $mime = 'image/webp';
+            break;
+
         case 'jpg':
         case 'jpeg':
             $mime = 'image/jpeg';
@@ -2984,10 +2988,6 @@ function serendipity_guessMime(string $extension) : string {
 
         case 'ico':
             $mime = 'image/x-icon';
-            break;
-
-        case 'webp':
-            $mime = 'image/webp';
             break;
 
         default:
