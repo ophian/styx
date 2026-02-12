@@ -357,7 +357,7 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     border-color: inherit;
     border: 0;
     border-top: 1px solid #444c56; }
-  [data-dark-theme="dark"] table thead {
+  [data-dark-theme="dark"] table:not(.serendipity_calendar) thead {
     background-color: #191f27; }
     [data-dark-theme="dark"] .post thead tr, [data-dark-theme="dark"] .post_content thead tr {
       box-shadow: inset 0em -1px #00032b; }
@@ -394,9 +394,9 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
     color: #c93c37; }
   [data-dark-theme="dark"] #content > .serendipity_entrypaging:first-child {
     border-bottom-color: #1c2128; }
-  [data-dark-theme="dark"] table tbody tr:nth-child(2n) {
+  [data-dark-theme="dark"] table:not(.serendipity_calendar) tbody tr:nth-child(2n) {
     background-color: #1c232b; }
-  [data-dark-theme="dark"] table tbody tr:nth-child(2n+1) {
+  [data-dark-theme="dark"] table:not(.serendipity_calendar) tbody tr:nth-child(2n+1) {
     background-color: #212a34; }
   [data-dark-theme="dark"] fieldset.form-group {
     border-color: #444c56; }
