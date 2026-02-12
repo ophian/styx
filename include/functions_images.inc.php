@@ -1275,11 +1275,21 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                     // So the degrees turn for moduled imagick and GD are handled different !
                     // Imagick > rotate 90 means clockwise like in REAL LIFE and can take the rotation value as is.
                     if (preg_match('/^"?(-?\d+)/', $op, $m)) {
-                        if ($op_debug) echo " | op matches rotate {$m[1]} ";
                         $deg = (int) $m[1];
                         $transparent = '#00000000';
-                        $im->rotateImage($transparent, $deg);
-                        $im_debug .= "rotate $deg, ";
+                        if (true === $im->rotateImage($transparent, $deg)) {
+                            $qdbg = '';
+                            // BE AWARE: AVIF does NOT care of any set or non-set quality levels while WEBP does and we better don't touch the origin JPGs (full/thumb) too
+                            if (str_contains($type, 'webp')) {
+                                // Get calculated target "source quality" guess based on BPP (Bits Per Pixel) - preferable against readout of quality
+                                $quality = serendipity_getOptimizedQuality($source, true); // Being in serendipity_passToModule with a special +2 quality for rotation but being the best + to go with - full file and thumb (-) file still change (-)
+                                // Method for existing images
+                                $im->setImageCompressionQuality($quality); // existing images save optimized
+                                $qdbg = " and WebP optimized quality is $quality ";
+                            }
+                            if ($op_debug) echo " | op matches rotate {$deg} for type $type $qdbg";
+                            $im_debug .= "rotate $deg, ";
+                        }
                     }
                 } elseif ($op === '-flatten') {
                     $im = $im->mergeImageLayers(Imagick::LAYERMETHOD_FLATTEN);
@@ -1384,6 +1394,22 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
     $do = str_replace('  ', ' ', $do);
 
     $quality = ($args[4] != -1) ? "-quality {$args[4]}" : '-quality 0'; // 0 in mean of none for auto quality compression of all variants - but the origins upload must be optimized instead.
+    // Special quality tweak on ROTATE
+    if (str_contains($do, '-rotate')) {
+        $qlty = $quality; // default case
+        // BE AWARE:
+        //      AVIF does NOT care of any set or non-set quality levels while WEBP does and we better don't touch the origin JPGs (full/thumb) too
+        // BUT BOTH, for full and thumb file, change (-) in filesize and quality/color loss with each further rotation until starting to get visual artifacts!
+        if (str_contains($type, 'webp')) {
+            // Get calculated target "source quality" guess based on BPP (Bits Per Pixel) - preferable against readout of quality
+            $qlty = serendipity_getOptimizedQuality($source, true); // Being in serendipity_passToCMD with a special +2 quality for rotation but being the best + to go with
+            $quality = str_replace('-quality 0', "-quality $qlty", $quality); // save WebP optimized
+        }
+        if (str_contains($type, 'avif')) {
+            $quality = str_replace('-quality 0', '', $quality); // save AVIF optimized
+        }
+        #echo PHP_EOL."_passToCMD args [ $do $quality ] for rotation. Type: $type ".PHP_EOL; // CLI -rotate - look into Browser DEV tools request answer
+    }
 
     // Do resizing images right:
     // @see https://www.imagemagick.org/Usage/resize/#resize_gamma, for 16bit (Q16 binary) workspace and optional gamma correction.
@@ -1532,34 +1558,40 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
  *
  * Args:
  *      - The filename string as full path
+ *      - The boolean rotation plus case (default false)
  * Returns:
  *      int
  * @access public
  */
-function serendipity_getOptimizedQuality(string $filename) : int {
+function serendipity_getOptimizedQuality(string $filename, bool $r = false) : int {
     if (!file_exists($filename)) return 75;
 
     $info = getimagesize($filename);
     $totalPixels = $info[0] * $info[1];
     $filesize = filesize($filename);
     $bpp = ($filesize * 8) / $totalPixels;
+    // A special +2 quality for rotation cases, not exactly matching compared to the previous filesize props, but exemplarily being the best approximation to go with.
+    // The full and thumb file properties still change in filesize and also the visible quality and coloring in demand of how many turns your are doing.
+    // And so the words are still valid:
+    //  - That any further change to an image file after upload will "bake in" and introduce a generation of quality loss and further blow- up or compress the filesize.
+    $x = ($r === true) ? 2 : 0;
 
     // If it is a large image (> 1.5MP), trust 75.
     // It's the most efficient for pure digital images.
     if ($totalPixels > 1500000) {
-        return 75;
+        return 75+$x;
     }
 
     // If the BPP is high (> 1.2), it's a "dense" image (like your 1280x720).
     // We better use 80 to prevent "Fuzzy Background" issues.
     if ($bpp > 1.2) {
-        return 80;
+        return 80+$x;
     }
 
     // If it's already a light-weight file, 77 is our "Safety Floor".
     // We could use 75 to prevent the "Inflation Trap" (blowing up the origins filesize),
     // but some images are special and may return noticeable "Fuzzy Background" artifacts when being directly compared.
-    return 77;
+    return 77+$x;
 }
 
 /**
@@ -2313,41 +2345,46 @@ function serendipity_rotateImg(int $id, int $degrees) : bool {
         }
     }
 
+    if ($debug) {
+        $logtag = 'ML_SERENDIPITY_ROTATEIMG::';
+        $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML serendipity_rotateImg() SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
+    }
+
     if ($serendipity['magick'] !== true) {
         // GD is rotating COUNTER CLOCKWISE which gets corrected in serendipity_rotateImageGD
         if (serendipity_rotateImageGD($infile, $outfile, $degrees)) {
-            if ($debug) { $serendipity['logger']->debug("GD Library Rotate main file command: Rotate {$turn} {$degrees} degrees, file: {$outfile}"); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: GD Library Rotate main file command: Rotate {$turn} {$degrees} degrees, file: {$outfile}"); }
         } else {
-            if ($debug) { $serendipity['logger']->debug("GD Library Rotate failed: {$turn} {$degrees} degrees, file: {$outfile}."); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: GD Library Rotate failed: {$turn} {$degrees} degrees, file: {$outfile}."); }
         }
         if (serendipity_rotateImageGD($infileThumb, $outfileThumb, $degrees)) {
-            if ($debug) { $serendipity['logger']->debug("GD Library Rotate main file command: Rotate {$turn} {$degrees} degrees, file: {$outfileThumb}"); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: GD Library Rotate main file command: Rotate {$turn} {$degrees} degrees, file: {$outfileThumb}"); }
         } else {
-            if ($debug) { $serendipity['logger']->debug("GD Library Rotate failed: {$turn} {$degrees} degrees, file: {$outfileThumb}."); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: GD Library Rotate failed: {$turn} {$degrees} degrees, file: {$outfileThumb}."); }
         }
         if (serendipity_rotateImageGD($infile_webp, $outfile_webp, $degrees)) {
-            if ($debug) { $serendipity['logger']->debug("GD Library Rotate main file command: Rotate {$turn} {$degrees} degrees, file: {$outfile_webp}"); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: GD Library Rotate main file command: Rotate {$turn} {$degrees} degrees, file: {$outfile_webp}"); }
         } else {
-            if ($debug) { $serendipity['logger']->debug("GD Library Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_webp}."); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: GD Library Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_webp}."); }
         }
         if (serendipity_rotateImageGD($infile_webpThumb, $outfile_webpThumb, $degrees)) {
-            if ($debug) { $serendipity['logger']->debug("GD Library Rotate main file command: Rotate {$turn} {$degrees} degrees, file: {$outfile_webpThumb}"); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: GD Library Rotate main file command: Rotate {$turn} {$degrees} degrees, file: {$outfile_webpThumb}"); }
         } else {
-            if ($debug) { $serendipity['logger']->debug("GD Library Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_webpThumb}."); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: GD Library Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_webpThumb}."); }
         }
         if (serendipity_rotateImageGD($infile_avif, $outfile_avif, $degrees)) {
-            if ($debug) { $serendipity['logger']->debug("GD Library Rotate main file command: Rotate {$turn} {$degrees} degrees, file: {$outfile_avif}"); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: GD Library Rotate main file command: Rotate {$turn} {$degrees} degrees, file: {$outfile_avif}"); }
         } else {
-            if ($debug) { $serendipity['logger']->debug("GD Library Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_avif}."); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: GD Library Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_avif}."); }
         }
         if (serendipity_rotateImageGD($infile_avifThumb, $outfile_avifThumb, $degrees)) {
-            if ($debug) { $serendipity['logger']->debug("GD Library Rotate main file command: Rotate {$turn} {$degrees} degrees, file: {$outfile_avifThumb}"); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: GD Library Rotate main file command: Rotate {$turn} {$degrees} degrees, file: {$outfile_avifThumb}"); }
         } else {
-            if ($debug) { $serendipity['logger']->debug("GD Library Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_avifThumb}."); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: GD Library Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_avifThumb}."); }
         }
     } else {
         // ImageMagick is rotating CLOCKWISE
-        $pass = [ $serendipity['convert'], ['-rotate'], [], ['"'.$degrees.'"'], 100, 2 ];
+        $pass = [ $serendipity['convert'], ['-rotate'], [], ['"'.$degrees.'"'], -1, 0.5 ];
         // check Imagick module extension vs binary CLI usage
         if (serendipity_checkImagickAsModule()) {
             $_passToFnctName = 'serendipity_passToModule';
@@ -2357,51 +2394,51 @@ function serendipity_rotateImg(int $id, int $degrees) : bool {
             $crtby = 'CLI';
         }
 
-        /* Resize main image */
+        /* Rotate main image */
         $result = $_passToFnctName($file['mime'], $infile, $outfile, $pass);
-        if ($debug) { $serendipity['logger']->debug("ImageMagick {$crtby} Rotate main file command: Rotate {$turn} {$degrees} degrees, file: {$result[2]}"); }
+        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: ImageMagick {$crtby} Rotate main file command: Rotate {$turn} {$degrees} degrees, file: {$result[2]}"); }
         if ($result[0] != 0) {
-            if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate failed: {$turn} {$degrees} degrees, file: {$outfile}."); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: ImageMagick ({$crtby}) Rotate failed: {$turn} {$degrees} degrees, file: {$outfile}."); }
         }
         unset($result);
 
-        /* Resize thumbnail */
+        /* Rotate thumbnail */
         $result = $_passToFnctName($file['mime'], $infileThumb, $outfileThumb, $pass);
-        if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate thumb file command: Rotate {$turn} {$degrees} degrees, file: {$result[2]}"); }
+        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: ImageMagick ({$crtby}) Rotate thumb file command: Rotate {$turn} {$degrees} degrees, file: {$result[2]}"); }
         if ($result[0] != 0) {
-            if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate failed: {$turn} {$degrees} degrees, file: {$outfileThumb}."); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: ImageMagick ({$crtby}) Rotate failed: {$turn} {$degrees} degrees, file: {$outfileThumb}."); }
         }
         unset($result);
 
-        /* Resize main WebP image */
-        $result = $_passToFnctName($file['mime'], $infile_webp, $outfile_webp, $pass);
-        if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate main WebP file command: Rotate {$turn} {$degrees} degrees, file: {$result[2]}"); }
+        /* Rotate main WebP image */
+        $result = $_passToFnctName('image/webp', $infile_webp, $outfile_webp, $pass);
+        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: ImageMagick ({$crtby}) Rotate main WebP file command: Rotate {$turn} {$degrees} degrees, file: {$result[2]}"); }
         if ($result[0] != 0) {
-            if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_webp}."); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: ImageMagick ({$crtby}) Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_webp}."); }
         }
         unset($result);
 
-        /* Resize WebP thumbnail */
-        $result = $_passToFnctName($file['mime'], $infile_webpThumb, $outfile_webpThumb, $pass);
-        if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate WebP thumb file command: Rotate {$turn} {$degrees} degrees, file: {$result[2]}"); }
+        /* Rotate WebP thumbnail */
+        $result = $_passToFnctName('image/webp', $infile_webpThumb, $outfile_webpThumb, $pass);
+        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: ImageMagick ({$crtby}) Rotate WebP thumb file command: Rotate {$turn} {$degrees} degrees, file: {$result[2]}"); }
         if ($result[0] != 0) {
-            if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_webpThumb}."); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: ImageMagick ({$crtby}) Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_webpThumb}."); }
         }
         unset($result);
 
-        /* Resize main AVIF image */
-        $result = $_passToFnctName($file['mime'], $infile_avif, $outfile_avif, $pass);
-        if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate main AVIF file command: Rotate {$turn} {$degrees} degrees, file: {$result[2]}"); }
+        /* Rotate main AVIF image */
+        $result = $_passToFnctName('image/avif', $infile_avif, $outfile_avif, $pass);
+        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: ImageMagick ({$crtby}) Rotate main AVIF file command: Rotate {$turn} {$degrees} degrees, file: {$result[2]}"); }
         if ($result[0] != 0) {
-            if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_avif}."); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: ImageMagick ({$crtby}) Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_avif}."); }
         }
         unset($result);
 
-        /* Resize AVIF thumbnail */
-        $result = $_passToFnctName($file['mime'], $infile_avifThumb, $outfile_avifThumb, $pass);
-        if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate AVIF thumb file command: Rotate {$turn} {$degrees} degrees, file: {$result[2]}"); }
+        /* Rotate AVIF thumbnail */
+        $result = $_passToFnctName('image/avif', $infile_avifThumb, $outfile_avifThumb, $pass);
+        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: ImageMagick ({$crtby}) Rotate AVIF thumb file command: Rotate {$turn} {$degrees} degrees, file: {$result[2]}"); }
         if ($result[0] != 0) {
-            if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_avifThumb}."); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: ImageMagick ({$crtby}) Rotate failed: {$turn} {$degrees} degrees, file: {$outfile_avifThumb}."); }
         }
         unset($result);
 
