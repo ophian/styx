@@ -1245,8 +1245,9 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                 if ($op_debug) echo "$op, "; //op = -antialias, -resize, op = "400x225", op = -antialias, -resize, op = "400x225", op = -antialias, -resize, op = "400x225", 
                 if (str_starts_with($op, '-auto-orient')) {
                     if (method_exists($im,'autoOrient')) {
-                        #if MagickLibVersion >= 0x692 since 2015
+                        #if MagickLibVersion >= 0x692 since 2015 - and return NULL === success
                         if (false !== $im->autoOrient()) {
+                            // No type speciesism here since being type JPEG only
                             // Get calculated target "source quality" guess based on BPP (Bits Per Pixel) - preferable against readout of quality
                             $quality = serendipity_getOptimizedQuality($source); // Being in serendipity_passToModule
                             // Method for existing images
