@@ -1895,10 +1895,13 @@ $(function() {
     });
 
     // Confirm media scale
-    $('.image_scale').click(function() {
-        if (confirm('<?= REALLY_SCALE_IMAGE ?>')) {
+    $('.image_scale').click(function(e) {
+        const scaleIt = window.confirm('<?= REALLY_SCALE_IMAGE ?>');
+        if (scaleIt) {
             document.serendipityScaleForm.submit();
             $('#waitingspin').toggle();
+        } else {
+            e.preventDefault(); // stop submission
         }
     });
 
