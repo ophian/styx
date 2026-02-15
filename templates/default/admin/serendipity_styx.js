@@ -1777,10 +1777,13 @@ $(function() {
     });
 
     // Confirm media scale
-    $('.image_scale').click(function() {
-        if (confirm('Really scale the image? This operation cannot be undone!')) {
+    $('.image_scale').click(function(e) {
+        const scaleIt = window.confirm('Really scale the image? This operation cannot be undone!');
+        if (scaleIt) {
             document.serendipityScaleForm.submit();
             $('#waitingspin').toggle();
+        } else {
+            e.preventDefault(); // stop submission
         }
     });
 
