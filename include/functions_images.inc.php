@@ -1265,7 +1265,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                         $im_debug .= "resize {$m[1]}x{$m[2]}, ";
                     }
                 } else if (isset($prev) && str_starts_with($prev, '-scale')) {
-                    // op = -scale, op = "1000x563", op matches scale 1000, 563 op = -scale, op = "1000x563", op matches scale 1000, 563 op = -scale, op = "1000x563", op matches scale 1000, 563 - including conditional bang forcement
+                    // e.g., op = -scale, op = "1000x563", op matches scale 1000, 563 [quality optimizing already done in // ^1]
                     if (preg_match('/"?(\d+)x(\d+)/', $op, $m)) {
                         if ($op_debug) echo " | op matches scale {$m[1]}, {$m[2]} ";
                         $im->scaleImage((int)$m[1], (int)$m[2]);
