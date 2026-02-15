@@ -1469,8 +1469,15 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
                 "\"$target\"";
         $dbg .= "Virgin upload source AUTO-ORIENT from $type [ $cmd ]\n";
 
-    // format-$format is used for unknown images like uploads and variations thumbifications... image/$mime is used when already known (like come from DB and the scale, rotate etc.
+    // see serendipity_formatRealFile()
+    // - [format-$format] is used for format changes OR unknown images like uploads and variations thumbs...
+    // - [image/$mime]    is used when already known (like come from DB and the scale, rotate etc.
     } else if (image_type_to_mime_type(IMAGETYPE_JPEG) === $type) {
+        if (str_contains($do, '-scale')) {
+            // Get calculated target "source quality" guess based on BPP (Bits Per Pixel) - preferable against readout of quality
+            $qlty = serendipity_getOptimizedQuality($source); // source === target | Being in serendipity_passToCMD
+            $quality = str_replace('-quality 0', "-quality $qlty", $quality);
+        }
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} -filter Lanczos {$do} {$gamma['standard']} " .
                 "-depth {$idepth} $quality -sampling-factor 1x1 -strip \"$target\"";
         $dbg .= "source from $type [ $cmd ]\n";
