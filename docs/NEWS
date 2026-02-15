@@ -3,6 +3,8 @@ Version 5.1-DEV ()
 
  * Fix Methusalem bug denying the "media scale" confirmation javascript dialog
 
+ * Improve ImageMagick scale quality needs for the origin JPEG image
+
  * Improve ImageMagick rotation quality needs for different image types
    - Extend _getOptimizedQuality() for rotation quality plus case with WebP
    - Fixes wrong type parameter for WebP / AVIF cases in _rotateImg()
