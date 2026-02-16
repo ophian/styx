@@ -1228,9 +1228,9 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
 
         // 4. GAMMA ([5])
         if (isset($args[5]) && $args[5] != -1) {
-            // linearize before resize; de-linearize after; standard is 2.2
-            $im->gammaImage(0.454545);
-            $im_debug .= "gamma to 0.454545 before resize, ";
+            $im->setImageColorspace(\Imagick::COLORSPACE_RGB); // Linear
+            #    $im->gammaImage(0.454545);
+            $im_debug .= "gamma to [0.454545] COLORSPACE_RGB before resize, ";
         }
 
         // 5. ANTI-ALIAS, FLATTEN, SCALE/RESIZE, etc
@@ -1307,8 +1307,9 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
 
         // 6. Restore gamma if set
         if (isset($args[5]) && $args[5] != -1) {
-            $im->gammaImage(2.2);
-            $im_debug .= "gamma to 2.2 after resize, ";
+            $im->setImageColorspace(\Imagick::COLORSPACE_SRGB); // de-linearize back to sRGB
+            #    $im->gammaImage(2.2); // reset to standard
+            $im_debug .= "gamma to [2.2] COLORSPACE_SRGB after resize, ";
         }
 
         // 7. Format-specific options
@@ -1420,9 +1421,10 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
     // images (at least for most image file formats) to be sRGB. This means we simply need to use the "-gamma/-level" (colorspace) to transform the image to a linear space before doing the resize. 
     $gamma['linear'] = $gamma['standard'] = ''; // init
     if ($args[5] != -1) {
-        $gamma['linear']   = '-gamma 0.454545'; // (0.45455 is 1/2.2 POW)
-        $gamma['standard'] = '-gamma 2.2';
-        // For example, using a value of gamma=2 is the same as taking the square root of the image.
+        #$gamma['linear']   = '-gamma 0.454545'; // (0.45455 is 1/2.2 POW)
+        #$gamma['standard'] = '-gamma 2.2';
+        $gamma['linear']   = '-colorspace RGB'; // internally better and more accurate
+        $gamma['standard'] = '-colorspace sRGB'; // Ditto
     }
 
     $idepth = ($type === 'pdfthumb' || $type === 'mkthumb') ? 8 : 16; // adjust as needed; can be made conditional
@@ -2192,7 +2194,7 @@ function serendipity_scaleImg(int $id, int $width, int $height, bool $scaleThumb
         // force the image geometry exactly to given sizes, if there were rounding differences (@see https://github.com/s9y/Serendipity/commit/94881ba and comments)
         $bang = empty($serendipity['imagemagick_nobang']) ? '!' : ''; // it seems the Imagick Module can handle bang too..!
         // scale the origin format: eg jpg
-        $pass = [ $serendipity['convert'], ['-scale'], [], ["\"{$width}x{$height}{$bang}\""], -1, 2 ]; // auto quality is checked best against Quality 100. Gamma argument of image operation: -1 is disabled. 2 use defaults.
+        $pass = [ $serendipity['convert'], ['-scale'], [], ["\"{$width}x{$height}{$bang}\""], -1, 2 ]; // auto quality is checked best against Quality 100. Gamma argument of image operation: -1 is disabled. 2 use defaults. Gamma yes !
         // check Imagick module extension vs binary CLI usage
         if (serendipity_checkImagickAsModule()) {
             #DEV# echo "{$file['mime']}, $infile, $outfile, ".print_r($pass,true)."<br>\n<br>\n";
@@ -2213,7 +2215,7 @@ function serendipity_scaleImg(int $id, int $width, int $height, bool $scaleThumb
             // Now, add the origins thumb jpg resize on forced given $scaleThumbVariation
             if ($scaleThumbVariation && file_exists($oTH)) {
                 // if particularly wished, (silently) force scale Thumb Variation too - check new thumb size
-                $_pass  = [ $serendipity['convert'], ['-scale'], [], ["\"{$ntbz[0]}x{$ntbz[1]}{$bang}\""], -1, -1 ]; // tests say: for scale of origin thumb use the optimized default quality
+                $_pass  = [ $serendipity['convert'], ['-scale'], [], ["\"{$ntbz[0]}x{$ntbz[1]}{$bang}\""], -1, 2 ]; // tests say: for scale of origin thumb use the optimized default quality. Gamma yes !
                 // check Imagick module extension vs binary CLI usage
                 if (serendipity_checkImagickAsModule()) {
                     $result = serendipity_passToModule($file['mime'], $oTH, $oTH, $_pass);// these are the origin formats like jpg
@@ -2225,10 +2227,10 @@ function serendipity_scaleImg(int $id, int $width, int $height, bool $scaleThumb
             }
             // DEFINE SET VARIATIONS $pass ARGUMENTS
             // - for full file variation formats
-            $pass  = [ $serendipity['convert'], ['-scale'], [], ["\"{$width}x{$height}{$bang}\""], -1, 2 ]; // auto quality is checked best against q 100
+            $pass  = [ $serendipity['convert'], ['-scale'], [], ["\"{$width}x{$height}{$bang}\""], -1, 2 ]; // auto quality is checked best against Quality 100. Gamma argument of image operation: -1 is disabled. 2 use defaults. Gamma yes !
             // - for forced dimension variation preview formats
             if ($scaleThumbVariation) {
-                $fpass = [ $serendipity['convert'], ['-scale'], [], ["\"{$ntbz[0]}x{$ntbz[1]}{$bang}\""], 100, -1 ]; // q 100 and depth 16 for both 
+                $fpass = [ $serendipity['convert'], ['-scale'], [], ["\"{$ntbz[0]}x{$ntbz[1]}{$bang}\""], 100, 2 ]; // q 100 and depth 16 for both. Gamma yes !
             }
             // do on SAME FILE for the WebP-Format variation
             if (file_exists($owebp)) {
@@ -2397,7 +2399,7 @@ function serendipity_rotateImg(int $id, int $degrees) : bool {
         }
     } else {
         // ImageMagick is rotating CLOCKWISE
-        $pass = [ $serendipity['convert'], ['-rotate'], [], ['"'.$degrees.'"'], -1, 0.5 ];
+        $pass = [ $serendipity['convert'], ['-rotate'], [], ['"'.$degrees.'"'], -1, -1 ]; // auto quality is checked best against Quality 100. Gamma argument of image operation: -1 is disabled. 2 use defaults. No Gamma when rotaing by 90, 180, 270 degress. We do not have oblique angles !
         // check Imagick module extension vs binary CLI usage
         if (serendipity_checkImagickAsModule()) {
             $_passToFnctName = 'serendipity_passToModule';
@@ -6678,7 +6680,7 @@ function serendipity_formatRealFile(string $oldDir, string $newDir, string $form
         else {
             $_format = "format-$format";
             // last two pass args are Quality and Gamma. Gamma argument of image operation: -1 is disabled. 2 use defaults.
-            $pass    = [ $serendipity['convert'], [], [], [], -1, -1 ]; // Best result format conversion settings with ImageMagick is -1 disabled, which is some kind of auto true! Do not handle with lossless!!
+            $pass    = [ $serendipity['convert'], [], [], [], -1, 2 ]; // Best result format conversion settings with ImageMagick is -1 disabled, which is some kind of auto true! Do not handle with lossless!!
             // check Imagick module extension vs binary CLI usage
             if (serendipity_checkImagickAsModule()) {
                 $result  = serendipity_passToModule($_format, $infile, $outfile, $pass);
