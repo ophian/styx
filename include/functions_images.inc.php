@@ -1293,7 +1293,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                         }
                     }
                 } elseif ($op === '-flatten') {
-                    $im = $im->mergeImageLayers(Imagick::LAYERMETHOD_FLATTEN);
+                    $im = $im->mergeImageLayers(\Imagick::LAYERMETHOD_FLATTEN);
                     $im_debug .= "flatten, ";
                 } elseif ($op === '-antialias') {
                     $im->setImageProperty('antialias', 'true'); // not all Imagick builds honor this
