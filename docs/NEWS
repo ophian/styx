@@ -1,6 +1,8 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Refactor Gamma colorspace and argument usage for format, scale and rotate
+
  * Fix Methusalem bug denying the "media scale" confirmation javascript dialog
 
  * Improve ImageMagick scale quality needs for the origin JPEG image
