@@ -1606,7 +1606,7 @@ function serendipity_getOptimizedQuality(string $filename, bool $r = false) : in
 
 /**
  * Parse Imagick Extension $image->identyImage(true)['rawOutput'] and convert the raw string into a nested PHP array.
- * To be used in serendipity_correctImageOrientationImagick() since the CLI has a way better access to Quality property.
+ * To be used in removed DEV method serendipity_correctImageOrientationImagick() since the CLI has a way better access to Quality property.
  *
  * Currently unused, as it turned out that the BPP quality guess is better for our current workflow, but kept for possible future accessment.
  *
