@@ -1026,7 +1026,7 @@ function serendipity_convertToWebPFormat(string $infile, string $outpath, string
                 }
                 return ((false !== $out) ? array(0, $out, 'with GD') : array(1, 'false', 'with GD'));
             } else {
-                // last two pass args are Quality and Gamma. Gamma argument of image operation: -1 is disabled. 2 use defaults.
+                // last two pass args are Quality and Gamma. Gamma argument of image operation: -1 is disable; 2 enable defaults.
                 $pass = [ $serendipity['convert'], [], [], [], $quality, -1 ]; // Best result format conversion settings with ImageMagick is -1 disabled, which is some kind of auto true! Do not handle with lossless!!
                 // check Imagick module extension vs binary CLI usage
                 if (serendipity_checkImagickAsModule()) {
@@ -1094,7 +1094,7 @@ function serendipity_convertToAvifFormat(string $infile, string $outpath, string
                 }
                 return ((false !== $out) ? array(0, $out, 'with GD') : array(1, 'false', 'with GD'));
             } else {
-                // last two pass args are Quality and Gamma. Gamma argument of image operation: -1 is disabled. 2 use defaults.
+                // last two pass args are Quality and Gamma. Gamma argument of image operation: -1 is disable; 2 enable defaults.
                 $pass = [ $serendipity['convert'], [], [], [], $quality, -1 ]; // Best result format conversion settings with ImageMagick is -1 disabled, which is some kind of auto true! Do not handle with lossless!!
                 // check Imagick module extension vs binary CLI usage
                 if (serendipity_checkImagickAsModule()) {
@@ -1358,10 +1358,11 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
  *                          [4] Quality of image operation (normally 100, 75 for non-scaled normal [-resize] thumb downsizing)
  *                          [5] The same color image displayed on two different workstations may look different due to differences in the display monitor.
  *                              Use gamma correction to adjust for this color difference. Reasonable values extend from 0.8 to 2.3.
- *                              Gamma less than 1.0 darkens the image and gamma greater than 1.0 lightens it. Gamma argument of image operation: -1 is disabled. 2 use defaults.
- *                              Large adjustments to image gamma may result in the loss of some image information if the pixel quantum size is only eight bits (quantum range 0 to 255).
+ *                              Gamma less than 1.0 darkens the image and gamma greater than 1.0 lightens it. Gamma argument of image operation: -1 is disable; 2 is enable defaults.
+ *                              Large adjustments to image gamma may result in the loss of some image information if the pixel quantum size is only 8 bits (quantum range 0 to 255).
  *                              Gamma adjusts the image's channel values pixel-by-pixel according to a power law, namely, pow(pixel,1/gamma) or pixel^(1/gamma), where pixel is the
- *                              normalized or 0 to 1 color value.                         XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX IS THIS VALID FOR ALL FORMATS ??
+ *                              normalized or 0 to 1 color value. Especially AVIF/WebP may have stricter color space definitions. Normal resizes uses the simple RGB/sRGB math correction
+ *                              for colorspace. If we need to support ICC-profiles we will have to use transformImageColorspace().
  *                          [5] AV1 uses this as the SPEED parameter -1 for default, else integers 1 - 9
  * Returns:
  *      - boolean on fail, else array with result and $cmd string (for debug)
@@ -2194,7 +2195,7 @@ function serendipity_scaleImg(int $id, int $width, int $height, bool $scaleThumb
         // force the image geometry exactly to given sizes, if there were rounding differences (@see https://github.com/s9y/Serendipity/commit/94881ba and comments)
         $bang = empty($serendipity['imagemagick_nobang']) ? '!' : ''; // it seems the Imagick Module can handle bang too..!
         // scale the origin format: eg jpg
-        $pass = [ $serendipity['convert'], ['-scale'], [], ["\"{$width}x{$height}{$bang}\""], -1, 2 ]; // auto quality is checked best against Quality 100. Gamma argument of image operation: -1 is disabled. 2 use defaults. Gamma yes !
+        $pass = [ $serendipity['convert'], ['-scale'], [], ["\"{$width}x{$height}{$bang}\""], -1, 2 ]; // auto quality is checked best against Quality 100. Gamma argument of image operation: -1 is disable; 2 enable defaults. Gamma yes !
         // check Imagick module extension vs binary CLI usage
         if (serendipity_checkImagickAsModule()) {
             #DEV# echo "{$file['mime']}, $infile, $outfile, ".print_r($pass,true)."<br>\n<br>\n";
@@ -2227,7 +2228,7 @@ function serendipity_scaleImg(int $id, int $width, int $height, bool $scaleThumb
             }
             // DEFINE SET VARIATIONS $pass ARGUMENTS
             // - for full file variation formats
-            $pass  = [ $serendipity['convert'], ['-scale'], [], ["\"{$width}x{$height}{$bang}\""], -1, 2 ]; // auto quality is checked best against Quality 100. Gamma argument of image operation: -1 is disabled. 2 use defaults. Gamma yes !
+            $pass  = [ $serendipity['convert'], ['-scale'], [], ["\"{$width}x{$height}{$bang}\""], -1, 2 ]; // auto quality is checked best against Quality 100. Gamma argument of image operation: -1 is disable; 2 enable defaults. Gamma yes !
             // - for forced dimension variation preview formats
             if ($scaleThumbVariation) {
                 $fpass = [ $serendipity['convert'], ['-scale'], [], ["\"{$ntbz[0]}x{$ntbz[1]}{$bang}\""], 100, 2 ]; // q 100 and depth 16 for both. Gamma yes !
@@ -2399,7 +2400,7 @@ function serendipity_rotateImg(int $id, int $degrees) : bool {
         }
     } else {
         // ImageMagick is rotating CLOCKWISE
-        $pass = [ $serendipity['convert'], ['-rotate'], [], ['"'.$degrees.'"'], -1, -1 ]; // auto quality is checked best against Quality 100. Gamma argument of image operation: -1 is disabled. 2 use defaults. No Gamma when rotaing by 90, 180, 270 degress. We do not have oblique angles !
+        $pass = [ $serendipity['convert'], ['-rotate'], [], ['"'.$degrees.'"'], -1, -1 ]; // auto quality is checked best against Quality 100. Gamma argument of image operation: -1 is disable; 2 enable defaults. No Gamma when rotaing by 90, 180, 270 degress. We do not have oblique angles !
         // check Imagick module extension vs binary CLI usage
         if (serendipity_checkImagickAsModule()) {
             $_passToFnctName = 'serendipity_passToModule';
@@ -6679,8 +6680,8 @@ function serendipity_formatRealFile(string $oldDir, string $newDir, string $form
         // pass to IM
         else {
             $_format = "format-$format";
-            // last two pass args are Quality and Gamma. Gamma argument of image operation: -1 is disabled. 2 use defaults.
-            $pass    = [ $serendipity['convert'], [], [], [], -1, 2 ]; // Best result format conversion settings with ImageMagick is -1 disabled, which is some kind of auto true! Do not handle with lossless!!
+            // last two pass args are Quality and Gamma. Gamma argument of image operation: -1 is disable; 2 enable defaults. During pure conversion (transcoding), the existing RGB values are simply converted into a new container.
+            $pass    = [ $serendipity['convert'], [], [], [], -1, -1 ]; // Do not handle with lossless ! Gamma correction (linearization) is only necessary if pixel values are recalculated (interpolation).
             // check Imagick module extension vs binary CLI usage
             if (serendipity_checkImagickAsModule()) {
                 $result  = serendipity_passToModule($_format, $infile, $outfile, $pass);
