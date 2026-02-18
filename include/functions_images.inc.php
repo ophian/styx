@@ -1429,7 +1429,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         #$gamma['linear']   = '-gamma 0.454545'; // (0.45455 is 1/2.2 POW)
         #$gamma['standard'] = '-gamma 2.2';
         $gamma['linear']   = '-colorspace RGB'; // internally better and more accurate
-        $gamma['standard'] = '-colorspace sRGB'; // Ditto
+        $gamma['standard'] = '-colorspace sRGB'; // Ditto - https://en.wikipedia.org/wiki/SRGB#Transfer_function
     }
 
     $idepth = ($type === 'pdfthumb' || $type === 'mkthumb') ? 8 : 16; // adjust as needed; can be made conditional
