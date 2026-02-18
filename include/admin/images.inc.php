@@ -360,7 +360,10 @@ switch ($serendipity['GET']['adminAction']) {
                 // fetch file
                 $file = serendipity_fetchImageFromDatabase((int) $serendipity['POST']['mediaProperties'][0]['image_id']);
                 // convert file format and all relevant follow-up actions, which are real file change, real file thumb change, database changes, entry changes, ep cache changes, staticpage changes
-                serendipity_convertImageFormat($file, $serendipity['POST']['mediaFormat'][0]['oldMime'], $serendipity['POST']['mediaFormat'][0]['newMime']);
+                if (false === serendipity_convertImageFormat($file, $serendipity['POST']['mediaFormat'][0]['oldMime'], $serendipity['POST']['mediaFormat'][0]['newMime'])) {
+                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . FORMAT_NOT_ALLOWED . "</span>\n";
+                    break;
+                }
             }
             // properties default on save
             serendipity_restoreVar($serendipity['COOKIE']['serendipity_only_path'], $serendipity['GET']['only_path']); // restore last set directory path, see true parameter
