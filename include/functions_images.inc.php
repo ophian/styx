@@ -890,6 +890,10 @@ function serendipity_imageCreateFromAny(string $filepath) : GdImage|false {
  * @access private
  */
 function serendipity_convertImageFormat(iterable $file, string $oldMime, string $newMime) : bool {
+    // avoid manipulated POSTS or callables
+    if (!in_array($oldmime, ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/avif'])) {
+        return false;
+    }
     switch ($newMime) {
         case 'image/jpg':
         case 'image/jpeg':
