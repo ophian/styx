@@ -84,6 +84,7 @@
 @define('ERROR_FILE_EXISTS', 'エラー: 既に新しいファイル名が使用されています。別の名前を指定してください!');
 @define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'エラー: 何かが間違っています。');
+@define('FORMAT_NOT_ALLOWED', 'Error: Conversion of this format is not supported.');
 @define('ADDING_IMAGE', '画像を追加しています...');
 @define('THUMB_CREATED_DONE', 'サムネイルを作成しました。<br>%s 終了します。'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', 'エラー: ファイルはマシン上に既に存在します!');

@@ -87,6 +87,7 @@
 @define('ERROR_FILE_EXISTS', 'Erreur : il existe déjà un fichier portant ce nom. Choisissez un nouveau nom.');
 @define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Erreur : quelque chose ne va pas.');
+@define('FORMAT_NOT_ALLOWED', 'Error: Conversion of this format is not supported.');
 @define('ADDING_IMAGE', 'Ajout d\'une image...');
 @define('THUMB_CREATED_DONE', 'Miniature %s créee.<br>Terminé.'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', 'Erreur : le fichier existe déjà sur votre machine.');

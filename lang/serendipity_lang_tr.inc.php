@@ -86,6 +86,7 @@
 @define('ERROR_FILE_EXISTS', 'Hata: Yeni dosya adı zaten kullanımda, başka bir ad seçin!');
 @define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Hata: Bir şeyler yanlış.');
+@define('FORMAT_NOT_ALLOWED', 'Error: Conversion of this format is not supported.');
 @define('ADDING_IMAGE', 'Resim ekleme...');
 @define('THUMB_CREATED_DONE', 'Küçükresim %s oluşturma işlemi.<br>Tamamlandı.'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', 'Hata: Dosya bilgisayarınızda zaten mevcut!');

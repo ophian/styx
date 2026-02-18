@@ -85,6 +85,7 @@
 @define('ERROR_FILE_EXISTS', 'خطا: فایلی با این نام وجود دارد، نام دیگری انتخاب کنید!');
 @define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'خطا: مشکلی وجود دارد.');
+@define('FORMAT_NOT_ALLOWED', 'Error: Conversion of this format is not supported.');
 @define('ADDING_IMAGE', 'افزودن عکس...');
 @define('THUMB_CREATED_DONE', 'عکس های کوچک ساخته شدند.<br>%s انجام شد.'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', 'خطا: این فایل قبلا در سیستم وجود داشته است!');

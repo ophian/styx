@@ -83,6 +83,7 @@
 @define('ERROR_FILE_EXISTS', 'Fehler: Neuer Dateiname existiert schon, bitte einen anderen wählen.');
 @define('ERROR_SELECTION', 'Fehler: Gemeinsame Änderungen beider Auswahlfelder über die Medien-Eigenschaften zur selben Zeit sind nicht erlaubt. Gehen Sie zurück und probieren Sie es erneut!');
 @define('ERROR_SOMETHING', 'Fehler: Irgend etwas stimmt nicht.');
+@define('FORMAT_NOT_ALLOWED', 'Fehler: Die Konvertierung dieses Formates wird nicht unterstützt.');
 @define('ADDING_IMAGE', 'Bild hinzufügen ...');
 @define('THUMB_CREATED_DONE', 'Vorschau %s und aller Variationen erstellt.<br>Fertig.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Fehler: Diese Datei existiert schon auf dem Server!');

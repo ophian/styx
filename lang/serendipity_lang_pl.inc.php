@@ -86,6 +86,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('ERROR_FILE_EXISTS', 'Błąd: Nowa nazwa pliku jest już w użyciu, wybierz inną!');
 @define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Błąd: Coś jest nie tak.');
+@define('FORMAT_NOT_ALLOWED', 'Error: Conversion of this format is not supported.');
 @define('ADDING_IMAGE', 'Dodawanie obrazka...');
 @define('THUMB_CREATED_DONE', 'Miniaturka %s stworzona.<br>Zrobione.'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', 'Błąd: Plik znajduje się już na Twoim serwerze!');

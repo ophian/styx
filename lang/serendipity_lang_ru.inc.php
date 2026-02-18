@@ -86,6 +86,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('ERROR_FILE_EXISTS', 'Ошибка: Новое имя файла уже используется, пожалуйста выберите другое!');
 @define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Ошибка: Что-то не так...');
+@define('FORMAT_NOT_ALLOWED', 'Error: Conversion of this format is not supported.');
 @define('ADDING_IMAGE', 'Добавление изображения...');
 @define('THUMB_CREATED_DONE', 'Тамбнэйл %s успешно,<br>создан.'); // ADD: and of all variations
 @define('ERROR_FILE_EXISTS_ALREADY', 'Ошибка: Файл уже существует на вашем компьютере!');
