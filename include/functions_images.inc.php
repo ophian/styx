@@ -895,7 +895,6 @@ function serendipity_convertImageFormat(iterable $file, string $oldMime, string 
         return false;
     }
     switch ($newMime) {
-        case 'image/jpg':
         case 'image/jpeg':
             $new['extension'] = image_type_to_extension(IMAGETYPE_JPEG, false); // this and the others are without the dot and returned lowercased
             break;
