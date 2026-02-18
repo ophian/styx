@@ -1365,7 +1365,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
  *                              Gamma less than 1.0 darkens the image and gamma greater than 1.0 lightens it. Gamma argument of image operation: -1 is disable; 2 is enable defaults.
  *                              Large adjustments to image gamma may result in the loss of some image information if the pixel quantum size is only 8 bits (quantum range 0 to 255).
  *                              Gamma adjusts the image's channel values pixel-by-pixel according to a power law, namely, pow(pixel,1/gamma) or pixel^(1/gamma), where pixel is the
- *                              normalized or 0 to 1 color value. Especially AVIF/WebP may have stricter color space definitions. Normal resizes uses the simple RGB/sRGB math correction
+ *                              normalized, or 0 to 1 color value. Especially AVIF/WebP may have stricter color space definitions. Normal resizes uses the simple RGB/sRGB math correction
  *                              for colorspace. If we need to support ICC-profiles we will have to use transformImageColorspace().
  *                          [5] AV1 uses this as the SPEED parameter -1 for default, else integers 1 - 9
  * Returns:
