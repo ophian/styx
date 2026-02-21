@@ -1432,7 +1432,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
 
     $idepth = ($type === 'pdfthumb' || $type === 'mkthumb') ? 8 : 16; // adjust as needed; can be made conditional
 
-    // - [format-$format] is used for format changes OR unknown images like uploads and variations thumbs...
+    // Type [format-$format] is used for format changes OR unknown images like uploads and variations thumbs...
     // @see serendipity_formatRealFile() and serendipity_convertToWebPFormat() and serendipity_convertToAvifFormat()
 
     // variations - with type being a command parameter
@@ -1441,7 +1441,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
                 "-depth {$idepth} -strip \"$target\"";
         $dbg .= "variations from origin to $type [ $cmd ] \n";
 
-    } else if ($type == 'mkthumb') { // does it exist ?? Not yet !!
+    } else if ($type == 'mkthumb') { // does this type exist ?? Not yet !!
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
                 "-depth {$idepth} $quality -strip \"$target\"";
         $dbg .= "variations from origin to $type [ $cmd ] \n";
@@ -1477,7 +1477,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
                 "\"$target\"";
         $dbg .= "Virgin upload source AUTO-ORIENT from $type [ $cmd ]\n";
 
-    // - [image/$mime]    is used when already known (like come from DB and the scale, rotate etc.
+    // Type [image/$mime] is used when already known (like come from DB and the scale, rotate etc.
     } else if (image_type_to_mime_type(IMAGETYPE_JPEG) === $type) {
         if (str_contains($do, '-scale')) {
             // Get calculated target "source quality" guess based on BPP (Bits Per Pixel) - preferable against readout of quality
@@ -1596,7 +1596,7 @@ function serendipity_getOptimizedQuality(string $filename, bool $r = false) : in
         return 75+$x;
     }
 
-    // If the BPP is high (> 1.2), it's a "dense" image (like your 1280x720).
+    // If the BPP is high (> 1.2), it's a "dense" image (like 1280x720).
     // We better use 80 to prevent "Fuzzy Background" issues.
     if ($bpp > 1.2) {
         return 80+$x;
