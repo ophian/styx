@@ -920,7 +920,6 @@ function serendipity_convertImageFormat(iterable $file, string $oldMime, string 
     $newfile = $file['path'] . $file['name'] . '.' . $new['extension']; // pass over with extensions DOT!
 
     return serendipity_formatRealFile($oldfile, $newfile, $new['extension'], (int) $file['id'], $file);
-
 }
 
 /**
