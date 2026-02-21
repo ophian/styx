@@ -1432,13 +1432,16 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
 
     $idepth = ($type === 'pdfthumb' || $type === 'mkthumb') ? 8 : 16; // adjust as needed; can be made conditional
 
+    // - [format-$format] is used for format changes OR unknown images like uploads and variations thumbs...
+    // @see serendipity_formatRealFile() and serendipity_convertToWebPFormat() and serendipity_convertToAvifFormat()
+
     // variations - with type being a command parameter
     if ($type == 'pdfthumb') {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
                 "-depth {$idepth} -strip \"$target\"";
         $dbg .= "variations from origin to $type [ $cmd ] \n";
 
-    } else if ($type == 'mkthumb') {
+    } else if ($type == 'mkthumb') { // does it exist ?? Not yet !!
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
                 "-depth {$idepth} $quality -strip \"$target\"";
         $dbg .= "variations from origin to $type [ $cmd ] \n";
@@ -1474,8 +1477,6 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
                 "\"$target\"";
         $dbg .= "Virgin upload source AUTO-ORIENT from $type [ $cmd ]\n";
 
-    // see serendipity_formatRealFile()
-    // - [format-$format] is used for format changes OR unknown images like uploads and variations thumbs...
     // - [image/$mime]    is used when already known (like come from DB and the scale, rotate etc.
     } else if (image_type_to_mime_type(IMAGETYPE_JPEG) === $type) {
         if (str_contains($do, '-scale')) {
