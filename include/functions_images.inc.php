@@ -1435,15 +1435,15 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
     // Type [format-$format] is used for format changes OR unknown images like uploads and variations thumbs...
     // @see serendipity_formatRealFile() and serendipity_convertToWebPFormat() and serendipity_convertToAvifFormat()
 
-    // variations - with type being a command parameter
+    // VARIATIONS - with type being a command parameter
     if ($type == 'pdfthumb') {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
-                "-depth {$idepth} -strip \"$target\"";
+                "-depth {$idepth} -strip \"$target\""; // -strip all for thumbs
         $dbg .= "variations from origin to $type [ $cmd ] \n";
 
     } else if ($type == 'mkthumb') { // does this type exist ?? Not yet !!
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
-                "-depth {$idepth} $quality -strip \"$target\"";
+                "-depth {$idepth} $quality -strip \"$target\""; // -strip all for thumbs
         $dbg .= "variations from origin to $type [ $cmd ] \n";
 
     } else if ($type == 'format-webp') {
