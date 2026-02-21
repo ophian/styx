@@ -1222,9 +1222,9 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
             $im_debug .= "depth {$_idpth} set to {$idepth}, ";
         }
 
-        // 3. STRIP (remove metadata)
+        // 3. STRIP (remove metadata [Exif, IPTC, etc.])
         if (in_array($type, ['pdfthumb', 'mkthumb', 'format-webp', 'format-avif', 'format-jpg', 'format-jpeg', 'format-png', 'format-gif'])) {
-            $im->stripImage();
+            $im->stripImage(); // is like explicite -strip
             $im_debug .= "stripped, ";
         }
 
