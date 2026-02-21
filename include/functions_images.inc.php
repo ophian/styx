@@ -981,8 +981,8 @@ function serendipity_imageGDAvifConversion(string $infile, string $outfile, int 
 }
 
 /**
- * Convert an uploaded thumb or single file to the WebP image VARIATION image format with ImageMagick
- * Create CMD string settings and pass to serendipity_passToCMD()
+ * Convert an uploaded thumb or single file to the WebP image VARIATION image format with GDLib / ImageMagick
+ * Create ImageMagick arguments and pass to serendipity_passToCMD() or serendipity_passToModule()
  *
  * NOTE: An image upload source is the origin file object. Thumb prefixed previews AND media sized "previews" are origin sub-variations.
  *       A WebP image is an extra origin variant of the source and is "on top" the variation(s). We STORE them in a (preserved key) current dir/.v directory!
@@ -1029,7 +1029,7 @@ function serendipity_convertToWebPFormat(string $infile, string $outpath, string
                 return ((false !== $out) ? array(0, $out, 'with GD') : array(1, 'false', 'with GD'));
             } else {
                 // last two pass args are Quality and Gamma. Gamma argument of image operation: -1 is disable; 2 enable defaults.
-                $pass = [ $serendipity['convert'], [], [], [], $quality, -1 ]; // Best result format conversion settings with ImageMagick is -1 disabled, which is some kind of auto true! Do not handle with lossless!!
+                $pass = [ $serendipity['convert'], [], [], [], $quality, -1 ]; // Do not handle with lossless !
                 // check Imagick module extension vs binary CLI usage
                 if (serendipity_checkImagickAsModule()) {
                     $out = serendipity_passToModule('format-webp', $infile, $_outfile, $pass);
@@ -1048,8 +1048,8 @@ function serendipity_convertToWebPFormat(string $infile, string $outpath, string
 }
 
 /**
- * Convert an uploaded thumb or single file to the AVIF image VARIATION image format with ImageMagick
- * Create CMD string settings and pass to serendipity_passToCMD()
+ * Convert an uploaded thumb or single file to the AVIF image VARIATION image format with GDLib / ImageMagick
+ * Create ImageMagick arguments and pass to serendipity_passToCMD() or serendipity_passToModule()
  * Copy of serendipity_convertToWebPFormat()
  *
  * NOTE: An image upload source is the origin file object. Thumb prefixed previews AND media sized "previews" are origin sub-variations.
@@ -1097,7 +1097,7 @@ function serendipity_convertToAvifFormat(string $infile, string $outpath, string
                 return ((false !== $out) ? array(0, $out, 'with GD') : array(1, 'false', 'with GD'));
             } else {
                 // last two pass args are Quality and Gamma. Gamma argument of image operation: -1 is disable; 2 enable defaults.
-                $pass = [ $serendipity['convert'], [], [], [], $quality, -1 ]; // Best result format conversion settings with ImageMagick is -1 disabled, which is some kind of auto true! Do not handle with lossless!!
+                $pass = [ $serendipity['convert'], [], [], [], $quality, -1 ]; // Do not handle with lossless !
                 // check Imagick module extension vs binary CLI usage
                 if (serendipity_checkImagickAsModule()) {
                     $out = serendipity_passToModule('format-avif', $infile, $_outfile, $pass);
