@@ -736,7 +736,7 @@ select[size], select[multiple], textarea {
   select[size], select[multiple] {
     background-image: none;
     padding: 0; }
- }
+}
 
 blockquote {
   font-style: normal;
@@ -826,6 +826,10 @@ fieldset.form-group {border: 1px solid #dfdfdf}
 /* required attribute labeled */
 input:invalid, textarea:invalid {
     background-color: #eee;
+}
+
+ul li > p, ol li > p {
+    margin: 0.25em 0;
 }
 
 .plainList {
