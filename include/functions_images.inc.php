@@ -2471,7 +2471,7 @@ function serendipity_rotateImg(int $id, int $degrees) : bool {
 
 /**
  * Force an image AVIF/WebP Variation file format conversion on all supported files by range
- * OR run-it for a single given image via MediaLibrary image items toolbar button.
+ * OR run-it for Variations of a single given image via MediaLibrary [image] items toolbar + button.
  *
  * Args:
  *      - file id
