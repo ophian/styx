@@ -1003,7 +1003,7 @@ function serendipity_imageGDAvifConversion(string $infile, string $outfile, int 
  *      - Target file name
  *      - Output of mime_content_type($target)
  *      - To message OR not. Is default false for a single request, true for bulk like synchronization traversals
- *      - Held for ImageMagick purposes, quality ranges from 0 to 100, while -1 is auto default (known as best working for compression and quality)
+ *      - Held for ImageMagick purposes, quality ranges from 0 to 100, while -1 is auto default (known as best working for compression and quality by BPP)
  * Returns:
  *      - mixed
  * @access private
@@ -1462,7 +1462,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         $dbg .= "variations from origin to $type [ $cmd ] \n";
     }
 
-    // Main file scaling (scale, resize, rotate, ...) - with type being a mime string parameter, since we have it already
+    // Main file scaling (scale, resize, rotate, ...) - with TYPE being a mime string parameter, since we have it already
     // Special case, fixing a possible wrong orient image issue of smartphone cameras with SET EXIF orientation on UPLOAD
     if (image_type_to_mime_type(IMAGETYPE_JPEG) === $type && trim($do) == '-auto-orient') {
         // May we really assume that reading out the quality of an image with "identify -format %Q file" (i.e. 98) is the same as having a high BPP with our GD version guess?
