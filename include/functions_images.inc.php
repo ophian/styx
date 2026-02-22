@@ -1207,6 +1207,10 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
             $im_debug .= "source loaded, ";
         }
 
+        // SPECIAL: Extract and temp-save a possible ICC-profile in WebP / AVIF for stripping. ICC profile is a set of data that characterizes a color input or output device.
+        $profiles = $im->getImageProfiles('icc', true);
+        // Modern Smartphones (iPhone/Samsung) also take images in Display P3 (DCI-P3) since 2005, developed for wide-gamut displays
+
         // 1. QUALITY (args[4])
         if (isset($args[4]) && $args[4] != -1) {
             $im->setImageCompressionQuality((int) $args[4]);
@@ -1335,6 +1339,11 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
             $im_debug .= "format gif, ";
         }
 
+        // SPECIAL: Re-add the temp-saved ICC-profile when exists
+        if (!empty($profiles)) {
+            $im->profileImage('icc', $profiles['icc']);
+        }
+
         // 8. Save
         $im->writeImage($target);
         $im->clear();
@@ -1430,6 +1439,9 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         $gamma['standard'] = '-colorspace sRGB'; // Ditto - https://en.wikipedia.org/wiki/SRGB#Transfer_function
     }
 
+    // REPLACED -strip with +profile 'exif,iptc,comment' that strips these only but keeps the color profiles.
+    //          (And yes, if you're confused now: +profile is for removal while -profile is for adding. The dash is not not minus and the + is not plus!)
+
     $idepth = ($type === 'pdfthumb' || $type === 'mkthumb') ? 8 : 16; // adjust as needed; can be made conditional
 
     // Type [format-$format] is used for format changes OR unknown images like uploads and variations thumbs...
@@ -1448,12 +1460,12 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
 
     } else if ($type == 'format-webp') {
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
-                "$quality -strip \"$target\"";
+                "$quality +profile 'exif,iptc,comment' \"$target\""; // keeps color profiles
         $dbg .= "variations from origin to $type [ $cmd ] \n";
 
     } else if ($type == 'format-avif') {
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
-                "$quality -strip \"$target\"";
+                "$quality +profile 'exif,iptc,comment' \"$target\""; // keeps color profiles
         $dbg .= "variations from origin to $type [ $cmd ] \n";
 
     } else if (in_array($type, ['format-jpg', 'format-jpeg', 'format-png', 'format-gif'])) {
@@ -3225,7 +3237,7 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
             // capture GD result
             $_relative_result_outfile = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $result[1]);
             // capture IM result ($out) array
-            $_vname = str_replace('"', '', substr($result[2], strpos($result[2], '-strip ') + 7));
+            $_vname = str_replace('"', '', substr($result[2], strpos($result[2], "+profile 'exif,iptc,comment' ") + 29));
             if (in_array(strrchr($_vname, '.'), ['.webp', '.avif']) && empty($_relative_result_outfile)) {
                 $_relative_result_outfile = str_replace(['"', $serendipity['serendipityPath'] . $serendipity['uploadPath']], '', $_vname);
             }
@@ -3274,7 +3286,7 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
                 // capture GD result
                 $_relative_result_outfile = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $result[1]);
                 // capture IM result ($out) array
-                $_vname = str_replace('"', '', substr($result[2], strpos($result[2], '-strip ') + 7));
+                $_vname = str_replace('"', '', substr($result[2], strpos($result[2], "+profile 'exif,iptc,comment' ") + 29));
                 if (in_array(strrchr($_vname, '.'), ['.webp', '.avif']) && empty($_relative_result_outfile)) {
                     $_relative_result_outfile = str_replace(['"', $serendipity['serendipityPath'] . $serendipity['uploadPath']], '', $_vname);
                 }
