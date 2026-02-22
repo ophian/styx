@@ -3289,9 +3289,9 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
                 }
                 if ($result[0] == 0) {
                     if (is_string($result[1])) {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: Image AVIF format creation success {$result[2]} from $target | " . DONE); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: GD Image AVIF format creation success {$result[2]} from $target | " . DONE); }
                     } else {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick (CLI/MOD) Image AVIF format creation success {$result[2]} from $target | " . DONE); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick Image AVIF format creation success {$result[2]} from $target | " . DONE); }
                     }
                 }
             } else {
