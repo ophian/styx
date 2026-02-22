@@ -1,6 +1,8 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Fix ImageMagick CLI arguments setup for PNG thumb quality compression
+
  * Refactor ImageMagick image handlers
     -strip, to keep color profiles for cases
     -gamma colorspace and argument usage for format, scale and rotate
