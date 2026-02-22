@@ -1497,7 +1497,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
             $quality = str_replace('-quality 0', "-quality $qlty", $quality);
         }
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} -filter Lanczos {$do} {$gamma['standard']} " .
-                "-depth {$idepth} $quality -sampling-factor 1x1 -strip \"$target\"";
+                "-depth {$idepth} $quality +profile 'exif,iptc,comment' \"$target\""; // keeps color profiles
         $dbg .= "source from $type [ $cmd ]\n";
 
     } else if (image_type_to_mime_type(IMAGETYPE_PNG) === $type) {
@@ -1513,12 +1513,12 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
 
     } else if (image_type_to_mime_type(IMAGETYPE_WEBP) === $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
-                "-depth {$idepth} -strip \"$target\"";
+                "-depth {$idepth} +profile 'exif,iptc,comment' \"$target\""; // keeps color profiles
         $dbg .= "source from $type [ $cmd ]\n";
 
     } else if (image_type_to_mime_type(IMAGETYPE_AVIF) === $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
-                "-depth {$idepth} -strip \"$target\"";
+                "-depth {$idepth} +profile 'exif,iptc,comment' \"$target\""; // keeps color profiles
         if (str_contains($cmd, '-scale')) {
             $cmd = str_replace('-depth {$idepth} ', '', $cmd); // on scale: Remove both depth assignments for AVIF since delivers slight better sharpened quality - works on both sizes
         }
