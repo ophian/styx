@@ -1,13 +1,12 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
- * Refactor ImageMagick -strip to keep color profiles for cases
-
- * Refactor Gamma colorspace and argument usage for format, scale and rotate
+ * Refactor ImageMagick image handlers
+    -strip, to keep color profiles for cases
+    -gamma colorspace and argument usage for format, scale and rotate
+    -scale quality needs for the origin JPEG image
 
  * Fix Methusalem bug denying the "media scale" confirmation javascript dialog
-
- * Improve ImageMagick scale quality needs for the origin JPEG image
 
  * Improve ImageMagick rotation quality needs for different image types
    - Extend _getOptimizedQuality() for rotation quality plus case with WebP
