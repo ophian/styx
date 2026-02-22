@@ -1178,7 +1178,7 @@ function serendipity_generate_webpPathURI(string $image, string $ext = 'webp') :
  *      - Mime/string type name the image shall be formatted to
  *      - Source file fullpath
  *      - Target file fullpath
- *      - $args TODO since arg[0] will be unused and ....
+ *      - $args @see serendipity_passToCMD() only arg[0] is unused and replaced by Imagick methods ...
  * Returns:
  *      - boolean on fail, else array with result and $im_debug string (for debug)
  * @access private
@@ -1248,7 +1248,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
             // Break up operator string (possibly grouped flags)
             foreach(preg_split('/\s+/', trim($opstring)) AS $op) {
                 if (!$op) continue;
-                if ($op_debug) echo "$op, "; //op = -antialias, -resize, op = "400x225", op = -antialias, -resize, op = "400x225", op = -antialias, -resize, op = "400x225", 
+                if ($op_debug) echo "$op, "; // op = -antialias, -resize, op = "400x225", op = -antialias, -resize, op = "400x225", op = -antialias, -resize, op = "400x225", 
                 if (str_starts_with($op, '-auto-orient')) {
                     if (method_exists($im,'autoOrient')) {
                         #if MagickLibVersion >= 0x692 since 2015 - and return NULL === success
