@@ -703,7 +703,7 @@ switch ($serendipity['GET']['adminAction']) {
                                             $logtag = 'ML_FIXORIENTATION::';
                                             $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML images.inc SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
                                             $serendipity['logger']->debug("L_".(__LINE__ - 5).":: $logtag UPLOAD On EXIF transformation From/To: $target");
-                                            $serendipity['logger']->debug("ImageMagick (MOD) EXIF rotation fix succeeded: {$result[2]}");
+                                            $serendipity['logger']->debug("ImageMagick (MOD) EXIF orientation fix succeeded: {$result[2]}");
                                         }
                                     }
                                 } else {
@@ -714,7 +714,7 @@ switch ($serendipity['GET']['adminAction']) {
                                             $logtag = 'ML_FIXORIENTATION::';
                                             $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML images.inc SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
                                             $serendipity['logger']->debug("L_".(__LINE__ - 5).":: $logtag UPLOAD On EXIF transformation From/To: $target");
-                                            $serendipity['logger']->debug("ImageMagick (CLI) EXIF rotation fix succeeded: {$result[2]}");
+                                            $serendipity['logger']->debug("ImageMagick (CLI) EXIF orientation fix succeeded: {$result[2]}");
                                         }
                                     }
                                 }
