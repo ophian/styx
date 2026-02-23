@@ -1520,7 +1520,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
                 "-depth {$idepth} +profile 'exif,iptc,comment' \"$target\""; // keeps color profiles
         if (str_contains($cmd, '-scale')) {
-            $cmd = str_replace('-depth {$idepth} ', '', $cmd); // on scale: Remove both depth assignments for AVIF since delivers slight better sharpened quality - works on both sizes
+            $cmd = str_replace("-depth {$idepth} ", '', $cmd); // on scale: Remove both depth assignments for AVIF since delivers slight better sharpened quality - works on both sizes
         }
         $dbg .= "source from $type [ $cmd ]\n";
     }
