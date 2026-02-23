@@ -1468,9 +1468,9 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
                 "$quality +profile 'exif,iptc,comment' \"$target\""; // keeps color profiles
         $dbg .= "variations from origin to $type [ $cmd ] \n";
 
-    } else if (in_array($type, ['format-jpg', 'format-jpeg', 'format-png', 'format-gif'])) {
+    } else if (in_array($type, ['format-jpg', 'format-jpeg', 'format-png', 'format-gif'])) { // this now actually is image properties format change only, if supported
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
-                "\"$target\"";
+                "\"$target\""; // no -gamma and no -strip. YES, since no Interpolation and strip has previously already happened too !
         $dbg .= "variations from origin to $type [ $cmd ] \n";
     }
 
