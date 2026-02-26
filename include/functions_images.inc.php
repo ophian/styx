@@ -1504,24 +1504,24 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         }
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} -filter Lanczos {$do} {$gamma['standard']} " .
                 "-depth {$idepth} $quality +profile 'exif,iptc,comment' \"$target\""; // keeps color profiles
-        $dbg .= "source from $type [ $cmd ]\n";
+        $dbg .= "source toThumb from $type [ $cmd ]\n";
 
     } else if (image_type_to_mime_type(IMAGETYPE_PNG) === $type) {
         #$cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
         #        "-depth {$idepth} $quality -strip \"$target\""; // depth and gamma inhibit thumb quality compression, so here better use w/o !
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} $quality " .
                 "+profile 'exif,iptc,comment' \"$target\""; // keeps color profiles
-        $dbg .= "source from $type [ $cmd ]\n";
+        $dbg .= "source toThumb from $type [ $cmd ]\n";
 
     } else if (image_type_to_mime_type(IMAGETYPE_GIF) === $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
                 "-depth {$idepth} -strip \"$target\"";
-        $dbg .= "source from $type [ $cmd ]\n";
+        $dbg .= "source toThumb from $type [ $cmd ]\n";
 
     } else if (image_type_to_mime_type(IMAGETYPE_WEBP) === $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
                 "-depth {$idepth} +profile 'exif,iptc,comment' \"$target\""; // keeps color profiles
-        $dbg .= "source from $type [ $cmd ]\n";
+        $dbg .= "source toThumb from $type [ $cmd ]\n";
 
     } else if (image_type_to_mime_type(IMAGETYPE_AVIF) === $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
@@ -1529,7 +1529,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         if (str_contains($cmd, '-scale')) {
             $cmd = str_replace("-depth {$idepth} ", '', $cmd); // on scale: Remove both depth assignments for AVIF since delivers slight better sharpened quality - works on both sizes
         }
-        $dbg .= "source from $type [ $cmd ]\n";
+        $dbg .= "source toThumb from $type [ $cmd ]\n";
     }
 
     if (is_null($cmd)) {
@@ -1547,6 +1547,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         } else {
             @ini_set('max_execution_time', 120);
         }
+        $dbg = str_contains($do, '-scale') ? str_replace('toThumb ', '', $dbg) : $dbg; // Remove debug part on scale
         #echo str_replace('  ', ' ', $dbg).PHP_EOL; // enable for inlined debug format cases
         @exec($cmd, $out, $res);
     }
