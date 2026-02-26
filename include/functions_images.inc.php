@@ -1481,7 +1481,10 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
     }
 
     // Main file scaling (scale, resize, rotate, ...) - with TYPE being a mime string parameter, since we have it already
-    // Special case, fixing a possible wrong orient image issue of smartphone cameras with SET EXIF orientation on UPLOAD
+    // Special case, fixing a possible wrong orient image issue of smartphone cameras with SET EXIF orientation on UPLOAD.
+    // You might wonder why we do not manually set \Imagick::ORIENTATION_TOPLEFT after orient changes.
+    // This is done in CLI -auto-orient and MOD Imagick::autoOrient() automatically by concept.
+    // Yes, there were versions which were buggy, but since 6.9.x and 7.1.0-36 you are quite save awaiting this as standardized set.
     if (image_type_to_mime_type(IMAGETYPE_JPEG) === $type && trim($do) == '-auto-orient') {
         // May we really assume that reading out the quality of an image with "identify -format %Q file" (i.e. 98) is the same as having a high BPP with our GD version guess?
         //      NO ! The BPP is based on real image pixels, while identify %Q is just the quality that was wished when previous image creator saved the origin image. Do we already have it for Imagick?
