@@ -1192,6 +1192,9 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
         return false;
     }
 
+    if ($_mimetype === 'gif') {
+        $args[5] = -1; // Force gamma deactivation for GIFs
+    }
     $result_info = [];
     $res = 0;
     $op_debug = false; // #DEV# live debug echo out for reached state of args [1,2,3] - Unusable for ajax image auto resizing on upload !!
@@ -1388,6 +1391,9 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         return false;
     }
 
+    if ($_mimetype === 'gif') {
+        $args[5] = -1; // Force gamma deactivation for GIFs
+    }
     $dbg = PHP_EOL;
     $cmd = null;
     $out = array();
