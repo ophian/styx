@@ -1503,7 +1503,8 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
     } else if (image_type_to_mime_type(IMAGETYPE_PNG) === $type) {
         #$cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
         #        "-depth {$idepth} $quality -strip \"$target\""; // depth and gamma inhibit thumb quality compression, so here better use w/o !
-        $cmd =  "\"{$args[0]}\" \"$source\" {$do} $quality -strip \"$target\"";
+        $cmd =  "\"{$args[0]}\" \"$source\" {$do} $quality " .
+                "+profile 'exif,iptc,comment' \"$target\""; // keeps color profiles
         $dbg .= "source from $type [ $cmd ]\n";
 
     } else if (image_type_to_mime_type(IMAGETYPE_GIF) === $type) {
