@@ -576,6 +576,7 @@ switch ($serendipity['GET']['adminAction']) {
 
                     $tfile = str_replace(' ', '_', basename($tfile)); // keep serendipity_uploadSecure(URL) whitespace convert behaviour, when using serendipity_makeFilename()
                     $lastd = strrpos($tfile, '.');
+                    $lastd = (false === $lastd) ? 0 : $lastd; // avoid possible substr errors on false
                     $tfile = str_replace('.', '-', substr($tfile, 0, $lastd)) . substr($tfile, $lastd); // Replace possible filename dots by a hyphen
                     $tfile = htmlspecialchars($tfile); // needed to prevent ability for uploader to inject javascript https://github.com/s9y/Serendipity/commit/f295a3b123bd7840ae65ccb2050ee93e5fbbcd93#diff-96c5729a7a3cb8af240c8d9fee9f023fR
                     $tfile = serendipity_uploadSecure(serendipity_makeFilename($tfile));
@@ -585,7 +586,7 @@ switch ($serendipity['GET']['adminAction']) {
                         continue;
                     }
 
-                    // avoid uploading images files without extensions, which quite often is done on Macs, since that is bad for the MediaLibrary Management
+                    // Avoid uploading images files without extensions, which quite often is done on Macs, since that is bad for the MediaLibrary Management
                     $tmpfileinfo = @serendipity_getImageSize($uploadtmp);
                     if (empty(strtolower(pathinfo($tfile, PATHINFO_EXTENSION)))
                     && $tmpfileinfo[0] > 0 && $tmpfileinfo[1] > 0 /* check width and height */
