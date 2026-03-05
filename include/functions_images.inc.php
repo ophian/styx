@@ -1521,7 +1521,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
 
     } else if ($type == 'format-webp') {
         // Identify how many frames are in the WEBP
-        $frames = getAnimationFrameCount($source);
+        $frames = serendipity_getAnimationFrameCount($source);
         if ($frames > 1) {
             // ANIMATED WEBP - OptimizePlus against optimize is much better since it handles the artifacts (probably by the useless 1x1 layers)
             //               -blur is taken as it was the only chance to lower the size, w/o stripping  empty layers (1x1) with awk or something...
@@ -1585,7 +1585,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
 
     } else if (image_type_to_mime_type(IMAGETYPE_GIF) === $type) {
         // Identify how many frames are in the GIF
-        $frames = getAnimationFrameCount($source);
+        $frames = serendipity_getAnimationFrameCount($source);
         if ($frames > 1) {
             // ANIMATED GIF
             $cmd =  "\"{$args[0]}\" \"$source\" -coalesce {$do} " .
@@ -1600,7 +1600,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
 
     } else if (image_type_to_mime_type(IMAGETYPE_WEBP) === $type) {
         // Identify how many frames are in the WEBP
-        $frames = getAnimationFrameCount($source);
+        $frames = serendipity_getAnimationFrameCount($source);
         if ($frames > 1) {
             // ANIMATED WEBP
             $cmd =  "\"{$args[0]}\" \"$source\" -coalesce {$do} " .
@@ -2092,7 +2092,7 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                 $newSize .= $bang;
 
                 $_imtp = !empty($serendipity['imagemagick_thumb_parameters']) ? ' '. $serendipity['imagemagick_thumb_parameters'] : '';
-                $qlty  = (1 === getAnimationFrameCount($infile)) ? serendipity_getOptimizedQuality($infile) : serendipity_getOptimizedQuality($infile, true); // q +2 on animated images (GIF / WebP)
+                $qlty  = (1 === serendipity_getAnimationFrameCount($infile)) ? serendipity_getOptimizedQuality($infile) : serendipity_getOptimizedQuality($infile, true); // q +2 on animated images (GIF / WebP)
 
                 // check a special case for the fullpath WebP file to thumbnail resizing
                 if (str_contains($outfile, '.' . $serendipity['thumbSuffix'] . '.webp')) {
@@ -2635,7 +2635,7 @@ function serendipity_generateVariations(?int $id = null) : bool|int|null {
                 }
             }
             // AVIF case - NOT with animated GIF conversions since this is a waste of CPU time for the result of a static AVIF
-            if ($serendipity['useAvifFormat'] && 1 === getAnimationFrameCount($infile)) {
+            if ($serendipity['useAvifFormat'] && 1 === serendipity_getAnimationFrameCount($infile)) {
                 // Build the path
                 $newfile   = serendipity_makeImageVariationPath($outfile, 'avif');
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE AVIF: ".print_r($newfile,true)); }
@@ -2691,7 +2691,7 @@ function serendipity_generateVariations(?int $id = null) : bool|int|null {
                     }
                 }
                 // AVIF case - NOT with animated GIF conversions since this is a waste of CPU time for the result of a static AVIF
-                if ($serendipity['useAvifFormat'] && 1 === getAnimationFrameCount($infile)) {
+                if ($serendipity['useAvifFormat'] && 1 === serendipity_getAnimationFrameCount($infile)) {
                     // Build the path
                     $newfile   = serendipity_makeImageVariationPath($outfile, 'avif');
                     if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE AVIF: ".print_r($newfile,true)); }
@@ -3333,7 +3333,7 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
         } else {
             $crtby = 'CLI';
         }
-        $qlty   = (1 === getAnimationFrameCount($target)) ? serendipity_getOptimizedQuality($target) : serendipity_getOptimizedQuality($target, true); // q +2 on animated images (GIF / WebP)
+        $qlty   = (1 === serendipity_getAnimationFrameCount($target)) ? serendipity_getOptimizedQuality($target) : serendipity_getOptimizedQuality($target, true); // q +2 on animated images (GIF / WebP)
         $result = serendipity_convertToWebPFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target), false, $qlty);
         if (is_array($result)) {
             // capture GD result
@@ -3375,7 +3375,7 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
         }
     }
     // Create a target copy variation in AVIF image format - NOT with animated GIF conversions since this is a waste of CPU time for the result of a static AVIF
-    if (file_exists($target) && $serendipity['useAvifFormat'] && !in_array(strtolower($info['extension']), ['webp', 'avif']) && 1 === getAnimationFrameCount($target)) {
+    if (file_exists($target) && $serendipity['useAvifFormat'] && !in_array(strtolower($info['extension']), ['webp', 'avif']) && 1 === serendipity_getAnimationFrameCount($target)) {
         $serendipity['restrictedBytes'] ??= 25165824; // >= 24MB raised in Mebibytes - old was 14680064; // >= 14MB
         if (filesize($target) > $serendipity['restrictedBytes'] && $serendipity['magick'] === true) {
             // void
