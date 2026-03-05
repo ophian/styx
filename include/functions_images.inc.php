@@ -1180,7 +1180,8 @@ function serendipity_generate_webpPathURI(string $image, string $ext = 'webp') :
  *      int
  * @access public
  */
-function serendipity_getAnimationFrameCount(string $source) : int {    global $serendipity;
+function serendipity_getAnimationFrameCount(string $source) : int {
+    global $serendipity;
 
     $mime = mime_content_type($source);
 
