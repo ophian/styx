@@ -1172,6 +1172,60 @@ function serendipity_generate_webpPathURI(string $image, string $ext = 'webp') :
 }
 
 /**
+ * Helper function to read out the amount of frame layers of animated images (Gif, WebP)
+ *
+ * Args:
+ *      - The filename string as full path
+ * Returns:
+ *      int
+ * @access public
+ */
+function serendipity_getAnimationFrameCount(string $source) : int {    global $serendipity;
+
+    $mime = mime_content_type($source);
+
+    if (!in_array($mime, ['image/gif', 'image/webp'])) {
+        return 1;
+    }
+
+    // GD is a single-frame library – it has no concept of multiple frames or image sequences.
+    if ($serendipity['magick'] !== true) {
+        $data = file_get_contents($path);
+
+        switch ($mime) {
+            case 'image/gif':
+                return substr_count($data, "\x00\x21\xF9\x04");
+
+            case 'image/webp':
+                return substr_count($data, 'ANMF') ?: 1; // 1 = static WebP
+
+            default:
+                return 1;
+        }
+
+    // IM
+    } else {
+        // check Imagick module extension vs binary CLI usage
+        if (serendipity_checkImagickAsModule()) {
+            $im = new Imagick($source);
+            $frameCount = $im->getNumberImages();
+            $im->clear();
+            $im->destroy();
+
+            return $frameCount;
+        } else {
+            // Identify how many frames are in the image
+            $identify_cmd = str_replace(['convert', 'magick'], 'identify', $serendipity['convert']);
+            $frames = (int) shell_exec("{$identify_cmd} -format \"%n\" \"$source\"");
+
+            return $frames;
+        }
+    }
+
+    return 1;
+}
+
+/**
  * Pass ImageMagick CMD build variables to the Imagick module class and process the image resize for a single image file
  *
  * Args:
