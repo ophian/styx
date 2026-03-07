@@ -2153,8 +2153,8 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                         if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image WebP format creation failed OR already exists."); }
                     }
                 }
-                // Create a copy of the thumb in AVIF image format
-                if (file_exists($outfile) && $serendipity['useAvifFormat']) {
+                // Create a copy of the thumb in AVIF image format - NOT with animated GIF conversions since this is a waste of CPU time for the result of a static AVIF
+                if (file_exists($outfile) && $serendipity['useAvifFormat'] && 1 === serendipity_getAnimationFrameCount($infile)) {
                     $newfile = serendipity_makeImageVariationPath($outfile, 'avif');
                     // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
                     // split it up like done here: 1. $outfile->convert to AVIF and then 2. $avifthb->resize to thumb, which overwrites the first.
