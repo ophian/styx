@@ -321,6 +321,7 @@ function serendipity_query_default(string $optname, iterable|int|string|bool $de
             return $default;
 
         case 'rewrite':
+            if (is_array($default) && empty($default)) $default = ''; // on install
             return serendipity_check_rewrite($default);
 
         default:
@@ -1110,7 +1111,7 @@ function serendipity_updateConfiguration() : iterable|true {
                 }
             }
 
-            serendipity_set_config_var($item['var'], $_POST[$item['var']], $authorid);
+            serendipity_set_config_var($item['var'], (string)$_POST[$item['var']], $authorid); // string cast on install bool(true) to string
         }
     }
 
