@@ -1525,8 +1525,9 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         if ($frames > 1) {
             // ANIMATED WEBP - OptimizePlus against optimize is much better since it handles the artifacts (probably by the useless 1x1 layers)
             //               -blur is taken as it was the only chance to lower the size, w/o stripping  empty layers (1x1) with awk or something...
+            //               - normally no depth, gamma and also no strip, but for the latter in WebP found better for high quality layer optimizing
             $cmd =  "\"{$args[0]}\" \"$source\" -coalesce {$do} " .
-                    "-blur 0x0.9 -layers RemoveDups -layers OptimizePlus -strip $quality \"$target\""; // normally no depth, gamma and no strip, but for WebP found better for high quality layer optimizing
+                    "-blur 0x0.9 -layers RemoveDups -layers OptimizePlus -strip $quality \"$target\"";
             $dbg .= "animated WebP workflow ($frames frames) (do = $do) \n";
         } else {
             // STATIC WEBP
@@ -1602,13 +1603,13 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         // Identify how many frames are in the WEBP
         $frames = serendipity_getAnimationFrameCount($source);
         if ($frames > 1) {
-            // ANIMATED WEBP
+            // ANIMATED WEBP - normally no depth, gamma and also no strip, but for the latter in WebP found better for high quality layer optimizing
             $cmd =  "\"{$args[0]}\" \"$source\" -coalesce {$do} " .
-                    "-layers RemoveDups -layers OptimizePlus -define webp:lossless=false -define webp:method=6 -strip $quality \"$target\""; // normally no depth, gamma and no strip, but for WebP found better for high quality layer optimizing
+                    "-layers RemoveDups -layers OptimizePlus -define webp:lossless=false -define webp:method=6 -strip $quality \"$target\"";
             $dbg .= "animated WebP workflow ($frames frames) \n";
         } else {
             // STATIC WEBP
-            $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} " .
+            $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
                     "-depth {$idepth} +profile 'exif,iptc,comment' \"$target\""; // keeps color profiles
             $dbg .= "static WebP workflow \n";
         }
