@@ -1191,7 +1191,7 @@ function serendipity_getAnimationFrameCount(string $source) : int {
 
     // GD is a single-frame library – it has no concept of multiple frames or image sequences.
     if ($serendipity['magick'] !== true) {
-        $data = file_get_contents($path);
+        $data = file_get_contents($source);
 
         switch ($mime) {
             case 'image/gif':
