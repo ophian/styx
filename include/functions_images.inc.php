@@ -1251,7 +1251,6 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
         $args[5] = -1; // Force gamma deactivation for GIFs
     }
     $result_info = [];
-    $res = 0;
     $op_debug = false; // #DEV# live debug echo out for reached state of args [1,2,3] - Unusable for ajax image auto resizing on upload !!
     $im_debug = ''; // a prefix is already given by "Imagick ..."
     try {
