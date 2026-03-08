@@ -1264,17 +1264,25 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
             $im_debug .= "source loaded, ";
         }
 
-        // SPECIAL: Extract and temp-save a possible ICC-profile in WebP / AVIF for stripping. ICC profile is a set of data that characterizes a color input or output device.
+        // 1. Extract and temp-save a possible ICC-profile in WebP / AVIF for stripping. ICC profile is a set of data that characterizes a color input or output device.
         $profiles = $im->getImageProfiles('icc', true);
         // Modern Smartphones (iPhone/Samsung) also take images in Display P3 (DCI-P3) since 2005, developed for wide-gamut displays
 
-        // 1. QUALITY (args[4])
+        // 2. COALESCE FRAMES for ANIMIMATED GIF / WebP images
+        if (in_array($_mimetype, ['gif', 'webp', 'format-webp'])) {
+            $frameCount = $im->getNumberImages();
+            if ($frameCount > 1) {
+                $im = $im->coalesceImages();
+            }
+        }
+
+        // 3. QUALITY (args[4])
         if (isset($args[4]) && $args[4] != -1) {
             $im->setImageCompressionQuality((int) $args[4]);
             $im_debug .= "quality set to {$args[4]}, ";
         }
 
-        // 2. DEPTH (setImageDepth)
+        // 4. DEPTH (setImageDepth)
         // By default, for modern formats 8 is fine.
         if ($type === 'pdfthumb' || $type === 'mkthumb' || str_contains($type, 'format-')) {
             $_idpth = $im->getImageDepth();
@@ -1283,29 +1291,46 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
             $im_debug .= "depth {$_idpth} set to {$idepth}, ";
         }
 
-        // 3. STRIP (remove metadata [Exif, IPTC, etc.])
+        // 5. STRIP (remove metadata [Exif, IPTC, etc.])
         if (in_array($type, ['pdfthumb', 'mkthumb', 'format-webp', 'format-avif', 'format-jpg', 'format-jpeg', 'format-png', 'format-gif'])) {
             $im->stripImage(); // is like explicite -strip
             $im_debug .= "stripped, ";
         }
 
-        // 4. GAMMA ([5])
+        // 6. GAMMA (args[5])
         if (isset($args[5]) && $args[5] != -1) {
             $im->setImageColorspace(\Imagick::COLORSPACE_RGB); // Linear
             #    $im->gammaImage(0.454545);
             $im_debug .= "gamma to [0.454545] COLORSPACE_RGB before resize, ";
         }
 
-        // 5. ANTI-ALIAS, FLATTEN, SCALE/RESIZE, etc
+        // 7. OPERATORS: ANTI-ALIAS, FLATTEN, SCALE/RESIZE, etc
         // (Parse $args[1] and $args[3] for operator keywords)
         $operators = array_merge($args[1] ?? [], $args[2] ?? [], $args[3] ?? []);
         #echo '<pre>'.print_r($operators, true).'</pre>';
+        #var_dump('empty operators ?', empty($operators));
+
+        // Check (2) for FRAME loop of origin with no args
+        if (empty($operators) && in_array($_mimetype, ['gif', 'webp', 'format-webp']) && isset($frameCount) && $frameCount > 1) {
+            // get the original size dimensions
+            $w = $im->getImageWidth();
+            $h = $im->getImageHeight();
+            // Run operator for every Frame
+            foreach ($im as $frame) {
+                $frame->scaleImage($w, $h);
+            }
+            // reset the stack back to the beginning frame 0
+            $im->setFirstIterator();
+            if ($op_debug) echo " | FRAMED Origin scaleImage loop: $frameCount "; // OK
+        }
+
+        // LOOP OPERATORS
         foreach($operators as $opstring) {
             if ($op_debug) echo "op = [$type] ";
             // Break up operator string (possibly grouped flags)
             foreach(preg_split('/\s+/', trim($opstring)) AS $op) {
                 if (!$op) continue;
-                if ($op_debug) echo "$op, "; // op = -antialias, -resize, op = "400x225", op = -antialias, -resize, op = "400x225", op = -antialias, -resize, op = "400x225", 
+                if ($op_debug) echo "$op, "; // op = -antialias, -resize, op = "400x225>!" for each full file jpeg, webp, avif
                 if (str_starts_with($op, '-auto-orient')) {
                     if (method_exists($im,'autoOrient')) {
                         #if MagickLibVersion >= 0x692 since 2015 - and return NULL === success
@@ -1324,14 +1349,34 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                     if (preg_match('/"?(\d+)x(\d+)/', $op, $m)) {
                         // e.g., "800x600
                         if ($op_debug) echo " | op matches resize {$m[1]}, {$m[2]}, Imagick::FILTER_LANCZOS (22) ";
-                        $im->resizeImage((int)$m[1], (int)$m[2], 22, 0.5); // The blur factor where > 1 is blurry, < 1 is sharp
+                        // Check (2) for COALESCE FRAME loop on RESIZE
+                        if (isset($frameCount) && $frameCount > 1) {
+                            // Run operator for every Frame
+                            foreach ($im as $frame) {
+                                $frame->resizeImage((int)$m[1], (int)$m[2], 22, 0.5);
+                            }
+                            // reset the stack back to the beginning frame 0
+                            $im->setFirstIterator();
+                        } else {
+                            $im->resizeImage((int)$m[1], (int)$m[2], 22, 0.5); // The blur factor where > 1 is blurry, < 1 is sharp
+                        }
                         $im_debug .= "resize {$m[1]}x{$m[2]}, ";
                     }
                 } else if (isset($prev) && str_starts_with($prev, '-scale')) {
-                    // e.g., op = -scale, op = "1000x563", op matches scale 1000, 563 [quality optimizing already done in // ^1]
+                    // e.g., op = -scale, op = "1000x563>!", op matches scale 1000, 563 [quality optimizing already done in // ^1]
                     if (preg_match('/"?(\d+)x(\d+)/', $op, $m)) {
                         if ($op_debug) echo " | op matches scale {$m[1]}, {$m[2]} ";
-                        $im->scaleImage((int)$m[1], (int)$m[2]);
+                        // Check (2) for COALESCE FRAME loop on SCALE
+                        if (isset($frameCount) && $frameCount > 1) {
+                            // Run operator for every Frame
+                            foreach ($im as $frame) {
+                                $frame->scaleImage((int)$m[1], (int)$m[2]);
+                            }
+                            // reset the stack back to the beginning frame 0
+                            $im->setFirstIterator();
+                        } else {
+                            $im->scaleImage((int)$m[1], (int)$m[2]);
+                        }
                         $im_debug .= "scale {$m[1]}x{$m[2]}, ";
                     }
                 } else if (isset($prev) && str_starts_with($prev, '-rotate')) {
@@ -1368,19 +1413,36 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
             if ($op_debug) echo "<br>\n";
         }
 
-        // 6. Restore gamma if set
+        // END Check (6) to RESTORE gamma if set
         if (isset($args[5]) && $args[5] != -1) {
             $im->setImageColorspace(\Imagick::COLORSPACE_SRGB); // de-linearize back to sRGB
             #    $im->gammaImage(2.2); // reset to standard
             $im_debug .= "gamma to [2.2] COLORSPACE_SRGB after resize, ";
         }
 
-        // 7. Format-specific options
+        // END Check (2) for COALESCE optimized framed image layers
+        if (isset($frameCount) && $frameCount > 1) {
+            // reset the stack back to the beginning frame 0
+            $im->setFirstIterator();
+            $im = $im->optimizeImageLayers();
+            $im->deconstructImages();
+            $im_debug .= "animated GIF/WebP ($frameCount frames), ";
+        }
+
+        // 8. Format-specific options
         if ($type === 'pdfthumb') {
             $im->setImageFormat('png'); // PDF thumbnails become PNGs
             $im_debug .= "pdfthumb output png, ";
         } elseif ($type === 'format-webp' || $type === 'image/webp') {
-            $im->setImageFormat('webp');
+            // For animations, each frame must know the new format
+            if (isset($frameCount) && $frameCount > 1) {
+                foreach ($im as $frame) {
+                    $frame->setImageFormat('webp');
+                }
+                $im->setOption('webp:method', '6');
+            } else {
+                $im->setImageFormat('webp');
+            }
             $im_debug .= "format webp, ";
         } elseif ($type === 'format-avif' || $type === 'image/avif') {
             $im->setImageFormat('avif');
@@ -1392,17 +1454,29 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
             $im->setImageFormat('png');
             $im_debug .= "format png, ";
         } elseif ($type === 'format-gif' || $type === 'image/gif') {
-            $im->setImageFormat('gif');
+            // For animations, each frame must know the new format
+            if (isset($frameCount) && $frameCount > 1) {
+                foreach ($im as $frame) {
+                    $frame->setImageFormat('gif');
+                }
+            } else {
+                $im->setImageFormat('gif');
+            }
             $im_debug .= "format gif, ";
         }
 
-        // SPECIAL: Re-add the temp-saved ICC-profile when exists
+        // END Check (1): Re-add the temp-saved ICC-profile when exists
         if (!empty($profiles)) {
             $im->profileImage('icc', $profiles['icc']);
         }
 
-        // 8. Save
-        $im->writeImage($target);
+        // 9. Save and free
+        //    Animated images needs the plural to write each frame layer
+        if (isset($frameCount) && $frameCount > 1) {
+            $im->writeImages($target, true);
+        } else {
+            $im->writeImage($target);
+        }
         $im->clear();
         $im->destroy();
 
