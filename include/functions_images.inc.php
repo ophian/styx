@@ -3365,8 +3365,8 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
             }
         } else {
             $_create_variation_outfile = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $variat['filepath'] . '/.v/' . $variat['filename']);
-            $_xtwrng = !in_array(strtolower($info['extension']), ['jpg', 'jpeg', 'png', 'gif']) ? " (File extension: \"{$info['extension']}\" not convertible)" : '';
-            $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> WebP image format copy "<em>'.$_create_variation_outfile.'</em>" creation failed!'.$_xtwrng.'</span>'."\n";
+            $_xray = !in_array(strtolower($info['extension']), ['jpg', 'jpeg', 'png', 'gif']) ? " (File extension: \"{$info['extension']}\" not convertible)" : '';
+            $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> WebP image format copy "<em>'.$_create_variation_outfile.'</em>" creation failed!'.$_xray.'</span>'."\n";
             if ($serendipity['magick'] !== true) {
                 if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: GD Image WebP format creation failed"); }
             } else {
@@ -3382,22 +3382,23 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
             $messages[] = '<span class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> No AVIF image format variation(s) with ImageMagick created, since Origin is too big '.filesize($target)."! Sorry! Limit is currently set at 14MB.</span>\n";
             if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: No AVIF image format created {$result[2]} from $target - Limit is currently until 24MB"); }
         } else {
+            $crtby ??= serendipity_checkImagickAsModule() ? 'MOD' : 'CLI';
             $variat = serendipity_makeImageVariationPath($target, 'avif');
             $result = serendipity_convertToAvifFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target), false);
             if (is_array($result)) {
                 // capture GD result
                 $_relative_result_outfile = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $result[1]);
-                // capture IM result ($out) array
+                // capture IM (CLI) result ($out) array
                 $_vname = str_replace('"', '', substr($result[2], strpos($result[2], "+profile 'exif,iptc,comment' ") + 29));
                 if (in_array(strrchr($_vname, '.'), ['.webp', '.avif']) && empty($_relative_result_outfile)) {
                     $_relative_result_outfile = str_replace(['"', $serendipity['serendipityPath'] . $serendipity['uploadPath']], '', $_vname);
                 }
-                // catch Imagick (mod) success return case to return the relative path w/ file instead
+                // catch Imagick (MOD) success return case to return the relative path w/ file instead
                 if (is_array($_relative_result_outfile) && $_relative_result_outfile[0] == 'Imagick: success') {
                     $_relative_result_outfile = str_replace($serendipity['serendipityPath'], '', $variat['filepath']) . '.v/' . $variat['filename'];
                 }
                 $_relative_result_outfile = is_array($_relative_result_outfile) ? $_relative_result_outfile[0] : $_relative_result_outfile;
-                // do not if empty
+                // DO NOT if empty
                 if (!empty($_relative_result_outfile)) {
                     $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> AVIF image format variation \'<em class="media_msg v">'.$_relative_result_outfile."</em>' created!</span>\n";
                 }
@@ -3405,22 +3406,17 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
                     if (is_string($result[1])) {
                         if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: GD Image AVIF format creation success {$result[2]} from $target | " . DONE); }
                     } else {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick Image AVIF format creation success {$result[2]} from $target | " . DONE); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick {$crtby} Image AVIF format creation success {$result[2]} from $target | " . DONE); }
                     }
                 }
             } else {
                 $_create_variation_outfile = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $variat['filepath'] . '/.v/' . $variat['filename']);
-                $_xtwrng = !in_array(strtolower($info['extension']), ['jpg', 'jpeg', 'png', 'gif']) ? " (File extension: \"{$info['extension']}\" not convertible)" : '';
-                $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> AVIF image format copy "<em>'.$_create_variation_outfile.'</em>" creation failed!'.$_xtwrng.'</span>'."\n";
+                $_xray = !in_array(strtolower($info['extension']), ['jpg', 'jpeg', 'png', 'gif']) ? " (File extension: \"{$info['extension']}\" not convertible)" : '';
+                $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> AVIF image format copy "<em>'.$_create_variation_outfile.'</em>" creation failed!'.$_xray.'</span>'."\n";
                 if ($serendipity['magick'] !== true) {
                     if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: GD Image AVIF format creation failed"); }
                 } else {
-                    // check Imagick module extension vs binary CLI usage
-                    if (serendipity_checkImagickAsModule()) {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick extension Image AVIF format creation failed"); }
-                    } else {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image AVIF format creation failed"); }
-                    }
+                    if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick {$crtby} Image AVIF format creation failed"); }
                 }
             }
         }
