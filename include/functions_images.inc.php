@@ -1308,7 +1308,6 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
         // (Parse $args[1] and $args[3] for operator keywords)
         $operators = array_merge($args[1] ?? [], $args[2] ?? [], $args[3] ?? []);
         #echo '<pre>'.print_r($operators, true).'</pre>';
-        #var_dump('empty operators ?', empty($operators));
 
         // Check (2) for FRAME loop of origin with no args
         if (empty($operators) && in_array($_mimetype, ['gif', 'webp', 'format-webp']) && isset($frameCount) && $frameCount > 1) {
@@ -1319,7 +1318,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
             foreach ($im as $frame) {
                 $frame->scaleImage($w, $h);
             }
-            // reset the stack back to the beginning frame 0
+            // operational stack reset to the first frame 0
             $im->setFirstIterator();
             if ($op_debug) echo " | FRAMED Origin scaleImage loop: $frameCount "; // OK
         }
@@ -1355,7 +1354,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                             foreach ($im as $frame) {
                                 $frame->resizeImage((int)$m[1], (int)$m[2], 22, 0.5);
                             }
-                            // reset the stack back to the beginning frame 0
+                            // operational stack reset to the first frame 0
                             $im->setFirstIterator();
                         } else {
                             $im->resizeImage((int)$m[1], (int)$m[2], 22, 0.5); // The blur factor where > 1 is blurry, < 1 is sharp
@@ -1372,7 +1371,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                             foreach ($im as $frame) {
                                 $frame->scaleImage((int)$m[1], (int)$m[2]);
                             }
-                            // reset the stack back to the beginning frame 0
+                            // operational stack reset to the first frame 0
                             $im->setFirstIterator();
                         } else {
                             $im->scaleImage((int)$m[1], (int)$m[2]);
@@ -1422,7 +1421,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
 
         // END Check (2) for COALESCE optimized framed image layers
         if (isset($frameCount) && $frameCount > 1) {
-            // reset the stack back to the beginning frame 0
+            // operational stack reset to the first frame 0
             $im->setFirstIterator();
             $im = $im->optimizeImageLayers();
             $im->deconstructImages();
