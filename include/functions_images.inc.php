@@ -2039,7 +2039,7 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                         $webpthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
                         $newsize   = serendipity_resizeImageGD($webpthbGD, $webpthbGD, $size['width'], $size['height']);
                         if (false !== $newsize && is_array($newsize)) {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize success with GD lib | " . DONE); }
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format resize success with GD lib | " . DONE); }
                         } else {
                             if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize failed! Perhaps a wrong path: '$webpthbGD' ?"); }
                         }
@@ -2060,7 +2060,7 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                         $avifthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
                         $newsize   = serendipity_resizeImageGD($avifthbGD, $avifthbGD, $size['width'], $size['height']);
                         if (false !== $newsize && is_array($newsize)) {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format resize success with GD lib | " . DONE); }
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image AVIF format resize success with GD lib | " . DONE); }
                         } else {
                             if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format resize failed! Perhaps a wrong path: '$avifthbGD' ?"); }
                         }
@@ -2090,7 +2090,7 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                         $webpthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
                         $newsize   = serendipity_resizeImageGD($webpthbGD, $webpthbGD, (int) round($calc[0]), (int) round($calc[1])); // float to integer
                         if (false !== $newsize && is_array($newsize)) {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize success with GD lib | " . DONE); }
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format resize success with GD lib | " . DONE); }
                         } else {
                             if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize failed! Perhaps a wrong path: '$webpthbGD' ?"); }
                         }
@@ -2111,7 +2111,7 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                         $avifthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
                         $newsize   = serendipity_resizeImageGD($avifthbGD, $avifthbGD, (int) round($calc[0]), (int) round($calc[1])); // float to integer
                         if (false !== $newsize && is_array($newsize)) {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format resize success with GD lib | " . DONE); }
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image AVIF format resize success with GD lib | " . DONE); }
                         } else {
                             if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format resize failed! Perhaps a wrong path: '$avifthbGD' ?"); }
                         }
