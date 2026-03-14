@@ -1,6 +1,11 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Refactor serendipity_makeThumbnail()
+   - remove redundancies
+   - spares one extra library conversion call for variation builds
+   - cares for Library necessities
+
  * Refactor animated image variation builds for quality and single static
    fallback frame. The GDLib isn't able to build animated variations at all,
    while ImageMagick is able to with WebP Variation image variants.
