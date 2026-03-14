@@ -2709,8 +2709,11 @@ function serendipity_generateVariations(?int $id = null) : bool|int|null {
                     $resWebP = true;
                 }
             }
-            // AVIF case - NOT with animated GIF conversions since this is a waste of CPU time for the result of a static AVIF
-            if ($serendipity['useAvifFormat'] && 1 === serendipity_getAnimationFrameCount($infile)) {
+
+            $isAnimated = $serendipity['magick'] !== true ? false : 1 !== serendipity_getAnimationFrameCount($infile); // GD case, no check - declare as static image
+
+            // AVIF case - NOT with animated GIF conversions since this is a waste of CPU time for the result of a static AVIF (when in bundle with with animated webP variation)
+            if ($serendipity['useAvifFormat'] && false === $isAnimated) {
                 // Build the path
                 $newfile   = serendipity_makeImageVariationPath($outfile, 'avif');
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE AVIF: ".print_r($newfile,true)); }
@@ -2767,8 +2770,11 @@ function serendipity_generateVariations(?int $id = null) : bool|int|null {
                         $resWebP = true;
                     }
                 }
-                // AVIF case - NOT with animated GIF conversions since this is a waste of CPU time for the result of a static AVIF
-                if ($serendipity['useAvifFormat'] && 1 === serendipity_getAnimationFrameCount($infile)) {
+
+                $isAnimated = $serendipity['magick'] !== true ? false : 1 !== serendipity_getAnimationFrameCount($infile); // GD case no check - declare as static image
+
+                // AVIF case - NOT with animated GIF conversions since this is a waste of CPU time for the result of a static AVIF (when in bundle with with animated webP variation)
+                if ($serendipity['useAvifFormat'] && false === $isAnimated) {
                     // Build the path
                     $newfile   = serendipity_makeImageVariationPath($outfile, 'avif');
                     if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE AVIF: ".print_r($newfile,true)); }
@@ -3401,6 +3407,10 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
 
     $debug = (is_object($serendipity['logger']) && $debug); // ad hoc debug + enabled logger
 
+    // Check being an Animated GIF/WebP image and extend their quality score (+2)
+    $isAnimated = $serendipity['magick'] !== true ? false : 1 !== serendipity_getAnimationFrameCount($target); // GD case no check - declare as static image
+    $qlty = $isAnimated ? serendipity_getOptimizedQuality($target, true) : serendipity_getOptimizedQuality($target);
+
     // Create a target copy variation in WebP image format
     if (file_exists($target) && $serendipity['useWebPFormat'] && !in_array(strtolower($info['extension']), ['webp', 'avif'])) {
         $odim = filesize($target);
@@ -3410,7 +3420,6 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
         } else {
             $crtby = 'CLI';
         }
-        $qlty   = (1 === serendipity_getAnimationFrameCount($target)) ? serendipity_getOptimizedQuality($target) : serendipity_getOptimizedQuality($target, true); // q +2 on animated images (GIF / WebP)
         $result = serendipity_convertToWebPFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target), false, $qlty);
         if (is_array($result)) {
             // capture GD result
@@ -3451,8 +3460,8 @@ function serendipity_createFullFileVariations(string $target, iterable $info, it
             }
         }
     }
-    // Create a target copy variation in AVIF image format - NOT with animated GIF conversions since this is a waste of CPU time for the result of a static AVIF
-    if (file_exists($target) && $serendipity['useAvifFormat'] && !in_array(strtolower($info['extension']), ['webp', 'avif']) && 1 === serendipity_getAnimationFrameCount($target)) {
+    // AVIF case - NOT with animated GIF conversions since this is a waste of CPU time for the result of a static AVIF (when in bundle with with animated webP variation)
+    if (file_exists($target) && $serendipity['useAvifFormat'] && !in_array(strtolower($info['extension']), ['webp', 'avif']) && false === $isAnimated) {
         $serendipity['restrictedBytes'] ??= 25165824; // >= 24MB raised in Mebibytes - old was 14680064; // >= 14MB
         if (filesize($target) > $serendipity['restrictedBytes'] && $serendipity['magick'] === true) {
             // void
