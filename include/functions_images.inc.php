@@ -2018,111 +2018,51 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
     } else {
         // GD - serendipity_makeThumbnail
         if ($serendipity['magick'] !== true) {
+            // DETERMINE TARGET DIMENSIONS - specific size vs set by config
             if (is_array($size)) {
-                // The caller wants a thumbnail with a specific size
-                $r = serendipity_resizeImageGD($infile, $outfile, $size['width'], $size['height']);
-
-                if (false !== $r && is_array($r)) {
-                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: ML_CREATEDTHUMBNAIL: GD Image upload origin to specific thumb size | {$r[0]} x {$r[1]} "); }
-                }
-
-                // Create a copy in WebP image format
-                if (file_exists($outfile) && $serendipity['useWebPFormat']) {
-                    // The WebP GD part in 3 steps: 1. makeVariationPath(), 2. convertToWebPFormat(), 3. resizeImageGD()
-                    $newgdfile = serendipity_makeImageVariationPath($outfile, 'webp');
-                    // first we create it!
-                    $result = serendipity_convertToWebPFormat($infile, $newgdfile['filepath'], $newgdfile['filename'], mime_content_type($outfile), $mute);
-                    if (is_array($result) && $result[0] == 0) {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format creation success {$result[2]} | " . DONE); }
-                        // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
-                        // split it up like done here: 1. $outfile->convert to WebP and then 2. $webpthbGD->resize to thumb, which overwrites the first.
-                        $webpthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
-                        $newsize   = serendipity_resizeImageGD($webpthbGD, $webpthbGD, $size['width'], $size['height']);
-                        if (false !== $newsize && is_array($newsize)) {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format resize success with GD lib | " . DONE); }
-                        } else {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize failed! Perhaps a wrong path: '$webpthbGD' ?"); }
-                        }
-                    } else {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format creation failed OR already exists."); }
-                    }
-                }
-                // Create a copy in AVIF image format
-                if (file_exists($outfile) && $serendipity['useAvifFormat']) {
-                    // The AVIF GD part in 3 steps: 1. makeVariationPath(), 2. convertToAvifFormat(), 3. resizeImageGD()
-                    $newgdfile = serendipity_makeImageVariationPath($outfile, 'avif');
-                    // first we create it!
-                    $result = serendipity_convertToAvifFormat($infile, $newgdfile['filepath'], $newgdfile['filename'], mime_content_type($outfile), $mute);
-                    if (is_array($result) && $result[0] == 0) {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image AVIF format creation success {$result[2]} | " . DONE); }
-                        // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
-                        // split it up like done here: 1. $outfile->convert to AVIF and then 2. $avifthbGD->resize to thumb, which overwrites the first.
-                        $avifthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
-                        $newsize   = serendipity_resizeImageGD($avifthbGD, $avifthbGD, $size['width'], $size['height']);
-                        if (false !== $newsize && is_array($newsize)) {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image AVIF format resize success with GD lib | " . DONE); }
-                        } else {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format resize failed! Perhaps a wrong path: '$avifthbGD' ?"); }
-                        }
-                    } else {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format creation failed OR already exists."); }
-                    }
-                }
+                $targetW = (int)$size['width'];
+                $targetH = (int)$size['height'];
             } else {
-                // The caller wants an image constrained in the dimension set by config
                 $calc = serendipity_calculateAspectSize($fdim[0], $fdim[1], $size, $serendipity['imageConstraint']);
-                $r    = serendipity_resizeImageGD($infile, $outfile, (int) round($calc[0]), (int) round($calc[1])); // float to integer
+                $targetW = (int)round($calc[0]);
+                $targetH = (int)round($calc[1]);
+            }
 
-                if (false !== $r && is_array($r)) {
-                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: ML_CREATEDTHUMBNAIL: GD Image upload origin to default thumb size | {$r[0]} x {$r[1]} "); }
-                }
+            // MAIN-THUMBNAIL (Origin Format)
+            $r = serendipity_resizeImageGD($infile, $outfile, $targetW, $targetH);
+            if (false !== $r && is_array($r) && $debug) {
+                $serendipity['logger']->debug("L_".__LINE__.":: ML_CREATEDTHUMBNAIL: GD Image upload origin to thumb | {$r[0]} x {$r[1]} ");
+            }
 
-                // Create a copy in WebP image format
-                if (file_exists($outfile) && $serendipity['useWebPFormat']) {
-                    // The WebP GD part in 3 steps: 1. makeVariationPath(), 2. convertToWebPFormat(), 3. resizeImageGD()
-                    $newgdfile = serendipity_makeImageVariationPath($outfile, 'webp');
-                    // first we create it!
-                    $result = serendipity_convertToWebPFormat($infile, $newgdfile['filepath'], $newgdfile['filename'], mime_content_type($outfile), $mute);
-                    if (is_array($result) && $result[0] == 0) {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format creation success {$result[2]} | " . DONE); }
-                        // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
-                        // split it up like done here: 1. $outfile->convert to WebP and then 2. $webpthbGD->resize to thumb, which overwrites the first.
-                        $webpthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
-                        $newsize   = serendipity_resizeImageGD($webpthbGD, $webpthbGD, (int) round($calc[0]), (int) round($calc[1])); // float to integer
-                        if (false !== $newsize && is_array($newsize)) {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format resize success with GD lib | " . DONE); }
+            // VARIATION-WORKER (WebP & AVIF)
+            if (file_exists($outfile)) {
+                $formats = [];
+                if ($serendipity['useWebPFormat']) $formats[] = 'webp';
+                if ($serendipity['useAvifFormat']) $formats[] = 'avif';
+
+                foreach ($formats as $ext) {
+                    $newgdfile = serendipity_makeImageVariationPath($outfile, $ext);
+                    $vThumbPath = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
+                    $vFullPath  = str_replace(".{$thumbname}", '', $vThumbPath);
+
+                    // ATTENTION: Creates a fallback using origin infile
+                    // BUT GD vFullPath is a proved source to thumb direction. It builds ~ around cut by half better than using the origin infile as source.
+                    $_infile = file_exists($vFullPath) ? $vFullPath : $infile;
+
+                    $vSize = serendipity_resizeImageGD($_infile, $vThumbPath, $targetW, $targetH);
+
+                    if ($debug) {
+                        if (false !== $vSize) {
+                            $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image " . strtoupper($ext) . " resize success | DONE");
                         } else {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize failed! Perhaps a wrong path: '$webpthbGD' ?"); }
+                            $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image " . strtoupper($ext) . " resize failed! Path: '$vThumbPath'");
                         }
-                    } else {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format creation failed OR already exists."); }
-                    }
-                }
-                // Create a copy in AVIF image format
-                if (file_exists($outfile) && $serendipity['useAvifFormat']) {
-                    // The AVIF GD part in 3 steps: 1. makeVariationPath(), 2. convertToAvifFormat(), 3. resizeImageGD()
-                    $newgdfile = serendipity_makeImageVariationPath($outfile, 'avif');
-                    // first we create it!
-                    $result = serendipity_convertToAvifFormat($infile, $newgdfile['filepath'], $newgdfile['filename'], mime_content_type($outfile), $mute);
-                    if (is_array($result) && $result[0] == 0) {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image AVIF format creation success {$result[2]} | " . DONE); }
-                        // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
-                        // split it up like done here: 1. $outfile->convert to AVIF and then 2. $avifthbGD->resize to thumb, which overwrites the first.
-                        $avifthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
-                        $newsize   = serendipity_resizeImageGD($avifthbGD, $avifthbGD, (int) round($calc[0]), (int) round($calc[1])); // float to integer
-                        if (false !== $newsize && is_array($newsize)) {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image AVIF format resize success with GD lib | " . DONE); }
-                        } else {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format resize failed! Perhaps a wrong path: '$avifthbGD' ?"); }
-                        }
-                    } else {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format creation failed OR already exists."); }
                     }
                 }
             }
-        }
         // IM - serendipity_makeThumbnail
-        else {
+        } else {
+            // DETERMINE TARGET DIMENSIONS
             if (is_array($size)) {
                 if ($fdim[0] > $size['width'] && $fdim[1] > $size['height']) {
                     $r = array(0 => $size['width'], 'width' => $size['width'], 1 => $size['height'], 'height' => $size['height']);
@@ -2135,128 +2075,101 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
             }
 
             $newSize = $r['width'] . 'x' . $r['height'];
+
+            // HELPER-CLOSURE FOR ENGINE-ROUTING (Modul or CLI)
+            $callImageEngine = function($mimeType, $source, $target, $passArgs) use ($serendipity, $debug) {
+                if (serendipity_checkImagickAsModule()) {
+                    $res = serendipity_passToModule($mimeType, $source, $target, $passArgs);
+                    $ngn = 'MOD';
+                } else {
+                    $res = serendipity_passToCMD($mimeType, $source, $target, $passArgs);
+                    $ngn = 'CLI';
+                }
+                return ['result' => $res, 'engine' => $ngn];
+            };
+
             // CMD - Be strict on order: (Normally a setting should come before bulk images and an image operator after the image filename [the later in special for IM 7 versions !!])
             // Since we have 1:1 file relations this can be set to: INFILE -setting(s) -operator(s) OUTFILE, @see
             //          http://magick.imagemagick.org/script/command-line-processing.php#setting
             // The here used -flatten and -scale are Sequence Operators, while -antialias is a Setting and -resize is an Operator.
+
+            // PDF HANDLING
             if ($fdim['mime'] == 'application/pdf') {
                 $isPDF = true;
-                $pass = [ $serendipity['convert'], ['-antialias -flatten -scale'], [], ['"'.$newSize.'"'], 75, 2 ]; // It is a document sized PDF, so thumb quality is hard set to 75
-                // check Imagick module extension vs binary CLI usage
+                $pass = [ $serendipity['convert'], ['-antialias -flatten -scale'], [], ['"'.$newSize.'"'], 75, 2 ];
                 // The [0] after the pdf path is used to choose which page we want to convert, starting from 0.
-                if (serendipity_checkImagickAsModule()) {
-                    $result = serendipity_passToModule('pdfthumb', $infile[0], $outfile . '.png', $pass);
-                    $crtby = 'MOD';
-                } else {
-                    $result = serendipity_passToCMD('pdfthumb', $infile[0], $outfile . '.png', $pass);
-                    $crtby = 'CLI';
-                }
+                $engineCall = $callImageEngine('pdfthumb', $infile[0], $outfile . '.png', $pass);
+                $result = $engineCall['result'];
 
-                if ($debug) { $serendipity['logger']->debug("ImageMagick ({$crtby}) PDF thumbnail creation: {$result[2]}"); }
+                if ($debug) { $serendipity['logger']->debug("ImageMagick ({$engineCall['engine']}) PDF thumbnail creation: {$result[2]}"); }
 
+            // IMAGE HANDLING (JPG, PNG, GIF, etc.)
             } else {
                 $isPDF = false;
                 if (!$force_resize && serendipity_ini_bool(ini_get('safe_mode')) === false) {
                     $newSize .= '>'; // tell ImageMagick to not enlarge small images. This only works if safe_mode is off (safe_mode turns > in to \>)
                 }
-
                 // force the first run image geometry exactly to given sizes, if there were rounding differences (@see https://github.com/s9y/Serendipity/commit/94881ba and comments)
                 $bang = empty($serendipity['imagemagick_nobang']) ? '!' : ''; // it seems the Imagick Module can handle bang too..!
                 $newSize .= $bang;
 
+                // include custom parameters by Serendipity private variable
                 $_imtp = !empty($serendipity['imagemagick_thumb_parameters']) ? ' '. $serendipity['imagemagick_thumb_parameters'] : '';
-                $qlty  = (1 === serendipity_getAnimationFrameCount($infile)) ? serendipity_getOptimizedQuality($infile) : serendipity_getOptimizedQuality($infile, true); // q +2 on animated images (GIF / WebP)
 
-                // check a special case for the fullpath WebP file to thumbnail resizing
-                if (str_contains($outfile, '.' . $serendipity['thumbSuffix'] . '.webp')) {
-                    $fdim['mime'] = 'image/webp';
-                }
-                // check a special case for the fullpath AVIF file to thumbnail resizing
-                if (str_contains($outfile, '.' . $serendipity['thumbSuffix'] . '.avif')) {
-                    $fdim['mime'] = 'image/avif';
-                }
+                // Check being an Animated GIF/WebP image and extend their quality score (+2)
+                $isAnimated = (1 !== serendipity_getAnimationFrameCount($infile));
+                $qlty = $isAnimated ? serendipity_getOptimizedQuality($infile, true) : serendipity_getOptimizedQuality($infile);
 
-                // avoid the file resizing loop in special case; which is image.styxThumb.ext (png,jpg,webp,avif..)
+                // Origin Pass Arguments
+                $pass = [ $serendipity['convert'], ["-antialias -resize $_imtp"], [], ['"'.$newSize.'"'], $qlty, -1 ];
+
+                // MAIN-THUMBNAIL
                 if (!file_exists($outfile)) {
-                    $pass = [ $serendipity['convert'], ["-antialias -resize $_imtp"], [], ['"'.$newSize.'"'], $qlty, -1 ];
-                    // check Imagick module extension vs binary CLI usage
-                    if (serendipity_checkImagickAsModule()) {
-                        $result = serendipity_passToModule($fdim['mime'], $infile, $outfile, $pass);
-                        $crtby = 'MOD';
-                    } else {
-                        $result = serendipity_passToCMD($fdim['mime'], $infile, $outfile, $pass);
-                        $crtby = 'CLI';
-                    }
+                    $engineCall = $callImageEngine($fdim['mime'], $infile, $outfile, $pass);
+                    $result = $engineCall['result'];
+
                     if ($result === false) {
                         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> Image thumb variation failed. Please contact the sites Administrator!' . "</span>\n";
-                        $logres = 'Thumb variation failed - ImageMagick ({$crtby}) L.:' . (__LINE__ - 3) . ' returned false!';
-                    } else {
-                        $logres = $result[2];
-                    }
-
-                    if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image thumbnail creation: $logres"); }
-                }
-
-                // Create a copy of the thumb in WebP image format
-                if (file_exists($outfile) && $serendipity['useWebPFormat']) {
-                    $newfile = serendipity_makeImageVariationPath($outfile, 'webp');
-                    // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
-                    // split it up like done here: 1. $outfile->convert to WebP and then 2. $webpthb->resize to thumb, which overwrites the first.
-                    $webpthb = $newfile['filepath'] . '/.v/' . $newfile['filename'];
-                    $reswebp = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), $mute); // WebP thumbnail uses full quality by auto default
-                    if (is_array($reswebp) && $reswebp[0] == 0) {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image WebP format creation success {$reswebp[2]} | " . DONE); }
-                        unset($reswebp);
-                        // The resizing to same name(!)
-                        $pass = $pass ?? [ $serendipity['convert'], ["-antialias -resize $_imtp"], [], ['"'.$newSize.'"'], $qlty, -1 ]; // no upload (FTP like case)
-                        // check Imagick module extension vs binary CLI usage
-                        if (serendipity_checkImagickAsModule()) {
-                            $reswebp = serendipity_passToModule('image/webp', $webpthb, $webpthb, $pass);
-                            $crtby = 'MOD';
-                        } else {
-                            $reswebp = serendipity_passToCMD('image/webp', $webpthb, $webpthb, $pass);
-                            $crtby = 'CLI';
-                        }
-                        if (is_array($reswebp) && $reswebp[0] == 0) {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image WebP format resize success {$reswebp[2]} | " . DONE); }
-                        } else {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image WebP format resize failed! Perhaps a wrong path: '$webpthb' ?"); }
-                        }
-                    } else {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image WebP format creation failed OR already exists."); }
+                    } elseif ($debug) {
+                        $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$engineCall['engine']}) Image thumbnail creation: {$result[2]}"); 
                     }
                 }
-                // Create a copy of the thumb in AVIF image format - NOT with animated GIF conversions since this is a waste of CPU time for the result of a static AVIF
-                if (file_exists($outfile) && $serendipity['useAvifFormat'] && 1 === serendipity_getAnimationFrameCount($infile)) {
-                    $newfile = serendipity_makeImageVariationPath($outfile, 'avif');
-                    // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
-                    // split it up like done here: 1. $outfile->convert to AVIF and then 2. $avifthb->resize to thumb, which overwrites the first.
-                    $avifthb = $newfile['filepath'] . '/.v/' . $newfile['filename'];
-                    $resavif = serendipity_convertToAvifFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), $mute);
-                    if (is_array($resavif) && $resavif[0] == 0) {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image AVIF format creation success {$resavif[2]} | " . DONE); }
-                        unset($resavif);
-                        // The resizing to same name(!)
-                        $pass = $pass ?? []; // (FTP like case)
-                        // check Imagick module extension vs binary CLI usage
-                        if (serendipity_checkImagickAsModule()) {
-                            $resavif = serendipity_passToModule('image/avif', $avifthb, $avifthb, $pass);
-                            $crtby = 'MOD';
+
+                // VARIATIONS (WebP & AVIF)
+                if (file_exists($outfile)) {
+                    $formats = [];
+                    if ($serendipity['useWebPFormat']) $formats[] = 'webp';
+                    // Skip AVIF for animations (saves CPU resources, as long not being able to use sequence AVIFS format)
+                    if ($serendipity['useAvifFormat'] && !$isAnimated) $formats[] = 'avif';
+
+                    foreach ($formats as $ext) {
+                        $newfile = serendipity_makeImageVariationPath($outfile, $ext);
+                        $vThumbPath = $newfile['filepath'] . '/.v/' . $newfile['filename'];
+                        // As far as I remember, I definitely optimized both IM variant in CMD and MOD methods
+                        // for variation builds directly passing the origin image to thumb variations, instead of taking the full variation build for the source.
+                        #$vFullPath  = str_replace(".{$thumbname}", '', $vThumbPath);
+
+                        // ATTENT: Use the FULL WebP/AVIF file as the source, if available (This is how the GDLib needs it, which definitely builds better ~ around cut by half !)
+                        #$_source = file_exists($vFullPath) ? $vFullPath : $infile;
+
+                        // Set MimeType for the target
+                        $mimeTarget = "image/$ext";
+
+                        // ... so if that ever changes use this ...
+                        #$vCall = $callImageEngine($mimeTarget, $_source, $vThumbPath, $pass);
+                        $vCall = $callImageEngine($mimeTarget, $infile, $vThumbPath, $pass); // IM optimized direct origin to thumb builds
+                        $vRes  = $vCall['result'];
+
+                        if (is_array($vRes) && $vRes[0] == 0) {
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$vCall['engine']}) Image ".strtoupper($ext)." format resize success {$vRes[2]} | " . DONE); }
                         } else {
-                            $resavif = serendipity_passToCMD('image/avif', $avifthb, $avifthb, $pass);
-                            $crtby = 'CLI';
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$vCall['engine']}) Image ".strtoupper($ext)." format resize failed! From '{$_source}' to '$vThumbPath' ?"); }
                         }
-                        if (is_array($resavif) && $resavif[0] == 0) {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image AVIF format resize success {$resavif[2]} | " . DONE); }
-                        } else {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image AVIF format resize failed! Perhaps a wrong path: '$avifthb' ?"); }
-                        }
-                    } else {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick ({$crtby}) Image AVIF format creation failed OR already exists."); }
                     }
                 }
             }
 
+            // Error handling and cleanup
             if (isset($result) && is_array($result) && $result[0] != 0) {
                 if (!$isPDF) {
                     echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' .
