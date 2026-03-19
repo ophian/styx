@@ -2145,19 +2145,15 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                     foreach ($formats as $ext) {
                         $newfile = serendipity_makeImageVariationPath($outfile, $ext);
                         $vThumbPath = $newfile['filepath'] . '/.v/' . $newfile['filename'];
-                        // As far as I remember, I definitely optimized both IM variant in CMD and MOD methods
-                        // for variation builds directly passing the origin image to thumb variations, instead of taking the full variation build for the source.
-                        #$vFullPath  = str_replace(".{$thumbname}", '', $vThumbPath);
+                        $vFullPath  = str_replace(".{$thumbname}", '', $vThumbPath);
 
-                        // ATTENT: Use the FULL WebP/AVIF file as the source, if available (This is how the GDLib needs it, which definitely builds better ~ around cut by half !)
-                        #$_source = file_exists($vFullPath) ? $vFullPath : $infile;
+                        // Use the FULL WebP/AVIF file as the source, if available
+                        $_source = file_exists($vFullPath) ? $vFullPath : $infile;
 
                         // Set MimeType for the target
                         $mimeTarget = "image/$ext";
 
-                        // ... so if that ever changes use this ...
-                        #$vCall = $callImageEngine($mimeTarget, $_source, $vThumbPath, $pass);
-                        $vCall = $callImageEngine($mimeTarget, $infile, $vThumbPath, $pass); // IM optimized direct origin to thumb builds
+                        $vCall = $callImageEngine($mimeTarget, $_source, $vThumbPath, $pass);
                         $vRes  = $vCall['result'];
 
                         if (is_array($vRes) && $vRes[0] == 0) {
