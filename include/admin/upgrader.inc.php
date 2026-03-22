@@ -739,6 +739,18 @@ $tasks = array(
                     'title'     => '<b>IMPORTANT_UPDATE_NOTICE</b> While you know that Styx 5.0 refactored the language file system to remove native charset files',
                     'desc'      => 'and moved all UTF-8/* lang files one level up into their parents directory, the final clean-up task for all remaining UTF-8/* directories is near and will come with next 5.1-rc1 auto-release. Remember you have taken care for any personal changed or unknown language files before.'),
 
+            array(  'version'   => '5.1-rc1',
+                    'function'  => 'recursive_UTF8dir_iterator',
+                    'arguments' => array('plugins', true),
+                    'title'     => 'Removal of remaining old dead plugin lang UTF-8/ directories for Styx 5',
+                    'desc'      => 'Since the previous Styx 5.0 release refactored the language file system and copied all core UTF-8/ language files one level up, giving up the extra and overall used "/UTF-8/" directory, all core <b>plugins</b> had to follow this distinction on last update. The second run for all remaining UTF-8 dirs had to wait until now, to give you some time to manually move your custom or private data lang files in the meanwhile. THIS upgrade task NOW does remove all remaining NON-CORE UTF-8/ dirs in your plugins directory to finish the 5.0 upgrade like already announced several times.'),
+
+            array(  'version'   => '5.1-rc1',
+                    'function'  => 'recursive_UTF8dir_iterator',
+                    'arguments' => array('templates', true),
+                    'title'     => 'Removal of remaining old dead theme lang UTF-8/ directories for Styx 5',
+                    'desc'      => 'Ditto all <b>themes</b> have to follow this distinction too. THIS upgrade task NOW removes all remaining UTF-8/ dirs in your templates directory.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
