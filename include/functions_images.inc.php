@@ -1272,23 +1272,28 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
         if (in_array($_mimetype, ['gif', 'webp', 'format-webp'])) {
             $frameCount = $im->getNumberImages();
             if ($frameCount > 1) {
+                @ini_set('max_execution_time', 120); // looping through all frames can take its time... (including next loops)
                 $im = $im->coalesceImages();
             }
         }
 
         // 3. QUALITY (args[4])
         if (isset($args[4]) && $args[4] != -1) {
-            $im->setImageCompressionQuality((int) $args[4]);
-            $im_debug .= "quality set to {$args[4]}, ";
+            if (!isset($frameCount) || $frameCount === 1) {
+                $im->setImageCompressionQuality((int) $args[4]);
+                $im_debug .= "quality set to {$args[4]}, ";
+            }
         }
 
         // 4. DEPTH (setImageDepth)
         // By default, for modern formats 8 is fine.
         if ($type === 'pdfthumb' || $type === 'mkthumb' || str_contains($type, 'format-')) {
-            $_idpth = $im->getImageDepth();
-            $idepth = ($type === 'pdfthumb') ? 8 : (is_int($_idpth) && $_idpth > 8 ? $_idpth : 8); // adjust as needed; can be made conditional
-            $im->setImageDepth($idepth);
-            $im_debug .= "depth {$_idpth} set to {$idepth}, ";
+            if (!isset($frameCount) || $frameCount === 1) {
+                $_idpth = $im->getImageDepth();
+                $idepth = ($type === 'pdfthumb') ? 8 : (is_int($_idpth) && $_idpth > 8 ? $_idpth : 8); // adjust as needed; can be made conditional
+                $im->setImageDepth($idepth);
+                $im_debug .= "depth {$_idpth} set to {$idepth}, ";
+            }
         }
 
         // 5. STRIP (remove metadata [Exif, IPTC, etc.])
@@ -1310,7 +1315,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
         #echo '<pre>'.print_r($operators, true).'</pre>';
 
         // Check (2) for FRAME loop of origin with no args
-        if (empty($operators) && in_array($_mimetype, ['gif', 'webp', 'format-webp']) && isset($frameCount) && $frameCount > 1) {
+        if (empty($operators) && isset($frameCount) && $frameCount > 1) {
             // get the original size dimensions
             $w = $im->getImageWidth();
             $h = $im->getImageHeight();
@@ -1320,7 +1325,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
             }
             // operational stack reset to the first frame 0
             $im->setFirstIterator();
-            if ($op_debug) echo " | FRAMED Origin scaleImage loop: $frameCount "; // OK
+            if ($op_debug) echo " | FRAMED Origin scaleImage {$w}x{$h} loop: $frameCount "; // OK
         }
 
         // LOOP OPERATORS
@@ -1329,7 +1334,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
             // Break up operator string (possibly grouped flags)
             foreach(preg_split('/\s+/', trim($opstring)) AS $op) {
                 if (!$op) continue;
-                if ($op_debug) echo "$op, "; // op = -antialias, -resize, op = "400x225>!" for each full file jpeg, webp, avif
+                if ($op_debug) echo "$op, "; // e.g. op = -antialias, -resize, op = "400x225>!" for each full file jpeg, webp, avif
                 if (str_starts_with($op, '-auto-orient')) {
                     if (method_exists($im,'autoOrient')) {
                         #if MagickLibVersion >= 0x692 since 2015 - and return NULL === success
@@ -1350,6 +1355,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                         if ($op_debug) echo " | op matches resize {$m[1]}, {$m[2]}, Imagick::FILTER_LANCZOS (22) ";
                         // Check (2) for COALESCE FRAME loop on RESIZE
                         if (isset($frameCount) && $frameCount > 1) {
+                            $im->setFirstIterator();
                             // Run operator for every Frame
                             foreach ($im as $frame) {
                                 $frame->resizeImage((int)$m[1], (int)$m[2], 22, 0.5);
@@ -1367,6 +1373,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                         if ($op_debug) echo " | op matches scale {$m[1]}, {$m[2]} ";
                         // Check (2) for COALESCE FRAME loop on SCALE
                         if (isset($frameCount) && $frameCount > 1) {
+                            $im->setFirstIterator();
                             // Run operator for every Frame
                             foreach ($im as $frame) {
                                 $frame->scaleImage((int)$m[1], (int)$m[2]);
@@ -1403,11 +1410,15 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                     $im = $im->mergeImageLayers(\Imagick::LAYERMETHOD_FLATTEN);
                     $im_debug .= "flatten, ";
                 } elseif ($op === '-antialias') {
-                    $im->setImageProperty('antialias', 'true'); // not all Imagick builds honor this
+                    $im->setImageProperty('antialias', 'true');
                     $im_debug .= "antialias, ";
                 }
+
+                if ($_mimetype === 'gif' || (isset($frameCount) && $frameCount > 1 && $_mimetype === 'webp')) {
+                    $op = str_replace('-resize', '-scale', $op); // slightly better compression for animated thumbs...
+                }
                 $prev = $op;
-                // Add more options here as needed
+                // FUTURE: Add more options here as needed
             }
             if ($op_debug) echo "<br>\n";
         }
@@ -1419,12 +1430,25 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
             $im_debug .= "gamma to [2.2] COLORSPACE_SRGB after resize, ";
         }
 
+        // Quality compression alike workaround for animated images
+        if (isset($frameCount) && $frameCount > 1) {
+            $im_debug .= "ANIM-BLUR & RE-SHARPEN, ";
+            // operational stack reset to the first frame 0
+            $im->setFirstIterator();
+            do {
+                $im->blurImage(0, 0.9); // blur to compress ("reduce air") - Sigma 0.5 for both actually is a tad sharper, but full sizes are still too big...
+                $im->sharpenImage(0, 0.5); // and re-sharpen
+            } while ($im->nextImage());
+            $im->setFirstIterator(); // rewind to start
+        }
+
         // END Check (2) for COALESCE optimized framed image layers
         if (isset($frameCount) && $frameCount > 1) {
             // operational stack reset to the first frame 0
             $im->setFirstIterator();
-            $im = $im->optimizeImageLayers();
-            $im->deconstructImages();
+            $im = $im->OptimizeImageLayers();
+            // Remove floating pixels and duplicates (equivalent to RemoveDups)
+            $im = $im->deconstructImages(); // !! deconstruct may reset frame dimensions and then OptimizeImageLayers() errors w/ ImagesAreNotTheSameSize - so deconstruct only possible after
             $im_debug .= "animated GIF/WebP ($frameCount frames), ";
         }
 
@@ -1439,6 +1463,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
                     $frame->setImageFormat('webp');
                 }
                 $im->setOption('webp:method', '6');
+                $im->setOption('webp:low-memory', 'true');
             } else {
                 $im->setImageFormat('webp');
             }
@@ -1538,9 +1563,14 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
     } else {
         $do = implode(' ', $args[1]) . ' ' . implode(' ', $args[3]); // else [2] is just an arguments (sizing) string for settings/operators
     }
-    $do = str_replace('  ', ' ', $do);
+    $do = str_replace(['  '], ' ', $do);
+
+    if ($_mimetype === 'gif') {
+        $do = str_replace('-resize', '-scale', $do); // slightly better compression for gif thumbs...
+    }
 
     $quality = ($args[4] != -1) ? "-quality {$args[4]}" : '-quality 0'; // 0 in mean of none for auto quality compression of all variants - but the origins upload must be optimized instead.
+
     // Special quality tweak on ROTATE
     if (str_contains($do, '-rotate')) {
         $qlty = $quality; // default case
@@ -1595,11 +1625,11 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         // Identify how many frames are in the WEBP
         $frames = serendipity_getAnimationFrameCount($source);
         if ($frames > 1) {
-            // ANIMATED WEBP - OptimizePlus against optimize is much better since it handles the artifacts (probably by the useless 1x1 layers)
-            //               -blur is taken as it was the only chance to lower the size, w/o stripping  empty layers (1x1) with awk or something...
+            // ANIMATED WEBP - OptimizePlus (thumb) against optimize is much better since it handles the artifacts (probably by the useless 1x1 layers)
+            //               - blur is taken as it was the only chance to lower the file size, w/o stripping empty layers (1x1) with awk or something...
             //               - normally no depth, gamma and also no strip, but for the latter in WebP found better for high quality layer optimizing
             $cmd =  "\"{$args[0]}\" \"$source\" -coalesce {$do} " .
-                    "-blur 0x0.9 -layers RemoveDups -layers OptimizePlus -strip $quality \"$target\"";
+                    "-blur 0x0.9 -sharpen 0x0.5 -layers RemoveDups -layers OptimizePlus -define webp:lossless=false -define webp:method=6 -define webp:low-memory=true -strip $quality \"$target\"";
             $dbg .= "animated WebP workflow ($frames frames) (do = $do) \n";
         } else {
             // STATIC WEBP
@@ -1662,7 +1692,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         if ($frames > 1) {
             // ANIMATED GIF
             $cmd =  "\"{$args[0]}\" \"$source\" -coalesce {$do} " .
-                    "-layers optimize \"$target\""; // no gamma and no strip, but animated GIFs needs layers optimizing ... BUT how to inhibit OR improve web/avif variations?
+                    "-layers optimize \"$target\""; // no gamma and no strip, but animated GIFs need layers optimizing
             $dbg .= "animated GIF workflow ($frames frames) \n";
         } else {
             // STATIC GIF
@@ -1675,9 +1705,10 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         // Identify how many frames are in the WEBP
         $frames = serendipity_getAnimationFrameCount($source);
         if ($frames > 1) {
+            $_do = str_replace('-resize', '-scale', $do); // slightly better compression for animated thumbs...
             // ANIMATED WEBP - normally no depth, gamma and also no strip, but for the latter in WebP found better for high quality layer optimizing
-            $cmd =  "\"{$args[0]}\" \"$source\" -coalesce {$do} " .
-                    "-layers RemoveDups -layers OptimizePlus -define webp:lossless=false -define webp:method=6 -strip $quality \"$target\"";
+            $cmd =  "\"{$args[0]}\" \"$source\" -coalesce {$_do} " .
+                    "-blur 0x0.9 -sharpen 0x0.5 -layers RemoveDups -layers OptimizePlus -define webp:lossless=false -define webp:method=6 -define webp:low-memory=true -strip $quality \"$target\"";
             $dbg .= "animated WebP workflow ($frames frames) \n";
         } else {
             // STATIC WEBP
@@ -1711,7 +1742,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         } else {
             @ini_set('max_execution_time', 120);
         }
-        $dbg = str_contains($do, '-scale') ? str_replace('toThumb ', '', $dbg) : $dbg; // Remove debug part on scale
+        $dbg = str_contains($do, '-scale') ? str_replace('toThumb ', '', $dbg) : $dbg; // Remove echoed debug part on scale
         #echo str_replace('  ', ' ', $dbg).PHP_EOL; // enable for inlined debug format cases
         @exec($cmd, $out, $res);
     }
@@ -2060,6 +2091,7 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                     }
                 }
             }
+
         // IM - serendipity_makeThumbnail
         } else {
             // DETERMINE TARGET DIMENSIONS
