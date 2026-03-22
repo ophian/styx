@@ -1,6 +1,8 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Improved animated image handlers for both ImageMagick libs.
+
  * Refactor serendipity_makeThumbnail()
    - remove redundancies
    - spares one extra library conversion call for variation builds
