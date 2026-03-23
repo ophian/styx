@@ -94,11 +94,3 @@ bundled-libs/HTTP/Request2/SocketWrapper.php:
 -   require_once 'HTTP/Request2/Exception.php';
 +   require_once S9Y_PEAR_PATH . 'HTTP/Request2/Exception.php';
 
-
-bundled-libs/XML/RPC/Dump.php:
-
--   require_once 'PEAR.php';
-+   require_once S9Y_PEAR_PATH . 'PEAR.php';
-
--   require_once 'PEAR.php';
-+   require_once S9Y_PEAR_PATH . 'PEAR.php';
