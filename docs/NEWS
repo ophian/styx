@@ -1,6 +1,22 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Bundled XML/RPC and Weblog ping support were removed.
+   All major ping services (Technorati, weblogs.com, blo.gs, blogrolling.com,
+   Ping-O-Matic, Yahoo, Google) have been discontinued. Users relying on custom
+   ping URLs should migrate to WebSub or sitemap-based indexing.
+
+   This also forced the immediate removal of 'serendipity_event_ljupdate',
+   'serendipity_event_weblogping' and 'serendipity_event_xmlrpc' plugins.
+
+   Yes, it's a clear-cut case — that whole era of the blogosphere (2003–2010
+   roughly) had a lovely ecosystem of pinging, trackbacks, blogrolls and
+   directories, but virtually all of it is gone now. Cleaning out that PEAR
+   dependency and the plugin is just good housekeeping at this point.
+
+   Though sending trackbacks is still a thing and should still work out of the
+   box with Styx.
+
  * Improved animated image handlers for both ImageMagick libs.
 
  * Refactor serendipity_makeThumbnail()
