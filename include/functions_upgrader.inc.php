@@ -577,6 +577,14 @@ $dead_dirs_500 = array(
     $serendipity['serendipityPath'] . 'plugins/serendipity_plugin_todooooo/UTF-8'*/
 );
 
+/* A list of old or removed directories for 5.1.0 */
+$dead_dirs_510 = array(
+    $serendipity['serendipityPath'] . 'bundled-libs/XML',
+    $serendipity['serendipityPath'] . 'plugins/serendipity_event_ljupdate',
+    $serendipity['serendipityPath'] . 'plugins/serendipity_event_weblogping',
+    $serendipity['serendipityPath'] . 'plugins/serendipity_event_xmlrpc'
+);
+
 /**
  * Styx 5 recursive directory call to purge old UTF-8 directories in 'plugins' or 'templates'
  *
