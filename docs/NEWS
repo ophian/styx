@@ -12,10 +12,10 @@ Version 5.1-DEV ()
    Yes, it's a clear-cut case — that whole era of the blogosphere (2003–2010
    roughly) had a lovely ecosystem of pinging, trackbacks, blogrolls and
    directories, but virtually all of it is gone now. Cleaning out that PEAR
-   dependency and the plugin is just good housekeeping at this point.
+   dependency and the plugins is just good housekeeping at this point.
 
-   Though sending trackbacks is still a thing and should still work out of the
-   box with Styx.
+   Though sending trackbacks is still a thing and should work out of the box
+   with Styx.
 
  * Improved animated image handlers for both ImageMagick libs.
 
