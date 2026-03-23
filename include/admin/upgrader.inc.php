@@ -735,6 +735,12 @@ $tasks = array(
                     'desc'      => 'Due to the reset refactoring of the new TinyMCE RichText Editor auto_focus behavior, all themes already making use of it <pre>[ pure, b46, b53, b5blog, boot, dude, psg ]</pre> were changed to support the remove of auto focus. If you are using one of these mentioned themes as a <b>parent theme</b>, your custom <b>child theme\'s</b> <em>index.tpl</em> file needs to follow the change of its parent.'),
 
             array(  'version'   => '5.1-beta1',
+                    'function'  => 'recursive_directory_iterator',
+                    'arguments' => array($dead_dirs_510),
+                    'title'     => 'Removal of old dead directories for Styx 5.1',
+                    'desc'      => 'The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_510) . '</pre>'),
+
+            array(  'version'   => '5.1-beta1',
                     'type'      => 'IMPORTANT_UPDATE_NOTICE',
                     'title'     => '<b>IMPORTANT_UPDATE_NOTICE</b> While you know that Styx 5.0 refactored the language file system to remove native charset files',
                     'desc'      => 'and moved all UTF-8/* lang files one level up into their parents directory, the final clean-up task for all remaining UTF-8/* directories is near and will come with next 5.1-rc1 auto-release. Remember you have taken care for any personal changed or unknown language files before.'),
