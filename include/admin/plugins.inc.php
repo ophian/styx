@@ -91,7 +91,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     /* configure a specific instance */
     $plugin =& serendipity_plugin_api::load_plugin($_GET['serendipity']['plugin_to_conf']);
 
-    if (!($plugin->protected === FALSE || $plugin->serendipity_owner == '0' || $plugin->serendipity_owner == $serendipity['authorid'] || serendipity_checkPermission('adminPluginsMaintainOthers'))) {
+    if ($plugin === false || !($plugin->protected === FALSE || $plugin->serendipity_owner == '0' || $plugin->serendipity_owner == $serendipity['authorid'] || serendipity_checkPermission('adminPluginsMaintainOthers'))) {
         return;
     }
     $data['plugin_to_conf'] = true;
