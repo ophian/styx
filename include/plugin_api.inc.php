@@ -534,8 +534,8 @@ class serendipity_plugin_api
             }
         }
 
-        if (!empty($classname)) { // checking      @serendipity_xyz is deprecated since old serendipity
-            $where[] = " (name LIKE '@" . serendipity_db_escape_string($classname) . "%' OR name LIKE '" . serendipity_db_escape_string($classname) . "%') ";
+        if (!empty($classname)) {
+            $where[] = " name LIKE '" . serendipity_db_escape_string($classname) . "%' ";
         }
 
         if (!empty($id)) {
