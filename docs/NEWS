@@ -1,6 +1,9 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Remove templates legacy UTF-8/ dirpath exception to finalize the Styx 5
+   UTF-8 only conversion.
+
  * Bundled XML/RPC and Weblog ping support were removed.
    All major ping services (Technorati, weblogs.com, blo.gs, blogrolling.com,
    Ping-O-Matic, Yahoo, Google) have been discontinued. Users relying on custom
