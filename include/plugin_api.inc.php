@@ -1083,8 +1083,8 @@ class serendipity_plugin_api
         foreach($plugins AS $plugin_data) {
             $plugin =& serendipity_plugin_api::load_plugin($plugin_data['name'], (string) $plugin_data['authorid'], $plugin_data['path']); // INT to STRING cast for PDO::PostgreSQL
             if (is_object($plugin)) {
-                $class  = get_class($plugin);
-                $title  = '';
+                $class = get_class($plugin);
+                $title = '';
 
                 /* TODO: make generate_content NOT echo its output */
                 ob_start();
