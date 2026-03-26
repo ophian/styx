@@ -741,6 +741,11 @@ $tasks = array(
                     'desc'      => 'The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_510) . '</pre>'),
 
             array(  'version'   => '5.1-beta1',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => '<b>ADMINISTRATION_NOTICE</b> Added Imagick support for when enabled ImageMagick in Configurations.',
+                    'desc'      => 'Uploading and handling images with variations were improved all over. Please read the given ChangeLog. And give &laquo; Configuration &raquo; - &laquo; Image Conversion Settings &raquo; - &laquo; Enable use of AVIF Variations? &raquo; a second chance (if not already using it...) to improve your future picture container fallback chains. Out of the Box there are given ImageMagick/Magick server packages that do not yet fully support <b>AVIF</b> while having missing dependencies; You\'ll notice given error messages and could ask back how to improve your setup to fully have support. In most cases, the problem can be solved!'),
+
+            array(  'version'   => '5.1-beta1',
                     'type'      => 'IMPORTANT_UPDATE_NOTICE',
                     'title'     => '<b>IMPORTANT_UPDATE_NOTICE</b> While you know that Styx 5.0 refactored the language file system to remove native charset files',
                     'desc'      => 'and moved all UTF-8/* lang files one level up into their parents directory, the final clean-up task for all remaining UTF-8/* directories is near and will come with next 5.1-rc1 auto-release. Remember you have taken care for any personal changed or unknown language files before.'),
