@@ -1167,8 +1167,6 @@ class serendipity_plugin_api
     /**
      * Check if a plugin is an event plugin
      *
-     * Refactoring: decompose conditional
-     *
      * Args:
      *      - Name of a plugin
      * Returns:
@@ -1402,7 +1400,7 @@ class serendipity_plugin_api
     }
 }
 
-// FROM HERE don't touch for type hinting or return types w/o doing this in all clones
+// FROM HERE: Don't touch for type hinting or return types w/o doing this in all clones !!
 
 /**
  * Holds a bunch of properties; since Serendipity 0.8 only one value per key is
