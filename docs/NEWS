@@ -1,6 +1,8 @@
 Version 5.1-DEV ()
  ------------------------------------------------------------------------
 
+ * Clean-up other "old-day" legacy conditions...
+
  * Remove templates legacy UTF-8/ dirpath exception to finalize the Styx 5
    UTF-8 only conversion.
 
