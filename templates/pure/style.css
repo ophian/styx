@@ -1346,7 +1346,7 @@ nav.pager + .serendipity_blogpdf {
       width: 100%; }
     .post_content table tr {
       width: 100%;
-      display: inline-flex; }
+      display: flex; }
       .post_content table th,
       .post_content table td {
         width: inherit; }
