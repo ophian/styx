@@ -748,7 +748,7 @@ $tasks = array(
             array(  'version'   => '5.1-beta1',
                     'type'      => 'IMPORTANT_UPDATE_NOTICE',
                     'title'     => '<b>IMPORTANT_UPDATE_NOTICE</b> While you know that Styx 5.0 refactored the language file system to remove native charset files',
-                    'desc'      => 'and moved all UTF-8/* lang files one level up into their parents directory, the final clean-up task for all remaining UTF-8/* directories is near and will come with next 5.1-rc1 auto-release. Remember you have taken care for any personal changed or unknown language files before.'),
+                    'desc'      => 'and moved all UTF-8/* lang files one level up into their parents directory, the final clean-up task for all remaining UTF-8/* directories is near and will come with next <b>5.1-rc1</b> auto-release. Remember you have taken care for any personal changed or unknown language files before.'),
 
             array(  'version'   => '5.1-rc1',
                     'function'  => 'recursive_UTF8dir_iterator',
