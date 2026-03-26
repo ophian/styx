@@ -12,7 +12,7 @@ Version 5.1-DEV ()
    This also forced the immediate removal of 'serendipity_event_ljupdate',
    'serendipity_event_weblogping' and 'serendipity_event_xmlrpc' plugins.
 
-   Yes, it's a clear-cut case — that whole era of the blogosphere (2003–2010
+   Yes, it's a clear-cut case - that whole era of the blogosphere (2003-2010
    roughly) had a lovely ecosystem of pinging, trackbacks, blogrolls and
    directories, but virtually all of it is gone now. Cleaning out that PEAR
    dependency and the plugins is just good housekeeping at this point.
