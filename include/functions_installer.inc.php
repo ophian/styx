@@ -1111,7 +1111,7 @@ function serendipity_updateConfiguration() : iterable|true {
                 }
             }
 
-            serendipity_set_config_var($item['var'], (string)$_POST[$item['var']], $authorid); // string cast on install bool(true) to string
+            serendipity_set_config_var($item['var'], (string)$_POST[$item['var']], $authorid); // string cast on install -> bool(true) to string
         }
     }
 
