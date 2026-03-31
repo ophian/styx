@@ -1316,7 +1316,7 @@ function serendipity_printEntries(iterable|bool|null $entries, bool $extended = 
                 $entry['authorid'] = $serendipity['authorid'];
             }
 
-            $entry['author'] = htmlspecialchars($entry['author']);
+            $entry['author'] = htmlspecialchars($entry['author'] ?? '');
 
             $authorData = array(
                             'authorid' =>  $entry['authorid'],
