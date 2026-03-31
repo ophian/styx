@@ -975,6 +975,9 @@ function serendipity_imageGDAvifConversion(string $infile, string $outfile, int 
         @ini_set('memory_limit', $maxMem);
     }
 
+    // if isn't compiled with
+    if (!function_exists('imageavif')) return false;
+
     @imageavif($im, $outfile, $quality);
 
     return $outfile;
