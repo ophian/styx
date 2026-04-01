@@ -365,7 +365,7 @@ switch($serendipity['GET']['adminAction']) {
             } else {
                 // FULLTEXT search with an ideographic language such as Chinese, Japanese, and Korean is not possible without a prepared database using N-gram parser or such.
                 // The built-in MySQL full-text parser determines the beginning and end of words using white space. When it comes to ideographic languages such as Chinese,
-                // Japanese, and Korean, the full-text parser has a limitation that these ideographic languages do not use word delimiters.
+                // Japanese, and Korean, the full-text parser has a limitation that these ideographic languages do not use word delimiters.
                 // (see https://www.mysqltutorial.org/mysql-ngram-full-text-parser/
                 //  OR  https://levelup.gitconnected.com/how-to-make-chinese-full-text-search-dd8b6df801fb?gi=a923d8711895
                 //  OR  https://www.taogenjia.com/2022/09/30/MySQL-Full-Text-Index/
