@@ -1257,6 +1257,10 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
     $op_debug = false; // #DEV# live debug echo out for reached state of args [1,2,3] - Unusable for ajax image auto resizing on upload !!
     $im_debug = ''; // a prefix is already given by "Imagick ..."
     try {
+        if ($_mimetype === 'avif') {
+            // Set the limit for core threads (equals CMD -limit thread 2), which may be a downgrade but secures multi-threaded overloading
+            Imagick::setResourceLimit(Imagick::RESOURCETYPE_THREAD, 2);
+        }
         // Handle PDF thumbs: load only first page
         if ($type === 'pdfthumb') {
             $im = new Imagick();
