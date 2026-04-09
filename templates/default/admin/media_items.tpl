@@ -139,7 +139,9 @@
 {if isset($file.thumbSizeAVIF) AND $file.thumbSizeAVIF > 252 AND $file.thumbSizeAVIF != 34165 AND $file.thumbSizeAVIF != 3389 AND ( isset($file.thumbSizeWebp) AND ( $file.thumbSizeWebp == 0 OR $file.thumbSizeAVIF < $file.thumbSizeWebp ))}
                         <source type="image/avif" srcset="{$img_src_avif|default:''}">
 {/if}
+{if isset($file.sizeWebp) AND $file.sizeWebp > 0 AND $file.sizeWebp < $file.size}
                         <source type="image/webp" srcset="{if NOT isset($file.thumbSizeWebp) OR $file.thumbSizeWebp > 0}{$img_src_webp|default:''}{/if}">
+{/if}
                         <img src="{$img_src}" class="ml_preview_img" title="{$img_title}" alt="{$img_alt}"><!-- media/manage -->
                     </picture>
                 </a>
