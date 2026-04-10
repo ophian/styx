@@ -729,6 +729,43 @@ switch ($serendipity['GET']['adminAction']) {
                             $messages = serendipity_createFullFileVariations($target, $info, $messages);
                         }
 
+                        // Special case ORIGIN is a WebP file upload and we DO want to have the full AVIF variation
+                        // AVIF case - NOT with animated GIF/WEBP conversions since this is a waste of CPU time for the result of a static AVIF (when in bundle with with animated webP variation)
+                        if (strtolower($info['extension']) === 'webp') {
+                            $isAnimated = $serendipity['magick'] !== true ? false : 1 !== serendipity_getAnimationFrameCount($target); // GD case no check - declare as static image
+                            if (!$isAnimated) {
+                                $crtby ??= serendipity_checkImagickAsModule() ? 'MOD' : 'CLI';
+                                $variat = serendipity_makeImageVariationPath($target, 'avif');
+                                $debug = false; // DEV: Enable on the fly-debug to log debug
+                                $result = serendipity_convertToAvifFormat($target, $variat['filepath'], $variat['filename'], 'image/avif', false);
+                            } else $result = null;
+                            if (is_array($result)) {
+                                // capture GD result
+                                $_relative_result_outfile = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $result[1]);
+                                // capture IM (CLI) result ($out) array
+                                $_vname = str_replace('"', '', substr($result[2], strpos($result[2], "+profile 'exif,iptc,comment' ") + 29));
+                                if (in_array(strrchr($_vname, '.'), ['.webp', '.avif']) && empty($_relative_result_outfile)) {
+                                    $_relative_result_outfile = str_replace(['"', $serendipity['serendipityPath'] . $serendipity['uploadPath']], '', $_vname);
+                                }
+                                // catch Imagick (MOD) success return case to return the relative path w/ file instead
+                                if (is_array($_relative_result_outfile) && $_relative_result_outfile[0] == 'Imagick: success') {
+                                    $_relative_result_outfile = str_replace($serendipity['serendipityPath'], '', $variat['filepath']) . '.v/' . $variat['filename'];
+                                }
+                                $_relative_result_outfile = is_array($_relative_result_outfile) ? $_relative_result_outfile[0] : $_relative_result_outfile;
+                                // DO NOT if empty
+                                if (!empty($_relative_result_outfile)) {
+                                    $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> AVIF image format variation \'<em class="media_msg v">'.$_relative_result_outfile."</em>' created!</span>\n";
+                                }
+                                if ($result[0] == 0) {
+                                    if (is_string($result[1])) {
+                                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: GD Image AVIF format creation success {$result[2]} from $target | " . DONE); }
+                                    } else {
+                                        if ($debug) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick {$crtby} Image AVIF format creation success {$result[2]} from $target | " . DONE); }
+                                    }
+                                }
+                            }
+                        }
+
                         $thumbs = array(array(
                             'thumbSize' => $serendipity['thumbSize'],
                             'thumb'     => $serendipity['thumbSuffix']
