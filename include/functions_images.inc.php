@@ -5607,6 +5607,11 @@ function serendipity_prepareMedia(iterable &$file, ?string $url = '') : true {
             $file['full_file_webp'] = null; // avoid template errors
             $file['full_file_avif'] = null; // ditto
         }
+        // Origin file is a WebP file and therefore has no WebP variation - but may have an AVIF variation
+        if (!isset($file['sizeWebp']) && file_exists($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.avif')) {
+            $file['full_file_avif'] = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.avif';
+            $file['sizeAVIF']       = @filesize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.avif');
+        }
         if (!isset($file['imgsrc'])) {
             $file['imgsrc'] = $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . (empty($file['extension']) ? '' : '.' . $file['extension']);
         }
