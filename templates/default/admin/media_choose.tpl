@@ -151,7 +151,7 @@
             <div class="form_buttons">
                 <input class="button_link go_back" type="button" value="{$CONST.BACK}">
                 <input class="input_button state_submit" type="submit" value="{$CONST.ADD_MEDIA}" onclick="serendipity.rememberMediaOptions(); {$media.file.origfinishJSFunction}">
-{if $media.supportsWebP AND NOT empty($media.file.full_thumb_webp)}
+{if $media.supportsWebP AND NOT empty($media.file.full_thumb_webp) OR $media.supportsAVIF AND NOT empty($media.file.full_thumb_avif)}
                 <input id="picSubmit" class="input_button state_submit" type="submit" value="{$CONST.ADD_MEDIA_PICTELEMENT}" data-submit="enhanced" onclick="serendipity.rememberMediaOptions(); serendipity.mediaPictureSubmit(); {$media.file.origfinishJSFunction}">
 {/if}
                 {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_submit' data=$media.file}
