@@ -158,6 +158,9 @@ if (!$use_installer && $is_logged_in) {
             if (empty($serendipity['useAvifFormat'])) {
                 $serendipity['useAvifFormat'] = false;
             }
+            if ($serendipity['magick'] && $serendipity['GET']['adminAction'] != 'directorySelect' && !isset($serendipity['ImagickResourceThreads'])) {
+                _define_resourcetype_thread();
+            }
 
             include S9Y_INCLUDE_PATH . 'include/admin/images.inc.php';
             $admin_section = MEDIA;
