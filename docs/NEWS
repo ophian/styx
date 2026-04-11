@@ -1,6 +1,7 @@
 Version 5.1-rc1 (DEV)
  ------------------------------------------------------------------------
 
+ * Improve media handlers for ORIGIN image format being a WebP file itself
 
 
 
