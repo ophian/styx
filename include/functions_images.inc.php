@@ -1595,8 +1595,8 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
         $im->destroy();
 
         $result_info = [0, ['Imagick: success'], $im_debug . "[OK]"];
-    } catch (Exception $e) {
-        $result_info = [1, ['Imagick Error: ' . $e->getMessage()], $im_debug . "[ERROR: {$e->getMessage()}]"];
+    } catch (\Throwable $t) {
+        $result_info = [1, ['Imagick Error: ' . $t->getMessage()], $im_debug . "[ERROR: {$t->getMessage()}]"];
     }
 
     return $result_info;
