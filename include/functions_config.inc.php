@@ -972,6 +972,15 @@ function serendipity_setCookie(string $name, string $value, bool $securebyprot =
     global $serendipity;
 
     $host = $_SERVER['HTTP_HOST'];
+
+    // We filter out EVERYTHING that is not a valid part of a hostname.
+    // This still allows multi-domain, but removes \r, \n, Bcc:, @, etc.
+    $host = preg_replace('/[^a-zA-Z0-9\-\.]/', '', $host);
+
+    if (empty($host)) {
+        $host = 'localhost'; // Absolute Fallback
+    }
+
     if ($securebyprot) {
         $secure = (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on') ? true : false;
         if ($pos = strpos($host, ':')) {
@@ -999,9 +1008,9 @@ function serendipity_setCookie(string $name, string $value, bool $securebyprot =
         'httponly'  => $httpOnly,
         'samesite'  => 'Lax'
     ];
-    #setcookie("serendipity[$name]", $value, $custom_timeout, $serendipity['serendipityHTTPPath'], $host, $secure, $httpOnly);
     // As $options array for use with 6th param 'sameSite' ! Requires PHP 7.3.0 ++ !!
     setcookie("serendipity[$name]", $value, $options);
+
     $_COOKIE[$name] = $value;
     $serendipity['COOKIE'][$name] = $value;
 }
