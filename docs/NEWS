@@ -7,6 +7,9 @@ Version 5.1-rc1 (DEV)
    via serendipity or privat member set $serendipity['ImagickResourceThreads']
    global.
 
+ * Fix some minor and rare cases and check for a non-set GD method before
+   usage to avoid failures with fatal errors.
+
 
 
 Version 5.1-beta1 (March 26th, 2026)
