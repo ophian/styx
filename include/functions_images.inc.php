@@ -1119,7 +1119,7 @@ function serendipity_convertToAvifFormat(string $infile, string $outpath, string
 }
 
 /**
- * Get valid source image formats
+ * Get valid source image formats. PLEASE keep as is! Exception are done via conditional workarounds!
  *
  * Args:
  *      - Whether to extend the supported formats
