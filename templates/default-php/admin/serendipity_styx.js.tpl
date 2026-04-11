@@ -318,8 +318,8 @@
 
             $.each(g['files'], function(k, v) {
                 pic_el  = (v['full_thumb_avif'] || v['full_file_avif'] || v['full_thumb_webp'] || v['full_file_webp']) ? true : false;
-                iAVFrmt = (v['sizeAVIF'] > 252 && v['sizeAVIF'] != 34165 && v['sizeAVIF'] != 3389 && ( v['sizeWebp'] == 0 || (v['sizeAVIF'] <= v['sizeWebp']) ));
-                thbAVFt = (v['thumbSizeAVIF'] > 252 && v['thumbSizeAVIF'] != 3389 && v['thumbSizeAVIF'] != 34165 && ( v['thumbSizeWebp'] == 0 || (v['thumbSizeAVIF'] <= v['thumbSizeWebp']) ));
+                iAVFrmt = (v['sizeAVIF'] > 252 && v['sizeAVIF'] != 34165 && v['sizeAVIF'] != 3389 && ( v['sizeWebp'] == 0 || (v['sizeAVIF'] <= v['sizeWebp']) || !v['full_thumb_webp'] ));
+                thbAVFt = (v['thumbSizeAVIF'] > 252 && v['thumbSizeAVIF'] != 3389 && v['thumbSizeAVIF'] != 34165 && ( v['thumbSizeWebp'] == 0 || (v['thumbSizeAVIF'] <= v['thumbSizeWebp'] || !v['thumbSizeWebp']) ));
                 imgID   = v['id'];
                 imgWdth = v['thumbWidth'];
                 imgHght = v['thumbHeight'];
@@ -336,9 +336,12 @@
                 }
 
                 if (pictureSubmit && pic_el) {
+                    let isWebP = false; // assume origin is not a webp file itself (default)
+                    const oExt = imgName.split('.').pop(); // check origin extension name
+                    if (oExt.toLowerCase() == 'webp') { isWebP = true; } // origin is a webp file type which is a full type and a thumb expression in the root of the path and so does not need a webp variation in .v/
                     img = '<!-- s9ymdb:'+ imgID +' --><picture>'
                     + (thbAVFt ? '<source type="image/avif" srcset="' + iftavif + '">' : '')
-                    + '<source type="image/webp" srcset="' + iftwebp + '">'
+                    + (!isWebP ? '<source type="image/webp" srcset="' + iftwebp + '">' : '')
                     + '<img class="serendipity_image_'+ float +'" width="'+ imgWdth +'" height="'+ imgHght +'" src="'+ imgName +'"'+ ((title != '' && g['isLink'] == 'no') ? ' title="'+ title +'"' : '') +' loading="lazy" alt="'+ imgalt +'">'
                     + '</picture>';
                 } else {
@@ -452,9 +455,12 @@
             floating = "center";
         }
         if (pictureSubmit) {
+            let isWebP = false; // assume origin is not a webp file itself (default)
+            const oExt = img.split('.').pop(); // check origin extension name
+            if (oExt.toLowerCase() == 'webp') { isWebP = true; } // origin is a webp file type which is a full type and has a thumb expression in the root of the path and so does not need a webp variation in .v/
             img = '<!-- s9ymdb:'+ imgID +' --><picture>'
-            + '<source type="image/avif" srcset="' + imgAVIF + '">'
-            + '<source type="image/webp" srcset="' + imgWebP + '">'
+            + (imgAVIF.length > 0 ? '<source type="image/avif" srcset="' + imgAVIF + '">' : '')
+            + (!isWebP ? '<source type="image/webp" srcset="' + imgWebP + '">' :'')
             + '<img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'"'+ ((title != '' && noLink) ? ' title="'+ title +'"' : '') +' loading="lazy" alt="'+ altxt +'">'
             + '</picture>';
         } else {
