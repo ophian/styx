@@ -1301,7 +1301,6 @@ function _define_resourcetype_thread() : void {
                 if ($currentThreads === 1) {
                     $cores = serendipity_get_cpu_cores();
                     $maxTD = $cores === 0 ? 2 : $cores; // Max or fallback
-                    echo "Threads have been set to CPU-Maximum: " . $maxTD . PHP_EOL;
                 } else {
                     $maxTD = $currentThreads;
                 }
