@@ -9,6 +9,36 @@ if (IN_serendipity !== true) {
 }
 
 /**
+ * Determines the current host name and cleans it of any potential injections.
+ *
+ * Args:
+ *
+ * Returns:
+ *      - The validated host address
+ * @access public
+ */
+function serendipity_getCleanHost() : string {
+    // If no host is specified (CLI/Cron), fall back to localhost
+    $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+
+    // Remove the port section, if present (to be handled separately)
+    if ($pos = strpos($host, ':')) {
+        $host = substr($host, 0, $pos);
+    }
+
+    // Allow only characters that are valid in a hostname according to RFC 1123/952.
+    // This reliably eliminates \r, \n, @, >, spaces, and control characters.
+    $host = preg_replace('/[^a-zA-Z0-9\-\.]/', '', $host);
+
+    // Additional validation via PHP filters (optional, but recommended)
+    if (!filter_var($host, FILTER_VALIDATE_DOMAIN, FILTER_FLAG_HOSTNAME)) {
+        return 'localhost'; // Safe fallback in case of a completely corrupted header
+    }
+
+    return $host;
+}
+
+/**
  * Adds a new author account
  *
  * Args:
