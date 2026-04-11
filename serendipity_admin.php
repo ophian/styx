@@ -158,6 +158,7 @@ if (!$use_installer && $is_logged_in) {
             if (empty($serendipity['useAvifFormat'])) {
                 $serendipity['useAvifFormat'] = false;
             }
+            // Check ImageMagick used serendipity or privat member global
             if ($serendipity['magick'] && $serendipity['GET']['adminAction'] != 'directorySelect' && !isset($serendipity['ImagickResourceThreads'])) {
                 _define_resourcetype_thread();
             }
