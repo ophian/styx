@@ -1325,6 +1325,8 @@ function _define_resourcetype_thread() : void {
  * @access private
  */
 function serendipity_passToModule(?string $type = null, string $source = '', string $target = '', iterable $args = array()): string|iterable|bool {
+    global $serendipity;
+
     // check null type || $type is not supported || failed ACL permission
     $_mimetype = str_contains($type, '/') ? explode('/', $type)[1] : $type;
     if ($type === null
@@ -1333,6 +1335,9 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
         return false;
     }
 
+    // Set the maximum amount of core threads to use (up to 15, which is the default Imagick max set, or 2 as a fallback. This won't matter on single core server setups)
+    Imagick::setResourceLimit(Imagick::RESOURCETYPE_THREAD, (int) $serendipity['ImagickResourceThreads']); // yepp, we sadly have do it for each run
+
     if ($_mimetype === 'gif') {
         $args[5] = -1; // Force gamma deactivation for GIFs
     }
@@ -1340,10 +1345,6 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
     $op_debug = false; // #DEV# live debug echo out for reached state of args [1,2,3] - Unusable for ajax image auto resizing on upload !!
     $im_debug = ''; // a prefix is already given by "Imagick ..."
     try {
-        if ($_mimetype === 'avif') {
-            // Set the limit for core threads (equals CMD -limit thread 2), which may be a downgrade but secures multi-threaded overloading
-            Imagick::setResourceLimit(Imagick::RESOURCETYPE_THREAD, 2);
-        }
         // Handle PDF thumbs: load only first page
         if ($type === 'pdfthumb') {
             $im = new Imagick();
@@ -1625,6 +1626,8 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
  * @access private
  */
 function serendipity_passToCMD(?string $type = null, string $source = '', string $target = '', iterable $args = array()) : string|iterable|bool {
+    global $serendipity;
+
     // check null type || $type is not supported || failed ACL permission
     $_mimetype = str_contains($type, '/') ? explode('/', $type)[1] : $type;
     if ($type === null
@@ -1731,7 +1734,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
 
     } else if ($type == 'format-avif') {
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
-                "$quality +profile 'exif,iptc,comment' -limit thread 2 \"$target\""; // keeps color profiles || limit core threads for multi-upload parallel cases (yes, it might be a downgrade, because default is multi-threaded, but it secures overloading)
+                "$quality +profile 'exif,iptc,comment' -limit thread {$serendipity['ImagickResourceThreads']} \"$target\""; // keeps color profiles || limit core threads for multi-upload parallel cases (yes, it might be a downgrade, because default is multi-threaded, but it secures overloading)
         $dbg .= "variations from origin to $type [ $cmd ] \n";
 
     } else if (in_array($type, ['format-jpg', 'format-jpeg', 'format-png', 'format-gif'])) { // this now actually is image properties format change only, if supported
@@ -1810,7 +1813,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
 
     } else if (image_type_to_mime_type(IMAGETYPE_AVIF) === $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth {$idepth} {$gamma['linear']} {$do} {$gamma['standard']} " .
-                "-depth {$idepth} +profile 'exif,iptc,comment' -limit thread 2 \"$target\""; // keeps color profiles || limit core threads for multi-upload parallel cases (yes, it might be a downgrade, because default is multi-threaded, but it secures overloading)
+                "-depth {$idepth} +profile 'exif,iptc,comment' -limit thread {$serendipity['ImagickResourceThreads']} \"$target\""; // keeps color profiles || limit core threads for multi-upload parallel cases (yes, it might be a downgrade, because default is multi-threaded, but it secures overloading)
         if (str_contains($cmd, '-scale')) {
             $cmd = str_replace("-depth {$idepth} ", '', $cmd); // on scale: Remove both depth assignments for AVIF since delivers slight better sharpened quality - works on both sizes
         }
