@@ -3,6 +3,10 @@ Version 5.1-rc1 (DEV)
 
  * Improve media handlers for ORIGIN image format being a WebP file itself
 
+ * Improve using core thread resourceLimits on ImageMagick build image formats
+   via serendipity or privat member set $serendipity['ImagickResourceThreads']
+   global.
+
 
 
 Version 5.1-beta1 (March 26th, 2026)
