@@ -1230,6 +1230,89 @@ function serendipity_getAnimationFrameCount(string $source) : int {
 }
 
 /**
+ * Get the maximum number of (hyperthreaded) CPU Cores
+ *
+ * Used for ImageMagick CMD / MOD setResourceLimit(Imagick::RESOURCETYPE_THREAD)
+ *
+ * Args:
+ *
+ * Returns:
+ *      - INT of core threads to use; 0 if none set
+ * @access private
+ */
+function serendipity_get_cpu_cores() {
+    global $serendipity;
+
+    if (!isset($serendipity['imagick_core_worker_threads']) && isset($_SERVER['NUMBER_OF_PROCESSORS'])) {
+        return (int)$_SERVER['NUMBER_OF_PROCESSORS'];
+    }
+    // Custom private set amount of core threads to use
+    if (isset($serendipity['imagick_core_worker_threads']) && is_int($serendipity['imagick_core_worker_threads']) && $serendipity['imagick_core_worker_threads'] > 0) {
+        return $serendipity['imagick_core_worker_threads'];
+    }
+    // Environment (WIN) fallback for non-set SERVER-Variable
+    return (int)shell_exec('echo %NUMBER_OF_PROCESSORS%');
+}
+
+/**
+ * Configure encode threading by default/configured ImageMagick set/get RESOURCETYPE_THREAD
+ * against the MAX available amount of the current given Server box (hyperthreaded) core threads.
+ * Set/Check this ONCE per runtime set as a Serendipity global in the images API:
+ *      - for the CLI (avif format) or
+ *      - generically for the Imagick MOD encoding usage.
+ *
+ * Args:
+ *
+ * Returns:
+ *      - void
+ */
+function _define_resourcetype_thread() : void {
+    global $serendipity;
+
+    $maxTD = 2; // define fallback
+
+    if (!isset($serendipity['ImagickResourceThreads'])) {
+        // SET Imagick extension Module
+        if (true === serendipity_checkImagickAsModule()) {
+            $currentThreads = (int) Imagick::getResourceLimit(Imagick::RESOURCETYPE_THREAD);
+            if ($currentThreads === 1) {
+                $cores = serendipity_get_cpu_cores();
+                $maxTD = $cores === 0 ? 2 : $cores;
+            }
+        // The binary CLI commands
+        } else {
+            // Identify how many core threads are set as per default
+            $identify_cmd = str_replace(['convert', 'magick'], 'identify', $serendipity['convert']);
+            $res_strset  = @exec("{$identify_cmd} -list resource | grep 'Thread'"); // returns empty string("") when "grep" not available
+            if (str_contains($res_strset, ':')) {
+                list($k, $v) = array_map('trim', explode(':', $res_strset));
+                $res_sets    = array($k => $v);
+            } else {
+                $res_strset = @shell_exec("{$identify_cmd} -list resource");
+                if (str_contains($res_strset, ':')) {
+                    $res_clean = str_replace("Resource limits:", "", $res_strset);
+                    preg_match_all('/([\w\s]+?):\s*([\w\.]+)/', $res_clean, $matches);
+                    $res_sets = array_combine(array_map('trim', $matches[1]), $matches[2]);
+                    var_dump($res_sets);
+                }
+            }
+            $currentThreads = (int) $res_sets['Thread']; // read configured or default - may be 0 on nonce, 1 on ? or up to 15 
+            if (is_int($currentThreads) && $currentThreads > 0) {
+                if ($currentThreads === 1) {
+                    $cores = serendipity_get_cpu_cores();
+                    $maxTD = $cores === 0 ? 2 : $cores; // Max or fallback
+                    echo "Threads have been set to CPU-Maximum: " . $maxTD . PHP_EOL;
+                } else {
+                    $maxTD = $currentThreads;
+                }
+            }
+        }
+        // Remember
+        serendipity_set_config_var('ImagickResourceThreads', $maxTD, 0);
+    }
+}
+
+/**
  * Pass ImageMagick CMD build variables to the Imagick module class and process the image resize for a single image file
  *
  * Args:
