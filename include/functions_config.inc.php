@@ -971,15 +971,7 @@ function serendipity_restoreVar(mixed &$source, mixed &$target) : bool {
 function serendipity_setCookie(string $name, string $value, bool $securebyprot = true, int|bool $custom_timeout = false, bool $httpOnly = true) : void {
     global $serendipity;
 
-    $host = $_SERVER['HTTP_HOST'];
-
-    // We filter out EVERYTHING that is not a valid part of a hostname.
-    // This still allows multi-domain, but removes \r, \n, Bcc:, @, etc.
-    $host = preg_replace('/[^a-zA-Z0-9\-\.]/', '', $host);
-
-    if (empty($host)) {
-        $host = 'localhost'; // Absolute Fallback
-    }
+    $host = serendipity_getCleanHost();
 
     if ($securebyprot) {
         $secure = (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on') ? true : false;
@@ -1000,6 +992,7 @@ function serendipity_setCookie(string $name, string $value, bool $securebyprot =
         $custom_timeout = time() + 60*60*24*30;
     }
 
+    // domain host failsafe secured by an empty string, which forces the browser to bind the cookie to match the domain currently in use
     $options = [
         'expires'   => $custom_timeout,
         'path'      => $serendipity['serendipityHTTPPath'],
