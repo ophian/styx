@@ -2079,6 +2079,8 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                 if ($serendipity['useAvifFormat']) $formats[] = 'avif';
 
                 foreach ($formats as $ext) {
+                    // on upload $tfile extension === $suf is set lowered !
+                    if ($ext === $suf) continue; // Origin already is a variation file format file and has a "variation" format origin file thumb and so does not need further format file variations!
                     $newgdfile = serendipity_makeImageVariationPath($outfile, $ext);
                     $vThumbPath = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
                     $vFullPath  = str_replace(".{$thumbname}", '', $vThumbPath);
@@ -2182,6 +2184,8 @@ function serendipity_makeThumbnail(string $file, string $directory = '', int|boo
                     if ($serendipity['useAvifFormat'] && !$isAnimated) $formats[] = 'avif';
 
                     foreach ($formats as $ext) {
+                        // on upload $tfile extension === $suf is set lowered !
+                        if ($ext === $suf) continue; // Origin already is a variation file format file and has a "variation" format origin file thumb and so does not need further format file variations!
                         $newfile = serendipity_makeImageVariationPath($outfile, $ext);
                         $vThumbPath = $newfile['filepath'] . '/.v/' . $newfile['filename'];
                         $vFullPath  = str_replace(".{$thumbname}", '', $vThumbPath);
