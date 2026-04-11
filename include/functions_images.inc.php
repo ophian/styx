@@ -1082,7 +1082,7 @@ function serendipity_convertToWebPFormat(string $infile, string $outpath, string
 function serendipity_convertToAvifFormat(string $infile, string $outpath, string $outfile, string $mime, bool $mute = false, int $quality = -1) : string|iterable|bool {
     global $serendipity;
 
-    if (in_array(strtoupper(explode('/', $mime)[1]), serendipity_getSupportedFormats())) {
+    if (in_array(strtoupper(explode('/', $mime)[1]), serendipity_getSupportedFormats()) || (mime_content_type($infile) === 'image/webp' && $mime === 'image/avif')) {
 
         $_tmppath = dirname($outpath . '/.v/' . $outfile);
         if (!is_dir($_tmppath)) {
