@@ -1042,7 +1042,7 @@ function serendipity_JSsetCookie(string $name, string $value) : void {
 function serendipity_deleteCookie(string $name) : void {
     global $serendipity;
 
-    $host = $_SERVER['HTTP_HOST'];
+    $host = serendipity_getCleanHost();
     if ($pos = strpos($host, ':')) {
         $host = substr($host, 0, $pos);
     }
