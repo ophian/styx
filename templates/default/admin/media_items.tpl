@@ -134,9 +134,9 @@
 {else}
 
                 <div id="media_imagelink_waitingspin_{$file.id}" class="pulsator" style="display: none"><div></div><div></div></div>
-                <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{if isset($file.sizeAVIF) AND $file.sizeAVIF > 252 AND $file.sizeAVIF != 34165 AND $file.sizeAVIF != 3389 AND isset($file.sizeWebp) AND $file.sizeAVIF < $file.sizeWebp}{$link_avif|default:$link}{else if isset($file.sizeWebp) AND $file.sizeWebp > 0 AND $file.sizeWebp < $file.size}{$link_webp|default:$link}{else}{$link}{/if}" data-fallback="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}{if isset($file.sizeAVIF) AND $file.sizeAVIF > 252 AND isset($file.sizeWebp) AND $file.sizeAVIF < $file.sizeWebp}{if !empty($img_src_avif)} (AVIF){/if}{else}{if !empty($img_src_webp) AND isset($file.sizeWebp) AND $file.sizeWebp > 0 AND $file.sizeWebp < $file.size} (WepP){/if}{/if}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
+                <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{if isset($file.sizeAVIF) AND $file.sizeAVIF > 252 AND isset($file.sizeWebp) AND $file.sizeAVIF < $file.sizeWebp}{$link_avif|default:$link}{else if isset($file.sizeWebp) AND $file.sizeWebp > 0 AND $file.sizeWebp < $file.size}{$link_webp|default:$link}{else}{$link}{/if}" data-fallback="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}{if isset($file.sizeAVIF) AND $file.sizeAVIF > 252 AND isset($file.sizeWebp) AND $file.sizeAVIF < $file.sizeWebp}{if !empty($img_src_avif)} (AVIF){/if}{else}{if !empty($img_src_webp) AND isset($file.sizeWebp) AND $file.sizeWebp > 0 AND $file.sizeWebp < $file.size} (WepP){/if}{/if}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
                     <picture>
-{if isset($file.thumbSizeAVIF) AND $file.thumbSizeAVIF > 252 AND $file.thumbSizeAVIF != 34165 AND $file.thumbSizeAVIF != 3389 AND ( isset($file.thumbSizeWebp) AND ( $file.thumbSizeWebp == 0 OR $file.thumbSizeAVIF < $file.thumbSizeWebp ) OR !isset($file.thumbSizeWebp))}
+{if isset($file.thumbSizeAVIF) AND $file.thumbSizeAVIF > 252 AND ( isset($file.thumbSizeWebp) AND ( $file.thumbSizeWebp == 0 OR $file.thumbSizeAVIF < $file.thumbSizeWebp ) OR !isset($file.thumbSizeWebp))}
                         <source type="image/avif" srcset="{$img_src_avif|default:''}">
 {/if}
 {if isset($file.sizeWebp) AND $file.sizeWebp > 0 AND $file.sizeWebp < $file.size}
@@ -167,7 +167,7 @@
                 <div id="media_image_waitingspin_{$file.id}" class="pulsator format_image" style="display: none"><div></div><div></div></div>
 {/if}
                 <picture>
-{if isset($file.thumbSizeAVIF) AND $file.thumbSizeAVIF > 252 AND $file.thumbSizeAVIF != 34165 AND $file.thumbSizeAVIF != 3389 AND ($file.thumbSizeWebp == 0 OR $file.thumbSizeAVIF < $file.thumbSizeWebp)}
+{if isset($file.thumbSizeAVIF) AND $file.thumbSizeAVIF > 252 AND ($file.thumbSizeWebp == 0 OR $file.thumbSizeAVIF < $file.thumbSizeWebp)}
                     <source type="image/avif" srcset="{$img_src_avif|default:''}">
 {/if}
 {if isset($file.sizeWebp) AND $file.sizeWebp > 0 AND $file.sizeWebp < $file.size}
@@ -224,10 +224,10 @@
 {/if}
 {* AVIF *}
 {if NOT empty($file.nice_size_avif) AND NOT $file.hotlink}
-                        <li><b>AVIF-{$CONST.FILE_SIZE}:</b> {if $file.sizeAVIF == 34165 OR $file.sizeAVIF == 3389} (broken){else}{$file.nice_size_avif} KB{/if}</li>
+                        <li><b>AVIF-{$CONST.FILE_SIZE}:</b> {if $file.sizeAVIF <= 252} (broken){else}{$file.nice_size_avif} KB{/if}</li>
 {/if}
 {if $file.is_image AND NOT empty($file.nice_thumbsize_avif)}
-                        <li><b>AVIF-{$CONST.THUMBFILE_SIZE}:</b> {if $file.thumbSizeAVIF == 34165 OR $file.thumbSizeAVIF == 3389} (broken){else}{$file.nice_thumbsize_avif} KB{/if}</li>
+                        <li><b>AVIF-{$CONST.THUMBFILE_SIZE}:</b> {if $file.thumbSizeAVIF <= 252} (broken){else}{$file.nice_thumbsize_avif} KB{/if}</li>
 {/if}
 {* WebP *}
 {if NOT empty($file.nice_size_webp) AND NOT $file.hotlink}
@@ -269,7 +269,7 @@
 {if (NOT empty($file.full_file_webp) OR NOT empty($file.full_file_avif)) AND NOT empty($imagesNoSync)}
 {foreach $imagesNoSync AS $special}
 {if $file.name == $special.pfilename}{* Check out erroneous build AVIF files by filesize and switch special case variation link on AVIF true *}
-{if $special.extension == 'avif'}{if $special.filesize == null OR $special.filesize <= 252 OR $special.filesize == 34165 OR $special.filesize == 3389 OR (isset($special.linknext) AND $special.linknext === true)}{* $special.extension}={$special.filesize *}{continue}{else}{assign var="isavif" value=true}{/if}{/if}
+{if $special.extension == 'avif'}{if $special.filesize == null OR $special.filesize <= 252 OR (isset($special.linknext) AND $special.linknext === true)}{* $special.extension}={$special.filesize *}{continue}{else}{assign var="isavif" value=true}{/if}{/if}
 {if $special.extension == 'webp' AND isset($isavif) AND $isavif === true}{* reset loop assignment *}{assign var="isavif" value=false}{continue}{* do not show special webp *}{/if}
             <li class="special"><a class="media_fullsize media_prop button_link" href="{$special.url}" title="{if $special.extension == 'webp' OR $special.extension == 'avif'}{$CONST.VARIATION}{else}{$CONST.PUBLISHED}{/if}: {$special.basename}, {$special.width}x{$special.height}px" data-pwidth="{$special.width}" data-pheight="{$special.height}"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span><span class="visuallyhidden"> Image Of</span></a></li>
 {/if}
