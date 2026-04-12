@@ -975,9 +975,6 @@ function serendipity_setCookie(string $name, string $value, bool $securebyprot =
 
     if ($securebyprot) {
         $secure = (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on') ? true : false;
-        if ($pos = strpos($host, ':')) {
-            $host = substr($host, 0, $pos);
-        }
     } else {
         $secure = false;
     }
@@ -1043,9 +1040,6 @@ function serendipity_deleteCookie(string $name) : void {
     global $serendipity;
 
     $host = serendipity_getCleanHost();
-    if ($pos = strpos($host, ':')) {
-        $host = substr($host, 0, $pos);
-    }
 
     // If HTTP-Hosts like "localhost" are used, current browsers reject cookies.
     // In this case, we disregard the HTTP host to be able to set that cookie.
