@@ -1,6 +1,10 @@
 Version 5.1-rc1 (DEV)
  ------------------------------------------------------------------------
 
+ * Remove early development conditional 3389 & 34165 exact byte exceptions
+   of known broken AVIF file sizes in between PHP 8.1 and 8.2 versions.
+   [ see POSSIBLE FAILURE notes in 3.6-beta-1 changelog... ]
+
  * Secure Styx baseURL and Cookie HTTP_HOST against manipulated host injections
 
  * Improve media handlers for ORIGIN image format being a WebP file itself
