@@ -1106,6 +1106,8 @@ function serendipity_sendMail(string $to, string $subject, string $message, ?str
         $headers = array();
     }
 
+    $host = serendipity_getCleanHost();
+
     // Fix special characters
     $fromName = str_replace(array('"', "\r", "\n"), array("'", '', ''), $fromName);
     $fromMail = str_replace(array("\r","\n"), '', $fromMail);
@@ -1152,7 +1154,7 @@ function serendipity_sendMail(string $to, string $subject, string $message, ?str
             $maildata['headers'][] = 'X-Mailer: ' . $maildata['version'];
             $maildata['headers'][] = 'X-Engine: PHP/'. PHP_VERSION;
         }
-        $maildata['headers'][] = 'Message-ID: <'. bin2hex(random_bytes(16)) .'@'. $_SERVER['HTTP_HOST'] .'>';
+        $maildata['headers'][] = 'Message-ID: <'. bin2hex(random_bytes(16)) .'@'. $host .'>';
         $maildata['headers'][] = 'MIME-Version: 1.0';
         $maildata['headers'][] = 'Precedence: bulk';
         $maildata['headers'][] = 'Content-Type: text/plain; charset=' . LANG_CHARSET;
