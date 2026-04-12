@@ -1,6 +1,8 @@
 Version 5.1-rc1 (DEV)
  ------------------------------------------------------------------------
 
+ * Secure Styx baseURL and Cookie HTTP_HOST against manipulated host injections
+
  * Improve media handlers for ORIGIN image format being a WebP file itself
 
  * Improve using core thread resourceLimits on ImageMagick build image formats
