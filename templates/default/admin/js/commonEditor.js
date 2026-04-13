@@ -75,6 +75,24 @@ const commonConfig = {
       };
       editor.addShortcut("meta+shift+40", "Container break-out downwards", function () { _newBlock('down'); });
       editor.shortcuts.add("meta+shift+38", "Container break-out upwards", function () { _newBlock('up'); });
+      // refocus to the place where have been added...
+      editor.on('ExecCommand', function (e) {
+        if (e.command === 'mceInsertContent') {
+          editor._pendingScrollRestore = true;
+        }
+        if (e.command === 'mceFocus' && editor._pendingScrollRestore) {
+          editor._pendingScrollRestore = false;
+          requestAnimationFrame(() => {
+            const cursorNode = editor.selection.getNode();
+            if (cursorNode) {
+              cursorNode.scrollIntoView({
+                block: 'nearest',
+                behavior: 'instant'
+              });
+            }
+          });
+        }
+      });
     },
     // define codesample language markers
     codesample_languages: [
