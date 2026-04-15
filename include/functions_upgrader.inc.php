@@ -585,6 +585,41 @@ $dead_dirs_510 = array(
     $serendipity['serendipityPath'] . 'plugins/serendipity_event_xmlrpc'
 );
 
+/* Dependency PLUGIN API configurated cleanup since 5.0 for removed plugins
+   which had been installed to avoid having to delete them manually from plugin list. */
+$plugin_config_cleanup = array(
+    'serendipity_event_ckeditor',
+    'serendipity_event_smartymarkup',
+    'serendipity_event_spamblock_rbl',
+    'serendipity_event_spamblock_surbl',
+    'serendipity_plugin_feedburnersidebar',
+    'serendipity_event_ljupdate',
+    'serendipity_event_weblogping',
+    'serendipity_event_xmlrpc'
+);
+
+/**
+ * Hidden cleanup for removed plugins that were installed
+ *
+ * Args:
+ *      - Array of plugin names
+ * Returns:
+ *      - Void
+ * @access private
+ */
+function recursive_config_iterator(iterable $plugins = array()) : void {
+    if (null === $plugins) {
+        return;
+    }
+    global $serendipity;
+
+
+    foreach ($plugins AS $plugin) {
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}plugins
+                               WHERE path = '". serendipity_db_escape_string($plugin) . "'");
+    }
+}
+
 /**
  * Styx 5 recursive directory call to purge old UTF-8 directories in 'plugins' or 'templates'
  *
