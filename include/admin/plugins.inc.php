@@ -289,7 +289,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $upgrade = false;
             // Here used in this order: version_compare(existing_version, new_version, operator)
             // event plugins upgradeable
-            if (version_compare($props['version'], $props['upgrade_version'], '<')) {
+            if (isset($props['version']) && version_compare($props['version'], $props['upgrade_version'], '<')) {
                 $upgrade = true;
                 $up_case = 1; // event plugins upgradeable
             }
