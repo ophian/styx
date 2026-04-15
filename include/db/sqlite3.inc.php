@@ -82,7 +82,7 @@ function serendipity_db_reconnect() : void {
  *      - The output string
  * @access  public
  */
-function serendipity_db_escape_string(string|int|null $string) : ?string {
+function serendipity_db_escape_string(SimpleXMLElement|string|int|null $string) : ?string {
     static $search  = array("\x00", '%',   "'",   '\"');
     static $replace = array('%00',  '%25', "''", '\\\"');
 

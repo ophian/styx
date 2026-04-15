@@ -613,7 +613,6 @@ function recursive_config_iterator(iterable $plugins = array()) : void {
     }
     global $serendipity;
 
-
     foreach ($plugins AS $plugin) {
         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}plugins
                                WHERE path = '". serendipity_db_escape_string($plugin) . "'");

@@ -228,7 +228,7 @@ function serendipity_db_matched_rows() : int {
  *      - The output string
  * @access  public
  */
-function serendipity_db_escape_string(string|int|null $string) : ?string {
+function serendipity_db_escape_string(SimpleXMLElement|string|int|null $string) : ?string {
     global $serendipity;
 
     if ($string === null) {
