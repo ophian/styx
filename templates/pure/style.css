@@ -1453,6 +1453,7 @@ nav.pager + .serendipity_blogpdf {
 img.serendipity_entryIcon {
     float: right;
     border: 0 none;
+    padding: 0 0 .5em .5em;
 }
 
 
