@@ -1,6 +1,9 @@
 Version 5.1.0 (DEV)
  ------------------------------------------------------------------------
 
+ * Improve the backends tinyMCE RichText Editor frame, the [ pure ] theme and
+   the generic style_fallback CSS rules for comment cased gallery fluids.
+
  * Add SimpleXMLElement to serendipity_db_escape_string(#1) argument Union Types
 
 
