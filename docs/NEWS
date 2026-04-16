@@ -1,7 +1,7 @@
 Version 5.1.0 (DEV)
  ------------------------------------------------------------------------
 
-
+ * Add SimpleXMLElement to serendipity_db_escape_string(#1) argument Union Types
 
 
 
