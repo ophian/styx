@@ -54,7 +54,7 @@ if (defined('USE_MEMSNAP')) {
 }
 
 // Set this early enough, right after global init in compat
-$serendipity['charset'] ??= 'UTF-8/'; // Path part setting for themes and plugins. The LANG_CHARSET constant is defined in the lang files
+$serendipity['charset'] ??= 'UTF-8/'; // Legacy Path part setting for themes and plugins. The LANG_CHARSET constant is defined in the lang files
 
 // The version string
 $serendipity['version'] = '5.1-rc1';
