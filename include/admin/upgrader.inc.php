@@ -742,7 +742,7 @@ $tasks = array(
 
             array(  'version'   => '5.1-beta1',
                     'type'      => 'HIDDEN',
-                    'title'     => 'Hidden',
+                    'title'     => 'Hidden dependency task',
                     'function'  => 'recursive_config_iterator',
                     'arguments' => array($plugin_config_cleanup)),
 
