@@ -1251,7 +1251,17 @@ function serendipity_get_cpu_cores() {
         return $serendipity['imagick_core_worker_threads'];
     }
     // Environment (WIN) fallback for non-set SERVER-Variable
-    return (int)shell_exec('echo %NUMBER_OF_PROCESSORS%');
+    try {
+        $ret = @shell_exec('echo %NUMBER_OF_PROCESSORS%');
+    } catch (\Throwable $t) {
+        $ret = @exec('echo %NUMBER_OF_PROCESSORS%');
+    } catch (\Throwable $t) {
+        $ret = 0;
+    } finally {
+        $ret ??= 0;
+    }
+
+    return (int)$ret;
 }
 
 /**
