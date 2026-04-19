@@ -276,7 +276,7 @@ if (!$metadata['template_file'] || $metadata['template_file'] == 'feed_' . $file
     die("Invalid RSS version specified or RSS-template file 'feed_$file_version.tpl' not found\n");
 }
 
-$self_url = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . htmlspecialchars($_SERVER['REQUEST_URI']);
+$self_url = ((isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on') ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . htmlspecialchars($_SERVER['REQUEST_URI']);
 if (!is_array($entries)) {
     $entries = array();
 }

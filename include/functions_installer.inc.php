@@ -276,7 +276,7 @@ function serendipity_query_default(string $optname, iterable|int|string|bool $de
 
         case 'defaultBaseURL':
         case 'baseURL':
-            $ssl  = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on';
+            $ssl  = (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on');
             $port = $_SERVER['SERVER_PORT'];
 
             return sprintf('http%s://%s%s%s',

@@ -222,7 +222,7 @@ switch ($serendipity['GET']['step']) {
                                    WHERE   id = " . (int)$hit['id']);
         }
 
-        $curl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . ((isset($_SERVER['HTTP_PORT']) && $_SERVER['HTTP_PORT'] != 80) ? ':' . $_SERVER['HTTP_PORT'] : '');
+        $curl = ((isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on') ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . ((isset($_SERVER['HTTP_PORT']) && $_SERVER['HTTP_PORT'] != 80) ? ':' . $_SERVER['HTTP_PORT'] : '');
         if (isset($serendipity['GET']['show'])) {
             switch($serendipity['GET']['show']) {
                 case 'redirect':
