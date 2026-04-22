@@ -175,7 +175,6 @@ ul#serendipity_categories_list {
 .serendipity_image_block.row {
     clear: both;
     display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex; }
 
 /* Gallery-Size: This sizes the origin single-line image gallery to be used as a real multi-item image container */
@@ -185,13 +184,11 @@ ul#serendipity_categories_list {
     -webkit-flex-wrap: wrap;
     flex-flow: row wrap;
     align-items: flex-start; /* the default is stretch, internally used by Chrome when flexing direct child images */
-    justify-content: space-around; /* IE10+ CSS fallback, since -evenly not supported */
     justify-content: space-evenly;
     margin: auto auto 1em; }
     /* Fit image flexible inside the link container to not overlap */
     .serendipity_image_block.row .serendipity_image_link {
       display: -webkit-flex;
-      display: -ms-flexbox;
       display: flex; }
     /* The inline containers or items min/max size to scale gallery images to an affordable size */
     .serendipity_image_block.row .serendipity_imageComment_left,
@@ -320,7 +317,6 @@ ul#serendipity_categories_list {
 .serendipity_image_block:not(.row):not(.col) .serendipity_imageComment_left .serendipity_imageComment_img,
 .serendipity_image_block:not(.row):not(.col) .serendipity_imageComment_right .serendipity_imageComment_img {
     display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex; }
 .serendipity_image_block.col .serendipity_imageComment_left,
 .serendipity_image_block.col .serendipity_imageComment_right {
