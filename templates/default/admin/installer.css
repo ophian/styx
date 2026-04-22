@@ -3368,7 +3368,6 @@ img.mfp-img {
     #template_select,
     #template_select > ul {
         display: -webkit-flex;
-        display: -ms-flexbox;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
