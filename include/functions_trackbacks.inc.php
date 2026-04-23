@@ -47,9 +47,9 @@ function serendipity_trackback_is_success(string $resp) : bool|string {
  *      - Boolean
  * @access public
  */
-function serendipity_pingback_is_success(string $resp) : bool {
+function serendipity_pingback_is_success(string|false $resp) : bool {
     // This is very rudimentary, but the fault is printed later, so what..
-    if (preg_match('@<fault>@', $resp, $matches)) {
+    if (!$resp || preg_match('@<fault>@', $resp, $matches)) {
         return false;
     }
     return true;
@@ -103,7 +103,7 @@ function serendipity_pingback_autodiscover(string $loc, string $body, ?string $u
 
     $response =  serendipity_send($pingback, $query, 'text/html');
     $success  =  serendipity_pingback_is_success($response);
-    if ($success == true) {
+    if ($success === true) {
         echo '<div>&#8226; ' . PINGBACK_SENT .'</div>';
     } else {
         echo '<div>&#8226; ' . sprintf(PINGBACK_FAILED, $response) . '</div>';
@@ -117,6 +117,7 @@ function serendipity_pingback_autodiscover(string $loc, string $body, ?string $u
  * Args:
  *      - The URL to send a trackback to
  *      - The XML data with the trackback contents
+ *      - The content type
  * Returns:
  *      - Response string or false
  * @access public
@@ -247,7 +248,7 @@ function serendipity_reference_autodiscover(string $loc, string $url, string $au
     $timeout = 30;
     $secured = false;
     $u = parse_url($loc);
-    $u['scheme'] = $u['scheme'] ?? '';
+    $u['scheme'] ??= '';
 
     if ($u['scheme'] != 'http' && $u['scheme'] != 'https') {
         return;
