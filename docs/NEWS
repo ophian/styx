@@ -1,6 +1,12 @@
 Version 5.1.0 (DEV)
  ------------------------------------------------------------------------
 
+ * Improved CSS gallery spans under different conditions that changed lately
+   - Backend preview cases [ pure ] theme
+   - RichText Editor iframe content
+   - Improved gallery row spans in generic default_fallback and [pure ] theme
+   - Improved column span galleries for Chromium vs Firefox [ pure ] theme
+
  * Improve the backends tinyMCE RichText Editor frame, the [ pure ] theme and
    the generic style_fallback CSS rules for comment cased gallery fluids.
 
