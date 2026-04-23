@@ -196,10 +196,12 @@ ul#serendipity_categories_list {
     .serendipity_image_block.row .serendipity_image_link,
     .serendipity_image_block.row .serendipity_image_left,
     .serendipity_image_block.row .serendipity_image_right {
+      width: 100%;
       max-width: 260px; }
     /* Line up a row gallery (manually) commented image to nearly fit the max-width 260px image sizes - important avoid theme % flexed max-width sizes */
-    .serendipity_image_block.row .serendipity_imageComment_left{
-      max-width: 260px !important;
+    .serendipity_image_block.row .serendipity_imageComment_left {
+      display: block;
+      max-width: 260px;
       min-width: 250px; }
       .serendipity_image_block.row .serendipity_imageComment_left .serendipity_image_link,
       .serendipity_image_block.row .serendipity_imageComment_left .serendipity_image_left {
