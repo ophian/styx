@@ -2541,7 +2541,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .post :not(.serendipity_image_block) .serendipity_imageComment_right,
     .grid-col .post div:not(.serendipity_image_block) div:not(.serendipity_image_block) .serendipity_image_left:not([srcset*=".400W."]),
     .grid-col .post div:not(.serendipity_image_block) div:not(.serendipity_image_block) .serendipity_image_right:not([srcset*=".400W."]) {
-        display: inline-grid; /* spans different (more independently) than inline-block containers */
+        display: inline-table; /* spans different (more independently) than inline-block containers */
         margin-bottom: auto; /* when gallery images including comments are not the same size -> span to top */
     }
     .serendipity_image_block.row .serendipity_imageComment_left {
@@ -2586,6 +2586,9 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .post div .serendipity_image_left,
     .post div .serendipity_image_right {
         max-width: 75%; }
+    .grid-flex .post div .serendipity_image_left,
+    .grid-flex .post div .serendipity_image_right {
+        max-width: 75vw; }
     /* 1-sidebar | for content image block galleries in 100% */
     .grid-flex .page .serendipity_image_block .serendipity_imageComment_left,
     .grid-flex .page .serendipity_image_block .serendipity_imageComment_right,
@@ -2595,7 +2598,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .grid-flex .post p .serendipity_image_block .serendipity_image_right,
     .grid-flex .post div .serendipity_image_block .serendipity_image_left,
     .grid-flex .post div .serendipity_image_block .serendipity_image_right {
-        max-width: fit-content; }
+        max-width: 100%; } /* galleries with mixed orientations span better with 100% than fit-content */
 }
 @media screen and (min-width: 1024px) {
     .post .serendipity_imageComment_left:not(figure) {
@@ -2621,7 +2624,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .grid-flex .post p .serendipity_image_right:not([srcset*=".400W."]),
     .grid-flex .post div .serendipity_image_left:not([srcset*=".400W."]),
     .grid-flex .post div .serendipity_image_right:not([srcset*=".400W."]) {
-        max-width: 48%; }
+        max-width: 48vw; }
     /* 1-sidebar | for content image block galleries in 100% | !in responsiveimages plugin cases */
     .grid-flex .page .serendipity_image_block .serendipity_imageComment_left,
     .grid-flex .page .serendipity_image_block .serendipity_imageComment_right,
@@ -2695,7 +2698,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
 .grid-col .post figure div .serendipity_image_right:not([srcset*=".400W."]),
 .grid-col .post figure div .serendipity_image_left:not([srcset*=".800W."]),
 .grid-col .post figure div .serendipity_image_right:not([srcset*=".800W."]) {
-  max-width: 100%; }
+    max-width: 100%; }
 
 /* overwrite fallback plain image padding */
 .serendipity_image_center {
