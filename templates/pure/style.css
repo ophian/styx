@@ -1226,7 +1226,11 @@ nav.pager + .serendipity_blogpdf {
 /* overwrites gallery 900px media 75% sizes for the entry preview */
 #content.preview_preview_content .serendipity_image_block.col img {
     width: 100%;
-    max-width: fit-content;
+    max-width: 100%;
+}
+#content.preview_preview_content div.serendipity_image_block.row .serendipity_image_left,
+#content.preview_preview_content div.serendipity_image_block.row .serendipity_image_right {
+    max-width: initial;
 }
 
 
@@ -2489,6 +2493,14 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
         min-width: -moz-available;
         min-width: -webkit-fill-available; }
 
+@media only screen and (min-width: 552px) {
+    .post .serendipity_image_block.col.c2 .serendipity_imageComment_left {
+        display: block;
+        min-height: stretch;
+        margin-top: auto;
+    }
+}
+
 /* fake a min-width overwrite that has the most chance not to underflow the image size
    and still be big enough to fit the max-width scales
    - see default serendipity_image_block.row style_fallback.css which normally has 260px max width
@@ -2512,6 +2524,12 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .post div.serendipity_image_block.row .serendipity_image_right {
         min-width: auto;
         max-width: calc(100vw / 5); }
+     /* fixes 3-column design with 3 images only, one-in each column for both .grid-col and .grid-flex staticpage vs entry bodies, WHEN having image comments! */
+    .serendipity_image_block.col.c3:has(div.serendipity_imageComment_txt)  {
+        display: flex; }
+    /* reset the flexed display for three when having 4 and more to span, WHEN having image comments! */
+    .serendipity_image_block.col.c3:has(> :nth-child(4)):has(div.serendipity_imageComment_txt)  {
+        display: block; }
     /* apply for rare cases to unset the "**-available" small screen and restore the max-width behaviour (see above) */
     .grid-col .post div.serendipity_image_block.col .serendipity_image_left:not([srcset*=".400W."]),
     .grid-col .post div.serendipity_image_block.col .serendipity_image_right:not([srcset*=".400W."]),
@@ -2523,9 +2541,25 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .post :not(.serendipity_image_block) .serendipity_imageComment_right,
     .grid-col .post div:not(.serendipity_image_block) div:not(.serendipity_image_block) .serendipity_image_left:not([srcset*=".400W."]),
     .grid-col .post div:not(.serendipity_image_block) div:not(.serendipity_image_block) .serendipity_image_right:not([srcset*=".400W."]) {
-        display: inline-grid;
+        display: inline-grid; /* spans different (more independently) than inline-block containers */
+        margin-bottom: auto; /* when gallery images including comments are not the same size -> span to top */
+    }
+    .serendipity_image_block.row .serendipity_imageComment_left {
+        display: block; }
+}
+@media screen and (min-width: 768px) and (max-width: 899px) {
+    .serendipity_image_block.row .serendipity_imageComment_left {
+        min-width: fit-content;
+        max-width: fit-content;/* !important;*/
     }
 }
+@media screen and (min-width: 1400px) {
+    .serendipity_image_block.row .serendipity_imageComment_left {
+        min-width: fit-content;
+        max-width: fit-content;/* !important;*/
+    }
+}
+
 @media screen and (min-width: 640px) {
     .page .serendipity_imageComment_left,
     .page .serendipity_imageComment_right,
@@ -2539,6 +2573,8 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .post div .serendipity_image_left,
     .post div .serendipity_image_right {
         max-width: fit-content; }
+    .serendipity_image_block.c4 .serendipity_image_left {
+        max-width: 100%; } /* galleries with mixed orientations span better with 100% than fit-content */
 }
 @media screen and (min-width: 900px) {
     .page .serendipity_imageComment_left,
@@ -2550,7 +2586,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .post div .serendipity_image_left,
     .post div .serendipity_image_right {
         max-width: 75%; }
-    /* 1-sidebar | for content image block galeries in 100% */
+    /* 1-sidebar | for content image block galleries in 100% */
     .grid-flex .page .serendipity_image_block .serendipity_imageComment_left,
     .grid-flex .page .serendipity_image_block .serendipity_imageComment_right,
     .grid-flex .page p .serendipity_image_block .serendipity_image_left,
@@ -2586,7 +2622,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .grid-flex .post div .serendipity_image_left:not([srcset*=".400W."]),
     .grid-flex .post div .serendipity_image_right:not([srcset*=".400W."]) {
         max-width: 48%; }
-    /* 1-sidebar | for content image block galeries in 100% | !in responsiveimages plugin cases */
+    /* 1-sidebar | for content image block galleries in 100% | !in responsiveimages plugin cases */
     .grid-flex .page .serendipity_image_block .serendipity_imageComment_left,
     .grid-flex .page .serendipity_image_block .serendipity_imageComment_right,
     .grid-flex .page p .serendipity_image_block .serendipity_image_left:not([srcset*=".400W."]),
@@ -2597,7 +2633,10 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .grid-flex .post p .serendipity_image_block .serendipity_image_right:not([srcset*=".400W."]),
     .grid-flex .post div .serendipity_image_block .serendipity_image_left:not([srcset*=".400W."]),
     .grid-flex .post div .serendipity_image_block .serendipity_image_right:not([srcset*=".400W."]) {
-        max-width: fit-content; }
+        min-width: auto;
+        max-width: 100%; } /* galleries with mixed orientations span better with 100% than fit-content */
+    .grid-flex .post .serendipity_image_block.row .serendipity_imageComment_left {
+        max-width: 260px; }
 }
 @media screen and (min-width: 1440px) {
     /* 2-sidebars */
@@ -2635,8 +2674,15 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .grid-col .post div .serendipity_image_right:not([srcset*=".400W."]) {
         max-width: 87.25%; }
 }
+@media screen and (min-width: 1640px) {
+    .grid-flex .post .serendipity_image_block.row .serendipity_imageComment_left,
+    .grid-flex .post .serendipity_image_block.row .serendipity_image_link {
+        min-width: fit-content;
+        width: auto;
+        max-width: 100%; }
+}
 
-/* re-spawn max-width scales for some legacy poor man galleries mostly in comment boxes */
+/* re-span max-width scales for some legacy poor man galleries mostly in comment boxes */
 .grid-col .post div.serendipity_image_block.row .serendipity_image_left,
 .grid-col .post div.serendipity_image_block.row .serendipity_image_right,
 .grid-col .post .serendipity_image_block > div > div .serendipity_image_left:not([srcset*=".400W."]),
