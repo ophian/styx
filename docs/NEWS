@@ -4,6 +4,8 @@ Version 5.1.0 (DEV)
  * Improved CSS gallery spans under different conditions that changed lately
    - Backend preview cases [ pure ] theme
    - RichText Editor iframe content
+   - Relative max-sizing calculations on certain media-screens [pure ] theme
+   - Media fluids on single .grid-flex vs multi \-col sidebars [pure ] theme
    - Improved gallery row spans in generic default_fallback and [pure ] theme
    - Improved column span galleries for Chromium vs Firefox [ pure ] theme
 
