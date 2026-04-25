@@ -2493,6 +2493,15 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
         min-width: -moz-available;
         min-width: -webkit-fill-available; }
 
+/* Improve 1-sidebar single left- or right-sided images scaling for bound paragraphs - has calculated dependency to others in media-screens */
+@media only screen and (min-width: 438px) {
+    .grid-flex .post div:not(.serendipity_image_block) > .serendipity_imageComment_left,
+    .grid-flex .post div:not(.serendipity_image_block) > .serendipity_imageComment_right {
+        max-width: calc(100vw / 3); }
+    /* we do not do this for normal (l/r sided) images here since that breaks more dependencies later on than it helps for the case.
+       And it happens to be relative to screen dimensions from 425 tp 768 only. So no worry. */
+}
+
 @media only screen and (min-width: 552px) {
     .post .serendipity_image_block.col.c2 .serendipity_imageComment_left {
         display: block;
@@ -2523,8 +2532,8 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .post div.serendipity_image_block.row .serendipity_image_left,
     .post div.serendipity_image_block.row .serendipity_image_right {
         min-width: auto;
-        max-width: calc(100vw / 5); }
-     /* fixes 3-column design with 3 images only, one-in each column for both .grid-col and .grid-flex staticpage vs entry bodies, WHEN having image comments! */
+        max-width: calc(100vw / 3); }
+    /* fixes 3-column design with 3 images only, one-in each column for both .grid-col and .grid-flex staticpage vs entry bodies, WHEN having image comments! */
     .serendipity_image_block.col.c3:has(div.serendipity_imageComment_txt)  {
         display: flex; }
     /* reset the flexed display for three when having 4 and more to span, WHEN having image comments! */
@@ -2572,8 +2581,6 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .post p .serendipity_image_right,
     .post div .serendipity_image_left,
     .post div .serendipity_image_right {
-        max-width: fit-content; }
-    .serendipity_image_block.c4 .serendipity_image_left {
         max-width: 100%; } /* galleries with mixed orientations span better with 100% than fit-content */
 }
 @media screen and (min-width: 900px) {
@@ -2586,9 +2593,12 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .post div .serendipity_image_left,
     .post div .serendipity_image_right {
         max-width: 75%; }
+    .preview_preview_body .post div .serendipity_image_left,
+    .preview_preview_body .post div .serendipity_image_right {
+        max-width: 100%; }
     .grid-flex .post div .serendipity_image_left,
     .grid-flex .post div .serendipity_image_right {
-        max-width: 75vw; }
+        max-width: calc(100vw / 3); }
     /* 1-sidebar | for content image block galleries in 100% */
     .grid-flex .page .serendipity_image_block .serendipity_imageComment_left,
     .grid-flex .page .serendipity_image_block .serendipity_imageComment_right,
@@ -2624,7 +2634,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .grid-flex .post p .serendipity_image_right:not([srcset*=".400W."]),
     .grid-flex .post div .serendipity_image_left:not([srcset*=".400W."]),
     .grid-flex .post div .serendipity_image_right:not([srcset*=".400W."]) {
-        max-width: 48vw; }
+        max-width: 100%; }
     /* 1-sidebar | for content image block galleries in 100% | !in responsiveimages plugin cases */
     .grid-flex .page .serendipity_image_block .serendipity_imageComment_left,
     .grid-flex .page .serendipity_image_block .serendipity_imageComment_right,
