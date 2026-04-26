@@ -1730,6 +1730,12 @@ select[name="user_language"] {
     width: 49%; }
 }
 
+@media (min-width: 576px) {
+    .container, .container-sm {
+        max-width: 750px;
+    }
+}
+
 /* Overrule bootstrap default containers to nearly fully expand for 2 sidebar view between 2 breakpoints */
 @media (min-width: 768px) and (max-width: 991px) {
   .container, .container-md, .container-sm {
