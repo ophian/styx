@@ -573,6 +573,8 @@ aside {
   color: #b0b0b0; }
   aside a, .bi.bi-rss-fill {
     color: #e5e5e5; }
+  aside .rss_link img, aside .serendipity_xml_icon img {
+    background-color: #e5e5e5; }
 
 .serendipity_plugin_calendar .sidebar_content table.calendar th {
   padding: .5rem; }
