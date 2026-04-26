@@ -1344,6 +1344,16 @@ p > img.serendipity_image_center {
     width: 49%; }
 }
 
+/* add extra breakpoint */
+@media (min-width: 576px) {
+  .container, .container-sm {
+    max-width: 750px;
+  }
+  .navbar > .container {
+    max-width: 540px;
+  }
+}
+
 @media only screen and (min-width: 586px) {
   .top-tiny {
     margin-right: 1rem !important; }
