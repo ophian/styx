@@ -40,6 +40,9 @@ const commonConfig = {
     // While the editors auto_focus is making trouble with multi textarea views of backend entry forms (always landing in the second textarea field), or scrolling a backend page with a single textarea too much,
     // ensure the editor is not focused after init, since there is no documented false set available
     init_instance_callback: function (editor) {
+      // Clean up empty class attributes from previously stored content on editor initialization
+      cleanupEmptyClassAttributes(editor);
+
       setTimeout(function () {
         const body = editor.getBody();
         if (body && typeof body.blur === 'function') {
@@ -75,6 +78,24 @@ const commonConfig = {
       };
       editor.addShortcut("meta+shift+40", "Container break-out downwards", function () { _newBlock('down'); });
       editor.shortcuts.add("meta+shift+38", "Container break-out upwards", function () { _newBlock('up'); });
+      // Intercept when source view is about to open and clean content first
+      editor.on('BeforeExecCommand', function(e) {
+        if (e.command === 'mceCodeEditor') {
+          const body = editor.getBody();
+          if (body) {
+            // Clean up before opening code view
+            body.querySelectorAll('[class=""]').forEach(el => {
+              el.removeAttribute('class');
+            });
+            body.querySelectorAll('[class*="magic-line"]').forEach(el => {
+              el.classList.remove('magic-line-highlight', 'magic-line-fading');
+              if (el.className === '') {
+                el.removeAttribute('class');
+              }
+            });
+          }
+        }
+      });
       // refocus to the place where have been added...
       editor.on('ExecCommand', function (e) {
         if (e.command === 'mceInsertContent') {
@@ -91,6 +112,15 @@ const commonConfig = {
               });
             }
           });
+        }
+      });
+      // Just to make sure! Clean up empty class attributes when saving content
+      editor.on('SaveContent', function(e) {
+        e.content = e.content.replace(/\s*class=""/g, '');
+        // Remove magic-line classes
+        if (e.content) {
+          e.content = e.content.replace(/\s*class="magic-line-highlight"/g, '');
+          e.content = e.content.replace(/\s*class="magic-line-fading"/g, '');
         }
       });
     },
@@ -126,4 +156,16 @@ const commonConfig = {
       { start: '//brb', replacement: 'Be Right Back' },
       { start: '//heading', replacement: '<h3>Heading here</h3> <h4>Author: Name here</h4> <p><em>Date: 01/01/2000</em></p> <hr />' }
     ],
+}
+
+/* Helper function to remove empty class="" attributes from editor content */
+function cleanupEmptyClassAttributes(editor) {
+  const body = editor.getBody();
+  if (!body) return;
+
+  // Remove all empty class="" attributes from the DOM
+  const elementsWithEmptyClass = body.querySelectorAll('[class=""]');
+  elementsWithEmptyClass.forEach(el => {
+    el.removeAttribute('class');
+  });
 }
