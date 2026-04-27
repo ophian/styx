@@ -1,6 +1,9 @@
 Version 5.1.0 (DEV)
  ------------------------------------------------------------------------
 
+ * Improved the RichText commonEditor behavior including the magic red line
+   helper to prevent keeping source element attribute remnants.
+
  * Improved CSS gallery spans under different conditions that changed lately
    - Backend preview cases [ pure ] theme
    - RichText Editor iframe content
