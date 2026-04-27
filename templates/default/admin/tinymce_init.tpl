@@ -7,7 +7,7 @@
             plugItems.push(item);
         });
         return plugItems;
-      }
+    }
 
     function pluginArrToStr(p) {
         p.forEach((item) => {
@@ -16,7 +16,7 @@
           }
         });
         return styxPlugs;
-      }
+    }
 
     // init custom button arrays
     let styxpluginbuttons = [];
