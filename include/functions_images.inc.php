@@ -973,6 +973,8 @@ function serendipity_imageGDAvifConversion(string $infile, string $outfile, int 
         @ini_set('max_execution_time', 240); // 4 min MAX
         $maxMem = round(($mlimit/1024)+1024).'M'; // + 1GB (1024MB) encoding memory
         @ini_set('memory_limit', $maxMem);
+    } else {
+        @ini_set('max_execution_time', 120);
     }
 
     // if isn't compiled with
@@ -1346,6 +1348,7 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
     // Set the maximum amount of core threads to use (up to 15, which is the default Imagick max set, or 2 as a fallback. This won't matter on single core server setups)
     Imagick::setResourceLimit(Imagick::RESOURCETYPE_THREAD, (int) $serendipity['ImagickResourceThreads']); // yepp, we sadly have do it for each run
 
+    // Set Resource Management before method usage
     if ($type == 'format-avif' || (defined('IMAGETYPE_AVIF') && image_type_to_mime_type(IMAGETYPE_AVIF) === $type)) {
         // yeah AVIF takes it all - yammi, gimme more! ;-) 2 Gigs plus the filesize at least
         $mlimit = round(filesize($source)/1024, 0); // in KB
@@ -1353,6 +1356,8 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
             $max = round(($mlimit/1000) + 2048); // 3.6M + 2048M
             @ini_set('max_execution_time', 240); // 4 min MAX
             @ini_set('memory_limit', $max.'M');
+        } else {
+            @ini_set('max_execution_time', 120);
         }
     } else {
         @ini_set('max_execution_time', 120);
@@ -1844,6 +1849,7 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
         return false;
     } else {
         $cmd = str_replace('  ', ' ', $cmd);
+        // Set Resource Management before execution
         if ($type == 'format-avif' || (defined('IMAGETYPE_AVIF') && image_type_to_mime_type(IMAGETYPE_AVIF) === $type)) {
             // yeah AVIF takes it all - yammi, gimme more! ;-) 2 Gigs plus the filesize at least
             $mlimit = round(filesize($source)/1024, 0); // in KB
@@ -1851,6 +1857,8 @@ function serendipity_passToCMD(?string $type = null, string $source = '', string
                 $max = round(($mlimit/1000) + 2048); // 3.6M + 2048M
                 @ini_set('max_execution_time', 240); // 4 min MAX
                 @ini_set('memory_limit', $max.'M');
+            } else {
+                @ini_set('max_execution_time', 120);
             }
         } else {
             @ini_set('max_execution_time', 120);
