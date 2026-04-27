@@ -1346,6 +1346,18 @@ function serendipity_passToModule(?string $type = null, string $source = '', str
     // Set the maximum amount of core threads to use (up to 15, which is the default Imagick max set, or 2 as a fallback. This won't matter on single core server setups)
     Imagick::setResourceLimit(Imagick::RESOURCETYPE_THREAD, (int) $serendipity['ImagickResourceThreads']); // yepp, we sadly have do it for each run
 
+    if ($type == 'format-avif' || (defined('IMAGETYPE_AVIF') && image_type_to_mime_type(IMAGETYPE_AVIF) === $type)) {
+        // yeah AVIF takes it all - yammi, gimme more! ;-) 2 Gigs plus the filesize at least
+        $mlimit = round(filesize($source)/1024, 0); // in KB
+        if ($mlimit > 3596) {
+            $max = round(($mlimit/1000) + 2048); // 3.6M + 2048M
+            @ini_set('max_execution_time', 240); // 4 min MAX
+            @ini_set('memory_limit', $max.'M');
+        }
+    } else {
+        @ini_set('max_execution_time', 120);
+    }
+
     if ($_mimetype === 'gif') {
         $args[5] = -1; // Force gamma deactivation for GIFs
     }
