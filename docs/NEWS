@@ -1,6 +1,9 @@
 Version 5.1.0 (DEV)
  ------------------------------------------------------------------------
 
+ * Improved serendipity_smarty_fetchPrintEntries() for strict type parameter
+   transmissions.
+
  * Improved the RichText commonEditor behavior including the magic red line
    helper to prevent keeping source element attribute remnants.
 
