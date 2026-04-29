@@ -183,11 +183,11 @@ hr {
 }
 
 .serendipity_imageComment_txt {
-  color: #555555;
+  color: #bdbdbd;
 }
 
 blockquote {
-    color: #555555;
+    color: #bdbdbd;
 }
 
 table {
@@ -231,6 +231,10 @@ table table {
     background-color: #222;
     border: 1px solid #383838;
     color: #999;
+}
+.form-control:focus {
+    color: #bcbcbc;
+    background-color: #111;
 }
 
 /* bootstrap classes for darker skin */
