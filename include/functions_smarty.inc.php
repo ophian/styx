@@ -253,6 +253,13 @@ function serendipity_smarty_fetchPrintEntries(iterable $params, null|string|\Sma
     static $entrycount = 0;
     static $restore_var_GET_keys = array('category', 'viewAuthor', 'page', 'hide_category');
 
+    $type_map = array(
+                        'true'  => true,
+                        'false' => false
+    );
+    // Parameters that should be converted to boolean
+    $bool_params = ['full', 'fetchDrafts', 'noCache', 'noSticky', 'preview', 'use_hooks', 'use_footer', 'joinauthors', 'joincategories'];
+
     // A counter variable to not assign template files multiple times
     $entrycount++;
 
@@ -269,7 +276,7 @@ function serendipity_smarty_fetchPrintEntries(iterable $params, null|string|\Sma
         $params['range'] = null;
     }
 
-    $params['full'] = $params['full'] ?? true; // be strict with true fallback sets to match a boolean false
+    $params['full'] ??= true; // be strict with true fallback sets to match a boolean false
 
     if (empty($params['fetchDrafts'])) {
         $params['fetchDrafts'] = false;
@@ -323,7 +330,7 @@ function serendipity_smarty_fetchPrintEntries(iterable $params, null|string|\Sma
         $params['groupmode'] = 'date';
     }
 
-    $params['skip_smarty_hooks'] = $params['skip_smarty_hooks'] ?? true; // be strict with true fallback sets to match a boolean false
+    $params['skip_smarty_hooks'] ??= true; // be strict with true fallback sets to match a boolean false
 
     if (empty($params['skip_smarty_hook'])) {
         $params['skip_smarty_hook'] = array();
@@ -345,9 +352,9 @@ function serendipity_smarty_fetchPrintEntries(iterable $params, null|string|\Sma
         $params['returncode'] = 'array';
     }
 
-    $params['joinauthors'] = $params['joinauthors'] ?? true; // be strict with true fallback sets to match a boolean false
+    $params['joinauthors'] ??= true; // be strict with true fallback sets to match a boolean false
 
-    $params['joincategories'] = $params['joincategories'] ?? true; // be strict with true fallback sets to match a boolean false
+    $params['joincategories'] ??= true; // be strict with true fallback sets to match a boolean false
 
     if (empty($params['joinown'])) {
         $params['joinown'] = null;
@@ -385,6 +392,33 @@ function serendipity_smarty_fetchPrintEntries(iterable $params, null|string|\Sma
         }
     }
 
+    // Parameters to boolean mapper w/o using serendipity_db_bool() which checks too much or serendipity_get_bool() which might return the string (unwanted)
+    foreach ($bool_params as $param) {
+        if (isset($params[$param])) {
+            $value = $params[$param];
+
+            // If it's a string, check the type map
+            if (is_string($value)) {
+                $lower = strtolower(trim($value));
+                if (isset($type_map[$lower])) {
+                    $params[$param] = $type_map[$lower];
+                } else {
+                    throw new InvalidArgumentException(
+                        "Parameter '{$param}' has invalid boolean value: '{$value}'. " .
+                        "Expected 'true' or 'false'."
+                    );
+                }
+            }
+            // If already a boolean or convertible int/float, keep it
+            elseif (!is_bool($params[$param])) {
+                // Optional: strict validation - uncomment if needed
+                // throw new InvalidArgumentException(
+                //     "Parameter '{$param}' must be boolean or string 'true'/'false'."
+                // );
+            }
+        }
+    }
+
     if (!empty($params['id'])) {
         $entry = serendipity_fetchEntry(
             'id',
@@ -401,7 +435,7 @@ function serendipity_smarty_fetchPrintEntries(iterable $params, null|string|\Sma
             $params['orderby'],
             $params['filter_sql'],
             $params['noCache'],
-            serendipity_db_bool($params['noSticky']),
+            $params['noSticky'],
             $params['select_key'],
             $params['group_by'],
             $params['returncode'],
