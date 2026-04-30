@@ -1134,6 +1134,8 @@ details summary {
   border-top: 0 none;
   color: #222;
   text-align: center; }
+[data-bs-theme="dark"] .serendipity_imageComment_txt {
+  color: var(--bs-secondary-color); }
 
 .serendipity_image_block.col .serendipity_imageComment_left,
 .serendipity_image_block.col .serendipity_imageComment_right {
