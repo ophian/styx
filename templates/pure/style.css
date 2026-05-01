@@ -201,7 +201,7 @@ img#daynight {
   [data-dark-theme="dark"] .float {
     box-shadow: 0 1px 0px #3d4c5a;
     background-color: #1c2128; }
-  @media screen and (min-width:640px) {
+  @media (min-width:640px) {
     .float {
       top: 12px; }
       [data-dark-theme="dark"] .float {
@@ -957,7 +957,7 @@ a.homelink2:visited {
     color: #e0e0e0;
     text-decoration: none;
 }
-@media screen and (min-width:520px) {
+@media (min-width:520px) {
     #serendipity_banner h1 {
         padding-left: 1em;
     }
@@ -965,7 +965,7 @@ a.homelink2:visited {
         padding-left: 1.391em;
     }
 }
-@media screen and (min-width:640px) {
+@media (min-width:640px) {
     #serendipity_banner {
         min-height: 10em;
     }
@@ -1173,7 +1173,7 @@ nav.pager + .serendipity_blogpdf {
     color: #ccdde7;
 }
 /* reset the mobile hamburger styles */
-@media screen and (min-width:640px) {
+@media (min-width:640px) {
     #footer p {
         visibility: visible;
     }
@@ -1447,7 +1447,7 @@ nav.pager + .serendipity_blogpdf {
     width: 100%;
     padding-right: 1em;
 }
-@media screen and (min-width: 1600px) {
+@media (min-width: 1600px) {
     .post_more {
         margin-top: 2em;
     }
@@ -1468,7 +1468,7 @@ img.serendipity_entryIcon {
     visibility: hidden;
     display: none;
 }
-@media screen and (min-width: 640px) {
+@media (min-width: 640px) {
     #footer.mediaItemBlend {
         visibility: visible;
         display: initial;
@@ -1645,27 +1645,27 @@ ul.staticpage_result li {
     margin-left: 75%;
 }
 
-@media only screen and (min-width: 640px) {
+@media (min-width: 640px) {
     .newsbox legend {
         margin-left: 85%;
     }
 }
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
     .newsbox legend {
         margin-left: 88%;
     }
 }
-@media only screen and (min-width: 860px) {
+@media (min-width: 860px) {
     .newsbox legend {
         margin-left: 90%;
     }
 }
-@media only screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
     .newsbox legend {
         margin-left: 86%;
     }
 }
-@media only screen and (min-width: 1200px) {
+@media (min-width: 1200px) {
     .newsbox legend {
         margin-left: 90%;
     }
@@ -1757,7 +1757,7 @@ ol.plainList > .comment.commentlevel-16 {
     margin-left: 13.5em;
 }
 /* commentlevel-16 is the last available threaded depth - see comments.tpl */
-@media only screen and (min-width: 440px) {
+@media (min-width: 440px) {
     ol.plainList > .comment.commentlevel-10 {
         margin-left: 15em;
     }
@@ -1780,7 +1780,7 @@ ol.plainList > .comment.commentlevel-16 {
         margin-left: 24em;
     }
 }
-@media only screen and (min-width: 1024px) and (max-device-width: 1279px) {
+@media (min-width: 1024px) and (max-device-width: 1279px) {
     /* VIEWMODE_THREADED in entry comments */
     ol.plainList > .comment.commentlevel-1 {
         margin-left: 0.75em;
@@ -1869,13 +1869,13 @@ ol.plainList > .comment.commentlevel-16 {
     min-width: 5em;
     width: 92%;
 }
-@media only screen and (min-width: 540px) {
+@media (min-width: 540px) {
     .comment_content blockquote {
         margin-left: revert;
         width: 86%;
     }
 }
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
     .comment_content blockquote {
         width: initial;
     }
@@ -1891,12 +1891,12 @@ ol.plainList > .comment.commentlevel-16 {
 .comment.commentlevel-maxpart code {
     display: none;
 }
-@media only screen and (min-width: 440px) {
+@media (min-width: 440px) {
     .comment.commentlevel-maxpart pre:after {
         content: '.. expand for c o d e ';
     }
 }
-@media only screen and (min-width: 640px) {
+@media (min-width: 640px) {
     .comment_content pre {
         min-width: 18em;
     }
@@ -1908,12 +1908,12 @@ ol.plainList > .comment.commentlevel-16 {
     }
 }
 /* mobile with 350x640 like Galaxy S5 - DPR:3 */
-@media only screen and (min-width: 640px) and (orientation: landscape) {
+@media (min-width: 640px) and (orientation: landscape) {
     .comment_content pre {
         min-width: 16em;
     }
 }
-@media only screen and (min-width: 1200px) {
+@media (min-width: 1200px) {
     .comment_content pre {
         min-width: 20em;
     }
@@ -1952,7 +1952,7 @@ ol.plainList > .comment.commentlevel-16 {
     padding-left: .5em;
     line-height: 1.5;
 }
-@media only screen and (min-width: 640px) {
+@media (min-width: 640px) {
     .comment > h4 {
         line-height: initial;
     }
@@ -2266,7 +2266,7 @@ div.serendipityPlug a {
   display: contents;
 }
 /* freetag popping into real sidebar mode - do what was configured */
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
     .sidebar_widget.serendipity_plugin_freetag .plainList br {
         display: initial;
     }
@@ -2326,7 +2326,7 @@ div.serendipityPlug a {
             font-style: oblique; }
         .svg-inline.fa-clone {
             vertical-align: text-bottom; }
-@media only screen and (min-width: 640px) {
+@media (min-width: 640px) {
     .plugin_comment_wrap {
         /* font-size: inherit; for auto-sizing */
         font-size: .875rem;/* auto-sizing and max will be 14px */
@@ -2386,7 +2386,7 @@ div.serendipityPlug a {
 .content.staticpage_content p > .serendipity_imageComment_center,
 .content.staticpage_content p > .serendipity_image_right {
     margin: .25em auto; }
-@media screen and (max-width: 464px) {
+@media (max-width: 464px) {
   .post div .serendipity_image_left,
   .post div .serendipity_image_right {
     margin-bottom: .5em;
@@ -2438,7 +2438,7 @@ div + p {
     display: block;
 }
 /* Set back to a block element for big screens, since we don't want the commentbox to expand into space. This was tested with an image of 1000px width. Others may vary! */
-@media screen and (min-width: 1595px) {
+@media (min-width: 1595px) {
     figure.serendipity_imageComment_center {
         display: block; /* must be "block" on very big content width again .. to center */
     }
@@ -2494,7 +2494,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
         min-width: -webkit-fill-available; }
 
 /* Improve 1-sidebar single left- or right-sided images scaling for bound paragraphs - has calculated dependency to others in media-screens */
-@media only screen and (min-width: 438px) {
+@media (min-width: 438px) {
     .grid-flex .post div:not(.serendipity_image_block) > .serendipity_imageComment_left,
     .grid-flex .post div:not(.serendipity_image_block) > .serendipity_imageComment_right {
         max-width: calc(100vw / 3); }
@@ -2502,7 +2502,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
        And it happens to be relative to screen dimensions from 425 tp 768 only. So no worry. */
 }
 
-@media only screen and (min-width: 552px) {
+@media (min-width: 552px) {
     .post .serendipity_image_block.col.c2 .serendipity_imageComment_left {
         display: block;
         min-height: stretch;
@@ -2516,7 +2516,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
      but here having example with div class="serendipity_imageComment_left" style="width:138px;"
      (normally border 10px = 128px) min-width now works with 100% and -moz/-webkit-fill-available in
      .serendipity_image_block.xxx gallery cases. Yee-haw! */
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
     .post .serendipity_imageComment_left:not(figure) {
         margin-right: .5em; }
     .post figure.serendipity_imageComment_left {
@@ -2556,20 +2556,20 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .serendipity_image_block.row .serendipity_imageComment_left {
         display: block; }
 }
-@media screen and (min-width: 768px) and (max-width: 899px) {
+@media (min-width: 768px) and (max-width: 899px) {
     .serendipity_image_block.row .serendipity_imageComment_left {
         min-width: fit-content;
         max-width: fit-content;/* !important;*/
     }
 }
-@media screen and (min-width: 1400px) {
+@media (min-width: 1400px) {
     .serendipity_image_block.row .serendipity_imageComment_left {
         min-width: fit-content;
         max-width: fit-content;/* !important;*/
     }
 }
 
-@media screen and (min-width: 640px) {
+@media (min-width: 640px) {
     .page .serendipity_imageComment_left,
     .page .serendipity_imageComment_right,
     .page p .serendipity_image_left,
@@ -2583,7 +2583,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .post div .serendipity_image_right {
         max-width: 100%; } /* galleries with mixed orientations span better with 100% than fit-content */
 }
-@media screen and (min-width: 900px) {
+@media (min-width: 900px) {
     .page .serendipity_imageComment_left,
     .page .serendipity_imageComment_right,
     .page p .serendipity_image_left,
@@ -2610,7 +2610,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .grid-flex .post div .serendipity_image_block .serendipity_image_right {
         max-width: 100%; } /* galleries with mixed orientations span better with 100% than fit-content */
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
     .post .serendipity_imageComment_left:not(figure) {
         margin-right: 1.25em; }
     /* 2-sidebars */
@@ -2651,7 +2651,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .grid-flex .post .serendipity_image_block.row .serendipity_imageComment_left {
         max-width: 260px; }
 }
-@media screen and (min-width: 1440px) {
+@media (min-width: 1440px) {
     /* 2-sidebars */
     .grid-col .page .serendipity_imageComment_left,
     .grid-col .page .serendipity_imageComment_right,
@@ -2675,7 +2675,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .grid-flex .post div .serendipity_image_right:not([srcset*=".400W."]) {
         max-width: 100%; }
 }
-@media screen and (min-width: 1520px) {
+@media (min-width: 1520px) {
     /* 2-sidebars | !in responsiveimages plugin cases */
     .grid-col .page .serendipity_imageComment_left,
     .grid-col .page .serendipity_imageComment_right,
@@ -2687,7 +2687,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     .grid-col .post div .serendipity_image_right:not([srcset*=".400W."]) {
         max-width: 87.25%; }
 }
-@media screen and (min-width: 1640px) {
+@media (min-width: 1640px) {
     .grid-flex .post .serendipity_image_block.row .serendipity_imageComment_left,
     .grid-flex .post .serendipity_image_block.row .serendipity_image_link {
         min-width: fit-content;
@@ -2736,7 +2736,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
     background-color: unset;
 }
 
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .serendipityPlug img {
     width: 65.2225% !important;
     max-width: 150px; }
@@ -2745,7 +2745,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
 /** MEDIA QUERIES **/
 
 /* For SMALL SCREENS above */
-@media screen and (min-width: 480px) {
+@media (min-width: 480px) {
   #navbar {
     padding: 0;
     text-align: center; }
@@ -2774,21 +2774,21 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
 }
 
 /* For SMALL SCREENS + above */
-@media screen and (min-width: 540px) {
+@media (min-width: 540px) {
   #navbar {
     margin: 1.25rem auto 0 1.5rem;
     text-align: left; }
 }
 
 /* For SMALLER SCREENS above */
-@media screen and (min-width: 680px) {
+@media (min-width: 680px) {
   html {
     font-size: calc(.45rem + 1vw); /* sizes SMALLER SCREENS text responsively from ~14px to 15.7833px; */
   }
 }
 
 /* For MIDDLE SCREENS above */
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   body {
     min-height: initial; }
   #content {
@@ -2804,17 +2804,17 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
 }
 
 /* For MID SCREENS above */
-@media screen and (min-width: 860px) {
+@media (min-width: 860px) {
   html {
     font-size: calc(.35rem + 1vw); /* sizes SMALL SCREENS text responsively from ~14.2px to 15.8167px; */
   }
 }
-@media screen and (min-width: 860px) and (max-width: 1023px) {
+@media (min-width: 860px) and (max-width: 1023px) {
   .archive_year { width: 47.875%; }
 }
 
 /* For TABLET SCREENS PLUS - sizing depends on default font + size and sidebar width */
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   html {
     font-size: calc(.235rem + 1vw); /* sizes SMALL SCREENS text responsively from 14px to 15.95px; */
   }
@@ -2921,14 +2921,14 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
 }
 
 /* workaround post table end; depending the exact entries table size(s) though */
-@media screen and (min-width: 1132px) {
+@media (min-width: 1132px) {
   .post table,
   .post_content table {/* yes, since within the #extended id knot */
     max-width: initial; }
 }
 
 /* For DESKTOP SCREENS PLUS sizing depends on default font + size and sidebar width */
-@media screen and (min-width: 1220px) {
+@media (min-width: 1220px) {
   html {
     font-size: initial; /* default 16px */
   }
@@ -2940,6 +2940,6 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
   #login_error, #login_instructions, #loginbox, .login_error {
     margin: auto 35%; }
 }
-@media screen and (min-width: 1490px) {
+@media (min-width: 1490px) {
   .archive_year { width: 47.875%; }
 }
