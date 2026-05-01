@@ -1,6 +1,11 @@
 Version 5.1.0 (DEV)
  ------------------------------------------------------------------------
 
+ * Simplified CSS @media queries to @media () in [ pure ] standard theme,
+   since we never actually cared about @media print types.
+   - [ boot, b53, b5blog, b46 ] themes followed boostrap CSS @media defines
+   - [ timeline, b5blog ] themes were fixed for certain issues
+
  * Improved serendipity_smarty_fetchPrintEntries() for strict type parameter
    transmissions.
 
