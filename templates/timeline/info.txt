@@ -1,6 +1,6 @@
 Name: Timeline
 Author: Don Chambers, Ian Styx
-Date: 2026-04-30
+Date: 2026-05-01
 Require Serendipity: 3.4
 Backend: No
 Responsive: Yes
