@@ -1345,7 +1345,7 @@ p > img.serendipity_image_center {
 }
 
 /* add extra breakpoint */
-@media (min-width: 576px) {
+@media (min-width: 576px) and (max-width: 767px) {
   .container, .container-sm {
     max-width: 750px;
   }
