@@ -78,7 +78,7 @@ a.subtome img {
 hr {
     margin: 15px 0;
     width: 100%;
-    display: inline-block;
+    clear: both;
 }
 
 p {
