@@ -467,7 +467,7 @@ a:not(.btn, .navbar-brand, .nav-link, .cke_dialog_ui_button_cancel):not(.link-bo
         background-color: var(--bd-btn-disabled-bg);
         color: var(--bd-btn-disabled-color);
         text-decoration: none; }
-@media screen and (max-width: 991px) {
+@media (max-width: 991px) {
   html[data-bs-theme="light"] .offcanvas-body, html[data-bs-theme="light"] .bd-navbar .nav-link {
     color: #000 !important;
     filter: inherit; }
@@ -700,7 +700,7 @@ html[data-bs-theme="dark"] #main.save_preview_container a {
   display: none;
   visibility: hidden;
   width: 0em; }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   #serendipityLeftSideBar.desktop {
     display: initial;
     visibility: initial;
@@ -717,7 +717,7 @@ html[data-bs-theme="dark"] #main.save_preview_container a {
   aside a, .bi.bi-rss-fill {
     color: #e5e5e5; }*/
 
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   .serendipity_entrypaging {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -753,11 +753,11 @@ ul.pagination {
 .page-item.info {
   padding: .5rem 1rem;
   text-align: center; }
-@media only screen and (min-width: 460px) and (max-width: 768px) {
+@media (min-width: 460px) and (max-width: 768px) {
   .page-link {
     white-space: nowrap;}
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   .page-link {
     white-space: nowrap;}
 }
@@ -786,7 +786,7 @@ ul.pagination {
 #searchform {
     visibility: hidden;
     display: none; }
-@media only screen and (min-width: 640px) {
+@media (min-width: 640px) {
   #searchform {
     visibility: initial;
     display: initial;
@@ -935,7 +935,7 @@ html[data-bs-theme="dark"] .hljs-keyword, html[data-bs-theme="dark"] .hljs-selec
 .archive.archive_summary {
     margin-bottom: 2rem;
     display: flow-root; }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   .archive.archive_overview,
   .archive.archive_summary {
     margin-bottom: 4rem; }
@@ -1025,7 +1025,7 @@ html[data-bs-theme="dark"] .hljs-keyword, html[data-bs-theme="dark"] .hljs-selec
   float: right;
   margin-right: -.5rem;
   font-size: .9125rem; }
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
+  @media (min-width: 768px) and (max-width: 1199px) {
     .comment_info.plainList {
       display: block;
       overflow: hidden;
@@ -1108,13 +1108,13 @@ article.post li .pc-owner {
     vertical-align: text-bottom; }
   #serendipity_commentlist .co-short .comment_content p {
     overflow-wrap: break-word; }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .comment pre {
       display: contents;
       width: max-content;
       overflow: overlay; }
   }
-  @media screen and (min-width: 768px) and (max-width: 991px) {
+  @media (min-width: 768px) and (max-width: 991px) {
     .comment.odd, .comment.even,
     .trackback.tb-odd, .trackback.tb-even {
       display: flow-root; /*chromium*/
@@ -1232,7 +1232,7 @@ input[type="checkbox"] {
     margin-left: 1em; }
 .serendipity_plugin_categories .category_depth3 a:last-of-type {
     margin-left: 1.5em; }
-@media only screen and (min-width: 768px) and (max-width:920px) {
+@media (min-width: 768px) and (max-width:920px) {
   .serendipity_plugin_categories .category_depth1 a:last-of-type {
     margin-left: .25rem; }
   .serendipity_plugin_categories .category_depth2 a:last-of-type {
@@ -1359,7 +1359,7 @@ details summary {
 
 .serendipity_image_block.row .serendipity_imageComment_left {
     margin-top: 5px; }
-@media only screen and (min-width: 901px) {
+@media (min-width: 901px) {
   .serendipity_image_block.row .serendipity_image_left {
     margin: 5px auto auto; }
 }
@@ -1431,7 +1431,7 @@ header.navbar.sticky-top {
     z-index: 1030;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1200px) {
+@media (min-width: 768px) and (max-width: 1200px) {
   .sidebar_widget.serendipity_plugin_calendar .sidebar_content {
     overflow: auto; }
 }
@@ -1456,7 +1456,7 @@ header.navbar.sticky-top {
   padding: .125rem;
   text-align: center; }
   /* for triple plus day headers, ie. see French language */
-@media only screen and (min-width: 768px) and (max-width: 1469px) {
+@media (min-width: 768px) and (max-width: 1469px) {
   .calendar th, .calendar td {
     padding: .25rem .125rem; }
 }
@@ -1471,13 +1471,13 @@ header.navbar.sticky-top {
   height: auto;
   max-width: 15em;
 }
-@media screen and (max-width: 767px) {
+@media (max-width: 767px) {
   .serendipityPlug img {
     width: 65.2225% !important;
     max-width: 150px;
   }
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .serendipityPlug img {
     width: 65.2225% !important;
     max-width: 150px;
@@ -1629,20 +1629,20 @@ select[name="user_language"] {
       text-overflow: ellipsis; }
     .serendipity_entrypaging_right {
       text-overflow: "… ?"; }
-@media only screen and (min-width: 480px) {
+@media (min-width: 480px) {
   .serendipity_entrypaging_left:only-child,
   .serendipity_entrypaging_right:only-child {
     width: 100%; }
 }
 /*
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   .serendipity_entrypaging_left, .serendipity_entrypaging_right {
     width: 100%;
     white-space: initial; }
 }
 */
 /* comments add per media screen styling start */
-@media only screen and (min-width: 481px) {
+@media (min-width: 481px) {
   #comments article:before, #comments article:after {
     content: "";
     display: block;
@@ -1717,7 +1717,7 @@ select[name="user_language"] {
   -moz-background-clip: padding;
   background-clip: padding-box;
 } */
-@media only screen and (min-width: 544px) {
+@media (min-width: 544px) {
   .serendipity_image_block .serendipity_imageComment_left,
   .serendipity_image_block .serendipity_imageComment_right {
     margin-top: auto; }
@@ -1742,7 +1742,7 @@ select[name="user_language"] {
     max-width: 98%; }
 }
 
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   html {
     padding: 0;
     background-color: #fcfcfc; }
@@ -1894,7 +1894,7 @@ select[name="user_language"] {
     padding: 0 1rem; }
 }
 
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   .container.ctcol3 {
     max-width: initial; }
   .serendipity_entrypaging.mobile {
@@ -1908,7 +1908,7 @@ select[name="user_language"] {
     width: 49.25%; }
 }
 
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   html {
     padding: 0; }
 
@@ -1926,12 +1926,12 @@ select[name="user_language"] {
     text-align: left; }
 }
 
-@media screen and (min-width: 1320px) {
+@media (min-width: 1320px) {
   .container.ctcol3 {
     max-width: 1300px; }
 }
 
-@media screen and (min-width: 1400px) {
+@media (min-width: 1400px) {
   html {
     font-size: 112.5%; }
 
