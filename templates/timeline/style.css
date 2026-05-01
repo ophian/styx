@@ -169,6 +169,14 @@ nav .navbar-brand {
     color: #808080;
     margin: 20px 0;
 }
+ul.pager.staticpage_navigation {
+    display: flex;
+    padding: unset; }
+    ul.pager.staticpage_navigation li {
+      width: 100%;
+      list-style-type: none; }
+      li.staticpage_navigation_right {
+        display: contents; }
 
 nav .navbar-toggler {margin-right:0;} /* nav button for small screens */
 

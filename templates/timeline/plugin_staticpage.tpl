@@ -54,7 +54,7 @@
     </section>
 {/if}
 
-    <footer class="staticpage-footer">
+    <footer class="staticpage-footer mt-3">
     {if is_array($staticpage_navigation) AND ($staticpage_shownavi OR $staticpage_show_breadcrumb)}
 
         <nav role="navigation">
