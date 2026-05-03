@@ -2449,7 +2449,7 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
 .grid-col .post .serendipity_image_block.col .serendipity_imageComment_left,
 .grid-col .post .serendipity_image_block.col .serendipity_imageComment_right {
     width: auto;
-    max-width: fit-content;
+    max-width: 100%;
 }
 /* Strange Chromium fix - else image may be empty */
 .serendipity_image_block.col .serendipity_imageComment_img img {
@@ -2504,10 +2504,16 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
 
 @media (min-width: 552px) {
     .post .serendipity_image_block.col.c2 .serendipity_imageComment_left {
-        display: block;
-        min-height: stretch;
-        margin-top: auto;
-    }
+        display: inline-block;
+        margin-top: 0; }
+    /* Chromium display fix for a 2-column gallery block design with 2 images only, to place an image into both columns for both .grid-col and .grid-flex staticpage vs entry bodies, when having image comments! */
+    /* Firefox reacts different and uses flex here to stick the two columns together on wider content place. */
+    .serendipity_image_block.col.c2:not(:has(> :nth-child(3))):has(div.serendipity_imageComment_txt)  {
+        display: flex; }
+    /* Display:block dependency rule to stick the two columns together, when having more than 2 images and the available main content place goes beyond the max width of both inserts, like i.e. 810px
+       for 2 x 400px + 10px for the comment boxes. This at min-width:1440px media screen having 2 x 230px on sidebars and ~814px + on main#content. */
+    .serendipity_image_block.col.c2:has(> :nth-child(3)):has(div.serendipity_imageComment_txt)  {
+        max-width: min-content; }
 }
 
 /* fake a min-width overwrite that has the most chance not to underflow the image size
@@ -2534,11 +2540,10 @@ div.serendipity_imageComment_center, div.serendipity_imageComment_left, div.sere
         min-width: auto;
         max-width: calc(100vw / 3); }
     /* fixes 3-column design with 3 images only, one-in each column for both .grid-col and .grid-flex staticpage vs entry bodies, WHEN having image comments! */
-    .serendipity_image_block.col.c3:has(div.serendipity_imageComment_txt)  {
+    .serendipity_image_block.col.c3:not(:has(> :nth-child(4))):has(div.serendipity_imageComment_txt) {
         display: flex; }
-    /* reset the flexed display for three when having 4 and more to span, WHEN having image comments! */
-    .serendipity_image_block.col.c3:has(> :nth-child(4)):has(div.serendipity_imageComment_txt)  {
-        display: block; }
+    .serendipity_image_block.col.c3:has(> :nth-child(4)):has(div.serendipity_imageComment_txt) {
+        max-width: 100%; }
     /* apply for rare cases to unset the "**-available" small screen and restore the max-width behaviour (see above) */
     .grid-col .post div.serendipity_image_block.col .serendipity_image_left:not([srcset*=".400W."]),
     .grid-col .post div.serendipity_image_block.col .serendipity_image_right:not([srcset*=".400W."]),
