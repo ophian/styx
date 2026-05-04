@@ -1,9 +1,13 @@
+const userCssUrl = new URL('templates/_assets/sctc-user.css', window.location.href).href; // optional custom user stylesheet file for the RichText content area
+const encodedImport = 'data:text/css;charset=UTF-8,%40import%20url(%22' + encodeURIComponent(userCssUrl) + '%22);';
+
 /* Only static configuration content here which is equal in multi ordered textareas */
 const commonConfig = {
     skin: (typeof(STYX_DARKMODE) !== 'undefined' && STYX_DARKMODE === true) ? 'tinymce-5-dark' : 'tinymce-5',
     content_css: [ ((typeof(STYX_DARKMODE) !== 'undefined' && STYX_DARKMODE === true) ? 'templates/_assets/prism/dark/prism.css' : 'templates/_assets/prism/default/prism.css'),
-                   'templates/_assets/sctc.min.css', ((typeof(STYX_DARKMODE) !== 'undefined' && STYX_DARKMODE === true) ? 'templates/_assets/sctc-dark.min.css' : '')
-                 ], // custom mix styx_custom_tinymce_content.css w/ own colors, for STYX_DARKMODE case including dark mode additions to overwrite 'sctc.min.css'
+                   'templates/_assets/sctc.min.css', ((typeof(STYX_DARKMODE) !== 'undefined' && STYX_DARKMODE === true) ? 'templates/_assets/sctc-dark.min.css' : ''),
+                   encodedImport
+    ].filter(Boolean), // custom mix styx_custom_tinymce_content.css w/ own colors, for STYX_DARKMODE case including dark mode additions to overwrite 'sctc.min.css'. Filter removes empty strings
     noneditable_class: 'mceNonEditable',
     // plugins and toolbar and lang sets may contain dynamic sets so better place in init directly
     contextmenu: 'link styxImage styxGallery styxDiv styxPrg visualblocks code',
