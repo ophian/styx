@@ -1,6 +1,9 @@
 Version 5.1.0 (DEV)
  ------------------------------------------------------------------------
 
+ * Improved the RichText content sctc.min.css (styx-custom-tinymce-content)
+   file for gallery span behavior between browsers.
+
  * Simplified CSS @media queries to @media () in [ pure ] standard theme,
    since we never actually cared about @media print types.
    - [ boot, b53, b5blog, b46 ] themes followed boostrap CSS @media defines
