@@ -1,6 +1,11 @@
 Version 5.1.0 (DEV)
  ------------------------------------------------------------------------
 
+ * Allow to file and place a custom 'templates/_assets/sctc-user.css' file
+   analogue the custom independent user.css file in themes to the RichText
+   commonEditor. Just place the named custom file to the mentioned path.
+   This is for hard core users only, which have their own necessities! ;-)
+
  * Improved the RichText content sctc.min.css (styx-custom-tinymce-content)
    file for gallery span behavior between browsers.
 
