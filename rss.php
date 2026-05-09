@@ -113,7 +113,7 @@ switch ($_GET['type']) {
         $entries = serendipity_fetchComments((int) $_GET['cid'], $serendipity['RSSfetchLimit'], 'co.id desc', false, $_GET['type']);
         $description = $title . ' - ' . $description;
         if (isset($_GET['cid'])) {
-            $title = $title . ' - ' . COMMENTS_FROM . ' "' . $latest_entry[0]['title'] . '"';
+            $title = $title . ' - ' . COMMENTS_FROM . ' "' . $latest_entry[0]['title'] ?? '' . '"'; // taking the full entries array or the single latest_entry array is the same for this case
         } else {
             $title = $title . ' - ' . COMMENTS;
         }
