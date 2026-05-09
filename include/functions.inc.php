@@ -1491,20 +1491,20 @@ function serendipity_track_url(string $list, string $url, int $entry_id = 0) : v
         serendipity_db_escape_string($url_parts['path']),
         serendipity_db_escape_string($url_parts['query']),
         date('Y-m-d'),
-        ($entry_id != 0) ? "AND entry_id = '". (int)$entry_id ."'" : ''
+        ($entry_id != 0) ? "AND entry_id = '". $entry_id ."'" : ''
       )
     );
 
     if (serendipity_db_affected_rows() == 0) {
         serendipity_db_query(
-          sprintf(
+          @sprintf(
             "INSERT INTO %s%s
                     (entry_id, day, count, scheme, host, port, path, query)
              VALUES (%d, '%s', 1, '%s', '%s', '%s', '%s', '%s')",
 
             $serendipity['dbPrefix'],
             $list,
-            (int)$entry_id,
+            $entry_id,
             date('Y-m-d'),
             serendipity_db_escape_string($url_parts['scheme']),
             serendipity_db_escape_string($url_parts['host']),
