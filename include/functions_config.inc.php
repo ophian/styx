@@ -1719,8 +1719,17 @@ function &serendipity_getAllGroups(int|string|bool $apply_ACL_user = false) : it
             if (str_starts_with($v['confvalue'], 'USERLEVEL_')) {
                 $groups[$k]['confvalue'] = $groups[$k]['name'] = constant($v['confvalue']);
             }
+            // The default
             if (in_array($v['confvalue'], ['USERLEVEL_ADMIN_DESC', 'USERLEVEL_CHIEF_DESC', 'USERLEVEL_EDITOR_DESC'])) {
                 $groups[$k]['shortname'] = strtolower(explode('_', $v['confvalue'])[1]);
+            }
+            // In case there aren't any default USERLEVEL_constant names set and instead a normal string expression is used for some reasons,
+            // we try to guess by confkey for the icon coloring class="icon-users {$group.shortname|default:'user'}" in template matches.
+            // This assumes that IDs 3, 2, 1 always exists as defined on install !
+            if (empty($groups[$k]['shortname'])) {
+                if ($v['confkey'] == 3) $groups[$k]['shortname'] = 'admin';
+                if ($v['confkey'] == 2) $groups[$k]['shortname'] = 'chief';
+                if ($v['confkey'] == 1) $groups[$k]['shortname'] = 'editor';
             }
             $groups[$k]['shortname'] = $groups[$k]['shortname'] ?? null;
             // Check CHIEF against hiddenGroup
