@@ -1,8 +1,8 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
-
-
+ * Improve default group-icon coloring per CSS shortname selector of main group
+   levels when not using the default name constants.
 
 
 
