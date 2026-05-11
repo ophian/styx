@@ -1083,7 +1083,7 @@ You should not want to operate a security-relevant access system with them!');
 @define('PINGBACKS', '핑백');
 @define('PINGBACK', 'Pingback');
 @define('NO_PINGBACKS', '핑백 없음');
-@define('GROUP_NAME_DESC', "언어 파일에서 정의된 상수를 여기에 입력할 경우 (예: 'USERLEVEL_EDITOR_DESC') 이 상수의 번역된 형태가 표시됩니다. 직접 상수를 정의하고 그 이름을 여기에 입력할 수도 있습니다. 번역이 되는 그룹 이름을 사용하지 않으려고 한다면 상수 외의 문자열로 자유롭게 입력하면 됩니다.");
+@define('GROUP_NAME_DESC', "언어 파일에서 정의된 상수를 여기에 입력할 경우 (예: 'USERLEVEL_EDITOR_DESC') 이 상수의 번역된 형태가 표시됩니다. 직접 상수를 정의하고 그 이름을 여기에 입력할 수도 있습니다. 번역이 되는 그룹 이름을 사용하지 않으려고 한다면 상수 외의 문자열로 자유롭게 입력하면 됩니다. 그러나 기본 상수 및 그룹에서 벗어날 경우 그룹 아이콘의 색상 구분에 영향을 미칠 수 있습니다.");
 @define('INSTALLER_CLI_TOOLS', '서버측 커맨드라인 도구');
 @define('INSTALLER_CLI_TOOLNAME', '커맨드라인 인터페이스(CLI) 도구');
 @define('INSTALLER_CLI_TOOLSTATUS', '실행 가능 상태입니까?');

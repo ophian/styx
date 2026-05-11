@@ -1086,7 +1086,7 @@ You should not want to operate a security-relevant access system with them!');
 @define('PINGBACKS', 'Pingbacks');
 @define('PINGBACK', 'Pingback');
 @define('NO_PINGBACKS', 'No Pingbacks');
-@define('GROUP_NAME_DESC', "Use as uppercased eg. 'EXAMPLE_GROUP' name, but not as a constant 'USERLEVEL_XYZ' group name.");
+@define('GROUP_NAME_DESC', "If you enter a string that is defined as a constant in any language file (e.g. 'USERLEVEL_EDITOR_DESC'), then the translated representation of this groupname will show up. You can also define your own constants and then enter their name here. If you do not want to have translatable group names, you can enter any other string you like. However, deviations from the default constants and groups may affect the color coding of the group icons.");
 @define('INSTALLER_CLI_TOOLS', 'Server-side command line tools');
 @define('INSTALLER_CLI_TOOLNAME', 'CLI tool');
 @define('INSTALLER_CLI_TOOLSTATUS', 'Executable?');

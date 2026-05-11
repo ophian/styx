@@ -1080,7 +1080,7 @@ Sie sollten damit kein sicherheitsrelevantes Zugangssystem betreiben wollen!');
 @define('PINGBACKS', 'Pingbacks');
 @define('PINGBACK', 'Pingback');
 @define('NO_PINGBACKS', 'Keine Pingbacks');
-@define('GROUP_NAME_DESC', "Wenn hier ein String angegeben wird, der in irgendeiner Sprachdatei als Konstante definiert ist (z.B. 'USERLEVEL_EDITOR_DESC'), wird die zugewiesene Übersetzung dieses Gruppennamens ausgegeben. Es ist möglich, eigene Konstanten zu definieren und ihre Namen hier anzugeben. Sind übersetzbare Gruppennamen nicht benötigt, kann hier jeder beliebige String eingegeben werden.");
+@define('GROUP_NAME_DESC', "Wenn hier ein String angegeben wird, der in irgendeiner Sprachdatei als Konstante definiert ist (z.B. 'USERLEVEL_EDITOR_DESC'), wird die zugewiesene Übersetzung dieses Gruppennamens ausgegeben. Es ist möglich, eigene Konstanten zu definieren und ihre Namen hier anzugeben. Sind übersetzbare Gruppennamen nicht benötigt, kann hier jeder beliebige String eingegeben werden. Abweichungen von den Standardkonstanten und -gruppen können sich jedoch auf die Farbcodierung der Gruppensymbole auswirken.");
 @define('INSTALLER_CLI_TOOLS', 'Serverseitige Kommandozeilen-Tools');
 @define('INSTALLER_CLI_TOOLNAME', 'CLI-Tool');
 @define('INSTALLER_CLI_TOOLSTATUS', 'Ausführbar?');
