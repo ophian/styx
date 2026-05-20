@@ -30,7 +30,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '4.1',
             'php'         => '8.2'
         ));
-        $propbag->add('version',       '2.96');
+        $propbag->add('version',       '2.97');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1880,9 +1880,9 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                            serendipity_db_escape_string($switch),
                            serendipity_db_escape_string($reason),
                            serendipity_db_escape_string($id),
-                           serendipity_db_escape_string($comment['name'] ?? ''),
-                           serendipity_db_escape_string($comment['email'] ?? ''),
-                           serendipity_db_escape_string($comment['url'] ?? ''),
+                           substr(serendipity_db_escape_string($addData['name'] ?? ''), 0, 80),
+                           substr(serendipity_db_escape_string($addData['email'] ?? ''), 0, 200),
+                           substr(serendipity_db_escape_string($addData['url']?? ''), 0, 200),
                            substr(serendipity_db_escape_string($_SERVER['HTTP_USER_AGENT']), 0, 255),
                            serendipity_db_escape_string($_SERVER['REMOTE_ADDR']),
                            substr(serendipity_db_escape_string($_SESSION['HTTP_REFERER'] ?? $_SERVER['HTTP_REFERER']), 0, 255),
