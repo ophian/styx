@@ -1,5 +1,16 @@
 # MagicLine Plugin – Changelog Summary
 
+## [v. 2.2.0 / 2026-06-03]
+
+### Improved
+- Refactored the hit-area container configuration to live more closely tied around the image or imageComment Container,
+    leaving better or enough space to navigate for scroll without having to wait for the disappearing layer timeout.
+- Refactored the [hint: message text] for the magicline handling to be a short pointer to the real helper message, with better tooltipGap space bindings.
+    Added new magic helper help text instructions via commonEditor into the help form
+- Use auto instead of all for the style.pointerEvents
+- Refactored to centralize all event listener bindings into a single function for scope
+- Refactored eventListeners for layer timeouts on iframe scroll
+
 ## [v. 2.1.0 / 2025-06-30]
 
 ### Simplification & Robustness
