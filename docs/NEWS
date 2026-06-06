@@ -1,6 +1,9 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
+ * Fix RichText Editor blockElements spanning for the visualized magicline
+   hit-areas on small devices.
+
  * Improve RichText Editor magic line handlers regarding hit-area, magic-red
    line help, scrollEvents... and dependent CSS styles for the RichText area.
 
