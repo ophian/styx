@@ -68,7 +68,7 @@ const magiclineHelp = { en: { title: 'Magic Line Help',
       '\n' +
       '<p><strong>Warum man es verwenden sollte</strong>: Es gewährleistet eine korrekte Dokumentstruktur und verhindert das Speichern von unerwünschter Verschachtelung, die zu Darstellungsproblemen führen kann; sei im Editorfenster selbst oder später in ihrem Blogeintrag.</p>\n' +
       '\n' +
-      '<p><strong>Wann es erscheint</strong>: Nur wenn nötig, um den aktuellen Container zu verlassen und es keine Möglichkeit gibt dies vom angrenzenden Element aus zu bewerkstelligen. Verwenden Sie für Inhalte in Blöcken ansonsten die normalen Bearbeitungsmethoden.</p>\n' +
+      '<p><strong>Wann es erscheint</strong>: Nur dann, wenn nötig, um den aktuellen Container zu verlassen und es keine Möglichkeit gibt dies vom angrenzenden Element aus zu bewerkstelligen. Verwenden Sie für Inhalte in Blöcken ansonsten die normalen Bearbeitungsmethoden.</p>\n' +
       '\n' +
       '<p><strong style="text-shadow: 1px 2px 3px #1c1a1a; color: var(--color-scale-orange-4)">Wichtige Fehlerbehandlung</strong>:</p>\n' +
       '\n' +
