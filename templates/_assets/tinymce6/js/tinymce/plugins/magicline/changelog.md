@@ -1,5 +1,11 @@
 # MagicLine Plugin – Changelog Summary
 
+## [v. 2.2.1 / 2026-06-08]
+
+### Improved
+- Improved tooltips and gabs for distinction and simplification on images below 500px
+- More finetuning...
+
 ## [v. 2.2.0 / 2026-06-03]
 
 ### Improved
