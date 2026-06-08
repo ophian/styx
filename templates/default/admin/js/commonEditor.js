@@ -33,7 +33,7 @@ const magiclineHelp = { en: { title: 'Magic Line Help',
       '  </li>\n' +
       '</ul>\n' +
       '\n\n' +
-      '<div style="border: 6px double #585858;font-size: .875rem;padding: .5em;background: #25303c;">\n' +
+      '<div style="border: 6px double #585858;font-size: .875rem;padding: .5em;background-color: var(--color-bg-backdrop);">\n' +
       '<h3>Plugin Key Features:</h3>\n' +
       '<ul>\n' +
       '<li>Smart detection of block elements (images, galleries, floats, etc.)</li>\n' +
@@ -86,7 +86,7 @@ const magiclineHelp = { en: { title: 'Magic Line Help',
       '  </li>\n' +
       '</ul>\n' +
       '\n' +
-      '<div style="border: 6px double #585858;font-size: .875rem;padding: .5em;background: #25303c;">\n' +
+      '<div style="border: 6px double #585858;font-size: .875rem;padding: .5em;background-color: var(--color-bg-backdrop);">\n' +
       '\n' +
       '<h3>Hauptfunktionen des Plug-ins:</h3>\n' +
       '\n' +
