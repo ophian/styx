@@ -17,7 +17,7 @@ const magiclineHelp = { en: { title: 'Magic Line Help',
       '\n' +
       '<p><strong>When it appears</strong>: Only when needed to exit the current container. For content within blocks, use normal editing and/or the toolbar options.</p>\n' +
       '\n' +
-      '<p><strong style="text-shadow: 1px 2px 3px #1c1a1a; color: crimson">Important Issue Handling</strong>:</p>\n' +
+      '<p><strong style="text-shadow: 1px 2px 3px #1c1a1a; color: var(--color-scale-orange-4)">Important Issue Handling</strong>:</p>\n' +
       '\n' +
       '<ul style="margin-left: -1em; list-style-type: \'- \'">\n' +
       '  <li><p style="color: currentColor">Some Magic Line paragraph insertions cannot be undone with the ↩ toolbar button (especially between image containers). Instead, use:</p>\n' +
