@@ -173,7 +173,12 @@ const commonConfig = {
         {
           name: 'magicline',
           title: magiclineHelp[editorLang == 'de' ? editorLang : 'en'].title,
-          items: [{ type: 'htmlpanel', html: magiclineHelp[editorLang == 'de' ? editorLang : 'en'].html }],
+          items: [{
+                type: 'htmlpanel',
+                html: '<div role="document" data-alloy-tabstop="true" tabindex="-1">' +
+                        magiclineHelp[editorLang == 'de' ? editorLang : 'en'].html +
+                      '</div>'
+                }],
         }
     ],
     // Configure on setup
