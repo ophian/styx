@@ -597,7 +597,7 @@ Version 5.0-beta1 (July 24th, 2025)
     level containers skeleton stays intact. You will most probably notice with
     the recommended « Use picture element » containers.
 
-  * Chang commonEditor toolbar ordere for TinyMCE, moving the 'view' group:
+  * Change commonEditor toolbar order for TinyMCE, moving the 'view' group:
     [source view, fullscreen] a tad more to the right.
     - Same for the split [hr] group.
 
