@@ -3321,6 +3321,7 @@ h3 .media_file_actions {
     display: -webkit-box;
     display: block;
     margin: .75em 0;
+    font-size: .875rem;
 }
 
 .installer .toggle_info {
