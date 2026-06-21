@@ -22,7 +22,8 @@ if (defined('S9Y_FRAMEWORK_TRACKBACKS')) {
  *      - Boolean or error message
  * @access public
  */
-function serendipity_trackback_is_success(string $resp) : bool|string {
+function serendipity_trackback_is_success(string|false $resp) : bool|string {
+    if ($resp === false) return false;
     if (preg_match('@<error>(\d+)</error>@', $resp, $matches)) {
         if ((int) $matches[1] === 0) {
             return true;
