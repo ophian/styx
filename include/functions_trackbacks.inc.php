@@ -799,8 +799,8 @@ function serendipity_handle_references(int $id, string $author, string $title, s
 
     // Make trackback URL
     $url = serendipity_archiveURL($id, $title, 'baseURL', true, array('timestamp' => time()));
-    // Make sure that the trackback-URL does not point to https
-    $url = str_replace('https://', 'http://', $url);
+    // [legacy] Make sure that the trackback-URL does not point to https
+    // $url = str_replace('https://', 'http://', $url); // Using strict HTTP nowaways is a security anti-pattern. Let the destination decide and respect the receiving site's protocol.
 
     if ($debug) {
         $serendipity['trackback_debug_data'] = $debug; // hook into trackback plugin debugging
