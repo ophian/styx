@@ -1,6 +1,12 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
+ * Refactor serendipity_handle_references() matching regex for trackbacks
+
+  - Handles the regex properly to extract data-fallback with priority over href
+  - Filters out `class="serendipity_image_link"` links as trackbacks
+  - Filters out fragment-only URLs (starting with #)
+
  * Fix serendipity_trackback_is_success(#1 type) on false callback response
 
  * Enabled the RichText Editors new magic-line help refactoring
