@@ -768,25 +768,39 @@ function serendipity_handle_references(int $id, string $author, string $title, s
         }
     }
 
-    // The regex-part (data-fallback|href) helps for the array_shift resets, but is not matching item data-fallback instead of href, if exists...
-    if (!preg_match_all('@<a[^>]+?(data-fallback|href)\s*=\s*["\']?([^\'" >]+?)[ \'"][^>]*>(.+?)</a>@i', $text, $matches)) {
-        $matches = array(0 => array(), 1 => array());
+    // Match anchor tags and capture both href and data-fallback
+    if (preg_match_all('@<a[^>]*?(?:href|data-fallback)\s*=\s*["\']?([^\'" >]+?)["\'][^>]*>(.+?)</a>@i', $text, $temp_matches)) {
+        // Extract all attributes to determine which URL to use
+        preg_match_all('@<a([^>]*?)>@i', $text, $attrs);
+
+        $locations = [];
+        $names = [];
+
+        // Add URL references
+        foreach ($attrs[1] AS $idx => $attr_string) {
+            if (preg_match('@class\s*=\s*["\']?(serendipity_image_link)["\']@i', $attr_string, $ilink_match)) {
+                continue; // do not trackback internal default image links
+            }
+            // Prefer data-fallback if it exists
+            if (preg_match('@data-fallback\s*=\s*["\']?([^\'" >]+?)["\']@i', $attr_string, $fb_match)) {
+                $locations[] = $fb_match[1];
+            } elseif (preg_match('@href\s*=\s*["\']?(?!#)([^\'" >]+?)["\']@i', $attr_string, $href_match)) {
+                $locations[] = $href_match[1]; //    ^^^^ Filters out fragment-only URLs (URLs starting with #) like #top jumps or (wikilinks) #referenceN
+            }
+
+            if (isset($temp_matches[2][$idx])) {
+                $names[] = $temp_matches[2][$idx];
+            }
+        }
     } else {
-        // remove full matches
-        array_shift($matches);
-        // remove the ugly data-fallback|href attribute matches, which came in to avoid rel tags for lightboxes for example (or for links pointing to full variations),.. since I hate regex(!) and this was the only way I got matching fallback or href links
-        array_shift($matches);
-        // matches now contains the URL values of data-fallback OR href
+        $locations = [];
+        $names = [];
     }
 
     // Make trackback URL
     $url = serendipity_archiveURL($id, $title, 'baseURL', true, array('timestamp' => time()));
     // Make sure that the trackback-URL does not point to https
     $url = str_replace('https://', 'http://', $url);
-
-    // Add URL references
-    $locations = $matches[0];
-    $names     = $matches[1];
 
     if ($debug) {
         $serendipity['trackback_debug_data'] = $debug; // hook into trackback plugin debugging
