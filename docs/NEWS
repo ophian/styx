@@ -2,8 +2,8 @@ Version 5.x (DEV)
  ------------------------------------------------------------------------
 
  * Dismiss forcing HTTP over HTTPS protocol in serendipity_handle_references()
-   for trackback URLs. This is legacy code and a security anti-pattern.
-   If you really have to, re-enable this line for your site again.
+   for trackback URL requests. This is legacy code and a security anti-pattern.
+   If you really have to, re-enable this line in question for your site again.
 
  * Refactor serendipity_handle_references() matching regex for trackbacks
 
