@@ -304,7 +304,7 @@ function serendipity_reference_autodiscover(string $loc, string $url, string $au
 
     if (strlen($fContent) != 0) {
         $trackback_result = serendipity_trackback_autodiscover($fContent, $parsed_loc, $url, $author, $title, $text, $loc);
-        if ($trackback_result == false) {
+        if ($trackback_result === false) {
             serendipity_pingback_autodiscover($parsed_loc, $fContent, $url);
         }
     } else {
