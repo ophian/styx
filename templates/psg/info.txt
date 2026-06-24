@@ -1,6 +1,6 @@
 Name: PSG
 Author: Ian Styx
-Date: 2025-11-03
+Date: 2026-06-24
 Require Serendipity: 3.6
 Backend: No
 Responsive: Yes
