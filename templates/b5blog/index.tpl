@@ -257,6 +257,7 @@
         item.classList.replace("language-smarty", "language-perl"); /* perl better than php else you may get unescaped HTM errors from highlightjs */
         item.classList.replace("language-log", "language-yaml"); /* -bash is good also */
         item.classList.replace("language-markup", "language-plaintext");
+        item.classList.replace("language-terminal", "language-bash");
       })
   </script>
   <link rel="stylesheet" href="{serendipity_getFile file="highlight/github-boot.min.css"}" type="text/css">
