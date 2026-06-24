@@ -1,6 +1,12 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
+ * Add another unknown pre[language-*] name conversion workaround item for code
+   highlights with highlight.js to [ pure, psg, dude, b5blog, b53, b46 ] themes
+   "index.tpl" template files.
+   Also the [ pure ] theme got a new default JS constant for the current used
+   display language as a preparation for later usage.
+
  * Dismiss forcing HTTP over HTTPS protocol in serendipity_handle_references()
    for trackback URL requests. This is legacy code and a security anti-pattern.
    If you really have to, re-enable this line in question for your site again.
