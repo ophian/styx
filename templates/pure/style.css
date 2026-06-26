@@ -447,7 +447,8 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
   [data-dark-theme="dark"] .comment_content {
     background-color: #2c323b; }
   [data-dark-theme="dark"] pre {
-    background-color: #20272e; }
+    background-color: #24292e;
+    color: #e1e4e8; }
   [data-dark-theme="dark"] article.post.byauthor {
     background: #292f37;
     border-color: #444c56; }
