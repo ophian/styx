@@ -22,7 +22,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC . (isset($serendipity['GET']['plugin_to_conf']) ? ' ' . PLUGIN_EVENT_ENTRYPROPERTIES_DESC_PLUS : ''));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.96');
+        $propbag->add('version',       '1.97');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'smarty'      => '4.1',
@@ -558,8 +558,8 @@ class serendipity_event_entryproperties extends serendipity_event
                         } else {
                             $selected = false;
                         }
-                        // automatically mark nl2br markup parser as disabled, when WYSIWYG is active
-                        if (!$selected && isset($serendipity['wysiwyg']) && $serendipity['wysiwyg'] && $plugin_data['p']->act_pluginPath == 'serendipity_event_nl2br') {
+                        // On NEW entries automatically mark any REAL markup parser as disabled, when WYSIWYG is active
+                        if (!isset($eventData['id']) && (isset($serendipity['wysiwyg']) && $serendipity['wysiwyg']) && in_array($plugin_data['p']->act_pluginPath, ['serendipity_event_nl2br', 'serendipity_event_markdown', 'serendipity_event_textile'])) {
                             $selected = true;
                         }
                         echo '                        <option' . ($selected ? ' selected="selected"' : '') . ' value="' . $plugin_data['p']->instance . '">' . htmlspecialchars($plugin_data['t']) . '</option>' . "\n";
