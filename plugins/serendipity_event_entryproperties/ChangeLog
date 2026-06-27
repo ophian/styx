@@ -1,3 +1,22 @@
+1.97:
+-----
+    * Better check disable marked "Markup plugins for this entry" items
+
+1.96:
+-----
+    * Use proper property Visibility declaration(s)
+    * Return to htmlspecialchars()
+    * Convert wrong spacebox label to a valid "labeling" element
+    * Fix id parameter call type for upcoming API safety types for API *_fetchEntryProperties()
+    * Improve last sentence of [en] PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE_DESC
+    * Fix xxh... hash name lowercased for consistency
+    * Move UTF-8/lang_xx.inc.php files up one level
+    * Remove former [cs] lang files
+
+1.95:
+-----
+    * Declare strict_types
+
 1.94:
 -----
     * Convert MD5 to faster xxHash algorithm
