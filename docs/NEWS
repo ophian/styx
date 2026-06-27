@@ -1,6 +1,9 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
+ * Improve the entryforms entryproperties disable marked "Markup plugins for
+   this entry" items check when using the RichText Editor.
+
  * Add another unknown pre[language-*] name conversion workaround item for code
    highlights with highlight.js to [ pure, psg, dude, b5blog, b53, b46 ] themes
    "index.tpl" template files.
