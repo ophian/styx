@@ -30,11 +30,11 @@ _September 23, 2016_
 
 ## Installation
 
-On most server hosts, everything needed to run Serendipity should already be installed. If you install it on your custom server, install PHP >= 7.4, MySQL/MariaDB, PostgreSQL or SQLite, and Apache. ImageMagick is also useful. Upload the files from [a release archive](https://github.com/ophian/styx/releases) to your webroot and visit your URL to start the installer. 
+On most server hosts, everything needed to run Serendipity should already be installed. If you install it on your custom server, install PHP, MySQL/MariaDB, PostgreSQL or SQLite, and Apache. ImageMagick (iMagick) is also useful. Upload the files from [a release archive](https://github.com/ophian/styx/releases) to your webroot and visit your URL to start the installer.
 
 For more details, please consult [the manual](https://ophian.github.io/hc/en/installation.html#docs-install-the-easy-way).
 
-Recommendations for Styx are: *PHP 8.2+*, *ImageMagick 7.1+*, *MariaDB 10.6+*, *Apache HTTP server*.
+Recommendations for Styx 5 are: *PHP 8.2+*, *ImageMagick 7.1+*, *MariaDB 10.6+*, *Apache HTTP server*.
 
 ## Features
 
