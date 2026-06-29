@@ -2588,7 +2588,7 @@ function serendipity_sysInfoTicker(bool $check = false, string $whoami = '', ite
             }
             $local = true;
         }
-        // Is it stale?
+        // Local fallback: garbage collect stale cache (only when no hashes dismissed yet)
         if (empty($exclude_hashes) && $local && is_string($xmlstr)) {
             // read the local xml target
             $txl = new SimpleXMLElement($xmlstr);
