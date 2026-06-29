@@ -2566,8 +2566,9 @@ function serendipity_sysInfoTicker(bool $check = false, string $whoami = '', ite
         $remoteURL = 'https://raw.githubusercontent.com/ophian/styx/master/tests/remote_notifications.xml';
         $target    = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/sysnotes/remote_notifications.xml';
         $context   = stream_context_create(array('http' => array('timeout' => 5.0)));
+        $local     = false;
         // get and read and write to target
-        $xmlstr   = @file_get_contents($remoteURL, false, $context);
+        $xmlstr    = @file_get_contents($remoteURL, false, $context);
         // Some servers return a " Warning: file_get_contents(): https:// wrapper is disabled in the server configuration by allow_url_fopen=0 " so we use Curl instead
         if (false === $xmlstr) {
             if (function_exists('curl_init')) {
@@ -2578,16 +2579,30 @@ function serendipity_sysInfoTicker(bool $check = false, string $whoami = '', ite
                 $ch = NULL;
             }
         }
-        // use fallback
+        // No remote notification? Use local fallback.
         if (false === $xmlstr) {
             try {
                 $xmlstr = @file_get_contents($target);
             } catch(\Throwable $t) {
                 trigger_error('Error: The URL for the remote ticker could not be opened (' . $t->getMessage() . '), nor has a callback file been created yet. There may be server or network problems.', E_USER_NOTICE);
             }
+            $local = true;
         }
+        // Is it stale?
+        if (empty($exclude_hashes) && $local && is_string($xmlstr)) {
+            // read the local xml target
+            $txl = new SimpleXMLElement($xmlstr);
+            $cts = (int) $txl['last_modified'];
+            $gco = new \DateTimeImmutable('-6 months');
+            $tso = $gco->getTimestamp();
 
-        // check the remote file string
+            if ($cts < $tso) {
+                // last_modified is older than 6 months
+                @unlink($target);
+                $xmlstr = null;
+            }
+        }
+        // Check the remote file string
         if (is_string($xmlstr) && !empty($xmlstr)) {
             $syscall = new SimpleXMLElement($xmlstr);
 
@@ -2619,6 +2634,11 @@ function serendipity_sysInfoTicker(bool $check = false, string $whoami = '', ite
                     file_put_contents($target, $xmlstr, LOCK_EX);
                 }
                 return $xml; // escape is done in template
+            } else {
+                // Remote was reachable but empty — overwrite/clear the local cache
+                if (!$local && file_exists($target)) {
+                    @unlink($target);
+                }
             }
         }
     }
