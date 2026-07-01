@@ -1,6 +1,9 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
+ * Update RichText Editor to latest MIT v.6.8.6 revision and set MozInputSource
+   deprecated to avoid annoying messages in Mozilla Browser.
+
  * Improve/Fix the remote ticker notification system for stale local xml target
 
  * Improve the entryforms entryproperties disable marked "Markup plugins for
