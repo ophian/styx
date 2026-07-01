@@ -1,6 +1,11 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
+ * Add new Styx markdown plugin to the RichText Editor, being able to convert
+   markdown syntax to HTML for the Editor window, or vice versa existing
+   Editors content HTML to markdown syntax to copy to clipboard.
+   The new button(s) are located in the 'extras' toolbar group at toolbar end.
+
  * Update RichText Editor to latest MIT v.6.8.6 revision and set MozInputSource
    deprecated to avoid annoying messages in Mozilla Browser.
 
