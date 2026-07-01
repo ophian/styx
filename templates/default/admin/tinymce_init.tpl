@@ -82,12 +82,12 @@
 
     // NOTE: code === source !!
     // the run loop number makes our setting independent for multiple textarea configurations ! last change: move split group behind medias group container ... was behind link previously
-    let commonToolbar{$run} = [ { name: 'history', items: [ 'undo' ] }, { name: 'format', items: [ 'bold', 'italic' ] }, { name: 'link', items: [ 'link', 'blockquote' ] }, { name: 'images', items: [ 'styxImage', 'styxGallery' ] }, { name: 'medias', items: [ 'media', 'emoticons' ] }, { name: 'split', items: [ 'hr' ] }, { name: 'code', items: [ 'codesample', 'charmap' ] }, { name: 'views', items: [ 'code', 'fullscreen' ] }, { name: 'visuals', items: [ 'preview', 'visualblocks' ] }, { name: 'help', items: [ 'help' ] }, { name: 'extras', items: [ 'styles', 'fontsize', 'table', 'bullist', 'numlist', 'accordion' ] }, { name: 'hooks', items: styxButtonHooks } ];
+    let commonToolbar{$run} = [ { name: 'history', items: [ 'undo' ] }, { name: 'format', items: [ 'bold', 'italic' ] }, { name: 'link', items: [ 'link', 'blockquote' ] }, { name: 'images', items: [ 'styxImage', 'styxGallery' ] }, { name: 'medias', items: [ 'media', 'emoticons' ] }, { name: 'split', items: [ 'hr' ] }, { name: 'code', items: [ 'codesample', 'charmap' ] }, { name: 'views', items: [ 'code', 'fullscreen' ] }, { name: 'visuals', items: [ 'preview', 'visualblocks' ] }, { name: 'help', items: [ 'help' ] }, { name: 'extras', items: [ 'styles', 'fontsize', 'table', 'bullist', 'numlist', 'accordion', 'markdown' ] }, { name: 'hooks', items: styxButtonHooks } ];
 
     styxPlugs = pluginArrToStr(styxpluginnames);
 
     // keep in once, to not loose features - names are case sensitive ! - see independent note on commonToolbar
-    let commonPlugins{$run} = 'preview autoresize lists code fullscreen image link media codesample table charmap styxImage styxGallery visualblocks styxDiv styxPrg help emoticons accordion magicline ' + styxPlugs.replace(/["|'|,]/g, "").slice(0, -1);
+    let commonPlugins{$run} = 'preview autoresize lists code fullscreen image link media codesample table charmap styxImage styxGallery visualblocks styxDiv styxPrg help emoticons accordion markdown magicline ' + styxPlugs.replace(/["|'|,]/g, "").slice(0, -1);
 
     styxPlugs = ''; // reset after usage for next 2cd run
 
