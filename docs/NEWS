@@ -5,6 +5,7 @@ Version 5.x (DEV)
    RE-enables the scrollbar browser auto hide behaviour up from Firefox 153
    to follow a consistent behaviour with before.
    - In Chromium you have to enable it with chrome://flags/#overlay-scrollbars
+      and chrome://flags/#smooth-scrolling
 
  * Add new Styx markdown plugin to the RichText Editor, being able to convert
    markdown syntax to HTML for the Editor window, or vice versa existing
