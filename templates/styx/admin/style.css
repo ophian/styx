@@ -152,6 +152,11 @@ select {
     text-transform: none;
 }
 
+select[multiple]::-webkit-scrollbar,
+.media_file_preview::-webkit-scrollbar {
+    display: none;
+}
+
 button,
 html input[type="button"],
 html input[type="color"],
