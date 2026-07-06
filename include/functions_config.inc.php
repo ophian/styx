@@ -2600,6 +2600,8 @@ function serendipity_sysInfoTicker(bool $check = false, string $whoami = '', ite
                 // last_modified is older than 6 months
                 @unlink($target);
                 $xmlstr = null;
+                // cleanup old references
+                serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE name = 'sysinfo_ticker'");
             }
         }
         // Check the remote file string
@@ -2638,6 +2640,8 @@ function serendipity_sysInfoTicker(bool $check = false, string $whoami = '', ite
                 // Remote was reachable but empty — overwrite/clear the local cache
                 if (!$local && file_exists($target)) {
                     @unlink($target);
+                    // cleanup old references
+                    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE name = 'sysinfo_ticker'");
                 }
             }
         }
