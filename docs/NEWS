@@ -1,6 +1,9 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
+ * Fix blockquote nesting border style selector [pure] theme pure.js function,
+   since root level blockquotes shall not cycle.
+
  * Add missing HTML mark element highlight colors to the Styx backend theme in
    [dark-mode].
 
