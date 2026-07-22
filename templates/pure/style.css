@@ -382,7 +382,7 @@ html[data-dark-theme="dark"], [data-dark-theme="dark"] body, [data-dark-theme="d
   [data-dark-theme="dark"] .serendipity_imageComment_center, [data-dark-theme="dark"] .serendipity_imageComment_left, [data-dark-theme="dark"] .serendipity_imageComment_right {
     box-shadow: none;
     border-color: #3b434c; }
-  [data-dark-theme="dark"] .post_content blockquote {
+  [data-dark-theme="dark"] .post_content blockquote, [data-dark-theme="dark"] .post_content blockquote:first-of-type {
     border-left-color: #adbac7; }
     [data-dark-theme="dark"] .post_content :not(first-of-type) blockquote.odd {
       border-left-color: darkseagreen; }
