@@ -138,8 +138,15 @@ const dark = () => {
 
 /* Allows color threaded nested blockquote styling */
 (function ($) {
+  let depth = 0;
   $('.post_content blockquote').each(function(index, element){
-     if (index % 2 > 0) { $(element).addClass('odd'); }
+    depth = $(this).parents('blockquote').length;
+    if (depth === 0) {
+        $(element).addClass('even');
+    } else {
+        // is is nested
+        $(this).addClass(depth % 2 === 1 ? 'odd' : 'even');
+    }
   });
 })(jQuery);
 
