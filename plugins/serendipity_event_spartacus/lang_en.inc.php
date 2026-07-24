@@ -72,3 +72,5 @@
 
 @define('PLUGIN_EVENT_SPARTACUS_CHECK', 'Update plugins');
 
+@define('PLUGIN_EVENT_SPARTACUS_DOWNLOAD_FAILED', 'Failed to download: "%s"');
+

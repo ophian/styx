@@ -1078,6 +1078,11 @@ class serendipity_event_spartacus extends serendipity_event
 
         $this->checkArray($tree);
 
+        if ($tree === null || $tree === false) {
+            $this->outputMSG('error', sprintf(PLUGIN_EVENT_SPARTACUS_DOWNLOAD_FAILED, $plugin_to_install));
+            return false;
+        }
+
         foreach($tree[0]['children'] AS $subtree) {
             if ($subtree['tag'] != 'package') {
                 continue;

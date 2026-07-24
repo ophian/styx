@@ -65,3 +65,5 @@
 
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_THEMES_DESC', 'Da die Vorschaubilder für die zusätzlichen Themes beim ersten tatsächlichen Durchlauf zwischengespeichert werden, kann dieser Abruf eine Weile dauern (2-3 Minuten), wenn Sie den Themes Link in der Seitenleiste zum ersten Mal aufrufen, nachdem Sie diese Option auf Ja (aktiviert) gesetzt haben. Warten Sie, bis die Seite ihre Hintergrundarbeit beendet hat. Sollte die Ausführung mit einem "PHP Fatal error:  Maximum execution time" Fehler fehlschlagen, laden Sie die Seite einfach neu, um diesen Lauf zu beenden.');
 
+@define('PLUGIN_EVENT_SPARTACUS_DOWNLOAD_FAILED', 'Download fehlgeschlagen: "%s"');
+
