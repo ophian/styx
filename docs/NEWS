@@ -1,7 +1,7 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
- * Fix Spartacus plugin XML file Download or Caching errors returns
+ * Fix Spartacus plugin XML file Download or Caching error returns
 
  * Fix blockquote nesting border style selector [pure] theme pure.js function,
    since root level blockquotes shall not cycle.
