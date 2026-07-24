@@ -20,7 +20,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.32');
+        $propbag->add('version',       '3.33');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'php'         => '8.2'
@@ -804,6 +804,10 @@ class serendipity_event_spartacus extends serendipity_event
 
         $this->checkArray($tree);
 
+        if ($tree === null || $tree === false) {
+            return [];
+        }
+
         foreach($tree[0]['children'] AS $idx => $subtree) {
             if (is_array($subtree) && $subtree['tag'] == 'package') {
                 $i++;
@@ -885,7 +889,7 @@ class serendipity_event_spartacus extends serendipity_event
     function checkArray(&$tree)
     {
         if (!is_array($tree) || !is_array($tree[0]['children'])) {
-            $msg = "DEBUG: The XML file could not be successfully parsed. Download or caching error. " .
+            $msg = "DEBUG: The XML file could not be parsed successfully. Download or caching error. " .
             "Please try again later or switch your XML/File mirror location. ".
             "You can also try to go to the plugin configuration of the Spartacus Plugin and simply click on 'Save' - this will purge all cached XML files and try to download it again.\n".
             '<div style="display: none">' . print_r($tree, true) . "</div>\n";
@@ -925,6 +929,10 @@ class serendipity_event_spartacus extends serendipity_event
         }
 
         $this->checkArray($tree);
+
+        if ($tree === null || $tree === false) {
+            return [];
+        }
 
         uksort($tree, "natcasesort");
 
