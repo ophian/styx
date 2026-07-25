@@ -20,7 +20,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.33');
+        $propbag->add('version',       '3.34');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'php'         => '8.2'
@@ -890,8 +890,9 @@ class serendipity_event_spartacus extends serendipity_event
     {
         if (!is_array($tree) || !is_array($tree[0]['children'])) {
             $msg = "DEBUG: The XML file could not be parsed successfully. Download or caching error. " .
-            "Please try again later or switch your XML/File mirror location. ".
-            "You can also try to go to the plugin configuration of the Spartacus Plugin and simply click on 'Save' - this will purge all cached XML files and try to download it again.\n".
+            "Please try again later or switch your XML/File mirror location. " .
+            "You can also try to go to the plugin configuration of the Spartacus Plugin and simply click on 'Save' - this will purge all cached XML files and try to download it again.<br>\n" .
+            "This could also be an issue of expired certificates. Please check your credentials.\n" .
             '<div style="display: none">' . print_r($tree, true) . "</div>\n";
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> '. $msg .'</span>' . "\n";
         }
