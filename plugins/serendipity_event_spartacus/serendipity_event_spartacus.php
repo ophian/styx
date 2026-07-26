@@ -20,7 +20,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.34');
+        $propbag->add('version',       '3.35');
         $propbag->add('requirements',  array(
             'serendipity' => '5.0',
             'php'         => '8.2'
@@ -480,8 +480,8 @@ class serendipity_event_spartacus extends serendipity_event
                 }
 
                 $mirrors = $this->getMirrors('files_health', true);
-                $health_url = $mirrors[$health_url];
-                if ($health_url == null) {
+                $health_url = @$mirrors[$health_url]; // hide error and simplify to [0] key since array key "https://raw.githubusercontent.com/" is Undefined, but keep for possible later approach
+                if ($health_url === null) {
                     $health_url = $mirrors[0];
                 }
                 $this->outputMSG('notice', sprintf(PLUGIN_EVENT_SPARTACUS_HEALTHCHECK, $health_url));
