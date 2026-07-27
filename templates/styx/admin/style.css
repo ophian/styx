@@ -153,7 +153,8 @@ select {
 }
 
 select[multiple]::-webkit-scrollbar,
-.media_file_preview::-webkit-scrollbar {
+.media_file_preview::-webkit-scrollbar,
+.serendipity_statistics > section.wide_box::-webkit-scrollbar {
     display: none;
 }
 
