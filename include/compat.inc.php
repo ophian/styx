@@ -352,11 +352,12 @@ if (empty($_SERVER['REQUEST_URI'])) {
  *      - String or boolean output value
  * @access public
  */
-function serendipity_get_bool(string $item) : string|bool {
+function serendipity_get_bool(?string $item) : string|bool|null {
     static $translation = array('true'  => true,
                                 'false' => false);
 
-    if (isset($translation[$item])) {
+    // PHP Deprecated:  Using null as an array offset is deprecated
+    if (!is_null($item) && isset($translation[$item])) {
         return $translation[$item];
     } else {
         return $item;
