@@ -1,6 +1,8 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
+ * Fix rare used strict type parameter issues with serendipity_get_bool()
+
  * Fix Spartacus plugin XML file Download or Caching error returns
 
  * Fix blockquote nesting border style selector [pure] theme pure.js function,
