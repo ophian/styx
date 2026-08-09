@@ -349,7 +349,7 @@ if (empty($_SERVER['REQUEST_URI'])) {
  * Args:
  *      - input value string
  * Return:
- *      - String or boolean output value
+ *      - String || boolean || null output value
  * @access public
  */
 function serendipity_get_bool(?string $item) : string|bool|null {
