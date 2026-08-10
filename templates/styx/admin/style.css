@@ -1667,6 +1667,9 @@ summary {
 .msg-sm {
     font-size: .9125rem;
 }
+.msg-long {
+    font-size: .875rem;
+}
 .msg-spot {
     color: #222;
     font-family: Georgia, 'Times New Roman', serif;
