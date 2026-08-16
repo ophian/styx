@@ -1,6 +1,15 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
+ * Improve tagging entries by new [en/de] auto-tag suggestions system via the
+   freetags plugin. (Noted to Styx changelog too, since being an important
+   part of entry properties.)
+
+ * Improve multilingual entries for multi-language entries via multilinguial
+   plugin, so it now becomes more easy to handle and administrate multi
+   language entries in the entry properties. (Noted to Styx changelog too,
+   since being an important part of entry properties.)
+
  * Fix rare used strict type parameter issues with serendipity_get_bool()
 
  * Fix Spartacus plugin XML file Download or Caching error returns
