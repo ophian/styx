@@ -12,6 +12,13 @@ $serendipity['capabilities']['jquery-noconflict'] = false;
 // PURE template options
 $template_config = array(
     array(
+        'var' => 'quickAccessPanel',
+        'name' => PURE_USE_FLOATBOX,
+        'description' => PURE_USE_FLOATBOX_DESC,
+        'type' => 'boolean',
+        'default' => true,
+    ),
+    array(
         'var' => 'use_highlight',
         'name' => PURE_USE_HIGHLIGHT,
         'description' => PURE_USE_HIGHLIGHT_DESC,
