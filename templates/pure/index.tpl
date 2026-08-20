@@ -147,7 +147,7 @@
     </footer>
 {/if}
 
-    <script> const themePath = '{$serendipityHTTPPath}{$templatePath}{$template}'; const language = '{$lang}'; </script>
+    <script> const themePath = '{$serendipityHTTPPath}{$templatePath}{$template}'; const language = '{$lang}'; const quickAccessPanel = {if $template_option.quickAccessPanel === true}true{else}false{/if}; </script>
     <script src="{serendipity_getFile file="pure.js"}"></script>
 {if ($view == 'entry' AND $wysiwyg_comment AND NOT (isset($smarty.get.serendipity.csuccess) AND $smarty.get.serendipity.csuccess == 'true') && (isset($entry) AND NOT ($entry.allow_comments === false))) OR (($view == 'plugin' OR $view == 'start') AND $head_title == 'contactform')}
 
