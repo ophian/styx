@@ -168,3 +168,209 @@ const dark = () => {
         }
     });
 })(jQuery);
+
+/* Floated entries navigation panel */
+if (quickAccessPanel === true && $(window).width() >= 1024) {
+    // Allow a dynamic navigation in right sidebar - if entries are sooooo looooong... and I'm too lazy to scroll... !
+    const sidebar = document.getElementById("serendipityRightSideBar");
+
+    const tocNav = document.createElement("nav");
+    tocNav.setAttribute("id", "toc", "aria-label", "floating Sidebarnavigation");
+    // add the newly created element and its content into the DOM
+    const currentToc = document.getElementById("toc");
+    sidebar.appendChild(tocNav, currentToc);
+
+    const articles = document.querySelectorAll('#content > section > article.post');
+    const toc = document.getElementById('toc'); // Now it is there; Fill it up with anchors
+
+    articles.forEach((art, i) => {
+      const base = art.id || 'article';
+      const anchor = `${base}-${i}`;       // Unique Key: foo-0, foo-1, foo-2 ...
+      art.dataset.anchor = anchor;         // Targeting data-anchor="foo-1" etc
+
+      const label = art.dataset.navLabel || art.querySelector('h2')?.textContent || anchor;
+      const a = document.createElement('a');
+      a.href = `#${anchor}`;
+      a.textContent = label;
+      a.dataset.target = anchor;
+      toc.appendChild(a);
+    });
+
+    // Add a header to the entries list
+    const tocHead = document.createElement("h3");
+    const tocLang = {
+      en:    { title: 'Quick Access Panel' },
+      de:    { title: 'Schnellzugriffsleiste' },
+      da:    { title: 'Hurtigadgangspanel' },
+      es:    { title: 'Panel de acceso rápido' },
+      fr:    { title: 'Panneau d\'accès rapide' },
+      fi:    { title: 'Pikakäyttöpaneeli' },
+      cz:    { title: 'Panel rychlého přístupu' },
+      sk:    { title: 'Panel rýchleho prístupu' },
+      nl:    { title: 'Sneltoegang paneel' },
+      is:    { title: 'Skjótaðgangsspjald' },
+      tr:    { title: 'Hızlı Erişim Paneli' },
+      se:    { title: 'Snabbåtkomstpanel' },
+      pt:    { title: 'Painel de acesso rápido' },
+      pt_PT: { title: 'Painel de acesso rápido' },
+      bg:    { title: 'Панел за бърз достъп' },
+      hu:    { title: 'Gyorselérési panel' },
+      no:    { title: 'Hurtigtilgangspanel' },
+      pl:    { title: 'Panel szybkiego dostępu' },
+      ro:    { title: 'Panou acces rapid' },
+      it:    { title: 'Pannello accesso rapido' },
+      ru:    { title: 'Панель быстрого доступа' },
+      fa:    { title: 'پانل دسترسی سریع' },
+      tw:    { title: '快速存取面板' },
+      tn:    { title: '快速存取面板' },
+      zh:    { title: '快速访问面板' },
+      cn:    { title: '快速访问面板' },
+      ja:    { title: 'クイックアクセスパネル' },
+      ko:    { title: '빠른 접근 패널' },
+      sa:    { title: 'لوحة الوصول السريع' },
+      ta:    { title: 'விரைவு அணுகல் பலகம்' },
+    };
+
+    tocHead.textContent = (typeof language == 'undefined')
+      ? tocLang['en'].title
+      : (tocLang[language] ?? tocLang['en']).title;
+    toc.prepend(tocHead);
+
+    const content = document.getElementById('content');
+    const sidebarSections = document.querySelectorAll('#serendipityRightSideBar > section');
+
+    // Place toTop anchor underneath
+    const up = document.createElement('div');
+          up.setAttribute("class", "nav-panel");
+    const prev = document.querySelector('nav.pager .pager_prev a');
+    const next = document.querySelector('nav.pager .pager_next a');
+    const down = document.getElementById('footer');
+          down.dataset.anchor = 'bottomofpage';
+    const last = sidebarSections[sidebarSections.length - 1];
+          last.dataset.anchor = 'sidebar-end';
+    const left = document.querySelector('#content div.serendipity_entrypaging span.serendipity_entrypaging_left');
+    const right = document.querySelector('#content div.serendipity_entrypaging span.serendipity_entrypaging_right');
+    const start = document.querySelector('#serendipity_banner > h1 a');
+    //let last = 0;
+//console.log(left, right);
+    if (left || right || prev || next) {
+        up.insertAdjacentHTML("beforeend", `<a href="${start.href}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-left" viewBox="0 0 16 16">
+                              <title>blog start</title>
+                              <path fill-rule="evenodd" d="M7.364 3.5a.5.5 0 0 1 .5-.5H14.5A1.5 1.5 0 0 1 16 4.5v10a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 3 14.5V7.864a.5.5 0 1 1 1 0V14.5a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5v-10a.5.5 0 0 0-.5-.5H7.864a.5.5 0 0 1-.5-.5"/>
+                              <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h5a.5.5 0 0 1 0 1H1.707l8.147 8.146a.5.5 0 0 1-.708.708L1 1.707V5.5a.5.5 0 0 1-1 0z"/>
+                            </svg>
+                        </a>`);
+    }
+    if (prev) {
+        up.insertAdjacentHTML("beforeend", `<a href="${prev.href}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                              <title>to previous page</title>
+                              <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                              <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+                            </svg>
+                        </a>`);
+    }
+    if (left) {
+        up.insertAdjacentHTML("beforeend", `<a href="${left.lastElementChild.href}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-square" viewBox="0 0 16 16">
+                              <title>${left.textContent}</title>
+                              <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+                            </svg>
+                        </a>`);
+    }
+    up.insertAdjacentHTML("beforeend", `<a href="#topofpage">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-up" viewBox="0 0 16 16">
+                              <title>to top of page</title>
+                              <path fill-rule="evenodd" d="M3.5 10a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 0 0 1h2A1.5 1.5 0 0 0 14 9.5v-8A1.5 1.5 0 0 0 12.5 0h-9A1.5 1.5 0 0 0 2 1.5v8A1.5 1.5 0 0 0 3.5 11h2a.5.5 0 0 0 0-1h-2z"></path>
+                              <path fill-rule="evenodd" d="M7.646 4.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V14.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#bottomofpage" data-target="bottomofpage">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-down" viewBox="0 0 16 16">
+                              <title>to bottom of page</title>
+                              <path fill-rule="evenodd" d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1z"/>
+                              <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                            </svg>
+                        </a>
+                        <a href="#sidebar-end" data-target="sidebar-end">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
+                              <title>to last sidebar widget</title>
+                              <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5m-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5"/>
+                            </svg>
+                        </a>`);
+    if (right) {
+        up.insertAdjacentHTML("beforeend", `<a href="${right.firstElementChild.href}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square" viewBox="0 0 16 16">
+                              <title>${right.textContent}</title>
+                              <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm4.5 5.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+                            </svg>
+                        </a>`);
+    }
+    if (next) {
+        up.insertAdjacentHTML("beforeend", `<a href="${next.href}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                              <title>to next page</title>
+                              <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+                              <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                            </svg>
+                        </a>`);
+    }
+
+    // add the newly created element and its content into the DOM
+    toc.appendChild(up);
+
+    // Click: Jump instantly to the relevant section (using `data-anchor` instead of `id`)
+    toc.addEventListener('click', e => {
+      const a = e.target.closest('a');
+      if (!a || !a.dataset.target) return; // if none || <a href="#topofpage"> has no dataset.target :: so behave normal - but #bottomofpage and sidebar-end have
+      e.preventDefault();
+      const footer = document.querySelector(`#footer[data-anchor="${a.dataset.target}"]`);
+      const target = document.querySelector(`#content > section > article[data-anchor="${a.dataset.target}"]`);
+      (target||footer)?.scrollIntoView({ block: 'start', behavior: 'auto' });
+      const sidebar = document.querySelector(`#serendipityRightSideBar > section[data-anchor="${a.dataset.target}"]`);
+      sidebar?.scrollIntoView({ block: 'end', behavior: 'auto' });
+      history.replaceState(null, '', `#${a.dataset.target}`); // Deep-Link stays intact
+    });
+
+    // Active highlighting via IntersectionObserver, also using the `data-anchor` attribute
+    const links = toc.querySelectorAll('a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(l => l.classList.toggle('active', l.dataset.target === entry.target.dataset.anchor));
+        }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px' });
+
+    articles.forEach(art => observer.observe(art));
+
+    let sidebarContentHeight = 0;
+    let tocHeight = 0;
+
+    function measure(caller) {
+      sidebarContentHeight = 0;
+      sidebarSections.forEach(sec => {
+        sidebarContentHeight += sec.getBoundingClientRect().height;
+      });
+      tocHeight = toc.getBoundingClientRect().height;
+    }
+
+    function updateTocMode() {
+      ($(window).width() >= 1024) ? toc.classList.remove("hide") : toc.classList.add("hide");
+      const overflow = document.documentElement.scrollTop - sidebarContentHeight;
+      toc.classList.toggle('can-float', overflow > tocHeight);
+    }
+
+    // One Observer for Sections + content
+    const ro = new ResizeObserver(() => { measure('observer'); updateTocMode(); });
+    measure('init'); // initial call measure() once
+    sidebarSections.forEach(sec => ro.observe(sec));
+    ro.observe(content);
+
+    // Safety-Net for Lazy-Load-Images which were ready before Observer-Registration
+    window.addEventListener('load', () => { measure('load'); updateTocMode(); });
+
+    window.addEventListener('scroll', updateTocMode, { passive: true });
+    window.addEventListener('resize', () => { measure('resize'); updateTocMode(); });
+}
