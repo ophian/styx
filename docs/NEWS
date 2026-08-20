@@ -1,6 +1,9 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
+ * Improve [ pure ] standard theme adding a new "Quick Access Panel" widget;
+   Configurable in theme config.
+
  * Improve tagging entries by new [en/de] auto-tag suggestions system via the
    freetags plugin. (Noted to Styx changelog too, since being an important
    part of entry properties.)
