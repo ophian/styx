@@ -169,14 +169,14 @@ const dark = () => {
     });
 })(jQuery);
 
-/* Floated entries navigation panel */
+/* Floated entries navigation: Quick Access Panel */
 if (quickAccessPanel === true && $(window).width() >= 1024) {
     // Allow a dynamic navigation in right sidebar - if entries are sooooo looooong... and I'm too lazy to scroll... !
     const sidebar = document.getElementById("serendipityRightSideBar");
 
     const tocNav = document.createElement("nav");
     tocNav.setAttribute("id", "toc", "aria-label", "floating Sidebarnavigation");
-    // add the newly created element and its content into the DOM
+    // Add the newly created element and its content into the DOM
     const currentToc = document.getElementById("toc");
     sidebar.appendChild(tocNav, currentToc);
 
@@ -251,8 +251,7 @@ if (quickAccessPanel === true && $(window).width() >= 1024) {
     const left = document.querySelector('#content div.serendipity_entrypaging span.serendipity_entrypaging_left');
     const right = document.querySelector('#content div.serendipity_entrypaging span.serendipity_entrypaging_right');
     const start = document.querySelector('#serendipity_banner > h1 a');
-    //let last = 0;
-//console.log(left, right);
+
     if (left || right || prev || next) {
         up.insertAdjacentHTML("beforeend", `<a href="${start.href}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-left" viewBox="0 0 16 16">
@@ -317,7 +316,7 @@ if (quickAccessPanel === true && $(window).width() >= 1024) {
                         </a>`);
     }
 
-    // add the newly created element and its content into the DOM
+    // Add the newly created element and its content into the DOM
     toc.appendChild(up);
 
     // Click: Jump instantly to the relevant section (using `data-anchor` instead of `id`)
