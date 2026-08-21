@@ -27,7 +27,7 @@ $template_config = array(
     ),
     array(
         'var' => 'date_format',
-        'name' => GENERAL_PLUGIN_DATEFORMAT . " (http://php.net/strftime)",
+        'name' => GENERAL_PLUGIN_DATEFORMAT . " (https://php.net/strftime)",
         'type' => 'select',
         'default' => DATE_FORMAT_ENTRY,
         'select_values' => array(DATE_FORMAT_ENTRY => DATE_FORMAT_ENTRY,
