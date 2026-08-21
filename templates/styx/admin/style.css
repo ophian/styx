@@ -2146,6 +2146,7 @@ html[data-login-color-mode="dark"], [data-login-color-mode="dark"] button, [data
     color: var(--color-text-placeholder);
 }
 
+
 /* NAVIGATION */
 .js #main_menu {
     position: absolute;
@@ -2216,6 +2217,7 @@ html[data-login-color-mode="dark"], [data-login-color-mode="dark"] button, [data
   visibility: hidden;
 }
 
+
 /* CONTENT */
 #content {
     padding-bottom: 1.5em;
@@ -2243,6 +2245,7 @@ html[data-login-color-mode="dark"], [data-login-color-mode="dark"] button, [data
 }
 
 .is_entry_preview.no_iframe_data {
+    display: -webkit-inline-box;
     display: inline-block;
     border: 1px solid #ddd;
     margin: 0 0 1em;
@@ -3664,6 +3667,7 @@ label .perm_name,
 }
 
 .pluginmanager_memoryusage {
+    display: -webkit-inline-box;
     display: inline-block;
 }
 .pluginmanager_ownership.spawn-right {
@@ -4171,6 +4175,14 @@ input#select_page {
 }
 /* end TEMP fixes */
 
+/* TinyMCE */
+/* Disable tinymce (long) touch box event container to add p and div containers on touch to not conflict with magicline plugin events ! */
+.tox.tox-silver-sink.tox-tinymce-aux.tox-platform-touch {
+  visibility: hidden;
+  display: none;
+  z-index: unset;
+}
+
 /* MAGNIFIC POPUP  */
 .mfp-bg {
   top: 0;
@@ -4477,8 +4489,8 @@ img.mfp-img {
     background: #444; }
   .mfp-figure small {
     color: #bdbdbd;
-    display: block;
     display: -webkit-box;
+    display: block;
     font-size: 12px;
     line-height: 14px; }
   .mfp-figure figure {
