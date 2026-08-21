@@ -32,7 +32,7 @@ body.welcome,
   list-style-type: none;
 }
 
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .home__item:first-child {
     grid-column: span 2;
   }
@@ -95,7 +95,7 @@ body.welcome,
   text-transform: uppercase;
 }
 
-@media screen and (min-width: 480px) {
+@media (min-width: 480px) {
     .media_object_container {
         margin-right: 1em;
         width: 50%;
