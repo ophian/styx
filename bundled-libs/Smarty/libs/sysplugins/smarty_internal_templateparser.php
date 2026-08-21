@@ -2440,7 +2440,7 @@ public static $yy_action = array(
         }
 // line 810 "../smarty/lexer/smarty_internal_templateparser.y"
     public function yy_r102(){
-   $this->_retvalue = $this->compiler->compileVariable('\''.substr($this->yystack[$this->yyidx + 0]->minor,1).'\'');
+    $this->_retvalue = $this->compiler->compileVariable('\''.substr($this->yystack[$this->yyidx + 0]->minor,1).'\'');
     }
 // line 813 "../smarty/lexer/smarty_internal_templateparser.y"
     public function yy_r103(){
