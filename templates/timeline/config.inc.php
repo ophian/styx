@@ -461,27 +461,27 @@ if (!function_exists('serendipity_plugin_api_pre_event_hook')) {
                 //DEBUG: echo '<pre>' . print_r($eventData, true) . '</pre>';
                 echo '
                     <div class="entryproperties">
-                      <input type="hidden" value="true" name="serendipity[propertyform]">
-                          <div class="entryproperties_customfields adv_opts_box">
-                              <h4>' . THEME_CUSTOM_FIELD_HEADING . '</h4>
-                              <span class="msg_hint msg-0">' . THEME_CUSTOM_FIELD_DEFINITION . '</span>
-                              <div class="serendipity_customfields clearfix">
-                                  <div class="clearfix form_area media_choose" id="ep_column_' . $timeline_image_key . '">
-                                      <label for="' . $timeline_image_key . '">' . THEME_ENTRY_IMAGE. '</label>
-                                      <textarea data-configitem="' . $timeline_image_key . '" name="serendipity[properties][' . $timeline_image_key . ']" class="change_preview" id="prop' . $timeline_image_key . '">' . $is_timeline_image . '</textarea>
-                                      <button title="' . MEDIA . '" name="insImage" type="button" class="customfieldMedia"><span class="icon-picture" aria-hidden="true"></span><span class="visuallyhidden">' . MEDIA . '</span></button>
-                                      <figure id="' . $timeline_image_key . '_preview">
-                                          <figcaption>' . PREVIEW . '</figcaption>
-                                          <picture>
-                                              <source type="image/avif" srcset="' . ($is_timeline_image_avif ?? null) . '">
-                                              <source type="image/webp" srcset="' . ($is_timeline_image_webp ?? null) . '">
-                                              <img src="' . $is_timeline_image . '" class="ml_preview_img" alt="">
-                                          </picture>
-                                      </figure>
-                                  </div>
-                              </div>
-                          </div>
-                     </div>
+                        <input type="hidden" value="true" name="serendipity[propertyform]">
+                        <div class="entryproperties_customfields adv_opts_box">
+                            <h4>' . THEME_CUSTOM_FIELD_HEADING . '</h4>
+                            <span class="msg_hint msg-0">' . THEME_CUSTOM_FIELD_DEFINITION . '</span>
+                            <div class="serendipity_customfields clearfix">
+                                <div class="clearfix form_area media_choose" id="ep_column_' . $timeline_image_key . '">
+                                    <label for="' . $timeline_image_key . '">' . THEME_ENTRY_IMAGE. '</label>
+                                    <textarea data-configitem="' . $timeline_image_key . '" name="serendipity[properties][' . $timeline_image_key . ']" class="change_preview" id="prop' . $timeline_image_key . '">' . $is_timeline_image . '</textarea>
+                                    <button title="' . MEDIA . '" name="insImage" type="button" class="customfieldMedia"><span class="icon-picture" aria-hidden="true"></span><span class="visuallyhidden">' . MEDIA . '</span></button>
+                                    <figure id="' . $timeline_image_key . '_preview">
+                                        <figcaption>' . PREVIEW . '</figcaption>
+                                        <picture>
+                                            <source type="image/avif" srcset="' . ($is_timeline_image_avif ?? null) . '">
+                                            <source type="image/webp" srcset="' . ($is_timeline_image_webp ?? null) . '">
+                                            <img class="ml_preview_img" alt="" src="' . $is_timeline_image . '">
+                                        </picture>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 '.PHP_EOL;
                 break;
 

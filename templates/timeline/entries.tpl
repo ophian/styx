@@ -34,7 +34,7 @@
                                     <picture>
                                         <source type="image/avif" srcset="{$entry.properties.timeline_image_avif}">
                                         <source type="image/webp" srcset="{$entry.properties.timeline_image_webp}">
-                                        <img src="{$entry.properties.timeline_image}'" class="img-fluid img-thumbnail" alt="">
+                                        <img class="img-fluid img-thumbnail" alt="" src="{$entry.properties.timeline_image}'">
                                     </picture>
                                 {else}
                                 <img class="img-fluid img-thumbnail" {if NOT empty($entry.properties.timeline_image)}src="{$entry.properties.timeline_image}"{else}{if $template_option.use_variation}src="{serendipity_getFile file='img/image_unavailable.webp'}"{else}src="{serendipity_getFile file='img/image_unavailable.jpg'}"{/if}{/if} alt=""/>

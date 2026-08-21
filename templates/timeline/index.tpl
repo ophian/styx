@@ -81,7 +81,7 @@
                     <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">
                         <input type="hidden" name="serendipity[action]" value="search">
                         <label for="serendipityQuickSearchTermField" class="sr-only">{$CONST.QUICKSEARCH}</label>
-                        <input id="serendipityQuickSearchTermField" class="form-control" name="serendipity[searchTerm]" type="search" value="" placeholder="{$CONST.SEARCH} ...">
+                        <input id="serendipityQuickSearchTermField" class="form-control mr-3" name="serendipity[searchTerm]" type="search" value="" placeholder="{$CONST.SEARCH} ...">
                         <div class="modal-footer">
                             <input id="gobutton" class="btn btn-secondary btn-theme" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">{$CONST.CLOSE}</button>
