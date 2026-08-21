@@ -1189,7 +1189,9 @@ pre .geshi {
     }
 
     #sidebar_left .sidebar_plugin,
-    #sidebar_right .sidebar_plugin { margin: 0 1em 2em 2em; }
+    #sidebar_right .sidebar_plugin {
+        margin: 0 1em 2em 2em;
+    }
 
     #searchform>div { padding: 0 1em 0 2em; }
 

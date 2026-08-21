@@ -20,7 +20,7 @@
 {/if}
 {/if}
 {if $head_link_stylesheet_frontend}
-    <link rel="stylesheet" href="{$head_link_stylesheet}" type="text/css">
+    <link rel="stylesheet" href="{$head_link_stylesheet_frontend}" type="text/css">
 {else}
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css" type="text/css">
 {/if}
