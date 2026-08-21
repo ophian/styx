@@ -205,7 +205,7 @@
                     <p class="msg_important">{$CONST.COMMENT_ADDED|sprintf:''} {$CONST.THIS_COMMENT_NEEDS_REVIEW}</p>
 {elseif NOT $entry.allow_comments}
                     <p class="msg_important">{$CONST.COMMENTS_CLOSED}</p>
-{if $is_embedded != true AND $entry.comments > 0}
+{if $is_embedded != true AND ($entry.comments > 0 OR NOT $entry.has_comments)}
 
                     <div class="closed_cf totop">
                         <a href="#topofpage">
