@@ -101,6 +101,55 @@ switch($serendipity['GET']['adminAction']) {
             $entry['timestamp'] = serendipity_serverOffsetHour($entry['timestamp'], true);
         }
 
+        // Cleanup magic-line helper remnants on <div class="magic-line-highlight" || <div class="" || <div class> but keep the div element
+        // Run only when using wysiwyg and when actually saving (not preview-only)
+        if (!empty($serendipity['wysiwyg']) && $serendipity['wysiwyg'] === true && !$preview_only) {
+            $cleanup_magic_line = static function ($html) {
+                if ($html === null || $html === '') {
+                    return $html;
+                }
+
+                // Find opening <div ... class=...> and sanitize the class value:
+                $html = preg_replace_callback(
+                    '#<div\b([^>]*)\bclass\s*=\s*(?:"([^"]*)"|\'([^\']*)\'|([^>\s]*))([^>]*)>#is',
+                    function ($m) {
+                        $before = $m[1] ?? '';
+                        // one of these three will contain the attribute value
+                        $classVal = $m[2] ?? ($m[3] ?? ($m[4] ?? ''));
+                        $after = $m[5] ?? '';
+
+                        // split tokens, remove the magic-line-highlight token (case-insensitive)
+                        $tokens = preg_split('/\s+/', trim($classVal));
+                        $tokens = array_filter($tokens, function ($t) {
+                            return $t !== '' && mb_strtolower($t) !== 'magic-line-highlight';
+                        });
+
+                        if (count($tokens) > 0) {
+                            // re-add class attribute with remaining tokens (HTML-escaped)
+                            $newClass = ' class="' . htmlspecialchars(implode(' ', $tokens), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '"';
+                        } else {
+                            // remove class attribute entirely if nothing remains
+                            $newClass = '';
+                        }
+
+                        return '<div' . $before . $newClass . $after . '>';
+                    },
+                    $html
+                );
+
+                // Defensive cleanup for weird leftover forms:
+                // - remove any empty class="" or class='' occurrences not caught above
+                $html = preg_replace('#\s+class\s*=\s*(?:"\s*"|\'\s*\')#i', '', $html);
+                // - remove bare 'class' attributes like <div class>
+                $html = preg_replace('#\s+class(?=[\s>])#i', '', $html);
+
+                return $html;
+            };
+
+            $entry['body']     = $cleanup_magic_line($entry['body']);
+            $entry['extended'] = $cleanup_magic_line($entry['extended']);
+        }
+
         // Save the entry, or just display a preview
         $data['use_legacy'] = $use_legacy = true;
         serendipity_plugin_api::hook_event('backend_entry_iframe', $use_legacy);
