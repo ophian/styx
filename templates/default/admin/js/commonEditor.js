@@ -66,7 +66,7 @@ const magiclineHelp = { en: { title: 'Magic Line Help',
       '\n' +
       '<p>Der Übersicht und Einfachheit halber ist der Hit-Layer und die rote Linie <strong>nicht</strong> verfügbar, wenn das angrenzende Nachbar-HTML-Element einen eigenen Sprung auf die unterste Ebene ermöglicht, so Sie den Cursor platzieren und ENTER drücken. Diese Paarung ist auch dann der Fall, wenn das rote Linien-Ereignis für das Container-Element auf diesen "Nachbarn" bereits angewendet wurde.</p>\n' +
       '\n' +
-      '<p><strong>Warum man es verwenden sollte</strong>: Es gewährleistet eine korrekte Dokumentstruktur und verhindert das Speichern von unerwünschter Verschachtelung, die zu Darstellungsproblemen führen kann; sei im Editorfenster selbst oder später in ihrem Blogeintrag.</p>\n' +
+      '<p><strong>Warum man es verwenden sollte</strong>: Es gewährleistet eine korrekte Dokumentstruktur und verhindert das Speichern von unerwünschter Verschachtelung, die zu Darstellungsproblemen führen kann; sei im Editorfenster selbst oder später in Ihrem Blogeintrag.</p>\n' +
       '\n' +
       '<p><strong>Wann es erscheint</strong>: Nur dann, wenn nötig, um den aktuellen Container zu verlassen und es keine Möglichkeit gibt dies vom angrenzenden Element aus zu bewerkstelligen. Verwenden Sie für Inhalte in Blöcken ansonsten die normalen Bearbeitungsmethoden.</p>\n' +
       '\n' +
