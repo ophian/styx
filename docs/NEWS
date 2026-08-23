@@ -3,6 +3,12 @@ Version 5.x (DEV)
 
  * Add a RichTextEditor HTML sanitizer on entry SAVE for div element attribute
    toggled magic-line helper remnants.
+   PLEASE NOTE:
+   RT Editor users that want to cleanup already stored entries that might have
+   these remnants just have to re-edit and save them again. These remnats were
+   not found harmful in any case, so it is up to you. Firing an upgrade task
+   would be too much for this. If you want help for an automated cleanup task
+   please feel free to ask.
 
  * Improve [ pure ] standard theme adding a new "Quick Access Panel" widget;
    Configurable in theme config.
