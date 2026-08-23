@@ -174,7 +174,6 @@ function &serendipity_fetchEntryCategories(int $entryid) : iterable {
     }
 }
 
-
 /**
  * Fetch a list of entries
  *
