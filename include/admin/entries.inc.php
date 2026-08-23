@@ -602,15 +602,15 @@ switch($serendipity['GET']['adminAction']) {
             break;
         }
         $entry = serendipity_fetchEntry('id', $serendipity['GET']['id'], true, 1);
+        if ($entry === false) {
+            echo '<span class="msg_notice"><span class="icon-info-circled"></span> ' . sprintf(NO_ENTRIES_BLAHBLAH, 'ID '.(int) $serendipity['GET']['id'])  . ' - ' .PERMISSIONS."?</span>\n";
+            break; // don't allow entryform fallback if given entry is false or set false by failing permission
+        }
+        // no break [PSR-2] - extends default
         // Sanitize RT Editor fetched entries when rendering or loading into the editor so any already-stored "magic-line" helper remnants never surface in the re-edit UI
         if (!empty($serendipity['wysiwyg']) && $serendipity['wysiwyg'] === true) {
             $entry['body']     = serendipity_cleanup_magic_line_html($entry['body']);
             $entry['extended'] = serendipity_cleanup_magic_line_html($entry['extended']);
-        }
-        // no break [PSR-2] - extends default
-        if ($entry === false) {
-            echo '<span class="msg_notice"><span class="icon-info-circled"></span> ' . sprintf(NO_ENTRIES_BLAHBLAH, 'ID '.(int) $serendipity['GET']['id'])  . ' - ' .PERMISSIONS."?</span>\n";
-            break; // don't allow entryform fallback if given entry is false or set false by failing permission
         }
 
     default:
