@@ -40,6 +40,52 @@ if (!empty($serendipity['GET']['editSubmit'])) {
 $preview_only = false;
 $entryForm = '';
 
+/**
+ * NON-API helper method:
+ * Remove magic-line-highlight token and empty/bare class attributes from <div> tags.
+ * Preserves other class tokens and inner HTML.
+ */
+function serendipity_cleanup_magic_line_html(?string $html) : ?string {
+    if ($html === null || $html === '') {
+        return $html;
+    }
+
+    // cheap fast path: if neither the token nor 'class' exist, skip heavy work
+    if (strpos($html, 'magic-line-highlight') === false && strpos($html, ' class') === false && strpos($html, 'class=') === false) {
+        return $html;
+    }
+
+    // remove only the class token, preserving other tokens and the div itself
+    $html = preg_replace_callback(
+        '#<div\b([^>]*)\bclass\s*=\s*(?:"([^"]*)"|\'([^\']*)\'|([^>\s]*))([^>]*)>#is',
+        function ($m) {
+            $before = $m[1] ?? '';
+            $classVal = $m[2] ?? ($m[3] ?? ($m[4] ?? ''));
+            $after = $m[5] ?? '';
+
+            $tokens = preg_split('/\s+/', trim($classVal));
+            $tokens = array_filter($tokens, function ($t) {
+                return $t !== '' && mb_strtolower($t) !== 'magic-line-highlight';
+            });
+
+            if (count($tokens) > 0) {
+                $newClass = ' class="' . htmlspecialchars(implode(' ', $tokens), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '"';
+            } else {
+                $newClass = '';
+            }
+
+            return '<div' . $before . $newClass . $after . '>';
+        },
+        $html
+    );
+
+    // defensive cleanup for odd cases
+    $html = preg_replace('#\s+class\s*=\s*(?:"\s*"|\'\s*\')#i', '', $html);
+    $html = preg_replace('#\s+class(?=[\s>])#i', '', $html);
+
+    return $html;
+}
+
 switch($serendipity['GET']['adminAction']) {
 
     case 'preview':
@@ -75,6 +121,13 @@ switch($serendipity['GET']['adminAction']) {
             );
         }
 
+        // Cleanup RT Editor magic-line helper remnants on <div class="magic-line-highlight" || <div class="" || <div class> but keep the div element
+        // Run only when using wysiwyg and when actually saving (not preview-only)
+        if (!empty($serendipity['wysiwyg']) && $serendipity['wysiwyg'] === true && !$preview_only) {
+            $entry['body']     = serendipity_cleanup_magic_line_html($entry['body']);
+            $entry['extended'] = serendipity_cleanup_magic_line_html($entry['extended']);
+        }
+
         if ($entry['allow_comments'] != 'true' && $entry['allow_comments'] !== true) {
             $entry['allow_comments'] = 'false';
         }
@@ -99,55 +152,6 @@ switch($serendipity['GET']['adminAction']) {
         // Save server timezone in database always, so subtract the offset we added for display; otherwise it would be added time and again
         if (!empty($entry['timestamp'])) {
             $entry['timestamp'] = serendipity_serverOffsetHour($entry['timestamp'], true);
-        }
-
-        // Cleanup magic-line helper remnants on <div class="magic-line-highlight" || <div class="" || <div class> but keep the div element
-        // Run only when using wysiwyg and when actually saving (not preview-only)
-        if (!empty($serendipity['wysiwyg']) && $serendipity['wysiwyg'] === true && !$preview_only) {
-            $cleanup_magic_line = static function ($html) {
-                if ($html === null || $html === '') {
-                    return $html;
-                }
-
-                // Find opening <div ... class=...> and sanitize the class value:
-                $html = preg_replace_callback(
-                    '#<div\b([^>]*)\bclass\s*=\s*(?:"([^"]*)"|\'([^\']*)\'|([^>\s]*))([^>]*)>#is',
-                    function ($m) {
-                        $before = $m[1] ?? '';
-                        // one of these three will contain the attribute value
-                        $classVal = $m[2] ?? ($m[3] ?? ($m[4] ?? ''));
-                        $after = $m[5] ?? '';
-
-                        // split tokens, remove the magic-line-highlight token (case-insensitive)
-                        $tokens = preg_split('/\s+/', trim($classVal));
-                        $tokens = array_filter($tokens, function ($t) {
-                            return $t !== '' && mb_strtolower($t) !== 'magic-line-highlight';
-                        });
-
-                        if (count($tokens) > 0) {
-                            // re-add class attribute with remaining tokens (HTML-escaped)
-                            $newClass = ' class="' . htmlspecialchars(implode(' ', $tokens), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '"';
-                        } else {
-                            // remove class attribute entirely if nothing remains
-                            $newClass = '';
-                        }
-
-                        return '<div' . $before . $newClass . $after . '>';
-                    },
-                    $html
-                );
-
-                // Defensive cleanup for weird leftover forms:
-                // - remove any empty class="" or class='' occurrences not caught above
-                $html = preg_replace('#\s+class\s*=\s*(?:"\s*"|\'\s*\')#i', '', $html);
-                // - remove bare 'class' attributes like <div class>
-                $html = preg_replace('#\s+class(?=[\s>])#i', '', $html);
-
-                return $html;
-            };
-
-            $entry['body']     = $cleanup_magic_line($entry['body']);
-            $entry['extended'] = $cleanup_magic_line($entry['extended']);
         }
 
         // Save the entry, or just display a preview
@@ -598,6 +602,11 @@ switch($serendipity['GET']['adminAction']) {
             break;
         }
         $entry = serendipity_fetchEntry('id', $serendipity['GET']['id'], true, 1);
+        // Sanitize RT Editor fetched entries when rendering or loading into the editor so any already-stored "magic-line" helper remnants never surface in the re-edit UI
+        if (!empty($serendipity['wysiwyg']) && $serendipity['wysiwyg'] === true) {
+            $entry['body']     = serendipity_cleanup_magic_line_html($entry['body']);
+            $entry['extended'] = serendipity_cleanup_magic_line_html($entry['extended']);
+        }
         // no break [PSR-2] - extends default
         if ($entry === false) {
             echo '<span class="msg_notice"><span class="icon-info-circled"></span> ' . sprintf(NO_ENTRIES_BLAHBLAH, 'ID '.(int) $serendipity['GET']['id'])  . ' - ' .PERMISSIONS."?</span>\n";
