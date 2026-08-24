@@ -59,10 +59,11 @@
 {/if}
     </main>
     <script type="text/javascript">
+        const forceLightMode = {if ($forceLightMode)}true{else}false{/if};
         let dark_mode = sessionStorage.getItem('dark_mode');
 
         if (dark_mode == null) {
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches || dark_mode == "dark") {
+            if (!forceLightMode && window.matchMedia('(prefers-color-scheme: dark)').matches || dark_mode == "dark") {
                 document.documentElement.setAttribute('data-dark-theme', 'dark');
             }
         } else if (dark_mode == 'dark') {
