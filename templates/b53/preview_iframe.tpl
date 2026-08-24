@@ -66,9 +66,11 @@
         </main>
     </div>
     <script type="text/javascript">
-        let theme =  localStorage.getItem('theme');
+        const forceLightMode = {if ($forceLightMode)}true{else}false{/if};
+        const theme =  localStorage.getItem('theme');
+
         if (theme === null || theme === 'auto') {
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches || theme == "dark") {
+            if (!forceLightMode && window.matchMedia('(prefers-color-scheme: dark)').matches || theme == "dark") {
                 document.documentElement.setAttribute('data-bs-theme', 'dark');
             }
         } else if (theme === 'dark') {
