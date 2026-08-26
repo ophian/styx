@@ -1,6 +1,8 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
+ * Merge Smarty security update v.4.5.7 into custom Styx v.4.5.7-dev4
+
  * Improve / Fix preview_iframe template for forced light mode in [ pure, boot,
    b53 ] themes.
 
