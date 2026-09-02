@@ -1756,7 +1756,7 @@ $(function() {
     }
 
     // Media file actions
-        if ($('.media_fullsize').length > 0) {
+    if ($('.media_fullsize').length > 0) {
         $('.media_fullsize').magnificPopup({ type:'image' });
     }
 
