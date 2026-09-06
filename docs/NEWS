@@ -1,6 +1,10 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
+ * Fix serendipity_imageCreateFromAny() image upload with GD lib, to allow
+   creating an AVIF format variation from a WebP image source, which we did
+   allow with ImageMagick lib already, so both work consistently.
+
  * Merge Smarty security update v.4.5.7 into custom Styx v.4.5.7-dev4
 
  * Improve / Fix preview_iframe template for forced light mode in [ pure, boot,
