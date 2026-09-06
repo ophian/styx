@@ -730,7 +730,7 @@ switch ($serendipity['GET']['adminAction']) {
                         }
 
                         // Special case ORIGIN is a WebP file upload and we DO want to have the full AVIF variation
-                        // AVIF case - NOT with animated GIF/WEBP conversions since this is a waste of CPU time for the result of a static AVIF (when in bundle with with animated webP variation)
+                        // AVIF case - NOT with animated GIF/WEBP conversions since this is a waste of CPU time for the result of a static AVIF (when in bundle with an animated webP variation)
                         if (strtolower($info['extension']) === 'webp') {
                             $isAnimated = $serendipity['magick'] !== true ? false : 1 !== serendipity_getAnimationFrameCount($target); // GD case no check - declare as static image
                             if (!$isAnimated) {
@@ -738,7 +738,10 @@ switch ($serendipity['GET']['adminAction']) {
                                 $variat = serendipity_makeImageVariationPath($target, 'avif');
                                 $debug = false; // DEV: Enable on the fly-debug to log debug
                                 $result = serendipity_convertToAvifFormat($target, $variat['filepath'], $variat['filename'], 'image/avif', false);
-                            } else $result = null;
+                            } else {
+                                $result = null;
+                            }
+
                             if (is_array($result)) {
                                 // capture GD result
                                 $_relative_result_outfile = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $result[1]);
