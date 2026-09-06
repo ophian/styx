@@ -841,7 +841,8 @@ function serendipity_imageCreateFromAny(string $filepath) : GdImage|false {
         1,  // [] gif
         2,  // [] jpg
         3,  // [] png
-        6   // [] bmp
+        6,  // [] bmp
+        18  // [] webp
         );
     if (!in_array($type, $allowedTypes)) {
         return false;
@@ -858,6 +859,9 @@ function serendipity_imageCreateFromAny(string $filepath) : GdImage|false {
             break;
         case 6:
             $im = imagecreatefrombmp($filepath);
+            break;
+        case 18:
+            $im = imagecreatefromwebp($filepath);
             break;
     }
     // if imagecreatefrom*** returns bool for error, i.e. imagecreatefrompng(): gd-png: fatal libpng error: IDAT or imagecreatefrompng(): gd-png error: setjmp returns error condition 3 etc
