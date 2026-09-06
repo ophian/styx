@@ -1137,7 +1137,7 @@ function serendipity_getSupportedFormats(bool $extend = false) : iterable {
     if ($extend) {
         return ['BMP', 'PNG', 'JPG', 'JPEG', 'GIF', 'WEBP', 'AVIF'];
     }
-    return ['PNG', 'JPG', 'JPEG', 'GIF'];
+    return ['PNG', 'JPG', 'JPEG', 'GIF', 'WEBP']; // added WEBP to allow rebulding deleted variations in case the origin is a WEBP file itself.
 }
 
 /**
@@ -2756,7 +2756,7 @@ function serendipity_generateVariations(?int $id = null) : bool|int|null {
         $file = serendipity_fetchImageFromDatabase($id);
         if (is_array($file) && !empty($file)) {
             $resWebP = $resAVIF = false; // init
-            if (!in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png', 'gif']) || (isset($file['hotlink']) && $file['hotlink'] == 1)) {
+            if (!in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png', 'gif', 'webp']) || (isset($file['hotlink']) && $file['hotlink'] == 1)) { // added webp to allow re-adding variations for origin webp(s)
                 return false;
             }
             if ($debug) $logtag = 'SINGLE ML IMAGE-ADD-VARIATION - PART RUN ::';
@@ -2765,7 +2765,7 @@ function serendipity_generateVariations(?int $id = null) : bool|int|null {
             $infileTH  = $outfileTH = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['thumbnail_name']) ? '' : '.' . $file['thumbnail_name']) . (empty($file['extension']) ? '' : '.' . $file['extension']);
 
             // WebP case
-            if ($serendipity['useWebPFormat']) {
+            if ($serendipity['useWebPFormat'] && $file['extension'] !== 'webp') { // Special case, dismiss a WEBP Variation if origin is itself a WEBP file (finetune case of allowing to rebuild WEBP origin variations by [+] button)
                 $newfile   = serendipity_makeImageVariationPath($outfile, 'webp');
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE WEBP: ".print_r($newfile,true)); }
                 $newfileTH = serendipity_makeImageVariationPath($outfileTH, 'webp');
@@ -2818,7 +2818,7 @@ function serendipity_generateVariations(?int $id = null) : bool|int|null {
         if (is_array($files) && !empty($files)) {
             foreach($files AS $f => $file) {
                 $resWebP = $resAVIF = false; // init
-                if (!in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png', 'gif']) || (isset($file['hotlink']) && $file['hotlink'] == 1)) {
+                if (!in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png', 'gif', 'webp']) || (isset($file['hotlink']) && $file['hotlink'] == 1)) { // added webp to allow re-adding variations for origin webp(s)
                     continue; // next
                 }
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag EACH FILE AFTER: ".print_r($file,true)); }
@@ -2826,7 +2826,7 @@ function serendipity_generateVariations(?int $id = null) : bool|int|null {
                 $infileTH  = $outfileTH = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['thumbnail_name']) ? '' : '.' . $file['thumbnail_name']) . (empty($file['extension']) ? '' : '.' . $file['extension']);
 
                 // WebP case
-                if ($serendipity['useWebPFormat']) {
+                if ($serendipity['useWebPFormat'] && $file['extension'] !== 'webp') { // Special case, dismiss a WEBP Variation if origin is itself a WEBP file (finetune case of allowing to rebuild WEBP origin variations by [+] button)
                     $newfile   = serendipity_makeImageVariationPath($outfile, 'webp');
                     if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE WEBP: ".print_r($newfile,true)); }
                     $newfileTH = serendipity_makeImageVariationPath($outfileTH, 'webp');
