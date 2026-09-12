@@ -126,18 +126,9 @@
                                           'default'     => ($serendipity['serendipityUserlevel'] == 255) ? false : true,
                                           'flags'       => array('config')),
 
-                                    array('var'         => 'enableBackendPopup',
-                                          'title'       => USERCONF_BACKENDPOPUP,
-                                          'description' => USERCONF_BACKENDPOPUP_DESC,
-                                          'type'        => 'bool',
-                                          'default'     => false,
-                                          'flags'       => array('config'),
-                                          'permission'  => 'personalConfiguration'),
-
                                     array('var'         => 'enableBackendPopupGranular',
                                           'title'       => USERCONF_BACKENDPOPUP_GRANULAR,
-                                          'description' => USERCONF_BACKENDPOPUP_GRANULAR_DESC .
-                                                            '[ <em>images, comments, categories, tags, links</em> ].',
+                                          'description' => USERCONF_BACKENDPOPUP_GRANULAR_DESC,
                                           'type'        => 'string',
                                           'permission'  => 'personalConfiguration',
                                           'default'     => 'categories,tags,links',
