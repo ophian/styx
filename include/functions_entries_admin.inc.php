@@ -109,7 +109,7 @@ function serendipity_printEntryForm(string $targetURL, iterable $hiddens = array
 
             $template_vars['category_options'][] = $cat;
         }
-        if (isset($serendipity['enableBackendPopupGranular']) && false !== stripos($serendipity['enableBackendPopupGranular'], 'categories')) {
+        if (isset($serendipity['enableBackendPopupGranular']) && str_contains($serendipity['enableBackendPopupGranular'], 'categories')) {
             $template_vars['category_compact'] = true;
         }
     } else {

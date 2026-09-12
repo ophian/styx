@@ -1257,7 +1257,7 @@ function serendipity_smarty_init(?iterable $vars = []) : bool  {
             }
         }
 
-        $_force_backendpopups = explode(',', ($serendipity['enableBackendPopupGranular'] ?? 'links')); // 'links' container is the only one in need to be non mpf layered per default install for the quicktip doc
+        $_force_backendpopups = explode(',', $serendipity['enableBackendPopupGranular']);
         $force_backendpopups  = array();
         foreach($_force_backendpopups AS $fbp_key => $fbp_val) {
             $fbp_val = trim($fbp_val);
@@ -1274,10 +1274,10 @@ function serendipity_smarty_init(?iterable $vars = []) : bool  {
                 'head_link_script'          => $serendipity['smarty_vars']['head_link_script'],
                 'head_link_stylesheet_frontend' => $serendipity['smarty_vars']['head_link_stylesheet_frontend'] ?? null,
 
-                'use_popups'                => $serendipity['enablePopup'] ?? false,
-                'use_backendpopups'         => $serendipity['enableBackendPopup'] ?? false,
+                'use_popups'                => false, // REFACTORING - REMOVE when ready in templates
+                'use_backendpopups'         => false, // REFACTORING - REMOVE when ready in templates
                 'force_backendpopups'       => $force_backendpopups,
-                'is_embedded'               => (empty($serendipity['embed']) || $serendipity['embed'] === 'false' || $serendipity['embed'] === false) ? false : true,
+                'is_embedded'               => (empty($serendipity['embed']) || $serendipity['embed'] === 'false' || $serendipity['embed'] === false) ? false : true, // means: independent from POPUP vs embedding !
                 'is_raw_mode'               => $serendipity['smarty_raw_mode'],
                 'is_logged_in'              => serendipity_userLoggedIn(),
 
