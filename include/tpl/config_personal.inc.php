@@ -127,16 +127,16 @@
                                           'flags'       => array('config')),
 
                                     array('var'         => 'enableBackendPopup',
-                                          'title'       => INSTALL_BACKENDPOPUP,
-                                          'description' => INSTALL_BACKENDPOPUP_DESC,
+                                          'title'       => USERCONF_BACKENDPOPUP,
+                                          'description' => USERCONF_BACKENDPOPUP_DESC,
                                           'type'        => 'bool',
                                           'default'     => false,
                                           'flags'       => array('config'),
                                           'permission'  => 'personalConfiguration'),
 
                                     array('var'         => 'enableBackendPopupGranular',
-                                          'title'       => INSTALL_BACKENDPOPUP_GRANULAR,
-                                          'description' => INSTALL_BACKENDPOPUP_GRANULAR_DESC .
+                                          'title'       => USERCONF_BACKENDPOPUP_GRANULAR,
+                                          'description' => USERCONF_BACKENDPOPUP_GRANULAR_DESC .
                                                             '[ <em>images, comments, categories, tags, links</em> ].',
                                           'type'        => 'string',
                                           'permission'  => 'personalConfiguration',
