@@ -10,15 +10,15 @@
         <input name="serendipity[pinned_entries]" type="hidden" value="{$pin_entries|default:''}">
         {$formtoken}
         <ul class="filters_toolbar filter_entries plainList">
-            <li><a class="button_link" href="#filter_entries" title="{$CONST.FILTERS}"><span class="icon-filter" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.FILTERS}</span></a></li>
-            <li><a class="button_link" href="#sort_entries" title="{$CONST.SORT_ORDER}"><span class="icon-sort" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.SORT_ORDER}</span></a></li>
+            <li><a class="button_link" href="#filter_entries" title="{$CONST.FILTERS}" aria-label="{$CONST.FILTERS}"><span class="icon-filter" aria-hidden="true"></span></a></li>
+            <li><a class="button_link" href="#sort_entries" title="{$CONST.SORT_ORDER}" aria-label="{$CONST.SORT_ORDER}"><span class="icon-sort" aria-hidden="true"></span></a></li>
 {if NOT $simpleFilters}
-            <li><a class="button_link" href="#entry_skip" title="{$CONST.EDIT_ENTRY} #"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT_ENTRY} #</span></a></li>
+            <li><a class="button_link" href="#entry_skip" title="{$CONST.EDIT_ENTRY} #" aria-label="{$CONST.EDIT_ENTRY} #"><span class="icon-edit" aria-hidden="true"></span></a></li>
 {/if}
         </ul>
 
         <fieldset id="filter_entries" class="additional_info filter_pane">
-            <legend class="visuallyhidden">{$CONST.FILTERS}</legend>
+            <legend class="sr-only">{$CONST.FILTERS}</legend>
 
             <div class="clearfix">
                 <div class="form_select">
@@ -59,7 +59,7 @@
         </fieldset>
 
         <fieldset id="sort_entries" class="additional_info filter_pane">
-            <legend class="visuallyhidden">{$CONST.SORT_ORDER}</legend>
+            <legend class="sr-only">{$CONST.SORT_ORDER}</legend>
 
             <div class="clearfix">
                 <div class="form_select">
@@ -167,26 +167,26 @@
                 <li id="entry_{$entry.id}" class="clearfix {cycle values='odd,even'}">
 {if NOT $simpleFilters}
                     <div class="form_check">
-                        <input id="multidelete_entry{$entry.id}" class="multicheck" name="serendipity[multiDelete][]" type="checkbox" value="{$entry.id}" data-multixid="entry_{$entry.id}"><label for="multidelete_entry{$entry.id}" class="visuallyhidden">{$CONST.TOGGLE_SELECT} (#{$entry_id})</label>
+                        <input id="multidelete_entry{$entry.id}" class="multicheck" name="serendipity[multiDelete][]" type="checkbox" value="{$entry.id}" data-multixid="entry_{$entry.id}" aria-label="{$CONST.TOGGLE_SELECT} (#{$entry_id})">
                     </div>
 {/if}
                     <h3><a href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry.id}&amp;{$urltoken}" title="#{$entry.id}: {$entry.title|escape:'html':$CONST.LANG_CHARSET:false}">{if NOT empty($entry.title)}{$entry.title|escape:'html':$CONST.LANG_CHARSET:false}{else} &#8212;no title set&#8212; {/if}</a></h3>
 
                     <ul class="plainList clearfix actions">
 {if $entry.preview OR (!$showFutureEntries AND ($entry.timestamp >= $serverOffsetHour))}
-                        <li><a class="button_link linkout" href="{$entry.preview_link}" title="{$CONST.PREVIEW} #{$entry.id}"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.PREVIEW}</span></a></li>
+                        <li><a class="button_link linkout" href="{$entry.preview_link}" title="{$CONST.PREVIEW} #{$entry.id}" aria-label="{$CONST.PREVIEW}"><span class="icon-search" aria-hidden="true"></span></a></li>
 {else}
-                        <li><a class="button_link linkout" href="{$entry.archive_link}" title="{$CONST.VIEW} #{$entry.id}"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.VIEW}</span></a></li>
+                        <li><a class="button_link linkout" href="{$entry.archive_link}" title="{$CONST.VIEW} #{$entry.id}" aria-label="{$CONST.VIEW}"><span class="icon-search" aria-hidden="true"></span></a></li>
 {/if}
-                        <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry.id}&amp;{$urltoken}" title="{$CONST.EDIT} #{$entry.id}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
-                        <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=delete&amp;serendipity[id]={$entry.id}&amp;{$urltoken}" title="{$CONST.DELETE} #{$entry.id}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
+                        <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry.id}&amp;{$urltoken}" title="{$CONST.EDIT} #{$entry.id}" aria-label="{$CONST.EDIT}"><span class="icon-edit" aria-hidden="true"></span></a></li>
+                        <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=delete&amp;serendipity[id]={$entry.id}&amp;{$urltoken}" title="{$CONST.DELETE} #{$entry.id}" aria-label="{$CONST.DELETE}"><span class="icon-trash" aria-hidden="true"></span></a></li>
 {if $entry.ep_is_sticky}
-                        <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect&amp;serendipity[id]={$entry.id}&amp;serendipity[timestamp]={$entry.timestamp}&amp;serendipity[preview]=false&amp;{$urltoken}&amp;serendipity[properties][is_sticky]=false" title="{$CONST.RESET_STATUS}: {$CONST.PLUGIN_EVENT_ENTRYPROPERTIES_STICKYPOSTS}"><span class="icon-off" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.RESET_STATUS}</span></a></li>
+                        <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect&amp;serendipity[id]={$entry.id}&amp;serendipity[timestamp]={$entry.timestamp}&amp;serendipity[preview]=false&amp;{$urltoken}&amp;serendipity[properties][is_sticky]=false" title="{$CONST.RESET_STATUS}: {$CONST.PLUGIN_EVENT_ENTRYPROPERTIES_STICKYPOSTS}" aria-label="{$CONST.RESET_STATUS}"><span class="icon-off" aria-hidden="true"></span></a></li>
 {/if}
                     </ul>
                     <div class="entry_info clearfix">
                         <span class="status_timestamp">
-                            {$entry.timestamp|formatTime:"{$CONST.DATE_FORMAT_SHORT}"}{if $entry.timestamp <= ($entry.last_modified - 1800)} <span class="icon-info-circled" aria-hidden="true" title="{$CONST.LAST_UPDATED}: {$entry.last_modified|formatTime:"{$CONST.DATE_FORMAT_SHORT}"}"></span><span class="visuallyhidden"> {$CONST.LAST_UPDATED}</span>{/if}
+                            {$entry.timestamp|formatTime:"{$CONST.DATE_FORMAT_SHORT}"}{if $entry.timestamp <= ($entry.last_modified - 1800)} <span class="icon-info-circled" aria-hidden="true" title="{$CONST.LAST_UPDATED}: {$entry.last_modified|formatTime:"{$CONST.DATE_FORMAT_SHORT}"}"></span><span class="sr-only"> {$CONST.LAST_UPDATED}</span>{/if}
 
                         </span>
 {capture name='_cap_linkout' assign=cap_linkout}{if count($entry.cats)} {$CONST.IN}{foreach $entry.cats AS $cat}
@@ -226,11 +226,11 @@
                 <h3>{$CONST.PAGE_BROWSE_ENTRIES|sprintf:($page+1):$totalPages:$totalEntries}</h3>
 
                 <ul class="clearfix">
-                    <li class="first">{if $page > 0}<a class="button_link" href="{$linkFirst}" title="{$CONST.FIRST_PAGE}"><span class="visuallyhidden">{$CONST.FIRST_PAGE} </span><span class="icon-to-start" aria-hidden="true"></span></a>{/if}</li>
-                    <li class="prev">{if $offSet > 0}<a class="button_link" href="{$linkPrevious}" title="{$CONST.PREVIOUS}"><span class="icon-left-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.PREVIOUS}</span></a>{else}<span class="visuallyhidden">{$CONST.NO_ENTRIES_TO_PRINT}</span>{/if}</li>
+                    <li class="first">{if $page > 0}<a class="button_link" href="{$linkFirst}" title="{$CONST.FIRST_PAGE}" aria-label="{$CONST.FIRST_PAGE}"><span class="icon-to-start" aria-hidden="true"></span></a>{/if}</li>
+                    <li class="prev">{if $offSet > 0}<a class="button_link" href="{$linkPrevious}" title="{$CONST.PREVIOUS}" aria-label="{$CONST.PREVIOUS}"><span class="icon-left-dir" aria-hidden="true"></span></a>{else}<span class="sr-only">{$CONST.NO_ENTRIES_TO_PRINT}</span>{/if}</li>
 {* Looks weird, but .last will be placed to end by the CSS float:right *}
-                    <li class="last">{if ($page+1) < $totalPages}<a class="button_link" href="{$linkLast}{$totalPages-1}" title="{$CONST.LAST_PAGE}"><span class="visuallyhidden">{$CONST.LAST_PAGE} </span><span class="icon-to-end" aria-hidden="true"></span></a>{/if}</li>
-                    <li class="next">{if $count > $perPage}<a class="button_link" href="{$linkNext}" title="{$CONST.NEXT}"><span class="visuallyhidden">{$CONST.NEXT} </span><span class="icon-right-dir" aria-hidden="true"></span></a>{else}<span class="visuallyhidden">{$CONST.NO_ENTRIES_TO_PRINT}</span>{/if}</li>
+                    <li class="last">{if ($page+1) < $totalPages}<a class="button_link" href="{$linkLast}{$totalPages-1}" title="{$CONST.LAST_PAGE}" aria-label="{$CONST.LAST_PAGE}"><span class="icon-to-end" aria-hidden="true"></span></a>{/if}</li>
+                    <li class="next">{if $count > $perPage}<a class="button_link" href="{$linkNext}" title="{$CONST.NEXT}" aria-label="{$CONST.NEXT}"><span class="icon-right-dir" aria-hidden="true"></span></a>{else}<span class="sr-only">{$CONST.NO_ENTRIES_TO_PRINT}</span>{/if}</li>
                 </ul>
             </nav>
 {/if}
@@ -300,8 +300,8 @@
 <div class="form_buttons">
     <a class="button_link" id="draft_preview_back" href="?serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect&amp;serendipity[filter][author]=&amp;serendipity[filter][isdraft]=draft">{$CONST.BACK}</a>
     <a class="button_link" id="full_entries_list" href="?serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect">{$CONST.EDIT_ENTRIES}</a>
-    <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry_id}&amp;{$urltoken}" title="{$CONST.EDIT} #{$entry_id}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a>
-    <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=delete&amp;serendipity[id]={$entry_id}&amp;{$urltoken}" title="{$CONST.DELETE} #{$entry_id}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a>
+    <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry_id}&amp;{$urltoken}" title="{$CONST.EDIT} #{$entry_id}" aria-label="{$CONST.EDIT}"><span class="icon-edit" aria-hidden="true"></span></a>
+    <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=delete&amp;serendipity[id]={$entry_id}&amp;{$urltoken}" title="{$CONST.DELETE} #{$entry_id}" aria-label="{$CONST.DELETE}"><span class="icon-trash" aria-hidden="true"></span></a>
 </div>
 {/if}
 {$entryForm}

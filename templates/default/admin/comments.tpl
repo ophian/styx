@@ -12,7 +12,7 @@
     <footer>
         <time>{$comment.timestamp|formatTime:'%Y-%m-%d %H:%M'}</time>
 {if empty($comment.status)}
-        <div class="comment_status comment_status_pending unfloat"><span class="icon-toggle-on" aria-hidden="true" title="{$CONST.COMMENTS_FILTER_NEED_APPROVAL}"></span><span class="visuallyhidden">{$CONST.COMMENTS_FILTER_NEED_APPROVAL}</span></div>
+        <div class="comment_status comment_status_pending unfloat"><span class="icon-toggle-on" aria-hidden="true" title="{$CONST.COMMENTS_FILTER_NEED_APPROVAL}" aria-label="{$CONST.COMMENTS_FILTER_NEED_APPROVAL}"></span></div>
 {/if}
         <div id="serendipity_replyform_{$smarty.post.serendipity.entry_id}" class="comment_preview_editstatus">{$comment.preview_editstatus}</div>
     </footer>

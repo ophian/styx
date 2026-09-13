@@ -6,7 +6,7 @@
 {/if}
 {if count($config) > 1 AND $allowToggle}
 
-    <a id="show_config_all" class="button_link toggle_config" href="#serendipity_config_options" title="{$CONST.TOGGLE_ALL}"><span class="icon-right-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.TOGGLE_ALL}</span></a>
+    <a id="show_config_all" class="button_link toggle_config" href="#serendipity_config_options" title="{$CONST.TOGGLE_ALL}" aria-label="{$CONST.TOGGLE_ALL}"><span class="icon-right-dir" aria-hidden="true"></span></a>
 {/if}
 
     <div id="serendipity_config_options">
@@ -23,13 +23,12 @@
 {/if}
 {/if}
 
-            <div id="el{$category@index}" class="config_optiongroup{if isset($config_groupkeys) AND $config_groupkeys@last} config_optiongroup_last{/if} option_list">
-                <legend class="visuallyhidden">{$category.description}</legend>
+            <div id="el{$category@index}" class="config_optiongroup{if isset($config_groupkeys) AND $config_groupkeys@last} config_optiongroup_last{/if} option_list" aria-label="{$category.description}">
 {foreach $category.items AS $item}{cycle assign='zebra_class' values='odd,even'}{if isset($item.guessedInput) AND $item.guessedInput}
 {if $item.type == 'bool'}
 
                 <fieldset class="clearfix {$zebra_class}{if $item.description != ''} has_info{/if}">
-                    <span class="wrap_legend"><legend>{$item.title}{if $item.description != ''} <button class="toggle_info button_link" type="button" data-href="#{$item.var}_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</legend></span>
+                    <span class="wrap_legend"><legend>{$item.title}{if $item.description != ''} <button class="toggle_info button_link" type="button" data-href="#{$item.var}_info" aria-label="{$CONST.MORE}"><span class="icon-info-circled" aria-hidden="true"></span></button>{/if}</legend></span>
 {if $item.description != ''}
                     <span id="{$item.var}_info" class="field_info additional_info">{$item.description}</span>
 {/if}
@@ -42,7 +41,7 @@
 {else}
 
                 <div class="clearfix {$zebra_class} form_{if $item.type == 'list'}select{elseif $item.type == 'multilist'}multiselect{elseif $item.type == 'textarea'}area{else}field{/if}{if $item.description != ''} has_info{/if}">
-                    <label for="{$item.var}">{$item.title}{if $item.description != ''} <button class="toggle_info button_link" type="button" data-href="#{$item.var}_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</label>
+                    <label for="{$item.var}">{$item.title}{if $item.description != ''} <button class="toggle_info button_link" type="button" data-href="#{$item.var}_info" aria-label="{$CONST.MORE}"><span class="icon-info-circled" aria-hidden="true"></span></button>{/if}</label>
 {if $item.description != ''}
                     <span id="{$item.var}_info" class="field_info additional_info">{$item.description}</span>
 {/if}

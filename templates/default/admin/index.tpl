@@ -20,10 +20,10 @@
     <header id="top">
         <div id="banner{if NOT $admin_vars.is_logged_in}_install{/if}" class="clearfix">
         {if $admin_vars.is_logged_in}
-            <a id="nav-toggle" class="button_link" href="#main_menu"><span class="icon-menu" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.NAVIGATION}</span></a>
+            <a id="nav-toggle" class="button_link" href="#main_menu" aria-label="{$CONST.NAVIGATION}"><span class="icon-menu" aria-hidden="true"></span></a>
         {/if}
         {if $admin_vars.admin_installed}
-            <h1><a href="serendipity_admin.php"><span class="visuallyhidden">{$CONST.SERENDIPITY_ADMIN_SUITE}: </span>{$CONST.ADMIN}: <span class="chop-title">{$blogTitle}</span></a></h1>
+            <h1><a href="serendipity_admin.php" aria-label="{$CONST.SERENDIPITY_ADMIN_SUITE}:">{$CONST.ADMIN}: <span class="chop-title">{$blogTitle}</span></a></h1>
         {else}
             <h1>{$CONST.SERENDIPITY_INSTALLATION}</h1>
         {/if}
@@ -72,19 +72,19 @@
         {if NOT $admin_vars.no_sidebar}
 
         <nav id="main_menu">
-            <h2 class="visuallyhidden">{$CONST.MAIN_MENU}</h2>
+            <h2 class="sr-only">{$CONST.MAIN_MENU}</h2>
 
             <ul class="clearfix">
                 <li id="user_menu"><h3>{$admin_vars.self_info}</h3>
                     <ul class="clearfix">
-                        <li><a class="button_link" href="serendipity_admin.php" title="{$CONST.MENU_DASHBOARD}"><span class="icon-home" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MENU_DASHBOARD}</span></a></li>
+                        <li><a class="button_link" href="serendipity_admin.php" title="{$CONST.MENU_DASHBOARD}" aria-label="{$CONST.MENU_DASHBOARD}"><span class="icon-home" aria-hidden="true"></span></a></li>
                     {if 'personalConfiguration'|checkPermission}
 
-                        <li><a class="button_link" href="serendipity_admin.php?serendipity[adminModule]=personal" title="{$CONST.PERSONAL_SETTINGS}"><span class="icon-cog-alt" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.PERSONAL_SETTINGS}</span></a></li>
+                        <li><a class="button_link" href="serendipity_admin.php?serendipity[adminModule]=personal" title="{$CONST.PERSONAL_SETTINGS}" aria-label="{$CONST.PERSONAL_SETTINGS}"><span class="icon-cog-alt" aria-hidden="true"></span></a></li>
                     {/if}
 
-                        <li><a class="button_link" href="{$serendipityBaseURL}" title="{$CONST.BACK_TO_BLOG}"><span class="icon-globe" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.BACK_TO_BLOG}</span></a></li>
-                        <li><a class="button_link" href="serendipity_admin.php?serendipity[adminModule]=logout" title="{$CONST.LOGOUT}"><span class="icon-logout" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.LOGOUT}</span></a></li>
+                        <li><a class="button_link" href="{$serendipityBaseURL}" title="{$CONST.BACK_TO_BLOG}" aria-label="{$CONST.BACK_TO_BLOG}"><span class="icon-globe" aria-hidden="true"></span></a></li>
+                        <li><a class="button_link" href="serendipity_admin.php?serendipity[adminModule]=logout" title="{$CONST.LOGOUT}" aria-label="{$CONST.LOGOUT}"><span class="icon-logout" aria-hidden="true"></span></a></li>
                     </ul>
                 </li>
                 {if 'adminEntries'|checkPermission OR 'adminEntriesPlugins'|checkPermission}

@@ -88,7 +88,7 @@
             </div>
 
             <fieldset class="clearfix inputs">
-                <span class="wrap_legend"><legend>{$CONST.CATEGORY_HIDE_SUB} <a class="toggle_info button_link" href="#hide_subcats_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></a></legend></span>
+                <span class="wrap_legend"><legend>{$CONST.CATEGORY_HIDE_SUB} <a class="toggle_info button_link" href="#hide_subcats_info" aria-label=""{$CONST.MORE}><span class="icon-info-circled" aria-hidden="true"></span></a></legend></span>
 
                 <span id="hide_subcats_info" class="field_info additional_info">{$CONST.CATEGORY_HIDE_SUB_DESC}</span>
 
@@ -111,7 +111,7 @@
         </h3>
 
         <div id="category_permissions" class="clearfix additional_info">
-            <span class="wrap_legend"><legend>{$CONST.PERMISSIONS} <a class="toggle_info button_link" href="#acl_rw_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></a></legend></span>
+            <span class="wrap_legend"><legend>{$CONST.PERMISSIONS} <a class="toggle_info button_link" href="#acl_rw_info" aria-label="{$CONST.MORE}"><span class="icon-info-circled" aria-hidden="true"></span></a></legend></span>
 
             <span id="acl_rw_info" class="field_info additional_info">{$CONST.PERMISSION_READ_WRITE_ACL_DESC}</span>
 
@@ -144,7 +144,7 @@
             <div class="form_field">
                 <label for="category_icon">{$CONST.CATEGORY} {$CONST.IMAGE}</label>
                 <input id="category_icon" class="change_preview" name="serendipity[cat][icon]" type="text" data-configitem="category_icon" value="{$this_cat.category_icon|default:""|escape}">
-                <button class="choose_media" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}"><span class="icon-picture" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
+                <button class="choose_media" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" aria-label="{$CONST.MEDIA_LIBRARY}"><span class="icon-picture" aria-hidden="true"></span></button>
             </div>
 {if !empty($this_cat.category_icon)}
             <figure id="category_icon_preview">
@@ -216,9 +216,9 @@
 
             <ul class="plainList clearfix edit_actions">
                 <li><em>{if isset($catentries[{$category.categoryid}])}<a class="button_link" href="?serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&serendipity[filter][category]={$category.categoryid}&serendipity[catref]=1" title="{$CONST.ENTRIES} {$CONST.CATEGORY} {$category.category_name|escape}"><span class="catctlabel">{$catentries[{$category.categoryid}]} {$CONST.ENTRIES}</span></a>{else}<span class="emptydim catctlabel">0 {$CONST.ENTRIES}</span>{/if}</em></li>
-                <li><a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=edit&amp;serendipity[cid]={$category.categoryid}" title="{$CONST.EDIT}: #{$category.categoryid} - {$category.category_name|escape}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
-                <li><a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=newSub&amp;serendipity[cid]={$category.categoryid}" title="{$CONST.CREATE_NEW_CAT}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_NEW_CAT}</span></a></li>
-                <li><a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=delete&amp;serendipity[cid]={$category.categoryid}" title="{$CONST.DELETE} {$category.category_name|escape}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
+                <li><a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=edit&amp;serendipity[cid]={$category.categoryid}" title="{$CONST.EDIT}: #{$category.categoryid} - {$category.category_name|escape}" aria-label="{$CONST.EDIT}"><span class="icon-edit" aria-hidden="true"></span></a></li>
+                <li><a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=newSub&amp;serendipity[cid]={$category.categoryid}" title="{$CONST.CREATE_NEW_CAT}" aria-label="{$CONST.CREATE_NEW_CAT}"><span class="icon-plus" aria-hidden="true"></span></a></li>
+                <li><a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=delete&amp;serendipity[cid]={$category.categoryid}" title="{$CONST.DELETE} {$category.category_name|escape}" aria-label="{$CONST.DELETE}"><span class="icon-trash" aria-hidden="true"></span></a></li>
             </ul>
         </div>
 {/foreach}

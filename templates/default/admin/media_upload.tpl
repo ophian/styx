@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <button id="add_upload" class="button_link" type="button" title="{$CONST.IMAGE_MORE_INPUT}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.IMAGE_MORE_INPUT}</span></button>
+            <button id="add_upload" class="button_link" type="button" title="{$CONST.IMAGE_MORE_INPUT}" aria-label="{$CONST.IMAGE_MORE_INPUT}"><span class="icon-plus" aria-hidden="true"></span></button>
         </div>
 
         <h3>{$CONST.DOWNLOAD}</h3>

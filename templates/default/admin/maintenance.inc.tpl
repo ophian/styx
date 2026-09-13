@@ -1,9 +1,8 @@
 <div id="waitingspin" class="pulsator busy_integrity" style="display: none"><div></div><div></div></div>
 
 <h2>{$CONST.MENU_MAINTENANCE}</h2>
-<a class="maintenance_toogle_info toggle_info button_link" type="button" href="#maintenance_info">
+<a class="maintenance_toogle_info toggle_info button_link" type="button" href="#maintenance_info" aria-label="{$CONST.MORE}">
     <span class="icon-info-circled" aria-hidden="true"></span>
-    <span class="visuallyhidden"> {$CONST.MORE}</span>
 </a>
 
 <div id="maintenance_info" class="maintenance_order_status additional_info">
@@ -11,7 +10,7 @@
 </div>
 {if isset($action) AND $action == "integrity" AND isset($badsums)}
 
-<h3 class="visuallyhidden">{$CONST.INTEGRITY}</h3>
+<h3 class="sr-only">{$CONST.INTEGRITY}</h3>
 {if $badsums|count > 0}
 {assign "cfiles" $badsums|count}
 
@@ -59,7 +58,7 @@
         <form method="POST" action="serendipity_admin.php?serendipity[adminModule]=media&amp;serendipity[adminAction]=doSync">
             <fieldset>
                 <span class="wrap_legend"><legend>{$CONST.SYNC_OPTION_LEGEND}</legend></span>
-                <button class="toggle_info button_link" type="button" data-href="#isync_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
+                <button class="toggle_info button_link" type="button" data-href="#isync_info" aria-label="{$CONST.MORE}"><span class="icon-info-circled" aria-hidden="true"></span></button>
 
                 <div class="clearfix">
                     <div class="form_radio">
@@ -81,7 +80,7 @@
                     <div class="form_radio">
                         <input id="convertthumbs" name="serendipity[deleteThumbs]" type="radio" value="convert"{if !$suffixTask} disabled="disabled"{/if}>
                         <label for="convertthumbs">{$CONST.SYNC_OPTION_CONVERTTHUMBS}</label>
-                        <button class="toggle_info button_link" type="button" data-href="#iconvert_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
+                        <button class="toggle_info button_link" type="button" data-href="#iconvert_info" aria-label="{$CONST.MORE}"><span class="icon-info-circled" aria-hidden="true"></span></button>
                     </div>
 
 {/if}
@@ -145,7 +144,7 @@
 
             <div class="form_buttons">
                 <input class="state_submit" name="clearplug_multi" value="{$CONST.PLUGINMANAGER_SUBMIT}" type="submit">
-                <button class="toggle_info button_link" type="button" data-href="#zomplug_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
+                <button class="toggle_info button_link" type="button" data-href="#zomplug_info" aria-label="{$CONST.MORE}"><span class="icon-info-circled" aria-hidden="true"></span></button>
                 <span id="zomplug_info" class="comment_status additional_info">{$CONST.PLUGINMANAGER_INFO}</span>
             </div>
         </form>
@@ -182,7 +181,7 @@
 
             <div class="form_buttons">
                 <input class="state_submit" name="cleartemp_multi" value="{$CONST.THEMEMANAGER_SUBMIT}" type="submit">
-                <button class="toggle_info button_link" type="button" data-href="#thema_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
+                <button class="toggle_info button_link" type="button" data-href="#thema_info" aria-label="{$CONST.MORE}"><span class="icon-info-circled" aria-hidden="true"></span></button>
                 <span id="thema_info" class="comment_status additional_info">{$CONST.THEMEMANAGER_INFO}</span>
             </div>
         </form>
@@ -204,7 +203,7 @@
 {/if}
 {else}
         <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=clearcomp" title="{$CONST.CLEANCOMPILE_TITLE}"><span>{$CONST.CLEANCOMPILE_TITLE}</span></a>
-        <button class="toggle_info button_link" type="button" data-href="#cleanup_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
+        <button class="toggle_info button_link" type="button" data-href="#cleanup_info" aria-label="{$CONST.MORE}"><span class="icon-info-circled" aria-hidden="true"></span></button>
         <span id="cleanup_info" class="comment_status additional_info">{$CONST.CLEANCOMPILE_INFO}</span>
 {/if}
     </section>
@@ -280,7 +279,7 @@
 {if $dbUtf8mb4_simulated}
                 <input name="serendipity[adminOption][execute]" type="submit" value="{$CONST.UTF8MB4_MIGRATION_BUTTON_EXECUTE}">
 {/if}
-                <button class="toggle_info button_link" type="button" data-href="#utf8migrate_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
+                <button class="toggle_info button_link" type="button" data-href="#utf8migrate_info" aria-label="{$CONST.MORE}"><span class="icon-info-circled" aria-hidden="true"></span></button>
             </div>
         </form>
         <div id="utf8migrate_info" class="comment_status additional_info">

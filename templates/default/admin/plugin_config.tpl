@@ -13,9 +13,8 @@
 
         <fieldset id="{$plugin_basename}_togglegroup" class="plugin_togglegroup simple">
             <span class="plugin_file_actions actions">
-                <a class="plugin_show_info toggle_info button_link" href="#tgroup_info" title="Plugin Information">
+                <a class="plugin_show_info toggle_info button_link" href="#tgroup_info" title="Plugin Information" aria-label="Plugin Information">
                     <span class="icon-info-circled" aria-hidden="true"></span>
-                    <span class="visuallyhidden"> Plugin Information</span>
                 </a>
             </span>
         </fieldset>
@@ -25,19 +24,18 @@
 
         <fieldset id="{$plugin_basename}_togglegroup" class="plugin_togglegroup">
             <span class="plugin_file_actions actions">
-                <a class="plugin_show_info toggle_info button_link" href="#tgroup_info" title="Plugin Information">
+                <a class="plugin_show_info toggle_info button_link" href="#tgroup_info" title="Plugin Information" aria-label="Plugin Information">
                     <span class="icon-info-circled" aria-hidden="true"></span>
-                    <span class="visuallyhidden"> Plugin Information</span>
                 </a>
             </span>
-            <button id="show_config_all" class="button_link toggle_config" type="button" data-href="#serendipity_config_options" title="{$CONST.TOGGLE_ALL}">
-                <span class="icon-right-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.TOGGLE_ALL}</span>
+            <button id="show_config_all" class="button_link toggle_config" type="button" data-href="#serendipity_config_options" title="{$CONST.TOGGLE_ALL}" aria-label="{$CONST.TOGGLE_ALL}">
+                <span class="icon-right-dir" aria-hidden="true"></span>
             </button>
         </fieldset>
 {else}
 
-        <button id="show_config_all" class="button_link toggle_config" type="button" data-href="#serendipity_config_options" title="{$CONST.TOGGLE_ALL}">
-            <span class="icon-right-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.TOGGLE_ALL}</span>
+        <button id="show_config_all" class="button_link toggle_config" type="button" data-href="#serendipity_config_options" title="{$CONST.TOGGLE_ALL}" aria-label="{$CONST.TOGGLE_ALL}">
+            <span class="icon-right-dir" aria-hidden="true"></span>
         </button>
 {/if}
 

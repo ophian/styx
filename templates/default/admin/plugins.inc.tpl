@@ -38,13 +38,13 @@
 {if !empty($documentation) OR (isset($changelog) AND $changelog) OR (isset($documentation_local) AND $documentation_local)}
         <ul class="plainList">
 {if !empty($documentation)}
-            <li class="plugin_docu"><a target="_{$point|default:'self'}" href="{$documentation|escape}">{$CONST.PLUGIN_DOCUMENTATION}</a>{if isset($point)} <span class="icon-info-circled" aria-hidden="true" title="in new tab"></span><span class="visuallyhidden"> in new tab</span>{/if}</li>
+            <li class="plugin_docu"><a target="_{$point|default:'self'}" href="{$documentation|escape}">{$CONST.PLUGIN_DOCUMENTATION}</a>{if isset($point)} <span class="icon-info-circled" aria-hidden="true" title="in new tab"></span><span class="sr-only"> in new tab</span>{/if}</li>
 {/if}
 {if isset($changelog) AND $changelog}
-            <li class="plugin_docu"><a target="_{$point|default:'self'}" href="plugins/{$plugin->act_pluginPath}/ChangeLog">{$CONST.PLUGIN_DOCUMENTATION_CHANGELOG}</a>{if isset($point)} <span class="icon-info-circled" aria-hidden="true" title="in new tab"></span><span class="visuallyhidden"> in new tab</span>{/if}</li>
+            <li class="plugin_docu"><a target="_{$point|default:'self'}" href="plugins/{$plugin->act_pluginPath}/ChangeLog">{$CONST.PLUGIN_DOCUMENTATION_CHANGELOG}</a>{if isset($point)} <span class="icon-info-circled" aria-hidden="true" title="in new tab"></span><span class="sr-only"> in new tab</span>{/if}</li>
 {/if}
 {if isset($documentation_local) AND $documentation_local}
-            <li class="plugin_docu"><a target="_{$point|default:'self'}" href="plugins/{$plugin->act_pluginPath}{$documentation_local}">{$CONST.PLUGIN_DOCUMENTATION_LOCAL}</a>{if isset($point)} <span class="icon-info-circled" aria-hidden="true" title="in new tab"></span><span class="visuallyhidden"> in new tab</span>{/if}</li>
+            <li class="plugin_docu"><a target="_{$point|default:'self'}" href="plugins/{$plugin->act_pluginPath}{$documentation_local}">{$CONST.PLUGIN_DOCUMENTATION_LOCAL}</a>{if isset($point)} <span class="icon-info-circled" aria-hidden="true" title="in new tab"></span><span class="sr-only"> in new tab</span>{/if}</li>
 {/if}
         </ul>
 {/if}
@@ -87,7 +87,7 @@
         <div id="plugin_filter" class="form_field">
             <label for="pluginfilter">{$CONST.QUICKSEARCH}</label>
             <input id="pluginfilter" type="text">
-            <button class="reset_livefilter icon_link" type="button" data-target="pluginfilter" title="{$CONST.RESET_FILTERS}"><span class="icon-cancel" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.RESET_FILTERS}</span></button>
+            <button class="reset_livefilter icon_link" type="button" data-target="pluginfilter" title="{$CONST.RESET_FILTERS}" aria-label="{$CONST.RESET_FILTERS}"><span class="icon-cancel" aria-hidden="true"></span></button>
         </div>
         <div class="form_buttons">
             <a class="button_link" id="back" href="?serendipity[adminModule]=plugins">{$CONST.BACK}</a>

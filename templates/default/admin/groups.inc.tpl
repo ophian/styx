@@ -29,8 +29,8 @@
     <li class="clearfix {cycle values="odd,even"}">
         <span class="group_name"><span class="icon-users {$group.shortname|default:'user'}" aria-hidden="true"></span> {$group.name|escape}</span>
         <ul class="plainList clearfix edit_actions">
-            <li><a class="button_link" href="?serendipity[adminModule]=groups&amp;serendipity[adminAction]=edit&amp;serendipity[group]={$group.id}" title="{$CONST.EDIT} {$group.name|escape}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
-            <li><a class="button_link" href="?{$deleteFormToken}&amp;serendipity[adminModule]=groups&amp;serendipity[adminAction]=delete&amp;serendipity[group]={$group.id}" title="{$CONST.DELETE} {$group.name|escape}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
+            <li><a class="button_link" href="?serendipity[adminModule]=groups&amp;serendipity[adminAction]=edit&amp;serendipity[group]={$group.id}" title="{$CONST.EDIT} {$group.name|escape}" aria-label="{$CONST.EDIT} {$group.name|escape}"><span class="icon-edit" aria-hidden="true"></span></a></li>
+            <li><a class="button_link" href="?{$deleteFormToken}&amp;serendipity[adminModule]=groups&amp;serendipity[adminAction]=delete&amp;serendipity[group]={$group.id}" title="{$CONST.DELETE} {$group.name|escape}" aria-label="{$CONST.DELETE} {$group.name|escape}"><span class="icon-trash" aria-hidden="true"></span></a></li>
         </ul>
     </li>
 {/foreach}
@@ -43,7 +43,7 @@
 {/if}
 
 {if (isset($edit) AND $edit) OR (isset($new) AND $new)}
-<h3>{if isset($edit) AND $edit}{$CONST.EDIT}{else}{$CONST.CREATE}{/if}{if $alevel || $clevel}<button class="toggle_info button_link group_info" type="button" data-href="#group_administration_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.MORE}</span></button>{/if}</h3>
+<h3>{if isset($edit) AND $edit}{$CONST.EDIT}{else}{$CONST.CREATE}{/if}{if $alevel || $clevel}<button class="toggle_info button_link group_info" type="button" data-href="#group_administration_info" aria-label="{$CONST.MORE}"><span class="icon-info-circled" aria-hidden="true"></span></button>{/if}</h3>
 
 {if $alevel || $clevel}
 <div id="group_administration_info" class="group_administration_info additional_info">
@@ -64,7 +64,7 @@
 {/if}
 
     <div class="clearfix odd form_field has_info">
-        <label for="group_name">{$CONST.NAME} <button class="toggle_info button_link" type="button" data-href="#groupName_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button></label>
+        <label for="group_name">{$CONST.NAME} <button class="toggle_info button_link" type="button" data-href="#groupName_info" aria-label="{$CONST.MORE}"><span class="icon-info-circled" aria-hidden="true"></span></button></label>
         <span id="groupName_info" class="field_info additional_info">{$CONST.GROUP_NAME_DESC}</span>
         <input id="group_name" name="serendipity[name]" type="text" value="{$from.name|escape}">
     </div>

@@ -5,8 +5,7 @@
                 <header class="clearfix">
 
                     <div class="form_check">
-                        <input id="multicheck_image{$file.id}" class="multicheck" name="serendipity[multiSelect][]" type="checkbox" value="{$file.id}" data-multixid="media_{$file.id}">
-                        <label for="multicheck_image{$file.id}" class="visuallyhidden">{$CONST.TOGGLE_SELECT}</label>
+                        <input id="multicheck_image{$file.id}" class="multicheck" name="serendipity[multiSelect][]" type="checkbox" value="{$file.id}" data-multixid="media_{$file.id}" aria-label="{$CONST.TOGGLE_SELECT}">
                     </div>
 
                     <h3 title="{$file.diskname}">{$file.diskname|truncate:38:"&hellip;":true}{if $file.orderkey != ''}: {$file.orderkey|escape}{/if}</h3>

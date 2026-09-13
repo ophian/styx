@@ -5,7 +5,6 @@
 
 <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$entry_vars.errMsg}</span>
 {/if}
-
 <form id="serendipityEntry" name="serendipityEntry"{if isset($entry_vars.entry.entry_form)} {$entry_vars.entry.entry_form}{/if} action="{$entry_vars.targetURL}" method="post">
 {foreach $entry_vars.hiddens AS $key => $value}{if $key == 'serendipity[timestamp]' AND $entry_vars.timestamp == $value}{* avoid possible doublet *}{else}
     <input type="hidden" name="{$key}" value="{$value}">
@@ -39,8 +38,8 @@
 {if NOT $entry_vars.wysiwyg}
         <div id="tools_entry" class="editor_toolbar">
 {if isset($entry_vars.markupeditor)}
-            <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity_textarea_body"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
-            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity_textarea_body"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
+            <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity_textarea_body" aria-label="Media Gallery"><span class="icon-gallery" aria-hidden="true"></span></button>
+            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity_textarea_body" aria-label="{$CONST.MEDIA_LIBRARY}"><span class="icon-s9yml" aria-hidden="true"></span></button>
             <span class="infobox_markupeditortype">[ {$entry_vars.markupeditortype} ]</span>
 {else}{if isset($iso2br) AND $iso2br}
             <button class="wrap_selection lang-html" type="button" name="insX" data-tag-open="nl" data-tag-close="nl" data-tarea="serendipity_textarea_body">noBR</button>
@@ -50,8 +49,8 @@
             <button class="hilite_u wrap_selection lang-html" type="button" name="insU" data-tag-open="u" data-tag-close="u" data-tarea="serendipity_textarea_body">u</button>
             <button class="wrap_selection lang-html" type="button" name="insQ" data-tag-open="blockquote" data-tag-close="blockquote" data-tarea="serendipity_textarea_body">{$CONST.QUOTE}</button>
             <button class="wrap_insimg" type="button" name="insJ" data-tarea="serendipity_textarea_body">img</button>
-            <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity_textarea_body"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
-            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity_textarea_body"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
+            <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity_textarea_body" aria-label="Media Gallery"><span class="icon-gallery" aria-hidden="true"></span></button>
+            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity_textarea_body" aria-label="{$CONST.MEDIA_LIBRARY}"><span class="icon-s9yml" aria-hidden="true"></span></button>
             <button class="wrap_insurl" type="button" name="insURL" data-tarea="serendipity_textarea_body">URL</button>
             {serendipity_hookPlugin hook="backend_entry_toolbar_body" data=$entry_data.entry|default:'' hookAll="true"}
 {if isset($entry_vars.markupeditortype)}
@@ -77,8 +76,8 @@
 {if NOT $entry_vars.wysiwyg}
         <div id="tools_extended" class="editor_toolbar">
 {if isset($entry_vars.markupeditor)}
-            <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity_textarea_extended"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
-            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity_textarea_extended"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
+            <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity_textarea_extended" aria-label="Media Gallery"><span class="icon-gallery" aria-hidden="true"></span></button>
+            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity_textarea_extended" aria-label="{$CONST.MEDIA_LIBRARY}"><span class="icon-s9yml" aria-hidden="true"></span></button>
             <span class="infobox_markupeditortype">[ {$entry_vars.markupeditortype} ]</span>
 {else}{if isset($iso2br) AND $iso2br}
             <button class="wrap_selection lang-html" type="button" name="insX" data-tag-open="nl" data-tag-close="nl" data-tarea="serendipity_textarea_extended">noBR</button>
@@ -88,8 +87,8 @@
             <button class="hilite_u wrap_selection lang-html" type="button" name="insU" data-tag-open="u" data-tag-close="u" data-tarea="serendipity_textarea_extended">u</button>
             <button class="wrap_selection lang-html" type="button" name="insQ" data-tag-open="blockquote" data-tag-close="blockquote" data-tarea="serendipity_textarea_extended">{$CONST.QUOTE}</button>
             <button class="wrap_insimg" type="button" name="insJ" data-tarea="serendipity_textarea_extended">img</button>
-            <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity_textarea_extended"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
-            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity_textarea_extended"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
+            <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity_textarea_extended" aria-label="Media Gallery"><span class="icon-gallery" aria-hidden="true"></span></button>
+            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity_textarea_extended" aria-label="{$CONST.MEDIA_LIBRARY}"><span class="icon-s9yml" aria-hidden="true"></span></button>
             <button class="wrap_insurl" type="button" name="insURL" data-tarea="serendipity_textarea_extended">URL</button>
             {serendipity_hookPlugin hook="backend_entry_toolbar_extended" data=$entry_data.entry|default:'' hookAll="true"}
 {if isset($entry_vars.markupeditortype)}
@@ -108,12 +107,12 @@
     </div>
 
     <div id="edit_entry_submit">
-        <button id="reset_timestamp" class="button_link" type="button" href="#serendipityNewTimestamp" data-currtime="{$entry_vars.reset_timestamp|formatTime:'Y-m-d\TH:i':true:false:true}" title="{$CONST.RESET_DATE_DESC}"><span class="icon-clock" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.RESET_DATE}</span></button>
-        <a id="select_category" class="button_link icon_link" href="#edit_entry_category" title="{$CONST.CATEGORY}"><span class="icon-list-bullet" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.CATEGORIES}</span></a>
+        <button id="reset_timestamp" class="button_link" type="button" href="#serendipityNewTimestamp" data-currtime="{$entry_vars.reset_timestamp|formatTime:'Y-m-d\TH:i':true:false:true}" title="{$CONST.RESET_DATE_DESC}" aria-label="{$CONST.RESET_DATE}"><span class="icon-clock" aria-hidden="true"></span></button>
+        <a id="select_category" class="button_link icon_link" href="#edit_entry_category" title="{$CONST.CATEGORY}" aria-label="{$CONST.CATEGORIES}"><span class="icon-list-bullet" aria-hidden="true"></span></a>
 {if isset($CONST.FREETAG_MANAGE_URL)}
-        <a id="select_tags" class="button_link icon_link" href="#edit_entry_freetags" title="{$CONST.PLUGIN_EVENT_FREETAG_MANAGETAGS}"><span class="icon-tag" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.PLUGIN_EVENT_FREETAG_MANAGETAGS}</span></a>
+        <a id="select_tags" class="button_link icon_link" href="#edit_entry_freetags" title="{$CONST.PLUGIN_EVENT_FREETAG_MANAGETAGS}" aria-label="{$CONST.PLUGIN_EVENT_FREETAG_MANAGETAGS}"><span class="icon-tag" aria-hidden="true"></span></a>
 {/if}
-        <button id="switch_entry_status" class="button_link" type="button" href="#edit_entry_status" title="{if $entry_vars.draft_mode == 'publish'}{$CONST.PUBLISH}{else}{$CONST.DRAFT}{/if}" data-title-alt="{if $entry_vars.draft_mode == 'publish'}{$CONST.DRAFT}{else}{$CONST.PUBLISH}{/if}">{if $entry_vars.draft_mode == 'publish'}<span class="icon-toggle-on" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.PUBLISH}</span>{else}<span class="icon-toggle-off" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DRAFT}</span>{/if}</button>
+        <button id="switch_entry_status" class="button_link" type="button" href="#edit_entry_status" title="{if $entry_vars.draft_mode == 'publish'}{$CONST.PUBLISH}{else}{$CONST.DRAFT}{/if}" data-title-alt="{if $entry_vars.draft_mode == 'publish'}{$CONST.DRAFT}{else}{$CONST.PUBLISH}{/if}">{if $entry_vars.draft_mode == 'publish'}<span class="icon-toggle-on" aria-hidden="true"></span><span class="sr-only"> {$CONST.PUBLISH}</span>{else}<span class="icon-toggle-off" aria-hidden="true"></span><span class="sr-only"> {$CONST.DRAFT}</span>{/if}</button>
         <input class="entry_preview" type="submit" value="{$CONST.PREVIEW}">
         <input type="submit" value="{$CONST.SAVE}">
     </div>
@@ -160,15 +159,15 @@
 {if NOT empty($entry_vars.category_options)}
                     <div id="category_filter" class="form_field{if isset($entry_vars.category_compact) AND $entry_vars.category_compact} compact{/if}">
                         {if !isset($entry_vars.category_compact)}
-                        <label for="categoryfilter" class="visuallyhidden">{$CONST.FILTERS}</label>
+                        <label for="categoryfilter" class="sr-only">{$CONST.FILTERS}</label>
                         <input id="categoryfilter" type="text" placeholder="{$CONST.FILTERS}: {$CONST.CATEGORIES}">
-                        <button class="reset_livefilter icon_link" type="button" data-target="categoryfilter" title="{$CONST.RESET_FILTERS}"><span class="icon-cancel" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.RESET_FILTERS}</span></button>
+                        <button class="reset_livefilter icon_link" type="button" data-target="categoryfilter" title="{$CONST.RESET_FILTERS}" aria-label="{$CONST.RESET_FILTERS}"><span class="icon-cancel" aria-hidden="true"></span></button>
 {if $use_backendpopups || (isset($force_backendpopups.categories) AND $force_backendpopups.categories)}<a href="#top" class="svg-button_link svg-button_up" title="{$CONST.UP}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#3e5f81" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
                               <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
                             </svg>
                         </a>{/if}
-                        <button id="toggle_cat_view" class="icon_link" type="button" title="{$CONST.TOGGLE_VIEW}"><span class="icon-th" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.TOGGLE_VIEW}</span></button>
+                        <button id="toggle_cat_view" class="icon_link" type="button" title="{$CONST.TOGGLE_VIEW}" aria-label="{$CONST.TOGGLE_VIEW}"><span class="icon-th" aria-hidden="true"></span></button>
                         {else}
 {if $use_backendpopups || (isset($force_backendpopups.categories) AND $force_backendpopups.categories)}<a href="#top" class="svg-button_link svg-button_up" title="{$CONST.UP}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#3e5f81" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">

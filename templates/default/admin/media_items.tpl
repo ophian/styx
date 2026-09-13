@@ -99,8 +99,7 @@
         <header class="clearfix">
 {if $media.manage AND $media.multiperm}
             <div class="form_check">
-                <input id="multicheck_image{$file.id}" class="multicheck" name="serendipity[multiCheck][]" type="checkbox" value="{$file.id}" data-multixid="media_{$file.id}">
-                <label for="multicheck_image{$file.id}" class="visuallyhidden">{$CONST.TOGGLE_SELECT}</label>
+                <input id="multicheck_image{$file.id}" class="multicheck" name="serendipity[multiCheck][]" type="checkbox" value="{$file.id}" data-multixid="media_{$file.id}" aria-label="{$CONST.TOGGLE_SELECT}">
             </div>
 {/if}
             <h3 title="{$file.diskname}">
@@ -246,42 +245,42 @@
         </div>
 {if ($media.manage OR {serendipity_getConfigVar key='showMediaToolbar'}) AND $media.metaActionBar}
         <ul class="media_file_actions actions plainList clearfix">
-            <li><a class="media_show_info button_link" href="#media_file_meta_{$file.id}" title="{$CONST.SHOW_METADATA}"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.SHOW_METADATA}</span></a></li>
+            <li><a class="media_show_info button_link" href="#media_file_meta_{$file.id}" title="{$CONST.SHOW_METADATA}" aria-label="{$CONST.SHOW_METADATA}"><span class="icon-info-circled" aria-hidden="true"></span></a></li>
 {if $file.is_editable}
 {if NOT $file.hotlink AND $media.resetperm}
-            <li><button class="media_rename button_link" type="button" title="{$CONST.MEDIA_RENAME}" data-fileid="{$file.id}" data-filename="{$file.name|escape:'javascript'}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_RENAME}</span></button></li>
+            <li><button class="media_rename button_link" type="button" title="{$CONST.MEDIA_RENAME}" data-fileid="{$file.id}" data-filename="{$file.name|escape:'javascript'}" aria-label="{$CONST.MEDIA_RENAME}"><span class="icon-edit" aria-hidden="true"></span></button></li>
 {/if}
 {if $file.is_image AND NOT $file.hotlink AND $media.multiperm}
-            <li><a class="media_resize button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=scaleSelect&amp;serendipity[fid]={$file.id}{if isset($smarty.get.serendipity.page)}&amp;serendipity[page]={$smarty.get.serendipity.page}{/if}" title="{$CONST.IMAGE_RESIZE}"><span class="icon-resize-full" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.IMAGE_RESIZE}</span></a></li>
+            <li><a class="media_resize button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=scaleSelect&amp;serendipity[fid]={$file.id}{if isset($smarty.get.serendipity.page)}&amp;serendipity[page]={$smarty.get.serendipity.page}{/if}" title="{$CONST.IMAGE_RESIZE}" aria-label="{$CONST.IMAGE_RESIZE}"><span class="icon-resize-full" aria-hidden="true"></span></a></li>
 {/if}
 {if $file.is_image AND NOT $file.hotlink AND $media.multiperm}
-            <li><a class="media_rotate_left button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=rotateCCW&amp;serendipity[fid]={$file.id}" title="{$CONST.IMAGE_ROTATE_LEFT}"><span class="icon-ccw" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.IMAGE_ROTATE_LEFT}</span></a></li>
+            <li><a class="media_rotate_left button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=rotateCCW&amp;serendipity[fid]={$file.id}" title="{$CONST.IMAGE_ROTATE_LEFT}" aria-label="{$CONST.IMAGE_ROTATE_LEFT}"><span class="icon-ccw" aria-hidden="true"></span></a></li>
 {/if}
 {if $file.is_image AND NOT $file.hotlink AND $media.multiperm}
-            <li><a class="media_rotate_right button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=rotateCW&amp;serendipity[fid]={$file.id}" title="{$CONST.IMAGE_ROTATE_RIGHT}"><span class="icon-cw" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.IMAGE_ROTATE_RIGHT}</span></a></li>
+            <li><a class="media_rotate_right button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=rotateCW&amp;serendipity[fid]={$file.id}" title="{$CONST.IMAGE_ROTATE_RIGHT}" aria-label="{$CONST.IMAGE_ROTATE_RIGHT}"><span class="icon-cw" aria-hidden="true"></span></a></li>
 {/if}
 {if $media.manage AND $media.multiperm}
-            <li><a class="media_prop button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=properties&amp;serendipity[fid]={$file.id}{if isset($smarty.get.serendipity.page)}&amp;serendipity[page]={$smarty.get.serendipity.page}{/if}" title="{$CONST.MEDIA_PROP}"><span class="icon-picture" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_PROP}</span></a></li>
+            <li><a class="media_prop button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=properties&amp;serendipity[fid]={$file.id}{if isset($smarty.get.serendipity.page)}&amp;serendipity[page]={$smarty.get.serendipity.page}{/if}" title="{$CONST.MEDIA_PROP}" aria-label="{$CONST.MEDIA_PROP}"><span class="icon-picture" aria-hidden="true"></span></a></li>
 {/if}
 {if $media.multiperm OR 'adminImagesDelete'|checkPermission}
-            <li><a class="media_delete button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=delete&amp;serendipity[fid]={$file.id}" title="{$CONST.MEDIA_DELETE}" data-fileid="{$file.id}" data-filename="{$file.name|escape:'javascript'}" data-getpage="{if isset($smarty.get.serendipity.page)}{$smarty.get.serendipity.page}{/if}" data-lastpage="{$media.pages}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_DELETE}</span></a></li>
+            <li><a class="media_delete button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=delete&amp;serendipity[fid]={$file.id}" title="{$CONST.MEDIA_DELETE}" data-fileid="{$file.id}" data-filename="{$file.name|escape:'javascript'}" data-getpage="{if isset($smarty.get.serendipity.page)}{$smarty.get.serendipity.page}{/if}" data-lastpage="{$media.pages}" aria-label="{$CONST.MEDIA_DELETE}"><span class="icon-trash" aria-hidden="true"></span></a></li>
 {/if}
 {if (NOT empty($file.full_file_webp) OR NOT empty($file.full_file_avif)) AND NOT empty($imagesNoSync)}
 {foreach $imagesNoSync AS $special}
 {if $file.name == $special.pfilename}{* Check out erroneous build AVIF files by filesize and switch special case variation link on AVIF true *}
 {if $special.extension == 'avif'}{if $special.filesize == null OR $special.filesize <= 252 OR (isset($special.linknext) AND $special.linknext === true)}{* $special.extension}={$special.filesize *}{continue}{else}{assign var="isavif" value=true}{/if}{/if}
 {if $special.extension == 'webp' AND isset($isavif) AND $isavif === true}{* reset loop assignment *}{assign var="isavif" value=false}{continue}{* do not show special webp *}{/if}
-            <li class="special"><a class="media_fullsize media_prop button_link" href="{$special.url}" title="{if $special.extension == 'webp' OR $special.extension == 'avif'}{$CONST.VARIATION}{else}{$CONST.PUBLISHED}{/if}: {$special.basename}, {$special.width}x{$special.height}px" data-pwidth="{$special.width}" data-pheight="{$special.height}"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span><span class="visuallyhidden"> Image Of</span></a></li>
+            <li class="special"><a class="media_fullsize media_prop button_link" href="{$special.url}" title="{if $special.extension == 'webp' OR $special.extension == 'avif'}{$CONST.VARIATION}{else}{$CONST.PUBLISHED}{/if}: {$special.basename}, {$special.width}x{$special.height}px" data-pwidth="{$special.width}" data-pheight="{$special.height}" aria-label="Image Of"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span></a></li>
 {/if}
 {/foreach}
 {else if NOT empty($file.sizeAVIF) && NOT empty($file.sizeWebp)}
-            <li class="special"><a class="media_fullsize media_prop button_link" href="{if $file.sizeAVIF < $file.sizeWebp}{$file.full_file_avif}{else}{$file.full_file_webp}{/if}" title="{$CONST.VARIATION}: {$file.full_file_avif|regex_replace:"~{$serendipityHTTPPath}uploads/{$file.path}.v/~":''}, {$file.dim_orig.0}x{$file.dim_orig.1}px" data-pwidth="{$file.dim_orig.0}" data-pheight="{$file.dim_orig.1}"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span><span class="visuallyhidden"> Image Of</span></a></li>
+            <li class="special"><a class="media_fullsize media_prop button_link" href="{if $file.sizeAVIF < $file.sizeWebp}{$file.full_file_avif}{else}{$file.full_file_webp}{/if}" title="{$CONST.VARIATION}: {$file.full_file_avif|regex_replace:"~{$serendipityHTTPPath}uploads/{$file.path}.v/~":''}, {$file.dim_orig.0}x{$file.dim_orig.1}px" data-pwidth="{$file.dim_orig.0}" data-pheight="{$file.dim_orig.1}" aria-label="Image Of"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span></a></li>
 {else if NOT empty($file.sizeWebp) && $file.sizeWebp < $file.size}
-            <li class="special"><a class="media_fullsize media_prop button_link" href="{$file.full_file_webp}" title="{$CONST.VARIATION}: {$file.full_file_webp|regex_replace:"~{$serendipityHTTPPath}uploads/{$file.path}.v/~":''}, {$file.dim_orig.0}x{$file.dim_orig.1}px" data-pwidth="{$file.dim_orig.0}" data-pheight="{$file.dim_orig.1}"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span><span class="visuallyhidden"> Image Of</span></a></li>
+            <li class="special"><a class="media_fullsize media_prop button_link" href="{$file.full_file_webp}" title="{$CONST.VARIATION}: {$file.full_file_webp|regex_replace:"~{$serendipityHTTPPath}uploads/{$file.path}.v/~":''}, {$file.dim_orig.0}x{$file.dim_orig.1}px" data-pwidth="{$file.dim_orig.0}" data-pheight="{$file.dim_orig.1}" aria-label="Image Of"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span></a></li>
 {else if empty($file.sizeWebp) && $file.extension == 'webp' && NOT empty($file.sizeAVIF)}
-            <li class="special"><a class="media_fullsize media_prop button_link" href="{$file.full_file_avif}" title="{$CONST.VARIATION}: {$file.full_file_avif|regex_replace:"~{$serendipityHTTPPath}uploads/{$file.path}.v/~":''}, {$file.dim_orig.0}x{$file.dim_orig.1}px" data-pwidth="{$file.dim_orig.0}" data-pheight="{$file.dim_orig.1}"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span><span class="visuallyhidden"> Image Of</span></a></li>
+            <li class="special"><a class="media_fullsize media_prop button_link" href="{$file.full_file_avif}" title="{$CONST.VARIATION}: {$file.full_file_avif|regex_replace:"~{$serendipityHTTPPath}uploads/{$file.path}.v/~":''}, {$file.dim_orig.0}x{$file.dim_orig.1}px" data-pwidth="{$file.dim_orig.0}" data-pheight="{$file.dim_orig.1}" aria-label="Image Of"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span></a></li>
 {else if $file.is_image AND NOT $file.hotlink AND in_array($file.extension, ['jpg', 'jpeg', 'png', 'gif', 'webp']) AND (empty($file.full_file_avif) AND (empty($file.full_file_webp) OR empty($file.full_thumb_webp)))}
-            <li><a class="media_addvar button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=variations&amp;serendipity[fid]={$file.id}" title="{$CONST.MEDIA_CREATEVARS}" data-fileid="{$file.id}" data-filename="{$file.name|escape:'javascript'}" data-getpage="{if isset($smarty.get.serendipity.page)}{$smarty.get.serendipity.page}{/if}" data-lastpage="{$media.pages}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_CREATEVARS}</span></a></li>
+            <li><a class="media_addvar button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=variations&amp;serendipity[fid]={$file.id}" title="{$CONST.MEDIA_CREATEVARS}" data-fileid="{$file.id}" data-filename="{$file.name|escape:'javascript'}" data-getpage="{if isset($smarty.get.serendipity.page)}{$smarty.get.serendipity.page}{/if}" data-lastpage="{$media.pages}" aria-label="{$CONST.MEDIA_CREATEVARS}"><span class="icon-plus" aria-hidden="true"></span></a></li>
 {/if}
 {/if}
         </ul>
@@ -297,7 +296,7 @@
                 <span class="block_level"><b>MIME-{$CONST.TYPE}:</b> {$file.mime}{if $file.realname != $file.diskname}, {$file.diskname}{/if}</span>
                 <span class="block_level"><b>{$CONST.SORT_ORDER_EXTENSION}:</b> {$file.extension}</span>
                 <ul class="media_file_meta dimensions plainList">
-                    <li><b>{$CONST.SORT_ORDER_DATE}:</b> {if $file.authorid != 0}{$CONST.POSTED_BY} {$file.authorname} {/if}<span class="icon-clock" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.ON} </span> {$file.date|formatTime:DATE_FORMAT_SHORT}</li>
+                    <li><b>{$CONST.SORT_ORDER_DATE}:</b> {if $file.authorid != 0}{$CONST.POSTED_BY} {$file.authorname} {/if}<span class="icon-clock" aria-hidden="true"></span><span class="sr-only"> {$CONST.ON} </span> {$file.date|formatTime:DATE_FORMAT_SHORT}</li>
 {if $file.hotlink}
                     <li><b>{$CONST.MEDIA_HOTLINKED}:</b> {$file.realfile}</li>
 {elseif $file.is_image}
@@ -352,7 +351,7 @@
 {if NOT $file.hotlink}
 
             <fieldset class="media_properties_selects">
-              <legend> {$CONST.WORD_XOR} &nbsp;<span class="media_file_properties actions"><a class="media_show_info button_link" href="#media_select_props" title="Media properties select actions"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> Media properties selections info</span></a></span> </legend>
+              <legend> {$CONST.WORD_XOR} &nbsp;<span class="media_file_properties actions"><a class="media_show_info button_link" href="#media_select_props" title="Media properties select actions" aria-label="Media properties selections info"><span class="icon-info-circled" aria-hidden="true"></span></a></span> </legend>
               <div class="form_select">
                 <label for="newDir">{$CONST.FILTER_DIRECTORY}</label>
                 <input type="hidden" name="serendipity[mediaDirectory][0][oldDir]" value="{$file.path|escape}">

@@ -118,7 +118,7 @@
             </div>
         </div>
 
-        <button class="template_show_info button_link" type="button" data-href="#template_info_cur" title="{$CONST.TEMPLATE_INFO}"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.TEMPLATE_INFO}</span></button>
+        <button class="template_show_info button_link" type="button" data-href="#template_info_cur" title="{$CONST.TEMPLATE_INFO}" aria-label="{$CONST.TEMPLATE_INFO}"><span class="icon-info-circled" aria-hidden="true"></span></button>
         {if !empty($cur_tpl.info.custom_config)}<a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=editConfiguration&amp;{$urltoken}" title="{$CONST.CONFIGURATION}">{$CONST.CONFIGURATION}</a>{/if}
         {if isset($cur_tpl.info.custom_admin_interface) AND $cur_tpl.info.custom_admin_interface == $CONST.YES AND $cur_tpl.info.name != $cur_tpl_backend.info.name}<a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install-backend&amp;serendipity[theme]={$template}{if isset($cur_tpl.info.customURI)}{$cur_tpl.info.customURI|default:''}{/if}&amp;{$urltoken}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.BACKEND}</a>{/if}
 
@@ -164,7 +164,7 @@
             </div>
         </div>
 
-        <button class="template_show_info button_link" type="button" data-href="#template_info_cur_backend" title="{$CONST.TEMPLATE_INFO}"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.TEMPLATE_INFO}</span></button>
+        <button class="template_show_info button_link" type="button" data-href="#template_info_cur_backend" title="{$CONST.TEMPLATE_INFO}" aria-label="{$CONST.TEMPLATE_INFO}"><span class="icon-info-circled" aria-hidden="true"></span></button>
     </article>
 {/if}
 
@@ -228,8 +228,8 @@
                     </div>
                 </div>
 
-                <button class="template_show_info button_link" type="button" data-href="#template_info_{$key}" title="{$CONST.TEMPLATE_INFO}"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.TEMPLATE_INFO}</span></button>
-                {if !empty($template.demoURL)}<a class="demo_link button_link" href="{$template.demoURL}" title="{$CONST.THEMES_PREVIEW_BLOG}" target="_blank" rel="noopener"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.THEMES_PREVIEW_BLOG}</span></a>{/if}
+                <button class="template_show_info button_link" type="button" data-href="#template_info_{$key}" title="{$CONST.TEMPLATE_INFO}" aria-label="{$CONST.TEMPLATE_INFO}"><span class="icon-info-circled" aria-hidden="true"></span></button>
+                {if !empty($template.demoURL)}<a class="demo_link button_link" href="{$template.demoURL}" title="{$CONST.THEMES_PREVIEW_BLOG}" aria-label="{$CONST.THEMES_PREVIEW_BLOG}" target="_blank" rel="noopener"><span class="icon-search" aria-hidden="true"></span></a>{/if}
 {if !isset($template.unmetRequirements)}
                 {if isset($template.info.custom_admin_interface) AND $template.info.custom_admin_interface == $CONST.YES AND $cur_tpl_backend.info.name != $template.info.name}
 

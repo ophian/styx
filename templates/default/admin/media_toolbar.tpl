@@ -48,13 +48,12 @@
 
         <ul class="filters_toolbar clearfix plainList">
 {if $media.standardpane}
-            <li><a class="button_link" href="#media_pane_filter" title="Show filters"><span class="icon-filter" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.FILTERS}</span></a></li>
-            <li><a class="button_link" href="#media_pane_sort" title="{$CONST.SORT_ORDER}"><span class="icon-sort" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.SORT_ORDER}</span></a></li>
+            <li><a class="button_link" href="#media_pane_filter" title="Show filters" aria-label="{$CONST.FILTERS}"><span class="icon-filter" aria-hidden="true"></span></a></li>
+            <li><a class="button_link" href="#media_pane_sort" title="{$CONST.SORT_ORDER}" aria-label="{$CONST.SORT_ORDER}"><span class="icon-sort" aria-hidden="true"></span></a></li>
 {/if}
             <li id="media_filter_path">
                 <div class="form_select">
-                    <label for="serendipity_only_path" class="visuallyhidden">{$CONST.FILTER_DIRECTORY}</label>
-                    <select id="serendipity_only_path" name="serendipity[only_path]">
+                    <select id="serendipity_only_path" name="serendipity[only_path]" aria-label="{$CONST.FILTER_DIRECTORY}">
                         <option value="">{if NOT $media.limit_path}{if isset($media.toggle_dir) AND $media.toggle_dir == 'yes' OR $media.hideSubdirFiles == 'yes'}{$CONST.BASE_DIRECTORY}{else}{$CONST.ALL_DIRECTORIES}{/if}{else}{$media.blimit_path}{/if}</option>
 {foreach $media.paths AS $folderHead}
                         <option{if ($media.only_path == $media.limit_path|cat:$folderHead.relpath)} selected{/if} value="{$folderHead.relpath}">{'&nbsp;'|str_repeat:($folderHead.depth*2)}{$folderHead.name}</option>
@@ -63,7 +62,7 @@
 
                     <input name="go" type="submit" value="{$CONST.GO}">
 {if NOT $media.standardpane}
-                    <button class="toggle_info button_link" type="button" data-href="#media_gallery_selection"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden">Gallery item selection</span></button>
+                    <button class="toggle_info button_link" type="button" data-href="#media_gallery_selection"><span class="icon-info-circled" aria-hidden="true" aria-label="Gallery item selection"></span></button>
                     <div id="media_gallery_selection" class="clearfix additional_info media_gallery_selection">
                         <span class="msg_hint focused">{$CONST.MEDIA_GALLERY_SELECTION}</span>
                     </div>
@@ -89,7 +88,7 @@
 {if $media.standardpane}
 
         <fieldset id="media_pane_filter" class="additional_info filter_pane">
-            <legend class="visuallyhidden">{$CONST.FILTERS}</legend>
+            <legend class="sr-only">{$CONST.FILTERS}</legend>
 {* Keep in mind that $media.sort_order is different than $media.sortorder! The first is for building the key names; the second is the value that was set by POST! *}
             <div id="media_filter" class="clearfix">
 {foreach $media.sort_order AS $filtername => $filter}
@@ -138,7 +137,7 @@
 
                 <div class="right bp_filters">
                     <div class="form_field">
-                        <label class="visuallyhidden">NOTE</label>
+                        <label class="sr-only">NOTE</label>
                         <div class="bp_note">
                             <span class="icon-info-circled" aria-hidden="true"></span> mediaproperties metadata fields
                         </div>
@@ -164,7 +163,7 @@
         </fieldset>
 
         <fieldset id="media_pane_sort" class="additional_info filter_pane">
-            <legend class="visuallyhidden">{$CONST.SORT_ORDER}</legend>
+            <legend class="sr-only">{$CONST.SORT_ORDER}</legend>
             <div class="clearfix grouped">
                 <div class="form_select">
                     <label for="serendipity_sortorder_order">{$CONST.SORT_BY}</label>

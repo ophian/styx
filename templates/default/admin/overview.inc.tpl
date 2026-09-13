@@ -1,6 +1,6 @@
 <header id="dashboard_header" class="clearfix">
     <h2>{$CONST.WELCOME_BACK} {$username|escape}</h2>
-    <a href="#s9y_links" class="button_link toggle_links"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.FURTHER_LINKS}</span></a>
+    <a href="#s9y_links" class="button_link toggle_links" aria-label="{$CONST.FURTHER_LINKS}"><span class="icon-info-circled" aria-hidden="true"></span></a>
 </header>
 
 <div id="dashboard">
@@ -73,7 +73,7 @@
                     <div class="msg_notice">
                         <header>{$CONST.PUBLISHED} {$CONST.ON} <time datetime="{$info.ts|escape|formatTime:"%Y-%m-%dT%H:%M:%SZ"}" pubdate>{$info.ts|escape|formatTime:$template_option.date_format}</time></header>
                         <span class="sysinfo_title">{$info.title|escape|truncate:46:"&hellip;":true}</span><span class="sysinfo_priority sysinfo_priority-{$info.priority}">{"🔹"|str_repeat:$info.priority}</span>
-                        <span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden">{$info.title|escape}</span> {$info.msg|escape}
+                        <span class="icon-info-circled" aria-hidden="true"></span><span class="sr-only">{$info.title|escape}</span> {$info.msg|escape}
                         <div class="sysinfo_item">
                             <input type="hidden" name="serendipity[sysinfo][checked][hash][{$info@key}][0]" value="0">
                             <input type="checkbox" name="serendipity[sysinfo][checked][hash][{$info@key}][1]" value="{$info.hash|escape}">

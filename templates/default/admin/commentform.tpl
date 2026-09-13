@@ -71,7 +71,7 @@ Virgin, un-approved comment edits will NOT show any subscription or reassign edi
 {/if}
 {/foreach}
             </select>
-            <button class="toggle_info button_link" type="button" data-href="#copa_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
+            <button class="toggle_info button_link" type="button" data-href="#copa_info" aria-label="{$CONST.MORE}"><span class="icon-info-circled" aria-hidden="true"></span></button>
             <span id="copa_info" class="comment_status additional_info"><em>{$CONST.COMMENT_CHANGE_PARENT_INFO}</em></span>
         </div>
 {else}
