@@ -29,7 +29,7 @@ details>summary{list-style-type:none;width:15em;border:none;text-decoration:unde
 details>p,details>div{padding:2px 6px;margin:0}
 .upgrader_tasks .nobr br{display:none}
 .d-none{display:none!important}
-.visuallyhidden{border:0px;clip:rect(0px,0px,0px,0px);height:1px;margin:-1px;overflow:hidden;padding:0px;position:absolute;width:1px}
+.sr-only,.visuallyhidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 .clearfix::before,.clearfix::after{content:" ";display:table}
 .clearfix::after{clear:both}
 .plainList{list-style:none;margin-left:0px;padding-left:0px}
