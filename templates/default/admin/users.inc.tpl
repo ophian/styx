@@ -85,7 +85,9 @@
 {/if}
     <div class="form_buttons">
 {if $adminAction == 'edit'}
-        <input name="SAVE_EDIT" type="submit" value="{$CONST.SAVE}">{else}<input name="SAVE_NEW" type="submit" value="{$CONST.CREATE_NEW_USER}">
+        <input name="SAVE_EDIT" type="submit" value="{$CONST.SAVE}">
+{else}
+        <input name="SAVE_NEW" type="submit" value="{$CONST.CREATE_NEW_USER}">
 {/if}
     </div>
 </form>
