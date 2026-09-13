@@ -768,6 +768,12 @@ $tasks = array(
                     'title'     => 'Removal of remaining old dead theme lang UTF-8/ directories for Styx 5',
                     'desc'      => 'Ditto all <b>themes</b> have to follow this distinction too. NOW, THIS upgrade task removes all remaining UTF-8/ dirs in your templates directory.'),
 
+            array(  'version'   => '5.2-rc1',
+                    'function'  => 'serendipity_fixPlugins',
+                    'arguments' => array('cleanup_enableBackendPopup'),
+                    'title'     => 'Configuration Update Synchronizer',
+                    'desc'      => 'This task removes personal configuration items for 5.2 removed old "enableBackendPopup" and "enablePopup" setups.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
