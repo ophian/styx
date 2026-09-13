@@ -362,15 +362,17 @@ details>p,details>div{padding:2px 6px;margin:0}
 .upgrader_tasks .nobr br{display:none}
 
 /* Hide visually, available for screenreaders */
+.sr-only,
 .visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
 }
 
 /* Clearfix: contain floats */
