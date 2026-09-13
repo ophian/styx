@@ -842,6 +842,13 @@ function serendipity_fixPlugins(string $case) : bool {
             serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name = 'default_widgets'");
             return true;
             break;
+
+        // Styx 5.2 simplifies modal vs embedding
+        case 'cleanup_enableBackendPopup':
+            serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name = 'enablePopup'"); // some old occurence of frontend popup behaviour w/o real option
+            serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name = 'enableBackendPopup'");
+            return true;
+            break;
     }
 }
 
