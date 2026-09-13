@@ -60,7 +60,7 @@
     </main>
     <script type="text/javascript">
         const forceLightMode = {if ($forceLightMode)}true{else}false{/if};
-        let dark_mode = sessionStorage.getItem('dark_mode');
+        const dark_mode = sessionStorage.getItem('dark_mode');
 
         if (dark_mode == null) {
             if (!forceLightMode && window.matchMedia('(prefers-color-scheme: dark)').matches || dark_mode == "dark") {
