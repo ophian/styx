@@ -1,6 +1,9 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
+ * Fully convert backend templates to support modern accessibility screenreader
+   aria attributes.
+
  * Allow to rebuild Image AVIF Variation if the source is a WebP file itself
 
  * Fix serendipity_imageCreateFromAny() image upload with GD lib, to allow
