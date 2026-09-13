@@ -1257,7 +1257,7 @@ function serendipity_smarty_init(?iterable $vars = []) : bool  {
             }
         }
 
-        $_force_backendpopups = explode(',', $serendipity['enableBackendPopupGranular']);
+        $_force_backendpopups = explode(',', $serendipity['enableBackendPopupGranular'] ?? ''); // fall back to an empty string value if this global is in null state on frontend and unlogged login attempts !
         $force_backendpopups  = array();
         foreach($_force_backendpopups AS $fbp_key => $fbp_val) {
             $fbp_val = trim($fbp_val);
