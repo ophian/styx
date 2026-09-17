@@ -23,7 +23,7 @@
             <a id="nav-toggle" class="button_link" href="#main_menu" aria-label="{$CONST.NAVIGATION}"><span class="icon-menu" aria-hidden="true"></span></a>
         {/if}
         {if $admin_vars.admin_installed}
-            <h1><a href="serendipity_admin.php" aria-label="{$CONST.SERENDIPITY_ADMIN_SUITE}:">{$CONST.ADMIN}: <span class="chop-title">{$blogTitle}</span></a></h1>
+            <h1><a href="serendipity_admin.php" aria-label="{$CONST.SERENDIPITY_ADMIN_SUITE}">{$CONST.ADMIN}: <span class="chop-title">{$blogTitle}</span></a></h1>
         {else}
             <h1>{$CONST.SERENDIPITY_INSTALLATION}</h1>
         {/if}
