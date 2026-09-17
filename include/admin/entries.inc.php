@@ -330,27 +330,41 @@ switch($serendipity['GET']['adminAction']) {
         $filter_import = array('author', 'isdraft', 'category');
         $sort_import   = array('order', 'ordermode', 'perPage');
 
-        foreach($filter_import AS $f_import) {
-            if (isset($serendipity['GET']['filter'])) {
-                // Don't check against Cookies when requested per categories list selected entries, or by overviews draft shortcut link, particularly for the author ID
-                if (!isset($serendipity['GET']['catref']) && isset($serendipity['COOKIE']['entrylist_filter_' . $f_import]) && !isset($serendipity['GET']['filter'][$f_import])) {
-                    $serendipity['COOKIE']['entrylist_filter_' . $f_import] = htmlspecialchars(strip_tags($serendipity['COOKIE']['entrylist_filter_' . $f_import]));
-                    $serendipity['GET']['filter'][$f_import] =& $serendipity['COOKIE']['entrylist_filter_' . $f_import];
-                }
-                $serendipity['GET']['filter'][$f_import] = $serendipity['GET']['filter'][$f_import] ?? '';
-                $data["get_filter_$f_import"] = htmlspecialchars(strip_tags($serendipity['GET']['filter'][$f_import]));
+        foreach ($filter_import as $f_import) {
+            $cookie_key = 'entrylist_filter_' . $f_import;
+            $val = '';
+
+            // When sent explicitly per GET/POST
+            if (isset($serendipity['GET']['filter'][$f_import])) {
+                $val = $serendipity['GET']['filter'][$f_import];
             }
+            // If no GET/POST request, but the Cookie exists, e.g. entries list via sidebar
+            // Don't check against Cookies when requested per categories list selected entries, or by overviews draft shortcut link, particularly for the author ID
+            elseif (!isset($serendipity['GET']['catref']) && isset($serendipity['COOKIE'][$cookie_key])) {
+                $val = $serendipity['COOKIE'][$cookie_key];
+            }
+
+            $val = htmlspecialchars(strip_tags((string)$val));
+            $serendipity['GET']['filter'][$f_import] = $val;
+            $data["get_filter_$f_import"] = $val;
         }
 
-        foreach($sort_import AS $s_import) {
-            if (isset($serendipity['GET']['sort'])) {
-                if (isset($serendipity['COOKIE']['entrylist_sort_' . $s_import]) && !isset($serendipity['GET']['sort'][$s_import])) {
-                    $serendipity['COOKIE']['entrylist_sort_' . $s_import] = htmlspecialchars(strip_tags($serendipity['COOKIE']['entrylist_sort_' . $s_import]));
-                    $serendipity['GET']['sort'][$s_import] =& $serendipity['COOKIE']['entrylist_sort_' . $s_import];
-                }
-                $serendipity['GET']['sort'][$s_import] = $serendipity['GET']['sort'][$s_import] ?? '';
-                $data["get_sort_$s_import"] = htmlspecialchars(strip_tags($serendipity['GET']['sort'][$s_import]));
+        foreach ($sort_import as $s_import) {
+            $cookie_key = 'entrylist_sort_' . $s_import;
+            $val = '';
+
+            // When sent explicitly per GET/POST
+            if (isset($serendipity['GET']['sort'][$s_import])) {
+                $val = $serendipity['GET']['sort'][$s_import];
             }
+            // If no GET/POST request, but the Cookie exists, e.g. entries list via sidebar
+            elseif (isset($serendipity['COOKIE'][$cookie_key])) {
+                $val = $serendipity['COOKIE'][$cookie_key];
+            }
+
+            $val = htmlspecialchars(strip_tags((string)$val));
+            $serendipity['GET']['sort'][$s_import] = $val;
+            $data["get_sort_$s_import"] = $val;
         }
 
         // entries paging is running from 0 to N, NOT 1 to N; ML pagination is build differently. The header shown as entries "Page X of N" is for humans! When a person wants page 4, it actually is page 3.
