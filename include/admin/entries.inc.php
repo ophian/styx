@@ -311,13 +311,38 @@ switch($serendipity['GET']['adminAction']) {
             }*/
         }
 
-        // check entries list link for pinned entries (POST by filters)
+        // Check entries list for pinned entries (via Request parameter OR Cookie fallback)
         $pinned_entries = $pinned = [];
-        if ((!empty($serendipity['GET']['pinned_entries']) || !empty($serendipity['POST']['pinned_entries']))
-        && isset($serendipity['matched_entry_pin']) && isset($serendipity['COOKIE']["entrylist_pin_entry_{$serendipity['matched_entry_pin']}"])) {
-            $pinned = isset($serendipity['POST']['pinned_entries']) ? explode(',', $serendipity['POST']['pinned_entries']) : explode(',', $serendipity['GET']['pinned_entries']);
-            foreach ($pinned AS $kpin => $vpin) {
-                if (empty($vpin)) continue;
+
+        $has_pinned_param   = !empty($serendipity['GET']['pinned_entries']) || !empty($serendipity['POST']['pinned_entries']);
+        $has_pinned_cookies = !empty($serendipity['matched_entry_pin']) && !empty($pinids);
+
+        if ($has_pinned_param || $has_pinned_cookies) {
+
+            if ($has_pinned_param) {
+                $raw_pins = !empty($serendipity['POST']['pinned_entries'])
+                    ? $serendipity['POST']['pinned_entries']
+                    : $serendipity['GET']['pinned_entries'];
+
+                $url_pins = explode(',', $raw_pins);
+
+                // SYNC: Filter out any IDs from the URL whose cookies have been deleted
+                if (!empty($pinids)) {
+                    $pinned = array_intersect($url_pins, $pinids);
+                } else {
+                    // All cookies were removed -> discard stale URL parameter
+                    $pinned = [];
+                }
+
+            } else {
+                // Fallback: Directly use $pinids from serendipity_admin.php
+                $pinned = $pinids;
+            }
+
+            foreach ($pinned as $vpin) {
+                $vpin = (int)$vpin;
+                if ($vpin <= 0) continue;
+
                 $fe = serendipity_fetchEntry('id', $vpin, true, 1);
                 if (is_array($fe)) {
                     $pinned_entries[] = $fe;

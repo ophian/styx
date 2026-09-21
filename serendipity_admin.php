@@ -117,18 +117,22 @@ if (!$use_installer && $is_logged_in) {
         $serendipity['GET']['adminModule'] = $serendipity['POST']['adminModule'] ?? '';
     }
 
-    // check for index sidebar whether any cookie stored pinned entries are set
-    $pinids = '';
+    // Check for backend entries list pinned entries stored in cookies
+    $pinids = [];
+    unset($serendipity['matched_entry_pin']); // Direct Reset / Cleanup
+
     foreach ($serendipity['COOKIE'] AS $cokey => $coval) {
+        if (!str_contains($cokey, 'entrylist_pin_entry_')) continue;
         if (preg_match('/^entrylist_pin_entry_(\d+)$/', $cokey, $m)) {
-            $pinids .= $m[1].',';
-            if (!isset($serendipity['matched_entry_pin'])) $serendipity['matched_entry_pin'] = $m[1]; // keep the first, for later Cookie check
-        } else {
-            unset($serendipity['matched_entry_pin']);
+            $pinids[] = $m[1];
+            if (!isset($serendipity['matched_entry_pin'])) {
+                $serendipity['matched_entry_pin'] = $m[1]; // Keep first for later validation
+            }
         }
     }
+
     if (is_object($serendipity['smarty'])) {
-        $serendipity['smarty']->assign('pin_entries', $pinids);
+        $serendipity['smarty']->assign('pin_entries', implode(',', $pinids));
     }
 
     ob_start();
