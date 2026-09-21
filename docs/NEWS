@@ -1,6 +1,8 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
+ * Fix and improve the backends entries list Quick-Pin behaviour
+
  * Fix long lasting issue with entries list [filter / sort] stored cookie sets,
    which were always overridden by default startup calls.
 
