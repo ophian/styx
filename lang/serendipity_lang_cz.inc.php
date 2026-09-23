@@ -960,8 +960,6 @@ $i18n_filename_to = array (
 
 @define('DELETE_SELECTED_ENTRIES', 'Vymazat vybrané příspěvky');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Zobrazit pouze autory s více než X příspěvky');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET_DESC', 'Uložte tento odkaz do oblíbených záložek a použijte záložku na jakékoliv stránkce, o které chcete psát. Záložka Vás rychle přepne do Vašeho Serendipity Blogu.');
 @define('IMPORT_WP_PAGES', 'Zobrazovat jako obyčejné příspěvky blogu i přílohy a statické stránky?');
 @define('USERCONF_CREATE', 'Zneplatnit uživatele / zakázat aktivitu?');
 @define('USERCONF_CREATE_DESC', 'Pokud je volba vybrána, uživatel nebude mít žádná práva k vytváření nebo měnění blogu. Když se přihlásí do administrativní sekce, může si pouze prohlédnout osobní nastavení nebo se odhlásit.');

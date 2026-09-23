@@ -950,8 +950,6 @@
 
 @define('DELETE_SELECTED_ENTRIES', '선택한 글 삭제하기');
 @define('PLUGIN_AUTHORS_MINCOUNT', '최소 X개의 글을 쓴 작성자만 보여주기');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET', '즐겨찾기');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET_DESC', '이 링크를 즐겨찾기에 추가한 다음, 적고자 하는 페이지에 사용하면 이 세렌디피티 블로그를 빠르게 찾아올 수 있습니다.');
 @define('IMPORT_WP_PAGES', '첨부 파일과 고정 페이지도 일반 블로그 글처럼 불러옵니까?');
 @define('USERCONF_CREATE', '사용자를 비활성화하거나 활동을 금지하기');
 @define('USERCONF_CREATE_DESC', '사용할 경우 해당 사용자가 블로그에서 더 이상 글을 편집하거나 새로 쓸 수 없게 됩니다. 관리자 화면에 들어오더라도 개인 설정을 확인하거나 다시 빠져나가는 것 밖에 할 수 없습니다.');

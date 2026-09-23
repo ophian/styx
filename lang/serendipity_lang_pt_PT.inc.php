@@ -953,8 +953,6 @@
 
 @define('DELETE_SELECTED_ENTRIES', 'Eliminar entradas seleccionadas');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Mostar apenas Autores com um mínimo de X artigos');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET_DESC', 'Marque esta ligação e use-a em qualquer página em que quiser blogar para aceder rapidamente ao seu blogue Serendipity.');
 @define('IMPORT_WP_PAGES', 'Ir também buscar ficheiros anexados e páginas estáticas como entradas de blog normais?');
 @define('USERCONF_CREATE', 'Disable user / forbid activity?');
 @define('USERCONF_CREATE_DESC', 'If selected, the user will not have any editing or creation possibilities on the blog anymore. When logging in to the backend, he cannot do anything else apart from logging out and viewing his personal configuration.');

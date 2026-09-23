@@ -948,8 +948,6 @@
 
 @define('DELETE_SELECTED_ENTRIES', 'Delete selected entries');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Show only authors with at least X articles');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET_DESC', 'Bookmark this link and then use it on any page you want to Blog about, to quickly access your Serendipity Blogs backend entry form (when logged in).');
 @define('IMPORT_WP_PAGES', 'Also fetch attachments and staticpages as normal Blog entries?');
 @define('USERCONF_CREATE', 'Disable user / forbid activity?');
 @define('USERCONF_CREATE_DESC', 'If this option is activated, the user will not be able to create entries or perform any other actions. When he enters the administration interface, all he can do is change his personal settings and log out again.');

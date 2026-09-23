@@ -945,8 +945,6 @@
 
 @define('DELETE_SELECTED_ENTRIES', 'Markierte Einträge löschen');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Nur Autoren mit mindestens X Beiträgen anzeigen');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET_DESC', 'Fügen Sie diesen Link ihrem Browser manuell als Lesezeichen/Favoriten hinzu. Dann können Sie dieses Lesezeichen auf jeder beliebigen Seite nutzen, um in einem Popup Fenster direkt in das Backend Eintragsformular ihres Blog zu springen (nur wenn eingeloggt).');
 @define('IMPORT_WP_PAGES', 'Auch "attachments" und "staticpages" als normale Blog-Einträge importieren?');
 @define('USERCONF_CREATE', 'Benutzer deaktivieren / Rechte entziehen?');
 @define('USERCONF_CREATE_DESC', 'Ist diese Option aktiviert, wird der Benutzer keine Möglichkeit haben Einträge anzulegen oder sonstige Aktionen auszuführen. Wenn er in die Administrations-Oberfläche kommt, wird er nichts anderes tun können als seine Persönlichen Einstellungen zu ändern und sich wieder auszuloggen.');

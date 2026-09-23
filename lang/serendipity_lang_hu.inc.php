@@ -949,8 +949,6 @@
 
 @define('DELETE_SELECTED_ENTRIES', 'Kijelölt bejegyzések törlése');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Csak a a legalább X bejegyzéssel rendelkező szerzők mutatása');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Könyvjelző hivatkozás');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET_DESC', 'Add a könyvjelzőkhöz ezt a hivatkozást, így könnyen eléred a blog-odat amikor egy másik oldalon vagy, amiről éppen írni szeretnél.');
 @define('IMPORT_WP_PAGES', 'Csatolások és statikus oldalak letöltése mint normális bejegyzések?');
 @define('USERCONF_CREATE', 'Felhasználó letiltása / aktivitás tiltása?');
 @define('USERCONF_CREATE_DESC', 'Ha ezt választod, a felhasználó nem hozhat létre bejegyzéseket és nem szerkeszthet semmit. Bejelentkezése után, csak kijelentkezni tud, illetve megtekintheti személyes beállításait.');

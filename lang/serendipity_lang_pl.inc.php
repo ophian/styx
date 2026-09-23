@@ -950,8 +950,6 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 
 @define('DELETE_SELECTED_ENTRIES', 'Usuń wybrane wpisy');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Pokaż tylko autorów mających co najmniej X wpisów');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET_DESC', 'Bookmark (dodaj do Ulubionych) ten link i użyj na dowolnej stronie, o której chcesz blogować, by szybko dostać się do swojego bloga.');
 @define('IMPORT_WP_PAGES', 'Also fetch attachments and staticpages as normal Blog entries?');
 @define('USERCONF_CREATE', 'Disable user / forbid activity?');
 @define('USERCONF_CREATE_DESC', 'If selected, the user will not have any editing or creation possibilities on the blog anymore. When logging in to the backend, he cannot do anything else apart from logging out and viewing his personal configuration.');

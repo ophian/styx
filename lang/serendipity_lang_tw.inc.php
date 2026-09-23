@@ -952,8 +952,6 @@ $i18n_unknown = 'tw';
 
 @define('DELETE_SELECTED_ENTRIES', '刪除選擇的文章');
 @define('PLUGIN_AUTHORS_MINCOUNT', '顯示多於 X 文章的作者');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET', '書籤');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET_DESC', '將這個連結設為書籤可以讓您快速的進入網誌。');
 @define('IMPORT_WP_PAGES', '輸入附件檔案和靜態頁面於普通的網誌文章？');
 @define('USERCONF_CREATE', '禁止會員／禁止動作？');
 @define('USERCONF_CREATE_DESC', '如果勾選，此會員將被禁止任何編輯或新增網誌的動作。如果登入後端，他被允許的動作只有登入／登出和瀏覽自己的設定。');

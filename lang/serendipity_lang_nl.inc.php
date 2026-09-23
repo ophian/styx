@@ -951,8 +951,6 @@
 
 @define('DELETE_SELECTED_ENTRIES', 'Geselecteerde artikelen verwijderen');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Toon alleen auteurs met minstens X artikelen');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET_DESC', 'Maak een bladwijzer van deze hyperlink en gebruik het dan bij elke website waarover je wilt schrijven om snel toegang te krijgen tot je weblog.');
 @define('IMPORT_WP_PAGES', 'Ook bijlagen en statische pagina\'s als gewone artikelen ophalen?');
 @define('USERCONF_CREATE', 'Disable user / forbid activity?');
 @define('USERCONF_CREATE_DESC', 'If selected, the user will not have any editing or creation possibilities on the blog anymore. When logging in to the backend, he cannot do anything else apart from logging out and viewing his personal configuration.');

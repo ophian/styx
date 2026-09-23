@@ -949,8 +949,6 @@
 
 @define('DELETE_SELECTED_ENTRIES', 'Ta bort valda artiklar');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Visa enbart författare med minst X skrivna artiklar');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET_DESC', 'Lägg till denna länk som bokmärke och använd den sen på valfri sida som du vill blogga om för att snabbt komma åt din Serendipity-blogg.');
 @define('IMPORT_WP_PAGES', 'Hämta även bilagor och statiska sidor som normala artiklar?');
 @define('USERCONF_CREATE', 'Stäng av användare / förbjud aktivitet?');
 @define('USERCONF_CREATE_DESC', 'Om vald har användaren inte några möjligheter att redigera eller skapa på bloggen längre. Vid inloggning i användargränssnittet kan användaren enbart se sina personliga inställningar samt logga ut.');
