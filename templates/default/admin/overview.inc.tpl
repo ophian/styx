@@ -103,8 +103,6 @@
             <li><a target="_blank" rel="noopener" href="https://ophian.github.io/blog">{$CONST.FURTHER_LINKS_S9Y_BLOG} (Styx)</a></li>
             <li><a target="_blank" rel="noopener" href="https://ophian.github.io/plugins/">{$CONST.FURTHER_LINKS_S9Y_SPARTACUS} (Styx) Web</a></li>
             <li><a target="_blank" rel="noopener" href="https://github.com/ophian/styx">GitHub Serendipity Styx Edition</a></li>
-            <li>&nbsp;</li>
-            <li><a class="s9y_bookmarklet" href="{$bookmarklet}" title="{$CONST.FURTHER_LINKS_S9Y_BOOKMARKLET_DESC}">{$CONST.FURTHER_LINKS_S9Y_BOOKMARKLET}</a></li>
         </ul>
     </section>
 
