@@ -4469,12 +4469,17 @@ function serendipity_generateImageSelectorParems(string $format = 'url') : strin
     global $serendipity;
 
     $sortParams   = array('perpage', 'order', 'ordermode');
-    $importParams = array('adminModule', 'htmltarget', 'filename_only', 'textarea', 'subpage',  'keywords', 'noBanner', 'noSidebar', 'noFooter', 'showUpload', 'showMediaToolbar');
-    $extraParems  = '';
-    $filterParams = $serendipity['GET']['filter'] ?? array();
+    $importParams = array('adminModule', 'htmltarget', 'filename_only', 'textarea', 'subpage', 'keywords', 'popupContent', 'showUpload', 'showMediaToolbar');
 
+    // Only append standalone layout toggles if we are NOT inside a modal context or force an embedding mode
+    if (($serendipity['GET']['popupContent'] ?? null) !== 'true') {
+        array_push($importParams, 'noBanner', 'noSidebar', 'noFooter');
+    }
+
+    $extraParems            = '';
+    $filterParams           = $serendipity['GET']['filter'] ?? array();
     $standaloneFilterParams = array('only_path');
-    $parems = array();
+    $parems                 = array();
 
     foreach($importParams AS $importParam) {
         if (isset($serendipity['GET'][$importParam])) {
