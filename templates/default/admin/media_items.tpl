@@ -251,7 +251,7 @@
             <li><button class="media_rename button_link" type="button" title="{$CONST.MEDIA_RENAME}" data-fileid="{$file.id}" data-filename="{$file.name|escape:'javascript'}" aria-label="{$CONST.MEDIA_RENAME}"><span class="icon-edit" aria-hidden="true"></span></button></li>
 {/if}
 {if $file.is_image AND NOT $file.hotlink AND $media.multiperm}
-            <li><a class="media_resize button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=scaleSelect&amp;serendipity[fid]={$file.id}{if isset($smarty.get.serendipity.page)}&amp;serendipity[page]={$smarty.get.serendipity.page}{/if}" title="{$CONST.IMAGE_RESIZE}" aria-label="{$CONST.IMAGE_RESIZE}"><span class="icon-resize-full" aria-hidden="true"></span></a></li>
+            <li><a class="media_resize button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=scaleSelect{if !empty($smarty.get.serendipity.popupContent)}&amp;serendipity[popupContent]=true{/if}&amp;serendipity[fid]={$file.id}{if isset($smarty.get.serendipity.page)}&amp;serendipity[page]={$smarty.get.serendipity.page}{/if}" title="{$CONST.IMAGE_RESIZE}" aria-label="{$CONST.IMAGE_RESIZE}"><span class="icon-resize-full" aria-hidden="true"></span></a></li>
 {/if}
 {if $file.is_image AND NOT $file.hotlink AND $media.multiperm}
             <li><a class="media_rotate_left button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=rotateCCW&amp;serendipity[fid]={$file.id}" title="{$CONST.IMAGE_ROTATE_LEFT}" aria-label="{$CONST.IMAGE_ROTATE_LEFT}"><span class="icon-ccw" aria-hidden="true"></span></a></li>
@@ -260,7 +260,7 @@
             <li><a class="media_rotate_right button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=rotateCW&amp;serendipity[fid]={$file.id}" title="{$CONST.IMAGE_ROTATE_RIGHT}" aria-label="{$CONST.IMAGE_ROTATE_RIGHT}"><span class="icon-cw" aria-hidden="true"></span></a></li>
 {/if}
 {if $media.manage AND $media.multiperm}
-            <li><a class="media_prop button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=properties&amp;serendipity[fid]={$file.id}{if isset($smarty.get.serendipity.page)}&amp;serendipity[page]={$smarty.get.serendipity.page}{/if}" title="{$CONST.MEDIA_PROP}" aria-label="{$CONST.MEDIA_PROP}"><span class="icon-picture" aria-hidden="true"></span></a></li>
+            <li><a class="media_prop button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=properties{if !empty($smarty.get.serendipity.popupContent)}&amp;serendipity[popupContent]=true{/if}&amp;serendipity[fid]={$file.id}{if isset($smarty.get.serendipity.page)}&amp;serendipity[page]={$smarty.get.serendipity.page}{/if}" title="{$CONST.MEDIA_PROP}" aria-label="{$CONST.MEDIA_PROP}"><span class="icon-picture" aria-hidden="true"></span></a></li>
 {/if}
 {if $media.multiperm OR 'adminImagesDelete'|checkPermission}
             <li><a class="media_delete button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=delete&amp;serendipity[fid]={$file.id}" title="{$CONST.MEDIA_DELETE}" data-fileid="{$file.id}" data-filename="{$file.name|escape:'javascript'}" data-getpage="{if isset($smarty.get.serendipity.page)}{$smarty.get.serendipity.page}{/if}" data-lastpage="{$media.pages}" aria-label="{$CONST.MEDIA_DELETE}"><span class="icon-trash" aria-hidden="true"></span></a></li>

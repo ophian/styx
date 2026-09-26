@@ -13,7 +13,7 @@
 {if $media.is_edit}
     <div class="form_buttons">
 {if NOT $media.case_add}
-        <a class="button_link" href="?serendipity[adminModule]=media">{$CONST.BACK}</a>
+        <a class="button_link" href="?serendipity[adminModule]=media{if !empty($smarty.get.serendipity.popupContent)}&amp;serendipity[popupContent]=true{/if}">{$CONST.BACK}</a>
 {/if}
         <input name="submit" type="submit" value="{$CONST.SAVE}">
     </div>
