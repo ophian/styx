@@ -352,7 +352,7 @@ if (empty($_SERVER['REQUEST_URI'])) {
  *      - String || boolean || null output value
  * @access public
  */
-function serendipity_get_bool(?string $item) : string|bool|null {
+function serendipity_get_bool(string|bool|null $item) : string|bool|null {
     static $translation = array('true'  => true,
                                 'false' => false);
 
