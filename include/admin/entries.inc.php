@@ -473,7 +473,7 @@ switch($serendipity['GET']['adminAction']) {
 
         $filter_sql = implode(' AND ', $filter);
 
-        // Fetch the entries
+        // Fetch the entries, might return bool true on non-result
         $entries = serendipity_fetchEntries(
                      false,
                      false,
@@ -510,7 +510,8 @@ switch($serendipity['GET']['adminAction']) {
 
         if (!empty($pinned_entries)) {
             // both are regular arrays with num keys in the 1st dimension
-            $entries = array_merge($pinned_entries, (array)$entries); // cast boolean type to array in case of non-result search
+            $entries = is_bool($entries) ? [] : $entries; // set boolean type return to array in case of non-result search
+            $entries = array_merge($pinned_entries, $entries);
             $entries = array_column($entries, null, 'id'); // remove the possible 2cd duplicate in database fetched entries by inner ID as we need the pinned on top
         }
 
