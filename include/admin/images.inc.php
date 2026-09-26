@@ -1038,6 +1038,9 @@ switch ($serendipity['GET']['adminAction']) {
             }
         }
 
+        // be precise for the in-Modal showup of the mediaproperties button for delegation inheritance since the media_toolbar template checks on manage AND multiperm true
+        $manage = ((!isset($serendipity['GET']['showMediaToolbar']) || $serendipity['GET']['showMediaToolbar'] === 'false') && $serendipity['showMediaToolbar'] === true) ? true : false;
+
         // Case upload form media file parameters
         $mediaFiles = array(
             'token'             => serendipity_setFormToken(),
@@ -1048,7 +1051,7 @@ switch ($serendipity['GET']['adminAction']) {
             'maxImgHeight'      => $serendipity['maxImgHeight'],
             'maxImgWidth'       => $serendipity['maxImgWidth'],
             'extraParems'       => serendipity_generateImageSelectorParems(),
-            'manage'            => serendipity_db_bool(($serendipity['GET']['showMediaToolbar'] ?? true)),
+            'manage'            => $manage,
             'multiperm'         => serendipity_checkPermission('adminImagesDirectories')
         );
         // ToDo later: merge $data and $media
