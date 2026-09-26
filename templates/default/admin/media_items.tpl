@@ -259,7 +259,7 @@
 {if $file.is_image AND NOT $file.hotlink AND $media.multiperm}
             <li><a class="media_rotate_right button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=rotateCW&amp;serendipity[fid]={$file.id}" title="{$CONST.IMAGE_ROTATE_RIGHT}" aria-label="{$CONST.IMAGE_ROTATE_RIGHT}"><span class="icon-cw" aria-hidden="true"></span></a></li>
 {/if}
-{if $media.manage AND $media.multiperm}
+{if ($media.manage OR !empty($smarty.get.serendipity.popupContent)) AND $media.multiperm}
             <li><a class="media_prop button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=properties{if !empty($smarty.get.serendipity.popupContent)}&amp;serendipity[popupContent]=true{/if}&amp;serendipity[fid]={$file.id}{if isset($smarty.get.serendipity.page)}&amp;serendipity[page]={$smarty.get.serendipity.page}{/if}" title="{$CONST.MEDIA_PROP}" aria-label="{$CONST.MEDIA_PROP}"><span class="icon-picture" aria-hidden="true"></span></a></li>
 {/if}
 {if $media.multiperm OR 'adminImagesDelete'|checkPermission}
