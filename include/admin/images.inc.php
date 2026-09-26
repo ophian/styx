@@ -1048,7 +1048,7 @@ switch ($serendipity['GET']['adminAction']) {
             'maxImgHeight'      => $serendipity['maxImgHeight'],
             'maxImgWidth'       => $serendipity['maxImgWidth'],
             'extraParems'       => serendipity_generateImageSelectorParems(),
-            'manage'            => serendipity_get_bool(($serendipity['GET']['showMediaToolbar'] ?? true)),
+            'manage'            => serendipity_get_bool($serendipity['GET']['showMediaToolbar'] ?? true),
             'multiperm'         => serendipity_checkPermission('adminImagesDirectories')
         );
         // ToDo later: merge $data and $media
