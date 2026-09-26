@@ -7611,14 +7611,11 @@ function showMediaLibrary(bool $addvar_check = false, iterable $smarty_vars = []
         'filename_only' => $serendipity['GET']['filename_only'] ?? false,
     );
 
-    // be precise for the in-Modal showup of the mediaproperties button for delegation inheritance since the media_toolbar template checks on manage AND multiperm true
-    $manage = ((!isset($serendipity['GET']['showMediaToolbar']) || $serendipity['GET']['showMediaToolbar'] === 'false') && $serendipity['showMediaToolbar'] === true) ? true : false;
-
     $output .= serendipity_displayImageList(
         (int) ($serendipity['GET']['page'] ?? 1),
-        $manage,
+        serendipity_get_bool(($serendipity['GET']['showMediaToolbar'] ?? true)),
         NULL,
-        serendipity_db_bool(($serendipity['GET']['showUpload'] ?? false)),
+        serendipity_get_bool(($serendipity['GET']['showUpload'] ?? false)),
         NULL,
         $smarty_vars
     );
