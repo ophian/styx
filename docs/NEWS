@@ -1,6 +1,8 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
+ * Improve some toModal or inModal link cases for embed popupContent behaviour
+
  * Improve the serendipity_generateImageSelectorParems() method to support the
    the relative new popupContent GET string "shortcut" Variable for Modal URI
    states, which fixes the inner Modal action linking to stay in focus.
