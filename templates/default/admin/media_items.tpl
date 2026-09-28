@@ -247,6 +247,7 @@
         <ul class="media_file_actions actions plainList clearfix">
             <li><a class="media_show_info button_link" href="#media_file_meta_{$file.id}" title="{$CONST.SHOW_METADATA}" aria-label="{$CONST.SHOW_METADATA}"><span class="icon-info-circled" aria-hidden="true"></span></a></li>
 {if $file.is_editable}
+{if empty($smarty.get.serendipity.popupContent)}{* ML ONLY action buttons START *}
 {if NOT $file.hotlink AND $media.resetperm}
             <li><button class="media_rename button_link" type="button" title="{$CONST.MEDIA_RENAME}" data-fileid="{$file.id}" data-filename="{$file.name|escape:'javascript'}" aria-label="{$CONST.MEDIA_RENAME}"><span class="icon-edit" aria-hidden="true"></span></button></li>
 {/if}
@@ -265,6 +266,7 @@
 {if $media.multiperm OR 'adminImagesDelete'|checkPermission}
             <li><a class="media_delete button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=delete&amp;serendipity[fid]={$file.id}" title="{$CONST.MEDIA_DELETE}" data-fileid="{$file.id}" data-filename="{$file.name|escape:'javascript'}" data-getpage="{if isset($smarty.get.serendipity.page)}{$smarty.get.serendipity.page}{/if}" data-lastpage="{$media.pages}" aria-label="{$CONST.MEDIA_DELETE}"><span class="icon-trash" aria-hidden="true"></span></a></li>
 {/if}
+{/if}{* ML ONLY action buttons END *}
 {if (NOT empty($file.full_file_webp) OR NOT empty($file.full_file_avif)) AND NOT empty($imagesNoSync)}
 {foreach $imagesNoSync AS $special}
 {if $file.name == $special.pfilename}{* Check out erroneous build AVIF files by filesize and switch special case variation link on AVIF true *}
