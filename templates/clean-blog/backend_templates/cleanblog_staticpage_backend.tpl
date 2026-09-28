@@ -240,18 +240,53 @@
 </div>
 
 <script>
-    $('.sp_toggle').click(function () {
-        var $id   = $(this).attr('id');
-        var $name = 'staticpage_mobileform_' + $id;
-        var cb    = localStorage.getItem($name);
-        if ( cb !== null ) {
-            $('#'+$id+' > .icon-down-dir').removeClass('icon-down-dir').addClass('icon-right-dir');
-            localStorage.removeItem($name);
-        } else {
-            $('#'+$id+' > .icon-right-dir').removeClass('icon-right-dir').addClass('icon-down-dir');
-            setLocalStorage($name, true);
-        }
-    });
+    (() => {
+        'use strict';
+
+        // Helper for LocalStorage
+        const setLS = (key, val) => {
+            if (typeof setLocalStorage === 'function') {
+                setLocalStorage(key, val);
+            } else {
+                localStorage.setItem(key, String(val));
+            }
+        };
+
+        // Helper to replace CSS-Classes
+        const replaceClass = (element, removeClass, addClass) => {
+            if (!element) return;
+            element.classList.remove(removeClass);
+            element.classList.add(addClass);
+        };
+
+        // 1. Mobile/Default-Form Toggle-Buttons (.sp_toggle)
+        document.querySelectorAll('.sp_toggle').forEach(toggleBtn => {
+            toggleBtn.addEventListener('click', (e) => {
+                const currentTarget = e.currentTarget;
+                const id = currentTarget.id;
+                if (!id) return;
+
+                const storageKey = 'staticpage_defaultform_' + id;
+                const targetContainer = document.getElementById(id);
+                if (!targetContainer) return;
+
+                if (localStorage.getItem(storageKey) !== null) {
+                    const icon = targetContainer.querySelector('.icon-down-dir');
+                    replaceClass(icon, 'icon-down-dir', 'icon-right-dir');
+                    localStorage.removeItem(storageKey);
+                } else {
+                    const icon = targetContainer.querySelector('.icon-right-dir');
+                    replaceClass(icon, 'icon-right-dir', 'icon-down-dir');
+                    setLS(storageKey, true);
+                }
+            });
+        });
+
+        // 2. Append classes to #sp_navigator (overwrite toggle movement)
+        const spNavigator = document.getElementById('sp_navigator');
+        spNavigator?.classList.add('additional_info', 'ping');
+
+    })();
 </script>
 
 <!-- CLEANBLOG RESPONSIVE_TEMPLATE.TPL end -->
