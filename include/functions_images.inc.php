@@ -7631,7 +7631,9 @@ function showMediaLibrary(bool $addvar_check = false, iterable $smarty_vars = []
      * selection flow and redirects users back to the media library.
      * ---------------------------------------------------------------------
      */
+    // Check that we are in a Modal
     $isPopup = (($serendipity['GET']['popupContent'] ?? null) === 'true');
+
     $manage  = !$isPopup;
 
     $output .= serendipity_displayImageList(
