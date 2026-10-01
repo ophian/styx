@@ -5,6 +5,7 @@ Version 5.x (DEV)
    All these toolbar actions, except view and information assets, are useless
    to keep and a nightmare to implement properly to return to the addImage
    Modal dialog. Following the KISS principle is the best option here!
+   This removes the PersonalPreference Option: showMediaToolbar.
 
  * Fixed an issue of addImage Modal vs embedded MediaLibrary startup views to
    conditionally show the media properties button in backends media_items by
