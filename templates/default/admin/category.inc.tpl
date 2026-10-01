@@ -88,7 +88,7 @@
             </div>
 
             <fieldset class="clearfix inputs">
-                <span class="wrap_legend"><legend>{$CONST.CATEGORY_HIDE_SUB} <a class="toggle_info button_link" href="#hide_subcats_info" aria-label=""{$CONST.MORE}><span class="icon-info-circled" aria-hidden="true"></span></a></legend></span>
+                <span class="wrap_legend"><legend>{$CONST.CATEGORY_HIDE_SUB} <a class="toggle_info button_link" href="#hide_subcats_info" aria-label="{$CONST.MORE}"><span class="icon-info-circled" aria-hidden="true"></span></a></legend></span>
 
                 <span id="hide_subcats_info" class="field_info additional_info">{$CONST.CATEGORY_HIDE_SUB_DESC}</span>
 

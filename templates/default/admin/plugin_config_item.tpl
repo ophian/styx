@@ -123,7 +123,7 @@
 {foreach $order_id AS $orid}
                                 <li id="{$orid['id']}" class="sequence_item pluginmanager_item_even">
                                     <div id="g{$orid['id']}" class="pluginmanager_grablet sequence_grablet">
-                                        <button class="icon_link" type="button" title="Move" aria-label=""{$CONST.MOVE}><span class="icon-move" aria-hidden="true"></span></button>
+                                        <button class="icon_link" type="button" title="Move" aria-label="{$CONST.MOVE}"><span class="icon-move" aria-hidden="true"></span></button>
                                     </div>
 {if $checkable}
                                     <div class="form_check">
