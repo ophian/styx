@@ -3910,8 +3910,14 @@ function serendipity_rotateImageGD(string $infilename, string $outfilename, int 
     if (!is_array($func)) {
         return false;
     }
-
-    $in        = $func['load']($infilename);
+    // Avoid looped fails for infilename variations when file sits in real dir, e.g. origin webp files
+    if (!file_exists($infilename) || filesize($infilename) === 0) {
+        return false;
+    }
+    $in = $func['load']($infilename);
+    if ($in === false) {
+        return false;
+    }
     #if ($log2err === null) trigger_error("GD PRE degrees $degrees");
     // GD is rotating COUNTER CLOCKWISE - fix it here since our workflow is doing LFT TURN on -90 and RGT TURN on 90 like we all do in REAL LIFE !
     $degrees =  $degrees > 0 ? (360 - $degrees) : abs($degrees); // we only get CW 90 or CCW -90 by our toolkit, so RGT TURN 90 will be LFT TURN 270 and LFT TURN -90 will be RGT TURN 90
