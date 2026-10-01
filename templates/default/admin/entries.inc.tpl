@@ -167,26 +167,26 @@
                 <li id="entry_{$entry.id}" class="clearfix {cycle values='odd,even'}">
 {if NOT $simpleFilters}
                     <div class="form_check">
-                        <input id="multidelete_entry{$entry.id}" class="multicheck" name="serendipity[multiDelete][]" type="checkbox" value="{$entry.id}" data-multixid="entry_{$entry.id}" aria-label="{$CONST.TOGGLE_SELECT} (#{$entry_id})">
+                        <input id="multidelete_entry{$entry.id}" class="multicheck" name="serendipity[multiDelete][]" type="checkbox" value="{$entry.id}" data-multixid="entry_{$entry.id}" aria-label="{$CONST.TOGGLE_SELECT} (#{$entry.id})">
                     </div>
 {/if}
                     <h3><a href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry.id}&amp;{$urltoken}" title="#{$entry.id}: {$entry.title|escape:'html':$CONST.LANG_CHARSET:false}">{if NOT empty($entry.title)}{$entry.title|escape:'html':$CONST.LANG_CHARSET:false}{else} &#8212;no title set&#8212; {/if}</a></h3>
 
                     <ul class="plainList clearfix actions">
 {if $entry.preview OR (!$showFutureEntries AND ($entry.timestamp >= $serverOffsetHour))}
-                        <li><a class="button_link linkout" href="{$entry.preview_link}" title="{$CONST.PREVIEW} #{$entry.id}" aria-label="{$CONST.PREVIEW}"><span class="icon-search" aria-hidden="true"></span></a></li>
+                        <li><a class="button_link linkout" href="{$entry.preview_link}" title="{$CONST.PREVIEW} #{$entry.id}" aria-label="{$CONST.PREVIEW} #{$entry.id}"><span class="icon-search" aria-hidden="true"></span></a></li>
 {else}
-                        <li><a class="button_link linkout" href="{$entry.archive_link}" title="{$CONST.VIEW} #{$entry.id}" aria-label="{$CONST.VIEW}"><span class="icon-search" aria-hidden="true"></span></a></li>
+                        <li><a class="button_link linkout" href="{$entry.archive_link}" title="{$CONST.VIEW} #{$entry.id}" aria-label="{$CONST.VIEW} #{$entry.id}"><span class="icon-search" aria-hidden="true"></span></a></li>
 {/if}
-                        <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry.id}&amp;{$urltoken}" title="{$CONST.EDIT} #{$entry.id}" aria-label="{$CONST.EDIT}"><span class="icon-edit" aria-hidden="true"></span></a></li>
-                        <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=delete&amp;serendipity[id]={$entry.id}&amp;{$urltoken}" title="{$CONST.DELETE} #{$entry.id}" aria-label="{$CONST.DELETE}"><span class="icon-trash" aria-hidden="true"></span></a></li>
+                        <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry.id}&amp;{$urltoken}" title="{$CONST.EDIT} #{$entry.id}" aria-label="{$CONST.EDIT} #{$entry.id}"><span class="icon-edit" aria-hidden="true"></span></a></li>
+                        <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=delete&amp;serendipity[id]={$entry.id}&amp;{$urltoken}" title="{$CONST.DELETE} #{$entry.id}" aria-label="{$CONST.DELETE} #{$entry.id}"><span class="icon-trash" aria-hidden="true"></span></a></li>
 {if $entry.ep_is_sticky}
-                        <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect&amp;serendipity[id]={$entry.id}&amp;serendipity[timestamp]={$entry.timestamp}&amp;serendipity[preview]=false&amp;{$urltoken}&amp;serendipity[properties][is_sticky]=false" title="{$CONST.RESET_STATUS}: {$CONST.PLUGIN_EVENT_ENTRYPROPERTIES_STICKYPOSTS}" aria-label="{$CONST.RESET_STATUS}"><span class="icon-off" aria-hidden="true"></span></a></li>
+                        <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect&amp;serendipity[id]={$entry.id}&amp;serendipity[timestamp]={$entry.timestamp}&amp;serendipity[preview]=false&amp;{$urltoken}&amp;serendipity[properties][is_sticky]=false" title="{$CONST.RESET_STATUS}: {$CONST.PLUGIN_EVENT_ENTRYPROPERTIES_STICKYPOSTS}" aria-label="{$CONST.RESET_STATUS}: {$CONST.PLUGIN_EVENT_ENTRYPROPERTIES_STICKYPOSTS}"><span class="icon-off" aria-hidden="true"></span></a></li>
 {/if}
                     </ul>
                     <div class="entry_info clearfix">
                         <span class="status_timestamp">
-                            {$entry.timestamp|formatTime:"{$CONST.DATE_FORMAT_SHORT}"}{if $entry.timestamp <= ($entry.last_modified - 1800)} <span class="icon-info-circled" aria-hidden="true" title="{$CONST.LAST_UPDATED}: {$entry.last_modified|formatTime:"{$CONST.DATE_FORMAT_SHORT}"}"></span><span class="sr-only"> {$CONST.LAST_UPDATED}</span>{/if}
+                            {$entry.timestamp|formatTime:"{$CONST.DATE_FORMAT_SHORT}"}{if $entry.timestamp <= ($entry.last_modified - 1800)} <span class="icon-info-circled" aria-hidden="true" title="{$CONST.LAST_UPDATED}: {$entry.last_modified|formatTime:"{$CONST.DATE_FORMAT_SHORT}"}" aria-label="{$CONST.LAST_UPDATED}: {$entry.last_modified|formatTime:"{$CONST.DATE_FORMAT_SHORT}"}"></span>{/if}
 
                         </span>
 {capture name='_cap_linkout' assign=cap_linkout}{if count($entry.cats)} {$CONST.IN}{foreach $entry.cats AS $cat}
@@ -300,8 +300,8 @@
 <div class="form_buttons">
     <a class="button_link" id="draft_preview_back" href="?serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect&amp;serendipity[filter][author]=&amp;serendipity[filter][isdraft]=draft">{$CONST.BACK}</a>
     <a class="button_link" id="full_entries_list" href="?serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect">{$CONST.EDIT_ENTRIES}</a>
-    <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry_id}&amp;{$urltoken}" title="{$CONST.EDIT} #{$entry_id}" aria-label="{$CONST.EDIT}"><span class="icon-edit" aria-hidden="true"></span></a>
-    <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=delete&amp;serendipity[id]={$entry_id}&amp;{$urltoken}" title="{$CONST.DELETE} #{$entry_id}" aria-label="{$CONST.DELETE}"><span class="icon-trash" aria-hidden="true"></span></a>
+    <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry_id}&amp;{$urltoken}" title="{$CONST.EDIT} #{$entry_id}" aria-label="{$CONST.EDIT} #{$entry_id}"><span class="icon-edit" aria-hidden="true"></span></a>
+    <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=delete&amp;serendipity[id]={$entry_id}&amp;{$urltoken}" title="{$CONST.DELETE} #{$entry_id}" aria-label="{$CONST.DELETE} #{$entry_id}"><span class="icon-trash" aria-hidden="true"></span></a>
 </div>
 {/if}
 {$entryForm}
