@@ -4469,7 +4469,7 @@ function serendipity_generateImageSelectorParems(string $format = 'url') : strin
     global $serendipity;
 
     $sortParams   = array('perpage', 'order', 'ordermode');
-    $importParams = array('adminModule', 'htmltarget', 'filename_only', 'textarea', 'subpage', 'keywords', 'popupContent', 'showUpload', 'showMediaToolbar');
+    $importParams = array('adminModule', 'htmltarget', 'filename_only', 'textarea', 'subpage', 'keywords', 'popupContent', 'showUpload');
 
     // Only append standalone layout toggles if we are NOT inside a modal context or force an embedding mode
     if (($serendipity['GET']['popupContent'] ?? null) !== 'true') {
@@ -7611,9 +7611,26 @@ function showMediaLibrary(bool $addvar_check = false, iterable $smarty_vars = []
         'filename_only' => $serendipity['GET']['filename_only'] ?? false,
     );
 
+    /**
+     * ATTENTION / ARCHITECTURE NOTE:
+     * ---------------------------------------------------------------------
+     * Do NOT hardcode $manage to `true` here!
+     *
+     * $manage serves a dual purpose in legacy S9y core:
+     * 1. UI: Toggles display of media action buttons (rotate, delete, edit).
+     * 2. Logic: Signals whether we are in "Management Mode" (Main Library)
+     *    or "Selection Mode" (Popup / Modal for entry insertion).
+     *
+     * Forcing $manage = true inside a popup context breaks the `addImage`
+     * selection flow and redirects users back to the media library.
+     * ---------------------------------------------------------------------
+     */
+    $isPopup = (($serendipity['GET']['popupContent'] ?? null) === 'true');
+    $manage  = !$isPopup;
+
     $output .= serendipity_displayImageList(
         (int) ($serendipity['GET']['page'] ?? 1),
-        serendipity_get_bool($serendipity['GET']['showMediaToolbar'] ?? true),
+        $manage,
         NULL,
         serendipity_get_bool($serendipity['GET']['showUpload'] ?? false),
         NULL,

@@ -133,14 +133,6 @@
                                           'permission'  => 'personalConfiguration',
                                           'default'     => 'categories,tags,links',
                                           'flags'       => array('config')),
-
-                                    array('var'         => 'showMediaToolbar',
-                                          'title'       => SHOW_MEDIA_TOOLBAR,
-                                          'description' => '',
-                                          'type'        => 'bool',
-                                          'default'     => false,
-                                          'permission'  => 'personalConfiguration',
-                                          'flags'       => array('config')),
                             ));
 
     $res['defaults'] =

@@ -297,7 +297,7 @@ switch ($serendipity['GET']['step']) {
 
         $media['external'] = serendipity_displayImageList(
             $serendipity['GET']['page'] ?? 1,
-            ($serendipity['showMediaToolbar'] ? true : false),
+            true,
             '?serendipity[step]=1' . $add_url . '&amp;serendipity[textarea]='. (isset($serendipity['GET']['textarea']) ? htmlspecialchars($serendipity['GET']['textarea']) : ''),
             true,
             null
