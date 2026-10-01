@@ -880,7 +880,6 @@
 @define('CURRENT_AUTHOR', '현재 작성자');
 
 @define('WORD_NEW', '신규');
-@define('SHOW_MEDIA_TOOLBAR', '미디어 선택 팝업 안에 툴바 보여주기');
 @define('MEDIA_KEYWORDS', '미디어 키워드');
 @define('MEDIA_KEYWORDS_DESC', '미디어 아이템의 키워드로 사용하기 위해 미리 정의해둘 단어들을 ";"로 하나씩 분리하여 입력합니다');
 @define('MEDIA_EXIF', 'EXIF/JPEG 그림 데이터를 불러오기');

@@ -879,7 +879,6 @@
 @define('CURRENT_AUTHOR', 'Jelenlegi szerző');
 
 @define('WORD_NEW', 'Új');
-@define('SHOW_MEDIA_TOOLBAR', 'Mutassuk az eszköztárat a médiaválasztó ablakban?');
 @define('MEDIA_KEYWORDS', 'Média kulcsszavak');
 @define('MEDIA_KEYWORDS_DESC', 'Adj meg ";"-vel elválasztott szavakat, amelyeket szeretnél használni a médiaelemeknél előre definiált kulcsszavakként.');
 @define('MEDIA_EXIF', 'EXIF/JPEG képadatok importálása');

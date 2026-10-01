@@ -882,7 +882,6 @@
 @define('CURRENT_AUTHOR', 'Current author');
 
 @define('WORD_NEW', 'New');
-@define('SHOW_MEDIA_TOOLBAR', 'Show simplified toolbar within media selector popup?');
 @define('MEDIA_KEYWORDS', 'Media keywords');
 @define('MEDIA_KEYWORDS_DESC', 'Enter a list of ";" separated words that you want to use as pre-defined keywords for media items.');
 @define('MEDIA_EXIF', 'Import EXIF/JPEG image data');

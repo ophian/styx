@@ -881,7 +881,6 @@
 @define('CURRENT_AUTHOR', 'نویسنده فعلی');
 
 @define('WORD_NEW', 'جدید');
-@define('SHOW_MEDIA_TOOLBAR', 'نوار ابزار در صفحهء باز شوندهء رسانه ها نمایش داده شود؟');
 @define('MEDIA_KEYWORDS', 'کلمات کلیدی');
 @define('MEDIA_KEYWORDS_DESC', 'لیستی از کلمات را وارد کنید و در بین کلمات از علامت ";" استفاده کنید.');
 @define('MEDIA_EXIF', 'خواندن اطلاعات EXIF/JPEG تصویر');

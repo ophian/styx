@@ -880,7 +880,6 @@
 @define('CURRENT_AUTHOR', '現在の著者');
 
 @define('WORD_NEW', '新規');
-@define('SHOW_MEDIA_TOOLBAR', 'メディア選択ポップアップでツールバーを表示しますか?');
 @define('MEDIA_KEYWORDS', 'メディア キーワード');
 @define('MEDIA_KEYWORDS_DESC', 'Enter a list of ";" separated words that you want to use as pre-defined keywords for media items.');
 @define('MEDIA_EXIF', 'EXIF/JPEG 画像データをインポートする');

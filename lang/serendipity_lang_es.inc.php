@@ -893,9 +893,10 @@
 @define('FURTHER_LINKS_S9Y_FORUMS', 'Foros');
 @define('FURTHER_LINKS_S9Y_SPARTACUS', 'Spartacus');
 @define('COMMENT_IS_DELETED', '(Comentario eliminado)');
+
 @define('CURRENT_AUTHOR', 'Autor actual');
+
 @define('WORD_NEW', 'Nuevo');
-@define('SHOW_MEDIA_TOOLBAR', '¿Mostrar la barra de herramientas dentro de la ventana emergente selección de medios?');
 @define('MEDIA_KEYWORDS', 'Palabras claves de medios');
 @define('MEDIA_KEYWORDS_DESC', 'Ingresa una lista palabras separadas por ";" que quisieras utilizar como palabras clave predefinidas para los elementos de medios.');
 @define('MEDIA_EXIF', 'Importar información de imágenes EXIF/JPEG');

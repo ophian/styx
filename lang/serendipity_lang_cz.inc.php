@@ -890,7 +890,6 @@ $i18n_filename_to = array (
 @define('CURRENT_AUTHOR', 'Aktuální autor');
 
 @define('WORD_NEW', 'Nové');
-@define('SHOW_MEDIA_TOOLBAR', 'Ukázat lištu nástrojů v okně výběru medií?');
 @define('MEDIA_KEYWORDS', 'Media - klíčová slova');
 @define('MEDIA_KEYWORDS_DESC', 'Zadejte seznam slov oddělených  ";" která chcete použít jako předdefonovaná klíčová slova pro položky v mediích.');
 @define('MEDIA_EXIF', 'Importovat EXIF/JPEG  data obrázku');

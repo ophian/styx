@@ -882,7 +882,6 @@ $i18n_unknown = 'tw';
 @define('CURRENT_AUTHOR', '目前的作者');
 
 @define('WORD_NEW', '新');
-@define('SHOW_MEDIA_TOOLBAR', '在選擇媒體的視窗裡顯示工具欄？');
 @define('MEDIA_KEYWORDS', '媒體的關鍵字');
 @define('MEDIA_KEYWORDS_DESC', '輸入預設的媒體關鍵字，用 ";" 來分開每個關鍵字。');
 @define('MEDIA_EXIF', '輸入 EXIF/JPEG 圖片資料');

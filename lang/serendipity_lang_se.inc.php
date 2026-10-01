@@ -879,7 +879,6 @@
 @define('CURRENT_AUTHOR', 'Innevarande författare');
 
 @define('WORD_NEW', 'Ny');
-@define('SHOW_MEDIA_TOOLBAR', 'Visa verktygsrad i mediaväljarens popup-fönster?');
 @define('MEDIA_KEYWORDS', 'Medianyckelord');
 @define('MEDIA_KEYWORDS_DESC', 'Fyll i en lista med ord separerade av ";" som du vill använda som fördefinierade nyckelord för mediastycken.');
 @define('MEDIA_EXIF', 'Importera EXIF/JPEG-bilddata');

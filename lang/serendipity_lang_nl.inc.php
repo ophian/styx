@@ -881,7 +881,6 @@
 @define('CURRENT_AUTHOR', 'Huidige auteur');
 
 @define('WORD_NEW', 'Nieuw');
-@define('SHOW_MEDIA_TOOLBAR', 'Toon werkbalk binnen mediaselectiepop-up?');
 @define('MEDIA_KEYWORDS', 'Mediasleutelwoorden');
 @define('MEDIA_KEYWORDS_DESC', 'Voer een lijst van woorden in, gescheiden door een ";" die u wilt gebruiken als voorgedefinieerde sleutelwoorden voor mediabestanden.');
 @define('MEDIA_EXIF', 'Importeer EXIF/JPEG-afbeeldingsgegevens');

@@ -880,7 +880,6 @@
 @define('CURRENT_AUTHOR', 'Aktuel forfatter');
 
 @define('WORD_NEW', 'Ny');
-@define('SHOW_MEDIA_TOOLBAR', 'Vis værktøjslinie i medievælger popup?');
 @define('MEDIA_KEYWORDS', 'Medie nøgleord');
 @define('MEDIA_KEYWORDS_DESC', 'Indtast en ";" adskilt liste af ord du vil prædefinere som nøgleord for medie filer.');
 @define('MEDIA_EXIF', 'Importer EXIF/JPEG billeddata');

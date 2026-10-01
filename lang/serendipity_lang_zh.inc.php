@@ -883,7 +883,6 @@
 @define('CURRENT_AUTHOR', '目前的作者');
 
 @define('WORD_NEW', '新');
-@define('SHOW_MEDIA_TOOLBAR', '在选择媒体的视窗里显示工具栏');
 @define('MEDIA_KEYWORDS', '媒体的关键字');
 @define('MEDIA_KEYWORDS_DESC', '输入预设的媒体关键字，用 ";" 来分开每个关键字。');
 @define('MEDIA_EXIF', '输入 EXIF/JPEG 图片资料');

@@ -880,7 +880,6 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('CURRENT_AUTHOR', 'Bieżący Autor');
 
 @define('WORD_NEW', 'Nowy');
-@define('SHOW_MEDIA_TOOLBAR', 'Czy pokazywać pasek narzędziowy w oknie wyboru mediów?');
 @define('MEDIA_KEYWORDS', 'Słowa kluczowe mediów');
 @define('MEDIA_KEYWORDS_DESC', 'Wprowadź predefiniowaną listę słów kluczowych dla mediów. Pozycje na liście rozdzielaj znakiem średnika ";". Te słowa kluczowe będą przypisywane mediom automatycznie przy importowaniu.');
 @define('MEDIA_EXIF', 'Importuj dane EXIF/JPEG obrazków/zdjęć');

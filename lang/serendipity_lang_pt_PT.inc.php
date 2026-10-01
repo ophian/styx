@@ -883,7 +883,6 @@
 @define('CURRENT_AUTHOR', 'Autor corrente');
 
 @define('WORD_NEW', 'Novo');
-@define('SHOW_MEDIA_TOOLBAR', 'Mostrar barra dentro do seleccionador de media-popup?');
 @define('MEDIA_KEYWORDS', 'Palavras-chave para a Media');
 @define('MEDIA_KEYWORDS_DESC', 'Entre uma listagem, de palavras separadas por ";" através das quais deseja pré-definir, via palavras-chave, os seus itens de media.');
 @define('MEDIA_EXIF', 'Importar imagens EXIF/JPEG');
