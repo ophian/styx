@@ -243,7 +243,7 @@
                 </footer>
             </div>
         </div>
-{if $media.manage AND $media.metaActionBar}
+{if $media.manage OR $media.metaActionBar}
         <ul class="media_file_actions actions plainList clearfix">
             <li><a class="media_show_info button_link" href="#media_file_meta_{$file.id}" title="{$CONST.SHOW_METADATA}" aria-label="{$CONST.SHOW_METADATA}"><span class="icon-info-circled" aria-hidden="true"></span></a></li>
 {if $file.is_editable}
