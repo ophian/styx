@@ -1,3 +1,16 @@
+{if isset($perm_denied) AND $perm_denied}
+    <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PERM_DENIED}</span>
+{else}
+    <!-- MEDIA GALLERY SELECTION FINISHER A -->
+{if NOT empty($media.fast_select) AND is_array($media.files) AND isset($jsmedia)}
+    <script>
+        serendipity.serendipity_imageGallerySelector_done('{$media.mediaTextarea|escape:"javascript"}', {$jsmedia});
+    </script>
+{/if}
+{/if}
+
+{if !isset($jsmedia)}
+
 {$MEDIA_TOOLBAR}
 
 <div class="media_library_pane">
@@ -88,3 +101,5 @@
 {/if}
 
 </div>{* MediaLibrary gallery pane end *}
+
+{/if}

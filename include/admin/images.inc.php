@@ -239,8 +239,7 @@ switch ($serendipity['GET']['adminAction']) {
         $media = array_merge($serendipity['GET'], $media);
         $serendipity['smarty']->assignByRef('media', $media);
         $serendipity['smarty']->assignByRef('jsmedia', $jsmedia);
-        echo $serendipity['smarty']->display('admin/media_galleryinsert.tpl', $data); // no need for a compile file
-        #echo serendipity_smarty_showTemplate('admin/media_galleryinsert.tpl', $data);
+        echo $serendipity['smarty']->display('admin/media_gallery.tpl', $data);
         break;
 
     case 'multicheck':
