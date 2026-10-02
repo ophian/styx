@@ -585,6 +585,11 @@ $dead_dirs_510 = array(
     $serendipity['serendipityPath'] . 'plugins/serendipity_event_xmlrpc'
 );
 
+/* A list of old or removed directories for 5.2.0 */
+$dead_dirs_520 = array(
+    $serendipity['serendipityPath'] . 'templates/default/admin/media_galleryinsert.tpl'
+);
+
 /* Dependency PLUGIN API configurated cleanup since 5.0 for removed plugins
    which had been installed to avoid having to delete them manually from plugin list. */
 $plugin_config_cleanup = array(
