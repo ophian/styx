@@ -774,6 +774,12 @@ $tasks = array(
                     'title'     => 'Configuration Update Synchronizer',
                     'desc'      => 'This task removes personal configuration items for 5.2 removed old "enableBackendPopup" and "enablePopup" setups.'),
 
+            array(  'version'   => '5.2-rc1',
+                    'function'  => 'recursive_directory_iterator',
+                    'arguments' => array($dead_dirs_520),
+                    'title'     => 'Removal of old dead directories for Styx 5.2',
+                    'desc'      => 'The following old dead directories will be removed from your system.<pre>' . implode(', ', $dead_dirs_520) . '</pre>'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
