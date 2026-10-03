@@ -335,7 +335,7 @@ class serendipity_event_entryproperties extends serendipity_event
         <form action="'.$url.'" method="post" id="entrypasswordform">
             <div>
                 <span><label for="entrypassword">' . PASSWORD . ':</label> <input class="input_textbox" id="entrypassword" type="password" name="serendipity[entrypassword]" autocomplete="off" value="" /></span>
-                <span><input class="serendipityPrettyButton input_button" type="submit" name="login" value="'.LOGIN.'" /></span>
+                <span><input class="input_button" type="submit" name="login" value="'.LOGIN.'" /></span>
             </div>
         </form>';
 
