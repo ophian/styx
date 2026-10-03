@@ -15,16 +15,16 @@
                 <div class="serendipity_amazonchr_body_list">
             <?php if ($GLOBALS['tpl']['plugin_amazonchooser_page'] == 'Search'): ?>
               <?php if ($GLOBALS['tpl']['plugin_amazonchooser_item_count'] > 0 && $GLOBALS['tpl']['plugin_amazonchooser_return_count'] > 0): ?>
-                    <input type="button" class="serendipityPrettyButton input_button"  value="<?= BACK ?>" onclick=window.location.href="<?= $GLOBALS['tpl']['plugin_amazonchooser_search_url'] ?>">
+                    <input type="button" class="input_button"  value="<?= BACK ?>" onclick=window.location.href="<?= $GLOBALS['tpl']['plugin_amazonchooser_search_url'] ?>">
                     <div class="serendipity_amazonchr_body_count">
                         <span class="serendipity_amazonchr_pagecount"><?= PLUGIN_EVENT_AMAZONCHOOSER_DISPLAYING ?> <?= PLUGIN_EVENT_AMAZONCHOOSER_PAGE ?> <?= $GLOBALS['tpl']['plugin_amazonchooser_currentpage'] ?> <?= PLUGIN_EVENT_AMAZONCHOOSER_OF ?> <?= $GLOBALS['tpl']['plugin_amazonchooser_totalpages'] ?> <?= PLUGIN_EVENT_AMAZONCHOOSER_PAGES ?> (<?= PLUGIN_EVENT_AMAZONCHOOSER_PAGELIMIT ?>).</span>
                     </div>
                     <div class="serendipity_amazonchr_page_buttons">
                        <?php if (isset($GLOBALS['tpl']['plugin_amazonchooser_previouspage'])): ?>
-                       <span class="serendipity_amazonchr_nextbutton"><input type="button" class="serendipityPrettyButton input_button"  value="<?= PREVIOUS ?>" onclick=window.location.href="<?= $GLOBALS['tpl']['plugin_amazonchooser_this_url'] ?><?= $GLOBALS['tpl']['plugin_amazonchooser_previouspage'] ?>"></span>
+                       <span class="serendipity_amazonchr_nextbutton"><input type="button" class="input_button"  value="<?= PREVIOUS ?>" onclick=window.location.href="<?= $GLOBALS['tpl']['plugin_amazonchooser_this_url'] ?><?= $GLOBALS['tpl']['plugin_amazonchooser_previouspage'] ?>"></span>
                        <?php endif; ?>
                        <?php if (isset($GLOBALS['tpl']['plugin_amazonchooser_nextpage'])): ?>
-                       <span class="serendipity_amazonchr_previousbutton"><input type="button" class="serendipityPrettyButton input_button"  value="<?= NEXT ?>" onclick=window.location.href="<?= $GLOBALS['tpl']['plugin_amazonchooser_this_url'] ?><?= $GLOBALS['tpl']['plugin_amazonchooser_nextpage'] ?>"></span>
+                       <span class="serendipity_amazonchr_previousbutton"><input type="button" class="input_button"  value="<?= NEXT ?>" onclick=window.location.href="<?= $GLOBALS['tpl']['plugin_amazonchooser_this_url'] ?><?= $GLOBALS['tpl']['plugin_amazonchooser_nextpage'] ?>"></span>
                        <?php endif; ?>
                     </div>
                  <?php foreach ($GLOBALS['tpl']['plugin_amazonchooser_items'] AS $thingy):?>
@@ -32,10 +32,10 @@
                  <?php endforeach; ?>
                     <div class="serendipity_amazonchr_page_buttons">
                        <?php if (isset($GLOBALS['tpl']['plugin_amazonchooser_previouspage'])): ?>
-                       <span class="serendipity_amazonchr_nextbutton"><input type="button" class="serendipityPrettyButton input_button"  value="<?= PREVIOUS ?>" onclick=window.location.href="<?= $GLOBALS['tpl']['plugin_amazonchooser_this_url'] ?><?= $GLOBALS['tpl']['plugin_amazonchooser_previouspage'] ?>"></span>
+                       <span class="serendipity_amazonchr_nextbutton"><input type="button" class="input_button"  value="<?= PREVIOUS ?>" onclick=window.location.href="<?= $GLOBALS['tpl']['plugin_amazonchooser_this_url'] ?><?= $GLOBALS['tpl']['plugin_amazonchooser_previouspage'] ?>"></span>
                        <?php endif; ?>
                        <?php if (isset($GLOBALS['tpl']['plugin_amazonchooser_nextpage'])): ?>
-                       <span class="serendipity_amazonchr_previousbutton"><input type="button" class="serendipityPrettyButton input_button"  value="<?= NEXT ?>" onclick=window.location.href="<?= $GLOBALS['tpl']['plugin_amazonchooser_this_url'] ?><?= $GLOBALS['tpl']['plugin_amazonchooser_nextpage'] ?>"></span>
+                       <span class="serendipity_amazonchr_previousbutton"><input type="button" class="input_button"  value="<?= NEXT ?>" onclick=window.location.href="<?= $GLOBALS['tpl']['plugin_amazonchooser_this_url'] ?><?= $GLOBALS['tpl']['plugin_amazonchooser_nextpage'] ?>"></span>
                        <?php endif; ?>
                     </div>
               <?php else: ?>
@@ -49,7 +49,7 @@
                     <br>
               <?php endif; ?>
                 <div class="serendipity_amazonchr_body_list">
-                    <input type="button" class="serendipityPrettyButton input_button"  value="<?= BACK ?>" onclick=window.location.href="<?= $GLOBALS['tpl']['plugin_amazonchooser_search_url'] ?>">
+                    <input type="button" class="input_button"  value="<?= BACK ?>" onclick=window.location.href="<?= $GLOBALS['tpl']['plugin_amazonchooser_search_url'] ?>">
                 </div>
             <?php elseif ($GLOBALS['tpl']['plugin_amazonchooser_page'] == 'Lookup'): ?>
               <?php if ($GLOBALS['tpl']['plugin_amazonchooser_item_count'] == 1 && $GLOBALS['tpl']['plugin_amazonchooser_return_count'] == 1): ?>
@@ -62,11 +62,11 @@
                     </div>
 
                     <div class="form_field">
-                        <input type="button" class="serendipityPrettyButton input_button"  value="<?= BACK ?>" onclick="history.go(-1);">
+                        <input type="button" class="input_button"  value="<?= BACK ?>" onclick="history.go(-1);">
                     <?php if ($GLOBALS['tpl']['plugin_amazonchooser_simple'] == '1'): ?>
-                        <input type="button" class="serendipityPrettyButton input_button"  value="<?= DONE ?>" onclick="serendipity_amazonSelector_simpledone('<?= $GLOBALS['tpl']['plugin_amazonchooser_txtarea'] ?>')">
+                        <input type="button" class="input_button"  value="<?= DONE ?>" onclick="serendipity_amazonSelector_simpledone('<?= $GLOBALS['tpl']['plugin_amazonchooser_txtarea'] ?>')">
                     <?php else: ?>
-                        <input type="button" class="serendipityPrettyButton input_button"  value="<?= DONE ?>" onclick="serendipity_amazonSelector_done('<?= $GLOBALS['tpl']['plugin_amazonchooser_txtarea'] ?>')">
+                        <input type="button" class="input_button"  value="<?= DONE ?>" onclick="serendipity_amazonSelector_done('<?= $GLOBALS['tpl']['plugin_amazonchooser_txtarea'] ?>')">
                     <?php endif; ?>
                     </div>
                 </form>
@@ -79,7 +79,7 @@
                     <br>
                     <span><?= $GLOBALS['tpl']['plugin_amazonchooser_error_result'] ?></span>
                 </div>
-                <input type="button" class="serendipityPrettyButton input_button"  value="<?= BACK ?>" onclick="history.go(-1);">
+                <input type="button" class="input_button"  value="<?= BACK ?>" onclick="history.go(-1);">
                 <br>
               <?php endif; ?>
 
@@ -106,7 +106,7 @@
                             <div class="form_field">
                                 <input class="input_textbox" type="text" name="keyword" value="<?= $GLOBALS['tpl']['plugin_amazonchooser_keyword'] ?>"/>
                                 <br>
-                                <input type="button" class="serendipityPrettyButton input_button"  value="<?= PLUGIN_EVENT_AMAZONCHOOSER_SEARCH ?>" onclick="serendipity_amazonSelector_next()">
+                                <input type="button" class="input_button"  value="<?= PLUGIN_EVENT_AMAZONCHOOSER_SEARCH ?>" onclick="serendipity_amazonSelector_next()">
                             </div>
                         </form>
                     </div>
