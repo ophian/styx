@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let b = document.querySelector('.form-group > .serendipity_emoticon_bar');
     if (b !== null) b.setAttribute('class', 'form-info alert alert-secondary');
-    let bp = document.querySelector('.serendipity_toggle_emoticon_bar.serendipityPrettyButton');
+    let bp = document.querySelector('.serendipity_toggle_emoticon_bar.prettyEmo');
     if (bp !== null) bp.setAttribute('class', 'btn btn-outline-secondary btn-sm me-2');
 
     addClass('.serendipity_entrypaging_left a', 'btn btn-secondary'); // no space since added class
