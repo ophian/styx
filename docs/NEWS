@@ -1,6 +1,9 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
+ * Implement serendipity_prepare_media_file() extended $media.files preparation
+   logic in PHP image API for media_items.tpl smarty logic.
+
  * Fix/Reduce media item toolbar implementation for addImage Modals.
    All these toolbar actions, except view and information assets, are useless
    to keep and a nightmare to implement properly to return to the addImage
