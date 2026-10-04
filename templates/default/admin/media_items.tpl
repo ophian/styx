@@ -3,97 +3,15 @@
 
 {/if}
 {foreach $media.files AS $file}
-    {if NOT $media.manage}
-        {* ML got called for inserting media *}
-        {if $file.is_image AND !empty($file.full_path_thumb)}
-            {if NOT empty($media.textarea) OR NOT empty($media.htmltarget)}
-            {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[fid]={$file.id}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[popupContent]=true&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[htmltarget]={$media.htmltarget}"}
-            {else}
-                {if $file.url}
-                    {$link="{$file.url}&amp;serendipity[image]={$file.id}"}
-                {/if}
-            {/if}
-
-            {$img_src_avif="{$file.full_thumb_avif|default:''}"}
-            {$img_src_webp="{$file.full_thumb_webp|default:''}"}
-            {$img_src="{$file.full_thumb}"}
-            {$img_title="{$file.path}{$file.name}"}
-            {$img_alt="{$file.realname}"}
-
-        {elseif $file.is_image AND $file.hotlink}
-            {if NOT empty($media.textarea)}
-                {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[fid]={$file.id}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[popupContent]=true&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[htmltarget]={$media.htmltarget}"}
-            {else}
-                {if $file.url}
-                    {$link="{$file.url}&amp;serendipity[image]={$file.id}"}
-                {/if}
-            {/if}
-
-            {* $link_webp="{$file.full_file_webp|default:''}" NOT actually a NEED here, isn't it .. DITTO for avif *}
-            {* $img_src_webp="{$file.full_thumb_webp|default:''}" NOT actually a NEED here, isn't it .. DITTO for avif *}
-            {$img_src="{$file.path}"}
-            {$img_title="{$file.path}"}
-            {$img_alt="{$file.realname}"}
-        {else}
-            {if NOT empty($media.textarea)}
-                {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[fid]={$file.id}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[popupContent]=true&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[htmltarget]={$media.htmltarget}"}
-            {else}
-                {if $file.url}
-                    {$link="{$file.url}&amp;serendipity[image]={$file.id}"}
-                {/if}
-            {/if}
-
-            {$img_src="{$file.mimeicon}"}
-            {$img_title="{$file.path}{$file.name}({$file.mime})"}
-            {$img_alt="{$file.mime}"}
-        {/if}
-    {else}
-        {if $file.is_image AND !empty($file.full_path_thumb)}
-            {$link="{if $file.hotlink}{$file.path}{else}{$file.full_file}{/if}"}
-            {$link_avif="{$file.full_file_avif|default:''}"}
-            {$link_webp="{$file.full_file_webp|default:''}"}
-            {$img_src="{$file.show_thumb}"}
-            {$img_src_avif="{$file.full_thumb_avif|default:''}"}
-            {$img_src_webp="{$file.full_thumb_webp|default:''}"}
-            {$img_title="{$file.path}{$file.name}"}
-            {$img_alt="{$file.realname}"}
-        {elseif $file.is_image AND $file.hotlink}
-            {$link="{if $file.hotlink}{$file.path}{else}{$file.full_file}{/if}"}
-            {$link_avif="{$file.full_file_avif|default:''}"}
-            {$link_webp="{$file.full_file_webp|default:''}"}
-            {$img_src="{$file.path}"}
-            {$img_src_avif=""}{* YES, empty! Else it uses the predefined item *}
-            {$img_src_webp=""}{* YES, empty! Else it uses the predefined item *}
-            {$img_title="{$file.path}"}
-            {$img_alt="{$file.realname}"}
-        {else}
-            {$link="{if $file.hotlink}{$file.path}{else}{$file.full_file}{/if}"}
-            {$link_avif="{$file.full_file_avif|default:''}"}
-            {$link_webp="{$file.full_file_webp|default:''}"}
-            {$img_src="{$file.mimeicon}"}
-            {$img_src_avif="{$file.full_thumb_avif|default:''}"}
-            {$img_src_webp="{$file.full_thumb_webp|default:''}"}
-            {$img_title="{$file.path}{$file.name}({$file.mime})"}
-            {$img_alt="{$file.mime}"}
-        {/if}
-    {/if}
-    {* builds a ML objects link for step 1, to pass to media_choose.tpl file section: passthrough media.filename_only scripts - do not use "empty($link) AND" here, since that would require a reset before! Strictly build this link for media to textarea cases only. *}
-    {if (NOT $file.is_image OR $file.is_image == 0) AND $file.mediatype != 'image' AND $file.realfile AND NOT empty($media.textarea) AND NOT empty($media.htmltarget)}
-        {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[popupContent]=true&amp;serendipity[fid]={$file.id}&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[htmltarget]={$media.htmltarget}"}
-    {/if}
-    {* check empty cases like pdf thumbs to not fillup with last generated img_src_webp string *}
-    {* AVIF *}
-    {if empty($file.full_thumb_avif)}
-        {$img_src_avif=""}
-    {/if}
-    {if NOT isset($link_avif)}{$link_avif=null}{/if}
-    {if NOT isset($file.nice_size_avif)}{$file.nice_size_avif=null}{/if}
-    {* WebP *}
-    {if empty($file.full_thumb_webp)}
-        {$img_src_webp=""}
-    {/if}
-    {if NOT isset($link_webp)}{$link_webp=null}{/if}
-    {if NOT isset($file.nice_size_webp)}{$file.nice_size_webp=null}{/if}
+{if is_array($file)}
+{$link = $file.link}
+{$link_avif = $file.link_avif}
+{$link_webp = $file.link_webp}
+{$img_src = $file.img_src}
+{$img_src_avif = $file.img_src_avif}
+{$img_src_webp = $file.img_src_webp}
+{$img_title = $file.img_title}
+{$img_alt = $file.img_alt}
 
     <article id="media_{$file.id}" class="media_file mlDefCol{if NOT empty($smarty.get.serendipity.adminAction) AND $smarty.get.serendipity.adminAction == 'properties'} mfile_prop{/if} {if $media.manage AND $media.multiperm}manage {/if}{cycle values="odd,even"}">
         <header class="clearfix">
@@ -433,5 +351,6 @@
 {/if}
 
     </article>
+{/if}
 {/if}
 {/foreach}

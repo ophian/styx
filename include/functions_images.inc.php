@@ -5847,6 +5847,160 @@ function serendipity_prepareMedia(iterable &$file, ?string $url = '') : true {
 }
 
 /**
+ * Prepares a single media file array for Smarty rendering.
+ * Faithfully mirrors template logic while keeping state isolated per iteration.
+ *
+ * @param array $file Single file array from $media['files']
+ * @param array $media Global $media context array
+ * @return array Processed $file array with template properties
+ */
+function serendipity_prepare_media_file(iterable $file, iterable $media) : iterable {
+    // 1. Condition checks
+    $is_manage  = !empty($media['manage']);
+    $is_image   = !empty($file['is_image']);
+    $has_thumb  = $is_image && !empty($file['full_path_thumb']);
+    $is_hotlink = $is_image && !empty($file['hotlink']);
+
+    // 2. Strict variable reset for current iteration
+    $link         = null;
+    $link_avif    = null;
+    $link_webp    = null;
+    $img_src      = '';
+    $img_src_avif = '';
+    $img_src_webp = '';
+    $img_title    = '';
+    $img_alt      = '';
+
+    // 3. Main decision tree
+    if (!$is_manage) {
+        /* -------------------------------------------------------------
+         * CASE A: Media Selection / Article Insert Mode (NOT $media.manage)
+         * ------------------------------------------------------------- */
+        if ($has_thumb) {
+            if (!empty($media['textarea']) || !empty($media['htmltarget'])) {
+                $link = '?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose'
+                      . '&amp;serendipity[fid]=' . urlencode($file['id'] ?? '')
+                      . '&amp;serendipity[textarea]=' . urlencode($media['textarea'] ?? '')
+                      . '&amp;serendipity[popupContent]=true'
+                      . '&amp;serendipity[filename_only]=' . urlencode($media['filename_only'] ?? '')
+                      . '&amp;serendipity[htmltarget]=' . urlencode($media['htmltarget'] ?? '');
+            } elseif (!empty($file['url'])) {
+                $link = $file['url'] . '&amp;serendipity[image]=' . ($file['id'] ?? '');
+            }
+
+            $img_src_avif = $file['full_thumb_avif'] ?? '';
+            $img_src_webp = $file['full_thumb_webp'] ?? '';
+            $img_src      = $file['full_thumb'] ?? '';
+            $img_title    = ($file['path'] ?? '') . ($file['name'] ?? '');
+            $img_alt      = !empty($file['realname']) ? $file['realname'] : ($file['name'] ?? '');
+
+        } elseif ($is_hotlink) {
+            if (!empty($media['textarea'])) {
+                $link = '?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose'
+                      . '&amp;serendipity[fid]=' . urlencode($file['id'] ?? '')
+                      . '&amp;serendipity[textarea]=' . urlencode($media['textarea'] ?? '')
+                      . '&amp;serendipity[popupContent]=true'
+                      . '&amp;serendipity[filename_only]=' . urlencode($media['filename_only'] ?? '')
+                      . '&amp;serendipity[htmltarget]=' . urlencode($media['htmltarget'] ?? '');
+            } elseif (!empty($file['url'])) {
+                $link = $file['url'] . '&amp;serendipity[image]=' . ($file['id'] ?? '');
+            }
+
+            // Hotlinks intentionally bypass AVIF / WebP thumbnails
+            $img_src   = $file['path'] ?? '';
+            $img_title = $file['path'] ?? '';
+            $img_alt   = !empty($file['realname']) ? $file['realname'] : ($file['name'] ?? '');
+
+        } else {
+            // Non-image assets (PDF, Zip, MP3, etc.)
+            if (!empty($media['textarea'])) {
+                $link = '?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose'
+                      . '&amp;serendipity[fid]=' . urlencode($file['id'] ?? '')
+                      . '&amp;serendipity[textarea]=' . urlencode($media['textarea'] ?? '')
+                      . '&amp;serendipity[popupContent]=true'
+                      . '&amp;serendipity[filename_only]=' . urlencode($media['filename_only'] ?? '')
+                      . '&amp;serendipity[htmltarget]=' . urlencode($media['htmltarget'] ?? '');
+            } elseif (!empty($file['url'])) {
+                $link = $file['url'] . '&amp;serendipity[image]=' . ($file['id'] ?? '');
+            }
+
+            $img_src   = $file['mimeicon'] ?? '';
+            $img_title = ($file['path'] ?? '') . ($file['name'] ?? '') . ' (' . ($file['mime'] ?? '') . ')';
+            $img_alt   = $file['mime'] ?? '';
+        }
+
+    } else {
+        /* -------------------------------------------------------------
+         * CASE B: Media Library Management ($media.manage = true)
+         * ------------------------------------------------------------- */
+        $link      = !empty($file['hotlink']) ? ($file['path'] ?? '') : ($file['full_file'] ?? '');
+        $link_avif = $file['full_file_avif'] ?? '';
+        $link_webp = $file['full_file_webp'] ?? '';
+
+        if ($has_thumb) {
+            $img_src      = $file['show_thumb'] ?? '';
+            $img_src_avif = $file['full_thumb_avif'] ?? '';
+            $img_src_webp = $file['full_thumb_webp'] ?? '';
+            $img_title    = ($file['path'] ?? '') . ($file['name'] ?? '');
+            $img_alt      = !empty($file['realname']) ? $file['realname'] : ($file['name'] ?? '');
+
+        } elseif ($is_hotlink) {
+            $img_src      = $file['path'] ?? '';
+            $img_src_avif = '';
+            $img_src_webp = '';
+            $img_title    = $file['path'] ?? '';
+            $img_alt      = !empty($file['realname']) ? $file['realname'] : ($file['name'] ?? '');
+
+        } else {
+            // Non-image assets
+            $img_src      = $file['mimeicon'] ?? '';
+            $img_src_avif = $file['full_thumb_avif'] ?? '';
+            $img_src_webp = $file['full_thumb_webp'] ?? '';
+            $img_title    = ($file['path'] ?? '') . ($file['name'] ?? '') . ' (' . ($file['mime'] ?? '') . ')';
+            $img_alt      = $file['mime'] ?? '';
+        }
+    }
+
+    // 4. Override for non-images in selection mode
+    //    builds a ML objects link for step 1, to pass to media_choose.tpl file section: passthrough media.filename_only scripts
+    //    - do not use "empty($link) AND" here, since that would require a reset before! Strictly build this link for media to textarea cases only.
+    if ((empty($file['is_image']) || $file['is_image'] == 0)
+        && ($file['mediatype'] ?? '') !== 'image'
+        && !empty($file['realfile'])
+        && !empty($media['textarea'])
+        && !empty($media['htmltarget'])
+    ) {
+        $link = '?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose'
+              . '&amp;serendipity[popupContent]=true'
+              . '&amp;serendipity[fid]=' . urlencode($file['id'] ?? '')
+              . '&amp;serendipity[filename_only]=' . urlencode($media['filename_only'] ?? '')
+              . '&amp;serendipity[textarea]=' . urlencode($media['textarea'] ?? '')
+              . '&amp;serendipity[htmltarget]=' . urlencode($media['htmltarget'] ?? '');
+    }
+
+    // 5. Final fallback checks for missing thumbnails
+    //    check empty cases like pdf thumbs to not fillup with last generated img_src_webp string
+    if (empty($file['full_thumb_avif'])) {
+        $img_src_avif = '';
+    }
+    if (empty($file['full_thumb_webp'])) {
+        $img_src_webp = '';
+    }
+
+    // 6. Assign processed values directly to return array
+    $file['link']         = $link;
+    $file['link_avif']    = $link_avif;
+    $file['link_webp']    = $link_webp;
+    $file['img_src']      = $img_src;
+    $file['img_src_avif'] = $img_src_avif;
+    $file['img_src_webp'] = $img_src_webp;
+    $file['img_title']    = $img_title;
+    $file['img_alt']      = $img_alt;
+
+    return $file;
+}
+
+/**
  * Prints a media item
  *
  * Args:
@@ -5931,6 +6085,15 @@ function serendipity_showMedia(iterable &$file, iterable|false &$paths, ?string 
     } else {
         $media['paths'] =& serendipity_getMediaPaths();
     }
+
+    // Prepare previous media_items.tpl template logic in PHP
+    $prepared_files = [];
+    if (!empty($media['files']) && is_array($media['files'])) {
+        foreach ($media['files'] as $file) {
+            $prepared_files[] = serendipity_prepare_media_file($file, $media);
+        }
+    }
+    $media['files'] = $prepared_files;
 
     $serendipity['smarty']->assignByRef('media', $media);
 
