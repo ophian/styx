@@ -5875,6 +5875,10 @@ function serendipity_prepare_media_file(iterable $file, iterable $media) : itera
     if (isset($media['filename_only']) && is_bool($media['filename_only'])) {
         $media['filename_only'] = $media['filename_only'] ? 'true' : '';
     }
+    // see showMediaLibrary() smarty_vars fallback to false
+    if (isset($media['textarea']) && is_bool($media['textarea'])) {
+        $media['textarea'] = '';
+    }
 
     // 3. Main decision tree
     if (!$is_manage) {
