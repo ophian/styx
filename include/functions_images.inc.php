@@ -5871,6 +5871,11 @@ function serendipity_prepare_media_file(iterable $file, iterable $media) : itera
     $img_title    = '';
     $img_alt      = '';
 
+    // Cast a possible boolean value to string expression for urlencoding
+    if (isset($media['filename_only']) && is_bool($media['filename_only'])) {
+        $media['filename_only'] = $media['filename_only'] ? 'true' : '';
+    }
+
     // 3. Main decision tree
     if (!$is_manage) {
         /* -------------------------------------------------------------
