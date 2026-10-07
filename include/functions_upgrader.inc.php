@@ -587,7 +587,26 @@ $dead_dirs_510 = array(
 
 /* A list of old or removed directories for 5.2.0 */
 $dead_dirs_520 = array(
-    $serendipity['serendipityPath'] . 'templates/default/admin/media_galleryinsert.tpl'
+    $serendipity['serendipityPath'] . 'path/to/....',
+);
+
+/* A list of Styx files, to be removed or renamed by 5.2.0 */
+$dead_files_520 = array(
+    'templates/default/admin/media_galleryinsert.tpl',
+    'templates/default/admin/img/activity.png',
+    'templates/default/admin/js/progress-polyfill.min.js',
+    'templates/default/admin/js/accessifyhtml5.js',
+    'templates/default/admin/js/canvas-toBlob.js',
+    'templates/default/admin/js/jquery.details.js',
+    'templates/default/admin/js/jquery.sortable.js',
+    'templates/default/admin/js/plugins.js',
+    'templates/default/admin/js/jquery.magnific-popup.js',
+    'templates/default/admin/js/jquery.autoscroll.js',
+    'templates/default/admin/js/modernizr.min.js',
+    'templates/default/admin/js/jquery.syncheight.js',
+    'templates/default/admin/js/gruntipity.php',
+    'templates/default/admin/js/jquery.tabs.js',
+    'templates/default/admin/js/js.cookie.min.js'
 );
 
 /* Dependency PLUGIN API configurated cleanup since 5.0 for removed plugins
