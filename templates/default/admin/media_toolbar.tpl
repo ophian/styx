@@ -4,17 +4,6 @@
 
     <h2>{$CONST.MEDIA_LIBRARY}</h2>
 
-    <script>
-        $(document).ready(function() {
-            var smcol = Cookies.get('serendipity[media_grid]');
-            if (typeof smcol == 'undefined' || smcol === null || smcol == 'undefined') {
-                serendipity.changeMediaGrid('mlDefCol')
-            } else {
-                serendipity.changeMediaGrid(smcol)
-            }
-        });
-    </script>
-
     <div id="grid-selector" class="media-grid-selector{if $media.nr_files < 3 AND !$media.grid} poor{/if}">
         <div id="col-def-selector" class="mediaGrid" title="2-column grid" onclick="serendipity.changeMediaGrid('mlDefCol')">
           <div class="mediaGrid-cell tic"></div>
@@ -224,46 +213,27 @@
         </fieldset>
 
         <script>
-            $(document).ready(function() {
-                // write: is plain "foo", read: is "serendipity[foo]"!
+            document.addEventListener('DOMContentLoaded', function() {
 {foreach $media.sortParams AS $sortParam}
-                serendipity.SetCookie("sortorder_{$sortParam}", "{$media.sortorder.{$sortParam}}");
+                StyxCookie.setIfChanged("sortorder_{$sortParam|escape:"javascript"}", "{$media.sortorder.{$sortParam}|escape:"javascript"}");
 {/foreach}
 {if isset($filterParams)}
 {foreach $media.filterParams AS $filterParam}
-                serendipity.SetCookie("{$filterParam}", "{$media.{$filterParam}}");
+                StyxCookie.setIfChanged("{$filterParam|escape:"javascript"}", "{$media.{$filterParam}|escape:"javascript"}");
 {/foreach}
 {/if}
-                serendipity.SetCookie("only_path", "{$media.only_path}");
-                serendipity.SetCookie("hideSubdirFiles", "{$media.hideSubdirFiles}");
+                StyxCookie.setIfChanged("only_path", "{$media.only_path|escape:"javascript"}");
+                StyxCookie.setIfChanged("hideSubdirFiles", "{$media.hideSubdirFiles|escape:"javascript"}");
 
 {foreach $media.filter AS $k => $v}
 {if !is_array($media.filter[{$k}])}
-                serendipity.SetCookie("[filter][{$k}]", "{$media.filter[{$k}]}");
+                StyxCookie.setIfChanged("[filter][{$k|escape:"javascript"}]", "{$media.filter[{$k}]|escape:"javascript"}");
 {else}
 {foreach $media.filter[{$k}] AS $key => $val}
-                serendipity.SetCookie("[filter][{$k}][{$key}]", "{$media.filter[{$k}][{$key}]}");
+                StyxCookie.setIfChanged("[filter][{$k|escape:"javascript"}][{$key|escape:"javascript"}]", "{$media.filter[{$k}][{$key}]|escape:"javascript"}");
 {/foreach}
 {/if}
 {/foreach}
-
-                $('#media_pane_filter').find('.reset_media_filters').addClass('reset_filter');
-                $('#media_pane_sort').find('.reset_media_filters').addClass('reset_sort');
-
-                $('.reset_filter').click(function() {
-                    $('#media_filter').find('input[type=text], input[type=date]').each(function() {
-                        $(this).attr('value', '');
-                    });
-                });
-                $('.reset_sort').click(function() {
-                    $("#serendipity_sortorder_order option:selected").prop('selected', false);
-                    $("#serendipity_sortorder_order option[value='i.date']").prop('selected', true);
-                    $("#serendipity_sortorder_perpage option:selected").prop('selected', false);
-                    $("#serendipity_sortorder_perpage option[value='8']").prop('selected', true);
-                });
-                $('.filter_mode').one( "click", function( event ) {
-                    $('.reset_filter').trigger( "click" );
-                });
             });
         </script>
 {/if}
