@@ -1,6 +1,11 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
+ * Start Backend Refactoring: ..... WIP ......
+   - Convert template files for the new
+   - Remove old assets
+   - Add upgrade tasks
+
  * Implement serendipity_prepare_media_file() extended $media.files preparation
    logic in PHP image API for media_items.tpl smarty logic.
 
