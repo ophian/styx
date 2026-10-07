@@ -350,24 +350,19 @@
 <a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreate">{$CONST.CREATE_NEW_DIRECTORY}</a>
 {/if}
 
-<script> document.querySelectorAll('.emptydim.imgctlabel').forEach((item)=>{ item.setAttribute('title', '[i] may contain unregistered media !'); });</script>
 {* TODO: obsolete? *}
 {if isset($case_addSelect) AND $case_addSelect}
 {** smarty display 'admin/media_upload.tpl' **}
 {/if}
 {* END *}
 
-{if $case_rotateCW}
-{if $rotate_img_done}
-    <script>location.href="{$adminFile_redirect}";</script>
+{if $case_rotateCW && $rotate_img_done}
+    <script>window.location.href = "{$adminFile_redirect|escape:'javascript'}";</script>
     <noscript><a class="button_link icon_link standalone" href="{$adminFile_redirect}">{$CONST.DONE}</a></noscript>
 {/if}
-{/if}
-{if $case_rotateCCW}
-{if $rotate_img_done}
-    <script>location.href="{$adminFile_redirect}";</script>
+{if $case_rotateCCW && $rotate_img_done}
+    <script>window.location.href = "{$adminFile_redirect|escape:'javascript'}";</script>
     <noscript><a class="button_link icon_link standalone" href="{$adminFile_redirect}">{$CONST.DONE}</a></noscript>
-{/if}
 {/if}
 {if $case_scale}
 {if isset($print_SCALING_IMAGE)}
@@ -415,6 +410,9 @@
         <input name="serendipity[fid]" type="hidden" value="{$get.fid}">
 {if isset($smarty.get.serendipity.page)}
         <input name="serendipity[page]" type="hidden" value="{$smarty.get.serendipity.page}">
+{/if}
+{if !empty($smarty.get.serendipity.popupContent)}
+        <input name="serendipity[popupContent]" type="hidden" value="true">
 {/if}
 
         <fieldset>
