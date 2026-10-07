@@ -178,7 +178,7 @@
             </div>
 
             <ul class="plainList clearfix edit_actions">
-                <li>{if $entriesnocat.0 > 0}<a class="button_link" href="?serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&serendipity[filter][category]=nocat&serendipity[catref]=1" title="{$CONST.ENTRIES} {$CONST.NO_CATEGORY}"><span class="catctlabel">{$entriesnocat.0}{else}<span class="emptydim catctlabel">0{/if} {$CONST.ENTRIES}</span></a> <span class="catctlabel groupbyauthor">({$entriesbyauthor})</span></li>
+                <li>{if $entriesnocat.0 > 0}<a class="button_link" href="?serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&serendipity[filter][category]=nocat&serendipity[nocook]=1" title="{$CONST.ENTRIES} {$CONST.NO_CATEGORY}"><span class="catctlabel">{$entriesnocat.0}{else}<span class="emptydim catctlabel">0{/if} {$CONST.ENTRIES}</span></a> <span class="catctlabel groupbyauthor">({$entriesbyauthor})</span></li>
             </ul>
         </div>
     </li><!-- close root item no cat -->
@@ -215,7 +215,7 @@
             </details>
 
             <ul class="plainList clearfix edit_actions">
-                <li><em>{if isset($catentries[{$category.categoryid}])}<a class="button_link" href="?serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&serendipity[filter][category]={$category.categoryid}&serendipity[catref]=1" title="{$CONST.ENTRIES} {$CONST.CATEGORY} {$category.category_name|escape}"><span class="catctlabel">{$catentries[{$category.categoryid}]} {$CONST.ENTRIES}</span></a>{else}<span class="emptydim catctlabel">0 {$CONST.ENTRIES}</span>{/if}</em></li>
+                <li><em>{if isset($catentries[{$category.categoryid}])}<a class="button_link" href="?serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&serendipity[filter][category]={$category.categoryid}&serendipity[nocook]=1" title="{$CONST.ENTRIES} {$CONST.CATEGORY} {$category.category_name|escape}"><span class="catctlabel">{$catentries[{$category.categoryid}]} {$CONST.ENTRIES}</span></a>{else}<span class="emptydim catctlabel">0 {$CONST.ENTRIES}</span>{/if}</em></li>
                 <li><a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=edit&amp;serendipity[cid]={$category.categoryid}" title="{$CONST.EDIT}: #{$category.categoryid} - {$category.category_name|escape}" aria-label="{$CONST.EDIT}"><span class="icon-edit" aria-hidden="true"></span></a></li>
                 <li><a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=newSub&amp;serendipity[cid]={$category.categoryid}" title="{$CONST.CREATE_NEW_CAT}" aria-label="{$CONST.CREATE_NEW_CAT}"><span class="icon-plus" aria-hidden="true"></span></a></li>
                 <li><a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=delete&amp;serendipity[cid]={$category.categoryid}" title="{$CONST.DELETE} {$category.category_name|escape}" aria-label="{$CONST.DELETE}"><span class="icon-trash" aria-hidden="true"></span></a></li>
