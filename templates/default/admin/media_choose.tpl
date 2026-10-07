@@ -47,7 +47,7 @@
 {if isset($media.file.fast_select) AND $media.file.fast_select}
             <script>
                 {serendipity_hookPlugin hookAll=true hook='frontend_image_add_filenameonly' data=$media.file}
-                serendipity.serendipity_imageSelector_done('{$media.textarea|escape}');
+                serendipity.serendipity_imageSelector_done('{$media.textarea|escape:"javascript"}');
             </script>
 {else}
             <fieldset id="image_size">
@@ -151,7 +151,7 @@
                 <input class="button_link go_back" type="button" value="{$CONST.BACK}">
                 <input class="input_button state_submit" type="submit" value="{$CONST.ADD_MEDIA}" onclick="serendipity.rememberMediaOptions(); {$media.file.origfinishJSFunction}">
 {if $media.supportsWebP AND NOT empty($media.file.full_thumb_webp) OR $media.supportsAVIF AND NOT empty($media.file.full_thumb_avif)}
-                <input id="picSubmit" class="input_button state_submit" type="submit" value="{$CONST.ADD_MEDIA_PICTELEMENT}" data-submit="enhanced" onclick="serendipity.rememberMediaOptions(); serendipity.mediaPictureSubmit(); {$media.file.origfinishJSFunction}">
+                <input id="picSubmit" class="input_button state_submit" type="submit" value="{$CONST.ADD_MEDIA_PICTELEMENT}" data-submit="enhanced" onclick="serendipity.rememberMediaOptions(); serendipity.mediaPictureSubmit(); {$media.file.origfinishJSFunction}; return false;">
 {/if}
                 {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_submit' data=$media.file}
                 <a class="toggle_info button_link" href="#media_serve_info" title="{$CONST.MEDIA_SERVE_INFO}" aria-label="{$CONST.MEDIA_SERVE_INFO}"><span class="icon-info-circled" aria-hidden="true"></span></a>
@@ -164,39 +164,57 @@
         </form>
 {else}{* if $media.file.is_image end *}
 {if $media.filename_only}
-
         <script>
             {serendipity_hookPlugin hookAll=true hook='frontend_image_add_filenameonly' data=$media}
-            if (parent.self.opener == undefined) {
-                // in iframes, there is no opener, and the magnific popup is wrapped
-                parent.self = window.parent.parent.$.magnificPopup;
-                parent.self.opener = window.parent.parent;
+
+            // 1. Resolve parent window context (Iframe -> Modal Container)
+            const targetWin = (window.parent && window.parent !== window) ? (window.parent.parent || window.parent) : window;
+
+            // 2. Pass selected image path to form element
+            if (targetWin.serendipity && typeof targetWin.serendipity.serendipity_imageSelector_addToElement === 'function') {
+                targetWin.serendipity.serendipity_imageSelector_addToElement(
+                    '{$media.file.full_file|escape:'javascript'}',
+                    '{$media.htmltarget|escape:'javascript'}'
+                );
             }
-            parent.self.opener.serendipity.serendipity_imageSelector_addToElement('{$media.file.full_file|escape}', '{$media.htmltarget|escape}');
-            parent.self.close();
+
+            // 3. Close native StyxModal
+            if (targetWin.serendipity && typeof targetWin.serendipity.closeMediaModal === 'function') {
+                targetWin.serendipity.closeMediaModal();
+            } else if (targetWin.StyxModalInstance && typeof targetWin.StyxModalInstance.close === 'function') {
+                targetWin.StyxModalInstance.close();
+            }
         </script>
 {else}
 
         <script>
-{if in_array($media.file.mediatype, ['video', 'binary']) AND in_array($media.file.extension, ['mp4', 'webm', 'ogv']) AND NOT isset($smarty.get.mediaobject.link)}
-            block = '<div class="media_object_container"><!-- s9ymdb:{$media.file.id} --><video controls="" src="{$media.file.full_file}" title="Play: {$media.file.realname|escape}" type="video/{$media.file.extension}"></video></div>';
-{elseif in_array($media.file.mediatype, ['audio', 'binary']) AND in_array($media.file.extension, ['mp3', 'm4a', 'wav', 'ogg', 'aif', 'aiff', 'flac', 'au']) AND NOT isset($smarty.get.mediaobject.link)}
-            block = '<div class="media_object_container"><!-- s9ymdb:{$media.file.id} --><audio controls="" preload="auto" src="{$media.file.full_file}" title="Play: {$media.file.realname|escape}" type="audio/{$media.file.extension}"></audio></div>';
+            let block = '';
+{if in_array($media.file.mediatype, ['video', 'binary']) && in_array($media.file.extension, ['mp4', 'webm', 'ogv']) && !isset($smarty.get.mediaobject.link)}
+            block = '<div class="media_object_container"><!-- s9ymdb:{$media.file.id} --><video controls="" src="{$media.file.full_file}" title="Play: {$media.file.realname|escape:'javascript'}" type="video/{$media.file.extension}"></video></div>';
+{elseif in_array($media.file.mediatype, ['audio', 'binary']) && in_array($media.file.extension, ['mp3', 'm4a', 'wav', 'ogg', 'aif', 'aiff', 'flac', 'au']) && !isset($smarty.get.mediaobject.link)}
+            block = '<div class="media_object_container"><!-- s9ymdb:{$media.file.id} --><audio controls="" preload="auto" src="{$media.file.full_file}" title="Play: {$media.file.realname|escape:'javascript'}" type="audio/{$media.file.extension}"></audio></div>';
 {else}
-            block = '<span class="media_object_container_link"><!-- s9ymdb:{$media.file.id} --><a class="block_level opens_window" href="{$media.file.full_file}" title="{$media.file.realname|escape}">{$media.file.realname|escape}</a></span>';
+            block = '<span class="media_object_container_link"><!-- s9ymdb:{$media.file.id} --><a class="block_level opens_window" href="{$media.file.full_file}" title="{$media.file.realname|escape:'javascript'}">{$media.file.realname|escape:'javascript'}</a></span>';
 {/if}
+
             {serendipity_hookPlugin hookAll=true hook='frontend_image_add_unknown' data=$media}
-            if (parent.self.opener == undefined) {
-                // in iframes, there is no opener, and the magnific popup is wrapped
-                parent.self = window.parent.parent.$.magnificPopup;
-                parent.self.opener = window.parent.parent;
+
+            // 1. Resolve parent window context
+            const targetWin = (window.parent && window.parent !== window) ? (window.parent.parent || window.parent) : window;
+
+            // 2. Insert content into Editor / Textarea
+            if (targetWin.editorref && typeof targetWin.editorref.surroundHTML === 'function') {
+                targetWin.editorref.surroundHTML(block, '');
+            } else if (targetWin.serendipity && typeof targetWin.serendipity.serendipity_imageSelector_addToBody === 'function') {
+                targetWin.serendipity.serendipity_imageSelector_addToBody(block, '{$media.textarea|escape:'javascript'}');
             }
-            if (parent.self.opener.editorref) {
-                parent.self.opener.editorref.surroundHTML(block, '');
-            } else {
-                parent.self.opener.serendipity.serendipity_imageSelector_addToBody(block, '{$media.textarea}');
+
+            // 3. Close native StyxModal
+            if (targetWin.serendipity && typeof targetWin.serendipity.closeMediaModal === 'function') {
+                targetWin.serendipity.closeMediaModal();
+            } else if (targetWin.StyxModalInstance && typeof targetWin.StyxModalInstance.close === 'function') {
+                targetWin.StyxModalInstance.close();
             }
-            parent.self.close();
         </script>
 {/if}
 {/if}{* if $media.file.is_image is something else end *}
