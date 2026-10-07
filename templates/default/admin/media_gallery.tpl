@@ -1,15 +1,20 @@
 {if isset($perm_denied) AND $perm_denied}
     <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PERM_DENIED}</span>
-{else}
-    <!-- MEDIA GALLERY SELECTION FINISHER A -->
-{if NOT empty($media.fast_select) AND is_array($media.files) AND isset($jsmedia)}
-    <script>
-        serendipity.serendipity_imageGallerySelector_done('{$media.mediaTextarea|escape:"javascript"}', {$jsmedia});
-    </script>
-{/if}
-{/if}
+{elseif NOT empty($media.fast_select) AND is_array($media.files) AND isset($jsmedia)}
 
-{if !isset($jsmedia)}
+    <!-- MEDIA GALLERY SELECTION FINISHER A -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof serendipity !== 'undefined' && typeof serendipity.serendipity_imageGallerySelector_done === 'function') {
+                {if $media.supportsWebP AND $media.addMediaPictureSubmitFnc}
+                    serendipity.mediaPictureSubmit();
+                {/if}
+                serendipity.serendipity_imageGallerySelector_done('{$media.mediaTextarea|escape:"javascript"}', {$jsmedia});
+            }
+        });
+    </script>
+
+{else}
 
 {$MEDIA_TOOLBAR}
 
