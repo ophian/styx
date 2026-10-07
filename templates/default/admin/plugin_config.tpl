@@ -90,14 +90,7 @@
 {if isset($spawnNuggets) AND $spawnNuggets}
         {serendipity_hookPlugin hook="backend_wysiwyg_nuggets" data=$ev hookAll=true}
 
-{if $ev['skip_nuggets'] === false AND (!isset($init) OR $init !== false)}
-        <script>
-            function Spawnnugget() {
-                /* init plugin nuggets when not using the default wysiwyg-editor */
-{foreach $ev['nuggets'] AS $htmlnuggetid}
-                if (window.Spawnnuggets) Spawnnuggets('{$htmlnuggetid}');
-{/foreach}
-            }
-        </script>
+{if $ev['skip_nuggets'] === false && (!isset($init) || $init !== false) && !empty($ev['nuggets'])}
+    <div id="styx_plugin_nuggets" data-nuggets='{$ev['nuggets']|@json_encode}'></div>
 {/if}
 {/if}
