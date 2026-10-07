@@ -93,7 +93,7 @@
 {serendipity_hookPlugin hook="backend_dashboard" hookAll="true"}
 
 {/if}{* no create end *}
-    <section id="s9y_links" class="clearfix mfp-hide dashboard_widget">
+    <section id="s9y_links" class="clearfix smp-hide dashboard_widget">
         <h3>{$CONST.FURTHER_LINKS}</h3>
 
         <ul class="plainList">
@@ -106,7 +106,7 @@
         </ul>
     </section>
 
-    <section id="s9y_quicktip" class="clearfix mfp-hide quick_list dashboard_widget">
+    <section id="s9y_quicktip" class="clearfix smp-hide quick_list dashboard_widget">
 
         {include "./doc/quicktip_{$lang}.tpl" caching}
 
@@ -115,29 +115,3 @@
 {$backend_frontpage_display}
 
 </div><!-- dashboard end -->
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        if (typeof(serendipity) != 'object' || typeof(serendipity.spawn) != 'function') {
-            $('#dashboard_header').after("<span class=\"msg_error\"><span class=\"icon-attention-circled\"></span> {$CONST.JS_FAILURE|sprintf:$js_failure_file|escape:'javascript'}</span>");
-        }
-
-        if ($("#dashboard_ticker").hasClass('blend')) {
-            if (Cookies.get('styx_tickerBlend')) {
-                $("#dashboard_ticker").hide();
-            } else {
-                $("#dashboard_ticker").delay(5000).fadeOut( 2500, 'linear' );
-                Cookies.set('styx_tickerBlend', true, { path: '{$serendipityHTTPPath}', sameSite: 'lax' });
-            }
-        }
-
-        if ($("#dashboard_plugup").hasClass('blend')) {
-            if (Cookies.get('styx_plugupBlend')) {
-                $("#dashboard_plugup").hide();
-            } else {
-                $("#dashboard_plugup").delay(5000).fadeOut( 2500, 'linear' );
-                Cookies.set('styx_plugupBlend', true, { path: '{$serendipityHTTPPath}', sameSite: 'lax' });
-            }
-        }
-    });
-</script>
