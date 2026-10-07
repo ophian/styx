@@ -10,6 +10,9 @@
     <input name="serendipity[action]" type="hidden" value="admin">
     <input name="serendipity[adminModule]" type="hidden" value="media">
     <input name="serendipity[adminAction]" type="hidden" value="add">
+{if !empty($smarty.get.serendipity.popupContent)}
+    <input name="serendipity[popupContent]" type="hidden" value="true">
+{/if}
     {$media.form_hidden}
     <div id="mediaupload_tabs" class="clearfix tabs">
         <h3>{$CONST.UPLOAD}</h3>
@@ -83,6 +86,7 @@
     </div>
     {serendipity_hookPlugin hook="backend_image_addform" hookAll=true}
     <div class="form_buttons">
+        <input class="button_link go_back" type="button" value="{$CONST.BACK}">
         <input class="check_inputs" type="submit" value="{$CONST.GO}">
 {if $media.manage}
         <input class="check_inputs" name="go_properties" type="submit" value="{$CONST.GO_ADD_PROPERTIES|escape}">
