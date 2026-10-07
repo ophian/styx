@@ -18,7 +18,7 @@
 
 {$MEDIA_TOOLBAR}
 
-<div class="media_library_pane">
+<div id="styx-modal-gallery" class="media_library_pane">
 {if $media.nr_files < 1}
 
     <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.NO_IMAGES_FOUND}</span>
