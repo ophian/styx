@@ -55,7 +55,7 @@
         <ul class="plainList clearfix edit_actions">
 {* hidden on small mobiles and vice versa *}
             <li><span class="user_level">({$user.userlevel_name|escape})</span></li>
-            <li><em>{if isset($user.artcount) && $user.artcount > 0}<a class="button_link" href="?serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&amp;serendipity[filter][author]={$user.authorid}&amp;serendipity[filter][category]=" title="{$CONST.ENTRIES} {$CONST.USER} {$user.artcount}"><span class="entryctlabel">{$user.artcount} {$CONST.ENTRIES}</span></a>{else}<span class="emptydim entryctlabel" title="0 {$CONST.ENTRIES}">N/A</span>{/if}</em></li>
+            <li><em>{if isset($user.artcount) && $user.artcount > 0}<a class="button_link" href="?serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&amp;serendipity[nocook]=1&amp;serendipity[filter][author]={$user.authorid}&amp;serendipity[filter][category]=" title="{$CONST.ENTRIES} {$CONST.USER} {$user.artcount}"><span class="entryctlabel">{$user.artcount} {$CONST.ENTRIES}</span></a>{else}<span class="emptydim entryctlabel" title="0 {$CONST.ENTRIES}">N/A</span>{/if}</em></li>
             <li><a class="button_link" href="{$user.authorUrl}" title="{$CONST.ENTRIES_FOR|sprintf:{$user.realname|escape}}" aria-label="{$CONST.ENTRIES_FOR|sprintf:{$user.realname}|escape}"><span class="icon-search" aria-hidden="true"></span></a></li>
             <li><a class="button_link" href="?serendipity[adminModule]=users&amp;serendipity[adminAction]=edit&amp;serendipity[userid]={$user.authorid}#editform" title="{$CONST.EDIT} {$user.realname|escape}" aria-label="{$CONST.EDIT}"><span class="icon-edit" aria-hidden="true"></span></a></li>
             <li><a class="button_link" href="?{$urlFormToken}&amp;serendipity[adminModule]=users&amp;serendipity[adminAction]=delete&amp;serendipity[userid]={$user.authorid}" title="{$CONST.DELETE} {$user.realname|escape}" aria-label="{$CONST.DELETE}"><span class="icon-trash" aria-hidden="true"></span></a></li>
@@ -81,7 +81,6 @@
     {$CONFIG}
 {if $adminAction == 'new'}
     <div id="rpex" class="field_info upw_field" title="{$CONST.USERCONF_PASSWORD_RANDOM}"><span class="icon-info-circled" aria-hidden="true"></span>{$random_pw}</div>
-    <script> let rex = document.getElementById('rpex'); let field = document.getElementById('password_info'); field.parentNode.insertBefore(rex, field.nextSibling); </script>
 {/if}
     <div class="form_buttons">
 {if $adminAction == 'edit'}
