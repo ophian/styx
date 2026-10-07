@@ -123,7 +123,8 @@ Virgin, un-approved comment edits will NOT show any subscription or reassign edi
     hljs.highlightAll();
 </script>
 {else}
-<script src="{$serendipityHTTPPath}templates/_assets/prism/prism.js" data-manual></script>
+{* changed prism load to apply in both backend: comment preview and comment edit (so placed see below) *}
 {/if}
+<script src="{$serendipityHTTPPath}templates/_assets/prism/prism.js" data-manual></script>
 <script src="{$serendipityHTTPPath}templates/_assets/tinymce6/js/tinymce/tinymce.min.js"></script>
 {/if}
