@@ -592,6 +592,8 @@ $dead_dirs_520 = array(
 
 /* A list of Styx files, to be removed or renamed by 5.2.0 */
 $dead_files_520 = array(
+    'templates/default/admin/serendipity_styx.js.php',
+    'templates/default/admin/serendipity_styx.js.tpl',
     'templates/default/admin/media_galleryinsert.tpl',
     'templates/default/admin/img/activity.png',
     'templates/default/admin/js/progress-polyfill.min.js',
