@@ -5,6 +5,12 @@ Version 5.x (DEV)
    - Convert template files for the new
    - Remove old assets
    - Add upgrade tasks
+   - Finish styx backend theme logics styles and configurations
+   - Link to default: Add a new single static backend refactor javascript file
+     replacement without Smarty
+        - Modern Styx Plugin Replacement Kit (Vanilla ES6+)
+        - Serendipity Styx Administration Interface Logic Refactored & Modernized (ES6+)
+        - Added a minified version
 
  * Implement serendipity_prepare_media_file() extended $media.files preparation
    logic in PHP image API for media_items.tpl smarty logic.
