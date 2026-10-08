@@ -1,33 +1,29 @@
 <!DOCTYPE html>
-<html class="no-js" lang="{$lang}">
+<html lang="{$lang}">
 <head>
     <meta charset="{$head_charset}">
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Anti-Flash Theme Script (Executes before rendering body to prevent flickering) -->
+    <script>
+        (function() {
+            const forceLightMode = {$forceLightMode|default:'false'};
+            const darkModeSetting = sessionStorage.getItem('dark_mode');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (darkModeSetting === 'dark' || (darkModeSetting === null && !forceLightMode && prefersDark)) {
+                document.documentElement.setAttribute('data-dark-theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-dark-theme');
+            }
+        })();
+    </script>
 {if $head_link_stylesheet_frontend}
     <link rel="stylesheet" href="{$head_link_stylesheet_frontend}" type="text/css">
 {else}
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css" type="text/css">
 {/if}
-{serendipity_hookPlugin hook="backend_header" hookAll="true"}
     <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}" type="text/css">
-
-{if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
-    <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
-{/if}
-
-    <script type="text/javascript">
-        window.onload = function() {ldelim}
-            var thisFrame = parent.document.getElementById('serendipity_iframe');
-            if (typeof thisFrame !== 'undefined' && thisFrame !== null) {ldelim}
-                var frameheight = document.querySelector('html').offsetHeight;
-                thisFrame.style.height = frameheight + 'px';
-                thisFrame.scrolling    = 'no';
-                thisFrame.style.border = 0;
-                thisFrame.style.overflow = 'hidden';
-            {rdelim}
-        {rdelim}
-    </script>
 </head>
 <body class="{$mode}_preview_body">
     <main id="content" class="{$mode}_preview_content">
@@ -46,10 +42,13 @@
 {* PLEASE NOTE: This is for case new entry first save only! *}
 {if isset($lastSavedEntry) AND (int)$lastSavedEntry}
 
-        <script type="text/javascript">
-            window.onload = function() {
-                parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
-            };
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const entryIdInput = parent?.document?.forms?.['serendipityEntry']?.['serendipity[id]'];
+                if (entryIdInput) {
+                    entryIdInput.value = "{$lastSavedEntry}";
+                }
+            });
         </script>
 {/if}
 
@@ -58,19 +57,6 @@
 {/if}
 {/if}
     </main>
-    <script type="text/javascript">
-        const forceLightMode = {if ($forceLightMode)}true{else}false{/if};
-        const dark_mode = sessionStorage.getItem('dark_mode');
 
-        if (dark_mode == null) {
-            if (!forceLightMode && window.matchMedia('(prefers-color-scheme: dark)').matches || dark_mode == "dark") {
-                document.documentElement.setAttribute('data-dark-theme', 'dark');
-            }
-        } else if (dark_mode == 'dark') {
-            document.documentElement.setAttribute('data-dark-theme', 'dark');
-        } else {
-            document.documentElement.removeAttribute('data-dark-theme');
-        }
-    </script>
 </body>
 </html>
