@@ -11,6 +11,7 @@ Version 5.x (DEV)
         - Modern Styx Plugin Replacement Kit (Vanilla ES6+)
         - Serendipity Styx Administration Interface Logic Refactored & Modernized (ES6+)
         - Added a minified version
+   - pure: Update preview_iframe template and requirement
 
  * Implement serendipity_prepare_media_file() extended $media.files preparation
    logic in PHP image API for media_items.tpl smarty logic.
