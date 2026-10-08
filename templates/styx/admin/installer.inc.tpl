@@ -359,7 +359,7 @@
 
     <script>
         // toggle info containers
-        var hasinfo = document.querySelectorAll(".has_info");
+        const hasinfo = document.querySelectorAll(".has_info");
         for (i=0; i < hasinfo.length; i++) {
           const xpnd = hasinfo[i];
           const btns = xpnd.querySelector('.toggle_info.button_link');
@@ -377,7 +377,7 @@
 {if $s9yGETstep == 0}
 
     <script>
-        var firstsuccess = document.querySelector('div#diagnose > ul.plainList > li:first-of-type > span.msg_success');
+        const firstsuccess = document.querySelector('div#diagnose > ul.plainList > li:first-of-type > span.msg_success');
         if (firstsuccess) firstsuccess.innerHTML = '<svg class="bi bi-check-circle-fill" width="16" height="16" role="img" aria-label="OK:"><title>{$CONST.DONE}</title><use xlink:href="#check-circle-fill"></use></svg> ' + firstsuccess.textContent;
     </script>
 {/if}
