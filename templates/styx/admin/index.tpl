@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html{if $admin_vars.darkmode} data-color-mode="dark"{else} data-color-mode="light"{/if} class="no-js" dir="ltr" lang="{$lang}">
+<html{if $admin_vars.darkmode} data-color-mode="dark"{else} data-color-mode="light"{/if}{if !empty($smarty.get.serendipity.popupContent)} class="is-modal-view"{/if} dir="ltr" lang="{$lang}">
 <head>
     <meta charset="{$CONST.LANG_CHARSET}">
 {if !$admin_vars.backendBlogtitleFirst}
@@ -20,52 +20,54 @@
     </script>
 {/if}
 {/if}
-    <script src="{serendipity_getFile file='admin/js/modernizr.min.js'}"></script>
 {if $admin_vars.is_logged_in}
 {if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_header" hookAll="true"}{/if}
     <script>
 {if NOT isset($forceLightMode)}
-{if $admin_vars.darkmode}
-      var STYX_DARKMODE = true;
-      if (localStorage.getItem('data-login-color-mode') == null) {
-        localStorage.setItem('data-login-color-mode', 'dark');
-      }
+    {if $admin_vars.darkmode}
+        window.STYX_DARKMODE = true;
+        if (localStorage.getItem('data-login-color-mode') === null) {
+            localStorage.setItem('data-login-color-mode', 'dark');
+        }
+    {else}
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-color-mode', 'dark');
+            window.STYX_DARKMODE = true;
+        } else {
+            window.STYX_DARKMODE = false;
+        }
+
+        const dark_mode = localStorage.getItem('data-login-color-mode');
+        if (window.STYX_DARKMODE === true && dark_mode === null) {
+            localStorage.setItem('data-login-color-mode', 'dark');
+        }
+    {/if}
 {else}
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.setAttribute('data-color-mode', 'dark');
-        var STYX_DARKMODE = true;
-      } else {
-        var STYX_DARKMODE = false;
-      }
-      const dark_mode = localStorage.getItem('data-login-color-mode');
-      if (typeof(STYX_DARKMODE) != null && STYX_DARKMODE === true && dark_mode == null) {
-        localStorage.setItem('data-login-color-mode', 'dark');
-      }
+        window.STYX_DARKMODE = false;
 {/if}
-{else}
-      var STYX_DARKMODE = false;
-{/if}
-      if (typeof(STYX_DARKMODE) !== 'undefined' && STYX_DARKMODE === true) {
-        document.currentScript.insertAdjacentHTML('afterend', '<link id="dark-scheme-icon" rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}styx/sty.xd.png" type="image/x-icon">')
-      } else {
-        document.currentScript.insertAdjacentHTML('afterend', '<link id="light-scheme-icon" rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}styx/sty.x.png" type="image/x-icon">')
-      }
+
+        /* Set HTML5 Theme Attribute for TinyMCE & CSS */
+        document.documentElement.dataset.theme = window.STYX_DARKMODE ? 'dark' : 'light';
+
+        /* Dynamic Favicon handling */
+        const iconName = window.STYX_DARKMODE ? 'sty.xd.png' : 'sty.x.png';
+        const iconId = window.STYX_DARKMODE ? 'dark-scheme-icon' : 'light-scheme-icon';
+        const iconUrl = '{$serendipityBaseURL}{$templatePath}styx/' + iconName;
+
+        document.head.insertAdjacentHTML('beforeend', `<link id="${ iconId }" rel="shortcut icon" href="${ iconUrl }" type="image/x-icon">`);
     </script>
-    <script src="{serendipity_getFile file='admin/js/plugins.js'}"></script>
-    <script src="{serendipity_getFile file='admin/serendipity_styx.js'}"></script>
-    <script src="{$head_link_script}"></script>
 {/if}
 </head>
 <body id="serendipity_admin_page">
-{if NOT $admin_vars.no_banner}
+{if NOT $admin_vars.no_banner && empty($is_embedded)}
 
     <header id="top">
         <div id="banner{if NOT $admin_vars.is_logged_in}_install{/if}" class="clearfix">
 {if $admin_vars.is_logged_in}
-            <a id="nav-toggle" class="button_link" href="#main_menu"><span class="icon-menu" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.NAVIGATION}</span></a>
+            <a id="nav-toggle" class="button_link" href="#main_menu" aria-label="{$CONST.NAVIGATION}"><span class="icon-menu" aria-hidden="true"></span></a>
 {/if}
 {if $admin_vars.admin_installed}
-            <h1><a href="serendipity_admin.php" aria-label="{$CONST.SERENDIPITY_ADMIN_SUITE|replace:' Styx':''}"></span>{$CONST.ADMIN}: <span class="chop-title">{$blogTitle}</span></a></h1>
+            <h1><a href="serendipity_admin.php" aria-label="{$CONST.SERENDIPITY_ADMIN_SUITE|replace:' Styx':''}">{$CONST.ADMIN}: <span class="chop-title">{$blogTitle}</span></a></h1>
 {else}
             <h1>{$CONST.SERENDIPITY_INSTALLATION}</h1>
 {/if}
@@ -134,12 +136,12 @@
             <ul class="clearfix">
                 <li id="user_menu"><h3>{$admin_vars.self_info}</h3>
                     <ul class="clearfix">
-                        <li><a class="button_link{$admin_vars.permlevel}" href="serendipity_admin.php" title="{$CONST.MENU_DASHBOARD}"><span class="icon-home" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MENU_DASHBOARD}</span></a></li>
+                        <li><a class="button_link{$admin_vars.permlevel}" href="serendipity_admin.php" title="{$CONST.MENU_DASHBOARD}" aria-label="{$CONST.MENU_DASHBOARD}"><span class="icon-home" aria-hidden="true"></span></a></li>
 {if 'personalConfiguration'|checkPermission}
-                        <li><a class="button_link{$admin_vars.permlevel}" href="serendipity_admin.php?serendipity[adminModule]=personal" title="{$CONST.PERSONAL_SETTINGS}"><span class="icon-cog-alt" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.PERSONAL_SETTINGS}</span></a></li>
+                        <li><a class="button_link{$admin_vars.permlevel}" href="serendipity_admin.php?serendipity[adminModule]=personal" title="{$CONST.PERSONAL_SETTINGS}" aria-label="{$CONST.PERSONAL_SETTINGS}"><span class="icon-cog-alt" aria-hidden="true"></span></a></li>
 {/if}
-                        <li><a class="button_link" href="{$serendipityBaseURL}" title="{$CONST.BACK_TO_BLOG}"><span class="icon-globe" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.BACK_TO_BLOG}</span></a></li>
-                        <li><a class="button_link" href="serendipity_admin.php?serendipity[adminModule]=logout" title="{$CONST.LOGOUT}"><span class="icon-logout" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.LOGOUT}</span></a></li>
+                        <li><a class="button_link" href="{$serendipityBaseURL}" title="{$CONST.BACK_TO_BLOG}" aria-label="{$CONST.BACK_TO_BLOG}"><span class="icon-globe" aria-hidden="true"></span></a></li>
+                        <li><a class="button_link" href="serendipity_admin.php?serendipity[adminModule]=logout" title="{$CONST.LOGOUT}" aria-label="{$CONST.LOGOUT}"><span class="icon-logout" aria-hidden="true"></span></a></li>
                     </ul>
                 </li>
 {if 'adminEntries'|checkPermission OR 'adminEntriesPlugins'|checkPermission}
@@ -298,7 +300,6 @@
 
 {$admin_vars.main_content}{* starts from root 0 indent *}
 
-
         </div><!-- #content end -->
 
 {/if}{* endif of logged-in *}
@@ -310,7 +311,56 @@
         <p>{if $admin_vars.is_logged_in}{$admin_vars.version_info|replace:"Serendipity":"Serendipity Styx"}{else}{$blogTitle|default:''}{/if}</p>
     </footer>
 {/if}
-{if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_footer" hookAll="true"}{/if}
+{if $admin_vars.admin_installed}
+
+    <script src="{$serendipityHTTPPath}templates/jquery.js"></script>
+    <script>
+        window.serendipity = Object.assign(window.serendipity || {}, {
+            // Backend Settings & Server Variables for StyxConfig.get()
+            serendipityHTTPPath: '{$serendipityHTTPPath}',
+            entryId: {if $entry_id}{$entry_id}{else}false{/if},
+            autosave: {if $use_autosave}true{else}false{/if},
+            useBackendPopups: {if $use_backendpopups}true{else}false{/if},
+            forceBackendPopups: {if !empty($force_backendpopups)}{$force_backendpopups|json_encode}{else}[]{/if},
+            uploadResize: {if {serendipity_getConfigVar key='uploadResize'}}true{else}false{/if},
+            maxImgWidth: {if {serendipity_getConfigVar key='maxImgWidth'}}{serendipity_getConfigVar key='maxImgWidth'}{else}0{/if},
+            maxImgHeight: {if {serendipity_getConfigVar key='maxImgHeight'}}{serendipity_getConfigVar key='maxImgHeight'}{else}0{/if},
+            maxImgWidthPortrait: {if {serendipity_getConfigVar key='maxImgWidthPortrait'}}{serendipity_getConfigVar key='maxImgWidthPortrait'}{else}0{/if},
+
+            // Language-Constants (i18n / Localisation) for StyxLang.get()
+            lang: {
+                abortNow: '{$CONST.ABORT_NOW|escape:"javascript"}',
+                back: '{$CONST.BACK|escape:"javascript"}',
+                currentTab: '{$CONST.CURRENT_TAB|escape:"javascript"}',
+                deleteFileContinue: '{$CONST.DIALOG_DELETE_FILE_CONTINUE|escape:"javascript"}',
+                deleteVariationsPerItem: '{$CONST.DIALOG_DELETE_VARIATIONS_PERITEM|escape:"javascript"}',
+                dialogDeleteVariations: '{$CONST.DIALOG_DELETE_VARIATIONS|escape:"javascript"}',
+                done: '{$CONST.DONE|escape:"javascript"}!',
+                editorNoTags: '{$CONST.EDITOR_NO_TAGS|escape:"javascript"}',
+                enterNewName: '{$CONST.ENTER_NEW_NAME|escape:"javascript"}',
+                entryStatus: '{$CONST.ENTRY_STATUS|escape:"javascript"}',
+                go: '{$CONST.GO|escape:"javascript"}',
+                hide: '{$CONST.HIDE|escape:"javascript"}',
+                mediaDeletes: '{$CONST.MEDIA_DELETE|escape:"javascript"}',
+                mediaCreateVars: '{$CONST.MEDIA_CREATEVARS|escape:"javascript"}',
+                mediaLibrary: '{$CONST.MEDIA_LIBRARY|escape:"javascript"}',
+                mediaRename: '{$CONST.MEDIA_RENAME|escape:"javascript"}',
+                no: '{$CONST.NO|escape:"javascript"}',
+                noCategories: '{$CONST.NO_CATEGORIES|escape:"javascript"}',
+                reallyScaleImage: '{$CONST.REALLY_SCALE_IMAGE|escape:"javascript"}',
+                renameErrorReload: '{$CONST.MEDIA_RENAME_ERROR_RELOAD|escape:"javascript"}',
+                timestampReset: '{$CONST.TIMESTAMP_RESET|escape:"javascript"}',
+                toggleAll: '{$CONST.TOGGLE_ALL|escape:"javascript"}',
+                unknownUpload: '{$CONST.ERROR_UNKNOWN_NOUPLOAD|escape:"javascript"}',
+                yes: '{$CONST.YES|escape:"javascript"}',
+            }
+        });
+    </script>
+    <script src="{serendipity_getFile file='admin/serendipity_styx.min.js'}"></script>
+    <script src="{$backend_hook_script}"></script>
+
+{serendipity_hookPlugin hook="backend_footer" hookAll="true"}
+{/if}
 
 </body>
 </html>
