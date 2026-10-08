@@ -2760,7 +2760,7 @@ dialog.styx-modal::backdrop {
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(2px);
 }
-/* Basic sizing control for the <dialog> element - aber das überschreibt die oberen ToDo!*/
+/* Basic sizing control for the <dialog> element */
 dialog.styx-modal {
     border: none;
     background: transparent;
@@ -2816,7 +2816,7 @@ dialog.styx-modal .styx-modal-container {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%; /*see .smp-title - Default for addImage ML dialog & child scaling */
+    width: 100%; /* see .smp-title - Default for addImage ML dialog & child scaling */
     height: 100%;
     max-width: 960px;
     max-height:75dvh;
@@ -2908,7 +2908,7 @@ dialog.styx-modal.styx-modal-child .smp-content {
     text-align: center;
     font-size: 0.875rem;
     min-width: 360px;
-    width: min-content; /*see dialog.styx-modal .styx-modal-container*/
+    width: min-content; /* see dialog.styx-modal .styx-modal-container*/
 }
 
 /* Close Button Positioning & Alignment */
@@ -2955,7 +2955,7 @@ dialog.styx-modal.styx-modal-child .smp-content {
         background: #ccc;
         border-radius: 2px;
     }
-
+    /* DARK MODE Intentional left in here as being @media screens */
     [data-color-mode="dark"] .styx-modal-content::before {
         background: var(--color-auto-gray-3);
     }
@@ -5646,7 +5646,11 @@ img.smp-img {
     }
 }
 
-/* Containered classes for the special case addImage Dialog in Modal to behave exactly like ML: Ensures to modify .mlXXCol classes up from 680px Container-Width to spwan in columns! */
+/*
+ * Containered classes for the special case addImage Dialog in Modal
+ * to behave exactly like ML: Ensures to modify .mlXXCol grid classes
+ * up from 680px Container-Width to spwan in columns!
+ */
 @container modal-view (min-width: 680px) {
     html.is-modal-view .media_file h3 {
         width: 16em;
@@ -5905,6 +5909,7 @@ img.smp-img {
     html.is-modal-view .mlMaxCol .media_controls video {
         max-width: 10em;
     }
+    /* DARK MODE Intentional left in here as being @media screens */
     html[data-color-mode="dark"].is-modal-view .media_pane > .media_file.mlMidCol ul.media_file_actions.plainList,
     html[data-color-mode="dark"].is-modal-view .media_pane > .media_file.mlMaxCol ul.media_file_actions.plainList {
         border-color: var(--color-border-primary);
