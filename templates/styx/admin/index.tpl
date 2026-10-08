@@ -243,7 +243,7 @@
 
                 <li>
                     <h3>{$CONST.MANAGE_USERS}</h3>
-                    <ul id="user_hooks">
+                    <ul id="user_hooks"{if $admin_vars.permlevel === 'editor'} data-editor-check="true"{/if}>
 {if 'adminUsersGroups'|checkPermission OR 'adminUsers'|checkPermission}
 {if 'adminUsers'|checkPermission}
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=users">{$CONST.MENU_USERS}</a></li>
@@ -311,9 +311,6 @@
     </footer>
 {/if}
 {if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_footer" hookAll="true"}{/if}
-{if $admin_vars.permlevel === ' editor'}
-    <script>if ($('#user_hooks:empty')) { $('#user_hooks').parent().hide(); } </script>
-{/if}
 
 </body>
 </html>
