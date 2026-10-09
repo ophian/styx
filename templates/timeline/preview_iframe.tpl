@@ -18,25 +18,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" type="text/css">
 {/if}
 {* ADDTIONAL COLORSET & SKIN STYLESHEETS - INCLUDED SETS ARE LOADED VIA CONFIG *}
-{if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
+{if $mode == 'save'}
 
     <style> body { background-color: #fff; } </style>
-    <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
-{else}
-    <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
 {/if}
-    <script type="text/javascript">
-        window.onload = function() {ldelim}
-            var thisFrame = parent.document.getElementById('serendipity_iframe');
-            if (typeof thisFrame !== 'undefined' && thisFrame !== null) {ldelim}
-                var frameheight = document.querySelector('html').offsetHeight;
-                thisFrame.style.height = frameheight + 'px';
-                thisFrame.scrolling    = 'no';
-                thisFrame.style.border = 0;
-                thisFrame.style.overflow = 'hidden';
-            {rdelim}
-        {rdelim}
-    </script>
 </head>
 <body>
     <main id="maincontent" class="container content" role="main">
@@ -47,10 +32,13 @@
                 {elseif $mode == 'save'}
 {if isset($lastSavedEntry) && (int)$lastSavedEntry}
 
-                <script type="text/javascript">
-                    window.onload = function() {ldelim}
-                        parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
-                    {rdelim};
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const entryIdInput = parent?.document?.forms?.['serendipityEntry']?.['serendipity[id]'];
+                        if (entryIdInput) {
+                            entryIdInput.value = "{$lastSavedEntry}";
+                        }
+                    });
                 </script>
 {/if}
                     {$updertHooks}
@@ -66,6 +54,7 @@
     </main>
 
 {if $mode == 'preview'}
+    <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
     <script src="{serendipity_getFile file="b4/js/bootstrap.min.js"}"></script>
     <script src="{serendipity_getFile file="js/timeline.js"}"></script>
 {/if}
