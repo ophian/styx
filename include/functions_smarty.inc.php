@@ -1251,7 +1251,7 @@ function serendipity_smarty_init(?iterable $vars = []) : bool  {
 
         if (empty($serendipity['smarty_vars']['head_link_script'])) {
             if (defined('IN_serendipity_admin') && IN_serendipity_admin === true) {
-                $serendipity['smarty_vars']['head_link_script'] = serendipity_rewriteURL('serendipity_admin.js');
+                $serendipity['smarty_vars']['backend_hook_script'] = $serendipity['smarty_vars']['head_link_script'] = serendipity_rewriteURL('serendipity_admin.js');
             } else {
                 $serendipity['smarty_vars']['head_link_script'] = serendipity_rewriteURL('serendipity.js');
             }
@@ -1271,6 +1271,7 @@ function serendipity_smarty_init(?iterable $vars = []) : bool  {
                 'head_title'                => $serendipity['head_title'],
                 'head_subtitle'             => $serendipity['head_subtitle'],
                 'head_link_stylesheet'      => $serendipity['smarty_vars']['head_link_stylesheet'],
+                'backend_hook_script'       => $serendipity['smarty_vars']['backend_hook_script'] ?? null,
                 'head_link_script'          => $serendipity['smarty_vars']['head_link_script'],
                 'head_link_stylesheet_frontend' => $serendipity['smarty_vars']['head_link_stylesheet_frontend'] ?? null,
 
