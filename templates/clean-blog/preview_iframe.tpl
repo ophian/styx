@@ -18,24 +18,6 @@
 {if $template_option.use_googlefonts}
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600,800|Lora:400,400italic" rel="stylesheet" type="text/css">
 {/if}
-{if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
-
-    <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
-{else}
-    <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
-{/if}
-    <script type="text/javascript">
-        window.onload = function() {ldelim}
-            var thisFrame = parent.document.getElementById('serendipity_iframe');
-            if (typeof thisFrame !== 'undefined' && thisFrame !== null) {ldelim}
-                var frameheight = document.querySelector('html').offsetHeight;
-                thisFrame.style.height = frameheight + 'px';
-                thisFrame.scrolling    = 'no';
-                thisFrame.style.border = 0;
-                thisFrame.style.overflow = 'hidden';
-            {rdelim}
-        {rdelim}
-    </script>
 </head>
 <body>
 
@@ -52,9 +34,12 @@
                     {if isset($lastSavedEntry) && (int)$lastSavedEntry}
 
                         <script>
-                            window.onload = function() {ldelim}
-                                parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
-                            {rdelim};
+                            document.addEventListener('DOMContentLoaded', () => {
+                                const entryIdInput = parent?.document?.forms?.['serendipityEntry']?.['serendipity[id]'];
+                                if (entryIdInput) {
+                                    entryIdInput.value = "{$lastSavedEntry}";
+                                }
+                            });
                         </script>
                     {/if}
 
@@ -68,6 +53,7 @@
     <!-- Filed by theme "{$template}" -->
 
 {if $mode == 'preview'}
+    <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
     <script src="{serendipity_getFile file="b4/js/bootstrap.min.js"}"></script>
     <script src="{serendipity_getFile file="js/clean-blog.min.js"}"></script>
 {/if}
