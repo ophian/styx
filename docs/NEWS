@@ -12,6 +12,11 @@ Version 5.x (DEV)
         - Serendipity Styx Administration Interface Logic Refactored & Modernized (ES6+)
         - Added a minified version
    - pure: Update preview_iframe template and requirement
+   - core themes follow: Update preview_iframe template and requirement
+   - Enable serendipity_admin.js for the new implementation
+   - Disable serendipity_plugin_api_backend_header() and remove jQuery.noConflict
+     and webp modernizr checkup from serendipity_plugin_api_frontend_header().
+   - Update StyxImage & StyxGallery TinyMCE Plugins for new Modal popup behaviour
 
  * Implement serendipity_prepare_media_file() extended $media.files preparation
    logic in PHP image API for media_items.tpl smarty logic.
