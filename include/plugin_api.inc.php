@@ -20,7 +20,7 @@ $serendipity['capabilities']['jquery_backend'] = true;
 $serendipity['capabilities']['jquery-noconflict'] = true; // set as being deprecated, while we should not need it anymore
 
 $serendipity['core_events']['frontend_header']['jquery'] = 'serendipity_plugin_api_frontend_header';
-$serendipity['core_events']['backend_header']['jquery']  = 'serendipity_plugin_api_backend_header';
+#$serendipity['core_events']['backend_header']['jquery']  = 'serendipity_plugin_api_backend_header'; // disabled for disabled serendipity_plugin_api_backend_header() method
 
 /**
  * Add jQuery to all frontend templates (in noConflict mode)
@@ -49,26 +49,6 @@ function serendipity_plugin_api_frontend_header(string $event, ?iterable &$bag, 
 ?>
     <script src="<?php echo $serendipity['serendipityHTTPPath']; ?>templates/<?=$path?>jquery.js"></script>
 <?php
-        if ($serendipity['capabilities']['jquery-noconflict']) {
-?>
-    <script>jQuery.noConflict();</script>
-<?php
-        }
-        // Check Styx WebP support and an is-set frontend theme (modern) modernizr object with WebP module support, returning a non supporting browser.
-        // Enable with $serendipity['checkWebPFormat'] = true; in a themes config.inc file.
-        if (!empty($serendipity['useWebPFormat']) && !empty($serendipity['checkWebPFormat'])) {
-?>
-    <script>
-        if (typeof Modernizr == 'object') {
-            if (Modernizr.on) {
-              Modernizr.on('webp', function(result) {
-                if (!result) { (function($) { $('a.serendipity_image_link').on( "mouseenter mouseleave", function() { $(this).attr('href', $(this).data('fallback')); }); }) };
-              });
-            }
-        }
-    </script>
-<?php
-        }
     }
 }
 
@@ -83,7 +63,6 @@ function serendipity_plugin_api_frontend_header(string $event, ?iterable &$bag, 
  * Returns:
  *      - void
  * @access protected
- */
 function serendipity_plugin_api_backend_header(string $event, ?iterable &$bag, iterable|bool|int|string|null &$eventData, iterable|bool|int|string|null &$addData) : void {
     global $serendipity;
 
@@ -98,6 +77,7 @@ function serendipity_plugin_api_backend_header(string $event, ?iterable &$bag, i
 <?php
     }
 }
+ */
 
 /**
  * Add backend core (pre) hooks
