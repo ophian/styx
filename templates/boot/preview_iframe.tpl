@@ -14,24 +14,20 @@
 {/if}
 {serendipity_hookPlugin hook="backend_header" hookAll="true"}
     <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}" type="text/css">
-
-{if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
-    <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
-{else}
     <style>figure > .serendipity_imageComment_img { border: 0 none; } .serendipity_entrypaging { display: none; visibility: hidden; }</style>
-{/if}
-
     <script type="text/javascript">
-        window.onload = function() {ldelim}
-            var thisFrame = parent.document.getElementById('serendipity_iframe');
-            if (typeof thisFrame !== 'undefined' && thisFrame !== null) {ldelim}
-                var frameheight = document.querySelector('html').offsetHeight;
-                thisFrame.style.height = frameheight + 'px';
-                thisFrame.scrolling    = 'no';
-                thisFrame.style.border = 0;
-                thisFrame.style.overflow = 'hidden';
-            {rdelim}
-        {rdelim}
+        const forceLightMode = {if ($forceLightMode)}true{else}false{/if};
+        const theme =  localStorage.getItem('theme');
+
+        if (theme === null || theme === 'auto') {
+            if (!forceLightMode && window.matchMedia('(prefers-color-scheme: dark)').matches || theme == "dark") {
+                document.documentElement.setAttribute('data-bs-theme', 'dark');
+            }
+        } else if (theme === 'dark') {
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-bs-theme');
+        }
     </script>
 </head>
 <body class="{$mode}_preview_body">
@@ -52,10 +48,13 @@
 {* PLEASE NOTE: This is for case new entry first save only! *}
 {if isset($lastSavedEntry) AND (int)$lastSavedEntry}
 
-            <script type="text/javascript">
-                window.onload = function() {
-                    parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
-                };
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const entryIdInput = parent?.document?.forms?.['serendipityEntry']?.['serendipity[id]'];
+                    if (entryIdInput) {
+                        entryIdInput.value = "{$lastSavedEntry}";
+                    }
+                });
             </script>
 {/if}
 
@@ -65,19 +64,5 @@
 {/if}
         </main>
     </div>
-    <script type="text/javascript">
-        const forceLightMode = {if ($forceLightMode)}true{else}false{/if};
-        const theme =  localStorage.getItem('theme');
-
-        if (theme === null || theme === 'auto') {
-            if (!forceLightMode && window.matchMedia('(prefers-color-scheme: dark)').matches || theme == "dark") {
-                document.documentElement.setAttribute('data-bs-theme', 'dark');
-            }
-        } else if (theme === 'dark') {
-            document.documentElement.setAttribute('data-bs-theme', 'dark');
-        } else {
-            document.documentElement.removeAttribute('data-bs-theme');
-        }
-    </script>
 </body>
 </html>
