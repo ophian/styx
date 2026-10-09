@@ -9,22 +9,6 @@
 {/if}
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css" type="text/css">
     <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}" type="text/css">
-
-{if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
-    <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
-{/if}
-    <script>
-        window.onload = function() {ldelim}
-            var thisFrame = parent.document.getElementById('serendipity_iframe');
-            if (typeof thisFrame !== 'undefined' && thisFrame !== null) {ldelim}
-                var frameheight = document.querySelector('html').offsetHeight;
-                thisFrame.style.height = frameheight + 'px';
-                thisFrame.scrolling    = 'no';
-                thisFrame.style.border = 0;
-                thisFrame.style.overflow = 'hidden';
-            {rdelim}
-        {rdelim}
-    </script>
     <style> body { background-color: #fff; } .save_preview_content, .preview_preview_content { margin: .5em; } </style>
 </head>
 <body class="{$mode}_preview_body">
@@ -41,10 +25,13 @@
             {* PLEASE NOTE: This is for case new entry first save only! *}
             {if isset($lastSavedEntry) AND (int)$lastSavedEntry}
 
-            <script type="text/javascript">
-                window.onload = function() {ldelim}
-                    parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
-                {rdelim};
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const entryIdInput = parent?.document?.forms?.['serendipityEntry']?.['serendipity[id]'];
+                    if (entryIdInput) {
+                        entryIdInput.value = "{$lastSavedEntry}";
+                    }
+                });
             </script>
             {/if}
 
