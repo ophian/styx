@@ -12,22 +12,6 @@
     <?php endif; ?>
         <link rel="stylesheet" type="text/css" href="<?= $GLOBALS['tpl']['iconizr'] ?>">
         <style> #content { width: 99%; background-color: #fcfcfc; padding: 5px; } .save_preview_content .msg_success { margin: 0; } </style>
-    <?php if ($GLOBALS['tpl']['mode'] == 'save'): /* we need this for modernizr.indexDB cleaning up autosave entry modifications */ ?>
-        <script src="<?= $GLOBALS['tpl']['modernizr'] ?>"></script>
-    <?php endif; ?>
-
-        <script type="text/javascript">
-        window.onload = function() {ldelim}
-            var thisFrame = parent.document.getElementById('serendipity_iframe');
-            if (typeof thisFrame !== 'undefined' && thisFrame !== null) {ldelim}
-                var frameheight = document.querySelector('html').offsetHeight<?php if ($GLOBALS['tpl']['mode'] == 'preview'): ?>-20<?php endif; ?>;
-                thisFrame.style.height = frameheight + 'px';
-                thisFrame.scrolling    = 'no';
-                thisFrame.style.border = 0;
-                thisFrame.style.overflow = 'hidden';
-            {rdelim}
-        {rdelim}
-        </script>
     </head>
 
     <body class="<?= $GLOBALS['tpl']['mode'] ?>_preview_body">
@@ -45,11 +29,14 @@
             <?php else: ?>
                 <?php if (isset($GLOBALS['tpl']['lastSavedEntry']) && (int)$GLOBALS['tpl']['lastSavedEntry']): ?>
 
-                    <script type="text/javascript">
-                        window.onload = function() {
-                            parent.document.forms['serendipityEntry']['serendipity[id]'].value = "<?= $GLOBALS['tpl']['lastSavedEntry'] ?>";
-                        };
-                    </script>
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const entryIdInput = parent?.document?.forms?.['serendipityEntry']?.['serendipity[id]'];
+                        if (entryIdInput) {
+                            entryIdInput.value = "{$lastSavedEntry}";
+                        }
+                    });
+                </script>
                 <?php endif; ?>
 
                 <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> <?= ENTRY_SAVED ?>
