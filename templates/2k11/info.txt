@@ -1,7 +1,7 @@
 Name: 2k11
 Author: Matthias Mees, Veit Lehmann, Ian Styx
-Date: 2026-08-21
-Require Serendipity: 3.5
+Date: 2026-10-08
+Require Serendipity: 5.2
 Responsive: Yes
 Mobile: Yes
 
