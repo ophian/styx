@@ -32,23 +32,6 @@
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/endandprint.css" type="text/css">
 {/if}
     <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}" type="text/css">
-{if $mode == 'save'}
-
-    <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
-{/if}
-
-    <script type="text/javascript">
-        window.onload = function() {ldelim}
-            var thisFrame = parent.document.getElementById('serendipity_iframe');
-            if (typeof thisFrame !== 'undefined' && thisFrame !== null) {ldelim}
-                var frameheight = document.querySelector('html').offsetHeight{* if $mode == 'preview'}-14{/if *};
-                thisFrame.style.height = frameheight + 'px';
-                thisFrame.scrolling    = 'no';
-                thisFrame.style.border = 0;
-                thisFrame.style.overflow = 'hidden';
-            {rdelim}
-        {rdelim}
-    </script>
   </head>
   <body id="admin_preview_iframe_body"{if isset($template_option.webfonts) AND $template_option.webfonts != 'none'} class="{$mode}_preview_body {$template_option.webfonts}"{/if}>
     <div id="admin_preview_iframe_wrapper" class="{$mode}_preview_container">
@@ -64,12 +47,14 @@
             {else}
                 {if isset($lastSavedEntry) AND (int)$lastSavedEntry}
 
-                    <script type="text/javascript">
-                        window.onload = function() {ldelim}
-                            //window.parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
-                            parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
-                        {rdelim};
-                    </script>
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const entryIdInput = parent?.document?.forms?.['serendipityEntry']?.['serendipity[id]'];
+                        if (entryIdInput) {
+                            entryIdInput.value = "{$lastSavedEntry}";
+                        }
+                    });
+                </script>
                 {/if}
 
                 <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.ENTRY_SAVED}</span>
