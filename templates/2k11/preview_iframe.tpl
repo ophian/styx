@@ -24,26 +24,6 @@
 {else}
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css" type="text/css">
 {/if}
-    <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}" type="text/css">
-{if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
-
-    <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
-{else}
-    <script src="{serendipity_getFile file="js/modernizr-2.7.1.min.js"}"></script>
-{/if}
-{* very long entry previews still have an (end) overlap of height ~70px *}
-    <script type="text/javascript">
-        window.onload = function() {ldelim}
-            var thisFrame = parent.document.getElementById('serendipity_iframe');
-            if (typeof thisFrame !== 'undefined' && thisFrame !== null) {ldelim}
-                var frameheight = document.querySelector('html').offsetHeight;
-                thisFrame.style.height = frameheight + 'px';
-                thisFrame.scrolling    = 'no';
-                thisFrame.style.border = 0;
-                thisFrame.style.overflow = 'hidden';
-            {rdelim}
-        {rdelim}
-    </script>
 </head>
 
 <body class="{$mode}_preview_body{if isset($template_option.webfonts) AND $template_option.webfonts != 'none'} {$template_option.webfonts}{/if}">
@@ -62,10 +42,13 @@
                 {else}
                     {if isset($lastSavedEntry) AND (int)$lastSavedEntry}
 
-                    <script type="text/javascript">
-                        window.onload = function() {ldelim}
-                            parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
-                        {rdelim};
+                    <script>
+                        document.addEventListener('DOMContentLoaded', () => {
+                            const entryIdInput = parent?.document?.forms?.['serendipityEntry']?.['serendipity[id]'];
+                            if (entryIdInput) {
+                                entryIdInput.value = "{$lastSavedEntry}";
+                            }
+                        });
                     </script>
                     {/if}
 
