@@ -364,14 +364,18 @@ switch($serendipity['GET']['adminAction']) {
                 $val = $serendipity['GET']['filter'][$f_import];
             }
             // If no GET/POST request, but the Cookie exists, e.g. entries list via sidebar
-            // Don't check against Cookies when requested per categories list selected entries, or by overviews draft shortcut link, particularly for the author ID
-            elseif (!isset($serendipity['GET']['catref']) && isset($serendipity['COOKIE'][$cookie_key])) {
+            // Don't check against Cookies when requested per categories list selected entries, users entries or by overviews draft shortcut link, particularly for the author ID
+            elseif (!isset($serendipity['GET']['nocook']) && isset($serendipity['COOKIE'][$cookie_key])) {
                 $val = $serendipity['COOKIE'][$cookie_key];
             }
 
             $val = htmlspecialchars(strip_tags((string)$val));
             $serendipity['GET']['filter'][$f_import] = $val;
             $data["get_filter_$f_import"] = $val;
+        }
+
+        if (isset($serendipity['GET']['nocook'])) {
+            unset($serendipity['GET']['nocook']); // paranoia reset !
         }
 
         foreach ($sort_import as $s_import) {
