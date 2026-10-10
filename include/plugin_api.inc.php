@@ -17,7 +17,7 @@ include_once S9Y_INCLUDE_PATH . 'include/functions.inc.php';
  */
 $serendipity['capabilities']['jquery'] = true;
 $serendipity['capabilities']['jquery_backend'] = true;
-$serendipity['capabilities']['jquery-noconflict'] = true; // set as being deprecated, while we should not need it anymore
+#$serendipity['capabilities']['jquery-noconflict'] = true; // set as being deprecated, while we should not need it anymore
 
 $serendipity['core_events']['frontend_header']['jquery'] = 'serendipity_plugin_api_frontend_header';
 #$serendipity['core_events']['backend_header']['jquery']  = 'serendipity_plugin_api_backend_header'; // disabled for disabled serendipity_plugin_api_backend_header() method
