@@ -17,6 +17,8 @@ Version 5.x (DEV)
    - Disable serendipity_plugin_api_backend_header() and remove jQuery.noConflict
      and webp modernizr checkup from serendipity_plugin_api_frontend_header().
    - Update StyxImage & StyxGallery TinyMCE Plugins for new Modal popup behaviour
+   - Note: $serendipity['capabilities']['jquery-noconflict'] has been set deprecated,
+          while we should not need it anymore
 
  * Implement serendipity_prepare_media_file() extended $media.files preparation
    logic in PHP image API for media_items.tpl smarty logic.
