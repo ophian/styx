@@ -278,7 +278,7 @@
             }
         });
     </script>
-    <script src="{serendipity_getFile file='admin/serendipity_styx.js'}"></script>
+    <script src="{serendipity_getFile file='admin/serendipity_styx.min.js'}"></script>
     <script src="{$backend_hook_script}"></script>
 {if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_footer" hookAll="true"}{/if}
 {/if}
