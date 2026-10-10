@@ -261,6 +261,10 @@ foreach($stack AS $theme => $info) {
             } else {
                 // check the backend theme for the jpg fallback case URL
                 $data['templates'][$theme]["fullsize{$backendId}_preview"] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . "/preview{$backendId}_fullsize.jpg";
+                // restorage for a NextGeneration theme 'styxNG' or such..
+                if ($backendId == '_backend' && empty($data['templates'][$theme]['preview']) && file_exists($serendipity['baseURL'] . $serendipity['templatePath'] . $theme . '/preview.png')) {
+                    $data['templates'][$theme]['preview'] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . '/preview.png';
+                }
             }
             // Fallback: Avoid old themes debug sets with uninitialized variation variables in PHP 8
             $data['templates'][$theme]['preview_avif']          = $data['templates'][$theme]['preview_avif']          ?? null;
