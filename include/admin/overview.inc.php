@@ -52,7 +52,6 @@ if (isset($serendipity['POST']['adminAction'])) {
 $user = serendipity_fetchAuthor($serendipity['authorid']);
 
 $data['username'] = $user[0]['realname'];
-$data['js_failure_file'] = serendipity_getTemplateFile('admin/serendipity_styx.js');
 
 serendipity_plugin_api::hook_event('backend_frontpage_display', $output);
 $data['backend_frontpage_display'] = isset($output['more']) ? $output['probe'] . $output['more'] : '';
@@ -189,8 +188,8 @@ if (is_array($futures)) {
     if ($futures['count'] > 0) $data['shortcuts'] = true;
 }
 if (is_array($drafts)) {
-    $data['entries']['drafts']['count'] = $drafts['count']; // catref GET avoids loading a previous session cookie author ID, see categories list and filter import regeneration in entries.inc
-    $data['entries']['drafts']['link'] = 'serendipity_admin.php?serendipity[action]=admin&serendipity[adminModule]=entries&serendipity[adminAction]=editSelect'.$permByAuthor.'&serendipity[catref]=1&serendipity[filter][isdraft]=draft&dashboard[filter][noset]=1&go=1&serendipity[sort][perPage]=12&'.$data['urltoken'].'';
+    $data['entries']['drafts']['count'] = $drafts['count']; // nocook GET avoids loading a previous session cookie author ID, see categories list and filter import regeneration in entries.inc
+    $data['entries']['drafts']['link'] = 'serendipity_admin.php?serendipity[action]=admin&serendipity[adminModule]=entries&serendipity[adminAction]=editSelect'.$permByAuthor.'&serendipity[nocook]=1&serendipity[filter][isdraft]=draft&dashboard[filter][noset]=1&go=1&'.$data['urltoken'].'';
     if ($drafts['count'] > 0) $data['shortcuts'] = true;
 }
 
