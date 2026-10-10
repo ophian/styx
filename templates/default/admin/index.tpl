@@ -9,11 +9,7 @@
 {/if}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{$head_link_stylesheet}" type="text/css">
-    <script src="{serendipity_getFile file='admin/js/modernizr.min.js'}"></script>
 {if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_header" hookAll="true"}{/if}
-    <script src="{serendipity_getFile file='admin/js/plugins.js'}"></script>
-    <script src="{serendipity_getFile file='admin/serendipity_styx.js'}"></script>
-    <script src="{$head_link_script}"></script>
 </head>
 <body id="serendipity_admin_page">
 {if NOT $admin_vars.no_banner}
@@ -170,7 +166,7 @@
                 {/if}
 
                 <li><h3>{$CONST.MANAGE_USERS}</h3>
-                    <ul>
+                    <ul id="user_hooks"{if $admin_vars.permlevel === 'editor'} data-editor-check="true"{/if}>
                 {if 'adminUsersGroups'|checkPermission OR 'adminUsers'|checkPermission}
 
                     {if 'adminUsers'|checkPermission}
@@ -237,7 +233,55 @@
         <p>{$admin_vars.version_info}</p>
     </footer>
 {/if}
+{if $admin_vars.admin_installed}
+
+    <script src="{$serendipityHTTPPath}templates/jquery.js"></script>
+    <script>
+        window.serendipity = Object.assign(window.serendipity || {}, {
+            // Backend Settings & Server Variables for StyxConfig.get()
+            serendipityHTTPPath: '{$serendipityHTTPPath}',
+            entryId: {if $entry_id}{$entry_id}{else}false{/if},
+            autosave: {if $use_autosave}true{else}false{/if},
+            useBackendPopups: {if $use_backendpopups}true{else}false{/if},
+            forceBackendPopups: {if !empty($force_backendpopups)}{$force_backendpopups|json_encode}{else}[]{/if},
+            uploadResize: {if {serendipity_getConfigVar key='uploadResize'}}true{else}false{/if},
+            maxImgWidth: {if {serendipity_getConfigVar key='maxImgWidth'}}{serendipity_getConfigVar key='maxImgWidth'}{else}0{/if},
+            maxImgHeight: {if {serendipity_getConfigVar key='maxImgHeight'}}{serendipity_getConfigVar key='maxImgHeight'}{else}0{/if},
+            maxImgWidthPortrait: {if {serendipity_getConfigVar key='maxImgWidthPortrait'}}{serendipity_getConfigVar key='maxImgWidthPortrait'}{else}0{/if},
+
+            // Language-Constants (i18n / Localisation) for StyxLang.get()
+            lang: {
+                abortNow: '{$CONST.ABORT_NOW|escape:"javascript"}',
+                back: '{$CONST.BACK|escape:"javascript"}',
+                currentTab: '{$CONST.CURRENT_TAB|escape:"javascript"}',
+                deleteFileContinue: '{$CONST.DIALOG_DELETE_FILE_CONTINUE|escape:"javascript"}',
+                deleteVariationsPerItem: '{$CONST.DIALOG_DELETE_VARIATIONS_PERITEM|escape:"javascript"}',
+                dialogDeleteVariations: '{$CONST.DIALOG_DELETE_VARIATIONS|escape:"javascript"}',
+                done: '{$CONST.DONE|escape:"javascript"}!',
+                editorNoTags: '{$CONST.EDITOR_NO_TAGS|escape:"javascript"}',
+                enterNewName: '{$CONST.ENTER_NEW_NAME|escape:"javascript"}',
+                entryStatus: '{$CONST.ENTRY_STATUS|escape:"javascript"}',
+                go: '{$CONST.GO|escape:"javascript"}',
+                hide: '{$CONST.HIDE|escape:"javascript"}',
+                mediaDeletes: '{$CONST.MEDIA_DELETE|escape:"javascript"}',
+                mediaCreateVars: '{$CONST.MEDIA_CREATEVARS|escape:"javascript"}',
+                mediaLibrary: '{$CONST.MEDIA_LIBRARY|escape:"javascript"}',
+                mediaRename: '{$CONST.MEDIA_RENAME|escape:"javascript"}',
+                no: '{$CONST.NO|escape:"javascript"}',
+                noCategories: '{$CONST.NO_CATEGORIES|escape:"javascript"}',
+                reallyScaleImage: '{$CONST.REALLY_SCALE_IMAGE|escape:"javascript"}',
+                renameErrorReload: '{$CONST.MEDIA_RENAME_ERROR_RELOAD|escape:"javascript"}',
+                timestampReset: '{$CONST.TIMESTAMP_RESET|escape:"javascript"}',
+                toggleAll: '{$CONST.TOGGLE_ALL|escape:"javascript"}',
+                unknownUpload: '{$CONST.ERROR_UNKNOWN_NOUPLOAD|escape:"javascript"}',
+                yes: '{$CONST.YES|escape:"javascript"}',
+            }
+        });
+    </script>
+    <script src="{serendipity_getFile file='admin/serendipity_styx.js'}"></script>
+    <script src="{$backend_hook_script}"></script>
 {if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_footer" hookAll="true"}{/if}
+{/if}
 
 </body>
 </html>
