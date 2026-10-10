@@ -1019,10 +1019,10 @@ function serendipity_setCookie(string $name, string $value, bool $securebyprot =
  * @access public
  */
 function serendipity_JSsetCookie(string $name, string $value) : void {
-    $name  = htmlentities($name);
-    $value = urlencode($value);
+    $name  = json_encode($name, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
+    $value = json_encode($value, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
 
-    echo '    <script type="text/javascript">serendipity.SetCookie("' . $name . '", unescape("' . $value . '"))</script>';
+    echo '<script type="text/javascript">document.addEventListener("DOMContentLoaded", function() { StyxCookie.set(' . $name . ', ' . $value . '); });</script>' . "\n";
 }
 
 /**
