@@ -19,6 +19,7 @@ Version 5.x (DEV)
    - Update StyxImage & StyxGallery TinyMCE Plugins for new Modal popup behaviour
    - Note: $serendipity['capabilities']['jquery-noconflict'] has been set deprecated,
           while we should not need it anymore
+   - Finish JScookie API and support [nocook] variable
 
  * Implement serendipity_prepare_media_file() extended $media.files preparation
    logic in PHP image API for media_items.tpl smarty logic.
