@@ -23,6 +23,7 @@ Version 5.x (DEV)
    - Finally modernise and upraise the 'default' backend theme to be uppart
      with Styx, except mainly the dark mode.
    - Give up serendipity_plugin_api_core_event_hook hook for templatized assets
+   - Deprecation and Removal of the Legacy default-php Theme Architecture
 
  * Implement serendipity_prepare_media_file() extended $media.files preparation
    logic in PHP image API for media_items.tpl smarty logic.
