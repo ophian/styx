@@ -688,7 +688,7 @@ function recursive_UTF8dir_iterator(?string $startdir, bool $negate = false) : ?
     if ($startdir == 'templates') {
         // For case of styx theme, avoid true return for all others if serendipity root dir is *styx* w/ . DIRECTORY_SEPARATOR
         // Some of the core themes don't even have have a UTF-8 directory since based on engine themes lang files. But better check them included.
-        $check = ['2k11', 'b5blog', 'b46', 'b53', 'boot', 'bootstrap4', 'clean-blog', 'default', 'default-php', 'dude', 'next', 'psg', 'pure', 'skeleton', 'sliver', 'styx'. DIRECTORY_SEPARATOR, 'timeline'];
+        $check = ['2k11', 'b5blog', 'b46', 'b53', 'boot', 'bootstrap4', 'clean-blog', 'default', 'dude', 'next', 'psg', 'pure', 'skeleton', 'sliver', 'styx'. DIRECTORY_SEPARATOR, 'timeline'];
     }
 
     // SplFileInfo(object)
