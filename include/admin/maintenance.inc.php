@@ -15,8 +15,7 @@ $data['importMenu'] = ob_get_contents();
 ob_end_clean();
 
 $keepthemes = [ '_assets', '2k11', 'styx', 'b46', 'b53', 'b5blog', 'boot', 'bootstrap4', 'clean-blog',
-                'default', 'default-php', 'dude', 'next', 'psg', 'pure', 'skeleton',
-                'sliver', 'timeline' ];
+                'default', 'dude', 'next', 'psg', 'pure', 'skeleton', 'sliver', 'timeline' ];
 $keepevplugins = [ 'bbcode', 'changelog', 'emoticate', 'entryproperties', 'mailer', 'modemaintain',
             'nl2br', 'plugup', 's9ymarkup', 'spamblock', 'spartacus', 'xhtmlcleanup' ];
 $keepsbplugins = [ 'archives', 'authors', 'calendar', 'categories', 'comments', 'entrylinks',
