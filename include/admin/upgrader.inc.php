@@ -768,6 +768,25 @@ $tasks = array(
                     'title'     => 'Removal of remaining old dead theme lang UTF-8/ directories for Styx 5',
                     'desc'      => 'Ditto all <b>themes</b> have to follow this distinction too. NOW, THIS upgrade task removes all remaining UTF-8/ dirs in your templates directory.'),
 
+            array(  'version'   => '5.2-beta1',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => '<b>ADMINISTRATION_NOTICE</b> Refactoring the Backend Theme Architecture.',
+                    'desc'      => 'Styx 5.2 will bring a complete backend modernization regarding Javascript assets to ES6+ and some essential followup decisions! Removal of files by the upgrader will start from 5.2-rc1.'),
+
+            array(  'version'   => '5.2-beta1',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => '<b>ADMINISTRATION_NOTICE</b> Closing the Backend Refactoring Cycle: A Surprising Twist for the Default Theme.',
+                    'desc'      => 'As the comprehensive backend refactoring of the standard Styx backend theme drew to a close, it initially looked as though the "old" default backend theme would become completely obsolete. However, quite the opposite turned out to be true.
+                    <p>By upgrading and refining the fallback template files in default/admin, the default theme was effectively compelled to adopt years of Styx evolution, mirroring the entire refactoring process. This revitalization has brought the default theme up to par, meaning the primary difference between the two themes today boils down almost exclusively to Styx’s native dark mode.</p>
+                    <h3>Looking Ahead: A Streamlined Future</h3>
+                    <p>This unexpected convergence opens up a fascinating path for future development. In a subsequent development cycle, we could leverage the default theme to handle the entire light-mode base, allowing the Styx theme to be simplified and streamlined into a dedicated, dark-mode-only extension.</p>'),
+
+            array(  'version'   => '5.2-beta1',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => '<b>ADMINISTRATION_NOTICE</b> Deprecation and Removal of the Legacy default-php Theme Architecture.',
+                    'desc'      => 'As part of the Styx 5.2 backend modernization and cleanup initiative, support for the legacy default-php theme system—along with its underlying core hooks and global variable emulations—has been officially deprecated and removed.
+                    <p>Originally introduced decades ago as an alternative template engine approach, this mechanism has long been superseded by robust Smarty templates and modern theme structures. Removing it purges significant dead weight from the core, making the backend codebase cleaner, faster, and much easier to maintain.</p>'),
+
             array(  'version'   => '5.2-rc1',
                     'function'  => 'serendipity_fixPlugins',
                     'arguments' => array('cleanup_enableBackendPopup'),
