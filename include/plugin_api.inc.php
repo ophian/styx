@@ -53,33 +53,6 @@ function serendipity_plugin_api_frontend_header(string $event, ?iterable &$bag, 
 }
 
 /**
- * Add jQuery to all backend templates
- *
- * Args:
- *      - event_name string
- *      - property bag array
- *      - referenced eventData array
- *      - (optional) addData array
- * Returns:
- *      - void
- * @access protected
-function serendipity_plugin_api_backend_header(string $event, ?iterable &$bag, iterable|bool|int|string|null &$eventData, iterable|bool|int|string|null &$addData) : void {
-    global $serendipity;
-
-    // Only execute if current template does not have its own backend_jquery.js file
-    // jquery can be disabled if a template's config.inc.php or a plugin sets
-    // $serendipity['capabilities']['jquery'] = false
-
-    $check = serendipity_getTemplateFile('jquery_backend.js', 'serendipityPath', true);
-    if (!$check && $serendipity['capabilities']['jquery_backend']) {
-?>
-    <script src="<?php echo $serendipity['serendipityHTTPPath']; ?>templates/jquery.js"></script>
-<?php
-    }
-}
- */
-
-/**
  * Add backend core (pre) hooks.
  * A central function with which the Serendipity core can act as a plugin on it’s own and “listen” on specific events.
  *
