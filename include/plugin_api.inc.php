@@ -80,7 +80,8 @@ function serendipity_plugin_api_backend_header(string $event, ?iterable &$bag, i
  */
 
 /**
- * Add backend core (pre) hooks
+ * Add backend core (pre) hooks.
+ * A central function with which the Serendipity core can act as a plugin on it’s own and “listen” on specific events.
  *
  * Args:
  *      - event_name string
