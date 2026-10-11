@@ -578,37 +578,6 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
     }
 
     /**
-     * Parses a template file into another.
-     *
-     * Args:
-     *      - resource name string
-     *      - cache ID OR NULL
-     *      - compile ID OR NULL
-     *      - Whether to display? (unused)
-     * Returns:
-     *      - file content OR boolean
-     * @access public
-     */
-    function &fetch(string $resource_name, ?string $cache_id = NULL, ?string $compile_id = NULL, ?bool $display = false) : string|bool
-    {
-        if (isset($GLOBALS['matches'][2]) && $GLOBALS['matches'][2] == 'admin/serendipity_styx.js') {
-            if (!is_object($GLOBALS['serendipity']['smarty'])) {
-                ob_start();
-                $tfile = $GLOBALS['serendipity']['serendipityPath'] . $GLOBALS['serendipity']['templatePath'] . 'default/admin/serendipity_styx.js.php';
-                echo "/* Dynamically fetched {$GLOBALS['serendipity']['templatePath']}default/admin/serendipity_styx.js.php on " . date('Y-m-d H:i') . ", called by: serendipity_smarty_emulator_xml class */\n";
-                include $tfile;
-                $out = ob_get_contents();
-                ob_end_clean();
-                return $out;
-            } else {
-                return file_get_contents(serendipity_getTemplateFile('admin/serendipity_styx.js.tpl', 'serendipityPath'));
-            }
-            return false;
-        }
-        return true;
-    }
-
-    /**
      * Outputs a smarty template.
      *
      * Args:
