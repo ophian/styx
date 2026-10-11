@@ -587,7 +587,7 @@ $dead_dirs_510 = array(
 
 /* A list of old or removed directories for 5.2.0 */
 $dead_dirs_520 = array(
-    $serendipity['serendipityPath'] . 'path/to/....',
+    $serendipity['serendipityPath'] . 'templates/default-php',
 );
 
 /* A list of Styx files, to be removed or renamed by 5.2.0 */
