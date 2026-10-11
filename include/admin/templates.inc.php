@@ -190,7 +190,7 @@ serendipity_plugin_api::hook_event('backend_templates_fetchlist', $stack);
 if (false === $stack) $stack = []; // try to fix "Automatic conversion of false to array is deprecated" in L 197. Stack is false if connection errors, see spartacus.
 $themes = serendipity_fetchTemplates();
 $data['templates'] = array();
-$core_templates = ['2k11', 'styx', 'b46', 'b53', 'b5blog', 'boot', 'bootstrap4', 'clean-blog', 'default', 'default-php', 'dude', 'next', 'psg', 'pure', 'skeleton', 'sliver', 'timeline'];
+$core_templates = ['2k11', 'styx', 'b46', 'b53', 'b5blog', 'boot', 'bootstrap4', 'clean-blog', 'default', 'dude', 'next', 'psg', 'pure', 'skeleton', 'sliver', 'timeline'];
 $data['core_templates'] = array();
 
 foreach($themes AS $theme) {
