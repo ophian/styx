@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html{if $admin_vars.darkmode} data-color-mode="dark"{else} data-color-mode="light"{/if}{if !empty($smarty.get.serendipity.popupContent)} class="is-modal-view"{/if} dir="ltr" lang="{$lang}">
+<html{if $admin_vars.darkmode} data-color-mode="dark"{else} data-color-mode="light"{/if}{if !empty($smarty.get.serendipity.popupContent)} class="is-modal-view"{/if} dir="{$CONST.LANG_DIRECTION}" lang="{$lang}">
 <head>
     <meta charset="{$CONST.LANG_CHARSET}">
 {if !$admin_vars.backendBlogtitleFirst}
