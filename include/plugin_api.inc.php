@@ -52,64 +52,6 @@ function serendipity_plugin_api_frontend_header(string $event, ?iterable &$bag, 
     }
 }
 
-/**
- * Add backend core (pre) hooks.
- * A central function with which the Serendipity core can act as a plugin on it’s own and “listen” on specific events.
- *
- * Args:
- *      - event_name string
- *      - property bag array
- *      - referenced eventData array
- *      - (optional) addData array
- * Returns:
- *      - void
- * @access protected
- */
-function serendipity_plugin_api_core_event_hook(string $event, ?iterable &$bag, iterable|bool|int|string|null &$eventData, iterable|bool|int|string|null &$addData) : void {
-    global $serendipity;
-
-    switch($event) {
-
-        case 'external_plugin':
-            if ($eventData == 'admin/serendipity_styx.js') {
-                // for serendipity_setNotModifiedHeader
-                if ($serendipity['CacheControl'] && !ob_get_level()) {
-                    ob_start();
-                }
-
-                if ($serendipity['CacheControl']) {
-                    // Note that no-cache does not mean "don't cache". no-cache allows caches to store a response but requires them to revalidate it before reuse.
-                    // If the sense of "don't cache" that you want is actually "don't store", then no-store is the directive to use.
-                    if (!empty($_SERVER['SERVER_SOFTWARE']) && str_contains($_SERVER['SERVER_SOFTWARE'], 'LiteSpeed')) {
-                        header('Cache-Control: private, max-age=3600, must-revalidate'); // for Hostinger Cache on LiteSpeed
-                        header('Pragma:'); // for Hostinger Cache on LiteSpeed
-                    } else {
-                        header("Cache-Control: no-cache, max-age=3600, s-maxage=3600, must-revalidate, proxy-revalidate"); // 1 hour - if this all works we could set this to 12/24 hours
-                    }
-                } else {
-                    header('Cache-Control: must-revalidate, proxy-revalidate');
-                    header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time()+3600));
-                }
-                header('Content-type: application/javascript; charset=' . LANG_CHARSET);
-                echo serendipity_smarty_showTemplate('admin/serendipity_styx.js.tpl', null, 'JS', 'include/plugin_api.inc.php:external_plugin');
-
-                if ($serendipity['CacheControl']) {
-                    serendipity_setNotModifiedHeader(); // 304
-                }
-            }
-            break;
-
-        case 'backend_save':
-        case 'backend_publish':
-            // this is preview_iframe.tpl updertHooks [ NOT ONLY! See freetags - keep it strictly set to iframe mode save!]
-            if (serendipity_db_bool($serendipity['use_autosave']) && isset($_GET['serendipity']['is_iframe']) && $_GET['serendipity']['is_iframe'] == 'true' && $_GET['serendipity']['iframe_mode'] == 'save') {
-                echo "\n".'<script>document.addEventListener("DOMContentLoaded", function() { if (window.parent.Modernizr.indexeddb) { window.parent.serendipity.eraseEntryEditorCache(); } });</script>'."\n";
-            }
-            break;
-
-    }
-}
-
 
 /**
  * This file defines the plugin API for Serendipity.
@@ -1222,9 +1164,6 @@ class serendipity_plugin_api
                 $apifunc($event_name, $bag, $eventData, $addData);
             }
         }
-
-        // execute backend needed core hooks
-        serendipity_plugin_api_core_event_hook($event_name, $bag, $eventData, $addData);
 
         if (function_exists('serendipity_plugin_api_pre_event_hook')) {
             $apifunc = 'serendipity_plugin_api_pre_event_hook';
