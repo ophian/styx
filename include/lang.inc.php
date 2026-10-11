@@ -17,7 +17,7 @@ if (!defined('serendipity_LANG_LOADED') || serendipity_LANG_LOADED !== true) {
     // An un-promoted private variable set, to first serve template based serendipity lang constants that have higher priority.
     // We do not allow this for backend constants and both, the fallback "default" and the standard theme (currently "pure") !
     if (isset($serendipity['useTemplateLanguage']) && $serendipity['useTemplateLanguage'] === true && !empty($serendipity['template'])
-    && !defined('IN_serendipity_admin') && !in_array($serendipity['template'], ['default', 'default-php', $serendipity['defaultTemplate']])) {
+    && !defined('IN_serendipity_admin') && !in_array($serendipity['template'], ['default', $serendipity['defaultTemplate']])) {
         if (defined('S9Y_DATA_PATH')) {
             @include_once (S9Y_DATA_PATH . 'templates/' . $serendipity['template'] . '/lang_' . $serendipity['lang'] . '.inc.php');
             @include_once (S9Y_DATA_PATH . 'templates/' . $serendipity['template'] . '/lang_en.inc.php');
