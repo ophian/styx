@@ -30,6 +30,15 @@
         {elseif $mode == 'save'}
 
                 <div class="{$mode}_preview_sizing"></div>
+{if $autosaved_iframe}
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        if (window.parent.indexedDB) {
+                            window.parent.serendipity.eraseEntryEditorCache();
+                        }
+                    });
+                </script>
+{/if}
                 {if NOT empty($updertHooks)}<div class="{$mode}_updertH">{$updertHooks}</div>{/if}
             {if $res}
                 <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <b>{$CONST.ERROR}:</b><br> {$res}</span>
