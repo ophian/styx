@@ -30,6 +30,15 @@
                 {if $mode == 'preview'}
                     {$preview}
                 {elseif $mode == 'save'}
+{if $autosaved_iframe}
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        if (window.parent.indexedDB) {
+                            window.parent.serendipity.eraseEntryEditorCache();
+                        }
+                    });
+                </script>
+{/if}
 {if isset($lastSavedEntry) && (int)$lastSavedEntry}
 
                 <script>
