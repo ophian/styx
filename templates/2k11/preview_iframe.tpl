@@ -34,6 +34,15 @@
                 <div class="clearfix">
                 {$preview}
             {elseif $mode == 'save'}
+{if $autosaved_iframe}
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        if (window.parent.indexedDB) {
+                            window.parent.serendipity.eraseEntryEditorCache();
+                        }
+                    });
+                </script>
+{/if}
                 <div class="clearfix">
                     <div class="{$mode}_preview_sizing"></div>
                     {$updertHooks}
