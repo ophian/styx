@@ -1194,6 +1194,46 @@ window.StyxProgress = new StyxProgressWidget();
         // --- Editor & Markup Helpers ---
 
         /**
+         * Purges editor caches in iFrame if saved via autosave
+         */
+        eraseEntryEditorCache() {
+            serendipity.cache("serendipity[body]", '');
+            serendipity.cache("serendipity[extended]", '');
+        },
+
+        /**
+         * Store data in IndexedDB cache
+         */
+        cache(id, data) {
+            if (window.indexedDB) {
+                const request = window.indexedDB.open("cache", 1);
+                request.onupgradeneeded = function (event) {
+                    event.target.result.createObjectStore("cache");
+                };
+                request.onsuccess = function(event) {
+                    event.target.result.transaction(["cache"], 'readwrite').objectStore("cache").put(data, id);
+                };
+            }
+        },
+
+        /**
+         * Retrieve data from IndexedDB cache
+         */
+        getCached(id, success) {
+            if (window.indexedDB) {
+                const request = window.indexedDB.open("cache", 1);
+                request.onupgradeneeded = function (event) {
+                    event.target.result.createObjectStore("cache");
+                };
+                request.onsuccess = function(event) {
+                    event.target.result.transaction(["cache"], 'readwrite').objectStore("cache").get(id).onsuccess = function (event) {
+                        success(event.target.result);
+                    };
+                };
+            }
+        },
+
+        /**
          * Triggers editor or markup generator initializations.
          * Serves as a bridge to global legacy helper scripts (e.g., HTML nuggets or WYSIWYG spawners).
          */
