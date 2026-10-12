@@ -1154,6 +1154,8 @@ function serendipity_iframe(iterable &$entry, ?string $mode = null) : string|boo
             }
             break;
     }
+    // this is preview_iframe.tpl updertHooks [ NOT ONLY! See freetags - keep it strictly set to iframe mode save!]
+    $data['autosaved_iframe'] = (serendipity_db_bool($serendipity['use_autosave']) && isset($_GET['serendipity']['is_iframe']) && $_GET['serendipity']['is_iframe'] == 'true' && $_GET['serendipity']['iframe_mode'] == 'save') ? true : false;
 
     return serendipity_smarty_showTemplate('preview_iframe.tpl', $data);
 }
