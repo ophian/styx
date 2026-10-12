@@ -771,7 +771,8 @@ $tasks = array(
             array(  'version'   => '5.2-beta1',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
                     'title'     => '<b>ADMINISTRATION_NOTICE</b> Refactoring the Backend Theme Architecture.',
-                    'desc'      => 'Styx 5.2 will bring a complete backend modernization regarding Javascript assets to ES6+ and some essential followup decisions! Removal of files by the upgrader will start from 5.2-rc1.'),
+                    'desc'      => 'Styx 5.2 among others will bring a complete backend modernization regarding Javascript assets to ES6+ and some essential followup decisions! Removal of files by the upgrader will start from 5.2-rc1.<br>
+                    Please force your browser to really reload the new backend files at least once!'),
 
             array(  'version'   => '5.2-beta1',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
