@@ -39,6 +39,15 @@
             </div>
 {elseif $mode == 'save'}
             <div class="{$mode}_preview_sizing"></div>
+{if $autosaved_iframe}
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    if (window.parent.indexedDB) {
+                        window.parent.serendipity.eraseEntryEditorCache();
+                    }
+                });
+            </script>
+{/if}
 {if !empty($updertHooks)}
             <div class="{$mode}_updertH">{$updertHooks}</div>
 {/if}
