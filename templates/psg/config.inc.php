@@ -59,9 +59,6 @@ $serendipity['smarty']->assign('addcards', array(
 // Remove https://picsum.photos/600/400.jpg inside the <img src="" > And same in source webp case.
 // After having done so for the first row cards, do it as well for the top Smarty function in your index.tpl file and remove this part: |default:"https://picsum.photos/600/400.jpg}"
 
-// don't use the no-conflict jquery mode
-$serendipity['capabilities']['jquery-noconflict'] = false;
-
 // PURE template options
 $template_config = array(
     array(
