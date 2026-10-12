@@ -25,6 +25,9 @@ Version 5.x (DEV)
      with Styx, except mainly the Styx dark mode.
    - Give up serendipity_plugin_api_core_event_hook hook for templatized assets
    - Deprecation and Removal of the Legacy default-php Theme Architecture
+   - Remove 'jquery-noconflict' configuration setting in [ pure, boot, b53,
+     b5blog, b46, psg, sliver ] themes.
+     Note: Please check your custom themes config.inc.php file.
 
  * Implement serendipity_prepare_media_file() extended $media.files preparation
    logic in PHP image API for media_items.tpl smarty logic.
