@@ -43,5 +43,3 @@ if (isset($_SESSION['serendipityUseTemplate'])) {
 }
 // Disable the use of Serendipity JQuery in index header
 $serendipity['capabilities']['jquery'] = false;
-// Disable the use of Serendipity JQuery noConflict mode
-$serendipity['capabilities']['jquery-noconflict'] = false;
