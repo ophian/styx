@@ -268,8 +268,6 @@ $template_config = array(
 
 // Disable the use of Serendipity JQuery in index header
 $serendipity['capabilities']['jquery'] = false;
-// Disable the use of Serendipity JQuery noConflict mode
-$serendipity['capabilities']['jquery-noconflict'] = false;
 
 // count additional sidebar values in the admin panels plugin section
 $topSidebarElements    = serendipity_plugin_api::count_plugins('top');
