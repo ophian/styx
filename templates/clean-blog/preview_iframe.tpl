@@ -27,6 +27,15 @@
                 {if $mode == 'preview'}
                     {$preview}
                 {elseif $mode == 'save'}
+{if $autosaved_iframe}
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        if (window.parent.indexedDB) {
+                            window.parent.serendipity.eraseEntryEditorCache();
+                        }
+                    });
+                </script>
+{/if}
                     {$updertHooks}
                     {if $res}
                         <span class="alert alert-danger"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> <b>{$CONST.ERROR}:</b><br> {$res}</span>
