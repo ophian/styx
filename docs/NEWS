@@ -7,7 +7,7 @@ Version 5.x (DEV)
    - Add upgrade tasks for upcoming 5.2-rc1 version
    - Finish styx backend theme logic, styles, placement and configurations
    - Link to default: Add a new single static backend refactor javascript file
-     replacement without direct Smarty  usage, so build once and only.
+     replacement without direct Smarty usage, so build once and only.
         - Modern Styx Plugin Replacement Kit (Vanilla ES6+)
         - Serendipity Styx Administration Interface Refactored & Modernized (ES6+)
         - Added a minified version
