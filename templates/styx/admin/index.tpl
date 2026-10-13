@@ -24,12 +24,12 @@
 {if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_header" hookAll="true"}{/if}
     <script>
 {if NOT isset($forceLightMode)}
-    {if $admin_vars.darkmode}
+{if $admin_vars.darkmode}
         window.STYX_DARKMODE = true;
         if (localStorage.getItem('data-login-color-mode') === null) {
             localStorage.setItem('data-login-color-mode', 'dark');
         }
-    {else}
+{else}
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.setAttribute('data-color-mode', 'dark');
             window.STYX_DARKMODE = true;
@@ -41,7 +41,7 @@
         if (window.STYX_DARKMODE === true && dark_mode === null) {
             localStorage.setItem('data-login-color-mode', 'dark');
         }
-    {/if}
+{/if}
 {else}
         window.STYX_DARKMODE = false;
 {/if}
