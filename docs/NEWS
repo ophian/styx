@@ -1,33 +1,34 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
- * Start Backend Refactoring: ..... WIP ......
-   - Convert template files for the new
-   - Remove old assets
-   - Add upgrade tasks
-   - Finish styx backend theme logics styles and configurations
+ * A Modern Backend Refactoring:
+   - Convert backend pool template files for the new refactor with ARIA support
+   - Remove old assets, mainly js files
+   - Add upgrade tasks for upcoming 5.2-rc1 version
+   - Finish styx backend theme logic, styles, placement and configurations
    - Link to default: Add a new single static backend refactor javascript file
-     replacement without Smarty
+     replacement without direct Smarty  usage, so build once and only.
         - Modern Styx Plugin Replacement Kit (Vanilla ES6+)
-        - Serendipity Styx Administration Interface Logic Refactored & Modernized (ES6+)
+        - Serendipity Styx Administration Interface Refactored & Modernized (ES6+)
         - Added a minified version
-   - pure: Update preview_iframe template and requirement
-   - core themes follow: Update preview_iframe template and requirement
+   - Update [ pure ] theme preview_iframe template and requirement
+   - Core themes and additional themes follow [ pure ]:
+     Update preview_iframe template and requirement.
    - Enable serendipity_admin.js for the new implementation
    - Disable serendipity_plugin_api_backend_header() and remove jQuery.noConflict
      and webp modernizr checkup from serendipity_plugin_api_frontend_header().
    - Update StyxImage & StyxGallery TinyMCE Plugins for new Modal popup behaviour
-   - Note: $serendipity['capabilities']['jquery-noconflict'] has long been set
+   - NOTE: $serendipity['capabilities']['jquery-noconflict'] has long been set
           deprecated and now got removed, while we should not need it anymore.
           Check your usage in custom theme config.inc.php configuration files.
    - Finish JScookie API and support [nocook] variable
    - Finally modernise and improve the 'default' backend theme to be up to par
-     with Styx, except mainly the Styx dark mode.
+     with Styx, except mainly the Styx very own dark mode.
    - Give up serendipity_plugin_api_core_event_hook hook for templatized assets
    - Deprecation and Removal of the Legacy default-php Theme Architecture
    - Remove 'jquery-noconflict' configuration setting in [ pure, boot, b53,
      b5blog, b46, psg, sliver ] themes.
-     Note: Please check your custom themes config.inc.php file.
+     NOTE: Please check your custom themes config.inc.php file.
 
  * Implement serendipity_prepare_media_file() extended $media.files preparation
    logic in PHP image API for media_items.tpl smarty logic.
