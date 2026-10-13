@@ -1131,7 +1131,7 @@ Sie sollten damit kein sicherheitsrelevantes Zugangssystem betreiben wollen!');
 @define('INSTALL_PASSWORD2', 'Admin-Passwort (erneut)');
 @define('INSTALL_PASSWORD2_DESC', 'Passwort für den Administrator-Zugang, nochmal zur Bestätigung eingeben.');
 @define('INSTALL_PASSWORD_INVALID', 'Die eingegebenen Administrator-Passwörter stimmen nicht überein.');
-@define('USERCONF_BACKENDPOPUP_GRANULAR', 'Anzeigemodus-Überschreibungen (Eingebettet vs. Modal)');
+@define('USERCONF_BACKENDPOPUP_GRANULAR', 'Anzeigemodus (Eingebettet vs. Modal)');
 @define('USERCONF_BACKENDPOPUP_GRANULAR_DESC', 'Bestimmt, welche Backend-Elemente direkt in die Editor-Ansicht integriert (eingebettet) angezeigt werden, anstatt als Modal-Dialog zu öffnen. Standardmäßig werden „categories,tags,links“ inline unterstützt.');
 @define('START_UPDATE', 'Starte Update ...');
 @define('UPDATE_ALL', 'Update Alle');
