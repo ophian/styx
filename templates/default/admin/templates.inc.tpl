@@ -239,7 +239,7 @@
 {/if}
 {else}
 
-                <span class="unmet_requirements msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$template.unmetRequirements}</span>
+                <span class="unmet_requirements msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$template.unmetRequirements|replace:'Serendipity':'Styx'}</span>
 {/if}
 
             </article>
