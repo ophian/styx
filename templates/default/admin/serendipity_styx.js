@@ -4694,8 +4694,8 @@ window.StyxProgress = new StyxProgressWidget();
                 $('.toggle_links').off('click.links_scroll').on('click.links_scroll', function (e) {
                     e.preventDefault();
 
-                    $('#s9y_links').toggleClass('hidden');
-                    $('#s9y_quicktip').toggleClass('hidden');
+                    $('#s9y_links').toggleClass('smp-hide');
+                    $('#s9y_quicktip').toggleClass('smp-hide');
 
                     serendipity.skipScroll($(this).attr('href'));
                 });
