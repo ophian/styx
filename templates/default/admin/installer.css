@@ -359,7 +359,7 @@ details>summary{list-style-type:none;width:15em;border:none;text-decoration:unde
 details>p,details>div{padding:2px 6px;margin:0}
 
 /* HELPER CLASSES */
-.upgrader_tasks .nobr br{display:none}
+.upgrader_tasks .nobr br,.upgrader_tasks dd:has(p, h3) br{display:none}
 
 /* Hide visually, available for screenreaders */
 .sr-only,
