@@ -771,7 +771,7 @@ $tasks = array(
             array(  'version'   => '5.2-beta1',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
                     'title'     => '<b>ADMINISTRATION_NOTICE</b> Refactoring the Backend Theme Architecture.',
-                    'desc'      => 'Styx 5.2 among others will bring a complete backend modernization regarding Javascript assets to ES6+ and some essential followup decisions! Removal of files by the upgrader will start from 5.2-rc1.<br>
+                    'desc'      => 'Styx 5.2 - among others - will bring a complete backend modernization regarding Javascript assets to ES6+ and some essential followup decisions! Removal of files by the upgrader will start from 5.2-rc1.<br>
                     Please force your browser to really reload the new backend files at least once!'),
 
             array(  'version'   => '5.2-beta1',
@@ -785,7 +785,7 @@ $tasks = array(
             array(  'version'   => '5.2-beta1',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
                     'title'     => '<b>ADMINISTRATION_NOTICE</b> Deprecation and Removal of the Legacy default-php Theme Architecture.',
-                    'desc'      => 'As part of the Styx 5.2 backend modernization and cleanup initiative, support for the legacy default-php theme system—along with its underlying core hooks and global variable emulations—has been officially deprecated and removed.
+                    'desc'      => 'As part of the Styx 5.2 backend modernization and cleanup initiative, support for the legacy default-php theme system - along with its underlying core hooks and global variable emulations - has been officially deprecated and removed.
                     <p>Originally introduced decades ago as an alternative template engine approach, this mechanism has long been superseded by robust Smarty templates and modern theme structures. Removing it purges significant dead weight from the core, making the backend codebase cleaner, faster, and much easier to maintain.</p>'),
 
             array(  'version'   => '5.2-rc1',
