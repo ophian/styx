@@ -906,6 +906,10 @@ body {
     border-bottom: 0 none;
 }
 
+#toc .nav-panel a {
+    text-decoration: none;
+}
+
 /* Add the wrap bgcolor as a workaround, while sometimes a need,
    when #content contains elements like massive tables not being
    flexible enough for the wrap flex
