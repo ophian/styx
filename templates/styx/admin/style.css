@@ -1681,6 +1681,7 @@ summary {
 .theme_file .unmet_requirements.msg_error {
     display: inline;
     margin: initial;
+    font-size: smaller;
 }
 
 .msg_error_list {
@@ -3502,6 +3503,9 @@ dialog.styx-modal.styx-modal-child .smp-content {
     margin: 0 0 .2em 0;
 }
 
+.comment_status {
+    font-size: .9125rem;
+}
 .entry_status:not(.status_locked),
 .comment_status,
 .field_info {
