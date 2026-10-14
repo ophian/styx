@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="{$lang}">
+<html lang="{$lang}">
 <head>
     <meta charset="{$CONST.LANG_CHARSET}">
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
