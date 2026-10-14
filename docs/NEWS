@@ -29,6 +29,7 @@ Version 5.x (DEV)
    - Remove 'jquery-noconflict' configuration setting in [ pure, boot, b53,
      b5blog, b46, psg, sliver ] themes.
      NOTE: Please check your custom themes config.inc.php file.
+   - lang: Remove JS_FAILURE constant for 5.2 refactor
 
  * Implement serendipity_prepare_media_file() extended $media.files preparation
    logic in PHP image API for media_items.tpl smarty logic.
