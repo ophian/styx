@@ -1135,7 +1135,6 @@ Sie sollten damit kein sicherheitsrelevantes Zugangssystem betreiben wollen!');
 @define('USERCONF_BACKENDPOPUP_GRANULAR_DESC', 'Bestimmt, welche Backend-Elemente direkt in die Editor-Ansicht integriert (eingebettet) angezeigt werden, anstatt als Modal-Dialog zu öffnen. Standardmäßig werden „categories,tags,links“ inline unterstützt.');
 @define('START_UPDATE', 'Starte Update ...');
 @define('UPDATE_ALL', 'Update Alle');
-@define('JS_FAILURE', 'Die Serendipity JavaScript-Datei konnte nicht geladen werden. Dies kann aufgrund von PHP- oder Plugin-Fehlern, oder sogar von einem fehlerhaften Browser Pufferspeicher (cache) geschehen. Um die exakte Fehlermeldung anzusehen, öffnen Sie bitte diesen Link <a href="%1$s">%1$s</a> in ihrem Browser. Ein solcher Fehler kann vielfältige Ursachen haben, ist zumeist aber nur eine Stapel (Fehler-) Ausgabe zur Unzeit und verhindert hier die korrekte Ausführung der Javascript Datei.');
 @define('THEMES_PREVIEW_BLOG', 'Siehe Demo auf blog.s9y.org');
 @define('SYNDICATION_PLUGIN_XML_DESC', 'Auf "none" setzen, wenn Sie nur einen Text-Link ausgeben wollen.');
 

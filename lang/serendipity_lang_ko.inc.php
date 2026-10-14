@@ -1139,7 +1139,6 @@ You should not want to operate a security-relevant access system with them!');
 @define('USERCONF_BACKENDPOPUP_GRANULAR_DESC', 'Select which backend elements should be integrated directly into the editor view (embedded) instead of opening in an overlay modal dialog. Default options with native inline support are "categories,tags,links".');
 @define('START_UPDATE', '업데이트 시작...');
 @define('UPDATE_ALL', '모두 업데이트');
-@define('JS_FAILURE', '세렌디피티의 자바스크립트 라이브러리를 불러들일 수 없습니다. 이는 PHP나 플러그인 오류 때문에 발생할 수도 있고 브라우저 캐시가 비정상적일 경우에도 경험할 수 있습니다. 정확한 상황을 파악하고자 한다면 <a href="%1$s">%1$s</a> 주소를 브라우저에서 수동으로 열고 오류 내용을 확인하기 바랍니다.');
 @define('THEMES_PREVIEW_BLOG', 'blog.s9y.org에서 시연을 확인');
 @define('SYNDICATION_PLUGIN_XML_DESC', '문자 링크만 보여주기를 원할 경우 "없음"으로 설정합니다.');
 @define('MULTICHECK_NO_ITEM', '선택한 아이템이 없습니다. 최소한 한 개를 선택하십시오. <a href="%s">이전 페이지로 돌아가기</a>.');

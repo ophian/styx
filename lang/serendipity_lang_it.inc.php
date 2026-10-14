@@ -1139,7 +1139,6 @@ You should not want to operate a security-relevant access system with them!');
 @define('USERCONF_BACKENDPOPUP_GRANULAR_DESC', 'Select which backend elements should be integrated directly into the editor view (embedded) instead of opening in an overlay modal dialog. Default options with native inline support are "categories,tags,links".');
 @define('START_UPDATE', 'Starting Update ...');
 @define('UPDATE_ALL', 'Update All');
-@define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');
 @define('THEMES_PREVIEW_BLOG', 'See demo on blog.s9y.org');
 @define('SYNDICATION_PLUGIN_XML_DESC', 'Set to "none" if you only want to show a text link.');
 @define('MULTICHECK_NO_ITEM', 'No item selected, please check at least one. <a href="%s">Return to previous page</a>.');
