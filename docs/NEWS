@@ -1,6 +1,9 @@
 Version 5.x (DEV)
  ------------------------------------------------------------------------
 
+ * Support new JPEG XL image format (currently without derivated Variations).
+   Newest version of Chromium and Firefox are ready to use.
+
  * A Modern Backend Refactoring:
    - Convert backend pool template files for the new refactor with ARIA support
    - Remove old assets, mainly js files
