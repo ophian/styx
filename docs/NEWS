@@ -1,6 +1,7 @@
 Version 5.2.x
  ------------------------------------------------------------------------
 
+ * Fix an issue of PHP 8.6 deprecations in the Onyx RSS library
 
 
 
