@@ -3649,6 +3649,10 @@ select#serendipity_commentform_replyToParent {
     padding: .5em;
 }
 
+#zomplug_info.comment_status {
+    margin-bottom: .5em;
+}
+
 #maintenance_cleanup .comment_status,
 #maintenance_thememanager .comment_status,
 #maintenance_thumbs .comment_status {
