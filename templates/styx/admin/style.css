@@ -1821,6 +1821,10 @@ summary {
     float: right;
 }
 
+#toctolang a:empty {
+    display: none;
+}
+
 #karmalog .serendipity_karmaVoting_links {
     float: right;
     font-size: 1em;
@@ -2965,6 +2969,10 @@ dialog.styx-modal.styx-modal-child .smp-content {
 
 .smp-content #serendipity_error_top {
     width: 97.5%;
+}
+
+.smp-content #freetag_to_top_submit {
+    display: none;
 }
 
 .smp-content #edit_entry_category,
