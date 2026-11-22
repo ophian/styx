@@ -1369,7 +1369,7 @@ function serendipity_check_rewrite(string $default) : string {
         fclose($fp);
 
         // Do a request on a nonexistent file to see, if our htaccess allows ErrorDocument
-        $sock = @fsockopen($serendipity_host, $_SERVER['SERVER_PORT'], $errorno, $errorstring, 10);
+        $sock = @fsockopen($serendipity_host, (int) $_SERVER['SERVER_PORT'], $errorno, $errorstring, 10);
         $response = '';
 
         if ($sock) {
