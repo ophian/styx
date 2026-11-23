@@ -905,9 +905,9 @@ function serendipity_installFiles(string $serendipity_core = '') : iterable|true
 
             $safeFP = @fopen($serendipity_core . '.installer_detection_failsafe', 'w');
             fclose($safeFP);
-            $sock = fsockopen($serendipity_host, (int) $_SERVER['SERVER_PORT'], $errorno, $errorstring, 10);
+            $sock = @fsockopen($serendipity_host, (int) $_SERVER['SERVER_PORT'], $errorno, $errorstring, 10);
             if ($sock) {
-                fputs($sock, "GET {$serendipityHTTPPath} HTTP/1.0\r\n");
+                fputs($sock, "GET {$serendipityHTTPPath} HTTP/1.1\r\n");
                 fputs($sock, "Host: $serendipity_host\r\n");
                 fputs($sock, "User-Agent: Serendipity/{$serendipity['version']}\r\n");
                 fputs($sock, "Connection: close\r\n\r\n");
@@ -1373,7 +1373,7 @@ function serendipity_check_rewrite(string $default) : string {
         $response = '';
 
         if ($sock) {
-            fputs($sock, "GET {$_SERVER['PHP_SELF']}nonexistent HTTP/1.0\r\n");
+            fputs($sock, "GET {$_SERVER['PHP_SELF']}nonexistent HTTP/1.1\r\n");
             fputs($sock, "Host: $serendipity_host\r\n");
             fputs($sock, "User-Agent: Serendipity/{$serendipity['version']}\r\n");
             fputs($sock, "Connection: close\r\n\r\n");
