@@ -1,6 +1,8 @@
 Version 5.2.x
  ------------------------------------------------------------------------
 
+ * Add [pure] theme styles for the Optional Quick (float) Access Panel
+
  * Raise some remaining requests to follow Styx given up pragma HTTP/1.0 header
    protocol for Styx minmum Standard HTTP/1.1 requests.
 
