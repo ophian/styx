@@ -906,9 +906,14 @@ body {
     border-bottom: 0 none;
 }
 
-#toc .nav-panel a {
-    text-decoration: none;
-}
+/* Optional Quick float Access Panel */
+#toc { position: static; max-width: 19em; font-size: small; }
+#toc.can-float { position: fixed; top: 8rem; align-self: start; }
+#toc a { display: block; margin: 0 1.25px; padding: .25rem 0; }
+#toc a.active { font-weight: 700; }
+#toc .nav-panel {   display: -webkit-inline-box; margin-top: 1em; }
+#toc .nav-panel a { margin: .25em .5em; padding: initial; text-decoration: none;}
+#toc.hide { display: none }
 
 /* Add the wrap bgcolor as a workaround, while sometimes a need,
    when #content contains elements like massive tables not being
