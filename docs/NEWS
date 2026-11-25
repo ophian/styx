@@ -1,6 +1,8 @@
 Version 5.2.x
  ------------------------------------------------------------------------
 
+ * Fix an installers parameter strict type issue on some systems
+
  * Fix an issue of PHP 8.6 deprecations in the Onyx RSS library
 
 
