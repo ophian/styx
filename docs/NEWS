@@ -1,6 +1,9 @@
 Version 5.2.x
  ------------------------------------------------------------------------
 
+ * Prevent new Origin WebP file to AVIF Variation files creator usage when the
+   'useAvifFormat' has not been enabled yet.
+
  * Add [pure] theme styles for the Optional Quick (float) Access Panel
 
  * Raise some remaining requests to follow Styx given up pragma HTTP/1.0 header
