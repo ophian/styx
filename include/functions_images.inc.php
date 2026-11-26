@@ -1308,7 +1308,6 @@ function _define_resourcetype_thread() : void {
                     $res_clean = str_replace("Resource limits:", "", $res_strset);
                     preg_match_all('/([\w\s]+?):\s*([\w\.]+)/', $res_clean, $matches);
                     $res_sets = array_combine(array_map('trim', $matches[1]), $matches[2]);
-                    var_dump($res_sets);
                 }
             }
             $currentThreads = (int) $res_sets['Thread']; // read configured or default - may be 0 on nonce, 1 on ? or up to 15 
