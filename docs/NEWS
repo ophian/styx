@@ -1,6 +1,9 @@
 Version 5.2.x
  ------------------------------------------------------------------------
 
+ * PEAR::Exception: The is_double() function is deprecated with PHP 8.6. Using
+   is_float() instead.
+
  * Prevent new Origin WebP file to AVIF Variation files creator usage when the
    'useAvifFormat' has not been enabled yet.
 
