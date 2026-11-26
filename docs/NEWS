@@ -1,6 +1,8 @@
 Version 5.2.x
  ------------------------------------------------------------------------
 
+ * Improve styx backend theme [dark] mode modal closing button on hover
+
  * PEAR::Exception: The is_double() function is deprecated with PHP 8.6. Using
    is_float() instead.
 
