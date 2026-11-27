@@ -1,6 +1,8 @@
 Version 5.2.x
  ------------------------------------------------------------------------
 
+ * Fix refactored styx/default plugins - CSS tabs panel install btn float
+
  * Improve serendipity_styx.js LiveFilters for plugin searches, to be able to
    excludeSelector certain content from search, eg. exclude labels like
    [de] "Autor: " for "auto" search requests.
