@@ -1,6 +1,10 @@
 Version 5.2.x
  ------------------------------------------------------------------------
 
+ * Improve serendipity_styx.js LiveFilters for plugin searches, to be able to
+   excludeSelector certain content from search, eg. exclude labels like
+   [de] "Autor: " for "auto" search requests.
+
  * Allow to link-click Images in the [ pure ] Standard theme backends entry
    preview, opened as an overlay Modal for [dark] mode styling.
 
