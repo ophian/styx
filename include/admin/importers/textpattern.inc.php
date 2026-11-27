@@ -110,7 +110,9 @@ class Serendipity_Import_textpattern extends Serendipity_Import
             return sprintf(COULDNT_CONNECT, htmlspecialchars($this->data['host']));
         }
 
-        if (!@mysqli_select_db($txpdb, $this->data['name'])) {
+        try {
+            @mysqli_select_db($txpdb, $this->data['name']);
+        } catch (\Throwable $t) {
             return sprintf(COULDNT_SELECT_DB, mysqli_error($txpdb));
         }
         // https://docs.textpattern.com/development/database-schema-reference#txp_users

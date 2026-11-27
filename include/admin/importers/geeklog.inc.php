@@ -106,7 +106,9 @@ class Serendipity_Import_geeklog extends Serendipity_Import
             return sprintf(COULDNT_CONNECT, htmlspecialchars($this->data['host']));
         }
 
-        if (!@mysqli_select_db($gdb, $this->data['name'])) {
+        try {
+            @mysqli_select_db($gdb, $this->data['name']);
+        } catch (\Throwable $t) {
             return sprintf(COULDNT_SELECT_DB, mysqli_error($gdb));
         }
 
