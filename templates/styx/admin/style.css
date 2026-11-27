@@ -4921,6 +4921,7 @@ img.smp-img {
         margin: 0;
     }
 
+    .tabs .panel > a,
     .tabcontent #pluginlist_event > a,
     .tabcontent #pluginlist_sidebar > a {
         position: absolute;
