@@ -1,6 +1,9 @@
 Version 5.2.x
  ------------------------------------------------------------------------
 
+ * Allow to link-click Images in the [ pure ] Standard theme backends entry
+   preview, opened as an overlay Modal for [dark] mode styling.
+
  * importers: Fix error now being an Exception on mysqli_select_db()
 
  * Improve styx backend theme [dark] mode modal closing button on hover
