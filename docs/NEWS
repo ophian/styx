@@ -1,6 +1,8 @@
 Version 5.2.x
  ------------------------------------------------------------------------
 
+ * importers: Fix error now being an Exception on mysqli_select_db()
+
  * Improve styx backend theme [dark] mode modal closing button on hover
 
  * PEAR::Exception: The is_double() function is deprecated with PHP 8.6. Using
