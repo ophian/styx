@@ -2857,8 +2857,9 @@ window.StyxProgress = new StyxProgressWidget();
          * @param {jQuery|HTMLElement|string} input - The input field element.
          * @param {string} containerSelector - Selector for items to show/hide.
          * @param {string} targetSelector - Selector inside item to match text against.
+         * @param {string} excludeSelector - Selector contents to exclude, eg "Author: " for "auto" search requests.
          */
-        liveFilters(input, containerSelector, targetSelector) {
+        liveFilters(input, containerSelector, targetSelector, excludeSelector = null) {
             const $input = $(input);
             const term = ($input.val() || '').toLowerCase().trim();
             const $containers = $(containerSelector);
@@ -2872,7 +2873,15 @@ window.StyxProgress = new StyxProgressWidget();
             $containers.each(function () {
                 const $item = $(this);
                 const $target = targetSelector ? $item.find(targetSelector) : $item;
-                const text = $target.text().toLowerCase();
+                let text = '';
+
+                if (excludeSelector) {
+                    const $clone = $target.clone();
+                    $clone.find(excludeSelector).remove();
+                    text = $clone.text().toLowerCase();
+                } else {
+                    text = $target.text().toLowerCase();
+                }
 
                 $item.toggle(text.includes(term));
             });
@@ -4789,8 +4798,8 @@ window.StyxProgress = new StyxProgressWidget();
         });
 
         // Live filter for Plugin Installation dialog
-        $(document).on('input keyup', '#pluginfilter', function () {
-            serendipity.liveFilters(this, '.plugins_installable > li', '.plugin_features');
+        $(document).on('input', '#pluginfilter', function () {
+            serendipity.liveFilters(this, '.plugins_installable > li', '.plugin_features', '.plugin_author b');
             serendipity.liveFiltersHeader('#content h3');
         });
 
